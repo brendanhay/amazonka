@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.UpdateMobileDeviceAccessRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a mobile device access rule for the specified Amazon WorkMail
+-- Updates a mobile device access rule for the specified WorkMail
 -- organization.
 module Amazonka.WorkMail.UpdateMobileDeviceAccessRule
   ( -- * Creating a Request
@@ -82,7 +82,7 @@ data UpdateMobileDeviceAccessRule = UpdateMobileDeviceAccessRule'
     -- | Device operating systems that the updated rule __will not__ match. All
     -- other device operating systems will match.
     notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon WorkMail organization under which the rule will be updated.
+    -- | The WorkMail organization under which the rule will be updated.
     organizationId :: Prelude.Text,
     -- | The identifier of the rule to be updated.
     mobileDeviceAccessRuleId :: Prelude.Text,
@@ -124,7 +124,7 @@ data UpdateMobileDeviceAccessRule = UpdateMobileDeviceAccessRule'
 -- 'notDeviceOperatingSystems', 'updateMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the updated rule __will not__ match. All
 -- other device operating systems will match.
 --
--- 'organizationId', 'updateMobileDeviceAccessRule_organizationId' - The Amazon WorkMail organization under which the rule will be updated.
+-- 'organizationId', 'updateMobileDeviceAccessRule_organizationId' - The WorkMail organization under which the rule will be updated.
 --
 -- 'mobileDeviceAccessRuleId', 'updateMobileDeviceAccessRule_mobileDeviceAccessRuleId' - The identifier of the rule to be updated.
 --
@@ -205,7 +205,7 @@ updateMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\UpdateMobileDe
 updateMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon WorkMail organization under which the rule will be updated.
+-- | The WorkMail organization under which the rule will be updated.
 updateMobileDeviceAccessRule_organizationId :: Lens.Lens' UpdateMobileDeviceAccessRule Prelude.Text
 updateMobileDeviceAccessRule_organizationId = Lens.lens (\UpdateMobileDeviceAccessRule' {organizationId} -> organizationId) (\s@UpdateMobileDeviceAccessRule' {} a -> s {organizationId = a} :: UpdateMobileDeviceAccessRule)
 

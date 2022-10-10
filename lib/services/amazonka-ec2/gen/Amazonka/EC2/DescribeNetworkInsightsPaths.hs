@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeNetworkInsightsPaths
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,15 +59,13 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filters. The following are the possible values:
     --
-    -- -   Destination - The ID of the resource.
+    -- -   destination - The ID of the resource.
     --
-    -- -   DestinationPort - The destination port.
+    -- -   destination-port - The destination port.
     --
-    -- -   Name - The path name.
+    -- -   protocol - The protocol.
     --
-    -- -   Protocol - The protocol.
-    --
-    -- -   Source - The ID of the resource.
+    -- -   source - The ID of the resource.
     filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -95,15 +93,13 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
 --
 -- 'filters', 'describeNetworkInsightsPaths_filters' - The filters. The following are the possible values:
 --
--- -   Destination - The ID of the resource.
+-- -   destination - The ID of the resource.
 --
--- -   DestinationPort - The destination port.
+-- -   destination-port - The destination port.
 --
--- -   Name - The path name.
+-- -   protocol - The protocol.
 --
--- -   Protocol - The protocol.
---
--- -   Source - The ID of the resource.
+-- -   source - The ID of the resource.
 --
 -- 'dryRun', 'describeNetworkInsightsPaths_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -133,15 +129,13 @@ describeNetworkInsightsPaths_nextToken = Lens.lens (\DescribeNetworkInsightsPath
 
 -- | The filters. The following are the possible values:
 --
--- -   Destination - The ID of the resource.
+-- -   destination - The ID of the resource.
 --
--- -   DestinationPort - The destination port.
+-- -   destination-port - The destination port.
 --
--- -   Name - The path name.
+-- -   protocol - The protocol.
 --
--- -   Protocol - The protocol.
---
--- -   Source - The ID of the resource.
+-- -   source - The ID of the resource.
 describeNetworkInsightsPaths_filters :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe [Filter])
 describeNetworkInsightsPaths_filters = Lens.lens (\DescribeNetworkInsightsPaths' {filters} -> filters) (\s@DescribeNetworkInsightsPaths' {} a -> s {filters = a} :: DescribeNetworkInsightsPaths) Prelude.. Lens.mapping Lens.coerced
 

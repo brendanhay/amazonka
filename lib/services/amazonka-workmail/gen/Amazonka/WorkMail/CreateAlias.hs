@@ -14,14 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.CreateAlias
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds an alias to the set of a given member (user or group) of Amazon
--- WorkMail.
+-- Adds an alias to the set of a given member (user or group) of WorkMail.
 module Amazonka.WorkMail.CreateAlias
   ( -- * Creating a Request
     CreateAlias (..),

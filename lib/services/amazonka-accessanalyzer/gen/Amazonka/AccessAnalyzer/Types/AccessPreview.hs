@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AccessPreview
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,14 +36,14 @@ data AccessPreview = AccessPreview'
     -- status is returned. This failure can be due to an internal issue with
     -- the analysis or due to an invalid resource configuration.
     statusReason :: Prelude.Maybe AccessPreviewStatusReason,
+    -- | The unique ID for the access preview.
+    id :: Prelude.Text,
     -- | The ARN of the analyzer used to generate the access preview.
     analyzerArn :: Prelude.Text,
     -- | A map of resource ARNs for the proposed resource configuration.
     configurations :: Prelude.HashMap Prelude.Text Configuration,
     -- | The time at which the access preview was created.
     createdAt :: Core.POSIX,
-    -- | The unique ID for the access preview.
-    id :: Prelude.Text,
     -- | The status of the access preview.
     --
     -- -   @Creating@ - The access preview creation is in progress.
@@ -70,13 +70,13 @@ data AccessPreview = AccessPreview'
 -- status is returned. This failure can be due to an internal issue with
 -- the analysis or due to an invalid resource configuration.
 --
+-- 'id', 'accessPreview_id' - The unique ID for the access preview.
+--
 -- 'analyzerArn', 'accessPreview_analyzerArn' - The ARN of the analyzer used to generate the access preview.
 --
 -- 'configurations', 'accessPreview_configurations' - A map of resource ARNs for the proposed resource configuration.
 --
 -- 'createdAt', 'accessPreview_createdAt' - The time at which the access preview was created.
---
--- 'id', 'accessPreview_id' - The unique ID for the access preview.
 --
 -- 'status', 'accessPreview_status' - The status of the access preview.
 --
@@ -87,26 +87,26 @@ data AccessPreview = AccessPreview'
 --
 -- -   @Failed@ - The access preview creation has failed.
 newAccessPreview ::
+  -- | 'id'
+  Prelude.Text ->
   -- | 'analyzerArn'
   Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
-  -- | 'id'
-  Prelude.Text ->
   -- | 'status'
   AccessPreviewStatus ->
   AccessPreview
 newAccessPreview
+  pId_
   pAnalyzerArn_
   pCreatedAt_
-  pId_
   pStatus_ =
     AccessPreview'
       { statusReason = Prelude.Nothing,
+        id = pId_,
         analyzerArn = pAnalyzerArn_,
         configurations = Prelude.mempty,
         createdAt = Core._Time Lens.# pCreatedAt_,
-        id = pId_,
         status = pStatus_
       }
 
@@ -117,6 +117,10 @@ newAccessPreview
 -- the analysis or due to an invalid resource configuration.
 accessPreview_statusReason :: Lens.Lens' AccessPreview (Prelude.Maybe AccessPreviewStatusReason)
 accessPreview_statusReason = Lens.lens (\AccessPreview' {statusReason} -> statusReason) (\s@AccessPreview' {} a -> s {statusReason = a} :: AccessPreview)
+
+-- | The unique ID for the access preview.
+accessPreview_id :: Lens.Lens' AccessPreview Prelude.Text
+accessPreview_id = Lens.lens (\AccessPreview' {id} -> id) (\s@AccessPreview' {} a -> s {id = a} :: AccessPreview)
 
 -- | The ARN of the analyzer used to generate the access preview.
 accessPreview_analyzerArn :: Lens.Lens' AccessPreview Prelude.Text
@@ -129,10 +133,6 @@ accessPreview_configurations = Lens.lens (\AccessPreview' {configurations} -> co
 -- | The time at which the access preview was created.
 accessPreview_createdAt :: Lens.Lens' AccessPreview Prelude.UTCTime
 accessPreview_createdAt = Lens.lens (\AccessPreview' {createdAt} -> createdAt) (\s@AccessPreview' {} a -> s {createdAt = a} :: AccessPreview) Prelude.. Core._Time
-
--- | The unique ID for the access preview.
-accessPreview_id :: Lens.Lens' AccessPreview Prelude.Text
-accessPreview_id = Lens.lens (\AccessPreview' {id} -> id) (\s@AccessPreview' {} a -> s {id = a} :: AccessPreview)
 
 -- | The status of the access preview.
 --
@@ -152,27 +152,27 @@ instance Core.FromJSON AccessPreview where
       ( \x ->
           AccessPreview'
             Prelude.<$> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "analyzerArn")
             Prelude.<*> (x Core..:? "configurations" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "status")
       )
 
 instance Prelude.Hashable AccessPreview where
   hashWithSalt _salt AccessPreview' {..} =
     _salt `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AccessPreview where
   rnf AccessPreview' {..} =
     Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf status

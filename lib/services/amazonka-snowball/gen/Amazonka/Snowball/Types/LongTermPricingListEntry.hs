@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.Types.LongTermPricingListEntry
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
     replacementJob :: Prelude.Maybe Prelude.Text,
     -- | The start date of the long-term pricing contract.
     longTermPricingStartDate :: Prelude.Maybe Core.POSIX,
-    -- | The type of Snow Family Devices associated with this long-term pricing
+    -- | The type of Snow Family devices associated with this long-term pricing
     -- job.
     snowballType :: Prelude.Maybe SnowballType,
     -- | The IDs of the jobs that are associated with a long-term pricing type.
@@ -84,7 +84,7 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
 --
 -- 'longTermPricingStartDate', 'longTermPricingListEntry_longTermPricingStartDate' - The start date of the long-term pricing contract.
 --
--- 'snowballType', 'longTermPricingListEntry_snowballType' - The type of Snow Family Devices associated with this long-term pricing
+-- 'snowballType', 'longTermPricingListEntry_snowballType' - The type of Snow Family devices associated with this long-term pricing
 -- job.
 --
 -- 'jobIds', 'longTermPricingListEntry_jobIds' - The IDs of the jobs that are associated with a long-term pricing type.
@@ -140,7 +140,7 @@ longTermPricingListEntry_replacementJob = Lens.lens (\LongTermPricingListEntry' 
 longTermPricingListEntry_longTermPricingStartDate :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe Prelude.UTCTime)
 longTermPricingListEntry_longTermPricingStartDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingStartDate} -> longTermPricingStartDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingStartDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Core._Time
 
--- | The type of Snow Family Devices associated with this long-term pricing
+-- | The type of Snow Family devices associated with this long-term pricing
 -- job.
 longTermPricingListEntry_snowballType :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe SnowballType)
 longTermPricingListEntry_snowballType = Lens.lens (\LongTermPricingListEntry' {snowballType} -> snowballType) (\s@LongTermPricingListEntry' {} a -> s {snowballType = a} :: LongTermPricingListEntry)

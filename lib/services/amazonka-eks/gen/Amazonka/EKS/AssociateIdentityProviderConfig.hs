@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.AssociateIdentityProviderConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster to associate the configuration to.
     clusterName :: Prelude.Text,
-    -- | An object that represents an OpenID Connect (OIDC) identity provider
+    -- | An object representing an OpenID Connect (OIDC) identity provider
     -- configuration.
     oidc :: OidcIdentityProviderConfigRequest
   }
@@ -93,7 +93,7 @@ data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
 --
 -- 'clusterName', 'associateIdentityProviderConfig_clusterName' - The name of the cluster to associate the configuration to.
 --
--- 'oidc', 'associateIdentityProviderConfig_oidc' - An object that represents an OpenID Connect (OIDC) identity provider
+-- 'oidc', 'associateIdentityProviderConfig_oidc' - An object representing an OpenID Connect (OIDC) identity provider
 -- configuration.
 newAssociateIdentityProviderConfig ::
   -- | 'clusterName'
@@ -127,7 +127,7 @@ associateIdentityProviderConfig_clientRequestToken = Lens.lens (\AssociateIdenti
 associateIdentityProviderConfig_clusterName :: Lens.Lens' AssociateIdentityProviderConfig Prelude.Text
 associateIdentityProviderConfig_clusterName = Lens.lens (\AssociateIdentityProviderConfig' {clusterName} -> clusterName) (\s@AssociateIdentityProviderConfig' {} a -> s {clusterName = a} :: AssociateIdentityProviderConfig)
 
--- | An object that represents an OpenID Connect (OIDC) identity provider
+-- | An object representing an OpenID Connect (OIDC) identity provider
 -- configuration.
 associateIdentityProviderConfig_oidc :: Lens.Lens' AssociateIdentityProviderConfig OidcIdentityProviderConfigRequest
 associateIdentityProviderConfig_oidc = Lens.lens (\AssociateIdentityProviderConfig' {oidc} -> oidc) (\s@AssociateIdentityProviderConfig' {} a -> s {oidc = a} :: AssociateIdentityProviderConfig)

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerRuntime.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@ module Amazonka.SageMakerRuntime.Lens
     invokeEndpoint_targetVariant,
     invokeEndpoint_customAttributes,
     invokeEndpoint_targetModel,
+    invokeEndpoint_enableExplanations,
     invokeEndpoint_inferenceId,
     invokeEndpoint_contentType,
     invokeEndpoint_endpointName,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.DBProxy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,8 @@ data DBProxy = DBProxy'
     -- determines which database network protocol the proxy recognizes when it
     -- interprets network traffic to and from the database. @MYSQL@ supports
     -- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
-    -- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
+    -- supports Aurora PostgreSQL and RDS for PostgreSQL databases. @SQLSERVER@
+    -- supports RDS for Microsoft SQL Server databases.
     engineFamily :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the IAM role that the proxy uses to
     -- access Amazon Secrets Manager.
@@ -107,7 +108,8 @@ data DBProxy = DBProxy'
 -- determines which database network protocol the proxy recognizes when it
 -- interprets network traffic to and from the database. @MYSQL@ supports
 -- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
--- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
+-- supports Aurora PostgreSQL and RDS for PostgreSQL databases. @SQLSERVER@
+-- supports RDS for Microsoft SQL Server databases.
 --
 -- 'roleArn', 'dbProxy_roleArn' - The Amazon Resource Name (ARN) for the IAM role that the proxy uses to
 -- access Amazon Secrets Manager.
@@ -187,7 +189,8 @@ dbProxy_vpcSecurityGroupIds = Lens.lens (\DBProxy' {vpcSecurityGroupIds} -> vpcS
 -- determines which database network protocol the proxy recognizes when it
 -- interprets network traffic to and from the database. @MYSQL@ supports
 -- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
--- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
+-- supports Aurora PostgreSQL and RDS for PostgreSQL databases. @SQLSERVER@
+-- supports RDS for Microsoft SQL Server databases.
 dbProxy_engineFamily :: Lens.Lens' DBProxy (Prelude.Maybe Prelude.Text)
 dbProxy_engineFamily = Lens.lens (\DBProxy' {engineFamily} -> engineFamily) (\s@DBProxy' {} a -> s {engineFamily = a} :: DBProxy)
 

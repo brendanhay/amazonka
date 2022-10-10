@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.RepositorySummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,11 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
--- | Summary data of a repository that has been registered with Proton.
+-- | Summary data of a linked repository—a repository that has been
+-- registered with Proton.
 --
 -- /See:/ 'newRepositorySummary' smart constructor.
 data RepositorySummary = RepositorySummary'
-  { -- | The Amazon Resource Name (ARN) for a repository.
+  { -- | The Amazon Resource Name (ARN) of the linked repository.
     arn :: Prelude.Text,
     -- | The repository name.
     name :: Prelude.Text,
@@ -45,7 +46,7 @@ data RepositorySummary = RepositorySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'repositorySummary_arn' - The Amazon Resource Name (ARN) for a repository.
+-- 'arn', 'repositorySummary_arn' - The Amazon Resource Name (ARN) of the linked repository.
 --
 -- 'name', 'repositorySummary_name' - The repository name.
 --
@@ -65,7 +66,7 @@ newRepositorySummary pArn_ pName_ pProvider_ =
       provider = pProvider_
     }
 
--- | The Amazon Resource Name (ARN) for a repository.
+-- | The Amazon Resource Name (ARN) of the linked repository.
 repositorySummary_arn :: Lens.Lens' RepositorySummary Prelude.Text
 repositorySummary_arn = Lens.lens (\RepositorySummary' {arn} -> arn) (\s@RepositorySummary' {} a -> s {arn = a} :: RepositorySummary)
 

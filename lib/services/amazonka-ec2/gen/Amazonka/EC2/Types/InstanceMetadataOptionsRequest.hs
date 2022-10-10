@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceMetadataOptionsRequest
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,12 +43,12 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
     -- | The state of token usage for your instance metadata requests.
     --
     -- If the state is @optional@, you can choose to retrieve instance metadata
-    -- with or without a signed token header on your request. If you retrieve
-    -- the IAM role credentials without a token, the version 1.0 role
-    -- credentials are returned. If you retrieve the IAM role credentials using
-    -- a valid signed token, the version 2.0 role credentials are returned.
+    -- with or without a session token on your request. If you retrieve the IAM
+    -- role credentials without a token, the version 1.0 role credentials are
+    -- returned. If you retrieve the IAM role credentials using a valid session
+    -- token, the version 2.0 role credentials are returned.
     --
-    -- If the state is @required@, you must send a signed token header with any
+    -- If the state is @required@, you must send a session token with any
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credentials always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
@@ -93,12 +93,12 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
 -- 'httpTokens', 'instanceMetadataOptionsRequest_httpTokens' - The state of token usage for your instance metadata requests.
 --
 -- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a signed token header on your request. If you retrieve
--- the IAM role credentials without a token, the version 1.0 role
--- credentials are returned. If you retrieve the IAM role credentials using
--- a valid signed token, the version 2.0 role credentials are returned.
+-- with or without a session token on your request. If you retrieve the IAM
+-- role credentials without a token, the version 1.0 role credentials are
+-- returned. If you retrieve the IAM role credentials using a valid session
+-- token, the version 2.0 role credentials are returned.
 --
--- If the state is @required@, you must send a signed token header with any
+-- If the state is @required@, you must send a session token with any
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
@@ -145,12 +145,12 @@ instanceMetadataOptionsRequest_httpPutResponseHopLimit = Lens.lens (\InstanceMet
 -- | The state of token usage for your instance metadata requests.
 --
 -- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a signed token header on your request. If you retrieve
--- the IAM role credentials without a token, the version 1.0 role
--- credentials are returned. If you retrieve the IAM role credentials using
--- a valid signed token, the version 2.0 role credentials are returned.
+-- with or without a session token on your request. If you retrieve the IAM
+-- role credentials without a token, the version 1.0 role credentials are
+-- returned. If you retrieve the IAM role credentials using a valid session
+-- token, the version 2.0 role credentials are returned.
 --
--- If the state is @required@, you must send a signed token header with any
+-- If the state is @required@, you must send a session token with any
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.

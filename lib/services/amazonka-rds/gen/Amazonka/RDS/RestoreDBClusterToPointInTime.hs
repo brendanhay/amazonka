@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.RestoreDBClusterToPointInTime
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -131,7 +131,7 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The compute and memory capacity of the each DB instance in the Multi-AZ
-    -- DB cluster, for example db.m6g.xlarge. Not all DB instance classes are
+    -- DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are
     -- available in all Amazon Web Services Regions, or for all database
     -- engines.
     --
@@ -467,7 +467,7 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'dbClusterInstanceClass', 'restoreDBClusterToPointInTime_dbClusterInstanceClass' - The compute and memory capacity of the each DB instance in the Multi-AZ
--- DB cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --
@@ -850,7 +850,7 @@ restoreDBClusterToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterTo
 restoreDBClusterToPointInTime_dbSubnetGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterToPointInTime)
 
 -- | The compute and memory capacity of the each DB instance in the Multi-AZ
--- DB cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --

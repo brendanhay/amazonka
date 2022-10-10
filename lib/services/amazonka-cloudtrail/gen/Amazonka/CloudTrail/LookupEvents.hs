@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.LookupEvents
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,7 +97,7 @@ import qualified Amazonka.Response as Response
 data LookupEvents = LookupEvents'
   { -- | The token to use to get the next page of results after a previous API
     -- call. This token must be passed in with the same parameters that were
-    -- specified in the the original call. For example, if the original call
+    -- specified in the original call. For example, if the original call
     -- specified an AttributeKey of \'Username\' with a value of \'root\', the
     -- call with NextToken should include those same parameters.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -133,7 +133,7 @@ data LookupEvents = LookupEvents'
 --
 -- 'nextToken', 'lookupEvents_nextToken' - The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
--- specified in the the original call. For example, if the original call
+-- specified in the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
 --
@@ -169,7 +169,7 @@ newLookupEvents =
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
--- specified in the the original call. For example, if the original call
+-- specified in the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
 lookupEvents_nextToken :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.Text)

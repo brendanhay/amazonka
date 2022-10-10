@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDSData.BeginTransaction
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,16 @@
 --
 -- Starts a SQL transaction.
 --
--- >  <important> <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24 hours.</p> <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's committed, it's rolled back automatically.</p> <p>DDL statements inside a transaction cause an implicit commit. We recommend that you run each DDL statement in a separate <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p> </important>
+-- A transaction can run for a maximum of 24 hours. A transaction is
+-- terminated and rolled back automatically after 24 hours.
+--
+-- A transaction times out if no calls use its transaction ID in three
+-- minutes. If a transaction times out before it\'s committed, it\'s rolled
+-- back automatically.
+--
+-- DDL statements inside a transaction cause an implicit commit. We
+-- recommend that you run each DDL statement in a separate
+-- @ExecuteStatement@ call with @continueAfterTimeout@ enabled.
 module Amazonka.RDSData.BeginTransaction
   ( -- * Creating a Request
     BeginTransaction (..),

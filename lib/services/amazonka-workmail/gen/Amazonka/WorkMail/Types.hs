@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,6 +43,9 @@ module Amazonka.WorkMail.Types
     -- * AccessControlRuleEffect
     AccessControlRuleEffect (..),
 
+    -- * AccessEffect
+    AccessEffect (..),
+
     -- * AvailabilityProviderType
     AvailabilityProviderType (..),
 
@@ -54,6 +57,9 @@ module Amazonka.WorkMail.Types
 
     -- * FolderName
     FolderName (..),
+
+    -- * ImpersonationRoleType
+    ImpersonationRoleType (..),
 
     -- * MailboxExportJobState
     MailboxExportJobState (..),
@@ -86,8 +92,10 @@ module Amazonka.WorkMail.Types
     accessControlRule_description,
     accessControlRule_dateCreated,
     accessControlRule_ipRanges,
+    accessControlRule_notImpersonationRoleIds,
     accessControlRule_dateModified,
     accessControlRule_userIds,
+    accessControlRule_impersonationRoleIds,
     accessControlRule_notUserIds,
     accessControlRule_actions,
 
@@ -150,6 +158,31 @@ module Amazonka.WorkMail.Types
     group_id,
     group_enabledDate,
     group_disabledDate,
+
+    -- * ImpersonationMatchedRule
+    ImpersonationMatchedRule (..),
+    newImpersonationMatchedRule,
+    impersonationMatchedRule_name,
+    impersonationMatchedRule_impersonationRuleId,
+
+    -- * ImpersonationRole
+    ImpersonationRole (..),
+    newImpersonationRole,
+    impersonationRole_name,
+    impersonationRole_type,
+    impersonationRole_dateCreated,
+    impersonationRole_impersonationRoleId,
+    impersonationRole_dateModified,
+
+    -- * ImpersonationRule
+    ImpersonationRule (..),
+    newImpersonationRule,
+    impersonationRule_name,
+    impersonationRule_targetUsers,
+    impersonationRule_description,
+    impersonationRule_notTargetUsers,
+    impersonationRule_impersonationRuleId,
+    impersonationRule_effect,
 
     -- * LambdaAvailabilityProvider
     LambdaAvailabilityProvider (..),
@@ -278,6 +311,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.WorkMail.Types.AccessControlRule
 import Amazonka.WorkMail.Types.AccessControlRuleEffect
+import Amazonka.WorkMail.Types.AccessEffect
 import Amazonka.WorkMail.Types.AvailabilityConfiguration
 import Amazonka.WorkMail.Types.AvailabilityProviderType
 import Amazonka.WorkMail.Types.BookingOptions
@@ -290,6 +324,10 @@ import Amazonka.WorkMail.Types.EwsAvailabilityProvider
 import Amazonka.WorkMail.Types.FolderConfiguration
 import Amazonka.WorkMail.Types.FolderName
 import Amazonka.WorkMail.Types.Group
+import Amazonka.WorkMail.Types.ImpersonationMatchedRule
+import Amazonka.WorkMail.Types.ImpersonationRole
+import Amazonka.WorkMail.Types.ImpersonationRoleType
+import Amazonka.WorkMail.Types.ImpersonationRule
 import Amazonka.WorkMail.Types.LambdaAvailabilityProvider
 import Amazonka.WorkMail.Types.MailDomainSummary
 import Amazonka.WorkMail.Types.MailboxExportJob
@@ -381,16 +419,16 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
+-- | The user, group, or resource name isn\'t unique in WorkMail.
 _NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NameAvailabilityException =
   Core._MatchServiceError
     defaultService
     "NameAvailabilityException"
 
--- | You SES configuration has customizations that Amazon WorkMail cannot
--- save. The error message lists the invalid setting. For examples of
--- invalid settings, refer to
+-- | You SES configuration has customizations that WorkMail cannot save. The
+-- error message lists the invalid setting. For examples of invalid
+-- settings, refer to
 -- <https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html CreateReceiptRule>.
 _InvalidCustomSesConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidCustomSesConfigurationException =
@@ -538,7 +576,7 @@ _DirectoryUnavailableException =
     defaultService
     "DirectoryUnavailableException"
 
--- | This user, group, or resource name is not allowed in Amazon WorkMail.
+-- | This user, group, or resource name is not allowed in WorkMail.
 _ReservedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReservedNameException =
   Core._MatchServiceError

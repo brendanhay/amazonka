@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -183,6 +183,7 @@ library
     Amazonka.MediaLive.Types.ContentType
     Amazonka.MediaLive.Types.DeviceSettingsSyncState
     Amazonka.MediaLive.Types.DeviceUpdateStatus
+    Amazonka.MediaLive.Types.DolbyVision81Settings
     Amazonka.MediaLive.Types.DvbNitSettings
     Amazonka.MediaLive.Types.DvbSdtOutputSdt
     Amazonka.MediaLive.Types.DvbSdtSettings
@@ -196,6 +197,10 @@ library
     Amazonka.MediaLive.Types.DvbSubOcrLanguage
     Amazonka.MediaLive.Types.DvbSubSourceSettings
     Amazonka.MediaLive.Types.DvbTdtSettings
+    Amazonka.MediaLive.Types.Eac3AtmosCodingMode
+    Amazonka.MediaLive.Types.Eac3AtmosDrcLine
+    Amazonka.MediaLive.Types.Eac3AtmosDrcRf
+    Amazonka.MediaLive.Types.Eac3AtmosSettings
     Amazonka.MediaLive.Types.Eac3AttenuationControl
     Amazonka.MediaLive.Types.Eac3BitstreamMode
     Amazonka.MediaLive.Types.Eac3CodingMode
@@ -593,7 +598,7 @@ library
     Amazonka.MediaLive.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-medialive-test
@@ -612,9 +617,9 @@ test-suite amazonka-medialive-test
     Test.Amazonka.MediaLive.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-medialive
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

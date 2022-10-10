@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -14,14 +14,16 @@
 -- Transfer Family is a fully managed service that enables the transfer of
 -- files over the File Transfer Protocol (FTP), File Transfer Protocol over
 -- SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly
--- into and out of Amazon Simple Storage Service (Amazon S3). Amazon Web
--- Services helps you seamlessly migrate your file transfer workflows to
--- Transfer Family by integrating with existing authentication systems, and
--- providing DNS routing with Amazon Route 53 so nothing changes for your
--- customers and partners, or their applications. With your data in Amazon
--- S3, you can use it with Amazon Web Services for processing, analytics,
--- machine learning, and archiving. Getting started with Transfer Family is
--- easy since there is no infrastructure to buy and set up.
+-- into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
+-- Additionally, you can use Applicability Statement 2 (AS2) to transfer
+-- files into and out of Amazon S3. Amazon Web Services helps you
+-- seamlessly migrate your file transfer workflows to Transfer Family by
+-- integrating with existing authentication systems, and providing DNS
+-- routing with Amazon Route 53 so nothing changes for your customers and
+-- partners, or their applications. With your data in Amazon S3, you can
+-- use it with Amazon Web Services for processing, analytics, machine
+-- learning, and archiving. Getting started with Transfer Family is easy
+-- since there is no infrastructure to buy and set up.
 module Amazonka.Transfer
   ( -- * Service Configuration
     defaultService,
@@ -134,6 +136,12 @@ module Amazonka.Transfer
     DeleteConnectorResponse (DeleteConnectorResponse'),
     newDeleteConnectorResponse,
 
+    -- ** DeleteHostKey
+    DeleteHostKey (DeleteHostKey'),
+    newDeleteHostKey,
+    DeleteHostKeyResponse (DeleteHostKeyResponse'),
+    newDeleteHostKeyResponse,
+
     -- ** DeleteProfile
     DeleteProfile (DeleteProfile'),
     newDeleteProfile,
@@ -194,6 +202,12 @@ module Amazonka.Transfer
     DescribeExecutionResponse (DescribeExecutionResponse'),
     newDescribeExecutionResponse,
 
+    -- ** DescribeHostKey
+    DescribeHostKey (DescribeHostKey'),
+    newDescribeHostKey,
+    DescribeHostKeyResponse (DescribeHostKeyResponse'),
+    newDescribeHostKeyResponse,
+
     -- ** DescribeProfile
     DescribeProfile (DescribeProfile'),
     newDescribeProfile,
@@ -230,6 +244,12 @@ module Amazonka.Transfer
     ImportCertificateResponse (ImportCertificateResponse'),
     newImportCertificateResponse,
 
+    -- ** ImportHostKey
+    ImportHostKey (ImportHostKey'),
+    newImportHostKey,
+    ImportHostKeyResponse (ImportHostKeyResponse'),
+    newImportHostKeyResponse,
+
     -- ** ImportSshPublicKey
     ImportSshPublicKey (ImportSshPublicKey'),
     newImportSshPublicKey,
@@ -265,6 +285,12 @@ module Amazonka.Transfer
     newListExecutions,
     ListExecutionsResponse (ListExecutionsResponse'),
     newListExecutionsResponse,
+
+    -- ** ListHostKeys
+    ListHostKeys (ListHostKeys'),
+    newListHostKeys,
+    ListHostKeysResponse (ListHostKeysResponse'),
+    newListHostKeysResponse,
 
     -- ** ListProfiles (Paginated)
     ListProfiles (ListProfiles'),
@@ -367,6 +393,12 @@ module Amazonka.Transfer
     newUpdateConnector,
     UpdateConnectorResponse (UpdateConnectorResponse'),
     newUpdateConnectorResponse,
+
+    -- ** UpdateHostKey
+    UpdateHostKey (UpdateHostKey'),
+    newUpdateHostKey,
+    UpdateHostKeyResponse (UpdateHostKeyResponse'),
+    newUpdateHostKeyResponse,
 
     -- ** UpdateProfile
     UpdateProfile (UpdateProfile'),
@@ -496,6 +528,10 @@ module Amazonka.Transfer
     DescribedExecution (DescribedExecution'),
     newDescribedExecution,
 
+    -- ** DescribedHostKey
+    DescribedHostKey (DescribedHostKey'),
+    newDescribedHostKey,
+
     -- ** DescribedProfile
     DescribedProfile (DescribedProfile'),
     newDescribedProfile,
@@ -571,6 +607,10 @@ module Amazonka.Transfer
     -- ** ListedExecution
     ListedExecution (ListedExecution'),
     newListedExecution,
+
+    -- ** ListedHostKey
+    ListedHostKey (ListedHostKey'),
+    newListedHostKey,
 
     -- ** ListedProfile
     ListedProfile (ListedProfile'),
@@ -657,6 +697,7 @@ import Amazonka.Transfer.DeleteAccess
 import Amazonka.Transfer.DeleteAgreement
 import Amazonka.Transfer.DeleteCertificate
 import Amazonka.Transfer.DeleteConnector
+import Amazonka.Transfer.DeleteHostKey
 import Amazonka.Transfer.DeleteProfile
 import Amazonka.Transfer.DeleteServer
 import Amazonka.Transfer.DeleteSshPublicKey
@@ -667,12 +708,14 @@ import Amazonka.Transfer.DescribeAgreement
 import Amazonka.Transfer.DescribeCertificate
 import Amazonka.Transfer.DescribeConnector
 import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeHostKey
 import Amazonka.Transfer.DescribeProfile
 import Amazonka.Transfer.DescribeSecurityPolicy
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.DescribeUser
 import Amazonka.Transfer.DescribeWorkflow
 import Amazonka.Transfer.ImportCertificate
+import Amazonka.Transfer.ImportHostKey
 import Amazonka.Transfer.ImportSshPublicKey
 import Amazonka.Transfer.Lens
 import Amazonka.Transfer.ListAccesses
@@ -680,6 +723,7 @@ import Amazonka.Transfer.ListAgreements
 import Amazonka.Transfer.ListCertificates
 import Amazonka.Transfer.ListConnectors
 import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListHostKeys
 import Amazonka.Transfer.ListProfiles
 import Amazonka.Transfer.ListSecurityPolicies
 import Amazonka.Transfer.ListServers
@@ -698,6 +742,7 @@ import Amazonka.Transfer.UpdateAccess
 import Amazonka.Transfer.UpdateAgreement
 import Amazonka.Transfer.UpdateCertificate
 import Amazonka.Transfer.UpdateConnector
+import Amazonka.Transfer.UpdateHostKey
 import Amazonka.Transfer.UpdateProfile
 import Amazonka.Transfer.UpdateServer
 import Amazonka.Transfer.UpdateUser

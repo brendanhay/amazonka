@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.KMSKeyDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- -   The ID of the Amazon Web Services KMS key that is associated with a
---     respository association.
+--     repository association.
 --
 -- /See:/ 'newKMSKeyDetails' smart constructor.
 data KMSKeyDetails = KMSKeyDetails'
@@ -40,7 +40,7 @@ data KMSKeyDetails = KMSKeyDetails'
     -- customer managed (@CUSTOMER_MANAGED_CMK@).
     encryptionOption :: Prelude.Maybe EncryptionOption,
     -- | The ID of the Amazon Web Services KMS key that is associated with a
-    -- respository association.
+    -- repository association.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,7 +58,7 @@ data KMSKeyDetails = KMSKeyDetails'
 -- customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- 'kmsKeyId', 'kmsKeyDetails_kmsKeyId' - The ID of the Amazon Web Services KMS key that is associated with a
--- respository association.
+-- repository association.
 newKMSKeyDetails ::
   KMSKeyDetails
 newKMSKeyDetails =
@@ -74,7 +74,7 @@ kmsKeyDetails_encryptionOption :: Lens.Lens' KMSKeyDetails (Prelude.Maybe Encryp
 kmsKeyDetails_encryptionOption = Lens.lens (\KMSKeyDetails' {encryptionOption} -> encryptionOption) (\s@KMSKeyDetails' {} a -> s {encryptionOption = a} :: KMSKeyDetails)
 
 -- | The ID of the Amazon Web Services KMS key that is associated with a
--- respository association.
+-- repository association.
 kmsKeyDetails_kmsKeyId :: Lens.Lens' KMSKeyDetails (Prelude.Maybe Prelude.Text)
 kmsKeyDetails_kmsKeyId = Lens.lens (\KMSKeyDetails' {kmsKeyId} -> kmsKeyId) (\s@KMSKeyDetails' {} a -> s {kmsKeyId = a} :: KMSKeyDetails)
 

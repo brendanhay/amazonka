@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.ListTagsForResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags applied to an Amazon WorkMail organization resource.
+-- Lists the tags applied to an WorkMail organization resource.
 module Amazonka.WorkMail.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

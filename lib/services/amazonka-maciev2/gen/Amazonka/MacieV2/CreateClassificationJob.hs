@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.CreateClassificationJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ module Amazonka.MacieV2.CreateClassificationJob
     createClassificationJob_scheduleFrequency,
     createClassificationJob_description,
     createClassificationJob_initialRun,
+    createClassificationJob_allowListIds,
     createClassificationJob_samplingPercentage,
     createClassificationJob_managedDataIdentifierIds,
     createClassificationJob_s3JobDefinition,
@@ -111,6 +112,9 @@ data CreateClassificationJob = CreateClassificationJob'
     -- If you configure the job to run only once, don\'t specify a value for
     -- this property.
     initialRun :: Prelude.Maybe Prelude.Bool,
+    -- | An array of unique identifiers, one for each allow list for the job to
+    -- use when it analyzes data.
+    allowListIds :: Prelude.Maybe [Prelude.Text],
     -- | The sampling depth, as a percentage, for the job to apply when
     -- processing objects. This value determines the percentage of eligible
     -- objects that the job analyzes. If this value is less than 100, Amazon
@@ -205,6 +209,9 @@ data CreateClassificationJob = CreateClassificationJob'
 -- If you configure the job to run only once, don\'t specify a value for
 -- this property.
 --
+-- 'allowListIds', 'createClassificationJob_allowListIds' - An array of unique identifiers, one for each allow list for the job to
+-- use when it analyzes data.
+--
 -- 'samplingPercentage', 'createClassificationJob_samplingPercentage' - The sampling depth, as a percentage, for the job to apply when
 -- processing objects. This value determines the percentage of eligible
 -- objects that the job analyzes. If this value is less than 100, Amazon
@@ -258,6 +265,7 @@ newCreateClassificationJob
         scheduleFrequency = Prelude.Nothing,
         description = Prelude.Nothing,
         initialRun = Prelude.Nothing,
+        allowListIds = Prelude.Nothing,
         samplingPercentage = Prelude.Nothing,
         managedDataIdentifierIds = Prelude.Nothing,
         s3JobDefinition = pS3JobDefinition_,
@@ -329,6 +337,11 @@ createClassificationJob_description = Lens.lens (\CreateClassificationJob' {desc
 createClassificationJob_initialRun :: Lens.Lens' CreateClassificationJob (Prelude.Maybe Prelude.Bool)
 createClassificationJob_initialRun = Lens.lens (\CreateClassificationJob' {initialRun} -> initialRun) (\s@CreateClassificationJob' {} a -> s {initialRun = a} :: CreateClassificationJob)
 
+-- | An array of unique identifiers, one for each allow list for the job to
+-- use when it analyzes data.
+createClassificationJob_allowListIds :: Lens.Lens' CreateClassificationJob (Prelude.Maybe [Prelude.Text])
+createClassificationJob_allowListIds = Lens.lens (\CreateClassificationJob' {allowListIds} -> allowListIds) (\s@CreateClassificationJob' {} a -> s {allowListIds = a} :: CreateClassificationJob) Prelude.. Lens.mapping Lens.coerced
+
 -- | The sampling depth, as a percentage, for the job to apply when
 -- processing objects. This value determines the percentage of eligible
 -- objects that the job analyzes. If this value is less than 100, Amazon
@@ -395,6 +408,7 @@ instance Prelude.Hashable CreateClassificationJob where
       `Prelude.hashWithSalt` scheduleFrequency
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` initialRun
+      `Prelude.hashWithSalt` allowListIds
       `Prelude.hashWithSalt` samplingPercentage
       `Prelude.hashWithSalt` managedDataIdentifierIds
       `Prelude.hashWithSalt` s3JobDefinition
@@ -410,6 +424,7 @@ instance Prelude.NFData CreateClassificationJob where
       `Prelude.seq` Prelude.rnf scheduleFrequency
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf initialRun
+      `Prelude.seq` Prelude.rnf allowListIds
       `Prelude.seq` Prelude.rnf samplingPercentage
       `Prelude.seq` Prelude.rnf managedDataIdentifierIds
       `Prelude.seq` Prelude.rnf s3JobDefinition
@@ -441,6 +456,7 @@ instance Core.ToJSON CreateClassificationJob where
               Prelude.<$> scheduleFrequency,
             ("description" Core..=) Prelude.<$> description,
             ("initialRun" Core..=) Prelude.<$> initialRun,
+            ("allowListIds" Core..=) Prelude.<$> allowListIds,
             ("samplingPercentage" Core..=)
               Prelude.<$> samplingPercentage,
             ("managedDataIdentifierIds" Core..=)

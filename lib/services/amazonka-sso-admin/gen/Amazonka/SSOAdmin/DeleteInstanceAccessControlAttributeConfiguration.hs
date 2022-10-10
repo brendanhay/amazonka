@@ -14,20 +14,20 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the attributes-based access control (ABAC) feature for the
--- specified Amazon Web Services SSO instance and deletes all of the
--- attribute mappings that have been configured. Once deleted, any
--- attributes that are received from an identity source and any custom
--- attributes you have previously configured will not be passed. For more
--- information about ABAC, see
+-- specified IAM Identity Center instance and deletes all of the attribute
+-- mappings that have been configured. Once deleted, any attributes that
+-- are received from an identity source and any custom attributes you have
+-- previously configured will not be passed. For more information about
+-- ABAC, see
 -- </singlesignon/latest/userguide/abac.html Attribute-Based Access Control>
--- in the /Amazon Web Services SSO User Guide/.
+-- in the /IAM Identity Center User Guide/.
 module Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
   ( -- * Creating a Request
     DeleteInstanceAccessControlAttributeConfiguration (..),
@@ -54,8 +54,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteInstanceAccessControlAttributeConfiguration' smart constructor.
 data DeleteInstanceAccessControlAttributeConfiguration = DeleteInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +68,8 @@ data DeleteInstanceAccessControlAttributeConfiguration = DeleteInstanceAccessCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'deleteInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 newDeleteInstanceAccessControlAttributeConfiguration ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -81,8 +81,8 @@ newDeleteInstanceAccessControlAttributeConfiguration
           pInstanceArn_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 deleteInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' DeleteInstanceAccessControlAttributeConfiguration Prelude.Text
 deleteInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\DeleteInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@DeleteInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: DeleteInstanceAccessControlAttributeConfiguration)
 

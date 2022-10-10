@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types.Run
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ import Amazonka.DeviceFarm.Types.Location
 import Amazonka.DeviceFarm.Types.NetworkProfile
 import Amazonka.DeviceFarm.Types.Radios
 import Amazonka.DeviceFarm.Types.TestType
+import Amazonka.DeviceFarm.Types.VpcConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,6 +97,8 @@ data Run = Run'
     started :: Prelude.Maybe Core.POSIX,
     -- | Output @CustomerArtifactPaths@ object for the test run.
     customerArtifactPaths :: Prelude.Maybe CustomerArtifactPaths,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | When the run was created.
     created :: Prelude.Maybe Core.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the test
@@ -202,7 +205,7 @@ data Run = Run'
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
-    -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+    -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
     skipAppResign :: Prelude.Maybe Prelude.Bool
   }
@@ -270,6 +273,8 @@ data Run = Run'
 -- 'started', 'run_started' - The run\'s start time.
 --
 -- 'customerArtifactPaths', 'run_customerArtifactPaths' - Output @CustomerArtifactPaths@ object for the test run.
+--
+-- 'vpcConfig', 'run_vpcConfig' - The VPC security groups and subnets that are attached to a project.
 --
 -- 'created', 'run_created' - When the run was created.
 --
@@ -377,7 +382,7 @@ data Run = Run'
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 newRun ::
   Run
@@ -390,6 +395,7 @@ newRun =
       type' = Prelude.Nothing,
       started = Prelude.Nothing,
       customerArtifactPaths = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       created = Prelude.Nothing,
       deviceMinutes = Prelude.Nothing,
       locale = Prelude.Nothing,
@@ -484,6 +490,10 @@ run_started = Lens.lens (\Run' {started} -> started) (\s@Run' {} a -> s {started
 -- | Output @CustomerArtifactPaths@ object for the test run.
 run_customerArtifactPaths :: Lens.Lens' Run (Prelude.Maybe CustomerArtifactPaths)
 run_customerArtifactPaths = Lens.lens (\Run' {customerArtifactPaths} -> customerArtifactPaths) (\s@Run' {} a -> s {customerArtifactPaths = a} :: Run)
+
+-- | The VPC security groups and subnets that are attached to a project.
+run_vpcConfig :: Lens.Lens' Run (Prelude.Maybe VpcConfig)
+run_vpcConfig = Lens.lens (\Run' {vpcConfig} -> vpcConfig) (\s@Run' {} a -> s {vpcConfig = a} :: Run)
 
 -- | When the run was created.
 run_created :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
@@ -637,7 +647,7 @@ run_devicePoolArn = Lens.lens (\Run' {devicePoolArn} -> devicePoolArn) (\s@Run' 
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 run_skipAppResign :: Lens.Lens' Run (Prelude.Maybe Prelude.Bool)
 run_skipAppResign = Lens.lens (\Run' {skipAppResign} -> skipAppResign) (\s@Run' {} a -> s {skipAppResign = a} :: Run)
@@ -655,6 +665,7 @@ instance Core.FromJSON Run where
             Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "started")
             Prelude.<*> (x Core..:? "customerArtifactPaths")
+            Prelude.<*> (x Core..:? "vpcConfig")
             Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "deviceMinutes")
             Prelude.<*> (x Core..:? "locale")
@@ -690,6 +701,7 @@ instance Prelude.Hashable Run where
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` started
       `Prelude.hashWithSalt` customerArtifactPaths
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deviceMinutes
       `Prelude.hashWithSalt` locale
@@ -724,6 +736,7 @@ instance Prelude.NFData Run where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf started
       `Prelude.seq` Prelude.rnf customerArtifactPaths
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf deviceMinutes
       `Prelude.seq` Prelude.rnf locale

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Types.GatewayDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.BackupGateway.Types.GatewayDetails where
 
 import Amazonka.BackupGateway.Types.GatewayType
+import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -36,6 +37,10 @@ data GatewayDetails = GatewayDetails'
     gatewayArn :: Prelude.Maybe Prelude.Text,
     -- | Details showing the next update availability time of the gateway.
     nextUpdateAvailabilityTime :: Prelude.Maybe Core.POSIX,
+    -- | Returns your gateway\'s weekly maintenance start time including the day
+    -- and time of the week. Note that values are in terms of the gateway\'s
+    -- time zone. Can be weekly or monthly.
+    maintenanceStartTime :: Prelude.Maybe MaintenanceStartTime,
     -- | The hypervisor ID of the gateway.
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | Details showing the last time Backup gateway communicated with the
@@ -65,6 +70,10 @@ data GatewayDetails = GatewayDetails'
 --
 -- 'nextUpdateAvailabilityTime', 'gatewayDetails_nextUpdateAvailabilityTime' - Details showing the next update availability time of the gateway.
 --
+-- 'maintenanceStartTime', 'gatewayDetails_maintenanceStartTime' - Returns your gateway\'s weekly maintenance start time including the day
+-- and time of the week. Note that values are in terms of the gateway\'s
+-- time zone. Can be weekly or monthly.
+--
 -- 'hypervisorId', 'gatewayDetails_hypervisorId' - The hypervisor ID of the gateway.
 --
 -- 'lastSeenTime', 'gatewayDetails_lastSeenTime' - Details showing the last time Backup gateway communicated with the
@@ -81,6 +90,7 @@ newGatewayDetails =
     { gatewayType = Prelude.Nothing,
       gatewayArn = Prelude.Nothing,
       nextUpdateAvailabilityTime = Prelude.Nothing,
+      maintenanceStartTime = Prelude.Nothing,
       hypervisorId = Prelude.Nothing,
       lastSeenTime = Prelude.Nothing,
       gatewayDisplayName = Prelude.Nothing,
@@ -100,6 +110,12 @@ gatewayDetails_gatewayArn = Lens.lens (\GatewayDetails' {gatewayArn} -> gatewayA
 -- | Details showing the next update availability time of the gateway.
 gatewayDetails_nextUpdateAvailabilityTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
 gatewayDetails_nextUpdateAvailabilityTime = Lens.lens (\GatewayDetails' {nextUpdateAvailabilityTime} -> nextUpdateAvailabilityTime) (\s@GatewayDetails' {} a -> s {nextUpdateAvailabilityTime = a} :: GatewayDetails) Prelude.. Lens.mapping Core._Time
+
+-- | Returns your gateway\'s weekly maintenance start time including the day
+-- and time of the week. Note that values are in terms of the gateway\'s
+-- time zone. Can be weekly or monthly.
+gatewayDetails_maintenanceStartTime :: Lens.Lens' GatewayDetails (Prelude.Maybe MaintenanceStartTime)
+gatewayDetails_maintenanceStartTime = Lens.lens (\GatewayDetails' {maintenanceStartTime} -> maintenanceStartTime) (\s@GatewayDetails' {} a -> s {maintenanceStartTime = a} :: GatewayDetails)
 
 -- | The hypervisor ID of the gateway.
 gatewayDetails_hypervisorId :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
@@ -128,6 +144,7 @@ instance Core.FromJSON GatewayDetails where
             Prelude.<$> (x Core..:? "GatewayType")
             Prelude.<*> (x Core..:? "GatewayArn")
             Prelude.<*> (x Core..:? "NextUpdateAvailabilityTime")
+            Prelude.<*> (x Core..:? "MaintenanceStartTime")
             Prelude.<*> (x Core..:? "HypervisorId")
             Prelude.<*> (x Core..:? "LastSeenTime")
             Prelude.<*> (x Core..:? "GatewayDisplayName")
@@ -139,6 +156,7 @@ instance Prelude.Hashable GatewayDetails where
     _salt `Prelude.hashWithSalt` gatewayType
       `Prelude.hashWithSalt` gatewayArn
       `Prelude.hashWithSalt` nextUpdateAvailabilityTime
+      `Prelude.hashWithSalt` maintenanceStartTime
       `Prelude.hashWithSalt` hypervisorId
       `Prelude.hashWithSalt` lastSeenTime
       `Prelude.hashWithSalt` gatewayDisplayName
@@ -149,6 +167,7 @@ instance Prelude.NFData GatewayDetails where
     Prelude.rnf gatewayType
       `Prelude.seq` Prelude.rnf gatewayArn
       `Prelude.seq` Prelude.rnf nextUpdateAvailabilityTime
+      `Prelude.seq` Prelude.rnf maintenanceStartTime
       `Prelude.seq` Prelude.rnf hypervisorId
       `Prelude.seq` Prelude.rnf lastSeenTime
       `Prelude.seq` Prelude.rnf gatewayDisplayName

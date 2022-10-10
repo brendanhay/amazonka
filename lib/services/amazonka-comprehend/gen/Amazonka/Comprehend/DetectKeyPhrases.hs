@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.DetectKeyPhrases
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectKeyPhrases' smart constructor.
 data DetectKeyPhrases = DetectKeyPhrases'
-  { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
-    -- UTF-8 encoded characters.
+  { -- | A UTF-8 text string. The string must contain less than 100 KB of UTF-8
+    -- encoded characters.
     text :: Core.Sensitive Prelude.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -67,8 +67,8 @@ data DetectKeyPhrases = DetectKeyPhrases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'detectKeyPhrases_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- 'text', 'detectKeyPhrases_text' - A UTF-8 text string. The string must contain less than 100 KB of UTF-8
+-- encoded characters.
 --
 -- 'languageCode', 'detectKeyPhrases_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -86,8 +86,8 @@ newDetectKeyPhrases pText_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- | A UTF-8 text string. The string must contain less than 100 KB of UTF-8
+-- encoded characters.
 detectKeyPhrases_text :: Lens.Lens' DetectKeyPhrases Prelude.Text
 detectKeyPhrases_text = Lens.lens (\DetectKeyPhrases' {text} -> text) (\s@DetectKeyPhrases' {} a -> s {text = a} :: DetectKeyPhrases) Prelude.. Core._Sensitive
 

@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,9 @@ module Amazonka.Outposts.Types
     -- * AddressType
     AddressType (..),
 
+    -- * AssetState
+    AssetState (..),
+
     -- * AssetType
     AssetType (..),
 
@@ -35,6 +38,9 @@ module Amazonka.Outposts.Types
 
     -- * CatalogItemStatus
     CatalogItemStatus (..),
+
+    -- * ComputeAssetState
+    ComputeAssetState (..),
 
     -- * FiberOpticCableType
     FiberOpticCableType (..),
@@ -131,6 +137,7 @@ module Amazonka.Outposts.Types
     ComputeAttributes (..),
     newComputeAttributes,
     computeAttributes_hostId,
+    computeAttributes_state,
 
     -- * ConnectionDetails
     ConnectionDetails (..),
@@ -256,10 +263,12 @@ import Amazonka.Outposts.Types.Address
 import Amazonka.Outposts.Types.AddressType
 import Amazonka.Outposts.Types.AssetInfo
 import Amazonka.Outposts.Types.AssetLocation
+import Amazonka.Outposts.Types.AssetState
 import Amazonka.Outposts.Types.AssetType
 import Amazonka.Outposts.Types.CatalogItem
 import Amazonka.Outposts.Types.CatalogItemClass
 import Amazonka.Outposts.Types.CatalogItemStatus
+import Amazonka.Outposts.Types.ComputeAssetState
 import Amazonka.Outposts.Types.ComputeAttributes
 import Amazonka.Outposts.Types.ConnectionDetails
 import Amazonka.Outposts.Types.EC2Capacity

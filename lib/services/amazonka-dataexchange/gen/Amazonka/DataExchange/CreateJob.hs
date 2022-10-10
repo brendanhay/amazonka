@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.CreateJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ module Amazonka.DataExchange.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_type,
     createJob_details,
+    createJob_type,
 
     -- * Destructuring the Response
     CreateJobResponse (..),
@@ -54,14 +54,12 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for CreateJob.
---
--- /See:/ 'newCreateJob' smart constructor.
+-- | /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | The type of job to be created.
-    type' :: Type,
-    -- | The details for the CreateJob request.
-    details :: RequestDetails
+  { -- | The details for the CreateJob request.
+    details :: RequestDetails,
+    -- | The type of job to be created.
+    type' :: Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,25 +71,25 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'createJob_type' - The type of job to be created.
---
 -- 'details', 'createJob_details' - The details for the CreateJob request.
+--
+-- 'type'', 'createJob_type' - The type of job to be created.
 newCreateJob ::
-  -- | 'type''
-  Type ->
   -- | 'details'
   RequestDetails ->
+  -- | 'type''
+  Type ->
   CreateJob
-newCreateJob pType_ pDetails_ =
-  CreateJob' {type' = pType_, details = pDetails_}
-
--- | The type of job to be created.
-createJob_type :: Lens.Lens' CreateJob Type
-createJob_type = Lens.lens (\CreateJob' {type'} -> type') (\s@CreateJob' {} a -> s {type' = a} :: CreateJob)
+newCreateJob pDetails_ pType_ =
+  CreateJob' {details = pDetails_, type' = pType_}
 
 -- | The details for the CreateJob request.
 createJob_details :: Lens.Lens' CreateJob RequestDetails
 createJob_details = Lens.lens (\CreateJob' {details} -> details) (\s@CreateJob' {} a -> s {details = a} :: CreateJob)
+
+-- | The type of job to be created.
+createJob_type :: Lens.Lens' CreateJob Type
+createJob_type = Lens.lens (\CreateJob' {type'} -> type') (\s@CreateJob' {} a -> s {type' = a} :: CreateJob)
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
@@ -113,12 +111,12 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders CreateJob where
   toHeaders =
@@ -135,8 +133,8 @@ instance Core.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Details" Core..= details)
+          [ Prelude.Just ("Details" Core..= details),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 

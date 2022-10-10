@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.SSOOIDC.RegisterClient
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a client with Amazon Web Services SSO. This allows clients to
+-- Registers a client with IAM Identity Center. This allows clients to
 -- initiate device authorization. The output should be persisted for reuse
 -- through many authentication requests.
 module Amazonka.SSOOIDC.RegisterClient

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types.Project
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.DeviceFarm.Types.Project where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.VpcConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data Project = Project'
   { -- | The project\'s name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | When the project was created.
     created :: Prelude.Maybe Core.POSIX,
     -- | The project\'s ARN.
@@ -50,6 +53,8 @@ data Project = Project'
 --
 -- 'name', 'project_name' - The project\'s name.
 --
+-- 'vpcConfig', 'project_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'created', 'project_created' - When the project was created.
 --
 -- 'arn', 'project_arn' - The project\'s ARN.
@@ -61,6 +66,7 @@ newProject ::
 newProject =
   Project'
     { name = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       created = Prelude.Nothing,
       arn = Prelude.Nothing,
       defaultJobTimeoutMinutes = Prelude.Nothing
@@ -69,6 +75,10 @@ newProject =
 -- | The project\'s name.
 project_name :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name = a} :: Project)
+
+-- | The VPC security groups and subnets that are attached to a project.
+project_vpcConfig :: Lens.Lens' Project (Prelude.Maybe VpcConfig)
+project_vpcConfig = Lens.lens (\Project' {vpcConfig} -> vpcConfig) (\s@Project' {} a -> s {vpcConfig = a} :: Project)
 
 -- | When the project was created.
 project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
@@ -90,6 +100,7 @@ instance Core.FromJSON Project where
       ( \x ->
           Project'
             Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "vpcConfig")
             Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
@@ -98,6 +109,7 @@ instance Core.FromJSON Project where
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
@@ -105,6 +117,7 @@ instance Prelude.Hashable Project where
 instance Prelude.NFData Project where
   rnf Project' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes

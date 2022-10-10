@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.ModifyVpcEndpointServicePermissions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,7 @@ module Amazonka.EC2.ModifyVpcEndpointServicePermissions
 
     -- * Response Lenses
     modifyVpcEndpointServicePermissionsResponse_returnValue,
+    modifyVpcEndpointServicePermissionsResponse_addedPrincipals,
     modifyVpcEndpointServicePermissionsResponse_httpStatus,
   )
 where
@@ -145,6 +146,10 @@ instance
       ( \s h x ->
           ModifyVpcEndpointServicePermissionsResponse'
             Prelude.<$> (x Core..@? "return")
+              Prelude.<*> ( x Core..@? "addedPrincipalSet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,6 +215,8 @@ instance
 data ModifyVpcEndpointServicePermissionsResponse = ModifyVpcEndpointServicePermissionsResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
     returnValue :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the added principals.
+    addedPrincipals :: Prelude.Maybe [AddedPrincipal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,6 +232,8 @@ data ModifyVpcEndpointServicePermissionsResponse = ModifyVpcEndpointServicePermi
 --
 -- 'returnValue', 'modifyVpcEndpointServicePermissionsResponse_returnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
+-- 'addedPrincipals', 'modifyVpcEndpointServicePermissionsResponse_addedPrincipals' - Information about the added principals.
+--
 -- 'httpStatus', 'modifyVpcEndpointServicePermissionsResponse_httpStatus' - The response's http status code.
 newModifyVpcEndpointServicePermissionsResponse ::
   -- | 'httpStatus'
@@ -235,12 +244,18 @@ newModifyVpcEndpointServicePermissionsResponse
     ModifyVpcEndpointServicePermissionsResponse'
       { returnValue =
           Prelude.Nothing,
+        addedPrincipals =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 modifyVpcEndpointServicePermissionsResponse_returnValue :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServicePermissionsResponse_returnValue = Lens.lens (\ModifyVpcEndpointServicePermissionsResponse' {returnValue} -> returnValue) (\s@ModifyVpcEndpointServicePermissionsResponse' {} a -> s {returnValue = a} :: ModifyVpcEndpointServicePermissionsResponse)
+
+-- | Information about the added principals.
+modifyVpcEndpointServicePermissionsResponse_addedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse (Prelude.Maybe [AddedPrincipal])
+modifyVpcEndpointServicePermissionsResponse_addedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissionsResponse' {addedPrincipals} -> addedPrincipals) (\s@ModifyVpcEndpointServicePermissionsResponse' {} a -> s {addedPrincipals = a} :: ModifyVpcEndpointServicePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse Prelude.Int
@@ -252,4 +267,5 @@ instance
   where
   rnf ModifyVpcEndpointServicePermissionsResponse' {..} =
     Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf addedPrincipals
       `Prelude.seq` Prelude.rnf httpStatus

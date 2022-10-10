@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.DeploymentInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Amazonka.CodeDeploy.Types.DeploymentInfo where
 
+import Amazonka.CodeDeploy.Types.AlarmConfiguration
 import Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
 import Amazonka.CodeDeploy.Types.BlueGreenDeploymentConfiguration
 import Amazonka.CodeDeploy.Types.ComputePlatform
@@ -41,15 +42,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentInfo' smart constructor.
 data DeploymentInfo = DeploymentInfo'
-  { -- | Information about the load balancer used in the deployment.
+  { overrideAlarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | Information about the load balancer used in the deployment.
     loadBalancerInfo :: Prelude.Maybe LoadBalancerInfo,
     -- | The deployment group name.
     deploymentGroupName :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | Information about how AWS CodeDeploy handles files that already exist in
-    -- a deployment target location but weren\'t part of the previous
-    -- successful deployment.
+    -- | Information about how CodeDeploy handles files that already exist in a
+    -- deployment target location but weren\'t part of the previous successful
+    -- deployment.
     --
     -- -   @DISALLOW@: The deployment fails. This is also the default behavior
     --     if no option is specified.
@@ -115,7 +117,7 @@ data DeploymentInfo = DeploymentInfo'
     -- -   @codeDeployRollback@: A rollback process created the deployment.
     --
     -- -   @CodeDeployAutoUpdate@: An auto-update process created the
-    --     deployment when it detected outdated EC2 instances.
+    --     deployment when it detected outdated Amazon EC2 instances.
     creator :: Prelude.Maybe DeploymentCreator,
     -- | Information about the application revision that was deployed to the
     -- deployment group before the most recent successful deployment.
@@ -141,11 +143,11 @@ data DeploymentInfo = DeploymentInfo'
     -- hosts is not less than the minimum number of healthy hosts, then a
     -- deployment to the next instance is attempted.
     --
-    -- During a deployment, the AWS CodeDeploy agent runs the scripts specified
-    -- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
-    -- the AppSpec file from the previous successful deployment. (All other
-    -- scripts are run from the AppSpec file in the current deployment.) If one
-    -- of these scripts contains an error and does not run successfully, the
+    -- During a deployment, the CodeDeploy agent runs the scripts specified for
+    -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in the
+    -- AppSpec file from the previous successful deployment. (All other scripts
+    -- are run from the AppSpec file in the current deployment.) If one of
+    -- these scripts contains an error and does not run successfully, the
     -- deployment can fail.
     --
     -- If the cause of the failure is a script from the last successful
@@ -174,15 +176,17 @@ data DeploymentInfo = DeploymentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'overrideAlarmConfiguration', 'deploymentInfo_overrideAlarmConfiguration' - Undocumented member.
+--
 -- 'loadBalancerInfo', 'deploymentInfo_loadBalancerInfo' - Information about the load balancer used in the deployment.
 --
 -- 'deploymentGroupName', 'deploymentInfo_deploymentGroupName' - The deployment group name.
 --
 -- 'deploymentId', 'deploymentInfo_deploymentId' - The unique ID of a deployment.
 --
--- 'fileExistsBehavior', 'deploymentInfo_fileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in
--- a deployment target location but weren\'t part of the previous
--- successful deployment.
+-- 'fileExistsBehavior', 'deploymentInfo_fileExistsBehavior' - Information about how CodeDeploy handles files that already exist in a
+-- deployment target location but weren\'t part of the previous successful
+-- deployment.
 --
 -- -   @DISALLOW@: The deployment fails. This is also the default behavior
 --     if no option is specified.
@@ -249,7 +253,7 @@ data DeploymentInfo = DeploymentInfo'
 -- -   @codeDeployRollback@: A rollback process created the deployment.
 --
 -- -   @CodeDeployAutoUpdate@: An auto-update process created the
---     deployment when it detected outdated EC2 instances.
+--     deployment when it detected outdated Amazon EC2 instances.
 --
 -- 'previousRevision', 'deploymentInfo_previousRevision' - Information about the application revision that was deployed to the
 -- deployment group before the most recent successful deployment.
@@ -275,11 +279,11 @@ data DeploymentInfo = DeploymentInfo'
 -- hosts is not less than the minimum number of healthy hosts, then a
 -- deployment to the next instance is attempted.
 --
--- During a deployment, the AWS CodeDeploy agent runs the scripts specified
--- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
--- the AppSpec file from the previous successful deployment. (All other
--- scripts are run from the AppSpec file in the current deployment.) If one
--- of these scripts contains an error and does not run successfully, the
+-- During a deployment, the CodeDeploy agent runs the scripts specified for
+-- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in the
+-- AppSpec file from the previous successful deployment. (All other scripts
+-- are run from the AppSpec file in the current deployment.) If one of
+-- these scripts contains an error and does not run successfully, the
 -- deployment can fail.
 --
 -- If the cause of the failure is a script from the last successful
@@ -300,7 +304,9 @@ newDeploymentInfo ::
   DeploymentInfo
 newDeploymentInfo =
   DeploymentInfo'
-    { loadBalancerInfo = Prelude.Nothing,
+    { overrideAlarmConfiguration =
+        Prelude.Nothing,
+      loadBalancerInfo = Prelude.Nothing,
       deploymentGroupName = Prelude.Nothing,
       deploymentId = Prelude.Nothing,
       fileExistsBehavior = Prelude.Nothing,
@@ -331,6 +337,10 @@ newDeploymentInfo =
       applicationName = Prelude.Nothing
     }
 
+-- | Undocumented member.
+deploymentInfo_overrideAlarmConfiguration :: Lens.Lens' DeploymentInfo (Prelude.Maybe AlarmConfiguration)
+deploymentInfo_overrideAlarmConfiguration = Lens.lens (\DeploymentInfo' {overrideAlarmConfiguration} -> overrideAlarmConfiguration) (\s@DeploymentInfo' {} a -> s {overrideAlarmConfiguration = a} :: DeploymentInfo)
+
 -- | Information about the load balancer used in the deployment.
 deploymentInfo_loadBalancerInfo :: Lens.Lens' DeploymentInfo (Prelude.Maybe LoadBalancerInfo)
 deploymentInfo_loadBalancerInfo = Lens.lens (\DeploymentInfo' {loadBalancerInfo} -> loadBalancerInfo) (\s@DeploymentInfo' {} a -> s {loadBalancerInfo = a} :: DeploymentInfo)
@@ -343,9 +353,9 @@ deploymentInfo_deploymentGroupName = Lens.lens (\DeploymentInfo' {deploymentGrou
 deploymentInfo_deploymentId :: Lens.Lens' DeploymentInfo (Prelude.Maybe Prelude.Text)
 deploymentInfo_deploymentId = Lens.lens (\DeploymentInfo' {deploymentId} -> deploymentId) (\s@DeploymentInfo' {} a -> s {deploymentId = a} :: DeploymentInfo)
 
--- | Information about how AWS CodeDeploy handles files that already exist in
--- a deployment target location but weren\'t part of the previous
--- successful deployment.
+-- | Information about how CodeDeploy handles files that already exist in a
+-- deployment target location but weren\'t part of the previous successful
+-- deployment.
 --
 -- -   @DISALLOW@: The deployment fails. This is also the default behavior
 --     if no option is specified.
@@ -450,7 +460,7 @@ deploymentInfo_additionalDeploymentStatusInfo = Lens.lens (\DeploymentInfo' {add
 -- -   @codeDeployRollback@: A rollback process created the deployment.
 --
 -- -   @CodeDeployAutoUpdate@: An auto-update process created the
---     deployment when it detected outdated EC2 instances.
+--     deployment when it detected outdated Amazon EC2 instances.
 deploymentInfo_creator :: Lens.Lens' DeploymentInfo (Prelude.Maybe DeploymentCreator)
 deploymentInfo_creator = Lens.lens (\DeploymentInfo' {creator} -> creator) (\s@DeploymentInfo' {} a -> s {creator = a} :: DeploymentInfo)
 
@@ -482,11 +492,11 @@ deploymentInfo_startTime = Lens.lens (\DeploymentInfo' {startTime} -> startTime)
 -- hosts is not less than the minimum number of healthy hosts, then a
 -- deployment to the next instance is attempted.
 --
--- During a deployment, the AWS CodeDeploy agent runs the scripts specified
--- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
--- the AppSpec file from the previous successful deployment. (All other
--- scripts are run from the AppSpec file in the current deployment.) If one
--- of these scripts contains an error and does not run successfully, the
+-- During a deployment, the CodeDeploy agent runs the scripts specified for
+-- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in the
+-- AppSpec file from the previous successful deployment. (All other scripts
+-- are run from the AppSpec file in the current deployment.) If one of
+-- these scripts contains an error and does not run successfully, the
 -- deployment can fail.
 --
 -- If the cause of the failure is a script from the last successful
@@ -518,7 +528,8 @@ instance Core.FromJSON DeploymentInfo where
       "DeploymentInfo"
       ( \x ->
           DeploymentInfo'
-            Prelude.<$> (x Core..:? "loadBalancerInfo")
+            Prelude.<$> (x Core..:? "overrideAlarmConfiguration")
+            Prelude.<*> (x Core..:? "loadBalancerInfo")
             Prelude.<*> (x Core..:? "deploymentGroupName")
             Prelude.<*> (x Core..:? "deploymentId")
             Prelude.<*> (x Core..:? "fileExistsBehavior")
@@ -553,7 +564,9 @@ instance Core.FromJSON DeploymentInfo where
 
 instance Prelude.Hashable DeploymentInfo where
   hashWithSalt _salt DeploymentInfo' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerInfo
+    _salt
+      `Prelude.hashWithSalt` overrideAlarmConfiguration
+      `Prelude.hashWithSalt` loadBalancerInfo
       `Prelude.hashWithSalt` deploymentGroupName
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` fileExistsBehavior
@@ -585,7 +598,8 @@ instance Prelude.Hashable DeploymentInfo where
 
 instance Prelude.NFData DeploymentInfo where
   rnf DeploymentInfo' {..} =
-    Prelude.rnf loadBalancerInfo
+    Prelude.rnf overrideAlarmConfiguration
+      `Prelude.seq` Prelude.rnf loadBalancerInfo
       `Prelude.seq` Prelude.rnf deploymentGroupName
       `Prelude.seq` Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf fileExistsBehavior

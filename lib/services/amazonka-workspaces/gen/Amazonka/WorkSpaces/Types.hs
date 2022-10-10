@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.WorkSpaces.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,6 +68,9 @@ module Amazonka.WorkSpaces.Types
     -- * ImageType
     ImageType (..),
 
+    -- * LogUploadEnum
+    LogUploadEnum (..),
+
     -- * ModificationResourceEnum
     ModificationResourceEnum (..),
 
@@ -124,6 +127,7 @@ module Amazonka.WorkSpaces.Types
     ClientProperties (..),
     newClientProperties,
     clientProperties_reconnectEnabled,
+    clientProperties_logUploadEnabled,
 
     -- * ClientPropertiesResult
     ClientPropertiesResult (..),
@@ -484,6 +488,7 @@ import Amazonka.WorkSpaces.Types.ImageType
 import Amazonka.WorkSpaces.Types.IosClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.IpRuleItem
+import Amazonka.WorkSpaces.Types.LogUploadEnum
 import Amazonka.WorkSpaces.Types.ModificationResourceEnum
 import Amazonka.WorkSpaces.Types.ModificationState
 import Amazonka.WorkSpaces.Types.ModificationStateEnum

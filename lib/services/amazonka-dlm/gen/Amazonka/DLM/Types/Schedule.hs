@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types.Schedule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.DLM.Types.Schedule where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DLM.Types.ArchiveRule
 import Amazonka.DLM.Types.CreateRule
 import Amazonka.DLM.Types.CrossRegionCopyRule
 import Amazonka.DLM.Types.DeprecateRule
@@ -35,7 +36,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The name of the schedule.
+  { -- | __[Snapshot policies that target volumes only]__ The snapshot archiving
+    -- rule for the schedule. When you specify an archiving rule, snapshots are
+    -- automatically moved from the standard tier to the archive tier once the
+    -- schedule\'s retention threshold is met. Snapshots are then retained in
+    -- the archive tier for the archive retention period that you specify.
+    --
+    -- For more information about using snapshot archiving, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive Considerations for snapshot lifecycle policies>.
+    archiveRule :: Prelude.Maybe ArchiveRule,
+    -- | The name of the schedule.
     name :: Prelude.Maybe Prelude.Text,
     -- | __[Snapshot policies only]__ The rule for enabling fast snapshot
     -- restore.
@@ -79,6 +89,15 @@ data Schedule = Schedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'archiveRule', 'schedule_archiveRule' - __[Snapshot policies that target volumes only]__ The snapshot archiving
+-- rule for the schedule. When you specify an archiving rule, snapshots are
+-- automatically moved from the standard tier to the archive tier once the
+-- schedule\'s retention threshold is met. Snapshots are then retained in
+-- the archive tier for the archive retention period that you specify.
+--
+-- For more information about using snapshot archiving, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive Considerations for snapshot lifecycle policies>.
+--
 -- 'name', 'schedule_name' - The name of the schedule.
 --
 -- 'fastRestoreRule', 'schedule_fastRestoreRule' - __[Snapshot policies only]__ The rule for enabling fast snapshot
@@ -115,7 +134,8 @@ newSchedule ::
   Schedule
 newSchedule =
   Schedule'
-    { name = Prelude.Nothing,
+    { archiveRule = Prelude.Nothing,
+      name = Prelude.Nothing,
       fastRestoreRule = Prelude.Nothing,
       variableTags = Prelude.Nothing,
       tagsToAdd = Prelude.Nothing,
@@ -126,6 +146,17 @@ newSchedule =
       crossRegionCopyRules = Prelude.Nothing,
       shareRules = Prelude.Nothing
     }
+
+-- | __[Snapshot policies that target volumes only]__ The snapshot archiving
+-- rule for the schedule. When you specify an archiving rule, snapshots are
+-- automatically moved from the standard tier to the archive tier once the
+-- schedule\'s retention threshold is met. Snapshots are then retained in
+-- the archive tier for the archive retention period that you specify.
+--
+-- For more information about using snapshot archiving, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive Considerations for snapshot lifecycle policies>.
+schedule_archiveRule :: Lens.Lens' Schedule (Prelude.Maybe ArchiveRule)
+schedule_archiveRule = Lens.lens (\Schedule' {archiveRule} -> archiveRule) (\s@Schedule' {} a -> s {archiveRule = a} :: Schedule)
 
 -- | The name of the schedule.
 schedule_name :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
@@ -186,7 +217,8 @@ instance Core.FromJSON Schedule where
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "ArchiveRule")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "FastRestoreRule")
             Prelude.<*> (x Core..:? "VariableTags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "TagsToAdd" Core..!= Prelude.mempty)
@@ -202,7 +234,8 @@ instance Core.FromJSON Schedule where
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` archiveRule
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fastRestoreRule
       `Prelude.hashWithSalt` variableTags
       `Prelude.hashWithSalt` tagsToAdd
@@ -215,7 +248,8 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf name
+    Prelude.rnf archiveRule
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fastRestoreRule
       `Prelude.seq` Prelude.rnf variableTags
       `Prelude.seq` Prelude.rnf tagsToAdd
@@ -230,7 +264,8 @@ instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("ArchiveRule" Core..=) Prelude.<$> archiveRule,
+            ("Name" Core..=) Prelude.<$> name,
             ("FastRestoreRule" Core..=)
               Prelude.<$> fastRestoreRule,
             ("VariableTags" Core..=) Prelude.<$> variableTags,

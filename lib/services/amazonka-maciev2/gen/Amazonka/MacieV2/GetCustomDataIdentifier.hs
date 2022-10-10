@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetCustomDataIdentifier
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,8 +59,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCustomDataIdentifier' smart constructor.
 data GetCustomDataIdentifier = GetCustomDataIdentifier'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,8 +73,8 @@ data GetCustomDataIdentifier = GetCustomDataIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'getCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newGetCustomDataIdentifier ::
   -- | 'id'
   Prelude.Text ->
@@ -82,8 +82,8 @@ newGetCustomDataIdentifier ::
 newGetCustomDataIdentifier pId_ =
   GetCustomDataIdentifier' {id = pId_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 getCustomDataIdentifier_id :: Lens.Lens' GetCustomDataIdentifier Prelude.Text
 getCustomDataIdentifier_id = Lens.lens (\GetCustomDataIdentifier' {id} -> id) (\s@GetCustomDataIdentifier' {} a -> s {id = a} :: GetCustomDataIdentifier)
 

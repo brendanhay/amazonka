@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteUser
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a user from Amazon WorkMail and all subsequent systems. Before
--- you can delete a user, the user state must be @DISABLED@. Use the
--- DescribeUser action to confirm the user state.
+-- Deletes a user from WorkMail and all subsequent systems. Before you can
+-- delete a user, the user state must be @DISABLED@. Use the DescribeUser
+-- action to confirm the user state.
 --
 -- Deleting a user is permanent and cannot be undone. WorkMail archives
 -- user mailboxes for 30 days before they are permanently removed.

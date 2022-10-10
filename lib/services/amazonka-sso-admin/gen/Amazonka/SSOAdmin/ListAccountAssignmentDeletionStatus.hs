@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the status of the Amazon Web Services account assignment deletion
--- requests for a specified Amazon Web Services SSO instance.
+-- Lists the status of the AWS account assignment deletion requests for a
+-- specified IAM Identity Center instance.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
@@ -62,10 +62,10 @@ data ListAccountAssignmentDeletionStatus = ListAccountAssignmentDeletionStatus'
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,10 +85,10 @@ data ListAccountAssignmentDeletionStatus = ListAccountAssignmentDeletionStatus'
 --
 -- 'maxResults', 'listAccountAssignmentDeletionStatus_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listAccountAssignmentDeletionStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'listAccountAssignmentDeletionStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 newListAccountAssignmentDeletionStatus ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -115,10 +115,10 @@ listAccountAssignmentDeletionStatus_filter = Lens.lens (\ListAccountAssignmentDe
 listAccountAssignmentDeletionStatus_maxResults :: Lens.Lens' ListAccountAssignmentDeletionStatus (Prelude.Maybe Prelude.Natural)
 listAccountAssignmentDeletionStatus_maxResults = Lens.lens (\ListAccountAssignmentDeletionStatus' {maxResults} -> maxResults) (\s@ListAccountAssignmentDeletionStatus' {} a -> s {maxResults = a} :: ListAccountAssignmentDeletionStatus)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 listAccountAssignmentDeletionStatus_instanceArn :: Lens.Lens' ListAccountAssignmentDeletionStatus Prelude.Text
 listAccountAssignmentDeletionStatus_instanceArn = Lens.lens (\ListAccountAssignmentDeletionStatus' {instanceArn} -> instanceArn) (\s@ListAccountAssignmentDeletionStatus' {} a -> s {instanceArn = a} :: ListAccountAssignmentDeletionStatus)
 

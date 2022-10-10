@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -161,7 +161,7 @@ instance Core.ToQuery DescribeDomain where
 
 -- | /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { -- | The SSO managed application instance ID.
+  { -- | The IAM Identity Center managed application instance ID.
     singleSignOnManagedApplicationInstanceId :: Prelude.Maybe Prelude.Text,
     -- | The domain name.
     domainName :: Prelude.Maybe Prelude.Text,
@@ -229,7 +229,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'singleSignOnManagedApplicationInstanceId', 'describeDomainResponse_singleSignOnManagedApplicationInstanceId' - The SSO managed application instance ID.
+-- 'singleSignOnManagedApplicationInstanceId', 'describeDomainResponse_singleSignOnManagedApplicationInstanceId' - The IAM Identity Center managed application instance ID.
 --
 -- 'domainName', 'describeDomainResponse_domainName' - The domain name.
 --
@@ -315,7 +315,7 @@ newDescribeDomainResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The SSO managed application instance ID.
+-- | The IAM Identity Center managed application instance ID.
 describeDomainResponse_singleSignOnManagedApplicationInstanceId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_singleSignOnManagedApplicationInstanceId = Lens.lens (\DescribeDomainResponse' {singleSignOnManagedApplicationInstanceId} -> singleSignOnManagedApplicationInstanceId) (\s@DescribeDomainResponse' {} a -> s {singleSignOnManagedApplicationInstanceId = a} :: DescribeDomainResponse)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.UpdateAssetProperty
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Amazonka.IoTSiteWise.UpdateAssetProperty
     updateAssetProperty_clientToken,
     updateAssetProperty_propertyAlias,
     updateAssetProperty_propertyNotificationState,
+    updateAssetProperty_propertyUnit,
     updateAssetProperty_assetId,
     updateAssetProperty_propertyId,
 
@@ -75,6 +76,10 @@ data UpdateAssetProperty = UpdateAssetProperty'
     --
     -- If you omit this parameter, the notification state is set to @DISABLED@.
     propertyNotificationState :: Prelude.Maybe PropertyNotificationState,
+    -- | The unit of measure (such as Newtons or RPM) of the asset property. If
+    -- you don\'t specify a value for this parameter, the service uses the
+    -- value of the @assetModelProperty@ in the asset model.
+    propertyUnit :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset to be updated.
     assetId :: Prelude.Text,
     -- | The ID of the asset property to be updated.
@@ -111,6 +116,10 @@ data UpdateAssetProperty = UpdateAssetProperty'
 --
 -- If you omit this parameter, the notification state is set to @DISABLED@.
 --
+-- 'propertyUnit', 'updateAssetProperty_propertyUnit' - The unit of measure (such as Newtons or RPM) of the asset property. If
+-- you don\'t specify a value for this parameter, the service uses the
+-- value of the @assetModelProperty@ in the asset model.
+--
 -- 'assetId', 'updateAssetProperty_assetId' - The ID of the asset to be updated.
 --
 -- 'propertyId', 'updateAssetProperty_propertyId' - The ID of the asset property to be updated.
@@ -125,6 +134,7 @@ newUpdateAssetProperty pAssetId_ pPropertyId_ =
     { clientToken = Prelude.Nothing,
       propertyAlias = Prelude.Nothing,
       propertyNotificationState = Prelude.Nothing,
+      propertyUnit = Prelude.Nothing,
       assetId = pAssetId_,
       propertyId = pPropertyId_
     }
@@ -156,6 +166,12 @@ updateAssetProperty_propertyAlias = Lens.lens (\UpdateAssetProperty' {propertyAl
 updateAssetProperty_propertyNotificationState :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe PropertyNotificationState)
 updateAssetProperty_propertyNotificationState = Lens.lens (\UpdateAssetProperty' {propertyNotificationState} -> propertyNotificationState) (\s@UpdateAssetProperty' {} a -> s {propertyNotificationState = a} :: UpdateAssetProperty)
 
+-- | The unit of measure (such as Newtons or RPM) of the asset property. If
+-- you don\'t specify a value for this parameter, the service uses the
+-- value of the @assetModelProperty@ in the asset model.
+updateAssetProperty_propertyUnit :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe Prelude.Text)
+updateAssetProperty_propertyUnit = Lens.lens (\UpdateAssetProperty' {propertyUnit} -> propertyUnit) (\s@UpdateAssetProperty' {} a -> s {propertyUnit = a} :: UpdateAssetProperty)
+
 -- | The ID of the asset to be updated.
 updateAssetProperty_assetId :: Lens.Lens' UpdateAssetProperty Prelude.Text
 updateAssetProperty_assetId = Lens.lens (\UpdateAssetProperty' {assetId} -> assetId) (\s@UpdateAssetProperty' {} a -> s {assetId = a} :: UpdateAssetProperty)
@@ -177,6 +193,7 @@ instance Prelude.Hashable UpdateAssetProperty where
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyNotificationState
+      `Prelude.hashWithSalt` propertyUnit
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyId
 
@@ -185,6 +202,7 @@ instance Prelude.NFData UpdateAssetProperty where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyNotificationState
+      `Prelude.seq` Prelude.rnf propertyUnit
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
@@ -206,7 +224,8 @@ instance Core.ToJSON UpdateAssetProperty where
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
             ("propertyNotificationState" Core..=)
-              Prelude.<$> propertyNotificationState
+              Prelude.<$> propertyNotificationState,
+            ("propertyUnit" Core..=) Prelude.<$> propertyUnit
           ]
       )
 

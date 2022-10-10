@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,7 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
     -- | The Amazon Resource Name (ARN) of the
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
     -- object. You can retrieve this ARN by calling
-    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
-    -- .
+    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
     associationArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the repository association.
     --
@@ -70,7 +69,7 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
     -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
     --     repository. You can create a new association with this repository if
     --     you want to review source code in it later. You can control access
-    --     to code reviews created in an associated repository with tags after
+    --     to code reviews created in anassociated repository with tags after
     --     it has been disassociated. For more information, see
     --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
     --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -112,8 +111,7 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
 -- 'associationArn', 'repositoryAssociationSummary_associationArn' - The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
 -- object. You can retrieve this ARN by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
 --
 -- 'state', 'repositoryAssociationSummary_state' - The state of the repository association.
 --
@@ -143,7 +141,7 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -192,8 +190,7 @@ repositoryAssociationSummary_name = Lens.lens (\RepositoryAssociationSummary' {n
 -- | The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
 -- object. You can retrieve this ARN by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
 repositoryAssociationSummary_associationArn :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
 repositoryAssociationSummary_associationArn = Lens.lens (\RepositoryAssociationSummary' {associationArn} -> associationArn) (\s@RepositoryAssociationSummary' {} a -> s {associationArn = a} :: RepositoryAssociationSummary)
 
@@ -225,7 +222,7 @@ repositoryAssociationSummary_associationArn = Lens.lens (\RepositoryAssociationS
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.

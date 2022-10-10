@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetOutpostInstanceTypes
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,12 +56,6 @@ data GetOutpostInstanceTypes = GetOutpostInstanceTypes'
   { nextToken :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     outpostId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,12 +73,6 @@ data GetOutpostInstanceTypes = GetOutpostInstanceTypes'
 -- 'maxResults', 'getOutpostInstanceTypes_maxResults' - Undocumented member.
 --
 -- 'outpostId', 'getOutpostInstanceTypes_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newGetOutpostInstanceTypes ::
   -- | 'outpostId'
   Prelude.Text ->
@@ -106,12 +94,6 @@ getOutpostInstanceTypes_maxResults :: Lens.Lens' GetOutpostInstanceTypes (Prelud
 getOutpostInstanceTypes_maxResults = Lens.lens (\GetOutpostInstanceTypes' {maxResults} -> maxResults) (\s@GetOutpostInstanceTypes' {} a -> s {maxResults = a} :: GetOutpostInstanceTypes)
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 getOutpostInstanceTypes_outpostId :: Lens.Lens' GetOutpostInstanceTypes Prelude.Text
 getOutpostInstanceTypes_outpostId = Lens.lens (\GetOutpostInstanceTypes' {outpostId} -> outpostId) (\s@GetOutpostInstanceTypes' {} a -> s {outpostId = a} :: GetOutpostInstanceTypes)
 
@@ -170,12 +152,6 @@ instance Core.ToQuery GetOutpostInstanceTypes where
 data GetOutpostInstanceTypesResponse = GetOutpostInstanceTypesResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Outpost.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     outpostId :: Prelude.Maybe Prelude.Text,
     outpostArn :: Prelude.Maybe Prelude.Text,
     instanceTypes :: Prelude.Maybe [InstanceTypeItem],
@@ -195,12 +171,6 @@ data GetOutpostInstanceTypesResponse = GetOutpostInstanceTypesResponse'
 -- 'nextToken', 'getOutpostInstanceTypesResponse_nextToken' - Undocumented member.
 --
 -- 'outpostId', 'getOutpostInstanceTypesResponse_outpostId' - The ID of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 --
 -- 'outpostArn', 'getOutpostInstanceTypesResponse_outpostArn' - Undocumented member.
 --
@@ -226,12 +196,6 @@ getOutpostInstanceTypesResponse_nextToken :: Lens.Lens' GetOutpostInstanceTypesR
 getOutpostInstanceTypesResponse_nextToken = Lens.lens (\GetOutpostInstanceTypesResponse' {nextToken} -> nextToken) (\s@GetOutpostInstanceTypesResponse' {} a -> s {nextToken = a} :: GetOutpostInstanceTypesResponse)
 
 -- | The ID of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 getOutpostInstanceTypesResponse_outpostId :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 getOutpostInstanceTypesResponse_outpostId = Lens.lens (\GetOutpostInstanceTypesResponse' {outpostId} -> outpostId) (\s@GetOutpostInstanceTypesResponse' {} a -> s {outpostId = a} :: GetOutpostInstanceTypesResponse)
 

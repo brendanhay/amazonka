@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.UpdateArchiveRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ module Amazonka.AccessAnalyzer.UpdateArchiveRule
     -- * Request Lenses
     updateArchiveRule_clientToken,
     updateArchiveRule_analyzerName,
-    updateArchiveRule_filter,
     updateArchiveRule_ruleName,
+    updateArchiveRule_filter,
 
     -- * Destructuring the Response
     UpdateArchiveRuleResponse (..),
@@ -53,11 +53,11 @@ data UpdateArchiveRule = UpdateArchiveRule'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the analyzer to update the archive rules for.
     analyzerName :: Prelude.Text,
+    -- | The name of the rule to update.
+    ruleName :: Prelude.Text,
     -- | A filter to match for the rules to update. Only rules that match the
     -- filter are updated.
-    filter' :: Prelude.HashMap Prelude.Text Criterion,
-    -- | The name of the rule to update.
-    ruleName :: Prelude.Text
+    filter' :: Prelude.HashMap Prelude.Text Criterion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,10 +73,10 @@ data UpdateArchiveRule = UpdateArchiveRule'
 --
 -- 'analyzerName', 'updateArchiveRule_analyzerName' - The name of the analyzer to update the archive rules for.
 --
+-- 'ruleName', 'updateArchiveRule_ruleName' - The name of the rule to update.
+--
 -- 'filter'', 'updateArchiveRule_filter' - A filter to match for the rules to update. Only rules that match the
 -- filter are updated.
---
--- 'ruleName', 'updateArchiveRule_ruleName' - The name of the rule to update.
 newUpdateArchiveRule ::
   -- | 'analyzerName'
   Prelude.Text ->
@@ -87,8 +87,8 @@ newUpdateArchiveRule pAnalyzerName_ pRuleName_ =
   UpdateArchiveRule'
     { clientToken = Prelude.Nothing,
       analyzerName = pAnalyzerName_,
-      filter' = Prelude.mempty,
-      ruleName = pRuleName_
+      ruleName = pRuleName_,
+      filter' = Prelude.mempty
     }
 
 -- | A client token.
@@ -99,14 +99,14 @@ updateArchiveRule_clientToken = Lens.lens (\UpdateArchiveRule' {clientToken} -> 
 updateArchiveRule_analyzerName :: Lens.Lens' UpdateArchiveRule Prelude.Text
 updateArchiveRule_analyzerName = Lens.lens (\UpdateArchiveRule' {analyzerName} -> analyzerName) (\s@UpdateArchiveRule' {} a -> s {analyzerName = a} :: UpdateArchiveRule)
 
+-- | The name of the rule to update.
+updateArchiveRule_ruleName :: Lens.Lens' UpdateArchiveRule Prelude.Text
+updateArchiveRule_ruleName = Lens.lens (\UpdateArchiveRule' {ruleName} -> ruleName) (\s@UpdateArchiveRule' {} a -> s {ruleName = a} :: UpdateArchiveRule)
+
 -- | A filter to match for the rules to update. Only rules that match the
 -- filter are updated.
 updateArchiveRule_filter :: Lens.Lens' UpdateArchiveRule (Prelude.HashMap Prelude.Text Criterion)
 updateArchiveRule_filter = Lens.lens (\UpdateArchiveRule' {filter'} -> filter') (\s@UpdateArchiveRule' {} a -> s {filter' = a} :: UpdateArchiveRule) Prelude.. Lens.coerced
-
--- | The name of the rule to update.
-updateArchiveRule_ruleName :: Lens.Lens' UpdateArchiveRule Prelude.Text
-updateArchiveRule_ruleName = Lens.lens (\UpdateArchiveRule' {ruleName} -> ruleName) (\s@UpdateArchiveRule' {} a -> s {ruleName = a} :: UpdateArchiveRule)
 
 instance Core.AWSRequest UpdateArchiveRule where
   type
@@ -120,15 +120,15 @@ instance Prelude.Hashable UpdateArchiveRule where
   hashWithSalt _salt UpdateArchiveRule' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` filter'
 
 instance Prelude.NFData UpdateArchiveRule where
   rnf UpdateArchiveRule' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders UpdateArchiveRule where
   toHeaders =

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.StartMailboxExportJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@
 -- calendar items from the specified mailbox to the specified Amazon Simple
 -- Storage Service (Amazon S3) bucket. For more information, see
 -- <https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html Exporting mailbox content>
--- in the /Amazon WorkMail Administrator Guide/.
+-- in the /WorkMail Administrator Guide/.
 module Amazonka.WorkMail.StartMailboxExportJob
   ( -- * Creating a Request
     StartMailboxExportJob (..),

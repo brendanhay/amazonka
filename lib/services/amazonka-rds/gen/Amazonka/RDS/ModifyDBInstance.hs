@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.ModifyDBInstance
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -227,15 +227,16 @@ data ModifyDBInstance = ModifyDBInstance'
     -- db.m4.large. Not all DB instance classes are available in all Amazon Web
     -- Services Regions, or for all database engines. For the full list of DB
     -- instance classes, and availability for your engine, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
-    -- in the /Amazon RDS User Guide/. For RDS Custom, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
-    -- and
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+    -- in the /Amazon RDS User Guide/ or
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
+    -- in the /Amazon Aurora User Guide/.
     --
     -- If you modify the DB instance class, an outage occurs during the change.
     -- The change is applied during the next maintenance window, unless
     -- @ApplyImmediately@ is enabled for this request.
+    --
+    -- This setting doesn\'t apply to RDS Custom for Oracle.
     --
     -- Default: Uses existing setting
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
@@ -943,15 +944,16 @@ data ModifyDBInstance = ModifyDBInstance'
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
 -- Services Regions, or for all database engines. For the full list of DB
 -- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide/. For RDS Custom, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
--- and
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+-- in the /Amazon RDS User Guide/ or
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
+-- in the /Amazon Aurora User Guide/.
 --
 -- If you modify the DB instance class, an outage occurs during the change.
 -- The change is applied during the next maintenance window, unless
 -- @ApplyImmediately@ is enabled for this request.
+--
+-- This setting doesn\'t apply to RDS Custom for Oracle.
 --
 -- Default: Uses existing setting
 --
@@ -1716,15 +1718,16 @@ modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRe
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
 -- Services Regions, or for all database engines. For the full list of DB
 -- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide/. For RDS Custom, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
--- and
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+-- in the /Amazon RDS User Guide/ or
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
+-- in the /Amazon Aurora User Guide/.
 --
 -- If you modify the DB instance class, an outage occurs during the change.
 -- The change is applied during the next maintenance window, unless
 -- @ApplyImmediately@ is enabled for this request.
+--
+-- This setting doesn\'t apply to RDS Custom for Oracle.
 --
 -- Default: Uses existing setting
 modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)

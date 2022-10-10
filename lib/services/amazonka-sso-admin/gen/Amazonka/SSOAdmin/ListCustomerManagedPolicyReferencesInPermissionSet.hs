@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ListCustomerManagedPolicyReferencesInPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,8 +60,8 @@ data ListCustomerManagedPolicyReferencesInPermissionSet = ListCustomerManagedPol
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display for the list call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text
@@ -81,8 +81,8 @@ data ListCustomerManagedPolicyReferencesInPermissionSet = ListCustomerManagedPol
 --
 -- 'maxResults', 'listCustomerManagedPolicyReferencesInPermissionSet_maxResults' - The maximum number of results to display for the list call.
 --
--- 'instanceArn', 'listCustomerManagedPolicyReferencesInPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'listCustomerManagedPolicyReferencesInPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'listCustomerManagedPolicyReferencesInPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 newListCustomerManagedPolicyReferencesInPermissionSet ::
@@ -114,8 +114,8 @@ listCustomerManagedPolicyReferencesInPermissionSet_nextToken = Lens.lens (\ListC
 listCustomerManagedPolicyReferencesInPermissionSet_maxResults :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSet (Prelude.Maybe Prelude.Natural)
 listCustomerManagedPolicyReferencesInPermissionSet_maxResults = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSet' {maxResults} -> maxResults) (\s@ListCustomerManagedPolicyReferencesInPermissionSet' {} a -> s {maxResults = a} :: ListCustomerManagedPolicyReferencesInPermissionSet)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 listCustomerManagedPolicyReferencesInPermissionSet_instanceArn :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSet Prelude.Text
 listCustomerManagedPolicyReferencesInPermissionSet_instanceArn = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSet' {instanceArn} -> instanceArn) (\s@ListCustomerManagedPolicyReferencesInPermissionSet' {} a -> s {instanceArn = a} :: ListCustomerManagedPolicyReferencesInPermissionSet)
 

@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.CreateUser
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a user who can be used in Amazon WorkMail by calling the
+-- Creates a user who can be used in WorkMail by calling the
 -- RegisterToWorkMail operation.
 module Amazonka.WorkMail.CreateUser
   ( -- * Creating a Request

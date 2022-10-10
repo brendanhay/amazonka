@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.Substring
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubstring' smart constructor.
 data Substring = Substring'
-  { -- | The length of the substring.
-    length :: Prelude.Int,
-    -- | The start index of the substring, starting from 0.
-    start :: Prelude.Int
+  { -- | The start index of the substring, starting from 0.
+    start :: Prelude.Int,
+    -- | The length of the substring.
+    length :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data Substring = Substring'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'length', 'substring_length' - The length of the substring.
---
 -- 'start', 'substring_start' - The start index of the substring, starting from 0.
+--
+-- 'length', 'substring_length' - The length of the substring.
 newSubstring ::
-  -- | 'length'
-  Prelude.Int ->
   -- | 'start'
   Prelude.Int ->
+  -- | 'length'
+  Prelude.Int ->
   Substring
-newSubstring pLength_ pStart_ =
-  Substring' {length = pLength_, start = pStart_}
-
--- | The length of the substring.
-substring_length :: Lens.Lens' Substring Prelude.Int
-substring_length = Lens.lens (\Substring' {length} -> length) (\s@Substring' {} a -> s {length = a} :: Substring)
+newSubstring pStart_ pLength_ =
+  Substring' {start = pStart_, length = pLength_}
 
 -- | The start index of the substring, starting from 0.
 substring_start :: Lens.Lens' Substring Prelude.Int
 substring_start = Lens.lens (\Substring' {start} -> start) (\s@Substring' {} a -> s {start = a} :: Substring)
+
+-- | The length of the substring.
+substring_length :: Lens.Lens' Substring Prelude.Int
+substring_length = Lens.lens (\Substring' {length} -> length) (\s@Substring' {} a -> s {length = a} :: Substring)
 
 instance Core.FromJSON Substring where
   parseJSON =
@@ -68,14 +68,14 @@ instance Core.FromJSON Substring where
       "Substring"
       ( \x ->
           Substring'
-            Prelude.<$> (x Core..: "length") Prelude.<*> (x Core..: "start")
+            Prelude.<$> (x Core..: "start") Prelude.<*> (x Core..: "length")
       )
 
 instance Prelude.Hashable Substring where
   hashWithSalt _salt Substring' {..} =
-    _salt `Prelude.hashWithSalt` length
-      `Prelude.hashWithSalt` start
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` length
 
 instance Prelude.NFData Substring where
   rnf Substring' {..} =
-    Prelude.rnf length `Prelude.seq` Prelude.rnf start
+    Prelude.rnf start `Prelude.seq` Prelude.rnf length

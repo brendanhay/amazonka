@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.CreateProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data CreateProfile = CreateProfile'
     -- | An array of identifiers for the imported certificates. You use this
     -- identifier for working with profiles and partner profiles.
     certificateIds :: Prelude.Maybe [Prelude.Text],
-    -- | The @As2Id@ is the /AS2-name/, as defined in the defined in the
+    -- | The @As2Id@ is the /AS2-name/, as defined in the
     -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
     -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
     -- the partner. For outbound connectors, this is the @AS2-To@ header for
@@ -84,7 +84,7 @@ data CreateProfile = CreateProfile'
 -- 'certificateIds', 'createProfile_certificateIds' - An array of identifiers for the imported certificates. You use this
 -- identifier for working with profiles and partner profiles.
 --
--- 'as2Id', 'createProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the defined in the
+-- 'as2Id', 'createProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
 -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
 -- the partner. For outbound connectors, this is the @AS2-To@ header for
@@ -117,7 +117,7 @@ createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfil
 createProfile_certificateIds :: Lens.Lens' CreateProfile (Prelude.Maybe [Prelude.Text])
 createProfile_certificateIds = Lens.lens (\CreateProfile' {certificateIds} -> certificateIds) (\s@CreateProfile' {} a -> s {certificateIds = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The @As2Id@ is the /AS2-name/, as defined in the defined in the
+-- | The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
 -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
 -- the partner. For outbound connectors, this is the @AS2-To@ header for

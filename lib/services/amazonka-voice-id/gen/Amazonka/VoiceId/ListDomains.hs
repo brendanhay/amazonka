@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.ListDomains
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,7 @@ data ListDomains = ListDomains'
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. You can use
-    -- @NextToken@ to obtain further pages of results. The default is 100; the
-    -- maximum allowed page size is also 100.
+    -- | The maximum number of domains to list per API call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,9 +75,7 @@ data ListDomains = ListDomains'
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
 --
--- 'maxResults', 'listDomains_maxResults' - The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
--- maximum allowed page size is also 100.
+-- 'maxResults', 'listDomains_maxResults' - The maximum number of domains to list per API call.
 newListDomains ::
   ListDomains
 newListDomains =
@@ -95,9 +91,7 @@ newListDomains =
 listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
 listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
--- | The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
--- maximum allowed page size is also 100.
+-- | The maximum number of domains to list per API call.
 listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
 listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 

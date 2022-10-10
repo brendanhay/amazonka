@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.PortMapping
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,9 +75,6 @@ data PortMapping = PortMapping'
     -- port range as these are reserved for automatic assignment. In general,
     -- ports below 32768 are outside of the ephemeral port range.
     --
-    -- The default ephemeral port range from 49153 through 65535 is always used
-    -- for Docker versions before 1.6.0.
-    --
     -- The default reserved ports are 22 for SSH, the Docker ports 2375 and
     -- 2376, and the Amazon ECS container agent ports 51678-51680. Any host
     -- port that was previously specified in a running task is also reserved
@@ -136,9 +133,6 @@ data PortMapping = PortMapping'
 -- port range as these are reserved for automatic assignment. In general,
 -- ports below 32768 are outside of the ephemeral port range.
 --
--- The default ephemeral port range from 49153 through 65535 is always used
--- for Docker versions before 1.6.0.
---
 -- The default reserved ports are 22 for SSH, the Docker ports 2375 and
 -- 2376, and the Amazon ECS container agent ports 51678-51680. Any host
 -- port that was previously specified in a running task is also reserved
@@ -195,9 +189,6 @@ portMapping_containerPort = Lens.lens (\PortMapping' {containerPort} -> containe
 -- 65535 is used. Do not attempt to specify a host port in the ephemeral
 -- port range as these are reserved for automatic assignment. In general,
 -- ports below 32768 are outside of the ephemeral port range.
---
--- The default ephemeral port range from 49153 through 65535 is always used
--- for Docker versions before 1.6.0.
 --
 -- The default reserved ports are 22 for SSH, the Docker ports 2375 and
 -- 2376, and the Amazon ECS container agent ports 51678-51680. Any host

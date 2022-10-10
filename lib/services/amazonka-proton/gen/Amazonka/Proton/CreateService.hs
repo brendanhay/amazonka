@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateService
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,7 @@
 -- Create an Proton service. An Proton service is an instantiation of a
 -- service template and often includes several service instances and
 -- pipeline. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html Services>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html Services>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html Services>
 -- in the /Proton User Guide/.
 module Amazonka.Proton.CreateService
   ( -- * Creating a Request
@@ -66,16 +64,13 @@ data CreateService = CreateService'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton service. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the repository connection. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up repository connection>
-    -- in the /Proton Administrator Guide/ and
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
     -- in the /Proton User Guide/. /Don\'t/ include this parameter if your
     -- service template /doesn\'t/ include a service pipeline.
     repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
@@ -97,9 +92,7 @@ data CreateService = CreateService'
     -- template bundle schema file. The spec file is in YAML format. /Don’t/
     -- include pipeline inputs in the spec if your service template /doesn’t/
     -- include a service pipeline. For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html Create a service>
-    -- in the /Proton Administrator Guide/ and
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html Create a service>
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html Create a service>
     -- in the /Proton User Guide/.
     spec :: Core.Sensitive Prelude.Text,
     -- | The major version of the service template that was used to create the
@@ -121,16 +114,13 @@ data CreateService = CreateService'
 -- 'tags', 'createService_tags' - An optional list of metadata items that you can associate with the
 -- Proton service. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'repositoryConnectionArn', 'createService_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up repository connection>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
 -- in the /Proton User Guide/. /Don\'t/ include this parameter if your
 -- service template /doesn\'t/ include a service pipeline.
 --
@@ -152,9 +142,7 @@ data CreateService = CreateService'
 -- template bundle schema file. The spec file is in YAML format. /Don’t/
 -- include pipeline inputs in the spec if your service template /doesn’t/
 -- include a service pipeline. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html Create a service>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html Create a service>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html Create a service>
 -- in the /Proton User Guide/.
 --
 -- 'templateMajorVersion', 'createService_templateMajorVersion' - The major version of the service template that was used to create the
@@ -192,18 +180,15 @@ newCreateService
 -- | An optional list of metadata items that you can associate with the
 -- Proton service. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
 createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up repository connection>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
 -- in the /Proton User Guide/. /Don\'t/ include this parameter if your
 -- service template /doesn\'t/ include a service pipeline.
 createService_repositoryConnectionArn :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
@@ -237,9 +222,7 @@ createService_name = Lens.lens (\CreateService' {name} -> name) (\s@CreateServic
 -- template bundle schema file. The spec file is in YAML format. /Don’t/
 -- include pipeline inputs in the spec if your service template /doesn’t/
 -- include a service pipeline. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html Create a service>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html Create a service>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html Create a service>
 -- in the /Proton User Guide/.
 createService_spec :: Lens.Lens' CreateService Prelude.Text
 createService_spec = Lens.lens (\CreateService' {spec} -> spec) (\s@CreateService' {} a -> s {spec = a} :: CreateService) Prelude.. Core._Sensitive

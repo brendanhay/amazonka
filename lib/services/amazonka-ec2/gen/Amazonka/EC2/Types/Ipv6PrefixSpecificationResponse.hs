@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.Ipv6PrefixSpecificationResponse
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpv6PrefixSpecificationResponse' smart constructor.
 data Ipv6PrefixSpecificationResponse = Ipv6PrefixSpecificationResponse'
-  { -- | One or more IPv6 delegated prefixes assigned to the network interface.
+  { -- | The IPv6 delegated prefixes assigned to the network interface.
     ipv6Prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +42,7 @@ data Ipv6PrefixSpecificationResponse = Ipv6PrefixSpecificationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6Prefix', 'ipv6PrefixSpecificationResponse_ipv6Prefix' - One or more IPv6 delegated prefixes assigned to the network interface.
+-- 'ipv6Prefix', 'ipv6PrefixSpecificationResponse_ipv6Prefix' - The IPv6 delegated prefixes assigned to the network interface.
 newIpv6PrefixSpecificationResponse ::
   Ipv6PrefixSpecificationResponse
 newIpv6PrefixSpecificationResponse =
@@ -51,7 +51,7 @@ newIpv6PrefixSpecificationResponse =
         Prelude.Nothing
     }
 
--- | One or more IPv6 delegated prefixes assigned to the network interface.
+-- | The IPv6 delegated prefixes assigned to the network interface.
 ipv6PrefixSpecificationResponse_ipv6Prefix :: Lens.Lens' Ipv6PrefixSpecificationResponse (Prelude.Maybe Prelude.Text)
 ipv6PrefixSpecificationResponse_ipv6Prefix = Lens.lens (\Ipv6PrefixSpecificationResponse' {ipv6Prefix} -> ipv6Prefix) (\s@Ipv6PrefixSpecificationResponse' {} a -> s {ipv6Prefix = a} :: Ipv6PrefixSpecificationResponse)
 

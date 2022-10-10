@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.DeploymentTarget
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data DeploymentTarget = DeploymentTarget'
     -- | The deployment type that is specific to the deployment\'s compute
     -- platform or deployments initiated by a CloudFormation stack update.
     deploymentTargetType :: Prelude.Maybe DeploymentTargetType,
-    -- | Information about the target for a deployment that uses the AWS Lambda
+    -- | Information about the target for a deployment that uses the Lambda
     -- compute platform.
     lambdaTarget :: Prelude.Maybe LambdaTarget,
     cloudFormationTarget :: Prelude.Maybe CloudFormationTarget
@@ -65,7 +65,7 @@ data DeploymentTarget = DeploymentTarget'
 -- 'deploymentTargetType', 'deploymentTarget_deploymentTargetType' - The deployment type that is specific to the deployment\'s compute
 -- platform or deployments initiated by a CloudFormation stack update.
 --
--- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda
+-- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the Lambda
 -- compute platform.
 --
 -- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.
@@ -95,7 +95,7 @@ deploymentTarget_ecsTarget = Lens.lens (\DeploymentTarget' {ecsTarget} -> ecsTar
 deploymentTarget_deploymentTargetType :: Lens.Lens' DeploymentTarget (Prelude.Maybe DeploymentTargetType)
 deploymentTarget_deploymentTargetType = Lens.lens (\DeploymentTarget' {deploymentTargetType} -> deploymentTargetType) (\s@DeploymentTarget' {} a -> s {deploymentTargetType = a} :: DeploymentTarget)
 
--- | Information about the target for a deployment that uses the AWS Lambda
+-- | Information about the target for a deployment that uses the Lambda
 -- compute platform.
 deploymentTarget_lambdaTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe LambdaTarget)
 deploymentTarget_lambdaTarget = Lens.lens (\DeploymentTarget' {lambdaTarget} -> lambdaTarget) (\s@DeploymentTarget' {} a -> s {lambdaTarget = a} :: DeploymentTarget)

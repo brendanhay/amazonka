@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CancelServicePipelineDeployment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,10 +22,9 @@
 --
 -- Attempts to cancel a service pipeline deployment on an
 -- UpdateServicePipeline action, if the deployment is @IN_PROGRESS@. For
--- more information, see /Update a service pipeline/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html Proton Administrator guide>
--- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html Proton User guide>.
+-- more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html Update a service pipeline>
+-- in the /Proton User guide/.
 --
 -- The following list includes potential cancellation scenarios.
 --

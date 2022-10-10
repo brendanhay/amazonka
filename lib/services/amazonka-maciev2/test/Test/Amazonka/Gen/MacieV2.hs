@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.MacieV2
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestBatchGetCustomDataIdentifiers $
 --             newBatchGetCustomDataIdentifiers
 --
+--         , requestCreateAllowList $
+--             newCreateAllowList
+--
 --         , requestCreateClassificationJob $
 --             newCreateClassificationJob
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , requestDeclineInvitations $
 --             newDeclineInvitations
+--
+--         , requestDeleteAllowList $
+--             newDeleteAllowList
 --
 --         , requestDeleteCustomDataIdentifier $
 --             newDeleteCustomDataIdentifier
@@ -98,6 +104,9 @@ import Test.Tasty
 --
 --         , requestGetAdministratorAccount $
 --             newGetAdministratorAccount
+--
+--         , requestGetAllowList $
+--             newGetAllowList
 --
 --         , requestGetBucketStatistics $
 --             newGetBucketStatistics
@@ -147,6 +156,9 @@ import Test.Tasty
 --         , requestGetUsageTotals $
 --             newGetUsageTotals
 --
+--         , requestListAllowLists $
+--             newListAllowLists
+--
 --         , requestListClassificationJobs $
 --             newListClassificationJobs
 --
@@ -192,6 +204,9 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateAllowList $
+--             newUpdateAllowList
+--
 --         , requestUpdateClassificationJob $
 --             newUpdateClassificationJob
 --
@@ -219,6 +234,9 @@ import Test.Tasty
 --         , responseBatchGetCustomDataIdentifiers $
 --             newBatchGetCustomDataIdentifiersResponse
 --
+--         , responseCreateAllowList $
+--             newCreateAllowListResponse
+--
 --         , responseCreateClassificationJob $
 --             newCreateClassificationJobResponse
 --
@@ -239,6 +257,9 @@ import Test.Tasty
 --
 --         , responseDeclineInvitations $
 --             newDeclineInvitationsResponse
+--
+--         , responseDeleteAllowList $
+--             newDeleteAllowListResponse
 --
 --         , responseDeleteCustomDataIdentifier $
 --             newDeleteCustomDataIdentifierResponse
@@ -284,6 +305,9 @@ import Test.Tasty
 --
 --         , responseGetAdministratorAccount $
 --             newGetAdministratorAccountResponse
+--
+--         , responseGetAllowList $
+--             newGetAllowListResponse
 --
 --         , responseGetBucketStatistics $
 --             newGetBucketStatisticsResponse
@@ -333,6 +357,9 @@ import Test.Tasty
 --         , responseGetUsageTotals $
 --             newGetUsageTotalsResponse
 --
+--         , responseListAllowLists $
+--             newListAllowListsResponse
+--
 --         , responseListClassificationJobs $
 --             newListClassificationJobsResponse
 --
@@ -378,6 +405,9 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateAllowList $
+--             newUpdateAllowListResponse
+--
 --         , responseUpdateClassificationJob $
 --             newUpdateClassificationJobResponse
 --
@@ -412,6 +442,12 @@ requestBatchGetCustomDataIdentifiers =
   req
     "BatchGetCustomDataIdentifiers"
     "fixture/BatchGetCustomDataIdentifiers.yaml"
+
+requestCreateAllowList :: CreateAllowList -> TestTree
+requestCreateAllowList =
+  req
+    "CreateAllowList"
+    "fixture/CreateAllowList.yaml"
 
 requestCreateClassificationJob :: CreateClassificationJob -> TestTree
 requestCreateClassificationJob =
@@ -454,6 +490,12 @@ requestDeclineInvitations =
   req
     "DeclineInvitations"
     "fixture/DeclineInvitations.yaml"
+
+requestDeleteAllowList :: DeleteAllowList -> TestTree
+requestDeleteAllowList =
+  req
+    "DeleteAllowList"
+    "fixture/DeleteAllowList.yaml"
 
 requestDeleteCustomDataIdentifier :: DeleteCustomDataIdentifier -> TestTree
 requestDeleteCustomDataIdentifier =
@@ -544,6 +586,12 @@ requestGetAdministratorAccount =
   req
     "GetAdministratorAccount"
     "fixture/GetAdministratorAccount.yaml"
+
+requestGetAllowList :: GetAllowList -> TestTree
+requestGetAllowList =
+  req
+    "GetAllowList"
+    "fixture/GetAllowList.yaml"
 
 requestGetBucketStatistics :: GetBucketStatistics -> TestTree
 requestGetBucketStatistics =
@@ -641,6 +689,12 @@ requestGetUsageTotals =
     "GetUsageTotals"
     "fixture/GetUsageTotals.yaml"
 
+requestListAllowLists :: ListAllowLists -> TestTree
+requestListAllowLists =
+  req
+    "ListAllowLists"
+    "fixture/ListAllowLists.yaml"
+
 requestListClassificationJobs :: ListClassificationJobs -> TestTree
 requestListClassificationJobs =
   req
@@ -731,6 +785,12 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateAllowList :: UpdateAllowList -> TestTree
+requestUpdateAllowList =
+  req
+    "UpdateAllowList"
+    "fixture/UpdateAllowList.yaml"
+
 requestUpdateClassificationJob :: UpdateClassificationJob -> TestTree
 requestUpdateClassificationJob =
   req
@@ -784,6 +844,14 @@ responseBatchGetCustomDataIdentifiers =
     "fixture/BatchGetCustomDataIdentifiersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetCustomDataIdentifiers)
+
+responseCreateAllowList :: CreateAllowListResponse -> TestTree
+responseCreateAllowList =
+  res
+    "CreateAllowListResponse"
+    "fixture/CreateAllowListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAllowList)
 
 responseCreateClassificationJob :: CreateClassificationJobResponse -> TestTree
 responseCreateClassificationJob =
@@ -840,6 +908,14 @@ responseDeclineInvitations =
     "fixture/DeclineInvitationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
+
+responseDeleteAllowList :: DeleteAllowListResponse -> TestTree
+responseDeleteAllowList =
+  res
+    "DeleteAllowListResponse"
+    "fixture/DeleteAllowListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAllowList)
 
 responseDeleteCustomDataIdentifier :: DeleteCustomDataIdentifierResponse -> TestTree
 responseDeleteCustomDataIdentifier =
@@ -960,6 +1036,14 @@ responseGetAdministratorAccount =
     "fixture/GetAdministratorAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAdministratorAccount)
+
+responseGetAllowList :: GetAllowListResponse -> TestTree
+responseGetAllowList =
+  res
+    "GetAllowListResponse"
+    "fixture/GetAllowListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAllowList)
 
 responseGetBucketStatistics :: GetBucketStatisticsResponse -> TestTree
 responseGetBucketStatistics =
@@ -1089,6 +1173,14 @@ responseGetUsageTotals =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetUsageTotals)
 
+responseListAllowLists :: ListAllowListsResponse -> TestTree
+responseListAllowLists =
+  res
+    "ListAllowListsResponse"
+    "fixture/ListAllowListsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAllowLists)
+
 responseListClassificationJobs :: ListClassificationJobsResponse -> TestTree
 responseListClassificationJobs =
   res
@@ -1208,6 +1300,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAllowList :: UpdateAllowListResponse -> TestTree
+responseUpdateAllowList =
+  res
+    "UpdateAllowListResponse"
+    "fixture/UpdateAllowListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAllowList)
 
 responseUpdateClassificationJob :: UpdateClassificationJobResponse -> TestTree
 responseUpdateClassificationJob =

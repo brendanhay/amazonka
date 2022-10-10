@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -117,6 +117,8 @@ library
     Amazonka.LookoutMetrics.Types.DimensionValueContribution
     Amazonka.LookoutMetrics.Types.ExecutionStatus
     Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+    Amazonka.LookoutMetrics.Types.Filter
+    Amazonka.LookoutMetrics.Types.FilterOperation
     Amazonka.LookoutMetrics.Types.Frequency
     Amazonka.LookoutMetrics.Types.InterMetricImpactDetails
     Amazonka.LookoutMetrics.Types.ItemizedMetricStats
@@ -126,6 +128,7 @@ library
     Amazonka.LookoutMetrics.Types.Metric
     Amazonka.LookoutMetrics.Types.MetricLevelImpact
     Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
+    Amazonka.LookoutMetrics.Types.MetricSetDimensionFilter
     Amazonka.LookoutMetrics.Types.MetricSetSummary
     Amazonka.LookoutMetrics.Types.MetricSource
     Amazonka.LookoutMetrics.Types.RDSSourceConfig
@@ -146,7 +149,7 @@ library
     Amazonka.LookoutMetrics.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-lookoutmetrics-test
@@ -165,9 +168,9 @@ test-suite amazonka-lookoutmetrics-test
     Test.Amazonka.LookoutMetrics.Internal
 
   build-depends:
-    , amazonka-core            ^>=2.0
+    , amazonka-core            >=2.0 && <2.1
     , amazonka-lookoutmetrics
-    , amazonka-test            ^>=2.0
+    , amazonka-test            >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

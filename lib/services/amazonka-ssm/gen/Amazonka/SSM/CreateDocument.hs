@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.CreateDocument
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -131,7 +131,7 @@ data CreateDocument = CreateDocument'
     -- You can\'t use the following strings as document name prefixes. These
     -- are reserved by Amazon Web Services for use as document name prefixes:
     --
-    -- -   @aws-@
+    -- -   @aws@
     --
     -- -   @amazon@
     --
@@ -217,7 +217,7 @@ data CreateDocument = CreateDocument'
 -- You can\'t use the following strings as document name prefixes. These
 -- are reserved by Amazon Web Services for use as document name prefixes:
 --
--- -   @aws-@
+-- -   @aws@
 --
 -- -   @amazon@
 --
@@ -329,7 +329,7 @@ createDocument_content = Lens.lens (\CreateDocument' {content} -> content) (\s@C
 -- You can\'t use the following strings as document name prefixes. These
 -- are reserved by Amazon Web Services for use as document name prefixes:
 --
--- -   @aws-@
+-- -   @aws@
 --
 -- -   @amazon@
 --

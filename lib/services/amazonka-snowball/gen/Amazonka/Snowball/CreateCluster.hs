@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.CreateCluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,7 +109,7 @@ data CreateCluster = CreateCluster'
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
     -- API action in Identity and Access Management (IAM).
     roleARN :: Prelude.Text,
-    -- | The type of Snow Family Devices to use for this cluster.
+    -- | The type of Snow Family devices to use for this cluster.
     --
     -- For cluster jobs, Amazon Web Services Snow Family currently supports
     -- only the @EDGE@ device type.
@@ -208,7 +208,7 @@ data CreateCluster = CreateCluster'
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
 -- API action in Identity and Access Management (IAM).
 --
--- 'snowballType', 'createCluster_snowballType' - The type of Snow Family Devices to use for this cluster.
+-- 'snowballType', 'createCluster_snowballType' - The type of Snow Family devices to use for this cluster.
 --
 -- For cluster jobs, Amazon Web Services Snow Family currently supports
 -- only the @EDGE@ device type.
@@ -355,7 +355,7 @@ createCluster_addressId = Lens.lens (\CreateCluster' {addressId} -> addressId) (
 createCluster_roleARN :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@CreateCluster' {} a -> s {roleARN = a} :: CreateCluster)
 
--- | The type of Snow Family Devices to use for this cluster.
+-- | The type of Snow Family devices to use for this cluster.
 --
 -- For cluster jobs, Amazon Web Services Snow Family currently supports
 -- only the @EDGE@ device type.

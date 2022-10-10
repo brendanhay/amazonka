@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.DynamoDB.TransactWriteItems
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- @TransactWriteItems@ is a synchronous write operation that groups up to
--- 25 action requests. These actions can target items in different tables,
+-- 100 action requests. These actions can target items in different tables,
 -- but not in different Amazon Web Services accounts or Regions, and no two
 -- actions can target the same item. For example, you cannot both
 -- @ConditionCheck@ and @Update@ the same item. The aggregate size of the
@@ -135,7 +135,7 @@ data TransactWriteItems = TransactWriteItems'
     -- any), that were modified during the operation and are returned in the
     -- response. If set to @NONE@ (the default), no statistics are returned.
     returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
-    -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
+    -- | An ordered array of up to 100 @TransactWriteItem@ objects, each of which
     -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
     -- can operate on items in different tables, but the tables must reside in
     -- the same Amazon Web Services account and Region, and no two of them can
@@ -181,7 +181,7 @@ data TransactWriteItems = TransactWriteItems'
 -- any), that were modified during the operation and are returned in the
 -- response. If set to @NONE@ (the default), no statistics are returned.
 --
--- 'transactItems', 'transactWriteItems_transactItems' - An ordered array of up to 25 @TransactWriteItem@ objects, each of which
+-- 'transactItems', 'transactWriteItems_transactItems' - An ordered array of up to 100 @TransactWriteItem@ objects, each of which
 -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
 -- can operate on items in different tables, but the tables must reside in
 -- the same Amazon Web Services account and Region, and no two of them can
@@ -234,7 +234,7 @@ transactWriteItems_returnConsumedCapacity = Lens.lens (\TransactWriteItems' {ret
 transactWriteItems_returnItemCollectionMetrics :: Lens.Lens' TransactWriteItems (Prelude.Maybe ReturnItemCollectionMetrics)
 transactWriteItems_returnItemCollectionMetrics = Lens.lens (\TransactWriteItems' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@TransactWriteItems' {} a -> s {returnItemCollectionMetrics = a} :: TransactWriteItems)
 
--- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
+-- | An ordered array of up to 100 @TransactWriteItem@ objects, each of which
 -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
 -- can operate on items in different tables, but the tables must reside in
 -- the same Amazon Web Services account and Region, and no two of them can

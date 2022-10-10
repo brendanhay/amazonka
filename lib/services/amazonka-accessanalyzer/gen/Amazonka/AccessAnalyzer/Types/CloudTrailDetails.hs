@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.CloudTrailDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,15 +33,15 @@ data CloudTrailDetails = CloudTrailDetails'
     -- considered to generate a policy. If this is not included in the request,
     -- the default value is the current time.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | A @Trail@ object that contains settings for a trail.
+    trails :: [Trail],
     -- | The ARN of the service role that IAM Access Analyzer uses to access your
     -- CloudTrail trail and service last accessed information.
     accessRole :: Prelude.Text,
     -- | The start of the time range for which IAM Access Analyzer reviews your
     -- CloudTrail events. Events with a timestamp before this time are not
     -- considered to generate a policy.
-    startTime :: Core.POSIX,
-    -- | A @Trail@ object that contains settings for a trail.
-    trails :: [Trail]
+    startTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,14 +58,14 @@ data CloudTrailDetails = CloudTrailDetails'
 -- considered to generate a policy. If this is not included in the request,
 -- the default value is the current time.
 --
+-- 'trails', 'cloudTrailDetails_trails' - A @Trail@ object that contains settings for a trail.
+--
 -- 'accessRole', 'cloudTrailDetails_accessRole' - The ARN of the service role that IAM Access Analyzer uses to access your
 -- CloudTrail trail and service last accessed information.
 --
 -- 'startTime', 'cloudTrailDetails_startTime' - The start of the time range for which IAM Access Analyzer reviews your
 -- CloudTrail events. Events with a timestamp before this time are not
 -- considered to generate a policy.
---
--- 'trails', 'cloudTrailDetails_trails' - A @Trail@ object that contains settings for a trail.
 newCloudTrailDetails ::
   -- | 'accessRole'
   Prelude.Text ->
@@ -75,9 +75,9 @@ newCloudTrailDetails ::
 newCloudTrailDetails pAccessRole_ pStartTime_ =
   CloudTrailDetails'
     { endTime = Prelude.Nothing,
+      trails = Prelude.mempty,
       accessRole = pAccessRole_,
-      startTime = Core._Time Lens.# pStartTime_,
-      trails = Prelude.mempty
+      startTime = Core._Time Lens.# pStartTime_
     }
 
 -- | The end of the time range for which IAM Access Analyzer reviews your
@@ -86,6 +86,10 @@ newCloudTrailDetails pAccessRole_ pStartTime_ =
 -- the default value is the current time.
 cloudTrailDetails_endTime :: Lens.Lens' CloudTrailDetails (Prelude.Maybe Prelude.UTCTime)
 cloudTrailDetails_endTime = Lens.lens (\CloudTrailDetails' {endTime} -> endTime) (\s@CloudTrailDetails' {} a -> s {endTime = a} :: CloudTrailDetails) Prelude.. Lens.mapping Core._Time
+
+-- | A @Trail@ object that contains settings for a trail.
+cloudTrailDetails_trails :: Lens.Lens' CloudTrailDetails [Trail]
+cloudTrailDetails_trails = Lens.lens (\CloudTrailDetails' {trails} -> trails) (\s@CloudTrailDetails' {} a -> s {trails = a} :: CloudTrailDetails) Prelude.. Lens.coerced
 
 -- | The ARN of the service role that IAM Access Analyzer uses to access your
 -- CloudTrail trail and service last accessed information.
@@ -98,31 +102,27 @@ cloudTrailDetails_accessRole = Lens.lens (\CloudTrailDetails' {accessRole} -> ac
 cloudTrailDetails_startTime :: Lens.Lens' CloudTrailDetails Prelude.UTCTime
 cloudTrailDetails_startTime = Lens.lens (\CloudTrailDetails' {startTime} -> startTime) (\s@CloudTrailDetails' {} a -> s {startTime = a} :: CloudTrailDetails) Prelude.. Core._Time
 
--- | A @Trail@ object that contains settings for a trail.
-cloudTrailDetails_trails :: Lens.Lens' CloudTrailDetails [Trail]
-cloudTrailDetails_trails = Lens.lens (\CloudTrailDetails' {trails} -> trails) (\s@CloudTrailDetails' {} a -> s {trails = a} :: CloudTrailDetails) Prelude.. Lens.coerced
-
 instance Prelude.Hashable CloudTrailDetails where
   hashWithSalt _salt CloudTrailDetails' {..} =
     _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` trails
       `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` trails
 
 instance Prelude.NFData CloudTrailDetails where
   rnf CloudTrailDetails' {..} =
     Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf trails
       `Prelude.seq` Prelude.rnf accessRole
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf trails
 
 instance Core.ToJSON CloudTrailDetails where
   toJSON CloudTrailDetails' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("endTime" Core..=) Prelude.<$> endTime,
+            Prelude.Just ("trails" Core..= trails),
             Prelude.Just ("accessRole" Core..= accessRole),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("trails" Core..= trails)
+            Prelude.Just ("startTime" Core..= startTime)
           ]
       )

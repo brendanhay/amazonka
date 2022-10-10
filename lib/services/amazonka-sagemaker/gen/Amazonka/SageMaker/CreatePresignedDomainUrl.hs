@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreatePresignedDomainUrl
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@
 -- This operation can only be called when the authentication mode equals
 -- IAM.
 --
--- The IAM role or user used to call this API defines the permissions to
+-- The IAM role or user passed to this API defines the permissions to
 -- access the app. Once the presigned URL is created, no additional
 -- permission is required to access this URL. IAM authorization policies
 -- for this API are also enforced for every HTTP request and WebSocket

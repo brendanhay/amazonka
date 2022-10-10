@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeVpcAttribute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,6 +40,7 @@ module Amazonka.EC2.DescribeVpcAttribute
     describeVpcAttributeResponse_enableDnsSupport,
     describeVpcAttributeResponse_enableDnsHostnames,
     describeVpcAttributeResponse_vpcId,
+    describeVpcAttributeResponse_enableNetworkAddressUsageMetrics,
     describeVpcAttributeResponse_httpStatus,
   )
 where
@@ -121,6 +122,7 @@ instance Core.AWSRequest DescribeVpcAttribute where
             Prelude.<$> (x Core..@? "enableDnsSupport")
             Prelude.<*> (x Core..@? "enableDnsHostnames")
             Prelude.<*> (x Core..@? "vpcId")
+            Prelude.<*> (x Core..@? "enableNetworkAddressUsageMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,6 +169,9 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse'
     enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Network Address Usage metrics are enabled for your
+    -- VPC.
+    enableNetworkAddressUsageMetrics :: Prelude.Maybe AttributeBooleanValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,6 +196,9 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse'
 --
 -- 'vpcId', 'describeVpcAttributeResponse_vpcId' - The ID of the VPC.
 --
+-- 'enableNetworkAddressUsageMetrics', 'describeVpcAttributeResponse_enableNetworkAddressUsageMetrics' - Indicates whether Network Address Usage metrics are enabled for your
+-- VPC.
+--
 -- 'httpStatus', 'describeVpcAttributeResponse_httpStatus' - The response's http status code.
 newDescribeVpcAttributeResponse ::
   -- | 'httpStatus'
@@ -202,6 +210,8 @@ newDescribeVpcAttributeResponse pHttpStatus_ =
         Prelude.Nothing,
       enableDnsHostnames = Prelude.Nothing,
       vpcId = Prelude.Nothing,
+      enableNetworkAddressUsageMetrics =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -222,6 +232,11 @@ describeVpcAttributeResponse_enableDnsHostnames = Lens.lens (\DescribeVpcAttribu
 describeVpcAttributeResponse_vpcId :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe Prelude.Text)
 describeVpcAttributeResponse_vpcId = Lens.lens (\DescribeVpcAttributeResponse' {vpcId} -> vpcId) (\s@DescribeVpcAttributeResponse' {} a -> s {vpcId = a} :: DescribeVpcAttributeResponse)
 
+-- | Indicates whether Network Address Usage metrics are enabled for your
+-- VPC.
+describeVpcAttributeResponse_enableNetworkAddressUsageMetrics :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeVpcAttributeResponse_enableNetworkAddressUsageMetrics = Lens.lens (\DescribeVpcAttributeResponse' {enableNetworkAddressUsageMetrics} -> enableNetworkAddressUsageMetrics) (\s@DescribeVpcAttributeResponse' {} a -> s {enableNetworkAddressUsageMetrics = a} :: DescribeVpcAttributeResponse)
+
 -- | The response's http status code.
 describeVpcAttributeResponse_httpStatus :: Lens.Lens' DescribeVpcAttributeResponse Prelude.Int
 describeVpcAttributeResponse_httpStatus = Lens.lens (\DescribeVpcAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcAttributeResponse' {} a -> s {httpStatus = a} :: DescribeVpcAttributeResponse)
@@ -231,4 +246,5 @@ instance Prelude.NFData DescribeVpcAttributeResponse where
     Prelude.rnf enableDnsSupport
       `Prelude.seq` Prelude.rnf enableDnsHostnames
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
       `Prelude.seq` Prelude.rnf httpStatus

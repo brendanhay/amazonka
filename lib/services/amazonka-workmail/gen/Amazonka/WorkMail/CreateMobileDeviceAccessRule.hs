@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.CreateMobileDeviceAccessRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new mobile device access rule for the specified Amazon
--- WorkMail organization.
+-- Creates a new mobile device access rule for the specified WorkMail
+-- organization.
 module Amazonka.WorkMail.CreateMobileDeviceAccessRule
   ( -- * Creating a Request
     CreateMobileDeviceAccessRule (..),
@@ -85,7 +85,7 @@ data CreateMobileDeviceAccessRule = CreateMobileDeviceAccessRule'
     -- | Device operating systems that the rule __will not__ match. All other
     -- device operating systems will match.
     notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon WorkMail organization under which the rule will be created.
+    -- | The WorkMail organization under which the rule will be created.
     organizationId :: Prelude.Text,
     -- | The rule name.
     name :: Prelude.Text,
@@ -127,7 +127,7 @@ data CreateMobileDeviceAccessRule = CreateMobileDeviceAccessRule'
 -- 'notDeviceOperatingSystems', 'createMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the rule __will not__ match. All other
 -- device operating systems will match.
 --
--- 'organizationId', 'createMobileDeviceAccessRule_organizationId' - The Amazon WorkMail organization under which the rule will be created.
+-- 'organizationId', 'createMobileDeviceAccessRule_organizationId' - The WorkMail organization under which the rule will be created.
 --
 -- 'name', 'createMobileDeviceAccessRule_name' - The rule name.
 --
@@ -206,7 +206,7 @@ createMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\CreateMobileDe
 createMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon WorkMail organization under which the rule will be created.
+-- | The WorkMail organization under which the rule will be created.
 createMobileDeviceAccessRule_organizationId :: Lens.Lens' CreateMobileDeviceAccessRule Prelude.Text
 createMobileDeviceAccessRule_organizationId = Lens.lens (\CreateMobileDeviceAccessRule' {organizationId} -> organizationId) (\s@CreateMobileDeviceAccessRule' {} a -> s {organizationId = a} :: CreateMobileDeviceAccessRule)
 

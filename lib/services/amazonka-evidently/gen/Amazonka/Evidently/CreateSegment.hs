@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.CreateSegment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,10 @@
 --
 -- Using a segment in an experiment limits that experiment to evaluate only
 -- the users who match the segment criteria. Using one or more segments in
--- a launch allow you to define different traffic splits for the different
+-- a launch allows you to define different traffic splits for the different
 -- audience segments.
 --
--- >  <p>For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html"> Segment rule pattern syntax</a>.</p> <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation, when Evidently assigns a feature variation to a user.</p>
+-- >  <p>For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html"> Segment rule pattern syntax</a>.</p> <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation, when Evidently assigns a feature variation to a user.</p>
 module Amazonka.Evidently.CreateSegment
   ( -- * Creating a Request
     CreateSegment (..),
@@ -79,7 +79,7 @@ data CreateSegment = CreateSegment'
     name :: Prelude.Text,
     -- | The pattern to use for the segment. For more information about pattern
     -- syntax, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
     pattern' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,7 +109,7 @@ data CreateSegment = CreateSegment'
 --
 -- 'pattern'', 'createSegment_pattern' - The pattern to use for the segment. For more information about pattern
 -- syntax, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
 newCreateSegment ::
   -- | 'name'
   Prelude.Text ->
@@ -147,7 +147,7 @@ createSegment_name = Lens.lens (\CreateSegment' {name} -> name) (\s@CreateSegmen
 
 -- | The pattern to use for the segment. For more information about pattern
 -- syntax, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
 createSegment_pattern :: Lens.Lens' CreateSegment Prelude.Text
 createSegment_pattern = Lens.lens (\CreateSegment' {pattern'} -> pattern') (\s@CreateSegment' {} a -> s {pattern' = a} :: CreateSegment)
 

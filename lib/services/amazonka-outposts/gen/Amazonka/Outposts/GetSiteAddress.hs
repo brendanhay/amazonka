@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetSiteAddress
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the site address.
+-- Gets the site address of the specified site.
 module Amazonka.Outposts.GetSiteAddress
   ( -- * Creating a Request
     GetSiteAddress (..),
@@ -52,12 +52,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetSiteAddress' smart constructor.
 data GetSiteAddress = GetSiteAddress'
   { -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text,
     -- | The type of the address you request.
     addressType :: AddressType
@@ -74,12 +68,6 @@ data GetSiteAddress = GetSiteAddress'
 --
 -- 'siteId', 'getSiteAddress_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
 --
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
---
 -- 'addressType', 'getSiteAddress_addressType' - The type of the address you request.
 newGetSiteAddress ::
   -- | 'siteId'
@@ -94,12 +82,6 @@ newGetSiteAddress pSiteId_ pAddressType_ =
     }
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 getSiteAddress_siteId :: Lens.Lens' GetSiteAddress Prelude.Text
 getSiteAddress_siteId = Lens.lens (\GetSiteAddress' {siteId} -> siteId) (\s@GetSiteAddress' {} a -> s {siteId = a} :: GetSiteAddress)
 

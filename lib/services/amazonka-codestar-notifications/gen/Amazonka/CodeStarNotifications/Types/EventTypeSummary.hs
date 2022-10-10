@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types.EventTypeSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,10 @@ data EventTypeSummary = EventTypeSummary'
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the event.
     eventTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated ID of the event.
+    -- | The system-generated ID of the event. For a complete list of event types
+    -- and IDs, see
+    -- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+    -- in the /Developer Tools Console User Guide/.
     eventTypeId :: Prelude.Maybe Prelude.Text,
     -- | The name of the service for which the event applies.
     serviceName :: Prelude.Maybe Prelude.Text
@@ -51,7 +54,10 @@ data EventTypeSummary = EventTypeSummary'
 --
 -- 'eventTypeName', 'eventTypeSummary_eventTypeName' - The name of the event.
 --
--- 'eventTypeId', 'eventTypeSummary_eventTypeId' - The system-generated ID of the event.
+-- 'eventTypeId', 'eventTypeSummary_eventTypeId' - The system-generated ID of the event. For a complete list of event types
+-- and IDs, see
+-- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+-- in the /Developer Tools Console User Guide/.
 --
 -- 'serviceName', 'eventTypeSummary_serviceName' - The name of the service for which the event applies.
 newEventTypeSummary ::
@@ -72,7 +78,10 @@ eventTypeSummary_resourceType = Lens.lens (\EventTypeSummary' {resourceType} -> 
 eventTypeSummary_eventTypeName :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
 eventTypeSummary_eventTypeName = Lens.lens (\EventTypeSummary' {eventTypeName} -> eventTypeName) (\s@EventTypeSummary' {} a -> s {eventTypeName = a} :: EventTypeSummary)
 
--- | The system-generated ID of the event.
+-- | The system-generated ID of the event. For a complete list of event types
+-- and IDs, see
+-- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+-- in the /Developer Tools Console User Guide/.
 eventTypeSummary_eventTypeId :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
 eventTypeSummary_eventTypeId = Lens.lens (\EventTypeSummary' {eventTypeId} -> eventTypeId) (\s@EventTypeSummary' {} a -> s {eventTypeId = a} :: EventTypeSummary)
 

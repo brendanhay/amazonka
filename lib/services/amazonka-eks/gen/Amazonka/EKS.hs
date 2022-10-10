@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.EKS
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -318,6 +318,9 @@ module Amazonka.EKS
     -- ** CapacityTypes
     CapacityTypes (..),
 
+    -- ** ClusterIssueCode
+    ClusterIssueCode (..),
+
     -- ** ClusterStatus
     ClusterStatus (..),
 
@@ -391,6 +394,14 @@ module Amazonka.EKS
     -- ** Cluster
     Cluster (Cluster'),
     newCluster,
+
+    -- ** ClusterHealth
+    ClusterHealth (ClusterHealth'),
+    newClusterHealth,
+
+    -- ** ClusterIssue
+    ClusterIssue (ClusterIssue'),
+    newClusterIssue,
 
     -- ** Compatibility
     Compatibility (Compatibility'),
@@ -487,6 +498,14 @@ module Amazonka.EKS
     -- ** OidcIdentityProviderConfigRequest
     OidcIdentityProviderConfigRequest (OidcIdentityProviderConfigRequest'),
     newOidcIdentityProviderConfigRequest,
+
+    -- ** OutpostConfigRequest
+    OutpostConfigRequest (OutpostConfigRequest'),
+    newOutpostConfigRequest,
+
+    -- ** OutpostConfigResponse
+    OutpostConfigResponse (OutpostConfigResponse'),
+    newOutpostConfigResponse,
 
     -- ** Provider
     Provider (Provider'),

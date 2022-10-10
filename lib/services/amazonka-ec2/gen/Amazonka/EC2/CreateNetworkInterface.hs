@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.CreateNetworkInterface
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,14 @@
 --
 -- Creates a network interface in the specified subnet.
 --
--- For more information about network interfaces, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
+-- The number of IP addresses you can assign to a network interface varies
+-- by instance type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
 -- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about network interfaces, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic network interfaces>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CreateNetworkInterface
   ( -- * Creating a Request
     CreateNetworkInterface (..),
@@ -66,13 +71,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for CreateNetworkInterface.
---
--- /See:/ 'newCreateNetworkInterface' smart constructor.
+-- | /See:/ 'newCreateNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
   { -- | The number of IPv4 prefixes that Amazon Web Services automatically
-    -- assigns to the network interface. You cannot use this option if you use
-    -- the @Ipv4 Prefixes@ option.
+    -- assigns to the network interface.
+    --
+    -- You can\'t specify a count of IPv4 prefixes if you\'ve specified one of
+    -- the following: specific IPv4 prefixes, specific private IPv4 addresses,
+    -- or a count of private IPv4 addresses.
     ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
     -- | The type of network interface. The default is @interface@.
     --
@@ -82,7 +88,11 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more private IPv4 addresses.
+    -- | The private IPv4 addresses.
+    --
+    -- You can\'t specify private IPv4 addresses if you\'ve specified one of
+    -- the following: a count of private IPv4 addresses, specific IPv4
+    -- prefixes, or a count of IPv4 prefixes.
     privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
     -- | A description for the network interface.
     description :: Prelude.Maybe Prelude.Text,
@@ -92,13 +102,20 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The number of IPv6 addresses to assign to a network interface. Amazon
-    -- EC2 automatically selects the IPv6 addresses from the subnet range. You
-    -- can\'t use this option if specifying specific IPv6 addresses. If your
-    -- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
-    -- you can specify @0@ to override this setting.
+    -- EC2 automatically selects the IPv6 addresses from the subnet range.
+    --
+    -- You can\'t specify a count of IPv6 addresses using this parameter if
+    -- you\'ve specified one of the following: specific IPv6 addresses,
+    -- specific IPv6 prefixes, or a count of IPv6 prefixes.
+    --
+    -- If your subnet has the @AssignIpv6AddressOnCreation@ attribute set, you
+    -- can override that setting by specifying 0 as the IPv6 address count.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
-    -- use this option if you use the @Ipv4PrefixCount@ option.
+    -- | The IPv4 prefixes assigned to the network interface.
+    --
+    -- You can\'t specify IPv4 prefixes if you\'ve specified one of the
+    -- following: a count of IPv4 prefixes, specific private IPv4 addresses, or
+    -- a count of private IPv4 addresses.
     ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
     -- | The primary private IPv4 address of the network interface. If you don\'t
     -- specify an IPv4 address, Amazon EC2 selects one for you from the
@@ -107,8 +124,11 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- (only one IP address can be designated as primary).
     privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The number of IPv6 prefixes that Amazon Web Services automatically
-    -- assigns to the network interface. You cannot use this option if you use
-    -- the @Ipv6Prefixes@ option.
+    -- assigns to the network interface.
+    --
+    -- You can\'t specify a count of IPv6 prefixes if you\'ve specified one of
+    -- the following: specific IPv6 prefixes, specific IPv6 addresses, or a
+    -- count of IPv6 addresses.
     ipv6PrefixCount :: Prelude.Maybe Prelude.Int,
     -- | The number of secondary private IPv4 addresses to assign to a network
     -- interface. When you specify a number of secondary IPv4 addresses, Amazon
@@ -116,21 +136,25 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- can\'t specify this option and specify more than one private IP address
     -- using @privateIpAddresses@.
     --
-    -- The number of IP addresses you can assign to a network interface varies
-    -- by instance type. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
-    -- in the /Amazon Virtual Private Cloud User Guide/.
+    -- You can\'t specify a count of private IPv4 addresses if you\'ve
+    -- specified one of the following: specific private IPv4 addresses,
+    -- specific IPv4 prefixes, or a count of IPv4 prefixes.
     secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IPv6 prefixes assigned to the network interface. You cannot
-    -- use this option if you use the @Ipv6PrefixCount@ option.
+    -- | The IPv6 prefixes assigned to the network interface.
+    --
+    -- You can\'t specify IPv6 prefixes if you\'ve specified one of the
+    -- following: a count of IPv6 prefixes, specific IPv6 addresses, or a count
+    -- of IPv6 addresses.
     ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
     -- | The tags to apply to the new network interface.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The IDs of one or more security groups.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
-    -- your subnet. You can\'t use this option if you\'re specifying a number
-    -- of IPv6 addresses.
+    -- | The IPv6 addresses from the IPv6 CIDR block range of your subnet.
+    --
+    -- You can\'t specify IPv6 addresses using this parameter if you\'ve
+    -- specified one of the following: a count of IPv6 addresses, specific IPv6
+    -- prefixes, or a count of IPv6 prefixes.
     ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
     -- | The ID of the subnet to associate with the network interface.
     subnetId :: Prelude.Text
@@ -146,8 +170,11 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- for backwards compatibility:
 --
 -- 'ipv4PrefixCount', 'createNetworkInterface_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv4 Prefixes@ option.
+-- assigns to the network interface.
+--
+-- You can\'t specify a count of IPv4 prefixes if you\'ve specified one of
+-- the following: specific IPv4 prefixes, specific private IPv4 addresses,
+-- or a count of private IPv4 addresses.
 --
 -- 'interfaceType', 'createNetworkInterface_interfaceType' - The type of network interface. The default is @interface@.
 --
@@ -157,7 +184,11 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'privateIpAddresses', 'createNetworkInterface_privateIpAddresses' - One or more private IPv4 addresses.
+-- 'privateIpAddresses', 'createNetworkInterface_privateIpAddresses' - The private IPv4 addresses.
+--
+-- You can\'t specify private IPv4 addresses if you\'ve specified one of
+-- the following: a count of private IPv4 addresses, specific IPv4
+-- prefixes, or a count of IPv4 prefixes.
 --
 -- 'description', 'createNetworkInterface_description' - A description for the network interface.
 --
@@ -167,13 +198,20 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'ipv6AddressCount', 'createNetworkInterface_ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon
--- EC2 automatically selects the IPv6 addresses from the subnet range. You
--- can\'t use this option if specifying specific IPv6 addresses. If your
--- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
--- you can specify @0@ to override this setting.
+-- EC2 automatically selects the IPv6 addresses from the subnet range.
 --
--- 'ipv4Prefixes', 'createNetworkInterface_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
+-- You can\'t specify a count of IPv6 addresses using this parameter if
+-- you\'ve specified one of the following: specific IPv6 addresses,
+-- specific IPv6 prefixes, or a count of IPv6 prefixes.
+--
+-- If your subnet has the @AssignIpv6AddressOnCreation@ attribute set, you
+-- can override that setting by specifying 0 as the IPv6 address count.
+--
+-- 'ipv4Prefixes', 'createNetworkInterface_ipv4Prefixes' - The IPv4 prefixes assigned to the network interface.
+--
+-- You can\'t specify IPv4 prefixes if you\'ve specified one of the
+-- following: a count of IPv4 prefixes, specific private IPv4 addresses, or
+-- a count of private IPv4 addresses.
 --
 -- 'privateIpAddress', 'createNetworkInterface_privateIpAddress' - The primary private IPv4 address of the network interface. If you don\'t
 -- specify an IPv4 address, Amazon EC2 selects one for you from the
@@ -182,8 +220,11 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- (only one IP address can be designated as primary).
 --
 -- 'ipv6PrefixCount', 'createNetworkInterface_ipv6PrefixCount' - The number of IPv6 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv6Prefixes@ option.
+-- assigns to the network interface.
+--
+-- You can\'t specify a count of IPv6 prefixes if you\'ve specified one of
+-- the following: specific IPv6 prefixes, specific IPv6 addresses, or a
+-- count of IPv6 addresses.
 --
 -- 'secondaryPrivateIpAddressCount', 'createNetworkInterface_secondaryPrivateIpAddressCount' - The number of secondary private IPv4 addresses to assign to a network
 -- interface. When you specify a number of secondary IPv4 addresses, Amazon
@@ -191,21 +232,25 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- can\'t specify this option and specify more than one private IP address
 -- using @privateIpAddresses@.
 --
--- The number of IP addresses you can assign to a network interface varies
--- by instance type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- You can\'t specify a count of private IPv4 addresses if you\'ve
+-- specified one of the following: specific private IPv4 addresses,
+-- specific IPv4 prefixes, or a count of IPv4 prefixes.
 --
--- 'ipv6Prefixes', 'createNetworkInterface_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv6PrefixCount@ option.
+-- 'ipv6Prefixes', 'createNetworkInterface_ipv6Prefixes' - The IPv6 prefixes assigned to the network interface.
+--
+-- You can\'t specify IPv6 prefixes if you\'ve specified one of the
+-- following: a count of IPv6 prefixes, specific IPv6 addresses, or a count
+-- of IPv6 addresses.
 --
 -- 'tagSpecifications', 'createNetworkInterface_tagSpecifications' - The tags to apply to the new network interface.
 --
 -- 'groups', 'createNetworkInterface_groups' - The IDs of one or more security groups.
 --
--- 'ipv6Addresses', 'createNetworkInterface_ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of
--- your subnet. You can\'t use this option if you\'re specifying a number
--- of IPv6 addresses.
+-- 'ipv6Addresses', 'createNetworkInterface_ipv6Addresses' - The IPv6 addresses from the IPv6 CIDR block range of your subnet.
+--
+-- You can\'t specify IPv6 addresses using this parameter if you\'ve
+-- specified one of the following: a count of IPv6 addresses, specific IPv6
+-- prefixes, or a count of IPv6 prefixes.
 --
 -- 'subnetId', 'createNetworkInterface_subnetId' - The ID of the subnet to associate with the network interface.
 newCreateNetworkInterface ::
@@ -234,8 +279,11 @@ newCreateNetworkInterface pSubnetId_ =
     }
 
 -- | The number of IPv4 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv4 Prefixes@ option.
+-- assigns to the network interface.
+--
+-- You can\'t specify a count of IPv4 prefixes if you\'ve specified one of
+-- the following: specific IPv4 prefixes, specific private IPv4 addresses,
+-- or a count of private IPv4 addresses.
 createNetworkInterface_ipv4PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_ipv4PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv4PrefixCount = a} :: CreateNetworkInterface)
 
@@ -251,7 +299,11 @@ createNetworkInterface_interfaceType = Lens.lens (\CreateNetworkInterface' {inte
 createNetworkInterface_clientToken :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
 createNetworkInterface_clientToken = Lens.lens (\CreateNetworkInterface' {clientToken} -> clientToken) (\s@CreateNetworkInterface' {} a -> s {clientToken = a} :: CreateNetworkInterface)
 
--- | One or more private IPv4 addresses.
+-- | The private IPv4 addresses.
+--
+-- You can\'t specify private IPv4 addresses if you\'ve specified one of
+-- the following: a count of private IPv4 addresses, specific IPv4
+-- prefixes, or a count of IPv4 prefixes.
 createNetworkInterface_privateIpAddresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [PrivateIpAddressSpecification])
 createNetworkInterface_privateIpAddresses = Lens.lens (\CreateNetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@CreateNetworkInterface' {} a -> s {privateIpAddresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
@@ -267,15 +319,22 @@ createNetworkInterface_dryRun :: Lens.Lens' CreateNetworkInterface (Prelude.Mayb
 createNetworkInterface_dryRun = Lens.lens (\CreateNetworkInterface' {dryRun} -> dryRun) (\s@CreateNetworkInterface' {} a -> s {dryRun = a} :: CreateNetworkInterface)
 
 -- | The number of IPv6 addresses to assign to a network interface. Amazon
--- EC2 automatically selects the IPv6 addresses from the subnet range. You
--- can\'t use this option if specifying specific IPv6 addresses. If your
--- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
--- you can specify @0@ to override this setting.
+-- EC2 automatically selects the IPv6 addresses from the subnet range.
+--
+-- You can\'t specify a count of IPv6 addresses using this parameter if
+-- you\'ve specified one of the following: specific IPv6 addresses,
+-- specific IPv6 prefixes, or a count of IPv6 prefixes.
+--
+-- If your subnet has the @AssignIpv6AddressOnCreation@ attribute set, you
+-- can override that setting by specifying 0 as the IPv6 address count.
 createNetworkInterface_ipv6AddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_ipv6AddressCount = Lens.lens (\CreateNetworkInterface' {ipv6AddressCount} -> ipv6AddressCount) (\s@CreateNetworkInterface' {} a -> s {ipv6AddressCount = a} :: CreateNetworkInterface)
 
--- | One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
+-- | The IPv4 prefixes assigned to the network interface.
+--
+-- You can\'t specify IPv4 prefixes if you\'ve specified one of the
+-- following: a count of IPv4 prefixes, specific private IPv4 addresses, or
+-- a count of private IPv4 addresses.
 createNetworkInterface_ipv4Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
 createNetworkInterface_ipv4Prefixes = Lens.lens (\CreateNetworkInterface' {ipv4Prefixes} -> ipv4Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv4Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
@@ -288,8 +347,11 @@ createNetworkInterface_privateIpAddress :: Lens.Lens' CreateNetworkInterface (Pr
 createNetworkInterface_privateIpAddress = Lens.lens (\CreateNetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@CreateNetworkInterface' {} a -> s {privateIpAddress = a} :: CreateNetworkInterface)
 
 -- | The number of IPv6 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv6Prefixes@ option.
+-- assigns to the network interface.
+--
+-- You can\'t specify a count of IPv6 prefixes if you\'ve specified one of
+-- the following: specific IPv6 prefixes, specific IPv6 addresses, or a
+-- count of IPv6 addresses.
 createNetworkInterface_ipv6PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_ipv6PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv6PrefixCount} -> ipv6PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv6PrefixCount = a} :: CreateNetworkInterface)
 
@@ -299,15 +361,17 @@ createNetworkInterface_ipv6PrefixCount = Lens.lens (\CreateNetworkInterface' {ip
 -- can\'t specify this option and specify more than one private IP address
 -- using @privateIpAddresses@.
 --
--- The number of IP addresses you can assign to a network interface varies
--- by instance type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- You can\'t specify a count of private IPv4 addresses if you\'ve
+-- specified one of the following: specific private IPv4 addresses,
+-- specific IPv4 prefixes, or a count of IPv4 prefixes.
 createNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_secondaryPrivateIpAddressCount = Lens.lens (\CreateNetworkInterface' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@CreateNetworkInterface' {} a -> s {secondaryPrivateIpAddressCount = a} :: CreateNetworkInterface)
 
--- | One or more IPv6 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv6PrefixCount@ option.
+-- | The IPv6 prefixes assigned to the network interface.
+--
+-- You can\'t specify IPv6 prefixes if you\'ve specified one of the
+-- following: a count of IPv6 prefixes, specific IPv6 addresses, or a count
+-- of IPv6 addresses.
 createNetworkInterface_ipv6Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
 createNetworkInterface_ipv6Prefixes = Lens.lens (\CreateNetworkInterface' {ipv6Prefixes} -> ipv6Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv6Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
@@ -319,9 +383,11 @@ createNetworkInterface_tagSpecifications = Lens.lens (\CreateNetworkInterface' {
 createNetworkInterface_groups :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Prelude.Text])
 createNetworkInterface_groups = Lens.lens (\CreateNetworkInterface' {groups} -> groups) (\s@CreateNetworkInterface' {} a -> s {groups = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
--- your subnet. You can\'t use this option if you\'re specifying a number
--- of IPv6 addresses.
+-- | The IPv6 addresses from the IPv6 CIDR block range of your subnet.
+--
+-- You can\'t specify IPv6 addresses using this parameter if you\'ve
+-- specified one of the following: a count of IPv6 addresses, specific IPv6
+-- prefixes, or a count of IPv6 prefixes.
 createNetworkInterface_ipv6Addresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [InstanceIpv6Address])
 createNetworkInterface_ipv6Addresses = Lens.lens (\CreateNetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@CreateNetworkInterface' {} a -> s {ipv6Addresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
@@ -431,9 +497,7 @@ instance Core.ToQuery CreateNetworkInterface where
         "SubnetId" Core.=: subnetId
       ]
 
--- | Contains the output of CreateNetworkInterface.
---
--- /See:/ 'newCreateNetworkInterfaceResponse' smart constructor.
+-- | /See:/ 'newCreateNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.

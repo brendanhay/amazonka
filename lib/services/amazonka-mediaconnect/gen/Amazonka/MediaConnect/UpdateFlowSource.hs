@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.UpdateFlowSource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,11 +37,13 @@ module Amazonka.MediaConnect.UpdateFlowSource
     updateFlowSource_senderIpAddress,
     updateFlowSource_decryption,
     updateFlowSource_description,
+    updateFlowSource_sourceListenerAddress,
     updateFlowSource_senderControlPort,
     updateFlowSource_protocol,
     updateFlowSource_ingestPort,
     updateFlowSource_whitelistCidr,
     updateFlowSource_minLatency,
+    updateFlowSource_sourceListenerPort,
     updateFlowSource_flowArn,
     updateFlowSource_sourceArn,
 
@@ -95,6 +97,8 @@ data UpdateFlowSource = UpdateFlowSource'
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Source IP or domain name for SRT-caller protocol.
+    sourceListenerAddress :: Prelude.Maybe Prelude.Text,
     -- | The port that the flow uses to send outbound requests to initiate
     -- connection with the sender.
     senderControlPort :: Prelude.Maybe Prelude.Int,
@@ -112,6 +116,8 @@ data UpdateFlowSource = UpdateFlowSource'
     -- connection. The latency of the stream is set to the highest number
     -- between the sender’s minimum latency and the receiver’s minimum latency.
     minLatency :: Prelude.Maybe Prelude.Int,
+    -- | Source port for SRT-caller protocol.
+    sourceListenerPort :: Prelude.Maybe Prelude.Int,
     -- | The flow that is associated with the source that you want to update.
     flowArn :: Prelude.Text,
     -- | The ARN of the source that you want to update.
@@ -155,6 +161,8 @@ data UpdateFlowSource = UpdateFlowSource'
 -- 'description', 'updateFlowSource_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
 --
+-- 'sourceListenerAddress', 'updateFlowSource_sourceListenerAddress' - Source IP or domain name for SRT-caller protocol.
+--
 -- 'senderControlPort', 'updateFlowSource_senderControlPort' - The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 --
@@ -171,6 +179,8 @@ data UpdateFlowSource = UpdateFlowSource'
 -- source or output represents the minimal potential latency of that
 -- connection. The latency of the stream is set to the highest number
 -- between the sender’s minimum latency and the receiver’s minimum latency.
+--
+-- 'sourceListenerPort', 'updateFlowSource_sourceListenerPort' - Source port for SRT-caller protocol.
 --
 -- 'flowArn', 'updateFlowSource_flowArn' - The flow that is associated with the source that you want to update.
 --
@@ -193,11 +203,13 @@ newUpdateFlowSource pFlowArn_ pSourceArn_ =
       senderIpAddress = Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
+      sourceListenerAddress = Prelude.Nothing,
       senderControlPort = Prelude.Nothing,
       protocol = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
       minLatency = Prelude.Nothing,
+      sourceListenerPort = Prelude.Nothing,
       flowArn = pFlowArn_,
       sourceArn = pSourceArn_
     }
@@ -250,6 +262,10 @@ updateFlowSource_decryption = Lens.lens (\UpdateFlowSource' {decryption} -> decr
 updateFlowSource_description :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
 updateFlowSource_description = Lens.lens (\UpdateFlowSource' {description} -> description) (\s@UpdateFlowSource' {} a -> s {description = a} :: UpdateFlowSource)
 
+-- | Source IP or domain name for SRT-caller protocol.
+updateFlowSource_sourceListenerAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_sourceListenerAddress = Lens.lens (\UpdateFlowSource' {sourceListenerAddress} -> sourceListenerAddress) (\s@UpdateFlowSource' {} a -> s {sourceListenerAddress = a} :: UpdateFlowSource)
+
 -- | The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 updateFlowSource_senderControlPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
@@ -276,6 +292,10 @@ updateFlowSource_whitelistCidr = Lens.lens (\UpdateFlowSource' {whitelistCidr} -
 -- between the sender’s minimum latency and the receiver’s minimum latency.
 updateFlowSource_minLatency :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
 updateFlowSource_minLatency = Lens.lens (\UpdateFlowSource' {minLatency} -> minLatency) (\s@UpdateFlowSource' {} a -> s {minLatency = a} :: UpdateFlowSource)
+
+-- | Source port for SRT-caller protocol.
+updateFlowSource_sourceListenerPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_sourceListenerPort = Lens.lens (\UpdateFlowSource' {sourceListenerPort} -> sourceListenerPort) (\s@UpdateFlowSource' {} a -> s {sourceListenerPort = a} :: UpdateFlowSource)
 
 -- | The flow that is associated with the source that you want to update.
 updateFlowSource_flowArn :: Lens.Lens' UpdateFlowSource Prelude.Text
@@ -311,11 +331,13 @@ instance Prelude.Hashable UpdateFlowSource where
       `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceListenerAddress
       `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` whitelistCidr
       `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` sourceListenerPort
       `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` sourceArn
 
@@ -331,11 +353,13 @@ instance Prelude.NFData UpdateFlowSource where
       `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceListenerAddress
       `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf whitelistCidr
       `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf sourceListenerPort
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf sourceArn
 
@@ -368,12 +392,16 @@ instance Core.ToJSON UpdateFlowSource where
               Prelude.<$> senderIpAddress,
             ("decryption" Core..=) Prelude.<$> decryption,
             ("description" Core..=) Prelude.<$> description,
+            ("sourceListenerAddress" Core..=)
+              Prelude.<$> sourceListenerAddress,
             ("senderControlPort" Core..=)
               Prelude.<$> senderControlPort,
             ("protocol" Core..=) Prelude.<$> protocol,
             ("ingestPort" Core..=) Prelude.<$> ingestPort,
             ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,
-            ("minLatency" Core..=) Prelude.<$> minLatency
+            ("minLatency" Core..=) Prelude.<$> minLatency,
+            ("sourceListenerPort" Core..=)
+              Prelude.<$> sourceListenerPort
           ]
       )
 

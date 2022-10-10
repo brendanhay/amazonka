@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.CreateProject
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Amazonka.DeviceFarm.CreateProject
     newCreateProject,
 
     -- * Request Lenses
+    createProject_vpcConfig,
     createProject_defaultJobTimeoutMinutes,
     createProject_name,
 
@@ -51,7 +52,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | Sets the execution timeout value (in minutes) for a project. All test
+  { -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | Sets the execution timeout value (in minutes) for a project. All test
     -- runs in this project use the specified execution timeout value unless
     -- overridden when scheduling a run.
     defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
@@ -68,6 +71,8 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'createProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'defaultJobTimeoutMinutes', 'createProject_defaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test
 -- runs in this project use the specified execution timeout value unless
 -- overridden when scheduling a run.
@@ -79,10 +84,14 @@ newCreateProject ::
   CreateProject
 newCreateProject pName_ =
   CreateProject'
-    { defaultJobTimeoutMinutes =
-        Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      defaultJobTimeoutMinutes = Prelude.Nothing,
       name = pName_
     }
+
+-- | The VPC security groups and subnets that are attached to a project.
+createProject_vpcConfig :: Lens.Lens' CreateProject (Prelude.Maybe VpcConfig)
+createProject_vpcConfig = Lens.lens (\CreateProject' {vpcConfig} -> vpcConfig) (\s@CreateProject' {} a -> s {vpcConfig = a} :: CreateProject)
 
 -- | Sets the execution timeout value (in minutes) for a project. All test
 -- runs in this project use the specified execution timeout value unless
@@ -109,13 +118,14 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf defaultJobTimeoutMinutes
+    Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateProject where
@@ -137,7 +147,8 @@ instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("defaultJobTimeoutMinutes" Core..=)
+          [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("defaultJobTimeoutMinutes" Core..=)
               Prelude.<$> defaultJobTimeoutMinutes,
             Prelude.Just ("name" Core..= name)
           ]

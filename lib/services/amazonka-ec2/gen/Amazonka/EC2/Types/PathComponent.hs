@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.PathComponent
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ import Amazonka.EC2.Types.AnalysisComponent
 import Amazonka.EC2.Types.AnalysisPacketHeader
 import Amazonka.EC2.Types.AnalysisRouteTableRoute
 import Amazonka.EC2.Types.AnalysisSecurityGroupRule
+import Amazonka.EC2.Types.Explanation
 import Amazonka.EC2.Types.TransitGatewayRouteTableRoute
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -49,12 +50,16 @@ data PathComponent = PathComponent'
     sourceVpc :: Prelude.Maybe AnalysisComponent,
     -- | The network ACL rule.
     aclRule :: Prelude.Maybe AnalysisAclRule,
+    -- | The explanation codes.
+    explanations :: Prelude.Maybe [Explanation],
     -- | The transit gateway.
     transitGateway :: Prelude.Maybe AnalysisComponent,
     -- | The sequence number.
     sequenceNumber :: Prelude.Maybe Prelude.Int,
     -- | The destination VPC.
     destinationVpc :: Prelude.Maybe AnalysisComponent,
+    -- | The load balancer listener.
+    elasticLoadBalancerListener :: Prelude.Maybe AnalysisComponent,
     -- | The subnet.
     subnet :: Prelude.Maybe AnalysisComponent,
     -- | The inbound header.
@@ -90,11 +95,15 @@ data PathComponent = PathComponent'
 --
 -- 'aclRule', 'pathComponent_aclRule' - The network ACL rule.
 --
+-- 'explanations', 'pathComponent_explanations' - The explanation codes.
+--
 -- 'transitGateway', 'pathComponent_transitGateway' - The transit gateway.
 --
 -- 'sequenceNumber', 'pathComponent_sequenceNumber' - The sequence number.
 --
 -- 'destinationVpc', 'pathComponent_destinationVpc' - The destination VPC.
+--
+-- 'elasticLoadBalancerListener', 'pathComponent_elasticLoadBalancerListener' - The load balancer listener.
 --
 -- 'subnet', 'pathComponent_subnet' - The subnet.
 --
@@ -116,9 +125,11 @@ newPathComponent =
       attachedTo = Prelude.Nothing,
       sourceVpc = Prelude.Nothing,
       aclRule = Prelude.Nothing,
+      explanations = Prelude.Nothing,
       transitGateway = Prelude.Nothing,
       sequenceNumber = Prelude.Nothing,
       destinationVpc = Prelude.Nothing,
+      elasticLoadBalancerListener = Prelude.Nothing,
       subnet = Prelude.Nothing,
       inboundHeader = Prelude.Nothing,
       transitGatewayRouteTableRoute = Prelude.Nothing,
@@ -154,6 +165,10 @@ pathComponent_sourceVpc = Lens.lens (\PathComponent' {sourceVpc} -> sourceVpc) (
 pathComponent_aclRule :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisAclRule)
 pathComponent_aclRule = Lens.lens (\PathComponent' {aclRule} -> aclRule) (\s@PathComponent' {} a -> s {aclRule = a} :: PathComponent)
 
+-- | The explanation codes.
+pathComponent_explanations :: Lens.Lens' PathComponent (Prelude.Maybe [Explanation])
+pathComponent_explanations = Lens.lens (\PathComponent' {explanations} -> explanations) (\s@PathComponent' {} a -> s {explanations = a} :: PathComponent) Prelude.. Lens.mapping Lens.coerced
+
 -- | The transit gateway.
 pathComponent_transitGateway :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisComponent)
 pathComponent_transitGateway = Lens.lens (\PathComponent' {transitGateway} -> transitGateway) (\s@PathComponent' {} a -> s {transitGateway = a} :: PathComponent)
@@ -165,6 +180,10 @@ pathComponent_sequenceNumber = Lens.lens (\PathComponent' {sequenceNumber} -> se
 -- | The destination VPC.
 pathComponent_destinationVpc :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisComponent)
 pathComponent_destinationVpc = Lens.lens (\PathComponent' {destinationVpc} -> destinationVpc) (\s@PathComponent' {} a -> s {destinationVpc = a} :: PathComponent)
+
+-- | The load balancer listener.
+pathComponent_elasticLoadBalancerListener :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisComponent)
+pathComponent_elasticLoadBalancerListener = Lens.lens (\PathComponent' {elasticLoadBalancerListener} -> elasticLoadBalancerListener) (\s@PathComponent' {} a -> s {elasticLoadBalancerListener = a} :: PathComponent)
 
 -- | The subnet.
 pathComponent_subnet :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisComponent)
@@ -199,9 +218,13 @@ instance Core.FromXML PathComponent where
       Prelude.<*> (x Core..@? "attachedTo")
       Prelude.<*> (x Core..@? "sourceVpc")
       Prelude.<*> (x Core..@? "aclRule")
+      Prelude.<*> ( x Core..@? "explanationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> (x Core..@? "transitGateway")
       Prelude.<*> (x Core..@? "sequenceNumber")
       Prelude.<*> (x Core..@? "destinationVpc")
+      Prelude.<*> (x Core..@? "elasticLoadBalancerListener")
       Prelude.<*> (x Core..@? "subnet")
       Prelude.<*> (x Core..@? "inboundHeader")
       Prelude.<*> (x Core..@? "transitGatewayRouteTableRoute")
@@ -217,9 +240,11 @@ instance Prelude.Hashable PathComponent where
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` sourceVpc
       `Prelude.hashWithSalt` aclRule
+      `Prelude.hashWithSalt` explanations
       `Prelude.hashWithSalt` transitGateway
       `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` destinationVpc
+      `Prelude.hashWithSalt` elasticLoadBalancerListener
       `Prelude.hashWithSalt` subnet
       `Prelude.hashWithSalt` inboundHeader
       `Prelude.hashWithSalt` transitGatewayRouteTableRoute
@@ -235,11 +260,14 @@ instance Prelude.NFData PathComponent where
       `Prelude.seq` Prelude.rnf attachedTo
       `Prelude.seq` Prelude.rnf sourceVpc
       `Prelude.seq` Prelude.rnf aclRule
+      `Prelude.seq` Prelude.rnf explanations
       `Prelude.seq` Prelude.rnf transitGateway
       `Prelude.seq` Prelude.rnf sequenceNumber
       `Prelude.seq` Prelude.rnf destinationVpc
+      `Prelude.seq` Prelude.rnf elasticLoadBalancerListener
       `Prelude.seq` Prelude.rnf subnet
       `Prelude.seq` Prelude.rnf inboundHeader
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableRoute
+      `Prelude.seq` Prelude.rnf
+        transitGatewayRouteTableRoute
       `Prelude.seq` Prelude.rnf component
       `Prelude.seq` Prelude.rnf securityGroupRule

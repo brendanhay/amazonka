@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,6 +89,13 @@ module Amazonka.CloudFront.Lens
     createMonitoringSubscriptionResponse_monitoringSubscription,
     createMonitoringSubscriptionResponse_httpStatus,
 
+    -- ** CreateOriginAccessControl
+    createOriginAccessControl_originAccessControlConfig,
+    createOriginAccessControlResponse_originAccessControl,
+    createOriginAccessControlResponse_location,
+    createOriginAccessControlResponse_eTag,
+    createOriginAccessControlResponse_httpStatus,
+
     -- ** CreateOriginRequestPolicy
     createOriginRequestPolicy_originRequestPolicyConfig,
     createOriginRequestPolicyResponse_originRequestPolicy,
@@ -163,6 +170,10 @@ module Amazonka.CloudFront.Lens
     -- ** DeleteMonitoringSubscription
     deleteMonitoringSubscription_distributionId,
     deleteMonitoringSubscriptionResponse_httpStatus,
+
+    -- ** DeleteOriginAccessControl
+    deleteOriginAccessControl_ifMatch,
+    deleteOriginAccessControl_id,
 
     -- ** DeleteOriginRequestPolicy
     deleteOriginRequestPolicy_ifMatch,
@@ -281,6 +292,18 @@ module Amazonka.CloudFront.Lens
     getMonitoringSubscription_distributionId,
     getMonitoringSubscriptionResponse_monitoringSubscription,
     getMonitoringSubscriptionResponse_httpStatus,
+
+    -- ** GetOriginAccessControl
+    getOriginAccessControl_id,
+    getOriginAccessControlResponse_originAccessControl,
+    getOriginAccessControlResponse_eTag,
+    getOriginAccessControlResponse_httpStatus,
+
+    -- ** GetOriginAccessControlConfig
+    getOriginAccessControlConfig_id,
+    getOriginAccessControlConfigResponse_originAccessControlConfig,
+    getOriginAccessControlConfigResponse_eTag,
+    getOriginAccessControlConfigResponse_httpStatus,
 
     -- ** GetOriginRequestPolicy
     getOriginRequestPolicy_id,
@@ -438,6 +461,12 @@ module Amazonka.CloudFront.Lens
     listKeyGroupsResponse_keyGroupList,
     listKeyGroupsResponse_httpStatus,
 
+    -- ** ListOriginAccessControls
+    listOriginAccessControls_marker,
+    listOriginAccessControls_maxItems,
+    listOriginAccessControlsResponse_originAccessControlList,
+    listOriginAccessControlsResponse_httpStatus,
+
     -- ** ListOriginRequestPolicies
     listOriginRequestPolicies_type,
     listOriginRequestPolicies_marker,
@@ -553,6 +582,14 @@ module Amazonka.CloudFront.Lens
     updateKeyGroupResponse_keyGroup,
     updateKeyGroupResponse_eTag,
     updateKeyGroupResponse_httpStatus,
+
+    -- ** UpdateOriginAccessControl
+    updateOriginAccessControl_ifMatch,
+    updateOriginAccessControl_originAccessControlConfig,
+    updateOriginAccessControl_id,
+    updateOriginAccessControlResponse_originAccessControl,
+    updateOriginAccessControlResponse_eTag,
+    updateOriginAccessControlResponse_httpStatus,
 
     -- ** UpdateOriginRequestPolicy
     updateOriginRequestPolicy_ifMatch,
@@ -1040,11 +1077,39 @@ module Amazonka.CloudFront.Lens
     origin_connectionTimeout,
     origin_s3OriginConfig,
     origin_originPath,
+    origin_originAccessControlId,
     origin_customOriginConfig,
     origin_originShield,
     origin_connectionAttempts,
     origin_id,
     origin_domainName,
+
+    -- ** OriginAccessControl
+    originAccessControl_originAccessControlConfig,
+    originAccessControl_id,
+
+    -- ** OriginAccessControlConfig
+    originAccessControlConfig_name,
+    originAccessControlConfig_description,
+    originAccessControlConfig_signingProtocol,
+    originAccessControlConfig_signingBehavior,
+    originAccessControlConfig_originAccessControlOriginType,
+
+    -- ** OriginAccessControlList
+    originAccessControlList_items,
+    originAccessControlList_nextMarker,
+    originAccessControlList_marker,
+    originAccessControlList_maxItems,
+    originAccessControlList_isTruncated,
+    originAccessControlList_quantity,
+
+    -- ** OriginAccessControlSummary
+    originAccessControlSummary_id,
+    originAccessControlSummary_description,
+    originAccessControlSummary_name,
+    originAccessControlSummary_signingProtocol,
+    originAccessControlSummary_signingBehavior,
+    originAccessControlSummary_originAccessControlOriginType,
 
     -- ** OriginCustomHeader
     originCustomHeader_headerName,
@@ -1399,6 +1464,7 @@ import Amazonka.CloudFront.CreateFunction
 import Amazonka.CloudFront.CreateInvalidation
 import Amazonka.CloudFront.CreateKeyGroup
 import Amazonka.CloudFront.CreateMonitoringSubscription
+import Amazonka.CloudFront.CreateOriginAccessControl
 import Amazonka.CloudFront.CreateOriginRequestPolicy
 import Amazonka.CloudFront.CreatePublicKey
 import Amazonka.CloudFront.CreateRealtimeLogConfig
@@ -1413,6 +1479,7 @@ import Amazonka.CloudFront.DeleteFieldLevelEncryptionProfile
 import Amazonka.CloudFront.DeleteFunction
 import Amazonka.CloudFront.DeleteKeyGroup
 import Amazonka.CloudFront.DeleteMonitoringSubscription
+import Amazonka.CloudFront.DeleteOriginAccessControl
 import Amazonka.CloudFront.DeleteOriginRequestPolicy
 import Amazonka.CloudFront.DeletePublicKey
 import Amazonka.CloudFront.DeleteRealtimeLogConfig
@@ -1434,6 +1501,8 @@ import Amazonka.CloudFront.GetInvalidation
 import Amazonka.CloudFront.GetKeyGroup
 import Amazonka.CloudFront.GetKeyGroupConfig
 import Amazonka.CloudFront.GetMonitoringSubscription
+import Amazonka.CloudFront.GetOriginAccessControl
+import Amazonka.CloudFront.GetOriginAccessControlConfig
 import Amazonka.CloudFront.GetOriginRequestPolicy
 import Amazonka.CloudFront.GetOriginRequestPolicyConfig
 import Amazonka.CloudFront.GetPublicKey
@@ -1458,6 +1527,7 @@ import Amazonka.CloudFront.ListFieldLevelEncryptionProfiles
 import Amazonka.CloudFront.ListFunctions
 import Amazonka.CloudFront.ListInvalidations
 import Amazonka.CloudFront.ListKeyGroups
+import Amazonka.CloudFront.ListOriginAccessControls
 import Amazonka.CloudFront.ListOriginRequestPolicies
 import Amazonka.CloudFront.ListPublicKeys
 import Amazonka.CloudFront.ListRealtimeLogConfigs
@@ -1541,6 +1611,10 @@ import Amazonka.CloudFront.Types.LambdaFunctionAssociations
 import Amazonka.CloudFront.Types.LoggingConfig
 import Amazonka.CloudFront.Types.MonitoringSubscription
 import Amazonka.CloudFront.Types.Origin
+import Amazonka.CloudFront.Types.OriginAccessControl
+import Amazonka.CloudFront.Types.OriginAccessControlConfig
+import Amazonka.CloudFront.Types.OriginAccessControlList
+import Amazonka.CloudFront.Types.OriginAccessControlSummary
 import Amazonka.CloudFront.Types.OriginCustomHeader
 import Amazonka.CloudFront.Types.OriginGroup
 import Amazonka.CloudFront.Types.OriginGroupFailoverCriteria
@@ -1616,6 +1690,7 @@ import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
 import Amazonka.CloudFront.UpdateFunction
 import Amazonka.CloudFront.UpdateKeyGroup
+import Amazonka.CloudFront.UpdateOriginAccessControl
 import Amazonka.CloudFront.UpdateOriginRequestPolicy
 import Amazonka.CloudFront.UpdatePublicKey
 import Amazonka.CloudFront.UpdateRealtimeLogConfig

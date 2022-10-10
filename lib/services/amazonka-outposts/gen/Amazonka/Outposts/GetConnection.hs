@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetConnection
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 --
 -- Amazon Web Services uses this action to install Outpost servers.
 --
--- Gets information about a specified connection.
+-- Gets information about the specified connection.
 --
 -- Use CloudTrail to monitor this action or Amazon Web Services managed
 -- policy for Amazon Web Services Outposts to secure it. For more
@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnection' smart constructor.
 data GetConnection = GetConnection'
-  { -- | The ID of the connection you request.
+  { -- | The ID of the connection.
     connectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data GetConnection = GetConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionId', 'getConnection_connectionId' - The ID of the connection you request.
+-- 'connectionId', 'getConnection_connectionId' - The ID of the connection.
 newGetConnection ::
   -- | 'connectionId'
   Prelude.Text ->
@@ -80,7 +80,7 @@ newGetConnection ::
 newGetConnection pConnectionId_ =
   GetConnection' {connectionId = pConnectionId_}
 
--- | The ID of the connection you request.
+-- | The ID of the connection.
 getConnection_connectionId :: Lens.Lens' GetConnection Prelude.Text
 getConnection_connectionId = Lens.lens (\GetConnection' {connectionId} -> connectionId) (\s@GetConnection' {} a -> s {connectionId = a} :: GetConnection)
 
@@ -126,9 +126,9 @@ instance Core.ToQuery GetConnection where
 
 -- | /See:/ 'newGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { -- | Information about a connection.
+  { -- | Information about the connection.
     connectionDetails :: Prelude.Maybe ConnectionDetails,
-    -- | The ID of the connection you receive.
+    -- | The ID of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -143,9 +143,9 @@ data GetConnectionResponse = GetConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionDetails', 'getConnectionResponse_connectionDetails' - Information about a connection.
+-- 'connectionDetails', 'getConnectionResponse_connectionDetails' - Information about the connection.
 --
--- 'connectionId', 'getConnectionResponse_connectionId' - The ID of the connection you receive.
+-- 'connectionId', 'getConnectionResponse_connectionId' - The ID of the connection.
 --
 -- 'httpStatus', 'getConnectionResponse_httpStatus' - The response's http status code.
 newGetConnectionResponse ::
@@ -160,11 +160,11 @@ newGetConnectionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about a connection.
+-- | Information about the connection.
 getConnectionResponse_connectionDetails :: Lens.Lens' GetConnectionResponse (Prelude.Maybe ConnectionDetails)
 getConnectionResponse_connectionDetails = Lens.lens (\GetConnectionResponse' {connectionDetails} -> connectionDetails) (\s@GetConnectionResponse' {} a -> s {connectionDetails = a} :: GetConnectionResponse)
 
--- | The ID of the connection you receive.
+-- | The ID of the connection.
 getConnectionResponse_connectionId :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.Text)
 getConnectionResponse_connectionId = Lens.lens (\GetConnectionResponse' {connectionId} -> connectionId) (\s@GetConnectionResponse' {} a -> s {connectionId = a} :: GetConnectionResponse)
 

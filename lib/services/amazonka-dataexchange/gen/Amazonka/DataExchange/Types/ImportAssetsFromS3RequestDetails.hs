@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetsFromS3RequestDetails' smart constructor.
 data ImportAssetsFromS3RequestDetails = ImportAssetsFromS3RequestDetails'
-  { -- | The unique identifier for the data set associated with this import job.
-    dataSetId :: Prelude.Text,
-    -- | Is a list of S3 bucket and object key pairs.
+  { -- | Is a list of S3 bucket and object key pairs.
     assetSources :: [AssetSourceEntry],
+    -- | The unique identifier for the data set associated with this import job.
+    dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision associated with this import
     -- request.
     revisionId :: Prelude.Text
@@ -46,9 +46,9 @@ data ImportAssetsFromS3RequestDetails = ImportAssetsFromS3RequestDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSetId', 'importAssetsFromS3RequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
---
 -- 'assetSources', 'importAssetsFromS3RequestDetails_assetSources' - Is a list of S3 bucket and object key pairs.
+--
+-- 'dataSetId', 'importAssetsFromS3RequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
 -- 'revisionId', 'importAssetsFromS3RequestDetails_revisionId' - The unique identifier for the revision associated with this import
 -- request.
@@ -62,19 +62,19 @@ newImportAssetsFromS3RequestDetails
   pDataSetId_
   pRevisionId_ =
     ImportAssetsFromS3RequestDetails'
-      { dataSetId =
-          pDataSetId_,
-        assetSources = Prelude.mempty,
+      { assetSources =
+          Prelude.mempty,
+        dataSetId = pDataSetId_,
         revisionId = pRevisionId_
       }
-
--- | The unique identifier for the data set associated with this import job.
-importAssetsFromS3RequestDetails_dataSetId :: Lens.Lens' ImportAssetsFromS3RequestDetails Prelude.Text
-importAssetsFromS3RequestDetails_dataSetId = Lens.lens (\ImportAssetsFromS3RequestDetails' {dataSetId} -> dataSetId) (\s@ImportAssetsFromS3RequestDetails' {} a -> s {dataSetId = a} :: ImportAssetsFromS3RequestDetails)
 
 -- | Is a list of S3 bucket and object key pairs.
 importAssetsFromS3RequestDetails_assetSources :: Lens.Lens' ImportAssetsFromS3RequestDetails [AssetSourceEntry]
 importAssetsFromS3RequestDetails_assetSources = Lens.lens (\ImportAssetsFromS3RequestDetails' {assetSources} -> assetSources) (\s@ImportAssetsFromS3RequestDetails' {} a -> s {assetSources = a} :: ImportAssetsFromS3RequestDetails) Prelude.. Lens.coerced
+
+-- | The unique identifier for the data set associated with this import job.
+importAssetsFromS3RequestDetails_dataSetId :: Lens.Lens' ImportAssetsFromS3RequestDetails Prelude.Text
+importAssetsFromS3RequestDetails_dataSetId = Lens.lens (\ImportAssetsFromS3RequestDetails' {dataSetId} -> dataSetId) (\s@ImportAssetsFromS3RequestDetails' {} a -> s {dataSetId = a} :: ImportAssetsFromS3RequestDetails)
 
 -- | The unique identifier for the revision associated with this import
 -- request.
@@ -88,8 +88,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromS3RequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` dataSetId
-        `Prelude.hashWithSalt` assetSources
+      _salt `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 
 instance
@@ -97,16 +97,16 @@ instance
     ImportAssetsFromS3RequestDetails
   where
   rnf ImportAssetsFromS3RequestDetails' {..} =
-    Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf assetSources
+    Prelude.rnf assetSources
+      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToJSON ImportAssetsFromS3RequestDetails where
   toJSON ImportAssetsFromS3RequestDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DataSetId" Core..= dataSetId),
-            Prelude.Just ("AssetSources" Core..= assetSources),
+          [ Prelude.Just ("AssetSources" Core..= assetSources),
+            Prelude.Just ("DataSetId" Core..= dataSetId),
             Prelude.Just ("RevisionId" Core..= revisionId)
           ]
       )

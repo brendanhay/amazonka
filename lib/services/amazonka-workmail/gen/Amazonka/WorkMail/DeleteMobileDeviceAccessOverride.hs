@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeleteMobileDeviceAccessOverride' smart constructor.
 data DeleteMobileDeviceAccessOverride = DeleteMobileDeviceAccessOverride'
-  { -- | The Amazon WorkMail organization for which the access override will be
-    -- deleted.
+  { -- | The WorkMail organization for which the access override will be deleted.
     organizationId :: Prelude.Text,
     -- | The WorkMail user for which you want to delete the override. Accepts the
     -- following types of user identities:
@@ -81,8 +80,7 @@ data DeleteMobileDeviceAccessOverride = DeleteMobileDeviceAccessOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deleteMobileDeviceAccessOverride_organizationId' - The Amazon WorkMail organization for which the access override will be
--- deleted.
+-- 'organizationId', 'deleteMobileDeviceAccessOverride_organizationId' - The WorkMail organization for which the access override will be deleted.
 --
 -- 'userId', 'deleteMobileDeviceAccessOverride_userId' - The WorkMail user for which you want to delete the override. Accepts the
 -- following types of user identities:
@@ -115,8 +113,7 @@ newDeleteMobileDeviceAccessOverride
         deviceId = pDeviceId_
       }
 
--- | The Amazon WorkMail organization for which the access override will be
--- deleted.
+-- | The WorkMail organization for which the access override will be deleted.
 deleteMobileDeviceAccessOverride_organizationId :: Lens.Lens' DeleteMobileDeviceAccessOverride Prelude.Text
 deleteMobileDeviceAccessOverride_organizationId = Lens.lens (\DeleteMobileDeviceAccessOverride' {organizationId} -> organizationId) (\s@DeleteMobileDeviceAccessOverride' {} a -> s {organizationId = a} :: DeleteMobileDeviceAccessOverride)
 

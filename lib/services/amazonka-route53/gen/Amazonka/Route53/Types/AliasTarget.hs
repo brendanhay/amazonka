@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53.Types.AliasTarget
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,6 @@ import Amazonka.Route53.Internal
 --
 -- When creating resource record sets for a private hosted zone, note the
 -- following:
---
--- -   Creating geolocation alias resource record sets or latency alias
---     resource record sets in a private hosted zone is unsupported.
 --
 -- -   For information about creating failover resource record sets in a
 --     private hosted zone, see

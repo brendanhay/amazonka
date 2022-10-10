@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -55,6 +55,7 @@ library
     Amazonka.Transfer.DeleteAgreement
     Amazonka.Transfer.DeleteCertificate
     Amazonka.Transfer.DeleteConnector
+    Amazonka.Transfer.DeleteHostKey
     Amazonka.Transfer.DeleteProfile
     Amazonka.Transfer.DeleteServer
     Amazonka.Transfer.DeleteSshPublicKey
@@ -65,12 +66,14 @@ library
     Amazonka.Transfer.DescribeCertificate
     Amazonka.Transfer.DescribeConnector
     Amazonka.Transfer.DescribeExecution
+    Amazonka.Transfer.DescribeHostKey
     Amazonka.Transfer.DescribeProfile
     Amazonka.Transfer.DescribeSecurityPolicy
     Amazonka.Transfer.DescribeServer
     Amazonka.Transfer.DescribeUser
     Amazonka.Transfer.DescribeWorkflow
     Amazonka.Transfer.ImportCertificate
+    Amazonka.Transfer.ImportHostKey
     Amazonka.Transfer.ImportSshPublicKey
     Amazonka.Transfer.Lens
     Amazonka.Transfer.ListAccesses
@@ -78,6 +81,7 @@ library
     Amazonka.Transfer.ListCertificates
     Amazonka.Transfer.ListConnectors
     Amazonka.Transfer.ListExecutions
+    Amazonka.Transfer.ListHostKeys
     Amazonka.Transfer.ListProfiles
     Amazonka.Transfer.ListSecurityPolicies
     Amazonka.Transfer.ListServers
@@ -107,6 +111,7 @@ library
     Amazonka.Transfer.Types.DescribedCertificate
     Amazonka.Transfer.Types.DescribedConnector
     Amazonka.Transfer.Types.DescribedExecution
+    Amazonka.Transfer.Types.DescribedHostKey
     Amazonka.Transfer.Types.DescribedProfile
     Amazonka.Transfer.Types.DescribedSecurityPolicy
     Amazonka.Transfer.Types.DescribedServer
@@ -133,6 +138,7 @@ library
     Amazonka.Transfer.Types.ListedCertificate
     Amazonka.Transfer.Types.ListedConnector
     Amazonka.Transfer.Types.ListedExecution
+    Amazonka.Transfer.Types.ListedHostKey
     Amazonka.Transfer.Types.ListedProfile
     Amazonka.Transfer.Types.ListedServer
     Amazonka.Transfer.Types.ListedUser
@@ -166,13 +172,14 @@ library
     Amazonka.Transfer.UpdateAgreement
     Amazonka.Transfer.UpdateCertificate
     Amazonka.Transfer.UpdateConnector
+    Amazonka.Transfer.UpdateHostKey
     Amazonka.Transfer.UpdateProfile
     Amazonka.Transfer.UpdateServer
     Amazonka.Transfer.UpdateUser
     Amazonka.Transfer.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-transfer-test
@@ -191,8 +198,8 @@ test-suite amazonka-transfer-test
     Test.Amazonka.Transfer.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , amazonka-transfer
     , base
     , bytestring

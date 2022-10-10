@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResilienceHub.CreateApp
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,12 @@
 -- from one or more–up to five–CloudFormation stacks, and an appropriate
 -- resiliency policy.
 --
--- >  <p>After you create a Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).</p>
+-- After you create a Resilience Hub application, you publish it so that
+-- you can run a resiliency assessment on it. You can then use
+-- recommendations from the assessment to improve resiliency by running
+-- another assessment, comparing results, and then iterating the process
+-- until you achieve your goals for recovery time objective (RTO) and
+-- recovery point objective (RPO).
 module Amazonka.ResilienceHub.CreateApp
   ( -- * Creating a Request
     CreateApp (..),

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.DescribeClassificationJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,6 +47,7 @@ module Amazonka.MacieV2.DescribeClassificationJob
     describeClassificationJobResponse_description,
     describeClassificationJobResponse_s3JobDefinition,
     describeClassificationJobResponse_initialRun,
+    describeClassificationJobResponse_allowListIds,
     describeClassificationJobResponse_lastRunTime,
     describeClassificationJobResponse_lastRunErrorStatus,
     describeClassificationJobResponse_jobArn,
@@ -116,6 +117,7 @@ instance Core.AWSRequest DescribeClassificationJob where
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "s3JobDefinition")
             Prelude.<*> (x Core..?> "initialRun")
+            Prelude.<*> (x Core..?> "allowListIds" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "lastRunTime")
             Prelude.<*> (x Core..?> "lastRunErrorStatus")
             Prelude.<*> (x Core..?> "jobArn")
@@ -165,8 +167,8 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     -- create the job.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | An array of unique identifiers, one for each custom data identifier that
-    -- the job uses to analyze data. This value is null if the job uses only
-    -- managed data identifiers to analyze data.
+    -- the job uses when it analyzes data. This value is null if the job uses
+    -- only managed data identifiers to analyze data.
     customDataIdentifierIds :: Prelude.Maybe [Prelude.Text],
     -- | The current status of the job. Possible values are:
     --
@@ -239,6 +241,9 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     -- first scheduled run, this value is false. This value is also false for a
     -- one-time job.
     initialRun :: Prelude.Maybe Prelude.Bool,
+    -- | An array of unique identifiers, one for each allow list that the job
+    -- uses when it analyzes data.
+    allowListIds :: Prelude.Maybe [Prelude.Text],
     -- | The date and time, in UTC and extended ISO 8601 format, when the job
     -- started. If the job is a recurring job, this value indicates when the
     -- most recent run started or, if the job hasn\'t run yet, when the job was
@@ -294,8 +299,8 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
 -- create the job.
 --
 -- 'customDataIdentifierIds', 'describeClassificationJobResponse_customDataIdentifierIds' - An array of unique identifiers, one for each custom data identifier that
--- the job uses to analyze data. This value is null if the job uses only
--- managed data identifiers to analyze data.
+-- the job uses when it analyzes data. This value is null if the job uses
+-- only managed data identifiers to analyze data.
 --
 -- 'jobStatus', 'describeClassificationJobResponse_jobStatus' - The current status of the job. Possible values are:
 --
@@ -368,6 +373,9 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
 -- first scheduled run, this value is false. This value is also false for a
 -- one-time job.
 --
+-- 'allowListIds', 'describeClassificationJobResponse_allowListIds' - An array of unique identifiers, one for each allow list that the job
+-- uses when it analyzes data.
+--
 -- 'lastRunTime', 'describeClassificationJobResponse_lastRunTime' - The date and time, in UTC and extended ISO 8601 format, when the job
 -- started. If the job is a recurring job, this value indicates when the
 -- most recent run started or, if the job hasn\'t run yet, when the job was
@@ -424,6 +432,7 @@ newDescribeClassificationJobResponse pHttpStatus_ =
       description = Prelude.Nothing,
       s3JobDefinition = Prelude.Nothing,
       initialRun = Prelude.Nothing,
+      allowListIds = Prelude.Nothing,
       lastRunTime = Prelude.Nothing,
       lastRunErrorStatus = Prelude.Nothing,
       jobArn = Prelude.Nothing,
@@ -450,8 +459,8 @@ describeClassificationJobResponse_clientToken :: Lens.Lens' DescribeClassificati
 describeClassificationJobResponse_clientToken = Lens.lens (\DescribeClassificationJobResponse' {clientToken} -> clientToken) (\s@DescribeClassificationJobResponse' {} a -> s {clientToken = a} :: DescribeClassificationJobResponse)
 
 -- | An array of unique identifiers, one for each custom data identifier that
--- the job uses to analyze data. This value is null if the job uses only
--- managed data identifiers to analyze data.
+-- the job uses when it analyzes data. This value is null if the job uses
+-- only managed data identifiers to analyze data.
 describeClassificationJobResponse_customDataIdentifierIds :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe [Prelude.Text])
 describeClassificationJobResponse_customDataIdentifierIds = Lens.lens (\DescribeClassificationJobResponse' {customDataIdentifierIds} -> customDataIdentifierIds) (\s@DescribeClassificationJobResponse' {} a -> s {customDataIdentifierIds = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -544,6 +553,11 @@ describeClassificationJobResponse_s3JobDefinition = Lens.lens (\DescribeClassifi
 describeClassificationJobResponse_initialRun :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe Prelude.Bool)
 describeClassificationJobResponse_initialRun = Lens.lens (\DescribeClassificationJobResponse' {initialRun} -> initialRun) (\s@DescribeClassificationJobResponse' {} a -> s {initialRun = a} :: DescribeClassificationJobResponse)
 
+-- | An array of unique identifiers, one for each allow list that the job
+-- uses when it analyzes data.
+describeClassificationJobResponse_allowListIds :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe [Prelude.Text])
+describeClassificationJobResponse_allowListIds = Lens.lens (\DescribeClassificationJobResponse' {allowListIds} -> allowListIds) (\s@DescribeClassificationJobResponse' {} a -> s {allowListIds = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The date and time, in UTC and extended ISO 8601 format, when the job
 -- started. If the job is a recurring job, this value indicates when the
 -- most recent run started or, if the job hasn\'t run yet, when the job was
@@ -613,6 +627,7 @@ instance
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf s3JobDefinition
       `Prelude.seq` Prelude.rnf initialRun
+      `Prelude.seq` Prelude.rnf allowListIds
       `Prelude.seq` Prelude.rnf lastRunTime
       `Prelude.seq` Prelude.rnf lastRunErrorStatus
       `Prelude.seq` Prelude.rnf jobArn

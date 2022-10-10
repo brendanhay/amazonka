@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,9 @@ module Amazonka.BackupGateway
 
     -- ** ConflictException
     _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
@@ -90,6 +93,12 @@ module Amazonka.BackupGateway
     newGetGateway,
     GetGatewayResponse (GetGatewayResponse'),
     newGetGatewayResponse,
+
+    -- ** GetVirtualMachine
+    GetVirtualMachine (GetVirtualMachine'),
+    newGetVirtualMachine,
+    GetVirtualMachineResponse (GetVirtualMachineResponse'),
+    newGetVirtualMachineResponse,
 
     -- ** ImportHypervisorConfiguration
     ImportHypervisorConfiguration (ImportHypervisorConfiguration'),
@@ -183,6 +192,10 @@ module Amazonka.BackupGateway
     Hypervisor (Hypervisor'),
     newHypervisor,
 
+    -- ** MaintenanceStartTime
+    MaintenanceStartTime (MaintenanceStartTime'),
+    newMaintenanceStartTime,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -190,6 +203,10 @@ module Amazonka.BackupGateway
     -- ** VirtualMachine
     VirtualMachine (VirtualMachine'),
     newVirtualMachine,
+
+    -- ** VirtualMachineDetails
+    VirtualMachineDetails (VirtualMachineDetails'),
+    newVirtualMachineDetails,
   )
 where
 
@@ -199,6 +216,7 @@ import Amazonka.BackupGateway.DeleteGateway
 import Amazonka.BackupGateway.DeleteHypervisor
 import Amazonka.BackupGateway.DisassociateGatewayFromServer
 import Amazonka.BackupGateway.GetGateway
+import Amazonka.BackupGateway.GetVirtualMachine
 import Amazonka.BackupGateway.ImportHypervisorConfiguration
 import Amazonka.BackupGateway.Lens
 import Amazonka.BackupGateway.ListGateways

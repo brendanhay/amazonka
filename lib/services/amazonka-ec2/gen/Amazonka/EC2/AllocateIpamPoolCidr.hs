@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.AllocateIpamPoolCidr
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -98,6 +98,8 @@ data AllocateIpamPoolCidr = AllocateIpamPoolCidr'
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Exclude a particular CIDR range from being returned by the pool.
+    -- Disallowed CIDRs are only allowed if using netmask length for
+    -- allocation.
     disallowedCidrs :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the IPAM pool from which you would like to allocate a CIDR.
     ipamPoolId :: Prelude.Text
@@ -151,6 +153,8 @@ data AllocateIpamPoolCidr = AllocateIpamPoolCidr'
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'disallowedCidrs', 'allocateIpamPoolCidr_disallowedCidrs' - Exclude a particular CIDR range from being returned by the pool.
+-- Disallowed CIDRs are only allowed if using netmask length for
+-- allocation.
 --
 -- 'ipamPoolId', 'allocateIpamPoolCidr_ipamPoolId' - The ID of the IPAM pool from which you would like to allocate a CIDR.
 newAllocateIpamPoolCidr ::
@@ -221,6 +225,8 @@ allocateIpamPoolCidr_dryRun :: Lens.Lens' AllocateIpamPoolCidr (Prelude.Maybe Pr
 allocateIpamPoolCidr_dryRun = Lens.lens (\AllocateIpamPoolCidr' {dryRun} -> dryRun) (\s@AllocateIpamPoolCidr' {} a -> s {dryRun = a} :: AllocateIpamPoolCidr)
 
 -- | Exclude a particular CIDR range from being returned by the pool.
+-- Disallowed CIDRs are only allowed if using netmask length for
+-- allocation.
 allocateIpamPoolCidr_disallowedCidrs :: Lens.Lens' AllocateIpamPoolCidr (Prelude.Maybe [Prelude.Text])
 allocateIpamPoolCidr_disallowedCidrs = Lens.lens (\AllocateIpamPoolCidr' {disallowedCidrs} -> disallowedCidrs) (\s@AllocateIpamPoolCidr' {} a -> s {disallowedCidrs = a} :: AllocateIpamPoolCidr) Prelude.. Lens.mapping Lens.coerced
 

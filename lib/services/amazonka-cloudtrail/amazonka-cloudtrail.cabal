@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -52,14 +52,19 @@ library
     Amazonka.CloudTrail.DeleteTrail
     Amazonka.CloudTrail.DescribeQuery
     Amazonka.CloudTrail.DescribeTrails
+    Amazonka.CloudTrail.GetChannel
     Amazonka.CloudTrail.GetEventDataStore
     Amazonka.CloudTrail.GetEventSelectors
+    Amazonka.CloudTrail.GetImport
     Amazonka.CloudTrail.GetInsightSelectors
     Amazonka.CloudTrail.GetQueryResults
     Amazonka.CloudTrail.GetTrail
     Amazonka.CloudTrail.GetTrailStatus
     Amazonka.CloudTrail.Lens
+    Amazonka.CloudTrail.ListChannels
     Amazonka.CloudTrail.ListEventDataStores
+    Amazonka.CloudTrail.ListImportFailures
+    Amazonka.CloudTrail.ListImports
     Amazonka.CloudTrail.ListPublicKeys
     Amazonka.CloudTrail.ListQueries
     Amazonka.CloudTrail.ListTags
@@ -69,18 +74,29 @@ library
     Amazonka.CloudTrail.PutInsightSelectors
     Amazonka.CloudTrail.RemoveTags
     Amazonka.CloudTrail.RestoreEventDataStore
+    Amazonka.CloudTrail.StartImport
     Amazonka.CloudTrail.StartLogging
     Amazonka.CloudTrail.StartQuery
+    Amazonka.CloudTrail.StopImport
     Amazonka.CloudTrail.StopLogging
     Amazonka.CloudTrail.Types
     Amazonka.CloudTrail.Types.AdvancedEventSelector
     Amazonka.CloudTrail.Types.AdvancedFieldSelector
+    Amazonka.CloudTrail.Types.Channel
     Amazonka.CloudTrail.Types.DataResource
+    Amazonka.CloudTrail.Types.Destination
+    Amazonka.CloudTrail.Types.DestinationType
     Amazonka.CloudTrail.Types.Event
     Amazonka.CloudTrail.Types.EventCategory
     Amazonka.CloudTrail.Types.EventDataStore
     Amazonka.CloudTrail.Types.EventDataStoreStatus
     Amazonka.CloudTrail.Types.EventSelector
+    Amazonka.CloudTrail.Types.ImportFailureListItem
+    Amazonka.CloudTrail.Types.ImportFailureStatus
+    Amazonka.CloudTrail.Types.ImportsListItem
+    Amazonka.CloudTrail.Types.ImportSource
+    Amazonka.CloudTrail.Types.ImportStatistics
+    Amazonka.CloudTrail.Types.ImportStatus
     Amazonka.CloudTrail.Types.InsightSelector
     Amazonka.CloudTrail.Types.InsightType
     Amazonka.CloudTrail.Types.LookupAttribute
@@ -93,6 +109,8 @@ library
     Amazonka.CloudTrail.Types.ReadWriteType
     Amazonka.CloudTrail.Types.Resource
     Amazonka.CloudTrail.Types.ResourceTag
+    Amazonka.CloudTrail.Types.S3ImportSource
+    Amazonka.CloudTrail.Types.SourceConfig
     Amazonka.CloudTrail.Types.Tag
     Amazonka.CloudTrail.Types.Trail
     Amazonka.CloudTrail.Types.TrailInfo
@@ -101,7 +119,7 @@ library
     Amazonka.CloudTrail.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-cloudtrail-test
@@ -121,8 +139,8 @@ test-suite amazonka-cloudtrail-test
 
   build-depends:
     , amazonka-cloudtrail
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

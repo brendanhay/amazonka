@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.DevOpsGuru.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -417,7 +417,12 @@ module Amazonka.DevOpsGuru.Lens
     notificationChannel_config,
 
     -- ** NotificationChannelConfig
+    notificationChannelConfig_filters,
     notificationChannelConfig_sns,
+
+    -- ** NotificationFilterConfig
+    notificationFilterConfig_messageTypes,
+    notificationFilterConfig_severities,
 
     -- ** OpsCenterIntegration
     opsCenterIntegration_optInStatus,
@@ -777,6 +782,7 @@ import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig
 import Amazonka.DevOpsGuru.Types.MonitoredResourceIdentifier
 import Amazonka.DevOpsGuru.Types.NotificationChannel
 import Amazonka.DevOpsGuru.Types.NotificationChannelConfig
+import Amazonka.DevOpsGuru.Types.NotificationFilterConfig
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegration
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricDimensionGroup

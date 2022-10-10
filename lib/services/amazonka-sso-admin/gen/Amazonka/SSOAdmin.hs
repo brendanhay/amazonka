@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,36 +11,32 @@
 --
 -- Derived from API version @2020-07-20@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Single Sign On helps you securely create, or
--- connect, your workforce identities and manage their access centrally
--- across Amazon Web Services accounts and applications. Amazon Web
--- Services SSO is the recommended approach for workforce authentication
--- and authorization in Amazon Web Services, for organizations of any size
--- and type.
+-- AWS IAM Identity Center (successor to AWS Single Sign-On) helps you
+-- securely create, or connect, your workforce identities and manage their
+-- access centrally across AWS accounts and applications. IAM Identity
+-- Center is the recommended approach for workforce authentication and
+-- authorization in AWS, for organizations of any size and type.
 --
--- Although Amazon Web Services Single Sign-On was renamed, the @sso@ and
--- @identitystore@ API namespaces will continue to retain their original
--- name for backward compatibility purposes. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed Amazon Web Services SSO rename>.
+-- Although AWS Single Sign-On was renamed, the @sso@ and @identitystore@
+-- API namespaces will continue to retain their original name for backward
+-- compatibility purposes. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed IAM Identity Center rename>.
 --
 -- This reference guide provides information on single sign-on operations
--- which could be used for access management of Amazon Web Services
--- accounts. For information about Amazon Web Services SSO features, see
--- the
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html Amazon Web Services SSO User Guide>.
+-- which could be used for access management of AWS accounts. For
+-- information about IAM Identity Center features, see the
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html IAM Identity Center User Guide>.
 --
--- Many operations in the Amazon Web Services SSO APIs rely on identifiers
--- for users and groups, known as principals. For more information about
--- how to work with principals and principal IDs in Amazon Web Services
--- SSO, see the
+-- Many operations in the IAM Identity Center APIs rely on identifiers for
+-- users and groups, known as principals. For more information about how to
+-- work with principals and principal IDs in IAM Identity Center, see the
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html Identity Store API Reference>.
 --
--- Amazon Web Services provides SDKs that consist of libraries and sample
--- code for various programming languages and platforms (Java, Ruby, .Net,
--- iOS, Android, and more). The SDKs provide a convenient way to create
--- programmatic access to Amazon Web Services SSO and other Amazon Web
--- Services services. For more information about the Amazon Web Services
--- SDKs, including how to download and install them, see
+-- AWS provides SDKs that consist of libraries and sample code for various
+-- programming languages and platforms (Java, Ruby, .Net, iOS, Android, and
+-- more). The SDKs provide a convenient way to create programmatic access
+-- to IAM Identity Center and other AWS services. For more information
+-- about the AWS SDKs, including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 module Amazonka.SSOAdmin
   ( -- * Service Configuration

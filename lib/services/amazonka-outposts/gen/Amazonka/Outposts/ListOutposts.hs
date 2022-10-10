@@ -14,20 +14,19 @@
 
 -- |
 -- Module      : Amazonka.Outposts.ListOutposts
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the Outposts for your Amazon Web Services account. Add filters to
--- your request to return a more specific list of results. Use filters to
--- match an Outpost lifecycle status, Availability Zone (@us-east-1a@), and
--- AZ ID (@use1-az1@).
+-- Lists the Outposts for your Amazon Web Services account.
 --
--- If you specify multiple filters, the filters are joined with an @AND@,
--- and the request returns only results that match all of the specified
--- filters.
+-- Use filters to return specific results. If you specify multiple filters,
+-- the results include only the resources that match all of the specified
+-- filters. For a filter where you can specify multiple values, the results
+-- include items that match any of the values that you specify for the
+-- filter.
 module Amazonka.Outposts.ListOutposts
   ( -- * Creating a Request
     ListOutposts (..),
@@ -62,23 +61,11 @@ import qualified Amazonka.Response as Response
 data ListOutposts = ListOutposts'
   { nextToken :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter for the lifecycle status of the Outpost.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by the lifecycle status.
     lifeCycleStatusFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A filter for the Availability Zone (@us-east-1a@) of the Outpost.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by Availability Zone (for example, @us-east-1a@).
     availabilityZoneFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A filter for the AZ IDs (@use1-az1@) of the Outpost.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by AZ ID (for example, @use1-az1@).
     availabilityZoneIdFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,23 +82,11 @@ data ListOutposts = ListOutposts'
 --
 -- 'maxResults', 'listOutposts_maxResults' - Undocumented member.
 --
--- 'lifeCycleStatusFilter', 'listOutposts_lifeCycleStatusFilter' - A filter for the lifecycle status of the Outpost.
+-- 'lifeCycleStatusFilter', 'listOutposts_lifeCycleStatusFilter' - Filters the results by the lifecycle status.
 --
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - Filters the results by Availability Zone (for example, @us-east-1a@).
 --
--- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - A filter for the Availability Zone (@us-east-1a@) of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
---
--- 'availabilityZoneIdFilter', 'listOutposts_availabilityZoneIdFilter' - A filter for the AZ IDs (@use1-az1@) of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'availabilityZoneIdFilter', 'listOutposts_availabilityZoneIdFilter' - Filters the results by AZ ID (for example, @use1-az1@).
 newListOutposts ::
   ListOutposts
 newListOutposts =
@@ -131,27 +106,15 @@ listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s
 listOutposts_maxResults :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Natural)
 listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) (\s@ListOutposts' {} a -> s {maxResults = a} :: ListOutposts)
 
--- | A filter for the lifecycle status of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by the lifecycle status.
 listOutposts_lifeCycleStatusFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_lifeCycleStatusFilter = Lens.lens (\ListOutposts' {lifeCycleStatusFilter} -> lifeCycleStatusFilter) (\s@ListOutposts' {} a -> s {lifeCycleStatusFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for the Availability Zone (@us-east-1a@) of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by Availability Zone (for example, @us-east-1a@).
 listOutposts_availabilityZoneFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_availabilityZoneFilter = Lens.lens (\ListOutposts' {availabilityZoneFilter} -> availabilityZoneFilter) (\s@ListOutposts' {} a -> s {availabilityZoneFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for the AZ IDs (@use1-az1@) of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by AZ ID (for example, @use1-az1@).
 listOutposts_availabilityZoneIdFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_availabilityZoneIdFilter = Lens.lens (\ListOutposts' {availabilityZoneIdFilter} -> availabilityZoneIdFilter) (\s@ListOutposts' {} a -> s {availabilityZoneIdFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 

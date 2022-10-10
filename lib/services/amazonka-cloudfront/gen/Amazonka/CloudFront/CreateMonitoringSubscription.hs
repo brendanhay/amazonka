@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateMonitoringSubscription
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -141,7 +141,7 @@ instance Core.ToPath CreateMonitoringSubscription where
     Prelude.mconcat
       [ "/2020-05-31/distributions/",
         Core.toBS distributionId,
-        "/monitoring-subscription"
+        "/monitoring-subscription/"
       ]
 
 instance Core.ToQuery CreateMonitoringSubscription where

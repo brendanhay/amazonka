@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.CapacityReservation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservation where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.CapacityAllocation
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
 import Amazonka.EC2.Types.CapacityReservationState
 import Amazonka.EC2.Types.CapacityReservationTenancy
@@ -46,6 +47,8 @@ data CapacityReservation = CapacityReservation'
     -- Reservation belongs. Only valid for Capacity Reservations that were
     -- created by a Capacity Reservation Fleet.
     capacityReservationFleetId :: Prelude.Maybe Prelude.Text,
+    -- | Information about instance capacity usage.
+    capacityAllocations :: Prelude.Maybe [CapacityAllocation],
     -- | /Deprecated./
     ephemeralStorage :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the cluster placement group in which
@@ -164,6 +167,8 @@ data CapacityReservation = CapacityReservation'
 -- Reservation belongs. Only valid for Capacity Reservations that were
 -- created by a Capacity Reservation Fleet.
 --
+-- 'capacityAllocations', 'capacityReservation_capacityAllocations' - Information about instance capacity usage.
+--
 -- 'ephemeralStorage', 'capacityReservation_ephemeralStorage' - /Deprecated./
 --
 -- 'placementGroupArn', 'capacityReservation_placementGroupArn' - The Amazon Resource Name (ARN) of the cluster placement group in which
@@ -266,6 +271,7 @@ newCapacityReservation =
         Prelude.Nothing,
       tags = Prelude.Nothing,
       capacityReservationFleetId = Prelude.Nothing,
+      capacityAllocations = Prelude.Nothing,
       ephemeralStorage = Prelude.Nothing,
       placementGroupArn = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
@@ -304,6 +310,10 @@ capacityReservation_tags = Lens.lens (\CapacityReservation' {tags} -> tags) (\s@
 -- created by a Capacity Reservation Fleet.
 capacityReservation_capacityReservationFleetId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_capacityReservationFleetId = Lens.lens (\CapacityReservation' {capacityReservationFleetId} -> capacityReservationFleetId) (\s@CapacityReservation' {} a -> s {capacityReservationFleetId = a} :: CapacityReservation)
+
+-- | Information about instance capacity usage.
+capacityReservation_capacityAllocations :: Lens.Lens' CapacityReservation (Prelude.Maybe [CapacityAllocation])
+capacityReservation_capacityAllocations = Lens.lens (\CapacityReservation' {capacityAllocations} -> capacityAllocations) (\s@CapacityReservation' {} a -> s {capacityAllocations = a} :: CapacityReservation) Prelude.. Lens.mapping Lens.coerced
 
 -- | /Deprecated./
 capacityReservation_ephemeralStorage :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Bool)
@@ -446,6 +456,10 @@ instance Core.FromXML CapacityReservation where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "capacityReservationFleetId")
+      Prelude.<*> ( x Core..@? "capacityAllocationSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> (x Core..@? "ephemeralStorage")
       Prelude.<*> (x Core..@? "placementGroupArn")
       Prelude.<*> (x Core..@? "outpostArn")
@@ -471,6 +485,7 @@ instance Prelude.Hashable CapacityReservation where
     _salt `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` capacityReservationFleetId
+      `Prelude.hashWithSalt` capacityAllocations
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` placementGroupArn
       `Prelude.hashWithSalt` outpostArn
@@ -496,6 +511,7 @@ instance Prelude.NFData CapacityReservation where
     Prelude.rnf ebsOptimized
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf capacityAllocations
       `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf placementGroupArn
       `Prelude.seq` Prelude.rnf outpostArn
@@ -510,7 +526,8 @@ instance Prelude.NFData CapacityReservation where
       `Prelude.seq` Prelude.rnf instancePlatform
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf availableInstanceCount
+      `Prelude.seq` Prelude.rnf
+        availableInstanceCount
       `Prelude.seq` Prelude.rnf
         instanceMatchCriteria
       `Prelude.seq` Prelude.rnf endDateType

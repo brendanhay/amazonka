@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.Types.ComponentPlatform
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data ComponentPlatform = ComponentPlatform'
     -- the @os@ and @architecture@ of the platform.
     name :: Prelude.Maybe Prelude.Text,
     -- | A dictionary of attributes for the platform. The IoT Greengrass Core
-    -- software defines the @os@ and @platform@ by default. You can specify
+    -- software defines the @os@ and @architecture@ by default. You can specify
     -- additional platform attributes for a core device when you deploy the
     -- Greengrass nucleus component. For more information, see the
     -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html Greengrass nucleus component>
@@ -58,7 +58,7 @@ data ComponentPlatform = ComponentPlatform'
 -- the @os@ and @architecture@ of the platform.
 --
 -- 'attributes', 'componentPlatform_attributes' - A dictionary of attributes for the platform. The IoT Greengrass Core
--- software defines the @os@ and @platform@ by default. You can specify
+-- software defines the @os@ and @architecture@ by default. You can specify
 -- additional platform attributes for a core device when you deploy the
 -- Greengrass nucleus component. For more information, see the
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html Greengrass nucleus component>
@@ -80,7 +80,7 @@ componentPlatform_name :: Lens.Lens' ComponentPlatform (Prelude.Maybe Prelude.Te
 componentPlatform_name = Lens.lens (\ComponentPlatform' {name} -> name) (\s@ComponentPlatform' {} a -> s {name = a} :: ComponentPlatform)
 
 -- | A dictionary of attributes for the platform. The IoT Greengrass Core
--- software defines the @os@ and @platform@ by default. You can specify
+-- software defines the @os@ and @architecture@ by default. You can specify
 -- additional platform attributes for a core device when you deploy the
 -- Greengrass nucleus component. For more information, see the
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html Greengrass nucleus component>

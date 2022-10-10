@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.SpotOptions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,10 +74,19 @@ data SpotOptions = SpotOptions'
     -- available.
     maintenanceStrategies :: Prelude.Maybe FleetSpotMaintenanceStrategies,
     -- | The strategy that determines how to allocate the target Spot Instance
-    -- capacity across the Spot Instance pools specified by the EC2 Fleet.
+    -- capacity across the Spot Instance pools specified by the EC2 Fleet
+    -- launch configuration. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+    -- in the /Amazon EC2 User Guide/.
     --
-    -- @lowest-price@ - EC2 Fleet launches instances from the Spot Instance
-    -- pools with the lowest price.
+    -- @lowest-price@ - EC2 Fleet launches instances from the lowest-price Spot
+    -- Instance pool that has available capacity. If the cheapest pool doesn\'t
+    -- have available capacity, the Spot Instances come from the next cheapest
+    -- pool that has available capacity. If a pool runs out of capacity before
+    -- fulfilling your desired capacity, EC2 Fleet will continue to fulfill
+    -- your request by drawing from the next cheapest pool. To ensure that your
+    -- desired capacity is met, you might receive Spot Instances from several
+    -- pools.
     --
     -- @diversified@ - EC2 Fleet launches instances from all of the Spot
     -- Instance pools that you specify.
@@ -159,10 +168,19 @@ data SpotOptions = SpotOptions'
 -- available.
 --
 -- 'allocationStrategy', 'spotOptions_allocationStrategy' - The strategy that determines how to allocate the target Spot Instance
--- capacity across the Spot Instance pools specified by the EC2 Fleet.
+-- capacity across the Spot Instance pools specified by the EC2 Fleet
+-- launch configuration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+-- in the /Amazon EC2 User Guide/.
 --
--- @lowest-price@ - EC2 Fleet launches instances from the Spot Instance
--- pools with the lowest price.
+-- @lowest-price@ - EC2 Fleet launches instances from the lowest-price Spot
+-- Instance pool that has available capacity. If the cheapest pool doesn\'t
+-- have available capacity, the Spot Instances come from the next cheapest
+-- pool that has available capacity. If a pool runs out of capacity before
+-- fulfilling your desired capacity, EC2 Fleet will continue to fulfill
+-- your request by drawing from the next cheapest pool. To ensure that your
+-- desired capacity is met, you might receive Spot Instances from several
+-- pools.
 --
 -- @diversified@ - EC2 Fleet launches instances from all of the Spot
 -- Instance pools that you specify.
@@ -258,10 +276,19 @@ spotOptions_maintenanceStrategies :: Lens.Lens' SpotOptions (Prelude.Maybe Fleet
 spotOptions_maintenanceStrategies = Lens.lens (\SpotOptions' {maintenanceStrategies} -> maintenanceStrategies) (\s@SpotOptions' {} a -> s {maintenanceStrategies = a} :: SpotOptions)
 
 -- | The strategy that determines how to allocate the target Spot Instance
--- capacity across the Spot Instance pools specified by the EC2 Fleet.
+-- capacity across the Spot Instance pools specified by the EC2 Fleet
+-- launch configuration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+-- in the /Amazon EC2 User Guide/.
 --
--- @lowest-price@ - EC2 Fleet launches instances from the Spot Instance
--- pools with the lowest price.
+-- @lowest-price@ - EC2 Fleet launches instances from the lowest-price Spot
+-- Instance pool that has available capacity. If the cheapest pool doesn\'t
+-- have available capacity, the Spot Instances come from the next cheapest
+-- pool that has available capacity. If a pool runs out of capacity before
+-- fulfilling your desired capacity, EC2 Fleet will continue to fulfill
+-- your request by drawing from the next cheapest pool. To ensure that your
+-- desired capacity is met, you might receive Spot Instances from several
+-- pools.
 --
 -- @diversified@ - EC2 Fleet launches instances from all of the Spot
 -- Instance pools that you specify.

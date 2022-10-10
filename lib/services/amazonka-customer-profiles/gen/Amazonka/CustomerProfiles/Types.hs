@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -260,6 +260,7 @@ module Amazonka.CustomerProfiles.Types
     ListIntegrationItem (..),
     newListIntegrationItem,
     listIntegrationItem_tags,
+    listIntegrationItem_isUnstructured,
     listIntegrationItem_objectTypeNames,
     listIntegrationItem_workflowId,
     listIntegrationItem_objectTypeName,

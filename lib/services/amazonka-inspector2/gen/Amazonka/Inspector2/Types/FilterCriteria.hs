@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector2.Types.FilterCriteria
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,6 +94,11 @@ data FilterCriteria = FilterCriteria'
     componentType :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details on the vulnerability ID used to filter findings.
     vulnerabilityId :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | Details on whether a fix is available through a version update. This
+    -- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+    -- but not all, of the packages identified in the finding have fixes
+    -- available through updated versions.
+    fixAvailable :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details on the finding ARNs used to filter findings.
     findingArn :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details of the Amazon EC2 instance subnet IDs used to filter findings.
@@ -173,6 +178,11 @@ data FilterCriteria = FilterCriteria'
 --
 -- 'vulnerabilityId', 'filterCriteria_vulnerabilityId' - Details on the vulnerability ID used to filter findings.
 --
+-- 'fixAvailable', 'filterCriteria_fixAvailable' - Details on whether a fix is available through a version update. This
+-- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+-- but not all, of the packages identified in the finding have fixes
+-- available through updated versions.
+--
 -- 'findingArn', 'filterCriteria_findingArn' - Details on the finding ARNs used to filter findings.
 --
 -- 'ec2InstanceSubnetId', 'filterCriteria_ec2InstanceSubnetId' - Details of the Amazon EC2 instance subnet IDs used to filter findings.
@@ -211,6 +221,7 @@ newFilterCriteria =
       findingType = Prelude.Nothing,
       componentType = Prelude.Nothing,
       vulnerabilityId = Prelude.Nothing,
+      fixAvailable = Prelude.Nothing,
       findingArn = Prelude.Nothing,
       ec2InstanceSubnetId = Prelude.Nothing,
       updatedAt = Prelude.Nothing
@@ -333,6 +344,13 @@ filterCriteria_componentType = Lens.lens (\FilterCriteria' {componentType} -> co
 filterCriteria_vulnerabilityId :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 filterCriteria_vulnerabilityId = Lens.lens (\FilterCriteria' {vulnerabilityId} -> vulnerabilityId) (\s@FilterCriteria' {} a -> s {vulnerabilityId = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | Details on whether a fix is available through a version update. This
+-- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+-- but not all, of the packages identified in the finding have fixes
+-- available through updated versions.
+filterCriteria_fixAvailable :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+filterCriteria_fixAvailable = Lens.lens (\FilterCriteria' {fixAvailable} -> fixAvailable) (\s@FilterCriteria' {} a -> s {fixAvailable = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
 -- | Details on the finding ARNs used to filter findings.
 filterCriteria_findingArn :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 filterCriteria_findingArn = Lens.lens (\FilterCriteria' {findingArn} -> findingArn) (\s@FilterCriteria' {} a -> s {findingArn = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
@@ -380,6 +398,7 @@ instance Core.FromJSON FilterCriteria where
             Prelude.<*> (x Core..:? "findingType")
             Prelude.<*> (x Core..:? "componentType")
             Prelude.<*> (x Core..:? "vulnerabilityId")
+            Prelude.<*> (x Core..:? "fixAvailable")
             Prelude.<*> (x Core..:? "findingArn")
             Prelude.<*> (x Core..:? "ec2InstanceSubnetId")
             Prelude.<*> (x Core..:? "updatedAt")
@@ -415,6 +434,7 @@ instance Prelude.Hashable FilterCriteria where
       `Prelude.hashWithSalt` findingType
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` vulnerabilityId
+      `Prelude.hashWithSalt` fixAvailable
       `Prelude.hashWithSalt` findingArn
       `Prelude.hashWithSalt` ec2InstanceSubnetId
       `Prelude.hashWithSalt` updatedAt
@@ -455,6 +475,8 @@ instance Prelude.NFData FilterCriteria where
         componentType
       `Prelude.seq` Prelude.rnf
         vulnerabilityId
+      `Prelude.seq` Prelude.rnf
+        fixAvailable
       `Prelude.seq` Prelude.rnf
         findingArn
       `Prelude.seq` Prelude.rnf
@@ -509,6 +531,7 @@ instance Core.ToJSON FilterCriteria where
             ("componentType" Core..=) Prelude.<$> componentType,
             ("vulnerabilityId" Core..=)
               Prelude.<$> vulnerabilityId,
+            ("fixAvailable" Core..=) Prelude.<$> fixAvailable,
             ("findingArn" Core..=) Prelude.<$> findingArn,
             ("ec2InstanceSubnetId" Core..=)
               Prelude.<$> ec2InstanceSubnetId,

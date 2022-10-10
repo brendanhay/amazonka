@@ -14,17 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Proton.ListTagsForResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List tags for a resource. For more information, see /Proton resources
--- and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- List tags for a resource. For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.Proton.ListTagsForResource

@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.IVS
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -124,13 +124,21 @@
 --     <https://docs.aws.amazon.com/ivs/latest/userguide/security-iam.html Identity and Access Management>
 --     on the Security page of the /Amazon IVS User Guide/.
 --
+-- __Amazon Resource Names (ARNs)__
+--
+-- ARNs uniquely identify AWS resources. An ARN is required when you need
+-- to specify a resource unambiguously across all of AWS, such as in IAM
+-- policies and API calls. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names>
+-- in the /AWS General Reference/.
+--
 -- __Channel Endpoints__
 --
 -- -   CreateChannel — Creates a new channel and an associated stream key
 --     to start streaming.
 --
 -- -   GetChannel — Gets the channel configuration for the specified
---     channel ARN (Amazon Resource Name).
+--     channel ARN.
 --
 -- -   BatchGetChannel — Performs GetChannel on multiple ARNs
 --     simultaneously.

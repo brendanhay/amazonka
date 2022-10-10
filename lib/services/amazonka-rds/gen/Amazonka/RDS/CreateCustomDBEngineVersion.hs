@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateCustomDBEngineVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -141,18 +141,18 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
     -- @my-custom-installation-files@.
     databaseInstallationFilesS3BucketName :: Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for an encrypted CEV. A
-    -- symmetric KMS key is required for RDS Custom, but optional for Amazon
-    -- RDS.
+    -- symmetric encryption KMS key is required for RDS Custom, but optional
+    -- for Amazon RDS.
     --
-    -- If you have an existing symmetric KMS key in your account, you can use
-    -- it with RDS Custom. No further action is necessary. If you don\'t
-    -- already have a symmetric KMS key in your account, follow the
-    -- instructions in
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating symmetric KMS keys>
+    -- If you have an existing symmetric encryption KMS key in your account,
+    -- you can use it with RDS Custom. No further action is necessary. If you
+    -- don\'t already have a symmetric encryption KMS key in your account,
+    -- follow the instructions in
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating a symmetric encryption KMS key>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     --
-    -- You can choose the same symmetric key when you create a CEV and a DB
-    -- instance, or choose different keys.
+    -- You can choose the same symmetric encryption key when you create a CEV
+    -- and a DB instance, or choose different keys.
     kmsKeyId :: Prelude.Text,
     -- | The CEV manifest, which is a JSON document that describes the
     -- installation .zip files stored in Amazon S3. Specify the name\/value
@@ -213,18 +213,18 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
 -- @my-custom-installation-files@.
 --
 -- 'kmsKeyId', 'createCustomDBEngineVersion_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted CEV. A
--- symmetric KMS key is required for RDS Custom, but optional for Amazon
--- RDS.
+-- symmetric encryption KMS key is required for RDS Custom, but optional
+-- for Amazon RDS.
 --
--- If you have an existing symmetric KMS key in your account, you can use
--- it with RDS Custom. No further action is necessary. If you don\'t
--- already have a symmetric KMS key in your account, follow the
--- instructions in
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating symmetric KMS keys>
+-- If you have an existing symmetric encryption KMS key in your account,
+-- you can use it with RDS Custom. No further action is necessary. If you
+-- don\'t already have a symmetric encryption KMS key in your account,
+-- follow the instructions in
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating a symmetric encryption KMS key>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
--- You can choose the same symmetric key when you create a CEV and a DB
--- instance, or choose different keys.
+-- You can choose the same symmetric encryption key when you create a CEV
+-- and a DB instance, or choose different keys.
 --
 -- 'manifest', 'createCustomDBEngineVersion_manifest' - The CEV manifest, which is a JSON document that describes the
 -- installation .zip files stored in Amazon S3. Specify the name\/value
@@ -317,18 +317,18 @@ createCustomDBEngineVersion_databaseInstallationFilesS3BucketName :: Lens.Lens' 
 createCustomDBEngineVersion_databaseInstallationFilesS3BucketName = Lens.lens (\CreateCustomDBEngineVersion' {databaseInstallationFilesS3BucketName} -> databaseInstallationFilesS3BucketName) (\s@CreateCustomDBEngineVersion' {} a -> s {databaseInstallationFilesS3BucketName = a} :: CreateCustomDBEngineVersion)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted CEV. A
--- symmetric KMS key is required for RDS Custom, but optional for Amazon
--- RDS.
+-- symmetric encryption KMS key is required for RDS Custom, but optional
+-- for Amazon RDS.
 --
--- If you have an existing symmetric KMS key in your account, you can use
--- it with RDS Custom. No further action is necessary. If you don\'t
--- already have a symmetric KMS key in your account, follow the
--- instructions in
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating symmetric KMS keys>
+-- If you have an existing symmetric encryption KMS key in your account,
+-- you can use it with RDS Custom. No further action is necessary. If you
+-- don\'t already have a symmetric encryption KMS key in your account,
+-- follow the instructions in
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk Creating a symmetric encryption KMS key>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
--- You can choose the same symmetric key when you create a CEV and a DB
--- instance, or choose different keys.
+-- You can choose the same symmetric encryption key when you create a CEV
+-- and a DB instance, or choose different keys.
 createCustomDBEngineVersion_kmsKeyId :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
 createCustomDBEngineVersion_kmsKeyId = Lens.lens (\CreateCustomDBEngineVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateCustomDBEngineVersion' {} a -> s {kmsKeyId = a} :: CreateCustomDBEngineVersion)
 

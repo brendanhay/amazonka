@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.RegisterImage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,6 +94,7 @@ module Amazonka.EC2.RegisterImage
     registerImage_tpmSupport,
     registerImage_ramdiskId,
     registerImage_imageLocation,
+    registerImage_imdsSupport,
     registerImage_bootMode,
     registerImage_kernelId,
     registerImage_architecture,
@@ -172,6 +173,17 @@ data RegisterImage = RegisterImage'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs>
     -- in the /Amazon S3 Service Developer Guide/.
     imageLocation :: Prelude.Maybe Prelude.Text,
+    -- | Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+    -- launched from this AMI will have @HttpTokens@ automatically set to
+    -- @required@ so that, by default, the instance requires that IMDSv2 is
+    -- used when requesting instance metadata. In addition,
+    -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- If you set the value to @v2.0@, make sure that your AMI software can
+    -- support IMDSv2.
+    imdsSupport :: Prelude.Maybe ImdsSupportValues,
     -- | The boot mode of the AMI. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -266,6 +278,17 @@ data RegisterImage = RegisterImage'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs>
 -- in the /Amazon S3 Service Developer Guide/.
 --
+-- 'imdsSupport', 'registerImage_imdsSupport' - Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If you set the value to @v2.0@, make sure that your AMI software can
+-- support IMDSv2.
+--
 -- 'bootMode', 'registerImage_bootMode' - The boot mode of the AMI. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -314,6 +337,7 @@ newRegisterImage pName_ =
       tpmSupport = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       imageLocation = Prelude.Nothing,
+      imdsSupport = Prelude.Nothing,
       bootMode = Prelude.Nothing,
       kernelId = Prelude.Nothing,
       architecture = Prelude.Nothing,
@@ -390,6 +414,19 @@ registerImage_ramdiskId = Lens.lens (\RegisterImage' {ramdiskId} -> ramdiskId) (
 registerImage_imageLocation :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_imageLocation = Lens.lens (\RegisterImage' {imageLocation} -> imageLocation) (\s@RegisterImage' {} a -> s {imageLocation = a} :: RegisterImage)
 
+-- | Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If you set the value to @v2.0@, make sure that your AMI software can
+-- support IMDSv2.
+registerImage_imdsSupport :: Lens.Lens' RegisterImage (Prelude.Maybe ImdsSupportValues)
+registerImage_imdsSupport = Lens.lens (\RegisterImage' {imdsSupport} -> imdsSupport) (\s@RegisterImage' {} a -> s {imdsSupport = a} :: RegisterImage)
+
 -- | The boot mode of the AMI. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -462,6 +499,7 @@ instance Prelude.Hashable RegisterImage where
       `Prelude.hashWithSalt` tpmSupport
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` imageLocation
+      `Prelude.hashWithSalt` imdsSupport
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` kernelId
       `Prelude.hashWithSalt` architecture
@@ -481,6 +519,7 @@ instance Prelude.NFData RegisterImage where
       `Prelude.seq` Prelude.rnf tpmSupport
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf imageLocation
+      `Prelude.seq` Prelude.rnf imdsSupport
       `Prelude.seq` Prelude.rnf bootMode
       `Prelude.seq` Prelude.rnf kernelId
       `Prelude.seq` Prelude.rnf architecture
@@ -517,6 +556,7 @@ instance Core.ToQuery RegisterImage where
         "TpmSupport" Core.=: tpmSupport,
         "RamdiskId" Core.=: ramdiskId,
         "ImageLocation" Core.=: imageLocation,
+        "ImdsSupport" Core.=: imdsSupport,
         "BootMode" Core.=: bootMode,
         "KernelId" Core.=: kernelId,
         "Architecture" Core.=: architecture,

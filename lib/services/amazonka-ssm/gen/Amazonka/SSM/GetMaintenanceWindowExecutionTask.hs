@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.GetMaintenanceWindowExecutionTask
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,9 +44,11 @@ module Amazonka.SSM.GetMaintenanceWindowExecutionTask
     getMaintenanceWindowExecutionTaskResponse_status,
     getMaintenanceWindowExecutionTaskResponse_endTime,
     getMaintenanceWindowExecutionTaskResponse_serviceRole,
+    getMaintenanceWindowExecutionTaskResponse_alarmConfiguration,
     getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_maxConcurrency,
     getMaintenanceWindowExecutionTaskResponse_maxErrors,
+    getMaintenanceWindowExecutionTaskResponse_triggeredAlarms,
     getMaintenanceWindowExecutionTaskResponse_startTime,
     getMaintenanceWindowExecutionTaskResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskResponse_httpStatus,
@@ -126,9 +128,11 @@ instance
               Prelude.<*> (x Core..?> "Status")
               Prelude.<*> (x Core..?> "EndTime")
               Prelude.<*> (x Core..?> "ServiceRole")
+              Prelude.<*> (x Core..?> "AlarmConfiguration")
               Prelude.<*> (x Core..?> "Priority")
               Prelude.<*> (x Core..?> "MaxConcurrency")
               Prelude.<*> (x Core..?> "MaxErrors")
+              Prelude.<*> (x Core..?> "TriggeredAlarms")
               Prelude.<*> (x Core..?> "StartTime")
               Prelude.<*> (x Core..?> "TaskExecutionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -225,6 +229,9 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The role that was assumed when running the task.
     serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | The details for the CloudWatch alarm you applied to your maintenance
+    -- window task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The priority of the task.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The defined maximum number of task executions that could be run in
@@ -233,6 +240,8 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     -- | The defined maximum number of task execution errors allowed before
     -- scheduling of the task execution would have been stopped.
     maxErrors :: Prelude.Maybe Prelude.Text,
+    -- | The CloudWatch alarms that were invoked by the maintenance window task.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The time the task execution started.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the specific task execution in the maintenance window task
@@ -279,6 +288,9 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
 --
 -- 'serviceRole', 'getMaintenanceWindowExecutionTaskResponse_serviceRole' - The role that was assumed when running the task.
 --
+-- 'alarmConfiguration', 'getMaintenanceWindowExecutionTaskResponse_alarmConfiguration' - The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+--
 -- 'priority', 'getMaintenanceWindowExecutionTaskResponse_priority' - The priority of the task.
 --
 -- 'maxConcurrency', 'getMaintenanceWindowExecutionTaskResponse_maxConcurrency' - The defined maximum number of task executions that could be run in
@@ -286,6 +298,8 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
 --
 -- 'maxErrors', 'getMaintenanceWindowExecutionTaskResponse_maxErrors' - The defined maximum number of task execution errors allowed before
 -- scheduling of the task execution would have been stopped.
+--
+-- 'triggeredAlarms', 'getMaintenanceWindowExecutionTaskResponse_triggeredAlarms' - The CloudWatch alarms that were invoked by the maintenance window task.
 --
 -- 'startTime', 'getMaintenanceWindowExecutionTaskResponse_startTime' - The time the task execution started.
 --
@@ -310,9 +324,13 @@ newGetMaintenanceWindowExecutionTaskResponse
         status = Prelude.Nothing,
         endTime = Prelude.Nothing,
         serviceRole = Prelude.Nothing,
+        alarmConfiguration =
+          Prelude.Nothing,
         priority = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
         maxErrors = Prelude.Nothing,
+        triggeredAlarms =
+          Prelude.Nothing,
         startTime = Prelude.Nothing,
         taskExecutionId =
           Prelude.Nothing,
@@ -363,6 +381,11 @@ getMaintenanceWindowExecutionTaskResponse_endTime = Lens.lens (\GetMaintenanceWi
 getMaintenanceWindowExecutionTaskResponse_serviceRole :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskResponse_serviceRole = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {serviceRole} -> serviceRole) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {serviceRole = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
+-- | The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+getMaintenanceWindowExecutionTaskResponse_alarmConfiguration :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe AlarmConfiguration)
+getMaintenanceWindowExecutionTaskResponse_alarmConfiguration = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {alarmConfiguration} -> alarmConfiguration) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {alarmConfiguration = a} :: GetMaintenanceWindowExecutionTaskResponse)
+
 -- | The priority of the task.
 getMaintenanceWindowExecutionTaskResponse_priority :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Natural)
 getMaintenanceWindowExecutionTaskResponse_priority = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {priority} -> priority) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {priority = a} :: GetMaintenanceWindowExecutionTaskResponse)
@@ -376,6 +399,10 @@ getMaintenanceWindowExecutionTaskResponse_maxConcurrency = Lens.lens (\GetMainte
 -- scheduling of the task execution would have been stopped.
 getMaintenanceWindowExecutionTaskResponse_maxErrors :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskResponse_maxErrors = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {maxErrors} -> maxErrors) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {maxErrors = a} :: GetMaintenanceWindowExecutionTaskResponse)
+
+-- | The CloudWatch alarms that were invoked by the maintenance window task.
+getMaintenanceWindowExecutionTaskResponse_triggeredAlarms :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+getMaintenanceWindowExecutionTaskResponse_triggeredAlarms = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {triggeredAlarms} -> triggeredAlarms) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {triggeredAlarms = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time the task execution started.
 getMaintenanceWindowExecutionTaskResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.UTCTime)
@@ -403,9 +430,11 @@ instance
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf triggeredAlarms
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf taskExecutionId
       `Prelude.seq` Prelude.rnf httpStatus

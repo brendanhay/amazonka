@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.DeleteDeploymentGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDeploymentGroup' smart constructor.
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-  { -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+  { -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text,
     -- | The name of a deployment group for the specified application.
     deploymentGroupName :: Prelude.Text
@@ -67,8 +67,8 @@ data DeleteDeploymentGroup = DeleteDeploymentGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'deleteDeploymentGroup_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'deleteDeploymentGroup_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 --
 -- 'deploymentGroupName', 'deleteDeploymentGroup_deploymentGroupName' - The name of a deployment group for the specified application.
 newDeleteDeploymentGroup ::
@@ -86,8 +86,8 @@ newDeleteDeploymentGroup
         deploymentGroupName = pDeploymentGroupName_
       }
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 deleteDeploymentGroup_applicationName :: Lens.Lens' DeleteDeploymentGroup Prelude.Text
 deleteDeploymentGroup_applicationName = Lens.lens (\DeleteDeploymentGroup' {applicationName} -> applicationName) (\s@DeleteDeploymentGroup' {} a -> s {applicationName = a} :: DeleteDeploymentGroup)
 
@@ -157,10 +157,10 @@ instance Core.ToQuery DeleteDeploymentGroup where
 -- /See:/ 'newDeleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
   { -- | If the output contains no data, and the corresponding deployment group
-    -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+    -- contained at least one Auto Scaling group, CodeDeploy successfully
     -- removed all corresponding Auto Scaling lifecycle event hooks from the
     -- Amazon EC2 instances in the Auto Scaling group. If the output contains
-    -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
+    -- data, CodeDeploy could not remove some Auto Scaling lifecycle event
     -- hooks from the Amazon EC2 instances in the Auto Scaling group.
     hooksNotCleanedUp :: Prelude.Maybe [AutoScalingGroup],
     -- | The response's http status code.
@@ -177,10 +177,10 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
 -- for backwards compatibility:
 --
 -- 'hooksNotCleanedUp', 'deleteDeploymentGroupResponse_hooksNotCleanedUp' - If the output contains no data, and the corresponding deployment group
--- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+-- contained at least one Auto Scaling group, CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
 -- Amazon EC2 instances in the Auto Scaling group. If the output contains
--- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
+-- data, CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 --
 -- 'httpStatus', 'deleteDeploymentGroupResponse_httpStatus' - The response's http status code.
@@ -196,10 +196,10 @@ newDeleteDeploymentGroupResponse pHttpStatus_ =
     }
 
 -- | If the output contains no data, and the corresponding deployment group
--- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+-- contained at least one Auto Scaling group, CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
 -- Amazon EC2 instances in the Auto Scaling group. If the output contains
--- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
+-- data, CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 deleteDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Prelude.Maybe [AutoScalingGroup])
 deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@DeleteDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse) Prelude.. Lens.mapping Lens.coerced

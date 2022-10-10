@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.Resource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,11 +39,9 @@ data Resource = Resource'
     state :: Prelude.Maybe EntityState,
     -- | The identifier of the resource.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date indicating when the resource was enabled for Amazon WorkMail
-    -- use.
+    -- | The date indicating when the resource was enabled for WorkMail use.
     enabledDate :: Prelude.Maybe Core.POSIX,
-    -- | The date indicating when the resource was disabled from Amazon WorkMail
-    -- use.
+    -- | The date indicating when the resource was disabled from WorkMail use.
     disabledDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +64,9 @@ data Resource = Resource'
 --
 -- 'id', 'resource_id' - The identifier of the resource.
 --
--- 'enabledDate', 'resource_enabledDate' - The date indicating when the resource was enabled for Amazon WorkMail
--- use.
+-- 'enabledDate', 'resource_enabledDate' - The date indicating when the resource was enabled for WorkMail use.
 --
--- 'disabledDate', 'resource_disabledDate' - The date indicating when the resource was disabled from Amazon WorkMail
--- use.
+-- 'disabledDate', 'resource_disabledDate' - The date indicating when the resource was disabled from WorkMail use.
 newResource ::
   Resource
 newResource =
@@ -104,13 +100,11 @@ resource_state = Lens.lens (\Resource' {state} -> state) (\s@Resource' {} a -> s
 resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
--- | The date indicating when the resource was enabled for Amazon WorkMail
--- use.
+-- | The date indicating when the resource was enabled for WorkMail use.
 resource_enabledDate :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
 resource_enabledDate = Lens.lens (\Resource' {enabledDate} -> enabledDate) (\s@Resource' {} a -> s {enabledDate = a} :: Resource) Prelude.. Lens.mapping Core._Time
 
--- | The date indicating when the resource was disabled from Amazon WorkMail
--- use.
+-- | The date indicating when the resource was disabled from WorkMail use.
 resource_disabledDate :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
 resource_disabledDate = Lens.lens (\Resource' {disabledDate} -> disabledDate) (\s@Resource' {} a -> s {disabledDate = a} :: Resource) Prelude.. Lens.mapping Core._Time
 

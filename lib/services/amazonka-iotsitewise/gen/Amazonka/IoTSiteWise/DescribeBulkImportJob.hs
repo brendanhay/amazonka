@@ -14,15 +14,11 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.DescribeBulkImportJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
--- This API operation is in preview release for IoT SiteWise and is subject
--- to change. We recommend that you use this operation only with test data,
--- and not in production environments.
 --
 -- Retrieves information about a bulk import job request. For more
 -- information, see

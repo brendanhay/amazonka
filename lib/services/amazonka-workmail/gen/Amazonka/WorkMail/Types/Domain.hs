@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.Domain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The domain to associate with an Amazon WorkMail organization.
+-- | The domain to associate with an WorkMail organization.
 --
 -- When you configure a domain hosted in Amazon Route 53 (Route 53), all
 -- recommended DNS records are added to the organization when you create
 -- it. For more information, see
 -- <https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html Adding a domain>
--- in the /Amazon WorkMail Administrator Guide/.
+-- in the /WorkMail Administrator Guide/.
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'

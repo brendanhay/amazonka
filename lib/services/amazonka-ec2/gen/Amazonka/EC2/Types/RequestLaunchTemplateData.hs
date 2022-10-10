@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.RequestLaunchTemplateData
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,7 +90,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- attributes.
     --
     -- If you specify @InstanceRequirements@, you can\'t specify
-    -- @InstanceTypes@.
+    -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirementsRequest,
     -- | The credit option for CPU usage of the instance. Valid only for T
     -- instances.
@@ -121,7 +121,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     --
-    -- If you specify @InstanceTypes@, you can\'t specify
+    -- If you specify @InstanceType@, you can\'t specify
     -- @InstanceRequirements@.
     instanceType :: Prelude.Maybe InstanceType,
     -- | One or more security group names. For a nondefault VPC, you must use
@@ -266,7 +266,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 --
 -- 'creditSpecification', 'requestLaunchTemplateData_creditSpecification' - The credit option for CPU usage of the instance. Valid only for T
 -- instances.
@@ -297,7 +297,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- If you specify @InstanceTypes@, you can\'t specify
+-- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
 --
 -- 'securityGroups', 'requestLaunchTemplateData_securityGroups' - One or more security group names. For a nondefault VPC, you must use
@@ -482,7 +482,7 @@ requestLaunchTemplateData_userData = Lens.lens (\RequestLaunchTemplateData' {use
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 requestLaunchTemplateData_instanceRequirements :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe InstanceRequirementsRequest)
 requestLaunchTemplateData_instanceRequirements = Lens.lens (\RequestLaunchTemplateData' {instanceRequirements} -> instanceRequirements) (\s@RequestLaunchTemplateData' {} a -> s {instanceRequirements = a} :: RequestLaunchTemplateData)
 
@@ -529,7 +529,7 @@ requestLaunchTemplateData_capacityReservationSpecification = Lens.lens (\Request
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- If you specify @InstanceTypes@, you can\'t specify
+-- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
 requestLaunchTemplateData_instanceType :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe InstanceType)
 requestLaunchTemplateData_instanceType = Lens.lens (\RequestLaunchTemplateData' {instanceType} -> instanceType) (\s@RequestLaunchTemplateData' {} a -> s {instanceType = a} :: RequestLaunchTemplateData)

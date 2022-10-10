@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,7 @@ module Amazonka.CloudFront.Types
     _InvalidResponseCode,
     _TooManyCookieNamesInWhiteList,
     _InvalidViewerCertificate,
+    _IllegalOriginAccessConfiguration,
     _BatchTooLarge,
     _InvalidOriginAccessIdentity,
     _DistributionAlreadyExists,
@@ -56,21 +57,27 @@ module Amazonka.CloudFront.Types
     _TooManyTrustedSigners,
     _OriginRequestPolicyAlreadyExists,
     _TooManyHeadersInForwardedValues,
+    _OriginAccessControlInUse,
     _FieldLevelEncryptionProfileSizeExceeded,
+    _NoSuchOriginAccessControl,
     _FieldLevelEncryptionProfileInUse,
     _IllegalUpdate,
     _InvalidErrorCode,
     _InvalidDefaultRootObject,
+    _OriginAccessControlAlreadyExists,
     _TooManyQueryStringsInOriginRequestPolicy,
     _TooManyCookiesInCachePolicy,
     _DistributionNotDisabled,
     _NoSuchInvalidation,
     _NoSuchFunctionExists,
     _TooManyCloudFrontOriginAccessIdentities,
+    _InvalidDomainNameForOriginAccessControl,
     _FunctionAlreadyExists,
     _InvalidArgument,
+    _NoSuchMonitoringSubscription,
     _InvalidWebACLId,
     _InvalidQueryStringParameters,
+    _MonitoringSubscriptionAlreadyExists,
     _TooManyCertificates,
     _CachePolicyInUse,
     _NoSuchResource,
@@ -84,6 +91,7 @@ module Amazonka.CloudFront.Types
     _TooManyOriginCustomHeaders,
     _InvalidTTLOrder,
     _InvalidRequiredProtocol,
+    _TooManyDistributionsAssociatedToOriginAccessControl,
     _TooManyCookiesInOriginRequestPolicy,
     _RealtimeLogConfigInUse,
     _ResponseHeadersPolicyAlreadyExists,
@@ -131,12 +139,14 @@ module Amazonka.CloudFront.Types
     _IllegalDelete,
     _NoSuchDistribution,
     _InconsistentQuantities,
+    _InvalidOriginAccessControl,
     _TooManyDistributionsAssociatedToResponseHeadersPolicy,
     _CloudFrontOriginAccessIdentityAlreadyExists,
     _TooManyCustomHeadersInResponseHeadersPolicy,
     _OriginRequestPolicyInUse,
     _CachePolicyAlreadyExists,
     _NoSuchResponseHeadersPolicy,
+    _TooManyOriginAccessControls,
     _InvalidProtocolSettings,
     _NoSuchCachePolicy,
     _TooManyFieldLevelEncryptionConfigs,
@@ -193,6 +203,15 @@ module Amazonka.CloudFront.Types
 
     -- * MinimumProtocolVersion
     MinimumProtocolVersion (..),
+
+    -- * OriginAccessControlOriginTypes
+    OriginAccessControlOriginTypes (..),
+
+    -- * OriginAccessControlSigningBehaviors
+    OriginAccessControlSigningBehaviors (..),
+
+    -- * OriginAccessControlSigningProtocols
+    OriginAccessControlSigningProtocols (..),
 
     -- * OriginProtocolPolicy
     OriginProtocolPolicy (..),
@@ -824,11 +843,47 @@ module Amazonka.CloudFront.Types
     origin_connectionTimeout,
     origin_s3OriginConfig,
     origin_originPath,
+    origin_originAccessControlId,
     origin_customOriginConfig,
     origin_originShield,
     origin_connectionAttempts,
     origin_id,
     origin_domainName,
+
+    -- * OriginAccessControl
+    OriginAccessControl (..),
+    newOriginAccessControl,
+    originAccessControl_originAccessControlConfig,
+    originAccessControl_id,
+
+    -- * OriginAccessControlConfig
+    OriginAccessControlConfig (..),
+    newOriginAccessControlConfig,
+    originAccessControlConfig_name,
+    originAccessControlConfig_description,
+    originAccessControlConfig_signingProtocol,
+    originAccessControlConfig_signingBehavior,
+    originAccessControlConfig_originAccessControlOriginType,
+
+    -- * OriginAccessControlList
+    OriginAccessControlList (..),
+    newOriginAccessControlList,
+    originAccessControlList_items,
+    originAccessControlList_nextMarker,
+    originAccessControlList_marker,
+    originAccessControlList_maxItems,
+    originAccessControlList_isTruncated,
+    originAccessControlList_quantity,
+
+    -- * OriginAccessControlSummary
+    OriginAccessControlSummary (..),
+    newOriginAccessControlSummary,
+    originAccessControlSummary_id,
+    originAccessControlSummary_description,
+    originAccessControlSummary_name,
+    originAccessControlSummary_signingProtocol,
+    originAccessControlSummary_signingBehavior,
+    originAccessControlSummary_originAccessControlOriginType,
 
     -- * OriginCustomHeader
     OriginCustomHeader (..),
@@ -1396,6 +1451,13 @@ import Amazonka.CloudFront.Types.Method
 import Amazonka.CloudFront.Types.MinimumProtocolVersion
 import Amazonka.CloudFront.Types.MonitoringSubscription
 import Amazonka.CloudFront.Types.Origin
+import Amazonka.CloudFront.Types.OriginAccessControl
+import Amazonka.CloudFront.Types.OriginAccessControlConfig
+import Amazonka.CloudFront.Types.OriginAccessControlList
+import Amazonka.CloudFront.Types.OriginAccessControlOriginTypes
+import Amazonka.CloudFront.Types.OriginAccessControlSigningBehaviors
+import Amazonka.CloudFront.Types.OriginAccessControlSigningProtocols
+import Amazonka.CloudFront.Types.OriginAccessControlSummary
 import Amazonka.CloudFront.Types.OriginCustomHeader
 import Amazonka.CloudFront.Types.OriginGroup
 import Amazonka.CloudFront.Types.OriginGroupFailoverCriteria
@@ -1621,6 +1683,15 @@ _InvalidViewerCertificate =
   Core._MatchServiceError
     defaultService
     "InvalidViewerCertificate"
+    Prelude.. Core.hasStatus 400
+
+-- | An origin cannot contain both an origin access control (OAC) and an
+-- origin access identity (OAI).
+_IllegalOriginAccessConfiguration :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalOriginAccessConfiguration =
+  Core._MatchServiceError
+    defaultService
+    "IllegalOriginAccessConfiguration"
     Prelude.. Core.hasStatus 400
 
 -- | Invalidation batch specified is too large.
@@ -1892,6 +1963,15 @@ _TooManyHeadersInForwardedValues =
     "TooManyHeadersInForwardedValues"
     Prelude.. Core.hasStatus 400
 
+-- | Cannot delete the origin access control because it\'s in use by one or
+-- more distributions.
+_OriginAccessControlInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OriginAccessControlInUse =
+  Core._MatchServiceError
+    defaultService
+    "OriginAccessControlInUse"
+    Prelude.. Core.hasStatus 409
+
 -- | The maximum size of a profile for field-level encryption was exceeded.
 _FieldLevelEncryptionProfileSizeExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionProfileSizeExceeded =
@@ -1899,6 +1979,14 @@ _FieldLevelEncryptionProfileSizeExceeded =
     defaultService
     "FieldLevelEncryptionProfileSizeExceeded"
     Prelude.. Core.hasStatus 400
+
+-- | The origin access control does not exist.
+_NoSuchOriginAccessControl :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchOriginAccessControl =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchOriginAccessControl"
+    Prelude.. Core.hasStatus 404
 
 -- | The specified profile for field-level encryption is in use.
 _FieldLevelEncryptionProfileInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1932,6 +2020,14 @@ _InvalidDefaultRootObject =
     defaultService
     "InvalidDefaultRootObject"
     Prelude.. Core.hasStatus 400
+
+-- | An origin access control with the specified parameters already exists.
+_OriginAccessControlAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OriginAccessControlAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "OriginAccessControlAlreadyExists"
+    Prelude.. Core.hasStatus 409
 
 -- | The number of query strings in the origin request policy exceeds the
 -- maximum. For more information, see
@@ -1989,6 +2085,15 @@ _TooManyCloudFrontOriginAccessIdentities =
     "TooManyCloudFrontOriginAccessIdentities"
     Prelude.. Core.hasStatus 400
 
+-- | An origin access control is associated with an origin whose domain name
+-- is not supported.
+_InvalidDomainNameForOriginAccessControl :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDomainNameForOriginAccessControl =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDomainNameForOriginAccessControl"
+    Prelude.. Core.hasStatus 400
+
 -- | A function with the same name already exists in this Amazon Web Services
 -- account. To create a function, you must provide a unique name. To update
 -- an existing function, use @UpdateFunction@.
@@ -2006,6 +2111,14 @@ _InvalidArgument =
     defaultService
     "InvalidArgument"
     Prelude.. Core.hasStatus 400
+
+-- | A monitoring subscription does not exist for the specified distribution.
+_NoSuchMonitoringSubscription :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchMonitoringSubscription =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchMonitoringSubscription"
+    Prelude.. Core.hasStatus 404
 
 -- | A web ACL ID specified is not valid. To specify a web ACL created using
 -- the latest version of WAF, use the ACL ARN, for example
@@ -2026,6 +2139,14 @@ _InvalidQueryStringParameters =
     defaultService
     "InvalidQueryStringParameters"
     Prelude.. Core.hasStatus 400
+
+-- | A monitoring subscription already exists for the specified distribution.
+_MonitoringSubscriptionAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MonitoringSubscriptionAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "MonitoringSubscriptionAlreadyExists"
+    Prelude.. Core.hasStatus 409
 
 -- | You cannot create anymore custom SSL\/TLS certificates.
 _TooManyCertificates :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2141,6 +2262,19 @@ _InvalidRequiredProtocol =
   Core._MatchServiceError
     defaultService
     "InvalidRequiredProtocol"
+    Prelude.. Core.hasStatus 400
+
+-- | The maximum number of distributions have been associated with the
+-- specified origin access control.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooManyDistributionsAssociatedToOriginAccessControl :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToOriginAccessControl =
+  Core._MatchServiceError
+    defaultService
+    "TooManyDistributionsAssociatedToOriginAccessControl"
     Prelude.. Core.hasStatus 400
 
 -- | The number of cookies in the origin request policy exceeds the maximum.
@@ -2570,6 +2704,14 @@ _InconsistentQuantities =
     "InconsistentQuantities"
     Prelude.. Core.hasStatus 400
 
+-- | The origin access control is not valid.
+_InvalidOriginAccessControl :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOriginAccessControl =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOriginAccessControl"
+    Prelude.. Core.hasStatus 400
+
 -- | The maximum number of distributions have been associated with the
 -- specified response headers policy.
 --
@@ -2633,6 +2775,19 @@ _NoSuchResponseHeadersPolicy =
     defaultService
     "NoSuchResponseHeadersPolicy"
     Prelude.. Core.hasStatus 404
+
+-- | The number of origin access controls in your Amazon Web Services account
+-- exceeds the maximum allowed.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooManyOriginAccessControls :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyOriginAccessControls =
+  Core._MatchServiceError
+    defaultService
+    "TooManyOriginAccessControls"
+    Prelude.. Core.hasStatus 400
 
 -- | You cannot specify SSLv3 as the minimum protocol version if you only
 -- want to support only clients that support Server Name Indication (SNI).

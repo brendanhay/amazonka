@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,12 @@ module Amazonka.LookoutEquipment.Types
 
     -- * IngestionJobStatus
     IngestionJobStatus (..),
+
+    -- * LabelRating
+    LabelRating (..),
+
+    -- * LatestInferenceResult
+    LatestInferenceResult (..),
 
     -- * ModelStatus
     ModelStatus (..),
@@ -169,6 +175,7 @@ module Amazonka.LookoutEquipment.Types
     inferenceSchedulerSummary_dataDelayOffsetInMinutes,
     inferenceSchedulerSummary_status,
     inferenceSchedulerSummary_modelArn,
+    inferenceSchedulerSummary_latestInferenceResult,
     inferenceSchedulerSummary_modelName,
     inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
@@ -204,10 +211,32 @@ module Amazonka.LookoutEquipment.Types
     invalidSensorData_affectedSensorCount,
     invalidSensorData_totalNumberOfInvalidValues,
 
+    -- * LabelGroupSummary
+    LabelGroupSummary (..),
+    newLabelGroupSummary,
+    labelGroupSummary_labelGroupArn,
+    labelGroupSummary_createdAt,
+    labelGroupSummary_updatedAt,
+    labelGroupSummary_labelGroupName,
+
+    -- * LabelSummary
+    LabelSummary (..),
+    newLabelSummary,
+    labelSummary_equipment,
+    labelSummary_labelId,
+    labelSummary_endTime,
+    labelSummary_faultCode,
+    labelSummary_labelGroupArn,
+    labelSummary_rating,
+    labelSummary_createdAt,
+    labelSummary_startTime,
+    labelSummary_labelGroupName,
+
     -- * LabelsInputConfiguration
     LabelsInputConfiguration (..),
     newLabelsInputConfiguration,
     labelsInputConfiguration_s3InputConfiguration,
+    labelsInputConfiguration_labelGroupName,
 
     -- * LabelsS3InputConfiguration
     LabelsS3InputConfiguration (..),
@@ -323,9 +352,13 @@ import Amazonka.LookoutEquipment.Types.IngestionJobStatus
 import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
 import Amazonka.LookoutEquipment.Types.InsufficientSensorData
 import Amazonka.LookoutEquipment.Types.InvalidSensorData
+import Amazonka.LookoutEquipment.Types.LabelGroupSummary
+import Amazonka.LookoutEquipment.Types.LabelRating
+import Amazonka.LookoutEquipment.Types.LabelSummary
 import Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
 import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
 import Amazonka.LookoutEquipment.Types.LargeTimestampGaps
+import Amazonka.LookoutEquipment.Types.LatestInferenceResult
 import Amazonka.LookoutEquipment.Types.MissingCompleteSensorData
 import Amazonka.LookoutEquipment.Types.MissingSensorData
 import Amazonka.LookoutEquipment.Types.ModelStatus

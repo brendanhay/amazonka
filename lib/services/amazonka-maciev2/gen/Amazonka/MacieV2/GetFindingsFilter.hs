@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetFindingsFilter
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFindingsFilter' smart constructor.
 data GetFindingsFilter = GetFindingsFilter'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data GetFindingsFilter = GetFindingsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getFindingsFilter_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'getFindingsFilter_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newGetFindingsFilter ::
   -- | 'id'
   Prelude.Text ->
@@ -78,8 +78,8 @@ newGetFindingsFilter ::
 newGetFindingsFilter pId_ =
   GetFindingsFilter' {id = pId_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 getFindingsFilter_id :: Lens.Lens' GetFindingsFilter Prelude.Text
 getFindingsFilter_id = Lens.lens (\GetFindingsFilter' {id} -> id) (\s@GetFindingsFilter' {} a -> s {id = a} :: GetFindingsFilter)
 
@@ -130,8 +130,8 @@ instance Core.ToQuery GetFindingsFilter where
 
 -- | /See:/ 'newGetFindingsFilterResponse' smart constructor.
 data GetFindingsFilterResponse = GetFindingsFilterResponse'
-  { -- | A map of key-value pairs that identifies the tags (keys and values) that
-    -- are associated with the filter.
+  { -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the filter.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The custom name of the filter.
     name :: Prelude.Maybe Prelude.Text,
@@ -166,8 +166,8 @@ data GetFindingsFilterResponse = GetFindingsFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getFindingsFilterResponse_tags' - A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
+-- 'tags', 'getFindingsFilterResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
 --
 -- 'name', 'getFindingsFilterResponse_name' - The custom name of the filter.
 --
@@ -207,8 +207,8 @@ newGetFindingsFilterResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
 getFindingsFilterResponse_tags :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getFindingsFilterResponse_tags = Lens.lens (\GetFindingsFilterResponse' {tags} -> tags) (\s@GetFindingsFilterResponse' {} a -> s {tags = a} :: GetFindingsFilterResponse) Prelude.. Lens.mapping Lens.coerced
 

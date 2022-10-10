@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.Types.LineItemAssetInformation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLineItemAssetInformation' smart constructor.
 data LineItemAssetInformation = LineItemAssetInformation'
-  { -- | MAC addresses of the asset.
+  { -- | The MAC addresses of the asset.
     macAddressList :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the asset.
     assetId :: Prelude.Maybe Prelude.Text
@@ -42,7 +42,7 @@ data LineItemAssetInformation = LineItemAssetInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'macAddressList', 'lineItemAssetInformation_macAddressList' - MAC addresses of the asset.
+-- 'macAddressList', 'lineItemAssetInformation_macAddressList' - The MAC addresses of the asset.
 --
 -- 'assetId', 'lineItemAssetInformation_assetId' - The ID of the asset.
 newLineItemAssetInformation ::
@@ -54,7 +54,7 @@ newLineItemAssetInformation =
       assetId = Prelude.Nothing
     }
 
--- | MAC addresses of the asset.
+-- | The MAC addresses of the asset.
 lineItemAssetInformation_macAddressList :: Lens.Lens' LineItemAssetInformation (Prelude.Maybe [Prelude.Text])
 lineItemAssetInformation_macAddressList = Lens.lens (\LineItemAssetInformation' {macAddressList} -> macAddressList) (\s@LineItemAssetInformation' {} a -> s {macAddressList = a} :: LineItemAssetInformation) Prelude.. Lens.mapping Lens.coerced
 

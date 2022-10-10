@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.TagValues
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- If @Values@ and @Key@ aren\'t specified, the @ABSENT@ @MatchOption@ is
 -- applied to all tags. That is, it\'s filtered on resources with no tags.
 --
--- If @Values@ is provided and @Key@ isn\'t specified, the @ABSENT@
+-- If @Key@ is provided and @Values@ isn\'t specified, the @ABSENT@
 -- @MatchOption@ is applied to the tag @Key@ only. That is, it\'s filtered
 -- on resources without the given tag key.
 --

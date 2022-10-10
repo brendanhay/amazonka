@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector2.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -482,6 +482,7 @@ module Amazonka.Inspector2.Lens
     filterCriteria_findingType,
     filterCriteria_componentType,
     filterCriteria_vulnerabilityId,
+    filterCriteria_fixAvailable,
     filterCriteria_findingArn,
     filterCriteria_ec2InstanceSubnetId,
     filterCriteria_updatedAt,
@@ -492,6 +493,7 @@ module Amazonka.Inspector2.Lens
     finding_title,
     finding_inspectorScoreDetails,
     finding_networkReachabilityDetails,
+    finding_fixAvailable,
     finding_updatedAt,
     finding_awsAccountId,
     finding_description,
@@ -588,6 +590,7 @@ module Amazonka.Inspector2.Lens
     packageFilter_version,
 
     -- ** PackageVulnerabilityDetails
+    packageVulnerabilityDetails_vulnerablePackages,
     packageVulnerabilityDetails_referenceUrls,
     packageVulnerabilityDetails_vendorUpdatedAt,
     packageVulnerabilityDetails_vendorCreatedAt,
@@ -597,7 +600,6 @@ module Amazonka.Inspector2.Lens
     packageVulnerabilityDetails_sourceUrl,
     packageVulnerabilityDetails_source,
     packageVulnerabilityDetails_vulnerabilityId,
-    packageVulnerabilityDetails_vulnerablePackages,
 
     -- ** Permission
     permission_operation,
@@ -707,6 +709,7 @@ module Amazonka.Inspector2.Lens
     -- ** VulnerablePackage
     vulnerablePackage_filePath,
     vulnerablePackage_fixedInVersion,
+    vulnerablePackage_remediation,
     vulnerablePackage_arch,
     vulnerablePackage_epoch,
     vulnerablePackage_packageManager,

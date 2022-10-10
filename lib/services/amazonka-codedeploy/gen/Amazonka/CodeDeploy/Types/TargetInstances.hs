@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.TargetInstances
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,10 +37,10 @@ data TargetInstances = TargetInstances'
     -- instances in a replacement environment for a blue\/green deployment.
     -- Cannot be used in the same call as @ec2TagSet@.
     tagFilters :: Prelude.Maybe [EC2TagFilter],
-    -- | Information about the groups of EC2 instance tags that an instance must
-    -- be identified by in order for it to be included in the replacement
-    -- environment for a blue\/green deployment. Cannot be used in the same
-    -- call as @tagFilters@.
+    -- | Information about the groups of Amazon EC2 instance tags that an
+    -- instance must be identified by in order for it to be included in the
+    -- replacement environment for a blue\/green deployment. Cannot be used in
+    -- the same call as @tagFilters@.
     ec2TagSet :: Prelude.Maybe EC2TagSet
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,10 +60,10 @@ data TargetInstances = TargetInstances'
 -- instances in a replacement environment for a blue\/green deployment.
 -- Cannot be used in the same call as @ec2TagSet@.
 --
--- 'ec2TagSet', 'targetInstances_ec2TagSet' - Information about the groups of EC2 instance tags that an instance must
--- be identified by in order for it to be included in the replacement
--- environment for a blue\/green deployment. Cannot be used in the same
--- call as @tagFilters@.
+-- 'ec2TagSet', 'targetInstances_ec2TagSet' - Information about the groups of Amazon EC2 instance tags that an
+-- instance must be identified by in order for it to be included in the
+-- replacement environment for a blue\/green deployment. Cannot be used in
+-- the same call as @tagFilters@.
 newTargetInstances ::
   TargetInstances
 newTargetInstances =
@@ -85,10 +85,10 @@ targetInstances_autoScalingGroups = Lens.lens (\TargetInstances' {autoScalingGro
 targetInstances_tagFilters :: Lens.Lens' TargetInstances (Prelude.Maybe [EC2TagFilter])
 targetInstances_tagFilters = Lens.lens (\TargetInstances' {tagFilters} -> tagFilters) (\s@TargetInstances' {} a -> s {tagFilters = a} :: TargetInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the groups of EC2 instance tags that an instance must
--- be identified by in order for it to be included in the replacement
--- environment for a blue\/green deployment. Cannot be used in the same
--- call as @tagFilters@.
+-- | Information about the groups of Amazon EC2 instance tags that an
+-- instance must be identified by in order for it to be included in the
+-- replacement environment for a blue\/green deployment. Cannot be used in
+-- the same call as @tagFilters@.
 targetInstances_ec2TagSet :: Lens.Lens' TargetInstances (Prelude.Maybe EC2TagSet)
 targetInstances_ec2TagSet = Lens.lens (\TargetInstances' {ec2TagSet} -> ec2TagSet) (\s@TargetInstances' {} a -> s {ec2TagSet = a} :: TargetInstances)
 

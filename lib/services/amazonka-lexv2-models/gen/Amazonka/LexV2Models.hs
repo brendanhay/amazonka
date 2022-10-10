@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -583,6 +583,9 @@ module Amazonka.LexV2Models
     -- ** ObfuscationSettingType
     ObfuscationSettingType (..),
 
+    -- ** PromptAttempt
+    PromptAttempt (..),
+
     -- ** SearchOrder
     SearchOrder (..),
 
@@ -644,6 +647,10 @@ module Amazonka.LexV2Models
     AggregatedUtterancesSummary (AggregatedUtterancesSummary'),
     newAggregatedUtterancesSummary,
 
+    -- ** AllowedInputTypes
+    AllowedInputTypes (AllowedInputTypes'),
+    newAllowedInputTypes,
+
     -- ** AssociatedTranscript
     AssociatedTranscript (AssociatedTranscript'),
     newAssociatedTranscript,
@@ -652,6 +659,10 @@ module Amazonka.LexV2Models
     AssociatedTranscriptFilter (AssociatedTranscriptFilter'),
     newAssociatedTranscriptFilter,
 
+    -- ** AudioAndDTMFInputSpecification
+    AudioAndDTMFInputSpecification (AudioAndDTMFInputSpecification'),
+    newAudioAndDTMFInputSpecification,
+
     -- ** AudioLogDestination
     AudioLogDestination (AudioLogDestination'),
     newAudioLogDestination,
@@ -659,6 +670,10 @@ module Amazonka.LexV2Models
     -- ** AudioLogSetting
     AudioLogSetting (AudioLogSetting'),
     newAudioLogSetting,
+
+    -- ** AudioSpecification
+    AudioSpecification (AudioSpecification'),
+    newAudioSpecification,
 
     -- ** BotAliasHistoryEvent
     BotAliasHistoryEvent (BotAliasHistoryEvent'),
@@ -768,6 +783,10 @@ module Amazonka.LexV2Models
     CodeHookSpecification (CodeHookSpecification'),
     newCodeHookSpecification,
 
+    -- ** CompositeSlotTypeSetting
+    CompositeSlotTypeSetting (CompositeSlotTypeSetting'),
+    newCompositeSlotTypeSetting,
+
     -- ** Condition
     Condition (Condition'),
     newCondition,
@@ -795,6 +814,10 @@ module Amazonka.LexV2Models
     -- ** CustomVocabularyImportSpecification
     CustomVocabularyImportSpecification (CustomVocabularyImportSpecification'),
     newCustomVocabularyImportSpecification,
+
+    -- ** DTMFSpecification
+    DTMFSpecification (DTMFSpecification'),
+    newDTMFSpecification,
 
     -- ** DataPrivacy
     DataPrivacy (DataPrivacy'),
@@ -984,6 +1007,10 @@ module Amazonka.LexV2Models
     Principal (Principal'),
     newPrincipal,
 
+    -- ** PromptAttemptSpecification
+    PromptAttemptSpecification (PromptAttemptSpecification'),
+    newPromptAttemptSpecification,
+
     -- ** PromptSpecification
     PromptSpecification (PromptSpecification'),
     newPromptSpecification,
@@ -1092,9 +1119,29 @@ module Amazonka.LexV2Models
     SlotValueSelectionSetting (SlotValueSelectionSetting'),
     newSlotValueSelectionSetting,
 
+    -- ** Specifications
+    Specifications (Specifications'),
+    newSpecifications,
+
     -- ** StillWaitingResponseSpecification
     StillWaitingResponseSpecification (StillWaitingResponseSpecification'),
     newStillWaitingResponseSpecification,
+
+    -- ** SubSlotSetting
+    SubSlotSetting (SubSlotSetting'),
+    newSubSlotSetting,
+
+    -- ** SubSlotTypeComposition
+    SubSlotTypeComposition (SubSlotTypeComposition'),
+    newSubSlotTypeComposition,
+
+    -- ** SubSlotValueElicitationSetting
+    SubSlotValueElicitationSetting (SubSlotValueElicitationSetting'),
+    newSubSlotValueElicitationSetting,
+
+    -- ** TextInputSpecification
+    TextInputSpecification (TextInputSpecification'),
+    newTextInputSpecification,
 
     -- ** TextLogDestination
     TextLogDestination (TextLogDestination'),

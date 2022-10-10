@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DeleteSecurityGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@
 -- fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@
 -- in EC2-VPC.
 --
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
+-- We are retiring EC2-Classic. We recommend that you migrate from
+-- EC2-Classic to a VPC. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.DeleteSecurityGroup
@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
   { -- | [EC2-Classic, default VPC] The name of the security group. You can
-    -- specify either the security group name or the security group ID.
+    -- specify either the security group name or the security group ID. For
+    -- security groups in a nondefault VPC, you must specify the security group
+    -- ID.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -78,7 +80,9 @@ data DeleteSecurityGroup = DeleteSecurityGroup'
 -- for backwards compatibility:
 --
 -- 'groupName', 'deleteSecurityGroup_groupName' - [EC2-Classic, default VPC] The name of the security group. You can
--- specify either the security group name or the security group ID.
+-- specify either the security group name or the security group ID. For
+-- security groups in a nondefault VPC, you must specify the security group
+-- ID.
 --
 -- 'dryRun', 'deleteSecurityGroup_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,7 +100,9 @@ newDeleteSecurityGroup =
     }
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can
--- specify either the security group name or the security group ID.
+-- specify either the security group name or the security group ID. For
+-- security groups in a nondefault VPC, you must specify the security group
+-- ID.
 deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
 deleteSecurityGroup_groupName = Lens.lens (\DeleteSecurityGroup' {groupName} -> groupName) (\s@DeleteSecurityGroup' {} a -> s {groupName = a} :: DeleteSecurityGroup)
 

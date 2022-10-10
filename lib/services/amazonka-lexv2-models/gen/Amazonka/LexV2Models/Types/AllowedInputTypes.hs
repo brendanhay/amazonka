@@ -1,0 +1,100 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.LexV2Models.Types.AllowedInputTypes
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.LexV2Models.Types.AllowedInputTypes where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | Specifies the allowed input types.
+--
+-- /See:/ 'newAllowedInputTypes' smart constructor.
+data AllowedInputTypes = AllowedInputTypes'
+  { -- | Indicates whether audio input is allowed.
+    allowAudioInput :: Prelude.Bool,
+    -- | Indicates whether DTMF input is allowed.
+    allowDTMFInput :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AllowedInputTypes' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'allowAudioInput', 'allowedInputTypes_allowAudioInput' - Indicates whether audio input is allowed.
+--
+-- 'allowDTMFInput', 'allowedInputTypes_allowDTMFInput' - Indicates whether DTMF input is allowed.
+newAllowedInputTypes ::
+  -- | 'allowAudioInput'
+  Prelude.Bool ->
+  -- | 'allowDTMFInput'
+  Prelude.Bool ->
+  AllowedInputTypes
+newAllowedInputTypes
+  pAllowAudioInput_
+  pAllowDTMFInput_ =
+    AllowedInputTypes'
+      { allowAudioInput =
+          pAllowAudioInput_,
+        allowDTMFInput = pAllowDTMFInput_
+      }
+
+-- | Indicates whether audio input is allowed.
+allowedInputTypes_allowAudioInput :: Lens.Lens' AllowedInputTypes Prelude.Bool
+allowedInputTypes_allowAudioInput = Lens.lens (\AllowedInputTypes' {allowAudioInput} -> allowAudioInput) (\s@AllowedInputTypes' {} a -> s {allowAudioInput = a} :: AllowedInputTypes)
+
+-- | Indicates whether DTMF input is allowed.
+allowedInputTypes_allowDTMFInput :: Lens.Lens' AllowedInputTypes Prelude.Bool
+allowedInputTypes_allowDTMFInput = Lens.lens (\AllowedInputTypes' {allowDTMFInput} -> allowDTMFInput) (\s@AllowedInputTypes' {} a -> s {allowDTMFInput = a} :: AllowedInputTypes)
+
+instance Core.FromJSON AllowedInputTypes where
+  parseJSON =
+    Core.withObject
+      "AllowedInputTypes"
+      ( \x ->
+          AllowedInputTypes'
+            Prelude.<$> (x Core..: "allowAudioInput")
+            Prelude.<*> (x Core..: "allowDTMFInput")
+      )
+
+instance Prelude.Hashable AllowedInputTypes where
+  hashWithSalt _salt AllowedInputTypes' {..} =
+    _salt `Prelude.hashWithSalt` allowAudioInput
+      `Prelude.hashWithSalt` allowDTMFInput
+
+instance Prelude.NFData AllowedInputTypes where
+  rnf AllowedInputTypes' {..} =
+    Prelude.rnf allowAudioInput
+      `Prelude.seq` Prelude.rnf allowDTMFInput
+
+instance Core.ToJSON AllowedInputTypes where
+  toJSON AllowedInputTypes' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("allowAudioInput" Core..= allowAudioInput),
+            Prelude.Just
+              ("allowDTMFInput" Core..= allowDTMFInput)
+          ]
+      )

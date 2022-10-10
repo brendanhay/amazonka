@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,6 +94,9 @@ module Amazonka.Comprehend.Types
     -- * SyntaxLanguageCode
     SyntaxLanguageCode (..),
 
+    -- * TargetedSentimentEntityType
+    TargetedSentimentEntityType (..),
+
     -- * AugmentedManifestsListItem
     AugmentedManifestsListItem (..),
     newAugmentedManifestsListItem,
@@ -134,6 +137,12 @@ module Amazonka.Comprehend.Types
     newBatchDetectSyntaxItemResult,
     batchDetectSyntaxItemResult_index,
     batchDetectSyntaxItemResult_syntaxTokens,
+
+    -- * BatchDetectTargetedSentimentItemResult
+    BatchDetectTargetedSentimentItemResult (..),
+    newBatchDetectTargetedSentimentItemResult,
+    batchDetectTargetedSentimentItemResult_entities,
+    batchDetectTargetedSentimentItemResult_index,
 
     -- * BatchItemError
     BatchItemError (..),
@@ -517,6 +526,12 @@ module Amazonka.Comprehend.Types
     keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_inputDataConfig,
 
+    -- * MentionSentiment
+    MentionSentiment (..),
+    newMentionSentiment,
+    mentionSentiment_sentimentScore,
+    mentionSentiment_sentiment,
+
     -- * OutputDataConfig
     OutputDataConfig (..),
     newOutputDataConfig,
@@ -648,6 +663,23 @@ module Amazonka.Comprehend.Types
     targetedSentimentDetectionJobProperties_jobArn,
     targetedSentimentDetectionJobProperties_inputDataConfig,
 
+    -- * TargetedSentimentEntity
+    TargetedSentimentEntity (..),
+    newTargetedSentimentEntity,
+    targetedSentimentEntity_descriptiveMentionIndex,
+    targetedSentimentEntity_mentions,
+
+    -- * TargetedSentimentMention
+    TargetedSentimentMention (..),
+    newTargetedSentimentMention,
+    targetedSentimentMention_beginOffset,
+    targetedSentimentMention_type,
+    targetedSentimentMention_score,
+    targetedSentimentMention_endOffset,
+    targetedSentimentMention_mentionSentiment,
+    targetedSentimentMention_groupScore,
+    targetedSentimentMention_text,
+
     -- * TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     newTopicsDetectionJobFilter,
@@ -688,6 +720,7 @@ import Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult
 import Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult
 import Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
 import Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
+import Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
 import Amazonka.Comprehend.Types.BatchItemError
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
@@ -739,6 +772,7 @@ import Amazonka.Comprehend.Types.KeyPhrase
 import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter
 import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobProperties
 import Amazonka.Comprehend.Types.LanguageCode
+import Amazonka.Comprehend.Types.MentionSentiment
 import Amazonka.Comprehend.Types.ModelStatus
 import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.PartOfSpeechTag
@@ -761,6 +795,9 @@ import Amazonka.Comprehend.Types.SyntaxToken
 import Amazonka.Comprehend.Types.Tag
 import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
 import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
+import Amazonka.Comprehend.Types.TargetedSentimentEntity
+import Amazonka.Comprehend.Types.TargetedSentimentEntityType
+import Amazonka.Comprehend.Types.TargetedSentimentMention
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
 import Amazonka.Comprehend.Types.VpcConfig
@@ -883,7 +920,8 @@ _TooManyTagKeysException =
 -- | Amazon Comprehend can\'t process the language of the input text. For
 -- custom entity recognition APIs, only English, Spanish, French, Italian,
 -- German, or Portuguese are accepted. For a list of supported languages,
--- see supported-languages.
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html Supported languages>
+-- in the Comprehend Developer Guide.
 _UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedLanguageException =
   Core._MatchServiceError

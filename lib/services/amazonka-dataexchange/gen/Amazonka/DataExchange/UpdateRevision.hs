@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.UpdateRevision
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ module Amazonka.DataExchange.UpdateRevision
     -- * Request Lenses
     updateRevision_comment,
     updateRevision_finalized,
-    updateRevision_revisionId,
     updateRevision_dataSetId,
+    updateRevision_revisionId,
 
     -- * Destructuring the Response
     UpdateRevisionResponse (..),
@@ -59,9 +59,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for UpdateRevision.
---
--- /See:/ 'newUpdateRevision' smart constructor.
+-- | /See:/ 'newUpdateRevision' smart constructor.
 data UpdateRevision = UpdateRevision'
   { -- | An optional comment about the revision.
     comment :: Prelude.Maybe Prelude.Text,
@@ -69,10 +67,10 @@ data UpdateRevision = UpdateRevision'
     -- assets in the revision are complete. After it\'s in this read-only
     -- state, you can publish the revision to your products.
     finalized :: Prelude.Maybe Prelude.Bool,
-    -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
     -- | The unique identifier for a data set.
-    dataSetId :: Prelude.Text
+    dataSetId :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,21 +88,21 @@ data UpdateRevision = UpdateRevision'
 -- assets in the revision are complete. After it\'s in this read-only
 -- state, you can publish the revision to your products.
 --
--- 'revisionId', 'updateRevision_revisionId' - The unique identifier for a revision.
---
 -- 'dataSetId', 'updateRevision_dataSetId' - The unique identifier for a data set.
+--
+-- 'revisionId', 'updateRevision_revisionId' - The unique identifier for a revision.
 newUpdateRevision ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
+  -- | 'revisionId'
+  Prelude.Text ->
   UpdateRevision
-newUpdateRevision pRevisionId_ pDataSetId_ =
+newUpdateRevision pDataSetId_ pRevisionId_ =
   UpdateRevision'
     { comment = Prelude.Nothing,
       finalized = Prelude.Nothing,
-      revisionId = pRevisionId_,
-      dataSetId = pDataSetId_
+      dataSetId = pDataSetId_,
+      revisionId = pRevisionId_
     }
 
 -- | An optional comment about the revision.
@@ -117,13 +115,13 @@ updateRevision_comment = Lens.lens (\UpdateRevision' {comment} -> comment) (\s@U
 updateRevision_finalized :: Lens.Lens' UpdateRevision (Prelude.Maybe Prelude.Bool)
 updateRevision_finalized = Lens.lens (\UpdateRevision' {finalized} -> finalized) (\s@UpdateRevision' {} a -> s {finalized = a} :: UpdateRevision)
 
--- | The unique identifier for a revision.
-updateRevision_revisionId :: Lens.Lens' UpdateRevision Prelude.Text
-updateRevision_revisionId = Lens.lens (\UpdateRevision' {revisionId} -> revisionId) (\s@UpdateRevision' {} a -> s {revisionId = a} :: UpdateRevision)
-
 -- | The unique identifier for a data set.
 updateRevision_dataSetId :: Lens.Lens' UpdateRevision Prelude.Text
 updateRevision_dataSetId = Lens.lens (\UpdateRevision' {dataSetId} -> dataSetId) (\s@UpdateRevision' {} a -> s {dataSetId = a} :: UpdateRevision)
+
+-- | The unique identifier for a revision.
+updateRevision_revisionId :: Lens.Lens' UpdateRevision Prelude.Text
+updateRevision_revisionId = Lens.lens (\UpdateRevision' {revisionId} -> revisionId) (\s@UpdateRevision' {} a -> s {revisionId = a} :: UpdateRevision)
 
 instance Core.AWSRequest UpdateRevision where
   type
@@ -152,15 +150,15 @@ instance Prelude.Hashable UpdateRevision where
   hashWithSalt _salt UpdateRevision' {..} =
     _salt `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` finalized
-      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData UpdateRevision where
   rnf UpdateRevision' {..} =
     Prelude.rnf comment
       `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders UpdateRevision where
   toHeaders =
@@ -213,7 +211,6 @@ data UpdateRevisionResponse = UpdateRevisionResponse'
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- changes to the assets in the revision are complete. After it\'s in this
     -- read-only state, you can publish the revision to your products.
-    --
     -- Finalized revisions can be published through the AWS Data Exchange
     -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
     -- Marketplace Catalog API action. When using the API, revisions are
@@ -261,7 +258,6 @@ data UpdateRevisionResponse = UpdateRevisionResponse'
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- changes to the assets in the revision are complete. After it\'s in this
 -- read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -327,7 +323,6 @@ updateRevisionResponse_comment = Lens.lens (\UpdateRevisionResponse' {comment} -
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- changes to the assets in the revision are complete. After it\'s in this
 -- read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are

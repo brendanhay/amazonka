@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.DescribedServer
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,9 +52,26 @@ data DescribedServer = DescribedServer'
     preAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
     -- | The protocol settings that are configured for your server.
     --
-    -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
-    -- IPv4 address, such as the public IP address of a firewall, router, or
-    -- load balancer.
+    -- -   To indicate passive mode (for FTP and FTPS protocols), use the
+    --     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+    --     as the external IP address of a firewall, router, or load balancer.
+    --
+    -- -   To ignore the error that is generated when the client attempts to
+    --     use the @SETSTAT@ command on a file that you are uploading to an
+    --     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+    --     Transfer Family server ignore the @SETSTAT@ command and upload files
+    --     without needing to make any changes to your SFTP client, set the
+    --     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+    --     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+    --     CloudWatch Logs, so that you can determine when the client is making
+    --     a @SETSTAT@ call.
+    --
+    -- -   To determine whether your Transfer Family server resumes recent,
+    --     negotiated sessions through a unique session ID, use the
+    --     @TlsSessionResumptionMode@ parameter.
+    --
+    -- -   @As2Transports@ indicates the transport method for the AS2 messages.
+    --     Currently, only HTTP is supported.
     protocolDetails :: Prelude.Maybe ProtocolDetails,
     -- | Specifies information to call a customer-supplied authentication API.
     -- This field is not populated when the @IdentityProviderType@ of a server
@@ -117,6 +134,27 @@ data DescribedServer = DescribedServer'
     --     encryption
     --
     -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
+    --
+    -- -   @AS2@ (Applicability Statement 2): used for transporting structured
+    --     business-to-business data
+    --
+    -- -   If you select @FTPS@, you must choose a certificate stored in
+    --     Certificate Manager (ACM) which is used to identify your server when
+    --     clients connect to it over FTPS.
+    --
+    -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+    --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+    --     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+    --
+    -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+    --     associated.
+    --
+    -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+    --     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+    --     @SERVICE_MANAGED@.
+    --
+    -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+    --     and domain must be Amazon S3.
     protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
     -- | Defines the type of endpoint that your server is connected to. If your
     -- server is connected to a VPC endpoint, your server isn\'t accessible
@@ -169,9 +207,26 @@ data DescribedServer = DescribedServer'
 --
 -- 'protocolDetails', 'describedServer_protocolDetails' - The protocol settings that are configured for your server.
 --
--- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
--- IPv4 address, such as the public IP address of a firewall, router, or
--- load balancer.
+-- -   To indicate passive mode (for FTP and FTPS protocols), use the
+--     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+--     as the external IP address of a firewall, router, or load balancer.
+--
+-- -   To ignore the error that is generated when the client attempts to
+--     use the @SETSTAT@ command on a file that you are uploading to an
+--     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+--     Transfer Family server ignore the @SETSTAT@ command and upload files
+--     without needing to make any changes to your SFTP client, set the
+--     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+--     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+--     CloudWatch Logs, so that you can determine when the client is making
+--     a @SETSTAT@ call.
+--
+-- -   To determine whether your Transfer Family server resumes recent,
+--     negotiated sessions through a unique session ID, use the
+--     @TlsSessionResumptionMode@ parameter.
+--
+-- -   @As2Transports@ indicates the transport method for the AS2 messages.
+--     Currently, only HTTP is supported.
 --
 -- 'identityProviderDetails', 'describedServer_identityProviderDetails' - Specifies information to call a customer-supplied authentication API.
 -- This field is not populated when the @IdentityProviderType@ of a server
@@ -234,6 +289,27 @@ data DescribedServer = DescribedServer'
 --     encryption
 --
 -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
+--
+-- -   @AS2@ (Applicability Statement 2): used for transporting structured
+--     business-to-business data
+--
+-- -   If you select @FTPS@, you must choose a certificate stored in
+--     Certificate Manager (ACM) which is used to identify your server when
+--     clients connect to it over FTPS.
+--
+-- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+--     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+--     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--
+-- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+--     associated.
+--
+-- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+--     @SERVICE_MANAGED@.
+--
+-- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+--     and domain must be Amazon S3.
 --
 -- 'endpointType', 'describedServer_endpointType' - Defines the type of endpoint that your server is connected to. If your
 -- server is connected to a VPC endpoint, your server isn\'t accessible
@@ -307,9 +383,26 @@ describedServer_preAuthenticationLoginBanner = Lens.lens (\DescribedServer' {pre
 
 -- | The protocol settings that are configured for your server.
 --
--- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
--- IPv4 address, such as the public IP address of a firewall, router, or
--- load balancer.
+-- -   To indicate passive mode (for FTP and FTPS protocols), use the
+--     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+--     as the external IP address of a firewall, router, or load balancer.
+--
+-- -   To ignore the error that is generated when the client attempts to
+--     use the @SETSTAT@ command on a file that you are uploading to an
+--     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+--     Transfer Family server ignore the @SETSTAT@ command and upload files
+--     without needing to make any changes to your SFTP client, set the
+--     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+--     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+--     CloudWatch Logs, so that you can determine when the client is making
+--     a @SETSTAT@ call.
+--
+-- -   To determine whether your Transfer Family server resumes recent,
+--     negotiated sessions through a unique session ID, use the
+--     @TlsSessionResumptionMode@ parameter.
+--
+-- -   @As2Transports@ indicates the transport method for the AS2 messages.
+--     Currently, only HTTP is supported.
 describedServer_protocolDetails :: Lens.Lens' DescribedServer (Prelude.Maybe ProtocolDetails)
 describedServer_protocolDetails = Lens.lens (\DescribedServer' {protocolDetails} -> protocolDetails) (\s@DescribedServer' {} a -> s {protocolDetails = a} :: DescribedServer)
 
@@ -388,6 +481,27 @@ describedServer_certificate = Lens.lens (\DescribedServer' {certificate} -> cert
 --     encryption
 --
 -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
+--
+-- -   @AS2@ (Applicability Statement 2): used for transporting structured
+--     business-to-business data
+--
+-- -   If you select @FTPS@, you must choose a certificate stored in
+--     Certificate Manager (ACM) which is used to identify your server when
+--     clients connect to it over FTPS.
+--
+-- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+--     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+--     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--
+-- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+--     associated.
+--
+-- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+--     @SERVICE_MANAGED@.
+--
+-- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+--     and domain must be Amazon S3.
 describedServer_protocols :: Lens.Lens' DescribedServer (Prelude.Maybe (Prelude.NonEmpty Protocol))
 describedServer_protocols = Lens.lens (\DescribedServer' {protocols} -> protocols) (\s@DescribedServer' {} a -> s {protocols = a} :: DescribedServer) Prelude.. Lens.mapping Lens.coerced
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.QuickSight.GenerateEmbedUrlForRegisteredUser
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -101,7 +101,8 @@ data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
     -- | The Amazon Resource Name for the registered user.
     userArn :: Prelude.Text,
     -- | The experience you are embedding. For registered users, you can embed
-    -- Amazon QuickSight dashboards or the entire Amazon QuickSight console.
+    -- Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon
+    -- QuickSight Q search bar, or the entire Amazon QuickSight console.
     experienceConfiguration :: RegisteredUserEmbeddingExperienceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -134,7 +135,8 @@ data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
 -- 'userArn', 'generateEmbedUrlForRegisteredUser_userArn' - The Amazon Resource Name for the registered user.
 --
 -- 'experienceConfiguration', 'generateEmbedUrlForRegisteredUser_experienceConfiguration' - The experience you are embedding. For registered users, you can embed
--- Amazon QuickSight dashboards or the entire Amazon QuickSight console.
+-- Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon
+-- QuickSight Q search bar, or the entire Amazon QuickSight console.
 newGenerateEmbedUrlForRegisteredUser ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -185,7 +187,8 @@ generateEmbedUrlForRegisteredUser_userArn :: Lens.Lens' GenerateEmbedUrlForRegis
 generateEmbedUrlForRegisteredUser_userArn = Lens.lens (\GenerateEmbedUrlForRegisteredUser' {userArn} -> userArn) (\s@GenerateEmbedUrlForRegisteredUser' {} a -> s {userArn = a} :: GenerateEmbedUrlForRegisteredUser)
 
 -- | The experience you are embedding. For registered users, you can embed
--- Amazon QuickSight dashboards or the entire Amazon QuickSight console.
+-- Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon
+-- QuickSight Q search bar, or the entire Amazon QuickSight console.
 generateEmbedUrlForRegisteredUser_experienceConfiguration :: Lens.Lens' GenerateEmbedUrlForRegisteredUser RegisteredUserEmbeddingExperienceConfiguration
 generateEmbedUrlForRegisteredUser_experienceConfiguration = Lens.lens (\GenerateEmbedUrlForRegisteredUser' {experienceConfiguration} -> experienceConfiguration) (\s@GenerateEmbedUrlForRegisteredUser' {} a -> s {experienceConfiguration = a} :: GenerateEmbedUrlForRegisteredUser)
 
@@ -285,7 +288,8 @@ instance
 data GenerateEmbedUrlForRegisteredUserResponse = GenerateEmbedUrlForRegisteredUserResponse'
   { -- | The HTTP status of the request.
     status :: Prelude.Int,
-    -- | The embed URL for the Amazon QuickSight dashboard or console.
+    -- | The embed URL for the Amazon QuickSight dashboard, visual, Q search bar,
+    -- or console.
     embedUrl :: Core.Sensitive Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Text
@@ -302,7 +306,8 @@ data GenerateEmbedUrlForRegisteredUserResponse = GenerateEmbedUrlForRegisteredUs
 --
 -- 'status', 'generateEmbedUrlForRegisteredUserResponse_status' - The HTTP status of the request.
 --
--- 'embedUrl', 'generateEmbedUrlForRegisteredUserResponse_embedUrl' - The embed URL for the Amazon QuickSight dashboard or console.
+-- 'embedUrl', 'generateEmbedUrlForRegisteredUserResponse_embedUrl' - The embed URL for the Amazon QuickSight dashboard, visual, Q search bar,
+-- or console.
 --
 -- 'requestId', 'generateEmbedUrlForRegisteredUserResponse_requestId' - The Amazon Web Services request ID for this operation.
 newGenerateEmbedUrlForRegisteredUserResponse ::
@@ -330,7 +335,8 @@ newGenerateEmbedUrlForRegisteredUserResponse
 generateEmbedUrlForRegisteredUserResponse_status :: Lens.Lens' GenerateEmbedUrlForRegisteredUserResponse Prelude.Int
 generateEmbedUrlForRegisteredUserResponse_status = Lens.lens (\GenerateEmbedUrlForRegisteredUserResponse' {status} -> status) (\s@GenerateEmbedUrlForRegisteredUserResponse' {} a -> s {status = a} :: GenerateEmbedUrlForRegisteredUserResponse)
 
--- | The embed URL for the Amazon QuickSight dashboard or console.
+-- | The embed URL for the Amazon QuickSight dashboard, visual, Q search bar,
+-- or console.
 generateEmbedUrlForRegisteredUserResponse_embedUrl :: Lens.Lens' GenerateEmbedUrlForRegisteredUserResponse Prelude.Text
 generateEmbedUrlForRegisteredUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrlForRegisteredUserResponse' {embedUrl} -> embedUrl) (\s@GenerateEmbedUrlForRegisteredUserResponse' {} a -> s {embedUrl = a} :: GenerateEmbedUrlForRegisteredUserResponse) Prelude.. Core._Sensitive
 

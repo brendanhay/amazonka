@@ -14,24 +14,28 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.GetAccessControlEffect
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the effects of an organization\'s access control rules as they
--- apply to a specified IPv4 address, access protocol action, or user ID.
+-- apply to a specified IPv4 address, access protocol action, and user ID
+-- or impersonation role ID. You must provide either the user ID or
+-- impersonation role ID. Impersonation role ID can only be used with
+-- Action EWS.
 module Amazonka.WorkMail.GetAccessControlEffect
   ( -- * Creating a Request
     GetAccessControlEffect (..),
     newGetAccessControlEffect,
 
     -- * Request Lenses
+    getAccessControlEffect_userId,
+    getAccessControlEffect_impersonationRoleId,
     getAccessControlEffect_organizationId,
     getAccessControlEffect_ipAddress,
     getAccessControlEffect_action,
-    getAccessControlEffect_userId,
 
     -- * Destructuring the Response
     GetAccessControlEffectResponse (..),
@@ -53,15 +57,17 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetAccessControlEffect' smart constructor.
 data GetAccessControlEffect = GetAccessControlEffect'
-  { -- | The identifier for the organization.
+  { -- | The user ID.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The impersonation role ID.
+    impersonationRoleId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the organization.
     organizationId :: Prelude.Text,
     -- | The IPv4 address.
     ipAddress :: Prelude.Text,
     -- | The access protocol action. Valid values include @ActiveSync@,
     -- @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@, and @WebMail@.
-    action :: Prelude.Text,
-    -- | The user ID.
-    userId :: Prelude.Text
+    action :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,14 +79,16 @@ data GetAccessControlEffect = GetAccessControlEffect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userId', 'getAccessControlEffect_userId' - The user ID.
+--
+-- 'impersonationRoleId', 'getAccessControlEffect_impersonationRoleId' - The impersonation role ID.
+--
 -- 'organizationId', 'getAccessControlEffect_organizationId' - The identifier for the organization.
 --
 -- 'ipAddress', 'getAccessControlEffect_ipAddress' - The IPv4 address.
 --
 -- 'action', 'getAccessControlEffect_action' - The access protocol action. Valid values include @ActiveSync@,
 -- @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@, and @WebMail@.
---
--- 'userId', 'getAccessControlEffect_userId' - The user ID.
 newGetAccessControlEffect ::
   -- | 'organizationId'
   Prelude.Text ->
@@ -88,21 +96,26 @@ newGetAccessControlEffect ::
   Prelude.Text ->
   -- | 'action'
   Prelude.Text ->
-  -- | 'userId'
-  Prelude.Text ->
   GetAccessControlEffect
 newGetAccessControlEffect
   pOrganizationId_
   pIpAddress_
-  pAction_
-  pUserId_ =
+  pAction_ =
     GetAccessControlEffect'
-      { organizationId =
-          pOrganizationId_,
+      { userId = Prelude.Nothing,
+        impersonationRoleId = Prelude.Nothing,
+        organizationId = pOrganizationId_,
         ipAddress = pIpAddress_,
-        action = pAction_,
-        userId = pUserId_
+        action = pAction_
       }
+
+-- | The user ID.
+getAccessControlEffect_userId :: Lens.Lens' GetAccessControlEffect (Prelude.Maybe Prelude.Text)
+getAccessControlEffect_userId = Lens.lens (\GetAccessControlEffect' {userId} -> userId) (\s@GetAccessControlEffect' {} a -> s {userId = a} :: GetAccessControlEffect)
+
+-- | The impersonation role ID.
+getAccessControlEffect_impersonationRoleId :: Lens.Lens' GetAccessControlEffect (Prelude.Maybe Prelude.Text)
+getAccessControlEffect_impersonationRoleId = Lens.lens (\GetAccessControlEffect' {impersonationRoleId} -> impersonationRoleId) (\s@GetAccessControlEffect' {} a -> s {impersonationRoleId = a} :: GetAccessControlEffect)
 
 -- | The identifier for the organization.
 getAccessControlEffect_organizationId :: Lens.Lens' GetAccessControlEffect Prelude.Text
@@ -116,10 +129,6 @@ getAccessControlEffect_ipAddress = Lens.lens (\GetAccessControlEffect' {ipAddres
 -- @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@, and @WebMail@.
 getAccessControlEffect_action :: Lens.Lens' GetAccessControlEffect Prelude.Text
 getAccessControlEffect_action = Lens.lens (\GetAccessControlEffect' {action} -> action) (\s@GetAccessControlEffect' {} a -> s {action = a} :: GetAccessControlEffect)
-
--- | The user ID.
-getAccessControlEffect_userId :: Lens.Lens' GetAccessControlEffect Prelude.Text
-getAccessControlEffect_userId = Lens.lens (\GetAccessControlEffect' {userId} -> userId) (\s@GetAccessControlEffect' {} a -> s {userId = a} :: GetAccessControlEffect)
 
 instance Core.AWSRequest GetAccessControlEffect where
   type
@@ -137,17 +146,19 @@ instance Core.AWSRequest GetAccessControlEffect where
 
 instance Prelude.Hashable GetAccessControlEffect where
   hashWithSalt _salt GetAccessControlEffect' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` impersonationRoleId
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData GetAccessControlEffect where
   rnf GetAccessControlEffect' {..} =
-    Prelude.rnf organizationId
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf impersonationRoleId
+      `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetAccessControlEffect where
   toHeaders =
@@ -168,11 +179,13 @@ instance Core.ToJSON GetAccessControlEffect where
   toJSON GetAccessControlEffect' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("UserId" Core..=) Prelude.<$> userId,
+            ("ImpersonationRoleId" Core..=)
+              Prelude.<$> impersonationRoleId,
+            Prelude.Just
               ("OrganizationId" Core..= organizationId),
             Prelude.Just ("IpAddress" Core..= ipAddress),
-            Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("UserId" Core..= userId)
+            Prelude.Just ("Action" Core..= action)
           ]
       )
 

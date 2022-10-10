@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Lightsail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -480,6 +480,9 @@ import Test.Tasty
 --         , requestUpdateDomainEntry $
 --             newUpdateDomainEntry
 --
+--         , requestUpdateInstanceMetadataOptions $
+--             newUpdateInstanceMetadataOptions
+--
 --         , requestUpdateLoadBalancerAttribute $
 --             newUpdateLoadBalancerAttribute
 --
@@ -944,6 +947,9 @@ import Test.Tasty
 --
 --         , responseUpdateDomainEntry $
 --             newUpdateDomainEntryResponse
+--
+--         , responseUpdateInstanceMetadataOptions $
+--             newUpdateInstanceMetadataOptionsResponse
 --
 --         , responseUpdateLoadBalancerAttribute $
 --             newUpdateLoadBalancerAttributeResponse
@@ -1864,6 +1870,12 @@ requestUpdateDomainEntry =
   req
     "UpdateDomainEntry"
     "fixture/UpdateDomainEntry.yaml"
+
+requestUpdateInstanceMetadataOptions :: UpdateInstanceMetadataOptions -> TestTree
+requestUpdateInstanceMetadataOptions =
+  req
+    "UpdateInstanceMetadataOptions"
+    "fixture/UpdateInstanceMetadataOptions.yaml"
 
 requestUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttribute -> TestTree
 requestUpdateLoadBalancerAttribute =
@@ -3092,6 +3104,14 @@ responseUpdateDomainEntry =
     "fixture/UpdateDomainEntryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDomainEntry)
+
+responseUpdateInstanceMetadataOptions :: UpdateInstanceMetadataOptionsResponse -> TestTree
+responseUpdateInstanceMetadataOptions =
+  res
+    "UpdateInstanceMetadataOptionsResponse"
+    "fixture/UpdateInstanceMetadataOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceMetadataOptions)
 
 responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
 responseUpdateLoadBalancerAttribute =

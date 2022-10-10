@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Redshift.RestoreFromClusterSnapshot
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,9 +110,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- VPC security groups only apply to clusters in VPCs.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The elastic IP (EIP) address for the cluster. You don\'t have to specify
-    -- the EIP for a publicly accessible cluster with
-    -- AvailabilityZoneRelocation turned on.
+    -- | The elastic IP (EIP) address for the cluster.
     elasticIp :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
@@ -135,21 +133,16 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- | A unique identifier for the snapshot schedule.
     snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the snapshot associated with the
-    -- message to restore from a cluster.
+    -- message to restore from a cluster. You can specify this parameter or
+    -- @snapshotIdentifier@, but not both.
     snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The value represents how the cluster is configured to use AQUA (Advanced
-    -- Query Accelerator) after the cluster is restored. Possible values
-    -- include the following.
-    --
-    -- -   enabled - Use AQUA if it is available for the current Amazon Web
-    --     Services Region and Amazon Redshift node type.
-    --
-    -- -   disabled - Don\'t use AQUA.
-    --
-    -- -   auto - Amazon Redshift determines whether to use AQUA.
+    -- | This parameter is retired. It does not set the AQUA configuration
+    -- status. Amazon Redshift automatically determines whether to use AQUA
+    -- (Advanced Query Accelerator).
     aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
     -- | The name of the snapshot from which to create the new cluster. This
-    -- parameter isn\'t case sensitive.
+    -- parameter isn\'t case sensitive. You can specify this parameter or
+    -- @snapshotArn@, but not both.
     --
     -- Example: @my-snapshot-id@
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
@@ -330,9 +323,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- VPC security groups only apply to clusters in VPCs.
 --
--- 'elasticIp', 'restoreFromClusterSnapshot_elasticIp' - The elastic IP (EIP) address for the cluster. You don\'t have to specify
--- the EIP for a publicly accessible cluster with
--- AvailabilityZoneRelocation turned on.
+-- 'elasticIp', 'restoreFromClusterSnapshot_elasticIp' - The elastic IP (EIP) address for the cluster.
 --
 -- 'manualSnapshotRetentionPeriod', 'restoreFromClusterSnapshot_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
@@ -355,21 +346,16 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- 'snapshotScheduleIdentifier', 'restoreFromClusterSnapshot_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
 --
 -- 'snapshotArn', 'restoreFromClusterSnapshot_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to restore from a cluster.
+-- message to restore from a cluster. You can specify this parameter or
+-- @snapshotIdentifier@, but not both.
 --
--- 'aquaConfigurationStatus', 'restoreFromClusterSnapshot_aquaConfigurationStatus' - The value represents how the cluster is configured to use AQUA (Advanced
--- Query Accelerator) after the cluster is restored. Possible values
--- include the following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- 'aquaConfigurationStatus', 'restoreFromClusterSnapshot_aquaConfigurationStatus' - This parameter is retired. It does not set the AQUA configuration
+-- status. Amazon Redshift automatically determines whether to use AQUA
+-- (Advanced Query Accelerator).
 --
 -- 'snapshotIdentifier', 'restoreFromClusterSnapshot_snapshotIdentifier' - The name of the snapshot from which to create the new cluster. This
--- parameter isn\'t case sensitive.
+-- parameter isn\'t case sensitive. You can specify this parameter or
+-- @snapshotArn@, but not both.
 --
 -- Example: @my-snapshot-id@
 --
@@ -585,9 +571,7 @@ restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port}
 restoreFromClusterSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
 restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreFromClusterSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
--- | The elastic IP (EIP) address for the cluster. You don\'t have to specify
--- the EIP for a publicly accessible cluster with
--- AvailabilityZoneRelocation turned on.
+-- | The elastic IP (EIP) address for the cluster.
 restoreFromClusterSnapshot_elasticIp :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_elasticIp = Lens.lens (\RestoreFromClusterSnapshot' {elasticIp} -> elasticIp) (\s@RestoreFromClusterSnapshot' {} a -> s {elasticIp = a} :: RestoreFromClusterSnapshot)
 
@@ -622,25 +606,20 @@ restoreFromClusterSnapshot_snapshotScheduleIdentifier :: Lens.Lens' RestoreFromC
 restoreFromClusterSnapshot_snapshotScheduleIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotScheduleIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to restore from a cluster.
+-- message to restore from a cluster. You can specify this parameter or
+-- @snapshotIdentifier@, but not both.
 restoreFromClusterSnapshot_snapshotArn :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_snapshotArn = Lens.lens (\RestoreFromClusterSnapshot' {snapshotArn} -> snapshotArn) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotArn = a} :: RestoreFromClusterSnapshot)
 
--- | The value represents how the cluster is configured to use AQUA (Advanced
--- Query Accelerator) after the cluster is restored. Possible values
--- include the following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- | This parameter is retired. It does not set the AQUA configuration
+-- status. Amazon Redshift automatically determines whether to use AQUA
+-- (Advanced Query Accelerator).
 restoreFromClusterSnapshot_aquaConfigurationStatus :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe AquaConfigurationStatus)
 restoreFromClusterSnapshot_aquaConfigurationStatus = Lens.lens (\RestoreFromClusterSnapshot' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@RestoreFromClusterSnapshot' {} a -> s {aquaConfigurationStatus = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the snapshot from which to create the new cluster. This
--- parameter isn\'t case sensitive.
+-- parameter isn\'t case sensitive. You can specify this parameter or
+-- @snapshotArn@, but not both.
 --
 -- Example: @my-snapshot-id@
 restoreFromClusterSnapshot_snapshotIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)

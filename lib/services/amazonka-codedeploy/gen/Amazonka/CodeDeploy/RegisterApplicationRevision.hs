@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers with AWS CodeDeploy a revision for the specified application.
+-- Registers with CodeDeploy a revision for the specified application.
 module Amazonka.CodeDeploy.RegisterApplicationRevision
   ( -- * Creating a Request
     RegisterApplicationRevision (..),
@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 data RegisterApplicationRevision = RegisterApplicationRevision'
   { -- | A comment about the revision.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+    -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text,
     -- | Information about the application revision to register, including type
     -- and location.
@@ -69,8 +69,8 @@ data RegisterApplicationRevision = RegisterApplicationRevision'
 --
 -- 'description', 'registerApplicationRevision_description' - A comment about the revision.
 --
--- 'applicationName', 'registerApplicationRevision_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'registerApplicationRevision_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 --
 -- 'revision', 'registerApplicationRevision_revision' - Information about the application revision to register, including type
 -- and location.
@@ -94,8 +94,8 @@ newRegisterApplicationRevision
 registerApplicationRevision_description :: Lens.Lens' RegisterApplicationRevision (Prelude.Maybe Prelude.Text)
 registerApplicationRevision_description = Lens.lens (\RegisterApplicationRevision' {description} -> description) (\s@RegisterApplicationRevision' {} a -> s {description = a} :: RegisterApplicationRevision)
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 registerApplicationRevision_applicationName :: Lens.Lens' RegisterApplicationRevision Prelude.Text
 registerApplicationRevision_applicationName = Lens.lens (\RegisterApplicationRevision' {applicationName} -> applicationName) (\s@RegisterApplicationRevision' {} a -> s {applicationName = a} :: RegisterApplicationRevision)
 

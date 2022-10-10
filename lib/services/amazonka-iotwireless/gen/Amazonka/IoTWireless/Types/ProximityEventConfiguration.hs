@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.ProximityEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProximityEventConfiguration' smart constructor.
 data ProximityEventConfiguration = ProximityEventConfiguration'
-  { -- | Enum to denote whether the wireless device id proximity event topic is
-    -- enabled or disabled.
+  { -- | Denotes whether the wireless device ID proximity event topic is enabled
+    -- or disabled.
     wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus,
     -- | Proximity event configuration object for enabling or disabling Sidewalk
     -- related event topics.
@@ -47,8 +47,8 @@ data ProximityEventConfiguration = ProximityEventConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceIdEventTopic', 'proximityEventConfiguration_wirelessDeviceIdEventTopic' - Enum to denote whether the wireless device id proximity event topic is
--- enabled or disabled.
+-- 'wirelessDeviceIdEventTopic', 'proximityEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID proximity event topic is enabled
+-- or disabled.
 --
 -- 'sidewalk', 'proximityEventConfiguration_sidewalk' - Proximity event configuration object for enabling or disabling Sidewalk
 -- related event topics.
@@ -61,8 +61,8 @@ newProximityEventConfiguration =
       sidewalk = Prelude.Nothing
     }
 
--- | Enum to denote whether the wireless device id proximity event topic is
--- enabled or disabled.
+-- | Denotes whether the wireless device ID proximity event topic is enabled
+-- or disabled.
 proximityEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' ProximityEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 proximityEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\ProximityEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@ProximityEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: ProximityEventConfiguration)
 

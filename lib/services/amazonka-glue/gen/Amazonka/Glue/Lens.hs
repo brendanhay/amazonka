@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -247,6 +247,7 @@ module Amazonka.Glue.Lens
     createJob_maxRetries,
     createJob_codeGenConfigurationNodes,
     createJob_defaultArguments,
+    createJob_sourceControlDetails,
     createJob_logUri,
     createJob_connections,
     createJob_maxCapacity,
@@ -1449,6 +1450,19 @@ module Amazonka.Glue.Lens
     updateJobResponse_jobName,
     updateJobResponse_httpStatus,
 
+    -- ** UpdateJobFromSourceControl
+    updateJobFromSourceControl_repositoryOwner,
+    updateJobFromSourceControl_commitId,
+    updateJobFromSourceControl_branchName,
+    updateJobFromSourceControl_folder,
+    updateJobFromSourceControl_jobName,
+    updateJobFromSourceControl_repositoryName,
+    updateJobFromSourceControl_authToken,
+    updateJobFromSourceControl_provider,
+    updateJobFromSourceControl_authStrategy,
+    updateJobFromSourceControlResponse_jobName,
+    updateJobFromSourceControlResponse_httpStatus,
+
     -- ** UpdateMLTransform
     updateMLTransform_timeout,
     updateMLTransform_name,
@@ -1488,6 +1502,19 @@ module Amazonka.Glue.Lens
     updateSchemaResponse_schemaName,
     updateSchemaResponse_schemaArn,
     updateSchemaResponse_httpStatus,
+
+    -- ** UpdateSourceControlFromJob
+    updateSourceControlFromJob_repositoryOwner,
+    updateSourceControlFromJob_commitId,
+    updateSourceControlFromJob_branchName,
+    updateSourceControlFromJob_folder,
+    updateSourceControlFromJob_jobName,
+    updateSourceControlFromJob_repositoryName,
+    updateSourceControlFromJob_authToken,
+    updateSourceControlFromJob_provider,
+    updateSourceControlFromJob_authStrategy,
+    updateSourceControlFromJobResponse_jobName,
+    updateSourceControlFromJobResponse_httpStatus,
 
     -- ** UpdateTable
     updateTable_skipArchive,
@@ -1660,6 +1687,8 @@ module Amazonka.Glue.Lens
     catalogSource_table,
 
     -- ** CatalogTarget
+    catalogTarget_dlqEventQueueArn,
+    catalogTarget_eventQueueArn,
     catalogTarget_connectionName,
     catalogTarget_databaseName,
     catalogTarget_tables,
@@ -2251,6 +2280,7 @@ module Amazonka.Glue.Lens
     job_maxRetries,
     job_codeGenConfigurationNodes,
     job_defaultArguments,
+    job_sourceControlDetails,
     job_logUri,
     job_connections,
     job_role,
@@ -2319,6 +2349,7 @@ module Amazonka.Glue.Lens
     jobUpdate_maxRetries,
     jobUpdate_codeGenConfigurationNodes,
     jobUpdate_defaultArguments,
+    jobUpdate_sourceControlDetails,
     jobUpdate_logUri,
     jobUpdate_connections,
     jobUpdate_role,
@@ -2865,6 +2896,16 @@ module Amazonka.Glue.Lens
     -- ** SortCriterion
     sortCriterion_fieldName,
     sortCriterion_sort,
+
+    -- ** SourceControlDetails
+    sourceControlDetails_branch,
+    sourceControlDetails_folder,
+    sourceControlDetails_repository,
+    sourceControlDetails_authToken,
+    sourceControlDetails_provider,
+    sourceControlDetails_owner,
+    sourceControlDetails_lastCommitId,
+    sourceControlDetails_authStrategy,
 
     -- ** SparkConnectorSource
     sparkConnectorSource_outputSchemas,
@@ -3553,6 +3594,7 @@ import Amazonka.Glue.Types.Session
 import Amazonka.Glue.Types.SessionCommand
 import Amazonka.Glue.Types.SkewedInfo
 import Amazonka.Glue.Types.SortCriterion
+import Amazonka.Glue.Types.SourceControlDetails
 import Amazonka.Glue.Types.SparkConnectorSource
 import Amazonka.Glue.Types.SparkConnectorTarget
 import Amazonka.Glue.Types.SparkSQL
@@ -3608,10 +3650,12 @@ import Amazonka.Glue.UpdateCrawlerSchedule
 import Amazonka.Glue.UpdateDatabase
 import Amazonka.Glue.UpdateDevEndpoint
 import Amazonka.Glue.UpdateJob
+import Amazonka.Glue.UpdateJobFromSourceControl
 import Amazonka.Glue.UpdateMLTransform
 import Amazonka.Glue.UpdatePartition
 import Amazonka.Glue.UpdateRegistry
 import Amazonka.Glue.UpdateSchema
+import Amazonka.Glue.UpdateSourceControlFromJob
 import Amazonka.Glue.UpdateTable
 import Amazonka.Glue.UpdateTrigger
 import Amazonka.Glue.UpdateUserDefinedFunction

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.ModifyInstanceAttribute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -119,7 +119,13 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
     instanceInitiatedShutdownBehavior :: Prelude.Maybe AttributeValue,
-    -- | The name of the attribute.
+    -- | The name of the attribute to modify.
+    --
+    -- You can modify the following attributes only: @disableApiTermination@ |
+    -- @instanceType@ | @kernel@ | @ramdisk@ |
+    -- @instanceInitiatedShutdownBehavior@ | @blockDeviceMapping@ | @userData@
+    -- | @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@ |
+    -- @enaSupport@ | @nvmeSupport@ | @disableApiStop@ | @enclaveOptions@
     attribute :: Prelude.Maybe InstanceAttributeName,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -218,7 +224,13 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
 --
--- 'attribute', 'modifyInstanceAttribute_attribute' - The name of the attribute.
+-- 'attribute', 'modifyInstanceAttribute_attribute' - The name of the attribute to modify.
+--
+-- You can modify the following attributes only: @disableApiTermination@ |
+-- @instanceType@ | @kernel@ | @ramdisk@ |
+-- @instanceInitiatedShutdownBehavior@ | @blockDeviceMapping@ | @userData@
+-- | @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@ |
+-- @enaSupport@ | @nvmeSupport@ | @disableApiStop@ | @enclaveOptions@
 --
 -- 'dryRun', 'modifyInstanceAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -346,7 +358,13 @@ modifyInstanceAttribute_kernel = Lens.lens (\ModifyInstanceAttribute' {kernel} -
 modifyInstanceAttribute_instanceInitiatedShutdownBehavior :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
 modifyInstanceAttribute_instanceInitiatedShutdownBehavior = Lens.lens (\ModifyInstanceAttribute' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@ModifyInstanceAttribute' {} a -> s {instanceInitiatedShutdownBehavior = a} :: ModifyInstanceAttribute)
 
--- | The name of the attribute.
+-- | The name of the attribute to modify.
+--
+-- You can modify the following attributes only: @disableApiTermination@ |
+-- @instanceType@ | @kernel@ | @ramdisk@ |
+-- @instanceInitiatedShutdownBehavior@ | @blockDeviceMapping@ | @userData@
+-- | @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@ |
+-- @enaSupport@ | @nvmeSupport@ | @disableApiStop@ | @enclaveOptions@
 modifyInstanceAttribute_attribute :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe InstanceAttributeName)
 modifyInstanceAttribute_attribute = Lens.lens (\ModifyInstanceAttribute' {attribute} -> attribute) (\s@ModifyInstanceAttribute' {} a -> s {attribute = a} :: ModifyInstanceAttribute)
 

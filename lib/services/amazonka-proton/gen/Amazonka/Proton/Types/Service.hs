@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.Service
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,9 +31,7 @@ import Amazonka.Proton.Types.ServiceStatus
 data Service = Service'
   { -- | The Amazon Resource Name (ARN) of the repository connection. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
-    -- in the /Proton Administrator Guide/ and
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
     -- in the /Proton User Guide/.
     repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the code repository branch that holds the code that\'s
@@ -74,9 +72,7 @@ data Service = Service'
 --
 -- 'repositoryConnectionArn', 'service_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
 -- in the /Proton User Guide/.
 --
 -- 'branchName', 'service_branchName' - The name of the code repository branch that holds the code that\'s
@@ -145,9 +141,7 @@ newService
 
 -- | The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
--- in the /Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
 -- in the /Proton User Guide/.
 service_repositoryConnectionArn :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_repositoryConnectionArn = Lens.lens (\Service' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@Service' {} a -> s {repositoryConnectionArn = a} :: Service)

@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1728,6 +1728,9 @@ module Amazonka.SageMaker
     -- ** AutoMLMetricExtendedEnum
     AutoMLMetricExtendedEnum (..),
 
+    -- ** AutoMLMode
+    AutoMLMode (..),
+
     -- ** AutoMLS3DataType
     AutoMLS3DataType (..),
 
@@ -1763,6 +1766,15 @@ module Amazonka.SageMaker
 
     -- ** CaptureStatus
     CaptureStatus (..),
+
+    -- ** ClarifyFeatureType
+    ClarifyFeatureType (..),
+
+    -- ** ClarifyTextGranularity
+    ClarifyTextGranularity (..),
+
+    -- ** ClarifyTextLanguage
+    ClarifyTextLanguage (..),
 
     -- ** CodeRepositorySortBy
     CodeRepositorySortBy (..),
@@ -1827,6 +1839,9 @@ module Amazonka.SageMaker
     -- ** EndpointStatus
     EndpointStatus (..),
 
+    -- ** ExecutionRoleIdentityConfig
+    ExecutionRoleIdentityConfig (..),
+
     -- ** ExecutionStatus
     ExecutionStatus (..),
 
@@ -1841,6 +1856,9 @@ module Amazonka.SageMaker
 
     -- ** FeatureGroupStatus
     FeatureGroupStatus (..),
+
+    -- ** FeatureStatus
+    FeatureStatus (..),
 
     -- ** FeatureType
     FeatureType (..),
@@ -2232,6 +2250,9 @@ module Amazonka.SageMaker
     -- ** VariantStatus
     VariantStatus (..),
 
+    -- ** WarmPoolResourceStatus
+    WarmPoolResourceStatus (..),
+
     -- ** WorkforceStatus
     WorkforceStatus (..),
 
@@ -2431,6 +2452,10 @@ module Amazonka.SageMaker
     CandidateProperties (CandidateProperties'),
     newCandidateProperties,
 
+    -- ** CanvasAppSettings
+    CanvasAppSettings (CanvasAppSettings'),
+    newCanvasAppSettings,
+
     -- ** CapacitySize
     CapacitySize (CapacitySize'),
     newCapacitySize,
@@ -2470,6 +2495,26 @@ module Amazonka.SageMaker
     -- ** ClarifyCheckStepMetadata
     ClarifyCheckStepMetadata (ClarifyCheckStepMetadata'),
     newClarifyCheckStepMetadata,
+
+    -- ** ClarifyExplainerConfig
+    ClarifyExplainerConfig (ClarifyExplainerConfig'),
+    newClarifyExplainerConfig,
+
+    -- ** ClarifyInferenceConfig
+    ClarifyInferenceConfig (ClarifyInferenceConfig'),
+    newClarifyInferenceConfig,
+
+    -- ** ClarifyShapBaselineConfig
+    ClarifyShapBaselineConfig (ClarifyShapBaselineConfig'),
+    newClarifyShapBaselineConfig,
+
+    -- ** ClarifyShapConfig
+    ClarifyShapConfig (ClarifyShapConfig'),
+    newClarifyShapConfig,
+
+    -- ** ClarifyTextConfig
+    ClarifyTextConfig (ClarifyTextConfig'),
+    newClarifyTextConfig,
 
     -- ** CodeRepositorySummary
     CodeRepositorySummary (CodeRepositorySummary'),
@@ -2743,6 +2788,10 @@ module Amazonka.SageMaker
     Explainability (Explainability'),
     newExplainability,
 
+    -- ** ExplainerConfig
+    ExplainerConfig (ExplainerConfig'),
+    newExplainerConfig,
+
     -- ** FailStepMetadata
     FailStepMetadata (FailStepMetadata'),
     newFailStepMetadata,
@@ -2859,6 +2908,14 @@ module Amazonka.SageMaker
     HyperParameterTuningJobObjective (HyperParameterTuningJobObjective'),
     newHyperParameterTuningJobObjective,
 
+    -- ** HyperParameterTuningJobSearchEntity
+    HyperParameterTuningJobSearchEntity (HyperParameterTuningJobSearchEntity'),
+    newHyperParameterTuningJobSearchEntity,
+
+    -- ** HyperParameterTuningJobStrategyConfig
+    HyperParameterTuningJobStrategyConfig (HyperParameterTuningJobStrategyConfig'),
+    newHyperParameterTuningJobStrategyConfig,
+
     -- ** HyperParameterTuningJobSummary
     HyperParameterTuningJobSummary (HyperParameterTuningJobSummary'),
     newHyperParameterTuningJobSummary,
@@ -2870,6 +2927,10 @@ module Amazonka.SageMaker
     -- ** HyperParameterTuningResourceConfig
     HyperParameterTuningResourceConfig (HyperParameterTuningResourceConfig'),
     newHyperParameterTuningResourceConfig,
+
+    -- ** HyperbandStrategyConfig
+    HyperbandStrategyConfig (HyperbandStrategyConfig'),
+    newHyperbandStrategyConfig,
 
     -- ** Image
     Image (Image'),
@@ -3519,6 +3580,10 @@ module Amazonka.SageMaker
     RecommendationJobCompiledOutputConfig (RecommendationJobCompiledOutputConfig'),
     newRecommendationJobCompiledOutputConfig,
 
+    -- ** RecommendationJobContainerConfig
+    RecommendationJobContainerConfig (RecommendationJobContainerConfig'),
+    newRecommendationJobContainerConfig,
+
     -- ** RecommendationJobInputConfig
     RecommendationJobInputConfig (RecommendationJobInputConfig'),
     newRecommendationJobInputConfig,
@@ -3526,6 +3591,10 @@ module Amazonka.SageMaker
     -- ** RecommendationJobOutputConfig
     RecommendationJobOutputConfig (RecommendationJobOutputConfig'),
     newRecommendationJobOutputConfig,
+
+    -- ** RecommendationJobPayloadConfig
+    RecommendationJobPayloadConfig (RecommendationJobPayloadConfig'),
+    newRecommendationJobPayloadConfig,
 
     -- ** RecommendationJobResourceLimit
     RecommendationJobResourceLimit (RecommendationJobResourceLimit'),
@@ -3566,6 +3635,10 @@ module Amazonka.SageMaker
     -- ** ResourceConfig
     ResourceConfig (ResourceConfig'),
     newResourceConfig,
+
+    -- ** ResourceConfigForUpdate
+    ResourceConfigForUpdate (ResourceConfigForUpdate'),
+    newResourceConfigForUpdate,
 
     -- ** ResourceLimits
     ResourceLimits (ResourceLimits'),
@@ -3670,6 +3743,10 @@ module Amazonka.SageMaker
     -- ** TensorBoardOutputConfig
     TensorBoardOutputConfig (TensorBoardOutputConfig'),
     newTensorBoardOutputConfig,
+
+    -- ** TimeSeriesForecastingSettings
+    TimeSeriesForecastingSettings (TimeSeriesForecastingSettings'),
+    newTimeSeriesForecastingSettings,
 
     -- ** TrafficPattern
     TrafficPattern (TrafficPattern'),
@@ -3834,6 +3911,10 @@ module Amazonka.SageMaker
     -- ** VpcConfig
     VpcConfig (VpcConfig'),
     newVpcConfig,
+
+    -- ** WarmPoolStatus
+    WarmPoolStatus (WarmPoolStatus'),
+    newWarmPoolStatus,
 
     -- ** Workforce
     Workforce (Workforce'),

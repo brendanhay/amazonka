@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.SendCommand
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ module Amazonka.SSM.SendCommand
     sendCommand_outputS3Region,
     sendCommand_targets,
     sendCommand_comment,
+    sendCommand_alarmConfiguration,
     sendCommand_maxConcurrency,
     sendCommand_maxErrors,
     sendCommand_notificationConfig,
@@ -67,6 +68,12 @@ data SendCommand = SendCommand'
   { -- | The ARN of the Identity and Access Management (IAM) service role to use
     -- to publish Amazon Simple Notification Service (Amazon SNS) notifications
     -- for Run Command commands.
+    --
+    -- This role must provide the @sns:Publish@ permission for your
+    -- notification topic. For information about creating and using this
+    -- service role, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | If this time is reached and the command hasn\'t already started running,
     -- it won\'t run.
@@ -96,6 +103,8 @@ data SendCommand = SendCommand'
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | The CloudWatch alarm you want to apply to your command.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | (Optional) The maximum number of managed nodes that are allowed to run
     -- the command at the same time. You can specify a number such as 10 or a
     -- percentage such as 10%. The default value is @50@. For more information
@@ -183,6 +192,12 @@ data SendCommand = SendCommand'
 -- to publish Amazon Simple Notification Service (Amazon SNS) notifications
 -- for Run Command commands.
 --
+-- This role must provide the @sns:Publish@ permission for your
+-- notification topic. For information about creating and using this
+-- service role, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
 -- 'timeoutSeconds', 'sendCommand_timeoutSeconds' - If this time is reached and the command hasn\'t already started running,
 -- it won\'t run.
 --
@@ -210,6 +225,8 @@ data SendCommand = SendCommand'
 --
 -- 'comment', 'sendCommand_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
+--
+-- 'alarmConfiguration', 'sendCommand_alarmConfiguration' - The CloudWatch alarm you want to apply to your command.
 --
 -- 'maxConcurrency', 'sendCommand_maxConcurrency' - (Optional) The maximum number of managed nodes that are allowed to run
 -- the command at the same time. You can specify a number such as 10 or a
@@ -294,6 +311,7 @@ newSendCommand pDocumentName_ =
       outputS3Region = Prelude.Nothing,
       targets = Prelude.Nothing,
       comment = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
       notificationConfig = Prelude.Nothing,
@@ -310,6 +328,12 @@ newSendCommand pDocumentName_ =
 -- | The ARN of the Identity and Access Management (IAM) service role to use
 -- to publish Amazon Simple Notification Service (Amazon SNS) notifications
 -- for Run Command commands.
+--
+-- This role must provide the @sns:Publish@ permission for your
+-- notification topic. For information about creating and using this
+-- service role, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 sendCommand_serviceRoleArn :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_serviceRoleArn = Lens.lens (\SendCommand' {serviceRoleArn} -> serviceRoleArn) (\s@SendCommand' {} a -> s {serviceRoleArn = a} :: SendCommand)
 
@@ -350,6 +374,10 @@ sendCommand_targets = Lens.lens (\SendCommand' {targets} -> targets) (\s@SendCom
 -- description of what the command should do.
 sendCommand_comment :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_comment = Lens.lens (\SendCommand' {comment} -> comment) (\s@SendCommand' {} a -> s {comment = a} :: SendCommand)
+
+-- | The CloudWatch alarm you want to apply to your command.
+sendCommand_alarmConfiguration :: Lens.Lens' SendCommand (Prelude.Maybe AlarmConfiguration)
+sendCommand_alarmConfiguration = Lens.lens (\SendCommand' {alarmConfiguration} -> alarmConfiguration) (\s@SendCommand' {} a -> s {alarmConfiguration = a} :: SendCommand)
 
 -- | (Optional) The maximum number of managed nodes that are allowed to run
 -- the command at the same time. You can specify a number such as 10 or a
@@ -464,6 +492,7 @@ instance Prelude.Hashable SendCommand where
       `Prelude.hashWithSalt` outputS3Region
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
       `Prelude.hashWithSalt` notificationConfig
@@ -484,6 +513,7 @@ instance Prelude.NFData SendCommand where
       `Prelude.seq` Prelude.rnf outputS3Region
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
       `Prelude.seq` Prelude.rnf notificationConfig
@@ -523,6 +553,8 @@ instance Core.ToJSON SendCommand where
               Prelude.<$> outputS3Region,
             ("Targets" Core..=) Prelude.<$> targets,
             ("Comment" Core..=) Prelude.<$> comment,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("MaxErrors" Core..=) Prelude.<$> maxErrors,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.MobileDeviceAccessRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
 
--- | A rule that controls access to mobile devices for an Amazon WorkMail
--- group.
+-- | A rule that controls access to mobile devices for an WorkMail group.
 --
 -- /See:/ 'newMobileDeviceAccessRule' smart constructor.
 data MobileDeviceAccessRule = MobileDeviceAccessRule'

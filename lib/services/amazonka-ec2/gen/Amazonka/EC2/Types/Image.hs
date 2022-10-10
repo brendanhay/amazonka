@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.Image
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,6 +28,7 @@ import Amazonka.EC2.Types.DeviceType
 import Amazonka.EC2.Types.HypervisorType
 import Amazonka.EC2.Types.ImageState
 import Amazonka.EC2.Types.ImageTypeValues
+import Amazonka.EC2.Types.ImdsSupportValues
 import Amazonka.EC2.Types.PlatformValues
 import Amazonka.EC2.Types.ProductCode
 import Amazonka.EC2.Types.StateReason
@@ -90,6 +91,14 @@ data Image = Image'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     platformDetails :: Prelude.Maybe Prelude.Text,
+    -- | If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+    -- launched from this AMI will have @HttpTokens@ automatically set to
+    -- @required@ so that, by default, the instance requires that IMDSv2 is
+    -- used when requesting instance metadata. In addition,
+    -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    imdsSupport :: Prelude.Maybe ImdsSupportValues,
     -- | The boot mode of the image. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -187,6 +196,14 @@ data Image = Image'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- 'imdsSupport', 'image_imdsSupport' - If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- 'bootMode', 'image_bootMode' - The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -271,6 +288,7 @@ newImage
         ramdiskId = Prelude.Nothing,
         deprecationTime = Prelude.Nothing,
         platformDetails = Prelude.Nothing,
+        imdsSupport = Prelude.Nothing,
         bootMode = Prelude.Nothing,
         kernelId = Prelude.Nothing,
         stateReason = Prelude.Nothing,
@@ -365,6 +383,16 @@ image_deprecationTime = Lens.lens (\Image' {deprecationTime} -> deprecationTime)
 image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)
 
+-- | If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+image_imdsSupport :: Lens.Lens' Image (Prelude.Maybe ImdsSupportValues)
+image_imdsSupport = Lens.lens (\Image' {imdsSupport} -> imdsSupport) (\s@Image' {} a -> s {imdsSupport = a} :: Image)
+
 -- | The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -456,6 +484,7 @@ instance Core.FromXML Image where
       Prelude.<*> (x Core..@? "ramdiskId")
       Prelude.<*> (x Core..@? "deprecationTime")
       Prelude.<*> (x Core..@? "platformDetails")
+      Prelude.<*> (x Core..@? "imdsSupport")
       Prelude.<*> (x Core..@? "bootMode")
       Prelude.<*> (x Core..@? "kernelId")
       Prelude.<*> (x Core..@? "stateReason")
@@ -488,6 +517,7 @@ instance Prelude.Hashable Image where
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` deprecationTime
       `Prelude.hashWithSalt` platformDetails
+      `Prelude.hashWithSalt` imdsSupport
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` kernelId
       `Prelude.hashWithSalt` stateReason
@@ -520,6 +550,7 @@ instance Prelude.NFData Image where
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf deprecationTime
       `Prelude.seq` Prelude.rnf platformDetails
+      `Prelude.seq` Prelude.rnf imdsSupport
       `Prelude.seq` Prelude.rnf bootMode
       `Prelude.seq` Prelude.rnf kernelId
       `Prelude.seq` Prelude.rnf stateReason

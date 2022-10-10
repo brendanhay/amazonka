@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.SearchForSuggestionsResult
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchForSuggestionsResult' smart constructor.
 data SearchForSuggestionsResult = SearchForSuggestionsResult'
-  { -- | The text of the place suggestion, typically formatted as an address
+  { -- | The unique identifier of the place. You can use this with the @GetPlace@
+    -- operation to find the place again later.
+    --
+    -- For @SearchPlaceIndexForSuggestions@ operations, the @PlaceId@ is
+    -- returned by place indexes that use HERE or Esri as data providers.
+    placeId :: Prelude.Maybe Prelude.Text,
+    -- | The text of the place suggestion, typically formatted as an address
     -- string.
     text :: Prelude.Text
   }
@@ -42,6 +48,12 @@ data SearchForSuggestionsResult = SearchForSuggestionsResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'placeId', 'searchForSuggestionsResult_placeId' - The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForSuggestions@ operations, the @PlaceId@ is
+-- returned by place indexes that use HERE or Esri as data providers.
+--
 -- 'text', 'searchForSuggestionsResult_text' - The text of the place suggestion, typically formatted as an address
 -- string.
 newSearchForSuggestionsResult ::
@@ -49,7 +61,19 @@ newSearchForSuggestionsResult ::
   Prelude.Text ->
   SearchForSuggestionsResult
 newSearchForSuggestionsResult pText_ =
-  SearchForSuggestionsResult' {text = pText_}
+  SearchForSuggestionsResult'
+    { placeId =
+        Prelude.Nothing,
+      text = pText_
+    }
+
+-- | The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForSuggestions@ operations, the @PlaceId@ is
+-- returned by place indexes that use HERE or Esri as data providers.
+searchForSuggestionsResult_placeId :: Lens.Lens' SearchForSuggestionsResult (Prelude.Maybe Prelude.Text)
+searchForSuggestionsResult_placeId = Lens.lens (\SearchForSuggestionsResult' {placeId} -> placeId) (\s@SearchForSuggestionsResult' {} a -> s {placeId = a} :: SearchForSuggestionsResult)
 
 -- | The text of the place suggestion, typically formatted as an address
 -- string.
@@ -62,13 +86,15 @@ instance Core.FromJSON SearchForSuggestionsResult where
       "SearchForSuggestionsResult"
       ( \x ->
           SearchForSuggestionsResult'
-            Prelude.<$> (x Core..: "Text")
+            Prelude.<$> (x Core..:? "PlaceId")
+            Prelude.<*> (x Core..: "Text")
       )
 
 instance Prelude.Hashable SearchForSuggestionsResult where
   hashWithSalt _salt SearchForSuggestionsResult' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt `Prelude.hashWithSalt` placeId
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData SearchForSuggestionsResult where
   rnf SearchForSuggestionsResult' {..} =
-    Prelude.rnf text
+    Prelude.rnf placeId `Prelude.seq` Prelude.rnf text

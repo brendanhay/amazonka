@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteLaunchProfileMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,8 +57,7 @@ data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Launch Profile ID.
     launchProfileId :: Prelude.Text,
-    -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+    -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -80,8 +79,7 @@ data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
 --
 -- 'launchProfileId', 'deleteLaunchProfileMember_launchProfileId' - The Launch Profile ID.
 --
--- 'principalId', 'deleteLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'deleteLaunchProfileMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'studioId', 'deleteLaunchProfileMember_studioId' - The studio ID.
 newDeleteLaunchProfileMember ::
@@ -115,8 +113,7 @@ deleteLaunchProfileMember_clientToken = Lens.lens (\DeleteLaunchProfileMember' {
 deleteLaunchProfileMember_launchProfileId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
 deleteLaunchProfileMember_launchProfileId = Lens.lens (\DeleteLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfileMember' {} a -> s {launchProfileId = a} :: DeleteLaunchProfileMember)
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 deleteLaunchProfileMember_principalId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
 deleteLaunchProfileMember_principalId = Lens.lens (\DeleteLaunchProfileMember' {principalId} -> principalId) (\s@DeleteLaunchProfileMember' {} a -> s {principalId = a} :: DeleteLaunchProfileMember)
 

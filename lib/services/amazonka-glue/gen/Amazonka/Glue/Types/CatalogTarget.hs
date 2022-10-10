@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types.CatalogTarget
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'
-  { -- | The name of the connection for an Amazon S3-backed Data Catalog table to
+  { -- | A valid Amazon dead-letter SQS ARN. For example,
+    -- @arn:aws:sqs:region:account:deadLetterQueue@.
+    dlqEventQueueArn :: Prelude.Maybe Prelude.Text,
+    -- | A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
+    eventQueueArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connection for an Amazon S3-backed Data Catalog table to
     -- be a target of the crawl when using a @Catalog@ connection type paired
     -- with a @NETWORK@ Connection type.
     connectionName :: Prelude.Maybe Prelude.Text,
@@ -46,6 +51,11 @@ data CatalogTarget = CatalogTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dlqEventQueueArn', 'catalogTarget_dlqEventQueueArn' - A valid Amazon dead-letter SQS ARN. For example,
+-- @arn:aws:sqs:region:account:deadLetterQueue@.
+--
+-- 'eventQueueArn', 'catalogTarget_eventQueueArn' - A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
+--
 -- 'connectionName', 'catalogTarget_connectionName' - The name of the connection for an Amazon S3-backed Data Catalog table to
 -- be a target of the crawl when using a @Catalog@ connection type paired
 -- with a @NETWORK@ Connection type.
@@ -61,10 +71,21 @@ newCatalogTarget ::
   CatalogTarget
 newCatalogTarget pDatabaseName_ pTables_ =
   CatalogTarget'
-    { connectionName = Prelude.Nothing,
+    { dlqEventQueueArn = Prelude.Nothing,
+      eventQueueArn = Prelude.Nothing,
+      connectionName = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tables = Lens.coerced Lens.# pTables_
     }
+
+-- | A valid Amazon dead-letter SQS ARN. For example,
+-- @arn:aws:sqs:region:account:deadLetterQueue@.
+catalogTarget_dlqEventQueueArn :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
+catalogTarget_dlqEventQueueArn = Lens.lens (\CatalogTarget' {dlqEventQueueArn} -> dlqEventQueueArn) (\s@CatalogTarget' {} a -> s {dlqEventQueueArn = a} :: CatalogTarget)
+
+-- | A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
+catalogTarget_eventQueueArn :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
+catalogTarget_eventQueueArn = Lens.lens (\CatalogTarget' {eventQueueArn} -> eventQueueArn) (\s@CatalogTarget' {} a -> s {eventQueueArn = a} :: CatalogTarget)
 
 -- | The name of the connection for an Amazon S3-backed Data Catalog table to
 -- be a target of the crawl when using a @Catalog@ connection type paired
@@ -86,20 +107,26 @@ instance Core.FromJSON CatalogTarget where
       "CatalogTarget"
       ( \x ->
           CatalogTarget'
-            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Core..:? "DlqEventQueueArn")
+            Prelude.<*> (x Core..:? "EventQueueArn")
+            Prelude.<*> (x Core..:? "ConnectionName")
             Prelude.<*> (x Core..: "DatabaseName")
             Prelude.<*> (x Core..: "Tables")
       )
 
 instance Prelude.Hashable CatalogTarget where
   hashWithSalt _salt CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt `Prelude.hashWithSalt` dlqEventQueueArn
+      `Prelude.hashWithSalt` eventQueueArn
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tables
 
 instance Prelude.NFData CatalogTarget where
   rnf CatalogTarget' {..} =
-    Prelude.rnf connectionName
+    Prelude.rnf dlqEventQueueArn
+      `Prelude.seq` Prelude.rnf eventQueueArn
+      `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tables
 
@@ -107,7 +134,10 @@ instance Core.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionName" Core..=)
+          [ ("DlqEventQueueArn" Core..=)
+              Prelude.<$> dlqEventQueueArn,
+            ("EventQueueArn" Core..=) Prelude.<$> eventQueueArn,
+            ("ConnectionName" Core..=)
               Prelude.<$> connectionName,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("Tables" Core..= tables)

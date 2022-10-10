@@ -14,20 +14,20 @@
 
 -- |
 -- Module      : Amazonka.Outposts.ListSites
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the Outpost sites for your Amazon Web Services account. Add
--- operating address filters to your request to return a more specific list
--- of results. Use filters to match site city, country code, or
--- state\/region of the operating address.
+-- Lists the Outpost sites for your Amazon Web Services account. Use
+-- filters to return specific results.
 --
--- If you specify multiple filters, the filters are joined with an @AND@,
--- and the request returns only results that match all of the specified
--- filters.
+-- Use filters to return specific results. If you specify multiple filters,
+-- the results include only the resources that match all of the specified
+-- filters. For a filter where you can specify multiple values, the results
+-- include items that match any of the values that you specify for the
+-- filter.
 module Amazonka.Outposts.ListSites
   ( -- * Creating a Request
     ListSites (..),
@@ -60,25 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSites' smart constructor.
 data ListSites = ListSites'
-  { -- | A filter for the city of the Outpost site.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+  { -- | Filters the results by city.
     operatingAddressCityFilter :: Prelude.Maybe [Prelude.Text],
     nextToken :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter for the country code of the Outpost site.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by country code.
     operatingAddressCountryCodeFilter :: Prelude.Maybe [Prelude.Text],
-    -- | A filter for the state\/region of the Outpost site.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by state or region.
     operatingAddressStateOrRegionFilter :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,27 +79,15 @@ data ListSites = ListSites'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingAddressCityFilter', 'listSites_operatingAddressCityFilter' - A filter for the city of the Outpost site.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'operatingAddressCityFilter', 'listSites_operatingAddressCityFilter' - Filters the results by city.
 --
 -- 'nextToken', 'listSites_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'listSites_maxResults' - Undocumented member.
 --
--- 'operatingAddressCountryCodeFilter', 'listSites_operatingAddressCountryCodeFilter' - A filter for the country code of the Outpost site.
+-- 'operatingAddressCountryCodeFilter', 'listSites_operatingAddressCountryCodeFilter' - Filters the results by country code.
 --
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
---
--- 'operatingAddressStateOrRegionFilter', 'listSites_operatingAddressStateOrRegionFilter' - A filter for the state\/region of the Outpost site.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'operatingAddressStateOrRegionFilter', 'listSites_operatingAddressStateOrRegionFilter' - Filters the results by state or region.
 newListSites ::
   ListSites
 newListSites =
@@ -125,11 +101,7 @@ newListSites =
         Prelude.Nothing
     }
 
--- | A filter for the city of the Outpost site.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by city.
 listSites_operatingAddressCityFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
 listSites_operatingAddressCityFilter = Lens.lens (\ListSites' {operatingAddressCityFilter} -> operatingAddressCityFilter) (\s@ListSites' {} a -> s {operatingAddressCityFilter = a} :: ListSites) Prelude.. Lens.mapping Lens.coerced
 
@@ -141,19 +113,11 @@ listSites_nextToken = Lens.lens (\ListSites' {nextToken} -> nextToken) (\s@ListS
 listSites_maxResults :: Lens.Lens' ListSites (Prelude.Maybe Prelude.Natural)
 listSites_maxResults = Lens.lens (\ListSites' {maxResults} -> maxResults) (\s@ListSites' {} a -> s {maxResults = a} :: ListSites)
 
--- | A filter for the country code of the Outpost site.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by country code.
 listSites_operatingAddressCountryCodeFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
 listSites_operatingAddressCountryCodeFilter = Lens.lens (\ListSites' {operatingAddressCountryCodeFilter} -> operatingAddressCountryCodeFilter) (\s@ListSites' {} a -> s {operatingAddressCountryCodeFilter = a} :: ListSites) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for the state\/region of the Outpost site.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by state or region.
 listSites_operatingAddressStateOrRegionFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
 listSites_operatingAddressStateOrRegionFilter = Lens.lens (\ListSites' {operatingAddressStateOrRegionFilter} -> operatingAddressStateOrRegionFilter) (\s@ListSites' {} a -> s {operatingAddressStateOrRegionFilter = a} :: ListSites) Prelude.. Lens.mapping Lens.coerced
 

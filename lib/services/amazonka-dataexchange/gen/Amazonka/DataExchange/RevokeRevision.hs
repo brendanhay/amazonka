@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.RevokeRevision
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ module Amazonka.DataExchange.RevokeRevision
     newRevokeRevision,
 
     -- * Request Lenses
-    revokeRevision_revisionId,
     revokeRevision_dataSetId,
+    revokeRevision_revisionId,
     revokeRevision_revocationComment,
 
     -- * Destructuring the Response
@@ -58,14 +58,12 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for RevokeRevision.
---
--- /See:/ 'newRevokeRevision' smart constructor.
+-- | /See:/ 'newRevokeRevision' smart constructor.
 data RevokeRevision = RevokeRevision'
-  { -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
-    -- | The unique identifier for a data set.
+  { -- | The unique identifier for a data set.
     dataSetId :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text,
     -- | A required comment to inform subscribers of the reason their access to
     -- the revision was revoked.
     revocationComment :: Prelude.Text
@@ -80,37 +78,37 @@ data RevokeRevision = RevokeRevision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'revokeRevision_revisionId' - The unique identifier for a revision.
---
 -- 'dataSetId', 'revokeRevision_dataSetId' - The unique identifier for a data set.
+--
+-- 'revisionId', 'revokeRevision_revisionId' - The unique identifier for a revision.
 --
 -- 'revocationComment', 'revokeRevision_revocationComment' - A required comment to inform subscribers of the reason their access to
 -- the revision was revoked.
 newRevokeRevision ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'dataSetId'
+  Prelude.Text ->
+  -- | 'revisionId'
   Prelude.Text ->
   -- | 'revocationComment'
   Prelude.Text ->
   RevokeRevision
 newRevokeRevision
-  pRevisionId_
   pDataSetId_
+  pRevisionId_
   pRevocationComment_ =
     RevokeRevision'
-      { revisionId = pRevisionId_,
-        dataSetId = pDataSetId_,
+      { dataSetId = pDataSetId_,
+        revisionId = pRevisionId_,
         revocationComment = pRevocationComment_
       }
-
--- | The unique identifier for a revision.
-revokeRevision_revisionId :: Lens.Lens' RevokeRevision Prelude.Text
-revokeRevision_revisionId = Lens.lens (\RevokeRevision' {revisionId} -> revisionId) (\s@RevokeRevision' {} a -> s {revisionId = a} :: RevokeRevision)
 
 -- | The unique identifier for a data set.
 revokeRevision_dataSetId :: Lens.Lens' RevokeRevision Prelude.Text
 revokeRevision_dataSetId = Lens.lens (\RevokeRevision' {dataSetId} -> dataSetId) (\s@RevokeRevision' {} a -> s {dataSetId = a} :: RevokeRevision)
+
+-- | The unique identifier for a revision.
+revokeRevision_revisionId :: Lens.Lens' RevokeRevision Prelude.Text
+revokeRevision_revisionId = Lens.lens (\RevokeRevision' {revisionId} -> revisionId) (\s@RevokeRevision' {} a -> s {revisionId = a} :: RevokeRevision)
 
 -- | A required comment to inform subscribers of the reason their access to
 -- the revision was revoked.
@@ -142,14 +140,14 @@ instance Core.AWSRequest RevokeRevision where
 
 instance Prelude.Hashable RevokeRevision where
   hashWithSalt _salt RevokeRevision' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` dataSetId
+    _salt `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` revocationComment
 
 instance Prelude.NFData RevokeRevision where
   rnf RevokeRevision' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf revocationComment
 
 instance Core.ToHeaders RevokeRevision where
@@ -204,7 +202,6 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- changes to the assets in the revision are complete. After it\'s in this
     -- read-only state, you can publish the revision to your products.
-    --
     -- Finalized revisions can be published through the AWS Data Exchange
     -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
     -- Marketplace Catalog API action. When using the API, revisions are
@@ -252,7 +249,6 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- changes to the assets in the revision are complete. After it\'s in this
 -- read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -318,7 +314,6 @@ revokeRevisionResponse_comment = Lens.lens (\RevokeRevisionResponse' {comment} -
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- changes to the assets in the revision are complete. After it\'s in this
 -- read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are

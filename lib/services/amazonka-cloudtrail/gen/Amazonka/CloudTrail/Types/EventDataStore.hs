@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Types.EventDataStore
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A storage lake of event data against which you can run complex SQL-based
 -- queries. An event data store can include events that you have logged on
--- your account from the last 90 to 2555 days (about three months to up to
+-- your account from the last 90 to 2557 days (about three months to up to
 -- seven years). To select events for an event data store, use
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced advanced event selectors>.
 --

@@ -14,20 +14,16 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.ListBulkImportJobs
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API operation is in preview release for IoT SiteWise and is subject
--- to change. We recommend that you use this operation only with test data,
--- and not in production environments.
---
 -- Retrieves a paginated list of bulk import job requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html List bulk import jobs (CLI)>
--- in the /Amazon Simple Storage Service User Guide/.
+-- in the /IoT SiteWise User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.IoTSiteWise.ListBulkImportJobs

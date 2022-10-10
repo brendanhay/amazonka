@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.HealthCheck
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,8 +105,8 @@ data HealthCheck = HealthCheck'
     retries :: Prelude.Maybe Prelude.Int,
     -- | A string array representing the command that the container runs to
     -- determine if it is healthy. The string array must start with @CMD@ to
-    -- execute the command arguments directly, or @CMD-SHELL@ to run the
-    -- command with the container\'s default shell.
+    -- run the command arguments directly, or @CMD-SHELL@ to run the command
+    -- with the container\'s default shell.
     --
     -- When you use the Amazon Web Services Management Console JSON panel, the
     -- Command Line Interface, or the APIs, enclose the list of commands in
@@ -158,8 +158,8 @@ data HealthCheck = HealthCheck'
 --
 -- 'command', 'healthCheck_command' - A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
--- execute the command arguments directly, or @CMD-SHELL@ to run the
--- command with the container\'s default shell.
+-- run the command arguments directly, or @CMD-SHELL@ to run the command
+-- with the container\'s default shell.
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
 -- Command Line Interface, or the APIs, enclose the list of commands in
@@ -218,8 +218,8 @@ healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthC
 
 -- | A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
--- execute the command arguments directly, or @CMD-SHELL@ to run the
--- command with the container\'s default shell.
+-- run the command arguments directly, or @CMD-SHELL@ to run the command
+-- with the container\'s default shell.
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
 -- Command Line Interface, or the APIs, enclose the list of commands in

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector2.Types.VulnerablePackage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,9 @@ data VulnerablePackage = VulnerablePackage'
     filePath :: Prelude.Maybe Prelude.Text,
     -- | The version of the package that contains the vulnerability fix.
     fixedInVersion :: Prelude.Maybe Prelude.Text,
+    -- | The code to run in your environment to update packages with a fix
+    -- available.
+    remediation :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the vulnerable package.
     arch :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the vulnerable package.
@@ -61,6 +64,9 @@ data VulnerablePackage = VulnerablePackage'
 --
 -- 'fixedInVersion', 'vulnerablePackage_fixedInVersion' - The version of the package that contains the vulnerability fix.
 --
+-- 'remediation', 'vulnerablePackage_remediation' - The code to run in your environment to update packages with a fix
+-- available.
+--
 -- 'arch', 'vulnerablePackage_arch' - The architecture of the vulnerable package.
 --
 -- 'epoch', 'vulnerablePackage_epoch' - The epoch of the vulnerable package.
@@ -84,6 +90,7 @@ newVulnerablePackage pName_ pVersion_ =
   VulnerablePackage'
     { filePath = Prelude.Nothing,
       fixedInVersion = Prelude.Nothing,
+      remediation = Prelude.Nothing,
       arch = Prelude.Nothing,
       epoch = Prelude.Nothing,
       packageManager = Prelude.Nothing,
@@ -100,6 +107,11 @@ vulnerablePackage_filePath = Lens.lens (\VulnerablePackage' {filePath} -> filePa
 -- | The version of the package that contains the vulnerability fix.
 vulnerablePackage_fixedInVersion :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
 vulnerablePackage_fixedInVersion = Lens.lens (\VulnerablePackage' {fixedInVersion} -> fixedInVersion) (\s@VulnerablePackage' {} a -> s {fixedInVersion = a} :: VulnerablePackage)
+
+-- | The code to run in your environment to update packages with a fix
+-- available.
+vulnerablePackage_remediation :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_remediation = Lens.lens (\VulnerablePackage' {remediation} -> remediation) (\s@VulnerablePackage' {} a -> s {remediation = a} :: VulnerablePackage)
 
 -- | The architecture of the vulnerable package.
 vulnerablePackage_arch :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
@@ -137,6 +149,7 @@ instance Core.FromJSON VulnerablePackage where
           VulnerablePackage'
             Prelude.<$> (x Core..:? "filePath")
             Prelude.<*> (x Core..:? "fixedInVersion")
+            Prelude.<*> (x Core..:? "remediation")
             Prelude.<*> (x Core..:? "arch")
             Prelude.<*> (x Core..:? "epoch")
             Prelude.<*> (x Core..:? "packageManager")
@@ -150,6 +163,7 @@ instance Prelude.Hashable VulnerablePackage where
   hashWithSalt _salt VulnerablePackage' {..} =
     _salt `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` fixedInVersion
+      `Prelude.hashWithSalt` remediation
       `Prelude.hashWithSalt` arch
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` packageManager
@@ -162,6 +176,7 @@ instance Prelude.NFData VulnerablePackage where
   rnf VulnerablePackage' {..} =
     Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf fixedInVersion
+      `Prelude.seq` Prelude.rnf remediation
       `Prelude.seq` Prelude.rnf arch
       `Prelude.seq` Prelude.rnf epoch
       `Prelude.seq` Prelude.rnf packageManager

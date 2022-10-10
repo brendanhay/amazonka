@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types.Target
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,13 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the SNS topics associated with a notification rule.
+-- | Information about the Chatbot topics or Chatbot clients associated with
+-- a notification rule.
 --
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
-  { -- | The Amazon Resource Name (ARN) of the SNS topic.
+  { -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
     targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The target type. Can be an Amazon SNS topic.
+    -- | The target type. Can be an Chatbot topic or Chatbot client.
+    --
+    -- -   Chatbot topics are specified as @SNS@.
+    --
+    -- -   Chatbot clients are specified as @AWSChatbotSlack@.
     targetType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -42,9 +47,13 @@ data Target = Target'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetAddress', 'target_targetAddress' - The Amazon Resource Name (ARN) of the SNS topic.
+-- 'targetAddress', 'target_targetAddress' - The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 --
--- 'targetType', 'target_targetType' - The target type. Can be an Amazon SNS topic.
+-- 'targetType', 'target_targetType' - The target type. Can be an Chatbot topic or Chatbot client.
+--
+-- -   Chatbot topics are specified as @SNS@.
+--
+-- -   Chatbot clients are specified as @AWSChatbotSlack@.
 newTarget ::
   Target
 newTarget =
@@ -53,11 +62,15 @@ newTarget =
       targetType = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the SNS topic.
+-- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 target_targetAddress :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_targetAddress = Lens.lens (\Target' {targetAddress} -> targetAddress) (\s@Target' {} a -> s {targetAddress = a} :: Target) Prelude.. Lens.mapping Core._Sensitive
 
--- | The target type. Can be an Amazon SNS topic.
+-- | The target type. Can be an Chatbot topic or Chatbot client.
+--
+-- -   Chatbot topics are specified as @SNS@.
+--
+-- -   Chatbot clients are specified as @AWSChatbotSlack@.
 target_targetType :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_targetType = Lens.lens (\Target' {targetType} -> targetType) (\s@Target' {} a -> s {targetType = a} :: Target)
 

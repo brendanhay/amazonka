@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.BatchGetDeploymentTargets
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,9 +28,9 @@
 -- The type of targets returned depends on the deployment\'s compute
 -- platform or deployment method:
 --
--- -   __EC2\/On-premises__: Information about EC2 instance targets.
+-- -   __EC2\/On-premises__: Information about Amazon EC2 instance targets.
 --
--- -   __AWS Lambda__: Information about Lambda functions targets.
+-- -   __Lambda__: Information about Lambda functions targets.
 --
 -- -   __Amazon ECS__: Information about Amazon ECS service targets.
 --
@@ -69,11 +69,11 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
     -- maximum number of deployment target IDs you can specify is 25.
     --
     -- -   For deployments that use the EC2\/On-premises compute platform, the
-    --     target IDs are EC2 or on-premises instances IDs, and their target
-    --     type is @instanceTarget@.
+    --     target IDs are Amazon EC2 or on-premises instances IDs, and their
+    --     target type is @instanceTarget@.
     --
-    -- -   For deployments that use the AWS Lambda compute platform, the target
-    --     IDs are the names of Lambda functions, and their target type is
+    -- -   For deployments that use the Lambda compute platform, the target IDs
+    --     are the names of Lambda functions, and their target type is
     --     @instanceTarget@.
     --
     -- -   For deployments that use the Amazon ECS compute platform, the target
@@ -81,8 +81,8 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
     --     the format @\<clustername>:\<servicename>@. Their target type is
     --     @ecsTarget@.
     --
-    -- -   For deployments that are deployed with AWS CloudFormation, the
-    --     target IDs are CloudFormation stack IDs. Their target type is
+    -- -   For deployments that are deployed with CloudFormation, the target
+    --     IDs are CloudFormation stack IDs. Their target type is
     --     @cloudFormationTarget@.
     targetIds :: Prelude.Maybe [Prelude.Text],
     -- | The unique ID of a deployment.
@@ -103,11 +103,11 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
 -- maximum number of deployment target IDs you can specify is 25.
 --
 -- -   For deployments that use the EC2\/On-premises compute platform, the
---     target IDs are EC2 or on-premises instances IDs, and their target
---     type is @instanceTarget@.
+--     target IDs are Amazon EC2 or on-premises instances IDs, and their
+--     target type is @instanceTarget@.
 --
--- -   For deployments that use the AWS Lambda compute platform, the target
---     IDs are the names of Lambda functions, and their target type is
+-- -   For deployments that use the Lambda compute platform, the target IDs
+--     are the names of Lambda functions, and their target type is
 --     @instanceTarget@.
 --
 -- -   For deployments that use the Amazon ECS compute platform, the target
@@ -115,8 +115,8 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
 --     the format @\<clustername>:\<servicename>@. Their target type is
 --     @ecsTarget@.
 --
--- -   For deployments that are deployed with AWS CloudFormation, the
---     target IDs are CloudFormation stack IDs. Their target type is
+-- -   For deployments that are deployed with CloudFormation, the target
+--     IDs are CloudFormation stack IDs. Their target type is
 --     @cloudFormationTarget@.
 --
 -- 'deploymentId', 'batchGetDeploymentTargets_deploymentId' - The unique ID of a deployment.
@@ -134,11 +134,11 @@ newBatchGetDeploymentTargets =
 -- maximum number of deployment target IDs you can specify is 25.
 --
 -- -   For deployments that use the EC2\/On-premises compute platform, the
---     target IDs are EC2 or on-premises instances IDs, and their target
---     type is @instanceTarget@.
+--     target IDs are Amazon EC2 or on-premises instances IDs, and their
+--     target type is @instanceTarget@.
 --
--- -   For deployments that use the AWS Lambda compute platform, the target
---     IDs are the names of Lambda functions, and their target type is
+-- -   For deployments that use the Lambda compute platform, the target IDs
+--     are the names of Lambda functions, and their target type is
 --     @instanceTarget@.
 --
 -- -   For deployments that use the Amazon ECS compute platform, the target
@@ -146,8 +146,8 @@ newBatchGetDeploymentTargets =
 --     the format @\<clustername>:\<servicename>@. Their target type is
 --     @ecsTarget@.
 --
--- -   For deployments that are deployed with AWS CloudFormation, the
---     target IDs are CloudFormation stack IDs. Their target type is
+-- -   For deployments that are deployed with CloudFormation, the target
+--     IDs are CloudFormation stack IDs. Their target type is
 --     @cloudFormationTarget@.
 batchGetDeploymentTargets_targetIds :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe [Prelude.Text])
 batchGetDeploymentTargets_targetIds = Lens.lens (\BatchGetDeploymentTargets' {targetIds} -> targetIds) (\s@BatchGetDeploymentTargets' {} a -> s {targetIds = a} :: BatchGetDeploymentTargets) Prelude.. Lens.mapping Lens.coerced
@@ -217,15 +217,15 @@ data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
     -- details about the target, such as its status and lifecycle events. The
     -- type of the target objects depends on the deployment\' compute platform.
     --
-    -- -   __EC2\/On-premises__: Each target object is an EC2 or on-premises
-    --     instance.
+    -- -   __EC2\/On-premises__: Each target object is an Amazon EC2 or
+    --     on-premises instance.
     --
-    -- -   __AWS Lambda__: The target object is a specific version of an AWS
-    --     Lambda function.
+    -- -   __Lambda__: The target object is a specific version of an Lambda
+    --     function.
     --
     -- -   __Amazon ECS__: The target object is an Amazon ECS service.
     --
-    -- -   __CloudFormation__: The target object is an AWS CloudFormation
+    -- -   __CloudFormation__: The target object is an CloudFormation
     --     blue\/green deployment.
     deploymentTargets :: Prelude.Maybe [DeploymentTarget],
     -- | The response's http status code.
@@ -245,15 +245,15 @@ data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
 -- details about the target, such as its status and lifecycle events. The
 -- type of the target objects depends on the deployment\' compute platform.
 --
--- -   __EC2\/On-premises__: Each target object is an EC2 or on-premises
---     instance.
+-- -   __EC2\/On-premises__: Each target object is an Amazon EC2 or
+--     on-premises instance.
 --
--- -   __AWS Lambda__: The target object is a specific version of an AWS
---     Lambda function.
+-- -   __Lambda__: The target object is a specific version of an Lambda
+--     function.
 --
 -- -   __Amazon ECS__: The target object is an Amazon ECS service.
 --
--- -   __CloudFormation__: The target object is an AWS CloudFormation
+-- -   __CloudFormation__: The target object is an CloudFormation
 --     blue\/green deployment.
 --
 -- 'httpStatus', 'batchGetDeploymentTargetsResponse_httpStatus' - The response's http status code.
@@ -272,15 +272,15 @@ newBatchGetDeploymentTargetsResponse pHttpStatus_ =
 -- details about the target, such as its status and lifecycle events. The
 -- type of the target objects depends on the deployment\' compute platform.
 --
--- -   __EC2\/On-premises__: Each target object is an EC2 or on-premises
---     instance.
+-- -   __EC2\/On-premises__: Each target object is an Amazon EC2 or
+--     on-premises instance.
 --
--- -   __AWS Lambda__: The target object is a specific version of an AWS
---     Lambda function.
+-- -   __Lambda__: The target object is a specific version of an Lambda
+--     function.
 --
 -- -   __Amazon ECS__: The target object is an Amazon ECS service.
 --
--- -   __CloudFormation__: The target object is an AWS CloudFormation
+-- -   __CloudFormation__: The target object is an CloudFormation
 --     blue\/green deployment.
 batchGetDeploymentTargetsResponse_deploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Prelude.Maybe [DeploymentTarget])
 batchGetDeploymentTargetsResponse_deploymentTargets = Lens.lens (\BatchGetDeploymentTargetsResponse' {deploymentTargets} -> deploymentTargets) (\s@BatchGetDeploymentTargetsResponse' {} a -> s {deploymentTargets = a} :: BatchGetDeploymentTargetsResponse) Prelude.. Lens.mapping Lens.coerced

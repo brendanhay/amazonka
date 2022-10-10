@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ProvisionPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,13 +52,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newProvisionPermissionSet' smart constructor.
 data ProvisionPermissionSet = ProvisionPermissionSet'
-  { -- | TargetID is an Amazon Web Services account identifier, typically a 10-12
-    -- digit string (For example, 123456789012).
+  { -- | TargetID is an AWS account identifier, typically a 10-12 digit string
+    -- (For example, 123456789012).
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the permission set.
     permissionSetArn :: Prelude.Text,
@@ -75,13 +75,13 @@ data ProvisionPermissionSet = ProvisionPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetId', 'provisionPermissionSet_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- 'targetId', 'provisionPermissionSet_targetId' - TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 --
--- 'instanceArn', 'provisionPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'provisionPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'permissionSetArn', 'provisionPermissionSet_permissionSetArn' - The ARN of the permission set.
 --
@@ -105,15 +105,15 @@ newProvisionPermissionSet
         targetType = pTargetType_
       }
 
--- | TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- | TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 provisionPermissionSet_targetId :: Lens.Lens' ProvisionPermissionSet (Prelude.Maybe Prelude.Text)
 provisionPermissionSet_targetId = Lens.lens (\ProvisionPermissionSet' {targetId} -> targetId) (\s@ProvisionPermissionSet' {} a -> s {targetId = a} :: ProvisionPermissionSet)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 provisionPermissionSet_instanceArn :: Lens.Lens' ProvisionPermissionSet Prelude.Text
 provisionPermissionSet_instanceArn = Lens.lens (\ProvisionPermissionSet' {instanceArn} -> instanceArn) (\s@ProvisionPermissionSet' {} a -> s {instanceArn = a} :: ProvisionPermissionSet)
 

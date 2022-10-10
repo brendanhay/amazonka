@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.DescribeContact
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,8 @@
 --
 -- Contact information remains available in Amazon Connect for 24 months,
 -- and then it is deleted.
+--
+-- Only data from November 12, 2021, and later is returned by this API.
 module Amazonka.Connect.DescribeContact
   ( -- * Creating a Request
     DescribeContact (..),

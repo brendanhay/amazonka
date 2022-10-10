@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AnalyzedResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,21 +39,21 @@ data AnalyzedResource = AnalyzedResource'
     -- | The actions that an external principal is granted permission to use by
     -- the policy that generated the finding.
     actions :: Prelude.Maybe [Prelude.Text],
-    -- | The time at which the resource was analyzed.
-    analyzedAt :: Core.POSIX,
+    -- | The ARN of the resource that was analyzed.
+    resourceArn :: Prelude.Text,
+    -- | The type of the resource that was analyzed.
+    resourceType :: ResourceType,
     -- | The time at which the finding was created.
     createdAt :: Core.POSIX,
+    -- | The time at which the resource was analyzed.
+    analyzedAt :: Core.POSIX,
+    -- | The time at which the finding was updated.
+    updatedAt :: Core.POSIX,
     -- | Indicates whether the policy that generated the finding grants public
     -- access to the resource.
     isPublic :: Prelude.Bool,
-    -- | The ARN of the resource that was analyzed.
-    resourceArn :: Prelude.Text,
     -- | The Amazon Web Services account ID that owns the resource.
-    resourceOwnerAccount :: Prelude.Text,
-    -- | The type of the resource that was analyzed.
-    resourceType :: ResourceType,
-    -- | The time at which the finding was updated.
-    updatedAt :: Core.POSIX
+    resourceOwnerAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,56 +75,56 @@ data AnalyzedResource = AnalyzedResource'
 -- 'actions', 'analyzedResource_actions' - The actions that an external principal is granted permission to use by
 -- the policy that generated the finding.
 --
--- 'analyzedAt', 'analyzedResource_analyzedAt' - The time at which the resource was analyzed.
+-- 'resourceArn', 'analyzedResource_resourceArn' - The ARN of the resource that was analyzed.
+--
+-- 'resourceType', 'analyzedResource_resourceType' - The type of the resource that was analyzed.
 --
 -- 'createdAt', 'analyzedResource_createdAt' - The time at which the finding was created.
+--
+-- 'analyzedAt', 'analyzedResource_analyzedAt' - The time at which the resource was analyzed.
+--
+-- 'updatedAt', 'analyzedResource_updatedAt' - The time at which the finding was updated.
 --
 -- 'isPublic', 'analyzedResource_isPublic' - Indicates whether the policy that generated the finding grants public
 -- access to the resource.
 --
--- 'resourceArn', 'analyzedResource_resourceArn' - The ARN of the resource that was analyzed.
---
 -- 'resourceOwnerAccount', 'analyzedResource_resourceOwnerAccount' - The Amazon Web Services account ID that owns the resource.
---
--- 'resourceType', 'analyzedResource_resourceType' - The type of the resource that was analyzed.
---
--- 'updatedAt', 'analyzedResource_updatedAt' - The time at which the finding was updated.
 newAnalyzedResource ::
-  -- | 'analyzedAt'
-  Prelude.UTCTime ->
-  -- | 'createdAt'
-  Prelude.UTCTime ->
-  -- | 'isPublic'
-  Prelude.Bool ->
   -- | 'resourceArn'
-  Prelude.Text ->
-  -- | 'resourceOwnerAccount'
   Prelude.Text ->
   -- | 'resourceType'
   ResourceType ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
+  -- | 'analyzedAt'
+  Prelude.UTCTime ->
   -- | 'updatedAt'
   Prelude.UTCTime ->
+  -- | 'isPublic'
+  Prelude.Bool ->
+  -- | 'resourceOwnerAccount'
+  Prelude.Text ->
   AnalyzedResource
 newAnalyzedResource
-  pAnalyzedAt_
-  pCreatedAt_
-  pIsPublic_
   pResourceArn_
-  pResourceOwnerAccount_
   pResourceType_
-  pUpdatedAt_ =
+  pCreatedAt_
+  pAnalyzedAt_
+  pUpdatedAt_
+  pIsPublic_
+  pResourceOwnerAccount_ =
     AnalyzedResource'
       { status = Prelude.Nothing,
         sharedVia = Prelude.Nothing,
         error = Prelude.Nothing,
         actions = Prelude.Nothing,
-        analyzedAt = Core._Time Lens.# pAnalyzedAt_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        isPublic = pIsPublic_,
         resourceArn = pResourceArn_,
-        resourceOwnerAccount = pResourceOwnerAccount_,
         resourceType = pResourceType_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Core._Time Lens.# pCreatedAt_,
+        analyzedAt = Core._Time Lens.# pAnalyzedAt_,
+        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        isPublic = pIsPublic_,
+        resourceOwnerAccount = pResourceOwnerAccount_
       }
 
 -- | The current status of the finding generated from the analyzed resource.
@@ -145,34 +145,34 @@ analyzedResource_error = Lens.lens (\AnalyzedResource' {error} -> error) (\s@Ana
 analyzedResource_actions :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
 analyzedResource_actions = Lens.lens (\AnalyzedResource' {actions} -> actions) (\s@AnalyzedResource' {} a -> s {actions = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
 
--- | The time at which the resource was analyzed.
-analyzedResource_analyzedAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
-analyzedResource_analyzedAt = Lens.lens (\AnalyzedResource' {analyzedAt} -> analyzedAt) (\s@AnalyzedResource' {} a -> s {analyzedAt = a} :: AnalyzedResource) Prelude.. Core._Time
+-- | The ARN of the resource that was analyzed.
+analyzedResource_resourceArn :: Lens.Lens' AnalyzedResource Prelude.Text
+analyzedResource_resourceArn = Lens.lens (\AnalyzedResource' {resourceArn} -> resourceArn) (\s@AnalyzedResource' {} a -> s {resourceArn = a} :: AnalyzedResource)
+
+-- | The type of the resource that was analyzed.
+analyzedResource_resourceType :: Lens.Lens' AnalyzedResource ResourceType
+analyzedResource_resourceType = Lens.lens (\AnalyzedResource' {resourceType} -> resourceType) (\s@AnalyzedResource' {} a -> s {resourceType = a} :: AnalyzedResource)
 
 -- | The time at which the finding was created.
 analyzedResource_createdAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
 analyzedResource_createdAt = Lens.lens (\AnalyzedResource' {createdAt} -> createdAt) (\s@AnalyzedResource' {} a -> s {createdAt = a} :: AnalyzedResource) Prelude.. Core._Time
+
+-- | The time at which the resource was analyzed.
+analyzedResource_analyzedAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
+analyzedResource_analyzedAt = Lens.lens (\AnalyzedResource' {analyzedAt} -> analyzedAt) (\s@AnalyzedResource' {} a -> s {analyzedAt = a} :: AnalyzedResource) Prelude.. Core._Time
+
+-- | The time at which the finding was updated.
+analyzedResource_updatedAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
+analyzedResource_updatedAt = Lens.lens (\AnalyzedResource' {updatedAt} -> updatedAt) (\s@AnalyzedResource' {} a -> s {updatedAt = a} :: AnalyzedResource) Prelude.. Core._Time
 
 -- | Indicates whether the policy that generated the finding grants public
 -- access to the resource.
 analyzedResource_isPublic :: Lens.Lens' AnalyzedResource Prelude.Bool
 analyzedResource_isPublic = Lens.lens (\AnalyzedResource' {isPublic} -> isPublic) (\s@AnalyzedResource' {} a -> s {isPublic = a} :: AnalyzedResource)
 
--- | The ARN of the resource that was analyzed.
-analyzedResource_resourceArn :: Lens.Lens' AnalyzedResource Prelude.Text
-analyzedResource_resourceArn = Lens.lens (\AnalyzedResource' {resourceArn} -> resourceArn) (\s@AnalyzedResource' {} a -> s {resourceArn = a} :: AnalyzedResource)
-
 -- | The Amazon Web Services account ID that owns the resource.
 analyzedResource_resourceOwnerAccount :: Lens.Lens' AnalyzedResource Prelude.Text
 analyzedResource_resourceOwnerAccount = Lens.lens (\AnalyzedResource' {resourceOwnerAccount} -> resourceOwnerAccount) (\s@AnalyzedResource' {} a -> s {resourceOwnerAccount = a} :: AnalyzedResource)
-
--- | The type of the resource that was analyzed.
-analyzedResource_resourceType :: Lens.Lens' AnalyzedResource ResourceType
-analyzedResource_resourceType = Lens.lens (\AnalyzedResource' {resourceType} -> resourceType) (\s@AnalyzedResource' {} a -> s {resourceType = a} :: AnalyzedResource)
-
--- | The time at which the finding was updated.
-analyzedResource_updatedAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
-analyzedResource_updatedAt = Lens.lens (\AnalyzedResource' {updatedAt} -> updatedAt) (\s@AnalyzedResource' {} a -> s {updatedAt = a} :: AnalyzedResource) Prelude.. Core._Time
 
 instance Core.FromJSON AnalyzedResource where
   parseJSON =
@@ -184,13 +184,13 @@ instance Core.FromJSON AnalyzedResource where
             Prelude.<*> (x Core..:? "sharedVia" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "error")
             Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "analyzedAt")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "isPublic")
             Prelude.<*> (x Core..: "resourceArn")
-            Prelude.<*> (x Core..: "resourceOwnerAccount")
             Prelude.<*> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Core..: "analyzedAt")
             Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<*> (x Core..: "isPublic")
+            Prelude.<*> (x Core..: "resourceOwnerAccount")
       )
 
 instance Prelude.Hashable AnalyzedResource where
@@ -199,13 +199,13 @@ instance Prelude.Hashable AnalyzedResource where
       `Prelude.hashWithSalt` sharedVia
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` analyzedAt
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` isPublic
       `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` resourceOwnerAccount
       `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` analyzedAt
       `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` resourceOwnerAccount
 
 instance Prelude.NFData AnalyzedResource where
   rnf AnalyzedResource' {..} =
@@ -213,10 +213,10 @@ instance Prelude.NFData AnalyzedResource where
       `Prelude.seq` Prelude.rnf sharedVia
       `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf analyzedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf isPublic
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceOwnerAccount
       `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf analyzedAt
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf isPublic
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount

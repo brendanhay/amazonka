@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.ResolveConflicts
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,8 @@ module Amazonka.EKS.Types.ResolveConflicts
   ( ResolveConflicts
       ( ..,
         ResolveConflicts_NONE,
-        ResolveConflicts_OVERWRITE
+        ResolveConflicts_OVERWRITE,
+        ResolveConflicts_PRESERVE
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern ResolveConflicts_NONE = ResolveConflicts' "NONE"
 pattern ResolveConflicts_OVERWRITE :: ResolveConflicts
 pattern ResolveConflicts_OVERWRITE = ResolveConflicts' "OVERWRITE"
 
+pattern ResolveConflicts_PRESERVE :: ResolveConflicts
+pattern ResolveConflicts_PRESERVE = ResolveConflicts' "PRESERVE"
+
 {-# COMPLETE
   ResolveConflicts_NONE,
   ResolveConflicts_OVERWRITE,
+  ResolveConflicts_PRESERVE,
   ResolveConflicts'
   #-}

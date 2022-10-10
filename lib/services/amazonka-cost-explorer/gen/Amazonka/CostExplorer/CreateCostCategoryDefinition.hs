@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.CreateCostCategoryDefinition
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,7 @@ module Amazonka.CostExplorer.CreateCostCategoryDefinition
     createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
     createCostCategoryDefinition_resourceTags,
+    createCostCategoryDefinition_effectiveStart,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -84,6 +85,11 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
     -- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
     --     for Amazon Web Services use
     resourceTags :: Prelude.Maybe [ResourceTag],
+    -- | The Cost Category\'s effective start date. It can only be a billing
+    -- start date (first day of the month). If the date isn\'t provided, it\'s
+    -- the first day of the current month. Dates can\'t be before the previous
+    -- twelve months, or in the future.
+    effectiveStart :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The Cost Category rules used to categorize costs. For more information,
@@ -132,6 +138,11 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 -- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
 --     for Amazon Web Services use
 --
+-- 'effectiveStart', 'createCostCategoryDefinition_effectiveStart' - The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month). If the date isn\'t provided, it\'s
+-- the first day of the current month. Dates can\'t be before the previous
+-- twelve months, or in the future.
+--
 -- 'name', 'createCostCategoryDefinition_name' - Undocumented member.
 --
 -- 'ruleVersion', 'createCostCategoryDefinition_ruleVersion' - Undocumented member.
@@ -156,6 +167,7 @@ newCreateCostCategoryDefinition
           Prelude.Nothing,
         defaultValue = Prelude.Nothing,
         resourceTags = Prelude.Nothing,
+        effectiveStart = Prelude.Nothing,
         name = pName_,
         ruleVersion = pRuleVersion_,
         rules = Lens.coerced Lens.# pRules_
@@ -198,6 +210,13 @@ createCostCategoryDefinition_defaultValue = Lens.lens (\CreateCostCategoryDefini
 createCostCategoryDefinition_resourceTags :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe [ResourceTag])
 createCostCategoryDefinition_resourceTags = Lens.lens (\CreateCostCategoryDefinition' {resourceTags} -> resourceTags) (\s@CreateCostCategoryDefinition' {} a -> s {resourceTags = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month). If the date isn\'t provided, it\'s
+-- the first day of the current month. Dates can\'t be before the previous
+-- twelve months, or in the future.
+createCostCategoryDefinition_effectiveStart :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinition_effectiveStart = Lens.lens (\CreateCostCategoryDefinition' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinition' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinition)
+
 -- | Undocumented member.
 createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Prelude.Text
 createCostCategoryDefinition_name = Lens.lens (\CreateCostCategoryDefinition' {name} -> name) (\s@CreateCostCategoryDefinition' {} a -> s {name = a} :: CreateCostCategoryDefinition)
@@ -234,6 +253,7 @@ instance
     _salt `Prelude.hashWithSalt` splitChargeRules
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` effectiveStart
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleVersion
       `Prelude.hashWithSalt` rules
@@ -243,6 +263,7 @@ instance Prelude.NFData CreateCostCategoryDefinition where
     Prelude.rnf splitChargeRules
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf effectiveStart
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleVersion
       `Prelude.seq` Prelude.rnf rules
@@ -270,6 +291,8 @@ instance Core.ToJSON CreateCostCategoryDefinition where
               Prelude.<$> splitChargeRules,
             ("DefaultValue" Core..=) Prelude.<$> defaultValue,
             ("ResourceTags" Core..=) Prelude.<$> resourceTags,
+            ("EffectiveStart" Core..=)
+              Prelude.<$> effectiveStart,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("RuleVersion" Core..= ruleVersion),
             Prelude.Just ("Rules" Core..= rules)
@@ -284,7 +307,8 @@ instance Core.ToQuery CreateCostCategoryDefinition where
 
 -- | /See:/ 'newCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
-  { -- | The Cost Category\'s effective start date.
+  { -- | The Cost Category\'s effective start date. It can only be a billing
+    -- start date (first day of the month).
     effectiveStart :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for your newly created Cost Category.
     costCategoryArn :: Prelude.Maybe Prelude.Text,
@@ -301,7 +325,8 @@ data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'effectiveStart', 'createCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date.
+-- 'effectiveStart', 'createCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month).
 --
 -- 'costCategoryArn', 'createCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your newly created Cost Category.
 --
@@ -318,7 +343,8 @@ newCreateCostCategoryDefinitionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Cost Category\'s effective start date.
+-- | The Cost Category\'s effective start date. It can only be a billing
+-- start date (first day of the month).
 createCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 createCostCategoryDefinitionResponse_effectiveStart = Lens.lens (\CreateCostCategoryDefinitionResponse' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinitionResponse)
 

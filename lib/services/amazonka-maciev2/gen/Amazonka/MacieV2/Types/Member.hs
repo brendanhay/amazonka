@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.Member
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
-  { -- | A map of key-value pairs that identifies the tags (keys and values) that
-    -- are associated with the account in Amazon Macie.
+  { -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the account in Amazon Macie.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The email address for the account.
     email :: Prelude.Maybe Prelude.Text,
@@ -66,8 +66,8 @@ data Member = Member'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'member_tags' - A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the account in Amazon Macie.
+-- 'tags', 'member_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
 --
 -- 'email', 'member_email' - The email address for the account.
 --
@@ -106,8 +106,8 @@ newMember =
       updatedAt = Prelude.Nothing
     }
 
--- | A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the account in Amazon Macie.
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
 member_tags :: Lens.Lens' Member (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 member_tags = Lens.lens (\Member' {tags} -> tags) (\s@Member' {} a -> s {tags = a} :: Member) Prelude.. Lens.mapping Lens.coerced
 

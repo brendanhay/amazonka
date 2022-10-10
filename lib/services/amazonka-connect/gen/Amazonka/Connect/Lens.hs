@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -789,6 +789,28 @@ module Amazonka.Connect.Lens
     searchAvailablePhoneNumbersResponse_availableNumbersList,
     searchAvailablePhoneNumbersResponse_httpStatus,
 
+    -- ** SearchQueues
+    searchQueues_nextToken,
+    searchQueues_searchCriteria,
+    searchQueues_searchFilter,
+    searchQueues_maxResults,
+    searchQueues_instanceId,
+    searchQueuesResponse_nextToken,
+    searchQueuesResponse_approximateTotalCount,
+    searchQueuesResponse_queues,
+    searchQueuesResponse_httpStatus,
+
+    -- ** SearchRoutingProfiles
+    searchRoutingProfiles_nextToken,
+    searchRoutingProfiles_searchCriteria,
+    searchRoutingProfiles_searchFilter,
+    searchRoutingProfiles_maxResults,
+    searchRoutingProfiles_instanceId,
+    searchRoutingProfilesResponse_nextToken,
+    searchRoutingProfilesResponse_approximateTotalCount,
+    searchRoutingProfilesResponse_routingProfiles,
+    searchRoutingProfilesResponse_httpStatus,
+
     -- ** SearchSecurityProfiles
     searchSecurityProfiles_nextToken,
     searchSecurityProfiles_searchCriteria,
@@ -1533,6 +1555,15 @@ module Amazonka.Connect.Lens
     queueReference_arn,
     queueReference_id,
 
+    -- ** QueueSearchCriteria
+    queueSearchCriteria_stringCondition,
+    queueSearchCriteria_orConditions,
+    queueSearchCriteria_andConditions,
+    queueSearchCriteria_queueTypeCondition,
+
+    -- ** QueueSearchFilter
+    queueSearchFilter_tagFilter,
+
     -- ** QueueSummary
     queueSummary_name,
     queueSummary_arn,
@@ -1580,10 +1611,12 @@ module Amazonka.Connect.Lens
     -- ** RoutingProfile
     routingProfile_tags,
     routingProfile_name,
+    routingProfile_numberOfAssociatedUsers,
     routingProfile_description,
     routingProfile_mediaConcurrencies,
     routingProfile_routingProfileArn,
     routingProfile_instanceId,
+    routingProfile_numberOfAssociatedQueues,
     routingProfile_defaultOutboundQueueId,
     routingProfile_routingProfileId,
 
@@ -1607,6 +1640,14 @@ module Amazonka.Connect.Lens
     -- ** RoutingProfileReference
     routingProfileReference_arn,
     routingProfileReference_id,
+
+    -- ** RoutingProfileSearchCriteria
+    routingProfileSearchCriteria_stringCondition,
+    routingProfileSearchCriteria_orConditions,
+    routingProfileSearchCriteria_andConditions,
+
+    -- ** RoutingProfileSearchFilter
+    routingProfileSearchFilter_tagFilter,
 
     -- ** RoutingProfileSummary
     routingProfileSummary_name,
@@ -1912,6 +1953,8 @@ import Amazonka.Connect.PutUserStatus
 import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ResumeContactRecording
 import Amazonka.Connect.SearchAvailablePhoneNumbers
+import Amazonka.Connect.SearchQueues
+import Amazonka.Connect.SearchRoutingProfiles
 import Amazonka.Connect.SearchSecurityProfiles
 import Amazonka.Connect.SearchUsers
 import Amazonka.Connect.SearchVocabularies
@@ -1997,6 +2040,8 @@ import Amazonka.Connect.Types.Queue
 import Amazonka.Connect.Types.QueueInfo
 import Amazonka.Connect.Types.QueueQuickConnectConfig
 import Amazonka.Connect.Types.QueueReference
+import Amazonka.Connect.Types.QueueSearchCriteria
+import Amazonka.Connect.Types.QueueSearchFilter
 import Amazonka.Connect.Types.QueueSummary
 import Amazonka.Connect.Types.QuickConnect
 import Amazonka.Connect.Types.QuickConnectConfig
@@ -2010,6 +2055,8 @@ import Amazonka.Connect.Types.RoutingProfileQueueConfig
 import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
 import Amazonka.Connect.Types.RoutingProfileQueueReference
 import Amazonka.Connect.Types.RoutingProfileReference
+import Amazonka.Connect.Types.RoutingProfileSearchCriteria
+import Amazonka.Connect.Types.RoutingProfileSearchFilter
 import Amazonka.Connect.Types.RoutingProfileSummary
 import Amazonka.Connect.Types.S3Config
 import Amazonka.Connect.Types.SecurityKey

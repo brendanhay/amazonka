@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,10 +35,10 @@ data ImportAssetFromSignedUrlResponseDetails = ImportAssetFromSignedUrlResponseD
     -- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
     -- of the file at that location.
     md5Hash :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the data set associated with this import job.
-    dataSetId :: Prelude.Text,
     -- | The name for the asset associated with this import job.
     assetName :: Prelude.Text,
+    -- | The unique identifier for the data set associated with this import job.
+    dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision associated with this import
     -- response.
     revisionId :: Prelude.Text
@@ -60,31 +60,31 @@ data ImportAssetFromSignedUrlResponseDetails = ImportAssetFromSignedUrlResponseD
 -- 'md5Hash', 'importAssetFromSignedUrlResponseDetails_md5Hash' - The Base64-encoded Md5 hash for the asset, used to ensure the integrity
 -- of the file at that location.
 --
--- 'dataSetId', 'importAssetFromSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this import job.
---
 -- 'assetName', 'importAssetFromSignedUrlResponseDetails_assetName' - The name for the asset associated with this import job.
+--
+-- 'dataSetId', 'importAssetFromSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
 -- 'revisionId', 'importAssetFromSignedUrlResponseDetails_revisionId' - The unique identifier for the revision associated with this import
 -- response.
 newImportAssetFromSignedUrlResponseDetails ::
-  -- | 'dataSetId'
-  Prelude.Text ->
   -- | 'assetName'
+  Prelude.Text ->
+  -- | 'dataSetId'
   Prelude.Text ->
   -- | 'revisionId'
   Prelude.Text ->
   ImportAssetFromSignedUrlResponseDetails
 newImportAssetFromSignedUrlResponseDetails
-  pDataSetId_
   pAssetName_
+  pDataSetId_
   pRevisionId_ =
     ImportAssetFromSignedUrlResponseDetails'
       { signedUrlExpiresAt =
           Prelude.Nothing,
         signedUrl = Prelude.Nothing,
         md5Hash = Prelude.Nothing,
-        dataSetId = pDataSetId_,
         assetName = pAssetName_,
+        dataSetId = pDataSetId_,
         revisionId = pRevisionId_
       }
 
@@ -101,13 +101,13 @@ importAssetFromSignedUrlResponseDetails_signedUrl = Lens.lens (\ImportAssetFromS
 importAssetFromSignedUrlResponseDetails_md5Hash :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
 importAssetFromSignedUrlResponseDetails_md5Hash = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {md5Hash} -> md5Hash) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {md5Hash = a} :: ImportAssetFromSignedUrlResponseDetails)
 
--- | The unique identifier for the data set associated with this import job.
-importAssetFromSignedUrlResponseDetails_dataSetId :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails Prelude.Text
-importAssetFromSignedUrlResponseDetails_dataSetId = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {dataSetId} -> dataSetId) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {dataSetId = a} :: ImportAssetFromSignedUrlResponseDetails)
-
 -- | The name for the asset associated with this import job.
 importAssetFromSignedUrlResponseDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails Prelude.Text
 importAssetFromSignedUrlResponseDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlResponseDetails)
+
+-- | The unique identifier for the data set associated with this import job.
+importAssetFromSignedUrlResponseDetails_dataSetId :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails Prelude.Text
+importAssetFromSignedUrlResponseDetails_dataSetId = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {dataSetId} -> dataSetId) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {dataSetId = a} :: ImportAssetFromSignedUrlResponseDetails)
 
 -- | The unique identifier for the revision associated with this import
 -- response.
@@ -126,8 +126,8 @@ instance
             Prelude.<$> (x Core..:? "SignedUrlExpiresAt")
             Prelude.<*> (x Core..:? "SignedUrl")
             Prelude.<*> (x Core..:? "Md5Hash")
-            Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "AssetName")
+            Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "RevisionId")
       )
 
@@ -141,8 +141,8 @@ instance
       _salt `Prelude.hashWithSalt` signedUrlExpiresAt
         `Prelude.hashWithSalt` signedUrl
         `Prelude.hashWithSalt` md5Hash
-        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` assetName
+        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 
 instance
@@ -153,6 +153,6 @@ instance
     Prelude.rnf signedUrlExpiresAt
       `Prelude.seq` Prelude.rnf signedUrl
       `Prelude.seq` Prelude.rnf md5Hash
-      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId

@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.ImportCertificate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports a certificate into Amazon Web Services Certificate Manager (ACM)
--- to use with services that are integrated with ACM. Note that
+-- Imports a certificate into Certificate Manager (ACM) to use with
+-- services that are integrated with ACM. Note that
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html integrated services>
 -- allow only certificate types and keys they support to be associated with
 -- their resources. Further, their support differs depending on whether the
@@ -29,7 +29,7 @@
 -- the documentation for each service. For more information about importing
 -- certificates into ACM, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
--- in the /Amazon Web Services Certificate Manager User Guide/.
+-- in the /Certificate Manager User Guide/.
 --
 -- ACM does not provide
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>

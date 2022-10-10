@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeNetworkInterfacePermissions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeNetworkInterfacePermissions' smart constructor.
 data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
-  { -- | One or more network interface permission IDs.
+  { -- | The network interface permission IDs.
     networkInterfacePermissionIds :: Prelude.Maybe [Prelude.Text],
     -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -92,7 +92,7 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInterfacePermissionIds', 'describeNetworkInterfacePermissions_networkInterfacePermissionIds' - One or more network interface permission IDs.
+-- 'networkInterfacePermissionIds', 'describeNetworkInterfacePermissions_networkInterfacePermissionIds' - The network interface permission IDs.
 --
 -- 'nextToken', 'describeNetworkInterfacePermissions_nextToken' - The token to request the next page of results.
 --
@@ -127,7 +127,7 @@ newDescribeNetworkInterfacePermissions =
       maxResults = Prelude.Nothing
     }
 
--- | One or more network interface permission IDs.
+-- | The network interface permission IDs.
 describeNetworkInterfacePermissions_networkInterfacePermissionIds :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe [Prelude.Text])
 describeNetworkInterfacePermissions_networkInterfacePermissionIds = Lens.lens (\DescribeNetworkInterfacePermissions' {networkInterfacePermissionIds} -> networkInterfacePermissionIds) (\s@DescribeNetworkInterfacePermissions' {} a -> s {networkInterfacePermissionIds = a} :: DescribeNetworkInterfacePermissions) Prelude.. Lens.mapping Lens.coerced
 

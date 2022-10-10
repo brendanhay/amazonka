@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Checks whether occurrences of sensitive data can be retrieved (revealed)
--- for a finding.
+-- Checks whether occurrences of sensitive data can be retrieved for a
+-- finding.
 module Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
   ( -- * Creating a Request
     GetSensitiveDataOccurrencesAvailability (..),
@@ -169,7 +169,7 @@ data GetSensitiveDataOccurrencesAvailabilityResponse = GetSensitiveDataOccurrenc
     --
     -- -   OBJECT_UNAVAILABLE - The affected S3 object isn\'t available. The
     --     object might have been renamed, moved, or deleted. Or the object was
-    --     changed after Amazon Macie created the finding.
+    --     changed after Macie created the finding.
     --
     -- -   UNSUPPORTED_FINDING_TYPE - The specified finding isn\'t a sensitive
     --     data finding.
@@ -216,7 +216,7 @@ data GetSensitiveDataOccurrencesAvailabilityResponse = GetSensitiveDataOccurrenc
 --
 -- -   OBJECT_UNAVAILABLE - The affected S3 object isn\'t available. The
 --     object might have been renamed, moved, or deleted. Or the object was
---     changed after Amazon Macie created the finding.
+--     changed after Macie created the finding.
 --
 -- -   UNSUPPORTED_FINDING_TYPE - The specified finding isn\'t a sensitive
 --     data finding.
@@ -266,7 +266,7 @@ getSensitiveDataOccurrencesAvailabilityResponse_code = Lens.lens (\GetSensitiveD
 --
 -- -   OBJECT_UNAVAILABLE - The affected S3 object isn\'t available. The
 --     object might have been renamed, moved, or deleted. Or the object was
---     changed after Amazon Macie created the finding.
+--     changed after Macie created the finding.
 --
 -- -   UNSUPPORTED_FINDING_TYPE - The specified finding isn\'t a sensitive
 --     data finding.

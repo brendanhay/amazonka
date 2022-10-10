@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Connect
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -338,6 +338,12 @@ import Test.Tasty
 --
 --         , requestSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbers
+--
+--         , requestSearchQueues $
+--             newSearchQueues
+--
+--         , requestSearchRoutingProfiles $
+--             newSearchRoutingProfiles
 --
 --         , requestSearchSecurityProfiles $
 --             newSearchSecurityProfiles
@@ -797,6 +803,12 @@ import Test.Tasty
 --
 --         , responseSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbersResponse
+--
+--         , responseSearchQueues $
+--             newSearchQueuesResponse
+--
+--         , responseSearchRoutingProfiles $
+--             newSearchRoutingProfilesResponse
 --
 --         , responseSearchSecurityProfiles $
 --             newSearchSecurityProfilesResponse
@@ -1570,6 +1582,18 @@ requestSearchAvailablePhoneNumbers =
   req
     "SearchAvailablePhoneNumbers"
     "fixture/SearchAvailablePhoneNumbers.yaml"
+
+requestSearchQueues :: SearchQueues -> TestTree
+requestSearchQueues =
+  req
+    "SearchQueues"
+    "fixture/SearchQueues.yaml"
+
+requestSearchRoutingProfiles :: SearchRoutingProfiles -> TestTree
+requestSearchRoutingProfiles =
+  req
+    "SearchRoutingProfiles"
+    "fixture/SearchRoutingProfiles.yaml"
 
 requestSearchSecurityProfiles :: SearchSecurityProfiles -> TestTree
 requestSearchSecurityProfiles =
@@ -2692,6 +2716,22 @@ responseSearchAvailablePhoneNumbers =
     "fixture/SearchAvailablePhoneNumbersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
+
+responseSearchQueues :: SearchQueuesResponse -> TestTree
+responseSearchQueues =
+  res
+    "SearchQueuesResponse"
+    "fixture/SearchQueuesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchQueues)
+
+responseSearchRoutingProfiles :: SearchRoutingProfilesResponse -> TestTree
+responseSearchRoutingProfiles =
+  res
+    "SearchRoutingProfilesResponse"
+    "fixture/SearchRoutingProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchRoutingProfiles)
 
 responseSearchSecurityProfiles :: SearchSecurityProfilesResponse -> TestTree
 responseSearchSecurityProfiles =

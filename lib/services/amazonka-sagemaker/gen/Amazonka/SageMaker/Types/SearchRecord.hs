@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.SearchRecord
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ import Amazonka.SageMaker.Types.Endpoint
 import Amazonka.SageMaker.Types.Experiment
 import Amazonka.SageMaker.Types.FeatureGroup
 import Amazonka.SageMaker.Types.FeatureMetadata
+import Amazonka.SageMaker.Types.HyperParameterTuningJobSearchEntity
 import Amazonka.SageMaker.Types.ModelPackage
 import Amazonka.SageMaker.Types.ModelPackageGroup
 import Amazonka.SageMaker.Types.Pipeline
@@ -48,6 +49,8 @@ data SearchRecord = SearchRecord'
     trialComponent :: Prelude.Maybe TrialComponent,
     -- | The properties of an experiment.
     experiment :: Prelude.Maybe Experiment,
+    -- | The properties of a hyperparameter tuning job.
+    hyperParameterTuningJob :: Prelude.Maybe HyperParameterTuningJobSearchEntity,
     endpoint :: Prelude.Maybe Endpoint,
     -- | The feature metadata used to search through the features.
     featureMetadata :: Prelude.Maybe FeatureMetadata,
@@ -78,6 +81,8 @@ data SearchRecord = SearchRecord'
 --
 -- 'experiment', 'searchRecord_experiment' - The properties of an experiment.
 --
+-- 'hyperParameterTuningJob', 'searchRecord_hyperParameterTuningJob' - The properties of a hyperparameter tuning job.
+--
 -- 'endpoint', 'searchRecord_endpoint' - Undocumented member.
 --
 -- 'featureMetadata', 'searchRecord_featureMetadata' - The feature metadata used to search through the features.
@@ -100,6 +105,7 @@ newSearchRecord =
       project = Prelude.Nothing,
       trialComponent = Prelude.Nothing,
       experiment = Prelude.Nothing,
+      hyperParameterTuningJob = Prelude.Nothing,
       endpoint = Prelude.Nothing,
       featureMetadata = Prelude.Nothing,
       trial = Prelude.Nothing,
@@ -128,6 +134,10 @@ searchRecord_trialComponent = Lens.lens (\SearchRecord' {trialComponent} -> tria
 -- | The properties of an experiment.
 searchRecord_experiment :: Lens.Lens' SearchRecord (Prelude.Maybe Experiment)
 searchRecord_experiment = Lens.lens (\SearchRecord' {experiment} -> experiment) (\s@SearchRecord' {} a -> s {experiment = a} :: SearchRecord)
+
+-- | The properties of a hyperparameter tuning job.
+searchRecord_hyperParameterTuningJob :: Lens.Lens' SearchRecord (Prelude.Maybe HyperParameterTuningJobSearchEntity)
+searchRecord_hyperParameterTuningJob = Lens.lens (\SearchRecord' {hyperParameterTuningJob} -> hyperParameterTuningJob) (\s@SearchRecord' {} a -> s {hyperParameterTuningJob = a} :: SearchRecord)
 
 -- | Undocumented member.
 searchRecord_endpoint :: Lens.Lens' SearchRecord (Prelude.Maybe Endpoint)
@@ -168,6 +178,7 @@ instance Core.FromJSON SearchRecord where
             Prelude.<*> (x Core..:? "Project")
             Prelude.<*> (x Core..:? "TrialComponent")
             Prelude.<*> (x Core..:? "Experiment")
+            Prelude.<*> (x Core..:? "HyperParameterTuningJob")
             Prelude.<*> (x Core..:? "Endpoint")
             Prelude.<*> (x Core..:? "FeatureMetadata")
             Prelude.<*> (x Core..:? "Trial")
@@ -184,6 +195,7 @@ instance Prelude.Hashable SearchRecord where
       `Prelude.hashWithSalt` project
       `Prelude.hashWithSalt` trialComponent
       `Prelude.hashWithSalt` experiment
+      `Prelude.hashWithSalt` hyperParameterTuningJob
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` featureMetadata
       `Prelude.hashWithSalt` trial
@@ -199,6 +211,7 @@ instance Prelude.NFData SearchRecord where
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf trialComponent
       `Prelude.seq` Prelude.rnf experiment
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJob
       `Prelude.seq` Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf featureMetadata
       `Prelude.seq` Prelude.rnf trial

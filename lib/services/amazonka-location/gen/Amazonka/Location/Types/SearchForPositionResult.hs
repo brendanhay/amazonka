@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.SearchForPositionResult
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchForPositionResult' smart constructor.
 data SearchForPositionResult = SearchForPositionResult'
-  { -- | The distance in meters of a great-circle arc between the query position
+  { -- | The unique identifier of the place. You can use this with the @GetPlace@
+    -- operation to find the place again later.
+    --
+    -- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
+    -- only by place indexes that use HERE as a data provider.
+    placeId :: Prelude.Maybe Prelude.Text,
+    -- | The distance in meters of a great-circle arc between the query position
     -- and the result.
     --
     -- A great-circle arc is the shortest path on a sphere, in this case the
@@ -48,6 +54,12 @@ data SearchForPositionResult = SearchForPositionResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'placeId', 'searchForPositionResult_placeId' - The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
+-- only by place indexes that use HERE as a data provider.
+--
 -- 'distance', 'searchForPositionResult_distance' - The distance in meters of a great-circle arc between the query position
 -- and the result.
 --
@@ -63,9 +75,18 @@ newSearchForPositionResult ::
   SearchForPositionResult
 newSearchForPositionResult pDistance_ pPlace_ =
   SearchForPositionResult'
-    { distance = pDistance_,
+    { placeId = Prelude.Nothing,
+      distance = pDistance_,
       place = pPlace_
     }
+
+-- | The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
+-- only by place indexes that use HERE as a data provider.
+searchForPositionResult_placeId :: Lens.Lens' SearchForPositionResult (Prelude.Maybe Prelude.Text)
+searchForPositionResult_placeId = Lens.lens (\SearchForPositionResult' {placeId} -> placeId) (\s@SearchForPositionResult' {} a -> s {placeId = a} :: SearchForPositionResult)
 
 -- | The distance in meters of a great-circle arc between the query position
 -- and the result.
@@ -85,16 +106,19 @@ instance Core.FromJSON SearchForPositionResult where
       "SearchForPositionResult"
       ( \x ->
           SearchForPositionResult'
-            Prelude.<$> (x Core..: "Distance")
+            Prelude.<$> (x Core..:? "PlaceId")
+            Prelude.<*> (x Core..: "Distance")
             Prelude.<*> (x Core..: "Place")
       )
 
 instance Prelude.Hashable SearchForPositionResult where
   hashWithSalt _salt SearchForPositionResult' {..} =
-    _salt `Prelude.hashWithSalt` distance
+    _salt `Prelude.hashWithSalt` placeId
+      `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` place
 
 instance Prelude.NFData SearchForPositionResult where
   rnf SearchForPositionResult' {..} =
-    Prelude.rnf distance
+    Prelude.rnf placeId
+      `Prelude.seq` Prelude.rnf distance
       `Prelude.seq` Prelude.rnf place

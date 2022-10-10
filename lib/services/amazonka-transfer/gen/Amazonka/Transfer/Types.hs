@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -199,6 +199,17 @@ module Amazonka.Transfer.Types
     describedExecution_results,
     describedExecution_loggingConfiguration,
 
+    -- * DescribedHostKey
+    DescribedHostKey (..),
+    newDescribedHostKey,
+    describedHostKey_tags,
+    describedHostKey_hostKeyId,
+    describedHostKey_type,
+    describedHostKey_description,
+    describedHostKey_hostKeyFingerprint,
+    describedHostKey_dateImported,
+    describedHostKey_arn,
+
     -- * DescribedProfile
     DescribedProfile (..),
     newDescribedProfile,
@@ -372,6 +383,16 @@ module Amazonka.Transfer.Types
     listedExecution_status,
     listedExecution_executionId,
 
+    -- * ListedHostKey
+    ListedHostKey (..),
+    newListedHostKey,
+    listedHostKey_hostKeyId,
+    listedHostKey_type,
+    listedHostKey_description,
+    listedHostKey_fingerprint,
+    listedHostKey_dateImported,
+    listedHostKey_arn,
+
     -- * ListedProfile
     ListedProfile (..),
     newListedProfile,
@@ -524,6 +545,7 @@ import Amazonka.Transfer.Types.DescribedAgreement
 import Amazonka.Transfer.Types.DescribedCertificate
 import Amazonka.Transfer.Types.DescribedConnector
 import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedHostKey
 import Amazonka.Transfer.Types.DescribedProfile
 import Amazonka.Transfer.Types.DescribedSecurityPolicy
 import Amazonka.Transfer.Types.DescribedServer
@@ -550,6 +572,7 @@ import Amazonka.Transfer.Types.ListedAgreement
 import Amazonka.Transfer.Types.ListedCertificate
 import Amazonka.Transfer.Types.ListedConnector
 import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedHostKey
 import Amazonka.Transfer.Types.ListedProfile
 import Amazonka.Transfer.Types.ListedServer
 import Amazonka.Transfer.Types.ListedUser

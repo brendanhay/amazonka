@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.Types.Segment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,10 @@ data Segment = Segment'
     lastUpdatedTime :: Core.POSIX,
     -- | The name of the segment.
     name :: Prelude.Text,
+    -- | The pattern that defines the attributes to use to evalute whether a user
+    -- session will be in the segment. For more information about the pattern
+    -- syntax, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Segment rule pattern syntax>.
     pattern' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +84,10 @@ data Segment = Segment'
 --
 -- 'name', 'segment_name' - The name of the segment.
 --
--- 'pattern'', 'segment_pattern' -
+-- 'pattern'', 'segment_pattern' - The pattern that defines the attributes to use to evalute whether a user
+-- session will be in the segment. For more information about the pattern
+-- syntax, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Segment rule pattern syntax>.
 newSegment ::
   -- | 'arn'
   Prelude.Text ->
@@ -147,7 +154,10 @@ segment_lastUpdatedTime = Lens.lens (\Segment' {lastUpdatedTime} -> lastUpdatedT
 segment_name :: Lens.Lens' Segment Prelude.Text
 segment_name = Lens.lens (\Segment' {name} -> name) (\s@Segment' {} a -> s {name = a} :: Segment)
 
--- |
+-- | The pattern that defines the attributes to use to evalute whether a user
+-- session will be in the segment. For more information about the pattern
+-- syntax, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Segment rule pattern syntax>.
 segment_pattern :: Lens.Lens' Segment Prelude.Text
 segment_pattern = Lens.lens (\Segment' {pattern'} -> pattern') (\s@Segment' {} a -> s {pattern' = a} :: Segment)
 

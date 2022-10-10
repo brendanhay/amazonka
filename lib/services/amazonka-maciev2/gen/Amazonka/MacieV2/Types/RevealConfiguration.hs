@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.RevealConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Specifies the configuration settings for retrieving occurrences of
 -- sensitive data reported by findings, and the status of the configuration
 -- for an Amazon Macie account. When you enable the configuration for the
--- first time, your request must specify an AWS Key Management Service (AWS
--- KMS) key. Otherwise, an error occurs. Macie uses the specified key to
--- encrypt the sensitive data that you retrieve.
+-- first time, your request must specify an Key Management Service (KMS)
+-- key. Otherwise, an error occurs. Macie uses the specified key to encrypt
+-- the sensitive data that you retrieve.
 --
 -- /See:/ 'newRevealConfiguration' smart constructor.
 data RevealConfiguration = RevealConfiguration'

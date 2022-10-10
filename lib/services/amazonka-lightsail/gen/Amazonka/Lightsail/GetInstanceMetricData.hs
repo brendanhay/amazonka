@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.GetInstanceMetricData
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -154,6 +154,17 @@ data GetInstanceMetricData = GetInstanceMetricData'
     --     or failed the system status check. This metric can be either 0
     --     (passed) or 1 (failed). This metric data is available in 1-minute
     --     (60 seconds) granularity.
+    --
+    --     @Statistics@: The most useful statistic is @Sum@.
+    --
+    --     @Unit@: The published unit is @Count@.
+    --
+    -- -   __@MetadataNoToken@__ - Reports the number of times that the
+    --     instance metadata service was successfully accessed without a token.
+    --     This metric determines if there are any processes accessing instance
+    --     metadata by using Instance Metadata Service Version 1, which
+    --     doesn\'t use a token. If all requests use token-backed sessions,
+    --     such as Instance Metadata Service Version 2, then the value is 0.
     --
     --     @Statistics@: The most useful statistic is @Sum@.
     --
@@ -305,6 +316,17 @@ data GetInstanceMetricData = GetInstanceMetricData'
 --     or failed the system status check. This metric can be either 0
 --     (passed) or 1 (failed). This metric data is available in 1-minute
 --     (60 seconds) granularity.
+--
+--     @Statistics@: The most useful statistic is @Sum@.
+--
+--     @Unit@: The published unit is @Count@.
+--
+-- -   __@MetadataNoToken@__ - Reports the number of times that the
+--     instance metadata service was successfully accessed without a token.
+--     This metric determines if there are any processes accessing instance
+--     metadata by using Instance Metadata Service Version 1, which
+--     doesn\'t use a token. If all requests use token-backed sessions,
+--     such as Instance Metadata Service Version 2, then the value is 0.
 --
 --     @Statistics@: The most useful statistic is @Sum@.
 --
@@ -478,6 +500,17 @@ getInstanceMetricData_instanceName = Lens.lens (\GetInstanceMetricData' {instanc
 --     or failed the system status check. This metric can be either 0
 --     (passed) or 1 (failed). This metric data is available in 1-minute
 --     (60 seconds) granularity.
+--
+--     @Statistics@: The most useful statistic is @Sum@.
+--
+--     @Unit@: The published unit is @Count@.
+--
+-- -   __@MetadataNoToken@__ - Reports the number of times that the
+--     instance metadata service was successfully accessed without a token.
+--     This metric determines if there are any processes accessing instance
+--     metadata by using Instance Metadata Service Version 1, which
+--     doesn\'t use a token. If all requests use token-backed sessions,
+--     such as Instance Metadata Service Version 2, then the value is 0.
 --
 --     @Statistics@: The most useful statistic is @Sum@.
 --

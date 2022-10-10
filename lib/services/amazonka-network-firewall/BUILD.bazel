@@ -89,6 +89,7 @@ haskell_library(
         "gen/Amazonka/NetworkFirewall/Types/StatelessRule.hs",
         "gen/Amazonka/NetworkFirewall/Types/StatelessRuleGroupReference.hs",
         "gen/Amazonka/NetworkFirewall/Types/StatelessRulesAndCustomActions.hs",
+        "gen/Amazonka/NetworkFirewall/Types/StreamExceptionPolicy.hs",
         "gen/Amazonka/NetworkFirewall/Types/SubnetMapping.hs",
         "gen/Amazonka/NetworkFirewall/Types/SyncState.hs",
         "gen/Amazonka/NetworkFirewall/Types/TCPFlag.hs",

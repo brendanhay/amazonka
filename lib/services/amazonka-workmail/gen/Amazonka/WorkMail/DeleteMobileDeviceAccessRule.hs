@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteMobileDeviceAccessRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a mobile device access rule for the specified Amazon WorkMail
+-- Deletes a mobile device access rule for the specified WorkMail
 -- organization.
 --
 -- Deleting already deleted and non-existing rules does not produce an
@@ -53,7 +53,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeleteMobileDeviceAccessRule' smart constructor.
 data DeleteMobileDeviceAccessRule = DeleteMobileDeviceAccessRule'
-  { -- | The Amazon WorkMail organization under which the rule will be deleted.
+  { -- | The WorkMail organization under which the rule will be deleted.
     organizationId :: Prelude.Text,
     -- | The identifier of the rule to be deleted.
     mobileDeviceAccessRuleId :: Prelude.Text
@@ -68,7 +68,7 @@ data DeleteMobileDeviceAccessRule = DeleteMobileDeviceAccessRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deleteMobileDeviceAccessRule_organizationId' - The Amazon WorkMail organization under which the rule will be deleted.
+-- 'organizationId', 'deleteMobileDeviceAccessRule_organizationId' - The WorkMail organization under which the rule will be deleted.
 --
 -- 'mobileDeviceAccessRuleId', 'deleteMobileDeviceAccessRule_mobileDeviceAccessRuleId' - The identifier of the rule to be deleted.
 newDeleteMobileDeviceAccessRule ::
@@ -87,7 +87,7 @@ newDeleteMobileDeviceAccessRule
           pMobileDeviceAccessRuleId_
       }
 
--- | The Amazon WorkMail organization under which the rule will be deleted.
+-- | The WorkMail organization under which the rule will be deleted.
 deleteMobileDeviceAccessRule_organizationId :: Lens.Lens' DeleteMobileDeviceAccessRule Prelude.Text
 deleteMobileDeviceAccessRule_organizationId = Lens.lens (\DeleteMobileDeviceAccessRule' {organizationId} -> organizationId) (\s@DeleteMobileDeviceAccessRule' {} a -> s {organizationId = a} :: DeleteMobileDeviceAccessRule)
 

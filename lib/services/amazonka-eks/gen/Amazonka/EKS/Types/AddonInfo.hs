@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.AddonInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data AddonInfo = AddonInfo'
   { -- | The type of the add-on.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents information about available add-on versions
-    -- and compatible Kubernetes versions.
+    -- | An object representing information about available add-on versions and
+    -- compatible Kubernetes versions.
     addonVersions :: Prelude.Maybe [AddonVersionInfo],
     -- | The name of the add-on.
     addonName :: Prelude.Maybe Prelude.Text
@@ -48,8 +48,8 @@ data AddonInfo = AddonInfo'
 --
 -- 'type'', 'addonInfo_type' - The type of the add-on.
 --
--- 'addonVersions', 'addonInfo_addonVersions' - An object that represents information about available add-on versions
--- and compatible Kubernetes versions.
+-- 'addonVersions', 'addonInfo_addonVersions' - An object representing information about available add-on versions and
+-- compatible Kubernetes versions.
 --
 -- 'addonName', 'addonInfo_addonName' - The name of the add-on.
 newAddonInfo ::
@@ -65,8 +65,8 @@ newAddonInfo =
 addonInfo_type :: Lens.Lens' AddonInfo (Prelude.Maybe Prelude.Text)
 addonInfo_type = Lens.lens (\AddonInfo' {type'} -> type') (\s@AddonInfo' {} a -> s {type' = a} :: AddonInfo)
 
--- | An object that represents information about available add-on versions
--- and compatible Kubernetes versions.
+-- | An object representing information about available add-on versions and
+-- compatible Kubernetes versions.
 addonInfo_addonVersions :: Lens.Lens' AddonInfo (Prelude.Maybe [AddonVersionInfo])
 addonInfo_addonVersions = Lens.lens (\AddonInfo' {addonVersions} -> addonVersions) (\s@AddonInfo' {} a -> s {addonVersions = a} :: AddonInfo) Prelude.. Lens.mapping Lens.coerced
 

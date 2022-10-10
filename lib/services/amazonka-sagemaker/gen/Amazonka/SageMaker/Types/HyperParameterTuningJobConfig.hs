@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
+import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyConfig
 import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
 import Amazonka.SageMaker.Types.ParameterRanges
 import Amazonka.SageMaker.Types.ResourceLimits
@@ -36,8 +37,11 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
   { -- | The tuning job\'s completion criteria.
     tuningJobCompletionCriteria :: Prelude.Maybe TuningJobCompletionCriteria,
     -- | Specifies whether to use early stopping for training jobs launched by
-    -- the hyperparameter tuning job. This can be one of the following values
-    -- (the default value is @OFF@):
+    -- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
+    -- own advanced internal early stopping mechanism,
+    -- @TrainingJobEarlyStoppingType@ must be @OFF@ to use @Hyperband@. This
+    -- parameter can take on one of the following values (the default value is
+    -- @OFF@):
     --
     -- [OFF]
     --     Training jobs launched by the hyperparameter tuning job do not use
@@ -55,10 +59,13 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
     -- | The ParameterRanges object that specifies the ranges of hyperparameters
     -- that this tuning job searches.
     parameterRanges :: Prelude.Maybe ParameterRanges,
+    -- | The configuration for the @Hyperband@ optimization strategy. This
+    -- parameter should be provided only if @Hyperband@ is selected as the
+    -- strategy for @HyperParameterTuningJobConfig@.
+    strategyConfig :: Prelude.Maybe HyperParameterTuningJobStrategyConfig,
     -- | Specifies how hyperparameter tuning chooses the combinations of
-    -- hyperparameter values to use for the training job it launches. To use
-    -- the Bayesian search strategy, set this to @Bayesian@. To randomly
-    -- search, set it to @Random@. For information about search strategies, see
+    -- hyperparameter values to use for the training job it launches. For
+    -- information about search strategies, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
     strategy :: HyperParameterTuningJobStrategyType,
     -- | The ResourceLimits object that specifies the maximum number of training
@@ -78,8 +85,11 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- 'tuningJobCompletionCriteria', 'hyperParameterTuningJobConfig_tuningJobCompletionCriteria' - The tuning job\'s completion criteria.
 --
 -- 'trainingJobEarlyStoppingType', 'hyperParameterTuningJobConfig_trainingJobEarlyStoppingType' - Specifies whether to use early stopping for training jobs launched by
--- the hyperparameter tuning job. This can be one of the following values
--- (the default value is @OFF@):
+-- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
+-- own advanced internal early stopping mechanism,
+-- @TrainingJobEarlyStoppingType@ must be @OFF@ to use @Hyperband@. This
+-- parameter can take on one of the following values (the default value is
+-- @OFF@):
 --
 -- [OFF]
 --     Training jobs launched by the hyperparameter tuning job do not use
@@ -97,10 +107,13 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters
 -- that this tuning job searches.
 --
+-- 'strategyConfig', 'hyperParameterTuningJobConfig_strategyConfig' - The configuration for the @Hyperband@ optimization strategy. This
+-- parameter should be provided only if @Hyperband@ is selected as the
+-- strategy for @HyperParameterTuningJobConfig@.
+--
 -- 'strategy', 'hyperParameterTuningJobConfig_strategy' - Specifies how hyperparameter tuning chooses the combinations of
--- hyperparameter values to use for the training job it launches. To use
--- the Bayesian search strategy, set this to @Bayesian@. To randomly
--- search, set it to @Random@. For information about search strategies, see
+-- hyperparameter values to use for the training job it launches. For
+-- information about search strategies, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 --
 -- 'resourceLimits', 'hyperParameterTuningJobConfig_resourceLimits' - The ResourceLimits object that specifies the maximum number of training
@@ -122,6 +135,7 @@ newHyperParameterTuningJobConfig
         hyperParameterTuningJobObjective =
           Prelude.Nothing,
         parameterRanges = Prelude.Nothing,
+        strategyConfig = Prelude.Nothing,
         strategy = pStrategy_,
         resourceLimits = pResourceLimits_
       }
@@ -131,8 +145,11 @@ hyperParameterTuningJobConfig_tuningJobCompletionCriteria :: Lens.Lens' HyperPar
 hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperParameterTuningJobConfig' {tuningJobCompletionCriteria} -> tuningJobCompletionCriteria) (\s@HyperParameterTuningJobConfig' {} a -> s {tuningJobCompletionCriteria = a} :: HyperParameterTuningJobConfig)
 
 -- | Specifies whether to use early stopping for training jobs launched by
--- the hyperparameter tuning job. This can be one of the following values
--- (the default value is @OFF@):
+-- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
+-- own advanced internal early stopping mechanism,
+-- @TrainingJobEarlyStoppingType@ must be @OFF@ to use @Hyperband@. This
+-- parameter can take on one of the following values (the default value is
+-- @OFF@):
 --
 -- [OFF]
 --     Training jobs launched by the hyperparameter tuning job do not use
@@ -156,10 +173,15 @@ hyperParameterTuningJobConfig_hyperParameterTuningJobObjective = Lens.lens (\Hyp
 hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
 hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
 
+-- | The configuration for the @Hyperband@ optimization strategy. This
+-- parameter should be provided only if @Hyperband@ is selected as the
+-- strategy for @HyperParameterTuningJobConfig@.
+hyperParameterTuningJobConfig_strategyConfig :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobStrategyConfig)
+hyperParameterTuningJobConfig_strategyConfig = Lens.lens (\HyperParameterTuningJobConfig' {strategyConfig} -> strategyConfig) (\s@HyperParameterTuningJobConfig' {} a -> s {strategyConfig = a} :: HyperParameterTuningJobConfig)
+
 -- | Specifies how hyperparameter tuning chooses the combinations of
--- hyperparameter values to use for the training job it launches. To use
--- the Bayesian search strategy, set this to @Bayesian@. To randomly
--- search, set it to @Random@. For information about search strategies, see
+-- hyperparameter values to use for the training job it launches. For
+-- information about search strategies, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 hyperParameterTuningJobConfig_strategy :: Lens.Lens' HyperParameterTuningJobConfig HyperParameterTuningJobStrategyType
 hyperParameterTuningJobConfig_strategy = Lens.lens (\HyperParameterTuningJobConfig' {strategy} -> strategy) (\s@HyperParameterTuningJobConfig' {} a -> s {strategy = a} :: HyperParameterTuningJobConfig)
@@ -179,6 +201,7 @@ instance Core.FromJSON HyperParameterTuningJobConfig where
             Prelude.<*> (x Core..:? "TrainingJobEarlyStoppingType")
             Prelude.<*> (x Core..:? "HyperParameterTuningJobObjective")
             Prelude.<*> (x Core..:? "ParameterRanges")
+            Prelude.<*> (x Core..:? "StrategyConfig")
             Prelude.<*> (x Core..: "Strategy")
             Prelude.<*> (x Core..: "ResourceLimits")
       )
@@ -193,6 +216,7 @@ instance
       `Prelude.hashWithSalt` trainingJobEarlyStoppingType
       `Prelude.hashWithSalt` hyperParameterTuningJobObjective
       `Prelude.hashWithSalt` parameterRanges
+      `Prelude.hashWithSalt` strategyConfig
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` resourceLimits
 
@@ -202,6 +226,7 @@ instance Prelude.NFData HyperParameterTuningJobConfig where
       `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobObjective
       `Prelude.seq` Prelude.rnf parameterRanges
+      `Prelude.seq` Prelude.rnf strategyConfig
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf resourceLimits
 
@@ -217,6 +242,8 @@ instance Core.ToJSON HyperParameterTuningJobConfig where
               Prelude.<$> hyperParameterTuningJobObjective,
             ("ParameterRanges" Core..=)
               Prelude.<$> parameterRanges,
+            ("StrategyConfig" Core..=)
+              Prelude.<$> strategyConfig,
             Prelude.Just ("Strategy" Core..= strategy),
             Prelude.Just
               ("ResourceLimits" Core..= resourceLimits)

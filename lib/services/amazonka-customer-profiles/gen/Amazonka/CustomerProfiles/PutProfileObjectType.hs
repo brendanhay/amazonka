@@ -14,13 +14,16 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.PutProfileObjectType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Defines a ProfileObjectType.
+--
+-- To add or remove tags on an existing ObjectType, see
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html TagResource>\/<https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html UntagResource>.
 module Amazonka.CustomerProfiles.PutProfileObjectType
   ( -- * Creating a Request
     PutProfileObjectType (..),

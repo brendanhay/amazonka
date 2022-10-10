@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IdentityStore.DescribeGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,9 +36,12 @@ module Amazonka.IdentityStore.DescribeGroup
     newDescribeGroupResponse,
 
     -- * Response Lenses
+    describeGroupResponse_externalIds,
+    describeGroupResponse_displayName,
+    describeGroupResponse_description,
     describeGroupResponse_httpStatus,
     describeGroupResponse_groupId,
-    describeGroupResponse_displayName,
+    describeGroupResponse_identityStoreId,
   )
 where
 
@@ -53,7 +56,7 @@ import qualified Amazonka.Response as Response
 data DescribeGroup = DescribeGroup'
   { -- | The globally unique identifier for the identity store, such as
     -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
-    -- @1234567890@ is a randomly generated string that contains number and
+    -- @1234567890@ is a randomly generated string that contains numbers and
     -- lower case letters. This value is generated at the time that a new
     -- identity store is created.
     identityStoreId :: Prelude.Text,
@@ -72,7 +75,7 @@ data DescribeGroup = DescribeGroup'
 --
 -- 'identityStoreId', 'describeGroup_identityStoreId' - The globally unique identifier for the identity store, such as
 -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
--- @1234567890@ is a randomly generated string that contains number and
+-- @1234567890@ is a randomly generated string that contains numbers and
 -- lower case letters. This value is generated at the time that a new
 -- identity store is created.
 --
@@ -91,7 +94,7 @@ newDescribeGroup pIdentityStoreId_ pGroupId_ =
 
 -- | The globally unique identifier for the identity store, such as
 -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
--- @1234567890@ is a randomly generated string that contains number and
+-- @1234567890@ is a randomly generated string that contains numbers and
 -- lower case letters. This value is generated at the time that a new
 -- identity store is created.
 describeGroup_identityStoreId :: Lens.Lens' DescribeGroup Prelude.Text
@@ -110,9 +113,12 @@ instance Core.AWSRequest DescribeGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "ExternalIds")
+            Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "GroupId")
-            Prelude.<*> (x Core..:> "DisplayName")
+            Prelude.<*> (x Core..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable DescribeGroup where
@@ -158,19 +164,26 @@ instance Core.ToQuery DescribeGroup where
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
 data DescribeGroupResponse = DescribeGroupResponse'
-  { -- | The response's http status code.
+  { -- | A list of @ExternalId@ objects that contains the identifiers issued to
+    -- this resource by an external identity provider.
+    externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
+    -- | The group’s display name value. The length limit is 1,024 characters.
+    -- This value can consist of letters, accented characters, symbols,
+    -- numbers, punctuation, tab, new line, carriage return, space, and
+    -- nonbreaking space in this attribute. This value is specified at the time
+    -- that the group is created and stored as an attribute of the group object
+    -- in the identity store.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A string containing a description of the group.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The identifier for a group in the identity store.
     groupId :: Prelude.Text,
-    -- | Contains the group’s display name value. The length limit is 1,024
-    -- characters. This value can consist of letters, accented characters,
-    -- symbols, numbers, punctuation, tab, new line, carriage return, space,
-    -- and nonbreaking space in this attribute. The characters @\<>;:%@ are
-    -- excluded. This value is specified at the time that the group is created
-    -- and stored as an attribute of the group object in the identity store.
-    displayName :: Prelude.Text
+    -- | The globally unique identifier for the identity store.
+    identityStoreId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGroupResponse' with all optional fields omitted.
@@ -180,33 +193,62 @@ data DescribeGroupResponse = DescribeGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'externalIds', 'describeGroupResponse_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
+--
+-- 'displayName', 'describeGroupResponse_displayName' - The group’s display name value. The length limit is 1,024 characters.
+-- This value can consist of letters, accented characters, symbols,
+-- numbers, punctuation, tab, new line, carriage return, space, and
+-- nonbreaking space in this attribute. This value is specified at the time
+-- that the group is created and stored as an attribute of the group object
+-- in the identity store.
+--
+-- 'description', 'describeGroupResponse_description' - A string containing a description of the group.
+--
 -- 'httpStatus', 'describeGroupResponse_httpStatus' - The response's http status code.
 --
 -- 'groupId', 'describeGroupResponse_groupId' - The identifier for a group in the identity store.
 --
--- 'displayName', 'describeGroupResponse_displayName' - Contains the group’s display name value. The length limit is 1,024
--- characters. This value can consist of letters, accented characters,
--- symbols, numbers, punctuation, tab, new line, carriage return, space,
--- and nonbreaking space in this attribute. The characters @\<>;:%@ are
--- excluded. This value is specified at the time that the group is created
--- and stored as an attribute of the group object in the identity store.
+-- 'identityStoreId', 'describeGroupResponse_identityStoreId' - The globally unique identifier for the identity store.
 newDescribeGroupResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'groupId'
   Prelude.Text ->
-  -- | 'displayName'
+  -- | 'identityStoreId'
   Prelude.Text ->
   DescribeGroupResponse
 newDescribeGroupResponse
   pHttpStatus_
   pGroupId_
-  pDisplayName_ =
+  pIdentityStoreId_ =
     DescribeGroupResponse'
-      { httpStatus = pHttpStatus_,
+      { externalIds =
+          Prelude.Nothing,
+        displayName = Prelude.Nothing,
+        description = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         groupId = pGroupId_,
-        displayName = pDisplayName_
+        identityStoreId = pIdentityStoreId_
       }
+
+-- | A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
+describeGroupResponse_externalIds :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe (Prelude.NonEmpty ExternalId))
+describeGroupResponse_externalIds = Lens.lens (\DescribeGroupResponse' {externalIds} -> externalIds) (\s@DescribeGroupResponse' {} a -> s {externalIds = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The group’s display name value. The length limit is 1,024 characters.
+-- This value can consist of letters, accented characters, symbols,
+-- numbers, punctuation, tab, new line, carriage return, space, and
+-- nonbreaking space in this attribute. This value is specified at the time
+-- that the group is created and stored as an attribute of the group object
+-- in the identity store.
+describeGroupResponse_displayName :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A string containing a description of the group.
+describeGroupResponse_description :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_description = Lens.lens (\DescribeGroupResponse' {description} -> description) (\s@DescribeGroupResponse' {} a -> s {description = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
 describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int
@@ -216,17 +258,15 @@ describeGroupResponse_httpStatus = Lens.lens (\DescribeGroupResponse' {httpStatu
 describeGroupResponse_groupId :: Lens.Lens' DescribeGroupResponse Prelude.Text
 describeGroupResponse_groupId = Lens.lens (\DescribeGroupResponse' {groupId} -> groupId) (\s@DescribeGroupResponse' {} a -> s {groupId = a} :: DescribeGroupResponse)
 
--- | Contains the group’s display name value. The length limit is 1,024
--- characters. This value can consist of letters, accented characters,
--- symbols, numbers, punctuation, tab, new line, carriage return, space,
--- and nonbreaking space in this attribute. The characters @\<>;:%@ are
--- excluded. This value is specified at the time that the group is created
--- and stored as an attribute of the group object in the identity store.
-describeGroupResponse_displayName :: Lens.Lens' DescribeGroupResponse Prelude.Text
-describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse)
+-- | The globally unique identifier for the identity store.
+describeGroupResponse_identityStoreId :: Lens.Lens' DescribeGroupResponse Prelude.Text
+describeGroupResponse_identityStoreId = Lens.lens (\DescribeGroupResponse' {identityStoreId} -> identityStoreId) (\s@DescribeGroupResponse' {} a -> s {identityStoreId = a} :: DescribeGroupResponse)
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf externalIds
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf identityStoreId

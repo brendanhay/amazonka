@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.ListCertificates
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,10 @@ module Amazonka.CertificateManager.ListCertificates
     newListCertificates,
 
     -- * Request Lenses
+    listCertificates_sortOrder,
     listCertificates_nextToken,
     listCertificates_maxItems,
+    listCertificates_sortBy,
     listCertificates_includes,
     listCertificates_certificateStatuses,
 
@@ -57,7 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { -- | Use this parameter only when paginating results and only in a subsequent
+  { -- | Specifies the order of sorted results. If you specify @SortOrder@, you
+    -- must also specify @SortBy@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | Use this parameter only when paginating results and only in a subsequent
     -- request after you receive a response with truncated results. Set it to
     -- the value of @NextToken@ from the response you just received.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -67,6 +72,9 @@ data ListCertificates = ListCertificates'
     -- this @NextToken@ value in a subsequent request to retrieve additional
     -- items.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the field to sort results by. If you specify @SortBy@, you
+    -- must also specify @SortOrder@.
+    sortBy :: Prelude.Maybe SortBy,
     -- | Filter the certificate list. For more information, see the Filters
     -- structure.
     includes :: Prelude.Maybe Filters,
@@ -83,6 +91,9 @@ data ListCertificates = ListCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listCertificates_sortOrder' - Specifies the order of sorted results. If you specify @SortOrder@, you
+-- must also specify @SortBy@.
+--
 -- 'nextToken', 'listCertificates_nextToken' - Use this parameter only when paginating results and only in a subsequent
 -- request after you receive a response with truncated results. Set it to
 -- the value of @NextToken@ from the response you just received.
@@ -93,6 +104,9 @@ data ListCertificates = ListCertificates'
 -- this @NextToken@ value in a subsequent request to retrieve additional
 -- items.
 --
+-- 'sortBy', 'listCertificates_sortBy' - Specifies the field to sort results by. If you specify @SortBy@, you
+-- must also specify @SortOrder@.
+--
 -- 'includes', 'listCertificates_includes' - Filter the certificate list. For more information, see the Filters
 -- structure.
 --
@@ -101,11 +115,18 @@ newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { nextToken = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxItems = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       includes = Prelude.Nothing,
       certificateStatuses = Prelude.Nothing
     }
+
+-- | Specifies the order of sorted results. If you specify @SortOrder@, you
+-- must also specify @SortBy@.
+listCertificates_sortOrder :: Lens.Lens' ListCertificates (Prelude.Maybe SortOrder)
+listCertificates_sortOrder = Lens.lens (\ListCertificates' {sortOrder} -> sortOrder) (\s@ListCertificates' {} a -> s {sortOrder = a} :: ListCertificates)
 
 -- | Use this parameter only when paginating results and only in a subsequent
 -- request after you receive a response with truncated results. Set it to
@@ -120,6 +141,11 @@ listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextTo
 -- items.
 listCertificates_maxItems :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_maxItems = Lens.lens (\ListCertificates' {maxItems} -> maxItems) (\s@ListCertificates' {} a -> s {maxItems = a} :: ListCertificates)
+
+-- | Specifies the field to sort results by. If you specify @SortBy@, you
+-- must also specify @SortOrder@.
+listCertificates_sortBy :: Lens.Lens' ListCertificates (Prelude.Maybe SortBy)
+listCertificates_sortBy = Lens.lens (\ListCertificates' {sortBy} -> sortBy) (\s@ListCertificates' {} a -> s {sortBy = a} :: ListCertificates)
 
 -- | Filter the certificate list. For more information, see the Filters
 -- structure.
@@ -170,15 +196,19 @@ instance Core.AWSRequest ListCertificates where
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` certificateStatuses
 
 instance Prelude.NFData ListCertificates where
   rnf ListCertificates' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf certificateStatuses
 
@@ -201,8 +231,10 @@ instance Core.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxItems" Core..=) Prelude.<$> maxItems,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("Includes" Core..=) Prelude.<$> includes,
             ("CertificateStatuses" Core..=)
               Prelude.<$> certificateStatuses

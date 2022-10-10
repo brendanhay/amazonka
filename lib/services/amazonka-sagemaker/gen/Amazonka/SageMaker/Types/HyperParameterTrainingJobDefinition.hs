@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,8 +46,8 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- compute instances and storage volumes, used for training jobs launched
     -- by the tuning job. By default, storage volumes hold model artifacts and
     -- incremental states. Choose @File@ for @TrainingInputMode@ in the
-    -- @AlgorithmSpecification@parameter to additionally store training data in
-    -- the storage volume (optional).
+    -- @AlgorithmSpecification@ parameter to additionally store training data
+    -- in the storage volume (optional).
     hyperParameterTuningResourceConfig :: Prelude.Maybe HyperParameterTuningResourceConfig,
     hyperParameterRanges :: Prelude.Maybe ParameterRanges,
     -- | The number of times to retry the job when the job fails due to an
@@ -130,8 +130,8 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- compute instances and storage volumes, used for training jobs launched
 -- by the tuning job. By default, storage volumes hold model artifacts and
 -- incremental states. Choose @File@ for @TrainingInputMode@ in the
--- @AlgorithmSpecification@parameter to additionally store training data in
--- the storage volume (optional).
+-- @AlgorithmSpecification@ parameter to additionally store training data
+-- in the storage volume (optional).
 --
 -- 'hyperParameterRanges', 'hyperParameterTrainingJobDefinition_hyperParameterRanges' - Undocumented member.
 --
@@ -251,8 +251,8 @@ hyperParameterTrainingJobDefinition_enableManagedSpotTraining = Lens.lens (\Hype
 -- compute instances and storage volumes, used for training jobs launched
 -- by the tuning job. By default, storage volumes hold model artifacts and
 -- incremental states. Choose @File@ for @TrainingInputMode@ in the
--- @AlgorithmSpecification@parameter to additionally store training data in
--- the storage volume (optional).
+-- @AlgorithmSpecification@ parameter to additionally store training data
+-- in the storage volume (optional).
 hyperParameterTrainingJobDefinition_hyperParameterTuningResourceConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe HyperParameterTuningResourceConfig)
 hyperParameterTrainingJobDefinition_hyperParameterTuningResourceConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {hyperParameterTuningResourceConfig} -> hyperParameterTuningResourceConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {hyperParameterTuningResourceConfig = a} :: HyperParameterTrainingJobDefinition)
 

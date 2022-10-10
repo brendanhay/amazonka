@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.UpdateRevealConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status and configuration settings for retrieving (revealing)
--- occurrences of sensitive data reported by findings.
+-- Updates the status and configuration settings for retrieving occurrences
+-- of sensitive data reported by findings.
 module Amazonka.MacieV2.UpdateRevealConfiguration
   ( -- * Creating a Request
     UpdateRevealConfiguration (..),

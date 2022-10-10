@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DeletePermissionsBoundaryFromPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,8 +48,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeletePermissionsBoundaryFromPermissionSet' smart constructor.
 data DeletePermissionsBoundaryFromPermissionSet = DeletePermissionsBoundaryFromPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text
@@ -64,8 +64,8 @@ data DeletePermissionsBoundaryFromPermissionSet = DeletePermissionsBoundaryFromP
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deletePermissionsBoundaryFromPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'deletePermissionsBoundaryFromPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'deletePermissionsBoundaryFromPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 newDeletePermissionsBoundaryFromPermissionSet ::
@@ -84,8 +84,8 @@ newDeletePermissionsBoundaryFromPermissionSet
           pPermissionSetArn_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 deletePermissionsBoundaryFromPermissionSet_instanceArn :: Lens.Lens' DeletePermissionsBoundaryFromPermissionSet Prelude.Text
 deletePermissionsBoundaryFromPermissionSet_instanceArn = Lens.lens (\DeletePermissionsBoundaryFromPermissionSet' {instanceArn} -> instanceArn) (\s@DeletePermissionsBoundaryFromPermissionSet' {} a -> s {instanceArn = a} :: DeletePermissionsBoundaryFromPermissionSet)
 

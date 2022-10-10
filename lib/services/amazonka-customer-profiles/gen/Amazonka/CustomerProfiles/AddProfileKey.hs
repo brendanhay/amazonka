@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.AddProfileKey
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates a new key value with a specific profile, such as a Contact
--- Trace Record (CTR) ContactId.
+-- Record ContactId.
 --
 -- A profile object can have a single unique key and any number of
 -- additional keys that can be used to identify the profile that it belongs

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.UpdateOutpost
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,12 +56,6 @@ data UpdateOutpost = UpdateOutpost'
     supportedHardwareType :: Prelude.Maybe SupportedHardwareType,
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     outpostId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,12 +75,6 @@ data UpdateOutpost = UpdateOutpost'
 -- 'description', 'updateOutpost_description' - Undocumented member.
 --
 -- 'outpostId', 'updateOutpost_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newUpdateOutpost ::
   -- | 'outpostId'
   Prelude.Text ->
@@ -112,12 +100,6 @@ updateOutpost_description :: Lens.Lens' UpdateOutpost (Prelude.Maybe Prelude.Tex
 updateOutpost_description = Lens.lens (\UpdateOutpost' {description} -> description) (\s@UpdateOutpost' {} a -> s {description = a} :: UpdateOutpost)
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 updateOutpost_outpostId :: Lens.Lens' UpdateOutpost Prelude.Text
 updateOutpost_outpostId = Lens.lens (\UpdateOutpost' {outpostId} -> outpostId) (\s@UpdateOutpost' {} a -> s {outpostId = a} :: UpdateOutpost)
 

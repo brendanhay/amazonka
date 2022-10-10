@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -213,6 +213,10 @@ module Amazonka.EMRContainers
     -- ** S3MonitoringConfiguration
     S3MonitoringConfiguration (S3MonitoringConfiguration'),
     newS3MonitoringConfiguration,
+
+    -- ** SparkSqlJobDriver
+    SparkSqlJobDriver (SparkSqlJobDriver'),
+    newSparkSqlJobDriver,
 
     -- ** SparkSubmitJobDriver
     SparkSubmitJobDriver (SparkSubmitJobDriver'),

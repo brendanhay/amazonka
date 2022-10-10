@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.LookoutEquipment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,12 @@ import Test.Tasty
 --         , requestCreateInferenceScheduler $
 --             newCreateInferenceScheduler
 --
+--         , requestCreateLabel $
+--             newCreateLabel
+--
+--         , requestCreateLabelGroup $
+--             newCreateLabelGroup
+--
 --         , requestCreateModel $
 --             newCreateModel
 --
@@ -41,6 +47,12 @@ import Test.Tasty
 --
 --         , requestDeleteInferenceScheduler $
 --             newDeleteInferenceScheduler
+--
+--         , requestDeleteLabel $
+--             newDeleteLabel
+--
+--         , requestDeleteLabelGroup $
+--             newDeleteLabelGroup
 --
 --         , requestDeleteModel $
 --             newDeleteModel
@@ -53,6 +65,12 @@ import Test.Tasty
 --
 --         , requestDescribeInferenceScheduler $
 --             newDescribeInferenceScheduler
+--
+--         , requestDescribeLabel $
+--             newDescribeLabel
+--
+--         , requestDescribeLabelGroup $
+--             newDescribeLabelGroup
 --
 --         , requestDescribeModel $
 --             newDescribeModel
@@ -71,6 +89,12 @@ import Test.Tasty
 --
 --         , requestListInferenceSchedulers $
 --             newListInferenceSchedulers
+--
+--         , requestListLabelGroups $
+--             newListLabelGroups
+--
+--         , requestListLabels $
+--             newListLabels
 --
 --         , requestListModels $
 --             newListModels
@@ -99,6 +123,9 @@ import Test.Tasty
 --         , requestUpdateInferenceScheduler $
 --             newUpdateInferenceScheduler
 --
+--         , requestUpdateLabelGroup $
+--             newUpdateLabelGroup
+--
 --           ]
 
 --     , testGroup "response"
@@ -108,6 +135,12 @@ import Test.Tasty
 --         , responseCreateInferenceScheduler $
 --             newCreateInferenceSchedulerResponse
 --
+--         , responseCreateLabel $
+--             newCreateLabelResponse
+--
+--         , responseCreateLabelGroup $
+--             newCreateLabelGroupResponse
+--
 --         , responseCreateModel $
 --             newCreateModelResponse
 --
@@ -116,6 +149,12 @@ import Test.Tasty
 --
 --         , responseDeleteInferenceScheduler $
 --             newDeleteInferenceSchedulerResponse
+--
+--         , responseDeleteLabel $
+--             newDeleteLabelResponse
+--
+--         , responseDeleteLabelGroup $
+--             newDeleteLabelGroupResponse
 --
 --         , responseDeleteModel $
 --             newDeleteModelResponse
@@ -128,6 +167,12 @@ import Test.Tasty
 --
 --         , responseDescribeInferenceScheduler $
 --             newDescribeInferenceSchedulerResponse
+--
+--         , responseDescribeLabel $
+--             newDescribeLabelResponse
+--
+--         , responseDescribeLabelGroup $
+--             newDescribeLabelGroupResponse
 --
 --         , responseDescribeModel $
 --             newDescribeModelResponse
@@ -146,6 +191,12 @@ import Test.Tasty
 --
 --         , responseListInferenceSchedulers $
 --             newListInferenceSchedulersResponse
+--
+--         , responseListLabelGroups $
+--             newListLabelGroupsResponse
+--
+--         , responseListLabels $
+--             newListLabelsResponse
 --
 --         , responseListModels $
 --             newListModelsResponse
@@ -174,6 +225,9 @@ import Test.Tasty
 --         , responseUpdateInferenceScheduler $
 --             newUpdateInferenceSchedulerResponse
 --
+--         , responseUpdateLabelGroup $
+--             newUpdateLabelGroupResponse
+--
 --           ]
 --     ]
 
@@ -190,6 +244,18 @@ requestCreateInferenceScheduler =
   req
     "CreateInferenceScheduler"
     "fixture/CreateInferenceScheduler.yaml"
+
+requestCreateLabel :: CreateLabel -> TestTree
+requestCreateLabel =
+  req
+    "CreateLabel"
+    "fixture/CreateLabel.yaml"
+
+requestCreateLabelGroup :: CreateLabelGroup -> TestTree
+requestCreateLabelGroup =
+  req
+    "CreateLabelGroup"
+    "fixture/CreateLabelGroup.yaml"
 
 requestCreateModel :: CreateModel -> TestTree
 requestCreateModel =
@@ -208,6 +274,18 @@ requestDeleteInferenceScheduler =
   req
     "DeleteInferenceScheduler"
     "fixture/DeleteInferenceScheduler.yaml"
+
+requestDeleteLabel :: DeleteLabel -> TestTree
+requestDeleteLabel =
+  req
+    "DeleteLabel"
+    "fixture/DeleteLabel.yaml"
+
+requestDeleteLabelGroup :: DeleteLabelGroup -> TestTree
+requestDeleteLabelGroup =
+  req
+    "DeleteLabelGroup"
+    "fixture/DeleteLabelGroup.yaml"
 
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel =
@@ -232,6 +310,18 @@ requestDescribeInferenceScheduler =
   req
     "DescribeInferenceScheduler"
     "fixture/DescribeInferenceScheduler.yaml"
+
+requestDescribeLabel :: DescribeLabel -> TestTree
+requestDescribeLabel =
+  req
+    "DescribeLabel"
+    "fixture/DescribeLabel.yaml"
+
+requestDescribeLabelGroup :: DescribeLabelGroup -> TestTree
+requestDescribeLabelGroup =
+  req
+    "DescribeLabelGroup"
+    "fixture/DescribeLabelGroup.yaml"
 
 requestDescribeModel :: DescribeModel -> TestTree
 requestDescribeModel =
@@ -268,6 +358,18 @@ requestListInferenceSchedulers =
   req
     "ListInferenceSchedulers"
     "fixture/ListInferenceSchedulers.yaml"
+
+requestListLabelGroups :: ListLabelGroups -> TestTree
+requestListLabelGroups =
+  req
+    "ListLabelGroups"
+    "fixture/ListLabelGroups.yaml"
+
+requestListLabels :: ListLabels -> TestTree
+requestListLabels =
+  req
+    "ListLabels"
+    "fixture/ListLabels.yaml"
 
 requestListModels :: ListModels -> TestTree
 requestListModels =
@@ -323,6 +425,12 @@ requestUpdateInferenceScheduler =
     "UpdateInferenceScheduler"
     "fixture/UpdateInferenceScheduler.yaml"
 
+requestUpdateLabelGroup :: UpdateLabelGroup -> TestTree
+requestUpdateLabelGroup =
+  req
+    "UpdateLabelGroup"
+    "fixture/UpdateLabelGroup.yaml"
+
 -- Responses
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
@@ -340,6 +448,22 @@ responseCreateInferenceScheduler =
     "fixture/CreateInferenceSchedulerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateInferenceScheduler)
+
+responseCreateLabel :: CreateLabelResponse -> TestTree
+responseCreateLabel =
+  res
+    "CreateLabelResponse"
+    "fixture/CreateLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLabel)
+
+responseCreateLabelGroup :: CreateLabelGroupResponse -> TestTree
+responseCreateLabelGroup =
+  res
+    "CreateLabelGroupResponse"
+    "fixture/CreateLabelGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLabelGroup)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -364,6 +488,22 @@ responseDeleteInferenceScheduler =
     "fixture/DeleteInferenceSchedulerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteInferenceScheduler)
+
+responseDeleteLabel :: DeleteLabelResponse -> TestTree
+responseDeleteLabel =
+  res
+    "DeleteLabelResponse"
+    "fixture/DeleteLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLabel)
+
+responseDeleteLabelGroup :: DeleteLabelGroupResponse -> TestTree
+responseDeleteLabelGroup =
+  res
+    "DeleteLabelGroupResponse"
+    "fixture/DeleteLabelGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLabelGroup)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -396,6 +536,22 @@ responseDescribeInferenceScheduler =
     "fixture/DescribeInferenceSchedulerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInferenceScheduler)
+
+responseDescribeLabel :: DescribeLabelResponse -> TestTree
+responseDescribeLabel =
+  res
+    "DescribeLabelResponse"
+    "fixture/DescribeLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLabel)
+
+responseDescribeLabelGroup :: DescribeLabelGroupResponse -> TestTree
+responseDescribeLabelGroup =
+  res
+    "DescribeLabelGroupResponse"
+    "fixture/DescribeLabelGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLabelGroup)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -444,6 +600,22 @@ responseListInferenceSchedulers =
     "fixture/ListInferenceSchedulersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListInferenceSchedulers)
+
+responseListLabelGroups :: ListLabelGroupsResponse -> TestTree
+responseListLabelGroups =
+  res
+    "ListLabelGroupsResponse"
+    "fixture/ListLabelGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLabelGroups)
+
+responseListLabels :: ListLabelsResponse -> TestTree
+responseListLabels =
+  res
+    "ListLabelsResponse"
+    "fixture/ListLabelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLabels)
 
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
@@ -516,3 +688,11 @@ responseUpdateInferenceScheduler =
     "fixture/UpdateInferenceSchedulerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateInferenceScheduler)
+
+responseUpdateLabelGroup :: UpdateLabelGroupResponse -> TestTree
+responseUpdateLabelGroup =
+  res
+    "UpdateLabelGroupResponse"
+    "fixture/UpdateLabelGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLabelGroup)

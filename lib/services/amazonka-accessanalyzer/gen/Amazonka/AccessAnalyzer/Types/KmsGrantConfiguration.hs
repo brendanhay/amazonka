@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.KmsGrantConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,15 +39,15 @@ data KmsGrantConfiguration = KmsGrantConfiguration'
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
     -- operation.
     retiringPrincipal :: Prelude.Maybe Prelude.Text,
+    -- | A list of operations that the grant permits.
+    operations :: [KmsGrantOperation],
     -- | The principal that is given permission to perform the operations that
     -- the grant permits.
     granteePrincipal :: Prelude.Text,
     -- | The Amazon Web Services account under which the grant was issued. The
     -- account is used to propose KMS grants issued by accounts other than the
     -- owner of the key.
-    issuingAccount :: Prelude.Text,
-    -- | A list of operations that the grant permits.
-    operations :: [KmsGrantOperation]
+    issuingAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,14 +68,14 @@ data KmsGrantConfiguration = KmsGrantConfiguration'
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
 -- operation.
 --
+-- 'operations', 'kmsGrantConfiguration_operations' - A list of operations that the grant permits.
+--
 -- 'granteePrincipal', 'kmsGrantConfiguration_granteePrincipal' - The principal that is given permission to perform the operations that
 -- the grant permits.
 --
 -- 'issuingAccount', 'kmsGrantConfiguration_issuingAccount' - The Amazon Web Services account under which the grant was issued. The
 -- account is used to propose KMS grants issued by accounts other than the
 -- owner of the key.
---
--- 'operations', 'kmsGrantConfiguration_operations' - A list of operations that the grant permits.
 newKmsGrantConfiguration ::
   -- | 'granteePrincipal'
   Prelude.Text ->
@@ -89,9 +89,9 @@ newKmsGrantConfiguration
       { constraints =
           Prelude.Nothing,
         retiringPrincipal = Prelude.Nothing,
+        operations = Prelude.mempty,
         granteePrincipal = pGranteePrincipal_,
-        issuingAccount = pIssuingAccount_,
-        operations = Prelude.mempty
+        issuingAccount = pIssuingAccount_
       }
 
 -- | Use this structure to propose allowing
@@ -107,6 +107,10 @@ kmsGrantConfiguration_constraints = Lens.lens (\KmsGrantConfiguration' {constrai
 kmsGrantConfiguration_retiringPrincipal :: Lens.Lens' KmsGrantConfiguration (Prelude.Maybe Prelude.Text)
 kmsGrantConfiguration_retiringPrincipal = Lens.lens (\KmsGrantConfiguration' {retiringPrincipal} -> retiringPrincipal) (\s@KmsGrantConfiguration' {} a -> s {retiringPrincipal = a} :: KmsGrantConfiguration)
 
+-- | A list of operations that the grant permits.
+kmsGrantConfiguration_operations :: Lens.Lens' KmsGrantConfiguration [KmsGrantOperation]
+kmsGrantConfiguration_operations = Lens.lens (\KmsGrantConfiguration' {operations} -> operations) (\s@KmsGrantConfiguration' {} a -> s {operations = a} :: KmsGrantConfiguration) Prelude.. Lens.coerced
+
 -- | The principal that is given permission to perform the operations that
 -- the grant permits.
 kmsGrantConfiguration_granteePrincipal :: Lens.Lens' KmsGrantConfiguration Prelude.Text
@@ -118,10 +122,6 @@ kmsGrantConfiguration_granteePrincipal = Lens.lens (\KmsGrantConfiguration' {gra
 kmsGrantConfiguration_issuingAccount :: Lens.Lens' KmsGrantConfiguration Prelude.Text
 kmsGrantConfiguration_issuingAccount = Lens.lens (\KmsGrantConfiguration' {issuingAccount} -> issuingAccount) (\s@KmsGrantConfiguration' {} a -> s {issuingAccount = a} :: KmsGrantConfiguration)
 
--- | A list of operations that the grant permits.
-kmsGrantConfiguration_operations :: Lens.Lens' KmsGrantConfiguration [KmsGrantOperation]
-kmsGrantConfiguration_operations = Lens.lens (\KmsGrantConfiguration' {operations} -> operations) (\s@KmsGrantConfiguration' {} a -> s {operations = a} :: KmsGrantConfiguration) Prelude.. Lens.coerced
-
 instance Core.FromJSON KmsGrantConfiguration where
   parseJSON =
     Core.withObject
@@ -130,26 +130,26 @@ instance Core.FromJSON KmsGrantConfiguration where
           KmsGrantConfiguration'
             Prelude.<$> (x Core..:? "constraints")
             Prelude.<*> (x Core..:? "retiringPrincipal")
+            Prelude.<*> (x Core..:? "operations" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "granteePrincipal")
             Prelude.<*> (x Core..: "issuingAccount")
-            Prelude.<*> (x Core..:? "operations" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KmsGrantConfiguration where
   hashWithSalt _salt KmsGrantConfiguration' {..} =
     _salt `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` retiringPrincipal
+      `Prelude.hashWithSalt` operations
       `Prelude.hashWithSalt` granteePrincipal
       `Prelude.hashWithSalt` issuingAccount
-      `Prelude.hashWithSalt` operations
 
 instance Prelude.NFData KmsGrantConfiguration where
   rnf KmsGrantConfiguration' {..} =
     Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf retiringPrincipal
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf issuingAccount
-      `Prelude.seq` Prelude.rnf operations
 
 instance Core.ToJSON KmsGrantConfiguration where
   toJSON KmsGrantConfiguration' {..} =
@@ -158,10 +158,10 @@ instance Core.ToJSON KmsGrantConfiguration where
           [ ("constraints" Core..=) Prelude.<$> constraints,
             ("retiringPrincipal" Core..=)
               Prelude.<$> retiringPrincipal,
+            Prelude.Just ("operations" Core..= operations),
             Prelude.Just
               ("granteePrincipal" Core..= granteePrincipal),
             Prelude.Just
-              ("issuingAccount" Core..= issuingAccount),
-            Prelude.Just ("operations" Core..= operations)
+              ("issuingAccount" Core..= issuingAccount)
           ]
       )

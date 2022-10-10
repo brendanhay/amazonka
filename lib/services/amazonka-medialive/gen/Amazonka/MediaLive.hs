@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -581,6 +581,15 @@ module Amazonka.MediaLive
 
     -- ** DvbSubOcrLanguage
     DvbSubOcrLanguage (..),
+
+    -- ** Eac3AtmosCodingMode
+    Eac3AtmosCodingMode (..),
+
+    -- ** Eac3AtmosDrcLine
+    Eac3AtmosDrcLine (..),
+
+    -- ** Eac3AtmosDrcRf
+    Eac3AtmosDrcRf (..),
 
     -- ** Eac3AttenuationControl
     Eac3AttenuationControl (..),
@@ -1400,6 +1409,10 @@ module Amazonka.MediaLive
     ColorSpacePassthroughSettings (ColorSpacePassthroughSettings'),
     newColorSpacePassthroughSettings,
 
+    -- ** DolbyVision81Settings
+    DolbyVision81Settings (DolbyVision81Settings'),
+    newDolbyVision81Settings,
+
     -- ** DvbNitSettings
     DvbNitSettings (DvbNitSettings'),
     newDvbNitSettings,
@@ -1419,6 +1432,10 @@ module Amazonka.MediaLive
     -- ** DvbTdtSettings
     DvbTdtSettings (DvbTdtSettings'),
     newDvbTdtSettings,
+
+    -- ** Eac3AtmosSettings
+    Eac3AtmosSettings (Eac3AtmosSettings'),
+    newEac3AtmosSettings,
 
     -- ** Eac3Settings
     Eac3Settings (Eac3Settings'),

@@ -218,6 +218,7 @@ haskell_library(
         "gen/Amazonka/Config/Types/StoredQuery.hs",
         "gen/Amazonka/Config/Types/StoredQueryMetadata.hs",
         "gen/Amazonka/Config/Types/Tag.hs",
+        "gen/Amazonka/Config/Types/TemplateSSMDocumentDetails.hs",
         "gen/Amazonka/Config/UntagResource.hs",
         "gen/Amazonka/Config/Waiters.hs",
     ],

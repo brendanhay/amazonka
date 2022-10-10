@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.InstanceInformationStringFilter
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,13 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceInformationStringFilter = InstanceInformationStringFilter'
   { -- | The filter key name to describe your managed nodes. For example:
     --
-    -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
-    -- Key\"
+    -- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
+    -- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
+    -- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
     --
-    -- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
-    -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
-    -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
-    -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
+    -- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
+    -- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
+    -- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
+    -- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
     key :: Prelude.Text,
     -- | The filter values.
     values :: Prelude.NonEmpty Prelude.Text
@@ -52,13 +53,14 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 --
 -- 'key', 'instanceInformationStringFilter_key' - The filter key name to describe your managed nodes. For example:
 --
--- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
--- Key\"
+-- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
+-- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
+-- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
 --
--- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
--- @tag:keyname@ and a string. Here are some valid examples: tag-key,
--- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
--- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
+-- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
+-- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
+-- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
+-- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
 --
 -- 'values', 'instanceInformationStringFilter_values' - The filter values.
 newInstanceInformationStringFilter ::
@@ -75,13 +77,14 @@ newInstanceInformationStringFilter pKey_ pValues_ =
 
 -- | The filter key name to describe your managed nodes. For example:
 --
--- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
--- Key\"
+-- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
+-- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
+-- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
 --
--- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
--- @tag:keyname@ and a string. Here are some valid examples: tag-key,
--- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
--- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
+-- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
+-- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
+-- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
+-- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
 instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Prelude.Text
 instanceInformationStringFilter_key = Lens.lens (\InstanceInformationStringFilter' {key} -> key) (\s@InstanceInformationStringFilter' {} a -> s {key = a} :: InstanceInformationStringFilter)
 

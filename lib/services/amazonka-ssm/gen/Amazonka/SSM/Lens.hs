@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,6 +51,7 @@ module Amazonka.SSM.Lens
     createActivationResponse_httpStatus,
 
     -- ** CreateAssociation
+    createAssociation_tags,
     createAssociation_associationName,
     createAssociation_targetLocations,
     createAssociation_automationTargetParameterName,
@@ -61,6 +62,7 @@ module Amazonka.SSM.Lens
     createAssociation_scheduleExpression,
     createAssociation_scheduleOffset,
     createAssociation_instanceId,
+    createAssociation_alarmConfiguration,
     createAssociation_maxConcurrency,
     createAssociation_applyOnlyAtCronInterval,
     createAssociation_maxErrors,
@@ -670,9 +672,11 @@ module Amazonka.SSM.Lens
     getMaintenanceWindowExecutionTaskResponse_status,
     getMaintenanceWindowExecutionTaskResponse_endTime,
     getMaintenanceWindowExecutionTaskResponse_serviceRole,
+    getMaintenanceWindowExecutionTaskResponse_alarmConfiguration,
     getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_maxConcurrency,
     getMaintenanceWindowExecutionTaskResponse_maxErrors,
+    getMaintenanceWindowExecutionTaskResponse_triggeredAlarms,
     getMaintenanceWindowExecutionTaskResponse_startTime,
     getMaintenanceWindowExecutionTaskResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskResponse_httpStatus,
@@ -708,6 +712,7 @@ module Amazonka.SSM.Lens
     getMaintenanceWindowTaskResponse_targets,
     getMaintenanceWindowTaskResponse_description,
     getMaintenanceWindowTaskResponse_taskType,
+    getMaintenanceWindowTaskResponse_alarmConfiguration,
     getMaintenanceWindowTaskResponse_priority,
     getMaintenanceWindowTaskResponse_maxConcurrency,
     getMaintenanceWindowTaskResponse_maxErrors,
@@ -1030,6 +1035,7 @@ module Amazonka.SSM.Lens
     registerTaskWithMaintenanceWindow_taskInvocationParameters,
     registerTaskWithMaintenanceWindow_targets,
     registerTaskWithMaintenanceWindow_description,
+    registerTaskWithMaintenanceWindow_alarmConfiguration,
     registerTaskWithMaintenanceWindow_priority,
     registerTaskWithMaintenanceWindow_maxConcurrency,
     registerTaskWithMaintenanceWindow_maxErrors,
@@ -1072,6 +1078,7 @@ module Amazonka.SSM.Lens
     sendCommand_outputS3Region,
     sendCommand_targets,
     sendCommand_comment,
+    sendCommand_alarmConfiguration,
     sendCommand_maxConcurrency,
     sendCommand_maxErrors,
     sendCommand_notificationConfig,
@@ -1097,6 +1104,7 @@ module Amazonka.SSM.Lens
     startAutomationExecution_targetParameterName,
     startAutomationExecution_targetMaps,
     startAutomationExecution_targets,
+    startAutomationExecution_alarmConfiguration,
     startAutomationExecution_maxConcurrency,
     startAutomationExecution_mode,
     startAutomationExecution_maxErrors,
@@ -1161,6 +1169,7 @@ module Amazonka.SSM.Lens
     updateAssociation_calendarNames,
     updateAssociation_scheduleExpression,
     updateAssociation_scheduleOffset,
+    updateAssociation_alarmConfiguration,
     updateAssociation_maxConcurrency,
     updateAssociation_applyOnlyAtCronInterval,
     updateAssociation_maxErrors,
@@ -1255,6 +1264,7 @@ module Amazonka.SSM.Lens
     updateMaintenanceWindowTask_taskArn,
     updateMaintenanceWindowTask_targets,
     updateMaintenanceWindowTask_description,
+    updateMaintenanceWindowTask_alarmConfiguration,
     updateMaintenanceWindowTask_priority,
     updateMaintenanceWindowTask_maxConcurrency,
     updateMaintenanceWindowTask_maxErrors,
@@ -1272,6 +1282,7 @@ module Amazonka.SSM.Lens
     updateMaintenanceWindowTaskResponse_windowId,
     updateMaintenanceWindowTaskResponse_targets,
     updateMaintenanceWindowTaskResponse_description,
+    updateMaintenanceWindowTaskResponse_alarmConfiguration,
     updateMaintenanceWindowTaskResponse_priority,
     updateMaintenanceWindowTaskResponse_maxConcurrency,
     updateMaintenanceWindowTaskResponse_maxErrors,
@@ -1367,6 +1378,17 @@ module Amazonka.SSM.Lens
     activation_registrationLimit,
     activation_expirationDate,
 
+    -- ** Alarm
+    alarm_name,
+
+    -- ** AlarmConfiguration
+    alarmConfiguration_ignorePollAlarmFailure,
+    alarmConfiguration_alarms,
+
+    -- ** AlarmStateInformation
+    alarmStateInformation_name,
+    alarmStateInformation_state,
+
     -- ** Association
     association_associationName,
     association_name,
@@ -1398,11 +1420,13 @@ module Amazonka.SSM.Lens
     associationDescription_scheduleOffset,
     associationDescription_instanceId,
     associationDescription_overview,
+    associationDescription_alarmConfiguration,
     associationDescription_lastUpdateAssociationDate,
     associationDescription_maxConcurrency,
     associationDescription_applyOnlyAtCronInterval,
     associationDescription_maxErrors,
     associationDescription_lastExecutionDate,
+    associationDescription_triggeredAlarms,
     associationDescription_complianceSeverity,
     associationDescription_syncCompliance,
     associationDescription_associationId,
@@ -1415,8 +1439,10 @@ module Amazonka.SSM.Lens
     associationExecution_status,
     associationExecution_resourceCountByStatus,
     associationExecution_executionId,
+    associationExecution_alarmConfiguration,
     associationExecution_detailedStatus,
     associationExecution_lastExecutionDate,
+    associationExecution_triggeredAlarms,
     associationExecution_associationId,
 
     -- ** AssociationExecutionFilter
@@ -1505,6 +1531,7 @@ module Amazonka.SSM.Lens
     automationExecution_documentName,
     automationExecution_automationSubtype,
     automationExecution_outputs,
+    automationExecution_alarmConfiguration,
     automationExecution_currentStepName,
     automationExecution_executedBy,
     automationExecution_maxConcurrency,
@@ -1514,6 +1541,7 @@ module Amazonka.SSM.Lens
     automationExecution_parentAutomationExecutionId,
     automationExecution_automationExecutionStatus,
     automationExecution_runbooks,
+    automationExecution_triggeredAlarms,
     automationExecution_currentAction,
     automationExecution_stepExecutionsTruncated,
     automationExecution_progressCounters,
@@ -1541,6 +1569,7 @@ module Amazonka.SSM.Lens
     automationExecutionMetadata_documentName,
     automationExecutionMetadata_automationSubtype,
     automationExecutionMetadata_outputs,
+    automationExecutionMetadata_alarmConfiguration,
     automationExecutionMetadata_currentStepName,
     automationExecutionMetadata_executedBy,
     automationExecutionMetadata_maxConcurrency,
@@ -1551,6 +1580,7 @@ module Amazonka.SSM.Lens
     automationExecutionMetadata_parentAutomationExecutionId,
     automationExecutionMetadata_automationExecutionStatus,
     automationExecutionMetadata_runbooks,
+    automationExecutionMetadata_triggeredAlarms,
     automationExecutionMetadata_currentAction,
     automationExecutionMetadata_associationId,
     automationExecutionMetadata_scheduledTime,
@@ -1587,6 +1617,7 @@ module Amazonka.SSM.Lens
     command_commandId,
     command_comment,
     command_documentName,
+    command_alarmConfiguration,
     command_maxConcurrency,
     command_completedCount,
     command_maxErrors,
@@ -1594,6 +1625,7 @@ module Amazonka.SSM.Lens
     command_instanceIds,
     command_deliveryTimedOutCount,
     command_outputS3BucketName,
+    command_triggeredAlarms,
     command_outputS3KeyPrefix,
     command_documentVersion,
     command_parameters,
@@ -1682,6 +1714,7 @@ module Amazonka.SSM.Lens
     createAssociationBatchRequestEntry_scheduleExpression,
     createAssociationBatchRequestEntry_scheduleOffset,
     createAssociationBatchRequestEntry_instanceId,
+    createAssociationBatchRequestEntry_alarmConfiguration,
     createAssociationBatchRequestEntry_maxConcurrency,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
     createAssociationBatchRequestEntry_maxErrors,
@@ -1987,6 +2020,8 @@ module Amazonka.SSM.Lens
     maintenanceWindowExecutionTaskIdentity_status,
     maintenanceWindowExecutionTaskIdentity_endTime,
     maintenanceWindowExecutionTaskIdentity_taskType,
+    maintenanceWindowExecutionTaskIdentity_alarmConfiguration,
+    maintenanceWindowExecutionTaskIdentity_triggeredAlarms,
     maintenanceWindowExecutionTaskIdentity_startTime,
     maintenanceWindowExecutionTaskIdentity_taskExecutionId,
 
@@ -2067,6 +2102,7 @@ module Amazonka.SSM.Lens
     maintenanceWindowTask_windowId,
     maintenanceWindowTask_targets,
     maintenanceWindowTask_description,
+    maintenanceWindowTask_alarmConfiguration,
     maintenanceWindowTask_priority,
     maintenanceWindowTask_maxConcurrency,
     maintenanceWindowTask_maxErrors,
@@ -2658,6 +2694,9 @@ import Amazonka.SSM.StopAutomationExecution
 import Amazonka.SSM.TerminateSession
 import Amazonka.SSM.Types.AccountSharingInfo
 import Amazonka.SSM.Types.Activation
+import Amazonka.SSM.Types.Alarm
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.Association
 import Amazonka.SSM.Types.AssociationDescription
 import Amazonka.SSM.Types.AssociationExecution

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.CloudTrail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,11 +51,17 @@ import Test.Tasty
 --         , requestDescribeTrails $
 --             newDescribeTrails
 --
+--         , requestGetChannel $
+--             newGetChannel
+--
 --         , requestGetEventDataStore $
 --             newGetEventDataStore
 --
 --         , requestGetEventSelectors $
 --             newGetEventSelectors
+--
+--         , requestGetImport $
+--             newGetImport
 --
 --         , requestGetInsightSelectors $
 --             newGetInsightSelectors
@@ -69,8 +75,17 @@ import Test.Tasty
 --         , requestGetTrailStatus $
 --             newGetTrailStatus
 --
+--         , requestListChannels $
+--             newListChannels
+--
 --         , requestListEventDataStores $
 --             newListEventDataStores
+--
+--         , requestListImportFailures $
+--             newListImportFailures
+--
+--         , requestListImports $
+--             newListImports
 --
 --         , requestListPublicKeys $
 --             newListPublicKeys
@@ -99,11 +114,17 @@ import Test.Tasty
 --         , requestRestoreEventDataStore $
 --             newRestoreEventDataStore
 --
+--         , requestStartImport $
+--             newStartImport
+--
 --         , requestStartLogging $
 --             newStartLogging
 --
 --         , requestStartQuery $
 --             newStartQuery
+--
+--         , requestStopImport $
+--             newStopImport
 --
 --         , requestStopLogging $
 --             newStopLogging
@@ -141,11 +162,17 @@ import Test.Tasty
 --         , responseDescribeTrails $
 --             newDescribeTrailsResponse
 --
+--         , responseGetChannel $
+--             newGetChannelResponse
+--
 --         , responseGetEventDataStore $
 --             newGetEventDataStoreResponse
 --
 --         , responseGetEventSelectors $
 --             newGetEventSelectorsResponse
+--
+--         , responseGetImport $
+--             newGetImportResponse
 --
 --         , responseGetInsightSelectors $
 --             newGetInsightSelectorsResponse
@@ -159,8 +186,17 @@ import Test.Tasty
 --         , responseGetTrailStatus $
 --             newGetTrailStatusResponse
 --
+--         , responseListChannels $
+--             newListChannelsResponse
+--
 --         , responseListEventDataStores $
 --             newListEventDataStoresResponse
+--
+--         , responseListImportFailures $
+--             newListImportFailuresResponse
+--
+--         , responseListImports $
+--             newListImportsResponse
 --
 --         , responseListPublicKeys $
 --             newListPublicKeysResponse
@@ -189,11 +225,17 @@ import Test.Tasty
 --         , responseRestoreEventDataStore $
 --             newRestoreEventDataStoreResponse
 --
+--         , responseStartImport $
+--             newStartImportResponse
+--
 --         , responseStartLogging $
 --             newStartLoggingResponse
 --
 --         , responseStartQuery $
 --             newStartQueryResponse
+--
+--         , responseStopImport $
+--             newStopImportResponse
 --
 --         , responseStopLogging $
 --             newStopLoggingResponse
@@ -257,6 +299,12 @@ requestDescribeTrails =
     "DescribeTrails"
     "fixture/DescribeTrails.yaml"
 
+requestGetChannel :: GetChannel -> TestTree
+requestGetChannel =
+  req
+    "GetChannel"
+    "fixture/GetChannel.yaml"
+
 requestGetEventDataStore :: GetEventDataStore -> TestTree
 requestGetEventDataStore =
   req
@@ -268,6 +316,12 @@ requestGetEventSelectors =
   req
     "GetEventSelectors"
     "fixture/GetEventSelectors.yaml"
+
+requestGetImport :: GetImport -> TestTree
+requestGetImport =
+  req
+    "GetImport"
+    "fixture/GetImport.yaml"
 
 requestGetInsightSelectors :: GetInsightSelectors -> TestTree
 requestGetInsightSelectors =
@@ -293,11 +347,29 @@ requestGetTrailStatus =
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
+requestListChannels :: ListChannels -> TestTree
+requestListChannels =
+  req
+    "ListChannels"
+    "fixture/ListChannels.yaml"
+
 requestListEventDataStores :: ListEventDataStores -> TestTree
 requestListEventDataStores =
   req
     "ListEventDataStores"
     "fixture/ListEventDataStores.yaml"
+
+requestListImportFailures :: ListImportFailures -> TestTree
+requestListImportFailures =
+  req
+    "ListImportFailures"
+    "fixture/ListImportFailures.yaml"
+
+requestListImports :: ListImports -> TestTree
+requestListImports =
+  req
+    "ListImports"
+    "fixture/ListImports.yaml"
 
 requestListPublicKeys :: ListPublicKeys -> TestTree
 requestListPublicKeys =
@@ -353,6 +425,12 @@ requestRestoreEventDataStore =
     "RestoreEventDataStore"
     "fixture/RestoreEventDataStore.yaml"
 
+requestStartImport :: StartImport -> TestTree
+requestStartImport =
+  req
+    "StartImport"
+    "fixture/StartImport.yaml"
+
 requestStartLogging :: StartLogging -> TestTree
 requestStartLogging =
   req
@@ -364,6 +442,12 @@ requestStartQuery =
   req
     "StartQuery"
     "fixture/StartQuery.yaml"
+
+requestStopImport :: StopImport -> TestTree
+requestStopImport =
+  req
+    "StopImport"
+    "fixture/StopImport.yaml"
 
 requestStopLogging :: StopLogging -> TestTree
 requestStopLogging =
@@ -449,6 +533,14 @@ responseDescribeTrails =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTrails)
 
+responseGetChannel :: GetChannelResponse -> TestTree
+responseGetChannel =
+  res
+    "GetChannelResponse"
+    "fixture/GetChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannel)
+
 responseGetEventDataStore :: GetEventDataStoreResponse -> TestTree
 responseGetEventDataStore =
   res
@@ -464,6 +556,14 @@ responseGetEventSelectors =
     "fixture/GetEventSelectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEventSelectors)
+
+responseGetImport :: GetImportResponse -> TestTree
+responseGetImport =
+  res
+    "GetImportResponse"
+    "fixture/GetImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImport)
 
 responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
 responseGetInsightSelectors =
@@ -497,6 +597,14 @@ responseGetTrailStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTrailStatus)
 
+responseListChannels :: ListChannelsResponse -> TestTree
+responseListChannels =
+  res
+    "ListChannelsResponse"
+    "fixture/ListChannelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
+
 responseListEventDataStores :: ListEventDataStoresResponse -> TestTree
 responseListEventDataStores =
   res
@@ -504,6 +612,22 @@ responseListEventDataStores =
     "fixture/ListEventDataStoresResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEventDataStores)
+
+responseListImportFailures :: ListImportFailuresResponse -> TestTree
+responseListImportFailures =
+  res
+    "ListImportFailuresResponse"
+    "fixture/ListImportFailuresResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImportFailures)
+
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports =
+  res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImports)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
 responseListPublicKeys =
@@ -577,6 +701,14 @@ responseRestoreEventDataStore =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreEventDataStore)
 
+responseStartImport :: StartImportResponse -> TestTree
+responseStartImport =
+  res
+    "StartImportResponse"
+    "fixture/StartImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartImport)
+
 responseStartLogging :: StartLoggingResponse -> TestTree
 responseStartLogging =
   res
@@ -592,6 +724,14 @@ responseStartQuery =
     "fixture/StartQueryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartQuery)
+
+responseStopImport :: StopImportResponse -> TestTree
+responseStopImport =
+  res
+    "StopImportResponse"
+    "fixture/StopImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopImport)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
 responseStopLogging =

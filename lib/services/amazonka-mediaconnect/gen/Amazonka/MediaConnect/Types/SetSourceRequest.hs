@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.Types.SetSourceRequest
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,8 @@ data SetSourceRequest = SetSourceRequest'
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Source IP or domain name for SRT-caller protocol.
+    sourceListenerAddress :: Prelude.Maybe Prelude.Text,
     -- | The port that the flow uses to send outbound requests to initiate
     -- connection with the sender.
     senderControlPort :: Prelude.Maybe Prelude.Int,
@@ -77,7 +79,9 @@ data SetSourceRequest = SetSourceRequest'
     -- source or output represents the minimal potential latency of that
     -- connection. The latency of the stream is set to the highest number
     -- between the sender’s minimum latency and the receiver’s minimum latency.
-    minLatency :: Prelude.Maybe Prelude.Int
+    minLatency :: Prelude.Maybe Prelude.Int,
+    -- | Source port for SRT-caller protocol.
+    sourceListenerPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,6 +124,8 @@ data SetSourceRequest = SetSourceRequest'
 -- 'description', 'setSourceRequest_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
 --
+-- 'sourceListenerAddress', 'setSourceRequest_sourceListenerAddress' - Source IP or domain name for SRT-caller protocol.
+--
 -- 'senderControlPort', 'setSourceRequest_senderControlPort' - The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 --
@@ -136,6 +142,8 @@ data SetSourceRequest = SetSourceRequest'
 -- source or output represents the minimal potential latency of that
 -- connection. The latency of the stream is set to the highest number
 -- between the sender’s minimum latency and the receiver’s minimum latency.
+--
+-- 'sourceListenerPort', 'setSourceRequest_sourceListenerPort' - Source port for SRT-caller protocol.
 newSetSourceRequest ::
   SetSourceRequest
 newSetSourceRequest =
@@ -151,11 +159,13 @@ newSetSourceRequest =
       senderIpAddress = Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
+      sourceListenerAddress = Prelude.Nothing,
       senderControlPort = Prelude.Nothing,
       protocol = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
-      minLatency = Prelude.Nothing
+      minLatency = Prelude.Nothing,
+      sourceListenerPort = Prelude.Nothing
     }
 
 -- | The maximum latency in milliseconds. This parameter applies only to
@@ -211,6 +221,10 @@ setSourceRequest_decryption = Lens.lens (\SetSourceRequest' {decryption} -> decr
 setSourceRequest_description :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_description = Lens.lens (\SetSourceRequest' {description} -> description) (\s@SetSourceRequest' {} a -> s {description = a} :: SetSourceRequest)
 
+-- | Source IP or domain name for SRT-caller protocol.
+setSourceRequest_sourceListenerAddress :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
+setSourceRequest_sourceListenerAddress = Lens.lens (\SetSourceRequest' {sourceListenerAddress} -> sourceListenerAddress) (\s@SetSourceRequest' {} a -> s {sourceListenerAddress = a} :: SetSourceRequest)
+
 -- | The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 setSourceRequest_senderControlPort :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
@@ -238,6 +252,10 @@ setSourceRequest_whitelistCidr = Lens.lens (\SetSourceRequest' {whitelistCidr} -
 setSourceRequest_minLatency :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
 setSourceRequest_minLatency = Lens.lens (\SetSourceRequest' {minLatency} -> minLatency) (\s@SetSourceRequest' {} a -> s {minLatency = a} :: SetSourceRequest)
 
+-- | Source port for SRT-caller protocol.
+setSourceRequest_sourceListenerPort :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
+setSourceRequest_sourceListenerPort = Lens.lens (\SetSourceRequest' {sourceListenerPort} -> sourceListenerPort) (\s@SetSourceRequest' {} a -> s {sourceListenerPort = a} :: SetSourceRequest)
+
 instance Prelude.Hashable SetSourceRequest where
   hashWithSalt _salt SetSourceRequest' {..} =
     _salt `Prelude.hashWithSalt` maxLatency
@@ -251,11 +269,13 @@ instance Prelude.Hashable SetSourceRequest where
       `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceListenerAddress
       `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` whitelistCidr
       `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` sourceListenerPort
 
 instance Prelude.NFData SetSourceRequest where
   rnf SetSourceRequest' {..} =
@@ -270,11 +290,13 @@ instance Prelude.NFData SetSourceRequest where
       `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceListenerAddress
       `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf whitelistCidr
       `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf sourceListenerPort
 
 instance Core.ToJSON SetSourceRequest where
   toJSON SetSourceRequest' {..} =
@@ -295,11 +317,15 @@ instance Core.ToJSON SetSourceRequest where
               Prelude.<$> senderIpAddress,
             ("decryption" Core..=) Prelude.<$> decryption,
             ("description" Core..=) Prelude.<$> description,
+            ("sourceListenerAddress" Core..=)
+              Prelude.<$> sourceListenerAddress,
             ("senderControlPort" Core..=)
               Prelude.<$> senderControlPort,
             ("protocol" Core..=) Prelude.<$> protocol,
             ("ingestPort" Core..=) Prelude.<$> ingestPort,
             ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,
-            ("minLatency" Core..=) Prelude.<$> minLatency
+            ("minLatency" Core..=) Prelude.<$> minLatency,
+            ("sourceListenerPort" Core..=)
+              Prelude.<$> sourceListenerPort
           ]
       )

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.LambdaTarget
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the target AWS Lambda function during an AWS Lambda
+-- | Information about the target Lambda function during an Lambda
 -- deployment.
 --
 -- /See:/ 'newLambdaTarget' smart constructor.
@@ -44,7 +44,7 @@ data LambdaTarget = LambdaTarget'
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
     targetArn :: Prelude.Maybe Prelude.Text,
-    -- | The status an AWS Lambda deployment\'s target Lambda function.
+    -- | The status an Lambda deployment\'s target Lambda function.
     status :: Prelude.Maybe TargetStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data LambdaTarget = LambdaTarget'
 --
 -- 'targetArn', 'lambdaTarget_targetArn' - The Amazon Resource Name (ARN) of the target.
 --
--- 'status', 'lambdaTarget_status' - The status an AWS Lambda deployment\'s target Lambda function.
+-- 'status', 'lambdaTarget_status' - The status an Lambda deployment\'s target Lambda function.
 newLambdaTarget ::
   LambdaTarget
 newLambdaTarget =
@@ -109,7 +109,7 @@ lambdaTarget_deploymentId = Lens.lens (\LambdaTarget' {deploymentId} -> deployme
 lambdaTarget_targetArn :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
 lambdaTarget_targetArn = Lens.lens (\LambdaTarget' {targetArn} -> targetArn) (\s@LambdaTarget' {} a -> s {targetArn = a} :: LambdaTarget)
 
--- | The status an AWS Lambda deployment\'s target Lambda function.
+-- | The status an Lambda deployment\'s target Lambda function.
 lambdaTarget_status :: Lens.Lens' LambdaTarget (Prelude.Maybe TargetStatus)
 lambdaTarget_status = Lens.lens (\LambdaTarget' {status} -> status) (\s@LambdaTarget' {} a -> s {status = a} :: LambdaTarget)
 

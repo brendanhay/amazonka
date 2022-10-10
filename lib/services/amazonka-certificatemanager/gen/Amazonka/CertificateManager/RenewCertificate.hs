@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.RenewCertificate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 --
 -- Renews an eligible ACM certificate. At this time, only exported private
 -- certificates can be renewed with this operation. In order to renew your
--- ACM PCA certificates with ACM, you must first
+-- ACM Private CA certificates with ACM, you must first
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html grant the ACM service principal permission to do so>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html Testing Managed Renewal>

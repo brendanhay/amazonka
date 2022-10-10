@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.ListRecommendationFeedback
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListRecommendationFeedback' smart constructor.
 data ListRecommendationFeedback = ListRecommendationFeedback'
   { -- | If @nextToken@ is returned, there are more results available. The value
-    -- of nextToken is a unique pagination token for each page. Make the call
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -92,7 +92,7 @@ data ListRecommendationFeedback = ListRecommendationFeedback'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listRecommendationFeedback_nextToken' - If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 --
@@ -129,7 +129,7 @@ newListRecommendationFeedback pCodeReviewArn_ =
     }
 
 -- | If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 listRecommendationFeedback_nextToken :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe Prelude.Text)
@@ -230,8 +230,8 @@ instance Core.ToQuery ListRecommendationFeedback where
 
 -- | /See:/ 'newListRecommendationFeedbackResponse' smart constructor.
 data ListRecommendationFeedbackResponse = ListRecommendationFeedbackResponse'
-  { -- | If nextToken is returned, there are more results available. The value of
-    -- nextToken is a unique pagination token for each page. Make the call
+  { -- | If @nextToken@ is returned, there are more results available. The value
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -250,8 +250,8 @@ data ListRecommendationFeedbackResponse = ListRecommendationFeedbackResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendationFeedbackResponse_nextToken' - If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
+-- 'nextToken', 'listRecommendationFeedbackResponse_nextToken' - If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 --
@@ -271,8 +271,8 @@ newListRecommendationFeedbackResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
+-- | If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 listRecommendationFeedbackResponse_nextToken :: Lens.Lens' ListRecommendationFeedbackResponse (Prelude.Maybe Prelude.Text)

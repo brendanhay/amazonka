@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutMetrics.DescribeMetricSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,6 +47,7 @@ module Amazonka.LookoutMetrics.DescribeMetricSet
     describeMetricSetResponse_timezone,
     describeMetricSetResponse_offset,
     describeMetricSetResponse_metricSource,
+    describeMetricSetResponse_dimensionFilterList,
     describeMetricSetResponse_dimensionList,
     describeMetricSetResponse_metricSetArn,
     describeMetricSetResponse_metricSetFrequency,
@@ -107,6 +108,9 @@ instance Core.AWSRequest DescribeMetricSet where
             Prelude.<*> (x Core..?> "Timezone")
             Prelude.<*> (x Core..?> "Offset")
             Prelude.<*> (x Core..?> "MetricSource")
+            Prelude.<*> ( x Core..?> "DimensionFilterList"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "DimensionList")
             Prelude.<*> (x Core..?> "MetricSetArn")
             Prelude.<*> (x Core..?> "MetricSetFrequency")
@@ -167,6 +171,8 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
     offset :: Prelude.Maybe Prelude.Natural,
     -- | Contains information about the dataset\'s source data.
     metricSource :: Prelude.Maybe MetricSource,
+    -- | The dimensions and their values that were used to filter the dataset.
+    dimensionFilterList :: Prelude.Maybe [MetricSetDimensionFilter],
     -- | A list of the dimensions chosen for analysis.
     dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARN of the dataset.
@@ -209,6 +215,8 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
 --
 -- 'metricSource', 'describeMetricSetResponse_metricSource' - Contains information about the dataset\'s source data.
 --
+-- 'dimensionFilterList', 'describeMetricSetResponse_dimensionFilterList' - The dimensions and their values that were used to filter the dataset.
+--
 -- 'dimensionList', 'describeMetricSetResponse_dimensionList' - A list of the dimensions chosen for analysis.
 --
 -- 'metricSetArn', 'describeMetricSetResponse_metricSetArn' - The ARN of the dataset.
@@ -235,6 +243,7 @@ newDescribeMetricSetResponse pHttpStatus_ =
       timezone = Prelude.Nothing,
       offset = Prelude.Nothing,
       metricSource = Prelude.Nothing,
+      dimensionFilterList = Prelude.Nothing,
       dimensionList = Prelude.Nothing,
       metricSetArn = Prelude.Nothing,
       metricSetFrequency = Prelude.Nothing,
@@ -278,6 +287,10 @@ describeMetricSetResponse_offset = Lens.lens (\DescribeMetricSetResponse' {offse
 describeMetricSetResponse_metricSource :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe MetricSource)
 describeMetricSetResponse_metricSource = Lens.lens (\DescribeMetricSetResponse' {metricSource} -> metricSource) (\s@DescribeMetricSetResponse' {} a -> s {metricSource = a} :: DescribeMetricSetResponse)
 
+-- | The dimensions and their values that were used to filter the dataset.
+describeMetricSetResponse_dimensionFilterList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe [MetricSetDimensionFilter])
+describeMetricSetResponse_dimensionFilterList = Lens.lens (\DescribeMetricSetResponse' {dimensionFilterList} -> dimensionFilterList) (\s@DescribeMetricSetResponse' {} a -> s {dimensionFilterList = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of the dimensions chosen for analysis.
 describeMetricSetResponse_dimensionList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeMetricSetResponse_dimensionList = Lens.lens (\DescribeMetricSetResponse' {dimensionList} -> dimensionList) (\s@DescribeMetricSetResponse' {} a -> s {dimensionList = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Lens.coerced
@@ -312,6 +325,7 @@ instance Prelude.NFData DescribeMetricSetResponse where
       `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf offset
       `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf dimensionFilterList
       `Prelude.seq` Prelude.rnf dimensionList
       `Prelude.seq` Prelude.rnf metricSetArn
       `Prelude.seq` Prelude.rnf metricSetFrequency

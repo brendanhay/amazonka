@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IAM.ListAccessKeys
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,11 @@
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
--- If the @UserName@ field is not specified, the user name is determined
+-- If the @UserName@ is not specified, the user name is determined
 -- implicitly based on the Amazon Web Services access key ID used to sign
--- the request. This operation works for access keys under the Amazon Web
+-- the request. If a temporary access key is used, then @UserName@ is
+-- required. If a long-term key is assigned to the user, then @UserName@ is
+-- not required. This operation works for access keys under the Amazon Web
 -- Services account. Consequently, you can use this operation to manage
 -- Amazon Web Services account root user credentials even if the Amazon Web
 -- Services account has no associated users.

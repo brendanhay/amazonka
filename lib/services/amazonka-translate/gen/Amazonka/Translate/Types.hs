@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,6 +19,7 @@ module Amazonka.Translate.Types
     -- * Errors
     _ConcurrentModificationException,
     _InternalServerException,
+    _TooManyTagsException,
     _DetectedLanguageLowConfidenceException,
     _ServiceUnavailableException,
     _ResourceNotFoundException,
@@ -132,6 +133,12 @@ module Amazonka.Translate.Types
     parallelDataProperties_importedDataSize,
     parallelDataProperties_createdAt,
 
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+
     -- * Term
     Term (..),
     newTerm,
@@ -226,6 +233,7 @@ import Amazonka.Translate.Types.ParallelDataFormat
 import Amazonka.Translate.Types.ParallelDataProperties
 import Amazonka.Translate.Types.ParallelDataStatus
 import Amazonka.Translate.Types.Profanity
+import Amazonka.Translate.Types.Tag
 import Amazonka.Translate.Types.Term
 import Amazonka.Translate.Types.TerminologyData
 import Amazonka.Translate.Types.TerminologyDataFormat
@@ -319,6 +327,13 @@ _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
+
+-- | Prism for TooManyTagsException' errors.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | The confidence that Amazon Comprehend accurately detected the source
 -- language is low. If a low confidence level is acceptable for your

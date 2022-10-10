@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSO.Types.RoleInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data RoleInfo = RoleInfo'
   { -- | The friendly name of the role that is assigned to the user.
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Web Services account assigned to the user.
+    -- | The identifier of the AWS account assigned to the user.
     accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data RoleInfo = RoleInfo'
 --
 -- 'roleName', 'roleInfo_roleName' - The friendly name of the role that is assigned to the user.
 --
--- 'accountId', 'roleInfo_accountId' - The identifier of the Amazon Web Services account assigned to the user.
+-- 'accountId', 'roleInfo_accountId' - The identifier of the AWS account assigned to the user.
 newRoleInfo ::
   RoleInfo
 newRoleInfo =
@@ -57,7 +57,7 @@ newRoleInfo =
 roleInfo_roleName :: Lens.Lens' RoleInfo (Prelude.Maybe Prelude.Text)
 roleInfo_roleName = Lens.lens (\RoleInfo' {roleName} -> roleName) (\s@RoleInfo' {} a -> s {roleName = a} :: RoleInfo)
 
--- | The identifier of the Amazon Web Services account assigned to the user.
+-- | The identifier of the AWS account assigned to the user.
 roleInfo_accountId :: Lens.Lens' RoleInfo (Prelude.Maybe Prelude.Text)
 roleInfo_accountId = Lens.lens (\RoleInfo' {accountId} -> accountId) (\s@RoleInfo' {} a -> s {accountId = a} :: RoleInfo)
 

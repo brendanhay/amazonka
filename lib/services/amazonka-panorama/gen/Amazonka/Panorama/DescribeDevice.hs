@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Panorama.DescribeDevice
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,9 +46,11 @@ module Amazonka.Panorama.DescribeDevice
     describeDeviceResponse_alternateSoftwares,
     describeDeviceResponse_networkingConfiguration,
     describeDeviceResponse_arn,
+    describeDeviceResponse_latestDeviceJob,
     describeDeviceResponse_description,
     describeDeviceResponse_brand,
     describeDeviceResponse_deviceConnectionStatus,
+    describeDeviceResponse_deviceAggregatedStatus,
     describeDeviceResponse_serialNumber,
     describeDeviceResponse_currentSoftware,
     describeDeviceResponse_latestAlternateSoftware,
@@ -113,9 +115,11 @@ instance Core.AWSRequest DescribeDevice where
                         )
             Prelude.<*> (x Core..?> "NetworkingConfiguration")
             Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "LatestDeviceJob")
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "Brand")
             Prelude.<*> (x Core..?> "DeviceConnectionStatus")
+            Prelude.<*> (x Core..?> "DeviceAggregatedStatus")
             Prelude.<*> (x Core..?> "SerialNumber")
             Prelude.<*> (x Core..?> "CurrentSoftware")
             Prelude.<*> (x Core..?> "LatestAlternateSoftware")
@@ -173,12 +177,18 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     networkingConfiguration :: Prelude.Maybe NetworkPayload,
     -- | The device\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A device\'s latest job. Includes the target image version, and the job
+    -- status.
+    latestDeviceJob :: Prelude.Maybe LatestDeviceJob,
     -- | The device\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The device\'s maker.
     brand :: Prelude.Maybe DeviceBrand,
     -- | The device\'s connection status.
     deviceConnectionStatus :: Prelude.Maybe DeviceConnectionStatus,
+    -- | A device\'s aggregated status. Including the device\'s connection
+    -- status, provisioning status, and lease status.
+    deviceAggregatedStatus :: Prelude.Maybe DeviceAggregatedStatus,
     -- | The device\'s serial number.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The device\'s current software version.
@@ -222,11 +232,17 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 --
 -- 'arn', 'describeDeviceResponse_arn' - The device\'s ARN.
 --
+-- 'latestDeviceJob', 'describeDeviceResponse_latestDeviceJob' - A device\'s latest job. Includes the target image version, and the job
+-- status.
+--
 -- 'description', 'describeDeviceResponse_description' - The device\'s description.
 --
 -- 'brand', 'describeDeviceResponse_brand' - The device\'s maker.
 --
 -- 'deviceConnectionStatus', 'describeDeviceResponse_deviceConnectionStatus' - The device\'s connection status.
+--
+-- 'deviceAggregatedStatus', 'describeDeviceResponse_deviceAggregatedStatus' - A device\'s aggregated status. Including the device\'s connection
+-- status, provisioning status, and lease status.
 --
 -- 'serialNumber', 'describeDeviceResponse_serialNumber' - The device\'s serial number.
 --
@@ -253,9 +269,11 @@ newDescribeDeviceResponse pHttpStatus_ =
       alternateSoftwares = Prelude.Nothing,
       networkingConfiguration = Prelude.Nothing,
       arn = Prelude.Nothing,
+      latestDeviceJob = Prelude.Nothing,
       description = Prelude.Nothing,
       brand = Prelude.Nothing,
       deviceConnectionStatus = Prelude.Nothing,
+      deviceAggregatedStatus = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
       currentSoftware = Prelude.Nothing,
       latestAlternateSoftware = Prelude.Nothing,
@@ -310,6 +328,11 @@ describeDeviceResponse_networkingConfiguration = Lens.lens (\DescribeDeviceRespo
 describeDeviceResponse_arn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_arn = Lens.lens (\DescribeDeviceResponse' {arn} -> arn) (\s@DescribeDeviceResponse' {} a -> s {arn = a} :: DescribeDeviceResponse)
 
+-- | A device\'s latest job. Includes the target image version, and the job
+-- status.
+describeDeviceResponse_latestDeviceJob :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe LatestDeviceJob)
+describeDeviceResponse_latestDeviceJob = Lens.lens (\DescribeDeviceResponse' {latestDeviceJob} -> latestDeviceJob) (\s@DescribeDeviceResponse' {} a -> s {latestDeviceJob = a} :: DescribeDeviceResponse)
+
 -- | The device\'s description.
 describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {description} -> description) (\s@DescribeDeviceResponse' {} a -> s {description = a} :: DescribeDeviceResponse)
@@ -321,6 +344,11 @@ describeDeviceResponse_brand = Lens.lens (\DescribeDeviceResponse' {brand} -> br
 -- | The device\'s connection status.
 describeDeviceResponse_deviceConnectionStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceConnectionStatus)
 describeDeviceResponse_deviceConnectionStatus = Lens.lens (\DescribeDeviceResponse' {deviceConnectionStatus} -> deviceConnectionStatus) (\s@DescribeDeviceResponse' {} a -> s {deviceConnectionStatus = a} :: DescribeDeviceResponse)
+
+-- | A device\'s aggregated status. Including the device\'s connection
+-- status, provisioning status, and lease status.
+describeDeviceResponse_deviceAggregatedStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceAggregatedStatus)
+describeDeviceResponse_deviceAggregatedStatus = Lens.lens (\DescribeDeviceResponse' {deviceAggregatedStatus} -> deviceAggregatedStatus) (\s@DescribeDeviceResponse' {} a -> s {deviceAggregatedStatus = a} :: DescribeDeviceResponse)
 
 -- | The device\'s serial number.
 describeDeviceResponse_serialNumber :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
@@ -352,9 +380,11 @@ instance Prelude.NFData DescribeDeviceResponse where
       `Prelude.seq` Prelude.rnf alternateSoftwares
       `Prelude.seq` Prelude.rnf networkingConfiguration
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestDeviceJob
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf brand
       `Prelude.seq` Prelude.rnf deviceConnectionStatus
+      `Prelude.seq` Prelude.rnf deviceAggregatedStatus
       `Prelude.seq` Prelude.rnf serialNumber
       `Prelude.seq` Prelude.rnf currentSoftware
       `Prelude.seq` Prelude.rnf

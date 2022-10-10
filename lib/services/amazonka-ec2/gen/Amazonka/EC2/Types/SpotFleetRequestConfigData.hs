@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.SpotFleetRequestConfigData
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -133,28 +133,38 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
-    -- | Indicates how to allocate the target Spot Instance capacity across the
-    -- Spot Instance pools specified by the Spot Fleet request.
+    -- | The strategy that determines how to allocate the target Spot Instance
+    -- capacity across the Spot Instance pools specified by the Spot Fleet
+    -- launch configuration. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
-    -- If the allocation strategy is @lowestPrice@, Spot Fleet launches
-    -- instances from the Spot Instance pools with the lowest price. This is
-    -- the default allocation strategy.
+    -- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
+    -- Instance pool that has available capacity. If the cheapest pool doesn\'t
+    -- have available capacity, the Spot Instances come from the next cheapest
+    -- pool that has available capacity. If a pool runs out of capacity before
+    -- fulfilling your desired capacity, Spot Fleet will continue to fulfill
+    -- your request by drawing from the next cheapest pool. To ensure that your
+    -- desired capacity is met, you might receive Spot Instances from several
+    -- pools.
     --
-    -- If the allocation strategy is @diversified@, Spot Fleet launches
-    -- instances from all the Spot Instance pools that you specify.
+    -- @diversified@ - Spot Fleet launches instances from all of the Spot
+    -- Instance pools that you specify.
     --
-    -- If the allocation strategy is @capacityOptimized@ (recommended), Spot
-    -- Fleet launches instances from Spot Instance pools with optimal capacity
-    -- for the number of instances that are launching. To give certain instance
-    -- types a higher chance of launching first, use
-    -- @capacityOptimizedPrioritized@. Set a priority for each instance type by
-    -- using the @Priority@ parameter for @LaunchTemplateOverrides@. You can
-    -- assign the same priority to different @LaunchTemplateOverrides@. EC2
-    -- implements the priorities on a best-effort basis, but optimizes for
-    -- capacity first. @capacityOptimizedPrioritized@ is supported only if your
-    -- Spot Fleet uses a launch template. Note that if the
-    -- @OnDemandAllocationStrategy@ is set to @prioritized@, the same priority
-    -- is applied when fulfilling On-Demand capacity.
+    -- @capacityOptimized@ (recommended) - Spot Fleet launches instances from
+    -- Spot Instance pools with optimal capacity for the number of instances
+    -- that are launching. To give certain instance types a higher chance of
+    -- launching first, use @capacityOptimizedPrioritized@. Set a priority for
+    -- each instance type by using the @Priority@ parameter for
+    -- @LaunchTemplateOverrides@. You can assign the same priority to different
+    -- @LaunchTemplateOverrides@. EC2 implements the priorities on a
+    -- best-effort basis, but optimizes for capacity first.
+    -- @capacityOptimizedPrioritized@ is supported only if your Spot Fleet uses
+    -- a launch template. Note that if the @OnDemandAllocationStrategy@ is set
+    -- to @prioritized@, the same priority is applied when fulfilling On-Demand
+    -- capacity.
+    --
+    -- Default: @lowestPrice@
     allocationStrategy :: Prelude.Maybe AllocationStrategy,
     -- | Indicates whether running Spot Instances are terminated when the Spot
     -- Fleet request expires.
@@ -176,9 +186,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- in the
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
     -- (valid only if you use @LaunchTemplateConfigs@) or in the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>
-    -- (valid only if you use @LaunchSpecifications@). For information about
-    -- tagging after launch, see
+    -- @ SpotFleetTagSpecification @ (valid only if you use
+    -- @LaunchSpecifications@). For information about tagging after launch, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The maximum amount per hour for Spot Instances that you\'re willing to
@@ -321,28 +330,38 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- 'instanceInterruptionBehavior', 'spotFleetRequestConfigData_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
 --
--- 'allocationStrategy', 'spotFleetRequestConfigData_allocationStrategy' - Indicates how to allocate the target Spot Instance capacity across the
--- Spot Instance pools specified by the Spot Fleet request.
+-- 'allocationStrategy', 'spotFleetRequestConfigData_allocationStrategy' - The strategy that determines how to allocate the target Spot Instance
+-- capacity across the Spot Instance pools specified by the Spot Fleet
+-- launch configuration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- If the allocation strategy is @lowestPrice@, Spot Fleet launches
--- instances from the Spot Instance pools with the lowest price. This is
--- the default allocation strategy.
+-- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
+-- Instance pool that has available capacity. If the cheapest pool doesn\'t
+-- have available capacity, the Spot Instances come from the next cheapest
+-- pool that has available capacity. If a pool runs out of capacity before
+-- fulfilling your desired capacity, Spot Fleet will continue to fulfill
+-- your request by drawing from the next cheapest pool. To ensure that your
+-- desired capacity is met, you might receive Spot Instances from several
+-- pools.
 --
--- If the allocation strategy is @diversified@, Spot Fleet launches
--- instances from all the Spot Instance pools that you specify.
+-- @diversified@ - Spot Fleet launches instances from all of the Spot
+-- Instance pools that you specify.
 --
--- If the allocation strategy is @capacityOptimized@ (recommended), Spot
--- Fleet launches instances from Spot Instance pools with optimal capacity
--- for the number of instances that are launching. To give certain instance
--- types a higher chance of launching first, use
--- @capacityOptimizedPrioritized@. Set a priority for each instance type by
--- using the @Priority@ parameter for @LaunchTemplateOverrides@. You can
--- assign the same priority to different @LaunchTemplateOverrides@. EC2
--- implements the priorities on a best-effort basis, but optimizes for
--- capacity first. @capacityOptimizedPrioritized@ is supported only if your
--- Spot Fleet uses a launch template. Note that if the
--- @OnDemandAllocationStrategy@ is set to @prioritized@, the same priority
--- is applied when fulfilling On-Demand capacity.
+-- @capacityOptimized@ (recommended) - Spot Fleet launches instances from
+-- Spot Instance pools with optimal capacity for the number of instances
+-- that are launching. To give certain instance types a higher chance of
+-- launching first, use @capacityOptimizedPrioritized@. Set a priority for
+-- each instance type by using the @Priority@ parameter for
+-- @LaunchTemplateOverrides@. You can assign the same priority to different
+-- @LaunchTemplateOverrides@. EC2 implements the priorities on a
+-- best-effort basis, but optimizes for capacity first.
+-- @capacityOptimizedPrioritized@ is supported only if your Spot Fleet uses
+-- a launch template. Note that if the @OnDemandAllocationStrategy@ is set
+-- to @prioritized@, the same priority is applied when fulfilling On-Demand
+-- capacity.
+--
+-- Default: @lowestPrice@
 --
 -- 'terminateInstancesWithExpiration', 'spotFleetRequestConfigData_terminateInstancesWithExpiration' - Indicates whether running Spot Instances are terminated when the Spot
 -- Fleet request expires.
@@ -364,9 +383,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>
--- (valid only if you use @LaunchSpecifications@). For information about
--- tagging after launch, see
+-- @ SpotFleetTagSpecification @ (valid only if you use
+-- @LaunchSpecifications@). For information about tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 --
 -- 'spotMaxTotalPrice', 'spotFleetRequestConfigData_spotMaxTotalPrice' - The maximum amount per hour for Spot Instances that you\'re willing to
@@ -571,28 +589,38 @@ spotFleetRequestConfigData_targetCapacityUnitType = Lens.lens (\SpotFleetRequest
 spotFleetRequestConfigData_instanceInterruptionBehavior :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe InstanceInterruptionBehavior)
 spotFleetRequestConfigData_instanceInterruptionBehavior = Lens.lens (\SpotFleetRequestConfigData' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotFleetRequestConfigData' {} a -> s {instanceInterruptionBehavior = a} :: SpotFleetRequestConfigData)
 
--- | Indicates how to allocate the target Spot Instance capacity across the
--- Spot Instance pools specified by the Spot Fleet request.
+-- | The strategy that determines how to allocate the target Spot Instance
+-- capacity across the Spot Instance pools specified by the Spot Fleet
+-- launch configuration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- If the allocation strategy is @lowestPrice@, Spot Fleet launches
--- instances from the Spot Instance pools with the lowest price. This is
--- the default allocation strategy.
+-- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
+-- Instance pool that has available capacity. If the cheapest pool doesn\'t
+-- have available capacity, the Spot Instances come from the next cheapest
+-- pool that has available capacity. If a pool runs out of capacity before
+-- fulfilling your desired capacity, Spot Fleet will continue to fulfill
+-- your request by drawing from the next cheapest pool. To ensure that your
+-- desired capacity is met, you might receive Spot Instances from several
+-- pools.
 --
--- If the allocation strategy is @diversified@, Spot Fleet launches
--- instances from all the Spot Instance pools that you specify.
+-- @diversified@ - Spot Fleet launches instances from all of the Spot
+-- Instance pools that you specify.
 --
--- If the allocation strategy is @capacityOptimized@ (recommended), Spot
--- Fleet launches instances from Spot Instance pools with optimal capacity
--- for the number of instances that are launching. To give certain instance
--- types a higher chance of launching first, use
--- @capacityOptimizedPrioritized@. Set a priority for each instance type by
--- using the @Priority@ parameter for @LaunchTemplateOverrides@. You can
--- assign the same priority to different @LaunchTemplateOverrides@. EC2
--- implements the priorities on a best-effort basis, but optimizes for
--- capacity first. @capacityOptimizedPrioritized@ is supported only if your
--- Spot Fleet uses a launch template. Note that if the
--- @OnDemandAllocationStrategy@ is set to @prioritized@, the same priority
--- is applied when fulfilling On-Demand capacity.
+-- @capacityOptimized@ (recommended) - Spot Fleet launches instances from
+-- Spot Instance pools with optimal capacity for the number of instances
+-- that are launching. To give certain instance types a higher chance of
+-- launching first, use @capacityOptimizedPrioritized@. Set a priority for
+-- each instance type by using the @Priority@ parameter for
+-- @LaunchTemplateOverrides@. You can assign the same priority to different
+-- @LaunchTemplateOverrides@. EC2 implements the priorities on a
+-- best-effort basis, but optimizes for capacity first.
+-- @capacityOptimizedPrioritized@ is supported only if your Spot Fleet uses
+-- a launch template. Note that if the @OnDemandAllocationStrategy@ is set
+-- to @prioritized@, the same priority is applied when fulfilling On-Demand
+-- capacity.
+--
+-- Default: @lowestPrice@
 spotFleetRequestConfigData_allocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe AllocationStrategy)
 spotFleetRequestConfigData_allocationStrategy = Lens.lens (\SpotFleetRequestConfigData' {allocationStrategy} -> allocationStrategy) (\s@SpotFleetRequestConfigData' {} a -> s {allocationStrategy = a} :: SpotFleetRequestConfigData)
 
@@ -622,9 +650,8 @@ spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' 
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>
--- (valid only if you use @LaunchSpecifications@). For information about
--- tagging after launch, see
+-- @ SpotFleetTagSpecification @ (valid only if you use
+-- @LaunchSpecifications@). For information about tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 spotFleetRequestConfigData_tagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [TagSpecification])
 spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfigData' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens.coerced

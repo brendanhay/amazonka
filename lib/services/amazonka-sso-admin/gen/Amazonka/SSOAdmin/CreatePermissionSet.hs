@@ -14,17 +14,17 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.CreatePermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a permission set within a specified Amazon Web Services SSO
+-- Creates a permission set within a specified IAM Identity Center
 -- instance.
 --
--- To grant users and groups access to Amazon Web Services account
--- resources, use @ CreateAccountAssignment @.
+-- To grant users and groups access to AWS account resources, use
+-- @ CreateAccountAssignment @.
 module Amazonka.SSOAdmin.CreatePermissionSet
   ( -- * Creating a Request
     CreatePermissionSet (..),
@@ -69,10 +69,10 @@ data CreatePermissionSet = CreatePermissionSet'
     relayState :: Prelude.Maybe Prelude.Text,
     -- | The name of the PermissionSet.
     name :: Prelude.Text,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,10 +97,10 @@ data CreatePermissionSet = CreatePermissionSet'
 --
 -- 'name', 'createPermissionSet_name' - The name of the PermissionSet.
 --
--- 'instanceArn', 'createPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'createPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 newCreatePermissionSet ::
   -- | 'name'
   Prelude.Text ->
@@ -139,10 +139,10 @@ createPermissionSet_relayState = Lens.lens (\CreatePermissionSet' {relayState} -
 createPermissionSet_name :: Lens.Lens' CreatePermissionSet Prelude.Text
 createPermissionSet_name = Lens.lens (\CreatePermissionSet' {name} -> name) (\s@CreatePermissionSet' {} a -> s {name = a} :: CreatePermissionSet)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 createPermissionSet_instanceArn :: Lens.Lens' CreatePermissionSet Prelude.Text
 createPermissionSet_instanceArn = Lens.lens (\CreatePermissionSet' {instanceArn} -> instanceArn) (\s@CreatePermissionSet' {} a -> s {instanceArn = a} :: CreatePermissionSet)
 
@@ -214,7 +214,7 @@ instance Core.ToQuery CreatePermissionSet where
 
 -- | /See:/ 'newCreatePermissionSetResponse' smart constructor.
 data CreatePermissionSetResponse = CreatePermissionSetResponse'
-  { -- | Defines the level of access on an Amazon Web Services account.
+  { -- | Defines the level of access on an AWS account.
     permissionSet :: Prelude.Maybe PermissionSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -229,7 +229,7 @@ data CreatePermissionSetResponse = CreatePermissionSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionSet', 'createPermissionSetResponse_permissionSet' - Defines the level of access on an Amazon Web Services account.
+-- 'permissionSet', 'createPermissionSetResponse_permissionSet' - Defines the level of access on an AWS account.
 --
 -- 'httpStatus', 'createPermissionSetResponse_httpStatus' - The response's http status code.
 newCreatePermissionSetResponse ::
@@ -243,7 +243,7 @@ newCreatePermissionSetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Defines the level of access on an Amazon Web Services account.
+-- | Defines the level of access on an AWS account.
 createPermissionSetResponse_permissionSet :: Lens.Lens' CreatePermissionSetResponse (Prelude.Maybe PermissionSet)
 createPermissionSetResponse_permissionSet = Lens.lens (\CreatePermissionSetResponse' {permissionSet} -> permissionSet) (\s@CreatePermissionSetResponse' {} a -> s {permissionSet = a} :: CreatePermissionSetResponse)
 

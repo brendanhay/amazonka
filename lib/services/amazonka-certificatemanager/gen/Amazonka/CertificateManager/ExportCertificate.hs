@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.ExportCertificate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,9 +64,15 @@ data ExportCertificate = ExportCertificate'
     --
     -- @arn:aws:acm:region:account:certificate\/12345678-1234-1234-1234-123456789012@
     certificateArn :: Prelude.Text,
-    -- | Passphrase to associate with the encrypted exported private key. If you
-    -- want to later decrypt the private key, you must have the passphrase. You
-    -- can use the following OpenSSL command to decrypt a private key:
+    -- | Passphrase to associate with the encrypted exported private key.
+    --
+    -- When creating your passphrase, you can use any ASCII character except #,
+    -- \$, or %.
+    --
+    -- If you want to later decrypt the private key, you must have the
+    -- passphrase. You can use the following OpenSSL command to decrypt a
+    -- private key. After entering the command, you are prompted for the
+    -- passphrase.
     --
     -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
     passphrase :: Core.Sensitive Core.Base64
@@ -86,9 +92,15 @@ data ExportCertificate = ExportCertificate'
 --
 -- @arn:aws:acm:region:account:certificate\/12345678-1234-1234-1234-123456789012@
 --
--- 'passphrase', 'exportCertificate_passphrase' - Passphrase to associate with the encrypted exported private key. If you
--- want to later decrypt the private key, you must have the passphrase. You
--- can use the following OpenSSL command to decrypt a private key:
+-- 'passphrase', 'exportCertificate_passphrase' - Passphrase to associate with the encrypted exported private key.
+--
+-- When creating your passphrase, you can use any ASCII character except #,
+-- \$, or %.
+--
+-- If you want to later decrypt the private key, you must have the
+-- passphrase. You can use the following OpenSSL command to decrypt a
+-- private key. After entering the command, you are prompted for the
+-- passphrase.
 --
 -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -117,9 +129,15 @@ newExportCertificate pCertificateArn_ pPassphrase_ =
 exportCertificate_certificateArn :: Lens.Lens' ExportCertificate Prelude.Text
 exportCertificate_certificateArn = Lens.lens (\ExportCertificate' {certificateArn} -> certificateArn) (\s@ExportCertificate' {} a -> s {certificateArn = a} :: ExportCertificate)
 
--- | Passphrase to associate with the encrypted exported private key. If you
--- want to later decrypt the private key, you must have the passphrase. You
--- can use the following OpenSSL command to decrypt a private key:
+-- | Passphrase to associate with the encrypted exported private key.
+--
+-- When creating your passphrase, you can use any ASCII character except #,
+-- \$, or %.
+--
+-- If you want to later decrypt the private key, you must have the
+-- passphrase. You can use the following OpenSSL command to decrypt a
+-- private key. After entering the command, you are prompted for the
+-- passphrase.
 --
 -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.

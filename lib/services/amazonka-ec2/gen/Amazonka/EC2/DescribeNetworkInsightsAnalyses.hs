@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeNetworkInsightsAnalyses
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,10 +62,10 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filters. The following are the possible values:
     --
-    -- -   PathFound - A Boolean value that indicates whether a feasible path
+    -- -   path-found - A Boolean value that indicates whether a feasible path
     --     is found.
     --
-    -- -   Status - The status of the analysis (running | succeeded | failed).
+    -- -   status - The status of the analysis (running | succeeded | failed).
     filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -100,10 +100,10 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
 --
 -- 'filters', 'describeNetworkInsightsAnalyses_filters' - The filters. The following are the possible values:
 --
--- -   PathFound - A Boolean value that indicates whether a feasible path
+-- -   path-found - A Boolean value that indicates whether a feasible path
 --     is found.
 --
--- -   Status - The status of the analysis (running | succeeded | failed).
+-- -   status - The status of the analysis (running | succeeded | failed).
 --
 -- 'dryRun', 'describeNetworkInsightsAnalyses_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -144,10 +144,10 @@ describeNetworkInsightsAnalyses_nextToken = Lens.lens (\DescribeNetworkInsightsA
 
 -- | The filters. The following are the possible values:
 --
--- -   PathFound - A Boolean value that indicates whether a feasible path
+-- -   path-found - A Boolean value that indicates whether a feasible path
 --     is found.
 --
--- -   Status - The status of the analysis (running | succeeded | failed).
+-- -   status - The status of the analysis (running | succeeded | failed).
 describeNetworkInsightsAnalyses_filters :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe [Filter])
 describeNetworkInsightsAnalyses_filters = Lens.lens (\DescribeNetworkInsightsAnalyses' {filters} -> filters) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {filters = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Lens.coerced
 

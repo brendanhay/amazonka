@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.ListMobileDeviceAccessRules
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the mobile device access rules for the specified Amazon WorkMail
+-- Lists the mobile device access rules for the specified WorkMail
 -- organization.
 module Amazonka.WorkMail.ListMobileDeviceAccessRules
   ( -- * Creating a Request
@@ -49,7 +49,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMobileDeviceAccessRules' smart constructor.
 data ListMobileDeviceAccessRules = ListMobileDeviceAccessRules'
-  { -- | The Amazon WorkMail organization for which to list the rules.
+  { -- | The WorkMail organization for which to list the rules.
     organizationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data ListMobileDeviceAccessRules = ListMobileDeviceAccessRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'listMobileDeviceAccessRules_organizationId' - The Amazon WorkMail organization for which to list the rules.
+-- 'organizationId', 'listMobileDeviceAccessRules_organizationId' - The WorkMail organization for which to list the rules.
 newListMobileDeviceAccessRules ::
   -- | 'organizationId'
   Prelude.Text ->
@@ -73,7 +73,7 @@ newListMobileDeviceAccessRules pOrganizationId_ =
         pOrganizationId_
     }
 
--- | The Amazon WorkMail organization for which to list the rules.
+-- | The WorkMail organization for which to list the rules.
 listMobileDeviceAccessRules_organizationId :: Lens.Lens' ListMobileDeviceAccessRules Prelude.Text
 listMobileDeviceAccessRules_organizationId = Lens.lens (\ListMobileDeviceAccessRules' {organizationId} -> organizationId) (\s@ListMobileDeviceAccessRules' {} a -> s {organizationId = a} :: ListMobileDeviceAccessRules)
 
@@ -131,7 +131,7 @@ instance Core.ToQuery ListMobileDeviceAccessRules where
 -- | /See:/ 'newListMobileDeviceAccessRulesResponse' smart constructor.
 data ListMobileDeviceAccessRulesResponse = ListMobileDeviceAccessRulesResponse'
   { -- | The list of mobile device access rules that exist under the specified
-    -- Amazon WorkMail organization.
+    -- WorkMail organization.
     rules :: Prelude.Maybe [MobileDeviceAccessRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -147,7 +147,7 @@ data ListMobileDeviceAccessRulesResponse = ListMobileDeviceAccessRulesResponse'
 -- for backwards compatibility:
 --
 -- 'rules', 'listMobileDeviceAccessRulesResponse_rules' - The list of mobile device access rules that exist under the specified
--- Amazon WorkMail organization.
+-- WorkMail organization.
 --
 -- 'httpStatus', 'listMobileDeviceAccessRulesResponse_httpStatus' - The response's http status code.
 newListMobileDeviceAccessRulesResponse ::
@@ -162,7 +162,7 @@ newListMobileDeviceAccessRulesResponse pHttpStatus_ =
     }
 
 -- | The list of mobile device access rules that exist under the specified
--- Amazon WorkMail organization.
+-- WorkMail organization.
 listMobileDeviceAccessRulesResponse_rules :: Lens.Lens' ListMobileDeviceAccessRulesResponse (Prelude.Maybe [MobileDeviceAccessRule])
 listMobileDeviceAccessRulesResponse_rules = Lens.lens (\ListMobileDeviceAccessRulesResponse' {rules} -> rules) (\s@ListMobileDeviceAccessRulesResponse' {} a -> s {rules = a} :: ListMobileDeviceAccessRulesResponse) Prelude.. Lens.mapping Lens.coerced
 

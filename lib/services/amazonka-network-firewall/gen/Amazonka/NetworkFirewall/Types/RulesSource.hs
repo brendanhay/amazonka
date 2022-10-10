@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkFirewall.Types.RulesSource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ data RulesSource = RulesSource'
     -- together in a stateful rule group. Use this option to specify simple
     -- Suricata rules with protocol, source and destination, ports, direction,
     -- and rule options. For information about the Suricata @Rules@ format, see
-    -- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
+    -- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
     statefulRules :: Prelude.Maybe [StatefulRule],
     -- | Stateful inspection criteria for a domain list rule group.
     rulesSourceList :: Prelude.Maybe RulesSourceList,
@@ -75,7 +75,7 @@ data RulesSource = RulesSource'
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
 -- and rule options. For information about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
 --
 -- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.
 --
@@ -105,7 +105,7 @@ rulesSource_rulesString = Lens.lens (\RulesSource' {rulesString} -> rulesString)
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
 -- and rule options. For information about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
 rulesSource_statefulRules :: Lens.Lens' RulesSource (Prelude.Maybe [StatefulRule])
 rulesSource_statefulRules = Lens.lens (\RulesSource' {statefulRules} -> statefulRules) (\s@RulesSource' {} a -> s {statefulRules = a} :: RulesSource) Prelude.. Lens.mapping Lens.coerced
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.GetRepositorySyncStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@
 -- control (ABAC).
 --
 -- For more information about ABAC, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags ABAC>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags ABAC>
+-- in the /Proton User Guide/.
 module Amazonka.Proton.GetRepositorySyncStatus
   ( -- * Creating a Request
     GetRepositorySyncStatus (..),

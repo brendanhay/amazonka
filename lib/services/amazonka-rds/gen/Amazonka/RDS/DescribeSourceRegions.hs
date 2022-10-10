@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.DescribeSourceRegions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,17 @@
 --
 -- Returns a list of the source Amazon Web Services Regions where the
 -- current Amazon Web Services Region can create a read replica, copy a DB
--- snapshot from, or replicate automated backups from. This API action
+-- snapshot from, or replicate automated backups from.
+--
+-- Use this operation to determine whether cross-Region features are
+-- supported between other Regions and your current Region. This operation
 -- supports pagination.
+--
+-- To return information about the Regions that are enabled for your
+-- account, or all Regions, use the EC2 operation @DescribeRegions@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRegions.html DescribeRegions>
+-- in the /Amazon EC2 API Reference/.
 --
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeSourceRegions

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.RepositoryBranchInput
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
--- | Detail input data for a repository branch.
+-- | Detail input data for a linked repository branch.
 --
 -- /See:/ 'newRepositoryBranchInput' smart constructor.
 data RepositoryBranchInput = RepositoryBranchInput'

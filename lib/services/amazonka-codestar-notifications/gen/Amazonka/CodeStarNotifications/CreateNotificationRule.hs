@@ -14,15 +14,16 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.CreateNotificationRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a notification rule for a resource. The rule specifies the
--- events you want notifications about and the targets (such as SNS topics)
--- where you want to receive them.
+-- events you want notifications about and the targets (such as Chatbot
+-- topics or Chatbot clients configured for Slack) where you want to
+-- receive them.
 module Amazonka.CodeStarNotifications.CreateNotificationRule
   ( -- * Creating a Request
     CreateNotificationRule (..),
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateNotificationRule' smart constructor.
 data CreateNotificationRule = CreateNotificationRule'
   { -- | A list of tags to apply to this notification rule. Key names cannot
-    -- start with \"aws\".
+    -- start with \"@aws@\".
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
@@ -66,32 +67,34 @@ data CreateNotificationRule = CreateNotificationRule'
     -- is included, the request returns information about the initial request
     -- that used that token.
     --
-    -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
-    -- SDK, an idempotency token is created for you.
+    -- The Amazon Web Services SDKs prepopulate client request tokens. If you
+    -- are using an Amazon Web Services SDK, an idempotency token is created
+    -- for you.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The status of the notification rule. The default value is ENABLED. If
-    -- the status is set to DISABLED, notifications aren\'t sent for the
+    -- | The status of the notification rule. The default value is @ENABLED@. If
+    -- the status is set to @DISABLED@, notifications aren\'t sent for the
     -- notification rule.
     status :: Prelude.Maybe NotificationRuleStatus,
-    -- | The name for the notification rule. Notifictaion rule names must be
-    -- unique in your AWS account.
+    -- | The name for the notification rule. Notification rule names must be
+    -- unique in your Amazon Web Services account.
     name :: Core.Sensitive Prelude.Text,
     -- | A list of event types associated with this notification rule. For a list
     -- of allowed events, see EventTypeSummary.
     eventTypeIds :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the resource to associate with the
-    -- notification rule. Supported resources include pipelines in AWS
-    -- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS
+    -- notification rule. Supported resources include pipelines in
+    -- CodePipeline, repositories in CodeCommit, and build projects in
     -- CodeBuild.
     resource :: Prelude.Text,
-    -- | A list of Amazon Resource Names (ARNs) of SNS topics to associate with
-    -- the notification rule.
+    -- | A list of Amazon Resource Names (ARNs) of Amazon Simple Notification
+    -- Service topics and Chatbot clients to associate with the notification
+    -- rule.
     targets :: [Target],
     -- | The level of detail to include in the notifications for this resource.
-    -- BASIC will include only the contents of the event as it would appear in
-    -- AWS CloudWatch. FULL will include any supplemental information provided
-    -- by AWS CodeStar Notifications and\/or the service for the resource for
-    -- which the notification is created.
+    -- @BASIC@ will include only the contents of the event as it would appear
+    -- in Amazon CloudWatch. @FULL@ will include any supplemental information
+    -- provided by AWS CodeStar Notifications and\/or the service for the
+    -- resource for which the notification is created.
     detailType :: DetailType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -105,7 +108,7 @@ data CreateNotificationRule = CreateNotificationRule'
 -- for backwards compatibility:
 --
 -- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot
--- start with \"aws\".
+-- start with \"@aws@\".
 --
 -- 'clientRequestToken', 'createNotificationRule_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -113,32 +116,34 @@ data CreateNotificationRule = CreateNotificationRule'
 -- is included, the request returns information about the initial request
 -- that used that token.
 --
--- The AWS SDKs prepopulate client request tokens. If you are using an AWS
--- SDK, an idempotency token is created for you.
+-- The Amazon Web Services SDKs prepopulate client request tokens. If you
+-- are using an Amazon Web Services SDK, an idempotency token is created
+-- for you.
 --
--- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is ENABLED. If
--- the status is set to DISABLED, notifications aren\'t sent for the
+-- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is @ENABLED@. If
+-- the status is set to @DISABLED@, notifications aren\'t sent for the
 -- notification rule.
 --
--- 'name', 'createNotificationRule_name' - The name for the notification rule. Notifictaion rule names must be
--- unique in your AWS account.
+-- 'name', 'createNotificationRule_name' - The name for the notification rule. Notification rule names must be
+-- unique in your Amazon Web Services account.
 --
 -- 'eventTypeIds', 'createNotificationRule_eventTypeIds' - A list of event types associated with this notification rule. For a list
 -- of allowed events, see EventTypeSummary.
 --
 -- 'resource', 'createNotificationRule_resource' - The Amazon Resource Name (ARN) of the resource to associate with the
--- notification rule. Supported resources include pipelines in AWS
--- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS
+-- notification rule. Supported resources include pipelines in
+-- CodePipeline, repositories in CodeCommit, and build projects in
 -- CodeBuild.
 --
--- 'targets', 'createNotificationRule_targets' - A list of Amazon Resource Names (ARNs) of SNS topics to associate with
--- the notification rule.
+-- 'targets', 'createNotificationRule_targets' - A list of Amazon Resource Names (ARNs) of Amazon Simple Notification
+-- Service topics and Chatbot clients to associate with the notification
+-- rule.
 --
 -- 'detailType', 'createNotificationRule_detailType' - The level of detail to include in the notifications for this resource.
--- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- @BASIC@ will include only the contents of the event as it would appear
+-- in Amazon CloudWatch. @FULL@ will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 newCreateNotificationRule ::
   -- | 'name'
   Prelude.Text ->
@@ -163,7 +168,7 @@ newCreateNotificationRule
       }
 
 -- | A list of tags to apply to this notification rule. Key names cannot
--- start with \"aws\".
+-- start with \"@aws@\".
 createNotificationRule_tags :: Lens.Lens' CreateNotificationRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags) (\s@CreateNotificationRule' {} a -> s {tags = a} :: CreateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 
@@ -173,19 +178,20 @@ createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags
 -- is included, the request returns information about the initial request
 -- that used that token.
 --
--- The AWS SDKs prepopulate client request tokens. If you are using an AWS
--- SDK, an idempotency token is created for you.
+-- The Amazon Web Services SDKs prepopulate client request tokens. If you
+-- are using an Amazon Web Services SDK, an idempotency token is created
+-- for you.
 createNotificationRule_clientRequestToken :: Lens.Lens' CreateNotificationRule (Prelude.Maybe Prelude.Text)
 createNotificationRule_clientRequestToken = Lens.lens (\CreateNotificationRule' {clientRequestToken} -> clientRequestToken) (\s@CreateNotificationRule' {} a -> s {clientRequestToken = a} :: CreateNotificationRule)
 
--- | The status of the notification rule. The default value is ENABLED. If
--- the status is set to DISABLED, notifications aren\'t sent for the
+-- | The status of the notification rule. The default value is @ENABLED@. If
+-- the status is set to @DISABLED@, notifications aren\'t sent for the
 -- notification rule.
 createNotificationRule_status :: Lens.Lens' CreateNotificationRule (Prelude.Maybe NotificationRuleStatus)
 createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> status) (\s@CreateNotificationRule' {} a -> s {status = a} :: CreateNotificationRule)
 
--- | The name for the notification rule. Notifictaion rule names must be
--- unique in your AWS account.
+-- | The name for the notification rule. Notification rule names must be
+-- unique in your Amazon Web Services account.
 createNotificationRule_name :: Lens.Lens' CreateNotificationRule Prelude.Text
 createNotificationRule_name = Lens.lens (\CreateNotificationRule' {name} -> name) (\s@CreateNotificationRule' {} a -> s {name = a} :: CreateNotificationRule) Prelude.. Core._Sensitive
 
@@ -195,22 +201,23 @@ createNotificationRule_eventTypeIds :: Lens.Lens' CreateNotificationRule [Prelud
 createNotificationRule_eventTypeIds = Lens.lens (\CreateNotificationRule' {eventTypeIds} -> eventTypeIds) (\s@CreateNotificationRule' {} a -> s {eventTypeIds = a} :: CreateNotificationRule) Prelude.. Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource to associate with the
--- notification rule. Supported resources include pipelines in AWS
--- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS
+-- notification rule. Supported resources include pipelines in
+-- CodePipeline, repositories in CodeCommit, and build projects in
 -- CodeBuild.
 createNotificationRule_resource :: Lens.Lens' CreateNotificationRule Prelude.Text
 createNotificationRule_resource = Lens.lens (\CreateNotificationRule' {resource} -> resource) (\s@CreateNotificationRule' {} a -> s {resource = a} :: CreateNotificationRule)
 
--- | A list of Amazon Resource Names (ARNs) of SNS topics to associate with
--- the notification rule.
+-- | A list of Amazon Resource Names (ARNs) of Amazon Simple Notification
+-- Service topics and Chatbot clients to associate with the notification
+-- rule.
 createNotificationRule_targets :: Lens.Lens' CreateNotificationRule [Target]
 createNotificationRule_targets = Lens.lens (\CreateNotificationRule' {targets} -> targets) (\s@CreateNotificationRule' {} a -> s {targets = a} :: CreateNotificationRule) Prelude.. Lens.coerced
 
 -- | The level of detail to include in the notifications for this resource.
--- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- @BASIC@ will include only the contents of the event as it would appear
+-- in Amazon CloudWatch. @FULL@ will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 createNotificationRule_detailType :: Lens.Lens' CreateNotificationRule DetailType
 createNotificationRule_detailType = Lens.lens (\CreateNotificationRule' {detailType} -> detailType) (\s@CreateNotificationRule' {} a -> s {detailType = a} :: CreateNotificationRule)
 

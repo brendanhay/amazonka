@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.RecommendationJobInputConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointInputConfiguration
+import Amazonka.SageMaker.Types.RecommendationJobContainerConfig
 import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
 import Amazonka.SageMaker.Types.TrafficPattern
 
@@ -73,6 +74,10 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
     endpointConfigurations :: Prelude.Maybe (Prelude.NonEmpty EndpointInputConfiguration),
     -- | Defines the resource limit of the job.
     resourceLimit :: Prelude.Maybe RecommendationJobResourceLimit,
+    -- | Specifies mandatory fields for running an Inference Recommender job. The
+    -- fields specified in @ContainerConfig@ override the corresponding fields
+    -- in the model package.
+    containerConfig :: Prelude.Maybe RecommendationJobContainerConfig,
     -- | The Amazon Resource Name (ARN) of a versioned model package.
     modelPackageVersionArn :: Prelude.Text
   }
@@ -129,6 +134,10 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
 --
 -- 'resourceLimit', 'recommendationJobInputConfig_resourceLimit' - Defines the resource limit of the job.
 --
+-- 'containerConfig', 'recommendationJobInputConfig_containerConfig' - Specifies mandatory fields for running an Inference Recommender job. The
+-- fields specified in @ContainerConfig@ override the corresponding fields
+-- in the model package.
+--
 -- 'modelPackageVersionArn', 'recommendationJobInputConfig_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package.
 newRecommendationJobInputConfig ::
   -- | 'modelPackageVersionArn'
@@ -143,6 +152,7 @@ newRecommendationJobInputConfig
         volumeKmsKeyId = Prelude.Nothing,
         endpointConfigurations = Prelude.Nothing,
         resourceLimit = Prelude.Nothing,
+        containerConfig = Prelude.Nothing,
         modelPackageVersionArn =
           pModelPackageVersionArn_
       }
@@ -200,6 +210,12 @@ recommendationJobInputConfig_endpointConfigurations = Lens.lens (\Recommendation
 recommendationJobInputConfig_resourceLimit :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe RecommendationJobResourceLimit)
 recommendationJobInputConfig_resourceLimit = Lens.lens (\RecommendationJobInputConfig' {resourceLimit} -> resourceLimit) (\s@RecommendationJobInputConfig' {} a -> s {resourceLimit = a} :: RecommendationJobInputConfig)
 
+-- | Specifies mandatory fields for running an Inference Recommender job. The
+-- fields specified in @ContainerConfig@ override the corresponding fields
+-- in the model package.
+recommendationJobInputConfig_containerConfig :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe RecommendationJobContainerConfig)
+recommendationJobInputConfig_containerConfig = Lens.lens (\RecommendationJobInputConfig' {containerConfig} -> containerConfig) (\s@RecommendationJobInputConfig' {} a -> s {containerConfig = a} :: RecommendationJobInputConfig)
+
 -- | The Amazon Resource Name (ARN) of a versioned model package.
 recommendationJobInputConfig_modelPackageVersionArn :: Lens.Lens' RecommendationJobInputConfig Prelude.Text
 recommendationJobInputConfig_modelPackageVersionArn = Lens.lens (\RecommendationJobInputConfig' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@RecommendationJobInputConfig' {} a -> s {modelPackageVersionArn = a} :: RecommendationJobInputConfig)
@@ -215,6 +231,7 @@ instance Core.FromJSON RecommendationJobInputConfig where
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "EndpointConfigurations")
             Prelude.<*> (x Core..:? "ResourceLimit")
+            Prelude.<*> (x Core..:? "ContainerConfig")
             Prelude.<*> (x Core..: "ModelPackageVersionArn")
       )
 
@@ -228,6 +245,7 @@ instance
       `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` resourceLimit
+      `Prelude.hashWithSalt` containerConfig
       `Prelude.hashWithSalt` modelPackageVersionArn
 
 instance Prelude.NFData RecommendationJobInputConfig where
@@ -237,6 +255,7 @@ instance Prelude.NFData RecommendationJobInputConfig where
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf endpointConfigurations
       `Prelude.seq` Prelude.rnf resourceLimit
+      `Prelude.seq` Prelude.rnf containerConfig
       `Prelude.seq` Prelude.rnf modelPackageVersionArn
 
 instance Core.ToJSON RecommendationJobInputConfig where
@@ -252,6 +271,8 @@ instance Core.ToJSON RecommendationJobInputConfig where
             ("EndpointConfigurations" Core..=)
               Prelude.<$> endpointConfigurations,
             ("ResourceLimit" Core..=) Prelude.<$> resourceLimit,
+            ("ContainerConfig" Core..=)
+              Prelude.<$> containerConfig,
             Prelude.Just
               ( "ModelPackageVersionArn"
                   Core..= modelPackageVersionArn

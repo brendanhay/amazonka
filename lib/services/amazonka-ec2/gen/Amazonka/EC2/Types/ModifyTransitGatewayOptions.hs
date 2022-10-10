@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.ModifyTransitGatewayOptions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,10 @@ data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
     -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
     -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
     -- 4294967294 for 32-bit ASNs.
+    --
+    -- The modify ASN operation is not allowed on a transit gateway with active
+    -- BGP sessions. You must first delete all transit gateway attachments that
+    -- have BGP configured prior to modifying the ASN on the transit gateway.
     amazonSideAsn :: Prelude.Maybe Prelude.Integer,
     -- | Enable or disable Equal Cost Multipath Protocol support.
     vpnEcmpSupport :: Prelude.Maybe VpnEcmpSupportValue,
@@ -86,6 +90,10 @@ data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
 -- 'amazonSideAsn', 'modifyTransitGatewayOptions_amazonSideAsn' - A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
 -- 4294967294 for 32-bit ASNs.
+--
+-- The modify ASN operation is not allowed on a transit gateway with active
+-- BGP sessions. You must first delete all transit gateway attachments that
+-- have BGP configured prior to modifying the ASN on the transit gateway.
 --
 -- 'vpnEcmpSupport', 'modifyTransitGatewayOptions_vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
 --
@@ -142,6 +150,10 @@ modifyTransitGatewayOptions_autoAcceptSharedAttachments = Lens.lens (\ModifyTran
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
 -- 4294967294 for 32-bit ASNs.
+--
+-- The modify ASN operation is not allowed on a transit gateway with active
+-- BGP sessions. You must first delete all transit gateway attachments that
+-- have BGP configured prior to modifying the ASN on the transit gateway.
 modifyTransitGatewayOptions_amazonSideAsn :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe Prelude.Integer)
 modifyTransitGatewayOptions_amazonSideAsn = Lens.lens (\ModifyTransitGatewayOptions' {amazonSideAsn} -> amazonSideAsn) (\s@ModifyTransitGatewayOptions' {} a -> s {amazonSideAsn = a} :: ModifyTransitGatewayOptions)
 

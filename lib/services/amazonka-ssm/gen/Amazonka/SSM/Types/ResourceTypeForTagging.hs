@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.ResourceTypeForTagging
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.SSM.Types.ResourceTypeForTagging
   ( ResourceTypeForTagging
       ( ..,
+        ResourceTypeForTagging_Association,
         ResourceTypeForTagging_Automation,
         ResourceTypeForTagging_Document,
         ResourceTypeForTagging_MaintenanceWindow,
@@ -63,6 +64,9 @@ newtype ResourceTypeForTagging = ResourceTypeForTagging'
       Core.ToXML
     )
 
+pattern ResourceTypeForTagging_Association :: ResourceTypeForTagging
+pattern ResourceTypeForTagging_Association = ResourceTypeForTagging' "Association"
+
 pattern ResourceTypeForTagging_Automation :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_Automation = ResourceTypeForTagging' "Automation"
 
@@ -88,6 +92,7 @@ pattern ResourceTypeForTagging_PatchBaseline :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_PatchBaseline = ResourceTypeForTagging' "PatchBaseline"
 
 {-# COMPLETE
+  ResourceTypeForTagging_Association,
   ResourceTypeForTagging_Automation,
   ResourceTypeForTagging_Document,
   ResourceTypeForTagging_MaintenanceWindow,

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.ContainsPiiEntities
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,9 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newContainsPiiEntities' smart constructor.
 data ContainsPiiEntities = ContainsPiiEntities'
-  { -- | Creates a new document classification request to analyze a single
-    -- document in real-time, returning personally identifiable information
-    -- (PII) entity labels.
+  { -- | A UTF-8 text string. The maximum string size is 100 KB.
     text :: Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
     -- valid language.
@@ -69,9 +67,7 @@ data ContainsPiiEntities = ContainsPiiEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'containsPiiEntities_text' - Creates a new document classification request to analyze a single
--- document in real-time, returning personally identifiable information
--- (PII) entity labels.
+-- 'text', 'containsPiiEntities_text' - A UTF-8 text string. The maximum string size is 100 KB.
 --
 -- 'languageCode', 'containsPiiEntities_languageCode' - The language of the input documents. Currently, English is the only
 -- valid language.
@@ -87,9 +83,7 @@ newContainsPiiEntities pText_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | Creates a new document classification request to analyze a single
--- document in real-time, returning personally identifiable information
--- (PII) entity labels.
+-- | A UTF-8 text string. The maximum string size is 100 KB.
 containsPiiEntities_text :: Lens.Lens' ContainsPiiEntities Prelude.Text
 containsPiiEntities_text = Lens.lens (\ContainsPiiEntities' {text} -> text) (\s@ContainsPiiEntities' {} a -> s {text = a} :: ContainsPiiEntities)
 

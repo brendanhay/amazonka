@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,6 +42,9 @@ module Amazonka.EKS.Types
 
     -- * CapacityTypes
     CapacityTypes (..),
+
+    -- * ClusterIssueCode
+    ClusterIssueCode (..),
 
     -- * ClusterStatus
     ClusterStatus (..),
@@ -145,16 +148,31 @@ module Amazonka.EKS.Types
     cluster_clientRequestToken,
     cluster_arn,
     cluster_status,
+    cluster_id,
+    cluster_outpostConfig,
     cluster_logging,
     cluster_identity,
     cluster_kubernetesNetworkConfig,
     cluster_connectorConfig,
+    cluster_health,
     cluster_platformVersion,
     cluster_certificateAuthority,
     cluster_endpoint,
     cluster_resourcesVpcConfig,
     cluster_createdAt,
     cluster_version,
+
+    -- * ClusterHealth
+    ClusterHealth (..),
+    newClusterHealth,
+    clusterHealth_issues,
+
+    -- * ClusterIssue
+    ClusterIssue (..),
+    newClusterIssue,
+    clusterIssue_message,
+    clusterIssue_code,
+    clusterIssue_resourceIds,
 
     -- * Compatibility
     Compatibility (..),
@@ -348,6 +366,18 @@ module Amazonka.EKS.Types
     oidcIdentityProviderConfigRequest_issuerUrl,
     oidcIdentityProviderConfigRequest_clientId,
 
+    -- * OutpostConfigRequest
+    OutpostConfigRequest (..),
+    newOutpostConfigRequest,
+    outpostConfigRequest_outpostArns,
+    outpostConfigRequest_controlPlaneInstanceType,
+
+    -- * OutpostConfigResponse
+    OutpostConfigResponse (..),
+    newOutpostConfigResponse,
+    outpostConfigResponse_outpostArns,
+    outpostConfigResponse_controlPlaneInstanceType,
+
     -- * Provider
     Provider (..),
     newProvider,
@@ -429,6 +459,9 @@ import Amazonka.EKS.Types.AutoScalingGroup
 import Amazonka.EKS.Types.CapacityTypes
 import Amazonka.EKS.Types.Certificate
 import Amazonka.EKS.Types.Cluster
+import Amazonka.EKS.Types.ClusterHealth
+import Amazonka.EKS.Types.ClusterIssue
+import Amazonka.EKS.Types.ClusterIssueCode
 import Amazonka.EKS.Types.ClusterStatus
 import Amazonka.EKS.Types.Compatibility
 import Amazonka.EKS.Types.ConfigStatus
@@ -462,6 +495,8 @@ import Amazonka.EKS.Types.NodegroupUpdateConfig
 import Amazonka.EKS.Types.OIDC
 import Amazonka.EKS.Types.OidcIdentityProviderConfig
 import Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+import Amazonka.EKS.Types.OutpostConfigRequest
+import Amazonka.EKS.Types.OutpostConfigResponse
 import Amazonka.EKS.Types.Provider
 import Amazonka.EKS.Types.RemoteAccessConfig
 import Amazonka.EKS.Types.ResolveConflicts

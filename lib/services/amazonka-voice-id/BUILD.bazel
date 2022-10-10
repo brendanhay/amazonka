@@ -63,6 +63,7 @@ haskell_library(
         "gen/Amazonka/VoiceId/Types/SpeakerSummary.hs",
         "gen/Amazonka/VoiceId/Types/StreamingStatus.hs",
         "gen/Amazonka/VoiceId/Types/Tag.hs",
+        "gen/Amazonka/VoiceId/Types/VoiceSpoofingRisk.hs",
         "gen/Amazonka/VoiceId/UntagResource.hs",
         "gen/Amazonka/VoiceId/UpdateDomain.hs",
         "gen/Amazonka/VoiceId/Waiters.hs",

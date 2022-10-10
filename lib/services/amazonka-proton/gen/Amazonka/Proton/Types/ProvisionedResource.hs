@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.ProvisionedResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ data ProvisionedResource = ProvisionedResource'
     -- be used for self-managed provisioning.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
+    -- in the /Proton User Guide/.
     provisioningEngine :: Prelude.Maybe ProvisionedResourceEngine,
     -- | The provisioned resource name.
     name :: Prelude.Maybe Prelude.Text,
@@ -56,8 +56,8 @@ data ProvisionedResource = ProvisionedResource'
 -- be used for self-managed provisioning.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
+-- in the /Proton User Guide/.
 --
 -- 'name', 'provisionedResource_name' - The provisioned resource name.
 --
@@ -77,8 +77,8 @@ newProvisionedResource =
 -- be used for self-managed provisioning.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self Self-managed provisioning>
+-- in the /Proton User Guide/.
 provisionedResource_provisioningEngine :: Lens.Lens' ProvisionedResource (Prelude.Maybe ProvisionedResourceEngine)
 provisionedResource_provisioningEngine = Lens.lens (\ProvisionedResource' {provisioningEngine} -> provisioningEngine) (\s@ProvisionedResource' {} a -> s {provisioningEngine = a} :: ProvisionedResource)
 

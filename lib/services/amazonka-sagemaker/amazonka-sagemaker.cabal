@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -340,6 +340,7 @@ library
     Amazonka.SageMaker.Types.AutoMLJobSummary
     Amazonka.SageMaker.Types.AutoMLMetricEnum
     Amazonka.SageMaker.Types.AutoMLMetricExtendedEnum
+    Amazonka.SageMaker.Types.AutoMLMode
     Amazonka.SageMaker.Types.AutoMLOutputDataConfig
     Amazonka.SageMaker.Types.AutoMLPartialFailureReason
     Amazonka.SageMaker.Types.AutoMLS3DataSource
@@ -362,6 +363,7 @@ library
     Amazonka.SageMaker.Types.CandidateSortBy
     Amazonka.SageMaker.Types.CandidateStatus
     Amazonka.SageMaker.Types.CandidateStepType
+    Amazonka.SageMaker.Types.CanvasAppSettings
     Amazonka.SageMaker.Types.CapacitySize
     Amazonka.SageMaker.Types.CapacitySizeType
     Amazonka.SageMaker.Types.CaptureContentTypeHeader
@@ -375,6 +377,14 @@ library
     Amazonka.SageMaker.Types.ChannelSpecification
     Amazonka.SageMaker.Types.CheckpointConfig
     Amazonka.SageMaker.Types.ClarifyCheckStepMetadata
+    Amazonka.SageMaker.Types.ClarifyExplainerConfig
+    Amazonka.SageMaker.Types.ClarifyFeatureType
+    Amazonka.SageMaker.Types.ClarifyInferenceConfig
+    Amazonka.SageMaker.Types.ClarifyShapBaselineConfig
+    Amazonka.SageMaker.Types.ClarifyShapConfig
+    Amazonka.SageMaker.Types.ClarifyTextConfig
+    Amazonka.SageMaker.Types.ClarifyTextGranularity
+    Amazonka.SageMaker.Types.ClarifyTextLanguage
     Amazonka.SageMaker.Types.CodeRepositorySortBy
     Amazonka.SageMaker.Types.CodeRepositorySortOrder
     Amazonka.SageMaker.Types.CodeRepositorySummary
@@ -459,12 +469,14 @@ library
     Amazonka.SageMaker.Types.EndpointSummary
     Amazonka.SageMaker.Types.EnvironmentParameter
     Amazonka.SageMaker.Types.EnvironmentParameterRanges
+    Amazonka.SageMaker.Types.ExecutionRoleIdentityConfig
     Amazonka.SageMaker.Types.ExecutionStatus
     Amazonka.SageMaker.Types.Experiment
     Amazonka.SageMaker.Types.ExperimentConfig
     Amazonka.SageMaker.Types.ExperimentSource
     Amazonka.SageMaker.Types.ExperimentSummary
     Amazonka.SageMaker.Types.Explainability
+    Amazonka.SageMaker.Types.ExplainerConfig
     Amazonka.SageMaker.Types.FailStepMetadata
     Amazonka.SageMaker.Types.FailureHandlingPolicy
     Amazonka.SageMaker.Types.FeatureDefinition
@@ -475,6 +487,7 @@ library
     Amazonka.SageMaker.Types.FeatureGroupSummary
     Amazonka.SageMaker.Types.FeatureMetadata
     Amazonka.SageMaker.Types.FeatureParameter
+    Amazonka.SageMaker.Types.FeatureStatus
     Amazonka.SageMaker.Types.FeatureType
     Amazonka.SageMaker.Types.FileSource
     Amazonka.SageMaker.Types.FileSystemAccessMode
@@ -497,6 +510,7 @@ library
     Amazonka.SageMaker.Types.HumanTaskConfig
     Amazonka.SageMaker.Types.HumanTaskUiStatus
     Amazonka.SageMaker.Types.HumanTaskUiSummary
+    Amazonka.SageMaker.Types.HyperbandStrategyConfig
     Amazonka.SageMaker.Types.HyperParameterAlgorithmSpecification
     Amazonka.SageMaker.Types.HyperParameterScalingType
     Amazonka.SageMaker.Types.HyperParameterSpecification
@@ -507,8 +521,10 @@ library
     Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
     Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
     Amazonka.SageMaker.Types.HyperParameterTuningJobObjectiveType
+    Amazonka.SageMaker.Types.HyperParameterTuningJobSearchEntity
     Amazonka.SageMaker.Types.HyperParameterTuningJobSortByOptions
     Amazonka.SageMaker.Types.HyperParameterTuningJobStatus
+    Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyConfig
     Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
     Amazonka.SageMaker.Types.HyperParameterTuningJobSummary
     Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig
@@ -736,8 +752,10 @@ library
     Amazonka.SageMaker.Types.QualityCheckStepMetadata
     Amazonka.SageMaker.Types.QueryFilters
     Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
+    Amazonka.SageMaker.Types.RecommendationJobContainerConfig
     Amazonka.SageMaker.Types.RecommendationJobInputConfig
     Amazonka.SageMaker.Types.RecommendationJobOutputConfig
+    Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
     Amazonka.SageMaker.Types.RecommendationJobResourceLimit
     Amazonka.SageMaker.Types.RecommendationJobStatus
     Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
@@ -754,6 +772,7 @@ library
     Amazonka.SageMaker.Types.RepositoryAuthConfig
     Amazonka.SageMaker.Types.ResolvedAttributes
     Amazonka.SageMaker.Types.ResourceConfig
+    Amazonka.SageMaker.Types.ResourceConfigForUpdate
     Amazonka.SageMaker.Types.ResourceLimits
     Amazonka.SageMaker.Types.ResourceSpec
     Amazonka.SageMaker.Types.ResourceType
@@ -817,6 +836,7 @@ library
     Amazonka.SageMaker.Types.TargetPlatformOs
     Amazonka.SageMaker.Types.TensorBoardAppSettings
     Amazonka.SageMaker.Types.TensorBoardOutputConfig
+    Amazonka.SageMaker.Types.TimeSeriesForecastingSettings
     Amazonka.SageMaker.Types.TrafficPattern
     Amazonka.SageMaker.Types.TrafficRoutingConfig
     Amazonka.SageMaker.Types.TrafficRoutingConfigType
@@ -872,6 +892,8 @@ library
     Amazonka.SageMaker.Types.VariantStatus
     Amazonka.SageMaker.Types.Vertex
     Amazonka.SageMaker.Types.VpcConfig
+    Amazonka.SageMaker.Types.WarmPoolResourceStatus
+    Amazonka.SageMaker.Types.WarmPoolStatus
     Amazonka.SageMaker.Types.Workforce
     Amazonka.SageMaker.Types.WorkforceStatus
     Amazonka.SageMaker.Types.WorkforceVpcConfigRequest
@@ -907,7 +929,7 @@ library
     Amazonka.SageMaker.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-sagemaker-test
@@ -926,9 +948,9 @@ test-suite amazonka-sagemaker-test
     Test.Amazonka.SageMaker.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-sagemaker
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

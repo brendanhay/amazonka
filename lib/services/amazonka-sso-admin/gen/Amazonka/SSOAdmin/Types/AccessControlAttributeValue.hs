@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.AccessControlAttributeValue
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,12 +26,12 @@ import qualified Amazonka.Prelude as Prelude
 -- | The value used for mapping a specified attribute to an identity source.
 -- For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html Attribute mappings>
--- in the /Amazon Web Services SSO User Guide/.
+-- in the /IAM Identity Center User Guide/.
 --
 -- /See:/ 'newAccessControlAttributeValue' smart constructor.
 data AccessControlAttributeValue = AccessControlAttributeValue'
-  { -- | The identity source to use when mapping a specified attribute to Amazon
-    -- Web Services SSO.
+  { -- | The identity source to use when mapping a specified attribute to IAM
+    -- Identity Center.
     source :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,8 +44,8 @@ data AccessControlAttributeValue = AccessControlAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'accessControlAttributeValue_source' - The identity source to use when mapping a specified attribute to Amazon
--- Web Services SSO.
+-- 'source', 'accessControlAttributeValue_source' - The identity source to use when mapping a specified attribute to IAM
+-- Identity Center.
 newAccessControlAttributeValue ::
   -- | 'source'
   Prelude.NonEmpty Prelude.Text ->
@@ -56,8 +56,8 @@ newAccessControlAttributeValue pSource_ =
         Lens.coerced Lens.# pSource_
     }
 
--- | The identity source to use when mapping a specified attribute to Amazon
--- Web Services SSO.
+-- | The identity source to use when mapping a specified attribute to IAM
+-- Identity Center.
 accessControlAttributeValue_source :: Lens.Lens' AccessControlAttributeValue (Prelude.NonEmpty Prelude.Text)
 accessControlAttributeValue_source = Lens.lens (\AccessControlAttributeValue' {source} -> source) (\s@AccessControlAttributeValue' {} a -> s {source = a} :: AccessControlAttributeValue) Prelude.. Lens.coerced
 

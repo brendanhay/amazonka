@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkFirewall.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,6 +80,9 @@ module Amazonka.NetworkFirewall.Types
 
     -- * StatefulRuleProtocol
     StatefulRuleProtocol (..),
+
+    -- * StreamExceptionPolicy
+    StreamExceptionPolicy (..),
 
     -- * TCPFlag
     TCPFlag (..),
@@ -343,6 +346,7 @@ module Amazonka.NetworkFirewall.Types
     -- * StatefulEngineOptions
     StatefulEngineOptions (..),
     newStatefulEngineOptions,
+    statefulEngineOptions_streamExceptionPolicy,
     statefulEngineOptions_ruleOrder,
 
     -- * StatefulRule
@@ -474,6 +478,7 @@ import Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
 import Amazonka.NetworkFirewall.Types.StatelessRule
 import Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference
 import Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
+import Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
 import Amazonka.NetworkFirewall.Types.SubnetMapping
 import Amazonka.NetworkFirewall.Types.SyncState
 import Amazonka.NetworkFirewall.Types.TCPFlag

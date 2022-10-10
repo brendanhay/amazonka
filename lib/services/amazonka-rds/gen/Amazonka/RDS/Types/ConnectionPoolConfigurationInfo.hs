@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,9 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
     -- | Each item in the list represents a class of SQL operations that normally
     -- cause all later statements in a session using a proxy to be pinned to
     -- the same underlying database connection. Including an item in the list
-    -- exempts that class of SQL operations from the pinning behavior.
-    -- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.
+    -- exempts that class of SQL operations from the pinning behavior. This
+    -- setting is only supported for MySQL engine family databases. Currently,
+    -- the only allowed value is @EXCLUDE_VARIABLE_SETS@.
     sessionPinningFilters :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,8 +97,9 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
 -- 'sessionPinningFilters', 'connectionPoolConfigurationInfo_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
 -- the same underlying database connection. Including an item in the list
--- exempts that class of SQL operations from the pinning behavior.
--- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.
+-- exempts that class of SQL operations from the pinning behavior. This
+-- setting is only supported for MySQL engine family databases. Currently,
+-- the only allowed value is @EXCLUDE_VARIABLE_SETS@.
 newConnectionPoolConfigurationInfo ::
   ConnectionPoolConfigurationInfo
 newConnectionPoolConfigurationInfo =
@@ -145,8 +147,9 @@ connectionPoolConfigurationInfo_maxConnectionsPercent = Lens.lens (\ConnectionPo
 -- | Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
 -- the same underlying database connection. Including an item in the list
--- exempts that class of SQL operations from the pinning behavior.
--- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.
+-- exempts that class of SQL operations from the pinning behavior. This
+-- setting is only supported for MySQL engine family databases. Currently,
+-- the only allowed value is @EXCLUDE_VARIABLE_SETS@.
 connectionPoolConfigurationInfo_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe [Prelude.Text])
 connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPoolConfigurationInfo' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfigurationInfo' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfigurationInfo) Prelude.. Lens.mapping Lens.coerced
 

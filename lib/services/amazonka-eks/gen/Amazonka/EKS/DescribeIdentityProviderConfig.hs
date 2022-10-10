@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.DescribeIdentityProviderConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DescribeIdentityProviderConfig = DescribeIdentityProviderConfig'
   { -- | The cluster name that the identity provider configuration is associated
     -- to.
     clusterName :: Prelude.Text,
-    -- | An object that represents an identity provider configuration.
+    -- | An object representing an identity provider configuration.
     identityProviderConfig :: IdentityProviderConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data DescribeIdentityProviderConfig = DescribeIdentityProviderConfig'
 -- 'clusterName', 'describeIdentityProviderConfig_clusterName' - The cluster name that the identity provider configuration is associated
 -- to.
 --
--- 'identityProviderConfig', 'describeIdentityProviderConfig_identityProviderConfig' - An object that represents an identity provider configuration.
+-- 'identityProviderConfig', 'describeIdentityProviderConfig_identityProviderConfig' - An object representing an identity provider configuration.
 newDescribeIdentityProviderConfig ::
   -- | 'clusterName'
   Prelude.Text ->
@@ -91,7 +91,7 @@ newDescribeIdentityProviderConfig
 describeIdentityProviderConfig_clusterName :: Lens.Lens' DescribeIdentityProviderConfig Prelude.Text
 describeIdentityProviderConfig_clusterName = Lens.lens (\DescribeIdentityProviderConfig' {clusterName} -> clusterName) (\s@DescribeIdentityProviderConfig' {} a -> s {clusterName = a} :: DescribeIdentityProviderConfig)
 
--- | An object that represents an identity provider configuration.
+-- | An object representing an identity provider configuration.
 describeIdentityProviderConfig_identityProviderConfig :: Lens.Lens' DescribeIdentityProviderConfig IdentityProviderConfig
 describeIdentityProviderConfig_identityProviderConfig = Lens.lens (\DescribeIdentityProviderConfig' {identityProviderConfig} -> identityProviderConfig) (\s@DescribeIdentityProviderConfig' {} a -> s {identityProviderConfig = a} :: DescribeIdentityProviderConfig)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.RequestDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRequestDetails' smart constructor.
 data RequestDetails = RequestDetails'
-  { -- | Details about the import from signed URL request.
+  { -- | Details about the import from Amazon S3 request.
     importAssetFromSignedUrl :: Prelude.Maybe ImportAssetFromSignedUrlRequestDetails,
     -- | Details from an import from Amazon Redshift datashare request.
     importAssetsFromRedshiftDataShares :: Prelude.Maybe ImportAssetsFromRedshiftDataSharesRequestDetails,
@@ -44,9 +44,9 @@ data RequestDetails = RequestDetails'
     exportRevisionsToS3 :: Prelude.Maybe ExportRevisionsToS3RequestDetails,
     -- | Details about the export to Amazon S3 request.
     exportAssetsToS3 :: Prelude.Maybe ExportAssetsToS3RequestDetails,
-    -- | Details about the import from Amazon S3 request.
-    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3RequestDetails,
     -- | Information about the import asset from API Gateway API request.
+    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3RequestDetails,
+    -- | Details about the import from signed URL request.
     importAssetFromApiGatewayApi :: Prelude.Maybe ImportAssetFromApiGatewayApiRequestDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data RequestDetails = RequestDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importAssetFromSignedUrl', 'requestDetails_importAssetFromSignedUrl' - Details about the import from signed URL request.
+-- 'importAssetFromSignedUrl', 'requestDetails_importAssetFromSignedUrl' - Details about the import from Amazon S3 request.
 --
 -- 'importAssetsFromRedshiftDataShares', 'requestDetails_importAssetsFromRedshiftDataShares' - Details from an import from Amazon Redshift datashare request.
 --
@@ -69,9 +69,9 @@ data RequestDetails = RequestDetails'
 --
 -- 'exportAssetsToS3', 'requestDetails_exportAssetsToS3' - Details about the export to Amazon S3 request.
 --
--- 'importAssetsFromS3', 'requestDetails_importAssetsFromS3' - Details about the import from Amazon S3 request.
+-- 'importAssetsFromS3', 'requestDetails_importAssetsFromS3' - Information about the import asset from API Gateway API request.
 --
--- 'importAssetFromApiGatewayApi', 'requestDetails_importAssetFromApiGatewayApi' - Information about the import asset from API Gateway API request.
+-- 'importAssetFromApiGatewayApi', 'requestDetails_importAssetFromApiGatewayApi' - Details about the import from signed URL request.
 newRequestDetails ::
   RequestDetails
 newRequestDetails =
@@ -86,7 +86,7 @@ newRequestDetails =
       importAssetFromApiGatewayApi = Prelude.Nothing
     }
 
--- | Details about the import from signed URL request.
+-- | Details about the import from Amazon S3 request.
 requestDetails_importAssetFromSignedUrl :: Lens.Lens' RequestDetails (Prelude.Maybe ImportAssetFromSignedUrlRequestDetails)
 requestDetails_importAssetFromSignedUrl = Lens.lens (\RequestDetails' {importAssetFromSignedUrl} -> importAssetFromSignedUrl) (\s@RequestDetails' {} a -> s {importAssetFromSignedUrl = a} :: RequestDetails)
 
@@ -106,11 +106,11 @@ requestDetails_exportRevisionsToS3 = Lens.lens (\RequestDetails' {exportRevision
 requestDetails_exportAssetsToS3 :: Lens.Lens' RequestDetails (Prelude.Maybe ExportAssetsToS3RequestDetails)
 requestDetails_exportAssetsToS3 = Lens.lens (\RequestDetails' {exportAssetsToS3} -> exportAssetsToS3) (\s@RequestDetails' {} a -> s {exportAssetsToS3 = a} :: RequestDetails)
 
--- | Details about the import from Amazon S3 request.
+-- | Information about the import asset from API Gateway API request.
 requestDetails_importAssetsFromS3 :: Lens.Lens' RequestDetails (Prelude.Maybe ImportAssetsFromS3RequestDetails)
 requestDetails_importAssetsFromS3 = Lens.lens (\RequestDetails' {importAssetsFromS3} -> importAssetsFromS3) (\s@RequestDetails' {} a -> s {importAssetsFromS3 = a} :: RequestDetails)
 
--- | Information about the import asset from API Gateway API request.
+-- | Details about the import from signed URL request.
 requestDetails_importAssetFromApiGatewayApi :: Lens.Lens' RequestDetails (Prelude.Maybe ImportAssetFromApiGatewayApiRequestDetails)
 requestDetails_importAssetFromApiGatewayApi = Lens.lens (\RequestDetails' {importAssetFromApiGatewayApi} -> importAssetFromApiGatewayApi) (\s@RequestDetails' {} a -> s {importAssetFromApiGatewayApi = a} :: RequestDetails)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.UpdateAsset
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data UpdateAsset = UpdateAsset'
     assetDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset to update.
     assetId :: Prelude.Text,
-    -- | A unique, friendly name for the asset.
+    -- | A friendly name for the asset.
     assetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data UpdateAsset = UpdateAsset'
 --
 -- 'assetId', 'updateAsset_assetId' - The ID of the asset to update.
 --
--- 'assetName', 'updateAsset_assetName' - A unique, friendly name for the asset.
+-- 'assetName', 'updateAsset_assetName' - A friendly name for the asset.
 newUpdateAsset ::
   -- | 'assetId'
   Prelude.Text ->
@@ -111,7 +111,7 @@ updateAsset_assetDescription = Lens.lens (\UpdateAsset' {assetDescription} -> as
 updateAsset_assetId :: Lens.Lens' UpdateAsset Prelude.Text
 updateAsset_assetId = Lens.lens (\UpdateAsset' {assetId} -> assetId) (\s@UpdateAsset' {} a -> s {assetId = a} :: UpdateAsset)
 
--- | A unique, friendly name for the asset.
+-- | A friendly name for the asset.
 updateAsset_assetName :: Lens.Lens' UpdateAsset Prelude.Text
 updateAsset_assetName = Lens.lens (\UpdateAsset' {assetName} -> assetName) (\s@UpdateAsset' {} a -> s {assetName = a} :: UpdateAsset)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Polly.Types.LanguageCode
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,8 @@ module Amazonka.Polly.Types.LanguageCode
         LanguageCode_Ro_RO,
         LanguageCode_Ru_RU,
         LanguageCode_Sv_SE,
-        LanguageCode_Tr_TR
+        LanguageCode_Tr_TR,
+        LanguageCode_Yue_CN
       ),
   )
 where
@@ -187,6 +188,9 @@ pattern LanguageCode_Sv_SE = LanguageCode' "sv-SE"
 pattern LanguageCode_Tr_TR :: LanguageCode
 pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
 
+pattern LanguageCode_Yue_CN :: LanguageCode
+pattern LanguageCode_Yue_CN = LanguageCode' "yue-CN"
+
 {-# COMPLETE
   LanguageCode_Arb,
   LanguageCode_Ca_ES,
@@ -221,5 +225,6 @@ pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
   LanguageCode_Ru_RU,
   LanguageCode_Sv_SE,
   LanguageCode_Tr_TR,
+  LanguageCode_Yue_CN,
   LanguageCode'
   #-}

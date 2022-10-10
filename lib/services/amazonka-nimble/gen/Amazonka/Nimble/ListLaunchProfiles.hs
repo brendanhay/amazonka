@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListLaunchProfiles
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLaunchProfiles' smart constructor.
 data ListLaunchProfiles = ListLaunchProfiles'
-  { -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+  { -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -77,8 +76,7 @@ data ListLaunchProfiles = ListLaunchProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'nextToken', 'listLaunchProfiles_nextToken' - The token to request the next page of results.
 --
@@ -100,8 +98,7 @@ newListLaunchProfiles pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 listLaunchProfiles_principalId :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
 listLaunchProfiles_principalId = Lens.lens (\ListLaunchProfiles' {principalId} -> principalId) (\s@ListLaunchProfiles' {} a -> s {principalId = a} :: ListLaunchProfiles)
 

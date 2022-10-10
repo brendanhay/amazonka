@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@
 --
 -- Targets, by calling the following:
 --
--- -   DeleteTarget, which removes a notification rule target (SNS topic)
---     from a notification rule.
+-- -   DeleteTarget, which removes a notification rule target from a
+--     notification rule.
 --
 -- -   ListTargets, which lists the targets associated with a notification
 --     rule.
@@ -60,8 +60,8 @@
 -- -   UntagResource, which removes a tag from a notification rule in your
 --     account.
 --
--- For information about how to use AWS CodeStar Notifications, see link in
--- the CodeStarNotifications User Guide.
+-- For information about how to use AWS CodeStar Notifications, see the
+-- <https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html Amazon Web Services Developer Tools Console User Guide>.
 module Amazonka.CodeStarNotifications
   ( -- * Service Configuration
     defaultService,

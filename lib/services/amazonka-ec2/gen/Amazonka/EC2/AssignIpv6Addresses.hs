@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.AssignIpv6Addresses
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,9 +84,8 @@ data AssignIpv6Addresses = AssignIpv6Addresses'
     -- | One or more IPv6 prefixes assigned to the network interface. You cannot
     -- use this option if you use the @Ipv6PrefixCount@ option.
     ipv6Prefixes :: Prelude.Maybe [Prelude.Text],
-    -- | One or more specific IPv6 addresses to be assigned to the network
-    -- interface. You can\'t use this option if you\'re specifying a number of
-    -- IPv6 addresses.
+    -- | The IPv6 addresses to be assigned to the network interface. You can\'t
+    -- use this option if you\'re specifying a number of IPv6 addresses.
     ipv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text
@@ -115,9 +114,8 @@ data AssignIpv6Addresses = AssignIpv6Addresses'
 -- 'ipv6Prefixes', 'assignIpv6Addresses_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
 -- use this option if you use the @Ipv6PrefixCount@ option.
 --
--- 'ipv6Addresses', 'assignIpv6Addresses_ipv6Addresses' - One or more specific IPv6 addresses to be assigned to the network
--- interface. You can\'t use this option if you\'re specifying a number of
--- IPv6 addresses.
+-- 'ipv6Addresses', 'assignIpv6Addresses_ipv6Addresses' - The IPv6 addresses to be assigned to the network interface. You can\'t
+-- use this option if you\'re specifying a number of IPv6 addresses.
 --
 -- 'networkInterfaceId', 'assignIpv6Addresses_networkInterfaceId' - The ID of the network interface.
 newAssignIpv6Addresses ::
@@ -154,9 +152,8 @@ assignIpv6Addresses_ipv6PrefixCount = Lens.lens (\AssignIpv6Addresses' {ipv6Pref
 assignIpv6Addresses_ipv6Prefixes :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe [Prelude.Text])
 assignIpv6Addresses_ipv6Prefixes = Lens.lens (\AssignIpv6Addresses' {ipv6Prefixes} -> ipv6Prefixes) (\s@AssignIpv6Addresses' {} a -> s {ipv6Prefixes = a} :: AssignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more specific IPv6 addresses to be assigned to the network
--- interface. You can\'t use this option if you\'re specifying a number of
--- IPv6 addresses.
+-- | The IPv6 addresses to be assigned to the network interface. You can\'t
+-- use this option if you\'re specifying a number of IPv6 addresses.
 assignIpv6Addresses_ipv6Addresses :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe [Prelude.Text])
 assignIpv6Addresses_ipv6Addresses = Lens.lens (\AssignIpv6Addresses' {ipv6Addresses} -> ipv6Addresses) (\s@AssignIpv6Addresses' {} a -> s {ipv6Addresses = a} :: AssignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
 

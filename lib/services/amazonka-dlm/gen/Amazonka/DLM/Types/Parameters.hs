@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types.Parameters
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- If you choose to exclude boot volumes and you specify tags that
 -- consequently exclude all of the additional data volumes attached to an
--- instance, then Amazon DLM will not create any snapshots for the affected
--- instance, and it will emit a @SnapshotsCreateFailed@ Amazon CloudWatch
--- metric. For more information, see
+-- instance, then Amazon Data Lifecycle Manager will not create any
+-- snapshots for the affected instance, and it will emit a
+-- @SnapshotsCreateFailed@ Amazon CloudWatch metric. For more information,
+-- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-dlm-cw-metrics.html Monitor your policies using Amazon CloudWatch>.
 --
 -- /See:/ 'newParameters' smart constructor.

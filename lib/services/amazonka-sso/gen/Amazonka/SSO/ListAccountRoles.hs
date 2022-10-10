@@ -14,14 +14,13 @@
 
 -- |
 -- Module      : Amazonka.SSO.ListAccountRoles
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all roles that are assigned to the user for a given Amazon Web
--- Services account.
+-- Lists all roles that are assigned to the user for a given AWS account.
 --
 -- This operation returns paginated results.
 module Amazonka.SSO.ListAccountRoles
@@ -63,10 +62,9 @@ data ListAccountRoles = ListAccountRoles'
     -- | The token issued by the @CreateToken@ API call. For more information,
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
-    -- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+    -- in the /IAM Identity Center OIDC API Reference Guide/.
     accessToken :: Core.Sensitive Prelude.Text,
-    -- | The identifier for the Amazon Web Services account that is assigned to
-    -- the user.
+    -- | The identifier for the AWS account that is assigned to the user.
     accountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -87,10 +85,9 @@ data ListAccountRoles = ListAccountRoles'
 -- 'accessToken', 'listAccountRoles_accessToken' - The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+-- in the /IAM Identity Center OIDC API Reference Guide/.
 --
--- 'accountId', 'listAccountRoles_accountId' - The identifier for the Amazon Web Services account that is assigned to
--- the user.
+-- 'accountId', 'listAccountRoles_accountId' - The identifier for the AWS account that is assigned to the user.
 newListAccountRoles ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -117,12 +114,11 @@ listAccountRoles_maxResults = Lens.lens (\ListAccountRoles' {maxResults} -> maxR
 -- | The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+-- in the /IAM Identity Center OIDC API Reference Guide/.
 listAccountRoles_accessToken :: Lens.Lens' ListAccountRoles Prelude.Text
 listAccountRoles_accessToken = Lens.lens (\ListAccountRoles' {accessToken} -> accessToken) (\s@ListAccountRoles' {} a -> s {accessToken = a} :: ListAccountRoles) Prelude.. Core._Sensitive
 
--- | The identifier for the Amazon Web Services account that is assigned to
--- the user.
+-- | The identifier for the AWS account that is assigned to the user.
 listAccountRoles_accountId :: Lens.Lens' ListAccountRoles Prelude.Text
 listAccountRoles_accountId = Lens.lens (\ListAccountRoles' {accountId} -> accountId) (\s@ListAccountRoles' {} a -> s {accountId = a} :: ListAccountRoles)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.EnvironmentAccountConnection
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@ data EnvironmentAccountConnection = EnvironmentAccountConnection'
     -- running in the account.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment account connection.
     arn :: Prelude.Text,
@@ -84,8 +84,8 @@ data EnvironmentAccountConnection = EnvironmentAccountConnection'
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'arn', 'environmentAccountConnection_arn' - The Amazon Resource Name (ARN) of the environment account connection.
 --
@@ -163,8 +163,8 @@ newEnvironmentAccountConnection
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 environmentAccountConnection_componentRoleArn :: Lens.Lens' EnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 environmentAccountConnection_componentRoleArn = Lens.lens (\EnvironmentAccountConnection' {componentRoleArn} -> componentRoleArn) (\s@EnvironmentAccountConnection' {} a -> s {componentRoleArn = a} :: EnvironmentAccountConnection)
 

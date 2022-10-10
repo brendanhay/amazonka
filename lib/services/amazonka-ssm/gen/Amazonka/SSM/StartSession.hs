@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.StartSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -208,8 +208,10 @@ instance Core.ToQuery StartSession where
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { -- | An encrypted token value containing session and caller information. Used
-    -- to authenticate the connection to the managed node.
+  { -- | An encrypted token value containing session and caller information. This
+    -- token is used to authenticate the connection to the managed node, and is
+    -- valid only long enough to ensure the connection is successful. Never
+    -- share your session\'s token.
     tokenValue :: Prelude.Maybe Prelude.Text,
     -- | A URL back to SSM Agent on the managed node that the Session Manager
     -- client uses to send commands and receive output from the node. Format:
@@ -240,8 +242,10 @@ data StartSessionResponse = StartSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the managed node.
+-- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. This
+-- token is used to authenticate the connection to the managed node, and is
+-- valid only long enough to ensure the connection is successful. Never
+-- share your session\'s token.
 --
 -- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the node. Format:
@@ -272,8 +276,10 @@ newStartSessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the managed node.
+-- | An encrypted token value containing session and caller information. This
+-- token is used to authenticate the connection to the managed node, and is
+-- valid only long enough to ensure the connection is successful. Never
+-- share your session\'s token.
 startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
 startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
 

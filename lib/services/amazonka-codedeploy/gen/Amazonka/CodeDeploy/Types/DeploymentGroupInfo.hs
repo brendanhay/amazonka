@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.DeploymentGroupInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,10 +51,10 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
     -- | A list of associated Auto Scaling groups.
     autoScalingGroups :: Prelude.Maybe [AutoScalingGroup],
     -- | A service role Amazon Resource Name (ARN) that grants CodeDeploy
-    -- permission to make calls to AWS services on your behalf. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy>
-    -- in the /AWS CodeDeploy User Guide/.
+    -- permission to make calls to Amazon Web Services services on your behalf.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for CodeDeploy>
+    -- in the /CodeDeploy User Guide/.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the most recent successful deployment to the
     -- deployment group.
@@ -90,23 +90,23 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
     -- the tag groups. Cannot be used in the same call as
     -- onPremisesInstanceTagFilters.
     onPremisesTagSet :: Prelude.Maybe OnPremisesTagSet,
-    -- | Indicates what happens when new EC2 instances are launched
+    -- | Indicates what happens when new Amazon EC2 instances are launched
     -- mid-deployment and do not receive the deployed application revision.
     --
     -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
     -- initiates one or more \'auto-update outdated instances\' deployments to
-    -- apply the deployed application revision to the new EC2 instances.
+    -- apply the deployed application revision to the new Amazon EC2 instances.
     --
     -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
-    -- deployment to update the new EC2 instances. This may result in instances
-    -- having different revisions.
+    -- deployment to update the new Amazon EC2 instances. This may result in
+    -- instances having different revisions.
     outdatedInstancesStrategy :: Prelude.Maybe OutdatedInstancesStrategy,
     -- | The on-premises instance tags on which to filter. The deployment group
     -- includes on-premises instances with any of the specified tags.
     onPremisesInstanceTagFilters :: Prelude.Maybe [TagFilter],
-    -- | Information about groups of tags applied to an EC2 instance. The
-    -- deployment group includes only EC2 instances identified by all of the
-    -- tag groups. Cannot be used in the same call as ec2TagFilters.
+    -- | Information about groups of tags applied to an Amazon EC2 instance. The
+    -- deployment group includes only Amazon EC2 instances identified by all of
+    -- the tag groups. Cannot be used in the same call as ec2TagFilters.
     ec2TagSet :: Prelude.Maybe EC2TagSet,
     -- | The deployment group ID.
     deploymentGroupId :: Prelude.Maybe Prelude.Text,
@@ -136,10 +136,10 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 -- 'autoScalingGroups', 'deploymentGroupInfo_autoScalingGroups' - A list of associated Auto Scaling groups.
 --
 -- 'serviceRoleArn', 'deploymentGroupInfo_serviceRoleArn' - A service role Amazon Resource Name (ARN) that grants CodeDeploy
--- permission to make calls to AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy>
--- in the /AWS CodeDeploy User Guide/.
+-- permission to make calls to Amazon Web Services services on your behalf.
+-- For more information, see
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for CodeDeploy>
+-- in the /CodeDeploy User Guide/.
 --
 -- 'lastSuccessfulDeployment', 'deploymentGroupInfo_lastSuccessfulDeployment' - Information about the most recent successful deployment to the
 -- deployment group.
@@ -175,23 +175,23 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 -- the tag groups. Cannot be used in the same call as
 -- onPremisesInstanceTagFilters.
 --
--- 'outdatedInstancesStrategy', 'deploymentGroupInfo_outdatedInstancesStrategy' - Indicates what happens when new EC2 instances are launched
+-- 'outdatedInstancesStrategy', 'deploymentGroupInfo_outdatedInstancesStrategy' - Indicates what happens when new Amazon EC2 instances are launched
 -- mid-deployment and do not receive the deployed application revision.
 --
 -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
 -- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
+-- apply the deployed application revision to the new Amazon EC2 instances.
 --
 -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
+-- deployment to update the new Amazon EC2 instances. This may result in
+-- instances having different revisions.
 --
 -- 'onPremisesInstanceTagFilters', 'deploymentGroupInfo_onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group
 -- includes on-premises instances with any of the specified tags.
 --
--- 'ec2TagSet', 'deploymentGroupInfo_ec2TagSet' - Information about groups of tags applied to an EC2 instance. The
--- deployment group includes only EC2 instances identified by all of the
--- tag groups. Cannot be used in the same call as ec2TagFilters.
+-- 'ec2TagSet', 'deploymentGroupInfo_ec2TagSet' - Information about groups of tags applied to an Amazon EC2 instance. The
+-- deployment group includes only Amazon EC2 instances identified by all of
+-- the tag groups. Cannot be used in the same call as ec2TagFilters.
 --
 -- 'deploymentGroupId', 'deploymentGroupInfo_deploymentGroupId' - The deployment group ID.
 --
@@ -244,10 +244,10 @@ deploymentGroupInfo_autoScalingGroups :: Lens.Lens' DeploymentGroupInfo (Prelude
 deploymentGroupInfo_autoScalingGroups = Lens.lens (\DeploymentGroupInfo' {autoScalingGroups} -> autoScalingGroups) (\s@DeploymentGroupInfo' {} a -> s {autoScalingGroups = a} :: DeploymentGroupInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | A service role Amazon Resource Name (ARN) that grants CodeDeploy
--- permission to make calls to AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy>
--- in the /AWS CodeDeploy User Guide/.
+-- permission to make calls to Amazon Web Services services on your behalf.
+-- For more information, see
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for CodeDeploy>
+-- in the /CodeDeploy User Guide/.
 deploymentGroupInfo_serviceRoleArn :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe Prelude.Text)
 deploymentGroupInfo_serviceRoleArn = Lens.lens (\DeploymentGroupInfo' {serviceRoleArn} -> serviceRoleArn) (\s@DeploymentGroupInfo' {} a -> s {serviceRoleArn = a} :: DeploymentGroupInfo)
 
@@ -307,16 +307,16 @@ deploymentGroupInfo_ecsServices = Lens.lens (\DeploymentGroupInfo' {ecsServices}
 deploymentGroupInfo_onPremisesTagSet :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe OnPremisesTagSet)
 deploymentGroupInfo_onPremisesTagSet = Lens.lens (\DeploymentGroupInfo' {onPremisesTagSet} -> onPremisesTagSet) (\s@DeploymentGroupInfo' {} a -> s {onPremisesTagSet = a} :: DeploymentGroupInfo)
 
--- | Indicates what happens when new EC2 instances are launched
+-- | Indicates what happens when new Amazon EC2 instances are launched
 -- mid-deployment and do not receive the deployed application revision.
 --
 -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
 -- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
+-- apply the deployed application revision to the new Amazon EC2 instances.
 --
 -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
+-- deployment to update the new Amazon EC2 instances. This may result in
+-- instances having different revisions.
 deploymentGroupInfo_outdatedInstancesStrategy :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe OutdatedInstancesStrategy)
 deploymentGroupInfo_outdatedInstancesStrategy = Lens.lens (\DeploymentGroupInfo' {outdatedInstancesStrategy} -> outdatedInstancesStrategy) (\s@DeploymentGroupInfo' {} a -> s {outdatedInstancesStrategy = a} :: DeploymentGroupInfo)
 
@@ -325,9 +325,9 @@ deploymentGroupInfo_outdatedInstancesStrategy = Lens.lens (\DeploymentGroupInfo'
 deploymentGroupInfo_onPremisesInstanceTagFilters :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe [TagFilter])
 deploymentGroupInfo_onPremisesInstanceTagFilters = Lens.lens (\DeploymentGroupInfo' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@DeploymentGroupInfo' {} a -> s {onPremisesInstanceTagFilters = a} :: DeploymentGroupInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about groups of tags applied to an EC2 instance. The
--- deployment group includes only EC2 instances identified by all of the
--- tag groups. Cannot be used in the same call as ec2TagFilters.
+-- | Information about groups of tags applied to an Amazon EC2 instance. The
+-- deployment group includes only Amazon EC2 instances identified by all of
+-- the tag groups. Cannot be used in the same call as ec2TagFilters.
 deploymentGroupInfo_ec2TagSet :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe EC2TagSet)
 deploymentGroupInfo_ec2TagSet = Lens.lens (\DeploymentGroupInfo' {ec2TagSet} -> ec2TagSet) (\s@DeploymentGroupInfo' {} a -> s {ec2TagSet = a} :: DeploymentGroupInfo)
 

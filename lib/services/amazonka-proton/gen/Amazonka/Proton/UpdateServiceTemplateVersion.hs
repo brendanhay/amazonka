@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateServiceTemplateVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,8 +63,8 @@ data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
     -- change only affects later associations.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | The status of the service template minor version to update.
     status :: Prelude.Maybe TemplateVersionStatus,
@@ -101,8 +101,8 @@ data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
 -- change only affects later associations.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'status', 'updateServiceTemplateVersion_status' - The status of the service template minor version to update.
 --
@@ -151,8 +151,8 @@ newUpdateServiceTemplateVersion
 -- change only affects later associations.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 updateServiceTemplateVersion_supportedComponentSources :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
 updateServiceTemplateVersion_supportedComponentSources = Lens.lens (\UpdateServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@UpdateServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 

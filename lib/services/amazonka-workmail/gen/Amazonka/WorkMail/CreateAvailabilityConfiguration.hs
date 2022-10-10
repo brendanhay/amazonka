@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.CreateAvailabilityConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,8 +63,8 @@ data CreateAvailabilityConfiguration = CreateAvailabilityConfiguration'
     -- exactly one provider definition, either @EwsProvider@ or
     -- @LambdaProvider@.
     lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
-    -- | The Amazon WorkMail organization for which the
-    -- @AvailabilityConfiguration@ will be created.
+    -- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+    -- be created.
     organizationId :: Prelude.Text,
     -- | The domain to which the provider applies.
     domainName :: Prelude.Text
@@ -90,8 +90,8 @@ data CreateAvailabilityConfiguration = CreateAvailabilityConfiguration'
 -- exactly one provider definition, either @EwsProvider@ or
 -- @LambdaProvider@.
 --
--- 'organizationId', 'createAvailabilityConfiguration_organizationId' - The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be created.
+-- 'organizationId', 'createAvailabilityConfiguration_organizationId' - The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be created.
 --
 -- 'domainName', 'createAvailabilityConfiguration_domainName' - The domain to which the provider applies.
 newCreateAvailabilityConfiguration ::
@@ -129,8 +129,8 @@ createAvailabilityConfiguration_ewsProvider = Lens.lens (\CreateAvailabilityConf
 createAvailabilityConfiguration_lambdaProvider :: Lens.Lens' CreateAvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
 createAvailabilityConfiguration_lambdaProvider = Lens.lens (\CreateAvailabilityConfiguration' {lambdaProvider} -> lambdaProvider) (\s@CreateAvailabilityConfiguration' {} a -> s {lambdaProvider = a} :: CreateAvailabilityConfiguration)
 
--- | The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be created.
+-- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be created.
 createAvailabilityConfiguration_organizationId :: Lens.Lens' CreateAvailabilityConfiguration Prelude.Text
 createAvailabilityConfiguration_organizationId = Lens.lens (\CreateAvailabilityConfiguration' {organizationId} -> organizationId) (\s@CreateAvailabilityConfiguration' {} a -> s {organizationId = a} :: CreateAvailabilityConfiguration)
 

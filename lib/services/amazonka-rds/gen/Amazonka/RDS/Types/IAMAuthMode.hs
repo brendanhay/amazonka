@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.IAMAuthMode
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.IAMAuthMode
   ( IAMAuthMode
       ( ..,
         IAMAuthMode_DISABLED,
+        IAMAuthMode_ENABLED,
         IAMAuthMode_REQUIRED
       ),
   )
@@ -60,11 +61,15 @@ newtype IAMAuthMode = IAMAuthMode'
 pattern IAMAuthMode_DISABLED :: IAMAuthMode
 pattern IAMAuthMode_DISABLED = IAMAuthMode' "DISABLED"
 
+pattern IAMAuthMode_ENABLED :: IAMAuthMode
+pattern IAMAuthMode_ENABLED = IAMAuthMode' "ENABLED"
+
 pattern IAMAuthMode_REQUIRED :: IAMAuthMode
 pattern IAMAuthMode_REQUIRED = IAMAuthMode' "REQUIRED"
 
 {-# COMPLETE
   IAMAuthMode_DISABLED,
+  IAMAuthMode_ENABLED,
   IAMAuthMode_REQUIRED,
   IAMAuthMode'
   #-}

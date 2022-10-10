@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.BatchDetectEntities
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,8 @@
 --
 -- Inspects the text of a batch of documents for named entities and returns
 -- information about them. For more information about named entities, see
--- how-entities
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html Entities>
+-- in the Comprehend Developer Guide.
 module Amazonka.Comprehend.BatchDetectEntities
   ( -- * Creating a Request
     BatchDetectEntities (..),
@@ -52,9 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectEntities' smart constructor.
 data BatchDetectEntities = BatchDetectEntities'
-  { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document must contain fewer than 5,000
-    -- bytes of UTF-8 encoded characters.
+  { -- | A list containing the UTF-8 encoded text of the input documents. The
+    -- list can contain a maximum of 25 documents. The maximum size of each
+    -- document is 5 KB.
     textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -71,9 +72,9 @@ data BatchDetectEntities = BatchDetectEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textList', 'batchDetectEntities_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer than 5,000
--- bytes of UTF-8 encoded characters.
+-- 'textList', 'batchDetectEntities_textList' - A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
 --
 -- 'languageCode', 'batchDetectEntities_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -92,9 +93,9 @@ newBatchDetectEntities pTextList_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer than 5,000
--- bytes of UTF-8 encoded characters.
+-- | A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
 batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities (Prelude.NonEmpty Prelude.Text)
 batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

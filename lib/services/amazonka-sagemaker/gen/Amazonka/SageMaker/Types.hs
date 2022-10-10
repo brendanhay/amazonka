@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,6 +88,9 @@ module Amazonka.SageMaker.Types
     -- * AutoMLMetricExtendedEnum
     AutoMLMetricExtendedEnum (..),
 
+    -- * AutoMLMode
+    AutoMLMode (..),
+
     -- * AutoMLS3DataType
     AutoMLS3DataType (..),
 
@@ -123,6 +126,15 @@ module Amazonka.SageMaker.Types
 
     -- * CaptureStatus
     CaptureStatus (..),
+
+    -- * ClarifyFeatureType
+    ClarifyFeatureType (..),
+
+    -- * ClarifyTextGranularity
+    ClarifyTextGranularity (..),
+
+    -- * ClarifyTextLanguage
+    ClarifyTextLanguage (..),
 
     -- * CodeRepositorySortBy
     CodeRepositorySortBy (..),
@@ -187,6 +199,9 @@ module Amazonka.SageMaker.Types
     -- * EndpointStatus
     EndpointStatus (..),
 
+    -- * ExecutionRoleIdentityConfig
+    ExecutionRoleIdentityConfig (..),
+
     -- * ExecutionStatus
     ExecutionStatus (..),
 
@@ -201,6 +216,9 @@ module Amazonka.SageMaker.Types
 
     -- * FeatureGroupStatus
     FeatureGroupStatus (..),
+
+    -- * FeatureStatus
+    FeatureStatus (..),
 
     -- * FeatureType
     FeatureType (..),
@@ -592,6 +610,9 @@ module Amazonka.SageMaker.Types
     -- * VariantStatus
     VariantStatus (..),
 
+    -- * WarmPoolResourceStatus
+    WarmPoolResourceStatus (..),
+
     -- * WorkforceStatus
     WorkforceStatus (..),
 
@@ -854,6 +875,7 @@ module Amazonka.SageMaker.Types
     autoMLJobConfig_completionCriteria,
     autoMLJobConfig_candidateGenerationConfig,
     autoMLJobConfig_securityConfig,
+    autoMLJobConfig_mode,
 
     -- * AutoMLJobObjective
     AutoMLJobObjective (..),
@@ -958,6 +980,11 @@ module Amazonka.SageMaker.Types
     candidateProperties_candidateMetrics,
     candidateProperties_candidateArtifactLocations,
 
+    -- * CanvasAppSettings
+    CanvasAppSettings (..),
+    newCanvasAppSettings,
+    canvasAppSettings_timeSeriesForecastingSettings,
+
     -- * CapacitySize
     CapacitySize (..),
     newCapacitySize,
@@ -1030,6 +1057,50 @@ module Amazonka.SageMaker.Types
     clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints,
     clarifyCheckStepMetadata_calculatedBaselineConstraints,
     clarifyCheckStepMetadata_violationReport,
+
+    -- * ClarifyExplainerConfig
+    ClarifyExplainerConfig (..),
+    newClarifyExplainerConfig,
+    clarifyExplainerConfig_enableExplanations,
+    clarifyExplainerConfig_inferenceConfig,
+    clarifyExplainerConfig_shapConfig,
+
+    -- * ClarifyInferenceConfig
+    ClarifyInferenceConfig (..),
+    newClarifyInferenceConfig,
+    clarifyInferenceConfig_probabilityIndex,
+    clarifyInferenceConfig_maxRecordCount,
+    clarifyInferenceConfig_labelAttribute,
+    clarifyInferenceConfig_labelIndex,
+    clarifyInferenceConfig_contentTemplate,
+    clarifyInferenceConfig_probabilityAttribute,
+    clarifyInferenceConfig_featureTypes,
+    clarifyInferenceConfig_featuresAttribute,
+    clarifyInferenceConfig_maxPayloadInMB,
+    clarifyInferenceConfig_labelHeaders,
+    clarifyInferenceConfig_featureHeaders,
+
+    -- * ClarifyShapBaselineConfig
+    ClarifyShapBaselineConfig (..),
+    newClarifyShapBaselineConfig,
+    clarifyShapBaselineConfig_shapBaseline,
+    clarifyShapBaselineConfig_shapBaselineUri,
+    clarifyShapBaselineConfig_mimeType,
+
+    -- * ClarifyShapConfig
+    ClarifyShapConfig (..),
+    newClarifyShapConfig,
+    clarifyShapConfig_seed,
+    clarifyShapConfig_textConfig,
+    clarifyShapConfig_useLogit,
+    clarifyShapConfig_numberOfSamples,
+    clarifyShapConfig_shapBaselineConfig,
+
+    -- * ClarifyTextConfig
+    ClarifyTextConfig (..),
+    newClarifyTextConfig,
+    clarifyTextConfig_language,
+    clarifyTextConfig_granularity,
 
     -- * CodeRepositorySummary
     CodeRepositorySummary (..),
@@ -1335,11 +1406,13 @@ module Amazonka.SageMaker.Types
     DomainSettings (..),
     newDomainSettings,
     domainSettings_securityGroupIds,
+    domainSettings_executionRoleIdentityConfig,
     domainSettings_rStudioServerProDomainSettings,
 
     -- * DomainSettingsForUpdate
     DomainSettingsForUpdate (..),
     newDomainSettingsForUpdate,
+    domainSettingsForUpdate_executionRoleIdentityConfig,
     domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate,
 
     -- * DriftCheckBaselines
@@ -1588,6 +1661,11 @@ module Amazonka.SageMaker.Types
     Explainability (..),
     newExplainability,
     explainability_report,
+
+    -- * ExplainerConfig
+    ExplainerConfig (..),
+    newExplainerConfig,
+    explainerConfig_clarifyExplainerConfig,
 
     -- * FailStepMetadata
     FailStepMetadata (..),
@@ -1838,6 +1916,7 @@ module Amazonka.SageMaker.Types
     hyperParameterTuningJobConfig_trainingJobEarlyStoppingType,
     hyperParameterTuningJobConfig_hyperParameterTuningJobObjective,
     hyperParameterTuningJobConfig_parameterRanges,
+    hyperParameterTuningJobConfig_strategyConfig,
     hyperParameterTuningJobConfig_strategy,
     hyperParameterTuningJobConfig_resourceLimits,
 
@@ -1846,6 +1925,31 @@ module Amazonka.SageMaker.Types
     newHyperParameterTuningJobObjective,
     hyperParameterTuningJobObjective_type,
     hyperParameterTuningJobObjective_metricName,
+
+    -- * HyperParameterTuningJobSearchEntity
+    HyperParameterTuningJobSearchEntity (..),
+    newHyperParameterTuningJobSearchEntity,
+    hyperParameterTuningJobSearchEntity_tags,
+    hyperParameterTuningJobSearchEntity_overallBestTrainingJob,
+    hyperParameterTuningJobSearchEntity_bestTrainingJob,
+    hyperParameterTuningJobSearchEntity_trainingJobDefinitions,
+    hyperParameterTuningJobSearchEntity_hyperParameterTuningJobStatus,
+    hyperParameterTuningJobSearchEntity_lastModifiedTime,
+    hyperParameterTuningJobSearchEntity_hyperParameterTuningJobName,
+    hyperParameterTuningJobSearchEntity_hyperParameterTuningJobArn,
+    hyperParameterTuningJobSearchEntity_creationTime,
+    hyperParameterTuningJobSearchEntity_warmStartConfig,
+    hyperParameterTuningJobSearchEntity_hyperParameterTuningJobConfig,
+    hyperParameterTuningJobSearchEntity_trainingJobStatusCounters,
+    hyperParameterTuningJobSearchEntity_hyperParameterTuningEndTime,
+    hyperParameterTuningJobSearchEntity_objectiveStatusCounters,
+    hyperParameterTuningJobSearchEntity_trainingJobDefinition,
+    hyperParameterTuningJobSearchEntity_failureReason,
+
+    -- * HyperParameterTuningJobStrategyConfig
+    HyperParameterTuningJobStrategyConfig (..),
+    newHyperParameterTuningJobStrategyConfig,
+    hyperParameterTuningJobStrategyConfig_hyperbandStrategyConfig,
 
     -- * HyperParameterTuningJobSummary
     HyperParameterTuningJobSummary (..),
@@ -1876,6 +1980,12 @@ module Amazonka.SageMaker.Types
     hyperParameterTuningResourceConfig_instanceCount,
     hyperParameterTuningResourceConfig_instanceConfigs,
     hyperParameterTuningResourceConfig_volumeSizeInGB,
+
+    -- * HyperbandStrategyConfig
+    HyperbandStrategyConfig (..),
+    newHyperbandStrategyConfig,
+    hyperbandStrategyConfig_minResource,
+    hyperbandStrategyConfig_maxResource,
 
     -- * Image
     Image (..),
@@ -2980,11 +3090,14 @@ module Amazonka.SageMaker.Types
     ProductionVariant (..),
     newProductionVariant,
     productionVariant_acceleratorType,
+    productionVariant_containerStartupHealthCheckTimeoutInSeconds,
     productionVariant_initialInstanceCount,
     productionVariant_instanceType,
     productionVariant_serverlessConfig,
     productionVariant_coreDumpConfig,
     productionVariant_initialVariantWeight,
+    productionVariant_modelDataDownloadTimeoutInSeconds,
+    productionVariant_volumeSizeInGB,
     productionVariant_variantName,
     productionVariant_modelName,
 
@@ -3158,6 +3271,17 @@ module Amazonka.SageMaker.Types
     newRecommendationJobCompiledOutputConfig,
     recommendationJobCompiledOutputConfig_s3OutputUri,
 
+    -- * RecommendationJobContainerConfig
+    RecommendationJobContainerConfig (..),
+    newRecommendationJobContainerConfig,
+    recommendationJobContainerConfig_task,
+    recommendationJobContainerConfig_supportedInstanceTypes,
+    recommendationJobContainerConfig_domain,
+    recommendationJobContainerConfig_nearestModelName,
+    recommendationJobContainerConfig_frameworkVersion,
+    recommendationJobContainerConfig_payloadConfig,
+    recommendationJobContainerConfig_framework,
+
     -- * RecommendationJobInputConfig
     RecommendationJobInputConfig (..),
     newRecommendationJobInputConfig,
@@ -3166,6 +3290,7 @@ module Amazonka.SageMaker.Types
     recommendationJobInputConfig_volumeKmsKeyId,
     recommendationJobInputConfig_endpointConfigurations,
     recommendationJobInputConfig_resourceLimit,
+    recommendationJobInputConfig_containerConfig,
     recommendationJobInputConfig_modelPackageVersionArn,
 
     -- * RecommendationJobOutputConfig
@@ -3173,6 +3298,12 @@ module Amazonka.SageMaker.Types
     newRecommendationJobOutputConfig,
     recommendationJobOutputConfig_compiledOutputConfig,
     recommendationJobOutputConfig_kmsKeyId,
+
+    -- * RecommendationJobPayloadConfig
+    RecommendationJobPayloadConfig (..),
+    newRecommendationJobPayloadConfig,
+    recommendationJobPayloadConfig_samplePayloadUrl,
+    recommendationJobPayloadConfig_supportedContentTypes,
 
     -- * RecommendationJobResourceLimit
     RecommendationJobResourceLimit (..),
@@ -3238,11 +3369,17 @@ module Amazonka.SageMaker.Types
     -- * ResourceConfig
     ResourceConfig (..),
     newResourceConfig,
+    resourceConfig_keepAlivePeriodInSeconds,
     resourceConfig_volumeKmsKeyId,
     resourceConfig_instanceType,
     resourceConfig_instanceCount,
     resourceConfig_instanceGroups,
     resourceConfig_volumeSizeInGB,
+
+    -- * ResourceConfigForUpdate
+    ResourceConfigForUpdate (..),
+    newResourceConfigForUpdate,
+    resourceConfigForUpdate_keepAlivePeriodInSeconds,
 
     -- * ResourceLimits
     ResourceLimits (..),
@@ -3305,6 +3442,7 @@ module Amazonka.SageMaker.Types
     searchRecord_project,
     searchRecord_trialComponent,
     searchRecord_experiment,
+    searchRecord_hyperParameterTuningJob,
     searchRecord_endpoint,
     searchRecord_featureMetadata,
     searchRecord_trial,
@@ -3422,6 +3560,12 @@ module Amazonka.SageMaker.Types
     tensorBoardOutputConfig_localPath,
     tensorBoardOutputConfig_s3OutputPath,
 
+    -- * TimeSeriesForecastingSettings
+    TimeSeriesForecastingSettings (..),
+    newTimeSeriesForecastingSettings,
+    timeSeriesForecastingSettings_status,
+    timeSeriesForecastingSettings_amazonForecastRoleArn,
+
     -- * TrafficPattern
     TrafficPattern (..),
     newTrafficPattern,
@@ -3504,6 +3648,7 @@ module Amazonka.SageMaker.Types
     -- * TrainingJobSummary
     TrainingJobSummary (..),
     newTrainingJobSummary,
+    trainingJobSummary_warmPoolStatus,
     trainingJobSummary_lastModifiedTime,
     trainingJobSummary_trainingEndTime,
     trainingJobSummary_trainingJobName,
@@ -3792,6 +3937,7 @@ module Amazonka.SageMaker.Types
     userSettings_tensorBoardAppSettings,
     userSettings_kernelGatewayAppSettings,
     userSettings_securityGroups,
+    userSettings_canvasAppSettings,
     userSettings_jupyterServerAppSettings,
     userSettings_rStudioServerProAppSettings,
     userSettings_sharingSettings,
@@ -3813,6 +3959,13 @@ module Amazonka.SageMaker.Types
     newVpcConfig,
     vpcConfig_securityGroupIds,
     vpcConfig_subnets,
+
+    -- * WarmPoolStatus
+    WarmPoolStatus (..),
+    newWarmPoolStatus,
+    warmPoolStatus_reusedByJob,
+    warmPoolStatus_resourceRetainedBillableTimeInSeconds,
+    warmPoolStatus_status,
 
     -- * Workforce
     Workforce (..),
@@ -3921,6 +4074,7 @@ import Amazonka.SageMaker.Types.AutoMLJobStatus
 import Amazonka.SageMaker.Types.AutoMLJobSummary
 import Amazonka.SageMaker.Types.AutoMLMetricEnum
 import Amazonka.SageMaker.Types.AutoMLMetricExtendedEnum
+import Amazonka.SageMaker.Types.AutoMLMode
 import Amazonka.SageMaker.Types.AutoMLOutputDataConfig
 import Amazonka.SageMaker.Types.AutoMLPartialFailureReason
 import Amazonka.SageMaker.Types.AutoMLS3DataSource
@@ -3943,6 +4097,7 @@ import Amazonka.SageMaker.Types.CandidateProperties
 import Amazonka.SageMaker.Types.CandidateSortBy
 import Amazonka.SageMaker.Types.CandidateStatus
 import Amazonka.SageMaker.Types.CandidateStepType
+import Amazonka.SageMaker.Types.CanvasAppSettings
 import Amazonka.SageMaker.Types.CapacitySize
 import Amazonka.SageMaker.Types.CapacitySizeType
 import Amazonka.SageMaker.Types.CaptureContentTypeHeader
@@ -3956,6 +4111,14 @@ import Amazonka.SageMaker.Types.Channel
 import Amazonka.SageMaker.Types.ChannelSpecification
 import Amazonka.SageMaker.Types.CheckpointConfig
 import Amazonka.SageMaker.Types.ClarifyCheckStepMetadata
+import Amazonka.SageMaker.Types.ClarifyExplainerConfig
+import Amazonka.SageMaker.Types.ClarifyFeatureType
+import Amazonka.SageMaker.Types.ClarifyInferenceConfig
+import Amazonka.SageMaker.Types.ClarifyShapBaselineConfig
+import Amazonka.SageMaker.Types.ClarifyShapConfig
+import Amazonka.SageMaker.Types.ClarifyTextConfig
+import Amazonka.SageMaker.Types.ClarifyTextGranularity
+import Amazonka.SageMaker.Types.ClarifyTextLanguage
 import Amazonka.SageMaker.Types.CodeRepositorySortBy
 import Amazonka.SageMaker.Types.CodeRepositorySortOrder
 import Amazonka.SageMaker.Types.CodeRepositorySummary
@@ -4040,12 +4203,14 @@ import Amazonka.SageMaker.Types.EndpointStatus
 import Amazonka.SageMaker.Types.EndpointSummary
 import Amazonka.SageMaker.Types.EnvironmentParameter
 import Amazonka.SageMaker.Types.EnvironmentParameterRanges
+import Amazonka.SageMaker.Types.ExecutionRoleIdentityConfig
 import Amazonka.SageMaker.Types.ExecutionStatus
 import Amazonka.SageMaker.Types.Experiment
 import Amazonka.SageMaker.Types.ExperimentConfig
 import Amazonka.SageMaker.Types.ExperimentSource
 import Amazonka.SageMaker.Types.ExperimentSummary
 import Amazonka.SageMaker.Types.Explainability
+import Amazonka.SageMaker.Types.ExplainerConfig
 import Amazonka.SageMaker.Types.FailStepMetadata
 import Amazonka.SageMaker.Types.FailureHandlingPolicy
 import Amazonka.SageMaker.Types.FeatureDefinition
@@ -4056,6 +4221,7 @@ import Amazonka.SageMaker.Types.FeatureGroupStatus
 import Amazonka.SageMaker.Types.FeatureGroupSummary
 import Amazonka.SageMaker.Types.FeatureMetadata
 import Amazonka.SageMaker.Types.FeatureParameter
+import Amazonka.SageMaker.Types.FeatureStatus
 import Amazonka.SageMaker.Types.FeatureType
 import Amazonka.SageMaker.Types.FileSource
 import Amazonka.SageMaker.Types.FileSystemAccessMode
@@ -4088,13 +4254,16 @@ import Amazonka.SageMaker.Types.HyperParameterTuningInstanceConfig
 import Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
 import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
 import Amazonka.SageMaker.Types.HyperParameterTuningJobObjectiveType
+import Amazonka.SageMaker.Types.HyperParameterTuningJobSearchEntity
 import Amazonka.SageMaker.Types.HyperParameterTuningJobSortByOptions
 import Amazonka.SageMaker.Types.HyperParameterTuningJobStatus
+import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyConfig
 import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
 import Amazonka.SageMaker.Types.HyperParameterTuningJobSummary
 import Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig
 import Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartType
 import Amazonka.SageMaker.Types.HyperParameterTuningResourceConfig
+import Amazonka.SageMaker.Types.HyperbandStrategyConfig
 import Amazonka.SageMaker.Types.Image
 import Amazonka.SageMaker.Types.ImageConfig
 import Amazonka.SageMaker.Types.ImageSortBy
@@ -4323,8 +4492,10 @@ import Amazonka.SageMaker.Types.RStudioServerProDomainSettings
 import Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate
 import Amazonka.SageMaker.Types.RStudioServerProUserGroup
 import Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
+import Amazonka.SageMaker.Types.RecommendationJobContainerConfig
 import Amazonka.SageMaker.Types.RecommendationJobInputConfig
 import Amazonka.SageMaker.Types.RecommendationJobOutputConfig
+import Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
 import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
 import Amazonka.SageMaker.Types.RecommendationJobStatus
 import Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
@@ -4341,6 +4512,7 @@ import Amazonka.SageMaker.Types.RepositoryAccessMode
 import Amazonka.SageMaker.Types.RepositoryAuthConfig
 import Amazonka.SageMaker.Types.ResolvedAttributes
 import Amazonka.SageMaker.Types.ResourceConfig
+import Amazonka.SageMaker.Types.ResourceConfigForUpdate
 import Amazonka.SageMaker.Types.ResourceLimits
 import Amazonka.SageMaker.Types.ResourceSpec
 import Amazonka.SageMaker.Types.ResourceType
@@ -4398,6 +4570,7 @@ import Amazonka.SageMaker.Types.TargetPlatformArch
 import Amazonka.SageMaker.Types.TargetPlatformOs
 import Amazonka.SageMaker.Types.TensorBoardAppSettings
 import Amazonka.SageMaker.Types.TensorBoardOutputConfig
+import Amazonka.SageMaker.Types.TimeSeriesForecastingSettings
 import Amazonka.SageMaker.Types.TrafficPattern
 import Amazonka.SageMaker.Types.TrafficRoutingConfig
 import Amazonka.SageMaker.Types.TrafficRoutingConfigType
@@ -4453,6 +4626,8 @@ import Amazonka.SageMaker.Types.VariantPropertyType
 import Amazonka.SageMaker.Types.VariantStatus
 import Amazonka.SageMaker.Types.Vertex
 import Amazonka.SageMaker.Types.VpcConfig
+import Amazonka.SageMaker.Types.WarmPoolResourceStatus
+import Amazonka.SageMaker.Types.WarmPoolStatus
 import Amazonka.SageMaker.Types.Workforce
 import Amazonka.SageMaker.Types.WorkforceStatus
 import Amazonka.SageMaker.Types.WorkforceVpcConfigRequest

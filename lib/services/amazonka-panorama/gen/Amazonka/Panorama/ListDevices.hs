@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Panorama.ListDevices
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,12 @@ module Amazonka.Panorama.ListDevices
     newListDevices,
 
     -- * Request Lenses
+    listDevices_nameFilter,
+    listDevices_sortOrder,
     listDevices_nextToken,
+    listDevices_sortBy,
     listDevices_maxResults,
+    listDevices_deviceAggregatedStatusFilter,
 
     -- * Destructuring the Response
     ListDevicesResponse (..),
@@ -50,11 +54,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { -- | Specify the pagination token from a previous request to retrieve the
+  { -- | Filter based on device\'s name. Prefixes supported.
+    nameFilter :: Prelude.Maybe Prelude.Text,
+    -- | The sorting order for the returned list. SortOrder is DESCENDING by
+    -- default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | Specify the pagination token from a previous request to retrieve the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The target column to be sorted on. Default column sort is CREATED_TIME.
+    sortBy :: Prelude.Maybe ListDevicesSortBy,
     -- | The maximum number of devices to return in one page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filter based on a device\'s status.
+    deviceAggregatedStatusFilter :: Prelude.Maybe DeviceAggregatedStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,26 +79,56 @@ data ListDevices = ListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameFilter', 'listDevices_nameFilter' - Filter based on device\'s name. Prefixes supported.
+--
+-- 'sortOrder', 'listDevices_sortOrder' - The sorting order for the returned list. SortOrder is DESCENDING by
+-- default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
+--
 -- 'nextToken', 'listDevices_nextToken' - Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 --
+-- 'sortBy', 'listDevices_sortBy' - The target column to be sorted on. Default column sort is CREATED_TIME.
+--
 -- 'maxResults', 'listDevices_maxResults' - The maximum number of devices to return in one page of results.
+--
+-- 'deviceAggregatedStatusFilter', 'listDevices_deviceAggregatedStatusFilter' - Filter based on a device\'s status.
 newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nameFilter = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      deviceAggregatedStatusFilter = Prelude.Nothing
     }
+
+-- | Filter based on device\'s name. Prefixes supported.
+listDevices_nameFilter :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_nameFilter = Lens.lens (\ListDevices' {nameFilter} -> nameFilter) (\s@ListDevices' {} a -> s {nameFilter = a} :: ListDevices)
+
+-- | The sorting order for the returned list. SortOrder is DESCENDING by
+-- default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
+listDevices_sortOrder :: Lens.Lens' ListDevices (Prelude.Maybe SortOrder)
+listDevices_sortOrder = Lens.lens (\ListDevices' {sortOrder} -> sortOrder) (\s@ListDevices' {} a -> s {sortOrder = a} :: ListDevices)
 
 -- | Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
+-- | The target column to be sorted on. Default column sort is CREATED_TIME.
+listDevices_sortBy :: Lens.Lens' ListDevices (Prelude.Maybe ListDevicesSortBy)
+listDevices_sortBy = Lens.lens (\ListDevices' {sortBy} -> sortBy) (\s@ListDevices' {} a -> s {sortBy = a} :: ListDevices)
+
 -- | The maximum number of devices to return in one page of results.
 listDevices_maxResults :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_maxResults = Lens.lens (\ListDevices' {maxResults} -> maxResults) (\s@ListDevices' {} a -> s {maxResults = a} :: ListDevices)
+
+-- | Filter based on a device\'s status.
+listDevices_deviceAggregatedStatusFilter :: Lens.Lens' ListDevices (Prelude.Maybe DeviceAggregatedStatus)
+listDevices_deviceAggregatedStatusFilter = Lens.lens (\ListDevices' {deviceAggregatedStatusFilter} -> deviceAggregatedStatusFilter) (\s@ListDevices' {} a -> s {deviceAggregatedStatusFilter = a} :: ListDevices)
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
@@ -101,13 +144,21 @@ instance Core.AWSRequest ListDevices where
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nameFilter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` deviceAggregatedStatusFilter
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf nameFilter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf deviceAggregatedStatusFilter
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -126,8 +177,13 @@ instance Core.ToPath ListDevices where
 instance Core.ToQuery ListDevices where
   toQuery ListDevices' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NameFilter" Core.=: nameFilter,
+        "SortOrder" Core.=: sortOrder,
+        "NextToken" Core.=: nextToken,
+        "SortBy" Core.=: sortBy,
+        "MaxResults" Core.=: maxResults,
+        "DeviceAggregatedStatusFilter"
+          Core.=: deviceAggregatedStatusFilter
       ]
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.

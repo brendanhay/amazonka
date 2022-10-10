@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IAM.SimulateCustomPolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -186,37 +186,29 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- resources that you must define to run the simulation.
     --
     -- Each of the EC2 scenarios requires that you specify instance, image, and
-    -- security-group resources. If your scenario includes an EBS volume, then
+    -- security group resources. If your scenario includes an EBS volume, then
     -- you must specify that volume as a resource. If the EC2 scenario includes
-    -- VPC, then you must supply the network-interface resource. If it includes
+    -- VPC, then you must supply the network interface resource. If it includes
     -- an IP subnet, then you must specify the subnet resource. For more
     -- information on the EC2 scenario options, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
     -- in the /Amazon EC2 User Guide/.
     --
-    -- -   __EC2-Classic-InstanceStore__
-    --
-    --     instance, image, security-group
-    --
-    -- -   __EC2-Classic-EBS__
-    --
-    --     instance, image, security-group, volume
-    --
     -- -   __EC2-VPC-InstanceStore__
     --
-    --     instance, image, security-group, network-interface
+    --     instance, image, security group, network interface
     --
     -- -   __EC2-VPC-InstanceStore-Subnet__
     --
-    --     instance, image, security-group, network-interface, subnet
+    --     instance, image, security group, network interface, subnet
     --
     -- -   __EC2-VPC-EBS__
     --
-    --     instance, image, security-group, network-interface, volume
+    --     instance, image, security group, network interface, volume
     --
     -- -   __EC2-VPC-EBS-Subnet__
     --
-    --     instance, image, security-group, network-interface, subnet, volume
+    --     instance, image, security group, network interface, subnet, volume
     resourceHandlingOption :: Prelude.Maybe Prelude.Text,
     -- | A list of ARNs of Amazon Web Services resources to include in the
     -- simulation. If this parameter is not provided, then the value defaults
@@ -385,37 +377,29 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- resources that you must define to run the simulation.
 --
 -- Each of the EC2 scenarios requires that you specify instance, image, and
--- security-group resources. If your scenario includes an EBS volume, then
+-- security group resources. If your scenario includes an EBS volume, then
 -- you must specify that volume as a resource. If the EC2 scenario includes
--- VPC, then you must supply the network-interface resource. If it includes
+-- VPC, then you must supply the network interface resource. If it includes
 -- an IP subnet, then you must specify the subnet resource. For more
 -- information on the EC2 scenario options, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
 -- in the /Amazon EC2 User Guide/.
 --
--- -   __EC2-Classic-InstanceStore__
---
---     instance, image, security-group
---
--- -   __EC2-Classic-EBS__
---
---     instance, image, security-group, volume
---
 -- -   __EC2-VPC-InstanceStore__
 --
---     instance, image, security-group, network-interface
+--     instance, image, security group, network interface
 --
 -- -   __EC2-VPC-InstanceStore-Subnet__
 --
---     instance, image, security-group, network-interface, subnet
+--     instance, image, security group, network interface, subnet
 --
 -- -   __EC2-VPC-EBS__
 --
---     instance, image, security-group, network-interface, volume
+--     instance, image, security group, network interface, volume
 --
 -- -   __EC2-VPC-EBS-Subnet__
 --
---     instance, image, security-group, network-interface, subnet, volume
+--     instance, image, security group, network interface, subnet, volume
 --
 -- 'resourceArns', 'simulateCustomPolicy_resourceArns' - A list of ARNs of Amazon Web Services resources to include in the
 -- simulation. If this parameter is not provided, then the value defaults
@@ -604,37 +588,29 @@ simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -
 -- resources that you must define to run the simulation.
 --
 -- Each of the EC2 scenarios requires that you specify instance, image, and
--- security-group resources. If your scenario includes an EBS volume, then
+-- security group resources. If your scenario includes an EBS volume, then
 -- you must specify that volume as a resource. If the EC2 scenario includes
--- VPC, then you must supply the network-interface resource. If it includes
+-- VPC, then you must supply the network interface resource. If it includes
 -- an IP subnet, then you must specify the subnet resource. For more
 -- information on the EC2 scenario options, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
 -- in the /Amazon EC2 User Guide/.
 --
--- -   __EC2-Classic-InstanceStore__
---
---     instance, image, security-group
---
--- -   __EC2-Classic-EBS__
---
---     instance, image, security-group, volume
---
 -- -   __EC2-VPC-InstanceStore__
 --
---     instance, image, security-group, network-interface
+--     instance, image, security group, network interface
 --
 -- -   __EC2-VPC-InstanceStore-Subnet__
 --
---     instance, image, security-group, network-interface, subnet
+--     instance, image, security group, network interface, subnet
 --
 -- -   __EC2-VPC-EBS__
 --
---     instance, image, security-group, network-interface, volume
+--     instance, image, security group, network interface, volume
 --
 -- -   __EC2-VPC-EBS-Subnet__
 --
---     instance, image, security-group, network-interface, subnet, volume
+--     instance, image, security group, network interface, subnet, volume
 simulateCustomPolicy_resourceHandlingOption :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
 simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' {resourceHandlingOption} -> resourceHandlingOption) (\s@SimulateCustomPolicy' {} a -> s {resourceHandlingOption = a} :: SimulateCustomPolicy)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.FindingsFilterListItem
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingsFilterListItem' smart constructor.
 data FindingsFilterListItem = FindingsFilterListItem'
-  { -- | A map of key-value pairs that identifies the tags (keys and values) that
-    -- are associated with the filter.
+  { -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the filter.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The custom name of the filter.
     name :: Prelude.Maybe Prelude.Text,
@@ -52,8 +52,8 @@ data FindingsFilterListItem = FindingsFilterListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'findingsFilterListItem_tags' - A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
+-- 'tags', 'findingsFilterListItem_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
 --
 -- 'name', 'findingsFilterListItem_name' - The custom name of the filter.
 --
@@ -75,8 +75,8 @@ newFindingsFilterListItem =
       action = Prelude.Nothing
     }
 
--- | A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
 findingsFilterListItem_tags :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 findingsFilterListItem_tags = Lens.lens (\FindingsFilterListItem' {tags} -> tags) (\s@FindingsFilterListItem' {} a -> s {tags = a} :: FindingsFilterListItem) Prelude.. Lens.mapping Lens.coerced
 

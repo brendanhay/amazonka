@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Location
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -238,6 +238,12 @@ module Amazonka.Location
     newGetMapTile,
     GetMapTileResponse (GetMapTileResponse'),
     newGetMapTileResponse,
+
+    -- ** GetPlace
+    GetPlace (GetPlace'),
+    newGetPlace,
+    GetPlaceResponse (GetPlaceResponse'),
+    newGetPlaceResponse,
 
     -- ** ListDevicePositions (Paginated)
     ListDevicePositions (ListDevicePositions'),
@@ -594,6 +600,7 @@ import Amazonka.Location.GetMapGlyphs
 import Amazonka.Location.GetMapSprites
 import Amazonka.Location.GetMapStyleDescriptor
 import Amazonka.Location.GetMapTile
+import Amazonka.Location.GetPlace
 import Amazonka.Location.Lens
 import Amazonka.Location.ListDevicePositions
 import Amazonka.Location.ListGeofenceCollections

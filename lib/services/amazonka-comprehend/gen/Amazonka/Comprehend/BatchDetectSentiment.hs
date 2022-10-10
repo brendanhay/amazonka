@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.BatchDetectSentiment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,9 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectSentiment' smart constructor.
 data BatchDetectSentiment = BatchDetectSentiment'
-  { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document must contain fewer that 5,000
-    -- bytes of UTF-8 encoded characters.
+  { -- | A list containing the UTF-8 encoded text of the input documents. The
+    -- list can contain a maximum of 25 documents. The maximum size of each
+    -- document is 5 KB.
+    --
+    -- Amazon Comprehend performs real-time sentiment analysis on the first 500
+    -- characters of the input text and ignores any additional text in the
+    -- input.
     textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -70,9 +74,13 @@ data BatchDetectSentiment = BatchDetectSentiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textList', 'batchDetectSentiment_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
--- bytes of UTF-8 encoded characters.
+-- 'textList', 'batchDetectSentiment_textList' - A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
+--
+-- Amazon Comprehend performs real-time sentiment analysis on the first 500
+-- characters of the input text and ignores any additional text in the
+-- input.
 --
 -- 'languageCode', 'batchDetectSentiment_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -91,9 +99,13 @@ newBatchDetectSentiment pTextList_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
--- bytes of UTF-8 encoded characters.
+-- | A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
+--
+-- Amazon Comprehend performs real-time sentiment analysis on the first 500
+-- characters of the input text and ignores any additional text in the
+-- input.
 batchDetectSentiment_textList :: Lens.Lens' BatchDetectSentiment (Prelude.NonEmpty Prelude.Text)
 batchDetectSentiment_textList = Lens.lens (\BatchDetectSentiment' {textList} -> textList) (\s@BatchDetectSentiment' {} a -> s {textList = a} :: BatchDetectSentiment) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,13 @@ module Amazonka.WorkMail.Lens
     associateMemberToGroup_groupId,
     associateMemberToGroup_memberId,
     associateMemberToGroupResponse_httpStatus,
+
+    -- ** AssumeImpersonationRole
+    assumeImpersonationRole_organizationId,
+    assumeImpersonationRole_impersonationRoleId,
+    assumeImpersonationRoleResponse_expiresIn,
+    assumeImpersonationRoleResponse_token,
+    assumeImpersonationRoleResponse_httpStatus,
 
     -- ** CancelMailboxExportJob
     cancelMailboxExportJob_clientToken,
@@ -51,6 +58,16 @@ module Amazonka.WorkMail.Lens
     createGroup_name,
     createGroupResponse_groupId,
     createGroupResponse_httpStatus,
+
+    -- ** CreateImpersonationRole
+    createImpersonationRole_clientToken,
+    createImpersonationRole_description,
+    createImpersonationRole_organizationId,
+    createImpersonationRole_name,
+    createImpersonationRole_type,
+    createImpersonationRole_rules,
+    createImpersonationRoleResponse_impersonationRoleId,
+    createImpersonationRoleResponse_httpStatus,
 
     -- ** CreateMobileDeviceAccessRule
     createMobileDeviceAccessRule_clientToken,
@@ -118,6 +135,11 @@ module Amazonka.WorkMail.Lens
     deleteGroup_organizationId,
     deleteGroup_groupId,
     deleteGroupResponse_httpStatus,
+
+    -- ** DeleteImpersonationRole
+    deleteImpersonationRole_organizationId,
+    deleteImpersonationRole_impersonationRoleId,
+    deleteImpersonationRoleResponse_httpStatus,
 
     -- ** DeleteMailboxPermissions
     deleteMailboxPermissions_organizationId,
@@ -260,10 +282,11 @@ module Amazonka.WorkMail.Lens
     disassociateMemberFromGroupResponse_httpStatus,
 
     -- ** GetAccessControlEffect
+    getAccessControlEffect_userId,
+    getAccessControlEffect_impersonationRoleId,
     getAccessControlEffect_organizationId,
     getAccessControlEffect_ipAddress,
     getAccessControlEffect_action,
-    getAccessControlEffect_userId,
     getAccessControlEffectResponse_effect,
     getAccessControlEffectResponse_matchedRules,
     getAccessControlEffectResponse_httpStatus,
@@ -275,6 +298,27 @@ module Amazonka.WorkMail.Lens
     getDefaultRetentionPolicyResponse_id,
     getDefaultRetentionPolicyResponse_description,
     getDefaultRetentionPolicyResponse_httpStatus,
+
+    -- ** GetImpersonationRole
+    getImpersonationRole_organizationId,
+    getImpersonationRole_impersonationRoleId,
+    getImpersonationRoleResponse_name,
+    getImpersonationRoleResponse_type,
+    getImpersonationRoleResponse_rules,
+    getImpersonationRoleResponse_description,
+    getImpersonationRoleResponse_dateCreated,
+    getImpersonationRoleResponse_impersonationRoleId,
+    getImpersonationRoleResponse_dateModified,
+    getImpersonationRoleResponse_httpStatus,
+
+    -- ** GetImpersonationRoleEffect
+    getImpersonationRoleEffect_organizationId,
+    getImpersonationRoleEffect_impersonationRoleId,
+    getImpersonationRoleEffect_targetUser,
+    getImpersonationRoleEffectResponse_type,
+    getImpersonationRoleEffectResponse_effect,
+    getImpersonationRoleEffectResponse_matchedRules,
+    getImpersonationRoleEffectResponse_httpStatus,
 
     -- ** GetMailDomain
     getMailDomain_organizationId,
@@ -353,6 +397,14 @@ module Amazonka.WorkMail.Lens
     listGroupsResponse_nextToken,
     listGroupsResponse_groups,
     listGroupsResponse_httpStatus,
+
+    -- ** ListImpersonationRoles
+    listImpersonationRoles_nextToken,
+    listImpersonationRoles_maxResults,
+    listImpersonationRoles_organizationId,
+    listImpersonationRolesResponse_nextToken,
+    listImpersonationRolesResponse_roles,
+    listImpersonationRolesResponse_httpStatus,
 
     -- ** ListMailDomains
     listMailDomains_nextToken,
@@ -435,7 +487,9 @@ module Amazonka.WorkMail.Lens
     putAccessControlRule_notIpRanges,
     putAccessControlRule_notActions,
     putAccessControlRule_ipRanges,
+    putAccessControlRule_notImpersonationRoleIds,
     putAccessControlRule_userIds,
+    putAccessControlRule_impersonationRoleIds,
     putAccessControlRule_notUserIds,
     putAccessControlRule_actions,
     putAccessControlRule_name,
@@ -539,6 +593,15 @@ module Amazonka.WorkMail.Lens
     updateDefaultMailDomain_domainName,
     updateDefaultMailDomainResponse_httpStatus,
 
+    -- ** UpdateImpersonationRole
+    updateImpersonationRole_description,
+    updateImpersonationRole_organizationId,
+    updateImpersonationRole_impersonationRoleId,
+    updateImpersonationRole_name,
+    updateImpersonationRole_type,
+    updateImpersonationRole_rules,
+    updateImpersonationRoleResponse_httpStatus,
+
     -- ** UpdateMailboxQuota
     updateMailboxQuota_organizationId,
     updateMailboxQuota_userId,
@@ -584,8 +647,10 @@ module Amazonka.WorkMail.Lens
     accessControlRule_description,
     accessControlRule_dateCreated,
     accessControlRule_ipRanges,
+    accessControlRule_notImpersonationRoleIds,
     accessControlRule_dateModified,
     accessControlRule_userIds,
+    accessControlRule_impersonationRoleIds,
     accessControlRule_notUserIds,
     accessControlRule_actions,
 
@@ -632,6 +697,25 @@ module Amazonka.WorkMail.Lens
     group_id,
     group_enabledDate,
     group_disabledDate,
+
+    -- ** ImpersonationMatchedRule
+    impersonationMatchedRule_name,
+    impersonationMatchedRule_impersonationRuleId,
+
+    -- ** ImpersonationRole
+    impersonationRole_name,
+    impersonationRole_type,
+    impersonationRole_dateCreated,
+    impersonationRole_impersonationRoleId,
+    impersonationRole_dateModified,
+
+    -- ** ImpersonationRule
+    impersonationRule_name,
+    impersonationRule_targetUsers,
+    impersonationRule_description,
+    impersonationRule_notTargetUsers,
+    impersonationRule_impersonationRuleId,
+    impersonationRule_effect,
 
     -- ** LambdaAvailabilityProvider
     lambdaAvailabilityProvider_lambdaArn,
@@ -730,10 +814,12 @@ where
 
 import Amazonka.WorkMail.AssociateDelegateToResource
 import Amazonka.WorkMail.AssociateMemberToGroup
+import Amazonka.WorkMail.AssumeImpersonationRole
 import Amazonka.WorkMail.CancelMailboxExportJob
 import Amazonka.WorkMail.CreateAlias
 import Amazonka.WorkMail.CreateAvailabilityConfiguration
 import Amazonka.WorkMail.CreateGroup
+import Amazonka.WorkMail.CreateImpersonationRole
 import Amazonka.WorkMail.CreateMobileDeviceAccessRule
 import Amazonka.WorkMail.CreateOrganization
 import Amazonka.WorkMail.CreateResource
@@ -743,6 +829,7 @@ import Amazonka.WorkMail.DeleteAlias
 import Amazonka.WorkMail.DeleteAvailabilityConfiguration
 import Amazonka.WorkMail.DeleteEmailMonitoringConfiguration
 import Amazonka.WorkMail.DeleteGroup
+import Amazonka.WorkMail.DeleteImpersonationRole
 import Amazonka.WorkMail.DeleteMailboxPermissions
 import Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
 import Amazonka.WorkMail.DeleteMobileDeviceAccessRule
@@ -763,6 +850,8 @@ import Amazonka.WorkMail.DisassociateDelegateFromResource
 import Amazonka.WorkMail.DisassociateMemberFromGroup
 import Amazonka.WorkMail.GetAccessControlEffect
 import Amazonka.WorkMail.GetDefaultRetentionPolicy
+import Amazonka.WorkMail.GetImpersonationRole
+import Amazonka.WorkMail.GetImpersonationRoleEffect
 import Amazonka.WorkMail.GetMailDomain
 import Amazonka.WorkMail.GetMailboxDetails
 import Amazonka.WorkMail.GetMobileDeviceAccessEffect
@@ -772,6 +861,7 @@ import Amazonka.WorkMail.ListAliases
 import Amazonka.WorkMail.ListAvailabilityConfigurations
 import Amazonka.WorkMail.ListGroupMembers
 import Amazonka.WorkMail.ListGroups
+import Amazonka.WorkMail.ListImpersonationRoles
 import Amazonka.WorkMail.ListMailDomains
 import Amazonka.WorkMail.ListMailboxExportJobs
 import Amazonka.WorkMail.ListMailboxPermissions
@@ -803,6 +893,9 @@ import Amazonka.WorkMail.Types.Domain
 import Amazonka.WorkMail.Types.EwsAvailabilityProvider
 import Amazonka.WorkMail.Types.FolderConfiguration
 import Amazonka.WorkMail.Types.Group
+import Amazonka.WorkMail.Types.ImpersonationMatchedRule
+import Amazonka.WorkMail.Types.ImpersonationRole
+import Amazonka.WorkMail.Types.ImpersonationRule
 import Amazonka.WorkMail.Types.LambdaAvailabilityProvider
 import Amazonka.WorkMail.Types.MailDomainSummary
 import Amazonka.WorkMail.Types.MailboxExportJob
@@ -819,6 +912,7 @@ import Amazonka.WorkMail.Types.User
 import Amazonka.WorkMail.UntagResource
 import Amazonka.WorkMail.UpdateAvailabilityConfiguration
 import Amazonka.WorkMail.UpdateDefaultMailDomain
+import Amazonka.WorkMail.UpdateImpersonationRole
 import Amazonka.WorkMail.UpdateMailboxQuota
 import Amazonka.WorkMail.UpdateMobileDeviceAccessRule
 import Amazonka.WorkMail.UpdatePrimaryEmailAddress

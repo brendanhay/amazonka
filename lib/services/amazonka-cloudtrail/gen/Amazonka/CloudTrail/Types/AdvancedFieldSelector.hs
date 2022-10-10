@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Types.AdvancedFieldSelector
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     -- management events), @eventName@, @resources.type@, and @resources.ARN@.
     --
     -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
-    --     or @false@. If you do not add this field, CloudTrail logs both both
+    --     or @false@. If you do not add this field, CloudTrail logs both
     --     @read@ and @write@ events. A value of @true@ logs only @read@
     --     events. A value of @false@ logs only @write@ events.
     --
@@ -206,7 +206,7 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 -- management events), @eventName@, @resources.type@, and @resources.ARN@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
---     or @false@. If you do not add this field, CloudTrail logs both both
+--     or @false@. If you do not add this field, CloudTrail logs both
 --     @read@ and @write@ events. A value of @true@ logs only @read@
 --     events. A value of @false@ logs only @write@ events.
 --
@@ -375,7 +375,7 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 -- management events), @eventName@, @resources.type@, and @resources.ARN@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
---     or @false@. If you do not add this field, CloudTrail logs both both
+--     or @false@. If you do not add this field, CloudTrail logs both
 --     @read@ and @write@ events. A value of @true@ logs only @read@
 --     events. A value of @false@ logs only @write@ events.
 --

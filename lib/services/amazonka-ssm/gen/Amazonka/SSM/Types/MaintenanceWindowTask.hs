@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.MaintenanceWindowTask
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.SSM.Types.MaintenanceWindowTask where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.LoggingInfo
 import Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior
 import Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression
@@ -64,6 +65,9 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
     targets :: Prelude.Maybe [Target],
     -- | A description of the task.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The details for the CloudWatch alarm applied to your maintenance window
+    -- task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The priority of the task in the maintenance window. The lower the
     -- number, the higher the priority. Tasks that have the same priority are
     -- scheduled in parallel.
@@ -149,6 +153,9 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 --
 -- 'description', 'maintenanceWindowTask_description' - A description of the task.
 --
+-- 'alarmConfiguration', 'maintenanceWindowTask_alarmConfiguration' - The details for the CloudWatch alarm applied to your maintenance window
+-- task.
+--
 -- 'priority', 'maintenanceWindowTask_priority' - The priority of the task in the maintenance window. The lower the
 -- number, the higher the priority. Tasks that have the same priority are
 -- scheduled in parallel.
@@ -203,6 +210,7 @@ newMaintenanceWindowTask =
       windowId = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       priority = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -259,6 +267,11 @@ maintenanceWindowTask_targets = Lens.lens (\MaintenanceWindowTask' {targets} -> 
 -- | A description of the task.
 maintenanceWindowTask_description :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 maintenanceWindowTask_description = Lens.lens (\MaintenanceWindowTask' {description} -> description) (\s@MaintenanceWindowTask' {} a -> s {description = a} :: MaintenanceWindowTask) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The details for the CloudWatch alarm applied to your maintenance window
+-- task.
+maintenanceWindowTask_alarmConfiguration :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe AlarmConfiguration)
+maintenanceWindowTask_alarmConfiguration = Lens.lens (\MaintenanceWindowTask' {alarmConfiguration} -> alarmConfiguration) (\s@MaintenanceWindowTask' {} a -> s {alarmConfiguration = a} :: MaintenanceWindowTask)
 
 -- | The priority of the task in the maintenance window. The lower the
 -- number, the higher the priority. Tasks that have the same priority are
@@ -327,6 +340,7 @@ instance Core.FromJSON MaintenanceWindowTask where
             Prelude.<*> (x Core..:? "WindowId")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "Priority")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "MaxErrors")
@@ -345,6 +359,7 @@ instance Prelude.Hashable MaintenanceWindowTask where
       `Prelude.hashWithSalt` windowId
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
@@ -362,6 +377,7 @@ instance Prelude.NFData MaintenanceWindowTask where
       `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.ListRepositoryAssociations
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,14 +24,11 @@
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html RepositoryAssociationSummary>
 -- objects that contain summary information about a repository association.
 -- You can filter the returned list by
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType ProviderType>
--- ,
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name Name>
--- ,
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State State>
--- , and
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner Owner>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType ProviderType>,
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name Name>,
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State State>,
+-- and
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner Owner>.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeGuruReviewer.ListRepositoryAssociations
@@ -123,7 +120,7 @@ data ListRepositoryAssociations = ListRepositoryAssociations'
     -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
     --     repository. You can create a new association with this repository if
     --     you want to review source code in it later. You can control access
-    --     to code reviews created in an associated repository with tags after
+    --     to code reviews created in anassociated repository with tags after
     --     it has been disassociated. For more information, see
     --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
     --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -195,7 +192,7 @@ data ListRepositoryAssociations = ListRepositoryAssociations'
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -278,7 +275,7 @@ listRepositoryAssociations_maxResults = Lens.lens (\ListRepositoryAssociations' 
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.

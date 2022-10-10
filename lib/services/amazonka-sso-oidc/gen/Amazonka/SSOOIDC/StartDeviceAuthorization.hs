@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOOIDC.StartDeviceAuthorization
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,16 +56,16 @@ import Amazonka.SSOOIDC.Types
 
 -- | /See:/ 'newStartDeviceAuthorization' smart constructor.
 data StartDeviceAuthorization = StartDeviceAuthorization'
-  { -- | The unique identifier string for the client that is registered with
-    -- Amazon Web Services SSO. This value should come from the persisted
-    -- result of the RegisterClient API operation.
+  { -- | The unique identifier string for the client that is registered with IAM
+    -- Identity Center. This value should come from the persisted result of the
+    -- RegisterClient API operation.
     clientId :: Prelude.Text,
     -- | A secret string that is generated for the client. This value should come
     -- from the persisted result of the RegisterClient API operation.
     clientSecret :: Prelude.Text,
     -- | The URL for the AWS access portal. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the AWS access portal>
-    -- in the /Amazon Web Services SSO User Guide/.
+    -- in the /IAM Identity Center User Guide/.
     startUrl :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,16 +78,16 @@ data StartDeviceAuthorization = StartDeviceAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientId', 'startDeviceAuthorization_clientId' - The unique identifier string for the client that is registered with
--- Amazon Web Services SSO. This value should come from the persisted
--- result of the RegisterClient API operation.
+-- 'clientId', 'startDeviceAuthorization_clientId' - The unique identifier string for the client that is registered with IAM
+-- Identity Center. This value should come from the persisted result of the
+-- RegisterClient API operation.
 --
 -- 'clientSecret', 'startDeviceAuthorization_clientSecret' - A secret string that is generated for the client. This value should come
 -- from the persisted result of the RegisterClient API operation.
 --
 -- 'startUrl', 'startDeviceAuthorization_startUrl' - The URL for the AWS access portal. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the AWS access portal>
--- in the /Amazon Web Services SSO User Guide/.
+-- in the /IAM Identity Center User Guide/.
 newStartDeviceAuthorization ::
   -- | 'clientId'
   Prelude.Text ->
@@ -106,9 +106,9 @@ newStartDeviceAuthorization
         startUrl = pStartUrl_
       }
 
--- | The unique identifier string for the client that is registered with
--- Amazon Web Services SSO. This value should come from the persisted
--- result of the RegisterClient API operation.
+-- | The unique identifier string for the client that is registered with IAM
+-- Identity Center. This value should come from the persisted result of the
+-- RegisterClient API operation.
 startDeviceAuthorization_clientId :: Lens.Lens' StartDeviceAuthorization Prelude.Text
 startDeviceAuthorization_clientId = Lens.lens (\StartDeviceAuthorization' {clientId} -> clientId) (\s@StartDeviceAuthorization' {} a -> s {clientId = a} :: StartDeviceAuthorization)
 
@@ -119,7 +119,7 @@ startDeviceAuthorization_clientSecret = Lens.lens (\StartDeviceAuthorization' {c
 
 -- | The URL for the AWS access portal. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html Using the AWS access portal>
--- in the /Amazon Web Services SSO User Guide/.
+-- in the /IAM Identity Center User Guide/.
 startDeviceAuthorization_startUrl :: Lens.Lens' StartDeviceAuthorization Prelude.Text
 startDeviceAuthorization_startUrl = Lens.lens (\StartDeviceAuthorization' {startUrl} -> startUrl) (\s@StartDeviceAuthorization' {} a -> s {startUrl = a} :: StartDeviceAuthorization)
 

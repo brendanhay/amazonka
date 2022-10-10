@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -244,11 +244,13 @@ module Amazonka.MediaConnect.Lens
     updateFlowSource_senderIpAddress,
     updateFlowSource_decryption,
     updateFlowSource_description,
+    updateFlowSource_sourceListenerAddress,
     updateFlowSource_senderControlPort,
     updateFlowSource_protocol,
     updateFlowSource_ingestPort,
     updateFlowSource_whitelistCidr,
     updateFlowSource_minLatency,
+    updateFlowSource_sourceListenerPort,
     updateFlowSource_flowArn,
     updateFlowSource_sourceArn,
     updateFlowSourceResponse_source,
@@ -508,11 +510,13 @@ module Amazonka.MediaConnect.Lens
     setSourceRequest_senderIpAddress,
     setSourceRequest_decryption,
     setSourceRequest_description,
+    setSourceRequest_sourceListenerAddress,
     setSourceRequest_senderControlPort,
     setSourceRequest_protocol,
     setSourceRequest_ingestPort,
     setSourceRequest_whitelistCidr,
     setSourceRequest_minLatency,
+    setSourceRequest_sourceListenerPort,
 
     -- ** Source
     source_mediaStreamSourceConfigurations,
@@ -542,8 +546,10 @@ module Amazonka.MediaConnect.Lens
     transport_streamId,
     transport_remoteId,
     transport_senderIpAddress,
+    transport_sourceListenerAddress,
     transport_senderControlPort,
     transport_minLatency,
+    transport_sourceListenerPort,
     transport_protocol,
 
     -- ** UpdateEncryption

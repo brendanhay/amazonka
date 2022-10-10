@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import Amazonka.VoiceId.Types.JobProgress
 data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
   { -- | The current status of the fraudster registration job.
     jobStatus :: Prelude.Maybe FraudsterRegistrationJobStatus,
-    -- | The client-provied name for the fraudster registration job.
+    -- | The client-provided name for the fraudster registration job.
     jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A timestamp showing when the fraudster registration job ended.
     endedAt :: Prelude.Maybe Core.POSIX,
@@ -64,7 +64,7 @@ data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
 --
 -- 'jobStatus', 'fraudsterRegistrationJobSummary_jobStatus' - The current status of the fraudster registration job.
 --
--- 'jobName', 'fraudsterRegistrationJobSummary_jobName' - The client-provied name for the fraudster registration job.
+-- 'jobName', 'fraudsterRegistrationJobSummary_jobName' - The client-provided name for the fraudster registration job.
 --
 -- 'endedAt', 'fraudsterRegistrationJobSummary_endedAt' - A timestamp showing when the fraudster registration job ended.
 --
@@ -101,7 +101,7 @@ newFraudsterRegistrationJobSummary =
 fraudsterRegistrationJobSummary_jobStatus :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe FraudsterRegistrationJobStatus)
 fraudsterRegistrationJobSummary_jobStatus = Lens.lens (\FraudsterRegistrationJobSummary' {jobStatus} -> jobStatus) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobStatus = a} :: FraudsterRegistrationJobSummary)
 
--- | The client-provied name for the fraudster registration job.
+-- | The client-provided name for the fraudster registration job.
 fraudsterRegistrationJobSummary_jobName :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJobSummary_jobName = Lens.lens (\FraudsterRegistrationJobSummary' {jobName} -> jobName) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobName = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Sensitive
 

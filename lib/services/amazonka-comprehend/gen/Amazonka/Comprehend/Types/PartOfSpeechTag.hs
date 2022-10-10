@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types.PartOfSpeechTag
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Identifies the part of speech represented by the token and gives the
 -- confidence that Amazon Comprehend has that the part of speech was
 -- correctly identified. For more information about the parts of speech
--- that Amazon Comprehend can identify, see how-syntax.
+-- that Amazon Comprehend can identify, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html Syntax>
+-- in the Comprehend Developer Guide.
 --
 -- /See:/ 'newPartOfSpeechTag' smart constructor.
 data PartOfSpeechTag = PartOfSpeechTag'

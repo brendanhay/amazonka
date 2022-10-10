@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.CreateParallelData
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Amazonka.Translate.CreateParallelData
     newCreateParallelData,
 
     -- * Request Lenses
+    createParallelData_tags,
     createParallelData_description,
     createParallelData_encryptionKey,
     createParallelData_name,
@@ -57,7 +58,8 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newCreateParallelData' smart constructor.
 data CreateParallelData = CreateParallelData'
-  { -- | A custom description for the parallel data resource in Amazon Translate.
+  { tags :: Prelude.Maybe [Tag],
+    -- | A custom description for the parallel data resource in Amazon Translate.
     description :: Prelude.Maybe Prelude.Text,
     encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | A custom name for the parallel data resource in Amazon Translate. You
@@ -78,6 +80,8 @@ data CreateParallelData = CreateParallelData'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createParallelData_tags' - Undocumented member.
 --
 -- 'description', 'createParallelData_description' - A custom description for the parallel data resource in Amazon Translate.
 --
@@ -103,12 +107,17 @@ newCreateParallelData
   pParallelDataConfig_
   pClientToken_ =
     CreateParallelData'
-      { description = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         name = pName_,
         parallelDataConfig = pParallelDataConfig_,
         clientToken = pClientToken_
       }
+
+-- | Undocumented member.
+createParallelData_tags :: Lens.Lens' CreateParallelData (Prelude.Maybe [Tag])
+createParallelData_tags = Lens.lens (\CreateParallelData' {tags} -> tags) (\s@CreateParallelData' {} a -> s {tags = a} :: CreateParallelData) Prelude.. Lens.mapping Lens.coerced
 
 -- | A custom description for the parallel data resource in Amazon Translate.
 createParallelData_description :: Lens.Lens' CreateParallelData (Prelude.Maybe Prelude.Text)
@@ -148,7 +157,8 @@ instance Core.AWSRequest CreateParallelData where
 
 instance Prelude.Hashable CreateParallelData where
   hashWithSalt _salt CreateParallelData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parallelDataConfig
@@ -156,7 +166,8 @@ instance Prelude.Hashable CreateParallelData where
 
 instance Prelude.NFData CreateParallelData where
   rnf CreateParallelData' {..} =
-    Prelude.rnf description
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parallelDataConfig
@@ -181,7 +192,8 @@ instance Core.ToJSON CreateParallelData where
   toJSON CreateParallelData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just

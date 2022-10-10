@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Types.InstanceMetricName
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.Lightsail.Types.InstanceMetricName
         InstanceMetricName_BurstCapacityPercentage,
         InstanceMetricName_BurstCapacityTime,
         InstanceMetricName_CPUUtilization,
+        InstanceMetricName_MetadataNoToken,
         InstanceMetricName_NetworkIn,
         InstanceMetricName_NetworkOut,
         InstanceMetricName_StatusCheckFailed,
@@ -72,6 +73,9 @@ pattern InstanceMetricName_BurstCapacityTime = InstanceMetricName' "BurstCapacit
 pattern InstanceMetricName_CPUUtilization :: InstanceMetricName
 pattern InstanceMetricName_CPUUtilization = InstanceMetricName' "CPUUtilization"
 
+pattern InstanceMetricName_MetadataNoToken :: InstanceMetricName
+pattern InstanceMetricName_MetadataNoToken = InstanceMetricName' "MetadataNoToken"
+
 pattern InstanceMetricName_NetworkIn :: InstanceMetricName
 pattern InstanceMetricName_NetworkIn = InstanceMetricName' "NetworkIn"
 
@@ -91,6 +95,7 @@ pattern InstanceMetricName_StatusCheckFailed_System = InstanceMetricName' "Statu
   InstanceMetricName_BurstCapacityPercentage,
   InstanceMetricName_BurstCapacityTime,
   InstanceMetricName_CPUUtilization,
+  InstanceMetricName_MetadataNoToken,
   InstanceMetricName_NetworkIn,
   InstanceMetricName_NetworkOut,
   InstanceMetricName_StatusCheckFailed,

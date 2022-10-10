@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.UpdateAsset
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,10 @@ module Amazonka.DataExchange.UpdateAsset
     newUpdateAsset,
 
     -- * Request Lenses
-    updateAsset_revisionId,
     updateAsset_assetId,
     updateAsset_dataSetId,
     updateAsset_name,
+    updateAsset_revisionId,
 
     -- * Destructuring the Response
     UpdateAssetResponse (..),
@@ -58,13 +58,9 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for UpdateAsset.
---
--- /See:/ 'newUpdateAsset' smart constructor.
+-- | /See:/ 'newUpdateAsset' smart constructor.
 data UpdateAsset = UpdateAsset'
-  { -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
-    -- | The unique identifier for an asset.
+  { -- | The unique identifier for an asset.
     assetId :: Prelude.Text,
     -- | The unique identifier for a data set.
     dataSetId :: Prelude.Text,
@@ -73,7 +69,9 @@ data UpdateAsset = UpdateAsset'
     -- is used as default target S3 object key. When importing from Amazon API
     -- Gateway API, the API name is used as the asset name. When importing from
     -- Amazon Redshift, the datashare name is used as the asset name.
-    name :: Prelude.Text
+    name :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,8 +83,6 @@ data UpdateAsset = UpdateAsset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'updateAsset_revisionId' - The unique identifier for a revision.
---
 -- 'assetId', 'updateAsset_assetId' - The unique identifier for an asset.
 --
 -- 'dataSetId', 'updateAsset_dataSetId' - The unique identifier for a data set.
@@ -96,31 +92,29 @@ data UpdateAsset = UpdateAsset'
 -- is used as default target S3 object key. When importing from Amazon API
 -- Gateway API, the API name is used as the asset name. When importing from
 -- Amazon Redshift, the datashare name is used as the asset name.
+--
+-- 'revisionId', 'updateAsset_revisionId' - The unique identifier for a revision.
 newUpdateAsset ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'assetId'
   Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'revisionId'
+  Prelude.Text ->
   UpdateAsset
 newUpdateAsset
-  pRevisionId_
   pAssetId_
   pDataSetId_
-  pName_ =
+  pName_
+  pRevisionId_ =
     UpdateAsset'
-      { revisionId = pRevisionId_,
-        assetId = pAssetId_,
+      { assetId = pAssetId_,
         dataSetId = pDataSetId_,
-        name = pName_
+        name = pName_,
+        revisionId = pRevisionId_
       }
-
--- | The unique identifier for a revision.
-updateAsset_revisionId :: Lens.Lens' UpdateAsset Prelude.Text
-updateAsset_revisionId = Lens.lens (\UpdateAsset' {revisionId} -> revisionId) (\s@UpdateAsset' {} a -> s {revisionId = a} :: UpdateAsset)
 
 -- | The unique identifier for an asset.
 updateAsset_assetId :: Lens.Lens' UpdateAsset Prelude.Text
@@ -137,6 +131,10 @@ updateAsset_dataSetId = Lens.lens (\UpdateAsset' {dataSetId} -> dataSetId) (\s@U
 -- Amazon Redshift, the datashare name is used as the asset name.
 updateAsset_name :: Lens.Lens' UpdateAsset Prelude.Text
 updateAsset_name = Lens.lens (\UpdateAsset' {name} -> name) (\s@UpdateAsset' {} a -> s {name = a} :: UpdateAsset)
+
+-- | The unique identifier for a revision.
+updateAsset_revisionId :: Lens.Lens' UpdateAsset Prelude.Text
+updateAsset_revisionId = Lens.lens (\UpdateAsset' {revisionId} -> revisionId) (\s@UpdateAsset' {} a -> s {revisionId = a} :: UpdateAsset)
 
 instance Core.AWSRequest UpdateAsset where
   type AWSResponse UpdateAsset = UpdateAssetResponse
@@ -160,17 +158,17 @@ instance Core.AWSRequest UpdateAsset where
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData UpdateAsset where
   rnf UpdateAsset' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders UpdateAsset where
   toHeaders =

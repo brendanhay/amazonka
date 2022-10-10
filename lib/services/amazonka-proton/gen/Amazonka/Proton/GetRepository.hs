@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Proton.GetRepository
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for a repository.
+-- Get detail data for a linked repository.
 module Amazonka.Proton.GetRepository
   ( -- * Creating a Request
     GetRepository (..),
@@ -143,7 +143,7 @@ instance Core.ToQuery GetRepository where
 data GetRepositoryResponse = GetRepositoryResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The repository detail data that\'s returned by Proton.
+    -- | The repository link\'s detail data that\'s returned by Proton.
     repository :: Repository
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -158,7 +158,7 @@ data GetRepositoryResponse = GetRepositoryResponse'
 --
 -- 'httpStatus', 'getRepositoryResponse_httpStatus' - The response's http status code.
 --
--- 'repository', 'getRepositoryResponse_repository' - The repository detail data that\'s returned by Proton.
+-- 'repository', 'getRepositoryResponse_repository' - The repository link\'s detail data that\'s returned by Proton.
 newGetRepositoryResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -175,7 +175,7 @@ newGetRepositoryResponse pHttpStatus_ pRepository_ =
 getRepositoryResponse_httpStatus :: Lens.Lens' GetRepositoryResponse Prelude.Int
 getRepositoryResponse_httpStatus = Lens.lens (\GetRepositoryResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryResponse' {} a -> s {httpStatus = a} :: GetRepositoryResponse)
 
--- | The repository detail data that\'s returned by Proton.
+-- | The repository link\'s detail data that\'s returned by Proton.
 getRepositoryResponse_repository :: Lens.Lens' GetRepositoryResponse Repository
 getRepositoryResponse_repository = Lens.lens (\GetRepositoryResponse' {repository} -> repository) (\s@GetRepositoryResponse' {} a -> s {repository = a} :: GetRepositoryResponse)
 

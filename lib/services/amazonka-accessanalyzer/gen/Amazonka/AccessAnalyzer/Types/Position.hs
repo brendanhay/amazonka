@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.Position
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPosition' smart constructor.
 data Position = Position'
-  { -- | The column of the position, starting from 0.
-    column :: Prelude.Int,
-    -- | The line of the position, starting from 1.
+  { -- | The line of the position, starting from 1.
     line :: Prelude.Int,
+    -- | The column of the position, starting from 0.
+    column :: Prelude.Int,
     -- | The offset within the policy that corresponds to the position, starting
     -- from 0.
     offset :: Prelude.Int
@@ -45,34 +45,34 @@ data Position = Position'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'column', 'position_column' - The column of the position, starting from 0.
---
 -- 'line', 'position_line' - The line of the position, starting from 1.
+--
+-- 'column', 'position_column' - The column of the position, starting from 0.
 --
 -- 'offset', 'position_offset' - The offset within the policy that corresponds to the position, starting
 -- from 0.
 newPosition ::
-  -- | 'column'
-  Prelude.Int ->
   -- | 'line'
+  Prelude.Int ->
+  -- | 'column'
   Prelude.Int ->
   -- | 'offset'
   Prelude.Int ->
   Position
-newPosition pColumn_ pLine_ pOffset_ =
+newPosition pLine_ pColumn_ pOffset_ =
   Position'
-    { column = pColumn_,
-      line = pLine_,
+    { line = pLine_,
+      column = pColumn_,
       offset = pOffset_
     }
-
--- | The column of the position, starting from 0.
-position_column :: Lens.Lens' Position Prelude.Int
-position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -> s {column = a} :: Position)
 
 -- | The line of the position, starting from 1.
 position_line :: Lens.Lens' Position Prelude.Int
 position_line = Lens.lens (\Position' {line} -> line) (\s@Position' {} a -> s {line = a} :: Position)
+
+-- | The column of the position, starting from 0.
+position_column :: Lens.Lens' Position Prelude.Int
+position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -> s {column = a} :: Position)
 
 -- | The offset within the policy that corresponds to the position, starting
 -- from 0.
@@ -85,19 +85,19 @@ instance Core.FromJSON Position where
       "Position"
       ( \x ->
           Position'
-            Prelude.<$> (x Core..: "column")
-            Prelude.<*> (x Core..: "line")
+            Prelude.<$> (x Core..: "line")
+            Prelude.<*> (x Core..: "column")
             Prelude.<*> (x Core..: "offset")
       )
 
 instance Prelude.Hashable Position where
   hashWithSalt _salt Position' {..} =
-    _salt `Prelude.hashWithSalt` column
-      `Prelude.hashWithSalt` line
+    _salt `Prelude.hashWithSalt` line
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` offset
 
 instance Prelude.NFData Position where
   rnf Position' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf line
+    Prelude.rnf line
+      `Prelude.seq` Prelude.rnf column
       `Prelude.seq` Prelude.rnf offset

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.UserAuthConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,9 @@ data UserAuthConfig = UserAuthConfig'
     -- log in as a specific database user.
     description :: Prelude.Maybe Prelude.Text,
     -- | Whether to require or disallow Amazon Web Services Identity and Access
-    -- Management (IAM) authentication for connections to the proxy.
+    -- Management (IAM) authentication for connections to the proxy. The
+    -- @ENABLED@ value is valid only for proxies with RDS for Microsoft SQL
+    -- Server.
     iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The Amazon Resource Name (ARN) representing the secret that the proxy
     -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
@@ -62,7 +64,9 @@ data UserAuthConfig = UserAuthConfig'
 -- log in as a specific database user.
 --
 -- 'iAMAuth', 'userAuthConfig_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access
--- Management (IAM) authentication for connections to the proxy.
+-- Management (IAM) authentication for connections to the proxy. The
+-- @ENABLED@ value is valid only for proxies with RDS for Microsoft SQL
+-- Server.
 --
 -- 'secretArn', 'userAuthConfig_secretArn' - The Amazon Resource Name (ARN) representing the secret that the proxy
 -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
@@ -91,7 +95,9 @@ userAuthConfig_description :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.T
 userAuthConfig_description = Lens.lens (\UserAuthConfig' {description} -> description) (\s@UserAuthConfig' {} a -> s {description = a} :: UserAuthConfig)
 
 -- | Whether to require or disallow Amazon Web Services Identity and Access
--- Management (IAM) authentication for connections to the proxy.
+-- Management (IAM) authentication for connections to the proxy. The
+-- @ENABLED@ value is valid only for proxies with RDS for Microsoft SQL
+-- Server.
 userAuthConfig_iAMAuth :: Lens.Lens' UserAuthConfig (Prelude.Maybe IAMAuthMode)
 userAuthConfig_iAMAuth = Lens.lens (\UserAuthConfig' {iAMAuth} -> iAMAuth) (\s@UserAuthConfig' {} a -> s {iAMAuth = a} :: UserAuthConfig)
 

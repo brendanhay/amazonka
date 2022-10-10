@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.Explanation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,8 @@ data Explanation = Explanation'
     loadBalancerListenerPort :: Prelude.Maybe Prelude.Natural,
     -- | The transit gateway attachment.
     transitGatewayAttachment :: Prelude.Maybe AnalysisComponent,
+    -- | The Amazon Web Services account for the component.
+    componentAccount :: Prelude.Maybe Prelude.Text,
     -- | The missing component.
     missingComponent :: Prelude.Maybe Prelude.Text,
     -- | The route table route.
@@ -86,6 +88,8 @@ data Explanation = Explanation'
     vpnGateway :: Prelude.Maybe AnalysisComponent,
     -- | The protocols.
     protocols :: Prelude.Maybe [Prelude.Text],
+    -- | The Region for the component.
+    componentRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The source VPC.
@@ -161,6 +165,8 @@ data Explanation = Explanation'
 --
 -- 'transitGatewayAttachment', 'explanation_transitGatewayAttachment' - The transit gateway attachment.
 --
+-- 'componentAccount', 'explanation_componentAccount' - The Amazon Web Services account for the component.
+--
 -- 'missingComponent', 'explanation_missingComponent' - The missing component.
 --
 -- 'routeTableRoute', 'explanation_routeTableRoute' - The route table route.
@@ -198,6 +204,8 @@ data Explanation = Explanation'
 -- 'vpnGateway', 'explanation_vpnGateway' - The VPN gateway.
 --
 -- 'protocols', 'explanation_protocols' - The protocols.
+--
+-- 'componentRegion', 'explanation_componentRegion' - The Region for the component.
 --
 -- 'loadBalancerArn', 'explanation_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 --
@@ -261,6 +269,7 @@ newExplanation =
       vpnConnection = Prelude.Nothing,
       loadBalancerListenerPort = Prelude.Nothing,
       transitGatewayAttachment = Prelude.Nothing,
+      componentAccount = Prelude.Nothing,
       missingComponent = Prelude.Nothing,
       routeTableRoute = Prelude.Nothing,
       subnetRouteTable = Prelude.Nothing,
@@ -280,6 +289,7 @@ newExplanation =
       customerGateway = Prelude.Nothing,
       vpnGateway = Prelude.Nothing,
       protocols = Prelude.Nothing,
+      componentRegion = Prelude.Nothing,
       loadBalancerArn = Prelude.Nothing,
       sourceVpc = Prelude.Nothing,
       ingressRouteTable = Prelude.Nothing,
@@ -326,6 +336,10 @@ explanation_loadBalancerListenerPort = Lens.lens (\Explanation' {loadBalancerLis
 -- | The transit gateway attachment.
 explanation_transitGatewayAttachment :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
 explanation_transitGatewayAttachment = Lens.lens (\Explanation' {transitGatewayAttachment} -> transitGatewayAttachment) (\s@Explanation' {} a -> s {transitGatewayAttachment = a} :: Explanation)
+
+-- | The Amazon Web Services account for the component.
+explanation_componentAccount :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
+explanation_componentAccount = Lens.lens (\Explanation' {componentAccount} -> componentAccount) (\s@Explanation' {} a -> s {componentAccount = a} :: Explanation)
 
 -- | The missing component.
 explanation_missingComponent :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
@@ -402,6 +416,10 @@ explanation_vpnGateway = Lens.lens (\Explanation' {vpnGateway} -> vpnGateway) (\
 -- | The protocols.
 explanation_protocols :: Lens.Lens' Explanation (Prelude.Maybe [Prelude.Text])
 explanation_protocols = Lens.lens (\Explanation' {protocols} -> protocols) (\s@Explanation' {} a -> s {protocols = a} :: Explanation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Region for the component.
+explanation_componentRegion :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
+explanation_componentRegion = Lens.lens (\Explanation' {componentRegion} -> componentRegion) (\s@Explanation' {} a -> s {componentRegion = a} :: Explanation)
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 explanation_loadBalancerArn :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
@@ -515,6 +533,7 @@ instance Core.FromXML Explanation where
       Prelude.<*> (x Core..@? "vpnConnection")
       Prelude.<*> (x Core..@? "loadBalancerListenerPort")
       Prelude.<*> (x Core..@? "transitGatewayAttachment")
+      Prelude.<*> (x Core..@? "componentAccount")
       Prelude.<*> (x Core..@? "missingComponent")
       Prelude.<*> (x Core..@? "routeTableRoute")
       Prelude.<*> (x Core..@? "subnetRouteTable")
@@ -541,6 +560,7 @@ instance Core.FromXML Explanation where
       Prelude.<*> ( x Core..@? "protocolSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "componentRegion")
       Prelude.<*> (x Core..@? "loadBalancerArn")
       Prelude.<*> (x Core..@? "sourceVpc")
       Prelude.<*> (x Core..@? "ingressRouteTable")
@@ -584,6 +604,7 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` vpnConnection
       `Prelude.hashWithSalt` loadBalancerListenerPort
       `Prelude.hashWithSalt` transitGatewayAttachment
+      `Prelude.hashWithSalt` componentAccount
       `Prelude.hashWithSalt` missingComponent
       `Prelude.hashWithSalt` routeTableRoute
       `Prelude.hashWithSalt` subnetRouteTable
@@ -603,6 +624,7 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` customerGateway
       `Prelude.hashWithSalt` vpnGateway
       `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` componentRegion
       `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` sourceVpc
       `Prelude.hashWithSalt` ingressRouteTable
@@ -636,6 +658,7 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf vpnConnection
       `Prelude.seq` Prelude.rnf loadBalancerListenerPort
       `Prelude.seq` Prelude.rnf transitGatewayAttachment
+      `Prelude.seq` Prelude.rnf componentAccount
       `Prelude.seq` Prelude.rnf missingComponent
       `Prelude.seq` Prelude.rnf routeTableRoute
       `Prelude.seq` Prelude.rnf subnetRouteTable
@@ -656,7 +679,10 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf
         customerGateway
       `Prelude.seq` Prelude.rnf vpnGateway
-      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf
+        protocols
+      `Prelude.seq` Prelude.rnf
+        componentRegion
       `Prelude.seq` Prelude.rnf
         loadBalancerArn
       `Prelude.seq` Prelude.rnf

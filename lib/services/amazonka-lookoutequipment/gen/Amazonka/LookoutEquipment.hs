@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,6 +60,18 @@ module Amazonka.LookoutEquipment
     CreateInferenceSchedulerResponse (CreateInferenceSchedulerResponse'),
     newCreateInferenceSchedulerResponse,
 
+    -- ** CreateLabel
+    CreateLabel (CreateLabel'),
+    newCreateLabel,
+    CreateLabelResponse (CreateLabelResponse'),
+    newCreateLabelResponse,
+
+    -- ** CreateLabelGroup
+    CreateLabelGroup (CreateLabelGroup'),
+    newCreateLabelGroup,
+    CreateLabelGroupResponse (CreateLabelGroupResponse'),
+    newCreateLabelGroupResponse,
+
     -- ** CreateModel
     CreateModel (CreateModel'),
     newCreateModel,
@@ -77,6 +89,18 @@ module Amazonka.LookoutEquipment
     newDeleteInferenceScheduler,
     DeleteInferenceSchedulerResponse (DeleteInferenceSchedulerResponse'),
     newDeleteInferenceSchedulerResponse,
+
+    -- ** DeleteLabel
+    DeleteLabel (DeleteLabel'),
+    newDeleteLabel,
+    DeleteLabelResponse (DeleteLabelResponse'),
+    newDeleteLabelResponse,
+
+    -- ** DeleteLabelGroup
+    DeleteLabelGroup (DeleteLabelGroup'),
+    newDeleteLabelGroup,
+    DeleteLabelGroupResponse (DeleteLabelGroupResponse'),
+    newDeleteLabelGroupResponse,
 
     -- ** DeleteModel
     DeleteModel (DeleteModel'),
@@ -101,6 +125,18 @@ module Amazonka.LookoutEquipment
     newDescribeInferenceScheduler,
     DescribeInferenceSchedulerResponse (DescribeInferenceSchedulerResponse'),
     newDescribeInferenceSchedulerResponse,
+
+    -- ** DescribeLabel
+    DescribeLabel (DescribeLabel'),
+    newDescribeLabel,
+    DescribeLabelResponse (DescribeLabelResponse'),
+    newDescribeLabelResponse,
+
+    -- ** DescribeLabelGroup
+    DescribeLabelGroup (DescribeLabelGroup'),
+    newDescribeLabelGroup,
+    DescribeLabelGroupResponse (DescribeLabelGroupResponse'),
+    newDescribeLabelGroupResponse,
 
     -- ** DescribeModel
     DescribeModel (DescribeModel'),
@@ -137,6 +173,18 @@ module Amazonka.LookoutEquipment
     newListInferenceSchedulers,
     ListInferenceSchedulersResponse (ListInferenceSchedulersResponse'),
     newListInferenceSchedulersResponse,
+
+    -- ** ListLabelGroups
+    ListLabelGroups (ListLabelGroups'),
+    newListLabelGroups,
+    ListLabelGroupsResponse (ListLabelGroupsResponse'),
+    newListLabelGroupsResponse,
+
+    -- ** ListLabels
+    ListLabels (ListLabels'),
+    newListLabels,
+    ListLabelsResponse (ListLabelsResponse'),
+    newListLabelsResponse,
 
     -- ** ListModels
     ListModels (ListModels'),
@@ -192,6 +240,12 @@ module Amazonka.LookoutEquipment
     UpdateInferenceSchedulerResponse (UpdateInferenceSchedulerResponse'),
     newUpdateInferenceSchedulerResponse,
 
+    -- ** UpdateLabelGroup
+    UpdateLabelGroup (UpdateLabelGroup'),
+    newUpdateLabelGroup,
+    UpdateLabelGroupResponse (UpdateLabelGroupResponse'),
+    newUpdateLabelGroupResponse,
+
     -- * Types
 
     -- ** DataUploadFrequency
@@ -208,6 +262,12 @@ module Amazonka.LookoutEquipment
 
     -- ** IngestionJobStatus
     IngestionJobStatus (..),
+
+    -- ** LabelRating
+    LabelRating (..),
+
+    -- ** LatestInferenceResult
+    LatestInferenceResult (..),
 
     -- ** ModelStatus
     ModelStatus (..),
@@ -305,6 +365,14 @@ module Amazonka.LookoutEquipment
     InvalidSensorData (InvalidSensorData'),
     newInvalidSensorData,
 
+    -- ** LabelGroupSummary
+    LabelGroupSummary (LabelGroupSummary'),
+    newLabelGroupSummary,
+
+    -- ** LabelSummary
+    LabelSummary (LabelSummary'),
+    newLabelSummary,
+
     -- ** LabelsInputConfiguration
     LabelsInputConfiguration (LabelsInputConfiguration'),
     newLabelsInputConfiguration,
@@ -361,13 +429,19 @@ where
 
 import Amazonka.LookoutEquipment.CreateDataset
 import Amazonka.LookoutEquipment.CreateInferenceScheduler
+import Amazonka.LookoutEquipment.CreateLabel
+import Amazonka.LookoutEquipment.CreateLabelGroup
 import Amazonka.LookoutEquipment.CreateModel
 import Amazonka.LookoutEquipment.DeleteDataset
 import Amazonka.LookoutEquipment.DeleteInferenceScheduler
+import Amazonka.LookoutEquipment.DeleteLabel
+import Amazonka.LookoutEquipment.DeleteLabelGroup
 import Amazonka.LookoutEquipment.DeleteModel
 import Amazonka.LookoutEquipment.DescribeDataIngestionJob
 import Amazonka.LookoutEquipment.DescribeDataset
 import Amazonka.LookoutEquipment.DescribeInferenceScheduler
+import Amazonka.LookoutEquipment.DescribeLabel
+import Amazonka.LookoutEquipment.DescribeLabelGroup
 import Amazonka.LookoutEquipment.DescribeModel
 import Amazonka.LookoutEquipment.Lens
 import Amazonka.LookoutEquipment.ListDataIngestionJobs
@@ -375,6 +449,8 @@ import Amazonka.LookoutEquipment.ListDatasets
 import Amazonka.LookoutEquipment.ListInferenceEvents
 import Amazonka.LookoutEquipment.ListInferenceExecutions
 import Amazonka.LookoutEquipment.ListInferenceSchedulers
+import Amazonka.LookoutEquipment.ListLabelGroups
+import Amazonka.LookoutEquipment.ListLabels
 import Amazonka.LookoutEquipment.ListModels
 import Amazonka.LookoutEquipment.ListSensorStatistics
 import Amazonka.LookoutEquipment.ListTagsForResource
@@ -385,6 +461,7 @@ import Amazonka.LookoutEquipment.TagResource
 import Amazonka.LookoutEquipment.Types
 import Amazonka.LookoutEquipment.UntagResource
 import Amazonka.LookoutEquipment.UpdateInferenceScheduler
+import Amazonka.LookoutEquipment.UpdateLabelGroup
 import Amazonka.LookoutEquipment.Waiters
 
 -- $errors

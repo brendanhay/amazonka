@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServerSideEncryptionConfiguration' smart constructor.
 data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
-  { -- | The identifier of the KMS key you want Voice ID to use to encrypt your
-    -- data.
+  { -- | The identifier of the KMS key to use to encrypt data stored by Voice ID.
+    -- Voice ID doesn\'t support asymmetric customer managed keys.
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +42,8 @@ data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'serverSideEncryptionConfiguration_kmsKeyId' - The identifier of the KMS key you want Voice ID to use to encrypt your
--- data.
+-- 'kmsKeyId', 'serverSideEncryptionConfiguration_kmsKeyId' - The identifier of the KMS key to use to encrypt data stored by Voice ID.
+-- Voice ID doesn\'t support asymmetric customer managed keys.
 newServerSideEncryptionConfiguration ::
   -- | 'kmsKeyId'
   Prelude.Text ->
@@ -54,8 +54,8 @@ newServerSideEncryptionConfiguration pKmsKeyId_ =
         pKmsKeyId_
     }
 
--- | The identifier of the KMS key you want Voice ID to use to encrypt your
--- data.
+-- | The identifier of the KMS key to use to encrypt data stored by Voice ID.
+-- Voice ID doesn\'t support asymmetric customer managed keys.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens.Lens' ServerSideEncryptionConfiguration Prelude.Text
 serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration)
 

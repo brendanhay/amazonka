@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.AcceptEulas
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data AcceptEulas = AcceptEulas'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The EULA ID.
     eulaIds :: Prelude.Maybe [Prelude.Text],
-    -- | A collection of EULA IDs.
+    -- | The studio ID.
     studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +77,7 @@ data AcceptEulas = AcceptEulas'
 --
 -- 'eulaIds', 'acceptEulas_eulaIds' - The EULA ID.
 --
--- 'studioId', 'acceptEulas_studioId' - A collection of EULA IDs.
+-- 'studioId', 'acceptEulas_studioId' - The studio ID.
 newAcceptEulas ::
   -- | 'studioId'
   Prelude.Text ->
@@ -100,7 +100,7 @@ acceptEulas_clientToken = Lens.lens (\AcceptEulas' {clientToken} -> clientToken)
 acceptEulas_eulaIds :: Lens.Lens' AcceptEulas (Prelude.Maybe [Prelude.Text])
 acceptEulas_eulaIds = Lens.lens (\AcceptEulas' {eulaIds} -> eulaIds) (\s@AcceptEulas' {} a -> s {eulaIds = a} :: AcceptEulas) Prelude.. Lens.mapping Lens.coerced
 
--- | A collection of EULA IDs.
+-- | The studio ID.
 acceptEulas_studioId :: Lens.Lens' AcceptEulas Prelude.Text
 acceptEulas_studioId = Lens.lens (\AcceptEulas' {studioId} -> studioId) (\s@AcceptEulas' {} a -> s {studioId = a} :: AcceptEulas)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.Types.Project
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.Evidently.Types.Project where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Evidently.Types.ProjectAppConfigResource
 import Amazonka.Evidently.Types.ProjectDataDelivery
 import Amazonka.Evidently.Types.ProjectStatus
 import qualified Amazonka.Lens as Lens
@@ -36,6 +37,9 @@ data Project = Project'
     -- | A structure that contains information about where Evidently is to store
     -- evaluation events for longer term storage.
     dataDelivery :: Prelude.Maybe ProjectDataDelivery,
+    -- | This structure defines the configuration of how your application
+    -- integrates with AppConfig to run client-side evaluation.
+    appConfigResource :: Prelude.Maybe ProjectAppConfigResource,
     -- | The user-entered description of the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | The number of ongoing launches currently in the project.
@@ -77,6 +81,9 @@ data Project = Project'
 --
 -- 'dataDelivery', 'project_dataDelivery' - A structure that contains information about where Evidently is to store
 -- evaluation events for longer term storage.
+--
+-- 'appConfigResource', 'project_appConfigResource' - This structure defines the configuration of how your application
+-- integrates with AppConfig to run client-side evaluation.
 --
 -- 'description', 'project_description' - The user-entered description of the project.
 --
@@ -124,6 +131,7 @@ newProject
     Project'
       { tags = Prelude.Nothing,
         dataDelivery = Prelude.Nothing,
+        appConfigResource = Prelude.Nothing,
         description = Prelude.Nothing,
         activeLaunchCount = Prelude.Nothing,
         featureCount = Prelude.Nothing,
@@ -146,6 +154,11 @@ project_tags = Lens.lens (\Project' {tags} -> tags) (\s@Project' {} a -> s {tags
 -- evaluation events for longer term storage.
 project_dataDelivery :: Lens.Lens' Project (Prelude.Maybe ProjectDataDelivery)
 project_dataDelivery = Lens.lens (\Project' {dataDelivery} -> dataDelivery) (\s@Project' {} a -> s {dataDelivery = a} :: Project)
+
+-- | This structure defines the configuration of how your application
+-- integrates with AppConfig to run client-side evaluation.
+project_appConfigResource :: Lens.Lens' Project (Prelude.Maybe ProjectAppConfigResource)
+project_appConfigResource = Lens.lens (\Project' {appConfigResource} -> appConfigResource) (\s@Project' {} a -> s {appConfigResource = a} :: Project)
 
 -- | The user-entered description of the project.
 project_description :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -203,6 +216,7 @@ instance Core.FromJSON Project where
           Project'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "dataDelivery")
+            Prelude.<*> (x Core..:? "appConfigResource")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "activeLaunchCount")
             Prelude.<*> (x Core..:? "featureCount")
@@ -220,6 +234,7 @@ instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataDelivery
+      `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` activeLaunchCount
       `Prelude.hashWithSalt` featureCount
@@ -236,6 +251,7 @@ instance Prelude.NFData Project where
   rnf Project' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataDelivery
+      `Prelude.seq` Prelude.rnf appConfigResource
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf activeLaunchCount
       `Prelude.seq` Prelude.rnf featureCount

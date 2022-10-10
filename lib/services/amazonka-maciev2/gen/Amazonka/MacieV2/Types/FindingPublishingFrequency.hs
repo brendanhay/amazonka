@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.FindingPublishingFrequency
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The frequency with which Amazon Macie publishes updates to policy
 -- findings for an account. This includes publishing updates to Security
--- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
--- For more information, see
+-- Hub and Amazon EventBridge (formerly Amazon CloudWatch Events). For more
+-- information, see
 -- <https://docs.aws.amazon.com/macie/latest/user/findings-monitor.html Monitoring and processing findings>
 -- in the /Amazon Macie User Guide/. Valid values are:
 newtype FindingPublishingFrequency = FindingPublishingFrequency'

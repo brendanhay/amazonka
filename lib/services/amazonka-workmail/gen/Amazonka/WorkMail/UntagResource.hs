@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.UntagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Untags the specified tags from the specified Amazon WorkMail
--- organization resource.
+-- Untags the specified tags from the specified WorkMail organization
+-- resource.
 module Amazonka.WorkMail.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

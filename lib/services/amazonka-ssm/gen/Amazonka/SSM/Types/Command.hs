@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.Command
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.SSM.Types.Command where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.CloudWatchOutputConfig
 import Amazonka.SSM.Types.CommandStatus
 import Amazonka.SSM.Types.NotificationConfig
@@ -115,6 +117,8 @@ data Command = Command'
     comment :: Prelude.Maybe Prelude.Text,
     -- | The name of the document requested for execution.
     documentName :: Prelude.Maybe Prelude.Text,
+    -- | The details for the CloudWatch alarm applied to your command.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The maximum number of managed nodes that are allowed to run the command
     -- at the same time. You can specify a number of managed nodes, such as 10,
     -- or a percentage of nodes, such as 10%. The default value is 50. For more
@@ -143,6 +147,8 @@ data Command = Command'
     -- | The S3 bucket where the responses to the command executions should be
     -- stored. This was requested when issuing the command.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The CloudWatch alarm that was invoked by the command.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The S3 directory path inside the bucket where the responses to the
     -- command executions should be stored. This was requested when issuing the
     -- command.
@@ -247,6 +253,8 @@ data Command = Command'
 --
 -- 'documentName', 'command_documentName' - The name of the document requested for execution.
 --
+-- 'alarmConfiguration', 'command_alarmConfiguration' - The details for the CloudWatch alarm applied to your command.
+--
 -- 'maxConcurrency', 'command_maxConcurrency' - The maximum number of managed nodes that are allowed to run the command
 -- at the same time. You can specify a number of managed nodes, such as 10,
 -- or a percentage of nodes, such as 10%. The default value is 50. For more
@@ -275,6 +283,8 @@ data Command = Command'
 -- 'outputS3BucketName', 'command_outputS3BucketName' - The S3 bucket where the responses to the command executions should be
 -- stored. This was requested when issuing the command.
 --
+-- 'triggeredAlarms', 'command_triggeredAlarms' - The CloudWatch alarm that was invoked by the command.
+--
 -- 'outputS3KeyPrefix', 'command_outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the
 -- command executions should be stored. This was requested when issuing the
 -- command.
@@ -301,6 +311,7 @@ newCommand =
       commandId = Prelude.Nothing,
       comment = Prelude.Nothing,
       documentName = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       completedCount = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -308,6 +319,7 @@ newCommand =
       instanceIds = Prelude.Nothing,
       deliveryTimedOutCount = Prelude.Nothing,
       outputS3BucketName = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       outputS3KeyPrefix = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
       parameters = Prelude.Nothing
@@ -425,6 +437,10 @@ command_comment = Lens.lens (\Command' {comment} -> comment) (\s@Command' {} a -
 command_documentName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_documentName = Lens.lens (\Command' {documentName} -> documentName) (\s@Command' {} a -> s {documentName = a} :: Command)
 
+-- | The details for the CloudWatch alarm applied to your command.
+command_alarmConfiguration :: Lens.Lens' Command (Prelude.Maybe AlarmConfiguration)
+command_alarmConfiguration = Lens.lens (\Command' {alarmConfiguration} -> alarmConfiguration) (\s@Command' {} a -> s {alarmConfiguration = a} :: Command)
+
 -- | The maximum number of managed nodes that are allowed to run the command
 -- at the same time. You can specify a number of managed nodes, such as 10,
 -- or a percentage of nodes, such as 10%. The default value is 50. For more
@@ -467,6 +483,10 @@ command_deliveryTimedOutCount = Lens.lens (\Command' {deliveryTimedOutCount} -> 
 command_outputS3BucketName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_outputS3BucketName = Lens.lens (\Command' {outputS3BucketName} -> outputS3BucketName) (\s@Command' {} a -> s {outputS3BucketName = a} :: Command)
 
+-- | The CloudWatch alarm that was invoked by the command.
+command_triggeredAlarms :: Lens.Lens' Command (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+command_triggeredAlarms = Lens.lens (\Command' {triggeredAlarms} -> triggeredAlarms) (\s@Command' {} a -> s {triggeredAlarms = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+
 -- | The S3 directory path inside the bucket where the responses to the
 -- command executions should be stored. This was requested when issuing the
 -- command.
@@ -502,6 +522,7 @@ instance Core.FromJSON Command where
             Prelude.<*> (x Core..:? "CommandId")
             Prelude.<*> (x Core..:? "Comment")
             Prelude.<*> (x Core..:? "DocumentName")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "CompletedCount")
             Prelude.<*> (x Core..:? "MaxErrors")
@@ -509,6 +530,7 @@ instance Core.FromJSON Command where
             Prelude.<*> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DeliveryTimedOutCount")
             Prelude.<*> (x Core..:? "OutputS3BucketName")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
             Prelude.<*> (x Core..:? "DocumentVersion")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
@@ -530,6 +552,7 @@ instance Prelude.Hashable Command where
       `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` completedCount
       `Prelude.hashWithSalt` maxErrors
@@ -537,6 +560,7 @@ instance Prelude.Hashable Command where
       `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` deliveryTimedOutCount
       `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` triggeredAlarms
       `Prelude.hashWithSalt` outputS3KeyPrefix
       `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` parameters
@@ -557,6 +581,7 @@ instance Prelude.NFData Command where
       `Prelude.seq` Prelude.rnf commandId
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf completedCount
       `Prelude.seq` Prelude.rnf maxErrors
@@ -567,7 +592,10 @@ instance Prelude.NFData Command where
       `Prelude.seq` Prelude.rnf
         outputS3BucketName
       `Prelude.seq` Prelude.rnf
+        triggeredAlarms
+      `Prelude.seq` Prelude.rnf
         outputS3KeyPrefix
       `Prelude.seq` Prelude.rnf
         documentVersion
-      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf
+        parameters

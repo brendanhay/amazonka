@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateEndpointConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,6 +62,7 @@ module Amazonka.SageMaker.CreateEndpointConfig
     createEndpointConfig_asyncInferenceConfig,
     createEndpointConfig_dataCaptureConfig,
     createEndpointConfig_kmsKeyId,
+    createEndpointConfig_explainerConfig,
     createEndpointConfig_endpointConfigName,
     createEndpointConfig_productionVariants,
 
@@ -132,6 +133,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A member of @CreateEndpointConfig@ that enables explainers.
+    explainerConfig :: Prelude.Maybe ExplainerConfig,
     -- | The name of the endpoint configuration. You specify this name in a
     -- CreateEndpoint request.
     endpointConfigName :: Prelude.Text,
@@ -198,6 +201,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
 --
+-- 'explainerConfig', 'createEndpointConfig_explainerConfig' - A member of @CreateEndpointConfig@ that enables explainers.
+--
 -- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
 --
@@ -217,6 +222,7 @@ newCreateEndpointConfig
         asyncInferenceConfig = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        explainerConfig = Prelude.Nothing,
         endpointConfigName = pEndpointConfigName_,
         productionVariants =
           Lens.coerced Lens.# pProductionVariants_
@@ -279,6 +285,10 @@ createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {data
 createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
+-- | A member of @CreateEndpointConfig@ that enables explainers.
+createEndpointConfig_explainerConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe ExplainerConfig)
+createEndpointConfig_explainerConfig = Lens.lens (\CreateEndpointConfig' {explainerConfig} -> explainerConfig) (\s@CreateEndpointConfig' {} a -> s {explainerConfig = a} :: CreateEndpointConfig)
+
 -- | The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
 createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Prelude.Text
@@ -308,6 +318,7 @@ instance Prelude.Hashable CreateEndpointConfig where
       `Prelude.hashWithSalt` asyncInferenceConfig
       `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` explainerConfig
       `Prelude.hashWithSalt` endpointConfigName
       `Prelude.hashWithSalt` productionVariants
 
@@ -317,6 +328,7 @@ instance Prelude.NFData CreateEndpointConfig where
       `Prelude.seq` Prelude.rnf asyncInferenceConfig
       `Prelude.seq` Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf explainerConfig
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf productionVariants
 
@@ -345,6 +357,8 @@ instance Core.ToJSON CreateEndpointConfig where
             ("DataCaptureConfig" Core..=)
               Prelude.<$> dataCaptureConfig,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("ExplainerConfig" Core..=)
+              Prelude.<$> explainerConfig,
             Prelude.Just
               ("EndpointConfigName" Core..= endpointConfigName),
             Prelude.Just

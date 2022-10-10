@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.VpcEndpointConnection
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsEntry
 import Amazonka.EC2.Types.IpAddressType
 import Amazonka.EC2.Types.State
+import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcEndpointConnection' smart constructor.
 data VpcEndpointConnection = VpcEndpointConnection'
-  { -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
+  { -- | The tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
     -- service.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Amazon Web Services account that owns the VPC endpoint.
@@ -50,7 +53,9 @@ data VpcEndpointConnection = VpcEndpointConnection'
     -- | The state of the VPC endpoint.
     vpcEndpointState :: Prelude.Maybe State,
     -- | The ID of the service to which the endpoint is connected.
-    serviceId :: Prelude.Maybe Prelude.Text
+    serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC endpoint connection.
+    vpcEndpointConnectionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +66,8 @@ data VpcEndpointConnection = VpcEndpointConnection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'vpcEndpointConnection_tags' - The tags.
 --
 -- 'gatewayLoadBalancerArns', 'vpcEndpointConnection_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
@@ -81,12 +88,14 @@ data VpcEndpointConnection = VpcEndpointConnection'
 -- 'vpcEndpointState', 'vpcEndpointConnection_vpcEndpointState' - The state of the VPC endpoint.
 --
 -- 'serviceId', 'vpcEndpointConnection_serviceId' - The ID of the service to which the endpoint is connected.
+--
+-- 'vpcEndpointConnectionId', 'vpcEndpointConnection_vpcEndpointConnectionId' - The ID of the VPC endpoint connection.
 newVpcEndpointConnection ::
   VpcEndpointConnection
 newVpcEndpointConnection =
   VpcEndpointConnection'
-    { gatewayLoadBalancerArns =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      gatewayLoadBalancerArns = Prelude.Nothing,
       vpcEndpointOwner = Prelude.Nothing,
       vpcEndpointId = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
@@ -94,8 +103,13 @@ newVpcEndpointConnection =
       networkLoadBalancerArns = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
       vpcEndpointState = Prelude.Nothing,
-      serviceId = Prelude.Nothing
+      serviceId = Prelude.Nothing,
+      vpcEndpointConnectionId = Prelude.Nothing
     }
+
+-- | The tags.
+vpcEndpointConnection_tags :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [Tag])
+vpcEndpointConnection_tags = Lens.lens (\VpcEndpointConnection' {tags} -> tags) (\s@VpcEndpointConnection' {} a -> s {tags = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
@@ -135,10 +149,17 @@ vpcEndpointConnection_vpcEndpointState = Lens.lens (\VpcEndpointConnection' {vpc
 vpcEndpointConnection_serviceId :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
 vpcEndpointConnection_serviceId = Lens.lens (\VpcEndpointConnection' {serviceId} -> serviceId) (\s@VpcEndpointConnection' {} a -> s {serviceId = a} :: VpcEndpointConnection)
 
+-- | The ID of the VPC endpoint connection.
+vpcEndpointConnection_vpcEndpointConnectionId :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
+vpcEndpointConnection_vpcEndpointConnectionId = Lens.lens (\VpcEndpointConnection' {vpcEndpointConnectionId} -> vpcEndpointConnectionId) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointConnectionId = a} :: VpcEndpointConnection)
+
 instance Core.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
-      Prelude.<$> ( x Core..@? "gatewayLoadBalancerArnSet"
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
@@ -155,10 +176,11 @@ instance Core.FromXML VpcEndpointConnection where
       Prelude.<*> (x Core..@? "ipAddressType")
       Prelude.<*> (x Core..@? "vpcEndpointState")
       Prelude.<*> (x Core..@? "serviceId")
+      Prelude.<*> (x Core..@? "vpcEndpointConnectionId")
 
 instance Prelude.Hashable VpcEndpointConnection where
   hashWithSalt _salt VpcEndpointConnection' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayLoadBalancerArns
       `Prelude.hashWithSalt` vpcEndpointOwner
       `Prelude.hashWithSalt` vpcEndpointId
@@ -168,10 +190,12 @@ instance Prelude.Hashable VpcEndpointConnection where
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` vpcEndpointState
       `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` vpcEndpointConnectionId
 
 instance Prelude.NFData VpcEndpointConnection where
   rnf VpcEndpointConnection' {..} =
-    Prelude.rnf gatewayLoadBalancerArns
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf vpcEndpointOwner
       `Prelude.seq` Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf creationTimestamp
@@ -180,3 +204,4 @@ instance Prelude.NFData VpcEndpointConnection where
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf vpcEndpointState
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf vpcEndpointConnectionId

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ProductionVariant
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,11 @@ data ProductionVariant = ProductionVariant'
     -- inference. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
     acceleratorType :: Prelude.Maybe ProductionVariantAcceleratorType,
+    -- | The timeout value, in seconds, for your inference container to pass
+    -- health check by SageMaker Hosting. For more information about health
+    -- check, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests How Your Container Should Respond to Health Check (Ping) Requests>.
+    containerStartupHealthCheckTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Number of instances to launch initially.
     initialInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The ML compute instance type.
@@ -56,6 +61,14 @@ data ProductionVariant = ProductionVariant'
     -- all @VariantWeight@ values across all ProductionVariants. If
     -- unspecified, it defaults to 1.0.
     initialVariantWeight :: Prelude.Maybe Prelude.Double,
+    -- | The timeout value, in seconds, to download and extract the model that
+    -- you want to host from Amazon S3 to the individual inference instance
+    -- associated with this production variant.
+    modelDataDownloadTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The size, in GB, of the ML storage volume attached to individual
+    -- inference instance associated with the production variant. Currenly only
+    -- Amazon EBS gp2 storage volumes are supported.
+    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The name of the production variant.
     variantName :: Prelude.Text,
     -- | The name of the model that you want to host. This is the name that you
@@ -77,6 +90,11 @@ data ProductionVariant = ProductionVariant'
 -- inference. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 --
+-- 'containerStartupHealthCheckTimeoutInSeconds', 'productionVariant_containerStartupHealthCheckTimeoutInSeconds' - The timeout value, in seconds, for your inference container to pass
+-- health check by SageMaker Hosting. For more information about health
+-- check, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests How Your Container Should Respond to Health Check (Ping) Requests>.
+--
 -- 'initialInstanceCount', 'productionVariant_initialInstanceCount' - Number of instances to launch initially.
 --
 -- 'instanceType', 'productionVariant_instanceType' - The ML compute instance type.
@@ -94,6 +112,14 @@ data ProductionVariant = ProductionVariant'
 -- all @VariantWeight@ values across all ProductionVariants. If
 -- unspecified, it defaults to 1.0.
 --
+-- 'modelDataDownloadTimeoutInSeconds', 'productionVariant_modelDataDownloadTimeoutInSeconds' - The timeout value, in seconds, to download and extract the model that
+-- you want to host from Amazon S3 to the individual inference instance
+-- associated with this production variant.
+--
+-- 'volumeSizeInGB', 'productionVariant_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to individual
+-- inference instance associated with the production variant. Currenly only
+-- Amazon EBS gp2 storage volumes are supported.
+--
 -- 'variantName', 'productionVariant_variantName' - The name of the production variant.
 --
 -- 'modelName', 'productionVariant_modelName' - The name of the model that you want to host. This is the name that you
@@ -108,11 +134,15 @@ newProductionVariant pVariantName_ pModelName_ =
   ProductionVariant'
     { acceleratorType =
         Prelude.Nothing,
+      containerStartupHealthCheckTimeoutInSeconds =
+        Prelude.Nothing,
       initialInstanceCount = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       serverlessConfig = Prelude.Nothing,
       coreDumpConfig = Prelude.Nothing,
       initialVariantWeight = Prelude.Nothing,
+      modelDataDownloadTimeoutInSeconds = Prelude.Nothing,
+      volumeSizeInGB = Prelude.Nothing,
       variantName = pVariantName_,
       modelName = pModelName_
     }
@@ -123,6 +153,13 @@ newProductionVariant pVariantName_ pModelName_ =
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 productionVariant_acceleratorType :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantAcceleratorType)
 productionVariant_acceleratorType = Lens.lens (\ProductionVariant' {acceleratorType} -> acceleratorType) (\s@ProductionVariant' {} a -> s {acceleratorType = a} :: ProductionVariant)
+
+-- | The timeout value, in seconds, for your inference container to pass
+-- health check by SageMaker Hosting. For more information about health
+-- check, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests How Your Container Should Respond to Health Check (Ping) Requests>.
+productionVariant_containerStartupHealthCheckTimeoutInSeconds :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
+productionVariant_containerStartupHealthCheckTimeoutInSeconds = Lens.lens (\ProductionVariant' {containerStartupHealthCheckTimeoutInSeconds} -> containerStartupHealthCheckTimeoutInSeconds) (\s@ProductionVariant' {} a -> s {containerStartupHealthCheckTimeoutInSeconds = a} :: ProductionVariant)
 
 -- | Number of instances to launch initially.
 productionVariant_initialInstanceCount :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
@@ -151,6 +188,18 @@ productionVariant_coreDumpConfig = Lens.lens (\ProductionVariant' {coreDumpConfi
 productionVariant_initialVariantWeight :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Double)
 productionVariant_initialVariantWeight = Lens.lens (\ProductionVariant' {initialVariantWeight} -> initialVariantWeight) (\s@ProductionVariant' {} a -> s {initialVariantWeight = a} :: ProductionVariant)
 
+-- | The timeout value, in seconds, to download and extract the model that
+-- you want to host from Amazon S3 to the individual inference instance
+-- associated with this production variant.
+productionVariant_modelDataDownloadTimeoutInSeconds :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
+productionVariant_modelDataDownloadTimeoutInSeconds = Lens.lens (\ProductionVariant' {modelDataDownloadTimeoutInSeconds} -> modelDataDownloadTimeoutInSeconds) (\s@ProductionVariant' {} a -> s {modelDataDownloadTimeoutInSeconds = a} :: ProductionVariant)
+
+-- | The size, in GB, of the ML storage volume attached to individual
+-- inference instance associated with the production variant. Currenly only
+-- Amazon EBS gp2 storage volumes are supported.
+productionVariant_volumeSizeInGB :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
+productionVariant_volumeSizeInGB = Lens.lens (\ProductionVariant' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProductionVariant' {} a -> s {volumeSizeInGB = a} :: ProductionVariant)
+
 -- | The name of the production variant.
 productionVariant_variantName :: Lens.Lens' ProductionVariant Prelude.Text
 productionVariant_variantName = Lens.lens (\ProductionVariant' {variantName} -> variantName) (\s@ProductionVariant' {} a -> s {variantName = a} :: ProductionVariant)
@@ -167,11 +216,16 @@ instance Core.FromJSON ProductionVariant where
       ( \x ->
           ProductionVariant'
             Prelude.<$> (x Core..:? "AcceleratorType")
+            Prelude.<*> ( x
+                            Core..:? "ContainerStartupHealthCheckTimeoutInSeconds"
+                        )
             Prelude.<*> (x Core..:? "InitialInstanceCount")
             Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "ServerlessConfig")
             Prelude.<*> (x Core..:? "CoreDumpConfig")
             Prelude.<*> (x Core..:? "InitialVariantWeight")
+            Prelude.<*> (x Core..:? "ModelDataDownloadTimeoutInSeconds")
+            Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..: "VariantName")
             Prelude.<*> (x Core..: "ModelName")
       )
@@ -179,22 +233,29 @@ instance Core.FromJSON ProductionVariant where
 instance Prelude.Hashable ProductionVariant where
   hashWithSalt _salt ProductionVariant' {..} =
     _salt `Prelude.hashWithSalt` acceleratorType
+      `Prelude.hashWithSalt` containerStartupHealthCheckTimeoutInSeconds
       `Prelude.hashWithSalt` initialInstanceCount
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` serverlessConfig
       `Prelude.hashWithSalt` coreDumpConfig
       `Prelude.hashWithSalt` initialVariantWeight
+      `Prelude.hashWithSalt` modelDataDownloadTimeoutInSeconds
+      `Prelude.hashWithSalt` volumeSizeInGB
       `Prelude.hashWithSalt` variantName
       `Prelude.hashWithSalt` modelName
 
 instance Prelude.NFData ProductionVariant where
   rnf ProductionVariant' {..} =
     Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf
+        containerStartupHealthCheckTimeoutInSeconds
       `Prelude.seq` Prelude.rnf initialInstanceCount
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf serverlessConfig
       `Prelude.seq` Prelude.rnf coreDumpConfig
       `Prelude.seq` Prelude.rnf initialVariantWeight
+      `Prelude.seq` Prelude.rnf modelDataDownloadTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
       `Prelude.seq` Prelude.rnf variantName
       `Prelude.seq` Prelude.rnf modelName
 
@@ -204,6 +265,10 @@ instance Core.ToJSON ProductionVariant where
       ( Prelude.catMaybes
           [ ("AcceleratorType" Core..=)
               Prelude.<$> acceleratorType,
+            ( "ContainerStartupHealthCheckTimeoutInSeconds"
+                Core..=
+            )
+              Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
             ("InitialInstanceCount" Core..=)
               Prelude.<$> initialInstanceCount,
             ("InstanceType" Core..=) Prelude.<$> instanceType,
@@ -213,6 +278,10 @@ instance Core.ToJSON ProductionVariant where
               Prelude.<$> coreDumpConfig,
             ("InitialVariantWeight" Core..=)
               Prelude.<$> initialVariantWeight,
+            ("ModelDataDownloadTimeoutInSeconds" Core..=)
+              Prelude.<$> modelDataDownloadTimeoutInSeconds,
+            ("VolumeSizeInGB" Core..=)
+              Prelude.<$> volumeSizeInGB,
             Prelude.Just ("VariantName" Core..= variantName),
             Prelude.Just ("ModelName" Core..= modelName)
           ]

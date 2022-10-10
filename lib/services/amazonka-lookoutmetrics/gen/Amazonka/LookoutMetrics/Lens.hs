@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutMetrics.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,7 @@ module Amazonka.LookoutMetrics.Lens
     createMetricSet_metricSetDescription,
     createMetricSet_timezone,
     createMetricSet_offset,
+    createMetricSet_dimensionFilterList,
     createMetricSet_dimensionList,
     createMetricSet_metricSetFrequency,
     createMetricSet_anomalyDetectorArn,
@@ -107,6 +108,7 @@ module Amazonka.LookoutMetrics.Lens
     describeMetricSetResponse_timezone,
     describeMetricSetResponse_offset,
     describeMetricSetResponse_metricSource,
+    describeMetricSetResponse_dimensionFilterList,
     describeMetricSetResponse_dimensionList,
     describeMetricSetResponse_metricSetArn,
     describeMetricSetResponse_metricSetFrequency,
@@ -245,6 +247,7 @@ module Amazonka.LookoutMetrics.Lens
     updateMetricSet_metricSetDescription,
     updateMetricSet_offset,
     updateMetricSet_metricSource,
+    updateMetricSet_dimensionFilterList,
     updateMetricSet_dimensionList,
     updateMetricSet_metricSetFrequency,
     updateMetricSet_metricList,
@@ -443,6 +446,10 @@ module Amazonka.LookoutMetrics.Lens
     fileFormatDescriptor_jsonFormatDescriptor,
     fileFormatDescriptor_csvFormatDescriptor,
 
+    -- ** Filter
+    filter_dimensionValue,
+    filter_filterOperation,
+
     -- ** InterMetricImpactDetails
     interMetricImpactDetails_anomalyGroupId,
     interMetricImpactDetails_relationshipType,
@@ -474,6 +481,10 @@ module Amazonka.LookoutMetrics.Lens
     -- ** MetricSetDataQualityMetric
     metricSetDataQualityMetric_dataQualityMetricList,
     metricSetDataQualityMetric_metricSetArn,
+
+    -- ** MetricSetDimensionFilter
+    metricSetDimensionFilter_name,
+    metricSetDimensionFilter_filterList,
 
     -- ** MetricSetSummary
     metricSetSummary_lastModificationTime,
@@ -610,6 +621,7 @@ import Amazonka.LookoutMetrics.Types.DimensionNameValue
 import Amazonka.LookoutMetrics.Types.DimensionValueContribution
 import Amazonka.LookoutMetrics.Types.ExecutionStatus
 import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.Filter
 import Amazonka.LookoutMetrics.Types.InterMetricImpactDetails
 import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
 import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
@@ -617,6 +629,7 @@ import Amazonka.LookoutMetrics.Types.LambdaConfiguration
 import Amazonka.LookoutMetrics.Types.Metric
 import Amazonka.LookoutMetrics.Types.MetricLevelImpact
 import Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
+import Amazonka.LookoutMetrics.Types.MetricSetDimensionFilter
 import Amazonka.LookoutMetrics.Types.MetricSetSummary
 import Amazonka.LookoutMetrics.Types.MetricSource
 import Amazonka.LookoutMetrics.Types.RDSSourceConfig

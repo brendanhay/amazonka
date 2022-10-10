@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -53,6 +53,8 @@ library
     Amazonka.DLM.TagResource
     Amazonka.DLM.Types
     Amazonka.DLM.Types.Action
+    Amazonka.DLM.Types.ArchiveRetainRule
+    Amazonka.DLM.Types.ArchiveRule
     Amazonka.DLM.Types.CreateRule
     Amazonka.DLM.Types.CrossRegionCopyAction
     Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
@@ -76,6 +78,7 @@ library
     Amazonka.DLM.Types.ResourceLocationValues
     Amazonka.DLM.Types.ResourceTypeValues
     Amazonka.DLM.Types.RetainRule
+    Amazonka.DLM.Types.RetentionArchiveTier
     Amazonka.DLM.Types.RetentionIntervalUnitValues
     Amazonka.DLM.Types.Schedule
     Amazonka.DLM.Types.SettablePolicyStateValues
@@ -86,7 +89,7 @@ library
     Amazonka.DLM.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-dlm-test
@@ -105,9 +108,9 @@ test-suite amazonka-dlm-test
     Test.Amazonka.Gen.DLM
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-dlm
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the Amazon Web Services managed policy that is attached to a
--- specified permission set.
+-- Lists the AWS managed policy that is attached to a specified permission
+-- set.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
@@ -60,10 +60,10 @@ data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display for the PermissionSet.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the PermissionSet whose managed policies will be listed.
     permissionSetArn :: Prelude.Text
@@ -83,10 +83,10 @@ data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
 --
 -- 'maxResults', 'listManagedPoliciesInPermissionSet_maxResults' - The maximum number of results to display for the PermissionSet.
 --
--- 'instanceArn', 'listManagedPoliciesInPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'listManagedPoliciesInPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'permissionSetArn', 'listManagedPoliciesInPermissionSet_permissionSetArn' - The ARN of the PermissionSet whose managed policies will be listed.
 newListManagedPoliciesInPermissionSet ::
@@ -115,10 +115,10 @@ listManagedPoliciesInPermissionSet_nextToken = Lens.lens (\ListManagedPoliciesIn
 listManagedPoliciesInPermissionSet_maxResults :: Lens.Lens' ListManagedPoliciesInPermissionSet (Prelude.Maybe Prelude.Natural)
 listManagedPoliciesInPermissionSet_maxResults = Lens.lens (\ListManagedPoliciesInPermissionSet' {maxResults} -> maxResults) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {maxResults = a} :: ListManagedPoliciesInPermissionSet)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 listManagedPoliciesInPermissionSet_instanceArn :: Lens.Lens' ListManagedPoliciesInPermissionSet Prelude.Text
 listManagedPoliciesInPermissionSet_instanceArn = Lens.lens (\ListManagedPoliciesInPermissionSet' {instanceArn} -> instanceArn) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {instanceArn = a} :: ListManagedPoliciesInPermissionSet)
 

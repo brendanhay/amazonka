@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -46,6 +46,7 @@ library
     Amazonka.MacieV2
     Amazonka.MacieV2.AcceptInvitation
     Amazonka.MacieV2.BatchGetCustomDataIdentifiers
+    Amazonka.MacieV2.CreateAllowList
     Amazonka.MacieV2.CreateClassificationJob
     Amazonka.MacieV2.CreateCustomDataIdentifier
     Amazonka.MacieV2.CreateFindingsFilter
@@ -53,6 +54,7 @@ library
     Amazonka.MacieV2.CreateMember
     Amazonka.MacieV2.CreateSampleFindings
     Amazonka.MacieV2.DeclineInvitations
+    Amazonka.MacieV2.DeleteAllowList
     Amazonka.MacieV2.DeleteCustomDataIdentifier
     Amazonka.MacieV2.DeleteFindingsFilter
     Amazonka.MacieV2.DeleteInvitations
@@ -68,6 +70,7 @@ library
     Amazonka.MacieV2.EnableMacie
     Amazonka.MacieV2.EnableOrganizationAdminAccount
     Amazonka.MacieV2.GetAdministratorAccount
+    Amazonka.MacieV2.GetAllowList
     Amazonka.MacieV2.GetBucketStatistics
     Amazonka.MacieV2.GetClassificationExportConfiguration
     Amazonka.MacieV2.GetCustomDataIdentifier
@@ -85,6 +88,7 @@ library
     Amazonka.MacieV2.GetUsageStatistics
     Amazonka.MacieV2.GetUsageTotals
     Amazonka.MacieV2.Lens
+    Amazonka.MacieV2.ListAllowLists
     Amazonka.MacieV2.ListClassificationJobs
     Amazonka.MacieV2.ListCustomDataIdentifiers
     Amazonka.MacieV2.ListFindings
@@ -105,6 +109,10 @@ library
     Amazonka.MacieV2.Types.AccountLevelPermissions
     Amazonka.MacieV2.Types.AdminAccount
     Amazonka.MacieV2.Types.AdminStatus
+    Amazonka.MacieV2.Types.AllowListCriteria
+    Amazonka.MacieV2.Types.AllowListStatus
+    Amazonka.MacieV2.Types.AllowListStatusCode
+    Amazonka.MacieV2.Types.AllowListSummary
     Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
     Amazonka.MacieV2.Types.ApiCallDetails
     Amazonka.MacieV2.Types.AssumedRole
@@ -216,6 +224,7 @@ library
     Amazonka.MacieV2.Types.S3Destination
     Amazonka.MacieV2.Types.S3JobDefinition
     Amazonka.MacieV2.Types.S3Object
+    Amazonka.MacieV2.Types.S3WordsList
     Amazonka.MacieV2.Types.ScopeFilterKey
     Amazonka.MacieV2.Types.Scoping
     Amazonka.MacieV2.Types.SearchResourcesBucketCriteria
@@ -271,6 +280,7 @@ library
     Amazonka.MacieV2.Types.UserPausedDetails
     Amazonka.MacieV2.Types.WeeklySchedule
     Amazonka.MacieV2.UntagResource
+    Amazonka.MacieV2.UpdateAllowList
     Amazonka.MacieV2.UpdateClassificationJob
     Amazonka.MacieV2.UpdateFindingsFilter
     Amazonka.MacieV2.UpdateMacieSession
@@ -280,7 +290,7 @@ library
     Amazonka.MacieV2.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-maciev2-test
@@ -299,9 +309,9 @@ test-suite amazonka-maciev2-test
     Test.Amazonka.MacieV2.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-maciev2
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.UpdateDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,17 +53,19 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | A brief description about this domain.
+  { -- | A brief description of the domain.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The identifier of the domain to be updated.
     domainId :: Prelude.Text,
     -- | The name of the domain.
     name :: Core.Sensitive Prelude.Text,
     -- | The configuration, containing the KMS key identifier, to be used by
-    -- Voice ID for the server-side encryption of your data. Note that all the
-    -- existing data in the domain are still encrypted using the existing key,
-    -- only the data added to domain after updating the key is encrypted using
-    -- the new key.
+    -- Voice ID for the server-side encryption of your data. Changing the
+    -- domain\'s associated KMS key immediately triggers an asynchronous
+    -- process to remove dependency on the old KMS key, such that the domain\'s
+    -- data can only be accessed using the new KMS key. The domain\'s
+    -- @ServerSideEncryptionUpdateDetails@ contains the details for this
+    -- process.
     serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -76,17 +78,19 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateDomain_description' - A brief description about this domain.
+-- 'description', 'updateDomain_description' - A brief description of the domain.
 --
 -- 'domainId', 'updateDomain_domainId' - The identifier of the domain to be updated.
 --
 -- 'name', 'updateDomain_name' - The name of the domain.
 --
 -- 'serverSideEncryptionConfiguration', 'updateDomain_serverSideEncryptionConfiguration' - The configuration, containing the KMS key identifier, to be used by
--- Voice ID for the server-side encryption of your data. Note that all the
--- existing data in the domain are still encrypted using the existing key,
--- only the data added to domain after updating the key is encrypted using
--- the new key.
+-- Voice ID for the server-side encryption of your data. Changing the
+-- domain\'s associated KMS key immediately triggers an asynchronous
+-- process to remove dependency on the old KMS key, such that the domain\'s
+-- data can only be accessed using the new KMS key. The domain\'s
+-- @ServerSideEncryptionUpdateDetails@ contains the details for this
+-- process.
 newUpdateDomain ::
   -- | 'domainId'
   Prelude.Text ->
@@ -107,7 +111,7 @@ newUpdateDomain
           pServerSideEncryptionConfiguration_
       }
 
--- | A brief description about this domain.
+-- | A brief description of the domain.
 updateDomain_description :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
 updateDomain_description = Lens.lens (\UpdateDomain' {description} -> description) (\s@UpdateDomain' {} a -> s {description = a} :: UpdateDomain) Prelude.. Lens.mapping Core._Sensitive
 
@@ -120,10 +124,12 @@ updateDomain_name :: Lens.Lens' UpdateDomain Prelude.Text
 updateDomain_name = Lens.lens (\UpdateDomain' {name} -> name) (\s@UpdateDomain' {} a -> s {name = a} :: UpdateDomain) Prelude.. Core._Sensitive
 
 -- | The configuration, containing the KMS key identifier, to be used by
--- Voice ID for the server-side encryption of your data. Note that all the
--- existing data in the domain are still encrypted using the existing key,
--- only the data added to domain after updating the key is encrypted using
--- the new key.
+-- Voice ID for the server-side encryption of your data. Changing the
+-- domain\'s associated KMS key immediately triggers an asynchronous
+-- process to remove dependency on the old KMS key, such that the domain\'s
+-- data can only be accessed using the new KMS key. The domain\'s
+-- @ServerSideEncryptionUpdateDetails@ contains the details for this
+-- process.
 updateDomain_serverSideEncryptionConfiguration :: Lens.Lens' UpdateDomain ServerSideEncryptionConfiguration
 updateDomain_serverSideEncryptionConfiguration = Lens.lens (\UpdateDomain' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@UpdateDomain' {} a -> s {serverSideEncryptionConfiguration = a} :: UpdateDomain)
 

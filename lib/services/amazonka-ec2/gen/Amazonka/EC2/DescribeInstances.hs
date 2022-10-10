@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeInstances
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,11 +42,6 @@
 -- in the affected zone, or do not specify any instance IDs at all, the
 -- call fails. If you describe instances and specify only instance IDs that
 -- are in an unaffected zone, the call works normally.
---
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon EC2 User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeInstances

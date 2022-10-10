@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetSite
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,12 +49,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetSite' smart constructor.
 data GetSite = GetSite'
   { -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,12 +62,6 @@ data GetSite = GetSite'
 -- for backwards compatibility:
 --
 -- 'siteId', 'getSite_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newGetSite ::
   -- | 'siteId'
   Prelude.Text ->
@@ -81,12 +69,6 @@ newGetSite ::
 newGetSite pSiteId_ = GetSite' {siteId = pSiteId_}
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 getSite_siteId :: Lens.Lens' GetSite Prelude.Text
 getSite_siteId = Lens.lens (\GetSite' {siteId} -> siteId) (\s@GetSite' {} a -> s {siteId = a} :: GetSite)
 

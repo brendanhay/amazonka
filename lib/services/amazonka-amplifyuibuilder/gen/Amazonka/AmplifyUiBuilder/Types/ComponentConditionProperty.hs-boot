@@ -1,0 +1,33 @@
+{-# OPTIONS_GHC -Wno-missing-methods #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.AmplifyUiBuilder.Types.ComponentConditionProperty
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.AmplifyUiBuilder.Types.ComponentConditionProperty where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
+
+data ComponentConditionProperty
+
+instance Prelude.Eq ComponentConditionProperty
+
+instance Prelude.Read ComponentConditionProperty
+
+instance Prelude.Show ComponentConditionProperty
+
+instance Prelude.Generic ComponentConditionProperty
+
+instance Core.ToJSON ComponentConditionProperty
+
+instance Core.FromJSON ComponentConditionProperty
+
+instance Prelude.NFData ComponentConditionProperty
+
+instance Prelude.Hashable ComponentConditionProperty

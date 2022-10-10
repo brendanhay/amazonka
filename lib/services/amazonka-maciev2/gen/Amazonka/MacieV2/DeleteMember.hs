@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.DeleteMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,8 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteMember' smart constructor.
 data DeleteMember = DeleteMember'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,16 +62,16 @@ data DeleteMember = DeleteMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'deleteMember_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'deleteMember_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newDeleteMember ::
   -- | 'id'
   Prelude.Text ->
   DeleteMember
 newDeleteMember pId_ = DeleteMember' {id = pId_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 deleteMember_id :: Lens.Lens' DeleteMember Prelude.Text
 deleteMember_id = Lens.lens (\DeleteMember' {id} -> id) (\s@DeleteMember' {} a -> s {id = a} :: DeleteMember)
 

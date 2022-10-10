@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,8 @@ data ListNotificationRulesFilter = ListNotificationRulesFilter'
     name :: ListNotificationRulesFilterName,
     -- | The value of the attribute you want to use to filter the returned
     -- notification rules. For example, if you specify filtering by /RESOURCE/
-    -- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for
-    -- the value.
+    -- in Name, you might specify the ARN of a pipeline in CodePipeline for the
+    -- value.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,8 +53,8 @@ data ListNotificationRulesFilter = ListNotificationRulesFilter'
 --
 -- 'value', 'listNotificationRulesFilter_value' - The value of the attribute you want to use to filter the returned
 -- notification rules. For example, if you specify filtering by /RESOURCE/
--- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for
--- the value.
+-- in Name, you might specify the ARN of a pipeline in CodePipeline for the
+-- value.
 newListNotificationRulesFilter ::
   -- | 'name'
   ListNotificationRulesFilterName ->
@@ -74,8 +74,8 @@ listNotificationRulesFilter_name = Lens.lens (\ListNotificationRulesFilter' {nam
 
 -- | The value of the attribute you want to use to filter the returned
 -- notification rules. For example, if you specify filtering by /RESOURCE/
--- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for
--- the value.
+-- in Name, you might specify the ARN of a pipeline in CodePipeline for the
+-- value.
 listNotificationRulesFilter_value :: Lens.Lens' ListNotificationRulesFilter Prelude.Text
 listNotificationRulesFilter_value = Lens.lens (\ListNotificationRulesFilter' {value} -> value) (\s@ListNotificationRulesFilter' {} a -> s {value = a} :: ListNotificationRulesFilter)
 

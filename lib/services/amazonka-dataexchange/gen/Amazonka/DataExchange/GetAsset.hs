@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.GetAsset
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,9 @@ module Amazonka.DataExchange.GetAsset
     newGetAsset,
 
     -- * Request Lenses
-    getAsset_revisionId,
     getAsset_assetId,
     getAsset_dataSetId,
+    getAsset_revisionId,
 
     -- * Destructuring the Response
     GetAssetResponse (..),
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAsset' smart constructor.
 data GetAsset = GetAsset'
-  { -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
-    -- | The unique identifier for an asset.
+  { -- | The unique identifier for an asset.
     assetId :: Prelude.Text,
     -- | The unique identifier for a data set.
-    dataSetId :: Prelude.Text
+    dataSetId :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,29 +76,25 @@ data GetAsset = GetAsset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'getAsset_revisionId' - The unique identifier for a revision.
---
 -- 'assetId', 'getAsset_assetId' - The unique identifier for an asset.
 --
 -- 'dataSetId', 'getAsset_dataSetId' - The unique identifier for a data set.
+--
+-- 'revisionId', 'getAsset_revisionId' - The unique identifier for a revision.
 newGetAsset ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'assetId'
   Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
+  -- | 'revisionId'
+  Prelude.Text ->
   GetAsset
-newGetAsset pRevisionId_ pAssetId_ pDataSetId_ =
+newGetAsset pAssetId_ pDataSetId_ pRevisionId_ =
   GetAsset'
-    { revisionId = pRevisionId_,
-      assetId = pAssetId_,
-      dataSetId = pDataSetId_
+    { assetId = pAssetId_,
+      dataSetId = pDataSetId_,
+      revisionId = pRevisionId_
     }
-
--- | The unique identifier for a revision.
-getAsset_revisionId :: Lens.Lens' GetAsset Prelude.Text
-getAsset_revisionId = Lens.lens (\GetAsset' {revisionId} -> revisionId) (\s@GetAsset' {} a -> s {revisionId = a} :: GetAsset)
 
 -- | The unique identifier for an asset.
 getAsset_assetId :: Lens.Lens' GetAsset Prelude.Text
@@ -107,6 +103,10 @@ getAsset_assetId = Lens.lens (\GetAsset' {assetId} -> assetId) (\s@GetAsset' {} 
 -- | The unique identifier for a data set.
 getAsset_dataSetId :: Lens.Lens' GetAsset Prelude.Text
 getAsset_dataSetId = Lens.lens (\GetAsset' {dataSetId} -> dataSetId) (\s@GetAsset' {} a -> s {dataSetId = a} :: GetAsset)
+
+-- | The unique identifier for a revision.
+getAsset_revisionId :: Lens.Lens' GetAsset Prelude.Text
+getAsset_revisionId = Lens.lens (\GetAsset' {revisionId} -> revisionId) (\s@GetAsset' {} a -> s {revisionId = a} :: GetAsset)
 
 instance Core.AWSRequest GetAsset where
   type AWSResponse GetAsset = GetAssetResponse
@@ -130,15 +130,15 @@ instance Core.AWSRequest GetAsset where
 
 instance Prelude.Hashable GetAsset where
   hashWithSalt _salt GetAsset' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData GetAsset where
   rnf GetAsset' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders GetAsset where
   toHeaders =

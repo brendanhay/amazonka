@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.CreateFlowLogs
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,6 +51,7 @@ module Amazonka.EC2.CreateFlowLogs
     createFlowLogs_logFormat,
     createFlowLogs_dryRun,
     createFlowLogs_logDestination,
+    createFlowLogs_deliverCrossAccountRole,
     createFlowLogs_logDestinationType,
     createFlowLogs_tagSpecifications,
     createFlowLogs_maxAggregationInterval,
@@ -85,20 +86,21 @@ data CreateFlowLogs = CreateFlowLogs'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of traffic to log. You can log traffic that the resource
-    -- accepts or rejects, or all traffic.
+    -- | The type of traffic to monitor (accepted traffic, rejected traffic, or
+    -- all traffic).
     trafficType :: Prelude.Maybe TrafficType,
-    -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
-    -- a CloudWatch Logs log group in your account.
+    -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
+    -- CloudWatch Logs log group in your account.
     --
-    -- If you specify @LogDestinationType@ as @s3@, do not specify
-    -- @DeliverLogsPermissionArn@ or @LogGroupName@.
+    -- This parameter is required if the destination type is @cloud-watch-logs@
+    -- and unsupported otherwise.
     deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
-    -- | The fields to include in the flow log record, in the order in which they
-    -- should appear. For a list of available fields, see
+    -- | The fields to include in the flow log record. List the fields in the
+    -- order in which they should appear. For more information about the
+    -- available fields, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
     -- If you omit this parameter, the flow log is created using the default
-    -- format. If you specify this parameter, you must specify at least one
+    -- format. If you specify this parameter, you must include at least one
     -- field.
     --
     -- Specify the fields using the @${field-id}@ format, separated by spaces.
@@ -110,32 +112,33 @@ data CreateFlowLogs = CreateFlowLogs'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The destination to which the flow log data is to be published. Flow log
-    -- data can be published to a CloudWatch Logs log group or an Amazon S3
-    -- bucket. The value specified for this parameter depends on the value
-    -- specified for @LogDestinationType@.
+    -- | The destination for the flow log data. The meaning of this parameter
+    -- depends on the destination type.
     --
-    -- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
-    -- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
-    -- example, to publish to a log group called @my-logs@, specify
-    -- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,
-    -- use @LogGroupName@ instead.
+    -- -   If the destination type is @cloud-watch-logs@, specify the ARN of a
+    --     CloudWatch Logs log group. For example:
     --
-    -- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.
-    -- You can also specify a subfolder in the bucket. To specify a subfolder
-    -- in the bucket, use the following ARN format:
-    -- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder
-    -- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:
-    -- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a
-    -- subfolder name. This is a reserved term.
+    --     arn:aws:logs:/region/:/account_id/:log-group:/my_group/
+    --
+    --     Alternatively, use the @LogGroupName@ parameter.
+    --
+    -- -   If the destination type is @s3@, specify the ARN of an S3 bucket.
+    --     For example:
+    --
+    --     arn:aws:s3:::/my_bucket/\//my_subfolder/\/
+    --
+    --     The subfolder is optional. Note that you can\'t use @AWSLogs@ as a
+    --     subfolder name.
+    --
+    -- -   If the destination type is @kinesis-data-firehose@, specify the ARN
+    --     of a Kinesis Data Firehose delivery stream. For example:
+    --
+    --     arn:aws:firehose:/region/:/account_id/:deliverystream:/my_stream/
     logDestination :: Prelude.Maybe Prelude.Text,
-    -- | The type of destination to which the flow log data is to be published.
-    -- Flow log data can be published to CloudWatch Logs or Amazon S3. To
-    -- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
-    -- publish flow log data to Amazon S3, specify @s3@.
-    --
-    -- If you specify @LogDestinationType@ as @s3@, do not specify
-    -- @DeliverLogsPermissionArn@ or @LogGroupName@.
+    -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+    -- across accounts.
+    deliverCrossAccountRole :: Prelude.Maybe Prelude.Text,
+    -- | The type of destination for the flow log data.
     --
     -- Default: @cloud-watch-logs@
     logDestinationType :: Prelude.Maybe LogDestinationType,
@@ -155,17 +158,15 @@ data CreateFlowLogs = CreateFlowLogs'
     -- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
     -- publishes your flow logs.
     --
-    -- If you specify @LogDestinationType@ as @s3@, do not specify
-    -- @DeliverLogsPermissionArn@ or @LogGroupName@.
+    -- This parameter is valid only if the destination type is
+    -- @cloud-watch-logs@.
     logGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet, network interface, or VPC for which you want to
-    -- create a flow log.
+    -- | The IDs of the resources to monitor. For example, if the resource type
+    -- is @VPC@, specify the IDs of the VPCs.
     --
     -- Constraints: Maximum of 1000 resources
     resourceIds :: [Prelude.Text],
-    -- | The type of resource for which to create the flow log. For example, if
-    -- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
-    -- this property.
+    -- | The type of resource to monitor.
     resourceType :: FlowLogsResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -184,20 +185,21 @@ data CreateFlowLogs = CreateFlowLogs'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
--- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to log. You can log traffic that the resource
--- accepts or rejects, or all traffic.
+-- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to monitor (accepted traffic, rejected traffic, or
+-- all traffic).
 --
--- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
--- a CloudWatch Logs log group in your account.
+-- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
+-- CloudWatch Logs log group in your account.
 --
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- This parameter is required if the destination type is @cloud-watch-logs@
+-- and unsupported otherwise.
 --
--- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record, in the order in which they
--- should appear. For a list of available fields, see
+-- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record. List the fields in the
+-- order in which they should appear. For more information about the
+-- available fields, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
 -- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must specify at least one
+-- format. If you specify this parameter, you must include at least one
 -- field.
 --
 -- Specify the fields using the @${field-id}@ format, separated by spaces.
@@ -209,32 +211,33 @@ data CreateFlowLogs = CreateFlowLogs'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'logDestination', 'createFlowLogs_logDestination' - The destination to which the flow log data is to be published. Flow log
--- data can be published to a CloudWatch Logs log group or an Amazon S3
--- bucket. The value specified for this parameter depends on the value
--- specified for @LogDestinationType@.
+-- 'logDestination', 'createFlowLogs_logDestination' - The destination for the flow log data. The meaning of this parameter
+-- depends on the destination type.
 --
--- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
--- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
--- example, to publish to a log group called @my-logs@, specify
--- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,
--- use @LogGroupName@ instead.
+-- -   If the destination type is @cloud-watch-logs@, specify the ARN of a
+--     CloudWatch Logs log group. For example:
 --
--- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.
--- You can also specify a subfolder in the bucket. To specify a subfolder
--- in the bucket, use the following ARN format:
--- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder
--- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:
--- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a
--- subfolder name. This is a reserved term.
+--     arn:aws:logs:/region/:/account_id/:log-group:/my_group/
 --
--- 'logDestinationType', 'createFlowLogs_logDestinationType' - The type of destination to which the flow log data is to be published.
--- Flow log data can be published to CloudWatch Logs or Amazon S3. To
--- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
--- publish flow log data to Amazon S3, specify @s3@.
+--     Alternatively, use the @LogGroupName@ parameter.
 --
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- -   If the destination type is @s3@, specify the ARN of an S3 bucket.
+--     For example:
+--
+--     arn:aws:s3:::/my_bucket/\//my_subfolder/\/
+--
+--     The subfolder is optional. Note that you can\'t use @AWSLogs@ as a
+--     subfolder name.
+--
+-- -   If the destination type is @kinesis-data-firehose@, specify the ARN
+--     of a Kinesis Data Firehose delivery stream. For example:
+--
+--     arn:aws:firehose:/region/:/account_id/:deliverystream:/my_stream/
+--
+-- 'deliverCrossAccountRole', 'createFlowLogs_deliverCrossAccountRole' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+-- across accounts.
+--
+-- 'logDestinationType', 'createFlowLogs_logDestinationType' - The type of destination for the flow log data.
 --
 -- Default: @cloud-watch-logs@
 --
@@ -254,17 +257,15 @@ data CreateFlowLogs = CreateFlowLogs'
 -- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2
 -- publishes your flow logs.
 --
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- This parameter is valid only if the destination type is
+-- @cloud-watch-logs@.
 --
--- 'resourceIds', 'createFlowLogs_resourceIds' - The ID of the subnet, network interface, or VPC for which you want to
--- create a flow log.
+-- 'resourceIds', 'createFlowLogs_resourceIds' - The IDs of the resources to monitor. For example, if the resource type
+-- is @VPC@, specify the IDs of the VPCs.
 --
 -- Constraints: Maximum of 1000 resources
 --
--- 'resourceType', 'createFlowLogs_resourceType' - The type of resource for which to create the flow log. For example, if
--- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
--- this property.
+-- 'resourceType', 'createFlowLogs_resourceType' - The type of resource to monitor.
 newCreateFlowLogs ::
   -- | 'resourceType'
   FlowLogsResourceType ->
@@ -279,6 +280,7 @@ newCreateFlowLogs pResourceType_ =
       logFormat = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       logDestination = Prelude.Nothing,
+      deliverCrossAccountRole = Prelude.Nothing,
       logDestinationType = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       maxAggregationInterval = Prelude.Nothing,
@@ -297,24 +299,25 @@ createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOpti
 createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
 
--- | The type of traffic to log. You can log traffic that the resource
--- accepts or rejects, or all traffic.
+-- | The type of traffic to monitor (accepted traffic, rejected traffic, or
+-- all traffic).
 createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe TrafficType)
 createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
 
--- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
--- a CloudWatch Logs log group in your account.
+-- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
+-- CloudWatch Logs log group in your account.
 --
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- This parameter is required if the destination type is @cloud-watch-logs@
+-- and unsupported otherwise.
 createFlowLogs_deliverLogsPermissionArn :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_deliverLogsPermissionArn = Lens.lens (\CreateFlowLogs' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@CreateFlowLogs' {} a -> s {deliverLogsPermissionArn = a} :: CreateFlowLogs)
 
--- | The fields to include in the flow log record, in the order in which they
--- should appear. For a list of available fields, see
+-- | The fields to include in the flow log record. List the fields in the
+-- order in which they should appear. For more information about the
+-- available fields, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
 -- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must specify at least one
+-- format. If you specify this parameter, you must include at least one
 -- field.
 --
 -- Specify the fields using the @${field-id}@ format, separated by spaces.
@@ -330,34 +333,37 @@ createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat)
 createFlowLogs_dryRun :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Bool)
 createFlowLogs_dryRun = Lens.lens (\CreateFlowLogs' {dryRun} -> dryRun) (\s@CreateFlowLogs' {} a -> s {dryRun = a} :: CreateFlowLogs)
 
--- | The destination to which the flow log data is to be published. Flow log
--- data can be published to a CloudWatch Logs log group or an Amazon S3
--- bucket. The value specified for this parameter depends on the value
--- specified for @LogDestinationType@.
+-- | The destination for the flow log data. The meaning of this parameter
+-- depends on the destination type.
 --
--- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
--- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
--- example, to publish to a log group called @my-logs@, specify
--- @arn:aws:logs:us-east-1:123456789012:log-group:my-logs@. Alternatively,
--- use @LogGroupName@ instead.
+-- -   If the destination type is @cloud-watch-logs@, specify the ARN of a
+--     CloudWatch Logs log group. For example:
 --
--- If LogDestinationType is @s3@, specify the ARN of the Amazon S3 bucket.
--- You can also specify a subfolder in the bucket. To specify a subfolder
--- in the bucket, use the following ARN format:
--- @bucket_ARN\/subfolder_name\/@. For example, to specify a subfolder
--- named @my-logs@ in a bucket named @my-bucket@, use the following ARN:
--- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a
--- subfolder name. This is a reserved term.
+--     arn:aws:logs:/region/:/account_id/:log-group:/my_group/
+--
+--     Alternatively, use the @LogGroupName@ parameter.
+--
+-- -   If the destination type is @s3@, specify the ARN of an S3 bucket.
+--     For example:
+--
+--     arn:aws:s3:::/my_bucket/\//my_subfolder/\/
+--
+--     The subfolder is optional. Note that you can\'t use @AWSLogs@ as a
+--     subfolder name.
+--
+-- -   If the destination type is @kinesis-data-firehose@, specify the ARN
+--     of a Kinesis Data Firehose delivery stream. For example:
+--
+--     arn:aws:firehose:/region/:/account_id/:deliverystream:/my_stream/
 createFlowLogs_logDestination :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_logDestination = Lens.lens (\CreateFlowLogs' {logDestination} -> logDestination) (\s@CreateFlowLogs' {} a -> s {logDestination = a} :: CreateFlowLogs)
 
--- | The type of destination to which the flow log data is to be published.
--- Flow log data can be published to CloudWatch Logs or Amazon S3. To
--- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
--- publish flow log data to Amazon S3, specify @s3@.
---
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+-- across accounts.
+createFlowLogs_deliverCrossAccountRole :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_deliverCrossAccountRole = Lens.lens (\CreateFlowLogs' {deliverCrossAccountRole} -> deliverCrossAccountRole) (\s@CreateFlowLogs' {} a -> s {deliverCrossAccountRole = a} :: CreateFlowLogs)
+
+-- | The type of destination for the flow log data.
 --
 -- Default: @cloud-watch-logs@
 createFlowLogs_logDestinationType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe LogDestinationType)
@@ -383,21 +389,19 @@ createFlowLogs_maxAggregationInterval = Lens.lens (\CreateFlowLogs' {maxAggregat
 -- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
 -- publishes your flow logs.
 --
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
+-- This parameter is valid only if the destination type is
+-- @cloud-watch-logs@.
 createFlowLogs_logGroupName :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logGroupName) (\s@CreateFlowLogs' {} a -> s {logGroupName = a} :: CreateFlowLogs)
 
--- | The ID of the subnet, network interface, or VPC for which you want to
--- create a flow log.
+-- | The IDs of the resources to monitor. For example, if the resource type
+-- is @VPC@, specify the IDs of the VPCs.
 --
 -- Constraints: Maximum of 1000 resources
 createFlowLogs_resourceIds :: Lens.Lens' CreateFlowLogs [Prelude.Text]
 createFlowLogs_resourceIds = Lens.lens (\CreateFlowLogs' {resourceIds} -> resourceIds) (\s@CreateFlowLogs' {} a -> s {resourceIds = a} :: CreateFlowLogs) Prelude.. Lens.coerced
 
--- | The type of resource for which to create the flow log. For example, if
--- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
--- this property.
+-- | The type of resource to monitor.
 createFlowLogs_resourceType :: Lens.Lens' CreateFlowLogs FlowLogsResourceType
 createFlowLogs_resourceType = Lens.lens (\CreateFlowLogs' {resourceType} -> resourceType) (\s@CreateFlowLogs' {} a -> s {resourceType = a} :: CreateFlowLogs)
 
@@ -429,6 +433,7 @@ instance Prelude.Hashable CreateFlowLogs where
       `Prelude.hashWithSalt` logFormat
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` logDestination
+      `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` logDestinationType
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` maxAggregationInterval
@@ -445,6 +450,7 @@ instance Prelude.NFData CreateFlowLogs where
       `Prelude.seq` Prelude.rnf logFormat
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf logDestination
+      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
       `Prelude.seq` Prelude.rnf logDestinationType
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf maxAggregationInterval
@@ -473,6 +479,8 @@ instance Core.ToQuery CreateFlowLogs where
         "LogFormat" Core.=: logFormat,
         "DryRun" Core.=: dryRun,
         "LogDestination" Core.=: logDestination,
+        "DeliverCrossAccountRole"
+          Core.=: deliverCrossAccountRole,
         "LogDestinationType" Core.=: logDestinationType,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"

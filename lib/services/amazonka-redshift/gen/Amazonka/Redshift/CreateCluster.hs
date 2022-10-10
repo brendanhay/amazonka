@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Redshift.CreateCluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -107,9 +107,7 @@ data CreateCluster = CreateCluster'
     --
     -- Default: The default VPC security group is associated with the cluster.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Elastic IP (EIP) address for the cluster. You don\'t have to specify
-    -- the EIP for a publicly accessible cluster with
-    -- AvailabilityZoneRelocation turned on.
+    -- | The Elastic IP (EIP) address for the cluster.
     --
     -- Constraints: The cluster must be provisioned in EC2-VPC and
     -- publicly-accessible through an Internet gateway. For more information
@@ -142,16 +140,9 @@ data CreateCluster = CreateCluster'
     clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the snapshot schedule.
     snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The value represents how the cluster is configured to use AQUA (Advanced
-    -- Query Accelerator) when it is created. Possible values include the
-    -- following.
-    --
-    -- -   enabled - Use AQUA if it is available for the current Amazon Web
-    --     Services Region and Amazon Redshift node type.
-    --
-    -- -   disabled - Don\'t use AQUA.
-    --
-    -- -   auto - Amazon Redshift determines whether to use AQUA.
+    -- | This parameter is retired. It does not set the AQUA configuration
+    -- status. Amazon Redshift automatically determines whether to use AQUA
+    -- (Advanced Query Accelerator).
     aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
     -- | The version of the Amazon Redshift engine software that you want to
     -- deploy on the cluster.
@@ -401,9 +392,7 @@ data CreateCluster = CreateCluster'
 --
 -- Default: The default VPC security group is associated with the cluster.
 --
--- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster. You don\'t have to specify
--- the EIP for a publicly accessible cluster with
--- AvailabilityZoneRelocation turned on.
+-- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
 -- publicly-accessible through an Internet gateway. For more information
@@ -436,16 +425,9 @@ data CreateCluster = CreateCluster'
 --
 -- 'snapshotScheduleIdentifier', 'createCluster_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
 --
--- 'aquaConfigurationStatus', 'createCluster_aquaConfigurationStatus' - The value represents how the cluster is configured to use AQUA (Advanced
--- Query Accelerator) when it is created. Possible values include the
--- following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- 'aquaConfigurationStatus', 'createCluster_aquaConfigurationStatus' - This parameter is retired. It does not set the AQUA configuration
+-- status. Amazon Redshift automatically determines whether to use AQUA
+-- (Advanced Query Accelerator).
 --
 -- 'clusterVersion', 'createCluster_clusterVersion' - The version of the Amazon Redshift engine software that you want to
 -- deploy on the cluster.
@@ -741,9 +723,7 @@ createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluste
 createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The Elastic IP (EIP) address for the cluster. You don\'t have to specify
--- the EIP for a publicly accessible cluster with
--- AvailabilityZoneRelocation turned on.
+-- | The Elastic IP (EIP) address for the cluster.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
 -- publicly-accessible through an Internet gateway. For more information
@@ -788,16 +768,9 @@ createCluster_clusterSubnetGroupName = Lens.lens (\CreateCluster' {clusterSubnet
 createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_snapshotScheduleIdentifier = Lens.lens (\CreateCluster' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@CreateCluster' {} a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
 
--- | The value represents how the cluster is configured to use AQUA (Advanced
--- Query Accelerator) when it is created. Possible values include the
--- following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- | This parameter is retired. It does not set the AQUA configuration
+-- status. Amazon Redshift automatically determines whether to use AQUA
+-- (Advanced Query Accelerator).
 createCluster_aquaConfigurationStatus :: Lens.Lens' CreateCluster (Prelude.Maybe AquaConfigurationStatus)
 createCluster_aquaConfigurationStatus = Lens.lens (\CreateCluster' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@CreateCluster' {} a -> s {aquaConfigurationStatus = a} :: CreateCluster)
 

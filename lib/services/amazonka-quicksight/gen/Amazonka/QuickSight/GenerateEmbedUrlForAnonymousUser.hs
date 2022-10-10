@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates an embed URL that you can use to embed an Amazon QuickSight
--- dashboard in your website, without having to register any reader users.
--- Before you use this action, make sure that you have configured the
--- dashboards and permissions.
+-- dashboard or visual in your website, without having to register any
+-- reader users. Before you use this action, make sure that you have
+-- configured the dashboards and permissions.
 --
 -- The following rules apply to the generated URL:
 --

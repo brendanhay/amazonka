@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.AutomationExecution
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.SSM.Types.AutomationExecution where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.AutomationExecutionStatus
 import Amazonka.SSM.Types.AutomationSubtype
 import Amazonka.SSM.Types.ExecutionMode
@@ -72,6 +74,8 @@ data AutomationExecution = AutomationExecution'
     automationSubtype :: Prelude.Maybe AutomationSubtype,
     -- | The list of execution outputs as defined in the Automation runbook.
     outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The details for the CloudWatch alarm applied to your automation.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The name of the step that is currently running.
     currentStepName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the user who ran the automation.
@@ -95,6 +99,8 @@ data AutomationExecution = AutomationExecution'
     -- The Automation runbooks specified for the runbook workflow can\'t run
     -- until all required approvals for the change request have been received.
     runbooks :: Prelude.Maybe (Prelude.NonEmpty Runbook),
+    -- | The CloudWatch alarm that was invoked by the automation.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The action of the step that is currently running.
     currentAction :: Prelude.Maybe Prelude.Text,
     -- | A boolean value that indicates if the response contains the full list of
@@ -163,6 +169,8 @@ data AutomationExecution = AutomationExecution'
 --
 -- 'outputs', 'automationExecution_outputs' - The list of execution outputs as defined in the Automation runbook.
 --
+-- 'alarmConfiguration', 'automationExecution_alarmConfiguration' - The details for the CloudWatch alarm applied to your automation.
+--
 -- 'currentStepName', 'automationExecution_currentStepName' - The name of the step that is currently running.
 --
 -- 'executedBy', 'automationExecution_executedBy' - The Amazon Resource Name (ARN) of the user who ran the automation.
@@ -185,6 +193,8 @@ data AutomationExecution = AutomationExecution'
 --
 -- The Automation runbooks specified for the runbook workflow can\'t run
 -- until all required approvals for the change request have been received.
+--
+-- 'triggeredAlarms', 'automationExecution_triggeredAlarms' - The CloudWatch alarm that was invoked by the automation.
 --
 -- 'currentAction', 'automationExecution_currentAction' - The action of the step that is currently running.
 --
@@ -226,6 +236,7 @@ newAutomationExecution =
       documentName = Prelude.Nothing,
       automationSubtype = Prelude.Nothing,
       outputs = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       currentStepName = Prelude.Nothing,
       executedBy = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
@@ -235,6 +246,7 @@ newAutomationExecution =
       parentAutomationExecutionId = Prelude.Nothing,
       automationExecutionStatus = Prelude.Nothing,
       runbooks = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       currentAction = Prelude.Nothing,
       stepExecutionsTruncated = Prelude.Nothing,
       progressCounters = Prelude.Nothing,
@@ -308,6 +320,10 @@ automationExecution_automationSubtype = Lens.lens (\AutomationExecution' {automa
 automationExecution_outputs :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 automationExecution_outputs = Lens.lens (\AutomationExecution' {outputs} -> outputs) (\s@AutomationExecution' {} a -> s {outputs = a} :: AutomationExecution) Prelude.. Lens.mapping Lens.coerced
 
+-- | The details for the CloudWatch alarm applied to your automation.
+automationExecution_alarmConfiguration :: Lens.Lens' AutomationExecution (Prelude.Maybe AlarmConfiguration)
+automationExecution_alarmConfiguration = Lens.lens (\AutomationExecution' {alarmConfiguration} -> alarmConfiguration) (\s@AutomationExecution' {} a -> s {alarmConfiguration = a} :: AutomationExecution)
+
 -- | The name of the step that is currently running.
 automationExecution_currentStepName :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
 automationExecution_currentStepName = Lens.lens (\AutomationExecution' {currentStepName} -> currentStepName) (\s@AutomationExecution' {} a -> s {currentStepName = a} :: AutomationExecution)
@@ -348,6 +364,10 @@ automationExecution_automationExecutionStatus = Lens.lens (\AutomationExecution'
 -- until all required approvals for the change request have been received.
 automationExecution_runbooks :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.NonEmpty Runbook))
 automationExecution_runbooks = Lens.lens (\AutomationExecution' {runbooks} -> runbooks) (\s@AutomationExecution' {} a -> s {runbooks = a} :: AutomationExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The CloudWatch alarm that was invoked by the automation.
+automationExecution_triggeredAlarms :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+automationExecution_triggeredAlarms = Lens.lens (\AutomationExecution' {triggeredAlarms} -> triggeredAlarms) (\s@AutomationExecution' {} a -> s {triggeredAlarms = a} :: AutomationExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The action of the step that is currently running.
 automationExecution_currentAction :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
@@ -407,6 +427,7 @@ instance Core.FromJSON AutomationExecution where
             Prelude.<*> (x Core..:? "DocumentName")
             Prelude.<*> (x Core..:? "AutomationSubtype")
             Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "CurrentStepName")
             Prelude.<*> (x Core..:? "ExecutedBy")
             Prelude.<*> (x Core..:? "MaxConcurrency")
@@ -416,6 +437,7 @@ instance Core.FromJSON AutomationExecution where
             Prelude.<*> (x Core..:? "ParentAutomationExecutionId")
             Prelude.<*> (x Core..:? "AutomationExecutionStatus")
             Prelude.<*> (x Core..:? "Runbooks")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "CurrentAction")
             Prelude.<*> (x Core..:? "StepExecutionsTruncated")
             Prelude.<*> (x Core..:? "ProgressCounters")
@@ -442,6 +464,7 @@ instance Prelude.Hashable AutomationExecution where
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` automationSubtype
       `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` currentStepName
       `Prelude.hashWithSalt` executedBy
       `Prelude.hashWithSalt` maxConcurrency
@@ -451,6 +474,7 @@ instance Prelude.Hashable AutomationExecution where
       `Prelude.hashWithSalt` parentAutomationExecutionId
       `Prelude.hashWithSalt` automationExecutionStatus
       `Prelude.hashWithSalt` runbooks
+      `Prelude.hashWithSalt` triggeredAlarms
       `Prelude.hashWithSalt` currentAction
       `Prelude.hashWithSalt` stepExecutionsTruncated
       `Prelude.hashWithSalt` progressCounters
@@ -476,6 +500,7 @@ instance Prelude.NFData AutomationExecution where
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf automationSubtype
       `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf currentStepName
       `Prelude.seq` Prelude.rnf executedBy
       `Prelude.seq` Prelude.rnf maxConcurrency
@@ -487,6 +512,8 @@ instance Prelude.NFData AutomationExecution where
       `Prelude.seq` Prelude.rnf
         automationExecutionStatus
       `Prelude.seq` Prelude.rnf runbooks
+      `Prelude.seq` Prelude.rnf
+        triggeredAlarms
       `Prelude.seq` Prelude.rnf
         currentAction
       `Prelude.seq` Prelude.rnf

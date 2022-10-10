@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.ListInstalledComponents
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a paginated list of the components that a Greengrass core
--- device runs. This list doesn\'t include components that are deployed
--- from local deployments or components that are deployed as dependencies
--- of other components.
+-- device runs. By default, this list doesn\'t include components that are
+-- deployed as dependencies of other components. To include dependencies in
+-- the response, set the @topologyFilter@ parameter to @ALL@.
 --
 -- IoT Greengrass relies on individual devices to send status updates to
 -- the Amazon Web Services Cloud. If the IoT Greengrass Core software
@@ -45,6 +45,9 @@
 --     <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss regular interval that you can configure>,
 --     which defaults to 24 hours
 --
+-- -   For IoT Greengrass Core v2.7.0, the core device sends status updates
+--     upon local deployment and cloud deployment
+--
 -- This operation returns paginated results.
 module Amazonka.GreengrassV2.ListInstalledComponents
   ( -- * Creating a Request
@@ -53,6 +56,7 @@ module Amazonka.GreengrassV2.ListInstalledComponents
 
     -- * Request Lenses
     listInstalledComponents_nextToken,
+    listInstalledComponents_topologyFilter,
     listInstalledComponents_maxResults,
     listInstalledComponents_coreDeviceThingName,
 
@@ -78,6 +82,19 @@ import qualified Amazonka.Response as Response
 data ListInstalledComponents = ListInstalledComponents'
   { -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filter for the list of components. Choose from the following
+    -- options:
+    --
+    -- -   @ALL@ – The list includes all components installed on the core
+    --     device.
+    --
+    -- -   @ROOT@ – The list includes only /root/ components, which are
+    --     components that you specify in a deployment. When you choose this
+    --     option, the list doesn\'t include components that the core device
+    --     installs as dependencies of other components.
+    --
+    -- Default: @ROOT@
+    topologyFilter :: Prelude.Maybe InstalledComponentTopologyFilter,
     -- | The maximum number of results to be returned per paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the core device. This is also the name of the IoT thing.
@@ -95,6 +112,19 @@ data ListInstalledComponents = ListInstalledComponents'
 --
 -- 'nextToken', 'listInstalledComponents_nextToken' - The token to be used for the next set of paginated results.
 --
+-- 'topologyFilter', 'listInstalledComponents_topologyFilter' - The filter for the list of components. Choose from the following
+-- options:
+--
+-- -   @ALL@ – The list includes all components installed on the core
+--     device.
+--
+-- -   @ROOT@ – The list includes only /root/ components, which are
+--     components that you specify in a deployment. When you choose this
+--     option, the list doesn\'t include components that the core device
+--     installs as dependencies of other components.
+--
+-- Default: @ROOT@
+--
 -- 'maxResults', 'listInstalledComponents_maxResults' - The maximum number of results to be returned per paginated request.
 --
 -- 'coreDeviceThingName', 'listInstalledComponents_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
@@ -106,6 +136,7 @@ newListInstalledComponents pCoreDeviceThingName_ =
   ListInstalledComponents'
     { nextToken =
         Prelude.Nothing,
+      topologyFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       coreDeviceThingName = pCoreDeviceThingName_
     }
@@ -113,6 +144,21 @@ newListInstalledComponents pCoreDeviceThingName_ =
 -- | The token to be used for the next set of paginated results.
 listInstalledComponents_nextToken :: Lens.Lens' ListInstalledComponents (Prelude.Maybe Prelude.Text)
 listInstalledComponents_nextToken = Lens.lens (\ListInstalledComponents' {nextToken} -> nextToken) (\s@ListInstalledComponents' {} a -> s {nextToken = a} :: ListInstalledComponents)
+
+-- | The filter for the list of components. Choose from the following
+-- options:
+--
+-- -   @ALL@ – The list includes all components installed on the core
+--     device.
+--
+-- -   @ROOT@ – The list includes only /root/ components, which are
+--     components that you specify in a deployment. When you choose this
+--     option, the list doesn\'t include components that the core device
+--     installs as dependencies of other components.
+--
+-- Default: @ROOT@
+listInstalledComponents_topologyFilter :: Lens.Lens' ListInstalledComponents (Prelude.Maybe InstalledComponentTopologyFilter)
+listInstalledComponents_topologyFilter = Lens.lens (\ListInstalledComponents' {topologyFilter} -> topologyFilter) (\s@ListInstalledComponents' {} a -> s {topologyFilter = a} :: ListInstalledComponents)
 
 -- | The maximum number of results to be returned per paginated request.
 listInstalledComponents_maxResults :: Lens.Lens' ListInstalledComponents (Prelude.Maybe Prelude.Natural)
@@ -163,12 +209,14 @@ instance Core.AWSRequest ListInstalledComponents where
 instance Prelude.Hashable ListInstalledComponents where
   hashWithSalt _salt ListInstalledComponents' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` topologyFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` coreDeviceThingName
 
 instance Prelude.NFData ListInstalledComponents where
   rnf ListInstalledComponents' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf topologyFilter
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
@@ -187,6 +235,7 @@ instance Core.ToQuery ListInstalledComponents where
   toQuery ListInstalledComponents' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
+        "topologyFilter" Core.=: topologyFilter,
         "maxResults" Core.=: maxResults
       ]
 
@@ -196,6 +245,10 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list that summarizes each component on the core device.
+    --
+    -- Accuracy of the @lastStatusChangeTimestamp@ response depends on
+    -- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
+    -- and can be inaccurate on earlier versions.
     installedComponents :: Prelude.Maybe [InstalledComponent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -214,6 +267,10 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
 -- additional results.
 --
 -- 'installedComponents', 'listInstalledComponentsResponse_installedComponents' - A list that summarizes each component on the core device.
+--
+-- Accuracy of the @lastStatusChangeTimestamp@ response depends on
+-- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
+-- and can be inaccurate on earlier versions.
 --
 -- 'httpStatus', 'listInstalledComponentsResponse_httpStatus' - The response's http status code.
 newListInstalledComponentsResponse ::
@@ -234,6 +291,10 @@ listInstalledComponentsResponse_nextToken :: Lens.Lens' ListInstalledComponentsR
 listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsResponse' {nextToken} -> nextToken) (\s@ListInstalledComponentsResponse' {} a -> s {nextToken = a} :: ListInstalledComponentsResponse)
 
 -- | A list that summarizes each component on the core device.
+--
+-- Accuracy of the @lastStatusChangeTimestamp@ response depends on
+-- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
+-- and can be inaccurate on earlier versions.
 listInstalledComponentsResponse_installedComponents :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe [InstalledComponent])
 listInstalledComponentsResponse_installedComponents = Lens.lens (\ListInstalledComponentsResponse' {installedComponents} -> installedComponents) (\s@ListInstalledComponentsResponse' {} a -> s {installedComponents = a} :: ListInstalledComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 

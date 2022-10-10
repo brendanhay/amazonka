@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -473,6 +473,7 @@ module Amazonka.Proton.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateAccountSettings
+    updateAccountSettings_deletePipelineProvisioningRepository,
     updateAccountSettings_pipelineProvisioningRepository,
     updateAccountSettings_pipelineServiceRoleArn,
     updateAccountSettingsResponse_httpStatus,

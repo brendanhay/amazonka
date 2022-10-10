@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DeleteDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Used to delete a domain. If you onboarded with IAM mode, you will need
--- to delete your domain to onboard again using SSO. Use with caution. All
--- of the members of the domain will lose access to their EFS volume,
--- including data, notebooks, and other artifacts.
+-- to delete your domain to onboard again using IAM Identity Center. Use
+-- with caution. All of the members of the domain will lose access to their
+-- EFS volume, including data, notebooks, and other artifacts.
 module Amazonka.SageMaker.DeleteDomain
   ( -- * Creating a Request
     DeleteDomain (..),

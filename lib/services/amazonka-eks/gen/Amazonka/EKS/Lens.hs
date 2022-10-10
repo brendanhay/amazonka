@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,7 @@ module Amazonka.EKS.Lens
     createCluster_encryptionConfig,
     createCluster_tags,
     createCluster_clientRequestToken,
+    createCluster_outpostConfig,
     createCluster_logging,
     createCluster_kubernetesNetworkConfig,
     createCluster_version,
@@ -335,16 +336,27 @@ module Amazonka.EKS.Lens
     cluster_clientRequestToken,
     cluster_arn,
     cluster_status,
+    cluster_id,
+    cluster_outpostConfig,
     cluster_logging,
     cluster_identity,
     cluster_kubernetesNetworkConfig,
     cluster_connectorConfig,
+    cluster_health,
     cluster_platformVersion,
     cluster_certificateAuthority,
     cluster_endpoint,
     cluster_resourcesVpcConfig,
     cluster_createdAt,
     cluster_version,
+
+    -- ** ClusterHealth
+    clusterHealth_issues,
+
+    -- ** ClusterIssue
+    clusterIssue_message,
+    clusterIssue_code,
+    clusterIssue_resourceIds,
 
     -- ** Compatibility
     compatibility_clusterVersion,
@@ -490,6 +502,14 @@ module Amazonka.EKS.Lens
     oidcIdentityProviderConfigRequest_issuerUrl,
     oidcIdentityProviderConfigRequest_clientId,
 
+    -- ** OutpostConfigRequest
+    outpostConfigRequest_outpostArns,
+    outpostConfigRequest_controlPlaneInstanceType,
+
+    -- ** OutpostConfigResponse
+    outpostConfigResponse_outpostArns,
+    outpostConfigResponse_controlPlaneInstanceType,
+
     -- ** Provider
     provider_keyArn,
 
@@ -576,6 +596,8 @@ import Amazonka.EKS.Types.AddonVersionInfo
 import Amazonka.EKS.Types.AutoScalingGroup
 import Amazonka.EKS.Types.Certificate
 import Amazonka.EKS.Types.Cluster
+import Amazonka.EKS.Types.ClusterHealth
+import Amazonka.EKS.Types.ClusterIssue
 import Amazonka.EKS.Types.Compatibility
 import Amazonka.EKS.Types.ConnectorConfigRequest
 import Amazonka.EKS.Types.ConnectorConfigResponse
@@ -600,6 +622,8 @@ import Amazonka.EKS.Types.NodegroupUpdateConfig
 import Amazonka.EKS.Types.OIDC
 import Amazonka.EKS.Types.OidcIdentityProviderConfig
 import Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+import Amazonka.EKS.Types.OutpostConfigRequest
+import Amazonka.EKS.Types.OutpostConfigResponse
 import Amazonka.EKS.Types.Provider
 import Amazonka.EKS.Types.RemoteAccessConfig
 import Amazonka.EKS.Types.Taint

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -523,6 +523,20 @@ module Amazonka.EC2.Lens
     createClientVpnRouteResponse_status,
     createClientVpnRouteResponse_httpStatus,
 
+    -- ** CreateCoipCidr
+    createCoipCidr_dryRun,
+    createCoipCidr_cidr,
+    createCoipCidr_coipPoolId,
+    createCoipCidrResponse_coipCidr,
+    createCoipCidrResponse_httpStatus,
+
+    -- ** CreateCoipPool
+    createCoipPool_dryRun,
+    createCoipPool_tagSpecifications,
+    createCoipPool_localGatewayRouteTableId,
+    createCoipPoolResponse_coipPool,
+    createCoipPoolResponse_httpStatus,
+
     -- ** CreateCustomerGateway
     createCustomerGateway_deviceName,
     createCustomerGateway_publicIp,
@@ -591,6 +605,7 @@ module Amazonka.EC2.Lens
     createFlowLogs_logFormat,
     createFlowLogs_dryRun,
     createFlowLogs_logDestination,
+    createFlowLogs_deliverCrossAccountRole,
     createFlowLogs_logDestinationType,
     createFlowLogs_tagSpecifications,
     createFlowLogs_maxAggregationInterval,
@@ -724,11 +739,28 @@ module Amazonka.EC2.Lens
 
     -- ** CreateLocalGatewayRoute
     createLocalGatewayRoute_dryRun,
+    createLocalGatewayRoute_networkInterfaceId,
+    createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
     createLocalGatewayRoute_destinationCidrBlock,
     createLocalGatewayRoute_localGatewayRouteTableId,
-    createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
     createLocalGatewayRouteResponse_route,
     createLocalGatewayRouteResponse_httpStatus,
+
+    -- ** CreateLocalGatewayRouteTable
+    createLocalGatewayRouteTable_dryRun,
+    createLocalGatewayRouteTable_mode,
+    createLocalGatewayRouteTable_tagSpecifications,
+    createLocalGatewayRouteTable_localGatewayId,
+    createLocalGatewayRouteTableResponse_localGatewayRouteTable,
+    createLocalGatewayRouteTableResponse_httpStatus,
+
+    -- ** CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociation_dryRun,
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociation_tagSpecifications,
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId,
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayVirtualInterfaceGroupId,
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation,
+    createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_httpStatus,
 
     -- ** CreateLocalGatewayRouteTableVpcAssociation
     createLocalGatewayRouteTableVpcAssociation_dryRun,
@@ -1280,6 +1312,19 @@ module Amazonka.EC2.Lens
     deleteClientVpnRouteResponse_status,
     deleteClientVpnRouteResponse_httpStatus,
 
+    -- ** DeleteCoipCidr
+    deleteCoipCidr_dryRun,
+    deleteCoipCidr_cidr,
+    deleteCoipCidr_coipPoolId,
+    deleteCoipCidrResponse_coipCidr,
+    deleteCoipCidrResponse_httpStatus,
+
+    -- ** DeleteCoipPool
+    deleteCoipPool_dryRun,
+    deleteCoipPool_coipPoolId,
+    deleteCoipPoolResponse_coipPool,
+    deleteCoipPoolResponse_httpStatus,
+
     -- ** DeleteCustomerGateway
     deleteCustomerGateway_dryRun,
     deleteCustomerGateway_customerGatewayId,
@@ -1371,6 +1416,18 @@ module Amazonka.EC2.Lens
     deleteLocalGatewayRoute_localGatewayRouteTableId,
     deleteLocalGatewayRouteResponse_route,
     deleteLocalGatewayRouteResponse_httpStatus,
+
+    -- ** DeleteLocalGatewayRouteTable
+    deleteLocalGatewayRouteTable_dryRun,
+    deleteLocalGatewayRouteTable_localGatewayRouteTableId,
+    deleteLocalGatewayRouteTableResponse_localGatewayRouteTable,
+    deleteLocalGatewayRouteTableResponse_httpStatus,
+
+    -- ** DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation_dryRun,
+    deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId,
+    deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation,
+    deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_httpStatus,
 
     -- ** DeleteLocalGatewayRouteTableVpcAssociation
     deleteLocalGatewayRouteTableVpcAssociation_dryRun,
@@ -2031,6 +2088,7 @@ module Amazonka.EC2.Lens
     describeImageAttributeResponse_tpmSupport,
     describeImageAttributeResponse_ramdiskId,
     describeImageAttributeResponse_launchPermissions,
+    describeImageAttributeResponse_imdsSupport,
     describeImageAttributeResponse_bootMode,
     describeImageAttributeResponse_kernelId,
     describeImageAttributeResponse_uefiData,
@@ -2891,6 +2949,7 @@ module Amazonka.EC2.Lens
     describeVpcAttributeResponse_enableDnsSupport,
     describeVpcAttributeResponse_enableDnsHostnames,
     describeVpcAttributeResponse_vpcId,
+    describeVpcAttributeResponse_enableNetworkAddressUsageMetrics,
     describeVpcAttributeResponse_httpStatus,
 
     -- ** DescribeVpcClassicLink
@@ -4009,6 +4068,15 @@ module Amazonka.EC2.Lens
     modifyLaunchTemplateResponse_launchTemplate,
     modifyLaunchTemplateResponse_httpStatus,
 
+    -- ** ModifyLocalGatewayRoute
+    modifyLocalGatewayRoute_dryRun,
+    modifyLocalGatewayRoute_networkInterfaceId,
+    modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
+    modifyLocalGatewayRoute_destinationCidrBlock,
+    modifyLocalGatewayRoute_localGatewayRouteTableId,
+    modifyLocalGatewayRouteResponse_route,
+    modifyLocalGatewayRouteResponse_httpStatus,
+
     -- ** ModifyManagedPrefixList
     modifyManagedPrefixList_removeEntries,
     modifyManagedPrefixList_addEntries,
@@ -4173,6 +4241,7 @@ module Amazonka.EC2.Lens
     -- ** ModifyVpcAttribute
     modifyVpcAttribute_enableDnsSupport,
     modifyVpcAttribute_enableDnsHostnames,
+    modifyVpcAttribute_enableNetworkAddressUsageMetrics,
     modifyVpcAttribute_vpcId,
 
     -- ** ModifyVpcEndpoint
@@ -4228,6 +4297,7 @@ module Amazonka.EC2.Lens
     modifyVpcEndpointServicePermissions_removeAllowedPrincipals,
     modifyVpcEndpointServicePermissions_serviceId,
     modifyVpcEndpointServicePermissionsResponse_returnValue,
+    modifyVpcEndpointServicePermissionsResponse_addedPrincipals,
     modifyVpcEndpointServicePermissionsResponse_httpStatus,
 
     -- ** ModifyVpcPeeringConnectionOptions
@@ -4373,6 +4443,7 @@ module Amazonka.EC2.Lens
     registerImage_tpmSupport,
     registerImage_ramdiskId,
     registerImage_imageLocation,
+    registerImage_imdsSupport,
     registerImage_bootMode,
     registerImage_kernelId,
     registerImage_architecture,
@@ -4918,6 +4989,12 @@ module Amazonka.EC2.Lens
     addPrefixListEntry_description,
     addPrefixListEntry_cidr,
 
+    -- ** AddedPrincipal
+    addedPrincipal_principal,
+    addedPrincipal_servicePermissionId,
+    addedPrincipal_principalType,
+    addedPrincipal_serviceId,
+
     -- ** AdditionalDetail
     additionalDetail_additionalDetailType,
     additionalDetail_component,
@@ -4945,8 +5022,11 @@ module Amazonka.EC2.Lens
     addressAttribute_ptrRecordUpdate,
 
     -- ** AllowedPrincipal
+    allowedPrincipal_tags,
     allowedPrincipal_principal,
+    allowedPrincipal_servicePermissionId,
     allowedPrincipal_principalType,
+    allowedPrincipal_serviceId,
 
     -- ** AlternatePathHint
     alternatePathHint_componentArn,
@@ -4986,6 +5066,7 @@ module Amazonka.EC2.Lens
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_transitGatewayId,
     analysisRouteTableRoute_destinationCidr,
+    analysisRouteTableRoute_state,
     analysisRouteTableRoute_natGatewayId,
     analysisRouteTableRoute_vpcPeeringConnectionId,
     analysisRouteTableRoute_instanceId,
@@ -5117,10 +5198,15 @@ module Amazonka.EC2.Lens
     cancelledSpotInstanceRequest_spotInstanceRequestId,
     cancelledSpotInstanceRequest_state,
 
+    -- ** CapacityAllocation
+    capacityAllocation_count,
+    capacityAllocation_allocationType,
+
     -- ** CapacityReservation
     capacityReservation_ebsOptimized,
     capacityReservation_tags,
     capacityReservation_capacityReservationFleetId,
+    capacityReservation_capacityAllocations,
     capacityReservation_ephemeralStorage,
     capacityReservation_placementGroupArn,
     capacityReservation_outpostArn,
@@ -5346,6 +5432,11 @@ module Amazonka.EC2.Lens
     coipAddressUsage_allocationId,
     coipAddressUsage_coIp,
     coipAddressUsage_awsService,
+
+    -- ** CoipCidr
+    coipCidr_localGatewayRouteTableId,
+    coipCidr_cidr,
+    coipCidr_coipPoolId,
 
     -- ** CoipPool
     coipPool_tags,
@@ -5721,6 +5812,7 @@ module Amazonka.EC2.Lens
     explanation_vpnConnection,
     explanation_loadBalancerListenerPort,
     explanation_transitGatewayAttachment,
+    explanation_componentAccount,
     explanation_missingComponent,
     explanation_routeTableRoute,
     explanation_subnetRouteTable,
@@ -5740,6 +5832,7 @@ module Amazonka.EC2.Lens
     explanation_customerGateway,
     explanation_vpnGateway,
     explanation_protocols,
+    explanation_componentRegion,
     explanation_loadBalancerArn,
     explanation_sourceVpc,
     explanation_ingressRouteTable,
@@ -5894,6 +5987,7 @@ module Amazonka.EC2.Lens
     fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_priority,
     fleetLaunchTemplateOverrides_weightedCapacity,
+    fleetLaunchTemplateOverrides_imageId,
 
     -- ** FleetLaunchTemplateOverridesRequest
     fleetLaunchTemplateOverridesRequest_placement,
@@ -5904,6 +5998,7 @@ module Amazonka.EC2.Lens
     fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_priority,
     fleetLaunchTemplateOverridesRequest_weightedCapacity,
+    fleetLaunchTemplateOverridesRequest_imageId,
 
     -- ** FleetLaunchTemplateSpecification
     fleetLaunchTemplateSpecification_launchTemplateId,
@@ -5940,6 +6035,7 @@ module Amazonka.EC2.Lens
     flowLog_deliverLogsErrorMessage,
     flowLog_logFormat,
     flowLog_logDestination,
+    flowLog_deliverCrossAccountRole,
     flowLog_logDestinationType,
     flowLog_creationTime,
     flowLog_maxAggregationInterval,
@@ -6122,6 +6218,7 @@ module Amazonka.EC2.Lens
     image_ramdiskId,
     image_deprecationTime,
     image_platformDetails,
+    image_imdsSupport,
     image_bootMode,
     image_kernelId,
     image_stateReason,
@@ -7097,8 +7194,11 @@ module Amazonka.EC2.Lens
     localGatewayRoute_type,
     localGatewayRoute_ownerId,
     localGatewayRoute_localGatewayRouteTableId,
+    localGatewayRoute_subnetId,
+    localGatewayRoute_coipPoolId,
     localGatewayRoute_state,
     localGatewayRoute_destinationCidrBlock,
+    localGatewayRoute_networkInterfaceId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
     localGatewayRoute_localGatewayRouteTableArn,
 
@@ -7109,6 +7209,8 @@ module Amazonka.EC2.Lens
     localGatewayRouteTable_ownerId,
     localGatewayRouteTable_localGatewayRouteTableId,
     localGatewayRouteTable_state,
+    localGatewayRouteTable_mode,
+    localGatewayRouteTable_stateReason,
     localGatewayRouteTable_localGatewayRouteTableArn,
 
     -- ** LocalGatewayRouteTableVirtualInterfaceGroupAssociation
@@ -7467,9 +7569,11 @@ module Amazonka.EC2.Lens
     pathComponent_attachedTo,
     pathComponent_sourceVpc,
     pathComponent_aclRule,
+    pathComponent_explanations,
     pathComponent_transitGateway,
     pathComponent_sequenceNumber,
     pathComponent_destinationVpc,
+    pathComponent_elasticLoadBalancerListener,
     pathComponent_subnet,
     pathComponent_inboundHeader,
     pathComponent_transitGatewayRouteTableRoute,
@@ -9166,6 +9270,7 @@ module Amazonka.EC2.Lens
     vpcEndpoint_groups,
 
     -- ** VpcEndpointConnection
+    vpcEndpointConnection_tags,
     vpcEndpointConnection_gatewayLoadBalancerArns,
     vpcEndpointConnection_vpcEndpointOwner,
     vpcEndpointConnection_vpcEndpointId,
@@ -9175,6 +9280,7 @@ module Amazonka.EC2.Lens
     vpcEndpointConnection_ipAddressType,
     vpcEndpointConnection_vpcEndpointState,
     vpcEndpointConnection_serviceId,
+    vpcEndpointConnection_vpcEndpointConnectionId,
 
     -- ** VpcIpv6CidrBlockAssociation
     vpcIpv6CidrBlockAssociation_networkBorderGroup,
@@ -9352,6 +9458,8 @@ import Amazonka.EC2.CreateCapacityReservationFleet
 import Amazonka.EC2.CreateCarrierGateway
 import Amazonka.EC2.CreateClientVpnEndpoint
 import Amazonka.EC2.CreateClientVpnRoute
+import Amazonka.EC2.CreateCoipCidr
+import Amazonka.EC2.CreateCoipPool
 import Amazonka.EC2.CreateCustomerGateway
 import Amazonka.EC2.CreateDefaultSubnet
 import Amazonka.EC2.CreateDefaultVpc
@@ -9371,6 +9479,8 @@ import Amazonka.EC2.CreateKeyPair
 import Amazonka.EC2.CreateLaunchTemplate
 import Amazonka.EC2.CreateLaunchTemplateVersion
 import Amazonka.EC2.CreateLocalGatewayRoute
+import Amazonka.EC2.CreateLocalGatewayRouteTable
+import Amazonka.EC2.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.CreateLocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.CreateManagedPrefixList
 import Amazonka.EC2.CreateNatGateway
@@ -9422,6 +9532,8 @@ import Amazonka.EC2.CreateVpnGateway
 import Amazonka.EC2.DeleteCarrierGateway
 import Amazonka.EC2.DeleteClientVpnEndpoint
 import Amazonka.EC2.DeleteClientVpnRoute
+import Amazonka.EC2.DeleteCoipCidr
+import Amazonka.EC2.DeleteCoipPool
 import Amazonka.EC2.DeleteCustomerGateway
 import Amazonka.EC2.DeleteDhcpOptions
 import Amazonka.EC2.DeleteEgressOnlyInternetGateway
@@ -9437,6 +9549,8 @@ import Amazonka.EC2.DeleteKeyPair
 import Amazonka.EC2.DeleteLaunchTemplate
 import Amazonka.EC2.DeleteLaunchTemplateVersions
 import Amazonka.EC2.DeleteLocalGatewayRoute
+import Amazonka.EC2.DeleteLocalGatewayRouteTable
+import Amazonka.EC2.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.DeleteLocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.DeleteManagedPrefixList
 import Amazonka.EC2.DeleteNatGateway
@@ -9738,6 +9852,7 @@ import Amazonka.EC2.ModifyIpamPool
 import Amazonka.EC2.ModifyIpamResourceCidr
 import Amazonka.EC2.ModifyIpamScope
 import Amazonka.EC2.ModifyLaunchTemplate
+import Amazonka.EC2.ModifyLocalGatewayRoute
 import Amazonka.EC2.ModifyManagedPrefixList
 import Amazonka.EC2.ModifyNetworkInterfaceAttribute
 import Amazonka.EC2.ModifyPrivateDnsNameOptions
@@ -9838,6 +9953,7 @@ import Amazonka.EC2.Types.AccountAttributeValue
 import Amazonka.EC2.Types.ActiveInstance
 import Amazonka.EC2.Types.AddIpamOperatingRegion
 import Amazonka.EC2.Types.AddPrefixListEntry
+import Amazonka.EC2.Types.AddedPrincipal
 import Amazonka.EC2.Types.AdditionalDetail
 import Amazonka.EC2.Types.Address
 import Amazonka.EC2.Types.AddressAttribute
@@ -9873,6 +9989,7 @@ import Amazonka.EC2.Types.CancelSpotFleetRequestsError
 import Amazonka.EC2.Types.CancelSpotFleetRequestsErrorItem
 import Amazonka.EC2.Types.CancelSpotFleetRequestsSuccessItem
 import Amazonka.EC2.Types.CancelledSpotInstanceRequest
+import Amazonka.EC2.Types.CapacityAllocation
 import Amazonka.EC2.Types.CapacityReservation
 import Amazonka.EC2.Types.CapacityReservationFleet
 import Amazonka.EC2.Types.CapacityReservationFleetCancellationState
@@ -9911,6 +10028,7 @@ import Amazonka.EC2.Types.ClientVpnRouteStatus
 import Amazonka.EC2.Types.CloudWatchLogOptions
 import Amazonka.EC2.Types.CloudWatchLogOptionsSpecification
 import Amazonka.EC2.Types.CoipAddressUsage
+import Amazonka.EC2.Types.CoipCidr
 import Amazonka.EC2.Types.CoipPool
 import Amazonka.EC2.Types.ConnectionLogOptions
 import Amazonka.EC2.Types.ConnectionLogResponseOptions

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.CreateAsset
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ data CreateAsset = CreateAsset'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the asset.
     assetDescription :: Prelude.Maybe Prelude.Text,
-    -- | A unique, friendly name for the asset.
+    -- | A friendly name for the asset.
     assetName :: Prelude.Text,
     -- | The ID of the asset model from which to create the asset.
     assetModelId :: Prelude.Text
@@ -93,7 +93,7 @@ data CreateAsset = CreateAsset'
 --
 -- 'assetDescription', 'createAsset_assetDescription' - A description for the asset.
 --
--- 'assetName', 'createAsset_assetName' - A unique, friendly name for the asset.
+-- 'assetName', 'createAsset_assetName' - A friendly name for the asset.
 --
 -- 'assetModelId', 'createAsset_assetModelId' - The ID of the asset model from which to create the asset.
 newCreateAsset ::
@@ -128,7 +128,7 @@ createAsset_clientToken = Lens.lens (\CreateAsset' {clientToken} -> clientToken)
 createAsset_assetDescription :: Lens.Lens' CreateAsset (Prelude.Maybe Prelude.Text)
 createAsset_assetDescription = Lens.lens (\CreateAsset' {assetDescription} -> assetDescription) (\s@CreateAsset' {} a -> s {assetDescription = a} :: CreateAsset)
 
--- | A unique, friendly name for the asset.
+-- | A friendly name for the asset.
 createAsset_assetName :: Lens.Lens' CreateAsset Prelude.Text
 createAsset_assetName = Lens.lens (\CreateAsset' {assetName} -> assetName) (\s@CreateAsset' {} a -> s {assetName = a} :: CreateAsset)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.DeleteLifecyclePolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Deletes the specified lifecycle policy and halts the automated
 -- operations that the policy specified.
+--
+-- For more information about deleting a policy, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete Delete lifecycle policies>.
 module Amazonka.DLM.DeleteLifecyclePolicy
   ( -- * Creating a Request
     DeleteLifecyclePolicy (..),

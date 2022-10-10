@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.Types.SnowballCapacity
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.Snowball.Types.SnowballCapacity
         SnowballCapacity_NoPreference,
         SnowballCapacity_T100,
         SnowballCapacity_T14,
+        SnowballCapacity_T32,
         SnowballCapacity_T42,
         SnowballCapacity_T50,
         SnowballCapacity_T8,
@@ -72,6 +73,9 @@ pattern SnowballCapacity_T100 = SnowballCapacity' "T100"
 pattern SnowballCapacity_T14 :: SnowballCapacity
 pattern SnowballCapacity_T14 = SnowballCapacity' "T14"
 
+pattern SnowballCapacity_T32 :: SnowballCapacity
+pattern SnowballCapacity_T32 = SnowballCapacity' "T32"
+
 pattern SnowballCapacity_T42 :: SnowballCapacity
 pattern SnowballCapacity_T42 = SnowballCapacity' "T42"
 
@@ -91,6 +95,7 @@ pattern SnowballCapacity_T98 = SnowballCapacity' "T98"
   SnowballCapacity_NoPreference,
   SnowballCapacity_T100,
   SnowballCapacity_T14,
+  SnowballCapacity_T32,
   SnowballCapacity_T42,
   SnowballCapacity_T50,
   SnowballCapacity_T8,

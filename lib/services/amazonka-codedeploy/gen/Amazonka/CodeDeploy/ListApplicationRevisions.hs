@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.ListApplicationRevisions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,7 +93,7 @@ data ListApplicationRevisions = ListApplicationRevisions'
     -- | The column name to use to sort the list results:
     --
     -- -   @registerTime@: Sort by the time the revisions were registered with
-    --     AWS CodeDeploy.
+    --     CodeDeploy.
     --
     -- -   @firstUsedTime@: Sort by the time the revisions were first used in a
     --     deployment.
@@ -104,8 +104,8 @@ data ListApplicationRevisions = ListApplicationRevisions'
     -- If not specified or set to null, the results are returned in an
     -- arbitrary order.
     sortBy :: Prelude.Maybe ApplicationRevisionSortBy,
-    -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+    -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -152,7 +152,7 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- 'sortBy', 'listApplicationRevisions_sortBy' - The column name to use to sort the list results:
 --
 -- -   @registerTime@: Sort by the time the revisions were registered with
---     AWS CodeDeploy.
+--     CodeDeploy.
 --
 -- -   @firstUsedTime@: Sort by the time the revisions were first used in a
 --     deployment.
@@ -163,8 +163,8 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- If not specified or set to null, the results are returned in an
 -- arbitrary order.
 --
--- 'applicationName', 'listApplicationRevisions_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'listApplicationRevisions_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 newListApplicationRevisions ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -225,7 +225,7 @@ listApplicationRevisions_deployed = Lens.lens (\ListApplicationRevisions' {deplo
 -- | The column name to use to sort the list results:
 --
 -- -   @registerTime@: Sort by the time the revisions were registered with
---     AWS CodeDeploy.
+--     CodeDeploy.
 --
 -- -   @firstUsedTime@: Sort by the time the revisions were first used in a
 --     deployment.
@@ -238,8 +238,8 @@ listApplicationRevisions_deployed = Lens.lens (\ListApplicationRevisions' {deplo
 listApplicationRevisions_sortBy :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe ApplicationRevisionSortBy)
 listApplicationRevisions_sortBy = Lens.lens (\ListApplicationRevisions' {sortBy} -> sortBy) (\s@ListApplicationRevisions' {} a -> s {sortBy = a} :: ListApplicationRevisions)
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 listApplicationRevisions_applicationName :: Lens.Lens' ListApplicationRevisions Prelude.Text
 listApplicationRevisions_applicationName = Lens.lens (\ListApplicationRevisions' {applicationName} -> applicationName) (\s@ListApplicationRevisions' {} a -> s {applicationName = a} :: ListApplicationRevisions)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.UpdateAgreement
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,17 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newUpdateAgreement' smart constructor.
 data UpdateAgreement = UpdateAgreement'
-  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) role that grants access to at least the @HomeDirectory@ of your
-    -- users\' Amazon S3 buckets.
+  { -- | With AS2, you can send files by calling @StartFileTransfer@ and
+    -- specifying the file paths in the request parameter, @SendFilePaths@. We
+    -- use the file’s parent directory (for example, for
+    -- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+    -- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+    -- store the MDN when we receive them from the partner, and write a final
+    -- JSON file containing relevant metadata of the transmission. So, the
+    -- @AccessRole@ needs to provide read and write access to the parent
+    -- directory of the file location used in the @StartFileTransfer@ request.
+    -- Additionally, you need to provide read and write access to the parent
+    -- directory of the files that you intend to send with @StartFileTransfer@.
     accessRole :: Prelude.Maybe Prelude.Text,
     -- | You can update the status for the agreement, either activating an
     -- inactive agreement or the reverse.
@@ -71,9 +79,12 @@ data UpdateAgreement = UpdateAgreement'
     -- | To replace the existing description, provide a short description for the
     -- agreement.
     description :: Prelude.Maybe Prelude.Text,
-    -- | To change the local profile identifier, provide a new value here.
+    -- | A unique identifier for the AS2 local profile.
+    --
+    -- To change the local profile identifier, provide a new value here.
     localProfileId :: Prelude.Maybe Prelude.Text,
-    -- | To change the partner profile identifier, provide a new value here.
+    -- | A unique identifier for the partner profile. To change the partner
+    -- profile identifier, provide a new value here.
     partnerProfileId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
@@ -92,9 +103,17 @@ data UpdateAgreement = UpdateAgreement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessRole', 'updateAgreement_accessRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role that grants access to at least the @HomeDirectory@ of your
--- users\' Amazon S3 buckets.
+-- 'accessRole', 'updateAgreement_accessRole' - With AS2, you can send files by calling @StartFileTransfer@ and
+-- specifying the file paths in the request parameter, @SendFilePaths@. We
+-- use the file’s parent directory (for example, for
+-- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+-- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+-- store the MDN when we receive them from the partner, and write a final
+-- JSON file containing relevant metadata of the transmission. So, the
+-- @AccessRole@ needs to provide read and write access to the parent
+-- directory of the file location used in the @StartFileTransfer@ request.
+-- Additionally, you need to provide read and write access to the parent
+-- directory of the files that you intend to send with @StartFileTransfer@.
 --
 -- 'status', 'updateAgreement_status' - You can update the status for the agreement, either activating an
 -- inactive agreement or the reverse.
@@ -106,9 +125,12 @@ data UpdateAgreement = UpdateAgreement'
 -- 'description', 'updateAgreement_description' - To replace the existing description, provide a short description for the
 -- agreement.
 --
--- 'localProfileId', 'updateAgreement_localProfileId' - To change the local profile identifier, provide a new value here.
+-- 'localProfileId', 'updateAgreement_localProfileId' - A unique identifier for the AS2 local profile.
 --
--- 'partnerProfileId', 'updateAgreement_partnerProfileId' - To change the partner profile identifier, provide a new value here.
+-- To change the local profile identifier, provide a new value here.
+--
+-- 'partnerProfileId', 'updateAgreement_partnerProfileId' - A unique identifier for the partner profile. To change the partner
+-- profile identifier, provide a new value here.
 --
 -- 'agreementId', 'updateAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
@@ -133,9 +155,17 @@ newUpdateAgreement pAgreementId_ pServerId_ =
       serverId = pServerId_
     }
 
--- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role that grants access to at least the @HomeDirectory@ of your
--- users\' Amazon S3 buckets.
+-- | With AS2, you can send files by calling @StartFileTransfer@ and
+-- specifying the file paths in the request parameter, @SendFilePaths@. We
+-- use the file’s parent directory (for example, for
+-- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+-- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+-- store the MDN when we receive them from the partner, and write a final
+-- JSON file containing relevant metadata of the transmission. So, the
+-- @AccessRole@ needs to provide read and write access to the parent
+-- directory of the file location used in the @StartFileTransfer@ request.
+-- Additionally, you need to provide read and write access to the parent
+-- directory of the files that you intend to send with @StartFileTransfer@.
 updateAgreement_accessRole :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_accessRole = Lens.lens (\UpdateAgreement' {accessRole} -> accessRole) (\s@UpdateAgreement' {} a -> s {accessRole = a} :: UpdateAgreement)
 
@@ -155,11 +185,14 @@ updateAgreement_baseDirectory = Lens.lens (\UpdateAgreement' {baseDirectory} -> 
 updateAgreement_description :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_description = Lens.lens (\UpdateAgreement' {description} -> description) (\s@UpdateAgreement' {} a -> s {description = a} :: UpdateAgreement)
 
--- | To change the local profile identifier, provide a new value here.
+-- | A unique identifier for the AS2 local profile.
+--
+-- To change the local profile identifier, provide a new value here.
 updateAgreement_localProfileId :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_localProfileId = Lens.lens (\UpdateAgreement' {localProfileId} -> localProfileId) (\s@UpdateAgreement' {} a -> s {localProfileId = a} :: UpdateAgreement)
 
--- | To change the partner profile identifier, provide a new value here.
+-- | A unique identifier for the partner profile. To change the partner
+-- profile identifier, provide a new value here.
 updateAgreement_partnerProfileId :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_partnerProfileId = Lens.lens (\UpdateAgreement' {partnerProfileId} -> partnerProfileId) (\s@UpdateAgreement' {} a -> s {partnerProfileId = a} :: UpdateAgreement)
 

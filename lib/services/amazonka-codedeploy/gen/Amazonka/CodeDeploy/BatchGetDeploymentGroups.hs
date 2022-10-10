@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.BatchGetDeploymentGroups
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,8 +52,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchGetDeploymentGroups' smart constructor.
 data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
-  { -- | The name of an AWS CodeDeploy application associated with the applicable
-    -- IAM user or AWS account.
+  { -- | The name of an CodeDeploy application associated with the applicable IAM
+    -- or Amazon Web Services account.
     applicationName :: Prelude.Text,
     -- | The names of the deployment groups.
     deploymentGroupNames :: [Prelude.Text]
@@ -68,8 +68,8 @@ data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'batchGetDeploymentGroups_applicationName' - The name of an AWS CodeDeploy application associated with the applicable
--- IAM user or AWS account.
+-- 'applicationName', 'batchGetDeploymentGroups_applicationName' - The name of an CodeDeploy application associated with the applicable IAM
+-- or Amazon Web Services account.
 --
 -- 'deploymentGroupNames', 'batchGetDeploymentGroups_deploymentGroupNames' - The names of the deployment groups.
 newBatchGetDeploymentGroups ::
@@ -83,8 +83,8 @@ newBatchGetDeploymentGroups pApplicationName_ =
       deploymentGroupNames = Prelude.mempty
     }
 
--- | The name of an AWS CodeDeploy application associated with the applicable
--- IAM user or AWS account.
+-- | The name of an CodeDeploy application associated with the applicable IAM
+-- or Amazon Web Services account.
 batchGetDeploymentGroups_applicationName :: Lens.Lens' BatchGetDeploymentGroups Prelude.Text
 batchGetDeploymentGroups_applicationName = Lens.lens (\BatchGetDeploymentGroups' {applicationName} -> applicationName) (\s@BatchGetDeploymentGroups' {} a -> s {applicationName = a} :: BatchGetDeploymentGroups)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceNetworkInterfaceSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     -- terminated. You can specify @true@ only if creating a new network
     -- interface when launching an instance.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | One or more private IPv4 addresses to assign to the network interface.
-    -- Only one private IPv4 address can be designated as primary. You cannot
-    -- specify this option if you\'re launching more than one instance in a
+    -- | The private IPv4 addresses to assign to the network interface. Only one
+    -- private IPv4 address can be designated as primary. You cannot specify
+    -- this option if you\'re launching more than one instance in a
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
     -- request.
     privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
@@ -94,9 +94,8 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     -- the same request. You can specify this option if you\'ve specified a
     -- minimum number of instances to launch.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IPv4 delegated prefixes to be assigned to the network
-    -- interface. You cannot use this option if you use the @Ipv4PrefixCount@
-    -- option.
+    -- | The IPv4 delegated prefixes to be assigned to the network interface. You
+    -- cannot use this option if you use the @Ipv4PrefixCount@ option.
     ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
     -- | The private IPv4 address of the network interface. Applies only if
     -- creating a network interface when launching an instance. You cannot
@@ -115,17 +114,16 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
     -- request.
     secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IPv6 delegated prefixes to be assigned to the network
-    -- interface. You cannot use this option if you use the @Ipv6PrefixCount@
-    -- option.
+    -- | The IPv6 delegated prefixes to be assigned to the network interface. You
+    -- cannot use this option if you use the @Ipv6PrefixCount@ option.
     ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
     -- | The IDs of the security groups for the network interface. Applies only
     -- if creating a network interface when launching an instance.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | One or more IPv6 addresses to assign to the network interface. You
-    -- cannot specify this option and the option to assign a number of IPv6
-    -- addresses in the same request. You cannot specify this option if you\'ve
-    -- specified a minimum number of instances to launch.
+    -- | The IPv6 addresses to assign to the network interface. You cannot
+    -- specify this option and the option to assign a number of IPv6 addresses
+    -- in the same request. You cannot specify this option if you\'ve specified
+    -- a minimum number of instances to launch.
     ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
     -- | The position of the network interface in the attachment order. A primary
     -- network interface has a device index of 0.
@@ -174,9 +172,9 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 -- terminated. You can specify @true@ only if creating a new network
 -- interface when launching an instance.
 --
--- 'privateIpAddresses', 'instanceNetworkInterfaceSpecification_privateIpAddresses' - One or more private IPv4 addresses to assign to the network interface.
--- Only one private IPv4 address can be designated as primary. You cannot
--- specify this option if you\'re launching more than one instance in a
+-- 'privateIpAddresses', 'instanceNetworkInterfaceSpecification_privateIpAddresses' - The private IPv4 addresses to assign to the network interface. Only one
+-- private IPv4 address can be designated as primary. You cannot specify
+-- this option if you\'re launching more than one instance in a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
 --
@@ -206,9 +204,8 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 -- the same request. You can specify this option if you\'ve specified a
 -- minimum number of instances to launch.
 --
--- 'ipv4Prefixes', 'instanceNetworkInterfaceSpecification_ipv4Prefixes' - One or more IPv4 delegated prefixes to be assigned to the network
--- interface. You cannot use this option if you use the @Ipv4PrefixCount@
--- option.
+-- 'ipv4Prefixes', 'instanceNetworkInterfaceSpecification_ipv4Prefixes' - The IPv4 delegated prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv4PrefixCount@ option.
 --
 -- 'privateIpAddress', 'instanceNetworkInterfaceSpecification_privateIpAddress' - The private IPv4 address of the network interface. Applies only if
 -- creating a network interface when launching an instance. You cannot
@@ -227,17 +224,16 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
 --
--- 'ipv6Prefixes', 'instanceNetworkInterfaceSpecification_ipv6Prefixes' - One or more IPv6 delegated prefixes to be assigned to the network
--- interface. You cannot use this option if you use the @Ipv6PrefixCount@
--- option.
+-- 'ipv6Prefixes', 'instanceNetworkInterfaceSpecification_ipv6Prefixes' - The IPv6 delegated prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv6PrefixCount@ option.
 --
 -- 'groups', 'instanceNetworkInterfaceSpecification_groups' - The IDs of the security groups for the network interface. Applies only
 -- if creating a network interface when launching an instance.
 --
--- 'ipv6Addresses', 'instanceNetworkInterfaceSpecification_ipv6Addresses' - One or more IPv6 addresses to assign to the network interface. You
--- cannot specify this option and the option to assign a number of IPv6
--- addresses in the same request. You cannot specify this option if you\'ve
--- specified a minimum number of instances to launch.
+-- 'ipv6Addresses', 'instanceNetworkInterfaceSpecification_ipv6Addresses' - The IPv6 addresses to assign to the network interface. You cannot
+-- specify this option and the option to assign a number of IPv6 addresses
+-- in the same request. You cannot specify this option if you\'ve specified
+-- a minimum number of instances to launch.
 --
 -- 'deviceIndex', 'instanceNetworkInterfaceSpecification_deviceIndex' - The position of the network interface in the attachment order. A primary
 -- network interface has a device index of 0.
@@ -314,9 +310,9 @@ instanceNetworkInterfaceSpecification_associatePublicIpAddress = Lens.lens (\Ins
 instanceNetworkInterfaceSpecification_deleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
 instanceNetworkInterfaceSpecification_deleteOnTermination = Lens.lens (\InstanceNetworkInterfaceSpecification' {deleteOnTermination} -> deleteOnTermination) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {deleteOnTermination = a} :: InstanceNetworkInterfaceSpecification)
 
--- | One or more private IPv4 addresses to assign to the network interface.
--- Only one private IPv4 address can be designated as primary. You cannot
--- specify this option if you\'re launching more than one instance in a
+-- | The private IPv4 addresses to assign to the network interface. Only one
+-- private IPv4 address can be designated as primary. You cannot specify
+-- this option if you\'re launching more than one instance in a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
 instanceNetworkInterfaceSpecification_privateIpAddresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [PrivateIpAddressSpecification])
@@ -358,9 +354,8 @@ instanceNetworkInterfaceSpecification_networkInterfaceId = Lens.lens (\InstanceN
 instanceNetworkInterfaceSpecification_ipv6AddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
 instanceNetworkInterfaceSpecification_ipv6AddressCount = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6AddressCount} -> ipv6AddressCount) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6AddressCount = a} :: InstanceNetworkInterfaceSpecification)
 
--- | One or more IPv4 delegated prefixes to be assigned to the network
--- interface. You cannot use this option if you use the @Ipv4PrefixCount@
--- option.
+-- | The IPv4 delegated prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv4PrefixCount@ option.
 instanceNetworkInterfaceSpecification_ipv4Prefixes :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
 instanceNetworkInterfaceSpecification_ipv4Prefixes = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv4Prefixes} -> ipv4Prefixes) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv4Prefixes = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -387,9 +382,8 @@ instanceNetworkInterfaceSpecification_ipv6PrefixCount = Lens.lens (\InstanceNetw
 instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
 instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount = Lens.lens (\InstanceNetworkInterfaceSpecification' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {secondaryPrivateIpAddressCount = a} :: InstanceNetworkInterfaceSpecification)
 
--- | One or more IPv6 delegated prefixes to be assigned to the network
--- interface. You cannot use this option if you use the @Ipv6PrefixCount@
--- option.
+-- | The IPv6 delegated prefixes to be assigned to the network interface. You
+-- cannot use this option if you use the @Ipv6PrefixCount@ option.
 instanceNetworkInterfaceSpecification_ipv6Prefixes :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
 instanceNetworkInterfaceSpecification_ipv6Prefixes = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6Prefixes} -> ipv6Prefixes) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6Prefixes = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -398,10 +392,10 @@ instanceNetworkInterfaceSpecification_ipv6Prefixes = Lens.lens (\InstanceNetwork
 instanceNetworkInterfaceSpecification_groups :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [Prelude.Text])
 instanceNetworkInterfaceSpecification_groups = Lens.lens (\InstanceNetworkInterfaceSpecification' {groups} -> groups) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {groups = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more IPv6 addresses to assign to the network interface. You
--- cannot specify this option and the option to assign a number of IPv6
--- addresses in the same request. You cannot specify this option if you\'ve
--- specified a minimum number of instances to launch.
+-- | The IPv6 addresses to assign to the network interface. You cannot
+-- specify this option and the option to assign a number of IPv6 addresses
+-- in the same request. You cannot specify this option if you\'ve specified
+-- a minimum number of instances to launch.
 instanceNetworkInterfaceSpecification_ipv6Addresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [InstanceIpv6Address])
 instanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6Addresses} -> ipv6Addresses) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6Addresses = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Lens.coerced
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+import Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfiguration
 
@@ -35,7 +36,10 @@ import Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfigu
 --
 -- /See:/ 'newRegisteredUserEmbeddingExperienceConfiguration' smart constructor.
 data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExperienceConfiguration'
-  { -- | The configuration details for providing a dashboard embedding
+  { -- | The type of embedding experience. In this case, Amazon QuickSight
+    -- visuals.
+    dashboardVisual :: Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration,
+    -- | The configuration details for providing a dashboard embedding
     -- experience.
     dashboard :: Prelude.Maybe RegisteredUserDashboardEmbeddingConfiguration,
     -- | The configuration details for embedding the Q search bar.
@@ -79,6 +83,9 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dashboardVisual', 'registeredUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+--
 -- 'dashboard', 'registeredUserEmbeddingExperienceConfiguration_dashboard' - The configuration details for providing a dashboard embedding
 -- experience.
 --
@@ -115,13 +122,19 @@ newRegisteredUserEmbeddingExperienceConfiguration ::
   RegisteredUserEmbeddingExperienceConfiguration
 newRegisteredUserEmbeddingExperienceConfiguration =
   RegisteredUserEmbeddingExperienceConfiguration'
-    { dashboard =
+    { dashboardVisual =
         Prelude.Nothing,
+      dashboard = Prelude.Nothing,
       qSearchBar =
         Prelude.Nothing,
       quickSightConsole =
         Prelude.Nothing
     }
+
+-- | The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+registeredUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserDashboardVisualEmbeddingConfiguration)
+registeredUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: RegisteredUserEmbeddingExperienceConfiguration)
 
 -- | The configuration details for providing a dashboard embedding
 -- experience.
@@ -169,7 +182,8 @@ instance
   hashWithSalt
     _salt
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dashboard
+      _salt `Prelude.hashWithSalt` dashboardVisual
+        `Prelude.hashWithSalt` dashboard
         `Prelude.hashWithSalt` qSearchBar
         `Prelude.hashWithSalt` quickSightConsole
 
@@ -179,7 +193,8 @@ instance
   where
   rnf
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboard
+      Prelude.rnf dashboardVisual
+        `Prelude.seq` Prelude.rnf dashboard
         `Prelude.seq` Prelude.rnf qSearchBar
         `Prelude.seq` Prelude.rnf quickSightConsole
 
@@ -191,7 +206,9 @@ instance
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Dashboard" Core..=) Prelude.<$> dashboard,
+            [ ("DashboardVisual" Core..=)
+                Prelude.<$> dashboardVisual,
+              ("Dashboard" Core..=) Prelude.<$> dashboard,
               ("QSearchBar" Core..=) Prelude.<$> qSearchBar,
               ("QuickSightConsole" Core..=)
                 Prelude.<$> quickSightConsole

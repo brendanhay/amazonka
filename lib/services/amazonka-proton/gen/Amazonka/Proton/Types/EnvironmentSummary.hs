@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.EnvironmentSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,8 @@ data EnvironmentSummary = EnvironmentSummary'
     -- components to be associated with the environment.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection that the environment is
     -- associated with.
@@ -107,8 +107,8 @@ data EnvironmentSummary = EnvironmentSummary'
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'environmentAccountConnectionId', 'environmentSummary_environmentAccountConnectionId' - The ID of the environment account connection that the environment is
 -- associated with.
@@ -212,8 +212,8 @@ environmentSummary_environmentAccountId = Lens.lens (\EnvironmentSummary' {envir
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 environmentSummary_componentRoleArn :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
 environmentSummary_componentRoleArn = Lens.lens (\EnvironmentSummary' {componentRoleArn} -> componentRoleArn) (\s@EnvironmentSummary' {} a -> s {componentRoleArn = a} :: EnvironmentSummary)
 

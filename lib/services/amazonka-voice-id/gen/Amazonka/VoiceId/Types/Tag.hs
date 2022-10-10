@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.Tag
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,17 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A tag that can be assigned to a Voice ID resource.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The first part of a key:value pair that forms a tag associated with a
-    -- given resource. For example, in the tag ‘Department’:’Sales’, the key is
-    -- \'Department\'.
+    -- given resource. For example, in the tag \'Department\':\'Sales\', the
+    -- key is \'Department\'.
     key :: Core.Sensitive Prelude.Text,
     -- | The second part of a key:value pair that forms a tag associated with a
-    -- given resource. For example, in the tag ‘Department’:’Sales’, the value
-    -- is \'Sales\'.
+    -- given resource. For example, in the tag \'Department\':\'Sales\', the
+    -- value is \'Sales\'.
     value :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -47,12 +48,12 @@ data Tag = Tag'
 -- for backwards compatibility:
 --
 -- 'key', 'tag_key' - The first part of a key:value pair that forms a tag associated with a
--- given resource. For example, in the tag ‘Department’:’Sales’, the key is
--- \'Department\'.
+-- given resource. For example, in the tag \'Department\':\'Sales\', the
+-- key is \'Department\'.
 --
 -- 'value', 'tag_value' - The second part of a key:value pair that forms a tag associated with a
--- given resource. For example, in the tag ‘Department’:’Sales’, the value
--- is \'Sales\'.
+-- given resource. For example, in the tag \'Department\':\'Sales\', the
+-- value is \'Sales\'.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -66,14 +67,14 @@ newTag pKey_ pValue_ =
     }
 
 -- | The first part of a key:value pair that forms a tag associated with a
--- given resource. For example, in the tag ‘Department’:’Sales’, the key is
--- \'Department\'.
+-- given resource. For example, in the tag \'Department\':\'Sales\', the
+-- key is \'Department\'.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Core._Sensitive
 
 -- | The second part of a key:value pair that forms a tag associated with a
--- given resource. For example, in the tag ‘Department’:’Sales’, the value
--- is \'Sales\'.
+-- given resource. For example, in the tag \'Department\':\'Sales\', the
+-- value is \'Sales\'.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Core._Sensitive
 

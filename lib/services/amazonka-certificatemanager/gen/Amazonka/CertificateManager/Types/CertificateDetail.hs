@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.Types.CertificateDetail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,11 +53,10 @@ data CertificateDetail = CertificateDetail'
     -- for imported certificates. For more information about the differences
     -- between certificates that you import and those that ACM provides, see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
-    -- in the /Amazon Web Services Certificate Manager User Guide/.
+    -- in the /Certificate Manager User Guide/.
     type' :: Prelude.Maybe CertificateType,
-    -- | The Amazon Resource Name (ARN) of the ACM PCA private certificate
-    -- authority (CA) that issued the certificate. This has the following
-    -- format:
+    -- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
+    -- that issued the certificate. This has the following format:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
     certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
@@ -87,6 +86,19 @@ data CertificateDetail = CertificateDetail'
     -- resources.
     inUseBy :: Prelude.Maybe [Prelude.Text],
     -- | The status of the certificate.
+    --
+    -- A certificate enters status PENDING_VALIDATION upon being requested,
+    -- unless it fails for any of the reasons given in the troubleshooting
+    -- topic
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html Certificate request fails>.
+    -- ACM makes repeated attempts to validate a certificate for 72 hours and
+    -- then times out. If a certificate shows status FAILED or
+    -- VALIDATION_TIMED_OUT, delete the request, correct the issue with
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html DNS validation>
+    -- or
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html Email validation>,
+    -- and try again. If validation succeeds, the certificate enters status
+    -- ISSUED.
     status :: Prelude.Maybe CertificateStatus,
     -- | Value that specifies whether to add the certificate to a transparency
     -- log. Certificate transparency makes it possible to detect SSL
@@ -99,8 +111,8 @@ data CertificateDetail = CertificateDetail'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the certificate was imported. This value
-    -- exists only when the certificate type is @IMPORTED@.
+    -- | The date and time when the certificate was imported. This value exists
+    -- only when the certificate type is @IMPORTED@.
     importedAt :: Prelude.Maybe Core.POSIX,
     -- | The time before which the certificate is not valid.
     notBefore :: Prelude.Maybe Core.POSIX,
@@ -132,7 +144,7 @@ data CertificateDetail = CertificateDetail'
     -- | The reason the certificate request failed. This value exists only when
     -- the certificate status is @FAILED@. For more information, see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
-    -- in the /Amazon Web Services Certificate Manager User Guide/.
+    -- in the /Certificate Manager User Guide/.
     failureReason :: Prelude.Maybe FailureReason,
     -- | The time at which the certificate was issued. This value exists only
     -- when the certificate type is @AMAZON_ISSUED@.
@@ -162,11 +174,10 @@ data CertificateDetail = CertificateDetail'
 -- for imported certificates. For more information about the differences
 -- between certificates that you import and those that ACM provides, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
--- in the /Amazon Web Services Certificate Manager User Guide/.
+-- in the /Certificate Manager User Guide/.
 --
--- 'certificateAuthorityArn', 'certificateDetail_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the ACM PCA private certificate
--- authority (CA) that issued the certificate. This has the following
--- format:
+-- 'certificateAuthorityArn', 'certificateDetail_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the private certificate authority (CA)
+-- that issued the certificate. This has the following format:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
 --
@@ -197,6 +208,19 @@ data CertificateDetail = CertificateDetail'
 --
 -- 'status', 'certificateDetail_status' - The status of the certificate.
 --
+-- A certificate enters status PENDING_VALIDATION upon being requested,
+-- unless it fails for any of the reasons given in the troubleshooting
+-- topic
+-- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html Certificate request fails>.
+-- ACM makes repeated attempts to validate a certificate for 72 hours and
+-- then times out. If a certificate shows status FAILED or
+-- VALIDATION_TIMED_OUT, delete the request, correct the issue with
+-- <https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html DNS validation>
+-- or
+-- <https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html Email validation>,
+-- and try again. If validation succeeds, the certificate enters status
+-- ISSUED.
+--
 -- 'options', 'certificateDetail_options' - Value that specifies whether to add the certificate to a transparency
 -- log. Certificate transparency makes it possible to detect SSL
 -- certificates that have been mistakenly or maliciously issued. A browser
@@ -208,8 +232,8 @@ data CertificateDetail = CertificateDetail'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
--- 'importedAt', 'certificateDetail_importedAt' - The date and time at which the certificate was imported. This value
--- exists only when the certificate type is @IMPORTED@.
+-- 'importedAt', 'certificateDetail_importedAt' - The date and time when the certificate was imported. This value exists
+-- only when the certificate type is @IMPORTED@.
 --
 -- 'notBefore', 'certificateDetail_notBefore' - The time before which the certificate is not valid.
 --
@@ -241,7 +265,7 @@ data CertificateDetail = CertificateDetail'
 -- 'failureReason', 'certificateDetail_failureReason' - The reason the certificate request failed. This value exists only when
 -- the certificate status is @FAILED@. For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
--- in the /Amazon Web Services Certificate Manager User Guide/.
+-- in the /Certificate Manager User Guide/.
 --
 -- 'issuedAt', 'certificateDetail_issuedAt' - The time at which the certificate was issued. This value exists only
 -- when the certificate type is @AMAZON_ISSUED@.
@@ -295,13 +319,12 @@ certificateDetail_domainValidationOptions = Lens.lens (\CertificateDetail' {doma
 -- for imported certificates. For more information about the differences
 -- between certificates that you import and those that ACM provides, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
--- in the /Amazon Web Services Certificate Manager User Guide/.
+-- in the /Certificate Manager User Guide/.
 certificateDetail_type :: Lens.Lens' CertificateDetail (Prelude.Maybe CertificateType)
 certificateDetail_type = Lens.lens (\CertificateDetail' {type'} -> type') (\s@CertificateDetail' {} a -> s {type' = a} :: CertificateDetail)
 
--- | The Amazon Resource Name (ARN) of the ACM PCA private certificate
--- authority (CA) that issued the certificate. This has the following
--- format:
+-- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
+-- that issued the certificate. This has the following format:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
 certificateDetail_certificateAuthorityArn :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
@@ -347,6 +370,19 @@ certificateDetail_inUseBy :: Lens.Lens' CertificateDetail (Prelude.Maybe [Prelud
 certificateDetail_inUseBy = Lens.lens (\CertificateDetail' {inUseBy} -> inUseBy) (\s@CertificateDetail' {} a -> s {inUseBy = a} :: CertificateDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the certificate.
+--
+-- A certificate enters status PENDING_VALIDATION upon being requested,
+-- unless it fails for any of the reasons given in the troubleshooting
+-- topic
+-- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html Certificate request fails>.
+-- ACM makes repeated attempts to validate a certificate for 72 hours and
+-- then times out. If a certificate shows status FAILED or
+-- VALIDATION_TIMED_OUT, delete the request, correct the issue with
+-- <https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html DNS validation>
+-- or
+-- <https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html Email validation>,
+-- and try again. If validation succeeds, the certificate enters status
+-- ISSUED.
 certificateDetail_status :: Lens.Lens' CertificateDetail (Prelude.Maybe CertificateStatus)
 certificateDetail_status = Lens.lens (\CertificateDetail' {status} -> status) (\s@CertificateDetail' {} a -> s {status = a} :: CertificateDetail)
 
@@ -365,8 +401,8 @@ certificateDetail_options = Lens.lens (\CertificateDetail' {options} -> options)
 certificateDetail_certificateArn :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
 certificateDetail_certificateArn = Lens.lens (\CertificateDetail' {certificateArn} -> certificateArn) (\s@CertificateDetail' {} a -> s {certificateArn = a} :: CertificateDetail)
 
--- | The date and time at which the certificate was imported. This value
--- exists only when the certificate type is @IMPORTED@.
+-- | The date and time when the certificate was imported. This value exists
+-- only when the certificate type is @IMPORTED@.
 certificateDetail_importedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
 certificateDetail_importedAt = Lens.lens (\CertificateDetail' {importedAt} -> importedAt) (\s@CertificateDetail' {} a -> s {importedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
 
@@ -418,7 +454,7 @@ certificateDetail_subjectAlternativeNames = Lens.lens (\CertificateDetail' {subj
 -- | The reason the certificate request failed. This value exists only when
 -- the certificate status is @FAILED@. For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
--- in the /Amazon Web Services Certificate Manager User Guide/.
+-- in the /Certificate Manager User Guide/.
 certificateDetail_failureReason :: Lens.Lens' CertificateDetail (Prelude.Maybe FailureReason)
 certificateDetail_failureReason = Lens.lens (\CertificateDetail' {failureReason} -> failureReason) (\s@CertificateDetail' {} a -> s {failureReason = a} :: CertificateDetail)
 

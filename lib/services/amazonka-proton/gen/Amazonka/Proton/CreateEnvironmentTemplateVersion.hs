@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateEnvironmentTemplateVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,10 +59,9 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton environment template version. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | To create a new minor version of the environment template, include
     -- @major Version@.
@@ -95,10 +94,9 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
 -- 'tags', 'createEnvironmentTemplateVersion_tags' - An optional list of metadata items that you can associate with the
 -- Proton environment template version. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'majorVersion', 'createEnvironmentTemplateVersion_majorVersion' - To create a new minor version of the environment template, include
 -- @major Version@.
@@ -138,10 +136,9 @@ newCreateEnvironmentTemplateVersion
 -- | An optional list of metadata items that you can associate with the
 -- Proton environment template version. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createEnvironmentTemplateVersion_tags :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe [Tag])
 createEnvironmentTemplateVersion_tags = Lens.lens (\CreateEnvironmentTemplateVersion' {tags} -> tags) (\s@CreateEnvironmentTemplateVersion' {} a -> s {tags = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 

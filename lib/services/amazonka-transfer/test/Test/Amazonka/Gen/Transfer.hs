@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Transfer
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestDeleteConnector $
 --             newDeleteConnector
 --
+--         , requestDeleteHostKey $
+--             newDeleteHostKey
+--
 --         , requestDeleteProfile $
 --             newDeleteProfile
 --
@@ -90,6 +93,9 @@ import Test.Tasty
 --         , requestDescribeExecution $
 --             newDescribeExecution
 --
+--         , requestDescribeHostKey $
+--             newDescribeHostKey
+--
 --         , requestDescribeProfile $
 --             newDescribeProfile
 --
@@ -108,6 +114,9 @@ import Test.Tasty
 --         , requestImportCertificate $
 --             newImportCertificate
 --
+--         , requestImportHostKey $
+--             newImportHostKey
+--
 --         , requestImportSshPublicKey $
 --             newImportSshPublicKey
 --
@@ -125,6 +134,9 @@ import Test.Tasty
 --
 --         , requestListExecutions $
 --             newListExecutions
+--
+--         , requestListHostKeys $
+--             newListHostKeys
 --
 --         , requestListProfiles $
 --             newListProfiles
@@ -177,6 +189,9 @@ import Test.Tasty
 --         , requestUpdateConnector $
 --             newUpdateConnector
 --
+--         , requestUpdateHostKey $
+--             newUpdateHostKey
+--
 --         , requestUpdateProfile $
 --             newUpdateProfile
 --
@@ -222,6 +237,9 @@ import Test.Tasty
 --         , responseDeleteConnector $
 --             newDeleteConnectorResponse
 --
+--         , responseDeleteHostKey $
+--             newDeleteHostKeyResponse
+--
 --         , responseDeleteProfile $
 --             newDeleteProfileResponse
 --
@@ -252,6 +270,9 @@ import Test.Tasty
 --         , responseDescribeExecution $
 --             newDescribeExecutionResponse
 --
+--         , responseDescribeHostKey $
+--             newDescribeHostKeyResponse
+--
 --         , responseDescribeProfile $
 --             newDescribeProfileResponse
 --
@@ -270,6 +291,9 @@ import Test.Tasty
 --         , responseImportCertificate $
 --             newImportCertificateResponse
 --
+--         , responseImportHostKey $
+--             newImportHostKeyResponse
+--
 --         , responseImportSshPublicKey $
 --             newImportSshPublicKeyResponse
 --
@@ -287,6 +311,9 @@ import Test.Tasty
 --
 --         , responseListExecutions $
 --             newListExecutionsResponse
+--
+--         , responseListHostKeys $
+--             newListHostKeysResponse
 --
 --         , responseListProfiles $
 --             newListProfilesResponse
@@ -338,6 +365,9 @@ import Test.Tasty
 --
 --         , responseUpdateConnector $
 --             newUpdateConnectorResponse
+--
+--         , responseUpdateHostKey $
+--             newUpdateHostKeyResponse
 --
 --         , responseUpdateProfile $
 --             newUpdateProfileResponse
@@ -419,6 +449,12 @@ requestDeleteConnector =
     "DeleteConnector"
     "fixture/DeleteConnector.yaml"
 
+requestDeleteHostKey :: DeleteHostKey -> TestTree
+requestDeleteHostKey =
+  req
+    "DeleteHostKey"
+    "fixture/DeleteHostKey.yaml"
+
 requestDeleteProfile :: DeleteProfile -> TestTree
 requestDeleteProfile =
   req
@@ -479,6 +515,12 @@ requestDescribeExecution =
     "DescribeExecution"
     "fixture/DescribeExecution.yaml"
 
+requestDescribeHostKey :: DescribeHostKey -> TestTree
+requestDescribeHostKey =
+  req
+    "DescribeHostKey"
+    "fixture/DescribeHostKey.yaml"
+
 requestDescribeProfile :: DescribeProfile -> TestTree
 requestDescribeProfile =
   req
@@ -515,6 +557,12 @@ requestImportCertificate =
     "ImportCertificate"
     "fixture/ImportCertificate.yaml"
 
+requestImportHostKey :: ImportHostKey -> TestTree
+requestImportHostKey =
+  req
+    "ImportHostKey"
+    "fixture/ImportHostKey.yaml"
+
 requestImportSshPublicKey :: ImportSshPublicKey -> TestTree
 requestImportSshPublicKey =
   req
@@ -550,6 +598,12 @@ requestListExecutions =
   req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
+
+requestListHostKeys :: ListHostKeys -> TestTree
+requestListHostKeys =
+  req
+    "ListHostKeys"
+    "fixture/ListHostKeys.yaml"
 
 requestListProfiles :: ListProfiles -> TestTree
 requestListProfiles =
@@ -652,6 +706,12 @@ requestUpdateConnector =
   req
     "UpdateConnector"
     "fixture/UpdateConnector.yaml"
+
+requestUpdateHostKey :: UpdateHostKey -> TestTree
+requestUpdateHostKey =
+  req
+    "UpdateHostKey"
+    "fixture/UpdateHostKey.yaml"
 
 requestUpdateProfile :: UpdateProfile -> TestTree
 requestUpdateProfile =
@@ -761,6 +821,14 @@ responseDeleteConnector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnector)
 
+responseDeleteHostKey :: DeleteHostKeyResponse -> TestTree
+responseDeleteHostKey =
+  res
+    "DeleteHostKeyResponse"
+    "fixture/DeleteHostKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteHostKey)
+
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
 responseDeleteProfile =
   res
@@ -841,6 +909,14 @@ responseDescribeExecution =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
+responseDescribeHostKey :: DescribeHostKeyResponse -> TestTree
+responseDescribeHostKey =
+  res
+    "DescribeHostKeyResponse"
+    "fixture/DescribeHostKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHostKey)
+
 responseDescribeProfile :: DescribeProfileResponse -> TestTree
 responseDescribeProfile =
   res
@@ -889,6 +965,14 @@ responseImportCertificate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportCertificate)
 
+responseImportHostKey :: ImportHostKeyResponse -> TestTree
+responseImportHostKey =
+  res
+    "ImportHostKeyResponse"
+    "fixture/ImportHostKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportHostKey)
+
 responseImportSshPublicKey :: ImportSshPublicKeyResponse -> TestTree
 responseImportSshPublicKey =
   res
@@ -936,6 +1020,14 @@ responseListExecutions =
     "fixture/ListExecutionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListExecutions)
+
+responseListHostKeys :: ListHostKeysResponse -> TestTree
+responseListHostKeys =
+  res
+    "ListHostKeysResponse"
+    "fixture/ListHostKeysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListHostKeys)
 
 responseListProfiles :: ListProfilesResponse -> TestTree
 responseListProfiles =
@@ -1072,6 +1164,14 @@ responseUpdateConnector =
     "fixture/UpdateConnectorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConnector)
+
+responseUpdateHostKey :: UpdateHostKeyResponse -> TestTree
+responseUpdateHostKey =
+  res
+    "UpdateHostKeyResponse"
+    "fixture/UpdateHostKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateHostKey)
 
 responseUpdateProfile :: UpdateProfileResponse -> TestTree
 responseUpdateProfile =

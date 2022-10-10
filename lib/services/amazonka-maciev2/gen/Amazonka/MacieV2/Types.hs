@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,6 +28,9 @@ module Amazonka.MacieV2.Types
 
     -- * AdminStatus
     AdminStatus (..),
+
+    -- * AllowListStatusCode
+    AllowListStatusCode (..),
 
     -- * AllowsUnencryptedObjectUploads
     AllowsUnencryptedObjectUploads (..),
@@ -201,6 +204,28 @@ module Amazonka.MacieV2.Types
     newAdminAccount,
     adminAccount_status,
     adminAccount_accountId,
+
+    -- * AllowListCriteria
+    AllowListCriteria (..),
+    newAllowListCriteria,
+    allowListCriteria_regex,
+    allowListCriteria_s3WordsList,
+
+    -- * AllowListStatus
+    AllowListStatus (..),
+    newAllowListStatus,
+    allowListStatus_description,
+    allowListStatus_code,
+
+    -- * AllowListSummary
+    AllowListSummary (..),
+    newAllowListSummary,
+    allowListSummary_name,
+    allowListSummary_arn,
+    allowListSummary_description,
+    allowListSummary_id,
+    allowListSummary_createdAt,
+    allowListSummary_updatedAt,
 
     -- * ApiCallDetails
     ApiCallDetails (..),
@@ -824,6 +849,12 @@ module Amazonka.MacieV2.Types
     s3Object_storageClass,
     s3Object_versionId,
 
+    -- * S3WordsList
+    S3WordsList (..),
+    newS3WordsList,
+    s3WordsList_bucketName,
+    s3WordsList_objectKey,
+
     -- * Scoping
     Scoping (..),
     newScoping,
@@ -1064,6 +1095,10 @@ import Amazonka.MacieV2.Types.AccountDetail
 import Amazonka.MacieV2.Types.AccountLevelPermissions
 import Amazonka.MacieV2.Types.AdminAccount
 import Amazonka.MacieV2.Types.AdminStatus
+import Amazonka.MacieV2.Types.AllowListCriteria
+import Amazonka.MacieV2.Types.AllowListStatus
+import Amazonka.MacieV2.Types.AllowListStatusCode
+import Amazonka.MacieV2.Types.AllowListSummary
 import Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
 import Amazonka.MacieV2.Types.ApiCallDetails
 import Amazonka.MacieV2.Types.AssumedRole
@@ -1175,6 +1210,7 @@ import Amazonka.MacieV2.Types.S3BucketOwner
 import Amazonka.MacieV2.Types.S3Destination
 import Amazonka.MacieV2.Types.S3JobDefinition
 import Amazonka.MacieV2.Types.S3Object
+import Amazonka.MacieV2.Types.S3WordsList
 import Amazonka.MacieV2.Types.ScopeFilterKey
 import Amazonka.MacieV2.Types.Scoping
 import Amazonka.MacieV2.Types.SearchResourcesBucketCriteria

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.DescribeSlot
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,7 @@ module Amazonka.LexV2Models.DescribeSlot
     describeSlotResponse_intentId,
     describeSlotResponse_slotId,
     describeSlotResponse_obfuscationSetting,
+    describeSlotResponse_subSlotSetting,
     describeSlotResponse_slotTypeId,
     describeSlotResponse_lastUpdatedDateTime,
     describeSlotResponse_httpStatus,
@@ -167,6 +168,7 @@ instance Core.AWSRequest DescribeSlot where
             Prelude.<*> (x Core..?> "intentId")
             Prelude.<*> (x Core..?> "slotId")
             Prelude.<*> (x Core..?> "obfuscationSetting")
+            Prelude.<*> (x Core..?> "subSlotSetting")
             Prelude.<*> (x Core..?> "slotTypeId")
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -246,6 +248,9 @@ data DescribeSlotResponse = DescribeSlotResponse'
     -- | Whether slot values are shown in Amazon CloudWatch logs. If the value is
     -- @None@, the actual value of the slot is shown in logs.
     obfuscationSetting :: Prelude.Maybe ObfuscationSetting,
+    -- | Specifications for the constituent sub slots and the expression for the
+    -- composite slot.
+    subSlotSetting :: Prelude.Maybe SubSlotSetting,
     -- | The identifier of the slot type that determines the values entered into
     -- the slot.
     slotTypeId :: Prelude.Maybe Prelude.Text,
@@ -290,6 +295,9 @@ data DescribeSlotResponse = DescribeSlotResponse'
 -- 'obfuscationSetting', 'describeSlotResponse_obfuscationSetting' - Whether slot values are shown in Amazon CloudWatch logs. If the value is
 -- @None@, the actual value of the slot is shown in logs.
 --
+-- 'subSlotSetting', 'describeSlotResponse_subSlotSetting' - Specifications for the constituent sub slots and the expression for the
+-- composite slot.
+--
 -- 'slotTypeId', 'describeSlotResponse_slotTypeId' - The identifier of the slot type that determines the values entered into
 -- the slot.
 --
@@ -314,6 +322,7 @@ newDescribeSlotResponse pHttpStatus_ =
       intentId = Prelude.Nothing,
       slotId = Prelude.Nothing,
       obfuscationSetting = Prelude.Nothing,
+      subSlotSetting = Prelude.Nothing,
       slotTypeId = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -367,6 +376,11 @@ describeSlotResponse_slotId = Lens.lens (\DescribeSlotResponse' {slotId} -> slot
 describeSlotResponse_obfuscationSetting :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe ObfuscationSetting)
 describeSlotResponse_obfuscationSetting = Lens.lens (\DescribeSlotResponse' {obfuscationSetting} -> obfuscationSetting) (\s@DescribeSlotResponse' {} a -> s {obfuscationSetting = a} :: DescribeSlotResponse)
 
+-- | Specifications for the constituent sub slots and the expression for the
+-- composite slot.
+describeSlotResponse_subSlotSetting :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe SubSlotSetting)
+describeSlotResponse_subSlotSetting = Lens.lens (\DescribeSlotResponse' {subSlotSetting} -> subSlotSetting) (\s@DescribeSlotResponse' {} a -> s {subSlotSetting = a} :: DescribeSlotResponse)
+
 -- | The identifier of the slot type that determines the values entered into
 -- the slot.
 describeSlotResponse_slotTypeId :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe Prelude.Text)
@@ -393,6 +407,7 @@ instance Prelude.NFData DescribeSlotResponse where
       `Prelude.seq` Prelude.rnf intentId
       `Prelude.seq` Prelude.rnf slotId
       `Prelude.seq` Prelude.rnf obfuscationSetting
+      `Prelude.seq` Prelude.rnf subSlotSetting
       `Prelude.seq` Prelude.rnf slotTypeId
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf httpStatus

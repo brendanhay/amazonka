@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.UserSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.UserSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.CanvasAppSettings
 import Amazonka.SageMaker.Types.JupyterServerAppSettings
 import Amazonka.SageMaker.Types.KernelGatewayAppSettings
 import Amazonka.SageMaker.Types.RSessionAppSettings
@@ -61,6 +62,8 @@ data UserSettings = UserSettings'
     -- SageMaker Studio. Therefore, the number of security groups that you can
     -- specify is one less than the maximum number shown.
     securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The Canvas app settings.
+    canvasAppSettings :: Prelude.Maybe CanvasAppSettings,
     -- | The Jupyter server\'s app settings.
     jupyterServerAppSettings :: Prelude.Maybe JupyterServerAppSettings,
     -- | A collection of settings that configure user interaction with the
@@ -100,6 +103,8 @@ data UserSettings = UserSettings'
 -- SageMaker Studio. Therefore, the number of security groups that you can
 -- specify is one less than the maximum number shown.
 --
+-- 'canvasAppSettings', 'userSettings_canvasAppSettings' - The Canvas app settings.
+--
 -- 'jupyterServerAppSettings', 'userSettings_jupyterServerAppSettings' - The Jupyter server\'s app settings.
 --
 -- 'rStudioServerProAppSettings', 'userSettings_rStudioServerProAppSettings' - A collection of settings that configure user interaction with the
@@ -115,6 +120,7 @@ newUserSettings =
       tensorBoardAppSettings = Prelude.Nothing,
       kernelGatewayAppSettings = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
+      canvasAppSettings = Prelude.Nothing,
       jupyterServerAppSettings = Prelude.Nothing,
       rStudioServerProAppSettings = Prelude.Nothing,
       sharingSettings = Prelude.Nothing
@@ -151,6 +157,10 @@ userSettings_kernelGatewayAppSettings = Lens.lens (\UserSettings' {kernelGateway
 userSettings_securityGroups :: Lens.Lens' UserSettings (Prelude.Maybe [Prelude.Text])
 userSettings_securityGroups = Lens.lens (\UserSettings' {securityGroups} -> securityGroups) (\s@UserSettings' {} a -> s {securityGroups = a} :: UserSettings) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Canvas app settings.
+userSettings_canvasAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe CanvasAppSettings)
+userSettings_canvasAppSettings = Lens.lens (\UserSettings' {canvasAppSettings} -> canvasAppSettings) (\s@UserSettings' {} a -> s {canvasAppSettings = a} :: UserSettings)
+
 -- | The Jupyter server\'s app settings.
 userSettings_jupyterServerAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe JupyterServerAppSettings)
 userSettings_jupyterServerAppSettings = Lens.lens (\UserSettings' {jupyterServerAppSettings} -> jupyterServerAppSettings) (\s@UserSettings' {} a -> s {jupyterServerAppSettings = a} :: UserSettings)
@@ -175,6 +185,7 @@ instance Core.FromJSON UserSettings where
             Prelude.<*> (x Core..:? "TensorBoardAppSettings")
             Prelude.<*> (x Core..:? "KernelGatewayAppSettings")
             Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CanvasAppSettings")
             Prelude.<*> (x Core..:? "JupyterServerAppSettings")
             Prelude.<*> (x Core..:? "RStudioServerProAppSettings")
             Prelude.<*> (x Core..:? "SharingSettings")
@@ -187,6 +198,7 @@ instance Prelude.Hashable UserSettings where
       `Prelude.hashWithSalt` tensorBoardAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings
       `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` canvasAppSettings
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` rStudioServerProAppSettings
       `Prelude.hashWithSalt` sharingSettings
@@ -198,6 +210,7 @@ instance Prelude.NFData UserSettings where
       `Prelude.seq` Prelude.rnf tensorBoardAppSettings
       `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
       `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf canvasAppSettings
       `Prelude.seq` Prelude.rnf jupyterServerAppSettings
       `Prelude.seq` Prelude.rnf rStudioServerProAppSettings
       `Prelude.seq` Prelude.rnf sharingSettings
@@ -215,6 +228,8 @@ instance Core.ToJSON UserSettings where
               Prelude.<$> kernelGatewayAppSettings,
             ("SecurityGroups" Core..=)
               Prelude.<$> securityGroups,
+            ("CanvasAppSettings" Core..=)
+              Prelude.<$> canvasAppSettings,
             ("JupyterServerAppSettings" Core..=)
               Prelude.<$> jupyterServerAppSettings,
             ("RStudioServerProAppSettings" Core..=)

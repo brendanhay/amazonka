@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53.Types.CloudWatchRegion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Amazonka.Route53.Types.CloudWatchRegion
         CloudWatchRegion_Eu_west_1,
         CloudWatchRegion_Eu_west_2,
         CloudWatchRegion_Eu_west_3,
+        CloudWatchRegion_Me_central_1,
         CloudWatchRegion_Me_south_1,
         CloudWatchRegion_Sa_east_1,
         CloudWatchRegion_Us_east_1,
@@ -139,6 +140,9 @@ pattern CloudWatchRegion_Eu_west_2 = CloudWatchRegion' "eu-west-2"
 pattern CloudWatchRegion_Eu_west_3 :: CloudWatchRegion
 pattern CloudWatchRegion_Eu_west_3 = CloudWatchRegion' "eu-west-3"
 
+pattern CloudWatchRegion_Me_central_1 :: CloudWatchRegion
+pattern CloudWatchRegion_Me_central_1 = CloudWatchRegion' "me-central-1"
+
 pattern CloudWatchRegion_Me_south_1 :: CloudWatchRegion
 pattern CloudWatchRegion_Me_south_1 = CloudWatchRegion' "me-south-1"
 
@@ -191,6 +195,7 @@ pattern CloudWatchRegion_Us_west_2 = CloudWatchRegion' "us-west-2"
   CloudWatchRegion_Eu_west_1,
   CloudWatchRegion_Eu_west_2,
   CloudWatchRegion_Eu_west_3,
+  CloudWatchRegion_Me_central_1,
   CloudWatchRegion_Me_south_1,
   CloudWatchRegion_Sa_east_1,
   CloudWatchRegion_Us_east_1,

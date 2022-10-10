@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.ListDeploymentGroups
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the deployment groups for an application registered with the IAM
--- user or AWS account.
+-- user or Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeDeploy.ListDeploymentGroups
@@ -59,8 +59,8 @@ data ListDeploymentGroups = ListDeploymentGroups'
   { -- | An identifier returned from the previous list deployment groups call. It
     -- can be used to return the next set of deployment groups in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+    -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,8 +76,8 @@ data ListDeploymentGroups = ListDeploymentGroups'
 -- 'nextToken', 'listDeploymentGroups_nextToken' - An identifier returned from the previous list deployment groups call. It
 -- can be used to return the next set of deployment groups in the list.
 --
--- 'applicationName', 'listDeploymentGroups_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'listDeploymentGroups_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 newListDeploymentGroups ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -93,8 +93,8 @@ newListDeploymentGroups pApplicationName_ =
 listDeploymentGroups_nextToken :: Lens.Lens' ListDeploymentGroups (Prelude.Maybe Prelude.Text)
 listDeploymentGroups_nextToken = Lens.lens (\ListDeploymentGroups' {nextToken} -> nextToken) (\s@ListDeploymentGroups' {} a -> s {nextToken = a} :: ListDeploymentGroups)
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 listDeploymentGroups_applicationName :: Lens.Lens' ListDeploymentGroups Prelude.Text
 listDeploymentGroups_applicationName = Lens.lens (\ListDeploymentGroups' {applicationName} -> applicationName) (\s@ListDeploymentGroups' {} a -> s {applicationName = a} :: ListDeploymentGroups)
 

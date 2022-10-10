@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.VpcAttributeName
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,8 @@ module Amazonka.EC2.Types.VpcAttributeName
   ( VpcAttributeName
       ( ..,
         VpcAttributeName_EnableDnsHostnames,
-        VpcAttributeName_EnableDnsSupport
+        VpcAttributeName_EnableDnsSupport,
+        VpcAttributeName_EnableNetworkAddressUsageMetrics
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern VpcAttributeName_EnableDnsHostnames = VpcAttributeName' "enableDnsHostna
 pattern VpcAttributeName_EnableDnsSupport :: VpcAttributeName
 pattern VpcAttributeName_EnableDnsSupport = VpcAttributeName' "enableDnsSupport"
 
+pattern VpcAttributeName_EnableNetworkAddressUsageMetrics :: VpcAttributeName
+pattern VpcAttributeName_EnableNetworkAddressUsageMetrics = VpcAttributeName' "enableNetworkAddressUsageMetrics"
+
 {-# COMPLETE
   VpcAttributeName_EnableDnsHostnames,
   VpcAttributeName_EnableDnsSupport,
+  VpcAttributeName_EnableNetworkAddressUsageMetrics,
   VpcAttributeName'
   #-}

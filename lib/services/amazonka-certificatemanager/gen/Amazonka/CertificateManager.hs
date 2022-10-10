@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,12 +11,12 @@
 --
 -- Derived from API version @2015-12-08@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Certificate Manager
+-- Certificate Manager
 --
--- You can use Amazon Web Services Certificate Manager (ACM) to manage
--- SSL\/TLS certificates for your Amazon Web Services-based websites and
--- applications. For more information about using ACM, see the
--- <https://docs.aws.amazon.com/acm/latest/userguide/ Amazon Web Services Certificate Manager User Guide>.
+-- You can use Certificate Manager (ACM) to manage SSL\/TLS certificates
+-- for your Amazon Web Services-based websites and applications. For more
+-- information about using ACM, see the
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
 module Amazonka.CertificateManager
   ( -- * Service Configuration
     defaultService,
@@ -208,6 +208,12 @@ module Amazonka.CertificateManager
 
     -- ** RevocationReason
     RevocationReason (..),
+
+    -- ** SortBy
+    SortBy (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** ValidationMethod
     ValidationMethod (..),

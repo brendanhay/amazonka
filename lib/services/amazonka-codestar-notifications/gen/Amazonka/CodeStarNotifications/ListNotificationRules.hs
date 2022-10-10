@@ -14,13 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.ListNotificationRules
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the notification rules for an AWS account.
+-- Returns a list of the notification rules for an Amazon Web Services
+-- account.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeStarNotifications.ListNotificationRules
@@ -199,8 +200,8 @@ data ListNotificationRulesResponse = ListNotificationRulesResponse'
   { -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of notification rules for the AWS account, by Amazon Resource
-    -- Name (ARN) and ID.
+    -- | The list of notification rules for the Amazon Web Services account, by
+    -- Amazon Resource Name (ARN) and ID.
     notificationRules :: Prelude.Maybe [NotificationRuleSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -218,8 +219,8 @@ data ListNotificationRulesResponse = ListNotificationRulesResponse'
 -- 'nextToken', 'listNotificationRulesResponse_nextToken' - An enumeration token that can be used in a request to return the next
 -- batch of the results.
 --
--- 'notificationRules', 'listNotificationRulesResponse_notificationRules' - The list of notification rules for the AWS account, by Amazon Resource
--- Name (ARN) and ID.
+-- 'notificationRules', 'listNotificationRulesResponse_notificationRules' - The list of notification rules for the Amazon Web Services account, by
+-- Amazon Resource Name (ARN) and ID.
 --
 -- 'httpStatus', 'listNotificationRulesResponse_httpStatus' - The response's http status code.
 newListNotificationRulesResponse ::
@@ -239,8 +240,8 @@ newListNotificationRulesResponse pHttpStatus_ =
 listNotificationRulesResponse_nextToken :: Lens.Lens' ListNotificationRulesResponse (Prelude.Maybe Prelude.Text)
 listNotificationRulesResponse_nextToken = Lens.lens (\ListNotificationRulesResponse' {nextToken} -> nextToken) (\s@ListNotificationRulesResponse' {} a -> s {nextToken = a} :: ListNotificationRulesResponse)
 
--- | The list of notification rules for the AWS account, by Amazon Resource
--- Name (ARN) and ID.
+-- | The list of notification rules for the Amazon Web Services account, by
+-- Amazon Resource Name (ARN) and ID.
 listNotificationRulesResponse_notificationRules :: Lens.Lens' ListNotificationRulesResponse (Prelude.Maybe [NotificationRuleSummary])
 listNotificationRulesResponse_notificationRules = Lens.lens (\ListNotificationRulesResponse' {notificationRules} -> notificationRules) (\s@ListNotificationRulesResponse' {} a -> s {notificationRules = a} :: ListNotificationRulesResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.BackupGateway
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,6 +44,9 @@ import Test.Tasty
 --
 --         , requestGetGateway $
 --             newGetGateway
+--
+--         , requestGetVirtualMachine $
+--             newGetVirtualMachine
 --
 --         , requestImportHypervisorConfiguration $
 --             newImportHypervisorConfiguration
@@ -101,6 +104,9 @@ import Test.Tasty
 --
 --         , responseGetGateway $
 --             newGetGatewayResponse
+--
+--         , responseGetVirtualMachine $
+--             newGetVirtualMachineResponse
 --
 --         , responseImportHypervisorConfiguration $
 --             newImportHypervisorConfigurationResponse
@@ -178,6 +184,12 @@ requestGetGateway =
   req
     "GetGateway"
     "fixture/GetGateway.yaml"
+
+requestGetVirtualMachine :: GetVirtualMachine -> TestTree
+requestGetVirtualMachine =
+  req
+    "GetVirtualMachine"
+    "fixture/GetVirtualMachine.yaml"
 
 requestImportHypervisorConfiguration :: ImportHypervisorConfiguration -> TestTree
 requestImportHypervisorConfiguration =
@@ -300,6 +312,14 @@ responseGetGateway =
     "fixture/GetGatewayResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetGateway)
+
+responseGetVirtualMachine :: GetVirtualMachineResponse -> TestTree
+responseGetVirtualMachine =
+  res
+    "GetVirtualMachineResponse"
+    "fixture/GetVirtualMachineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVirtualMachine)
 
 responseImportHypervisorConfiguration :: ImportHypervisorConfigurationResponse -> TestTree
 responseImportHypervisorConfiguration =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.LoRaWANConnectionStatusEventNotificationConfigurations
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANConnectionStatusEventNotificationConfigurations' smart constructor.
 data LoRaWANConnectionStatusEventNotificationConfigurations = LoRaWANConnectionStatusEventNotificationConfigurations'
-  { -- | Enum to denote whether the gateway EUI connection status event topic is
-    -- enabled or disabled.
+  { -- | Denotes whether the gateway EUI connection status event topic is enabled
+    -- or disabled.
     gatewayEuiEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +42,8 @@ data LoRaWANConnectionStatusEventNotificationConfigurations = LoRaWANConnectionS
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayEuiEventTopic', 'loRaWANConnectionStatusEventNotificationConfigurations_gatewayEuiEventTopic' - Enum to denote whether the gateway EUI connection status event topic is
--- enabled or disabled.
+-- 'gatewayEuiEventTopic', 'loRaWANConnectionStatusEventNotificationConfigurations_gatewayEuiEventTopic' - Denotes whether the gateway EUI connection status event topic is enabled
+-- or disabled.
 newLoRaWANConnectionStatusEventNotificationConfigurations ::
   LoRaWANConnectionStatusEventNotificationConfigurations
 newLoRaWANConnectionStatusEventNotificationConfigurations =
@@ -52,8 +52,8 @@ newLoRaWANConnectionStatusEventNotificationConfigurations =
         Prelude.Nothing
     }
 
--- | Enum to denote whether the gateway EUI connection status event topic is
--- enabled or disabled.
+-- | Denotes whether the gateway EUI connection status event topic is enabled
+-- or disabled.
 loRaWANConnectionStatusEventNotificationConfigurations_gatewayEuiEventTopic :: Lens.Lens' LoRaWANConnectionStatusEventNotificationConfigurations (Prelude.Maybe EventNotificationTopicStatus)
 loRaWANConnectionStatusEventNotificationConfigurations_gatewayEuiEventTopic = Lens.lens (\LoRaWANConnectionStatusEventNotificationConfigurations' {gatewayEuiEventTopic} -> gatewayEuiEventTopic) (\s@LoRaWANConnectionStatusEventNotificationConfigurations' {} a -> s {gatewayEuiEventTopic = a} :: LoRaWANConnectionStatusEventNotificationConfigurations)
 

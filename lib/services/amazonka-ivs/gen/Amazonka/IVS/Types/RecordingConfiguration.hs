@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Types.RecordingConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,6 +42,10 @@ data RecordingConfiguration = RecordingConfiguration'
     -- thumbnails for a live session and modify the interval at which
     -- thumbnails are generated for the live session.
     thumbnailConfiguration :: Prelude.Maybe ThumbnailConfiguration,
+    -- | If a broadcast disconnects and then reconnects within the specified
+    -- interval, the multiple streams will be considered a single broadcast and
+    -- merged together. Default: 0.
+    recordingReconnectWindowSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Recording-configuration ARN.
     arn :: Prelude.Text,
     -- | A complex type that contains information about where recorded video will
@@ -74,6 +78,10 @@ data RecordingConfiguration = RecordingConfiguration'
 -- thumbnails for a live session and modify the interval at which
 -- thumbnails are generated for the live session.
 --
+-- 'recordingReconnectWindowSeconds', 'recordingConfiguration_recordingReconnectWindowSeconds' - If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+--
 -- 'arn', 'recordingConfiguration_arn' - Recording-configuration ARN.
 --
 -- 'destinationConfiguration', 'recordingConfiguration_destinationConfiguration' - A complex type that contains information about where recorded video will
@@ -98,6 +106,7 @@ newRecordingConfiguration
       { tags = Prelude.Nothing,
         name = Prelude.Nothing,
         thumbnailConfiguration = Prelude.Nothing,
+        recordingReconnectWindowSeconds = Prelude.Nothing,
         arn = pArn_,
         destinationConfiguration =
           pDestinationConfiguration_,
@@ -121,6 +130,12 @@ recordingConfiguration_name = Lens.lens (\RecordingConfiguration' {name} -> name
 -- thumbnails are generated for the live session.
 recordingConfiguration_thumbnailConfiguration :: Lens.Lens' RecordingConfiguration (Prelude.Maybe ThumbnailConfiguration)
 recordingConfiguration_thumbnailConfiguration = Lens.lens (\RecordingConfiguration' {thumbnailConfiguration} -> thumbnailConfiguration) (\s@RecordingConfiguration' {} a -> s {thumbnailConfiguration = a} :: RecordingConfiguration)
+
+-- | If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+recordingConfiguration_recordingReconnectWindowSeconds :: Lens.Lens' RecordingConfiguration (Prelude.Maybe Prelude.Natural)
+recordingConfiguration_recordingReconnectWindowSeconds = Lens.lens (\RecordingConfiguration' {recordingReconnectWindowSeconds} -> recordingReconnectWindowSeconds) (\s@RecordingConfiguration' {} a -> s {recordingReconnectWindowSeconds = a} :: RecordingConfiguration)
 
 -- | Recording-configuration ARN.
 recordingConfiguration_arn :: Lens.Lens' RecordingConfiguration Prelude.Text
@@ -146,6 +161,7 @@ instance Core.FromJSON RecordingConfiguration where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "thumbnailConfiguration")
+            Prelude.<*> (x Core..:? "recordingReconnectWindowSeconds")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "destinationConfiguration")
             Prelude.<*> (x Core..: "state")
@@ -156,6 +172,7 @@ instance Prelude.Hashable RecordingConfiguration where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` thumbnailConfiguration
+      `Prelude.hashWithSalt` recordingReconnectWindowSeconds
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration
       `Prelude.hashWithSalt` state
@@ -165,6 +182,7 @@ instance Prelude.NFData RecordingConfiguration where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf thumbnailConfiguration
+      `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf destinationConfiguration
       `Prelude.seq` Prelude.rnf state

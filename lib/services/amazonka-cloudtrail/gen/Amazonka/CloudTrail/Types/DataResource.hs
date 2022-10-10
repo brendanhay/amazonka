@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Types.DataResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -111,7 +111,7 @@ data DataResource = DataResource'
     -- for the specified objects.
     --
     -- -   To log data events for all objects in all S3 buckets in your Amazon
-    --     Web Services account, specify the prefix as @arn:aws:s3:::@.
+    --     Web Services account, specify the prefix as @arn:aws:s3@.
     --
     --     This also enables logging of data event activity performed by any
     --     user or role in your Amazon Web Services account, even if that
@@ -193,7 +193,7 @@ data DataResource = DataResource'
 -- for the specified objects.
 --
 -- -   To log data events for all objects in all S3 buckets in your Amazon
---     Web Services account, specify the prefix as @arn:aws:s3:::@.
+--     Web Services account, specify the prefix as @arn:aws:s3@.
 --
 --     This also enables logging of data event activity performed by any
 --     user or role in your Amazon Web Services account, even if that
@@ -273,7 +273,7 @@ dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource
 -- for the specified objects.
 --
 -- -   To log data events for all objects in all S3 buckets in your Amazon
---     Web Services account, specify the prefix as @arn:aws:s3:::@.
+--     Web Services account, specify the prefix as @arn:aws:s3@.
 --
 --     This also enables logging of data event activity performed by any
 --     user or role in your Amazon Web Services account, even if that

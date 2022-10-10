@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.GetDimensionValues
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -252,7 +252,9 @@ data GetDimensionValues = GetDimensionValues'
     -- @2017-04-30@ but not including @2017-05-01@.
     timePeriod :: DateInterval,
     -- | The name of the dimension. Each @Dimension@ is available for a different
-    -- @Context@. For more information, see @Context@.
+    -- @Context@. For more information, see @Context@. @LINK_ACCOUNT_NAME@ and
+    -- @SERVICE_CODE@ can only be used in
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
     dimension :: Dimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -458,7 +460,9 @@ data GetDimensionValues = GetDimensionValues'
 -- @2017-04-30@ but not including @2017-05-01@.
 --
 -- 'dimension', 'getDimensionValues_dimension' - The name of the dimension. Each @Dimension@ is available for a different
--- @Context@. For more information, see @Context@.
+-- @Context@. For more information, see @Context@. @LINK_ACCOUNT_NAME@ and
+-- @SERVICE_CODE@ can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
 newGetDimensionValues ::
   -- | 'timePeriod'
   DateInterval ->
@@ -685,7 +689,9 @@ getDimensionValues_timePeriod :: Lens.Lens' GetDimensionValues DateInterval
 getDimensionValues_timePeriod = Lens.lens (\GetDimensionValues' {timePeriod} -> timePeriod) (\s@GetDimensionValues' {} a -> s {timePeriod = a} :: GetDimensionValues)
 
 -- | The name of the dimension. Each @Dimension@ is available for a different
--- @Context@. For more information, see @Context@.
+-- @Context@. For more information, see @Context@. @LINK_ACCOUNT_NAME@ and
+-- @SERVICE_CODE@ can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
 getDimensionValues_dimension :: Lens.Lens' GetDimensionValues Dimension
 getDimensionValues_dimension = Lens.lens (\GetDimensionValues' {dimension} -> dimension) (\s@GetDimensionValues' {} a -> s {dimension = a} :: GetDimensionValues)
 
@@ -822,7 +828,8 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     --
     -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
     --     an opt-in feature only available for last 14 days for EC2-Compute
-    --     Service.
+    --     Service. You can opt-in by enabling @Hourly@ and
+    --     @Resource Level Data@ in Cost Management Console preferences.
     --
     -- If you set the context to @RESERVATIONS@, you can use the following
     -- dimensions for searching:
@@ -944,7 +951,8 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 --
 -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
 --     an opt-in feature only available for last 14 days for EC2-Compute
---     Service.
+--     Service. You can opt-in by enabling @Hourly@ and
+--     @Resource Level Data@ in Cost Management Console preferences.
 --
 -- If you set the context to @RESERVATIONS@, you can use the following
 -- dimensions for searching:
@@ -1079,7 +1087,8 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 --
 -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
 --     an opt-in feature only available for last 14 days for EC2-Compute
---     Service.
+--     Service. You can opt-in by enabling @Hourly@ and
+--     @Resource Level Data@ in Cost Management Console preferences.
 --
 -- If you set the context to @RESERVATIONS@, you can use the following
 -- dimensions for searching:

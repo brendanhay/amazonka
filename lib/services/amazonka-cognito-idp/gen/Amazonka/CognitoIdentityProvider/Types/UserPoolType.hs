@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.Types.UserPoolType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -125,9 +125,11 @@ data UserPoolType = UserPoolType'
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
     -- | The policies associated with the user pool.
     policies :: Prelude.Maybe UserPoolPolicyType,
-    -- | The contents of the SMS verification message.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     smsVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The subject of the email verification message.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationSubject :: Prelude.Maybe Prelude.Text,
     -- | The available verified method a user can use to recover their password
     -- when they call @ForgotPassword@. You can use this setting to define a
@@ -149,7 +151,8 @@ data UserPoolType = UserPoolType'
     -- can apply to user pools to categorize and manage them in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The contents of the email verification message.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | The contents of the SMS authentication message.
     smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
@@ -266,9 +269,11 @@ data UserPoolType = UserPoolType'
 --
 -- 'policies', 'userPoolType_policies' - The policies associated with the user pool.
 --
--- 'smsVerificationMessage', 'userPoolType_smsVerificationMessage' - The contents of the SMS verification message.
+-- 'smsVerificationMessage', 'userPoolType_smsVerificationMessage' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
--- 'emailVerificationSubject', 'userPoolType_emailVerificationSubject' - The subject of the email verification message.
+-- 'emailVerificationSubject', 'userPoolType_emailVerificationSubject' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
 -- 'accountRecoverySetting', 'userPoolType_accountRecoverySetting' - The available verified method a user can use to recover their password
 -- when they call @ForgotPassword@. You can use this setting to define a
@@ -290,7 +295,8 @@ data UserPoolType = UserPoolType'
 -- can apply to user pools to categorize and manage them in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 --
--- 'emailVerificationMessage', 'userPoolType_emailVerificationMessage' - The contents of the email verification message.
+-- 'emailVerificationMessage', 'userPoolType_emailVerificationMessage' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
 -- 'smsAuthenticationMessage', 'userPoolType_smsAuthenticationMessage' - The contents of the SMS authentication message.
 --
@@ -471,11 +477,13 @@ userPoolType_smsConfiguration = Lens.lens (\UserPoolType' {smsConfiguration} -> 
 userPoolType_policies :: Lens.Lens' UserPoolType (Prelude.Maybe UserPoolPolicyType)
 userPoolType_policies = Lens.lens (\UserPoolType' {policies} -> policies) (\s@UserPoolType' {} a -> s {policies = a} :: UserPoolType)
 
--- | The contents of the SMS verification message.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 userPoolType_smsVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_smsVerificationMessage = Lens.lens (\UserPoolType' {smsVerificationMessage} -> smsVerificationMessage) (\s@UserPoolType' {} a -> s {smsVerificationMessage = a} :: UserPoolType)
 
--- | The subject of the email verification message.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 userPoolType_emailVerificationSubject :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_emailVerificationSubject = Lens.lens (\UserPoolType' {emailVerificationSubject} -> emailVerificationSubject) (\s@UserPoolType' {} a -> s {emailVerificationSubject = a} :: UserPoolType)
 
@@ -505,7 +513,8 @@ userPoolType_userAttributeUpdateSettings = Lens.lens (\UserPoolType' {userAttrib
 userPoolType_userPoolTags :: Lens.Lens' UserPoolType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 userPoolType_userPoolTags = Lens.lens (\UserPoolType' {userPoolTags} -> userPoolTags) (\s@UserPoolType' {} a -> s {userPoolTags = a} :: UserPoolType) Prelude.. Lens.mapping Lens.coerced
 
--- | The contents of the email verification message.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 userPoolType_emailVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_emailVerificationMessage = Lens.lens (\UserPoolType' {emailVerificationMessage} -> emailVerificationMessage) (\s@UserPoolType' {} a -> s {emailVerificationMessage = a} :: UserPoolType)
 

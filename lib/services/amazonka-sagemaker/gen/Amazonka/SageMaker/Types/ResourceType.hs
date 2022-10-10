@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ResourceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ module Amazonka.SageMaker.Types.ResourceType
         ResourceType_ExperimentTrialComponent,
         ResourceType_FeatureGroup,
         ResourceType_FeatureMetadata,
+        ResourceType_HyperParameterTuningJob,
         ResourceType_ModelPackage,
         ResourceType_ModelPackageGroup,
         ResourceType_Pipeline,
@@ -85,6 +86,9 @@ pattern ResourceType_FeatureGroup = ResourceType' "FeatureGroup"
 pattern ResourceType_FeatureMetadata :: ResourceType
 pattern ResourceType_FeatureMetadata = ResourceType' "FeatureMetadata"
 
+pattern ResourceType_HyperParameterTuningJob :: ResourceType
+pattern ResourceType_HyperParameterTuningJob = ResourceType' "HyperParameterTuningJob"
+
 pattern ResourceType_ModelPackage :: ResourceType
 pattern ResourceType_ModelPackage = ResourceType' "ModelPackage"
 
@@ -110,6 +114,7 @@ pattern ResourceType_TrainingJob = ResourceType' "TrainingJob"
   ResourceType_ExperimentTrialComponent,
   ResourceType_FeatureGroup,
   ResourceType_FeatureMetadata,
+  ResourceType_HyperParameterTuningJob,
   ResourceType_ModelPackage,
   ResourceType_ModelPackageGroup,
   ResourceType_Pipeline,

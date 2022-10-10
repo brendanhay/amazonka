@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.TagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the notification rule to tag.
     arn :: Prelude.Text,
     -- | The list of tags to associate with the resource. Tag key names cannot
-    -- start with \"aws\".
+    -- start with \"@aws@\".
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data TagResource = TagResource'
 -- 'arn', 'tagResource_arn' - The Amazon Resource Name (ARN) of the notification rule to tag.
 --
 -- 'tags', 'tagResource_tags' - The list of tags to associate with the resource. Tag key names cannot
--- start with \"aws\".
+-- start with \"@aws@\".
 newTagResource ::
   -- | 'arn'
   Prelude.Text ->
@@ -81,7 +81,7 @@ tagResource_arn :: Lens.Lens' TagResource Prelude.Text
 tagResource_arn = Lens.lens (\TagResource' {arn} -> arn) (\s@TagResource' {} a -> s {arn = a} :: TagResource)
 
 -- | The list of tags to associate with the resource. Tag key names cannot
--- start with \"aws\".
+-- start with \"@aws@\".
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

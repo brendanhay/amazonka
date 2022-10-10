@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.Types.SlotTypeCategory
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.LexV2Models.Types.SlotTypeCategory
   ( SlotTypeCategory
       ( ..,
+        SlotTypeCategory_Composite,
         SlotTypeCategory_Custom,
         SlotTypeCategory_Extended,
         SlotTypeCategory_ExternalGrammar
@@ -58,6 +59,9 @@ newtype SlotTypeCategory = SlotTypeCategory'
       Core.ToXML
     )
 
+pattern SlotTypeCategory_Composite :: SlotTypeCategory
+pattern SlotTypeCategory_Composite = SlotTypeCategory' "Composite"
+
 pattern SlotTypeCategory_Custom :: SlotTypeCategory
 pattern SlotTypeCategory_Custom = SlotTypeCategory' "Custom"
 
@@ -68,6 +72,7 @@ pattern SlotTypeCategory_ExternalGrammar :: SlotTypeCategory
 pattern SlotTypeCategory_ExternalGrammar = SlotTypeCategory' "ExternalGrammar"
 
 {-# COMPLETE
+  SlotTypeCategory_Composite,
   SlotTypeCategory_Custom,
   SlotTypeCategory_Extended,
   SlotTypeCategory_ExternalGrammar,

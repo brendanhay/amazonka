@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.ArchiveRuleSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArchiveRuleSummary' smart constructor.
 data ArchiveRuleSummary = ArchiveRuleSummary'
-  { -- | The time at which the archive rule was created.
-    createdAt :: Core.POSIX,
+  { -- | The name of the archive rule.
+    ruleName :: Prelude.Text,
     -- | A filter used to define the archive rule.
     filter' :: Prelude.HashMap Prelude.Text Criterion,
-    -- | The name of the archive rule.
-    ruleName :: Prelude.Text,
+    -- | The time at which the archive rule was created.
+    createdAt :: Core.POSIX,
     -- | The time at which the archive rule was last updated.
     updatedAt :: Core.POSIX
   }
@@ -47,44 +47,43 @@ data ArchiveRuleSummary = ArchiveRuleSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'archiveRuleSummary_createdAt' - The time at which the archive rule was created.
+-- 'ruleName', 'archiveRuleSummary_ruleName' - The name of the archive rule.
 --
 -- 'filter'', 'archiveRuleSummary_filter' - A filter used to define the archive rule.
 --
--- 'ruleName', 'archiveRuleSummary_ruleName' - The name of the archive rule.
+-- 'createdAt', 'archiveRuleSummary_createdAt' - The time at which the archive rule was created.
 --
 -- 'updatedAt', 'archiveRuleSummary_updatedAt' - The time at which the archive rule was last updated.
 newArchiveRuleSummary ::
-  -- | 'createdAt'
-  Prelude.UTCTime ->
   -- | 'ruleName'
   Prelude.Text ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
   -- | 'updatedAt'
   Prelude.UTCTime ->
   ArchiveRuleSummary
 newArchiveRuleSummary
-  pCreatedAt_
   pRuleName_
+  pCreatedAt_
   pUpdatedAt_ =
     ArchiveRuleSummary'
-      { createdAt =
-          Core._Time Lens.# pCreatedAt_,
+      { ruleName = pRuleName_,
         filter' = Prelude.mempty,
-        ruleName = pRuleName_,
+        createdAt = Core._Time Lens.# pCreatedAt_,
         updatedAt = Core._Time Lens.# pUpdatedAt_
       }
 
--- | The time at which the archive rule was created.
-archiveRuleSummary_createdAt :: Lens.Lens' ArchiveRuleSummary Prelude.UTCTime
-archiveRuleSummary_createdAt = Lens.lens (\ArchiveRuleSummary' {createdAt} -> createdAt) (\s@ArchiveRuleSummary' {} a -> s {createdAt = a} :: ArchiveRuleSummary) Prelude.. Core._Time
+-- | The name of the archive rule.
+archiveRuleSummary_ruleName :: Lens.Lens' ArchiveRuleSummary Prelude.Text
+archiveRuleSummary_ruleName = Lens.lens (\ArchiveRuleSummary' {ruleName} -> ruleName) (\s@ArchiveRuleSummary' {} a -> s {ruleName = a} :: ArchiveRuleSummary)
 
 -- | A filter used to define the archive rule.
 archiveRuleSummary_filter :: Lens.Lens' ArchiveRuleSummary (Prelude.HashMap Prelude.Text Criterion)
 archiveRuleSummary_filter = Lens.lens (\ArchiveRuleSummary' {filter'} -> filter') (\s@ArchiveRuleSummary' {} a -> s {filter' = a} :: ArchiveRuleSummary) Prelude.. Lens.coerced
 
--- | The name of the archive rule.
-archiveRuleSummary_ruleName :: Lens.Lens' ArchiveRuleSummary Prelude.Text
-archiveRuleSummary_ruleName = Lens.lens (\ArchiveRuleSummary' {ruleName} -> ruleName) (\s@ArchiveRuleSummary' {} a -> s {ruleName = a} :: ArchiveRuleSummary)
+-- | The time at which the archive rule was created.
+archiveRuleSummary_createdAt :: Lens.Lens' ArchiveRuleSummary Prelude.UTCTime
+archiveRuleSummary_createdAt = Lens.lens (\ArchiveRuleSummary' {createdAt} -> createdAt) (\s@ArchiveRuleSummary' {} a -> s {createdAt = a} :: ArchiveRuleSummary) Prelude.. Core._Time
 
 -- | The time at which the archive rule was last updated.
 archiveRuleSummary_updatedAt :: Lens.Lens' ArchiveRuleSummary Prelude.UTCTime
@@ -96,22 +95,22 @@ instance Core.FromJSON ArchiveRuleSummary where
       "ArchiveRuleSummary"
       ( \x ->
           ArchiveRuleSummary'
-            Prelude.<$> (x Core..: "createdAt")
+            Prelude.<$> (x Core..: "ruleName")
             Prelude.<*> (x Core..:? "filter" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ruleName")
+            Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "updatedAt")
       )
 
 instance Prelude.Hashable ArchiveRuleSummary where
   hashWithSalt _salt ArchiveRuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` filter'
-      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData ArchiveRuleSummary where
   rnf ArchiveRuleSummary' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt

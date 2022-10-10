@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,13 +11,13 @@
 --
 -- Derived from API version @2017-10-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon WorkMail is a secure, managed business email and calendaring
--- service with support for existing desktop and mobile email clients. You
--- can access your email, contacts, and calendars using Microsoft Outlook,
--- your browser, or other native iOS and Android email applications. You
--- can integrate WorkMail with your existing corporate directory and
--- control both the keys that encrypt your data and the location in which
--- your data is stored.
+-- WorkMail is a secure, managed business email and calendaring service
+-- with support for existing desktop and mobile email clients. You can
+-- access your email, contacts, and calendars using Microsoft Outlook, your
+-- browser, or other native iOS and Android email applications. You can
+-- integrate WorkMail with your existing corporate directory and control
+-- both the keys that encrypt your data and the location in which your data
+-- is stored.
 --
 -- The WorkMail API is designed for the following scenarios:
 --
@@ -131,6 +131,12 @@ module Amazonka.WorkMail
     AssociateMemberToGroupResponse (AssociateMemberToGroupResponse'),
     newAssociateMemberToGroupResponse,
 
+    -- ** AssumeImpersonationRole
+    AssumeImpersonationRole (AssumeImpersonationRole'),
+    newAssumeImpersonationRole,
+    AssumeImpersonationRoleResponse (AssumeImpersonationRoleResponse'),
+    newAssumeImpersonationRoleResponse,
+
     -- ** CancelMailboxExportJob
     CancelMailboxExportJob (CancelMailboxExportJob'),
     newCancelMailboxExportJob,
@@ -154,6 +160,12 @@ module Amazonka.WorkMail
     newCreateGroup,
     CreateGroupResponse (CreateGroupResponse'),
     newCreateGroupResponse,
+
+    -- ** CreateImpersonationRole
+    CreateImpersonationRole (CreateImpersonationRole'),
+    newCreateImpersonationRole,
+    CreateImpersonationRoleResponse (CreateImpersonationRoleResponse'),
+    newCreateImpersonationRoleResponse,
 
     -- ** CreateMobileDeviceAccessRule
     CreateMobileDeviceAccessRule (CreateMobileDeviceAccessRule'),
@@ -208,6 +220,12 @@ module Amazonka.WorkMail
     newDeleteGroup,
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
+
+    -- ** DeleteImpersonationRole
+    DeleteImpersonationRole (DeleteImpersonationRole'),
+    newDeleteImpersonationRole,
+    DeleteImpersonationRoleResponse (DeleteImpersonationRoleResponse'),
+    newDeleteImpersonationRoleResponse,
 
     -- ** DeleteMailboxPermissions
     DeleteMailboxPermissions (DeleteMailboxPermissions'),
@@ -329,6 +347,18 @@ module Amazonka.WorkMail
     GetDefaultRetentionPolicyResponse (GetDefaultRetentionPolicyResponse'),
     newGetDefaultRetentionPolicyResponse,
 
+    -- ** GetImpersonationRole
+    GetImpersonationRole (GetImpersonationRole'),
+    newGetImpersonationRole,
+    GetImpersonationRoleResponse (GetImpersonationRoleResponse'),
+    newGetImpersonationRoleResponse,
+
+    -- ** GetImpersonationRoleEffect
+    GetImpersonationRoleEffect (GetImpersonationRoleEffect'),
+    newGetImpersonationRoleEffect,
+    GetImpersonationRoleEffectResponse (GetImpersonationRoleEffectResponse'),
+    newGetImpersonationRoleEffectResponse,
+
     -- ** GetMailDomain
     GetMailDomain (GetMailDomain'),
     newGetMailDomain,
@@ -382,6 +412,12 @@ module Amazonka.WorkMail
     newListGroups,
     ListGroupsResponse (ListGroupsResponse'),
     newListGroupsResponse,
+
+    -- ** ListImpersonationRoles
+    ListImpersonationRoles (ListImpersonationRoles'),
+    newListImpersonationRoles,
+    ListImpersonationRolesResponse (ListImpersonationRolesResponse'),
+    newListImpersonationRolesResponse,
 
     -- ** ListMailDomains
     ListMailDomains (ListMailDomains'),
@@ -533,6 +569,12 @@ module Amazonka.WorkMail
     UpdateDefaultMailDomainResponse (UpdateDefaultMailDomainResponse'),
     newUpdateDefaultMailDomainResponse,
 
+    -- ** UpdateImpersonationRole
+    UpdateImpersonationRole (UpdateImpersonationRole'),
+    newUpdateImpersonationRole,
+    UpdateImpersonationRoleResponse (UpdateImpersonationRoleResponse'),
+    newUpdateImpersonationRoleResponse,
+
     -- ** UpdateMailboxQuota
     UpdateMailboxQuota (UpdateMailboxQuota'),
     newUpdateMailboxQuota,
@@ -562,6 +604,9 @@ module Amazonka.WorkMail
     -- ** AccessControlRuleEffect
     AccessControlRuleEffect (..),
 
+    -- ** AccessEffect
+    AccessEffect (..),
+
     -- ** AvailabilityProviderType
     AvailabilityProviderType (..),
 
@@ -573,6 +618,9 @@ module Amazonka.WorkMail
 
     -- ** FolderName
     FolderName (..),
+
+    -- ** ImpersonationRoleType
+    ImpersonationRoleType (..),
 
     -- ** MailboxExportJobState
     MailboxExportJobState (..),
@@ -631,6 +679,18 @@ module Amazonka.WorkMail
     Group (Group'),
     newGroup,
 
+    -- ** ImpersonationMatchedRule
+    ImpersonationMatchedRule (ImpersonationMatchedRule'),
+    newImpersonationMatchedRule,
+
+    -- ** ImpersonationRole
+    ImpersonationRole (ImpersonationRole'),
+    newImpersonationRole,
+
+    -- ** ImpersonationRule
+    ImpersonationRule (ImpersonationRule'),
+    newImpersonationRule,
+
     -- ** LambdaAvailabilityProvider
     LambdaAvailabilityProvider (LambdaAvailabilityProvider'),
     newLambdaAvailabilityProvider,
@@ -687,10 +747,12 @@ where
 
 import Amazonka.WorkMail.AssociateDelegateToResource
 import Amazonka.WorkMail.AssociateMemberToGroup
+import Amazonka.WorkMail.AssumeImpersonationRole
 import Amazonka.WorkMail.CancelMailboxExportJob
 import Amazonka.WorkMail.CreateAlias
 import Amazonka.WorkMail.CreateAvailabilityConfiguration
 import Amazonka.WorkMail.CreateGroup
+import Amazonka.WorkMail.CreateImpersonationRole
 import Amazonka.WorkMail.CreateMobileDeviceAccessRule
 import Amazonka.WorkMail.CreateOrganization
 import Amazonka.WorkMail.CreateResource
@@ -700,6 +762,7 @@ import Amazonka.WorkMail.DeleteAlias
 import Amazonka.WorkMail.DeleteAvailabilityConfiguration
 import Amazonka.WorkMail.DeleteEmailMonitoringConfiguration
 import Amazonka.WorkMail.DeleteGroup
+import Amazonka.WorkMail.DeleteImpersonationRole
 import Amazonka.WorkMail.DeleteMailboxPermissions
 import Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
 import Amazonka.WorkMail.DeleteMobileDeviceAccessRule
@@ -720,6 +783,8 @@ import Amazonka.WorkMail.DisassociateDelegateFromResource
 import Amazonka.WorkMail.DisassociateMemberFromGroup
 import Amazonka.WorkMail.GetAccessControlEffect
 import Amazonka.WorkMail.GetDefaultRetentionPolicy
+import Amazonka.WorkMail.GetImpersonationRole
+import Amazonka.WorkMail.GetImpersonationRoleEffect
 import Amazonka.WorkMail.GetMailDomain
 import Amazonka.WorkMail.GetMailboxDetails
 import Amazonka.WorkMail.GetMobileDeviceAccessEffect
@@ -730,6 +795,7 @@ import Amazonka.WorkMail.ListAliases
 import Amazonka.WorkMail.ListAvailabilityConfigurations
 import Amazonka.WorkMail.ListGroupMembers
 import Amazonka.WorkMail.ListGroups
+import Amazonka.WorkMail.ListImpersonationRoles
 import Amazonka.WorkMail.ListMailDomains
 import Amazonka.WorkMail.ListMailboxExportJobs
 import Amazonka.WorkMail.ListMailboxPermissions
@@ -756,6 +822,7 @@ import Amazonka.WorkMail.Types
 import Amazonka.WorkMail.UntagResource
 import Amazonka.WorkMail.UpdateAvailabilityConfiguration
 import Amazonka.WorkMail.UpdateDefaultMailDomain
+import Amazonka.WorkMail.UpdateImpersonationRole
 import Amazonka.WorkMail.UpdateMailboxQuota
 import Amazonka.WorkMail.UpdateMobileDeviceAccessRule
 import Amazonka.WorkMail.UpdatePrimaryEmailAddress

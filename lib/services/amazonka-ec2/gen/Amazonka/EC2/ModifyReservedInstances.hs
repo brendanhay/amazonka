@@ -14,23 +14,23 @@
 
 -- |
 -- Module      : Amazonka.EC2.ModifyReservedInstances
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the Availability Zone, instance count, instance type, or
--- network platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
--- The Reserved Instances to be modified must be identical, except for
--- Availability Zone, network platform, and instance type.
+-- Modifies the configuration of your Reserved Instances, such as the
+-- Availability Zone, instance count, or instance type. The Reserved
+-- Instances to be modified must be identical, except for Availability
+-- Zone, network platform, and instance type.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the /Amazon EC2 User Guide/.
 --
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
+-- We are retiring EC2-Classic. We recommend that you migrate from
+-- EC2-Classic to a VPC. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.ModifyReservedInstances

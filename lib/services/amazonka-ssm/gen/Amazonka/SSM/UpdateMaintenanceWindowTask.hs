@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.UpdateMaintenanceWindowTask
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,6 +72,7 @@ module Amazonka.SSM.UpdateMaintenanceWindowTask
     updateMaintenanceWindowTask_taskArn,
     updateMaintenanceWindowTask_targets,
     updateMaintenanceWindowTask_description,
+    updateMaintenanceWindowTask_alarmConfiguration,
     updateMaintenanceWindowTask_priority,
     updateMaintenanceWindowTask_maxConcurrency,
     updateMaintenanceWindowTask_maxErrors,
@@ -95,6 +96,7 @@ module Amazonka.SSM.UpdateMaintenanceWindowTask
     updateMaintenanceWindowTaskResponse_windowId,
     updateMaintenanceWindowTaskResponse_targets,
     updateMaintenanceWindowTaskResponse_description,
+    updateMaintenanceWindowTaskResponse_alarmConfiguration,
     updateMaintenanceWindowTaskResponse_priority,
     updateMaintenanceWindowTaskResponse_maxConcurrency,
     updateMaintenanceWindowTaskResponse_maxErrors,
@@ -173,6 +175,8 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     targets :: Prelude.Maybe [Target],
     -- | The new task description to specify.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The CloudWatch alarm you want to apply to your maintenance window task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The new task priority to specify. The lower the number, the higher the
     -- priority. Tasks that have the same priority are scheduled in parallel.
     priority :: Prelude.Maybe Prelude.Natural,
@@ -311,6 +315,8 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --
 -- 'description', 'updateMaintenanceWindowTask_description' - The new task description to specify.
 --
+-- 'alarmConfiguration', 'updateMaintenanceWindowTask_alarmConfiguration' - The CloudWatch alarm you want to apply to your maintenance window task.
+--
 -- 'priority', 'updateMaintenanceWindowTask_priority' - The new task priority to specify. The lower the number, the higher the
 -- priority. Tasks that have the same priority are scheduled in parallel.
 --
@@ -395,6 +401,7 @@ newUpdateMaintenanceWindowTask
         taskArn = Prelude.Nothing,
         targets = Prelude.Nothing,
         description = Prelude.Nothing,
+        alarmConfiguration = Prelude.Nothing,
         priority = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
         maxErrors = Prelude.Nothing,
@@ -478,6 +485,10 @@ updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {
 -- | The new task description to specify.
 updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The CloudWatch alarm you want to apply to your maintenance window task.
+updateMaintenanceWindowTask_alarmConfiguration :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe AlarmConfiguration)
+updateMaintenanceWindowTask_alarmConfiguration = Lens.lens (\UpdateMaintenanceWindowTask' {alarmConfiguration} -> alarmConfiguration) (\s@UpdateMaintenanceWindowTask' {} a -> s {alarmConfiguration = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new task priority to specify. The lower the number, the higher the
 -- priority. Tasks that have the same priority are scheduled in parallel.
@@ -580,6 +591,7 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
             Prelude.<*> (x Core..?> "WindowId")
             Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "AlarmConfiguration")
             Prelude.<*> (x Core..?> "Priority")
             Prelude.<*> (x Core..?> "MaxConcurrency")
             Prelude.<*> (x Core..?> "MaxErrors")
@@ -597,6 +609,7 @@ instance Prelude.Hashable UpdateMaintenanceWindowTask where
       `Prelude.hashWithSalt` taskArn
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
@@ -615,6 +628,7 @@ instance Prelude.NFData UpdateMaintenanceWindowTask where
       `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
@@ -653,6 +667,8 @@ instance Core.ToJSON UpdateMaintenanceWindowTask where
             ("TaskArn" Core..=) Prelude.<$> taskArn,
             ("Targets" Core..=) Prelude.<$> targets,
             ("Description" Core..=) Prelude.<$> description,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("Priority" Core..=) Prelude.<$> priority,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
@@ -700,6 +716,9 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     targets :: Prelude.Maybe [Target],
     -- | The updated task description.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The details for the CloudWatch alarm you applied to your maintenance
+    -- window task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The updated priority value.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The updated @MaxConcurrency@ value.
@@ -758,6 +777,9 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 --
 -- 'description', 'updateMaintenanceWindowTaskResponse_description' - The updated task description.
 --
+-- 'alarmConfiguration', 'updateMaintenanceWindowTaskResponse_alarmConfiguration' - The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+--
 -- 'priority', 'updateMaintenanceWindowTaskResponse_priority' - The updated priority value.
 --
 -- 'maxConcurrency', 'updateMaintenanceWindowTaskResponse_maxConcurrency' - The updated @MaxConcurrency@ value.
@@ -795,6 +817,7 @@ newUpdateMaintenanceWindowTaskResponse pHttpStatus_ =
       windowId = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       priority = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -847,6 +870,11 @@ updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindo
 updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+updateMaintenanceWindowTaskResponse_alarmConfiguration :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe AlarmConfiguration)
+updateMaintenanceWindowTaskResponse_alarmConfiguration = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {alarmConfiguration} -> alarmConfiguration) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {alarmConfiguration = a} :: UpdateMaintenanceWindowTaskResponse)
+
 -- | The updated priority value.
 updateMaintenanceWindowTaskResponse_priority :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Natural)
 updateMaintenanceWindowTaskResponse_priority = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {priority} -> priority) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {priority = a} :: UpdateMaintenanceWindowTaskResponse)
@@ -894,6 +922,7 @@ instance
       `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors

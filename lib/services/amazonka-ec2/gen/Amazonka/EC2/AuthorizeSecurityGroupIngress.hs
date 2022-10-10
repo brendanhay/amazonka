@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.AuthorizeSecurityGroupIngress
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,8 @@
 -- For more information about VPC security group quotas, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC quotas>.
 --
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
+-- We are retiring EC2-Classic. We recommend that you migrate from
+-- EC2-Classic to a VPC. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.AuthorizeSecurityGroupIngress
@@ -111,7 +111,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     ipProtocol :: Prelude.Maybe Prelude.Text,
     -- | [EC2-Classic, default VPC] The name of the security group. You must
     -- specify either the security group ID or the security group name in the
-    -- request.
+    -- request. For security groups in a nondefault VPC, you must specify the
+    -- security group ID.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -187,7 +188,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- 'groupName', 'authorizeSecurityGroupIngress_groupName' - [EC2-Classic, default VPC] The name of the security group. You must
 -- specify either the security group ID or the security group name in the
--- request.
+-- request. For security groups in a nondefault VPC, you must specify the
+-- security group ID.
 --
 -- 'dryRun', 'authorizeSecurityGroupIngress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -277,7 +279,8 @@ authorizeSecurityGroupIngress_ipProtocol = Lens.lens (\AuthorizeSecurityGroupIng
 
 -- | [EC2-Classic, default VPC] The name of the security group. You must
 -- specify either the security group ID or the security group name in the
--- request.
+-- request. For security groups in a nondefault VPC, you must specify the
+-- security group ID.
 authorizeSecurityGroupIngress_groupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupIngress_groupName = Lens.lens (\AuthorizeSecurityGroupIngress' {groupName} -> groupName) (\s@AuthorizeSecurityGroupIngress' {} a -> s {groupName = a} :: AuthorizeSecurityGroupIngress)
 

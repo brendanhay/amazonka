@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateEnvironment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,10 +49,10 @@
 -- @protonServiceRoleArn@ and @environmentAccountConnectionId@ parameters.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
 -- and
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html Provisioning methods>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html Provisioning methods>
+-- in the /Proton User Guide/.
 --
 -- There are four modes for updating an environment. The @deploymentType@
 -- field defines the mode.
@@ -125,8 +125,10 @@ import qualified Amazonka.Response as Response
 data UpdateEnvironment = UpdateEnvironment'
   { -- | The major version of the environment to update.
     templateMajorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The infrastructure repository that you use to host your rendered
-    -- infrastructure templates for self-managed provisioning.
+    -- | The linked repository that you use to host your rendered infrastructure
+    -- templates for self-managed provisioning. A linked repository is a
+    -- repository that has been registered with Proton. For more information,
+    -- see CreateRepository.
     provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
     -- | A description of the environment update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -145,8 +147,8 @@ data UpdateEnvironment = UpdateEnvironment'
     -- components to be associated with the environment.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection.
     --
@@ -204,8 +206,10 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The major version of the environment to update.
 --
--- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 --
 -- 'description', 'updateEnvironment_description' - A description of the environment update.
 --
@@ -224,8 +228,8 @@ data UpdateEnvironment = UpdateEnvironment'
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'environmentAccountConnectionId', 'updateEnvironment_environmentAccountConnectionId' - The ID of the environment account connection.
 --
@@ -294,8 +298,10 @@ newUpdateEnvironment pDeploymentType_ pName_ =
 updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
 
--- | The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- | The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 updateEnvironment_provisioningRepository :: Lens.Lens' UpdateEnvironment (Prelude.Maybe RepositoryBranchInput)
 updateEnvironment_provisioningRepository = Lens.lens (\UpdateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@UpdateEnvironment' {} a -> s {provisioningRepository = a} :: UpdateEnvironment)
 
@@ -324,8 +330,8 @@ updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonS
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 updateEnvironment_componentRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_componentRoleArn = Lens.lens (\UpdateEnvironment' {componentRoleArn} -> componentRoleArn) (\s@UpdateEnvironment' {} a -> s {componentRoleArn = a} :: UpdateEnvironment)
 

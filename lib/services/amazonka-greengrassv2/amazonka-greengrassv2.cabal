@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -107,6 +107,7 @@ library
     Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
     Amazonka.GreengrassV2.Types.InstalledComponent
     Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
+    Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter
     Amazonka.GreengrassV2.Types.IoTJobAbortAction
     Amazonka.GreengrassV2.Types.IoTJobAbortConfig
     Amazonka.GreengrassV2.Types.IoTJobAbortCriteria
@@ -135,7 +136,7 @@ library
     Amazonka.GreengrassV2.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-greengrassv2-test
@@ -154,9 +155,9 @@ test-suite amazonka-greengrassv2-test
     Test.Amazonka.GreengrassV2.Internal
 
   build-depends:
-    , amazonka-core          ^>=2.0
+    , amazonka-core          >=2.0 && <2.1
     , amazonka-greengrassv2
-    , amazonka-test          ^>=2.0
+    , amazonka-test          >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

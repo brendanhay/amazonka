@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Types.Instance
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.InstanceHardware
+import Amazonka.Lightsail.Types.InstanceMetadataOptions
 import Amazonka.Lightsail.Types.InstanceNetworking
 import Amazonka.Lightsail.Types.InstanceState
 import Amazonka.Lightsail.Types.IpAddressType
@@ -89,7 +90,9 @@ data Instance = Instance'
     -- Unix time format.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The IPv6 addresses of the instance.
-    ipv6Addresses :: Prelude.Maybe [Prelude.Text]
+    ipv6Addresses :: Prelude.Maybe [Prelude.Text],
+    -- | The metadata options for the Amazon Lightsail instance.
+    metadataOptions :: Prelude.Maybe InstanceMetadataOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -155,6 +158,8 @@ data Instance = Instance'
 -- Unix time format.
 --
 -- 'ipv6Addresses', 'instance_ipv6Addresses' - The IPv6 addresses of the instance.
+--
+-- 'metadataOptions', 'instance_metadataOptions' - The metadata options for the Amazon Lightsail instance.
 newInstance ::
   Instance
 newInstance =
@@ -179,7 +184,8 @@ newInstance =
       ipAddressType = Prelude.Nothing,
       networking = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      ipv6Addresses = Prelude.Nothing
+      ipv6Addresses = Prelude.Nothing,
+      metadataOptions = Prelude.Nothing
     }
 
 -- | The tag keys and optional values for the resource. For more information
@@ -279,6 +285,10 @@ instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instanc
 instance_ipv6Addresses :: Lens.Lens' Instance (Prelude.Maybe [Prelude.Text])
 instance_ipv6Addresses = Lens.lens (\Instance' {ipv6Addresses} -> ipv6Addresses) (\s@Instance' {} a -> s {ipv6Addresses = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
+-- | The metadata options for the Amazon Lightsail instance.
+instance_metadataOptions :: Lens.Lens' Instance (Prelude.Maybe InstanceMetadataOptions)
+instance_metadataOptions = Lens.lens (\Instance' {metadataOptions} -> metadataOptions) (\s@Instance' {} a -> s {metadataOptions = a} :: Instance)
+
 instance Core.FromJSON Instance where
   parseJSON =
     Core.withObject
@@ -306,6 +316,7 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "networking")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "ipv6Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "metadataOptions")
       )
 
 instance Prelude.Hashable Instance where
@@ -331,6 +342,7 @@ instance Prelude.Hashable Instance where
       `Prelude.hashWithSalt` networking
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` metadataOptions
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
@@ -355,3 +367,5 @@ instance Prelude.NFData Instance where
       `Prelude.seq` Prelude.rnf networking
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf
+        metadataOptions

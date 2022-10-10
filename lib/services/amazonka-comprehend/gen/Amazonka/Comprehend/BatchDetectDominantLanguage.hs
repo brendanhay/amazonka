@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.BatchDetectDominantLanguage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,10 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectDominantLanguage' smart constructor.
 data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
-  { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document should contain at least 20
-    -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
-    -- characters.
+  { -- | A list containing the UTF-8 encoded text of the input documents. The
+    -- list can contain a maximum of 25 documents. Each document should contain
+    -- at least 20 characters. The maximum size of each document is 5 KB.
     textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -68,10 +67,9 @@ data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textList', 'batchDetectDominantLanguage_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document should contain at least 20
--- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
--- characters.
+-- 'textList', 'batchDetectDominantLanguage_textList' - A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. Each document should contain
+-- at least 20 characters. The maximum size of each document is 5 KB.
 newBatchDetectDominantLanguage ::
   -- | 'textList'
   Prelude.NonEmpty Prelude.Text ->
@@ -83,10 +81,9 @@ newBatchDetectDominantLanguage pTextList_ =
           Lens.# pTextList_
     }
 
--- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document should contain at least 20
--- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
--- characters.
+-- | A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. Each document should contain
+-- at least 20 characters. The maximum size of each document is 5 KB.
 batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage (Prelude.NonEmpty Prelude.Text)
 batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

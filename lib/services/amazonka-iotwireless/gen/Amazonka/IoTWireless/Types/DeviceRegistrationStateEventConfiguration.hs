@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceRegistrationStateEventConfiguration' smart constructor.
 data DeviceRegistrationStateEventConfiguration = DeviceRegistrationStateEventConfiguration'
-  { -- | Enum to denote whether the wireless device id device registration state
-    -- event topic is enabled or disabled.
+  { -- | Denotes whether the wireless device ID device registration state event
+    -- topic is enabled or disabled.
     wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus,
     -- | Device registration state event configuration object for enabling or
     -- disabling Sidewalk related event topics.
@@ -47,8 +47,8 @@ data DeviceRegistrationStateEventConfiguration = DeviceRegistrationStateEventCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceIdEventTopic', 'deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic' - Enum to denote whether the wireless device id device registration state
--- event topic is enabled or disabled.
+-- 'wirelessDeviceIdEventTopic', 'deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
 --
 -- 'sidewalk', 'deviceRegistrationStateEventConfiguration_sidewalk' - Device registration state event configuration object for enabling or
 -- disabling Sidewalk related event topics.
@@ -61,8 +61,8 @@ newDeviceRegistrationStateEventConfiguration =
       sidewalk = Prelude.Nothing
     }
 
--- | Enum to denote whether the wireless device id device registration state
--- event topic is enabled or disabled.
+-- | Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
 deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' DeviceRegistrationStateEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\DeviceRegistrationStateEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@DeviceRegistrationStateEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: DeviceRegistrationStateEventConfiguration)
 

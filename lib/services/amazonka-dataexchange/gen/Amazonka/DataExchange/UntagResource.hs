@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.UntagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ module Amazonka.DataExchange.UntagResource
     newUntagResource,
 
     -- * Request Lenses
-    untagResource_tagKeys,
     untagResource_resourceArn,
+    untagResource_tagKeys,
 
     -- * Destructuring the Response
     UntagResourceResponse (..),
@@ -45,10 +45,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The key tags.
-    tagKeys :: [Prelude.Text],
-    -- | An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
-    resourceArn :: Prelude.Text
+  { -- | An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+    resourceArn :: Prelude.Text,
+    -- | The key tags.
+    tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,26 +60,26 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'untagResource_tagKeys' - The key tags.
---
 -- 'resourceArn', 'untagResource_resourceArn' - An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+--
+-- 'tagKeys', 'untagResource_tagKeys' - The key tags.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
   UntagResource
 newUntagResource pResourceArn_ =
   UntagResource'
-    { tagKeys = Prelude.mempty,
-      resourceArn = pResourceArn_
+    { resourceArn = pResourceArn_,
+      tagKeys = Prelude.mempty
     }
-
--- | The key tags.
-untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
+
+-- | The key tags.
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type
@@ -91,13 +91,13 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` tagKeys
-      `Prelude.hashWithSalt` resourceArn
+    _salt `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where
   rnf UntagResource' {..} =
-    Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagResource where
   toHeaders =

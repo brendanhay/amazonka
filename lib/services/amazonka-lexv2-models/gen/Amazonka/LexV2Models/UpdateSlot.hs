@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.UpdateSlot
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,7 @@ module Amazonka.LexV2Models.UpdateSlot
     updateSlot_multipleValuesSetting,
     updateSlot_description,
     updateSlot_obfuscationSetting,
+    updateSlot_subSlotSetting,
     updateSlot_slotTypeId,
     updateSlot_slotId,
     updateSlot_slotName,
@@ -55,6 +56,7 @@ module Amazonka.LexV2Models.UpdateSlot
     updateSlotResponse_intentId,
     updateSlotResponse_slotId,
     updateSlotResponse_obfuscationSetting,
+    updateSlotResponse_subSlotSetting,
     updateSlotResponse_slotTypeId,
     updateSlotResponse_lastUpdatedDateTime,
     updateSlotResponse_httpStatus,
@@ -82,6 +84,9 @@ data UpdateSlot = UpdateSlot'
     -- | New settings that determine how slot values are formatted in Amazon
     -- CloudWatch logs.
     obfuscationSetting :: Prelude.Maybe ObfuscationSetting,
+    -- | Specifications for the constituent sub slots and the expression for the
+    -- composite slot.
+    subSlotSetting :: Prelude.Maybe SubSlotSetting,
     -- | The unique identifier of the new slot type to associate with this slot.
     slotTypeId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the slot to update.
@@ -124,6 +129,9 @@ data UpdateSlot = UpdateSlot'
 --
 -- 'obfuscationSetting', 'updateSlot_obfuscationSetting' - New settings that determine how slot values are formatted in Amazon
 -- CloudWatch logs.
+--
+-- 'subSlotSetting', 'updateSlot_subSlotSetting' - Specifications for the constituent sub slots and the expression for the
+-- composite slot.
 --
 -- 'slotTypeId', 'updateSlot_slotTypeId' - The unique identifier of the new slot type to associate with this slot.
 --
@@ -173,6 +181,7 @@ newUpdateSlot
           Prelude.Nothing,
         description = Prelude.Nothing,
         obfuscationSetting = Prelude.Nothing,
+        subSlotSetting = Prelude.Nothing,
         slotTypeId = Prelude.Nothing,
         slotId = pSlotId_,
         slotName = pSlotName_,
@@ -200,6 +209,11 @@ updateSlot_description = Lens.lens (\UpdateSlot' {description} -> description) (
 -- CloudWatch logs.
 updateSlot_obfuscationSetting :: Lens.Lens' UpdateSlot (Prelude.Maybe ObfuscationSetting)
 updateSlot_obfuscationSetting = Lens.lens (\UpdateSlot' {obfuscationSetting} -> obfuscationSetting) (\s@UpdateSlot' {} a -> s {obfuscationSetting = a} :: UpdateSlot)
+
+-- | Specifications for the constituent sub slots and the expression for the
+-- composite slot.
+updateSlot_subSlotSetting :: Lens.Lens' UpdateSlot (Prelude.Maybe SubSlotSetting)
+updateSlot_subSlotSetting = Lens.lens (\UpdateSlot' {subSlotSetting} -> subSlotSetting) (\s@UpdateSlot' {} a -> s {subSlotSetting = a} :: UpdateSlot)
 
 -- | The unique identifier of the new slot type to associate with this slot.
 updateSlot_slotTypeId :: Lens.Lens' UpdateSlot (Prelude.Maybe Prelude.Text)
@@ -255,6 +269,7 @@ instance Core.AWSRequest UpdateSlot where
             Prelude.<*> (x Core..?> "intentId")
             Prelude.<*> (x Core..?> "slotId")
             Prelude.<*> (x Core..?> "obfuscationSetting")
+            Prelude.<*> (x Core..?> "subSlotSetting")
             Prelude.<*> (x Core..?> "slotTypeId")
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -265,6 +280,7 @@ instance Prelude.Hashable UpdateSlot where
     _salt `Prelude.hashWithSalt` multipleValuesSetting
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` obfuscationSetting
+      `Prelude.hashWithSalt` subSlotSetting
       `Prelude.hashWithSalt` slotTypeId
       `Prelude.hashWithSalt` slotId
       `Prelude.hashWithSalt` slotName
@@ -279,6 +295,7 @@ instance Prelude.NFData UpdateSlot where
     Prelude.rnf multipleValuesSetting
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf obfuscationSetting
+      `Prelude.seq` Prelude.rnf subSlotSetting
       `Prelude.seq` Prelude.rnf slotTypeId
       `Prelude.seq` Prelude.rnf slotId
       `Prelude.seq` Prelude.rnf slotName
@@ -308,6 +325,8 @@ instance Core.ToJSON UpdateSlot where
             ("description" Core..=) Prelude.<$> description,
             ("obfuscationSetting" Core..=)
               Prelude.<$> obfuscationSetting,
+            ("subSlotSetting" Core..=)
+              Prelude.<$> subSlotSetting,
             ("slotTypeId" Core..=) Prelude.<$> slotTypeId,
             Prelude.Just ("slotName" Core..= slotName),
             Prelude.Just
@@ -363,6 +382,9 @@ data UpdateSlotResponse = UpdateSlotResponse'
     -- | The updated setting that determines whether the slot value is obfuscated
     -- in the Amazon CloudWatch logs.
     obfuscationSetting :: Prelude.Maybe ObfuscationSetting,
+    -- | Specifications for the constituent sub slots and the expression for the
+    -- composite slot.
+    subSlotSetting :: Prelude.Maybe SubSlotSetting,
     -- | The updated identifier of the slot type that provides values for the
     -- slot.
     slotTypeId :: Prelude.Maybe Prelude.Text,
@@ -406,6 +428,9 @@ data UpdateSlotResponse = UpdateSlotResponse'
 -- 'obfuscationSetting', 'updateSlotResponse_obfuscationSetting' - The updated setting that determines whether the slot value is obfuscated
 -- in the Amazon CloudWatch logs.
 --
+-- 'subSlotSetting', 'updateSlotResponse_subSlotSetting' - Specifications for the constituent sub slots and the expression for the
+-- composite slot.
+--
 -- 'slotTypeId', 'updateSlotResponse_slotTypeId' - The updated identifier of the slot type that provides values for the
 -- slot.
 --
@@ -430,6 +455,7 @@ newUpdateSlotResponse pHttpStatus_ =
       intentId = Prelude.Nothing,
       slotId = Prelude.Nothing,
       obfuscationSetting = Prelude.Nothing,
+      subSlotSetting = Prelude.Nothing,
       slotTypeId = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -482,6 +508,11 @@ updateSlotResponse_slotId = Lens.lens (\UpdateSlotResponse' {slotId} -> slotId) 
 updateSlotResponse_obfuscationSetting :: Lens.Lens' UpdateSlotResponse (Prelude.Maybe ObfuscationSetting)
 updateSlotResponse_obfuscationSetting = Lens.lens (\UpdateSlotResponse' {obfuscationSetting} -> obfuscationSetting) (\s@UpdateSlotResponse' {} a -> s {obfuscationSetting = a} :: UpdateSlotResponse)
 
+-- | Specifications for the constituent sub slots and the expression for the
+-- composite slot.
+updateSlotResponse_subSlotSetting :: Lens.Lens' UpdateSlotResponse (Prelude.Maybe SubSlotSetting)
+updateSlotResponse_subSlotSetting = Lens.lens (\UpdateSlotResponse' {subSlotSetting} -> subSlotSetting) (\s@UpdateSlotResponse' {} a -> s {subSlotSetting = a} :: UpdateSlotResponse)
+
 -- | The updated identifier of the slot type that provides values for the
 -- slot.
 updateSlotResponse_slotTypeId :: Lens.Lens' UpdateSlotResponse (Prelude.Maybe Prelude.Text)
@@ -508,6 +539,7 @@ instance Prelude.NFData UpdateSlotResponse where
       `Prelude.seq` Prelude.rnf intentId
       `Prelude.seq` Prelude.rnf slotId
       `Prelude.seq` Prelude.rnf obfuscationSetting
+      `Prelude.seq` Prelude.rnf subSlotSetting
       `Prelude.seq` Prelude.rnf slotTypeId
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf httpStatus

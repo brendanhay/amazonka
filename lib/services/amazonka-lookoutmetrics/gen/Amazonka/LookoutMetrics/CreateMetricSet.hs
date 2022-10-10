@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutMetrics.CreateMetricSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ module Amazonka.LookoutMetrics.CreateMetricSet
     createMetricSet_metricSetDescription,
     createMetricSet_timezone,
     createMetricSet_offset,
+    createMetricSet_dimensionFilterList,
     createMetricSet_dimensionList,
     createMetricSet_metricSetFrequency,
     createMetricSet_anomalyDetectorArn,
@@ -73,6 +74,8 @@ data CreateMetricSet = CreateMetricSet'
     -- before importing data. Offset is only supported for S3, Redshift, Athena
     -- and datasources.
     offset :: Prelude.Maybe Prelude.Natural,
+    -- | A list of filters that specify which data is kept for anomaly detection.
+    dimensionFilterList :: Prelude.Maybe [MetricSetDimensionFilter],
     -- | A list of the fields you want to treat as dimensions.
     dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The frequency with which the source data will be analyzed for anomalies.
@@ -111,6 +114,8 @@ data CreateMetricSet = CreateMetricSet'
 -- before importing data. Offset is only supported for S3, Redshift, Athena
 -- and datasources.
 --
+-- 'dimensionFilterList', 'createMetricSet_dimensionFilterList' - A list of filters that specify which data is kept for anomaly detection.
+--
 -- 'dimensionList', 'createMetricSet_dimensionList' - A list of the fields you want to treat as dimensions.
 --
 -- 'metricSetFrequency', 'createMetricSet_metricSetFrequency' - The frequency with which the source data will be analyzed for anomalies.
@@ -143,6 +148,7 @@ newCreateMetricSet
         metricSetDescription = Prelude.Nothing,
         timezone = Prelude.Nothing,
         offset = Prelude.Nothing,
+        dimensionFilterList = Prelude.Nothing,
         dimensionList = Prelude.Nothing,
         metricSetFrequency = Prelude.Nothing,
         anomalyDetectorArn = pAnomalyDetectorArn_,
@@ -175,6 +181,10 @@ createMetricSet_timezone = Lens.lens (\CreateMetricSet' {timezone} -> timezone) 
 -- and datasources.
 createMetricSet_offset :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Natural)
 createMetricSet_offset = Lens.lens (\CreateMetricSet' {offset} -> offset) (\s@CreateMetricSet' {} a -> s {offset = a} :: CreateMetricSet)
+
+-- | A list of filters that specify which data is kept for anomaly detection.
+createMetricSet_dimensionFilterList :: Lens.Lens' CreateMetricSet (Prelude.Maybe [MetricSetDimensionFilter])
+createMetricSet_dimensionFilterList = Lens.lens (\CreateMetricSet' {dimensionFilterList} -> dimensionFilterList) (\s@CreateMetricSet' {} a -> s {dimensionFilterList = a} :: CreateMetricSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the fields you want to treat as dimensions.
 createMetricSet_dimensionList :: Lens.Lens' CreateMetricSet (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -220,6 +230,7 @@ instance Prelude.Hashable CreateMetricSet where
       `Prelude.hashWithSalt` metricSetDescription
       `Prelude.hashWithSalt` timezone
       `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` dimensionFilterList
       `Prelude.hashWithSalt` dimensionList
       `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` anomalyDetectorArn
@@ -234,6 +245,7 @@ instance Prelude.NFData CreateMetricSet where
       `Prelude.seq` Prelude.rnf metricSetDescription
       `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf dimensionFilterList
       `Prelude.seq` Prelude.rnf dimensionList
       `Prelude.seq` Prelude.rnf metricSetFrequency
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
@@ -263,6 +275,8 @@ instance Core.ToJSON CreateMetricSet where
               Prelude.<$> metricSetDescription,
             ("Timezone" Core..=) Prelude.<$> timezone,
             ("Offset" Core..=) Prelude.<$> offset,
+            ("DimensionFilterList" Core..=)
+              Prelude.<$> dimensionFilterList,
             ("DimensionList" Core..=) Prelude.<$> dimensionList,
             ("MetricSetFrequency" Core..=)
               Prelude.<$> metricSetFrequency,

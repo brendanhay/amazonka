@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.Types.UserPoolClientType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
-  { -- | The default redirect URI. Must be in the @CallbackURLs@ list.
+  { -- | Amazon Cognito creates a session token for each API request in an
+    -- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+    -- of that session token. Your user pool native user must respond to each
+    -- authentication challenge before the session expires.
+    authSessionValidity :: Prelude.Maybe Prelude.Natural,
+    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
     --
     -- A redirect URI must:
     --
@@ -241,6 +246,11 @@ data UserPoolClientType = UserPoolClientType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authSessionValidity', 'userPoolClientType_authSessionValidity' - Amazon Cognito creates a session token for each API request in an
+-- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+-- of that session token. Your user pool native user must respond to each
+-- authentication challenge before the session expires.
+--
 -- 'defaultRedirectURI', 'userPoolClientType_defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
 --
 -- A redirect URI must:
@@ -442,8 +452,9 @@ newUserPoolClientType ::
   UserPoolClientType
 newUserPoolClientType =
   UserPoolClientType'
-    { defaultRedirectURI =
+    { authSessionValidity =
         Prelude.Nothing,
+      defaultRedirectURI = Prelude.Nothing,
       clientSecret = Prelude.Nothing,
       accessTokenValidity = Prelude.Nothing,
       clientId = Prelude.Nothing,
@@ -469,6 +480,13 @@ newUserPoolClientType =
       supportedIdentityProviders = Prelude.Nothing,
       readAttributes = Prelude.Nothing
     }
+
+-- | Amazon Cognito creates a session token for each API request in an
+-- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+-- of that session token. Your user pool native user must respond to each
+-- authentication challenge before the session expires.
+userPoolClientType_authSessionValidity :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Natural)
+userPoolClientType_authSessionValidity = Lens.lens (\UserPoolClientType' {authSessionValidity} -> authSessionValidity) (\s@UserPoolClientType' {} a -> s {authSessionValidity = a} :: UserPoolClientType)
 
 -- | The default redirect URI. Must be in the @CallbackURLs@ list.
 --
@@ -722,7 +740,8 @@ instance Core.FromJSON UserPoolClientType where
       "UserPoolClientType"
       ( \x ->
           UserPoolClientType'
-            Prelude.<$> (x Core..:? "DefaultRedirectURI")
+            Prelude.<$> (x Core..:? "AuthSessionValidity")
+            Prelude.<*> (x Core..:? "DefaultRedirectURI")
             Prelude.<*> (x Core..:? "ClientSecret")
             Prelude.<*> (x Core..:? "AccessTokenValidity")
             Prelude.<*> (x Core..:? "ClientId")
@@ -764,7 +783,8 @@ instance Core.FromJSON UserPoolClientType where
 
 instance Prelude.Hashable UserPoolClientType where
   hashWithSalt _salt UserPoolClientType' {..} =
-    _salt `Prelude.hashWithSalt` defaultRedirectURI
+    _salt `Prelude.hashWithSalt` authSessionValidity
+      `Prelude.hashWithSalt` defaultRedirectURI
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` accessTokenValidity
       `Prelude.hashWithSalt` clientId
@@ -791,7 +811,8 @@ instance Prelude.Hashable UserPoolClientType where
 
 instance Prelude.NFData UserPoolClientType where
   rnf UserPoolClientType' {..} =
-    Prelude.rnf defaultRedirectURI
+    Prelude.rnf authSessionValidity
+      `Prelude.seq` Prelude.rnf defaultRedirectURI
       `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf accessTokenValidity
       `Prelude.seq` Prelude.rnf clientId
@@ -809,10 +830,12 @@ instance Prelude.NFData UserPoolClientType where
         enablePropagateAdditionalUserContextData
       `Prelude.seq` Prelude.rnf tokenValidityUnits
       `Prelude.seq` Prelude.rnf clientName
-      `Prelude.seq` Prelude.rnf enableTokenRevocation
+      `Prelude.seq` Prelude.rnf
+        enableTokenRevocation
       `Prelude.seq` Prelude.rnf allowedOAuthFlows
       `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf writeAttributes
+      `Prelude.seq` Prelude.rnf
+        writeAttributes
       `Prelude.seq` Prelude.rnf logoutURLs
       `Prelude.seq` Prelude.rnf
         supportedIdentityProviders

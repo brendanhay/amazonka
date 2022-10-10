@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,6 +66,7 @@ module Amazonka.CodeDeploy.Lens
     createApplicationResponse_httpStatus,
 
     -- ** CreateDeployment
+    createDeployment_overrideAlarmConfiguration,
     createDeployment_deploymentGroupName,
     createDeployment_fileExistsBehavior,
     createDeployment_revision,
@@ -390,6 +391,7 @@ module Amazonka.CodeDeploy.Lens
     deploymentGroupInfo_applicationName,
 
     -- ** DeploymentInfo
+    deploymentInfo_overrideAlarmConfiguration,
     deploymentInfo_loadBalancerInfo,
     deploymentInfo_deploymentGroupName,
     deploymentInfo_deploymentId,

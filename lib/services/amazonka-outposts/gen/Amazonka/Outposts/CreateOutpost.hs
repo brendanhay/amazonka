@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.CreateOutpost
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 --
 -- Creates an Outpost.
 --
--- You can specify @AvailabilityZone@ or @AvailabilityZoneId@.
+-- You can specify either an Availability one or an AZ ID.
 module Amazonka.Outposts.CreateOutpost
   ( -- * Creating a Request
     CreateOutpost (..),
@@ -65,12 +65,6 @@ data CreateOutpost = CreateOutpost'
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,12 +90,6 @@ data CreateOutpost = CreateOutpost'
 -- 'name', 'createOutpost_name' - Undocumented member.
 --
 -- 'siteId', 'createOutpost_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newCreateOutpost ::
   -- | 'name'
   Prelude.Text ->
@@ -144,12 +132,6 @@ createOutpost_name :: Lens.Lens' CreateOutpost Prelude.Text
 createOutpost_name = Lens.lens (\CreateOutpost' {name} -> name) (\s@CreateOutpost' {} a -> s {name = a} :: CreateOutpost)
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 createOutpost_siteId :: Lens.Lens' CreateOutpost Prelude.Text
 createOutpost_siteId = Lens.lens (\CreateOutpost' {siteId} -> siteId) (\s@CreateOutpost' {} a -> s {siteId = a} :: CreateOutpost)
 

@@ -14,13 +14,16 @@
 
 -- |
 -- Module      : Amazonka.DLM.UpdateLifecyclePolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the specified lifecycle policy.
+--
+-- For more information about updating a policy, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify Modify lifecycle policies>.
 module Amazonka.DLM.UpdateLifecyclePolicy
   ( -- * Creating a Request
     UpdateLifecyclePolicy (..),

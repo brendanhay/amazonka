@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkResourceTypeEventConfiguration' smart constructor.
 data SidewalkResourceTypeEventConfiguration = SidewalkResourceTypeEventConfiguration'
-  { -- | Enum to denote whether the wireless device join event topic is enabled
-    -- or disabled.
+  { -- | Denotes whether the wireless device join event topic is enabled or
+    -- disabled.
     wirelessDeviceEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data SidewalkResourceTypeEventConfiguration = SidewalkResourceTypeEventConfigura
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceEventTopic', 'sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic' - Enum to denote whether the wireless device join event topic is enabled
--- or disabled.
+-- 'wirelessDeviceEventTopic', 'sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic' - Denotes whether the wireless device join event topic is enabled or
+-- disabled.
 newSidewalkResourceTypeEventConfiguration ::
   SidewalkResourceTypeEventConfiguration
 newSidewalkResourceTypeEventConfiguration =
@@ -53,8 +53,8 @@ newSidewalkResourceTypeEventConfiguration =
         Prelude.Nothing
     }
 
--- | Enum to denote whether the wireless device join event topic is enabled
--- or disabled.
+-- | Denotes whether the wireless device join event topic is enabled or
+-- disabled.
 sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic :: Lens.Lens' SidewalkResourceTypeEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic = Lens.lens (\SidewalkResourceTypeEventConfiguration' {wirelessDeviceEventTopic} -> wirelessDeviceEventTopic) (\s@SidewalkResourceTypeEventConfiguration' {} a -> s {wirelessDeviceEventTopic = a} :: SidewalkResourceTypeEventConfiguration)
 

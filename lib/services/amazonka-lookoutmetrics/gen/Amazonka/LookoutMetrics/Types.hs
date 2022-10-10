@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutMetrics.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,6 +51,9 @@ module Amazonka.LookoutMetrics.Types
 
     -- * DataQualityMetricType
     DataQualityMetricType (..),
+
+    -- * FilterOperation
+    FilterOperation (..),
 
     -- * Frequency
     Frequency (..),
@@ -325,6 +328,12 @@ module Amazonka.LookoutMetrics.Types
     fileFormatDescriptor_jsonFormatDescriptor,
     fileFormatDescriptor_csvFormatDescriptor,
 
+    -- * Filter
+    Filter (..),
+    newFilter,
+    filter_dimensionValue,
+    filter_filterOperation,
+
     -- * InterMetricImpactDetails
     InterMetricImpactDetails (..),
     newInterMetricImpactDetails,
@@ -370,6 +379,12 @@ module Amazonka.LookoutMetrics.Types
     newMetricSetDataQualityMetric,
     metricSetDataQualityMetric_dataQualityMetricList,
     metricSetDataQualityMetric_metricSetArn,
+
+    -- * MetricSetDimensionFilter
+    MetricSetDimensionFilter (..),
+    newMetricSetDimensionFilter,
+    metricSetDimensionFilter_name,
+    metricSetDimensionFilter_filterList,
 
     -- * MetricSetSummary
     MetricSetSummary (..),
@@ -513,6 +528,8 @@ import Amazonka.LookoutMetrics.Types.DimensionNameValue
 import Amazonka.LookoutMetrics.Types.DimensionValueContribution
 import Amazonka.LookoutMetrics.Types.ExecutionStatus
 import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.Filter
+import Amazonka.LookoutMetrics.Types.FilterOperation
 import Amazonka.LookoutMetrics.Types.Frequency
 import Amazonka.LookoutMetrics.Types.InterMetricImpactDetails
 import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
@@ -522,6 +539,7 @@ import Amazonka.LookoutMetrics.Types.LambdaConfiguration
 import Amazonka.LookoutMetrics.Types.Metric
 import Amazonka.LookoutMetrics.Types.MetricLevelImpact
 import Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
+import Amazonka.LookoutMetrics.Types.MetricSetDimensionFilter
 import Amazonka.LookoutMetrics.Types.MetricSetSummary
 import Amazonka.LookoutMetrics.Types.MetricSource
 import Amazonka.LookoutMetrics.Types.RDSSourceConfig

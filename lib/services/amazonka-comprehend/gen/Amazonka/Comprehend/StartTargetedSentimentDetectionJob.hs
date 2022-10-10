@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.StartTargetedSentimentDetectionJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,7 +88,7 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
-    -- valid language.
+    -- supported language.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,7 +132,7 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions Role-based permissions>.
 --
 -- 'languageCode', 'startTargetedSentimentDetectionJob_languageCode' - The language of the input documents. Currently, English is the only
--- valid language.
+-- supported language.
 newStartTargetedSentimentDetectionJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -208,7 +208,7 @@ startTargetedSentimentDetectionJob_dataAccessRoleArn :: Lens.Lens' StartTargeted
 startTargetedSentimentDetectionJob_dataAccessRoleArn = Lens.lens (\StartTargetedSentimentDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTargetedSentimentDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartTargetedSentimentDetectionJob)
 
 -- | The language of the input documents. Currently, English is the only
--- valid language.
+-- supported language.
 startTargetedSentimentDetectionJob_languageCode :: Lens.Lens' StartTargetedSentimentDetectionJob LanguageCode
 startTargetedSentimentDetectionJob_languageCode = Lens.lens (\StartTargetedSentimentDetectionJob' {languageCode} -> languageCode) (\s@StartTargetedSentimentDetectionJob' {} a -> s {languageCode = a} :: StartTargetedSentimentDetectionJob)
 

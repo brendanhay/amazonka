@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateComponent
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,8 @@
 -- for a service instance.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 module Amazonka.Proton.CreateComponent
   ( -- * Creating a Request
     CreateComponent (..),
@@ -64,10 +64,9 @@ data CreateComponent = CreateComponent'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton component. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the Proton environment that you want to associate this
     -- component with. You must specify this when you don\'t specify
@@ -115,10 +114,9 @@ data CreateComponent = CreateComponent'
 -- 'tags', 'createComponent_tags' - An optional list of metadata items that you can associate with the
 -- Proton component. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'environmentName', 'createComponent_environmentName' - The name of the Proton environment that you want to associate this
 -- component with. You must specify this when you don\'t specify
@@ -175,10 +173,9 @@ newCreateComponent pManifest_ pName_ pTemplateFile_ =
 -- | An optional list of metadata items that you can associate with the
 -- Proton component. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createComponent_tags :: Lens.Lens' CreateComponent (Prelude.Maybe [Tag])
 createComponent_tags = Lens.lens (\CreateComponent' {tags} -> tags) (\s@CreateComponent' {} a -> s {tags = a} :: CreateComponent) Prelude.. Lens.mapping Lens.coerced
 

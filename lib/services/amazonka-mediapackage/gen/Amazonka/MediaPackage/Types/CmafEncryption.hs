@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackage.Types.CmafEncryption
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.CmafEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.CmafEncryptionMethod
 import Amazonka.MediaPackage.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,6 +34,7 @@ data CmafEncryption = CmafEncryption'
     -- don\'t specify a value, then MediaPackage creates the constant
     -- initialization vector (IV).
     constantInitializationVector :: Prelude.Maybe Prelude.Text,
+    encryptionMethod :: Prelude.Maybe CmafEncryptionMethod,
     -- | Time (in seconds) between each encryption key rotation.
     keyRotationIntervalSeconds :: Prelude.Maybe Prelude.Int,
     spekeKeyProvider :: SpekeKeyProvider
@@ -52,6 +54,8 @@ data CmafEncryption = CmafEncryption'
 -- don\'t specify a value, then MediaPackage creates the constant
 -- initialization vector (IV).
 --
+-- 'encryptionMethod', 'cmafEncryption_encryptionMethod' - Undocumented member.
+--
 -- 'keyRotationIntervalSeconds', 'cmafEncryption_keyRotationIntervalSeconds' - Time (in seconds) between each encryption key rotation.
 --
 -- 'spekeKeyProvider', 'cmafEncryption_spekeKeyProvider' - Undocumented member.
@@ -63,6 +67,7 @@ newCmafEncryption pSpekeKeyProvider_ =
   CmafEncryption'
     { constantInitializationVector =
         Prelude.Nothing,
+      encryptionMethod = Prelude.Nothing,
       keyRotationIntervalSeconds = Prelude.Nothing,
       spekeKeyProvider = pSpekeKeyProvider_
     }
@@ -73,6 +78,10 @@ newCmafEncryption pSpekeKeyProvider_ =
 -- initialization vector (IV).
 cmafEncryption_constantInitializationVector :: Lens.Lens' CmafEncryption (Prelude.Maybe Prelude.Text)
 cmafEncryption_constantInitializationVector = Lens.lens (\CmafEncryption' {constantInitializationVector} -> constantInitializationVector) (\s@CmafEncryption' {} a -> s {constantInitializationVector = a} :: CmafEncryption)
+
+-- | Undocumented member.
+cmafEncryption_encryptionMethod :: Lens.Lens' CmafEncryption (Prelude.Maybe CmafEncryptionMethod)
+cmafEncryption_encryptionMethod = Lens.lens (\CmafEncryption' {encryptionMethod} -> encryptionMethod) (\s@CmafEncryption' {} a -> s {encryptionMethod = a} :: CmafEncryption)
 
 -- | Time (in seconds) between each encryption key rotation.
 cmafEncryption_keyRotationIntervalSeconds :: Lens.Lens' CmafEncryption (Prelude.Maybe Prelude.Int)
@@ -89,6 +98,7 @@ instance Core.FromJSON CmafEncryption where
       ( \x ->
           CmafEncryption'
             Prelude.<$> (x Core..:? "constantInitializationVector")
+            Prelude.<*> (x Core..:? "encryptionMethod")
             Prelude.<*> (x Core..:? "keyRotationIntervalSeconds")
             Prelude.<*> (x Core..: "spekeKeyProvider")
       )
@@ -97,12 +107,14 @@ instance Prelude.Hashable CmafEncryption where
   hashWithSalt _salt CmafEncryption' {..} =
     _salt
       `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` encryptionMethod
       `Prelude.hashWithSalt` keyRotationIntervalSeconds
       `Prelude.hashWithSalt` spekeKeyProvider
 
 instance Prelude.NFData CmafEncryption where
   rnf CmafEncryption' {..} =
     Prelude.rnf constantInitializationVector
+      `Prelude.seq` Prelude.rnf encryptionMethod
       `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
@@ -112,6 +124,8 @@ instance Core.ToJSON CmafEncryption where
       ( Prelude.catMaybes
           [ ("constantInitializationVector" Core..=)
               Prelude.<$> constantInitializationVector,
+            ("encryptionMethod" Core..=)
+              Prelude.<$> encryptionMethod,
             ("keyRotationIntervalSeconds" Core..=)
               Prelude.<$> keyRotationIntervalSeconds,
             Prelude.Just

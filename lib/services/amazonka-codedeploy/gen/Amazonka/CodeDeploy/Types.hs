@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -326,6 +326,7 @@ module Amazonka.CodeDeploy.Types
     -- * DeploymentInfo
     DeploymentInfo (..),
     newDeploymentInfo,
+    deploymentInfo_overrideAlarmConfiguration,
     deploymentInfo_loadBalancerInfo,
     deploymentInfo_deploymentGroupName,
     deploymentInfo_deploymentId,
@@ -862,7 +863,8 @@ _InvalidDeploymentWaitTypeException =
     defaultService
     "InvalidDeploymentWaitTypeException"
 
--- | The application does not exist with the IAM user or AWS account.
+-- | The application does not exist with the IAM user or Amazon Web Services
+-- account.
 _ApplicationDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ApplicationDoesNotExistException =
   Core._MatchServiceError
@@ -962,7 +964,7 @@ _InvalidOperationException =
     defaultService
     "InvalidOperationException"
 
--- | The UpdateOutdatedInstancesOnly value is invalid. For AWS Lambda
+-- | The UpdateOutdatedInstancesOnly value is invalid. For Lambda
 -- deployments, @false@ is expected. For EC2\/On-premises deployments,
 -- @true@ or @false@ is expected.
 _InvalidUpdateOutdatedInstancesOnlyValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1092,7 +1094,7 @@ _InvalidRoleException =
     defaultService
     "InvalidRoleException"
 
--- | An invalid fileExistsBehavior option was specified to determine how AWS
+-- | An invalid fileExistsBehavior option was specified to determine how
 -- CodeDeploy handles files or directories that already exist in a
 -- deployment target location, but weren\'t part of the previous successful
 -- deployment. Valid values include \"DISALLOW,\" \"OVERWRITE,\" and
@@ -1149,7 +1151,7 @@ _IamUserArnAlreadyRegisteredException =
     "IamUserArnAlreadyRegisteredException"
 
 -- | The maximum number of targets that can be associated with an Amazon ECS
--- or AWS Lambda deployment was exceeded. The target list of both types of
+-- or Lambda deployment was exceeded. The target list of both types of
 -- deployments must have exactly one item. This exception does not apply to
 -- EC2\/On-premises deployments.
 _DeploymentTargetListSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1261,7 +1263,7 @@ _InstanceLimitExceededException =
     defaultService
     "InstanceLimitExceededException"
 
--- | The IgnoreApplicationStopFailures value is invalid. For AWS Lambda
+-- | The IgnoreApplicationStopFailures value is invalid. For Lambda
 -- deployments, @false@ is expected. For EC2\/On-premises deployments,
 -- @true@ or @false@ is expected.
 _InvalidIgnoreApplicationStopFailuresValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1301,8 +1303,8 @@ _InvalidEC2TagCombinationException =
     defaultService
     "InvalidEC2TagCombinationException"
 
--- | The named deployment group with the IAM user or AWS account does not
--- exist.
+-- | The named deployment group with the IAM user or Amazon Web Services
+-- account does not exist.
 _DeploymentGroupDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeploymentGroupDoesNotExistException =
   Core._MatchServiceError
@@ -1367,8 +1369,8 @@ _TagLimitExceededException =
     defaultService
     "TagLimitExceededException"
 
--- | A deployment group with the specified name with the IAM user or AWS
--- account already exists.
+-- | A deployment group with the specified name with the IAM user or Amazon
+-- Web Services account already exists.
 _DeploymentGroupAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeploymentGroupAlreadyExistsException =
   Core._MatchServiceError
@@ -1382,8 +1384,8 @@ _InvalidExternalIdException =
     defaultService
     "InvalidExternalIdException"
 
--- | The deployment configuration does not exist with the IAM user or AWS
--- account.
+-- | The deployment configuration does not exist with the IAM user or Amazon
+-- Web Services account.
 _DeploymentConfigDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeploymentConfigDoesNotExistException =
   Core._MatchServiceError
@@ -1572,15 +1574,16 @@ _ApplicationLimitExceededException =
     defaultService
     "ApplicationLimitExceededException"
 
--- | An application with the specified name with the IAM user or AWS account
--- already exists.
+-- | An application with the specified name with the IAM user or Amazon Web
+-- Services account already exists.
 _ApplicationAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ApplicationAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ApplicationAlreadyExistsException"
 
--- | The named revision does not exist with the IAM user or AWS account.
+-- | The named revision does not exist with the IAM user or Amazon Web
+-- Services account.
 _RevisionDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RevisionDoesNotExistException =
   Core._MatchServiceError
@@ -1588,7 +1591,7 @@ _RevisionDoesNotExistException =
     "RevisionDoesNotExistException"
 
 -- | A deployment configuration with the specified name with the IAM user or
--- AWS account already exists.
+-- Amazon Web Services account already exists.
 _DeploymentConfigAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeploymentConfigAlreadyExistsException =
   Core._MatchServiceError
@@ -1661,7 +1664,8 @@ _InvalidGitHubAccountTokenNameException =
     defaultService
     "InvalidGitHubAccountTokenNameException"
 
--- | The deployment with the IAM user or AWS account does not exist.
+-- | The deployment with the IAM user or Amazon Web Services account does not
+-- exist.
 _DeploymentDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeploymentDoesNotExistException =
   Core._MatchServiceError

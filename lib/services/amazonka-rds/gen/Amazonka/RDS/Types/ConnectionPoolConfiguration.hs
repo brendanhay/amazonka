@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.ConnectionPoolConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,9 +35,14 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
     -- percentage of idle database connections open. A low value causes the
     -- proxy to close more idle connections and return them to the database.
     --
-    -- Default: 50
+    -- Default: The default value is half of the value of
+    -- @MaxConnectionsPercent@. For example, if @MaxConnectionsPercent@ is 80,
+    -- then the default value of @MaxIdleConnectionsPercent@ is 40. If the
+    -- value of @MaxConnectionsPercent@ isn\'t specified, then for SQL Server,
+    -- @MaxIdleConnectionsPercent@ is 5, and for all other engines, the default
+    -- is 50.
     --
-    -- Constraints: between 0 and @MaxConnectionsPercent@
+    -- Constraints: Must be between 0 and the value of @MaxConnectionsPercent@.
     maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | One or more SQL statements for the proxy to run when opening each new
     -- database connection. Typically used with @SET@ statements to make sure
@@ -62,9 +67,10 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
     -- setting for the RDS DB instance or Aurora DB cluster used by the target
     -- group.
     --
-    -- Default: 100
+    -- Default: 10 for RDS for Microsoft SQL Server, and 100 for all other
+    -- engines
     --
-    -- Constraints: between 1 and 100
+    -- Constraints: Must be between 1 and 100.
     maxConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | Each item in the list represents a class of SQL operations that normally
     -- cause all later statements in a session using a proxy to be pinned to
@@ -91,9 +97,14 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- percentage of idle database connections open. A low value causes the
 -- proxy to close more idle connections and return them to the database.
 --
--- Default: 50
+-- Default: The default value is half of the value of
+-- @MaxConnectionsPercent@. For example, if @MaxConnectionsPercent@ is 80,
+-- then the default value of @MaxIdleConnectionsPercent@ is 40. If the
+-- value of @MaxConnectionsPercent@ isn\'t specified, then for SQL Server,
+-- @MaxIdleConnectionsPercent@ is 5, and for all other engines, the default
+-- is 50.
 --
--- Constraints: between 0 and @MaxConnectionsPercent@
+-- Constraints: Must be between 0 and the value of @MaxConnectionsPercent@.
 --
 -- 'initQuery', 'connectionPoolConfiguration_initQuery' - One or more SQL statements for the proxy to run when opening each new
 -- database connection. Typically used with @SET@ statements to make sure
@@ -118,9 +129,10 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- setting for the RDS DB instance or Aurora DB cluster used by the target
 -- group.
 --
--- Default: 100
+-- Default: 10 for RDS for Microsoft SQL Server, and 100 for all other
+-- engines
 --
--- Constraints: between 1 and 100
+-- Constraints: Must be between 1 and 100.
 --
 -- 'sessionPinningFilters', 'connectionPoolConfiguration_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
@@ -147,9 +159,14 @@ newConnectionPoolConfiguration =
 -- percentage of idle database connections open. A low value causes the
 -- proxy to close more idle connections and return them to the database.
 --
--- Default: 50
+-- Default: The default value is half of the value of
+-- @MaxConnectionsPercent@. For example, if @MaxConnectionsPercent@ is 80,
+-- then the default value of @MaxIdleConnectionsPercent@ is 40. If the
+-- value of @MaxConnectionsPercent@ isn\'t specified, then for SQL Server,
+-- @MaxIdleConnectionsPercent@ is 5, and for all other engines, the default
+-- is 50.
 --
--- Constraints: between 0 and @MaxConnectionsPercent@
+-- Constraints: Must be between 0 and the value of @MaxConnectionsPercent@.
 connectionPoolConfiguration_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Int)
 connectionPoolConfiguration_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfiguration' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfiguration' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfiguration)
 
@@ -180,9 +197,10 @@ connectionPoolConfiguration_connectionBorrowTimeout = Lens.lens (\ConnectionPool
 -- setting for the RDS DB instance or Aurora DB cluster used by the target
 -- group.
 --
--- Default: 100
+-- Default: 10 for RDS for Microsoft SQL Server, and 100 for all other
+-- engines
 --
--- Constraints: between 1 and 100
+-- Constraints: Must be between 1 and 100.
 connectionPoolConfiguration_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Int)
 connectionPoolConfiguration_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfiguration' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfiguration' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfiguration)
 

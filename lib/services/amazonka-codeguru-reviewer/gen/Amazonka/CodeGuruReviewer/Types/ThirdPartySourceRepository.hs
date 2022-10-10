@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data ThirdPartySourceRepository = ThirdPartySourceRepository'
     -- | The owner of the repository. For a GitHub, GitHub Enterprise, or
     -- Bitbucket repository, this is the username for the account that owns the
     -- repository. For an S3 repository, this can be the username or Amazon Web
-    -- Services account ID.
+    -- Services account ID
     owner :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data ThirdPartySourceRepository = ThirdPartySourceRepository'
 -- 'owner', 'thirdPartySourceRepository_owner' - The owner of the repository. For a GitHub, GitHub Enterprise, or
 -- Bitbucket repository, this is the username for the account that owns the
 -- repository. For an S3 repository, this can be the username or Amazon Web
--- Services account ID.
+-- Services account ID
 newThirdPartySourceRepository ::
   -- | 'name'
   Prelude.Text ->
@@ -100,7 +100,7 @@ thirdPartySourceRepository_connectionArn = Lens.lens (\ThirdPartySourceRepositor
 -- | The owner of the repository. For a GitHub, GitHub Enterprise, or
 -- Bitbucket repository, this is the username for the account that owns the
 -- repository. For an S3 repository, this can be the username or Amazon Web
--- Services account ID.
+-- Services account ID
 thirdPartySourceRepository_owner :: Lens.Lens' ThirdPartySourceRepository Prelude.Text
 thirdPartySourceRepository_owner = Lens.lens (\ThirdPartySourceRepository' {owner} -> owner) (\s@ThirdPartySourceRepository' {} a -> s {owner = a} :: ThirdPartySourceRepository)
 

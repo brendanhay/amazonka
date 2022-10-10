@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateEnvironment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,10 +34,10 @@
 --     that your IaC engine uses to provision resources.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
 -- and
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html Provisioning methods>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html Provisioning methods>
+-- in the /Proton User Guide/.
 module Amazonka.Proton.CreateEnvironment
   ( -- * Creating a Request
     CreateEnvironment (..),
@@ -78,13 +78,14 @@ data CreateEnvironment = CreateEnvironment'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton environment. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The infrastructure repository that you use to host your rendered
-    -- infrastructure templates for self-managed provisioning.
+    -- | The linked repository that you use to host your rendered infrastructure
+    -- templates for self-managed provisioning. A linked repository is a
+    -- repository that has been registered with Proton. For more information,
+    -- see CreateRepository.
     --
     -- To use self-managed provisioning for the environment, specify this
     -- parameter and omit the @environmentAccountConnectionId@ and
@@ -110,14 +111,14 @@ data CreateEnvironment = CreateEnvironment'
     -- to be associated with this environment.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection that you provide if you\'re
     -- provisioning your environment infrastructure resources to an environment
     -- account. For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
-    -- in the /Proton Administrator guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html Environment account connections>
+    -- in the /Proton User guide/.
     --
     -- To use Amazon Web Services-managed provisioning for the environment,
     -- specify either the @environmentAccountConnectionId@ or
@@ -128,14 +129,14 @@ data CreateEnvironment = CreateEnvironment'
     name :: Prelude.Text,
     -- | A YAML formatted string that provides inputs as defined in the
     -- environment template bundle schema file. For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
+    -- in the /Proton User Guide/.
     spec :: Core.Sensitive Prelude.Text,
     -- | The major version of the environment template.
     templateMajorVersion :: Prelude.Text,
     -- | The name of the environment template. For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html Environment Templates>
+    -- in the /Proton User Guide/.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -151,13 +152,14 @@ data CreateEnvironment = CreateEnvironment'
 -- 'tags', 'createEnvironment_tags' - An optional list of metadata items that you can associate with the
 -- Proton environment. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
--- 'provisioningRepository', 'createEnvironment_provisioningRepository' - The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- 'provisioningRepository', 'createEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 --
 -- To use self-managed provisioning for the environment, specify this
 -- parameter and omit the @environmentAccountConnectionId@ and
@@ -183,14 +185,14 @@ data CreateEnvironment = CreateEnvironment'
 -- to be associated with this environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'environmentAccountConnectionId', 'createEnvironment_environmentAccountConnectionId' - The ID of the environment account connection that you provide if you\'re
 -- provisioning your environment infrastructure resources to an environment
 -- account. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /Proton Administrator guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html Environment account connections>
+-- in the /Proton User guide/.
 --
 -- To use Amazon Web Services-managed provisioning for the environment,
 -- specify either the @environmentAccountConnectionId@ or
@@ -201,14 +203,14 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- 'spec', 'createEnvironment_spec' - A YAML formatted string that provides inputs as defined in the
 -- environment template bundle schema file. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
+-- in the /Proton User Guide/.
 --
 -- 'templateMajorVersion', 'createEnvironment_templateMajorVersion' - The major version of the environment template.
 --
 -- 'templateName', 'createEnvironment_templateName' - The name of the environment template. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html Environment Templates>
+-- in the /Proton User Guide/.
 newCreateEnvironment ::
   -- | 'name'
   Prelude.Text ->
@@ -241,15 +243,16 @@ newCreateEnvironment
 -- | An optional list of metadata items that you can associate with the
 -- Proton environment. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
 createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
--- | The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- | The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 --
 -- To use self-managed provisioning for the environment, specify this
 -- parameter and omit the @environmentAccountConnectionId@ and
@@ -283,16 +286,16 @@ createEnvironment_protonServiceRoleArn = Lens.lens (\CreateEnvironment' {protonS
 -- to be associated with this environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 createEnvironment_componentRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_componentRoleArn = Lens.lens (\CreateEnvironment' {componentRoleArn} -> componentRoleArn) (\s@CreateEnvironment' {} a -> s {componentRoleArn = a} :: CreateEnvironment)
 
 -- | The ID of the environment account connection that you provide if you\'re
 -- provisioning your environment infrastructure resources to an environment
 -- account. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /Proton Administrator guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html Environment account connections>
+-- in the /Proton User guide/.
 --
 -- To use Amazon Web Services-managed provisioning for the environment,
 -- specify either the @environmentAccountConnectionId@ or
@@ -307,8 +310,8 @@ createEnvironment_name = Lens.lens (\CreateEnvironment' {name} -> name) (\s@Crea
 
 -- | A YAML formatted string that provides inputs as defined in the
 -- environment template bundle schema file. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
+-- in the /Proton User Guide/.
 createEnvironment_spec :: Lens.Lens' CreateEnvironment Prelude.Text
 createEnvironment_spec = Lens.lens (\CreateEnvironment' {spec} -> spec) (\s@CreateEnvironment' {} a -> s {spec = a} :: CreateEnvironment) Prelude.. Core._Sensitive
 
@@ -317,8 +320,8 @@ createEnvironment_templateMajorVersion :: Lens.Lens' CreateEnvironment Prelude.T
 createEnvironment_templateMajorVersion = Lens.lens (\CreateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@CreateEnvironment' {} a -> s {templateMajorVersion = a} :: CreateEnvironment)
 
 -- | The name of the environment template. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html Environment Templates>
+-- in the /Proton User Guide/.
 createEnvironment_templateName :: Lens.Lens' CreateEnvironment Prelude.Text
 createEnvironment_templateName = Lens.lens (\CreateEnvironment' {templateName} -> templateName) (\s@CreateEnvironment' {} a -> s {templateName = a} :: CreateEnvironment)
 

@@ -14,15 +14,14 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.TagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or updates one or more tags (keys and values) that are associated
--- with a classification job, custom data identifier, findings filter, or
--- member account.
+-- with an Amazon Macie resource.
 module Amazonka.MacieV2.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -50,8 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the classification job, custom data
-    -- identifier, findings filter, or member account.
+  { -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text,
     -- | A map of key-value pairs that specifies the tags to associate with the
     -- resource.
@@ -71,8 +69,7 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the classification job, custom data
--- identifier, findings filter, or member account.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'tags', 'tagResource_tags' - A map of key-value pairs that specifies the tags to associate with the
 -- resource.
@@ -90,8 +87,7 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the classification job, custom data
--- identifier, findings filter, or member account.
+-- | The Amazon Resource Name (ARN) of the resource.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

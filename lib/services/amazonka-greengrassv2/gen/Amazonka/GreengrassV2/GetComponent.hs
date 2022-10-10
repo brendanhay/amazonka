@@ -14,15 +14,13 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.GetComponent
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the recipe for a version of a component. Core devices can call this
--- operation to identify the artifacts and requirements to install a
--- component.
+-- Gets the recipe for a version of a component.
 module Amazonka.GreengrassV2.GetComponent
   ( -- * Creating a Request
     GetComponent (..),

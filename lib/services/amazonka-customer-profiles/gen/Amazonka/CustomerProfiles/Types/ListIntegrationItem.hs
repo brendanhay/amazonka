@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.Types.ListIntegrationItem
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data ListIntegrationItem = ListIntegrationItem'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Boolean to indicate if the Flow associated with the Integration is
+    -- created via Appflow console or with ObjectTypeName equals _unstructured
+    -- via API\/CLI in flowDefinition
+    isUnstructured :: Prelude.Maybe Prelude.Bool,
     -- | A map in which each key is an event type from an external application
     -- such as Segment or Shopify, and each value is an @ObjectTypeName@
     -- (template) used to ingest the event. It supports the following event
@@ -61,6 +65,10 @@ data ListIntegrationItem = ListIntegrationItem'
 -- for backwards compatibility:
 --
 -- 'tags', 'listIntegrationItem_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'isUnstructured', 'listIntegrationItem_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
 --
 -- 'objectTypeNames', 'listIntegrationItem_objectTypeNames' - A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -98,6 +106,7 @@ newListIntegrationItem
   pLastUpdatedAt_ =
     ListIntegrationItem'
       { tags = Prelude.Nothing,
+        isUnstructured = Prelude.Nothing,
         objectTypeNames = Prelude.Nothing,
         workflowId = Prelude.Nothing,
         objectTypeName = Prelude.Nothing,
@@ -110,6 +119,12 @@ newListIntegrationItem
 -- | The tags used to organize, track, or control access for this resource.
 listIntegrationItem_tags :: Lens.Lens' ListIntegrationItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listIntegrationItem_tags = Lens.lens (\ListIntegrationItem' {tags} -> tags) (\s@ListIntegrationItem' {} a -> s {tags = a} :: ListIntegrationItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
+listIntegrationItem_isUnstructured :: Lens.Lens' ListIntegrationItem (Prelude.Maybe Prelude.Bool)
+listIntegrationItem_isUnstructured = Lens.lens (\ListIntegrationItem' {isUnstructured} -> isUnstructured) (\s@ListIntegrationItem' {} a -> s {isUnstructured = a} :: ListIntegrationItem)
 
 -- | A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -152,6 +167,7 @@ instance Core.FromJSON ListIntegrationItem where
       ( \x ->
           ListIntegrationItem'
             Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "IsUnstructured")
             Prelude.<*> ( x Core..:? "ObjectTypeNames"
                             Core..!= Prelude.mempty
                         )
@@ -166,6 +182,7 @@ instance Core.FromJSON ListIntegrationItem where
 instance Prelude.Hashable ListIntegrationItem where
   hashWithSalt _salt ListIntegrationItem' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` isUnstructured
       `Prelude.hashWithSalt` objectTypeNames
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` objectTypeName
@@ -177,6 +194,7 @@ instance Prelude.Hashable ListIntegrationItem where
 instance Prelude.NFData ListIntegrationItem where
   rnf ListIntegrationItem' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf isUnstructured
       `Prelude.seq` Prelude.rnf objectTypeNames
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf objectTypeName

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.Types.Transport
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,6 +52,8 @@ data Transport = Transport'
     -- | The IP address that the flow communicates with to initiate connection
     -- with the sender.
     senderIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Source IP or domain name for SRT-caller protocol.
+    sourceListenerAddress :: Prelude.Maybe Prelude.Text,
     -- | The port that the flow uses to send outbound requests to initiate
     -- connection with the sender.
     senderControlPort :: Prelude.Maybe Prelude.Int,
@@ -61,6 +63,8 @@ data Transport = Transport'
     -- connection. The latency of the stream is set to the highest number
     -- between the sender’s minimum latency and the receiver’s minimum latency.
     minLatency :: Prelude.Maybe Prelude.Int,
+    -- | Source port for SRT-caller protocol.
+    sourceListenerPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol that is used by the source or output.
     protocol :: Protocol
   }
@@ -97,6 +101,8 @@ data Transport = Transport'
 -- 'senderIpAddress', 'transport_senderIpAddress' - The IP address that the flow communicates with to initiate connection
 -- with the sender.
 --
+-- 'sourceListenerAddress', 'transport_sourceListenerAddress' - Source IP or domain name for SRT-caller protocol.
+--
 -- 'senderControlPort', 'transport_senderControlPort' - The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 --
@@ -105,6 +111,8 @@ data Transport = Transport'
 -- source or output represents the minimal potential latency of that
 -- connection. The latency of the stream is set to the highest number
 -- between the sender’s minimum latency and the receiver’s minimum latency.
+--
+-- 'sourceListenerPort', 'transport_sourceListenerPort' - Source port for SRT-caller protocol.
 --
 -- 'protocol', 'transport_protocol' - The protocol that is used by the source or output.
 newTransport ::
@@ -121,8 +129,10 @@ newTransport pProtocol_ =
       streamId = Prelude.Nothing,
       remoteId = Prelude.Nothing,
       senderIpAddress = Prelude.Nothing,
+      sourceListenerAddress = Prelude.Nothing,
       senderControlPort = Prelude.Nothing,
       minLatency = Prelude.Nothing,
+      sourceListenerPort = Prelude.Nothing,
       protocol = pProtocol_
     }
 
@@ -165,6 +175,10 @@ transport_remoteId = Lens.lens (\Transport' {remoteId} -> remoteId) (\s@Transpor
 transport_senderIpAddress :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
 transport_senderIpAddress = Lens.lens (\Transport' {senderIpAddress} -> senderIpAddress) (\s@Transport' {} a -> s {senderIpAddress = a} :: Transport)
 
+-- | Source IP or domain name for SRT-caller protocol.
+transport_sourceListenerAddress :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
+transport_sourceListenerAddress = Lens.lens (\Transport' {sourceListenerAddress} -> sourceListenerAddress) (\s@Transport' {} a -> s {sourceListenerAddress = a} :: Transport)
+
 -- | The port that the flow uses to send outbound requests to initiate
 -- connection with the sender.
 transport_senderControlPort :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
@@ -177,6 +191,10 @@ transport_senderControlPort = Lens.lens (\Transport' {senderControlPort} -> send
 -- between the sender’s minimum latency and the receiver’s minimum latency.
 transport_minLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_minLatency = Lens.lens (\Transport' {minLatency} -> minLatency) (\s@Transport' {} a -> s {minLatency = a} :: Transport)
+
+-- | Source port for SRT-caller protocol.
+transport_sourceListenerPort :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
+transport_sourceListenerPort = Lens.lens (\Transport' {sourceListenerPort} -> sourceListenerPort) (\s@Transport' {} a -> s {sourceListenerPort = a} :: Transport)
 
 -- | The protocol that is used by the source or output.
 transport_protocol :: Lens.Lens' Transport Protocol
@@ -196,8 +214,10 @@ instance Core.FromJSON Transport where
             Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "remoteId")
             Prelude.<*> (x Core..:? "senderIpAddress")
+            Prelude.<*> (x Core..:? "sourceListenerAddress")
             Prelude.<*> (x Core..:? "senderControlPort")
             Prelude.<*> (x Core..:? "minLatency")
+            Prelude.<*> (x Core..:? "sourceListenerPort")
             Prelude.<*> (x Core..: "protocol")
       )
 
@@ -211,8 +231,10 @@ instance Prelude.Hashable Transport where
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` remoteId
       `Prelude.hashWithSalt` senderIpAddress
+      `Prelude.hashWithSalt` sourceListenerAddress
       `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` sourceListenerPort
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData Transport where
@@ -225,6 +247,8 @@ instance Prelude.NFData Transport where
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf remoteId
       `Prelude.seq` Prelude.rnf senderIpAddress
+      `Prelude.seq` Prelude.rnf sourceListenerAddress
       `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf sourceListenerPort
       `Prelude.seq` Prelude.rnf protocol

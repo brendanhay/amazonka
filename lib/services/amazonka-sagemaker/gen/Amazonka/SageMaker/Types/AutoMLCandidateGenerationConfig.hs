@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.AutoMLCandidateGenerationConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,10 +29,29 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAutoMLCandidateGenerationConfig' smart constructor.
 data AutoMLCandidateGenerationConfig = AutoMLCandidateGenerationConfig'
   { -- | A URL to the Amazon S3 data source containing selected features from the
-    -- input data source to run an Autopilot job (optional). This file should
-    -- be in json format as shown below:
+    -- input data source to run an Autopilot job. You can input
+    -- @FeatureAttributeNames@ (optional) in JSON format as shown below:
     --
     -- @{ \"FeatureAttributeNames\":[\"col1\", \"col2\", ...] }@.
+    --
+    -- You can also specify the data type of the feature (optional) in the
+    -- format shown below:
+    --
+    -- @{ \"FeatureDataTypes\":{\"col1\":\"numeric\", \"col2\":\"categorical\" ... } }@
+    --
+    -- These column keys may not include the target column.
+    --
+    -- In ensembling mode, Autopilot will only support the following data
+    -- types: @numeric@, @categorical@, @text@ and @datetime@. In HPO mode,
+    -- Autopilot can support @numeric@, @categorical@, @text@, @datetime@ and
+    -- @sequence@.
+    --
+    -- If only @FeatureDataTypes@ is provided, the column keys (@col1@,
+    -- @col2@,..) should be a subset of the column names in the input data.
+    --
+    -- If both @FeatureDataTypes@ and @FeatureAttributeNames@ are provided,
+    -- then the column keys should be a subset of the column names provided in
+    -- @FeatureAttributeNames@.
     --
     -- The key name @FeatureAttributeNames@ is fixed. The values listed in
     -- @[\"col1\", \"col2\", ...]@ is case sensitive and should be a list of
@@ -52,10 +71,29 @@ data AutoMLCandidateGenerationConfig = AutoMLCandidateGenerationConfig'
 -- for backwards compatibility:
 --
 -- 'featureSpecificationS3Uri', 'autoMLCandidateGenerationConfig_featureSpecificationS3Uri' - A URL to the Amazon S3 data source containing selected features from the
--- input data source to run an Autopilot job (optional). This file should
--- be in json format as shown below:
+-- input data source to run an Autopilot job. You can input
+-- @FeatureAttributeNames@ (optional) in JSON format as shown below:
 --
 -- @{ \"FeatureAttributeNames\":[\"col1\", \"col2\", ...] }@.
+--
+-- You can also specify the data type of the feature (optional) in the
+-- format shown below:
+--
+-- @{ \"FeatureDataTypes\":{\"col1\":\"numeric\", \"col2\":\"categorical\" ... } }@
+--
+-- These column keys may not include the target column.
+--
+-- In ensembling mode, Autopilot will only support the following data
+-- types: @numeric@, @categorical@, @text@ and @datetime@. In HPO mode,
+-- Autopilot can support @numeric@, @categorical@, @text@, @datetime@ and
+-- @sequence@.
+--
+-- If only @FeatureDataTypes@ is provided, the column keys (@col1@,
+-- @col2@,..) should be a subset of the column names in the input data.
+--
+-- If both @FeatureDataTypes@ and @FeatureAttributeNames@ are provided,
+-- then the column keys should be a subset of the column names provided in
+-- @FeatureAttributeNames@.
 --
 -- The key name @FeatureAttributeNames@ is fixed. The values listed in
 -- @[\"col1\", \"col2\", ...]@ is case sensitive and should be a list of
@@ -71,10 +109,29 @@ newAutoMLCandidateGenerationConfig =
     }
 
 -- | A URL to the Amazon S3 data source containing selected features from the
--- input data source to run an Autopilot job (optional). This file should
--- be in json format as shown below:
+-- input data source to run an Autopilot job. You can input
+-- @FeatureAttributeNames@ (optional) in JSON format as shown below:
 --
 -- @{ \"FeatureAttributeNames\":[\"col1\", \"col2\", ...] }@.
+--
+-- You can also specify the data type of the feature (optional) in the
+-- format shown below:
+--
+-- @{ \"FeatureDataTypes\":{\"col1\":\"numeric\", \"col2\":\"categorical\" ... } }@
+--
+-- These column keys may not include the target column.
+--
+-- In ensembling mode, Autopilot will only support the following data
+-- types: @numeric@, @categorical@, @text@ and @datetime@. In HPO mode,
+-- Autopilot can support @numeric@, @categorical@, @text@, @datetime@ and
+-- @sequence@.
+--
+-- If only @FeatureDataTypes@ is provided, the column keys (@col1@,
+-- @col2@,..) should be a subset of the column names in the input data.
+--
+-- If both @FeatureDataTypes@ and @FeatureAttributeNames@ are provided,
+-- then the column keys should be a subset of the column names provided in
+-- @FeatureAttributeNames@.
 --
 -- The key name @FeatureAttributeNames@ is fixed. The values listed in
 -- @[\"col1\", \"col2\", ...]@ is case sensitive and should be a list of

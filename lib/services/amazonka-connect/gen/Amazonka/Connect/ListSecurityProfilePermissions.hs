@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.ListSecurityProfilePermissions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -221,7 +221,9 @@ data ListSecurityProfilePermissionsResponse = ListSecurityProfilePermissionsResp
   { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The permissions granted to the security profile.
+    -- | The permissions granted to the security profile. For a complete list of
+    -- valid permissions, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -239,7 +241,9 @@ data ListSecurityProfilePermissionsResponse = ListSecurityProfilePermissionsResp
 -- 'nextToken', 'listSecurityProfilePermissionsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
--- 'permissions', 'listSecurityProfilePermissionsResponse_permissions' - The permissions granted to the security profile.
+-- 'permissions', 'listSecurityProfilePermissionsResponse_permissions' - The permissions granted to the security profile. For a complete list of
+-- valid permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
 -- 'httpStatus', 'listSecurityProfilePermissionsResponse_httpStatus' - The response's http status code.
 newListSecurityProfilePermissionsResponse ::
@@ -260,7 +264,9 @@ newListSecurityProfilePermissionsResponse
 listSecurityProfilePermissionsResponse_nextToken :: Lens.Lens' ListSecurityProfilePermissionsResponse (Prelude.Maybe Prelude.Text)
 listSecurityProfilePermissionsResponse_nextToken = Lens.lens (\ListSecurityProfilePermissionsResponse' {nextToken} -> nextToken) (\s@ListSecurityProfilePermissionsResponse' {} a -> s {nextToken = a} :: ListSecurityProfilePermissionsResponse)
 
--- | The permissions granted to the security profile.
+-- | The permissions granted to the security profile. For a complete list of
+-- valid permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 listSecurityProfilePermissionsResponse_permissions :: Lens.Lens' ListSecurityProfilePermissionsResponse (Prelude.Maybe [Prelude.Text])
 listSecurityProfilePermissionsResponse_permissions = Lens.lens (\ListSecurityProfilePermissionsResponse' {permissions} -> permissions) (\s@ListSecurityProfilePermissionsResponse' {} a -> s {permissions = a} :: ListSecurityProfilePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 

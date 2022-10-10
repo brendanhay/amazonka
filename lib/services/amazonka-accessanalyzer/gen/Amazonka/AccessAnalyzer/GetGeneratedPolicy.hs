@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.GetGeneratedPolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,8 +37,8 @@ module Amazonka.AccessAnalyzer.GetGeneratedPolicy
 
     -- * Response Lenses
     getGeneratedPolicyResponse_httpStatus,
-    getGeneratedPolicyResponse_generatedPolicyResult,
     getGeneratedPolicyResponse_jobDetails,
+    getGeneratedPolicyResponse_generatedPolicyResult,
   )
 where
 
@@ -146,8 +146,8 @@ instance Core.AWSRequest GetGeneratedPolicy where
       ( \s h x ->
           GetGeneratedPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "generatedPolicyResult")
             Prelude.<*> (x Core..:> "jobDetails")
+            Prelude.<*> (x Core..:> "generatedPolicyResult")
       )
 
 instance Prelude.Hashable GetGeneratedPolicy where
@@ -192,12 +192,12 @@ instance Core.ToQuery GetGeneratedPolicy where
 data GetGeneratedPolicyResponse = GetGeneratedPolicyResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A @GeneratedPolicyResult@ object that contains the generated policies
-    -- and associated details.
-    generatedPolicyResult :: GeneratedPolicyResult,
     -- | A @GeneratedPolicyDetails@ object that contains details about the
     -- generated policy.
-    jobDetails :: JobDetails
+    jobDetails :: JobDetails,
+    -- | A @GeneratedPolicyResult@ object that contains the generated policies
+    -- and associated details.
+    generatedPolicyResult :: GeneratedPolicyResult
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -211,46 +211,46 @@ data GetGeneratedPolicyResponse = GetGeneratedPolicyResponse'
 --
 -- 'httpStatus', 'getGeneratedPolicyResponse_httpStatus' - The response's http status code.
 --
--- 'generatedPolicyResult', 'getGeneratedPolicyResponse_generatedPolicyResult' - A @GeneratedPolicyResult@ object that contains the generated policies
--- and associated details.
---
 -- 'jobDetails', 'getGeneratedPolicyResponse_jobDetails' - A @GeneratedPolicyDetails@ object that contains details about the
 -- generated policy.
+--
+-- 'generatedPolicyResult', 'getGeneratedPolicyResponse_generatedPolicyResult' - A @GeneratedPolicyResult@ object that contains the generated policies
+-- and associated details.
 newGetGeneratedPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'generatedPolicyResult'
-  GeneratedPolicyResult ->
   -- | 'jobDetails'
   JobDetails ->
+  -- | 'generatedPolicyResult'
+  GeneratedPolicyResult ->
   GetGeneratedPolicyResponse
 newGetGeneratedPolicyResponse
   pHttpStatus_
-  pGeneratedPolicyResult_
-  pJobDetails_ =
+  pJobDetails_
+  pGeneratedPolicyResult_ =
     GetGeneratedPolicyResponse'
       { httpStatus =
           pHttpStatus_,
-        generatedPolicyResult = pGeneratedPolicyResult_,
-        jobDetails = pJobDetails_
+        jobDetails = pJobDetails_,
+        generatedPolicyResult = pGeneratedPolicyResult_
       }
 
 -- | The response's http status code.
 getGeneratedPolicyResponse_httpStatus :: Lens.Lens' GetGeneratedPolicyResponse Prelude.Int
 getGeneratedPolicyResponse_httpStatus = Lens.lens (\GetGeneratedPolicyResponse' {httpStatus} -> httpStatus) (\s@GetGeneratedPolicyResponse' {} a -> s {httpStatus = a} :: GetGeneratedPolicyResponse)
 
--- | A @GeneratedPolicyResult@ object that contains the generated policies
--- and associated details.
-getGeneratedPolicyResponse_generatedPolicyResult :: Lens.Lens' GetGeneratedPolicyResponse GeneratedPolicyResult
-getGeneratedPolicyResponse_generatedPolicyResult = Lens.lens (\GetGeneratedPolicyResponse' {generatedPolicyResult} -> generatedPolicyResult) (\s@GetGeneratedPolicyResponse' {} a -> s {generatedPolicyResult = a} :: GetGeneratedPolicyResponse)
-
 -- | A @GeneratedPolicyDetails@ object that contains details about the
 -- generated policy.
 getGeneratedPolicyResponse_jobDetails :: Lens.Lens' GetGeneratedPolicyResponse JobDetails
 getGeneratedPolicyResponse_jobDetails = Lens.lens (\GetGeneratedPolicyResponse' {jobDetails} -> jobDetails) (\s@GetGeneratedPolicyResponse' {} a -> s {jobDetails = a} :: GetGeneratedPolicyResponse)
 
+-- | A @GeneratedPolicyResult@ object that contains the generated policies
+-- and associated details.
+getGeneratedPolicyResponse_generatedPolicyResult :: Lens.Lens' GetGeneratedPolicyResponse GeneratedPolicyResult
+getGeneratedPolicyResponse_generatedPolicyResult = Lens.lens (\GetGeneratedPolicyResponse' {generatedPolicyResult} -> generatedPolicyResult) (\s@GetGeneratedPolicyResponse' {} a -> s {generatedPolicyResult = a} :: GetGeneratedPolicyResponse)
+
 instance Prelude.NFData GetGeneratedPolicyResponse where
   rnf GetGeneratedPolicyResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf generatedPolicyResult
       `Prelude.seq` Prelude.rnf jobDetails
+      `Prelude.seq` Prelude.rnf generatedPolicyResult

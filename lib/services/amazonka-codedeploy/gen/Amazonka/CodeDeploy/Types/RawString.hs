@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.RawString
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A revision for an AWS Lambda deployment that is a YAML-formatted or
--- JSON-formatted string. For AWS Lambda deployments, the revision is the
--- same as the AppSpec file.
+-- | A revision for an Lambda deployment that is a YAML-formatted or
+-- JSON-formatted string. For Lambda deployments, the revision is the same
+-- as the AppSpec file.
 --
 -- /See:/ 'newRawString' smart constructor.
 data RawString = RawString'

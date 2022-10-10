@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.SpotFleetLaunchSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,11 +39,6 @@ import qualified Amazonka.Prelude as Prelude
 -- you must use
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html LaunchTemplateConfig>.
 --
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
 -- /See:/ 'newSpotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
   { -- | Indicates whether the instances are optimized for EBS I\/O. This
@@ -65,7 +60,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     -- attributes.
     --
     -- If you specify @InstanceRequirements@, you can\'t specify
-    -- @InstanceTypes@.
+    -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirements,
     -- | One or more block devices that are mapped to the Spot Instances. You
     -- can\'t specify both a snapshot ID and an encryption value. This is
@@ -156,7 +151,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 --
 -- 'blockDeviceMappings', 'spotFleetLaunchSpecification_blockDeviceMappings' - One or more block devices that are mapped to the Spot Instances. You
 -- can\'t specify both a snapshot ID and an encryption value. This is
@@ -269,7 +264,7 @@ spotFleetLaunchSpecification_userData = Lens.lens (\SpotFleetLaunchSpecification
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 spotFleetLaunchSpecification_instanceRequirements :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe InstanceRequirements)
 spotFleetLaunchSpecification_instanceRequirements = Lens.lens (\SpotFleetLaunchSpecification' {instanceRequirements} -> instanceRequirements) (\s@SpotFleetLaunchSpecification' {} a -> s {instanceRequirements = a} :: SpotFleetLaunchSpecification)
 

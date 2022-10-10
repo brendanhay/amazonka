@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.GetRevision
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ module Amazonka.DataExchange.GetRevision
     newGetRevision,
 
     -- * Request Lenses
-    getRevision_revisionId,
     getRevision_dataSetId,
+    getRevision_revisionId,
 
     -- * Destructuring the Response
     GetRevisionResponse (..),
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRevision' smart constructor.
 data GetRevision = GetRevision'
-  { -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
-    -- | The unique identifier for a data set.
-    dataSetId :: Prelude.Text
+  { -- | The unique identifier for a data set.
+    dataSetId :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,28 +75,28 @@ data GetRevision = GetRevision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'getRevision_revisionId' - The unique identifier for a revision.
---
 -- 'dataSetId', 'getRevision_dataSetId' - The unique identifier for a data set.
+--
+-- 'revisionId', 'getRevision_revisionId' - The unique identifier for a revision.
 newGetRevision ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
+  -- | 'revisionId'
+  Prelude.Text ->
   GetRevision
-newGetRevision pRevisionId_ pDataSetId_ =
+newGetRevision pDataSetId_ pRevisionId_ =
   GetRevision'
-    { revisionId = pRevisionId_,
-      dataSetId = pDataSetId_
+    { dataSetId = pDataSetId_,
+      revisionId = pRevisionId_
     }
-
--- | The unique identifier for a revision.
-getRevision_revisionId :: Lens.Lens' GetRevision Prelude.Text
-getRevision_revisionId = Lens.lens (\GetRevision' {revisionId} -> revisionId) (\s@GetRevision' {} a -> s {revisionId = a} :: GetRevision)
 
 -- | The unique identifier for a data set.
 getRevision_dataSetId :: Lens.Lens' GetRevision Prelude.Text
 getRevision_dataSetId = Lens.lens (\GetRevision' {dataSetId} -> dataSetId) (\s@GetRevision' {} a -> s {dataSetId = a} :: GetRevision)
+
+-- | The unique identifier for a revision.
+getRevision_revisionId :: Lens.Lens' GetRevision Prelude.Text
+getRevision_revisionId = Lens.lens (\GetRevision' {revisionId} -> revisionId) (\s@GetRevision' {} a -> s {revisionId = a} :: GetRevision)
 
 instance Core.AWSRequest GetRevision where
   type AWSResponse GetRevision = GetRevisionResponse
@@ -122,13 +122,13 @@ instance Core.AWSRequest GetRevision where
 
 instance Prelude.Hashable GetRevision where
   hashWithSalt _salt GetRevision' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` dataSetId
+    _salt `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData GetRevision where
   rnf GetRevision' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders GetRevision where
   toHeaders =
@@ -174,7 +174,6 @@ data GetRevisionResponse = GetRevisionResponse'
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
     -- this read-only state, you can publish the revision to your products.
-    --
     -- Finalized revisions can be published through the AWS Data Exchange
     -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
     -- Marketplace Catalog API action. When using the API, revisions are
@@ -224,7 +223,6 @@ data GetRevisionResponse = GetRevisionResponse'
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -295,7 +293,6 @@ getRevisionResponse_comment = Lens.lens (\GetRevisionResponse' {comment} -> comm
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are

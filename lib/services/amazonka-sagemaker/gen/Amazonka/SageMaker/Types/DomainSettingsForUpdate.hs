@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.DomainSettingsForUpdate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,20 @@ module Amazonka.SageMaker.Types.DomainSettingsForUpdate where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ExecutionRoleIdentityConfig
 import Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate
 
 -- | A collection of @Domain@ configuration settings to update.
 --
 -- /See:/ 'newDomainSettingsForUpdate' smart constructor.
 data DomainSettingsForUpdate = DomainSettingsForUpdate'
-  { -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
+  { -- | The configuration for attaching a SageMaker user profile name to the
+    -- execution role as a
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html sts:SourceIdentity key>.
+    -- This configuration can only be modified if there are no apps in the
+    -- @InService@ or @Pending@ state.
+    executionRoleIdentityConfig :: Prelude.Maybe ExecutionRoleIdentityConfig,
+    -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
     rStudioServerProDomainSettingsForUpdate :: Prelude.Maybe RStudioServerProDomainSettingsForUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,14 +48,30 @@ data DomainSettingsForUpdate = DomainSettingsForUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'executionRoleIdentityConfig', 'domainSettingsForUpdate_executionRoleIdentityConfig' - The configuration for attaching a SageMaker user profile name to the
+-- execution role as a
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html sts:SourceIdentity key>.
+-- This configuration can only be modified if there are no apps in the
+-- @InService@ or @Pending@ state.
+--
 -- 'rStudioServerProDomainSettingsForUpdate', 'domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate' - A collection of @RStudioServerPro@ Domain-level app settings to update.
 newDomainSettingsForUpdate ::
   DomainSettingsForUpdate
 newDomainSettingsForUpdate =
   DomainSettingsForUpdate'
-    { rStudioServerProDomainSettingsForUpdate =
+    { executionRoleIdentityConfig =
+        Prelude.Nothing,
+      rStudioServerProDomainSettingsForUpdate =
         Prelude.Nothing
     }
+
+-- | The configuration for attaching a SageMaker user profile name to the
+-- execution role as a
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html sts:SourceIdentity key>.
+-- This configuration can only be modified if there are no apps in the
+-- @InService@ or @Pending@ state.
+domainSettingsForUpdate_executionRoleIdentityConfig :: Lens.Lens' DomainSettingsForUpdate (Prelude.Maybe ExecutionRoleIdentityConfig)
+domainSettingsForUpdate_executionRoleIdentityConfig = Lens.lens (\DomainSettingsForUpdate' {executionRoleIdentityConfig} -> executionRoleIdentityConfig) (\s@DomainSettingsForUpdate' {} a -> s {executionRoleIdentityConfig = a} :: DomainSettingsForUpdate)
 
 -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
 domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate :: Lens.Lens' DomainSettingsForUpdate (Prelude.Maybe RStudioServerProDomainSettingsForUpdate)
@@ -57,17 +80,21 @@ domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate = Lens.lens (\Do
 instance Prelude.Hashable DomainSettingsForUpdate where
   hashWithSalt _salt DomainSettingsForUpdate' {..} =
     _salt
+      `Prelude.hashWithSalt` executionRoleIdentityConfig
       `Prelude.hashWithSalt` rStudioServerProDomainSettingsForUpdate
 
 instance Prelude.NFData DomainSettingsForUpdate where
   rnf DomainSettingsForUpdate' {..} =
-    Prelude.rnf rStudioServerProDomainSettingsForUpdate
+    Prelude.rnf executionRoleIdentityConfig
+      `Prelude.seq` Prelude.rnf rStudioServerProDomainSettingsForUpdate
 
 instance Core.ToJSON DomainSettingsForUpdate where
   toJSON DomainSettingsForUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RStudioServerProDomainSettingsForUpdate" Core..=)
+          [ ("ExecutionRoleIdentityConfig" Core..=)
+              Prelude.<$> executionRoleIdentityConfig,
+            ("RStudioServerProDomainSettingsForUpdate" Core..=)
               Prelude.<$> rStudioServerProDomainSettingsForUpdate
           ]
       )

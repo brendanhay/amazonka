@@ -14,21 +14,23 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateTemplateSyncConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Set up a template to create new template versions automatically. When a
--- commit is pushed to your registered
--- <https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html repository>,
--- Proton checks for changes to your repository template bundles. If it
--- detects a template bundle change, a new major or minor version of its
--- template is created, if the version doesn’t already exist. For more
--- information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html Template sync configurations>
--- in the /Proton Administrator Guide/.
+-- Set up a template to create new template versions automatically by
+-- tracking a linked repository. A linked repository is a repository that
+-- has been registered with Proton. For more information, see
+-- CreateRepository.
+--
+-- When a commit is pushed to your linked repository, Proton checks for
+-- changes to your repository template bundles. If it detects a template
+-- bundle change, a new major or minor version of its template is created,
+-- if the version doesn’t already exist. For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html Template sync configurations>
+-- in the /Proton User Guide/.
 module Amazonka.Proton.CreateTemplateSyncConfig
   ( -- * Creating a Request
     CreateTemplateSyncConfig (..),
@@ -65,9 +67,9 @@ data CreateTemplateSyncConfig = CreateTemplateSyncConfig'
     -- included, Proton limits the template bundle search to this repository
     -- directory.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | The branch of the registered repository for your template.
+    -- | The repository branch for your template.
     branch :: Prelude.Text,
-    -- | The name of your repository (for example, @myrepos\/myrepo@).
+    -- | The repository name (for example, @myrepos\/myrepo@).
     repositoryName :: Prelude.Text,
     -- | The provider type for your repository.
     repositoryProvider :: RepositoryProvider,
@@ -90,9 +92,9 @@ data CreateTemplateSyncConfig = CreateTemplateSyncConfig'
 -- included, Proton limits the template bundle search to this repository
 -- directory.
 --
--- 'branch', 'createTemplateSyncConfig_branch' - The branch of the registered repository for your template.
+-- 'branch', 'createTemplateSyncConfig_branch' - The repository branch for your template.
 --
--- 'repositoryName', 'createTemplateSyncConfig_repositoryName' - The name of your repository (for example, @myrepos\/myrepo@).
+-- 'repositoryName', 'createTemplateSyncConfig_repositoryName' - The repository name (for example, @myrepos\/myrepo@).
 --
 -- 'repositoryProvider', 'createTemplateSyncConfig_repositoryProvider' - The provider type for your repository.
 --
@@ -133,11 +135,11 @@ newCreateTemplateSyncConfig
 createTemplateSyncConfig_subdirectory :: Lens.Lens' CreateTemplateSyncConfig (Prelude.Maybe Prelude.Text)
 createTemplateSyncConfig_subdirectory = Lens.lens (\CreateTemplateSyncConfig' {subdirectory} -> subdirectory) (\s@CreateTemplateSyncConfig' {} a -> s {subdirectory = a} :: CreateTemplateSyncConfig)
 
--- | The branch of the registered repository for your template.
+-- | The repository branch for your template.
 createTemplateSyncConfig_branch :: Lens.Lens' CreateTemplateSyncConfig Prelude.Text
 createTemplateSyncConfig_branch = Lens.lens (\CreateTemplateSyncConfig' {branch} -> branch) (\s@CreateTemplateSyncConfig' {} a -> s {branch = a} :: CreateTemplateSyncConfig)
 
--- | The name of your repository (for example, @myrepos\/myrepo@).
+-- | The repository name (for example, @myrepos\/myrepo@).
 createTemplateSyncConfig_repositoryName :: Lens.Lens' CreateTemplateSyncConfig Prelude.Text
 createTemplateSyncConfig_repositoryName = Lens.lens (\CreateTemplateSyncConfig' {repositoryName} -> repositoryName) (\s@CreateTemplateSyncConfig' {} a -> s {repositoryName = a} :: CreateTemplateSyncConfig)
 

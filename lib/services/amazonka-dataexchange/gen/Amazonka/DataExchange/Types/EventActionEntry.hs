@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.EventActionEntry
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 data EventActionEntry = EventActionEntry'
   { -- | What occurs after a certain event.
     action :: Action,
+    -- | The Amazon Resource Name (ARN) for the event action.
+    arn :: Prelude.Text,
     -- | The date and time that the event action was created, in ISO 8601 format.
     createdAt :: Core.POSIX,
     -- | What occurs to start an action.
     event :: Event,
     -- | The unique identifier for the event action.
     id :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the event action.
-    arn :: Prelude.Text,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
     updatedAt :: Core.POSIX
@@ -57,49 +57,53 @@ data EventActionEntry = EventActionEntry'
 --
 -- 'action', 'eventActionEntry_action' - What occurs after a certain event.
 --
+-- 'arn', 'eventActionEntry_arn' - The Amazon Resource Name (ARN) for the event action.
+--
 -- 'createdAt', 'eventActionEntry_createdAt' - The date and time that the event action was created, in ISO 8601 format.
 --
 -- 'event', 'eventActionEntry_event' - What occurs to start an action.
 --
 -- 'id', 'eventActionEntry_id' - The unique identifier for the event action.
 --
--- 'arn', 'eventActionEntry_arn' - The Amazon Resource Name (ARN) for the event action.
---
 -- 'updatedAt', 'eventActionEntry_updatedAt' - The date and time that the event action was last updated, in ISO 8601
 -- format.
 newEventActionEntry ::
   -- | 'action'
   Action ->
+  -- | 'arn'
+  Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
   -- | 'event'
   Event ->
   -- | 'id'
   Prelude.Text ->
-  -- | 'arn'
-  Prelude.Text ->
   -- | 'updatedAt'
   Prelude.UTCTime ->
   EventActionEntry
 newEventActionEntry
   pAction_
+  pArn_
   pCreatedAt_
   pEvent_
   pId_
-  pArn_
   pUpdatedAt_ =
     EventActionEntry'
       { action = pAction_,
+        arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         event = pEvent_,
         id = pId_,
-        arn = pArn_,
         updatedAt = Core._Time Lens.# pUpdatedAt_
       }
 
 -- | What occurs after a certain event.
 eventActionEntry_action :: Lens.Lens' EventActionEntry Action
 eventActionEntry_action = Lens.lens (\EventActionEntry' {action} -> action) (\s@EventActionEntry' {} a -> s {action = a} :: EventActionEntry)
+
+-- | The Amazon Resource Name (ARN) for the event action.
+eventActionEntry_arn :: Lens.Lens' EventActionEntry Prelude.Text
+eventActionEntry_arn = Lens.lens (\EventActionEntry' {arn} -> arn) (\s@EventActionEntry' {} a -> s {arn = a} :: EventActionEntry)
 
 -- | The date and time that the event action was created, in ISO 8601 format.
 eventActionEntry_createdAt :: Lens.Lens' EventActionEntry Prelude.UTCTime
@@ -113,10 +117,6 @@ eventActionEntry_event = Lens.lens (\EventActionEntry' {event} -> event) (\s@Eve
 eventActionEntry_id :: Lens.Lens' EventActionEntry Prelude.Text
 eventActionEntry_id = Lens.lens (\EventActionEntry' {id} -> id) (\s@EventActionEntry' {} a -> s {id = a} :: EventActionEntry)
 
--- | The Amazon Resource Name (ARN) for the event action.
-eventActionEntry_arn :: Lens.Lens' EventActionEntry Prelude.Text
-eventActionEntry_arn = Lens.lens (\EventActionEntry' {arn} -> arn) (\s@EventActionEntry' {} a -> s {arn = a} :: EventActionEntry)
-
 -- | The date and time that the event action was last updated, in ISO 8601
 -- format.
 eventActionEntry_updatedAt :: Lens.Lens' EventActionEntry Prelude.UTCTime
@@ -129,27 +129,27 @@ instance Core.FromJSON EventActionEntry where
       ( \x ->
           EventActionEntry'
             Prelude.<$> (x Core..: "Action")
+            Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "CreatedAt")
             Prelude.<*> (x Core..: "Event")
             Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
 instance Prelude.Hashable EventActionEntry where
   hashWithSalt _salt EventActionEntry' {..} =
     _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData EventActionEntry where
   rnf EventActionEntry' {..} =
     Prelude.rnf action
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf updatedAt

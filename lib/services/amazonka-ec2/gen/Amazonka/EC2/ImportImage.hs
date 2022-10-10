@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.ImportImage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,11 @@
 --
 -- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
+--
+-- Amazon Web Services VM Import\/Export strongly recommends specifying a
+-- value for either the @--license-type@ or @--usage-operation@ parameter
+-- when you create a new VM Import task. This ensures your operating system
+-- is licensed appropriately and your billing is optimized.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an image using VM Import\/Export>
@@ -95,10 +100,12 @@ data ImportImage = ImportImage'
     -- | The license type to be used for the Amazon Machine Image (AMI) after
     -- importing.
     --
-    -- By default, we detect the source-system operating system (OS) and apply
-    -- the appropriate license. Specify @AWS@ to replace the source-system
-    -- license with an Amazon Web Services license, if appropriate. Specify
-    -- @BYOL@ to retain the source-system license, if appropriate.
+    -- Specify @AWS@ to replace the source-system license with an Amazon Web
+    -- Services license or @BYOL@ to retain the source-system license. Leaving
+    -- this parameter undefined is the same as choosing @AWS@ when importing a
+    -- Windows Server operating system, and the same as choosing @BYOL@ when
+    -- importing a Windows client operating system (such as Windows 10) or a
+    -- Linux operating system.
     --
     -- To use @BYOL@, you must have existing licenses with rights to use these
     -- licenses in a third party cloud, such as Amazon Web Services. For more
@@ -201,10 +208,12 @@ data ImportImage = ImportImage'
 -- 'licenseType', 'importImage_licenseType' - The license type to be used for the Amazon Machine Image (AMI) after
 -- importing.
 --
--- By default, we detect the source-system operating system (OS) and apply
--- the appropriate license. Specify @AWS@ to replace the source-system
--- license with an Amazon Web Services license, if appropriate. Specify
--- @BYOL@ to retain the source-system license, if appropriate.
+-- Specify @AWS@ to replace the source-system license with an Amazon Web
+-- Services license or @BYOL@ to retain the source-system license. Leaving
+-- this parameter undefined is the same as choosing @AWS@ when importing a
+-- Windows Server operating system, and the same as choosing @BYOL@ when
+-- importing a Windows client operating system (such as Windows 10) or a
+-- Linux operating system.
 --
 -- To use @BYOL@, you must have existing licenses with rights to use these
 -- licenses in a third party cloud, such as Amazon Web Services. For more
@@ -323,10 +332,12 @@ importImage_clientToken = Lens.lens (\ImportImage' {clientToken} -> clientToken)
 -- | The license type to be used for the Amazon Machine Image (AMI) after
 -- importing.
 --
--- By default, we detect the source-system operating system (OS) and apply
--- the appropriate license. Specify @AWS@ to replace the source-system
--- license with an Amazon Web Services license, if appropriate. Specify
--- @BYOL@ to retain the source-system license, if appropriate.
+-- Specify @AWS@ to replace the source-system license with an Amazon Web
+-- Services license or @BYOL@ to retain the source-system license. Leaving
+-- this parameter undefined is the same as choosing @AWS@ when importing a
+-- Windows Server operating system, and the same as choosing @BYOL@ when
+-- importing a Windows client operating system (such as Windows 10) or a
+-- Linux operating system.
 --
 -- To use @BYOL@, you must have existing licenses with rights to use these
 -- licenses in a third party cloud, such as Amazon Web Services. For more

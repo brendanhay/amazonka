@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.DisassociateIdentityProviderConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data DisassociateIdentityProviderConfig = DisassociateIdentityProviderConfig'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster to disassociate an identity provider from.
     clusterName :: Prelude.Text,
-    -- | An object that represents an identity provider configuration.
+    -- | An object representing an identity provider configuration.
     identityProviderConfig :: IdentityProviderConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data DisassociateIdentityProviderConfig = DisassociateIdentityProviderConfig'
 --
 -- 'clusterName', 'disassociateIdentityProviderConfig_clusterName' - The name of the cluster to disassociate an identity provider from.
 --
--- 'identityProviderConfig', 'disassociateIdentityProviderConfig_identityProviderConfig' - An object that represents an identity provider configuration.
+-- 'identityProviderConfig', 'disassociateIdentityProviderConfig_identityProviderConfig' - An object representing an identity provider configuration.
 newDisassociateIdentityProviderConfig ::
   -- | 'clusterName'
   Prelude.Text ->
@@ -103,7 +103,7 @@ disassociateIdentityProviderConfig_clientRequestToken = Lens.lens (\Disassociate
 disassociateIdentityProviderConfig_clusterName :: Lens.Lens' DisassociateIdentityProviderConfig Prelude.Text
 disassociateIdentityProviderConfig_clusterName = Lens.lens (\DisassociateIdentityProviderConfig' {clusterName} -> clusterName) (\s@DisassociateIdentityProviderConfig' {} a -> s {clusterName = a} :: DisassociateIdentityProviderConfig)
 
--- | An object that represents an identity provider configuration.
+-- | An object representing an identity provider configuration.
 disassociateIdentityProviderConfig_identityProviderConfig :: Lens.Lens' DisassociateIdentityProviderConfig IdentityProviderConfig
 disassociateIdentityProviderConfig_identityProviderConfig = Lens.lens (\DisassociateIdentityProviderConfig' {identityProviderConfig} -> identityProviderConfig) (\s@DisassociateIdentityProviderConfig' {} a -> s {identityProviderConfig = a} :: DisassociateIdentityProviderConfig)
 

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -54,10 +54,12 @@ library
     Amazonka.Translate.Lens
     Amazonka.Translate.ListLanguages
     Amazonka.Translate.ListParallelData
+    Amazonka.Translate.ListTagsForResource
     Amazonka.Translate.ListTerminologies
     Amazonka.Translate.ListTextTranslationJobs
     Amazonka.Translate.StartTextTranslationJob
     Amazonka.Translate.StopTextTranslationJob
+    Amazonka.Translate.TagResource
     Amazonka.Translate.TranslateText
     Amazonka.Translate.Types
     Amazonka.Translate.Types.AppliedTerminology
@@ -78,6 +80,7 @@ library
     Amazonka.Translate.Types.ParallelDataProperties
     Amazonka.Translate.Types.ParallelDataStatus
     Amazonka.Translate.Types.Profanity
+    Amazonka.Translate.Types.Tag
     Amazonka.Translate.Types.Term
     Amazonka.Translate.Types.TerminologyData
     Amazonka.Translate.Types.TerminologyDataFormat
@@ -86,11 +89,12 @@ library
     Amazonka.Translate.Types.TextTranslationJobFilter
     Amazonka.Translate.Types.TextTranslationJobProperties
     Amazonka.Translate.Types.TranslationSettings
+    Amazonka.Translate.UntagResource
     Amazonka.Translate.UpdateParallelData
     Amazonka.Translate.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-translate-test
@@ -109,8 +113,8 @@ test-suite amazonka-translate-test
     Test.Amazonka.Translate.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , amazonka-translate
     , base
     , bytestring

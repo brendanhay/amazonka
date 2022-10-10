@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.GetMobileDeviceAccessOverride
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,8 +56,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetMobileDeviceAccessOverride' smart constructor.
 data GetMobileDeviceAccessOverride = GetMobileDeviceAccessOverride'
-  { -- | The Amazon WorkMail organization to which you want to apply the
-    -- override.
+  { -- | The WorkMail organization to which you want to apply the override.
     organizationId :: Prelude.Text,
     -- | Identifies the WorkMail user for the override. Accepts the following
     -- types of user identities:
@@ -83,8 +82,7 @@ data GetMobileDeviceAccessOverride = GetMobileDeviceAccessOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'getMobileDeviceAccessOverride_organizationId' - The Amazon WorkMail organization to which you want to apply the
--- override.
+-- 'organizationId', 'getMobileDeviceAccessOverride_organizationId' - The WorkMail organization to which you want to apply the override.
 --
 -- 'userId', 'getMobileDeviceAccessOverride_userId' - Identifies the WorkMail user for the override. Accepts the following
 -- types of user identities:
@@ -117,8 +115,7 @@ newGetMobileDeviceAccessOverride
         deviceId = pDeviceId_
       }
 
--- | The Amazon WorkMail organization to which you want to apply the
--- override.
+-- | The WorkMail organization to which you want to apply the override.
 getMobileDeviceAccessOverride_organizationId :: Lens.Lens' GetMobileDeviceAccessOverride Prelude.Text
 getMobileDeviceAccessOverride_organizationId = Lens.lens (\GetMobileDeviceAccessOverride' {organizationId} -> organizationId) (\s@GetMobileDeviceAccessOverride' {} a -> s {organizationId = a} :: GetMobileDeviceAccessOverride)
 

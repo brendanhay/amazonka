@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.ImageAttributeName
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.EC2.Types.ImageAttributeName
         ImageAttributeName_BlockDeviceMapping,
         ImageAttributeName_BootMode,
         ImageAttributeName_Description,
+        ImageAttributeName_ImdsSupport,
         ImageAttributeName_Kernel,
         ImageAttributeName_LastLaunchedTime,
         ImageAttributeName_LaunchPermission,
@@ -76,6 +77,9 @@ pattern ImageAttributeName_BootMode = ImageAttributeName' "bootMode"
 pattern ImageAttributeName_Description :: ImageAttributeName
 pattern ImageAttributeName_Description = ImageAttributeName' "description"
 
+pattern ImageAttributeName_ImdsSupport :: ImageAttributeName
+pattern ImageAttributeName_ImdsSupport = ImageAttributeName' "imdsSupport"
+
 pattern ImageAttributeName_Kernel :: ImageAttributeName
 pattern ImageAttributeName_Kernel = ImageAttributeName' "kernel"
 
@@ -104,6 +108,7 @@ pattern ImageAttributeName_UefiData = ImageAttributeName' "uefiData"
   ImageAttributeName_BlockDeviceMapping,
   ImageAttributeName_BootMode,
   ImageAttributeName_Description,
+  ImageAttributeName_ImdsSupport,
   ImageAttributeName_Kernel,
   ImageAttributeName_LastLaunchedTime,
   ImageAttributeName_LaunchPermission,

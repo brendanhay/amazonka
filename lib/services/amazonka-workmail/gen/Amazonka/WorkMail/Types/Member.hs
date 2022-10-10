@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.Member
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,10 +37,9 @@ data Member = Member'
     state :: Prelude.Maybe EntityState,
     -- | The identifier of the member.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date indicating when the member was enabled for Amazon WorkMail use.
+    -- | The date indicating when the member was enabled for WorkMail use.
     enabledDate :: Prelude.Maybe Core.POSIX,
-    -- | The date indicating when the member was disabled from Amazon WorkMail
-    -- use.
+    -- | The date indicating when the member was disabled from WorkMail use.
     disabledDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,10 +60,9 @@ data Member = Member'
 --
 -- 'id', 'member_id' - The identifier of the member.
 --
--- 'enabledDate', 'member_enabledDate' - The date indicating when the member was enabled for Amazon WorkMail use.
+-- 'enabledDate', 'member_enabledDate' - The date indicating when the member was enabled for WorkMail use.
 --
--- 'disabledDate', 'member_disabledDate' - The date indicating when the member was disabled from Amazon WorkMail
--- use.
+-- 'disabledDate', 'member_disabledDate' - The date indicating when the member was disabled from WorkMail use.
 newMember ::
   Member
 newMember =
@@ -93,12 +91,11 @@ member_state = Lens.lens (\Member' {state} -> state) (\s@Member' {} a -> s {stat
 member_id :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_id = Lens.lens (\Member' {id} -> id) (\s@Member' {} a -> s {id = a} :: Member)
 
--- | The date indicating when the member was enabled for Amazon WorkMail use.
+-- | The date indicating when the member was enabled for WorkMail use.
 member_enabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
 member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Member' {} a -> s {enabledDate = a} :: Member) Prelude.. Lens.mapping Core._Time
 
--- | The date indicating when the member was disabled from Amazon WorkMail
--- use.
+-- | The date indicating when the member was disabled from WorkMail use.
 member_disabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
 member_disabledDate = Lens.lens (\Member' {disabledDate} -> disabledDate) (\s@Member' {} a -> s {disabledDate = a} :: Member) Prelude.. Lens.mapping Core._Time
 

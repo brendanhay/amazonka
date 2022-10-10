@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBInstance
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -220,11 +220,11 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Constraints:
     --
-    -- -   Must be 1 to 255 letters, numbers, or hyphens.
+    -- -   It must be 1 to 255 letters, numbers, or hyphens.
     --
-    -- -   First character must be a letter
+    -- -   The first character must be a letter.
     --
-    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
+    -- -   It can\'t end with a hyphen or contain two consecutive hyphens.
     dbParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | Specifies where automated backups and manual snapshots are stored.
     --
@@ -971,8 +971,8 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- -   It must contain 1 to 63 alphanumeric characters.
     --
-    -- -   It must begin with a letter or an underscore. Subsequent characters
-    --     can be letters, underscores, or digits (0 to 9).
+    -- -   It must begin with a letter. Subsequent characters can be letters,
+    --     underscores, or digits (0 to 9).
     --
     -- -   It can\'t be a word reserved by the database engine.
     dbName :: Prelude.Maybe Prelude.Text,
@@ -1213,11 +1213,11 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Constraints:
 --
--- -   Must be 1 to 255 letters, numbers, or hyphens.
+-- -   It must be 1 to 255 letters, numbers, or hyphens.
 --
--- -   First character must be a letter
+-- -   The first character must be a letter.
 --
--- -   Can\'t end with a hyphen or contain two consecutive hyphens
+-- -   It can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- 'backupTarget', 'createDBInstance_backupTarget' - Specifies where automated backups and manual snapshots are stored.
 --
@@ -1964,8 +1964,8 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- -   It must contain 1 to 63 alphanumeric characters.
 --
--- -   It must begin with a letter or an underscore. Subsequent characters
---     can be letters, underscores, or digits (0 to 9).
+-- -   It must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0 to 9).
 --
 -- -   It can\'t be a word reserved by the database engine.
 --
@@ -2270,11 +2270,11 @@ createDBInstance_vpcSecurityGroupIds = Lens.lens (\CreateDBInstance' {vpcSecurit
 --
 -- Constraints:
 --
--- -   Must be 1 to 255 letters, numbers, or hyphens.
+-- -   It must be 1 to 255 letters, numbers, or hyphens.
 --
--- -   First character must be a letter
+-- -   The first character must be a letter.
 --
--- -   Can\'t end with a hyphen or contain two consecutive hyphens
+-- -   It can\'t end with a hyphen or contain two consecutive hyphens.
 createDBInstance_dbParameterGroupName :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_dbParameterGroupName = Lens.lens (\CreateDBInstance' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBInstance' {} a -> s {dbParameterGroupName = a} :: CreateDBInstance)
 
@@ -3097,8 +3097,8 @@ createDBInstance_engineVersion = Lens.lens (\CreateDBInstance' {engineVersion} -
 --
 -- -   It must contain 1 to 63 alphanumeric characters.
 --
--- -   It must begin with a letter or an underscore. Subsequent characters
---     can be letters, underscores, or digits (0 to 9).
+-- -   It must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0 to 9).
 --
 -- -   It can\'t be a word reserved by the database engine.
 createDBInstance_dbName :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)

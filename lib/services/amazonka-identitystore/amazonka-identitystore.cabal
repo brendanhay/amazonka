@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -44,19 +44,46 @@ library
 
   exposed-modules:
     Amazonka.IdentityStore
+    Amazonka.IdentityStore.CreateGroup
+    Amazonka.IdentityStore.CreateGroupMembership
+    Amazonka.IdentityStore.CreateUser
+    Amazonka.IdentityStore.DeleteGroup
+    Amazonka.IdentityStore.DeleteGroupMembership
+    Amazonka.IdentityStore.DeleteUser
     Amazonka.IdentityStore.DescribeGroup
+    Amazonka.IdentityStore.DescribeGroupMembership
     Amazonka.IdentityStore.DescribeUser
+    Amazonka.IdentityStore.GetGroupId
+    Amazonka.IdentityStore.GetGroupMembershipId
+    Amazonka.IdentityStore.GetUserId
+    Amazonka.IdentityStore.IsMemberInGroups
     Amazonka.IdentityStore.Lens
+    Amazonka.IdentityStore.ListGroupMemberships
+    Amazonka.IdentityStore.ListGroupMembershipsForMember
     Amazonka.IdentityStore.ListGroups
     Amazonka.IdentityStore.ListUsers
     Amazonka.IdentityStore.Types
+    Amazonka.IdentityStore.Types.Address
+    Amazonka.IdentityStore.Types.AlternateIdentifier
+    Amazonka.IdentityStore.Types.AttributeOperation
+    Amazonka.IdentityStore.Types.AttributeValue
+    Amazonka.IdentityStore.Types.Email
+    Amazonka.IdentityStore.Types.ExternalId
     Amazonka.IdentityStore.Types.Filter
     Amazonka.IdentityStore.Types.Group
+    Amazonka.IdentityStore.Types.GroupMembership
+    Amazonka.IdentityStore.Types.GroupMembershipExistenceResult
+    Amazonka.IdentityStore.Types.MemberId
+    Amazonka.IdentityStore.Types.Name
+    Amazonka.IdentityStore.Types.PhoneNumber
+    Amazonka.IdentityStore.Types.UniqueAttribute
     Amazonka.IdentityStore.Types.User
+    Amazonka.IdentityStore.UpdateGroup
+    Amazonka.IdentityStore.UpdateUser
     Amazonka.IdentityStore.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-identitystore-test
@@ -75,9 +102,9 @@ test-suite amazonka-identitystore-test
     Test.Amazonka.IdentityStore.Internal
 
   build-depends:
-    , amazonka-core           ^>=2.0
+    , amazonka-core           >=2.0 && <2.1
     , amazonka-identitystore
-    , amazonka-test           ^>=2.0
+    , amazonka-test           >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

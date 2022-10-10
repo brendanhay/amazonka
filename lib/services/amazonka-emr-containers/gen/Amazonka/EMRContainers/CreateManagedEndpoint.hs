@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.CreateManagedEndpoint
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data CreateManagedEndpoint = CreateManagedEndpoint'
   { -- | The tags of the managed endpoint.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The certificate ARN provided by users for the managed endpoint. This
-    -- fiedd is under deprecation and will be removed in future releases.
+    -- field is under deprecation and will be removed in future releases.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration settings that will be used to override existing
     -- configurations.
@@ -95,7 +95,7 @@ data CreateManagedEndpoint = CreateManagedEndpoint'
 -- 'tags', 'createManagedEndpoint_tags' - The tags of the managed endpoint.
 --
 -- 'certificateArn', 'createManagedEndpoint_certificateArn' - The certificate ARN provided by users for the managed endpoint. This
--- fiedd is under deprecation and will be removed in future releases.
+-- field is under deprecation and will be removed in future releases.
 --
 -- 'configurationOverrides', 'createManagedEndpoint_configurationOverrides' - The configuration settings that will be used to override existing
 -- configurations.
@@ -149,7 +149,7 @@ createManagedEndpoint_tags :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe (P
 createManagedEndpoint_tags = Lens.lens (\CreateManagedEndpoint' {tags} -> tags) (\s@CreateManagedEndpoint' {} a -> s {tags = a} :: CreateManagedEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The certificate ARN provided by users for the managed endpoint. This
--- fiedd is under deprecation and will be removed in future releases.
+-- field is under deprecation and will be removed in future releases.
 createManagedEndpoint_certificateArn :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe Prelude.Text)
 createManagedEndpoint_certificateArn = Lens.lens (\CreateManagedEndpoint' {certificateArn} -> certificateArn) (\s@CreateManagedEndpoint' {} a -> s {certificateArn = a} :: CreateManagedEndpoint)
 

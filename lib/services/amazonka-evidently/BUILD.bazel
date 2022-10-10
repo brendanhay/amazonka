@@ -79,6 +79,8 @@ haskell_library(
         "gen/Amazonka/Evidently/Types/OnlineAbConfig.hs",
         "gen/Amazonka/Evidently/Types/OnlineAbDefinition.hs",
         "gen/Amazonka/Evidently/Types/Project.hs",
+        "gen/Amazonka/Evidently/Types/ProjectAppConfigResource.hs",
+        "gen/Amazonka/Evidently/Types/ProjectAppConfigResourceConfig.hs",
         "gen/Amazonka/Evidently/Types/ProjectDataDelivery.hs",
         "gen/Amazonka/Evidently/Types/ProjectDataDeliveryConfig.hs",
         "gen/Amazonka/Evidently/Types/ProjectStatus.hs",

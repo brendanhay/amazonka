@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeNetworkInterfaces
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -186,7 +186,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     -- next set of results. You cannot specify this parameter and the network
     -- interface IDs parameter in the same request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more network interface IDs.
+    -- | The network interface IDs.
     --
     -- Default: Describes all your network interfaces.
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text]
@@ -330,7 +330,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 -- next set of results. You cannot specify this parameter and the network
 -- interface IDs parameter in the same request.
 --
--- 'networkInterfaceIds', 'describeNetworkInterfaces_networkInterfaceIds' - One or more network interface IDs.
+-- 'networkInterfaceIds', 'describeNetworkInterfaces_networkInterfaceIds' - The network interface IDs.
 --
 -- Default: Describes all your network interfaces.
 newDescribeNetworkInterfaces ::
@@ -482,7 +482,7 @@ describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRu
 describeNetworkInterfaces_maxResults :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Natural)
 describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {maxResults} -> maxResults) (\s@DescribeNetworkInterfaces' {} a -> s {maxResults = a} :: DescribeNetworkInterfaces)
 
--- | One or more network interface IDs.
+-- | The network interface IDs.
 --
 -- Default: Describes all your network interfaces.
 describeNetworkInterfaces_networkInterfaceIds :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe [Prelude.Text])

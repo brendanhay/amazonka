@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.ResourceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ module Amazonka.EC2.Types.ResourceType
         ResourceType_Capacity_reservation_fleet,
         ResourceType_Carrier_gateway,
         ResourceType_Client_vpn_endpoint,
+        ResourceType_Coip_pool,
         ResourceType_Customer_gateway,
         ResourceType_Dedicated_host,
         ResourceType_Dhcp_options,
@@ -87,11 +88,14 @@ module Amazonka.EC2.Types.ResourceType
         ResourceType_Volume,
         ResourceType_Vpc,
         ResourceType_Vpc_endpoint,
+        ResourceType_Vpc_endpoint_connection,
         ResourceType_Vpc_endpoint_connection_device_type,
         ResourceType_Vpc_endpoint_service,
+        ResourceType_Vpc_endpoint_service_permission,
         ResourceType_Vpc_flow_log,
         ResourceType_Vpc_peering_connection,
         ResourceType_Vpn_connection,
+        ResourceType_Vpn_connection_device_type,
         ResourceType_Vpn_gateway
       ),
   )
@@ -140,6 +144,9 @@ pattern ResourceType_Carrier_gateway = ResourceType' "carrier-gateway"
 
 pattern ResourceType_Client_vpn_endpoint :: ResourceType
 pattern ResourceType_Client_vpn_endpoint = ResourceType' "client-vpn-endpoint"
+
+pattern ResourceType_Coip_pool :: ResourceType
+pattern ResourceType_Coip_pool = ResourceType' "coip-pool"
 
 pattern ResourceType_Customer_gateway :: ResourceType
 pattern ResourceType_Customer_gateway = ResourceType' "customer-gateway"
@@ -330,11 +337,17 @@ pattern ResourceType_Vpc = ResourceType' "vpc"
 pattern ResourceType_Vpc_endpoint :: ResourceType
 pattern ResourceType_Vpc_endpoint = ResourceType' "vpc-endpoint"
 
+pattern ResourceType_Vpc_endpoint_connection :: ResourceType
+pattern ResourceType_Vpc_endpoint_connection = ResourceType' "vpc-endpoint-connection"
+
 pattern ResourceType_Vpc_endpoint_connection_device_type :: ResourceType
 pattern ResourceType_Vpc_endpoint_connection_device_type = ResourceType' "vpc-endpoint-connection-device-type"
 
 pattern ResourceType_Vpc_endpoint_service :: ResourceType
 pattern ResourceType_Vpc_endpoint_service = ResourceType' "vpc-endpoint-service"
+
+pattern ResourceType_Vpc_endpoint_service_permission :: ResourceType
+pattern ResourceType_Vpc_endpoint_service_permission = ResourceType' "vpc-endpoint-service-permission"
 
 pattern ResourceType_Vpc_flow_log :: ResourceType
 pattern ResourceType_Vpc_flow_log = ResourceType' "vpc-flow-log"
@@ -345,6 +358,9 @@ pattern ResourceType_Vpc_peering_connection = ResourceType' "vpc-peering-connect
 pattern ResourceType_Vpn_connection :: ResourceType
 pattern ResourceType_Vpn_connection = ResourceType' "vpn-connection"
 
+pattern ResourceType_Vpn_connection_device_type :: ResourceType
+pattern ResourceType_Vpn_connection_device_type = ResourceType' "vpn-connection-device-type"
+
 pattern ResourceType_Vpn_gateway :: ResourceType
 pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
 
@@ -353,6 +369,7 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Capacity_reservation_fleet,
   ResourceType_Carrier_gateway,
   ResourceType_Client_vpn_endpoint,
+  ResourceType_Coip_pool,
   ResourceType_Customer_gateway,
   ResourceType_Dedicated_host,
   ResourceType_Dhcp_options,
@@ -416,11 +433,14 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Volume,
   ResourceType_Vpc,
   ResourceType_Vpc_endpoint,
+  ResourceType_Vpc_endpoint_connection,
   ResourceType_Vpc_endpoint_connection_device_type,
   ResourceType_Vpc_endpoint_service,
+  ResourceType_Vpc_endpoint_service_permission,
   ResourceType_Vpc_flow_log,
   ResourceType_Vpc_peering_connection,
   ResourceType_Vpn_connection,
+  ResourceType_Vpn_connection_device_type,
   ResourceType_Vpn_gateway,
   ResourceType'
   #-}

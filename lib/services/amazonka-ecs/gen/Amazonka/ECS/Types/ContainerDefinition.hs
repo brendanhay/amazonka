@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.ContainerDefinition
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,8 +66,9 @@ data ContainerDefinition = ContainerDefinition'
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     name :: Prelude.Maybe Prelude.Text,
     -- | The dependencies defined for container startup and shutdown. A container
-    -- can contain multiple dependencies. When a dependency is defined for
-    -- container startup, for container shutdown it is reversed.
+    -- can contain multiple dependencies on other containers in a task
+    -- definition. When a dependency is defined for container startup, for
+    -- container shutdown it is reversed.
     --
     -- For tasks using the EC2 launch type, the container instances require at
     -- least version 1.26.0 of the container agent to turn on container
@@ -372,8 +373,12 @@ data ContainerDefinition = ContainerDefinition'
     -- instance, but also allow the container to consume more memory resources
     -- when needed.
     --
-    -- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
-    -- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+    -- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+    -- for a container. So, don\'t specify less than 6 MiB of memory for your
+    -- containers.
+    --
+    -- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+    -- memory for a container. So, don\'t specify less than 4 MiB of memory for
     -- your containers.
     memoryReservation :: Prelude.Maybe Prelude.Int,
     -- | The private repository authentication credentials to use.
@@ -751,8 +756,9 @@ data ContainerDefinition = ContainerDefinition'
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- 'dependsOn', 'containerDefinition_dependsOn' - The dependencies defined for container startup and shutdown. A container
--- can contain multiple dependencies. When a dependency is defined for
--- container startup, for container shutdown it is reversed.
+-- can contain multiple dependencies on other containers in a task
+-- definition. When a dependency is defined for container startup, for
+-- container shutdown it is reversed.
 --
 -- For tasks using the EC2 launch type, the container instances require at
 -- least version 1.26.0 of the container agent to turn on container
@@ -1057,8 +1063,12 @@ data ContainerDefinition = ContainerDefinition'
 -- instance, but also allow the container to consume more memory resources
 -- when needed.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
--- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+-- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+-- for a container. So, don\'t specify less than 6 MiB of memory for your
+-- containers.
+--
+-- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+-- memory for a container. So, don\'t specify less than 4 MiB of memory for
 -- your containers.
 --
 -- 'repositoryCredentials', 'containerDefinition_repositoryCredentials' - The private repository authentication credentials to use.
@@ -1474,8 +1484,9 @@ containerDefinition_name :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelud
 containerDefinition_name = Lens.lens (\ContainerDefinition' {name} -> name) (\s@ContainerDefinition' {} a -> s {name = a} :: ContainerDefinition)
 
 -- | The dependencies defined for container startup and shutdown. A container
--- can contain multiple dependencies. When a dependency is defined for
--- container startup, for container shutdown it is reversed.
+-- can contain multiple dependencies on other containers in a task
+-- definition. When a dependency is defined for container startup, for
+-- container shutdown it is reversed.
 --
 -- For tasks using the EC2 launch type, the container instances require at
 -- least version 1.26.0 of the container agent to turn on container
@@ -1804,8 +1815,12 @@ containerDefinition_ulimits = Lens.lens (\ContainerDefinition' {ulimits} -> ulim
 -- instance, but also allow the container to consume more memory resources
 -- when needed.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
--- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+-- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+-- for a container. So, don\'t specify less than 6 MiB of memory for your
+-- containers.
+--
+-- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+-- memory for a container. So, don\'t specify less than 4 MiB of memory for
 -- your containers.
 containerDefinition_memoryReservation :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Int)
 containerDefinition_memoryReservation = Lens.lens (\ContainerDefinition' {memoryReservation} -> memoryReservation) (\s@ContainerDefinition' {} a -> s {memoryReservation = a} :: ContainerDefinition)

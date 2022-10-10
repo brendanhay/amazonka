@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -46,13 +46,19 @@ library
     Amazonka.LookoutEquipment
     Amazonka.LookoutEquipment.CreateDataset
     Amazonka.LookoutEquipment.CreateInferenceScheduler
+    Amazonka.LookoutEquipment.CreateLabel
+    Amazonka.LookoutEquipment.CreateLabelGroup
     Amazonka.LookoutEquipment.CreateModel
     Amazonka.LookoutEquipment.DeleteDataset
     Amazonka.LookoutEquipment.DeleteInferenceScheduler
+    Amazonka.LookoutEquipment.DeleteLabel
+    Amazonka.LookoutEquipment.DeleteLabelGroup
     Amazonka.LookoutEquipment.DeleteModel
     Amazonka.LookoutEquipment.DescribeDataIngestionJob
     Amazonka.LookoutEquipment.DescribeDataset
     Amazonka.LookoutEquipment.DescribeInferenceScheduler
+    Amazonka.LookoutEquipment.DescribeLabel
+    Amazonka.LookoutEquipment.DescribeLabelGroup
     Amazonka.LookoutEquipment.DescribeModel
     Amazonka.LookoutEquipment.Lens
     Amazonka.LookoutEquipment.ListDataIngestionJobs
@@ -60,6 +66,8 @@ library
     Amazonka.LookoutEquipment.ListInferenceEvents
     Amazonka.LookoutEquipment.ListInferenceExecutions
     Amazonka.LookoutEquipment.ListInferenceSchedulers
+    Amazonka.LookoutEquipment.ListLabelGroups
+    Amazonka.LookoutEquipment.ListLabels
     Amazonka.LookoutEquipment.ListModels
     Amazonka.LookoutEquipment.ListSensorStatistics
     Amazonka.LookoutEquipment.ListTagsForResource
@@ -94,9 +102,13 @@ library
     Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
     Amazonka.LookoutEquipment.Types.InsufficientSensorData
     Amazonka.LookoutEquipment.Types.InvalidSensorData
+    Amazonka.LookoutEquipment.Types.LabelGroupSummary
+    Amazonka.LookoutEquipment.Types.LabelRating
     Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
     Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
+    Amazonka.LookoutEquipment.Types.LabelSummary
     Amazonka.LookoutEquipment.Types.LargeTimestampGaps
+    Amazonka.LookoutEquipment.Types.LatestInferenceResult
     Amazonka.LookoutEquipment.Types.MissingCompleteSensorData
     Amazonka.LookoutEquipment.Types.MissingSensorData
     Amazonka.LookoutEquipment.Types.ModelStatus
@@ -113,10 +125,11 @@ library
     Amazonka.LookoutEquipment.Types.UnsupportedTimestamps
     Amazonka.LookoutEquipment.UntagResource
     Amazonka.LookoutEquipment.UpdateInferenceScheduler
+    Amazonka.LookoutEquipment.UpdateLabelGroup
     Amazonka.LookoutEquipment.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-lookoutequipment-test
@@ -135,9 +148,9 @@ test-suite amazonka-lookoutequipment-test
     Test.Amazonka.LookoutEquipment.Internal
 
   build-depends:
-    , amazonka-core              ^>=2.0
+    , amazonka-core              >=2.0 && <2.1
     , amazonka-lookoutequipment
-    , amazonka-test              ^>=2.0
+    , amazonka-test              >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

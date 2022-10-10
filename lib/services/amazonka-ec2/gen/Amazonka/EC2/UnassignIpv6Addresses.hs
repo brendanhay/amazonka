@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.UnassignIpv6Addresses
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUnassignIpv6Addresses' smart constructor.
 data UnassignIpv6Addresses = UnassignIpv6Addresses'
-  { -- | One or more IPv6 prefixes to unassign from the network interface.
+  { -- | The IPv6 prefixes to unassign from the network interface.
     ipv6Prefixes :: Prelude.Maybe [Prelude.Text],
     -- | The IPv6 addresses to unassign from the network interface.
     ipv6Addresses :: Prelude.Maybe [Prelude.Text],
@@ -70,7 +70,7 @@ data UnassignIpv6Addresses = UnassignIpv6Addresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6Prefixes', 'unassignIpv6Addresses_ipv6Prefixes' - One or more IPv6 prefixes to unassign from the network interface.
+-- 'ipv6Prefixes', 'unassignIpv6Addresses_ipv6Prefixes' - The IPv6 prefixes to unassign from the network interface.
 --
 -- 'ipv6Addresses', 'unassignIpv6Addresses_ipv6Addresses' - The IPv6 addresses to unassign from the network interface.
 --
@@ -87,7 +87,7 @@ newUnassignIpv6Addresses pNetworkInterfaceId_ =
       networkInterfaceId = pNetworkInterfaceId_
     }
 
--- | One or more IPv6 prefixes to unassign from the network interface.
+-- | The IPv6 prefixes to unassign from the network interface.
 unassignIpv6Addresses_ipv6Prefixes :: Lens.Lens' UnassignIpv6Addresses (Prelude.Maybe [Prelude.Text])
 unassignIpv6Addresses_ipv6Prefixes = Lens.lens (\UnassignIpv6Addresses' {ipv6Prefixes} -> ipv6Prefixes) (\s@UnassignIpv6Addresses' {} a -> s {ipv6Prefixes = a} :: UnassignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
 

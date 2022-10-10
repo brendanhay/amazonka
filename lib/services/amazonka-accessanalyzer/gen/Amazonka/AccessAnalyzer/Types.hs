@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,10 +86,10 @@ module Amazonka.AccessAnalyzer.Types
     AccessPreview (..),
     newAccessPreview,
     accessPreview_statusReason,
+    accessPreview_id,
     accessPreview_analyzerArn,
     accessPreview_configurations,
     accessPreview_createdAt,
-    accessPreview_id,
     accessPreview_status,
 
     -- * AccessPreviewFinding
@@ -104,12 +104,12 @@ module Amazonka.AccessAnalyzer.Types
     accessPreviewFinding_error,
     accessPreviewFinding_existingFindingStatus,
     accessPreviewFinding_resource,
-    accessPreviewFinding_changeType,
-    accessPreviewFinding_createdAt,
     accessPreviewFinding_id,
-    accessPreviewFinding_resourceOwnerAccount,
     accessPreviewFinding_resourceType,
+    accessPreviewFinding_createdAt,
+    accessPreviewFinding_changeType,
     accessPreviewFinding_status,
+    accessPreviewFinding_resourceOwnerAccount,
 
     -- * AccessPreviewStatusReason
     AccessPreviewStatusReason (..),
@@ -120,9 +120,9 @@ module Amazonka.AccessAnalyzer.Types
     AccessPreviewSummary (..),
     newAccessPreviewSummary,
     accessPreviewSummary_statusReason,
+    accessPreviewSummary_id,
     accessPreviewSummary_analyzerArn,
     accessPreviewSummary_createdAt,
-    accessPreviewSummary_id,
     accessPreviewSummary_status,
 
     -- * AclGrantee
@@ -138,13 +138,13 @@ module Amazonka.AccessAnalyzer.Types
     analyzedResource_sharedVia,
     analyzedResource_error,
     analyzedResource_actions,
-    analyzedResource_analyzedAt,
-    analyzedResource_createdAt,
-    analyzedResource_isPublic,
     analyzedResource_resourceArn,
-    analyzedResource_resourceOwnerAccount,
     analyzedResource_resourceType,
+    analyzedResource_createdAt,
+    analyzedResource_analyzedAt,
     analyzedResource_updatedAt,
+    analyzedResource_isPublic,
+    analyzedResource_resourceOwnerAccount,
 
     -- * AnalyzedResourceSummary
     AnalyzedResourceSummary (..),
@@ -161,33 +161,33 @@ module Amazonka.AccessAnalyzer.Types
     analyzerSummary_lastResourceAnalyzed,
     analyzerSummary_statusReason,
     analyzerSummary_arn,
-    analyzerSummary_createdAt,
     analyzerSummary_name,
-    analyzerSummary_status,
     analyzerSummary_type,
+    analyzerSummary_createdAt,
+    analyzerSummary_status,
 
     -- * ArchiveRuleSummary
     ArchiveRuleSummary (..),
     newArchiveRuleSummary,
-    archiveRuleSummary_createdAt,
-    archiveRuleSummary_filter,
     archiveRuleSummary_ruleName,
+    archiveRuleSummary_filter,
+    archiveRuleSummary_createdAt,
     archiveRuleSummary_updatedAt,
 
     -- * CloudTrailDetails
     CloudTrailDetails (..),
     newCloudTrailDetails,
     cloudTrailDetails_endTime,
+    cloudTrailDetails_trails,
     cloudTrailDetails_accessRole,
     cloudTrailDetails_startTime,
-    cloudTrailDetails_trails,
 
     -- * CloudTrailProperties
     CloudTrailProperties (..),
     newCloudTrailProperties,
-    cloudTrailProperties_endTime,
-    cloudTrailProperties_startTime,
     cloudTrailProperties_trailProperties,
+    cloudTrailProperties_startTime,
+    cloudTrailProperties_endTime,
 
     -- * Configuration
     Configuration (..),
@@ -215,14 +215,14 @@ module Amazonka.AccessAnalyzer.Types
     finding_action,
     finding_error,
     finding_resource,
-    finding_analyzedAt,
+    finding_id,
+    finding_resourceType,
     finding_condition,
     finding_createdAt,
-    finding_id,
-    finding_resourceOwnerAccount,
-    finding_resourceType,
-    finding_status,
+    finding_analyzedAt,
     finding_updatedAt,
+    finding_status,
+    finding_resourceOwnerAccount,
 
     -- * FindingSource
     FindingSource (..),
@@ -244,14 +244,14 @@ module Amazonka.AccessAnalyzer.Types
     findingSummary_action,
     findingSummary_error,
     findingSummary_resource,
-    findingSummary_analyzedAt,
+    findingSummary_id,
+    findingSummary_resourceType,
     findingSummary_condition,
     findingSummary_createdAt,
-    findingSummary_id,
-    findingSummary_resourceOwnerAccount,
-    findingSummary_resourceType,
-    findingSummary_status,
+    findingSummary_analyzedAt,
     findingSummary_updatedAt,
+    findingSummary_status,
+    findingSummary_resourceOwnerAccount,
 
     -- * GeneratedPolicy
     GeneratedPolicy (..),
@@ -279,8 +279,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * InlineArchiveRule
     InlineArchiveRule (..),
     newInlineArchiveRule,
-    inlineArchiveRule_filter,
     inlineArchiveRule_ruleName,
+    inlineArchiveRule_filter,
 
     -- * InternetConfiguration
     InternetConfiguration (..),
@@ -292,8 +292,8 @@ module Amazonka.AccessAnalyzer.Types
     jobDetails_jobError,
     jobDetails_completedOn,
     jobDetails_jobId,
-    jobDetails_startedOn,
     jobDetails_status,
+    jobDetails_startedOn,
 
     -- * JobError
     JobError (..),
@@ -306,9 +306,9 @@ module Amazonka.AccessAnalyzer.Types
     newKmsGrantConfiguration,
     kmsGrantConfiguration_constraints,
     kmsGrantConfiguration_retiringPrincipal,
+    kmsGrantConfiguration_operations,
     kmsGrantConfiguration_granteePrincipal,
     kmsGrantConfiguration_issuingAccount,
-    kmsGrantConfiguration_operations,
 
     -- * KmsGrantConstraints
     KmsGrantConstraints (..),
@@ -348,8 +348,8 @@ module Amazonka.AccessAnalyzer.Types
     policyGeneration_completedOn,
     policyGeneration_jobId,
     policyGeneration_principalArn,
-    policyGeneration_startedOn,
     policyGeneration_status,
+    policyGeneration_startedOn,
 
     -- * PolicyGenerationDetails
     PolicyGenerationDetails (..),
@@ -359,8 +359,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * Position
     Position (..),
     newPosition,
-    position_column,
     position_line,
+    position_column,
     position_offset,
 
     -- * S3AccessPointConfiguration
@@ -373,8 +373,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * S3BucketAclGrantConfiguration
     S3BucketAclGrantConfiguration (..),
     newS3BucketAclGrantConfiguration,
-    s3BucketAclGrantConfiguration_grantee,
     s3BucketAclGrantConfiguration_permission,
+    s3BucketAclGrantConfiguration_grantee,
 
     -- * S3BucketConfiguration
     S3BucketConfiguration (..),
@@ -405,8 +405,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * Span
     Span (..),
     newSpan,
-    span_end,
     span_start,
+    span_end,
 
     -- * SqsQueueConfiguration
     SqsQueueConfiguration (..),
@@ -421,8 +421,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * Substring
     Substring (..),
     newSubstring,
-    substring_length,
     substring_start,
+    substring_length,
 
     -- * Trail
     Trail (..),

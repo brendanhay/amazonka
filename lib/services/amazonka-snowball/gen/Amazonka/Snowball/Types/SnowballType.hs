@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.Types.SnowballType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,8 @@ module Amazonka.Snowball.Types.SnowballType
         SnowballType_EDGE_S,
         SnowballType_SNC1_HDD,
         SnowballType_SNC1_SSD,
-        SnowballType_STANDARD
+        SnowballType_STANDARD,
+        SnowballType_V3_5C
       ),
   )
 where
@@ -83,6 +84,9 @@ pattern SnowballType_SNC1_SSD = SnowballType' "SNC1_SSD"
 pattern SnowballType_STANDARD :: SnowballType
 pattern SnowballType_STANDARD = SnowballType' "STANDARD"
 
+pattern SnowballType_V3_5C :: SnowballType
+pattern SnowballType_V3_5C = SnowballType' "V3_5C"
+
 {-# COMPLETE
   SnowballType_EDGE,
   SnowballType_EDGE_C,
@@ -91,5 +95,6 @@ pattern SnowballType_STANDARD = SnowballType' "STANDARD"
   SnowballType_SNC1_HDD,
   SnowballType_SNC1_SSD,
   SnowballType_STANDARD,
+  SnowballType_V3_5C,
   SnowballType'
   #-}

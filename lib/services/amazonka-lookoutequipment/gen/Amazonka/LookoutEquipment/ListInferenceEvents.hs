@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.ListInferenceEvents
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,11 +61,11 @@ data ListInferenceEvents = ListInferenceEvents'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the inference scheduler for the inference events listed.
     inferenceSchedulerName :: Prelude.Text,
-    -- | Lookout for Equipment will return all the inference events with start
+    -- | Lookout for Equipment will return all the inference events with an end
     -- time equal to or greater than the start time given.
     intervalStartTime :: Core.POSIX,
-    -- | Lookout for Equipment will return all the inference events with end time
-    -- equal to or less than the end time given.
+    -- | Returns all the inference events with an end start time equal to or
+    -- greater than less than the end time given
     intervalEndTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,11 +85,11 @@ data ListInferenceEvents = ListInferenceEvents'
 --
 -- 'inferenceSchedulerName', 'listInferenceEvents_inferenceSchedulerName' - The name of the inference scheduler for the inference events listed.
 --
--- 'intervalStartTime', 'listInferenceEvents_intervalStartTime' - Lookout for Equipment will return all the inference events with start
+-- 'intervalStartTime', 'listInferenceEvents_intervalStartTime' - Lookout for Equipment will return all the inference events with an end
 -- time equal to or greater than the start time given.
 --
--- 'intervalEndTime', 'listInferenceEvents_intervalEndTime' - Lookout for Equipment will return all the inference events with end time
--- equal to or less than the end time given.
+-- 'intervalEndTime', 'listInferenceEvents_intervalEndTime' - Returns all the inference events with an end start time equal to or
+-- greater than less than the end time given
 newListInferenceEvents ::
   -- | 'inferenceSchedulerName'
   Prelude.Text ->
@@ -125,13 +125,13 @@ listInferenceEvents_maxResults = Lens.lens (\ListInferenceEvents' {maxResults} -
 listInferenceEvents_inferenceSchedulerName :: Lens.Lens' ListInferenceEvents Prelude.Text
 listInferenceEvents_inferenceSchedulerName = Lens.lens (\ListInferenceEvents' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@ListInferenceEvents' {} a -> s {inferenceSchedulerName = a} :: ListInferenceEvents)
 
--- | Lookout for Equipment will return all the inference events with start
+-- | Lookout for Equipment will return all the inference events with an end
 -- time equal to or greater than the start time given.
 listInferenceEvents_intervalStartTime :: Lens.Lens' ListInferenceEvents Prelude.UTCTime
 listInferenceEvents_intervalStartTime = Lens.lens (\ListInferenceEvents' {intervalStartTime} -> intervalStartTime) (\s@ListInferenceEvents' {} a -> s {intervalStartTime = a} :: ListInferenceEvents) Prelude.. Core._Time
 
--- | Lookout for Equipment will return all the inference events with end time
--- equal to or less than the end time given.
+-- | Returns all the inference events with an end start time equal to or
+-- greater than less than the end time given
 listInferenceEvents_intervalEndTime :: Lens.Lens' ListInferenceEvents Prelude.UTCTime
 listInferenceEvents_intervalEndTime = Lens.lens (\ListInferenceEvents' {intervalEndTime} -> intervalEndTime) (\s@ListInferenceEvents' {} a -> s {intervalEndTime = a} :: ListInferenceEvents) Prelude.. Core._Time
 

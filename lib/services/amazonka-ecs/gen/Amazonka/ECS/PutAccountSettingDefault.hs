@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.PutAccountSettingDefault
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,6 +60,12 @@ data PutAccountSettingDefault = PutAccountSettingDefault'
     -- is specified, the ENI limit for your Amazon ECS container instances is
     -- affected. If @containerInsights@ is specified, the default setting for
     -- CloudWatch Container Insights for your clusters is affected.
+    --
+    -- Fargate is transitioning from task count-based quotas to vCPU-based
+    -- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
+    -- of the vCPU-based quotas. For information about the opt in timeline, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+    -- in the /Amazon ECS Developer Guide/.
     name :: SettingName,
     -- | The account setting value for the specified principal ARN. Accepted
     -- values are @enabled@ and @disabled@.
@@ -85,6 +91,12 @@ data PutAccountSettingDefault = PutAccountSettingDefault'
 -- affected. If @containerInsights@ is specified, the default setting for
 -- CloudWatch Container Insights for your clusters is affected.
 --
+-- Fargate is transitioning from task count-based quotas to vCPU-based
+-- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
+-- of the vCPU-based quotas. For information about the opt in timeline, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+-- in the /Amazon ECS Developer Guide/.
+--
 -- 'value', 'putAccountSettingDefault_value' - The account setting value for the specified principal ARN. Accepted
 -- values are @enabled@ and @disabled@.
 newPutAccountSettingDefault ::
@@ -108,6 +120,12 @@ newPutAccountSettingDefault pName_ pValue_ =
 -- is specified, the ENI limit for your Amazon ECS container instances is
 -- affected. If @containerInsights@ is specified, the default setting for
 -- CloudWatch Container Insights for your clusters is affected.
+--
+-- Fargate is transitioning from task count-based quotas to vCPU-based
+-- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
+-- of the vCPU-based quotas. For information about the opt in timeline, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+-- in the /Amazon ECS Developer Guide/.
 putAccountSettingDefault_name :: Lens.Lens' PutAccountSettingDefault SettingName
 putAccountSettingDefault_name = Lens.lens (\PutAccountSettingDefault' {name} -> name) (\s@PutAccountSettingDefault' {} a -> s {name = a} :: PutAccountSettingDefault)
 

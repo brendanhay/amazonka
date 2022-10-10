@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.ListRevisionAssets
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,8 @@ module Amazonka.DataExchange.ListRevisionAssets
     -- * Request Lenses
     listRevisionAssets_nextToken,
     listRevisionAssets_maxResults,
-    listRevisionAssets_revisionId,
     listRevisionAssets_dataSetId,
+    listRevisionAssets_revisionId,
 
     -- * Destructuring the Response
     ListRevisionAssetsResponse (..),
@@ -60,10 +60,10 @@ data ListRevisionAssets = ListRevisionAssets'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier for a revision.
-    revisionId :: Prelude.Text,
     -- | The unique identifier for a data set.
-    dataSetId :: Prelude.Text
+    dataSetId :: Prelude.Text,
+    -- | The unique identifier for a revision.
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,21 +80,21 @@ data ListRevisionAssets = ListRevisionAssets'
 --
 -- 'maxResults', 'listRevisionAssets_maxResults' - The maximum number of results returned by a single call.
 --
--- 'revisionId', 'listRevisionAssets_revisionId' - The unique identifier for a revision.
---
 -- 'dataSetId', 'listRevisionAssets_dataSetId' - The unique identifier for a data set.
+--
+-- 'revisionId', 'listRevisionAssets_revisionId' - The unique identifier for a revision.
 newListRevisionAssets ::
-  -- | 'revisionId'
-  Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
+  -- | 'revisionId'
+  Prelude.Text ->
   ListRevisionAssets
-newListRevisionAssets pRevisionId_ pDataSetId_ =
+newListRevisionAssets pDataSetId_ pRevisionId_ =
   ListRevisionAssets'
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      revisionId = pRevisionId_,
-      dataSetId = pDataSetId_
+      dataSetId = pDataSetId_,
+      revisionId = pRevisionId_
     }
 
 -- | The token value retrieved from a previous call to access the next page
@@ -106,13 +106,13 @@ listRevisionAssets_nextToken = Lens.lens (\ListRevisionAssets' {nextToken} -> ne
 listRevisionAssets_maxResults :: Lens.Lens' ListRevisionAssets (Prelude.Maybe Prelude.Natural)
 listRevisionAssets_maxResults = Lens.lens (\ListRevisionAssets' {maxResults} -> maxResults) (\s@ListRevisionAssets' {} a -> s {maxResults = a} :: ListRevisionAssets)
 
--- | The unique identifier for a revision.
-listRevisionAssets_revisionId :: Lens.Lens' ListRevisionAssets Prelude.Text
-listRevisionAssets_revisionId = Lens.lens (\ListRevisionAssets' {revisionId} -> revisionId) (\s@ListRevisionAssets' {} a -> s {revisionId = a} :: ListRevisionAssets)
-
 -- | The unique identifier for a data set.
 listRevisionAssets_dataSetId :: Lens.Lens' ListRevisionAssets Prelude.Text
 listRevisionAssets_dataSetId = Lens.lens (\ListRevisionAssets' {dataSetId} -> dataSetId) (\s@ListRevisionAssets' {} a -> s {dataSetId = a} :: ListRevisionAssets)
+
+-- | The unique identifier for a revision.
+listRevisionAssets_revisionId :: Lens.Lens' ListRevisionAssets Prelude.Text
+listRevisionAssets_revisionId = Lens.lens (\ListRevisionAssets' {revisionId} -> revisionId) (\s@ListRevisionAssets' {} a -> s {revisionId = a} :: ListRevisionAssets)
 
 instance Core.AWSPager ListRevisionAssets where
   page rq rs
@@ -154,15 +154,15 @@ instance Prelude.Hashable ListRevisionAssets where
   hashWithSalt _salt ListRevisionAssets' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData ListRevisionAssets where
   rnf ListRevisionAssets' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders ListRevisionAssets where
   toHeaders =

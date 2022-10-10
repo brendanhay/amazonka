@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.RepositorySyncDefinition
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The repository sync definition.
+-- | A repository sync definition.
 --
 -- /See:/ 'newRepositorySyncDefinition' smart constructor.
 data RepositorySyncDefinition = RepositorySyncDefinition'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.RepositoryAssociation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ data RepositoryAssociation = RepositoryAssociation'
     --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
     --
     -- -   The ID of the Amazon Web Services KMS key that is associated with
-    --     this respository association.
+    --     this repository association.
     kmsKeyDetails :: Prelude.Maybe KMSKeyDetails,
     -- | The state of the repository association.
     --
@@ -80,7 +80,7 @@ data RepositoryAssociation = RepositoryAssociation'
     -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
     --     repository. You can create a new association with this repository if
     --     you want to review source code in it later. You can control access
-    --     to code reviews created in an associated repository with tags after
+    --     to code reviews created in anassociated repository with tags after
     --     it has been disassociated. For more information, see
     --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
     --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -134,7 +134,7 @@ data RepositoryAssociation = RepositoryAssociation'
 --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- -   The ID of the Amazon Web Services KMS key that is associated with
---     this respository association.
+--     this repository association.
 --
 -- 'state', 'repositoryAssociation_state' - The state of the repository association.
 --
@@ -164,7 +164,7 @@ data RepositoryAssociation = RepositoryAssociation'
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.
@@ -234,7 +234,7 @@ repositoryAssociation_createdTimeStamp = Lens.lens (\RepositoryAssociation' {cre
 --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- -   The ID of the Amazon Web Services KMS key that is associated with
---     this respository association.
+--     this repository association.
 repositoryAssociation_kmsKeyDetails :: Lens.Lens' RepositoryAssociation (Prelude.Maybe KMSKeyDetails)
 repositoryAssociation_kmsKeyDetails = Lens.lens (\RepositoryAssociation' {kmsKeyDetails} -> kmsKeyDetails) (\s@RepositoryAssociation' {} a -> s {kmsKeyDetails = a} :: RepositoryAssociation)
 
@@ -266,7 +266,7 @@ repositoryAssociation_kmsKeyDetails = Lens.lens (\RepositoryAssociation' {kmsKey
 -- -   __Disassociated__: CodeGuru Reviewer successfully disassociated the
 --     repository. You can create a new association with this repository if
 --     you want to review source code in it later. You can control access
---     to code reviews created in an associated repository with tags after
+--     to code reviews created in anassociated repository with tags after
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.

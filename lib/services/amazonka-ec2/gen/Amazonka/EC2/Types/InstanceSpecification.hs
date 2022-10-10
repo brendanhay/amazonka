@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { excludeDataVolumeIds :: Prelude.Maybe [Prelude.Text],
+  { -- | The IDs of the data (non-root) volumes to exclude from the multi-volume
+    -- snapshot set. If you specify the ID of the root volume, the request
+    -- fails. To exclude the root volume, use __ExcludeBootVolume__.
+    --
+    -- You can specify up to 40 volume IDs per request.
+    excludeDataVolumeIds :: Prelude.Maybe [Prelude.Text],
     -- | Excludes the root volume from being snapshotted.
     excludeBootVolume :: Prelude.Maybe Prelude.Bool,
     -- | The instance to specify which volumes should be snapshotted.
@@ -44,7 +49,11 @@ data InstanceSpecification = InstanceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excludeDataVolumeIds', 'instanceSpecification_excludeDataVolumeIds' - Undocumented member.
+-- 'excludeDataVolumeIds', 'instanceSpecification_excludeDataVolumeIds' - The IDs of the data (non-root) volumes to exclude from the multi-volume
+-- snapshot set. If you specify the ID of the root volume, the request
+-- fails. To exclude the root volume, use __ExcludeBootVolume__.
+--
+-- You can specify up to 40 volume IDs per request.
 --
 -- 'excludeBootVolume', 'instanceSpecification_excludeBootVolume' - Excludes the root volume from being snapshotted.
 --
@@ -59,7 +68,11 @@ newInstanceSpecification =
       instanceId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The IDs of the data (non-root) volumes to exclude from the multi-volume
+-- snapshot set. If you specify the ID of the root volume, the request
+-- fails. To exclude the root volume, use __ExcludeBootVolume__.
+--
+-- You can specify up to 40 volume IDs per request.
 instanceSpecification_excludeDataVolumeIds :: Lens.Lens' InstanceSpecification (Prelude.Maybe [Prelude.Text])
 instanceSpecification_excludeDataVolumeIds = Lens.lens (\InstanceSpecification' {excludeDataVolumeIds} -> excludeDataVolumeIds) (\s@InstanceSpecification' {} a -> s {excludeDataVolumeIds = a} :: InstanceSpecification) Prelude.. Lens.mapping Lens.coerced
 

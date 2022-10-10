@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.UpdateSecurityProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSecurityProfile' smart constructor.
 data UpdateSecurityProfile = UpdateSecurityProfile'
-  { -- | The permissions granted to a security profile.
+  { -- | The permissions granted to a security profile. For a list of valid
+    -- permissions, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
     -- | The description of the security profile.
     description :: Prelude.Maybe Prelude.Text,
@@ -70,7 +72,9 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissions', 'updateSecurityProfile_permissions' - The permissions granted to a security profile.
+-- 'permissions', 'updateSecurityProfile_permissions' - The permissions granted to a security profile. For a list of valid
+-- permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
 -- 'description', 'updateSecurityProfile_description' - The description of the security profile.
 --
@@ -95,7 +99,9 @@ newUpdateSecurityProfile
         instanceId = pInstanceId_
       }
 
--- | The permissions granted to a security profile.
+-- | The permissions granted to a security profile. For a list of valid
+-- permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 updateSecurityProfile_permissions :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [Prelude.Text])
 updateSecurityProfile_permissions = Lens.lens (\UpdateSecurityProfile' {permissions} -> permissions) (\s@UpdateSecurityProfile' {} a -> s {permissions = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 

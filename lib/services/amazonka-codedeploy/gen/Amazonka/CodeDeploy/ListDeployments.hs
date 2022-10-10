@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.ListDeployments
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the deployments in a deployment group for an application
--- registered with the IAM user or AWS account.
+-- registered with the IAM user or Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeDeploy.ListDeployments
@@ -89,8 +89,8 @@ data ListDeployments = ListDeployments'
     -- | A time range (start and end) for returning a subset of the list of
     -- deployments.
     createTimeRange :: Prelude.Maybe TimeRange,
-    -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+    -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     --
     -- If @applicationName@ is specified, then @deploymentGroupName@ must be
     -- specified. If it is not specified, then @deploymentGroupName@ must not
@@ -137,8 +137,8 @@ data ListDeployments = ListDeployments'
 -- 'createTimeRange', 'listDeployments_createTimeRange' - A time range (start and end) for returning a subset of the list of
 -- deployments.
 --
--- 'applicationName', 'listDeployments_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'listDeployments_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 --
 -- If @applicationName@ is specified, then @deploymentGroupName@ must be
 -- specified. If it is not specified, then @deploymentGroupName@ must not
@@ -195,8 +195,8 @@ listDeployments_includeOnlyStatuses = Lens.lens (\ListDeployments' {includeOnlyS
 listDeployments_createTimeRange :: Lens.Lens' ListDeployments (Prelude.Maybe TimeRange)
 listDeployments_createTimeRange = Lens.lens (\ListDeployments' {createTimeRange} -> createTimeRange) (\s@ListDeployments' {} a -> s {createTimeRange = a} :: ListDeployments)
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 --
 -- If @applicationName@ is specified, then @deploymentGroupName@ must be
 -- specified. If it is not specified, then @deploymentGroupName@ must not

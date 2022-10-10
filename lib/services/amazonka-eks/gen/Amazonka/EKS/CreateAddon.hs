@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.CreateAddon
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,8 +88,26 @@ data CreateAddon = CreateAddon'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | How to resolve parameter value conflicts when migrating an existing
-    -- add-on to an Amazon EKS add-on.
+    -- | How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
+    -- are handled based on the value you choose:
+    --
+    -- -   __None__ – If the self-managed version of the add-on is installed on
+    --     your cluster, Amazon EKS doesn\'t change the value. Creation of the
+    --     add-on might fail.
+    --
+    -- -   __Overwrite__ – If the self-managed version of the add-on is
+    --     installed on your cluster and the Amazon EKS default value is
+    --     different than the existing value, Amazon EKS changes the value to
+    --     the Amazon EKS default value.
+    --
+    -- -   __Preserve__ – Not supported. You can set this value when updating
+    --     an add-on though. For more information, see
+    --     <https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html UpdateAddon>.
+    --
+    -- If you don\'t currently have the self-managed version of the add-on
+    -- installed on your cluster, the Amazon EKS add-on is installed. Amazon
+    -- EKS sets all values to default values, regardless of the option that you
+    -- specify.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
@@ -133,8 +151,26 @@ data CreateAddon = CreateAddon'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
 --
--- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve parameter value conflicts when migrating an existing
--- add-on to an Amazon EKS add-on.
+-- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
+-- are handled based on the value you choose:
+--
+-- -   __None__ – If the self-managed version of the add-on is installed on
+--     your cluster, Amazon EKS doesn\'t change the value. Creation of the
+--     add-on might fail.
+--
+-- -   __Overwrite__ – If the self-managed version of the add-on is
+--     installed on your cluster and the Amazon EKS default value is
+--     different than the existing value, Amazon EKS changes the value to
+--     the Amazon EKS default value.
+--
+-- -   __Preserve__ – Not supported. You can set this value when updating
+--     an add-on though. For more information, see
+--     <https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html UpdateAddon>.
+--
+-- If you don\'t currently have the self-managed version of the add-on
+-- installed on your cluster, the Amazon EKS add-on is installed. Amazon
+-- EKS sets all values to default values, regardless of the option that you
+-- specify.
 --
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
@@ -191,8 +227,26 @@ createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersi
 createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
 createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@CreateAddon' {} a -> s {serviceAccountRoleArn = a} :: CreateAddon)
 
--- | How to resolve parameter value conflicts when migrating an existing
--- add-on to an Amazon EKS add-on.
+-- | How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
+-- are handled based on the value you choose:
+--
+-- -   __None__ – If the self-managed version of the add-on is installed on
+--     your cluster, Amazon EKS doesn\'t change the value. Creation of the
+--     add-on might fail.
+--
+-- -   __Overwrite__ – If the self-managed version of the add-on is
+--     installed on your cluster and the Amazon EKS default value is
+--     different than the existing value, Amazon EKS changes the value to
+--     the Amazon EKS default value.
+--
+-- -   __Preserve__ – Not supported. You can set this value when updating
+--     an add-on though. For more information, see
+--     <https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html UpdateAddon>.
+--
+-- If you don\'t currently have the self-managed version of the add-on
+-- installed on your cluster, the Amazon EKS add-on is installed. Amazon
+-- EKS sets all values to default values, regardless of the option that you
+-- specify.
 createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
 createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.AssignPrivateIpAddresses
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,9 +91,9 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
     -- assigns to the network interface. You cannot use this option if you use
     -- the @Ipv4 Prefixes@ option.
     ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IP addresses to be assigned as a secondary private IP
-    -- address to the network interface. You can\'t specify this parameter when
-    -- also specifying a number of secondary IP addresses.
+    -- | The IP addresses to be assigned as a secondary private IP address to the
+    -- network interface. You can\'t specify this parameter when also
+    -- specifying a number of secondary IP addresses.
     --
     -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
     -- IP address within the subnet range.
@@ -126,9 +126,9 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv4 Prefixes@ option.
 --
--- 'privateIpAddresses', 'assignPrivateIpAddresses_privateIpAddresses' - One or more IP addresses to be assigned as a secondary private IP
--- address to the network interface. You can\'t specify this parameter when
--- also specifying a number of secondary IP addresses.
+-- 'privateIpAddresses', 'assignPrivateIpAddresses_privateIpAddresses' - The IP addresses to be assigned as a secondary private IP address to the
+-- network interface. You can\'t specify this parameter when also
+-- specifying a number of secondary IP addresses.
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
@@ -166,9 +166,9 @@ newAssignPrivateIpAddresses pNetworkInterfaceId_ =
 assignPrivateIpAddresses_ipv4PrefixCount :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Int)
 assignPrivateIpAddresses_ipv4PrefixCount = Lens.lens (\AssignPrivateIpAddresses' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@AssignPrivateIpAddresses' {} a -> s {ipv4PrefixCount = a} :: AssignPrivateIpAddresses)
 
--- | One or more IP addresses to be assigned as a secondary private IP
--- address to the network interface. You can\'t specify this parameter when
--- also specifying a number of secondary IP addresses.
+-- | The IP addresses to be assigned as a secondary private IP address to the
+-- network interface. You can\'t specify this parameter when also
+-- specifying a number of secondary IP addresses.
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.

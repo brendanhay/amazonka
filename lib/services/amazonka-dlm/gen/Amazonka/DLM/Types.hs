@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,6 +57,16 @@ module Amazonka.DLM.Types
     newAction,
     action_name,
     action_crossRegionCopy,
+
+    -- * ArchiveRetainRule
+    ArchiveRetainRule (..),
+    newArchiveRetainRule,
+    archiveRetainRule_retentionArchiveTier,
+
+    -- * ArchiveRule
+    ArchiveRule (..),
+    newArchiveRule,
+    archiveRule_retainRule,
 
     -- * CreateRule
     CreateRule (..),
@@ -180,9 +190,17 @@ module Amazonka.DLM.Types
     retainRule_count,
     retainRule_intervalUnit,
 
+    -- * RetentionArchiveTier
+    RetentionArchiveTier (..),
+    newRetentionArchiveTier,
+    retentionArchiveTier_interval,
+    retentionArchiveTier_count,
+    retentionArchiveTier_intervalUnit,
+
     -- * Schedule
     Schedule (..),
     newSchedule,
+    schedule_archiveRule,
     schedule_name,
     schedule_fastRestoreRule,
     schedule_variableTags,
@@ -211,6 +229,8 @@ where
 
 import qualified Amazonka.Core as Core
 import Amazonka.DLM.Types.Action
+import Amazonka.DLM.Types.ArchiveRetainRule
+import Amazonka.DLM.Types.ArchiveRule
 import Amazonka.DLM.Types.CreateRule
 import Amazonka.DLM.Types.CrossRegionCopyAction
 import Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
@@ -234,6 +254,7 @@ import Amazonka.DLM.Types.PolicyTypeValues
 import Amazonka.DLM.Types.ResourceLocationValues
 import Amazonka.DLM.Types.ResourceTypeValues
 import Amazonka.DLM.Types.RetainRule
+import Amazonka.DLM.Types.RetentionArchiveTier
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
 import Amazonka.DLM.Types.Schedule
 import Amazonka.DLM.Types.SettablePolicyStateValues

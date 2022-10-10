@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Outposts.UpdateSite
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the site.
+-- Updates the specified site.
 module Amazonka.Outposts.UpdateSite
   ( -- * Creating a Request
     UpdateSite (..),
@@ -56,12 +56,6 @@ data UpdateSite = UpdateSite'
     -- | Notes about a site.
     notes :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,12 +75,6 @@ data UpdateSite = UpdateSite'
 -- 'notes', 'updateSite_notes' - Notes about a site.
 --
 -- 'siteId', 'updateSite_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newUpdateSite ::
   -- | 'siteId'
   Prelude.Text ->
@@ -112,12 +100,6 @@ updateSite_notes :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
 updateSite_notes = Lens.lens (\UpdateSite' {notes} -> notes) (\s@UpdateSite' {} a -> s {notes = a} :: UpdateSite)
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 updateSite_siteId :: Lens.Lens' UpdateSite Prelude.Text
 updateSite_siteId = Lens.lens (\UpdateSite' {siteId} -> siteId) (\s@UpdateSite' {} a -> s {siteId = a} :: UpdateSite)
 

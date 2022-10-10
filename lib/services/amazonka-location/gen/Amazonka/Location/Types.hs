@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -270,8 +270,10 @@ module Amazonka.Location.Types
     place_addressNumber,
     place_postalCode,
     place_neighborhood,
+    place_unitNumber,
     place_country,
     place_label,
+    place_unitType,
     place_timeZone,
     place_region,
     place_subRegion,
@@ -306,12 +308,14 @@ module Amazonka.Location.Types
     -- * SearchForPositionResult
     SearchForPositionResult (..),
     newSearchForPositionResult,
+    searchForPositionResult_placeId,
     searchForPositionResult_distance,
     searchForPositionResult_place,
 
     -- * SearchForSuggestionsResult
     SearchForSuggestionsResult (..),
     newSearchForSuggestionsResult,
+    searchForSuggestionsResult_placeId,
     searchForSuggestionsResult_text,
 
     -- * SearchForTextResult
@@ -319,6 +323,7 @@ module Amazonka.Location.Types
     newSearchForTextResult,
     searchForTextResult_distance,
     searchForTextResult_relevance,
+    searchForTextResult_placeId,
     searchForTextResult_place,
 
     -- * SearchPlaceIndexForPositionSummary

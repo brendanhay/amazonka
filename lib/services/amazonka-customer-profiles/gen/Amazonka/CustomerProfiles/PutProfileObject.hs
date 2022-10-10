@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.PutProfileObject
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,10 +22,10 @@
 --
 -- Adds additional objects to customer profiles of a given ObjectType.
 --
--- When adding a specific profile object, like a Contact Trace Record
--- (CTR), an inferred profile can get created if it is not mapped to an
--- existing profile. The resulting profile will only have a phone number
--- populated in the standard ProfileObject. Any additional CTRs with the
+-- When adding a specific profile object, like a Contact Record, an
+-- inferred profile can get created if it is not mapped to an existing
+-- profile. The resulting profile will only have a phone number populated
+-- in the standard ProfileObject. Any additional Contact Records with the
 -- same phone number will be mapped to the same inferred profile.
 --
 -- When a ProfileObject is created and if a ProfileObjectType already

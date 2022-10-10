@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.GetEventSelectors
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,9 +33,12 @@
 -- -   If your event selector includes data events, the resources on which
 --     you are logging data events.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html Logging Data and Management Events for Trails>
--- in the /CloudTrail User Guide/.
+-- For more information about logging management and data events, see the
+-- following topics in the /CloudTrail User Guide/:
+--
+-- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events for trails>
+--
+-- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
 module Amazonka.CloudTrail.GetEventSelectors
   ( -- * Creating a Request
     GetEventSelectors (..),

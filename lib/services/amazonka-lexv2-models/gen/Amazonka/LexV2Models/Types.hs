@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -136,6 +136,9 @@ module Amazonka.LexV2Models.Types
     -- * ObfuscationSettingType
     ObfuscationSettingType (..),
 
+    -- * PromptAttempt
+    PromptAttempt (..),
+
     -- * SearchOrder
     SearchOrder (..),
 
@@ -209,6 +212,12 @@ module Amazonka.LexV2Models.Types
     aggregatedUtterancesSummary_missedCount,
     aggregatedUtterancesSummary_hitCount,
 
+    -- * AllowedInputTypes
+    AllowedInputTypes (..),
+    newAllowedInputTypes,
+    allowedInputTypes_allowAudioInput,
+    allowedInputTypes_allowDTMFInput,
+
     -- * AssociatedTranscript
     AssociatedTranscript (..),
     newAssociatedTranscript,
@@ -220,6 +229,13 @@ module Amazonka.LexV2Models.Types
     associatedTranscriptFilter_name,
     associatedTranscriptFilter_values,
 
+    -- * AudioAndDTMFInputSpecification
+    AudioAndDTMFInputSpecification (..),
+    newAudioAndDTMFInputSpecification,
+    audioAndDTMFInputSpecification_audioSpecification,
+    audioAndDTMFInputSpecification_dtmfSpecification,
+    audioAndDTMFInputSpecification_startTimeoutMs,
+
     -- * AudioLogDestination
     AudioLogDestination (..),
     newAudioLogDestination,
@@ -230,6 +246,12 @@ module Amazonka.LexV2Models.Types
     newAudioLogSetting,
     audioLogSetting_enabled,
     audioLogSetting_destination,
+
+    -- * AudioSpecification
+    AudioSpecification (..),
+    newAudioSpecification,
+    audioSpecification_maxLengthMs,
+    audioSpecification_endTimeoutMs,
 
     -- * BotAliasHistoryEvent
     BotAliasHistoryEvent (..),
@@ -421,6 +443,11 @@ module Amazonka.LexV2Models.Types
     newCodeHookSpecification,
     codeHookSpecification_lambdaCodeHook,
 
+    -- * CompositeSlotTypeSetting
+    CompositeSlotTypeSetting (..),
+    newCompositeSlotTypeSetting,
+    compositeSlotTypeSetting_subSlots,
+
     -- * Condition
     Condition (..),
     newCondition,
@@ -465,6 +492,14 @@ module Amazonka.LexV2Models.Types
     customVocabularyImportSpecification_botId,
     customVocabularyImportSpecification_botVersion,
     customVocabularyImportSpecification_localeId,
+
+    -- * DTMFSpecification
+    DTMFSpecification (..),
+    newDTMFSpecification,
+    dTMFSpecification_maxLength,
+    dTMFSpecification_endTimeoutMs,
+    dTMFSpecification_deletionCharacter,
+    dTMFSpecification_endCharacter,
 
     -- * DataPrivacy
     DataPrivacy (..),
@@ -804,10 +839,19 @@ module Amazonka.LexV2Models.Types
     principal_arn,
     principal_service,
 
+    -- * PromptAttemptSpecification
+    PromptAttemptSpecification (..),
+    newPromptAttemptSpecification,
+    promptAttemptSpecification_allowInterrupt,
+    promptAttemptSpecification_textInputSpecification,
+    promptAttemptSpecification_audioAndDTMFInputSpecification,
+    promptAttemptSpecification_allowedInputTypes,
+
     -- * PromptSpecification
     PromptSpecification (..),
     newPromptSpecification,
     promptSpecification_allowInterrupt,
+    promptSpecification_promptAttemptsSpecification,
     promptSpecification_messageSelectionStrategy,
     promptSpecification_messageGroups,
     promptSpecification_maxRetries,
@@ -987,6 +1031,12 @@ module Amazonka.LexV2Models.Types
     slotValueSelectionSetting_regexFilter,
     slotValueSelectionSetting_resolutionStrategy,
 
+    -- * Specifications
+    Specifications (..),
+    newSpecifications,
+    specifications_slotTypeId,
+    specifications_valueElicitationSetting,
+
     -- * StillWaitingResponseSpecification
     StillWaitingResponseSpecification (..),
     newStillWaitingResponseSpecification,
@@ -994,6 +1044,31 @@ module Amazonka.LexV2Models.Types
     stillWaitingResponseSpecification_messageGroups,
     stillWaitingResponseSpecification_frequencyInSeconds,
     stillWaitingResponseSpecification_timeoutInSeconds,
+
+    -- * SubSlotSetting
+    SubSlotSetting (..),
+    newSubSlotSetting,
+    subSlotSetting_expression,
+    subSlotSetting_slotSpecifications,
+
+    -- * SubSlotTypeComposition
+    SubSlotTypeComposition (..),
+    newSubSlotTypeComposition,
+    subSlotTypeComposition_name,
+    subSlotTypeComposition_slotTypeId,
+
+    -- * SubSlotValueElicitationSetting
+    SubSlotValueElicitationSetting (..),
+    newSubSlotValueElicitationSetting,
+    subSlotValueElicitationSetting_sampleUtterances,
+    subSlotValueElicitationSetting_waitAndContinueSpecification,
+    subSlotValueElicitationSetting_defaultValueSpecification,
+    subSlotValueElicitationSetting_promptSpecification,
+
+    -- * TextInputSpecification
+    TextInputSpecification (..),
+    newTextInputSpecification,
+    textInputSpecification_startTimeoutMs,
 
     -- * TextLogDestination
     TextLogDestination (..),
@@ -1046,12 +1121,15 @@ import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterOperator
 import Amazonka.LexV2Models.Types.AggregatedUtterancesSortAttribute
 import Amazonka.LexV2Models.Types.AggregatedUtterancesSortBy
 import Amazonka.LexV2Models.Types.AggregatedUtterancesSummary
+import Amazonka.LexV2Models.Types.AllowedInputTypes
 import Amazonka.LexV2Models.Types.AssociatedTranscript
 import Amazonka.LexV2Models.Types.AssociatedTranscriptFilter
 import Amazonka.LexV2Models.Types.AssociatedTranscriptFilterName
+import Amazonka.LexV2Models.Types.AudioAndDTMFInputSpecification
 import Amazonka.LexV2Models.Types.AudioLogDestination
 import Amazonka.LexV2Models.Types.AudioLogSetting
 import Amazonka.LexV2Models.Types.AudioRecognitionStrategy
+import Amazonka.LexV2Models.Types.AudioSpecification
 import Amazonka.LexV2Models.Types.BotAliasHistoryEvent
 import Amazonka.LexV2Models.Types.BotAliasLocaleSettings
 import Amazonka.LexV2Models.Types.BotAliasStatus
@@ -1092,6 +1170,7 @@ import Amazonka.LexV2Models.Types.BuiltInSlotTypeSummary
 import Amazonka.LexV2Models.Types.Button
 import Amazonka.LexV2Models.Types.CloudWatchLogGroupLogDestination
 import Amazonka.LexV2Models.Types.CodeHookSpecification
+import Amazonka.LexV2Models.Types.CompositeSlotTypeSetting
 import Amazonka.LexV2Models.Types.Condition
 import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.ConditionalSpecification
@@ -1100,6 +1179,7 @@ import Amazonka.LexV2Models.Types.CustomPayload
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyStatus
+import Amazonka.LexV2Models.Types.DTMFSpecification
 import Amazonka.LexV2Models.Types.DataPrivacy
 import Amazonka.LexV2Models.Types.DateRangeFilter
 import Amazonka.LexV2Models.Types.DefaultConditionalBranch
@@ -1165,6 +1245,8 @@ import Amazonka.LexV2Models.Types.PlainTextMessage
 import Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
 import Amazonka.LexV2Models.Types.PostFulfillmentStatusSpecification
 import Amazonka.LexV2Models.Types.Principal
+import Amazonka.LexV2Models.Types.PromptAttempt
+import Amazonka.LexV2Models.Types.PromptAttemptSpecification
 import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.RecommendedIntentSummary
 import Amazonka.LexV2Models.Types.RelativeAggregationDuration
@@ -1204,7 +1286,12 @@ import Amazonka.LexV2Models.Types.SlotValueRegexFilter
 import Amazonka.LexV2Models.Types.SlotValueResolutionStrategy
 import Amazonka.LexV2Models.Types.SlotValueSelectionSetting
 import Amazonka.LexV2Models.Types.SortOrder
+import Amazonka.LexV2Models.Types.Specifications
 import Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
+import Amazonka.LexV2Models.Types.SubSlotSetting
+import Amazonka.LexV2Models.Types.SubSlotTypeComposition
+import Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
+import Amazonka.LexV2Models.Types.TextInputSpecification
 import Amazonka.LexV2Models.Types.TextLogDestination
 import Amazonka.LexV2Models.Types.TextLogSetting
 import Amazonka.LexV2Models.Types.TimeDimension

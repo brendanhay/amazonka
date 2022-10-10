@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.Types.PromptSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.LexV2Models.Types.MessageGroup
 import Amazonka.LexV2Models.Types.MessageSelectionStrategy
+import Amazonka.LexV2Models.Types.PromptAttempt
+import Amazonka.LexV2Models.Types.PromptAttemptSpecification
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a list of message groups that Amazon Lex sends to a user to
@@ -32,6 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 data PromptSpecification = PromptSpecification'
   { -- | Indicates whether the user can interrupt a speech prompt from the bot.
     allowInterrupt :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the advanced settings on each attempt of the prompt.
+    promptAttemptsSpecification :: Prelude.Maybe (Prelude.HashMap PromptAttempt PromptAttemptSpecification),
     -- | Indicates how a message is selected from a message group among retries.
     messageSelectionStrategy :: Prelude.Maybe MessageSelectionStrategy,
     -- | A collection of messages that Amazon Lex can send to the user. Amazon
@@ -53,6 +57,8 @@ data PromptSpecification = PromptSpecification'
 --
 -- 'allowInterrupt', 'promptSpecification_allowInterrupt' - Indicates whether the user can interrupt a speech prompt from the bot.
 --
+-- 'promptAttemptsSpecification', 'promptSpecification_promptAttemptsSpecification' - Specifies the advanced settings on each attempt of the prompt.
+--
 -- 'messageSelectionStrategy', 'promptSpecification_messageSelectionStrategy' - Indicates how a message is selected from a message group among retries.
 --
 -- 'messageGroups', 'promptSpecification_messageGroups' - A collection of messages that Amazon Lex can send to the user. Amazon
@@ -70,6 +76,7 @@ newPromptSpecification pMessageGroups_ pMaxRetries_ =
   PromptSpecification'
     { allowInterrupt =
         Prelude.Nothing,
+      promptAttemptsSpecification = Prelude.Nothing,
       messageSelectionStrategy = Prelude.Nothing,
       messageGroups = Lens.coerced Lens.# pMessageGroups_,
       maxRetries = pMaxRetries_
@@ -78,6 +85,10 @@ newPromptSpecification pMessageGroups_ pMaxRetries_ =
 -- | Indicates whether the user can interrupt a speech prompt from the bot.
 promptSpecification_allowInterrupt :: Lens.Lens' PromptSpecification (Prelude.Maybe Prelude.Bool)
 promptSpecification_allowInterrupt = Lens.lens (\PromptSpecification' {allowInterrupt} -> allowInterrupt) (\s@PromptSpecification' {} a -> s {allowInterrupt = a} :: PromptSpecification)
+
+-- | Specifies the advanced settings on each attempt of the prompt.
+promptSpecification_promptAttemptsSpecification :: Lens.Lens' PromptSpecification (Prelude.Maybe (Prelude.HashMap PromptAttempt PromptAttemptSpecification))
+promptSpecification_promptAttemptsSpecification = Lens.lens (\PromptSpecification' {promptAttemptsSpecification} -> promptAttemptsSpecification) (\s@PromptSpecification' {} a -> s {promptAttemptsSpecification = a} :: PromptSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates how a message is selected from a message group among retries.
 promptSpecification_messageSelectionStrategy :: Lens.Lens' PromptSpecification (Prelude.Maybe MessageSelectionStrategy)
@@ -100,6 +111,9 @@ instance Core.FromJSON PromptSpecification where
       ( \x ->
           PromptSpecification'
             Prelude.<$> (x Core..:? "allowInterrupt")
+            Prelude.<*> ( x Core..:? "promptAttemptsSpecification"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "messageSelectionStrategy")
             Prelude.<*> (x Core..: "messageGroups")
             Prelude.<*> (x Core..: "maxRetries")
@@ -108,6 +122,7 @@ instance Core.FromJSON PromptSpecification where
 instance Prelude.Hashable PromptSpecification where
   hashWithSalt _salt PromptSpecification' {..} =
     _salt `Prelude.hashWithSalt` allowInterrupt
+      `Prelude.hashWithSalt` promptAttemptsSpecification
       `Prelude.hashWithSalt` messageSelectionStrategy
       `Prelude.hashWithSalt` messageGroups
       `Prelude.hashWithSalt` maxRetries
@@ -115,6 +130,7 @@ instance Prelude.Hashable PromptSpecification where
 instance Prelude.NFData PromptSpecification where
   rnf PromptSpecification' {..} =
     Prelude.rnf allowInterrupt
+      `Prelude.seq` Prelude.rnf promptAttemptsSpecification
       `Prelude.seq` Prelude.rnf messageSelectionStrategy
       `Prelude.seq` Prelude.rnf messageGroups
       `Prelude.seq` Prelude.rnf maxRetries
@@ -125,6 +141,8 @@ instance Core.ToJSON PromptSpecification where
       ( Prelude.catMaybes
           [ ("allowInterrupt" Core..=)
               Prelude.<$> allowInterrupt,
+            ("promptAttemptsSpecification" Core..=)
+              Prelude.<$> promptAttemptsSpecification,
             ("messageSelectionStrategy" Core..=)
               Prelude.<$> messageSelectionStrategy,
             Prelude.Just ("messageGroups" Core..= messageGroups),

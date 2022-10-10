@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -110,12 +110,15 @@ library
     Amazonka.LexV2Models.Types.AggregatedUtterancesSortAttribute
     Amazonka.LexV2Models.Types.AggregatedUtterancesSortBy
     Amazonka.LexV2Models.Types.AggregatedUtterancesSummary
+    Amazonka.LexV2Models.Types.AllowedInputTypes
     Amazonka.LexV2Models.Types.AssociatedTranscript
     Amazonka.LexV2Models.Types.AssociatedTranscriptFilter
     Amazonka.LexV2Models.Types.AssociatedTranscriptFilterName
+    Amazonka.LexV2Models.Types.AudioAndDTMFInputSpecification
     Amazonka.LexV2Models.Types.AudioLogDestination
     Amazonka.LexV2Models.Types.AudioLogSetting
     Amazonka.LexV2Models.Types.AudioRecognitionStrategy
+    Amazonka.LexV2Models.Types.AudioSpecification
     Amazonka.LexV2Models.Types.BotAliasHistoryEvent
     Amazonka.LexV2Models.Types.BotAliasLocaleSettings
     Amazonka.LexV2Models.Types.BotAliasStatus
@@ -156,6 +159,7 @@ library
     Amazonka.LexV2Models.Types.Button
     Amazonka.LexV2Models.Types.CloudWatchLogGroupLogDestination
     Amazonka.LexV2Models.Types.CodeHookSpecification
+    Amazonka.LexV2Models.Types.CompositeSlotTypeSetting
     Amazonka.LexV2Models.Types.Condition
     Amazonka.LexV2Models.Types.ConditionalBranch
     Amazonka.LexV2Models.Types.ConditionalSpecification
@@ -172,6 +176,7 @@ library
     Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting
     Amazonka.LexV2Models.Types.DialogCodeHookSettings
     Amazonka.LexV2Models.Types.DialogState
+    Amazonka.LexV2Models.Types.DTMFSpecification
     Amazonka.LexV2Models.Types.Effect
     Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
     Amazonka.LexV2Models.Types.EncryptionSetting
@@ -229,6 +234,8 @@ library
     Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
     Amazonka.LexV2Models.Types.PostFulfillmentStatusSpecification
     Amazonka.LexV2Models.Types.Principal
+    Amazonka.LexV2Models.Types.PromptAttempt
+    Amazonka.LexV2Models.Types.PromptAttemptSpecification
     Amazonka.LexV2Models.Types.PromptSpecification
     Amazonka.LexV2Models.Types.RecommendedIntentSummary
     Amazonka.LexV2Models.Types.RelativeAggregationDuration
@@ -267,8 +274,13 @@ library
     Amazonka.LexV2Models.Types.SlotValueResolutionStrategy
     Amazonka.LexV2Models.Types.SlotValueSelectionSetting
     Amazonka.LexV2Models.Types.SortOrder
+    Amazonka.LexV2Models.Types.Specifications
     Amazonka.LexV2Models.Types.SSMLMessage
     Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
+    Amazonka.LexV2Models.Types.SubSlotSetting
+    Amazonka.LexV2Models.Types.SubSlotTypeComposition
+    Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
+    Amazonka.LexV2Models.Types.TextInputSpecification
     Amazonka.LexV2Models.Types.TextLogDestination
     Amazonka.LexV2Models.Types.TextLogSetting
     Amazonka.LexV2Models.Types.TimeDimension
@@ -292,7 +304,7 @@ library
     Amazonka.LexV2Models.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-lexv2-models-test
@@ -311,9 +323,9 @@ test-suite amazonka-lexv2-models-test
     Test.Amazonka.LexV2Models.Internal
 
   build-depends:
-    , amazonka-core          ^>=2.0
+    , amazonka-core          >=2.0 && <2.1
     , amazonka-lexv2-models
-    , amazonka-test          ^>=2.0
+    , amazonka-test          >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

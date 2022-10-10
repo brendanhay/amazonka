@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.UpdateSlotType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Amazonka.LexV2Models.UpdateSlotType
     newUpdateSlotType,
 
     -- * Request Lenses
+    updateSlotType_compositeSlotTypeSetting,
     updateSlotType_externalSourceSetting,
     updateSlotType_valueSelectionSetting,
     updateSlotType_description,
@@ -44,6 +45,7 @@ module Amazonka.LexV2Models.UpdateSlotType
 
     -- * Response Lenses
     updateSlotTypeResponse_botVersion,
+    updateSlotTypeResponse_compositeSlotTypeSetting,
     updateSlotTypeResponse_creationDateTime,
     updateSlotTypeResponse_localeId,
     updateSlotTypeResponse_externalSourceSetting,
@@ -68,7 +70,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSlotType' smart constructor.
 data UpdateSlotType = UpdateSlotType'
-  { externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
+  { -- | Specifications for a composite slot type.
+    compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
+    externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
     -- | The strategy that Amazon Lex should use when deciding on a value from
     -- the list of slot type values.
     valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
@@ -103,6 +107,8 @@ data UpdateSlotType = UpdateSlotType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'compositeSlotTypeSetting', 'updateSlotType_compositeSlotTypeSetting' - Specifications for a composite slot type.
 --
 -- 'externalSourceSetting', 'updateSlotType_externalSourceSetting' - Undocumented member.
 --
@@ -148,8 +154,9 @@ newUpdateSlotType
   pBotVersion_
   pLocaleId_ =
     UpdateSlotType'
-      { externalSourceSetting =
+      { compositeSlotTypeSetting =
           Prelude.Nothing,
+        externalSourceSetting = Prelude.Nothing,
         valueSelectionSetting = Prelude.Nothing,
         description = Prelude.Nothing,
         slotTypeValues = Prelude.Nothing,
@@ -160,6 +167,10 @@ newUpdateSlotType
         botVersion = pBotVersion_,
         localeId = pLocaleId_
       }
+
+-- | Specifications for a composite slot type.
+updateSlotType_compositeSlotTypeSetting :: Lens.Lens' UpdateSlotType (Prelude.Maybe CompositeSlotTypeSetting)
+updateSlotType_compositeSlotTypeSetting = Lens.lens (\UpdateSlotType' {compositeSlotTypeSetting} -> compositeSlotTypeSetting) (\s@UpdateSlotType' {} a -> s {compositeSlotTypeSetting = a} :: UpdateSlotType)
 
 -- | Undocumented member.
 updateSlotType_externalSourceSetting :: Lens.Lens' UpdateSlotType (Prelude.Maybe ExternalSourceSetting)
@@ -217,6 +228,7 @@ instance Core.AWSRequest UpdateSlotType where
       ( \s h x ->
           UpdateSlotTypeResponse'
             Prelude.<$> (x Core..?> "botVersion")
+            Prelude.<*> (x Core..?> "compositeSlotTypeSetting")
             Prelude.<*> (x Core..?> "creationDateTime")
             Prelude.<*> (x Core..?> "localeId")
             Prelude.<*> (x Core..?> "externalSourceSetting")
@@ -233,7 +245,9 @@ instance Core.AWSRequest UpdateSlotType where
 
 instance Prelude.Hashable UpdateSlotType where
   hashWithSalt _salt UpdateSlotType' {..} =
-    _salt `Prelude.hashWithSalt` externalSourceSetting
+    _salt
+      `Prelude.hashWithSalt` compositeSlotTypeSetting
+      `Prelude.hashWithSalt` externalSourceSetting
       `Prelude.hashWithSalt` valueSelectionSetting
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` slotTypeValues
@@ -246,7 +260,8 @@ instance Prelude.Hashable UpdateSlotType where
 
 instance Prelude.NFData UpdateSlotType where
   rnf UpdateSlotType' {..} =
-    Prelude.rnf externalSourceSetting
+    Prelude.rnf compositeSlotTypeSetting
+      `Prelude.seq` Prelude.rnf externalSourceSetting
       `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf slotTypeValues
@@ -272,7 +287,9 @@ instance Core.ToJSON UpdateSlotType where
   toJSON UpdateSlotType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("externalSourceSetting" Core..=)
+          [ ("compositeSlotTypeSetting" Core..=)
+              Prelude.<$> compositeSlotTypeSetting,
+            ("externalSourceSetting" Core..=)
               Prelude.<$> externalSourceSetting,
             ("valueSelectionSetting" Core..=)
               Prelude.<$> valueSelectionSetting,
@@ -307,6 +324,8 @@ data UpdateSlotTypeResponse = UpdateSlotTypeResponse'
   { -- | The version of the bot that contains the slot type. This is always
     -- @DRAFT@.
     botVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifications for a composite slot type.
+    compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | The timestamp of the date and time that the slot type was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The language and locale of the updated slot type.
@@ -346,6 +365,8 @@ data UpdateSlotTypeResponse = UpdateSlotTypeResponse'
 -- 'botVersion', 'updateSlotTypeResponse_botVersion' - The version of the bot that contains the slot type. This is always
 -- @DRAFT@.
 --
+-- 'compositeSlotTypeSetting', 'updateSlotTypeResponse_compositeSlotTypeSetting' - Specifications for a composite slot type.
+--
 -- 'creationDateTime', 'updateSlotTypeResponse_creationDateTime' - The timestamp of the date and time that the slot type was created.
 --
 -- 'localeId', 'updateSlotTypeResponse_localeId' - The language and locale of the updated slot type.
@@ -379,6 +400,7 @@ newUpdateSlotTypeResponse pHttpStatus_ =
   UpdateSlotTypeResponse'
     { botVersion =
         Prelude.Nothing,
+      compositeSlotTypeSetting = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       localeId = Prelude.Nothing,
       externalSourceSetting = Prelude.Nothing,
@@ -397,6 +419,10 @@ newUpdateSlotTypeResponse pHttpStatus_ =
 -- @DRAFT@.
 updateSlotTypeResponse_botVersion :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe Prelude.Text)
 updateSlotTypeResponse_botVersion = Lens.lens (\UpdateSlotTypeResponse' {botVersion} -> botVersion) (\s@UpdateSlotTypeResponse' {} a -> s {botVersion = a} :: UpdateSlotTypeResponse)
+
+-- | Specifications for a composite slot type.
+updateSlotTypeResponse_compositeSlotTypeSetting :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe CompositeSlotTypeSetting)
+updateSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\UpdateSlotTypeResponse' {compositeSlotTypeSetting} -> compositeSlotTypeSetting) (\s@UpdateSlotTypeResponse' {} a -> s {compositeSlotTypeSetting = a} :: UpdateSlotTypeResponse)
 
 -- | The timestamp of the date and time that the slot type was created.
 updateSlotTypeResponse_creationDateTime :: Lens.Lens' UpdateSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
@@ -451,6 +477,7 @@ updateSlotTypeResponse_httpStatus = Lens.lens (\UpdateSlotTypeResponse' {httpSta
 instance Prelude.NFData UpdateSlotTypeResponse where
   rnf UpdateSlotTypeResponse' {..} =
     Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf compositeSlotTypeSetting
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf externalSourceSetting

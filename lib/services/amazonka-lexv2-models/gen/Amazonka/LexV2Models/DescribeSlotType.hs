@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LexV2Models.DescribeSlotType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Amazonka.LexV2Models.DescribeSlotType
 
     -- * Response Lenses
     describeSlotTypeResponse_botVersion,
+    describeSlotTypeResponse_compositeSlotTypeSetting,
     describeSlotTypeResponse_creationDateTime,
     describeSlotTypeResponse_localeId,
     describeSlotTypeResponse_externalSourceSetting,
@@ -145,6 +146,7 @@ instance Core.AWSRequest DescribeSlotType where
       ( \s h x ->
           DescribeSlotTypeResponse'
             Prelude.<$> (x Core..?> "botVersion")
+            Prelude.<*> (x Core..?> "compositeSlotTypeSetting")
             Prelude.<*> (x Core..?> "creationDateTime")
             Prelude.<*> (x Core..?> "localeId")
             Prelude.<*> (x Core..?> "externalSourceSetting")
@@ -205,6 +207,8 @@ instance Core.ToQuery DescribeSlotType where
 data DescribeSlotTypeResponse = DescribeSlotTypeResponse'
   { -- | The version of the bot associated with the slot type.
     botVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifications for a composite slot type.
+    compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | A timestamp of the date and time that the slot type was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The language and locale specified for the slot type.
@@ -243,6 +247,8 @@ data DescribeSlotTypeResponse = DescribeSlotTypeResponse'
 --
 -- 'botVersion', 'describeSlotTypeResponse_botVersion' - The version of the bot associated with the slot type.
 --
+-- 'compositeSlotTypeSetting', 'describeSlotTypeResponse_compositeSlotTypeSetting' - Specifications for a composite slot type.
+--
 -- 'creationDateTime', 'describeSlotTypeResponse_creationDateTime' - A timestamp of the date and time that the slot type was created.
 --
 -- 'localeId', 'describeSlotTypeResponse_localeId' - The language and locale specified for the slot type.
@@ -276,6 +282,7 @@ newDescribeSlotTypeResponse pHttpStatus_ =
   DescribeSlotTypeResponse'
     { botVersion =
         Prelude.Nothing,
+      compositeSlotTypeSetting = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       localeId = Prelude.Nothing,
       externalSourceSetting = Prelude.Nothing,
@@ -293,6 +300,10 @@ newDescribeSlotTypeResponse pHttpStatus_ =
 -- | The version of the bot associated with the slot type.
 describeSlotTypeResponse_botVersion :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
 describeSlotTypeResponse_botVersion = Lens.lens (\DescribeSlotTypeResponse' {botVersion} -> botVersion) (\s@DescribeSlotTypeResponse' {} a -> s {botVersion = a} :: DescribeSlotTypeResponse)
+
+-- | Specifications for a composite slot type.
+describeSlotTypeResponse_compositeSlotTypeSetting :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe CompositeSlotTypeSetting)
+describeSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\DescribeSlotTypeResponse' {compositeSlotTypeSetting} -> compositeSlotTypeSetting) (\s@DescribeSlotTypeResponse' {} a -> s {compositeSlotTypeSetting = a} :: DescribeSlotTypeResponse)
 
 -- | A timestamp of the date and time that the slot type was created.
 describeSlotTypeResponse_creationDateTime :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
@@ -347,6 +358,7 @@ describeSlotTypeResponse_httpStatus = Lens.lens (\DescribeSlotTypeResponse' {htt
 instance Prelude.NFData DescribeSlotTypeResponse where
   rnf DescribeSlotTypeResponse' {..} =
     Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf compositeSlotTypeSetting
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf externalSourceSetting

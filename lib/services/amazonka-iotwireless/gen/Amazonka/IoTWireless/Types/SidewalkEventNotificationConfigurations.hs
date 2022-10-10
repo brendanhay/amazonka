@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkEventNotificationConfigurations' smart constructor.
 data SidewalkEventNotificationConfigurations = SidewalkEventNotificationConfigurations'
-  { -- | Enum to denote whether amazon id event topic is enabled or disabled.
+  { -- | Denotes whether the Amazon ID event topic is enabled or disabled.
     amazonIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +42,7 @@ data SidewalkEventNotificationConfigurations = SidewalkEventNotificationConfigur
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amazonIdEventTopic', 'sidewalkEventNotificationConfigurations_amazonIdEventTopic' - Enum to denote whether amazon id event topic is enabled or disabled.
+-- 'amazonIdEventTopic', 'sidewalkEventNotificationConfigurations_amazonIdEventTopic' - Denotes whether the Amazon ID event topic is enabled or disabled.
 newSidewalkEventNotificationConfigurations ::
   SidewalkEventNotificationConfigurations
 newSidewalkEventNotificationConfigurations =
@@ -51,7 +51,7 @@ newSidewalkEventNotificationConfigurations =
         Prelude.Nothing
     }
 
--- | Enum to denote whether amazon id event topic is enabled or disabled.
+-- | Denotes whether the Amazon ID event topic is enabled or disabled.
 sidewalkEventNotificationConfigurations_amazonIdEventTopic :: Lens.Lens' SidewalkEventNotificationConfigurations (Prelude.Maybe EventNotificationTopicStatus)
 sidewalkEventNotificationConfigurations_amazonIdEventTopic = Lens.lens (\SidewalkEventNotificationConfigurations' {amazonIdEventTopic} -> amazonIdEventTopic) (\s@SidewalkEventNotificationConfigurations' {} a -> s {amazonIdEventTopic = a} :: SidewalkEventNotificationConfigurations)
 

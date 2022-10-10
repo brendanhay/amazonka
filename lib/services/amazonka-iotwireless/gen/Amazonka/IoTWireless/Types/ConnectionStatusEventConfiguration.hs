@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ data ConnectionStatusEventConfiguration = ConnectionStatusEventConfiguration'
   { -- | Connection status event configuration object for enabling or disabling
     -- LoRaWAN related event topics.
     loRaWAN :: Prelude.Maybe LoRaWANConnectionStatusEventNotificationConfigurations,
-    -- | Enum to denote whether the wireless gateway ID connection status event
-    -- topic is enabled or disabled.
+    -- | Denotes whether the wireless gateway ID connection status event topic is
+    -- enabled or disabled.
     wirelessGatewayIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,8 +50,8 @@ data ConnectionStatusEventConfiguration = ConnectionStatusEventConfiguration'
 -- 'loRaWAN', 'connectionStatusEventConfiguration_loRaWAN' - Connection status event configuration object for enabling or disabling
 -- LoRaWAN related event topics.
 --
--- 'wirelessGatewayIdEventTopic', 'connectionStatusEventConfiguration_wirelessGatewayIdEventTopic' - Enum to denote whether the wireless gateway ID connection status event
--- topic is enabled or disabled.
+-- 'wirelessGatewayIdEventTopic', 'connectionStatusEventConfiguration_wirelessGatewayIdEventTopic' - Denotes whether the wireless gateway ID connection status event topic is
+-- enabled or disabled.
 newConnectionStatusEventConfiguration ::
   ConnectionStatusEventConfiguration
 newConnectionStatusEventConfiguration =
@@ -67,8 +67,8 @@ newConnectionStatusEventConfiguration =
 connectionStatusEventConfiguration_loRaWAN :: Lens.Lens' ConnectionStatusEventConfiguration (Prelude.Maybe LoRaWANConnectionStatusEventNotificationConfigurations)
 connectionStatusEventConfiguration_loRaWAN = Lens.lens (\ConnectionStatusEventConfiguration' {loRaWAN} -> loRaWAN) (\s@ConnectionStatusEventConfiguration' {} a -> s {loRaWAN = a} :: ConnectionStatusEventConfiguration)
 
--- | Enum to denote whether the wireless gateway ID connection status event
--- topic is enabled or disabled.
+-- | Denotes whether the wireless gateway ID connection status event topic is
+-- enabled or disabled.
 connectionStatusEventConfiguration_wirelessGatewayIdEventTopic :: Lens.Lens' ConnectionStatusEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 connectionStatusEventConfiguration_wirelessGatewayIdEventTopic = Lens.lens (\ConnectionStatusEventConfiguration' {wirelessGatewayIdEventTopic} -> wirelessGatewayIdEventTopic) (\s@ConnectionStatusEventConfiguration' {} a -> s {wirelessGatewayIdEventTopic = a} :: ConnectionStatusEventConfiguration)
 

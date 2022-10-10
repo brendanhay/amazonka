@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.LoRaWANConnectionStatusResourceTypeEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANConnectionStatusResourceTypeEventConfiguration' smart constructor.
 data LoRaWANConnectionStatusResourceTypeEventConfiguration = LoRaWANConnectionStatusResourceTypeEventConfiguration'
-  { -- | Enum to denote whether the wireless gateway connection status event
-    -- topic is enabled or disabled.
+  { -- | Denotes whether the wireless gateway connection status event topic is
+    -- enabled or disabled.
     wirelessGatewayEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +42,8 @@ data LoRaWANConnectionStatusResourceTypeEventConfiguration = LoRaWANConnectionSt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessGatewayEventTopic', 'loRaWANConnectionStatusResourceTypeEventConfiguration_wirelessGatewayEventTopic' - Enum to denote whether the wireless gateway connection status event
--- topic is enabled or disabled.
+-- 'wirelessGatewayEventTopic', 'loRaWANConnectionStatusResourceTypeEventConfiguration_wirelessGatewayEventTopic' - Denotes whether the wireless gateway connection status event topic is
+-- enabled or disabled.
 newLoRaWANConnectionStatusResourceTypeEventConfiguration ::
   LoRaWANConnectionStatusResourceTypeEventConfiguration
 newLoRaWANConnectionStatusResourceTypeEventConfiguration =
@@ -52,8 +52,8 @@ newLoRaWANConnectionStatusResourceTypeEventConfiguration =
         Prelude.Nothing
     }
 
--- | Enum to denote whether the wireless gateway connection status event
--- topic is enabled or disabled.
+-- | Denotes whether the wireless gateway connection status event topic is
+-- enabled or disabled.
 loRaWANConnectionStatusResourceTypeEventConfiguration_wirelessGatewayEventTopic :: Lens.Lens' LoRaWANConnectionStatusResourceTypeEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 loRaWANConnectionStatusResourceTypeEventConfiguration_wirelessGatewayEventTopic = Lens.lens (\LoRaWANConnectionStatusResourceTypeEventConfiguration' {wirelessGatewayEventTopic} -> wirelessGatewayEventTopic) (\s@LoRaWANConnectionStatusResourceTypeEventConfiguration' {} a -> s {wirelessGatewayEventTopic = a} :: LoRaWANConnectionStatusResourceTypeEventConfiguration)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.JoinEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,8 @@ data JoinEventConfiguration = JoinEventConfiguration'
   { -- | Join event configuration object for enabling or disabling LoRaWAN
     -- related event topics.
     loRaWAN :: Prelude.Maybe LoRaWANJoinEventNotificationConfigurations,
-    -- | Enum to denote whether the wireless device id join event topic is
-    -- enabled or disabled.
+    -- | Denotes whether the wireless device ID join event topic is enabled or
+    -- disabled.
     wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,8 +49,8 @@ data JoinEventConfiguration = JoinEventConfiguration'
 -- 'loRaWAN', 'joinEventConfiguration_loRaWAN' - Join event configuration object for enabling or disabling LoRaWAN
 -- related event topics.
 --
--- 'wirelessDeviceIdEventTopic', 'joinEventConfiguration_wirelessDeviceIdEventTopic' - Enum to denote whether the wireless device id join event topic is
--- enabled or disabled.
+-- 'wirelessDeviceIdEventTopic', 'joinEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID join event topic is enabled or
+-- disabled.
 newJoinEventConfiguration ::
   JoinEventConfiguration
 newJoinEventConfiguration =
@@ -64,8 +64,8 @@ newJoinEventConfiguration =
 joinEventConfiguration_loRaWAN :: Lens.Lens' JoinEventConfiguration (Prelude.Maybe LoRaWANJoinEventNotificationConfigurations)
 joinEventConfiguration_loRaWAN = Lens.lens (\JoinEventConfiguration' {loRaWAN} -> loRaWAN) (\s@JoinEventConfiguration' {} a -> s {loRaWAN = a} :: JoinEventConfiguration)
 
--- | Enum to denote whether the wireless device id join event topic is
--- enabled or disabled.
+-- | Denotes whether the wireless device ID join event topic is enabled or
+-- disabled.
 joinEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' JoinEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 joinEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\JoinEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@JoinEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: JoinEventConfiguration)
 

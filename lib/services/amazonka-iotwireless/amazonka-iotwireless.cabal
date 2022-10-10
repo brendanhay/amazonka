@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -136,6 +136,7 @@ library
     Amazonka.IoTWireless.Types.AbpV1_1
     Amazonka.IoTWireless.Types.Accuracy
     Amazonka.IoTWireless.Types.BatteryLevel
+    Amazonka.IoTWireless.Types.Beaconing
     Amazonka.IoTWireless.Types.CertificateList
     Amazonka.IoTWireless.Types.ConnectionStatus
     Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
@@ -146,6 +147,7 @@ library
     Amazonka.IoTWireless.Types.DeviceRegistrationStateResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.DeviceState
     Amazonka.IoTWireless.Types.DlClass
+    Amazonka.IoTWireless.Types.DownlinkMode
     Amazonka.IoTWireless.Types.DownlinkQueueMessage
     Amazonka.IoTWireless.Types.Event
     Amazonka.IoTWireless.Types.EventConfigurationItem
@@ -158,6 +160,7 @@ library
     Amazonka.IoTWireless.Types.FuotaDeviceStatus
     Amazonka.IoTWireless.Types.FuotaTask
     Amazonka.IoTWireless.Types.FuotaTaskStatus
+    Amazonka.IoTWireless.Types.GatewayListItem
     Amazonka.IoTWireless.Types.IdentifierType
     Amazonka.IoTWireless.Types.JoinEventConfiguration
     Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
@@ -196,6 +199,7 @@ library
     Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations
     Amazonka.IoTWireless.Types.OtaaV1_0_x
     Amazonka.IoTWireless.Types.OtaaV1_1
+    Amazonka.IoTWireless.Types.ParticipatingGateways
     Amazonka.IoTWireless.Types.PartnerType
     Amazonka.IoTWireless.Types.PositionConfigurationFec
     Amazonka.IoTWireless.Types.PositionConfigurationItem
@@ -263,7 +267,7 @@ library
     Amazonka.IoTWireless.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-iotwireless-test
@@ -282,9 +286,9 @@ test-suite amazonka-iotwireless-test
     Test.Amazonka.IoTWireless.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-iotwireless
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

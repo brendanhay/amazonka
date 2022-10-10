@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageDeliveryStatusEventConfiguration' smart constructor.
 data MessageDeliveryStatusEventConfiguration = MessageDeliveryStatusEventConfiguration'
-  { -- | Enum to denote whether the wireless device id device registration state
-    -- event topic is enabled or disabled.
+  { -- | Denotes whether the wireless device ID device registration state event
+    -- topic is enabled or disabled.
     wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus,
     sidewalk :: Prelude.Maybe SidewalkEventNotificationConfigurations
   }
@@ -45,8 +45,8 @@ data MessageDeliveryStatusEventConfiguration = MessageDeliveryStatusEventConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceIdEventTopic', 'messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic' - Enum to denote whether the wireless device id device registration state
--- event topic is enabled or disabled.
+-- 'wirelessDeviceIdEventTopic', 'messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
 --
 -- 'sidewalk', 'messageDeliveryStatusEventConfiguration_sidewalk' - Undocumented member.
 newMessageDeliveryStatusEventConfiguration ::
@@ -58,8 +58,8 @@ newMessageDeliveryStatusEventConfiguration =
       sidewalk = Prelude.Nothing
     }
 
--- | Enum to denote whether the wireless device id device registration state
--- event topic is enabled or disabled.
+-- | Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
 messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' MessageDeliveryStatusEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
 messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\MessageDeliveryStatusEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@MessageDeliveryStatusEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: MessageDeliveryStatusEventConfiguration)
 

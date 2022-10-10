@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -664,6 +664,9 @@ module Amazonka.IoTWireless
     -- ** DlClass
     DlClass (..),
 
+    -- ** DownlinkMode
+    DownlinkMode (..),
+
     -- ** Event
     Event (..),
 
@@ -760,6 +763,10 @@ module Amazonka.IoTWireless
     Accuracy (Accuracy'),
     newAccuracy,
 
+    -- ** Beaconing
+    Beaconing (Beaconing'),
+    newBeaconing,
+
     -- ** CertificateList
     CertificateList (CertificateList'),
     newCertificateList,
@@ -807,6 +814,10 @@ module Amazonka.IoTWireless
     -- ** FuotaTask
     FuotaTask (FuotaTask'),
     newFuotaTask,
+
+    -- ** GatewayListItem
+    GatewayListItem (GatewayListItem'),
+    newGatewayListItem,
 
     -- ** JoinEventConfiguration
     JoinEventConfiguration (JoinEventConfiguration'),
@@ -947,6 +958,10 @@ module Amazonka.IoTWireless
     -- ** OtaaV1_1
     OtaaV1_1 (OtaaV1_1'),
     newOtaaV1_1,
+
+    -- ** ParticipatingGateways
+    ParticipatingGateways (ParticipatingGateways'),
+    newParticipatingGateways,
 
     -- ** PositionConfigurationItem
     PositionConfigurationItem (PositionConfigurationItem'),

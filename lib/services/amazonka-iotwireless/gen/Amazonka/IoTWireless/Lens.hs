@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -727,6 +727,10 @@ module Amazonka.IoTWireless.Lens
     accuracy_verticalAccuracy,
     accuracy_horizontalAccuracy,
 
+    -- ** Beaconing
+    beaconing_frequencies,
+    beaconing_dataRate,
+
     -- ** CertificateList
     certificateList_signingAlg,
     certificateList_value,
@@ -787,6 +791,10 @@ module Amazonka.IoTWireless.Lens
     fuotaTask_name,
     fuotaTask_arn,
     fuotaTask_id,
+
+    -- ** GatewayListItem
+    gatewayListItem_gatewayId,
+    gatewayListItem_downlinkFrequency,
 
     -- ** JoinEventConfiguration
     joinEventConfiguration_loRaWAN,
@@ -850,6 +858,7 @@ module Amazonka.IoTWireless.Lens
     -- ** LoRaWANGateway
     loRaWANGateway_rfRegion,
     loRaWANGateway_subBands,
+    loRaWANGateway_beaconing,
     loRaWANGateway_gatewayEui,
     loRaWANGateway_netIdFilters,
     loRaWANGateway_joinEuiFilters,
@@ -918,6 +927,7 @@ module Amazonka.IoTWireless.Lens
 
     -- ** LoRaWANSendDataToDevice
     loRaWANSendDataToDevice_fPort,
+    loRaWANSendDataToDevice_participatingGateways,
 
     -- ** LoRaWANServiceProfile
     loRaWANServiceProfile_addGwMetadata,
@@ -975,6 +985,11 @@ module Amazonka.IoTWireless.Lens
     otaaV1_1_appKey,
     otaaV1_1_nwkKey,
     otaaV1_1_joinEui,
+
+    -- ** ParticipatingGateways
+    participatingGateways_downlinkMode,
+    participatingGateways_gatewayList,
+    participatingGateways_transmissionInterval,
 
     -- ** PositionConfigurationItem
     positionConfigurationItem_destination,
@@ -1227,6 +1242,7 @@ import Amazonka.IoTWireless.TestWirelessDevice
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
 import Amazonka.IoTWireless.Types.Accuracy
+import Amazonka.IoTWireless.Types.Beaconing
 import Amazonka.IoTWireless.Types.CertificateList
 import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
 import Amazonka.IoTWireless.Types.ConnectionStatusResourceTypeEventConfiguration
@@ -1239,6 +1255,7 @@ import Amazonka.IoTWireless.Types.EventConfigurationItem
 import Amazonka.IoTWireless.Types.EventNotificationItemConfigurations
 import Amazonka.IoTWireless.Types.FPorts
 import Amazonka.IoTWireless.Types.FuotaTask
+import Amazonka.IoTWireless.Types.GatewayListItem
 import Amazonka.IoTWireless.Types.JoinEventConfiguration
 import Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusEventNotificationConfigurations
@@ -1274,6 +1291,7 @@ import Amazonka.IoTWireless.Types.MulticastWirelessMetadata
 import Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations
 import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
+import Amazonka.IoTWireless.Types.ParticipatingGateways
 import Amazonka.IoTWireless.Types.PositionConfigurationItem
 import Amazonka.IoTWireless.Types.PositionSolverConfigurations
 import Amazonka.IoTWireless.Types.PositionSolverDetails

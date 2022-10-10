@@ -11,16 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IoTWireless.Types.EventNotificationPartnerType
+-- Module      : Amazonka.IoTWireless.Types.DownlinkMode
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IoTWireless.Types.EventNotificationPartnerType
-  ( EventNotificationPartnerType
+module Amazonka.IoTWireless.Types.DownlinkMode
+  ( DownlinkMode
       ( ..,
-        EventNotificationPartnerType_Sidewalk
+        DownlinkMode_CONCURRENT,
+        DownlinkMode_SEQUENTIAL,
+        DownlinkMode_USING_UPLINK_GATEWAY
       ),
   )
 where
@@ -28,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype EventNotificationPartnerType = EventNotificationPartnerType'
-  { fromEventNotificationPartnerType ::
+newtype DownlinkMode = DownlinkMode'
+  { fromDownlinkMode ::
       Core.Text
   }
   deriving stock
@@ -56,10 +58,18 @@ newtype EventNotificationPartnerType = EventNotificationPartnerType'
       Core.ToXML
     )
 
-pattern EventNotificationPartnerType_Sidewalk :: EventNotificationPartnerType
-pattern EventNotificationPartnerType_Sidewalk = EventNotificationPartnerType' "Sidewalk"
+pattern DownlinkMode_CONCURRENT :: DownlinkMode
+pattern DownlinkMode_CONCURRENT = DownlinkMode' "CONCURRENT"
+
+pattern DownlinkMode_SEQUENTIAL :: DownlinkMode
+pattern DownlinkMode_SEQUENTIAL = DownlinkMode' "SEQUENTIAL"
+
+pattern DownlinkMode_USING_UPLINK_GATEWAY :: DownlinkMode
+pattern DownlinkMode_USING_UPLINK_GATEWAY = DownlinkMode' "USING_UPLINK_GATEWAY"
 
 {-# COMPLETE
-  EventNotificationPartnerType_Sidewalk,
-  EventNotificationPartnerType'
+  DownlinkMode_CONCURRENT,
+  DownlinkMode_SEQUENTIAL,
+  DownlinkMode_USING_UPLINK_GATEWAY,
+  DownlinkMode'
   #-}

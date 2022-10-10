@@ -14,7 +14,7 @@ exports_files(glob(["**/*.json"]))
 """,
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
-    version = "7d42013f82986aac706003c3daaddb8da3465b85",
+    version = "3d570196b202407e61ff3125c57ba6d94f968cf2",
 )
 
 #
@@ -40,10 +40,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "rules_cc",
-    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.4/rules_cc-0.0.4.tar.gz"],
     sha256 = "af6cc82d87db94585bceeda2561cb8a9d55ad435318ccb4ddfee18a43580fb5d",
-    strip_prefix = "rules_cc-0.0.4",
-    version = "0.0.4"
+    strip_prefix = "rules_cc-{version}",
+    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/{version}/rules_cc-{version}.tar.gz"],
+    version = "0.0.4",
 )
 
 versioned_http_archive(
@@ -102,10 +102,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "com_github_bazelbuild_buildtools",
-    sha256 = "143ef233b81286470a14d77e57352cec682a642831423af883e5744e110af642",
+    sha256 = "e3bb0dc8b0274ea1aca75f1f8c0c835adbe589708ea89bf698069d0790701ea3",
     strip_prefix = "buildtools-{version}",
-    url = "https://github.com/bazelbuild/buildtools/archive/{version}.tar.gz",
-    version = "d6daef01a1a2f41a4143a314bf1996bf351caa30",
+    url = "https://github.com/bazelbuild/buildtools/archive/refs/tags/{version}.tar.gz",
+    version = "5.1.0",
 )
 
 versioned_http_archive(

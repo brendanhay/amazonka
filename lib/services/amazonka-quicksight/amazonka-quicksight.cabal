@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -157,6 +157,7 @@ library
     Amazonka.QuickSight.Types.AnalysisSourceTemplate
     Amazonka.QuickSight.Types.AnalysisSummary
     Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
+    Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
     Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
     Amazonka.QuickSight.Types.AssignmentStatus
     Amazonka.QuickSight.Types.AthenaParameters
@@ -192,6 +193,7 @@ library
     Amazonka.QuickSight.Types.DashboardUIState
     Amazonka.QuickSight.Types.DashboardVersion
     Amazonka.QuickSight.Types.DashboardVersionSummary
+    Amazonka.QuickSight.Types.DashboardVisualId
     Amazonka.QuickSight.Types.DataColorPalette
     Amazonka.QuickSight.Types.DataSet
     Amazonka.QuickSight.Types.DataSetConfiguration
@@ -273,6 +275,7 @@ library
     Amazonka.QuickSight.Types.RdsParameters
     Amazonka.QuickSight.Types.RedshiftParameters
     Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+    Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
     Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
     Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
     Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfiguration
@@ -361,7 +364,7 @@ library
     Amazonka.QuickSight.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-quicksight-test
@@ -380,9 +383,9 @@ test-suite amazonka-quicksight-test
     Test.Amazonka.QuickSight.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-quicksight
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.QuickSight.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -266,9 +266,15 @@ module Amazonka.QuickSight.Types
     newAnonymousUserDashboardEmbeddingConfiguration,
     anonymousUserDashboardEmbeddingConfiguration_initialDashboardId,
 
+    -- * AnonymousUserDashboardVisualEmbeddingConfiguration
+    AnonymousUserDashboardVisualEmbeddingConfiguration (..),
+    newAnonymousUserDashboardVisualEmbeddingConfiguration,
+    anonymousUserDashboardVisualEmbeddingConfiguration_initialDashboardVisualId,
+
     -- * AnonymousUserEmbeddingExperienceConfiguration
     AnonymousUserEmbeddingExperienceConfiguration (..),
     newAnonymousUserEmbeddingExperienceConfiguration,
+    anonymousUserEmbeddingExperienceConfiguration_dashboardVisual,
     anonymousUserEmbeddingExperienceConfiguration_dashboard,
 
     -- * AthenaParameters
@@ -450,6 +456,13 @@ module Amazonka.QuickSight.Types
     dashboardVersionSummary_status,
     dashboardVersionSummary_description,
     dashboardVersionSummary_versionNumber,
+
+    -- * DashboardVisualId
+    DashboardVisualId (..),
+    newDashboardVisualId,
+    dashboardVisualId_dashboardId,
+    dashboardVisualId_sheetId,
+    dashboardVisualId_visualId,
 
     -- * DataColorPalette
     DataColorPalette (..),
@@ -878,9 +891,15 @@ module Amazonka.QuickSight.Types
     newRegisteredUserDashboardEmbeddingConfiguration,
     registeredUserDashboardEmbeddingConfiguration_initialDashboardId,
 
+    -- * RegisteredUserDashboardVisualEmbeddingConfiguration
+    RegisteredUserDashboardVisualEmbeddingConfiguration (..),
+    newRegisteredUserDashboardVisualEmbeddingConfiguration,
+    registeredUserDashboardVisualEmbeddingConfiguration_initialDashboardVisualId,
+
     -- * RegisteredUserEmbeddingExperienceConfiguration
     RegisteredUserEmbeddingExperienceConfiguration (..),
     newRegisteredUserEmbeddingExperienceConfiguration,
+    registeredUserEmbeddingExperienceConfiguration_dashboardVisual,
     registeredUserEmbeddingExperienceConfiguration_dashboard,
     registeredUserEmbeddingExperienceConfiguration_qSearchBar,
     registeredUserEmbeddingExperienceConfiguration_quickSightConsole,
@@ -1282,6 +1301,7 @@ import Amazonka.QuickSight.Types.AnalysisSourceEntity
 import Amazonka.QuickSight.Types.AnalysisSourceTemplate
 import Amazonka.QuickSight.Types.AnalysisSummary
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
+import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
 import Amazonka.QuickSight.Types.AssignmentStatus
 import Amazonka.QuickSight.Types.AthenaParameters
@@ -1317,6 +1337,7 @@ import Amazonka.QuickSight.Types.DashboardSummary
 import Amazonka.QuickSight.Types.DashboardUIState
 import Amazonka.QuickSight.Types.DashboardVersion
 import Amazonka.QuickSight.Types.DashboardVersionSummary
+import Amazonka.QuickSight.Types.DashboardVisualId
 import Amazonka.QuickSight.Types.DataColorPalette
 import Amazonka.QuickSight.Types.DataSet
 import Amazonka.QuickSight.Types.DataSetConfiguration
@@ -1398,6 +1419,7 @@ import Amazonka.QuickSight.Types.QueueInfo
 import Amazonka.QuickSight.Types.RdsParameters
 import Amazonka.QuickSight.Types.RedshiftParameters
 import Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+import Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfiguration

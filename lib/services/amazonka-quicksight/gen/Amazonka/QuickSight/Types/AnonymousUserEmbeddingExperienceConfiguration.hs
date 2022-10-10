@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
+import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
 
 -- | The type of experience you want to embed. For anonymous users, you can
 -- embed Amazon QuickSight dashboards.
@@ -30,6 +31,9 @@ import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 -- /See:/ 'newAnonymousUserEmbeddingExperienceConfiguration' smart constructor.
 data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExperienceConfiguration'
   { -- | The type of embedding experience. In this case, Amazon QuickSight
+    -- visuals.
+    dashboardVisual :: Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration,
+    -- | The type of embedding experience. In this case, Amazon QuickSight
     -- dashboards.
     dashboard :: Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration
   }
@@ -43,15 +47,24 @@ data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExper
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dashboardVisual', 'anonymousUserEmbeddingExperienceConfiguration_dashboardVisual' - The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+--
 -- 'dashboard', 'anonymousUserEmbeddingExperienceConfiguration_dashboard' - The type of embedding experience. In this case, Amazon QuickSight
 -- dashboards.
 newAnonymousUserEmbeddingExperienceConfiguration ::
   AnonymousUserEmbeddingExperienceConfiguration
 newAnonymousUserEmbeddingExperienceConfiguration =
   AnonymousUserEmbeddingExperienceConfiguration'
-    { dashboard =
-        Prelude.Nothing
+    { dashboardVisual =
+        Prelude.Nothing,
+      dashboard = Prelude.Nothing
     }
+
+-- | The type of embedding experience. In this case, Amazon QuickSight
+-- visuals.
+anonymousUserEmbeddingExperienceConfiguration_dashboardVisual :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration)
+anonymousUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboardVisual} -> dashboardVisual) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboardVisual = a} :: AnonymousUserEmbeddingExperienceConfiguration)
 
 -- | The type of embedding experience. In this case, Amazon QuickSight
 -- dashboards.
@@ -65,7 +78,8 @@ instance
   hashWithSalt
     _salt
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dashboard
+      _salt `Prelude.hashWithSalt` dashboardVisual
+        `Prelude.hashWithSalt` dashboard
 
 instance
   Prelude.NFData
@@ -73,7 +87,8 @@ instance
   where
   rnf
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboard
+      Prelude.rnf dashboardVisual
+        `Prelude.seq` Prelude.rnf dashboard
 
 instance
   Core.ToJSON
@@ -83,5 +98,8 @@ instance
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
       Core.object
         ( Prelude.catMaybes
-            [("Dashboard" Core..=) Prelude.<$> dashboard]
+            [ ("DashboardVisual" Core..=)
+                Prelude.<$> dashboardVisual,
+              ("Dashboard" Core..=) Prelude.<$> dashboard
+            ]
         )

@@ -14,16 +14,17 @@
 
 -- |
 -- Module      : Amazonka.IdentityStore.ListUsers
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the attribute name and value of the user that you specified in the
--- search. We only support @UserName@ as a valid filter attribute path
--- currently, and filter is required. This API returns minimum attributes,
--- including @UserId@ and @UserName@ in the response.
+-- Lists all users in the identity store. Returns a paginated list of
+-- complete @User@ objects. Filtering for a @User@ by the @UserName@
+-- attribute is deprecated. Instead, use the @GetUserId@ API action.
+--
+-- This operation returns paginated results.
 module Amazonka.IdentityStore.ListUsers
   ( -- * Creating a Request
     ListUsers (..),
@@ -62,15 +63,15 @@ data ListUsers = ListUsers'
     -- request to search for the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @Filter@ objects, which is used in the @ListUsers@ and
-    -- @ListGroups@ request.
+    -- @ListGroups@ requests.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to be returned per request. This parameter
-    -- is used in the @ListUsers@ and @ListGroups@ request to specify how many
+    -- is used in the @ListUsers@ and @ListGroups@ requests to specify how many
     -- results to return in one page. The length limit is 50 characters.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The globally unique identifier for the identity store, such as
     -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
-    -- @1234567890@ is a randomly generated string that contains number and
+    -- @1234567890@ is a randomly generated string that contains numbers and
     -- lower case letters. This value is generated at the time that a new
     -- identity store is created.
     identityStoreId :: Prelude.Text
@@ -92,15 +93,15 @@ data ListUsers = ListUsers'
 -- request to search for the next page.
 --
 -- 'filters', 'listUsers_filters' - A list of @Filter@ objects, which is used in the @ListUsers@ and
--- @ListGroups@ request.
+-- @ListGroups@ requests.
 --
 -- 'maxResults', 'listUsers_maxResults' - The maximum number of results to be returned per request. This parameter
--- is used in the @ListUsers@ and @ListGroups@ request to specify how many
+-- is used in the @ListUsers@ and @ListGroups@ requests to specify how many
 -- results to return in one page. The length limit is 50 characters.
 --
 -- 'identityStoreId', 'listUsers_identityStoreId' - The globally unique identifier for the identity store, such as
 -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
--- @1234567890@ is a randomly generated string that contains number and
+-- @1234567890@ is a randomly generated string that contains numbers and
 -- lower case letters. This value is generated at the time that a new
 -- identity store is created.
 newListUsers ::
@@ -124,23 +125,39 @@ listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
 
 -- | A list of @Filter@ objects, which is used in the @ListUsers@ and
--- @ListGroups@ request.
+-- @ListGroups@ requests.
 listUsers_filters :: Lens.Lens' ListUsers (Prelude.Maybe [Filter])
 listUsers_filters = Lens.lens (\ListUsers' {filters} -> filters) (\s@ListUsers' {} a -> s {filters = a} :: ListUsers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to be returned per request. This parameter
--- is used in the @ListUsers@ and @ListGroups@ request to specify how many
+-- is used in the @ListUsers@ and @ListGroups@ requests to specify how many
 -- results to return in one page. The length limit is 50 characters.
 listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | The globally unique identifier for the identity store, such as
 -- @d-1234567890@. In this example, @d-@ is a fixed prefix, and
--- @1234567890@ is a randomly generated string that contains number and
+-- @1234567890@ is a randomly generated string that contains numbers and
 -- lower case letters. This value is generated at the time that a new
 -- identity store is created.
 listUsers_identityStoreId :: Lens.Lens' ListUsers Prelude.Text
 listUsers_identityStoreId = Lens.lens (\ListUsers' {identityStoreId} -> identityStoreId) (\s@ListUsers' {} a -> s {identityStoreId = a} :: ListUsers)
+
+instance Core.AWSPager ListUsers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop (rs Lens.^. listUsersResponse_users) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUsers_nextToken
+          Lens..~ rs
+          Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse

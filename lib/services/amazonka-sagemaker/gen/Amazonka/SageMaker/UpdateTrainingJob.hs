@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.UpdateTrainingJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a model training job to request a new Debugger profiling
--- configuration.
+-- configuration or to change warm pool retention length.
 module Amazonka.SageMaker.UpdateTrainingJob
   ( -- * Creating a Request
     UpdateTrainingJob (..),
@@ -30,6 +30,7 @@ module Amazonka.SageMaker.UpdateTrainingJob
     -- * Request Lenses
     updateTrainingJob_profilerConfig,
     updateTrainingJob_profilerRuleConfigurations,
+    updateTrainingJob_resourceConfig,
     updateTrainingJob_trainingJobName,
 
     -- * Destructuring the Response
@@ -57,6 +58,8 @@ data UpdateTrainingJob = UpdateTrainingJob'
     -- | Configuration information for Debugger rules for profiling system and
     -- framework metrics.
     profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
+    -- | The training job @ResourceConfig@ to update warm pool retention length.
+    resourceConfig :: Prelude.Maybe ResourceConfigForUpdate,
     -- | The name of a training job to update the Debugger profiling
     -- configuration.
     trainingJobName :: Prelude.Text
@@ -77,6 +80,8 @@ data UpdateTrainingJob = UpdateTrainingJob'
 -- 'profilerRuleConfigurations', 'updateTrainingJob_profilerRuleConfigurations' - Configuration information for Debugger rules for profiling system and
 -- framework metrics.
 --
+-- 'resourceConfig', 'updateTrainingJob_resourceConfig' - The training job @ResourceConfig@ to update warm pool retention length.
+--
 -- 'trainingJobName', 'updateTrainingJob_trainingJobName' - The name of a training job to update the Debugger profiling
 -- configuration.
 newUpdateTrainingJob ::
@@ -88,6 +93,7 @@ newUpdateTrainingJob pTrainingJobName_ =
     { profilerConfig =
         Prelude.Nothing,
       profilerRuleConfigurations = Prelude.Nothing,
+      resourceConfig = Prelude.Nothing,
       trainingJobName = pTrainingJobName_
     }
 
@@ -100,6 +106,10 @@ updateTrainingJob_profilerConfig = Lens.lens (\UpdateTrainingJob' {profilerConfi
 -- framework metrics.
 updateTrainingJob_profilerRuleConfigurations :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
 updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The training job @ResourceConfig@ to update warm pool retention length.
+updateTrainingJob_resourceConfig :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe ResourceConfigForUpdate)
+updateTrainingJob_resourceConfig = Lens.lens (\UpdateTrainingJob' {resourceConfig} -> resourceConfig) (\s@UpdateTrainingJob' {} a -> s {resourceConfig = a} :: UpdateTrainingJob)
 
 -- | The name of a training job to update the Debugger profiling
 -- configuration.
@@ -123,12 +133,14 @@ instance Prelude.Hashable UpdateTrainingJob where
   hashWithSalt _salt UpdateTrainingJob' {..} =
     _salt `Prelude.hashWithSalt` profilerConfig
       `Prelude.hashWithSalt` profilerRuleConfigurations
+      `Prelude.hashWithSalt` resourceConfig
       `Prelude.hashWithSalt` trainingJobName
 
 instance Prelude.NFData UpdateTrainingJob where
   rnf UpdateTrainingJob' {..} =
     Prelude.rnf profilerConfig
       `Prelude.seq` Prelude.rnf profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf resourceConfig
       `Prelude.seq` Prelude.rnf trainingJobName
 
 instance Core.ToHeaders UpdateTrainingJob where
@@ -154,6 +166,8 @@ instance Core.ToJSON UpdateTrainingJob where
               Prelude.<$> profilerConfig,
             ("ProfilerRuleConfigurations" Core..=)
               Prelude.<$> profilerRuleConfigurations,
+            ("ResourceConfig" Core..=)
+              Prelude.<$> resourceConfig,
             Prelude.Just
               ("TrainingJobName" Core..= trainingJobName)
           ]

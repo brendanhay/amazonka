@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.AutoMLJobConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLCandidateGenerationConfig
 import Amazonka.SageMaker.Types.AutoMLDataSplitConfig
 import Amazonka.SageMaker.Types.AutoMLJobCompletionCriteria
+import Amazonka.SageMaker.Types.AutoMLMode
 import Amazonka.SageMaker.Types.AutoMLSecurityConfig
 
 -- | A collection of settings used for an AutoML job.
@@ -43,7 +44,30 @@ data AutoMLJobConfig = AutoMLJobConfig'
     candidateGenerationConfig :: Prelude.Maybe AutoMLCandidateGenerationConfig,
     -- | The security configuration for traffic encryption or Amazon VPC
     -- settings.
-    securityConfig :: Prelude.Maybe AutoMLSecurityConfig
+    securityConfig :: Prelude.Maybe AutoMLSecurityConfig,
+    -- | The method that Autopilot uses to train the data. You can either specify
+    -- the mode manually or let Autopilot choose for you based on the dataset
+    -- size by selecting @AUTO@. In @AUTO@ mode, Autopilot chooses @ENSEMBLING@
+    -- for datasets smaller than 100 MB, and @HYPERPARAMETER_TUNING@ for larger
+    -- ones.
+    --
+    -- The @ENSEMBLING@ mode uses a multi-stack ensemble model to predict
+    -- classification and regression tasks directly from your dataset. This
+    -- machine learning mode combines several base models to produce an optimal
+    -- predictive model. It then uses a stacking ensemble method to combine
+    -- predictions from contributing members. A multi-stack ensemble model can
+    -- provide better performance over a single model by combining the
+    -- predictive capabilities of multiple models. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+    -- for a list of algorithms supported by @ENSEMBLING@ mode.
+    --
+    -- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
+    -- train the best version of a model. HPO will automatically select an
+    -- algorithm for the type of problem you want to solve. Then HPO finds the
+    -- best hyperparameters according to your objective metric. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+    -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
+    mode :: Prelude.Maybe AutoMLMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +91,29 @@ data AutoMLJobConfig = AutoMLJobConfig'
 --
 -- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
 -- settings.
+--
+-- 'mode', 'autoMLJobConfig_mode' - The method that Autopilot uses to train the data. You can either specify
+-- the mode manually or let Autopilot choose for you based on the dataset
+-- size by selecting @AUTO@. In @AUTO@ mode, Autopilot chooses @ENSEMBLING@
+-- for datasets smaller than 100 MB, and @HYPERPARAMETER_TUNING@ for larger
+-- ones.
+--
+-- The @ENSEMBLING@ mode uses a multi-stack ensemble model to predict
+-- classification and regression tasks directly from your dataset. This
+-- machine learning mode combines several base models to produce an optimal
+-- predictive model. It then uses a stacking ensemble method to combine
+-- predictions from contributing members. A multi-stack ensemble model can
+-- provide better performance over a single model by combining the
+-- predictive capabilities of multiple models. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- for a list of algorithms supported by @ENSEMBLING@ mode.
+--
+-- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
+-- train the best version of a model. HPO will automatically select an
+-- algorithm for the type of problem you want to solve. Then HPO finds the
+-- best hyperparameters according to your objective metric. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
 newAutoMLJobConfig ::
   AutoMLJobConfig
 newAutoMLJobConfig =
@@ -74,7 +121,8 @@ newAutoMLJobConfig =
     { dataSplitConfig = Prelude.Nothing,
       completionCriteria = Prelude.Nothing,
       candidateGenerationConfig = Prelude.Nothing,
-      securityConfig = Prelude.Nothing
+      securityConfig = Prelude.Nothing,
+      mode = Prelude.Nothing
     }
 
 -- | The configuration for splitting the input training dataset.
@@ -98,6 +146,31 @@ autoMLJobConfig_candidateGenerationConfig = Lens.lens (\AutoMLJobConfig' {candid
 autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
 autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
 
+-- | The method that Autopilot uses to train the data. You can either specify
+-- the mode manually or let Autopilot choose for you based on the dataset
+-- size by selecting @AUTO@. In @AUTO@ mode, Autopilot chooses @ENSEMBLING@
+-- for datasets smaller than 100 MB, and @HYPERPARAMETER_TUNING@ for larger
+-- ones.
+--
+-- The @ENSEMBLING@ mode uses a multi-stack ensemble model to predict
+-- classification and regression tasks directly from your dataset. This
+-- machine learning mode combines several base models to produce an optimal
+-- predictive model. It then uses a stacking ensemble method to combine
+-- predictions from contributing members. A multi-stack ensemble model can
+-- provide better performance over a single model by combining the
+-- predictive capabilities of multiple models. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- for a list of algorithms supported by @ENSEMBLING@ mode.
+--
+-- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
+-- train the best version of a model. HPO will automatically select an
+-- algorithm for the type of problem you want to solve. Then HPO finds the
+-- best hyperparameters according to your objective metric. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
+autoMLJobConfig_mode :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLMode)
+autoMLJobConfig_mode = Lens.lens (\AutoMLJobConfig' {mode} -> mode) (\s@AutoMLJobConfig' {} a -> s {mode = a} :: AutoMLJobConfig)
+
 instance Core.FromJSON AutoMLJobConfig where
   parseJSON =
     Core.withObject
@@ -108,6 +181,7 @@ instance Core.FromJSON AutoMLJobConfig where
             Prelude.<*> (x Core..:? "CompletionCriteria")
             Prelude.<*> (x Core..:? "CandidateGenerationConfig")
             Prelude.<*> (x Core..:? "SecurityConfig")
+            Prelude.<*> (x Core..:? "Mode")
       )
 
 instance Prelude.Hashable AutoMLJobConfig where
@@ -116,6 +190,7 @@ instance Prelude.Hashable AutoMLJobConfig where
       `Prelude.hashWithSalt` completionCriteria
       `Prelude.hashWithSalt` candidateGenerationConfig
       `Prelude.hashWithSalt` securityConfig
+      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData AutoMLJobConfig where
   rnf AutoMLJobConfig' {..} =
@@ -123,6 +198,7 @@ instance Prelude.NFData AutoMLJobConfig where
       `Prelude.seq` Prelude.rnf completionCriteria
       `Prelude.seq` Prelude.rnf candidateGenerationConfig
       `Prelude.seq` Prelude.rnf securityConfig
+      `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =
@@ -135,6 +211,7 @@ instance Core.ToJSON AutoMLJobConfig where
             ("CandidateGenerationConfig" Core..=)
               Prelude.<$> candidateGenerationConfig,
             ("SecurityConfig" Core..=)
-              Prelude.<$> securityConfig
+              Prelude.<$> securityConfig,
+            ("Mode" Core..=) Prelude.<$> mode
           ]
       )

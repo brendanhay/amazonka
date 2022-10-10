@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeEndpoint
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,6 +40,7 @@ module Amazonka.SageMaker.DescribeEndpoint
     describeEndpointResponse_lastDeploymentConfig,
     describeEndpointResponse_productionVariants,
     describeEndpointResponse_failureReason,
+    describeEndpointResponse_explainerConfig,
     describeEndpointResponse_httpStatus,
     describeEndpointResponse_endpointName,
     describeEndpointResponse_endpointArn,
@@ -99,6 +100,7 @@ instance Core.AWSRequest DescribeEndpoint where
             Prelude.<*> (x Core..?> "LastDeploymentConfig")
             Prelude.<*> (x Core..?> "ProductionVariants")
             Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "ExplainerConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointName")
             Prelude.<*> (x Core..:> "EndpointArn")
@@ -159,6 +161,8 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | If the status of the endpoint is @Failed@, the reason why it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The configuration parameters for an explainer.
+    explainerConfig :: Prelude.Maybe ExplainerConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Name of the endpoint.
@@ -231,6 +235,8 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- behind this endpoint.
 --
 -- 'failureReason', 'describeEndpointResponse_failureReason' - If the status of the endpoint is @Failed@, the reason why it failed.
+--
+-- 'explainerConfig', 'describeEndpointResponse_explainerConfig' - The configuration parameters for an explainer.
 --
 -- 'httpStatus', 'describeEndpointResponse_httpStatus' - The response's http status code.
 --
@@ -308,6 +314,7 @@ newDescribeEndpointResponse
         lastDeploymentConfig = Prelude.Nothing,
         productionVariants = Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        explainerConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointName = pEndpointName_,
         endpointArn = pEndpointArn_,
@@ -346,6 +353,10 @@ describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointRespon
 -- | If the status of the endpoint is @Failed@, the reason why it failed.
 describeEndpointResponse_failureReason :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
 describeEndpointResponse_failureReason = Lens.lens (\DescribeEndpointResponse' {failureReason} -> failureReason) (\s@DescribeEndpointResponse' {} a -> s {failureReason = a} :: DescribeEndpointResponse)
+
+-- | The configuration parameters for an explainer.
+describeEndpointResponse_explainerConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe ExplainerConfig)
+describeEndpointResponse_explainerConfig = Lens.lens (\DescribeEndpointResponse' {explainerConfig} -> explainerConfig) (\s@DescribeEndpointResponse' {} a -> s {explainerConfig = a} :: DescribeEndpointResponse)
 
 -- | The response's http status code.
 describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Prelude.Int
@@ -414,6 +425,7 @@ instance Prelude.NFData DescribeEndpointResponse where
       `Prelude.seq` Prelude.rnf lastDeploymentConfig
       `Prelude.seq` Prelude.rnf productionVariants
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf explainerConfig
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf endpointArn

@@ -14,17 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateApp
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a running app for the specified UserProfile. Supported apps are
--- @JupyterServer@ and @KernelGateway@. This operation is automatically
--- invoked by Amazon SageMaker Studio upon access to the associated Domain,
--- and when new kernel configurations are selected by the user. A user may
--- have multiple Apps active simultaneously.
+-- Creates a running app for the specified UserProfile. This operation is
+-- automatically invoked by Amazon SageMaker Studio upon access to the
+-- associated Domain, and when new kernel configurations are selected by
+-- the user. A user may have multiple Apps active simultaneously.
 module Amazonka.SageMaker.CreateApp
   ( -- * Creating a Request
     CreateApp (..),
@@ -74,8 +73,7 @@ data CreateApp = CreateApp'
     domainId :: Prelude.Text,
     -- | The user profile name.
     userProfileName :: Prelude.Text,
-    -- | The type of app. Supported apps are @JupyterServer@ and @KernelGateway@.
-    -- @TensorBoard@ is not supported.
+    -- | The type of app.
     appType :: AppType,
     -- | The name of the app.
     appName :: Prelude.Text
@@ -107,8 +105,7 @@ data CreateApp = CreateApp'
 --
 -- 'userProfileName', 'createApp_userProfileName' - The user profile name.
 --
--- 'appType', 'createApp_appType' - The type of app. Supported apps are @JupyterServer@ and @KernelGateway@.
--- @TensorBoard@ is not supported.
+-- 'appType', 'createApp_appType' - The type of app.
 --
 -- 'appName', 'createApp_appName' - The name of the app.
 newCreateApp ::
@@ -160,8 +157,7 @@ createApp_domainId = Lens.lens (\CreateApp' {domainId} -> domainId) (\s@CreateAp
 createApp_userProfileName :: Lens.Lens' CreateApp Prelude.Text
 createApp_userProfileName = Lens.lens (\CreateApp' {userProfileName} -> userProfileName) (\s@CreateApp' {} a -> s {userProfileName = a} :: CreateApp)
 
--- | The type of app. Supported apps are @JupyterServer@ and @KernelGateway@.
--- @TensorBoard@ is not supported.
+-- | The type of app.
 createApp_appType :: Lens.Lens' CreateApp AppType
 createApp_appType = Lens.lens (\CreateApp' {appType} -> appType) (\s@CreateApp' {} a -> s {appType = a} :: CreateApp)
 

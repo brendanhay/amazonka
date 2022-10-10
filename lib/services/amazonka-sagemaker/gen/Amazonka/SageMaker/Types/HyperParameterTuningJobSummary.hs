@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,8 +46,7 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
     -- | The status of the tuning job.
     hyperParameterTuningJobStatus :: HyperParameterTuningJobStatus,
     -- | Specifies the search strategy hyperparameter tuning uses to choose which
-    -- hyperparameters to use for each iteration. Currently, the only valid
-    -- value is Bayesian.
+    -- hyperparameters to evaluate at each iteration.
     strategy :: HyperParameterTuningJobStrategyType,
     -- | The date and time that the tuning job was created.
     creationTime :: Core.POSIX,
@@ -83,8 +82,7 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
 -- 'hyperParameterTuningJobStatus', 'hyperParameterTuningJobSummary_hyperParameterTuningJobStatus' - The status of the tuning job.
 --
 -- 'strategy', 'hyperParameterTuningJobSummary_strategy' - Specifies the search strategy hyperparameter tuning uses to choose which
--- hyperparameters to use for each iteration. Currently, the only valid
--- value is Bayesian.
+-- hyperparameters to evaluate at each iteration.
 --
 -- 'creationTime', 'hyperParameterTuningJobSummary_creationTime' - The date and time that the tuning job was created.
 --
@@ -165,8 +163,7 @@ hyperParameterTuningJobSummary_hyperParameterTuningJobStatus :: Lens.Lens' Hyper
 hyperParameterTuningJobSummary_hyperParameterTuningJobStatus = Lens.lens (\HyperParameterTuningJobSummary' {hyperParameterTuningJobStatus} -> hyperParameterTuningJobStatus) (\s@HyperParameterTuningJobSummary' {} a -> s {hyperParameterTuningJobStatus = a} :: HyperParameterTuningJobSummary)
 
 -- | Specifies the search strategy hyperparameter tuning uses to choose which
--- hyperparameters to use for each iteration. Currently, the only valid
--- value is Bayesian.
+-- hyperparameters to evaluate at each iteration.
 hyperParameterTuningJobSummary_strategy :: Lens.Lens' HyperParameterTuningJobSummary HyperParameterTuningJobStrategyType
 hyperParameterTuningJobSummary_strategy = Lens.lens (\HyperParameterTuningJobSummary' {strategy} -> strategy) (\s@HyperParameterTuningJobSummary' {} a -> s {strategy = a} :: HyperParameterTuningJobSummary)
 

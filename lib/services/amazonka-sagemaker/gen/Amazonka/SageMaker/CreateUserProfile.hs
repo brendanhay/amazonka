@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateUserProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,11 @@
 -- domain, and is the main way to reference a \"person\" for the purposes
 -- of sharing, reporting, and other user-oriented features. This entity is
 -- created when a user onboards to Amazon SageMaker Studio. If an
--- administrator invites a person by email or imports them from SSO, a user
--- profile is automatically created. A user profile is the primary holder
--- of settings for an individual user and has a reference to the user\'s
--- private Amazon Elastic File System (EFS) home directory.
+-- administrator invites a person by email or imports them from IAM
+-- Identity Center, a user profile is automatically created. A user profile
+-- is the primary holder of settings for an individual user and has a
+-- reference to the user\'s private Amazon Elastic File System (EFS) home
+-- directory.
 module Amazonka.SageMaker.CreateUserProfile
   ( -- * Creating a Request
     CreateUserProfile (..),
@@ -67,16 +68,18 @@ data CreateUserProfile = CreateUserProfile'
     -- that the User Profile launches.
     tags :: Prelude.Maybe [Tag],
     -- | The username of the associated Amazon Web Services Single Sign-On User
-    -- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
-    -- required, and must match a valid username of a user in your directory.
-    -- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+    -- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
+    -- this field is required, and must match a valid username of a user in
+    -- your directory. If the Domain\'s AuthMode is not IAM Identity Center,
+    -- this field cannot be specified.
     singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
     -- | A collection of settings.
     userSettings :: Prelude.Maybe UserSettings,
     -- | A specifier for the type of value specified in SingleSignOnUserValue.
     -- Currently, the only supported value is \"UserName\". If the Domain\'s
-    -- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
-    -- not SSO, this field cannot be specified.
+    -- AuthMode is IAM Identity Center, this field is required. If the
+    -- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+    -- specified.
     singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The ID of the associated Domain.
     domainId :: Prelude.Text,
@@ -100,16 +103,18 @@ data CreateUserProfile = CreateUserProfile'
 -- that the User Profile launches.
 --
 -- 'singleSignOnUserValue', 'createUserProfile_singleSignOnUserValue' - The username of the associated Amazon Web Services Single Sign-On User
--- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
--- required, and must match a valid username of a user in your directory.
--- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+-- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
+-- this field is required, and must match a valid username of a user in
+-- your directory. If the Domain\'s AuthMode is not IAM Identity Center,
+-- this field cannot be specified.
 --
 -- 'userSettings', 'createUserProfile_userSettings' - A collection of settings.
 --
 -- 'singleSignOnUserIdentifier', 'createUserProfile_singleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue.
 -- Currently, the only supported value is \"UserName\". If the Domain\'s
--- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
--- not SSO, this field cannot be specified.
+-- AuthMode is IAM Identity Center, this field is required. If the
+-- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+-- specified.
 --
 -- 'domainId', 'createUserProfile_domainId' - The ID of the associated Domain.
 --
@@ -139,9 +144,10 @@ createUserProfile_tags :: Lens.Lens' CreateUserProfile (Prelude.Maybe [Tag])
 createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The username of the associated Amazon Web Services Single Sign-On User
--- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
--- required, and must match a valid username of a user in your directory.
--- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+-- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
+-- this field is required, and must match a valid username of a user in
+-- your directory. If the Domain\'s AuthMode is not IAM Identity Center,
+-- this field cannot be specified.
 createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
 createUserProfile_singleSignOnUserValue = Lens.lens (\CreateUserProfile' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@CreateUserProfile' {} a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
 
@@ -151,8 +157,9 @@ createUserProfile_userSettings = Lens.lens (\CreateUserProfile' {userSettings} -
 
 -- | A specifier for the type of value specified in SingleSignOnUserValue.
 -- Currently, the only supported value is \"UserName\". If the Domain\'s
--- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
--- not SSO, this field cannot be specified.
+-- AuthMode is IAM Identity Center, this field is required. If the
+-- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+-- specified.
 createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
 createUserProfile_singleSignOnUserIdentifier = Lens.lens (\CreateUserProfile' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@CreateUserProfile' {} a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
 

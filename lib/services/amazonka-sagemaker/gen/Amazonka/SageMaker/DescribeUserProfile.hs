@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeUserProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -165,7 +165,7 @@ instance Core.ToQuery DescribeUserProfile where
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
   { -- | The user profile Amazon Resource Name (ARN).
     userProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | The SSO user value.
+    -- | The IAM Identity Center user value.
     singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
     -- | The status.
     status :: Prelude.Maybe UserProfileStatus,
@@ -184,7 +184,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The failure reason.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The SSO user identifier.
+    -- | The IAM Identity Center user identifier.
     singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -201,7 +201,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 --
 -- 'userProfileArn', 'describeUserProfileResponse_userProfileArn' - The user profile Amazon Resource Name (ARN).
 --
--- 'singleSignOnUserValue', 'describeUserProfileResponse_singleSignOnUserValue' - The SSO user value.
+-- 'singleSignOnUserValue', 'describeUserProfileResponse_singleSignOnUserValue' - The IAM Identity Center user value.
 --
 -- 'status', 'describeUserProfileResponse_status' - The status.
 --
@@ -220,7 +220,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 --
 -- 'failureReason', 'describeUserProfileResponse_failureReason' - The failure reason.
 --
--- 'singleSignOnUserIdentifier', 'describeUserProfileResponse_singleSignOnUserIdentifier' - The SSO user identifier.
+-- 'singleSignOnUserIdentifier', 'describeUserProfileResponse_singleSignOnUserIdentifier' - The IAM Identity Center user identifier.
 --
 -- 'httpStatus', 'describeUserProfileResponse_httpStatus' - The response's http status code.
 newDescribeUserProfileResponse ::
@@ -248,7 +248,7 @@ newDescribeUserProfileResponse pHttpStatus_ =
 describeUserProfileResponse_userProfileArn :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_userProfileArn = Lens.lens (\DescribeUserProfileResponse' {userProfileArn} -> userProfileArn) (\s@DescribeUserProfileResponse' {} a -> s {userProfileArn = a} :: DescribeUserProfileResponse)
 
--- | The SSO user value.
+-- | The IAM Identity Center user value.
 describeUserProfileResponse_singleSignOnUserValue :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_singleSignOnUserValue = Lens.lens (\DescribeUserProfileResponse' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@DescribeUserProfileResponse' {} a -> s {singleSignOnUserValue = a} :: DescribeUserProfileResponse)
 
@@ -285,7 +285,7 @@ describeUserProfileResponse_domainId = Lens.lens (\DescribeUserProfileResponse' 
 describeUserProfileResponse_failureReason :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_failureReason = Lens.lens (\DescribeUserProfileResponse' {failureReason} -> failureReason) (\s@DescribeUserProfileResponse' {} a -> s {failureReason = a} :: DescribeUserProfileResponse)
 
--- | The SSO user identifier.
+-- | The IAM Identity Center user identifier.
 describeUserProfileResponse_singleSignOnUserIdentifier :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_singleSignOnUserIdentifier = Lens.lens (\DescribeUserProfileResponse' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@DescribeUserProfileResponse' {} a -> s {singleSignOnUserIdentifier = a} :: DescribeUserProfileResponse)
 

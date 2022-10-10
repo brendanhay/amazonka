@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
   ( HyperParameterTuningJobStrategyType
       ( ..,
         HyperParameterTuningJobStrategyType_Bayesian,
+        HyperParameterTuningJobStrategyType_Hyperband,
         HyperParameterTuningJobStrategyType_Random
       ),
   )
@@ -63,11 +64,15 @@ newtype HyperParameterTuningJobStrategyType = HyperParameterTuningJobStrategyTyp
 pattern HyperParameterTuningJobStrategyType_Bayesian :: HyperParameterTuningJobStrategyType
 pattern HyperParameterTuningJobStrategyType_Bayesian = HyperParameterTuningJobStrategyType' "Bayesian"
 
+pattern HyperParameterTuningJobStrategyType_Hyperband :: HyperParameterTuningJobStrategyType
+pattern HyperParameterTuningJobStrategyType_Hyperband = HyperParameterTuningJobStrategyType' "Hyperband"
+
 pattern HyperParameterTuningJobStrategyType_Random :: HyperParameterTuningJobStrategyType
 pattern HyperParameterTuningJobStrategyType_Random = HyperParameterTuningJobStrategyType' "Random"
 
 {-# COMPLETE
   HyperParameterTuningJobStrategyType_Bayesian,
+  HyperParameterTuningJobStrategyType_Hyperband,
   HyperParameterTuningJobStrategyType_Random,
   HyperParameterTuningJobStrategyType'
   #-}

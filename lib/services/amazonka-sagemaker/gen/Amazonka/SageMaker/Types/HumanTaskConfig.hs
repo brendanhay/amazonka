@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HumanTaskConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,8 @@ data HumanTaskConfig = HumanTaskConfig'
   { -- | Defines the maximum number of data objects that can be labeled by human
     -- workers at the same time. Also referred to as batch size. Each object
     -- may have more than one worker at one time. The default value is 1000
-    -- objects.
+    -- objects. To increase the maximum value to 5000 objects, contact Amazon
+    -- Web Services Support.
     maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
     -- | The price that you pay for each task performed by an Amazon Mechanical
     -- Turk worker.
@@ -749,7 +750,8 @@ data HumanTaskConfig = HumanTaskConfig'
 -- 'maxConcurrentTaskCount', 'humanTaskConfig_maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human
 -- workers at the same time. Also referred to as batch size. Each object
 -- may have more than one worker at one time. The default value is 1000
--- objects.
+-- objects. To increase the maximum value to 5000 objects, contact Amazon
+-- Web Services Support.
 --
 -- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
 -- Turk worker.
@@ -1498,7 +1500,8 @@ newHumanTaskConfig
 -- | Defines the maximum number of data objects that can be labeled by human
 -- workers at the same time. Also referred to as batch size. Each object
 -- may have more than one worker at one time. The default value is 1000
--- objects.
+-- objects. To increase the maximum value to 5000 objects, contact Amazon
+-- Web Services Support.
 humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
 

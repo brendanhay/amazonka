@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.AutoMLJobCompletionCriteria
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
   { -- | The maximum number of times a training job is allowed to run.
     maxCandidates :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum time, in seconds, that each training job is allowed to run
-    -- as part of a hyperparameter tuning job. For more information, see the
-    -- used by the action.
+    -- | The maximum time, in seconds, that each training job executed inside
+    -- hyperparameter tuning is allowed to run as part of a hyperparameter
+    -- tuning job. For more information, see the used by the action.
     maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum runtime, in seconds, an AutoML job has to complete.
     --
@@ -55,9 +55,9 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
 --
 -- 'maxCandidates', 'autoMLJobCompletionCriteria_maxCandidates' - The maximum number of times a training job is allowed to run.
 --
--- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, that each training job is allowed to run
--- as part of a hyperparameter tuning job. For more information, see the
--- used by the action.
+-- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, that each training job executed inside
+-- hyperparameter tuning is allowed to run as part of a hyperparameter
+-- tuning job. For more information, see the used by the action.
 --
 -- 'maxAutoMLJobRuntimeInSeconds', 'autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds' - The maximum runtime, in seconds, an AutoML job has to complete.
 --
@@ -81,9 +81,9 @@ newAutoMLJobCompletionCriteria =
 autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxCandidates = Lens.lens (\AutoMLJobCompletionCriteria' {maxCandidates} -> maxCandidates) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
 
--- | The maximum time, in seconds, that each training job is allowed to run
--- as part of a hyperparameter tuning job. For more information, see the
--- used by the action.
+-- | The maximum time, in seconds, that each training job executed inside
+-- hyperparameter tuning is allowed to run as part of a hyperparameter
+-- tuning job. For more information, see the used by the action.
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
 

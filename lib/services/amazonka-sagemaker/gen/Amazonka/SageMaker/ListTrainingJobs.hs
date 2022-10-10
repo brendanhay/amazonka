@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.ListTrainingJobs
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,7 @@ module Amazonka.SageMaker.ListTrainingJobs
     listTrainingJobs_sortBy,
     listTrainingJobs_maxResults,
     listTrainingJobs_statusEquals,
+    listTrainingJobs_warmPoolStatusEquals,
     listTrainingJobs_creationTimeAfter,
 
     -- * Destructuring the Response
@@ -104,6 +105,9 @@ data ListTrainingJobs = ListTrainingJobs'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that retrieves only training jobs with a specific status.
     statusEquals :: Prelude.Maybe TrainingJobStatus,
+    -- | A filter that retrieves only training jobs with a specific warm pool
+    -- status.
+    warmPoolStatusEquals :: Prelude.Maybe WarmPoolResourceStatus,
     -- | A filter that returns only training jobs created after the specified
     -- time (timestamp).
     creationTimeAfter :: Prelude.Maybe Core.POSIX
@@ -142,6 +146,9 @@ data ListTrainingJobs = ListTrainingJobs'
 --
 -- 'statusEquals', 'listTrainingJobs_statusEquals' - A filter that retrieves only training jobs with a specific status.
 --
+-- 'warmPoolStatusEquals', 'listTrainingJobs_warmPoolStatusEquals' - A filter that retrieves only training jobs with a specific warm pool
+-- status.
+--
 -- 'creationTimeAfter', 'listTrainingJobs_creationTimeAfter' - A filter that returns only training jobs created after the specified
 -- time (timestamp).
 newListTrainingJobs ::
@@ -157,6 +164,7 @@ newListTrainingJobs =
       sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       statusEquals = Prelude.Nothing,
+      warmPoolStatusEquals = Prelude.Nothing,
       creationTimeAfter = Prelude.Nothing
     }
 
@@ -201,6 +209,11 @@ listTrainingJobs_maxResults = Lens.lens (\ListTrainingJobs' {maxResults} -> maxR
 -- | A filter that retrieves only training jobs with a specific status.
 listTrainingJobs_statusEquals :: Lens.Lens' ListTrainingJobs (Prelude.Maybe TrainingJobStatus)
 listTrainingJobs_statusEquals = Lens.lens (\ListTrainingJobs' {statusEquals} -> statusEquals) (\s@ListTrainingJobs' {} a -> s {statusEquals = a} :: ListTrainingJobs)
+
+-- | A filter that retrieves only training jobs with a specific warm pool
+-- status.
+listTrainingJobs_warmPoolStatusEquals :: Lens.Lens' ListTrainingJobs (Prelude.Maybe WarmPoolResourceStatus)
+listTrainingJobs_warmPoolStatusEquals = Lens.lens (\ListTrainingJobs' {warmPoolStatusEquals} -> warmPoolStatusEquals) (\s@ListTrainingJobs' {} a -> s {warmPoolStatusEquals = a} :: ListTrainingJobs)
 
 -- | A filter that returns only training jobs created after the specified
 -- time (timestamp).
@@ -255,6 +268,7 @@ instance Prelude.Hashable ListTrainingJobs where
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` warmPoolStatusEquals
       `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListTrainingJobs where
@@ -268,6 +282,7 @@ instance Prelude.NFData ListTrainingJobs where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf warmPoolStatusEquals
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListTrainingJobs where
@@ -299,6 +314,8 @@ instance Core.ToJSON ListTrainingJobs where
             ("SortBy" Core..=) Prelude.<$> sortBy,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("WarmPoolStatusEquals" Core..=)
+              Prelude.<$> warmPoolStatusEquals,
             ("CreationTimeAfter" Core..=)
               Prelude.<$> creationTimeAfter
           ]

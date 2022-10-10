@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeEndpointConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Amazonka.SageMaker.DescribeEndpointConfig
     describeEndpointConfigResponse_asyncInferenceConfig,
     describeEndpointConfigResponse_dataCaptureConfig,
     describeEndpointConfigResponse_kmsKeyId,
+    describeEndpointConfigResponse_explainerConfig,
     describeEndpointConfigResponse_httpStatus,
     describeEndpointConfigResponse_endpointConfigName,
     describeEndpointConfigResponse_endpointConfigArn,
@@ -95,6 +96,7 @@ instance Core.AWSRequest DescribeEndpointConfig where
             Prelude.<$> (x Core..?> "AsyncInferenceConfig")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
             Prelude.<*> (x Core..?> "KmsKeyId")
+            Prelude.<*> (x Core..?> "ExplainerConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointConfigName")
             Prelude.<*> (x Core..:> "EndpointConfigArn")
@@ -150,6 +152,8 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
     -- when storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The configuration parameters for an explainer.
+    explainerConfig :: Prelude.Maybe ExplainerConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Name of the SageMaker endpoint configuration.
@@ -180,6 +184,8 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 --
 -- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
+--
+-- 'explainerConfig', 'describeEndpointConfigResponse_explainerConfig' - The configuration parameters for an explainer.
 --
 -- 'httpStatus', 'describeEndpointConfigResponse_httpStatus' - The response's http status code.
 --
@@ -214,6 +220,7 @@ newDescribeEndpointConfigResponse
           Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        explainerConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointConfigName = pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
@@ -237,6 +244,10 @@ describeEndpointConfigResponse_dataCaptureConfig = Lens.lens (\DescribeEndpointC
 -- when storing it on the ML storage volume attached to the instance.
 describeEndpointConfigResponse_kmsKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe Prelude.Text)
 describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeEndpointConfigResponse' {} a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
+
+-- | The configuration parameters for an explainer.
+describeEndpointConfigResponse_explainerConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe ExplainerConfig)
+describeEndpointConfigResponse_explainerConfig = Lens.lens (\DescribeEndpointConfigResponse' {explainerConfig} -> explainerConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {explainerConfig = a} :: DescribeEndpointConfigResponse)
 
 -- | The response's http status code.
 describeEndpointConfigResponse_httpStatus :: Lens.Lens' DescribeEndpointConfigResponse Prelude.Int
@@ -267,6 +278,7 @@ instance
     Prelude.rnf asyncInferenceConfig
       `Prelude.seq` Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf explainerConfig
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf endpointConfigArn

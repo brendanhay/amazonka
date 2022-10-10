@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeTrainingJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,7 @@ module Amazonka.SageMaker.DescribeTrainingJob
     describeTrainingJobResponse_environment,
     describeTrainingJobResponse_trainingTimeInSeconds,
     describeTrainingJobResponse_debugRuleEvaluationStatuses,
+    describeTrainingJobResponse_warmPoolStatus,
     describeTrainingJobResponse_retryStrategy,
     describeTrainingJobResponse_vpcConfig,
     describeTrainingJobResponse_secondaryStatusTransitions,
@@ -142,6 +143,7 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> ( x Core..?> "DebugRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "WarmPoolStatus")
             Prelude.<*> (x Core..?> "RetryStrategy")
             Prelude.<*> (x Core..?> "VpcConfig")
             Prelude.<*> ( x Core..?> "SecondaryStatusTransitions"
@@ -245,6 +247,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     trainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Evaluation status of Debugger rules for debugging on a training job.
     debugRuleEvaluationStatuses :: Prelude.Maybe [DebugRuleEvaluationStatus],
+    -- | The status of the warm pool associated with the training job.
+    warmPoolStatus :: Prelude.Maybe WarmPoolStatus,
     -- | The number of times to retry the job when the job fails due to an
     -- @InternalServerError@.
     retryStrategy :: Prelude.Maybe RetryStrategy,
@@ -453,6 +457,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'trainingTimeInSeconds', 'describeTrainingJobResponse_trainingTimeInSeconds' - The training time in seconds.
 --
 -- 'debugRuleEvaluationStatuses', 'describeTrainingJobResponse_debugRuleEvaluationStatuses' - Evaluation status of Debugger rules for debugging on a training job.
+--
+-- 'warmPoolStatus', 'describeTrainingJobResponse_warmPoolStatus' - The status of the warm pool associated with the training job.
 --
 -- 'retryStrategy', 'describeTrainingJobResponse_retryStrategy' - The number of times to retry the job when the job fails due to an
 -- @InternalServerError@.
@@ -680,6 +686,7 @@ newDescribeTrainingJobResponse
         environment = Prelude.Nothing,
         trainingTimeInSeconds = Prelude.Nothing,
         debugRuleEvaluationStatuses = Prelude.Nothing,
+        warmPoolStatus = Prelude.Nothing,
         retryStrategy = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
         secondaryStatusTransitions = Prelude.Nothing,
@@ -752,6 +759,10 @@ describeTrainingJobResponse_trainingTimeInSeconds = Lens.lens (\DescribeTraining
 -- | Evaluation status of Debugger rules for debugging on a training job.
 describeTrainingJobResponse_debugRuleEvaluationStatuses :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [DebugRuleEvaluationStatus])
 describeTrainingJobResponse_debugRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {debugRuleEvaluationStatuses} -> debugRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the warm pool associated with the training job.
+describeTrainingJobResponse_warmPoolStatus :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe WarmPoolStatus)
+describeTrainingJobResponse_warmPoolStatus = Lens.lens (\DescribeTrainingJobResponse' {warmPoolStatus} -> warmPoolStatus) (\s@DescribeTrainingJobResponse' {} a -> s {warmPoolStatus = a} :: DescribeTrainingJobResponse)
 
 -- | The number of times to retry the job when the job fails due to an
 -- @InternalServerError@.
@@ -1012,6 +1023,7 @@ instance Prelude.NFData DescribeTrainingJobResponse where
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf trainingTimeInSeconds
       `Prelude.seq` Prelude.rnf debugRuleEvaluationStatuses
+      `Prelude.seq` Prelude.rnf warmPoolStatus
       `Prelude.seq` Prelude.rnf retryStrategy
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf secondaryStatusTransitions

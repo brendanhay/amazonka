@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ResourceConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,10 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 --
 -- /See:/ 'newResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
-  { -- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
+  { -- | The duration of time in seconds to retain configured resources in a warm
+    -- pool for subsequent training jobs.
+    keepAlivePeriodInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
     -- the storage volume attached to the ML compute instance(s) that run the
     -- training job.
     --
@@ -69,20 +72,27 @@ data ResourceConfig = ResourceConfig'
     -- space. If you want to store the training data in the ML storage volume,
     -- choose @File@ as the @TrainingInputMode@ in the algorithm specification.
     --
-    -- You must specify sufficient ML storage for your scenario.
+    -- When using an ML instance with
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes NVMe SSD volumes>,
+    -- SageMaker doesn\'t provision Amazon EBS General Purpose SSD (gp2)
+    -- storage. Available storage is fixed to the NVMe-type instance\'s storage
+    -- capacity. SageMaker configures storage paths for training datasets,
+    -- checkpoints, model artifacts, and outputs to use the entire capacity of
+    -- the instance storage. For example, ML instance families with the
+    -- NVMe-type instance storage include @ml.p4d@, @ml.g4dn@, and @ml.g5@.
     --
-    -- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
-    -- type.
+    -- When using an ML instance with the EBS-only storage option and without
+    -- instance storage, you must define the size of EBS volume through
+    -- @VolumeSizeInGB@ in the @ResourceConfig@ API. For example, ML instance
+    -- families that use EBS volumes include @ml.c5@ and @ml.p2@.
     --
-    -- Certain Nitro-based instances include local storage with a fixed total
-    -- size, dependent on the instance type. When using these instances for
-    -- training, SageMaker mounts the local instance storage instead of Amazon
-    -- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
-    -- total size of the local instance storage.
+    -- To look up instance types and their instance storage types and volumes,
+    -- see
+    -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
     --
-    -- For a list of instance types that support local instance storage,
-    -- including the total size per instance type, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+    -- To find the default local paths defined by the SageMaker training
+    -- platform, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs>.
     volumeSizeInGB :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,6 +104,9 @@ data ResourceConfig = ResourceConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'keepAlivePeriodInSeconds', 'resourceConfig_keepAlivePeriodInSeconds' - The duration of time in seconds to retain configured resources in a warm
+-- pool for subsequent training jobs.
 --
 -- 'volumeKmsKeyId', 'resourceConfig_volumeKmsKeyId' - The Amazon Web Services KMS key that SageMaker uses to encrypt data on
 -- the storage volume attached to the ML compute instance(s) that run the
@@ -134,32 +147,46 @@ data ResourceConfig = ResourceConfig'
 -- space. If you want to store the training data in the ML storage volume,
 -- choose @File@ as the @TrainingInputMode@ in the algorithm specification.
 --
--- You must specify sufficient ML storage for your scenario.
+-- When using an ML instance with
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes NVMe SSD volumes>,
+-- SageMaker doesn\'t provision Amazon EBS General Purpose SSD (gp2)
+-- storage. Available storage is fixed to the NVMe-type instance\'s storage
+-- capacity. SageMaker configures storage paths for training datasets,
+-- checkpoints, model artifacts, and outputs to use the entire capacity of
+-- the instance storage. For example, ML instance families with the
+-- NVMe-type instance storage include @ml.p4d@, @ml.g4dn@, and @ml.g5@.
 --
--- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
--- type.
+-- When using an ML instance with the EBS-only storage option and without
+-- instance storage, you must define the size of EBS volume through
+-- @VolumeSizeInGB@ in the @ResourceConfig@ API. For example, ML instance
+-- families that use EBS volumes include @ml.c5@ and @ml.p2@.
 --
--- Certain Nitro-based instances include local storage with a fixed total
--- size, dependent on the instance type. When using these instances for
--- training, SageMaker mounts the local instance storage instead of Amazon
--- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
--- total size of the local instance storage.
+-- To look up instance types and their instance storage types and volumes,
+-- see
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
 --
--- For a list of instance types that support local instance storage,
--- including the total size per instance type, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+-- To find the default local paths defined by the SageMaker training
+-- platform, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs>.
 newResourceConfig ::
   -- | 'volumeSizeInGB'
   Prelude.Natural ->
   ResourceConfig
 newResourceConfig pVolumeSizeInGB_ =
   ResourceConfig'
-    { volumeKmsKeyId = Prelude.Nothing,
+    { keepAlivePeriodInSeconds =
+        Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       instanceCount = Prelude.Nothing,
       instanceGroups = Prelude.Nothing,
       volumeSizeInGB = pVolumeSizeInGB_
     }
+
+-- | The duration of time in seconds to retain configured resources in a warm
+-- pool for subsequent training jobs.
+resourceConfig_keepAlivePeriodInSeconds :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Natural)
+resourceConfig_keepAlivePeriodInSeconds = Lens.lens (\ResourceConfig' {keepAlivePeriodInSeconds} -> keepAlivePeriodInSeconds) (\s@ResourceConfig' {} a -> s {keepAlivePeriodInSeconds = a} :: ResourceConfig)
 
 -- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
 -- the storage volume attached to the ML compute instance(s) that run the
@@ -208,20 +235,27 @@ resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> 
 -- space. If you want to store the training data in the ML storage volume,
 -- choose @File@ as the @TrainingInputMode@ in the algorithm specification.
 --
--- You must specify sufficient ML storage for your scenario.
+-- When using an ML instance with
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes NVMe SSD volumes>,
+-- SageMaker doesn\'t provision Amazon EBS General Purpose SSD (gp2)
+-- storage. Available storage is fixed to the NVMe-type instance\'s storage
+-- capacity. SageMaker configures storage paths for training datasets,
+-- checkpoints, model artifacts, and outputs to use the entire capacity of
+-- the instance storage. For example, ML instance families with the
+-- NVMe-type instance storage include @ml.p4d@, @ml.g4dn@, and @ml.g5@.
 --
--- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
--- type.
+-- When using an ML instance with the EBS-only storage option and without
+-- instance storage, you must define the size of EBS volume through
+-- @VolumeSizeInGB@ in the @ResourceConfig@ API. For example, ML instance
+-- families that use EBS volumes include @ml.c5@ and @ml.p2@.
 --
--- Certain Nitro-based instances include local storage with a fixed total
--- size, dependent on the instance type. When using these instances for
--- training, SageMaker mounts the local instance storage instead of Amazon
--- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
--- total size of the local instance storage.
+-- To look up instance types and their instance storage types and volumes,
+-- see
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
 --
--- For a list of instance types that support local instance storage,
--- including the total size per instance type, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+-- To find the default local paths defined by the SageMaker training
+-- platform, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs>.
 resourceConfig_volumeSizeInGB :: Lens.Lens' ResourceConfig Prelude.Natural
 resourceConfig_volumeSizeInGB = Lens.lens (\ResourceConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@ResourceConfig' {} a -> s {volumeSizeInGB = a} :: ResourceConfig)
 
@@ -231,7 +265,8 @@ instance Core.FromJSON ResourceConfig where
       "ResourceConfig"
       ( \x ->
           ResourceConfig'
-            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<$> (x Core..:? "KeepAlivePeriodInSeconds")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "InstanceCount")
             Prelude.<*> (x Core..:? "InstanceGroups" Core..!= Prelude.mempty)
@@ -240,7 +275,9 @@ instance Core.FromJSON ResourceConfig where
 
 instance Prelude.Hashable ResourceConfig where
   hashWithSalt _salt ResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` keepAlivePeriodInSeconds
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceGroups
@@ -248,7 +285,8 @@ instance Prelude.Hashable ResourceConfig where
 
 instance Prelude.NFData ResourceConfig where
   rnf ResourceConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
+    Prelude.rnf keepAlivePeriodInSeconds
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroups
@@ -258,7 +296,9 @@ instance Core.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Core..=)
+          [ ("KeepAlivePeriodInSeconds" Core..=)
+              Prelude.<$> keepAlivePeriodInSeconds,
+            ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
             ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("InstanceCount" Core..=) Prelude.<$> instanceCount,

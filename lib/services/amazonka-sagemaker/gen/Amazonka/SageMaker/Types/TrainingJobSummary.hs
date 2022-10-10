@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.TrainingJobSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,12 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrainingJobStatus
+import Amazonka.SageMaker.Types.WarmPoolStatus
 
 -- | Provides summary information about a training job.
 --
 -- /See:/ 'newTrainingJobSummary' smart constructor.
 data TrainingJobSummary = TrainingJobSummary'
-  { -- | Timestamp when the training job was last modified.
+  { -- | The status of the warm pool associated with the training job.
+    warmPoolStatus :: Prelude.Maybe WarmPoolStatus,
+    -- | Timestamp when the training job was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | A timestamp that shows when the training job ended. This field is set
     -- only if the training job has one of the terminal statuses (@Completed@,
@@ -52,6 +55,8 @@ data TrainingJobSummary = TrainingJobSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'warmPoolStatus', 'trainingJobSummary_warmPoolStatus' - The status of the warm pool associated with the training job.
 --
 -- 'lastModifiedTime', 'trainingJobSummary_lastModifiedTime' - Timestamp when the training job was last modified.
 --
@@ -82,14 +87,19 @@ newTrainingJobSummary
   pCreationTime_
   pTrainingJobStatus_ =
     TrainingJobSummary'
-      { lastModifiedTime =
+      { warmPoolStatus =
           Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         trainingEndTime = Prelude.Nothing,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         trainingJobStatus = pTrainingJobStatus_
       }
+
+-- | The status of the warm pool associated with the training job.
+trainingJobSummary_warmPoolStatus :: Lens.Lens' TrainingJobSummary (Prelude.Maybe WarmPoolStatus)
+trainingJobSummary_warmPoolStatus = Lens.lens (\TrainingJobSummary' {warmPoolStatus} -> warmPoolStatus) (\s@TrainingJobSummary' {} a -> s {warmPoolStatus = a} :: TrainingJobSummary)
 
 -- | Timestamp when the training job was last modified.
 trainingJobSummary_lastModifiedTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
@@ -123,7 +133,8 @@ instance Core.FromJSON TrainingJobSummary where
       "TrainingJobSummary"
       ( \x ->
           TrainingJobSummary'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "WarmPoolStatus")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..: "TrainingJobName")
             Prelude.<*> (x Core..: "TrainingJobArn")
@@ -133,7 +144,8 @@ instance Core.FromJSON TrainingJobSummary where
 
 instance Prelude.Hashable TrainingJobSummary where
   hashWithSalt _salt TrainingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt `Prelude.hashWithSalt` warmPoolStatus
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` trainingEndTime
       `Prelude.hashWithSalt` trainingJobName
       `Prelude.hashWithSalt` trainingJobArn
@@ -142,7 +154,8 @@ instance Prelude.Hashable TrainingJobSummary where
 
 instance Prelude.NFData TrainingJobSummary where
   rnf TrainingJobSummary' {..} =
-    Prelude.rnf lastModifiedTime
+    Prelude.rnf warmPoolStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf trainingEndTime
       `Prelude.seq` Prelude.rnf trainingJobName
       `Prelude.seq` Prelude.rnf trainingJobArn

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningResourceConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,21 +31,22 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 -- Specify one or more instance type and count and the allocation strategy
 -- for instance selection.
 --
--- HyperParameterTuningResourceConfig supports all of the capabilities of
+-- @HyperParameterTuningResourceConfig@ supports all of the capabilities of
 -- ResourceConfig with added functionality for flexible instance
 -- management.
 --
 -- /See:/ 'newHyperParameterTuningResourceConfig' smart constructor.
 data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
-  { -- | A key used by AWS Key Management Service to encrypt data on the storage
-    -- volume attached to the compute instances used to run the training job.
-    -- You can use either of the following formats to specify a key.
+  { -- | A key used by Amazon Web Services Key Management Service to encrypt data
+    -- on the storage volume attached to the compute instances used to run the
+    -- training job. You can use either of the following formats to specify a
+    -- key.
     --
     -- KMS Key ID:
     --
     -- @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
-    -- Amazon Resource Name (ARN) of a AWS KMS key:
+    -- Amazon Resource Name (ARN) of a KMS key:
     --
     -- @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -54,9 +55,10 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
     -- storage volumes. If you choose one of these instance types, you cannot
     -- request a @VolumeKmsKeyId@. For a list of instance types that use local
     -- storage, see
-    -- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
-    -- For more information about AWS Key Management Service, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html AWS KMS encryption>
+    -- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+    -- For more information about Amazon Web Services Key Management Service,
+    -- see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html KMS encryption>
     -- for more information.
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The instance type used to run hyperparameter optimization tuning jobs.
@@ -77,7 +79,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
     -- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
     -- in which multiple configurations provided in @InstanceConfigs@ are used.
     --
-    -- If you only want to use a single InstanceConfig inside the
+    -- If you only want to use a single instance configuration inside the
     -- @HyperParameterTuningResourceConfig@ API, do not provide a value for
     -- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
     -- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
@@ -93,7 +95,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
     -- one of these instances for training, @VolumeSizeInGB@ cannot be greater
     -- than this total size. For a list of instance types with local instance
     -- storage and their sizes, see
-    -- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+    -- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
     --
     -- SageMaker supports only the
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html General Purpose SSD (gp2)>
@@ -110,15 +112,16 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'hyperParameterTuningResourceConfig_volumeKmsKeyId' - A key used by AWS Key Management Service to encrypt data on the storage
--- volume attached to the compute instances used to run the training job.
--- You can use either of the following formats to specify a key.
+-- 'volumeKmsKeyId', 'hyperParameterTuningResourceConfig_volumeKmsKeyId' - A key used by Amazon Web Services Key Management Service to encrypt data
+-- on the storage volume attached to the compute instances used to run the
+-- training job. You can use either of the following formats to specify a
+-- key.
 --
 -- KMS Key ID:
 --
 -- @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- Amazon Resource Name (ARN) of a AWS KMS key:
+-- Amazon Resource Name (ARN) of a KMS key:
 --
 -- @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -127,9 +130,10 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- storage volumes. If you choose one of these instance types, you cannot
 -- request a @VolumeKmsKeyId@. For a list of instance types that use local
 -- storage, see
--- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
--- For more information about AWS Key Management Service, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html AWS KMS encryption>
+-- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+-- For more information about Amazon Web Services Key Management Service,
+-- see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html KMS encryption>
 -- for more information.
 --
 -- 'instanceType', 'hyperParameterTuningResourceConfig_instanceType' - The instance type used to run hyperparameter optimization tuning jobs.
@@ -150,7 +154,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
 -- in which multiple configurations provided in @InstanceConfigs@ are used.
 --
--- If you only want to use a single InstanceConfig inside the
+-- If you only want to use a single instance configuration inside the
 -- @HyperParameterTuningResourceConfig@ API, do not provide a value for
 -- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
 -- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
@@ -166,7 +170,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- one of these instances for training, @VolumeSizeInGB@ cannot be greater
 -- than this total size. For a list of instance types with local instance
 -- storage and their sizes, see
--- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+-- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
 --
 -- SageMaker supports only the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html General Purpose SSD (gp2)>
@@ -184,15 +188,16 @@ newHyperParameterTuningResourceConfig =
       volumeSizeInGB = Prelude.Nothing
     }
 
--- | A key used by AWS Key Management Service to encrypt data on the storage
--- volume attached to the compute instances used to run the training job.
--- You can use either of the following formats to specify a key.
+-- | A key used by Amazon Web Services Key Management Service to encrypt data
+-- on the storage volume attached to the compute instances used to run the
+-- training job. You can use either of the following formats to specify a
+-- key.
 --
 -- KMS Key ID:
 --
 -- @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- Amazon Resource Name (ARN) of a AWS KMS key:
+-- Amazon Resource Name (ARN) of a KMS key:
 --
 -- @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -201,9 +206,10 @@ newHyperParameterTuningResourceConfig =
 -- storage volumes. If you choose one of these instance types, you cannot
 -- request a @VolumeKmsKeyId@. For a list of instance types that use local
 -- storage, see
--- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
--- For more information about AWS Key Management Service, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html AWS KMS encryption>
+-- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+-- For more information about Amazon Web Services Key Management Service,
+-- see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html KMS encryption>
 -- for more information.
 hyperParameterTuningResourceConfig_volumeKmsKeyId :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe Prelude.Text)
 hyperParameterTuningResourceConfig_volumeKmsKeyId = Lens.lens (\HyperParameterTuningResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@HyperParameterTuningResourceConfig' {} a -> s {volumeKmsKeyId = a} :: HyperParameterTuningResourceConfig)
@@ -232,7 +238,7 @@ hyperParameterTuningResourceConfig_instanceCount = Lens.lens (\HyperParameterTun
 -- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
 -- in which multiple configurations provided in @InstanceConfigs@ are used.
 --
--- If you only want to use a single InstanceConfig inside the
+-- If you only want to use a single instance configuration inside the
 -- @HyperParameterTuningResourceConfig@ API, do not provide a value for
 -- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
 -- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
@@ -250,7 +256,7 @@ hyperParameterTuningResourceConfig_instanceConfigs = Lens.lens (\HyperParameterT
 -- one of these instances for training, @VolumeSizeInGB@ cannot be greater
 -- than this total size. For a list of instance types with local instance
 -- storage and their sizes, see
--- <https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
+-- <http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/ instance store volumes>.
 --
 -- SageMaker supports only the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html General Purpose SSD (gp2)>

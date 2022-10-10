@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBProxyEndpoint
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,9 @@ data CreateDBProxyEndpoint = CreateDBProxyEndpoint'
     -- VPC.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether the DB proxy endpoint can be used for
-    -- read\/write or read-only operations. The default is @READ_WRITE@.
+    -- read\/write or read-only operations. The default is @READ_WRITE@. The
+    -- only role that proxies for RDS for Microsoft SQL Server support is
+    -- @READ_WRITE@.
     targetRole :: Prelude.Maybe DBProxyEndpointTargetRole,
     -- | The name of the DB proxy associated with the DB proxy endpoint that you
     -- create.
@@ -93,7 +95,9 @@ data CreateDBProxyEndpoint = CreateDBProxyEndpoint'
 -- VPC.
 --
 -- 'targetRole', 'createDBProxyEndpoint_targetRole' - A value that indicates whether the DB proxy endpoint can be used for
--- read\/write or read-only operations. The default is @READ_WRITE@.
+-- read\/write or read-only operations. The default is @READ_WRITE@. The
+-- only role that proxies for RDS for Microsoft SQL Server support is
+-- @READ_WRITE@.
 --
 -- 'dbProxyName', 'createDBProxyEndpoint_dbProxyName' - The name of the DB proxy associated with the DB proxy endpoint that you
 -- create.
@@ -132,7 +136,9 @@ createDBProxyEndpoint_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxyEndpoint (P
 createDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\CreateDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether the DB proxy endpoint can be used for
--- read\/write or read-only operations. The default is @READ_WRITE@.
+-- read\/write or read-only operations. The default is @READ_WRITE@. The
+-- only role that proxies for RDS for Microsoft SQL Server support is
+-- @READ_WRITE@.
 createDBProxyEndpoint_targetRole :: Lens.Lens' CreateDBProxyEndpoint (Prelude.Maybe DBProxyEndpointTargetRole)
 createDBProxyEndpoint_targetRole = Lens.lens (\CreateDBProxyEndpoint' {targetRole} -> targetRole) (\s@CreateDBProxyEndpoint' {} a -> s {targetRole = a} :: CreateDBProxyEndpoint)
 

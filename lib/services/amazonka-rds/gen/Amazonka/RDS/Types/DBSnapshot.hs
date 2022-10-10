@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.DBSnapshot
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,8 +82,7 @@ data DBSnapshot = DBSnapshot'
     -- If you back up a read replica, you can determine the replica lag by
     -- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
     -- example, if originalSnapshotCreateTime is two hours later than
-    -- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
-    -- 7\/27: Switchover
+    -- SnapshotDatabaseTime, then the replica lag is two hours.
     snapshotDatabaseTime :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the storage type associated with DB snapshot.
     storageType :: Prelude.Maybe Prelude.Text,
@@ -189,8 +188,7 @@ data DBSnapshot = DBSnapshot'
 -- If you back up a read replica, you can determine the replica lag by
 -- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
 -- example, if originalSnapshotCreateTime is two hours later than
--- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
--- 7\/27: Switchover
+-- SnapshotDatabaseTime, then the replica lag is two hours.
 --
 -- 'storageType', 'dbSnapshot_storageType' - Specifies the storage type associated with DB snapshot.
 --
@@ -352,8 +350,7 @@ dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> 
 -- If you back up a read replica, you can determine the replica lag by
 -- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
 -- example, if originalSnapshotCreateTime is two hours later than
--- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
--- 7\/27: Switchover
+-- SnapshotDatabaseTime, then the replica lag is two hours.
 dbSnapshot_snapshotDatabaseTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
 dbSnapshot_snapshotDatabaseTime = Lens.lens (\DBSnapshot' {snapshotDatabaseTime} -> snapshotDatabaseTime) (\s@DBSnapshot' {} a -> s {snapshotDatabaseTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
 

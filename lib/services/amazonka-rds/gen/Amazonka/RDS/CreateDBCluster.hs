@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBCluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -250,7 +250,7 @@ data CreateDBCluster = CreateDBCluster'
     -- Valid for: Multi-AZ DB clusters only
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The compute and memory capacity of each DB instance in the Multi-AZ DB
-    -- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+    -- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
     -- available in all Amazon Web Services Regions, or for all database
     -- engines.
     --
@@ -908,7 +908,7 @@ data CreateDBCluster = CreateDBCluster'
 -- Valid for: Multi-AZ DB clusters only
 --
 -- 'dbClusterInstanceClass', 'createDBCluster_dbClusterInstanceClass' - The compute and memory capacity of each DB instance in the Multi-AZ DB
--- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --
@@ -1639,7 +1639,7 @@ createDBCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateDBCluster (Prelude.M
 createDBCluster_autoMinorVersionUpgrade = Lens.lens (\CreateDBCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBCluster)
 
 -- | The compute and memory capacity of each DB instance in the Multi-AZ DB
--- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --

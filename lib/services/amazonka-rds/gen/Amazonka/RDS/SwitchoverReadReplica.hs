@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.SwitchoverReadReplica
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 --
 -- Switches over an Oracle standby database in an Oracle Data Guard
 -- environment, making it the new primary database. Issue this command in
--- the AWS Region that hosts the current standby database.
+-- the Region that hosts the current standby database.
 module Amazonka.RDS.SwitchoverReadReplica
   ( -- * Creating a Request
     SwitchoverReadReplica (..),

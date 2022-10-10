@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.EngineFamily
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,8 @@ module Amazonka.RDS.Types.EngineFamily
   ( EngineFamily
       ( ..,
         EngineFamily_MYSQL,
-        EngineFamily_POSTGRESQL
+        EngineFamily_POSTGRESQL,
+        EngineFamily_SQLSERVER
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern EngineFamily_MYSQL = EngineFamily' "MYSQL"
 pattern EngineFamily_POSTGRESQL :: EngineFamily
 pattern EngineFamily_POSTGRESQL = EngineFamily' "POSTGRESQL"
 
+pattern EngineFamily_SQLSERVER :: EngineFamily
+pattern EngineFamily_SQLSERVER = EngineFamily' "SQLSERVER"
+
 {-# COMPLETE
   EngineFamily_MYSQL,
   EngineFamily_POSTGRESQL,
+  EngineFamily_SQLSERVER,
   EngineFamily'
   #-}

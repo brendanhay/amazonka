@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.ModifyDBCluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -260,7 +260,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- Valid for: Aurora DB clusters only
     allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The compute and memory capacity of each DB instance in the Multi-AZ DB
-    -- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+    -- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
     -- available in all Amazon Web Services Regions, or for all database
     -- engines.
     --
@@ -701,7 +701,7 @@ data ModifyDBCluster = ModifyDBCluster'
 -- Valid for: Aurora DB clusters only
 --
 -- 'dbClusterInstanceClass', 'modifyDBCluster_dbClusterInstanceClass' - The compute and memory capacity of each DB instance in the Multi-AZ DB
--- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --
@@ -1203,7 +1203,7 @@ modifyDBCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBCluster (Prelude.
 modifyDBCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyDBCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBCluster)
 
 -- | The compute and memory capacity of each DB instance in the Multi-AZ DB
--- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- cluster, for example db.m6gd.xlarge. Not all DB instance classes are
 -- available in all Amazon Web Services Regions, or for all database
 -- engines.
 --

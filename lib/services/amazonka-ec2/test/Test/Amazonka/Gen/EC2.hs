@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.EC2
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -186,6 +186,12 @@ import Test.Tasty
 --         , requestCreateClientVpnRoute $
 --             newCreateClientVpnRoute
 --
+--         , requestCreateCoipCidr $
+--             newCreateCoipCidr
+--
+--         , requestCreateCoipPool $
+--             newCreateCoipPool
+--
 --         , requestCreateCustomerGateway $
 --             newCreateCustomerGateway
 --
@@ -242,6 +248,12 @@ import Test.Tasty
 --
 --         , requestCreateLocalGatewayRoute $
 --             newCreateLocalGatewayRoute
+--
+--         , requestCreateLocalGatewayRouteTable $
+--             newCreateLocalGatewayRouteTable
+--
+--         , requestCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation $
+--             newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 --
 --         , requestCreateLocalGatewayRouteTableVpcAssociation $
 --             newCreateLocalGatewayRouteTableVpcAssociation
@@ -396,6 +408,12 @@ import Test.Tasty
 --         , requestDeleteClientVpnRoute $
 --             newDeleteClientVpnRoute
 --
+--         , requestDeleteCoipCidr $
+--             newDeleteCoipCidr
+--
+--         , requestDeleteCoipPool $
+--             newDeleteCoipPool
+--
 --         , requestDeleteCustomerGateway $
 --             newDeleteCustomerGateway
 --
@@ -440,6 +458,12 @@ import Test.Tasty
 --
 --         , requestDeleteLocalGatewayRoute $
 --             newDeleteLocalGatewayRoute
+--
+--         , requestDeleteLocalGatewayRouteTable $
+--             newDeleteLocalGatewayRouteTable
+--
+--         , requestDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation $
+--             newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 --
 --         , requestDeleteLocalGatewayRouteTableVpcAssociation $
 --             newDeleteLocalGatewayRouteTableVpcAssociation
@@ -1344,6 +1368,9 @@ import Test.Tasty
 --         , requestModifyLaunchTemplate $
 --             newModifyLaunchTemplate
 --
+--         , requestModifyLocalGatewayRoute $
+--             newModifyLocalGatewayRoute
+--
 --         , requestModifyManagedPrefixList $
 --             newModifyManagedPrefixList
 --
@@ -1788,6 +1815,12 @@ import Test.Tasty
 --         , responseCreateClientVpnRoute $
 --             newCreateClientVpnRouteResponse
 --
+--         , responseCreateCoipCidr $
+--             newCreateCoipCidrResponse
+--
+--         , responseCreateCoipPool $
+--             newCreateCoipPoolResponse
+--
 --         , responseCreateCustomerGateway $
 --             newCreateCustomerGatewayResponse
 --
@@ -1844,6 +1877,12 @@ import Test.Tasty
 --
 --         , responseCreateLocalGatewayRoute $
 --             newCreateLocalGatewayRouteResponse
+--
+--         , responseCreateLocalGatewayRouteTable $
+--             newCreateLocalGatewayRouteTableResponse
+--
+--         , responseCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation $
+--             newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse
 --
 --         , responseCreateLocalGatewayRouteTableVpcAssociation $
 --             newCreateLocalGatewayRouteTableVpcAssociationResponse
@@ -1998,6 +2037,12 @@ import Test.Tasty
 --         , responseDeleteClientVpnRoute $
 --             newDeleteClientVpnRouteResponse
 --
+--         , responseDeleteCoipCidr $
+--             newDeleteCoipCidrResponse
+--
+--         , responseDeleteCoipPool $
+--             newDeleteCoipPoolResponse
+--
 --         , responseDeleteCustomerGateway $
 --             newDeleteCustomerGatewayResponse
 --
@@ -2042,6 +2087,12 @@ import Test.Tasty
 --
 --         , responseDeleteLocalGatewayRoute $
 --             newDeleteLocalGatewayRouteResponse
+--
+--         , responseDeleteLocalGatewayRouteTable $
+--             newDeleteLocalGatewayRouteTableResponse
+--
+--         , responseDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation $
+--             newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse
 --
 --         , responseDeleteLocalGatewayRouteTableVpcAssociation $
 --             newDeleteLocalGatewayRouteTableVpcAssociationResponse
@@ -2946,6 +2997,9 @@ import Test.Tasty
 --         , responseModifyLaunchTemplate $
 --             newModifyLaunchTemplateResponse
 --
+--         , responseModifyLocalGatewayRoute $
+--             newModifyLocalGatewayRouteResponse
+--
 --         , responseModifyManagedPrefixList $
 --             newModifyManagedPrefixListResponse
 --
@@ -3551,6 +3605,18 @@ requestCreateClientVpnRoute =
     "CreateClientVpnRoute"
     "fixture/CreateClientVpnRoute.yaml"
 
+requestCreateCoipCidr :: CreateCoipCidr -> TestTree
+requestCreateCoipCidr =
+  req
+    "CreateCoipCidr"
+    "fixture/CreateCoipCidr.yaml"
+
+requestCreateCoipPool :: CreateCoipPool -> TestTree
+requestCreateCoipPool =
+  req
+    "CreateCoipPool"
+    "fixture/CreateCoipPool.yaml"
+
 requestCreateCustomerGateway :: CreateCustomerGateway -> TestTree
 requestCreateCustomerGateway =
   req
@@ -3664,6 +3730,18 @@ requestCreateLocalGatewayRoute =
   req
     "CreateLocalGatewayRoute"
     "fixture/CreateLocalGatewayRoute.yaml"
+
+requestCreateLocalGatewayRouteTable :: CreateLocalGatewayRouteTable -> TestTree
+requestCreateLocalGatewayRouteTable =
+  req
+    "CreateLocalGatewayRouteTable"
+    "fixture/CreateLocalGatewayRouteTable.yaml"
+
+requestCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation :: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation -> TestTree
+requestCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+  req
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+    "fixture/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.yaml"
 
 requestCreateLocalGatewayRouteTableVpcAssociation :: CreateLocalGatewayRouteTableVpcAssociation -> TestTree
 requestCreateLocalGatewayRouteTableVpcAssociation =
@@ -3971,6 +4049,18 @@ requestDeleteClientVpnRoute =
     "DeleteClientVpnRoute"
     "fixture/DeleteClientVpnRoute.yaml"
 
+requestDeleteCoipCidr :: DeleteCoipCidr -> TestTree
+requestDeleteCoipCidr =
+  req
+    "DeleteCoipCidr"
+    "fixture/DeleteCoipCidr.yaml"
+
+requestDeleteCoipPool :: DeleteCoipPool -> TestTree
+requestDeleteCoipPool =
+  req
+    "DeleteCoipPool"
+    "fixture/DeleteCoipPool.yaml"
+
 requestDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
 requestDeleteCustomerGateway =
   req
@@ -4060,6 +4150,18 @@ requestDeleteLocalGatewayRoute =
   req
     "DeleteLocalGatewayRoute"
     "fixture/DeleteLocalGatewayRoute.yaml"
+
+requestDeleteLocalGatewayRouteTable :: DeleteLocalGatewayRouteTable -> TestTree
+requestDeleteLocalGatewayRouteTable =
+  req
+    "DeleteLocalGatewayRouteTable"
+    "fixture/DeleteLocalGatewayRouteTable.yaml"
+
+requestDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation :: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation -> TestTree
+requestDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+  req
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+    "fixture/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.yaml"
 
 requestDeleteLocalGatewayRouteTableVpcAssociation :: DeleteLocalGatewayRouteTableVpcAssociation -> TestTree
 requestDeleteLocalGatewayRouteTableVpcAssociation =
@@ -5867,6 +5969,12 @@ requestModifyLaunchTemplate =
     "ModifyLaunchTemplate"
     "fixture/ModifyLaunchTemplate.yaml"
 
+requestModifyLocalGatewayRoute :: ModifyLocalGatewayRoute -> TestTree
+requestModifyLocalGatewayRoute =
+  req
+    "ModifyLocalGatewayRoute"
+    "fixture/ModifyLocalGatewayRoute.yaml"
+
 requestModifyManagedPrefixList :: ModifyManagedPrefixList -> TestTree
 requestModifyManagedPrefixList =
   req
@@ -6857,6 +6965,22 @@ responseCreateClientVpnRoute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateClientVpnRoute)
 
+responseCreateCoipCidr :: CreateCoipCidrResponse -> TestTree
+responseCreateCoipCidr =
+  res
+    "CreateCoipCidrResponse"
+    "fixture/CreateCoipCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCoipCidr)
+
+responseCreateCoipPool :: CreateCoipPoolResponse -> TestTree
+responseCreateCoipPool =
+  res
+    "CreateCoipPoolResponse"
+    "fixture/CreateCoipPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCoipPool)
+
 responseCreateCustomerGateway :: CreateCustomerGatewayResponse -> TestTree
 responseCreateCustomerGateway =
   res
@@ -7008,6 +7132,22 @@ responseCreateLocalGatewayRoute =
     "fixture/CreateLocalGatewayRouteResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLocalGatewayRoute)
+
+responseCreateLocalGatewayRouteTable :: CreateLocalGatewayRouteTableResponse -> TestTree
+responseCreateLocalGatewayRouteTable =
+  res
+    "CreateLocalGatewayRouteTableResponse"
+    "fixture/CreateLocalGatewayRouteTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocalGatewayRouteTable)
+
+responseCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation :: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse -> TestTree
+responseCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+  res
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse"
+    "fixture/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 responseCreateLocalGatewayRouteTableVpcAssociation :: CreateLocalGatewayRouteTableVpcAssociationResponse -> TestTree
 responseCreateLocalGatewayRouteTableVpcAssociation =
@@ -7417,6 +7557,22 @@ responseDeleteClientVpnRoute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteClientVpnRoute)
 
+responseDeleteCoipCidr :: DeleteCoipCidrResponse -> TestTree
+responseDeleteCoipCidr =
+  res
+    "DeleteCoipCidrResponse"
+    "fixture/DeleteCoipCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCoipCidr)
+
+responseDeleteCoipPool :: DeleteCoipPoolResponse -> TestTree
+responseDeleteCoipPool =
+  res
+    "DeleteCoipPoolResponse"
+    "fixture/DeleteCoipPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCoipPool)
+
 responseDeleteCustomerGateway :: DeleteCustomerGatewayResponse -> TestTree
 responseDeleteCustomerGateway =
   res
@@ -7536,6 +7692,22 @@ responseDeleteLocalGatewayRoute =
     "fixture/DeleteLocalGatewayRouteResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLocalGatewayRoute)
+
+responseDeleteLocalGatewayRouteTable :: DeleteLocalGatewayRouteTableResponse -> TestTree
+responseDeleteLocalGatewayRouteTable =
+  res
+    "DeleteLocalGatewayRouteTableResponse"
+    "fixture/DeleteLocalGatewayRouteTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocalGatewayRouteTable)
+
+responseDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation :: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse -> TestTree
+responseDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+  res
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse"
+    "fixture/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 responseDeleteLocalGatewayRouteTableVpcAssociation :: DeleteLocalGatewayRouteTableVpcAssociationResponse -> TestTree
 responseDeleteLocalGatewayRouteTableVpcAssociation =
@@ -9944,6 +10116,14 @@ responseModifyLaunchTemplate =
     "fixture/ModifyLaunchTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyLaunchTemplate)
+
+responseModifyLocalGatewayRoute :: ModifyLocalGatewayRouteResponse -> TestTree
+responseModifyLocalGatewayRoute =
+  res
+    "ModifyLocalGatewayRouteResponse"
+    "fixture/ModifyLocalGatewayRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyLocalGatewayRoute)
 
 responseModifyManagedPrefixList :: ModifyManagedPrefixListResponse -> TestTree
 responseModifyManagedPrefixList =

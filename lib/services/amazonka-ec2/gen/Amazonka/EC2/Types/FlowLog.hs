@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.FlowLog
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,19 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlowLog' smart constructor.
 data FlowLog = FlowLog'
-  { -- | The ID of the resource on which the flow log was created.
+  { -- | The ID of the resource being monitored.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The tags for the flow log.
     tags :: Prelude.Maybe [Tag],
     -- | The destination options.
     destinationOptions :: Prelude.Maybe DestinationOptionsResponse,
-    -- | The flow log ID.
+    -- | The ID of the flow log.
     flowLogId :: Prelude.Maybe Prelude.Text,
     -- | The type of traffic captured for the flow log.
     trafficType :: Prelude.Maybe TrafficType,
     -- | The status of the flow log (@ACTIVE@).
     flowLogStatus :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role that posts logs to CloudWatch Logs.
+    -- | The ARN of the IAM role allows the service to publish logs to CloudWatch
+    -- Logs.
     deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the error that occurred. @Rate limited@ indicates that
     -- CloudWatch Logs throttling has been applied for one or more network
@@ -55,16 +56,12 @@ data FlowLog = FlowLog'
     deliverLogsErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The format of the flow log record.
     logFormat :: Prelude.Maybe Prelude.Text,
-    -- | The destination to which the flow log data is published. Flow log data
-    -- can be published to an CloudWatch Logs log group or an Amazon S3 bucket.
-    -- If the flow log publishes to CloudWatch Logs, this element indicates the
-    -- Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the
-    -- data is published. If the flow log publishes to Amazon S3, this element
-    -- indicates the ARN of the Amazon S3 bucket to which the data is
-    -- published.
+    -- | The Amazon Resource Name (ARN) of the destination for the flow log data.
     logDestination :: Prelude.Maybe Prelude.Text,
-    -- | The type of destination to which the flow log data is published. Flow
-    -- log data can be published to CloudWatch Logs or Amazon S3.
+    -- | The ARN of the IAM role that allows the service to publish flow logs
+    -- across accounts.
+    deliverCrossAccountRole :: Prelude.Maybe Prelude.Text,
+    -- | The type of destination for the flow log data.
     logDestinationType :: Prelude.Maybe LogDestinationType,
     -- | The date and time the flow log was created.
     creationTime :: Prelude.Maybe Core.ISO8601,
@@ -93,19 +90,20 @@ data FlowLog = FlowLog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'flowLog_resourceId' - The ID of the resource on which the flow log was created.
+-- 'resourceId', 'flowLog_resourceId' - The ID of the resource being monitored.
 --
 -- 'tags', 'flowLog_tags' - The tags for the flow log.
 --
 -- 'destinationOptions', 'flowLog_destinationOptions' - The destination options.
 --
--- 'flowLogId', 'flowLog_flowLogId' - The flow log ID.
+-- 'flowLogId', 'flowLog_flowLogId' - The ID of the flow log.
 --
 -- 'trafficType', 'flowLog_trafficType' - The type of traffic captured for the flow log.
 --
 -- 'flowLogStatus', 'flowLog_flowLogStatus' - The status of the flow log (@ACTIVE@).
 --
--- 'deliverLogsPermissionArn', 'flowLog_deliverLogsPermissionArn' - The ARN of the IAM role that posts logs to CloudWatch Logs.
+-- 'deliverLogsPermissionArn', 'flowLog_deliverLogsPermissionArn' - The ARN of the IAM role allows the service to publish logs to CloudWatch
+-- Logs.
 --
 -- 'deliverLogsErrorMessage', 'flowLog_deliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that
 -- CloudWatch Logs throttling has been applied for one or more network
@@ -116,16 +114,12 @@ data FlowLog = FlowLog'
 --
 -- 'logFormat', 'flowLog_logFormat' - The format of the flow log record.
 --
--- 'logDestination', 'flowLog_logDestination' - The destination to which the flow log data is published. Flow log data
--- can be published to an CloudWatch Logs log group or an Amazon S3 bucket.
--- If the flow log publishes to CloudWatch Logs, this element indicates the
--- Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the
--- data is published. If the flow log publishes to Amazon S3, this element
--- indicates the ARN of the Amazon S3 bucket to which the data is
--- published.
+-- 'logDestination', 'flowLog_logDestination' - The Amazon Resource Name (ARN) of the destination for the flow log data.
 --
--- 'logDestinationType', 'flowLog_logDestinationType' - The type of destination to which the flow log data is published. Flow
--- log data can be published to CloudWatch Logs or Amazon S3.
+-- 'deliverCrossAccountRole', 'flowLog_deliverCrossAccountRole' - The ARN of the IAM role that allows the service to publish flow logs
+-- across accounts.
+--
+-- 'logDestinationType', 'flowLog_logDestinationType' - The type of destination for the flow log data.
 --
 -- 'creationTime', 'flowLog_creationTime' - The date and time the flow log was created.
 --
@@ -156,6 +150,7 @@ newFlowLog =
       deliverLogsErrorMessage = Prelude.Nothing,
       logFormat = Prelude.Nothing,
       logDestination = Prelude.Nothing,
+      deliverCrossAccountRole = Prelude.Nothing,
       logDestinationType = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       maxAggregationInterval = Prelude.Nothing,
@@ -163,7 +158,7 @@ newFlowLog =
       logGroupName = Prelude.Nothing
     }
 
--- | The ID of the resource on which the flow log was created.
+-- | The ID of the resource being monitored.
 flowLog_resourceId :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_resourceId = Lens.lens (\FlowLog' {resourceId} -> resourceId) (\s@FlowLog' {} a -> s {resourceId = a} :: FlowLog)
 
@@ -175,7 +170,7 @@ flowLog_tags = Lens.lens (\FlowLog' {tags} -> tags) (\s@FlowLog' {} a -> s {tags
 flowLog_destinationOptions :: Lens.Lens' FlowLog (Prelude.Maybe DestinationOptionsResponse)
 flowLog_destinationOptions = Lens.lens (\FlowLog' {destinationOptions} -> destinationOptions) (\s@FlowLog' {} a -> s {destinationOptions = a} :: FlowLog)
 
--- | The flow log ID.
+-- | The ID of the flow log.
 flowLog_flowLogId :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_flowLogId = Lens.lens (\FlowLog' {flowLogId} -> flowLogId) (\s@FlowLog' {} a -> s {flowLogId = a} :: FlowLog)
 
@@ -187,7 +182,8 @@ flowLog_trafficType = Lens.lens (\FlowLog' {trafficType} -> trafficType) (\s@Flo
 flowLog_flowLogStatus :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_flowLogStatus = Lens.lens (\FlowLog' {flowLogStatus} -> flowLogStatus) (\s@FlowLog' {} a -> s {flowLogStatus = a} :: FlowLog)
 
--- | The ARN of the IAM role that posts logs to CloudWatch Logs.
+-- | The ARN of the IAM role allows the service to publish logs to CloudWatch
+-- Logs.
 flowLog_deliverLogsPermissionArn :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_deliverLogsPermissionArn = Lens.lens (\FlowLog' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@FlowLog' {} a -> s {deliverLogsPermissionArn = a} :: FlowLog)
 
@@ -204,18 +200,16 @@ flowLog_deliverLogsErrorMessage = Lens.lens (\FlowLog' {deliverLogsErrorMessage}
 flowLog_logFormat :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_logFormat = Lens.lens (\FlowLog' {logFormat} -> logFormat) (\s@FlowLog' {} a -> s {logFormat = a} :: FlowLog)
 
--- | The destination to which the flow log data is published. Flow log data
--- can be published to an CloudWatch Logs log group or an Amazon S3 bucket.
--- If the flow log publishes to CloudWatch Logs, this element indicates the
--- Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the
--- data is published. If the flow log publishes to Amazon S3, this element
--- indicates the ARN of the Amazon S3 bucket to which the data is
--- published.
+-- | The Amazon Resource Name (ARN) of the destination for the flow log data.
 flowLog_logDestination :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_logDestination = Lens.lens (\FlowLog' {logDestination} -> logDestination) (\s@FlowLog' {} a -> s {logDestination = a} :: FlowLog)
 
--- | The type of destination to which the flow log data is published. Flow
--- log data can be published to CloudWatch Logs or Amazon S3.
+-- | The ARN of the IAM role that allows the service to publish flow logs
+-- across accounts.
+flowLog_deliverCrossAccountRole :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
+flowLog_deliverCrossAccountRole = Lens.lens (\FlowLog' {deliverCrossAccountRole} -> deliverCrossAccountRole) (\s@FlowLog' {} a -> s {deliverCrossAccountRole = a} :: FlowLog)
+
+-- | The type of destination for the flow log data.
 flowLog_logDestinationType :: Lens.Lens' FlowLog (Prelude.Maybe LogDestinationType)
 flowLog_logDestinationType = Lens.lens (\FlowLog' {logDestinationType} -> logDestinationType) (\s@FlowLog' {} a -> s {logDestinationType = a} :: FlowLog)
 
@@ -258,6 +252,7 @@ instance Core.FromXML FlowLog where
       Prelude.<*> (x Core..@? "deliverLogsErrorMessage")
       Prelude.<*> (x Core..@? "logFormat")
       Prelude.<*> (x Core..@? "logDestination")
+      Prelude.<*> (x Core..@? "deliverCrossAccountRole")
       Prelude.<*> (x Core..@? "logDestinationType")
       Prelude.<*> (x Core..@? "creationTime")
       Prelude.<*> (x Core..@? "maxAggregationInterval")
@@ -276,6 +271,7 @@ instance Prelude.Hashable FlowLog where
       `Prelude.hashWithSalt` deliverLogsErrorMessage
       `Prelude.hashWithSalt` logFormat
       `Prelude.hashWithSalt` logDestination
+      `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` logDestinationType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` maxAggregationInterval
@@ -294,6 +290,7 @@ instance Prelude.NFData FlowLog where
       `Prelude.seq` Prelude.rnf deliverLogsErrorMessage
       `Prelude.seq` Prelude.rnf logFormat
       `Prelude.seq` Prelude.rnf logDestination
+      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
       `Prelude.seq` Prelude.rnf logDestinationType
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf maxAggregationInterval

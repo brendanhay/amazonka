@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.FleetLaunchTemplateOverrides
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     -- attributes.
     --
     -- If you specify @InstanceRequirements@, you can\'t specify
-    -- @InstanceTypes@.
+    -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirements,
     -- | The ID of the subnet in which to launch the instances.
     subnetId :: Prelude.Maybe Prelude.Text,
@@ -54,7 +54,7 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The instance type.
     --
-    -- If you specify @InstanceTypes@, you can\'t specify
+    -- If you specify @InstanceType@, you can\'t specify
     -- @InstanceRequirements@.
     instanceType :: Prelude.Maybe InstanceType,
     -- | The priority for the launch template override. The highest priority is
@@ -75,7 +75,10 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     -- template overrides.
     priority :: Prelude.Maybe Prelude.Double,
     -- | The number of units provided by the specified instance type.
-    weightedCapacity :: Prelude.Maybe Prelude.Double
+    weightedCapacity :: Prelude.Maybe Prelude.Double,
+    -- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+    -- must be specified here or in the launch template.
+    imageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +97,7 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 --
 -- 'subnetId', 'fleetLaunchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.
 --
@@ -110,7 +113,7 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 --
 -- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.
 --
--- If you specify @InstanceTypes@, you can\'t specify
+-- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
 --
 -- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is
@@ -131,6 +134,9 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- template overrides.
 --
 -- 'weightedCapacity', 'fleetLaunchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.
+--
+-- 'imageId', 'fleetLaunchTemplateOverrides_imageId' - The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+-- must be specified here or in the launch template.
 newFleetLaunchTemplateOverrides ::
   FleetLaunchTemplateOverrides
 newFleetLaunchTemplateOverrides =
@@ -143,7 +149,8 @@ newFleetLaunchTemplateOverrides =
       availabilityZone = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       priority = Prelude.Nothing,
-      weightedCapacity = Prelude.Nothing
+      weightedCapacity = Prelude.Nothing,
+      imageId = Prelude.Nothing
     }
 
 -- | The location where the instance launched, if applicable.
@@ -155,7 +162,7 @@ fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverride
 -- attributes.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 fleetLaunchTemplateOverrides_instanceRequirements :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceRequirements)
 fleetLaunchTemplateOverrides_instanceRequirements = Lens.lens (\FleetLaunchTemplateOverrides' {instanceRequirements} -> instanceRequirements) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceRequirements = a} :: FleetLaunchTemplateOverrides)
 
@@ -179,7 +186,7 @@ fleetLaunchTemplateOverrides_availabilityZone = Lens.lens (\FleetLaunchTemplateO
 
 -- | The instance type.
 --
--- If you specify @InstanceTypes@, you can\'t specify
+-- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
 fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
 fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
@@ -207,6 +214,11 @@ fleetLaunchTemplateOverrides_priority = Lens.lens (\FleetLaunchTemplateOverrides
 fleetLaunchTemplateOverrides_weightedCapacity :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_weightedCapacity = Lens.lens (\FleetLaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@FleetLaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: FleetLaunchTemplateOverrides)
 
+-- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+-- must be specified here or in the launch template.
+fleetLaunchTemplateOverrides_imageId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+fleetLaunchTemplateOverrides_imageId = Lens.lens (\FleetLaunchTemplateOverrides' {imageId} -> imageId) (\s@FleetLaunchTemplateOverrides' {} a -> s {imageId = a} :: FleetLaunchTemplateOverrides)
+
 instance Core.FromXML FleetLaunchTemplateOverrides where
   parseXML x =
     FleetLaunchTemplateOverrides'
@@ -218,6 +230,7 @@ instance Core.FromXML FleetLaunchTemplateOverrides where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "priority")
       Prelude.<*> (x Core..@? "weightedCapacity")
+      Prelude.<*> (x Core..@? "imageId")
 
 instance
   Prelude.Hashable
@@ -232,6 +245,7 @@ instance
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData FleetLaunchTemplateOverrides where
   rnf FleetLaunchTemplateOverrides' {..} =
@@ -243,3 +257,4 @@ instance Prelude.NFData FleetLaunchTemplateOverrides where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf imageId

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,8 @@ data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescrip
     ipPermissions :: Prelude.Maybe [IpPermission],
     -- | [EC2-Classic, default VPC] The name of the security group. You must
     -- specify either the security group ID or the security group name in the
-    -- request.
+    -- request. For security groups in a nondefault VPC, you must specify the
+    -- security group ID.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -90,7 +91,8 @@ data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescrip
 --
 -- 'groupName', 'updateSecurityGroupRuleDescriptionsIngress_groupName' - [EC2-Classic, default VPC] The name of the security group. You must
 -- specify either the security group ID or the security group name in the
--- request.
+-- request. For security groups in a nondefault VPC, you must specify the
+-- security group ID.
 --
 -- 'dryRun', 'updateSecurityGroupRuleDescriptionsIngress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,7 +125,8 @@ updateSecurityGroupRuleDescriptionsIngress_ipPermissions = Lens.lens (\UpdateSec
 
 -- | [EC2-Classic, default VPC] The name of the security group. You must
 -- specify either the security group ID or the security group name in the
--- request.
+-- request. For security groups in a nondefault VPC, you must specify the
+-- security group ID.
 updateSecurityGroupRuleDescriptionsIngress_groupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Prelude.Maybe Prelude.Text)
 updateSecurityGroupRuleDescriptionsIngress_groupName = Lens.lens (\UpdateSecurityGroupRuleDescriptionsIngress' {groupName} -> groupName) (\s@UpdateSecurityGroupRuleDescriptionsIngress' {} a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
 

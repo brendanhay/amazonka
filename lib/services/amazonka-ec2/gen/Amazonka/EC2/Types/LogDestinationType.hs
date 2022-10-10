@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.LogDestinationType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LogDestinationType
   ( LogDestinationType
       ( ..,
         LogDestinationType_Cloud_watch_logs,
+        LogDestinationType_Kinesis_data_firehose,
         LogDestinationType_S3
       ),
   )
@@ -61,11 +62,15 @@ newtype LogDestinationType = LogDestinationType'
 pattern LogDestinationType_Cloud_watch_logs :: LogDestinationType
 pattern LogDestinationType_Cloud_watch_logs = LogDestinationType' "cloud-watch-logs"
 
+pattern LogDestinationType_Kinesis_data_firehose :: LogDestinationType
+pattern LogDestinationType_Kinesis_data_firehose = LogDestinationType' "kinesis-data-firehose"
+
 pattern LogDestinationType_S3 :: LogDestinationType
 pattern LogDestinationType_S3 = LogDestinationType' "s3"
 
 {-# COMPLETE
   LogDestinationType_Cloud_watch_logs,
+  LogDestinationType_Kinesis_data_firehose,
   LogDestinationType_S3,
   LogDestinationType'
   #-}

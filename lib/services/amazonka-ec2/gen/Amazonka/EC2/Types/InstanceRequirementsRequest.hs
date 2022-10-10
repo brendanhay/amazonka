@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceRequirementsRequest
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,13 +45,13 @@ import qualified Amazonka.Prelude as Prelude
 -- attributes, Amazon EC2 will identify instance types with these
 -- attributes.
 --
--- When you specify multiple parameters, you get instance types that
--- satisfy all of the specified parameters. If you specify multiple values
--- for a parameter, you get instance types that satisfy any of the
+-- When you specify multiple attributes, you get instance types that
+-- satisfy all of the specified attributes. If you specify multiple values
+-- for an attribute, you get instance types that satisfy any of the
 -- specified values.
 --
--- You must specify @VCpuCount@ and @MemoryMiB@. All other parameters are
--- optional. Any unspecified optional parameter is set to its default.
+-- You must specify @VCpuCount@ and @MemoryMiB@. All other attributes are
+-- optional. Any unspecified optional attribute is set to its default.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html Attribute-based instance type selection for EC2 Fleet>,
@@ -180,6 +180,11 @@ data InstanceRequirementsRequest = InstanceRequirementsRequest'
     --
     -- -   For instance types with Xilinx VU9P FPGAs, specify @ vu9p@.
     --
+    -- -   For instance types with Amazon Web Services Inferentia chips,
+    --     specify @inferentia@.
+    --
+    -- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+    --
     -- Default: Any accelerator
     acceleratorNames :: Prelude.Maybe [AcceleratorName],
     -- | Indicates whether instance types must have accelerators by specific
@@ -196,10 +201,12 @@ data InstanceRequirementsRequest = InstanceRequirementsRequest'
     --
     -- Default: Any manufacturer
     acceleratorManufacturers :: Prelude.Maybe [AcceleratorManufacturer],
-    -- | The instance types to exclude. You can use strings with one or more wild
-    -- cards, represented by an asterisk (@*@), to exclude an instance family,
-    -- type, size, or generation. The following are examples: @m5.8xlarge@,
-    -- @c5*.*@, @m5a.*@, @r*@, @*3*@.
+    -- | The instance types to exclude.
+    --
+    -- You can use strings with one or more wild cards, represented by an
+    -- asterisk (@*@), to exclude an instance family, type, size, or
+    -- generation. The following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@,
+    -- @r*@, @*3*@.
     --
     -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
     -- instance family, which includes all C5a and C5n instance types. If you
@@ -412,6 +419,11 @@ data InstanceRequirementsRequest = InstanceRequirementsRequest'
 --
 -- -   For instance types with Xilinx VU9P FPGAs, specify @ vu9p@.
 --
+-- -   For instance types with Amazon Web Services Inferentia chips,
+--     specify @inferentia@.
+--
+-- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+--
 -- Default: Any accelerator
 --
 -- 'acceleratorManufacturers', 'instanceRequirementsRequest_acceleratorManufacturers' - Indicates whether instance types must have accelerators by specific
@@ -428,10 +440,12 @@ data InstanceRequirementsRequest = InstanceRequirementsRequest'
 --
 -- Default: Any manufacturer
 --
--- 'excludedInstanceTypes', 'instanceRequirementsRequest_excludedInstanceTypes' - The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance family,
--- type, size, or generation. The following are examples: @m5.8xlarge@,
--- @c5*.*@, @m5a.*@, @r*@, @*3*@.
+-- 'excludedInstanceTypes', 'instanceRequirementsRequest_excludedInstanceTypes' - The instance types to exclude.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to exclude an instance family, type, size, or
+-- generation. The following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@,
+-- @r*@, @*3*@.
 --
 -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
 -- instance family, which includes all C5a and C5n instance types. If you
@@ -684,6 +698,11 @@ instanceRequirementsRequest_onDemandMaxPricePercentageOverLowestPrice = Lens.len
 --
 -- -   For instance types with Xilinx VU9P FPGAs, specify @ vu9p@.
 --
+-- -   For instance types with Amazon Web Services Inferentia chips,
+--     specify @inferentia@.
+--
+-- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+--
 -- Default: Any accelerator
 instanceRequirementsRequest_acceleratorNames :: Lens.Lens' InstanceRequirementsRequest (Prelude.Maybe [AcceleratorName])
 instanceRequirementsRequest_acceleratorNames = Lens.lens (\InstanceRequirementsRequest' {acceleratorNames} -> acceleratorNames) (\s@InstanceRequirementsRequest' {} a -> s {acceleratorNames = a} :: InstanceRequirementsRequest) Prelude.. Lens.mapping Lens.coerced
@@ -704,10 +723,12 @@ instanceRequirementsRequest_acceleratorNames = Lens.lens (\InstanceRequirementsR
 instanceRequirementsRequest_acceleratorManufacturers :: Lens.Lens' InstanceRequirementsRequest (Prelude.Maybe [AcceleratorManufacturer])
 instanceRequirementsRequest_acceleratorManufacturers = Lens.lens (\InstanceRequirementsRequest' {acceleratorManufacturers} -> acceleratorManufacturers) (\s@InstanceRequirementsRequest' {} a -> s {acceleratorManufacturers = a} :: InstanceRequirementsRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance family,
--- type, size, or generation. The following are examples: @m5.8xlarge@,
--- @c5*.*@, @m5a.*@, @r*@, @*3*@.
+-- | The instance types to exclude.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to exclude an instance family, type, size, or
+-- generation. The following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@,
+-- @r*@, @*3*@.
 --
 -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
 -- instance family, which includes all C5a and C5n instance types. If you

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceRequirements
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,13 +45,13 @@ import qualified Amazonka.Prelude as Prelude
 -- attributes, Amazon EC2 will identify instance types with these
 -- attributes.
 --
--- When you specify multiple parameters, you get instance types that
--- satisfy all of the specified parameters. If you specify multiple values
--- for a parameter, you get instance types that satisfy any of the
+-- When you specify multiple attributes, you get instance types that
+-- satisfy all of the specified attributes. If you specify multiple values
+-- for an attribute, you get instance types that satisfy any of the
 -- specified values.
 --
--- You must specify @VCpuCount@ and @MemoryMiB@. All other parameters are
--- optional. Any unspecified optional parameter is set to its default.
+-- You must specify @VCpuCount@ and @MemoryMiB@. All other attributes are
+-- optional. Any unspecified optional attribute is set to its default.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html Attribute-based instance type selection for EC2 Fleet>,
@@ -179,6 +179,11 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- -   For instance types with Xilinx VU9P FPGAs, specify @vu9p@.
     --
+    -- -   For instance types with Amazon Web Services Inferentia chips,
+    --     specify @inferentia@.
+    --
+    -- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+    --
     -- Default: Any accelerator
     acceleratorNames :: Prelude.Maybe [AcceleratorName],
     -- | Indicates whether instance types must have accelerators by specific
@@ -195,10 +200,11 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: Any manufacturer
     acceleratorManufacturers :: Prelude.Maybe [AcceleratorManufacturer],
-    -- | The instance types to exclude. You can use strings with one or more wild
-    -- cards, represented by an asterisk (@*@), to exclude an instance type,
-    -- size, or generation. The following are examples: @m5.8xlarge@, @c5*.*@,
-    -- @m5a.*@, @r*@, @*3*@.
+    -- | The instance types to exclude.
+    --
+    -- You can use strings with one or more wild cards, represented by an
+    -- asterisk (@*@), to exclude an instance type, size, or generation. The
+    -- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
     --
     -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
     -- instance family, which includes all C5a and C5n instance types. If you
@@ -410,6 +416,11 @@ data InstanceRequirements = InstanceRequirements'
 --
 -- -   For instance types with Xilinx VU9P FPGAs, specify @vu9p@.
 --
+-- -   For instance types with Amazon Web Services Inferentia chips,
+--     specify @inferentia@.
+--
+-- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+--
 -- Default: Any accelerator
 --
 -- 'acceleratorManufacturers', 'instanceRequirements_acceleratorManufacturers' - Indicates whether instance types must have accelerators by specific
@@ -426,10 +437,11 @@ data InstanceRequirements = InstanceRequirements'
 --
 -- Default: Any manufacturer
 --
--- 'excludedInstanceTypes', 'instanceRequirements_excludedInstanceTypes' - The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance type,
--- size, or generation. The following are examples: @m5.8xlarge@, @c5*.*@,
--- @m5a.*@, @r*@, @*3*@.
+-- 'excludedInstanceTypes', 'instanceRequirements_excludedInstanceTypes' - The instance types to exclude.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to exclude an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
 --
 -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
 -- instance family, which includes all C5a and C5n instance types. If you
@@ -675,6 +687,11 @@ instanceRequirements_onDemandMaxPricePercentageOverLowestPrice = Lens.lens (\Ins
 --
 -- -   For instance types with Xilinx VU9P FPGAs, specify @vu9p@.
 --
+-- -   For instance types with Amazon Web Services Inferentia chips,
+--     specify @inferentia@.
+--
+-- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
+--
 -- Default: Any accelerator
 instanceRequirements_acceleratorNames :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorName])
 instanceRequirements_acceleratorNames = Lens.lens (\InstanceRequirements' {acceleratorNames} -> acceleratorNames) (\s@InstanceRequirements' {} a -> s {acceleratorNames = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
@@ -695,10 +712,11 @@ instanceRequirements_acceleratorNames = Lens.lens (\InstanceRequirements' {accel
 instanceRequirements_acceleratorManufacturers :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorManufacturer])
 instanceRequirements_acceleratorManufacturers = Lens.lens (\InstanceRequirements' {acceleratorManufacturers} -> acceleratorManufacturers) (\s@InstanceRequirements' {} a -> s {acceleratorManufacturers = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
 
--- | The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance type,
--- size, or generation. The following are examples: @m5.8xlarge@, @c5*.*@,
--- @m5a.*@, @r*@, @*3*@.
+-- | The instance types to exclude.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to exclude an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
 --
 -- For example, if you specify @c5*@,Amazon EC2 will exclude the entire C5
 -- instance family, which includes all C5a and C5n instance types. If you

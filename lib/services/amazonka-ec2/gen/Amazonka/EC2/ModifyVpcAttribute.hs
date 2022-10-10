@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.ModifyVpcAttribute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Amazonka.EC2.ModifyVpcAttribute
     -- * Request Lenses
     modifyVpcAttribute_enableDnsSupport,
     modifyVpcAttribute_enableDnsHostnames,
+    modifyVpcAttribute_enableNetworkAddressUsageMetrics,
     modifyVpcAttribute_vpcId,
 
     -- * Destructuring the Response
@@ -64,6 +65,9 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
     -- same request. Use separate requests for each attribute. You can only
     -- enable DNS hostnames if you\'ve enabled DNS support.
     enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
+    -- | Indicates whether Network Address Usage metrics are enabled for your
+    -- VPC.
+    enableNetworkAddressUsageMetrics :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -95,6 +99,9 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
 -- same request. Use separate requests for each attribute. You can only
 -- enable DNS hostnames if you\'ve enabled DNS support.
 --
+-- 'enableNetworkAddressUsageMetrics', 'modifyVpcAttribute_enableNetworkAddressUsageMetrics' - Indicates whether Network Address Usage metrics are enabled for your
+-- VPC.
+--
 -- 'vpcId', 'modifyVpcAttribute_vpcId' - The ID of the VPC.
 newModifyVpcAttribute ::
   -- | 'vpcId'
@@ -105,6 +112,7 @@ newModifyVpcAttribute pVpcId_ =
     { enableDnsSupport =
         Prelude.Nothing,
       enableDnsHostnames = Prelude.Nothing,
+      enableNetworkAddressUsageMetrics = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
@@ -130,6 +138,11 @@ modifyVpcAttribute_enableDnsSupport = Lens.lens (\ModifyVpcAttribute' {enableDns
 modifyVpcAttribute_enableDnsHostnames :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyVpcAttribute_enableDnsHostnames = Lens.lens (\ModifyVpcAttribute' {enableDnsHostnames} -> enableDnsHostnames) (\s@ModifyVpcAttribute' {} a -> s {enableDnsHostnames = a} :: ModifyVpcAttribute)
 
+-- | Indicates whether Network Address Usage metrics are enabled for your
+-- VPC.
+modifyVpcAttribute_enableNetworkAddressUsageMetrics :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyVpcAttribute_enableNetworkAddressUsageMetrics = Lens.lens (\ModifyVpcAttribute' {enableNetworkAddressUsageMetrics} -> enableNetworkAddressUsageMetrics) (\s@ModifyVpcAttribute' {} a -> s {enableNetworkAddressUsageMetrics = a} :: ModifyVpcAttribute)
+
 -- | The ID of the VPC.
 modifyVpcAttribute_vpcId :: Lens.Lens' ModifyVpcAttribute Prelude.Text
 modifyVpcAttribute_vpcId = Lens.lens (\ModifyVpcAttribute' {vpcId} -> vpcId) (\s@ModifyVpcAttribute' {} a -> s {vpcId = a} :: ModifyVpcAttribute)
@@ -146,12 +159,14 @@ instance Prelude.Hashable ModifyVpcAttribute where
   hashWithSalt _salt ModifyVpcAttribute' {..} =
     _salt `Prelude.hashWithSalt` enableDnsSupport
       `Prelude.hashWithSalt` enableDnsHostnames
+      `Prelude.hashWithSalt` enableNetworkAddressUsageMetrics
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData ModifyVpcAttribute where
   rnf ModifyVpcAttribute' {..} =
     Prelude.rnf enableDnsSupport
       `Prelude.seq` Prelude.rnf enableDnsHostnames
+      `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders ModifyVpcAttribute where
@@ -169,6 +184,8 @@ instance Core.ToQuery ModifyVpcAttribute where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "EnableDnsSupport" Core.=: enableDnsSupport,
         "EnableDnsHostnames" Core.=: enableDnsHostnames,
+        "EnableNetworkAddressUsageMetrics"
+          Core.=: enableNetworkAddressUsageMetrics,
         "VpcId" Core.=: vpcId
       ]
 

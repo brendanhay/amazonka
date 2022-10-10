@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeImages
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -176,13 +176,12 @@ data DescribeImages = DescribeImages'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | If @true@, all deprecated AMIs are included in the response. If @false@,
-    -- no deprecated AMIs are included in the response. If no value is
-    -- specified, the default value is @false@.
+    -- | Specifies whether to include deprecated AMIs.
+    --
+    -- Default: No deprecated AMIs are included in the response.
     --
     -- If you are the AMI owner, all deprecated AMIs appear in the response
-    -- regardless of the value (@true@ or @false@) that you set for this
-    -- parameter.
+    -- regardless of what you specify for this parameter.
     includeDeprecated :: Prelude.Maybe Prelude.Bool,
     -- | Scopes the images by users with explicit launch permissions. Specify an
     -- Amazon Web Services account ID, @self@ (the sender of the request), or
@@ -323,13 +322,12 @@ data DescribeImages = DescribeImages'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'includeDeprecated', 'describeImages_includeDeprecated' - If @true@, all deprecated AMIs are included in the response. If @false@,
--- no deprecated AMIs are included in the response. If no value is
--- specified, the default value is @false@.
+-- 'includeDeprecated', 'describeImages_includeDeprecated' - Specifies whether to include deprecated AMIs.
+--
+-- Default: No deprecated AMIs are included in the response.
 --
 -- If you are the AMI owner, all deprecated AMIs appear in the response
--- regardless of the value (@true@ or @false@) that you set for this
--- parameter.
+-- regardless of what you specify for this parameter.
 --
 -- 'executableUsers', 'describeImages_executableUsers' - Scopes the images by users with explicit launch permissions. Specify an
 -- Amazon Web Services account ID, @self@ (the sender of the request), or
@@ -478,13 +476,12 @@ describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@Desc
 describeImages_dryRun :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_dryRun = Lens.lens (\DescribeImages' {dryRun} -> dryRun) (\s@DescribeImages' {} a -> s {dryRun = a} :: DescribeImages)
 
--- | If @true@, all deprecated AMIs are included in the response. If @false@,
--- no deprecated AMIs are included in the response. If no value is
--- specified, the default value is @false@.
+-- | Specifies whether to include deprecated AMIs.
+--
+-- Default: No deprecated AMIs are included in the response.
 --
 -- If you are the AMI owner, all deprecated AMIs appear in the response
--- regardless of the value (@true@ or @false@) that you set for this
--- parameter.
+-- regardless of what you specify for this parameter.
 describeImages_includeDeprecated :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_includeDeprecated = Lens.lens (\DescribeImages' {includeDeprecated} -> includeDeprecated) (\s@DescribeImages' {} a -> s {includeDeprecated = a} :: DescribeImages)
 

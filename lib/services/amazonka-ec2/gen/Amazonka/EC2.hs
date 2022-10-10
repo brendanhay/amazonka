@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.EC2
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -471,6 +471,18 @@ module Amazonka.EC2
     CreateClientVpnRouteResponse (CreateClientVpnRouteResponse'),
     newCreateClientVpnRouteResponse,
 
+    -- ** CreateCoipCidr
+    CreateCoipCidr (CreateCoipCidr'),
+    newCreateCoipCidr,
+    CreateCoipCidrResponse (CreateCoipCidrResponse'),
+    newCreateCoipCidrResponse,
+
+    -- ** CreateCoipPool
+    CreateCoipPool (CreateCoipPool'),
+    newCreateCoipPool,
+    CreateCoipPoolResponse (CreateCoipPoolResponse'),
+    newCreateCoipPoolResponse,
+
     -- ** CreateCustomerGateway
     CreateCustomerGateway (CreateCustomerGateway'),
     newCreateCustomerGateway,
@@ -584,6 +596,18 @@ module Amazonka.EC2
     newCreateLocalGatewayRoute,
     CreateLocalGatewayRouteResponse (CreateLocalGatewayRouteResponse'),
     newCreateLocalGatewayRouteResponse,
+
+    -- ** CreateLocalGatewayRouteTable
+    CreateLocalGatewayRouteTable (CreateLocalGatewayRouteTable'),
+    newCreateLocalGatewayRouteTable,
+    CreateLocalGatewayRouteTableResponse (CreateLocalGatewayRouteTableResponse'),
+    newCreateLocalGatewayRouteTableResponse,
+
+    -- ** CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation (CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation'),
+    newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+    CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse (CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse'),
+    newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse,
 
     -- ** CreateLocalGatewayRouteTableVpcAssociation
     CreateLocalGatewayRouteTableVpcAssociation (CreateLocalGatewayRouteTableVpcAssociation'),
@@ -891,6 +915,18 @@ module Amazonka.EC2
     DeleteClientVpnRouteResponse (DeleteClientVpnRouteResponse'),
     newDeleteClientVpnRouteResponse,
 
+    -- ** DeleteCoipCidr
+    DeleteCoipCidr (DeleteCoipCidr'),
+    newDeleteCoipCidr,
+    DeleteCoipCidrResponse (DeleteCoipCidrResponse'),
+    newDeleteCoipCidrResponse,
+
+    -- ** DeleteCoipPool
+    DeleteCoipPool (DeleteCoipPool'),
+    newDeleteCoipPool,
+    DeleteCoipPoolResponse (DeleteCoipPoolResponse'),
+    newDeleteCoipPoolResponse,
+
     -- ** DeleteCustomerGateway
     DeleteCustomerGateway (DeleteCustomerGateway'),
     newDeleteCustomerGateway,
@@ -980,6 +1016,18 @@ module Amazonka.EC2
     newDeleteLocalGatewayRoute,
     DeleteLocalGatewayRouteResponse (DeleteLocalGatewayRouteResponse'),
     newDeleteLocalGatewayRouteResponse,
+
+    -- ** DeleteLocalGatewayRouteTable
+    DeleteLocalGatewayRouteTable (DeleteLocalGatewayRouteTable'),
+    newDeleteLocalGatewayRouteTable,
+    DeleteLocalGatewayRouteTableResponse (DeleteLocalGatewayRouteTableResponse'),
+    newDeleteLocalGatewayRouteTableResponse,
+
+    -- ** DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation (DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation'),
+    newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+    DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse (DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse'),
+    newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse,
 
     -- ** DeleteLocalGatewayRouteTableVpcAssociation
     DeleteLocalGatewayRouteTableVpcAssociation (DeleteLocalGatewayRouteTableVpcAssociation'),
@@ -2787,6 +2835,12 @@ module Amazonka.EC2
     ModifyLaunchTemplateResponse (ModifyLaunchTemplateResponse'),
     newModifyLaunchTemplateResponse,
 
+    -- ** ModifyLocalGatewayRoute
+    ModifyLocalGatewayRoute (ModifyLocalGatewayRoute'),
+    newModifyLocalGatewayRoute,
+    ModifyLocalGatewayRouteResponse (ModifyLocalGatewayRouteResponse'),
+    newModifyLocalGatewayRouteResponse,
+
     -- ** ModifyManagedPrefixList
     ModifyManagedPrefixList (ModifyManagedPrefixList'),
     newModifyManagedPrefixList,
@@ -3389,6 +3443,9 @@ module Amazonka.EC2
     -- ** AllocationStrategy
     AllocationStrategy (..),
 
+    -- ** AllocationType
+    AllocationType (..),
+
     -- ** AllowsMultipleInstanceTypes
     AllowsMultipleInstanceTypes (..),
 
@@ -3692,6 +3749,9 @@ module Amazonka.EC2
     -- ** ImageTypeValues
     ImageTypeValues (..),
 
+    -- ** ImdsSupportValues
+    ImdsSupportValues (..),
+
     -- ** InstanceAttributeName
     InstanceAttributeName (..),
 
@@ -3829,6 +3889,9 @@ module Amazonka.EC2
 
     -- ** LocalGatewayRouteState
     LocalGatewayRouteState (..),
+
+    -- ** LocalGatewayRouteTableMode
+    LocalGatewayRouteTableMode (..),
 
     -- ** LocalGatewayRouteType
     LocalGatewayRouteType (..),
@@ -4250,6 +4313,10 @@ module Amazonka.EC2
     AddPrefixListEntry (AddPrefixListEntry'),
     newAddPrefixListEntry,
 
+    -- ** AddedPrincipal
+    AddedPrincipal (AddedPrincipal'),
+    newAddedPrincipal,
+
     -- ** AdditionalDetail
     AdditionalDetail (AdditionalDetail'),
     newAdditionalDetail,
@@ -4389,6 +4456,10 @@ module Amazonka.EC2
     -- ** CancelledSpotInstanceRequest
     CancelledSpotInstanceRequest (CancelledSpotInstanceRequest'),
     newCancelledSpotInstanceRequest,
+
+    -- ** CapacityAllocation
+    CapacityAllocation (CapacityAllocation'),
+    newCapacityAllocation,
 
     -- ** CapacityReservation
     CapacityReservation (CapacityReservation'),
@@ -4541,6 +4612,10 @@ module Amazonka.EC2
     -- ** CoipAddressUsage
     CoipAddressUsage (CoipAddressUsage'),
     newCoipAddressUsage,
+
+    -- ** CoipCidr
+    CoipCidr (CoipCidr'),
+    newCoipCidr,
 
     -- ** CoipPool
     CoipPool (CoipPool'),
@@ -6845,6 +6920,8 @@ import Amazonka.EC2.CreateCapacityReservationFleet
 import Amazonka.EC2.CreateCarrierGateway
 import Amazonka.EC2.CreateClientVpnEndpoint
 import Amazonka.EC2.CreateClientVpnRoute
+import Amazonka.EC2.CreateCoipCidr
+import Amazonka.EC2.CreateCoipPool
 import Amazonka.EC2.CreateCustomerGateway
 import Amazonka.EC2.CreateDefaultSubnet
 import Amazonka.EC2.CreateDefaultVpc
@@ -6864,6 +6941,8 @@ import Amazonka.EC2.CreateKeyPair
 import Amazonka.EC2.CreateLaunchTemplate
 import Amazonka.EC2.CreateLaunchTemplateVersion
 import Amazonka.EC2.CreateLocalGatewayRoute
+import Amazonka.EC2.CreateLocalGatewayRouteTable
+import Amazonka.EC2.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.CreateLocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.CreateManagedPrefixList
 import Amazonka.EC2.CreateNatGateway
@@ -6915,6 +6994,8 @@ import Amazonka.EC2.CreateVpnGateway
 import Amazonka.EC2.DeleteCarrierGateway
 import Amazonka.EC2.DeleteClientVpnEndpoint
 import Amazonka.EC2.DeleteClientVpnRoute
+import Amazonka.EC2.DeleteCoipCidr
+import Amazonka.EC2.DeleteCoipPool
 import Amazonka.EC2.DeleteCustomerGateway
 import Amazonka.EC2.DeleteDhcpOptions
 import Amazonka.EC2.DeleteEgressOnlyInternetGateway
@@ -6930,6 +7011,8 @@ import Amazonka.EC2.DeleteKeyPair
 import Amazonka.EC2.DeleteLaunchTemplate
 import Amazonka.EC2.DeleteLaunchTemplateVersions
 import Amazonka.EC2.DeleteLocalGatewayRoute
+import Amazonka.EC2.DeleteLocalGatewayRouteTable
+import Amazonka.EC2.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.DeleteLocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.DeleteManagedPrefixList
 import Amazonka.EC2.DeleteNatGateway
@@ -7233,6 +7316,7 @@ import Amazonka.EC2.ModifyIpamPool
 import Amazonka.EC2.ModifyIpamResourceCidr
 import Amazonka.EC2.ModifyIpamScope
 import Amazonka.EC2.ModifyLaunchTemplate
+import Amazonka.EC2.ModifyLocalGatewayRoute
 import Amazonka.EC2.ModifyManagedPrefixList
 import Amazonka.EC2.ModifyNetworkInterfaceAttribute
 import Amazonka.EC2.ModifyPrivateDnsNameOptions

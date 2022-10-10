@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.ScheduledInstance
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,11 +26,6 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Scheduled Instance.
---
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ 'newScheduledInstance' smart constructor.
 data ScheduledInstance = ScheduledInstance'

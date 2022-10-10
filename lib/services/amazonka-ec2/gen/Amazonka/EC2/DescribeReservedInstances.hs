@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeReservedInstances
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,6 @@
 -- For more information about Reserved Instances, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>
 -- in the /Amazon EC2 User Guide/.
---
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.DescribeReservedInstances
   ( -- * Creating a Request
     DescribeReservedInstances (..),

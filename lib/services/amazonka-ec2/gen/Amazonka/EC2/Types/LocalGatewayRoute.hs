@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.LocalGatewayRoute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,10 +37,16 @@ data LocalGatewayRoute = LocalGatewayRoute'
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the customer-owned address pool.
+    coipPoolId :: Prelude.Maybe Prelude.Text,
     -- | The state of the route.
     state :: Prelude.Maybe LocalGatewayRouteState,
     -- | The CIDR block used for destination matches.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface group.
     localGatewayVirtualInterfaceGroupId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the local gateway route table.
@@ -63,9 +69,15 @@ data LocalGatewayRoute = LocalGatewayRoute'
 --
 -- 'localGatewayRouteTableId', 'localGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.
 --
+-- 'subnetId', 'localGatewayRoute_subnetId' - The ID of the subnet.
+--
+-- 'coipPoolId', 'localGatewayRoute_coipPoolId' - The ID of the customer-owned address pool.
+--
 -- 'state', 'localGatewayRoute_state' - The state of the route.
 --
 -- 'destinationCidrBlock', 'localGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches.
+--
+-- 'networkInterfaceId', 'localGatewayRoute_networkInterfaceId' - The ID of the network interface.
 --
 -- 'localGatewayVirtualInterfaceGroupId', 'localGatewayRoute_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
 --
@@ -77,8 +89,11 @@ newLocalGatewayRoute =
     { type' = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       localGatewayRouteTableId = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      coipPoolId = Prelude.Nothing,
       state = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       localGatewayVirtualInterfaceGroupId =
         Prelude.Nothing,
       localGatewayRouteTableArn = Prelude.Nothing
@@ -97,6 +112,14 @@ localGatewayRoute_ownerId = Lens.lens (\LocalGatewayRoute' {ownerId} -> ownerId)
 localGatewayRoute_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
 localGatewayRoute_localGatewayRouteTableId = Lens.lens (\LocalGatewayRoute' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@LocalGatewayRoute' {} a -> s {localGatewayRouteTableId = a} :: LocalGatewayRoute)
 
+-- | The ID of the subnet.
+localGatewayRoute_subnetId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
+localGatewayRoute_subnetId = Lens.lens (\LocalGatewayRoute' {subnetId} -> subnetId) (\s@LocalGatewayRoute' {} a -> s {subnetId = a} :: LocalGatewayRoute)
+
+-- | The ID of the customer-owned address pool.
+localGatewayRoute_coipPoolId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
+localGatewayRoute_coipPoolId = Lens.lens (\LocalGatewayRoute' {coipPoolId} -> coipPoolId) (\s@LocalGatewayRoute' {} a -> s {coipPoolId = a} :: LocalGatewayRoute)
+
 -- | The state of the route.
 localGatewayRoute_state :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe LocalGatewayRouteState)
 localGatewayRoute_state = Lens.lens (\LocalGatewayRoute' {state} -> state) (\s@LocalGatewayRoute' {} a -> s {state = a} :: LocalGatewayRoute)
@@ -104,6 +127,10 @@ localGatewayRoute_state = Lens.lens (\LocalGatewayRoute' {state} -> state) (\s@L
 -- | The CIDR block used for destination matches.
 localGatewayRoute_destinationCidrBlock :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
 localGatewayRoute_destinationCidrBlock = Lens.lens (\LocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@LocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: LocalGatewayRoute)
+
+-- | The ID of the network interface.
+localGatewayRoute_networkInterfaceId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
+localGatewayRoute_networkInterfaceId = Lens.lens (\LocalGatewayRoute' {networkInterfaceId} -> networkInterfaceId) (\s@LocalGatewayRoute' {} a -> s {networkInterfaceId = a} :: LocalGatewayRoute)
 
 -- | The ID of the virtual interface group.
 localGatewayRoute_localGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
@@ -119,8 +146,11 @@ instance Core.FromXML LocalGatewayRoute where
       Prelude.<$> (x Core..@? "type")
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "coipPoolId")
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
       Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
 
@@ -129,8 +159,11 @@ instance Prelude.Hashable LocalGatewayRoute where
     _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` coipPoolId
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
       `Prelude.hashWithSalt` localGatewayRouteTableArn
 
@@ -139,7 +172,10 @@ instance Prelude.NFData LocalGatewayRoute where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf coipPoolId
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
       `Prelude.seq` Prelude.rnf localGatewayRouteTableArn

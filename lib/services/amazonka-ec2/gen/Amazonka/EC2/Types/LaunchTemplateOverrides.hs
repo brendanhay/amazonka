@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.LaunchTemplateOverrides
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- a list of instance types.
     --
     -- If you specify @InstanceRequirements@, you can\'t specify
-    -- @InstanceTypes@.
+    -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirements,
     -- | The ID of the subnet in which to launch the instances.
     subnetId :: Prelude.Maybe Prelude.Text,
@@ -90,7 +90,7 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- a list of instance types.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 --
 -- 'subnetId', 'launchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.
 --
@@ -145,7 +145,7 @@ newLaunchTemplateOverrides =
 -- a list of instance types.
 --
 -- If you specify @InstanceRequirements@, you can\'t specify
--- @InstanceTypes@.
+-- @InstanceType@.
 launchTemplateOverrides_instanceRequirements :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe InstanceRequirements)
 launchTemplateOverrides_instanceRequirements = Lens.lens (\LaunchTemplateOverrides' {instanceRequirements} -> instanceRequirements) (\s@LaunchTemplateOverrides' {} a -> s {instanceRequirements = a} :: LaunchTemplateOverrides)
 

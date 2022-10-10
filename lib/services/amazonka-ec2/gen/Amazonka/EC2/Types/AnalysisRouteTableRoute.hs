@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.AnalysisRouteTableRoute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,12 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
     transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The destination IPv4 address, in CIDR notation.
     destinationCidr :: Prelude.Maybe Prelude.Text,
+    -- | The state. The following are the possible values:
+    --
+    -- -   active
+    --
+    -- -   blackhole
+    state :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a VPC peering connection.
@@ -75,6 +81,12 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
 --
 -- 'destinationCidr', 'analysisRouteTableRoute_destinationCidr' - The destination IPv4 address, in CIDR notation.
 --
+-- 'state', 'analysisRouteTableRoute_state' - The state. The following are the possible values:
+--
+-- -   active
+--
+-- -   blackhole
+--
 -- 'natGatewayId', 'analysisRouteTableRoute_natGatewayId' - The ID of a NAT gateway.
 --
 -- 'vpcPeeringConnectionId', 'analysisRouteTableRoute_vpcPeeringConnectionId' - The ID of a VPC peering connection.
@@ -106,6 +118,7 @@ newAnalysisRouteTableRoute =
         Prelude.Nothing,
       transitGatewayId = Prelude.Nothing,
       destinationCidr = Prelude.Nothing,
+      state = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
       vpcPeeringConnectionId = Prelude.Nothing,
       instanceId = Prelude.Nothing,
@@ -126,6 +139,14 @@ analysisRouteTableRoute_transitGatewayId = Lens.lens (\AnalysisRouteTableRoute' 
 -- | The destination IPv4 address, in CIDR notation.
 analysisRouteTableRoute_destinationCidr :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_destinationCidr = Lens.lens (\AnalysisRouteTableRoute' {destinationCidr} -> destinationCidr) (\s@AnalysisRouteTableRoute' {} a -> s {destinationCidr = a} :: AnalysisRouteTableRoute)
+
+-- | The state. The following are the possible values:
+--
+-- -   active
+--
+-- -   blackhole
+analysisRouteTableRoute_state :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_state = Lens.lens (\AnalysisRouteTableRoute' {state} -> state) (\s@AnalysisRouteTableRoute' {} a -> s {state = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a NAT gateway.
 analysisRouteTableRoute_natGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
@@ -171,6 +192,7 @@ instance Core.FromXML AnalysisRouteTableRoute where
       Prelude.<$> (x Core..@? "destinationPrefixListId")
       Prelude.<*> (x Core..@? "transitGatewayId")
       Prelude.<*> (x Core..@? "destinationCidr")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "natGatewayId")
       Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
       Prelude.<*> (x Core..@? "instanceId")
@@ -185,6 +207,7 @@ instance Prelude.Hashable AnalysisRouteTableRoute where
       `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` destinationCidr
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` natGatewayId
       `Prelude.hashWithSalt` vpcPeeringConnectionId
       `Prelude.hashWithSalt` instanceId
@@ -198,6 +221,7 @@ instance Prelude.NFData AnalysisRouteTableRoute where
     Prelude.rnf destinationPrefixListId
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf destinationCidr
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf natGatewayId
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
       `Prelude.seq` Prelude.rnf instanceId

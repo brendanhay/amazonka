@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.AssociateEnclaveCertificateIamRole
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@
 --
 -- When the IAM role is associated with the ACM certificate, the
 -- certificate, certificate chain, and encrypted private key are placed in
--- an Amazon S3 bucket that only the associated IAM role can access. The
+-- an Amazon S3 location that only the associated IAM role can access. The
 -- private key of the certificate is encrypted with an Amazon Web Services
 -- managed key that has an attached attestation-based key policy.
 --

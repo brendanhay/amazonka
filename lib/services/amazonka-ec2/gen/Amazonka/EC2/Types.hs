@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,6 +53,9 @@ module Amazonka.EC2.Types
 
     -- * AllocationStrategy
     AllocationStrategy (..),
+
+    -- * AllocationType
+    AllocationType (..),
 
     -- * AllowsMultipleInstanceTypes
     AllowsMultipleInstanceTypes (..),
@@ -357,6 +360,9 @@ module Amazonka.EC2.Types
     -- * ImageTypeValues
     ImageTypeValues (..),
 
+    -- * ImdsSupportValues
+    ImdsSupportValues (..),
+
     -- * InstanceAttributeName
     InstanceAttributeName (..),
 
@@ -494,6 +500,9 @@ module Amazonka.EC2.Types
 
     -- * LocalGatewayRouteState
     LocalGatewayRouteState (..),
+
+    -- * LocalGatewayRouteTableMode
+    LocalGatewayRouteTableMode (..),
 
     -- * LocalGatewayRouteType
     LocalGatewayRouteType (..),
@@ -943,6 +952,14 @@ module Amazonka.EC2.Types
     addPrefixListEntry_description,
     addPrefixListEntry_cidr,
 
+    -- * AddedPrincipal
+    AddedPrincipal (..),
+    newAddedPrincipal,
+    addedPrincipal_principal,
+    addedPrincipal_servicePermissionId,
+    addedPrincipal_principalType,
+    addedPrincipal_serviceId,
+
     -- * AdditionalDetail
     AdditionalDetail (..),
     newAdditionalDetail,
@@ -978,8 +995,11 @@ module Amazonka.EC2.Types
     -- * AllowedPrincipal
     AllowedPrincipal (..),
     newAllowedPrincipal,
+    allowedPrincipal_tags,
     allowedPrincipal_principal,
+    allowedPrincipal_servicePermissionId,
     allowedPrincipal_principalType,
+    allowedPrincipal_serviceId,
 
     -- * AlternatePathHint
     AlternatePathHint (..),
@@ -1033,6 +1053,7 @@ module Amazonka.EC2.Types
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_transitGatewayId,
     analysisRouteTableRoute_destinationCidr,
+    analysisRouteTableRoute_state,
     analysisRouteTableRoute_natGatewayId,
     analysisRouteTableRoute_vpcPeeringConnectionId,
     analysisRouteTableRoute_instanceId,
@@ -1212,12 +1233,19 @@ module Amazonka.EC2.Types
     cancelledSpotInstanceRequest_spotInstanceRequestId,
     cancelledSpotInstanceRequest_state,
 
+    -- * CapacityAllocation
+    CapacityAllocation (..),
+    newCapacityAllocation,
+    capacityAllocation_count,
+    capacityAllocation_allocationType,
+
     -- * CapacityReservation
     CapacityReservation (..),
     newCapacityReservation,
     capacityReservation_ebsOptimized,
     capacityReservation_tags,
     capacityReservation_capacityReservationFleetId,
+    capacityReservation_capacityAllocations,
     capacityReservation_ephemeralStorage,
     capacityReservation_placementGroupArn,
     capacityReservation_outpostArn,
@@ -1517,6 +1545,13 @@ module Amazonka.EC2.Types
     coipAddressUsage_allocationId,
     coipAddressUsage_coIp,
     coipAddressUsage_awsService,
+
+    -- * CoipCidr
+    CoipCidr (..),
+    newCoipCidr,
+    coipCidr_localGatewayRouteTableId,
+    coipCidr_cidr,
+    coipCidr_coipPoolId,
 
     -- * CoipPool
     CoipPool (..),
@@ -2032,6 +2067,7 @@ module Amazonka.EC2.Types
     explanation_vpnConnection,
     explanation_loadBalancerListenerPort,
     explanation_transitGatewayAttachment,
+    explanation_componentAccount,
     explanation_missingComponent,
     explanation_routeTableRoute,
     explanation_subnetRouteTable,
@@ -2051,6 +2087,7 @@ module Amazonka.EC2.Types
     explanation_customerGateway,
     explanation_vpnGateway,
     explanation_protocols,
+    explanation_componentRegion,
     explanation_loadBalancerArn,
     explanation_sourceVpc,
     explanation_ingressRouteTable,
@@ -2245,6 +2282,7 @@ module Amazonka.EC2.Types
     fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_priority,
     fleetLaunchTemplateOverrides_weightedCapacity,
+    fleetLaunchTemplateOverrides_imageId,
 
     -- * FleetLaunchTemplateOverridesRequest
     FleetLaunchTemplateOverridesRequest (..),
@@ -2257,6 +2295,7 @@ module Amazonka.EC2.Types
     fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_priority,
     fleetLaunchTemplateOverridesRequest_weightedCapacity,
+    fleetLaunchTemplateOverridesRequest_imageId,
 
     -- * FleetLaunchTemplateSpecification
     FleetLaunchTemplateSpecification (..),
@@ -2307,6 +2346,7 @@ module Amazonka.EC2.Types
     flowLog_deliverLogsErrorMessage,
     flowLog_logFormat,
     flowLog_logDestination,
+    flowLog_deliverCrossAccountRole,
     flowLog_logDestinationType,
     flowLog_creationTime,
     flowLog_maxAggregationInterval,
@@ -2543,6 +2583,7 @@ module Amazonka.EC2.Types
     image_ramdiskId,
     image_deprecationTime,
     image_platformDetails,
+    image_imdsSupport,
     image_bootMode,
     image_kernelId,
     image_stateReason,
@@ -3798,8 +3839,11 @@ module Amazonka.EC2.Types
     localGatewayRoute_type,
     localGatewayRoute_ownerId,
     localGatewayRoute_localGatewayRouteTableId,
+    localGatewayRoute_subnetId,
+    localGatewayRoute_coipPoolId,
     localGatewayRoute_state,
     localGatewayRoute_destinationCidrBlock,
+    localGatewayRoute_networkInterfaceId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
     localGatewayRoute_localGatewayRouteTableArn,
 
@@ -3812,6 +3856,8 @@ module Amazonka.EC2.Types
     localGatewayRouteTable_ownerId,
     localGatewayRouteTable_localGatewayRouteTableId,
     localGatewayRouteTable_state,
+    localGatewayRouteTable_mode,
+    localGatewayRouteTable_stateReason,
     localGatewayRouteTable_localGatewayRouteTableArn,
 
     -- * LocalGatewayRouteTableVirtualInterfaceGroupAssociation
@@ -4256,9 +4302,11 @@ module Amazonka.EC2.Types
     pathComponent_attachedTo,
     pathComponent_sourceVpc,
     pathComponent_aclRule,
+    pathComponent_explanations,
     pathComponent_transitGateway,
     pathComponent_sequenceNumber,
     pathComponent_destinationVpc,
+    pathComponent_elasticLoadBalancerListener,
     pathComponent_subnet,
     pathComponent_inboundHeader,
     pathComponent_transitGatewayRouteTableRoute,
@@ -6433,6 +6481,7 @@ module Amazonka.EC2.Types
     -- * VpcEndpointConnection
     VpcEndpointConnection (..),
     newVpcEndpointConnection,
+    vpcEndpointConnection_tags,
     vpcEndpointConnection_gatewayLoadBalancerArns,
     vpcEndpointConnection_vpcEndpointOwner,
     vpcEndpointConnection_vpcEndpointId,
@@ -6442,6 +6491,7 @@ module Amazonka.EC2.Types
     vpcEndpointConnection_ipAddressType,
     vpcEndpointConnection_vpcEndpointState,
     vpcEndpointConnection_serviceId,
+    vpcEndpointConnection_vpcEndpointConnectionId,
 
     -- * VpcIpv6CidrBlockAssociation
     VpcIpv6CidrBlockAssociation (..),
@@ -6613,6 +6663,7 @@ import Amazonka.EC2.Types.ActiveInstance
 import Amazonka.EC2.Types.ActivityStatus
 import Amazonka.EC2.Types.AddIpamOperatingRegion
 import Amazonka.EC2.Types.AddPrefixListEntry
+import Amazonka.EC2.Types.AddedPrincipal
 import Amazonka.EC2.Types.AdditionalDetail
 import Amazonka.EC2.Types.Address
 import Amazonka.EC2.Types.AddressAttribute
@@ -6622,6 +6673,7 @@ import Amazonka.EC2.Types.AddressStatus
 import Amazonka.EC2.Types.Affinity
 import Amazonka.EC2.Types.AllocationState
 import Amazonka.EC2.Types.AllocationStrategy
+import Amazonka.EC2.Types.AllocationType
 import Amazonka.EC2.Types.AllowedPrincipal
 import Amazonka.EC2.Types.AllowsMultipleInstanceTypes
 import Amazonka.EC2.Types.AlternatePathHint
@@ -6677,6 +6729,7 @@ import Amazonka.EC2.Types.CancelSpotFleetRequestsErrorItem
 import Amazonka.EC2.Types.CancelSpotFleetRequestsSuccessItem
 import Amazonka.EC2.Types.CancelSpotInstanceRequestState
 import Amazonka.EC2.Types.CancelledSpotInstanceRequest
+import Amazonka.EC2.Types.CapacityAllocation
 import Amazonka.EC2.Types.CapacityReservation
 import Amazonka.EC2.Types.CapacityReservationFleet
 import Amazonka.EC2.Types.CapacityReservationFleetCancellationState
@@ -6728,6 +6781,7 @@ import Amazonka.EC2.Types.ClientVpnRouteStatusCode
 import Amazonka.EC2.Types.CloudWatchLogOptions
 import Amazonka.EC2.Types.CloudWatchLogOptionsSpecification
 import Amazonka.EC2.Types.CoipAddressUsage
+import Amazonka.EC2.Types.CoipCidr
 import Amazonka.EC2.Types.CoipPool
 import Amazonka.EC2.Types.ConnectionLogOptions
 import Amazonka.EC2.Types.ConnectionLogResponseOptions
@@ -6920,6 +6974,7 @@ import Amazonka.EC2.Types.ImageDiskContainer
 import Amazonka.EC2.Types.ImageRecycleBinInfo
 import Amazonka.EC2.Types.ImageState
 import Amazonka.EC2.Types.ImageTypeValues
+import Amazonka.EC2.Types.ImdsSupportValues
 import Amazonka.EC2.Types.ImportImageLicenseConfigurationRequest
 import Amazonka.EC2.Types.ImportImageLicenseConfigurationResponse
 import Amazonka.EC2.Types.ImportImageTask
@@ -7105,6 +7160,7 @@ import Amazonka.EC2.Types.LocalGateway
 import Amazonka.EC2.Types.LocalGatewayRoute
 import Amazonka.EC2.Types.LocalGatewayRouteState
 import Amazonka.EC2.Types.LocalGatewayRouteTable
+import Amazonka.EC2.Types.LocalGatewayRouteTableMode
 import Amazonka.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.Types.LocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.Types.LocalGatewayRouteType

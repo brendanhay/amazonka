@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -538,6 +538,7 @@ module Amazonka.EC2.Types.InstanceType
         InstanceType_U_12tb1_metal,
         InstanceType_U_18tb1_metal,
         InstanceType_U_24tb1_metal,
+        InstanceType_U_3tb1_56xlarge,
         InstanceType_U_6tb1_112xlarge,
         InstanceType_U_6tb1_56xlarge,
         InstanceType_U_6tb1_metal,
@@ -2178,6 +2179,9 @@ pattern InstanceType_U_18tb1_metal = InstanceType' "u-18tb1.metal"
 pattern InstanceType_U_24tb1_metal :: InstanceType
 pattern InstanceType_U_24tb1_metal = InstanceType' "u-24tb1.metal"
 
+pattern InstanceType_U_3tb1_56xlarge :: InstanceType
+pattern InstanceType_U_3tb1_56xlarge = InstanceType' "u-3tb1.56xlarge"
+
 pattern InstanceType_U_6tb1_112xlarge :: InstanceType
 pattern InstanceType_U_6tb1_112xlarge = InstanceType' "u-6tb1.112xlarge"
 
@@ -2847,6 +2851,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_U_12tb1_metal,
   InstanceType_U_18tb1_metal,
   InstanceType_U_24tb1_metal,
+  InstanceType_U_3tb1_56xlarge,
   InstanceType_U_6tb1_112xlarge,
   InstanceType_U_6tb1_56xlarge,
   InstanceType_U_6tb1_metal,

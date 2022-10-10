@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,7 @@ module Amazonka.EC2.DescribeImageAttribute
     describeImageAttributeResponse_tpmSupport,
     describeImageAttributeResponse_ramdiskId,
     describeImageAttributeResponse_launchPermissions,
+    describeImageAttributeResponse_imdsSupport,
     describeImageAttributeResponse_bootMode,
     describeImageAttributeResponse_kernelId,
     describeImageAttributeResponse_uefiData,
@@ -160,6 +161,7 @@ instance Core.AWSRequest DescribeImageAttribute where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "imdsSupport")
             Prelude.<*> (x Core..@? "bootMode")
             Prelude.<*> (x Core..@? "kernel")
             Prelude.<*> (x Core..@? "uefiData")
@@ -223,6 +225,14 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     ramdiskId :: Prelude.Maybe AttributeValue,
     -- | The launch permissions.
     launchPermissions :: Prelude.Maybe [LaunchPermission],
+    -- | If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+    -- launched from this AMI will have @HttpTokens@ automatically set to
+    -- @required@ so that, by default, the instance requires that IMDSv2 is
+    -- used when requesting instance metadata. In addition,
+    -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    imdsSupport :: Prelude.Maybe AttributeValue,
     -- | The boot mode.
     bootMode :: Prelude.Maybe AttributeValue,
     -- | The kernel ID.
@@ -273,6 +283,14 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- 'launchPermissions', 'describeImageAttributeResponse_launchPermissions' - The launch permissions.
 --
+-- 'imdsSupport', 'describeImageAttributeResponse_imdsSupport' - If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- 'bootMode', 'describeImageAttributeResponse_bootMode' - The boot mode.
 --
 -- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
@@ -304,6 +322,7 @@ newDescribeImageAttributeResponse pHttpStatus_ =
       tpmSupport = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       launchPermissions = Prelude.Nothing,
+      imdsSupport = Prelude.Nothing,
       bootMode = Prelude.Nothing,
       kernelId = Prelude.Nothing,
       uefiData = Prelude.Nothing,
@@ -349,6 +368,16 @@ describeImageAttributeResponse_ramdiskId = Lens.lens (\DescribeImageAttributeRes
 describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [LaunchPermission])
 describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+describeImageAttributeResponse_imdsSupport :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_imdsSupport = Lens.lens (\DescribeImageAttributeResponse' {imdsSupport} -> imdsSupport) (\s@DescribeImageAttributeResponse' {} a -> s {imdsSupport = a} :: DescribeImageAttributeResponse)
+
 -- | The boot mode.
 describeImageAttributeResponse_bootMode :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_bootMode = Lens.lens (\DescribeImageAttributeResponse' {bootMode} -> bootMode) (\s@DescribeImageAttributeResponse' {} a -> s {bootMode = a} :: DescribeImageAttributeResponse)
@@ -389,6 +418,7 @@ instance
       `Prelude.seq` Prelude.rnf tpmSupport
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf launchPermissions
+      `Prelude.seq` Prelude.rnf imdsSupport
       `Prelude.seq` Prelude.rnf bootMode
       `Prelude.seq` Prelude.rnf kernelId
       `Prelude.seq` Prelude.rnf uefiData

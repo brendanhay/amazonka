@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.PrivateIpAddressSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ data PrivateIpAddressSpecification = PrivateIpAddressSpecification'
   { -- | Indicates whether the private IPv4 address is the primary private IPv4
     -- address. Only one IPv4 address can be designated as primary.
     primary :: Prelude.Maybe Prelude.Bool,
-    -- | The private IPv4 addresses.
+    -- | The private IPv4 address.
     privateIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data PrivateIpAddressSpecification = PrivateIpAddressSpecification'
 -- 'primary', 'privateIpAddressSpecification_primary' - Indicates whether the private IPv4 address is the primary private IPv4
 -- address. Only one IPv4 address can be designated as primary.
 --
--- 'privateIpAddress', 'privateIpAddressSpecification_privateIpAddress' - The private IPv4 addresses.
+-- 'privateIpAddress', 'privateIpAddressSpecification_privateIpAddress' - The private IPv4 address.
 newPrivateIpAddressSpecification ::
   PrivateIpAddressSpecification
 newPrivateIpAddressSpecification =
@@ -62,7 +62,7 @@ newPrivateIpAddressSpecification =
 privateIpAddressSpecification_primary :: Lens.Lens' PrivateIpAddressSpecification (Prelude.Maybe Prelude.Bool)
 privateIpAddressSpecification_primary = Lens.lens (\PrivateIpAddressSpecification' {primary} -> primary) (\s@PrivateIpAddressSpecification' {} a -> s {primary = a} :: PrivateIpAddressSpecification)
 
--- | The private IPv4 addresses.
+-- | The private IPv4 address.
 privateIpAddressSpecification_privateIpAddress :: Lens.Lens' PrivateIpAddressSpecification (Prelude.Maybe Prelude.Text)
 privateIpAddressSpecification_privateIpAddress = Lens.lens (\PrivateIpAddressSpecification' {privateIpAddress} -> privateIpAddress) (\s@PrivateIpAddressSpecification' {} a -> s {privateIpAddress = a} :: PrivateIpAddressSpecification)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.LocalGatewayRouteTable
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@ module Amazonka.EC2.Types.LocalGatewayRouteTable where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.LocalGatewayRouteTableMode
+import Amazonka.EC2.Types.StateReason
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -42,6 +44,9 @@ data LocalGatewayRouteTable = LocalGatewayRouteTable'
     localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | The state of the local gateway route table.
     state :: Prelude.Maybe Prelude.Text,
+    -- | The mode of the local gateway route table.
+    mode :: Prelude.Maybe LocalGatewayRouteTableMode,
+    stateReason :: Prelude.Maybe StateReason,
     -- | The Amazon Resource Name (ARN) of the local gateway route table.
     localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text
   }
@@ -68,6 +73,10 @@ data LocalGatewayRouteTable = LocalGatewayRouteTable'
 --
 -- 'state', 'localGatewayRouteTable_state' - The state of the local gateway route table.
 --
+-- 'mode', 'localGatewayRouteTable_mode' - The mode of the local gateway route table.
+--
+-- 'stateReason', 'localGatewayRouteTable_stateReason' - Undocumented member.
+--
 -- 'localGatewayRouteTableArn', 'localGatewayRouteTable_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.
 newLocalGatewayRouteTable ::
   LocalGatewayRouteTable
@@ -79,6 +88,8 @@ newLocalGatewayRouteTable =
       ownerId = Prelude.Nothing,
       localGatewayRouteTableId = Prelude.Nothing,
       state = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      stateReason = Prelude.Nothing,
       localGatewayRouteTableArn = Prelude.Nothing
     }
 
@@ -107,6 +118,14 @@ localGatewayRouteTable_localGatewayRouteTableId = Lens.lens (\LocalGatewayRouteT
 localGatewayRouteTable_state :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
 localGatewayRouteTable_state = Lens.lens (\LocalGatewayRouteTable' {state} -> state) (\s@LocalGatewayRouteTable' {} a -> s {state = a} :: LocalGatewayRouteTable)
 
+-- | The mode of the local gateway route table.
+localGatewayRouteTable_mode :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe LocalGatewayRouteTableMode)
+localGatewayRouteTable_mode = Lens.lens (\LocalGatewayRouteTable' {mode} -> mode) (\s@LocalGatewayRouteTable' {} a -> s {mode = a} :: LocalGatewayRouteTable)
+
+-- | Undocumented member.
+localGatewayRouteTable_stateReason :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe StateReason)
+localGatewayRouteTable_stateReason = Lens.lens (\LocalGatewayRouteTable' {stateReason} -> stateReason) (\s@LocalGatewayRouteTable' {} a -> s {stateReason = a} :: LocalGatewayRouteTable)
+
 -- | The Amazon Resource Name (ARN) of the local gateway route table.
 localGatewayRouteTable_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
 localGatewayRouteTable_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTable' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTable' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTable)
@@ -122,6 +141,8 @@ instance Core.FromXML LocalGatewayRouteTable where
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "localGatewayRouteTableId")
       Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "mode")
+      Prelude.<*> (x Core..@? "stateReason")
       Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
 
 instance Prelude.Hashable LocalGatewayRouteTable where
@@ -132,6 +153,8 @@ instance Prelude.Hashable LocalGatewayRouteTable where
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` localGatewayRouteTableId
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` localGatewayRouteTableArn
 
 instance Prelude.NFData LocalGatewayRouteTable where
@@ -142,4 +165,6 @@ instance Prelude.NFData LocalGatewayRouteTable where
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf localGatewayRouteTableArn

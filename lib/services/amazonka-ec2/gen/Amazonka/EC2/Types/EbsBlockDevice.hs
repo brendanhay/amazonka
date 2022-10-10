@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.EbsBlockDevice
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -345,7 +345,7 @@ instance Core.FromXML EbsBlockDevice where
       Prelude.<*> (x Core..@? "volumeType")
       Prelude.<*> (x Core..@? "volumeSize")
       Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "kmsKeyId")
       Prelude.<*> (x Core..@? "throughput")
       Prelude.<*> (x Core..@? "iops")
 

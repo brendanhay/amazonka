@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.InstanceNetworkInterface
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,8 +47,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether source\/destination checking is enabled.
     sourceDestCheck :: Prelude.Maybe Prelude.Bool,
-    -- | One or more private IPv4 addresses associated with the network
-    -- interface.
+    -- | The private IPv4 addresses associated with the network interface.
     privateIpAddresses :: Prelude.Maybe [InstancePrivateIpAddress],
     -- | The ID of the subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
@@ -73,9 +72,9 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
     ipv6Prefixes :: Prelude.Maybe [InstanceIpv6Prefix],
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | One or more security groups.
+    -- | The security groups.
     groups :: Prelude.Maybe [GroupIdentifier],
-    -- | One or more IPv6 addresses associated with the network interface.
+    -- | The IPv6 addresses associated with the network interface.
     ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,8 +98,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- 'sourceDestCheck', 'instanceNetworkInterface_sourceDestCheck' - Indicates whether source\/destination checking is enabled.
 --
--- 'privateIpAddresses', 'instanceNetworkInterface_privateIpAddresses' - One or more private IPv4 addresses associated with the network
--- interface.
+-- 'privateIpAddresses', 'instanceNetworkInterface_privateIpAddresses' - The private IPv4 addresses associated with the network interface.
 --
 -- 'subnetId', 'instanceNetworkInterface_subnetId' - The ID of the subnet.
 --
@@ -125,9 +123,9 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- 'vpcId', 'instanceNetworkInterface_vpcId' - The ID of the VPC.
 --
--- 'groups', 'instanceNetworkInterface_groups' - One or more security groups.
+-- 'groups', 'instanceNetworkInterface_groups' - The security groups.
 --
--- 'ipv6Addresses', 'instanceNetworkInterface_ipv6Addresses' - One or more IPv6 addresses associated with the network interface.
+-- 'ipv6Addresses', 'instanceNetworkInterface_ipv6Addresses' - The IPv6 addresses associated with the network interface.
 newInstanceNetworkInterface ::
   InstanceNetworkInterface
 newInstanceNetworkInterface =
@@ -172,8 +170,7 @@ instanceNetworkInterface_ownerId = Lens.lens (\InstanceNetworkInterface' {ownerI
 instanceNetworkInterface_sourceDestCheck :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe Prelude.Bool)
 instanceNetworkInterface_sourceDestCheck = Lens.lens (\InstanceNetworkInterface' {sourceDestCheck} -> sourceDestCheck) (\s@InstanceNetworkInterface' {} a -> s {sourceDestCheck = a} :: InstanceNetworkInterface)
 
--- | One or more private IPv4 addresses associated with the network
--- interface.
+-- | The private IPv4 addresses associated with the network interface.
 instanceNetworkInterface_privateIpAddresses :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe [InstancePrivateIpAddress])
 instanceNetworkInterface_privateIpAddresses = Lens.lens (\InstanceNetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@InstanceNetworkInterface' {} a -> s {privateIpAddresses = a} :: InstanceNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
@@ -222,11 +219,11 @@ instanceNetworkInterface_ipv6Prefixes = Lens.lens (\InstanceNetworkInterface' {i
 instanceNetworkInterface_vpcId :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe Prelude.Text)
 instanceNetworkInterface_vpcId = Lens.lens (\InstanceNetworkInterface' {vpcId} -> vpcId) (\s@InstanceNetworkInterface' {} a -> s {vpcId = a} :: InstanceNetworkInterface)
 
--- | One or more security groups.
+-- | The security groups.
 instanceNetworkInterface_groups :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe [GroupIdentifier])
 instanceNetworkInterface_groups = Lens.lens (\InstanceNetworkInterface' {groups} -> groups) (\s@InstanceNetworkInterface' {} a -> s {groups = a} :: InstanceNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more IPv6 addresses associated with the network interface.
+-- | The IPv6 addresses associated with the network interface.
 instanceNetworkInterface_ipv6Addresses :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe [InstanceIpv6Address])
 instanceNetworkInterface_ipv6Addresses = Lens.lens (\InstanceNetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@InstanceNetworkInterface' {} a -> s {ipv6Addresses = a} :: InstanceNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 

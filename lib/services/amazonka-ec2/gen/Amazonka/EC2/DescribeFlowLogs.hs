@@ -14,15 +14,17 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeFlowLogs
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more flow logs. To view the information in your flow
--- logs (the log streams for the network interfaces), you must use the
--- CloudWatch Logs console or the CloudWatch Logs API.
+-- Describes one or more flow logs.
+--
+-- To view the published flow log records, you must view the log
+-- destination. For example, the CloudWatch Logs log group, the Amazon S3
+-- bucket, or the Kinesis Data Firehose delivery stream.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeFlowLogs
@@ -73,9 +75,8 @@ data DescribeFlowLogs = DescribeFlowLogs'
     -- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |
     --     @FAILED@).
     --
-    -- -   @log-destination-type@ - The type of destination to which the flow
-    --     log publishes data. Possible destination types include
-    --     @cloud-watch-logs@ and @s3@.
+    -- -   @log-destination-type@ - The type of destination for the flow log
+    --     data (@cloud-watch-logs@ | @s3@ | @kinesis-data-firehose@).
     --
     -- -   @flow-log-id@ - The ID of the flow log.
     --
@@ -126,9 +127,8 @@ data DescribeFlowLogs = DescribeFlowLogs'
 -- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |
 --     @FAILED@).
 --
--- -   @log-destination-type@ - The type of destination to which the flow
---     log publishes data. Possible destination types include
---     @cloud-watch-logs@ and @s3@.
+-- -   @log-destination-type@ - The type of destination for the flow log
+--     data (@cloud-watch-logs@ | @s3@ | @kinesis-data-firehose@).
 --
 -- -   @flow-log-id@ - The ID of the flow log.
 --
@@ -184,9 +184,8 @@ describeFlowLogs_dryRun = Lens.lens (\DescribeFlowLogs' {dryRun} -> dryRun) (\s@
 -- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |
 --     @FAILED@).
 --
--- -   @log-destination-type@ - The type of destination to which the flow
---     log publishes data. Possible destination types include
---     @cloud-watch-logs@ and @s3@.
+-- -   @log-destination-type@ - The type of destination for the flow log
+--     data (@cloud-watch-logs@ | @s3@ | @kinesis-data-firehose@).
 --
 -- -   @flow-log-id@ - The ID of the flow log.
 --

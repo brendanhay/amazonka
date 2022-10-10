@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types.CreateRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 -- | __[Snapshot and AMI policies only]__ Specifies when the policy should
 -- create snapshots or AMIs.
 --
--- You must specify either a Cron expression or an interval, interval unit,
--- and start time. You cannot specify both.
+-- -   You must specify either __CronExpression__, or __Interval__,
+--     __IntervalUnit__, and __Times__.
+--
+-- -   If you need to specify an ArchiveRule for the schedule, then you
+--     must specify a creation frequency of at least 28 days.
 --
 -- /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
@@ -53,8 +56,8 @@ data CreateRule = CreateRule'
     -- | The time, in UTC, to start the operation. The supported format is hh:mm.
     --
     -- The operation occurs within a one-hour window following the specified
-    -- time. If you do not specify a time, Amazon DLM selects a time within the
-    -- next 24 hours.
+    -- time. If you do not specify a time, Amazon Data Lifecycle Manager
+    -- selects a time within the next 24 hours.
     times :: Prelude.Maybe [Prelude.Text],
     -- | The schedule, as a Cron expression. The schedule interval must be
     -- between 1 hour and 1 year. For more information, see
@@ -92,8 +95,8 @@ data CreateRule = CreateRule'
 -- 'times', 'createRule_times' - The time, in UTC, to start the operation. The supported format is hh:mm.
 --
 -- The operation occurs within a one-hour window following the specified
--- time. If you do not specify a time, Amazon DLM selects a time within the
--- next 24 hours.
+-- time. If you do not specify a time, Amazon Data Lifecycle Manager
+-- selects a time within the next 24 hours.
 --
 -- 'cronExpression', 'createRule_cronExpression' - The schedule, as a Cron expression. The schedule interval must be
 -- between 1 hour and 1 year. For more information, see
@@ -136,8 +139,8 @@ createRule_intervalUnit = Lens.lens (\CreateRule' {intervalUnit} -> intervalUnit
 -- | The time, in UTC, to start the operation. The supported format is hh:mm.
 --
 -- The operation occurs within a one-hour window following the specified
--- time. If you do not specify a time, Amazon DLM selects a time within the
--- next 24 hours.
+-- time. If you do not specify a time, Amazon Data Lifecycle Manager
+-- selects a time within the next 24 hours.
 createRule_times :: Lens.Lens' CreateRule (Prelude.Maybe [Prelude.Text])
 createRule_times = Lens.lens (\CreateRule' {times} -> times) (\s@CreateRule' {} a -> s {times = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
 

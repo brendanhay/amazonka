@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types.FastRestoreRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a rule for enabling fast snapshot
--- restore for snapshots created by snaspshot policies. You can enable fast
+-- restore for snapshots created by snapshot policies. You can enable fast
 -- snapshot restore based on either a count or a time interval.
 --
 -- /See:/ 'newFastRestoreRule' smart constructor.

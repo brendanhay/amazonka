@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Outposts.DeleteSite
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the site.
+-- Deletes the specified site.
 module Amazonka.Outposts.DeleteSite
   ( -- * Creating a Request
     DeleteSite (..),
@@ -48,12 +48,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteSite' smart constructor.
 data DeleteSite = DeleteSite'
   { -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,12 +61,6 @@ data DeleteSite = DeleteSite'
 -- for backwards compatibility:
 --
 -- 'siteId', 'deleteSite_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newDeleteSite ::
   -- | 'siteId'
   Prelude.Text ->
@@ -81,12 +69,6 @@ newDeleteSite pSiteId_ =
   DeleteSite' {siteId = pSiteId_}
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 deleteSite_siteId :: Lens.Lens' DeleteSite Prelude.Text
 deleteSite_siteId = Lens.lens (\DeleteSite' {siteId} -> siteId) (\s@DeleteSite' {} a -> s {siteId = a} :: DeleteSite)
 

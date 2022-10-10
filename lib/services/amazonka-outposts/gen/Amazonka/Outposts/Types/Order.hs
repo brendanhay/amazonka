@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.Types.Order
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data Order = Order'
     -- -   @PREPARING@ - Order is received and being prepared.
     --
     -- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
-    --     To get more details, see the @LineItem@ status.
+    --     To get more details, see the line item status.
     --
     -- -   @COMPLETED@ - Order is complete.
     --
@@ -80,7 +80,7 @@ data Order = Order'
 -- -   @PREPARING@ - Order is received and being prepared.
 --
 -- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
---     To get more details, see the @LineItem@ status.
+--     To get more details, see the line item status.
 --
 -- -   @COMPLETED@ - Order is complete.
 --
@@ -126,7 +126,7 @@ order_lineItems = Lens.lens (\Order' {lineItems} -> lineItems) (\s@Order' {} a -
 -- -   @PREPARING@ - Order is received and being prepared.
 --
 -- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
---     To get more details, see the @LineItem@ status.
+--     To get more details, see the line item status.
 --
 -- -   @COMPLETED@ - Order is complete.
 --

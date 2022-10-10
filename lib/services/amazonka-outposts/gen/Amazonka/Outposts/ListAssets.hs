@@ -14,16 +14,19 @@
 
 -- |
 -- Module      : Amazonka.Outposts.ListAssets
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the hardware assets in an Outpost. If you are using Dedicated
--- Hosts on Amazon Web Services Outposts, you can filter your request by
--- host ID to return a list of hardware assets that allocate resources for
--- Dedicated Hosts.
+-- Lists the hardware assets for the specified Outpost.
+--
+-- Use filters to return specific results. If you specify multiple filters,
+-- the results include only the resources that match all of the specified
+-- filters. For a filter where you can specify multiple values, the results
+-- include items that match any of the values that you specify for the
+-- filter.
 module Amazonka.Outposts.ListAssets
   ( -- * Creating a Request
     ListAssets (..),
@@ -33,6 +36,7 @@ module Amazonka.Outposts.ListAssets
     listAssets_nextToken,
     listAssets_hostIdFilter,
     listAssets_maxResults,
+    listAssets_statusFilter,
     listAssets_outpostIdentifier,
 
     -- * Destructuring the Response
@@ -56,13 +60,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListAssets' smart constructor.
 data ListAssets = ListAssets'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter for the host ID of Dedicated Hosts on the Outpost.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by the host ID of a Dedicated Host.
     hostIdFilter :: Prelude.Maybe [Prelude.Text],
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filters the results by state.
+    statusFilter :: Prelude.Maybe (Prelude.NonEmpty AssetState),
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
     outpostIdentifier :: Prelude.Text
   }
@@ -78,13 +80,11 @@ data ListAssets = ListAssets'
 --
 -- 'nextToken', 'listAssets_nextToken' - Undocumented member.
 --
--- 'hostIdFilter', 'listAssets_hostIdFilter' - A filter for the host ID of Dedicated Hosts on the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'hostIdFilter', 'listAssets_hostIdFilter' - Filters the results by the host ID of a Dedicated Host.
 --
 -- 'maxResults', 'listAssets_maxResults' - Undocumented member.
+--
+-- 'statusFilter', 'listAssets_statusFilter' - Filters the results by state.
 --
 -- 'outpostIdentifier', 'listAssets_outpostIdentifier' - The ID or the Amazon Resource Name (ARN) of the Outpost.
 newListAssets ::
@@ -96,6 +96,7 @@ newListAssets pOutpostIdentifier_ =
     { nextToken = Prelude.Nothing,
       hostIdFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      statusFilter = Prelude.Nothing,
       outpostIdentifier = pOutpostIdentifier_
     }
 
@@ -103,17 +104,17 @@ newListAssets pOutpostIdentifier_ =
 listAssets_nextToken :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
 listAssets_nextToken = Lens.lens (\ListAssets' {nextToken} -> nextToken) (\s@ListAssets' {} a -> s {nextToken = a} :: ListAssets)
 
--- | A filter for the host ID of Dedicated Hosts on the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by the host ID of a Dedicated Host.
 listAssets_hostIdFilter :: Lens.Lens' ListAssets (Prelude.Maybe [Prelude.Text])
 listAssets_hostIdFilter = Lens.lens (\ListAssets' {hostIdFilter} -> hostIdFilter) (\s@ListAssets' {} a -> s {hostIdFilter = a} :: ListAssets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listAssets_maxResults :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Natural)
 listAssets_maxResults = Lens.lens (\ListAssets' {maxResults} -> maxResults) (\s@ListAssets' {} a -> s {maxResults = a} :: ListAssets)
+
+-- | Filters the results by state.
+listAssets_statusFilter :: Lens.Lens' ListAssets (Prelude.Maybe (Prelude.NonEmpty AssetState))
+listAssets_statusFilter = Lens.lens (\ListAssets' {statusFilter} -> statusFilter) (\s@ListAssets' {} a -> s {statusFilter = a} :: ListAssets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
 listAssets_outpostIdentifier :: Lens.Lens' ListAssets Prelude.Text
@@ -136,6 +137,7 @@ instance Prelude.Hashable ListAssets where
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` hostIdFilter
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusFilter
       `Prelude.hashWithSalt` outpostIdentifier
 
 instance Prelude.NFData ListAssets where
@@ -143,6 +145,7 @@ instance Prelude.NFData ListAssets where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf hostIdFilter
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf outpostIdentifier
 
 instance Core.ToHeaders ListAssets where
@@ -171,13 +174,16 @@ instance Core.ToQuery ListAssets where
         "HostIdFilter"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> hostIdFilter),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Core.=: maxResults,
+        "StatusFilter"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> statusFilter)
       ]
 
 -- | /See:/ 'newListAssetsResponse' smart constructor.
 data ListAssetsResponse = ListAssetsResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about hardware assets.
+    -- | Information about the hardware assets.
     assets :: Prelude.Maybe [AssetInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -194,7 +200,7 @@ data ListAssetsResponse = ListAssetsResponse'
 --
 -- 'nextToken', 'listAssetsResponse_nextToken' - Undocumented member.
 --
--- 'assets', 'listAssetsResponse_assets' - Information about hardware assets.
+-- 'assets', 'listAssetsResponse_assets' - Information about the hardware assets.
 --
 -- 'httpStatus', 'listAssetsResponse_httpStatus' - The response's http status code.
 newListAssetsResponse ::
@@ -212,7 +218,7 @@ newListAssetsResponse pHttpStatus_ =
 listAssetsResponse_nextToken :: Lens.Lens' ListAssetsResponse (Prelude.Maybe Prelude.Text)
 listAssetsResponse_nextToken = Lens.lens (\ListAssetsResponse' {nextToken} -> nextToken) (\s@ListAssetsResponse' {} a -> s {nextToken = a} :: ListAssetsResponse)
 
--- | Information about hardware assets.
+-- | Information about the hardware assets.
 listAssetsResponse_assets :: Lens.Lens' ListAssetsResponse (Prelude.Maybe [AssetInfo])
 listAssetsResponse_assets = Lens.lens (\ListAssetsResponse' {assets} -> assets) (\s@ListAssetsResponse' {} a -> s {assets = a} :: ListAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 

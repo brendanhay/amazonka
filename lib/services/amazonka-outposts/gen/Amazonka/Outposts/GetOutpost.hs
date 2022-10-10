@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetOutpost
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,12 +49,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetOutpost' smart constructor.
 data GetOutpost = GetOutpost'
   { -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     outpostId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,12 +62,6 @@ data GetOutpost = GetOutpost'
 -- for backwards compatibility:
 --
 -- 'outpostId', 'getOutpost_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newGetOutpost ::
   -- | 'outpostId'
   Prelude.Text ->
@@ -82,12 +70,6 @@ newGetOutpost pOutpostId_ =
   GetOutpost' {outpostId = pOutpostId_}
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 getOutpost_outpostId :: Lens.Lens' GetOutpost Prelude.Text
 getOutpost_outpostId = Lens.lens (\GetOutpost' {outpostId} -> outpostId) (\s@GetOutpost' {} a -> s {outpostId = a} :: GetOutpost)
 

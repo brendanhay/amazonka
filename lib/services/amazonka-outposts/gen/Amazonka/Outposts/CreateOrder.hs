@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.CreateOrder
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateOrder' smart constructor.
 data CreateOrder = CreateOrder'
-  { -- | The payment terms for the order.
+  { -- | The payment terms.
     paymentTerm :: Prelude.Maybe PaymentTerm,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
     outpostIdentifier :: Prelude.Text,
     -- | The line items that make up the order.
     lineItems :: Prelude.NonEmpty LineItemRequest,
-    -- | The payment option for the order.
+    -- | The payment option.
     paymentOption :: PaymentOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +70,13 @@ data CreateOrder = CreateOrder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paymentTerm', 'createOrder_paymentTerm' - The payment terms for the order.
+-- 'paymentTerm', 'createOrder_paymentTerm' - The payment terms.
 --
 -- 'outpostIdentifier', 'createOrder_outpostIdentifier' - The ID or the Amazon Resource Name (ARN) of the Outpost.
 --
 -- 'lineItems', 'createOrder_lineItems' - The line items that make up the order.
 --
--- 'paymentOption', 'createOrder_paymentOption' - The payment option for the order.
+-- 'paymentOption', 'createOrder_paymentOption' - The payment option.
 newCreateOrder ::
   -- | 'outpostIdentifier'
   Prelude.Text ->
@@ -96,7 +96,7 @@ newCreateOrder
         paymentOption = pPaymentOption_
       }
 
--- | The payment terms for the order.
+-- | The payment terms.
 createOrder_paymentTerm :: Lens.Lens' CreateOrder (Prelude.Maybe PaymentTerm)
 createOrder_paymentTerm = Lens.lens (\CreateOrder' {paymentTerm} -> paymentTerm) (\s@CreateOrder' {} a -> s {paymentTerm = a} :: CreateOrder)
 
@@ -108,7 +108,7 @@ createOrder_outpostIdentifier = Lens.lens (\CreateOrder' {outpostIdentifier} -> 
 createOrder_lineItems :: Lens.Lens' CreateOrder (Prelude.NonEmpty LineItemRequest)
 createOrder_lineItems = Lens.lens (\CreateOrder' {lineItems} -> lineItems) (\s@CreateOrder' {} a -> s {lineItems = a} :: CreateOrder) Prelude.. Lens.coerced
 
--- | The payment option for the order.
+-- | The payment option.
 createOrder_paymentOption :: Lens.Lens' CreateOrder PaymentOption
 createOrder_paymentOption = Lens.lens (\CreateOrder' {paymentOption} -> paymentOption) (\s@CreateOrder' {} a -> s {paymentOption = a} :: CreateOrder)
 

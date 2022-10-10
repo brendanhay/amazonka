@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.Types.PaymentTerm
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.Outposts.Types.PaymentTerm
   ( PaymentTerm
       ( ..,
+        PaymentTerm_ONE_YEAR,
         PaymentTerm_THREE_YEARS
       ),
   )
@@ -56,10 +57,14 @@ newtype PaymentTerm = PaymentTerm'
       Core.ToXML
     )
 
+pattern PaymentTerm_ONE_YEAR :: PaymentTerm
+pattern PaymentTerm_ONE_YEAR = PaymentTerm' "ONE_YEAR"
+
 pattern PaymentTerm_THREE_YEARS :: PaymentTerm
 pattern PaymentTerm_THREE_YEARS = PaymentTerm' "THREE_YEARS"
 
 {-# COMPLETE
+  PaymentTerm_ONE_YEAR,
   PaymentTerm_THREE_YEARS,
   PaymentTerm'
   #-}

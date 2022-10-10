@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Outposts.GetOrder
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets an order.
+-- Gets information about the specified order.
 module Amazonka.Outposts.GetOrder
   ( -- * Creating a Request
     GetOrder (..),

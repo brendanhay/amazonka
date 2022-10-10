@@ -14,19 +14,19 @@
 
 -- |
 -- Module      : Amazonka.Outposts.ListCatalogItems
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the items in the catalog. Add filters to your request to return a
--- more specific list of results. Use filters to match an item class,
--- storage option, or EC2 family.
+-- Lists the items in the catalog.
 --
--- If you specify multiple filters, the filters are joined with an @AND@,
--- and the request returns only results that match all of the specified
--- filters.
+-- Use filters to return specific results. If you specify multiple filters,
+-- the results include only the resources that match all of the specified
+-- filters. For a filter where you can specify multiple values, the results
+-- include items that match any of the values that you specify for the
+-- filter.
 module Amazonka.Outposts.ListCatalogItems
   ( -- * Creating a Request
     ListCatalogItems (..),
@@ -60,23 +60,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListCatalogItems' smart constructor.
 data ListCatalogItems = ListCatalogItems'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter for the class of items in the catalog.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by item class.
     itemClassFilter :: Prelude.Maybe [CatalogItemClass],
-    -- | A filter for the storage options of items in the catalog.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by storage option.
     supportedStorageFilter :: Prelude.Maybe [SupportedStorageEnum],
-    -- | A filter for EC2 family options for items in the catalog.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
+    -- | Filters the results by EC2 family (for example, M5).
     eC2FamilyFilter :: Prelude.Maybe [Prelude.Text],
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -92,23 +80,11 @@ data ListCatalogItems = ListCatalogItems'
 --
 -- 'nextToken', 'listCatalogItems_nextToken' - Undocumented member.
 --
--- 'itemClassFilter', 'listCatalogItems_itemClassFilter' - A filter for the class of items in the catalog.
+-- 'itemClassFilter', 'listCatalogItems_itemClassFilter' - Filters the results by item class.
 --
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'supportedStorageFilter', 'listCatalogItems_supportedStorageFilter' - Filters the results by storage option.
 --
--- 'supportedStorageFilter', 'listCatalogItems_supportedStorageFilter' - A filter for the storage options of items in the catalog.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
---
--- 'eC2FamilyFilter', 'listCatalogItems_eC2FamilyFilter' - A filter for EC2 family options for items in the catalog.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'eC2FamilyFilter', 'listCatalogItems_eC2FamilyFilter' - Filters the results by EC2 family (for example, M5).
 --
 -- 'maxResults', 'listCatalogItems_maxResults' - Undocumented member.
 newListCatalogItems ::
@@ -126,27 +102,15 @@ newListCatalogItems =
 listCatalogItems_nextToken :: Lens.Lens' ListCatalogItems (Prelude.Maybe Prelude.Text)
 listCatalogItems_nextToken = Lens.lens (\ListCatalogItems' {nextToken} -> nextToken) (\s@ListCatalogItems' {} a -> s {nextToken = a} :: ListCatalogItems)
 
--- | A filter for the class of items in the catalog.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by item class.
 listCatalogItems_itemClassFilter :: Lens.Lens' ListCatalogItems (Prelude.Maybe [CatalogItemClass])
 listCatalogItems_itemClassFilter = Lens.lens (\ListCatalogItems' {itemClassFilter} -> itemClassFilter) (\s@ListCatalogItems' {} a -> s {itemClassFilter = a} :: ListCatalogItems) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for the storage options of items in the catalog.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by storage option.
 listCatalogItems_supportedStorageFilter :: Lens.Lens' ListCatalogItems (Prelude.Maybe [SupportedStorageEnum])
 listCatalogItems_supportedStorageFilter = Lens.lens (\ListCatalogItems' {supportedStorageFilter} -> supportedStorageFilter) (\s@ListCatalogItems' {} a -> s {supportedStorageFilter = a} :: ListCatalogItems) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for EC2 family options for items in the catalog.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- | Filters the results by EC2 family (for example, M5).
 listCatalogItems_eC2FamilyFilter :: Lens.Lens' ListCatalogItems (Prelude.Maybe [Prelude.Text])
 listCatalogItems_eC2FamilyFilter = Lens.lens (\ListCatalogItems' {eC2FamilyFilter} -> eC2FamilyFilter) (\s@ListCatalogItems' {} a -> s {eC2FamilyFilter = a} :: ListCatalogItems) Prelude.. Lens.mapping Lens.coerced
 

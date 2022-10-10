@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.Types.OrderSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data OrderSummary = OrderSummary'
   { -- | The ID of the Outpost.
     outpostId :: Prelude.Maybe Prelude.Text,
-    -- | Fulfilment date for the order.
+    -- | The fulfilment date for the order.
     orderFulfilledDate :: Prelude.Maybe Core.POSIX,
     -- | The status of all line items in the order.
     lineItemCountsByStatus :: Prelude.Maybe (Prelude.HashMap LineItemStatus Prelude.Natural),
@@ -56,7 +56,7 @@ data OrderSummary = OrderSummary'
     orderId :: Prelude.Maybe Prelude.Text,
     -- | The type of order.
     orderType :: Prelude.Maybe OrderType,
-    -- | Submission date for the order.
+    -- | The submission date for the order.
     orderSubmissionDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +71,7 @@ data OrderSummary = OrderSummary'
 --
 -- 'outpostId', 'orderSummary_outpostId' - The ID of the Outpost.
 --
--- 'orderFulfilledDate', 'orderSummary_orderFulfilledDate' - Fulfilment date for the order.
+-- 'orderFulfilledDate', 'orderSummary_orderFulfilledDate' - The fulfilment date for the order.
 --
 -- 'lineItemCountsByStatus', 'orderSummary_lineItemCountsByStatus' - The status of all line items in the order.
 --
@@ -95,7 +95,7 @@ data OrderSummary = OrderSummary'
 --
 -- 'orderType', 'orderSummary_orderType' - The type of order.
 --
--- 'orderSubmissionDate', 'orderSummary_orderSubmissionDate' - Submission date for the order.
+-- 'orderSubmissionDate', 'orderSummary_orderSubmissionDate' - The submission date for the order.
 newOrderSummary ::
   OrderSummary
 newOrderSummary =
@@ -113,7 +113,7 @@ newOrderSummary =
 orderSummary_outpostId :: Lens.Lens' OrderSummary (Prelude.Maybe Prelude.Text)
 orderSummary_outpostId = Lens.lens (\OrderSummary' {outpostId} -> outpostId) (\s@OrderSummary' {} a -> s {outpostId = a} :: OrderSummary)
 
--- | Fulfilment date for the order.
+-- | The fulfilment date for the order.
 orderSummary_orderFulfilledDate :: Lens.Lens' OrderSummary (Prelude.Maybe Prelude.UTCTime)
 orderSummary_orderFulfilledDate = Lens.lens (\OrderSummary' {orderFulfilledDate} -> orderFulfilledDate) (\s@OrderSummary' {} a -> s {orderFulfilledDate = a} :: OrderSummary) Prelude.. Lens.mapping Core._Time
 
@@ -147,7 +147,7 @@ orderSummary_orderId = Lens.lens (\OrderSummary' {orderId} -> orderId) (\s@Order
 orderSummary_orderType :: Lens.Lens' OrderSummary (Prelude.Maybe OrderType)
 orderSummary_orderType = Lens.lens (\OrderSummary' {orderType} -> orderType) (\s@OrderSummary' {} a -> s {orderType = a} :: OrderSummary)
 
--- | Submission date for the order.
+-- | The submission date for the order.
 orderSummary_orderSubmissionDate :: Lens.Lens' OrderSummary (Prelude.Maybe Prelude.UTCTime)
 orderSummary_orderSubmissionDate = Lens.lens (\OrderSummary' {orderSubmissionDate} -> orderSubmissionDate) (\s@OrderSummary' {} a -> s {orderSubmissionDate = a} :: OrderSummary) Prelude.. Lens.mapping Core._Time
 

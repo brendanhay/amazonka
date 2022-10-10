@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -71,10 +71,12 @@ library
     Amazonka.Outposts.Types.AddressType
     Amazonka.Outposts.Types.AssetInfo
     Amazonka.Outposts.Types.AssetLocation
+    Amazonka.Outposts.Types.AssetState
     Amazonka.Outposts.Types.AssetType
     Amazonka.Outposts.Types.CatalogItem
     Amazonka.Outposts.Types.CatalogItemClass
     Amazonka.Outposts.Types.CatalogItemStatus
+    Amazonka.Outposts.Types.ComputeAssetState
     Amazonka.Outposts.Types.ComputeAttributes
     Amazonka.Outposts.Types.ConnectionDetails
     Amazonka.Outposts.Types.EC2Capacity
@@ -113,7 +115,7 @@ library
     Amazonka.Outposts.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-outposts-test
@@ -132,9 +134,9 @@ test-suite amazonka-outposts-test
     Test.Amazonka.Outposts.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-outposts
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

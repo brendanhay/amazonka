@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Outposts.CancelOrder
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an order for an Outpost.
+-- Cancels the specified order for an Outpost.
 module Amazonka.Outposts.CancelOrder
   ( -- * Creating a Request
     CancelOrder (..),
@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelOrder' smart constructor.
 data CancelOrder = CancelOrder'
-  { -- | The ID of the order to cancel.
+  { -- | The ID of the order.
     orderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data CancelOrder = CancelOrder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orderId', 'cancelOrder_orderId' - The ID of the order to cancel.
+-- 'orderId', 'cancelOrder_orderId' - The ID of the order.
 newCancelOrder ::
   -- | 'orderId'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newCancelOrder ::
 newCancelOrder pOrderId_ =
   CancelOrder' {orderId = pOrderId_}
 
--- | The ID of the order to cancel.
+-- | The ID of the order.
 cancelOrder_orderId :: Lens.Lens' CancelOrder Prelude.Text
 cancelOrder_orderId = Lens.lens (\CancelOrder' {orderId} -> orderId) (\s@CancelOrder' {} a -> s {orderId = a} :: CancelOrder)
 

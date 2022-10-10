@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.Outposts.UpdateSiteAddress
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the site address.
+-- Updates the address of the specified site.
 --
--- To update a site address with an order @IN_PROGRESS@, you must wait for
--- the order to complete or cancel the order.
+-- You can\'t update a site address if there is an order in progress. You
+-- must wait for the order to complete or cancel the order.
 --
 -- You can update the operating address before you place an order at the
 -- site, or after all Outposts that belong to the site have been
@@ -59,12 +59,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateSiteAddress' smart constructor.
 data UpdateSiteAddress = UpdateSiteAddress'
   { -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text,
     -- | The type of the address.
     addressType :: AddressType,
@@ -82,12 +76,6 @@ data UpdateSiteAddress = UpdateSiteAddress'
 -- for backwards compatibility:
 --
 -- 'siteId', 'updateSiteAddress_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 --
 -- 'addressType', 'updateSiteAddress_addressType' - The type of the address.
 --
@@ -108,12 +96,6 @@ newUpdateSiteAddress pSiteId_ pAddressType_ pAddress_ =
     }
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 updateSiteAddress_siteId :: Lens.Lens' UpdateSiteAddress Prelude.Text
 updateSiteAddress_siteId = Lens.lens (\UpdateSiteAddress' {siteId} -> siteId) (\s@UpdateSiteAddress' {} a -> s {siteId = a} :: UpdateSiteAddress)
 

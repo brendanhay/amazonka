@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Outposts.Types.PowerDrawKva
+-- Module      : Amazonka.Outposts.Types.AssetState
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Outposts.Types.PowerDrawKva
-  ( PowerDrawKva
+module Amazonka.Outposts.Types.AssetState
+  ( AssetState
       ( ..,
-        PowerDrawKva_POWER_10_KVA,
-        PowerDrawKva_POWER_15_KVA,
-        PowerDrawKva_POWER_5_KVA
+        AssetState_ACTIVE,
+        AssetState_RETIRING
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PowerDrawKva = PowerDrawKva'
-  { fromPowerDrawKva ::
+newtype AssetState = AssetState'
+  { fromAssetState ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype PowerDrawKva = PowerDrawKva'
       Core.ToXML
     )
 
-pattern PowerDrawKva_POWER_10_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_10_KVA = PowerDrawKva' "POWER_10_KVA"
+pattern AssetState_ACTIVE :: AssetState
+pattern AssetState_ACTIVE = AssetState' "ACTIVE"
 
-pattern PowerDrawKva_POWER_15_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_15_KVA = PowerDrawKva' "POWER_15_KVA"
-
-pattern PowerDrawKva_POWER_5_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_5_KVA = PowerDrawKva' "POWER_5_KVA"
+pattern AssetState_RETIRING :: AssetState
+pattern AssetState_RETIRING = AssetState' "RETIRING"
 
 {-# COMPLETE
-  PowerDrawKva_POWER_10_KVA,
-  PowerDrawKva_POWER_15_KVA,
-  PowerDrawKva_POWER_5_KVA,
-  PowerDrawKva'
+  AssetState_ACTIVE,
+  AssetState_RETIRING,
+  AssetState'
   #-}

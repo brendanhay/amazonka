@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Outposts.UpdateSiteRackPhysicalProperties
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,24 +63,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSiteRackPhysicalProperties' smart constructor.
 data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
-  { -- | Specify the power option that you can provide for hardware.
+  { -- | The power option that you can provide for hardware.
     --
     -- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
     --
     -- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
     powerPhase :: Prelude.Maybe PowerPhase,
-    -- | Specify in kVA the power draw available at the hardware placement
-    -- position for the rack.
+    -- | The power draw, in kVA, available at the hardware placement position for
+    -- the rack.
     powerDrawKva :: Prelude.Maybe PowerDrawKva,
-    -- | Specify the type of fiber that you will use to attach the Outpost to
-    -- your network.
+    -- | The type of fiber that you will use to attach the Outpost to your
+    -- network.
     fiberOpticCableType :: Prelude.Maybe FiberOpticCableType,
-    -- | Specify the maximum rack weight that this site can support. @NO_LIMIT@
-    -- is over 2000lbs.
+    -- | The maximum rack weight that this site can support. @NO_LIMIT@ is over
+    -- 2000lbs.
     maximumSupportedWeightLbs :: Prelude.Maybe MaximumSupportedWeightLbs,
-    -- | Specify the power connector that Amazon Web Services should plan to
-    -- provide for connections to the hardware. Note the correlation between
-    -- @PowerPhase@ and @PowerConnector@.
+    -- | The power connector that Amazon Web Services should plan to provide for
+    -- connections to the hardware. Note the correlation between @PowerPhase@
+    -- and @PowerConnector@.
     --
     -- -   Single-phase AC feed
     --
@@ -94,10 +94,10 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
     --
     --     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
     powerConnector :: Prelude.Maybe PowerConnector,
-    -- | Specify the type of optical standard that you will use to attach the
-    -- Outpost to your network. This field is dependent on uplink speed, fiber
-    -- type, and distance to the upstream device. For more information about
-    -- networking requirements for racks, see
+    -- | The type of optical standard that you will use to attach the Outpost to
+    -- your network. This field is dependent on uplink speed, fiber type, and
+    -- distance to the upstream device. For more information about networking
+    -- requirements for racks, see
     -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking Network>
     -- in the Amazon Web Services Outposts User Guide.
     --
@@ -127,7 +127,7 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
     --
     -- -   @OPTIC_1000BASE_SX@ : 1000Base-SX
     opticalStandard :: Prelude.Maybe OpticalStandard,
-    -- | Specify whether the power feed comes above or below the rack.
+    -- | Indicates whether the power feed comes above or below the rack.
     powerFeedDrop :: Prelude.Maybe PowerFeedDrop,
     -- | Racks come with two Outpost network devices. Depending on the supported
     -- uplink speed at the site, the Outpost network devices provide a variable
@@ -141,16 +141,10 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
     --
     -- -   40 and 100 Gbps- Uplinks available: 1, 2, 4
     uplinkCount :: Prelude.Maybe UplinkCount,
-    -- | Specify the uplink speed the rack should support for the connection to
-    -- the Region.
+    -- | The uplink speed the rack should support for the connection to the
+    -- Region.
     uplinkGbps :: Prelude.Maybe UplinkGbps,
     -- | The ID or the Amazon Resource Name (ARN) of the site.
-    --
-    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
-    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
-    -- API. To address backwards compatibility, the parameter names @OutpostID@
-    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
-    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -163,24 +157,24 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'powerPhase', 'updateSiteRackPhysicalProperties_powerPhase' - Specify the power option that you can provide for hardware.
+-- 'powerPhase', 'updateSiteRackPhysicalProperties_powerPhase' - The power option that you can provide for hardware.
 --
 -- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
 --
 -- -   Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
 --
--- 'powerDrawKva', 'updateSiteRackPhysicalProperties_powerDrawKva' - Specify in kVA the power draw available at the hardware placement
--- position for the rack.
+-- 'powerDrawKva', 'updateSiteRackPhysicalProperties_powerDrawKva' - The power draw, in kVA, available at the hardware placement position for
+-- the rack.
 --
--- 'fiberOpticCableType', 'updateSiteRackPhysicalProperties_fiberOpticCableType' - Specify the type of fiber that you will use to attach the Outpost to
--- your network.
+-- 'fiberOpticCableType', 'updateSiteRackPhysicalProperties_fiberOpticCableType' - The type of fiber that you will use to attach the Outpost to your
+-- network.
 --
--- 'maximumSupportedWeightLbs', 'updateSiteRackPhysicalProperties_maximumSupportedWeightLbs' - Specify the maximum rack weight that this site can support. @NO_LIMIT@
--- is over 2000lbs.
+-- 'maximumSupportedWeightLbs', 'updateSiteRackPhysicalProperties_maximumSupportedWeightLbs' - The maximum rack weight that this site can support. @NO_LIMIT@ is over
+-- 2000lbs.
 --
--- 'powerConnector', 'updateSiteRackPhysicalProperties_powerConnector' - Specify the power connector that Amazon Web Services should plan to
--- provide for connections to the hardware. Note the correlation between
--- @PowerPhase@ and @PowerConnector@.
+-- 'powerConnector', 'updateSiteRackPhysicalProperties_powerConnector' - The power connector that Amazon Web Services should plan to provide for
+-- connections to the hardware. Note the correlation between @PowerPhase@
+-- and @PowerConnector@.
 --
 -- -   Single-phase AC feed
 --
@@ -194,10 +188,10 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 --
 --     -   __AH532P6W (red)__ – 3P+N+E, 6hr; 32A; three phase
 --
--- 'opticalStandard', 'updateSiteRackPhysicalProperties_opticalStandard' - Specify the type of optical standard that you will use to attach the
--- Outpost to your network. This field is dependent on uplink speed, fiber
--- type, and distance to the upstream device. For more information about
--- networking requirements for racks, see
+-- 'opticalStandard', 'updateSiteRackPhysicalProperties_opticalStandard' - The type of optical standard that you will use to attach the Outpost to
+-- your network. This field is dependent on uplink speed, fiber type, and
+-- distance to the upstream device. For more information about networking
+-- requirements for racks, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking Network>
 -- in the Amazon Web Services Outposts User Guide.
 --
@@ -227,7 +221,7 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 --
 -- -   @OPTIC_1000BASE_SX@ : 1000Base-SX
 --
--- 'powerFeedDrop', 'updateSiteRackPhysicalProperties_powerFeedDrop' - Specify whether the power feed comes above or below the rack.
+-- 'powerFeedDrop', 'updateSiteRackPhysicalProperties_powerFeedDrop' - Indicates whether the power feed comes above or below the rack.
 --
 -- 'uplinkCount', 'updateSiteRackPhysicalProperties_uplinkCount' - Racks come with two Outpost network devices. Depending on the supported
 -- uplink speed at the site, the Outpost network devices provide a variable
@@ -241,16 +235,10 @@ data UpdateSiteRackPhysicalProperties = UpdateSiteRackPhysicalProperties'
 --
 -- -   40 and 100 Gbps- Uplinks available: 1, 2, 4
 --
--- 'uplinkGbps', 'updateSiteRackPhysicalProperties_uplinkGbps' - Specify the uplink speed the rack should support for the connection to
--- the Region.
+-- 'uplinkGbps', 'updateSiteRackPhysicalProperties_uplinkGbps' - The uplink speed the rack should support for the connection to the
+-- Region.
 --
 -- 'siteId', 'updateSiteRackPhysicalProperties_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 newUpdateSiteRackPhysicalProperties ::
   -- | 'siteId'
   Prelude.Text ->
@@ -271,7 +259,7 @@ newUpdateSiteRackPhysicalProperties pSiteId_ =
       siteId = pSiteId_
     }
 
--- | Specify the power option that you can provide for hardware.
+-- | The power option that you can provide for hardware.
 --
 -- -   Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
 --
@@ -279,24 +267,24 @@ newUpdateSiteRackPhysicalProperties pSiteId_ =
 updateSiteRackPhysicalProperties_powerPhase :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerPhase)
 updateSiteRackPhysicalProperties_powerPhase = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerPhase} -> powerPhase) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerPhase = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify in kVA the power draw available at the hardware placement
--- position for the rack.
+-- | The power draw, in kVA, available at the hardware placement position for
+-- the rack.
 updateSiteRackPhysicalProperties_powerDrawKva :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerDrawKva)
 updateSiteRackPhysicalProperties_powerDrawKva = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerDrawKva} -> powerDrawKva) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerDrawKva = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify the type of fiber that you will use to attach the Outpost to
--- your network.
+-- | The type of fiber that you will use to attach the Outpost to your
+-- network.
 updateSiteRackPhysicalProperties_fiberOpticCableType :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe FiberOpticCableType)
 updateSiteRackPhysicalProperties_fiberOpticCableType = Lens.lens (\UpdateSiteRackPhysicalProperties' {fiberOpticCableType} -> fiberOpticCableType) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {fiberOpticCableType = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify the maximum rack weight that this site can support. @NO_LIMIT@
--- is over 2000lbs.
+-- | The maximum rack weight that this site can support. @NO_LIMIT@ is over
+-- 2000lbs.
 updateSiteRackPhysicalProperties_maximumSupportedWeightLbs :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe MaximumSupportedWeightLbs)
 updateSiteRackPhysicalProperties_maximumSupportedWeightLbs = Lens.lens (\UpdateSiteRackPhysicalProperties' {maximumSupportedWeightLbs} -> maximumSupportedWeightLbs) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {maximumSupportedWeightLbs = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify the power connector that Amazon Web Services should plan to
--- provide for connections to the hardware. Note the correlation between
--- @PowerPhase@ and @PowerConnector@.
+-- | The power connector that Amazon Web Services should plan to provide for
+-- connections to the hardware. Note the correlation between @PowerPhase@
+-- and @PowerConnector@.
 --
 -- -   Single-phase AC feed
 --
@@ -312,10 +300,10 @@ updateSiteRackPhysicalProperties_maximumSupportedWeightLbs = Lens.lens (\UpdateS
 updateSiteRackPhysicalProperties_powerConnector :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerConnector)
 updateSiteRackPhysicalProperties_powerConnector = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerConnector} -> powerConnector) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerConnector = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify the type of optical standard that you will use to attach the
--- Outpost to your network. This field is dependent on uplink speed, fiber
--- type, and distance to the upstream device. For more information about
--- networking requirements for racks, see
+-- | The type of optical standard that you will use to attach the Outpost to
+-- your network. This field is dependent on uplink speed, fiber type, and
+-- distance to the upstream device. For more information about networking
+-- requirements for racks, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking Network>
 -- in the Amazon Web Services Outposts User Guide.
 --
@@ -347,7 +335,7 @@ updateSiteRackPhysicalProperties_powerConnector = Lens.lens (\UpdateSiteRackPhys
 updateSiteRackPhysicalProperties_opticalStandard :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe OpticalStandard)
 updateSiteRackPhysicalProperties_opticalStandard = Lens.lens (\UpdateSiteRackPhysicalProperties' {opticalStandard} -> opticalStandard) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {opticalStandard = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify whether the power feed comes above or below the rack.
+-- | Indicates whether the power feed comes above or below the rack.
 updateSiteRackPhysicalProperties_powerFeedDrop :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe PowerFeedDrop)
 updateSiteRackPhysicalProperties_powerFeedDrop = Lens.lens (\UpdateSiteRackPhysicalProperties' {powerFeedDrop} -> powerFeedDrop) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {powerFeedDrop = a} :: UpdateSiteRackPhysicalProperties)
 
@@ -365,18 +353,12 @@ updateSiteRackPhysicalProperties_powerFeedDrop = Lens.lens (\UpdateSiteRackPhysi
 updateSiteRackPhysicalProperties_uplinkCount :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe UplinkCount)
 updateSiteRackPhysicalProperties_uplinkCount = Lens.lens (\UpdateSiteRackPhysicalProperties' {uplinkCount} -> uplinkCount) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {uplinkCount = a} :: UpdateSiteRackPhysicalProperties)
 
--- | Specify the uplink speed the rack should support for the connection to
--- the Region.
+-- | The uplink speed the rack should support for the connection to the
+-- Region.
 updateSiteRackPhysicalProperties_uplinkGbps :: Lens.Lens' UpdateSiteRackPhysicalProperties (Prelude.Maybe UplinkGbps)
 updateSiteRackPhysicalProperties_uplinkGbps = Lens.lens (\UpdateSiteRackPhysicalProperties' {uplinkGbps} -> uplinkGbps) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {uplinkGbps = a} :: UpdateSiteRackPhysicalProperties)
 
 -- | The ID or the Amazon Resource Name (ARN) of the site.
---
--- In requests, Amazon Web Services Outposts accepts the Amazon Resource
--- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
--- API. To address backwards compatibility, the parameter names @OutpostID@
--- or @SiteID@ remain in use. Despite the parameter name, you can make the
--- request with an ARN.
 updateSiteRackPhysicalProperties_siteId :: Lens.Lens' UpdateSiteRackPhysicalProperties Prelude.Text
 updateSiteRackPhysicalProperties_siteId = Lens.lens (\UpdateSiteRackPhysicalProperties' {siteId} -> siteId) (\s@UpdateSiteRackPhysicalProperties' {} a -> s {siteId = a} :: UpdateSiteRackPhysicalProperties)
 

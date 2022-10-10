@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Outposts.Types.PowerDrawKva
+-- Module      : Amazonka.Outposts.Types.ComputeAssetState
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Outposts.Types.PowerDrawKva
-  ( PowerDrawKva
+module Amazonka.Outposts.Types.ComputeAssetState
+  ( ComputeAssetState
       ( ..,
-        PowerDrawKva_POWER_10_KVA,
-        PowerDrawKva_POWER_15_KVA,
-        PowerDrawKva_POWER_5_KVA
+        ComputeAssetState_ACTIVE,
+        ComputeAssetState_ISOLATED,
+        ComputeAssetState_RETIRING
       ),
   )
 where
@@ -30,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PowerDrawKva = PowerDrawKva'
-  { fromPowerDrawKva ::
+newtype ComputeAssetState = ComputeAssetState'
+  { fromComputeAssetState ::
       Core.Text
   }
   deriving stock
@@ -58,18 +58,18 @@ newtype PowerDrawKva = PowerDrawKva'
       Core.ToXML
     )
 
-pattern PowerDrawKva_POWER_10_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_10_KVA = PowerDrawKva' "POWER_10_KVA"
+pattern ComputeAssetState_ACTIVE :: ComputeAssetState
+pattern ComputeAssetState_ACTIVE = ComputeAssetState' "ACTIVE"
 
-pattern PowerDrawKva_POWER_15_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_15_KVA = PowerDrawKva' "POWER_15_KVA"
+pattern ComputeAssetState_ISOLATED :: ComputeAssetState
+pattern ComputeAssetState_ISOLATED = ComputeAssetState' "ISOLATED"
 
-pattern PowerDrawKva_POWER_5_KVA :: PowerDrawKva
-pattern PowerDrawKva_POWER_5_KVA = PowerDrawKva' "POWER_5_KVA"
+pattern ComputeAssetState_RETIRING :: ComputeAssetState
+pattern ComputeAssetState_RETIRING = ComputeAssetState' "RETIRING"
 
 {-# COMPLETE
-  PowerDrawKva_POWER_10_KVA,
-  PowerDrawKva_POWER_15_KVA,
-  PowerDrawKva_POWER_5_KVA,
-  PowerDrawKva'
+  ComputeAssetState_ACTIVE,
+  ComputeAssetState_ISOLATED,
+  ComputeAssetState_RETIRING,
+  ComputeAssetState'
   #-}

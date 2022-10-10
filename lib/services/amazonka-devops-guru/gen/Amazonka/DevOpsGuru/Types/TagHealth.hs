@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DevOpsGuru.Types.TagHealth
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,12 +50,13 @@ data TagHealth = TagHealth'
     --
     -- The string used for a /key/ in a tag that you use to define your
     -- resource coverage must begin with the prefix @Devops-guru-@. The tag
-    -- /key/ might be @Devops-guru-deployment-application@ or
-    -- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
-    -- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
-    -- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
-    -- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
-    -- might be @Devops-Guru-production-application\/RDS@ or
+    -- /key/ might be @DevOps-Guru-deployment-application@ or
+    -- @devops-guru-rds-application@. When you create a /key/, the case of
+    -- characters in the /key/ can be whatever you choose. After you create a
+    -- /key/, it is case-sensitive. For example, DevOps Guru works with a /key/
+    -- named @devops-guru-rds@ and a /key/ named @DevOps-Guru-RDS@, and these
+    -- act as two different /keys/. Possible /key/\//value/ pairs in your
+    -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
     appBoundaryKey :: Prelude.Maybe Prelude.Text
   }
@@ -90,12 +91,13 @@ data TagHealth = TagHealth'
 --
 -- The string used for a /key/ in a tag that you use to define your
 -- resource coverage must begin with the prefix @Devops-guru-@. The tag
--- /key/ might be @Devops-guru-deployment-application@ or
--- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
--- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
--- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
--- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
--- might be @Devops-Guru-production-application\/RDS@ or
+-- /key/ might be @DevOps-Guru-deployment-application@ or
+-- @devops-guru-rds-application@. When you create a /key/, the case of
+-- characters in the /key/ can be whatever you choose. After you create a
+-- /key/, it is case-sensitive. For example, DevOps Guru works with a /key/
+-- named @devops-guru-rds@ and a /key/ named @DevOps-Guru-RDS@, and these
+-- act as two different /keys/. Possible /key/\//value/ pairs in your
+-- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
 newTagHealth ::
   TagHealth
@@ -131,12 +133,13 @@ tagHealth_tagValue = Lens.lens (\TagHealth' {tagValue} -> tagValue) (\s@TagHealt
 --
 -- The string used for a /key/ in a tag that you use to define your
 -- resource coverage must begin with the prefix @Devops-guru-@. The tag
--- /key/ might be @Devops-guru-deployment-application@ or
--- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
--- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
--- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
--- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
--- might be @Devops-Guru-production-application\/RDS@ or
+-- /key/ might be @DevOps-Guru-deployment-application@ or
+-- @devops-guru-rds-application@. When you create a /key/, the case of
+-- characters in the /key/ can be whatever you choose. After you create a
+-- /key/, it is case-sensitive. For example, DevOps Guru works with a /key/
+-- named @devops-guru-rds@ and a /key/ named @DevOps-Guru-RDS@, and these
+-- act as two different /keys/. Possible /key/\//value/ pairs in your
+-- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
 tagHealth_appBoundaryKey :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
 tagHealth_appBoundaryKey = Lens.lens (\TagHealth' {appBoundaryKey} -> appBoundaryKey) (\s@TagHealth' {} a -> s {appBoundaryKey = a} :: TagHealth)

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DevOpsGuru.Types.NotificationChannelConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.DevOpsGuru.Types.NotificationChannelConfig where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.NotificationFilterConfig
 import Amazonka.DevOpsGuru.Types.SnsChannelConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotificationChannelConfig' smart constructor.
 data NotificationChannelConfig = NotificationChannelConfig'
-  { -- | Information about a notification channel configured in DevOps Guru to
+  { -- | The filter configurations for the Amazon SNS notification topic you use
+    -- with DevOps Guru. If you do not provide filter configurations, the
+    -- default configurations are to receive notifications for all message
+    -- types of @High@ or @Medium@ severity.
+    filters :: Prelude.Maybe NotificationFilterConfig,
+    -- | Information about a notification channel configured in DevOps Guru to
     -- send notifications when insights are created.
     --
     -- If you use an Amazon SNS topic in another account, you must attach a
@@ -62,6 +68,11 @@ data NotificationChannelConfig = NotificationChannelConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'notificationChannelConfig_filters' - The filter configurations for the Amazon SNS notification topic you use
+-- with DevOps Guru. If you do not provide filter configurations, the
+-- default configurations are to receive notifications for all message
+-- types of @High@ or @Medium@ severity.
+--
 -- 'sns', 'notificationChannelConfig_sns' - Information about a notification channel configured in DevOps Guru to
 -- send notifications when insights are created.
 --
@@ -87,7 +98,18 @@ newNotificationChannelConfig ::
   SnsChannelConfig ->
   NotificationChannelConfig
 newNotificationChannelConfig pSns_ =
-  NotificationChannelConfig' {sns = pSns_}
+  NotificationChannelConfig'
+    { filters =
+        Prelude.Nothing,
+      sns = pSns_
+    }
+
+-- | The filter configurations for the Amazon SNS notification topic you use
+-- with DevOps Guru. If you do not provide filter configurations, the
+-- default configurations are to receive notifications for all message
+-- types of @High@ or @Medium@ severity.
+notificationChannelConfig_filters :: Lens.Lens' NotificationChannelConfig (Prelude.Maybe NotificationFilterConfig)
+notificationChannelConfig_filters = Lens.lens (\NotificationChannelConfig' {filters} -> filters) (\s@NotificationChannelConfig' {} a -> s {filters = a} :: NotificationChannelConfig)
 
 -- | Information about a notification channel configured in DevOps Guru to
 -- send notifications when insights are created.
@@ -118,19 +140,23 @@ instance Core.FromJSON NotificationChannelConfig where
       "NotificationChannelConfig"
       ( \x ->
           NotificationChannelConfig'
-            Prelude.<$> (x Core..: "Sns")
+            Prelude.<$> (x Core..:? "Filters") Prelude.<*> (x Core..: "Sns")
       )
 
 instance Prelude.Hashable NotificationChannelConfig where
   hashWithSalt _salt NotificationChannelConfig' {..} =
-    _salt `Prelude.hashWithSalt` sns
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sns
 
 instance Prelude.NFData NotificationChannelConfig where
-  rnf NotificationChannelConfig' {..} = Prelude.rnf sns
+  rnf NotificationChannelConfig' {..} =
+    Prelude.rnf filters `Prelude.seq` Prelude.rnf sns
 
 instance Core.ToJSON NotificationChannelConfig where
   toJSON NotificationChannelConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Sns" Core..= sns)]
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            Prelude.Just ("Sns" Core..= sns)
+          ]
       )

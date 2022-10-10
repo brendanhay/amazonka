@@ -90,6 +90,8 @@ haskell_library(
         "gen/Amazonka/DevOpsGuru/Types/MonitoredResourceIdentifier.hs",
         "gen/Amazonka/DevOpsGuru/Types/NotificationChannel.hs",
         "gen/Amazonka/DevOpsGuru/Types/NotificationChannelConfig.hs",
+        "gen/Amazonka/DevOpsGuru/Types/NotificationFilterConfig.hs",
+        "gen/Amazonka/DevOpsGuru/Types/NotificationMessageType.hs",
         "gen/Amazonka/DevOpsGuru/Types/OpsCenterIntegration.hs",
         "gen/Amazonka/DevOpsGuru/Types/OpsCenterIntegrationConfig.hs",
         "gen/Amazonka/DevOpsGuru/Types/OptInStatus.hs",

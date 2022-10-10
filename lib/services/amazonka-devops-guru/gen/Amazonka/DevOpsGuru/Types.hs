@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.DevOpsGuru.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,6 +72,9 @@ module Amazonka.DevOpsGuru.Types
 
     -- * LogAnomalyType
     LogAnomalyType (..),
+
+    -- * NotificationMessageType
+    NotificationMessageType (..),
 
     -- * OptInStatus
     OptInStatus (..),
@@ -344,7 +347,14 @@ module Amazonka.DevOpsGuru.Types
     -- * NotificationChannelConfig
     NotificationChannelConfig (..),
     newNotificationChannelConfig,
+    notificationChannelConfig_filters,
     notificationChannelConfig_sns,
+
+    -- * NotificationFilterConfig
+    NotificationFilterConfig (..),
+    newNotificationFilterConfig,
+    notificationFilterConfig_messageTypes,
+    notificationFilterConfig_severities,
 
     -- * OpsCenterIntegration
     OpsCenterIntegration (..),
@@ -789,6 +799,8 @@ import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig
 import Amazonka.DevOpsGuru.Types.MonitoredResourceIdentifier
 import Amazonka.DevOpsGuru.Types.NotificationChannel
 import Amazonka.DevOpsGuru.Types.NotificationChannelConfig
+import Amazonka.DevOpsGuru.Types.NotificationFilterConfig
+import Amazonka.DevOpsGuru.Types.NotificationMessageType
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegration
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
 import Amazonka.DevOpsGuru.Types.OptInStatus

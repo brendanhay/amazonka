@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SSOOIDC
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,26 +11,25 @@
 --
 -- Derived from API version @2019-06-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Single Sign On OpenID Connect (OIDC) is a web
--- service that enables a client (such as Amazon Web Services CLI or a
--- native application) to register with Amazon Web Services SSO. The
--- service also enables the client to fetch the user’s access token upon
--- successful authentication and authorization with Amazon Web Services
--- SSO.
+-- AWS IAM Identity Center (successor to AWS Single Sign-On) OpenID Connect
+-- (OIDC) is a web service that enables a client (such as AWS CLI or a
+-- native application) to register with IAM Identity Center. The service
+-- also enables the client to fetch the user’s access token upon successful
+-- authentication and authorization with IAM Identity Center.
 --
--- Although Amazon Web Services Single Sign-On was renamed, the @sso@ and
--- @identitystore@ API namespaces will continue to retain their original
--- name for backward compatibility purposes. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed Amazon Web Services SSO rename>.
+-- Although AWS Single Sign-On was renamed, the @sso@ and @identitystore@
+-- API namespaces will continue to retain their original name for backward
+-- compatibility purposes. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed IAM Identity Center rename>.
 --
 -- __Considerations for Using This Guide__
 --
 -- Before you begin using this guide, we recommend that you first review
--- the following important information about how the Amazon Web Services
--- SSO OIDC service works.
+-- the following important information about how the IAM Identity Center
+-- OIDC service works.
 --
--- -   The Amazon Web Services SSO OIDC service currently implements only
---     the portions of the OAuth 2.0 Device Authorization Grant standard
+-- -   The IAM Identity Center OIDC service currently implements only the
+--     portions of the OAuth 2.0 Device Authorization Grant standard
 --     (<https://tools.ietf.org/html/rfc8628>) that are necessary to enable
 --     single sign-on authentication with the AWS CLI. Support for other
 --     OIDC flows frequently needed for native applications, such as
@@ -42,18 +41,18 @@
 --     re-authentication.
 --
 -- -   The access tokens provided by this service grant access to all AWS
---     account entitlements assigned to an Amazon Web Services SSO user,
---     not just a particular application.
+--     account entitlements assigned to an IAM Identity Center user, not
+--     just a particular application.
 --
 -- -   The documentation in this guide does not describe the mechanism to
 --     convert the access token into AWS Auth (“sigv4”) credentials for use
 --     with IAM-protected AWS service endpoints. For more information, see
 --     <https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html GetRoleCredentials>
---     in the /Amazon Web Services SSO Portal API Reference Guide/.
+--     in the /IAM Identity Center Portal API Reference Guide/.
 --
--- For general information about Amazon Web Services SSO, see
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html What is Amazon Web Services SSO?>
--- in the /Amazon Web Services SSO User Guide/.
+-- For general information about IAM Identity Center, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html What is IAM Identity Center?>
+-- in the /IAM Identity Center User Guide/.
 module Amazonka.SSOOIDC
   ( -- * Service Configuration
     defaultService,

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SSOOIDC.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -16,13 +16,13 @@ module Amazonka.SSOOIDC.Lens
 
     -- ** CreateToken
     createToken_code,
+    createToken_deviceCode,
     createToken_redirectUri,
     createToken_scope,
     createToken_refreshToken,
     createToken_clientId,
     createToken_clientSecret,
     createToken_grantType,
-    createToken_deviceCode,
     createTokenResponse_accessToken,
     createTokenResponse_expiresIn,
     createTokenResponse_idToken,

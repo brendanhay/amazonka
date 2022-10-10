@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Redshift.Types.Cluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,8 @@ data Cluster = Cluster'
     tags :: Prelude.Maybe [Tag],
     -- | The unique identifier of the cluster.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The AQUA (Advanced Query Accelerator) configuration of the cluster.
+    -- | This field is retired. Amazon Redshift automatically determines whether
+    -- to use AQUA (Advanced Query Accelerator).
     aquaConfiguration :: Prelude.Maybe AquaConfiguration,
     -- | The public key for the cluster.
     clusterPublicKey :: Prelude.Maybe Prelude.Text,
@@ -276,7 +277,8 @@ data Cluster = Cluster'
 --
 -- 'clusterIdentifier', 'cluster_clusterIdentifier' - The unique identifier of the cluster.
 --
--- 'aquaConfiguration', 'cluster_aquaConfiguration' - The AQUA (Advanced Query Accelerator) configuration of the cluster.
+-- 'aquaConfiguration', 'cluster_aquaConfiguration' - This field is retired. Amazon Redshift automatically determines whether
+-- to use AQUA (Advanced Query Accelerator).
 --
 -- 'clusterPublicKey', 'cluster_clusterPublicKey' - The public key for the cluster.
 --
@@ -554,7 +556,8 @@ cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags
 cluster_clusterIdentifier :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterIdentifier = Lens.lens (\Cluster' {clusterIdentifier} -> clusterIdentifier) (\s@Cluster' {} a -> s {clusterIdentifier = a} :: Cluster)
 
--- | The AQUA (Advanced Query Accelerator) configuration of the cluster.
+-- | This field is retired. Amazon Redshift automatically determines whether
+-- to use AQUA (Advanced Query Accelerator).
 cluster_aquaConfiguration :: Lens.Lens' Cluster (Prelude.Maybe AquaConfiguration)
 cluster_aquaConfiguration = Lens.lens (\Cluster' {aquaConfiguration} -> aquaConfiguration) (\s@Cluster' {} a -> s {aquaConfiguration = a} :: Cluster)
 

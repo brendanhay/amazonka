@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Redshift.GetClusterCredentials
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -118,8 +118,8 @@ data GetClusterCredentials = GetClusterCredentials'
     --
     -- -   Must be 1 to 64 alphanumeric characters or hyphens
     --
-    -- -   Must contain only lowercase letters, numbers, underscore, plus sign,
-    --     period (dot), at symbol (\@), or hyphen.
+    -- -   Must contain uppercase or lowercase letters, numbers, underscore,
+    --     plus sign, period (dot), at symbol (\@), or hyphen.
     --
     -- -   First character must be a letter.
     --
@@ -147,8 +147,8 @@ data GetClusterCredentials = GetClusterCredentials'
     -- -   Must be 1 to 64 alphanumeric characters or hyphens. The user name
     --     can\'t be @PUBLIC@.
     --
-    -- -   Must contain only lowercase letters, numbers, underscore, plus sign,
-    --     period (dot), at symbol (\@), or hyphen.
+    -- -   Must contain uppercase or lowercase letters, numbers, underscore,
+    --     plus sign, period (dot), at symbol (\@), or hyphen.
     --
     -- -   First character must be a letter.
     --
@@ -208,8 +208,8 @@ data GetClusterCredentials = GetClusterCredentials'
 --
 -- -   Must be 1 to 64 alphanumeric characters or hyphens
 --
--- -   Must contain only lowercase letters, numbers, underscore, plus sign,
---     period (dot), at symbol (\@), or hyphen.
+-- -   Must contain uppercase or lowercase letters, numbers, underscore,
+--     plus sign, period (dot), at symbol (\@), or hyphen.
 --
 -- -   First character must be a letter.
 --
@@ -237,8 +237,8 @@ data GetClusterCredentials = GetClusterCredentials'
 -- -   Must be 1 to 64 alphanumeric characters or hyphens. The user name
 --     can\'t be @PUBLIC@.
 --
--- -   Must contain only lowercase letters, numbers, underscore, plus sign,
---     period (dot), at symbol (\@), or hyphen.
+-- -   Must contain uppercase or lowercase letters, numbers, underscore,
+--     plus sign, period (dot), at symbol (\@), or hyphen.
 --
 -- -   First character must be a letter.
 --
@@ -309,8 +309,8 @@ getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreat
 --
 -- -   Must be 1 to 64 alphanumeric characters or hyphens
 --
--- -   Must contain only lowercase letters, numbers, underscore, plus sign,
---     period (dot), at symbol (\@), or hyphen.
+-- -   Must contain uppercase or lowercase letters, numbers, underscore,
+--     plus sign, period (dot), at symbol (\@), or hyphen.
 --
 -- -   First character must be a letter.
 --
@@ -340,8 +340,8 @@ getClusterCredentials_dbName = Lens.lens (\GetClusterCredentials' {dbName} -> db
 -- -   Must be 1 to 64 alphanumeric characters or hyphens. The user name
 --     can\'t be @PUBLIC@.
 --
--- -   Must contain only lowercase letters, numbers, underscore, plus sign,
---     period (dot), at symbol (\@), or hyphen.
+-- -   Must contain uppercase or lowercase letters, numbers, underscore,
+--     plus sign, period (dot), at symbol (\@), or hyphen.
 --
 -- -   First character must be a letter.
 --

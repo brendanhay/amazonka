@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Redshift.ModifyAquaConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+-- This operation is retired. Calling this operation does not change AQUA
+-- configuration. Amazon Redshift automatically determines whether to use
+-- AQUA (Advanced Query Accelerator).
 module Amazonka.Redshift.ModifyAquaConfiguration
   ( -- * Creating a Request
     ModifyAquaConfiguration (..),
@@ -49,15 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyAquaConfiguration' smart constructor.
 data ModifyAquaConfiguration = ModifyAquaConfiguration'
-  { -- | The new value of AQUA configuration status. Possible values include the
-    -- following.
-    --
-    -- -   enabled - Use AQUA if it is available for the current Amazon Web
-    --     Services Region and Amazon Redshift node type.
-    --
-    -- -   disabled - Don\'t use AQUA.
-    --
-    -- -   auto - Amazon Redshift determines whether to use AQUA.
+  { -- | This parameter is retired. Amazon Redshift automatically determines
+    -- whether to use AQUA (Advanced Query Accelerator).
     aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
     -- | The identifier of the cluster to be modified.
     clusterIdentifier :: Prelude.Text
@@ -72,15 +67,8 @@ data ModifyAquaConfiguration = ModifyAquaConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aquaConfigurationStatus', 'modifyAquaConfiguration_aquaConfigurationStatus' - The new value of AQUA configuration status. Possible values include the
--- following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- 'aquaConfigurationStatus', 'modifyAquaConfiguration_aquaConfigurationStatus' - This parameter is retired. Amazon Redshift automatically determines
+-- whether to use AQUA (Advanced Query Accelerator).
 --
 -- 'clusterIdentifier', 'modifyAquaConfiguration_clusterIdentifier' - The identifier of the cluster to be modified.
 newModifyAquaConfiguration ::
@@ -94,15 +82,8 @@ newModifyAquaConfiguration pClusterIdentifier_ =
       clusterIdentifier = pClusterIdentifier_
     }
 
--- | The new value of AQUA configuration status. Possible values include the
--- following.
---
--- -   enabled - Use AQUA if it is available for the current Amazon Web
---     Services Region and Amazon Redshift node type.
---
--- -   disabled - Don\'t use AQUA.
---
--- -   auto - Amazon Redshift determines whether to use AQUA.
+-- | This parameter is retired. Amazon Redshift automatically determines
+-- whether to use AQUA (Advanced Query Accelerator).
 modifyAquaConfiguration_aquaConfigurationStatus :: Lens.Lens' ModifyAquaConfiguration (Prelude.Maybe AquaConfigurationStatus)
 modifyAquaConfiguration_aquaConfigurationStatus = Lens.lens (\ModifyAquaConfiguration' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@ModifyAquaConfiguration' {} a -> s {aquaConfigurationStatus = a} :: ModifyAquaConfiguration)
 
@@ -155,7 +136,8 @@ instance Core.ToQuery ModifyAquaConfiguration where
 
 -- | /See:/ 'newModifyAquaConfigurationResponse' smart constructor.
 data ModifyAquaConfigurationResponse = ModifyAquaConfigurationResponse'
-  { -- | The updated AQUA configuration of the cluster.
+  { -- | This parameter is retired. Amazon Redshift automatically determines
+    -- whether to use AQUA (Advanced Query Accelerator).
     aquaConfiguration :: Prelude.Maybe AquaConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -170,7 +152,8 @@ data ModifyAquaConfigurationResponse = ModifyAquaConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aquaConfiguration', 'modifyAquaConfigurationResponse_aquaConfiguration' - The updated AQUA configuration of the cluster.
+-- 'aquaConfiguration', 'modifyAquaConfigurationResponse_aquaConfiguration' - This parameter is retired. Amazon Redshift automatically determines
+-- whether to use AQUA (Advanced Query Accelerator).
 --
 -- 'httpStatus', 'modifyAquaConfigurationResponse_httpStatus' - The response's http status code.
 newModifyAquaConfigurationResponse ::
@@ -184,7 +167,8 @@ newModifyAquaConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The updated AQUA configuration of the cluster.
+-- | This parameter is retired. Amazon Redshift automatically determines
+-- whether to use AQUA (Advanced Query Accelerator).
 modifyAquaConfigurationResponse_aquaConfiguration :: Lens.Lens' ModifyAquaConfigurationResponse (Prelude.Maybe AquaConfiguration)
 modifyAquaConfigurationResponse_aquaConfiguration = Lens.lens (\ModifyAquaConfigurationResponse' {aquaConfiguration} -> aquaConfiguration) (\s@ModifyAquaConfigurationResponse' {} a -> s {aquaConfiguration = a} :: ModifyAquaConfigurationResponse)
 

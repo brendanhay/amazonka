@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetLaunchProfileMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,8 +52,7 @@ import qualified Amazonka.Response as Response
 data GetLaunchProfileMember = GetLaunchProfileMember'
   { -- | The Launch Profile ID.
     launchProfileId :: Prelude.Text,
-    -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+    -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -70,8 +69,7 @@ data GetLaunchProfileMember = GetLaunchProfileMember'
 --
 -- 'launchProfileId', 'getLaunchProfileMember_launchProfileId' - The Launch Profile ID.
 --
--- 'principalId', 'getLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'getLaunchProfileMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'studioId', 'getLaunchProfileMember_studioId' - The studio ID.
 newGetLaunchProfileMember ::
@@ -97,8 +95,7 @@ newGetLaunchProfileMember
 getLaunchProfileMember_launchProfileId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
 getLaunchProfileMember_launchProfileId = Lens.lens (\GetLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileMember' {} a -> s {launchProfileId = a} :: GetLaunchProfileMember)
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 getLaunchProfileMember_principalId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
 getLaunchProfileMember_principalId = Lens.lens (\GetLaunchProfileMember' {principalId} -> principalId) (\s@GetLaunchProfileMember' {} a -> s {principalId = a} :: GetLaunchProfileMember)
 

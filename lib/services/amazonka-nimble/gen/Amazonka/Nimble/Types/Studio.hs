@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.Studio
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- When creating a studio, you must provides two IAM roles for use with the
 -- Nimble Studio portal. These roles are assumed by your users when they
--- log in to the Nimble Studio portal via Amazon Web Services SSO and your
+-- log in to the Nimble Studio portal via IAM Identity Center and your
 -- identity source.
 --
 -- The user role must have the AmazonNimbleStudio-StudioUser managed policy
@@ -58,9 +58,9 @@ data Studio = Studio'
     -- | The name of the studio, as included in the URL when accessing it in the
     -- Nimble Studio portal.
     studioName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services SSO application client ID used to integrate with
-    -- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
-    -- in to Nimble Studio portal.
+    -- | The IAM Identity Center application client ID used to integrate with IAM
+    -- Identity Center to enable IAM Identity Center users to log in to Nimble
+    -- Studio portal.
     ssoClientId :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that studio admins assume when logging in to the Nimble
     -- Studio portal.
@@ -109,9 +109,9 @@ data Studio = Studio'
 -- 'studioName', 'studio_studioName' - The name of the studio, as included in the URL when accessing it in the
 -- Nimble Studio portal.
 --
--- 'ssoClientId', 'studio_ssoClientId' - The Amazon Web Services SSO application client ID used to integrate with
--- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
--- in to Nimble Studio portal.
+-- 'ssoClientId', 'studio_ssoClientId' - The IAM Identity Center application client ID used to integrate with IAM
+-- Identity Center to enable IAM Identity Center users to log in to Nimble
+-- Studio portal.
 --
 -- 'adminRoleArn', 'studio_adminRoleArn' - The IAM role that studio admins assume when logging in to the Nimble
 -- Studio portal.
@@ -176,9 +176,9 @@ studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = 
 studio_studioName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_studioName = Lens.lens (\Studio' {studioName} -> studioName) (\s@Studio' {} a -> s {studioName = a} :: Studio)
 
--- | The Amazon Web Services SSO application client ID used to integrate with
--- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
--- in to Nimble Studio portal.
+-- | The IAM Identity Center application client ID used to integrate with IAM
+-- Identity Center to enable IAM Identity Center users to log in to Nimble
+-- Studio portal.
 studio_ssoClientId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_ssoClientId = Lens.lens (\Studio' {ssoClientId} -> ssoClientId) (\s@Studio' {} a -> s {ssoClientId = a} :: Studio)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetStudioMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStudioMember' smart constructor.
 data GetStudioMember = GetStudioMember'
-  { -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+  { -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -65,8 +64,7 @@ data GetStudioMember = GetStudioMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'getStudioMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'getStudioMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'studioId', 'getStudioMember_studioId' - The studio ID.
 newGetStudioMember ::
@@ -81,8 +79,7 @@ newGetStudioMember pPrincipalId_ pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 getStudioMember_principalId :: Lens.Lens' GetStudioMember Prelude.Text
 getStudioMember_principalId = Lens.lens (\GetStudioMember' {principalId} -> principalId) (\s@GetStudioMember' {} a -> s {principalId = a} :: GetStudioMember)
 

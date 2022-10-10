@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.UpdateLaunchProfileMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,8 +61,7 @@ data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
     launchProfileId :: Prelude.Text,
     -- | The persona.
     persona :: LaunchProfilePersona,
-    -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+    -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -86,8 +85,7 @@ data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
 --
 -- 'persona', 'updateLaunchProfileMember_persona' - The persona.
 --
--- 'principalId', 'updateLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'updateLaunchProfileMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'studioId', 'updateLaunchProfileMember_studioId' - The studio ID.
 newUpdateLaunchProfileMember ::
@@ -129,8 +127,7 @@ updateLaunchProfileMember_launchProfileId = Lens.lens (\UpdateLaunchProfileMembe
 updateLaunchProfileMember_persona :: Lens.Lens' UpdateLaunchProfileMember LaunchProfilePersona
 updateLaunchProfileMember_persona = Lens.lens (\UpdateLaunchProfileMember' {persona} -> persona) (\s@UpdateLaunchProfileMember' {} a -> s {persona = a} :: UpdateLaunchProfileMember)
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 updateLaunchProfileMember_principalId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
 updateLaunchProfileMember_principalId = Lens.lens (\UpdateLaunchProfileMember' {principalId} -> principalId) (\s@UpdateLaunchProfileMember' {} a -> s {principalId = a} :: UpdateLaunchProfileMember)
 

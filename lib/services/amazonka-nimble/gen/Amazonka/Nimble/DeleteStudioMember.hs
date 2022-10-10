@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteStudioMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,7 @@ data DeleteStudioMember = DeleteStudioMember'
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The principal ID. This currently supports a Amazon Web Services SSO
-    -- UserId.
+    -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -75,8 +74,7 @@ data DeleteStudioMember = DeleteStudioMember'
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
 --
--- 'principalId', 'deleteStudioMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- 'principalId', 'deleteStudioMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'studioId', 'deleteStudioMember_studioId' - The studio ID.
 newDeleteStudioMember ::
@@ -99,8 +97,7 @@ newDeleteStudioMember pPrincipalId_ pStudioId_ =
 deleteStudioMember_clientToken :: Lens.Lens' DeleteStudioMember (Prelude.Maybe Prelude.Text)
 deleteStudioMember_clientToken = Lens.lens (\DeleteStudioMember' {clientToken} -> clientToken) (\s@DeleteStudioMember' {} a -> s {clientToken = a} :: DeleteStudioMember)
 
--- | The principal ID. This currently supports a Amazon Web Services SSO
--- UserId.
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
 deleteStudioMember_principalId :: Lens.Lens' DeleteStudioMember Prelude.Text
 deleteStudioMember_principalId = Lens.lens (\DeleteStudioMember' {principalId} -> principalId) (\s@DeleteStudioMember' {} a -> s {principalId = a} :: DeleteStudioMember)
 

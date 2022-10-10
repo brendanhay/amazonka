@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.LaunchProfileStatusCode
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@ module Amazonka.Nimble.Types.LaunchProfileStatusCode
         LaunchProfileStatusCode_ENCRYPTION_KEY_ACCESS_DENIED,
         LaunchProfileStatusCode_ENCRYPTION_KEY_NOT_FOUND,
         LaunchProfileStatusCode_INTERNAL_ERROR,
+        LaunchProfileStatusCode_INVALID_INSTANCE_TYPES_PROVIDED,
+        LaunchProfileStatusCode_INVALID_SUBNETS_COMBINATION,
         LaunchProfileStatusCode_INVALID_SUBNETS_PROVIDED,
         LaunchProfileStatusCode_LAUNCH_PROFILE_CREATED,
         LaunchProfileStatusCode_LAUNCH_PROFILE_CREATE_IN_PROGRESS,
@@ -77,6 +79,12 @@ pattern LaunchProfileStatusCode_ENCRYPTION_KEY_NOT_FOUND = LaunchProfileStatusCo
 pattern LaunchProfileStatusCode_INTERNAL_ERROR :: LaunchProfileStatusCode
 pattern LaunchProfileStatusCode_INTERNAL_ERROR = LaunchProfileStatusCode' "INTERNAL_ERROR"
 
+pattern LaunchProfileStatusCode_INVALID_INSTANCE_TYPES_PROVIDED :: LaunchProfileStatusCode
+pattern LaunchProfileStatusCode_INVALID_INSTANCE_TYPES_PROVIDED = LaunchProfileStatusCode' "INVALID_INSTANCE_TYPES_PROVIDED"
+
+pattern LaunchProfileStatusCode_INVALID_SUBNETS_COMBINATION :: LaunchProfileStatusCode
+pattern LaunchProfileStatusCode_INVALID_SUBNETS_COMBINATION = LaunchProfileStatusCode' "INVALID_SUBNETS_COMBINATION"
+
 pattern LaunchProfileStatusCode_INVALID_SUBNETS_PROVIDED :: LaunchProfileStatusCode
 pattern LaunchProfileStatusCode_INVALID_SUBNETS_PROVIDED = LaunchProfileStatusCode' "INVALID_SUBNETS_PROVIDED"
 
@@ -111,6 +119,8 @@ pattern LaunchProfileStatusCode_STREAMING_IMAGE_NOT_READY = LaunchProfileStatusC
   LaunchProfileStatusCode_ENCRYPTION_KEY_ACCESS_DENIED,
   LaunchProfileStatusCode_ENCRYPTION_KEY_NOT_FOUND,
   LaunchProfileStatusCode_INTERNAL_ERROR,
+  LaunchProfileStatusCode_INVALID_INSTANCE_TYPES_PROVIDED,
+  LaunchProfileStatusCode_INVALID_SUBNETS_COMBINATION,
   LaunchProfileStatusCode_INVALID_SUBNETS_PROVIDED,
   LaunchProfileStatusCode_LAUNCH_PROFILE_CREATED,
   LaunchProfileStatusCode_LAUNCH_PROFILE_CREATE_IN_PROGRESS,

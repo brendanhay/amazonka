@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StreamingInstanceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,12 +20,19 @@
 module Amazonka.Nimble.Types.StreamingInstanceType
   ( StreamingInstanceType
       ( ..,
+        StreamingInstanceType_G3_4xlarge,
+        StreamingInstanceType_G3s_xlarge,
         StreamingInstanceType_G4dn_12xlarge,
         StreamingInstanceType_G4dn_16xlarge,
         StreamingInstanceType_G4dn_2xlarge,
         StreamingInstanceType_G4dn_4xlarge,
         StreamingInstanceType_G4dn_8xlarge,
-        StreamingInstanceType_G4dn_xlarge
+        StreamingInstanceType_G4dn_xlarge,
+        StreamingInstanceType_G5_16xlarge,
+        StreamingInstanceType_G5_2xlarge,
+        StreamingInstanceType_G5_4xlarge,
+        StreamingInstanceType_G5_8xlarge,
+        StreamingInstanceType_G5_xlarge
       ),
   )
 where
@@ -61,6 +68,12 @@ newtype StreamingInstanceType = StreamingInstanceType'
       Core.ToXML
     )
 
+pattern StreamingInstanceType_G3_4xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G3_4xlarge = StreamingInstanceType' "g3.4xlarge"
+
+pattern StreamingInstanceType_G3s_xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G3s_xlarge = StreamingInstanceType' "g3s.xlarge"
+
 pattern StreamingInstanceType_G4dn_12xlarge :: StreamingInstanceType
 pattern StreamingInstanceType_G4dn_12xlarge = StreamingInstanceType' "g4dn.12xlarge"
 
@@ -79,12 +92,34 @@ pattern StreamingInstanceType_G4dn_8xlarge = StreamingInstanceType' "g4dn.8xlarg
 pattern StreamingInstanceType_G4dn_xlarge :: StreamingInstanceType
 pattern StreamingInstanceType_G4dn_xlarge = StreamingInstanceType' "g4dn.xlarge"
 
+pattern StreamingInstanceType_G5_16xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G5_16xlarge = StreamingInstanceType' "g5.16xlarge"
+
+pattern StreamingInstanceType_G5_2xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G5_2xlarge = StreamingInstanceType' "g5.2xlarge"
+
+pattern StreamingInstanceType_G5_4xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G5_4xlarge = StreamingInstanceType' "g5.4xlarge"
+
+pattern StreamingInstanceType_G5_8xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G5_8xlarge = StreamingInstanceType' "g5.8xlarge"
+
+pattern StreamingInstanceType_G5_xlarge :: StreamingInstanceType
+pattern StreamingInstanceType_G5_xlarge = StreamingInstanceType' "g5.xlarge"
+
 {-# COMPLETE
+  StreamingInstanceType_G3_4xlarge,
+  StreamingInstanceType_G3s_xlarge,
   StreamingInstanceType_G4dn_12xlarge,
   StreamingInstanceType_G4dn_16xlarge,
   StreamingInstanceType_G4dn_2xlarge,
   StreamingInstanceType_G4dn_4xlarge,
   StreamingInstanceType_G4dn_8xlarge,
   StreamingInstanceType_G4dn_xlarge,
+  StreamingInstanceType_G5_16xlarge,
+  StreamingInstanceType_G5_2xlarge,
+  StreamingInstanceType_G5_4xlarge,
+  StreamingInstanceType_G5_8xlarge,
+  StreamingInstanceType_G5_xlarge,
   StreamingInstanceType'
   #-}

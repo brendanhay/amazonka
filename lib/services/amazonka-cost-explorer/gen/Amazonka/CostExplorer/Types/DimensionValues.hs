@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.DimensionValues
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data DimensionValues = DimensionValues'
   { -- | The names of the metadata types that you can use to filter and group
     -- your results. For example, @AZ@ returns a list of Availability Zones.
+    -- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
     key :: Prelude.Maybe Dimension,
     -- | The match options that you can use to filter your results.
     -- @MatchOptions@ is only applicable for actions related to Cost Category.
@@ -53,6 +55,8 @@ data DimensionValues = DimensionValues'
 --
 -- 'key', 'dimensionValues_key' - The names of the metadata types that you can use to filter and group
 -- your results. For example, @AZ@ returns a list of Availability Zones.
+-- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
 --
 -- 'matchOptions', 'dimensionValues_matchOptions' - The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
@@ -71,6 +75,8 @@ newDimensionValues =
 
 -- | The names of the metadata types that you can use to filter and group
 -- your results. For example, @AZ@ returns a list of Availability Zones.
+-- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
 dimensionValues_key :: Lens.Lens' DimensionValues (Prelude.Maybe Dimension)
 dimensionValues_key = Lens.lens (\DimensionValues' {key} -> key) (\s@DimensionValues' {} a -> s {key = a} :: DimensionValues)
 

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,7 @@ module Amazonka.CostExplorer.Lens
     createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
     createCostCategoryDefinition_resourceTags,
+    createCostCategoryDefinition_effectiveStart,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -343,6 +344,7 @@ module Amazonka.CostExplorer.Lens
     -- ** UpdateCostCategoryDefinition
     updateCostCategoryDefinition_splitChargeRules,
     updateCostCategoryDefinition_defaultValue,
+    updateCostCategoryDefinition_effectiveStart,
     updateCostCategoryDefinition_costCategoryArn,
     updateCostCategoryDefinition_ruleVersion,
     updateCostCategoryDefinition_rules,

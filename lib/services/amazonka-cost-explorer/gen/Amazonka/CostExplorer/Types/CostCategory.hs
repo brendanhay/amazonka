@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.CostCategory
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data CostCategory = CostCategory'
   { -- | The split charge rules that are used to allocate your charges between
     -- your Cost Category values.
     splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
-    -- | The effective end data of your Cost Category.
+    -- | The effective end date of your Cost Category.
     effectiveEnd :: Prelude.Maybe Prelude.Text,
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The list of processing statuses for Cost Management products for a
@@ -43,7 +43,7 @@ data CostCategory = CostCategory'
     processingStatus :: Prelude.Maybe [CostCategoryProcessingStatus],
     -- | The unique identifier for your Cost Category.
     costCategoryArn :: Prelude.Text,
-    -- | The effective state data of your Cost Category.
+    -- | The effective start date of your Cost Category.
     effectiveStart :: Prelude.Text,
     name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
@@ -65,7 +65,7 @@ data CostCategory = CostCategory'
 -- 'splitChargeRules', 'costCategory_splitChargeRules' - The split charge rules that are used to allocate your charges between
 -- your Cost Category values.
 --
--- 'effectiveEnd', 'costCategory_effectiveEnd' - The effective end data of your Cost Category.
+-- 'effectiveEnd', 'costCategory_effectiveEnd' - The effective end date of your Cost Category.
 --
 -- 'defaultValue', 'costCategory_defaultValue' - Undocumented member.
 --
@@ -74,7 +74,7 @@ data CostCategory = CostCategory'
 --
 -- 'costCategoryArn', 'costCategory_costCategoryArn' - The unique identifier for your Cost Category.
 --
--- 'effectiveStart', 'costCategory_effectiveStart' - The effective state data of your Cost Category.
+-- 'effectiveStart', 'costCategory_effectiveStart' - The effective start date of your Cost Category.
 --
 -- 'name', 'costCategory_name' - Undocumented member.
 --
@@ -118,7 +118,7 @@ newCostCategory
 costCategory_splitChargeRules :: Lens.Lens' CostCategory (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
 costCategory_splitChargeRules = Lens.lens (\CostCategory' {splitChargeRules} -> splitChargeRules) (\s@CostCategory' {} a -> s {splitChargeRules = a} :: CostCategory) Prelude.. Lens.mapping Lens.coerced
 
--- | The effective end data of your Cost Category.
+-- | The effective end date of your Cost Category.
 costCategory_effectiveEnd :: Lens.Lens' CostCategory (Prelude.Maybe Prelude.Text)
 costCategory_effectiveEnd = Lens.lens (\CostCategory' {effectiveEnd} -> effectiveEnd) (\s@CostCategory' {} a -> s {effectiveEnd = a} :: CostCategory)
 
@@ -135,7 +135,7 @@ costCategory_processingStatus = Lens.lens (\CostCategory' {processingStatus} -> 
 costCategory_costCategoryArn :: Lens.Lens' CostCategory Prelude.Text
 costCategory_costCategoryArn = Lens.lens (\CostCategory' {costCategoryArn} -> costCategoryArn) (\s@CostCategory' {} a -> s {costCategoryArn = a} :: CostCategory)
 
--- | The effective state data of your Cost Category.
+-- | The effective start date of your Cost Category.
 costCategory_effectiveStart :: Lens.Lens' CostCategory Prelude.Text
 costCategory_effectiveStart = Lens.lens (\CostCategory' {effectiveStart} -> effectiveStart) (\s@CostCategory' {} a -> s {effectiveStart = a} :: CostCategory)
 

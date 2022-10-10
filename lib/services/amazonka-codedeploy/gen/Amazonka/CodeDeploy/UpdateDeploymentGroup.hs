@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.UpdateDeploymentGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,23 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
   { -- | Information about the load balancer used in a deployment.
     loadBalancerInfo :: Prelude.Maybe LoadBalancerInfo,
     -- | The replacement list of Auto Scaling groups to be included in the
-    -- deployment group, if you want to change them. To keep the Auto Scaling
-    -- groups, enter their names. To remove Auto Scaling groups, do not enter
-    -- any Auto Scaling group names.
+    -- deployment group, if you want to change them.
+    --
+    -- -   To keep the Auto Scaling groups, enter their names or do not specify
+    --     this parameter.
+    --
+    -- -   To remove Auto Scaling groups, specify a non-null empty list of Auto
+    --     Scaling group names to detach all CodeDeploy-managed Auto Scaling
+    --     lifecycle hooks. For examples, see
+    --     <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error \"Heartbeat Timeout\">
+    --     in the /CodeDeploy User Guide/.
     autoScalingGroups :: Prelude.Maybe [Prelude.Text],
     -- | A replacement ARN for the service role, if you want to change it.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Information about triggers to change when the deployment group is
     -- updated. For examples, see
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group>
-    -- in the /AWS CodeDeploy User Guide/.
+    -- in the /CodeDeploy User Guide/.
     triggerConfigurations :: Prelude.Maybe [TriggerConfig],
     -- | The new name of the deployment group, if you want to change it.
     newDeploymentGroupName' :: Prelude.Maybe Prelude.Text,
@@ -107,24 +114,24 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
     -- | Information about an on-premises instance tag set. The deployment group
     -- includes only on-premises instances identified by all the tag groups.
     onPremisesTagSet :: Prelude.Maybe OnPremisesTagSet,
-    -- | Indicates what happens when new EC2 instances are launched
+    -- | Indicates what happens when new Amazon EC2 instances are launched
     -- mid-deployment and do not receive the deployed application revision.
     --
     -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
     -- initiates one or more \'auto-update outdated instances\' deployments to
-    -- apply the deployed application revision to the new EC2 instances.
+    -- apply the deployed application revision to the new Amazon EC2 instances.
     --
     -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
-    -- deployment to update the new EC2 instances. This may result in instances
-    -- having different revisions.
+    -- deployment to update the new Amazon EC2 instances. This may result in
+    -- instances having different revisions.
     outdatedInstancesStrategy :: Prelude.Maybe OutdatedInstancesStrategy,
     -- | The replacement set of on-premises instance tags on which to filter, if
     -- you want to change them. To keep the existing tags, enter their names.
     -- To remove tags, do not enter any tag names.
     onPremisesInstanceTagFilters :: Prelude.Maybe [TagFilter],
     -- | Information about groups of tags applied to on-premises instances. The
-    -- deployment group includes only EC2 instances identified by all the tag
-    -- groups.
+    -- deployment group includes only Amazon EC2 instances identified by all
+    -- the tag groups.
     ec2TagSet :: Prelude.Maybe EC2TagSet,
     -- | The replacement deployment configuration name to use, if you want to
     -- change it.
@@ -147,16 +154,23 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 -- 'loadBalancerInfo', 'updateDeploymentGroup_loadBalancerInfo' - Information about the load balancer used in a deployment.
 --
 -- 'autoScalingGroups', 'updateDeploymentGroup_autoScalingGroups' - The replacement list of Auto Scaling groups to be included in the
--- deployment group, if you want to change them. To keep the Auto Scaling
--- groups, enter their names. To remove Auto Scaling groups, do not enter
--- any Auto Scaling group names.
+-- deployment group, if you want to change them.
+--
+-- -   To keep the Auto Scaling groups, enter their names or do not specify
+--     this parameter.
+--
+-- -   To remove Auto Scaling groups, specify a non-null empty list of Auto
+--     Scaling group names to detach all CodeDeploy-managed Auto Scaling
+--     lifecycle hooks. For examples, see
+--     <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error \"Heartbeat Timeout\">
+--     in the /CodeDeploy User Guide/.
 --
 -- 'serviceRoleArn', 'updateDeploymentGroup_serviceRoleArn' - A replacement ARN for the service role, if you want to change it.
 --
 -- 'triggerConfigurations', 'updateDeploymentGroup_triggerConfigurations' - Information about triggers to change when the deployment group is
 -- updated. For examples, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group>
--- in the /AWS CodeDeploy User Guide/.
+-- in the /CodeDeploy User Guide/.
 --
 -- 'newDeploymentGroupName'', 'updateDeploymentGroup_newDeploymentGroupName' - The new name of the deployment group, if you want to change it.
 --
@@ -184,24 +198,24 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 -- 'onPremisesTagSet', 'updateDeploymentGroup_onPremisesTagSet' - Information about an on-premises instance tag set. The deployment group
 -- includes only on-premises instances identified by all the tag groups.
 --
--- 'outdatedInstancesStrategy', 'updateDeploymentGroup_outdatedInstancesStrategy' - Indicates what happens when new EC2 instances are launched
+-- 'outdatedInstancesStrategy', 'updateDeploymentGroup_outdatedInstancesStrategy' - Indicates what happens when new Amazon EC2 instances are launched
 -- mid-deployment and do not receive the deployed application revision.
 --
 -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
 -- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
+-- apply the deployed application revision to the new Amazon EC2 instances.
 --
 -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
+-- deployment to update the new Amazon EC2 instances. This may result in
+-- instances having different revisions.
 --
 -- 'onPremisesInstanceTagFilters', 'updateDeploymentGroup_onPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if
 -- you want to change them. To keep the existing tags, enter their names.
 -- To remove tags, do not enter any tag names.
 --
 -- 'ec2TagSet', 'updateDeploymentGroup_ec2TagSet' - Information about groups of tags applied to on-premises instances. The
--- deployment group includes only EC2 instances identified by all the tag
--- groups.
+-- deployment group includes only Amazon EC2 instances identified by all
+-- the tag groups.
 --
 -- 'deploymentConfigName', 'updateDeploymentGroup_deploymentConfigName' - The replacement deployment configuration name to use, if you want to
 -- change it.
@@ -246,9 +260,16 @@ updateDeploymentGroup_loadBalancerInfo :: Lens.Lens' UpdateDeploymentGroup (Prel
 updateDeploymentGroup_loadBalancerInfo = Lens.lens (\UpdateDeploymentGroup' {loadBalancerInfo} -> loadBalancerInfo) (\s@UpdateDeploymentGroup' {} a -> s {loadBalancerInfo = a} :: UpdateDeploymentGroup)
 
 -- | The replacement list of Auto Scaling groups to be included in the
--- deployment group, if you want to change them. To keep the Auto Scaling
--- groups, enter their names. To remove Auto Scaling groups, do not enter
--- any Auto Scaling group names.
+-- deployment group, if you want to change them.
+--
+-- -   To keep the Auto Scaling groups, enter their names or do not specify
+--     this parameter.
+--
+-- -   To remove Auto Scaling groups, specify a non-null empty list of Auto
+--     Scaling group names to detach all CodeDeploy-managed Auto Scaling
+--     lifecycle hooks. For examples, see
+--     <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error \"Heartbeat Timeout\">
+--     in the /CodeDeploy User Guide/.
 updateDeploymentGroup_autoScalingGroups :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [Prelude.Text])
 updateDeploymentGroup_autoScalingGroups = Lens.lens (\UpdateDeploymentGroup' {autoScalingGroups} -> autoScalingGroups) (\s@UpdateDeploymentGroup' {} a -> s {autoScalingGroups = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -259,7 +280,7 @@ updateDeploymentGroup_serviceRoleArn = Lens.lens (\UpdateDeploymentGroup' {servi
 -- | Information about triggers to change when the deployment group is
 -- updated. For examples, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group>
--- in the /AWS CodeDeploy User Guide/.
+-- in the /CodeDeploy User Guide/.
 updateDeploymentGroup_triggerConfigurations :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [TriggerConfig])
 updateDeploymentGroup_triggerConfigurations = Lens.lens (\UpdateDeploymentGroup' {triggerConfigurations} -> triggerConfigurations) (\s@UpdateDeploymentGroup' {} a -> s {triggerConfigurations = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -305,16 +326,16 @@ updateDeploymentGroup_ecsServices = Lens.lens (\UpdateDeploymentGroup' {ecsServi
 updateDeploymentGroup_onPremisesTagSet :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe OnPremisesTagSet)
 updateDeploymentGroup_onPremisesTagSet = Lens.lens (\UpdateDeploymentGroup' {onPremisesTagSet} -> onPremisesTagSet) (\s@UpdateDeploymentGroup' {} a -> s {onPremisesTagSet = a} :: UpdateDeploymentGroup)
 
--- | Indicates what happens when new EC2 instances are launched
+-- | Indicates what happens when new Amazon EC2 instances are launched
 -- mid-deployment and do not receive the deployed application revision.
 --
 -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
 -- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
+-- apply the deployed application revision to the new Amazon EC2 instances.
 --
 -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
+-- deployment to update the new Amazon EC2 instances. This may result in
+-- instances having different revisions.
 updateDeploymentGroup_outdatedInstancesStrategy :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe OutdatedInstancesStrategy)
 updateDeploymentGroup_outdatedInstancesStrategy = Lens.lens (\UpdateDeploymentGroup' {outdatedInstancesStrategy} -> outdatedInstancesStrategy) (\s@UpdateDeploymentGroup' {} a -> s {outdatedInstancesStrategy = a} :: UpdateDeploymentGroup)
 
@@ -325,8 +346,8 @@ updateDeploymentGroup_onPremisesInstanceTagFilters :: Lens.Lens' UpdateDeploymen
 updateDeploymentGroup_onPremisesInstanceTagFilters = Lens.lens (\UpdateDeploymentGroup' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@UpdateDeploymentGroup' {} a -> s {onPremisesInstanceTagFilters = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about groups of tags applied to on-premises instances. The
--- deployment group includes only EC2 instances identified by all the tag
--- groups.
+-- deployment group includes only Amazon EC2 instances identified by all
+-- the tag groups.
 updateDeploymentGroup_ec2TagSet :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe EC2TagSet)
 updateDeploymentGroup_ec2TagSet = Lens.lens (\UpdateDeploymentGroup' {ec2TagSet} -> ec2TagSet) (\s@UpdateDeploymentGroup' {} a -> s {ec2TagSet = a} :: UpdateDeploymentGroup)
 
@@ -469,10 +490,11 @@ instance Core.ToQuery UpdateDeploymentGroup where
 -- /See:/ 'newUpdateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
   { -- | If the output contains no data, and the corresponding deployment group
-    -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+    -- contained at least one Auto Scaling group, CodeDeploy successfully
     -- removed all corresponding Auto Scaling lifecycle event hooks from the
-    -- AWS account. If the output contains data, AWS CodeDeploy could not
-    -- remove some Auto Scaling lifecycle event hooks from the AWS account.
+    -- Amazon Web Services account. If the output contains data, CodeDeploy
+    -- could not remove some Auto Scaling lifecycle event hooks from the Amazon
+    -- Web Services account.
     hooksNotCleanedUp :: Prelude.Maybe [AutoScalingGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -488,10 +510,11 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 -- for backwards compatibility:
 --
 -- 'hooksNotCleanedUp', 'updateDeploymentGroupResponse_hooksNotCleanedUp' - If the output contains no data, and the corresponding deployment group
--- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+-- contained at least one Auto Scaling group, CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
--- AWS account. If the output contains data, AWS CodeDeploy could not
--- remove some Auto Scaling lifecycle event hooks from the AWS account.
+-- Amazon Web Services account. If the output contains data, CodeDeploy
+-- could not remove some Auto Scaling lifecycle event hooks from the Amazon
+-- Web Services account.
 --
 -- 'httpStatus', 'updateDeploymentGroupResponse_httpStatus' - The response's http status code.
 newUpdateDeploymentGroupResponse ::
@@ -506,10 +529,11 @@ newUpdateDeploymentGroupResponse pHttpStatus_ =
     }
 
 -- | If the output contains no data, and the corresponding deployment group
--- contained at least one Auto Scaling group, AWS CodeDeploy successfully
+-- contained at least one Auto Scaling group, CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
--- AWS account. If the output contains data, AWS CodeDeploy could not
--- remove some Auto Scaling lifecycle event hooks from the AWS account.
+-- Amazon Web Services account. If the output contains data, CodeDeploy
+-- could not remove some Auto Scaling lifecycle event hooks from the Amazon
+-- Web Services account.
 updateDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' UpdateDeploymentGroupResponse (Prelude.Maybe [AutoScalingGroup])
 updateDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\UpdateDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@UpdateDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: UpdateDeploymentGroupResponse) Prelude.. Lens.mapping Lens.coerced
 

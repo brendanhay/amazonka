@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.TimeBasedCanary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,9 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration that shifts traffic from one version of a Lambda
--- function or ECS task set to another in two increments. The original and
--- target Lambda function versions or ECS task sets are specified in the
--- deployment\'s AppSpec file.
+-- function or Amazon ECS task set to another in two increments. The
+-- original and target Lambda function versions or ECS task sets are
+-- specified in the deployment\'s AppSpec file.
 --
 -- /See:/ 'newTimeBasedCanary' smart constructor.
 data TimeBasedCanary = TimeBasedCanary'

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.GetDeploymentGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDeploymentGroup' smart constructor.
 data GetDeploymentGroup = GetDeploymentGroup'
-  { -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+  { -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text,
     -- | The name of a deployment group for the specified application.
     deploymentGroupName :: Prelude.Text
@@ -67,8 +67,8 @@ data GetDeploymentGroup = GetDeploymentGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'getDeploymentGroup_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'getDeploymentGroup_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 --
 -- 'deploymentGroupName', 'getDeploymentGroup_deploymentGroupName' - The name of a deployment group for the specified application.
 newGetDeploymentGroup ::
@@ -86,8 +86,8 @@ newGetDeploymentGroup
         deploymentGroupName = pDeploymentGroupName_
       }
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 getDeploymentGroup_applicationName :: Lens.Lens' GetDeploymentGroup Prelude.Text
 getDeploymentGroup_applicationName = Lens.lens (\GetDeploymentGroup' {applicationName} -> applicationName) (\s@GetDeploymentGroup' {} a -> s {applicationName = a} :: GetDeploymentGroup)
 

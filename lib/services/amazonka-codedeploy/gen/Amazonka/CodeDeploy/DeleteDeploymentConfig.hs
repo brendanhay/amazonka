@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.DeleteDeploymentConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDeleteDeploymentConfig' smart constructor.
 data DeleteDeploymentConfig = DeleteDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or
-    -- AWS account.
+    -- Amazon Web Services account.
     deploymentConfigName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data DeleteDeploymentConfig = DeleteDeploymentConfig'
 -- for backwards compatibility:
 --
 -- 'deploymentConfigName', 'deleteDeploymentConfig_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
--- AWS account.
+-- Amazon Web Services account.
 newDeleteDeploymentConfig ::
   -- | 'deploymentConfigName'
   Prelude.Text ->
@@ -76,7 +76,7 @@ newDeleteDeploymentConfig pDeploymentConfigName_ =
     }
 
 -- | The name of a deployment configuration associated with the IAM user or
--- AWS account.
+-- Amazon Web Services account.
 deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Prelude.Text
 deleteDeploymentConfig_deploymentConfigName = Lens.lens (\DeleteDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@DeleteDeploymentConfig' {} a -> s {deploymentConfigName = a} :: DeleteDeploymentConfig)
 

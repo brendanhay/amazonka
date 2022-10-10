@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetApplication' smart constructor.
 data GetApplication = GetApplication'
-  { -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+  { -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +64,8 @@ data GetApplication = GetApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'getApplication_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'getApplication_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 newGetApplication ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -76,8 +76,8 @@ newGetApplication pApplicationName_ =
         pApplicationName_
     }
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 getApplication_applicationName :: Lens.Lens' GetApplication Prelude.Text
 getApplication_applicationName = Lens.lens (\GetApplication' {applicationName} -> applicationName) (\s@GetApplication' {} a -> s {applicationName = a} :: GetApplication)
 

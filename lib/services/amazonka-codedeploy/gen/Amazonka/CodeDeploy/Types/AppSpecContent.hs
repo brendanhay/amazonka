@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.AppSpecContent
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A revision for an AWS Lambda or Amazon ECS deployment that is a
--- YAML-formatted or JSON-formatted string. For AWS Lambda and Amazon ECS
+-- | A revision for an Lambda or Amazon ECS deployment that is a
+-- YAML-formatted or JSON-formatted string. For Lambda and Amazon ECS
 -- deployments, the revision is the same as the AppSpec file. This method
 -- replaces the deprecated @RawString@ data type.
 --
@@ -34,10 +34,10 @@ data AppSpecContent = AppSpecContent'
     sha256 :: Prelude.Maybe Prelude.Text,
     -- | The YAML-formatted or JSON-formatted revision string.
     --
-    -- For an AWS Lambda deployment, the content includes a Lambda function
-    -- name, the alias for its original version, and the alias for its
-    -- replacement version. The deployment shifts traffic from the original
-    -- version of the Lambda function to the replacement version.
+    -- For an Lambda deployment, the content includes a Lambda function name,
+    -- the alias for its original version, and the alias for its replacement
+    -- version. The deployment shifts traffic from the original version of the
+    -- Lambda function to the replacement version.
     --
     -- For an Amazon ECS deployment, the content includes the task name,
     -- information about the load balancer that serves traffic to the
@@ -62,10 +62,10 @@ data AppSpecContent = AppSpecContent'
 --
 -- 'content', 'appSpecContent_content' - The YAML-formatted or JSON-formatted revision string.
 --
--- For an AWS Lambda deployment, the content includes a Lambda function
--- name, the alias for its original version, and the alias for its
--- replacement version. The deployment shifts traffic from the original
--- version of the Lambda function to the replacement version.
+-- For an Lambda deployment, the content includes a Lambda function name,
+-- the alias for its original version, and the alias for its replacement
+-- version. The deployment shifts traffic from the original version of the
+-- Lambda function to the replacement version.
 --
 -- For an Amazon ECS deployment, the content includes the task name,
 -- information about the load balancer that serves traffic to the
@@ -88,10 +88,10 @@ appSpecContent_sha256 = Lens.lens (\AppSpecContent' {sha256} -> sha256) (\s@AppS
 
 -- | The YAML-formatted or JSON-formatted revision string.
 --
--- For an AWS Lambda deployment, the content includes a Lambda function
--- name, the alias for its original version, and the alias for its
--- replacement version. The deployment shifts traffic from the original
--- version of the Lambda function to the replacement version.
+-- For an Lambda deployment, the content includes a Lambda function name,
+-- the alias for its original version, and the alias for its replacement
+-- version. The deployment shifts traffic from the original version of the
+-- Lambda function to the replacement version.
 --
 -- For an Amazon ECS deployment, the content includes the task name,
 -- information about the load balancer that serves traffic to the

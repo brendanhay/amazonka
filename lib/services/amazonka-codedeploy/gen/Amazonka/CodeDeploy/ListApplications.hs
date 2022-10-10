@@ -14,13 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.ListApplications
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the applications registered with the IAM user or AWS account.
+-- Lists the applications registered with the IAM user or Amazon Web
+-- Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeDeploy.ListApplications

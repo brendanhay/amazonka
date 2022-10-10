@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.GenericRevisionInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 data GenericRevisionInfo = GenericRevisionInfo'
   { -- | The deployment groups for which this is the current target revision.
     deploymentGroups :: Prelude.Maybe [Prelude.Text],
-    -- | When the revision was registered with AWS CodeDeploy.
+    -- | When the revision was registered with CodeDeploy.
     registerTime :: Prelude.Maybe Core.POSIX,
     -- | A comment about the revision.
     description :: Prelude.Maybe Prelude.Text,
-    -- | When the revision was first used by AWS CodeDeploy.
+    -- | When the revision was first used by CodeDeploy.
     firstUsedTime :: Prelude.Maybe Core.POSIX,
-    -- | When the revision was last used by AWS CodeDeploy.
+    -- | When the revision was last used by CodeDeploy.
     lastUsedTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +50,13 @@ data GenericRevisionInfo = GenericRevisionInfo'
 --
 -- 'deploymentGroups', 'genericRevisionInfo_deploymentGroups' - The deployment groups for which this is the current target revision.
 --
--- 'registerTime', 'genericRevisionInfo_registerTime' - When the revision was registered with AWS CodeDeploy.
+-- 'registerTime', 'genericRevisionInfo_registerTime' - When the revision was registered with CodeDeploy.
 --
 -- 'description', 'genericRevisionInfo_description' - A comment about the revision.
 --
--- 'firstUsedTime', 'genericRevisionInfo_firstUsedTime' - When the revision was first used by AWS CodeDeploy.
+-- 'firstUsedTime', 'genericRevisionInfo_firstUsedTime' - When the revision was first used by CodeDeploy.
 --
--- 'lastUsedTime', 'genericRevisionInfo_lastUsedTime' - When the revision was last used by AWS CodeDeploy.
+-- 'lastUsedTime', 'genericRevisionInfo_lastUsedTime' - When the revision was last used by CodeDeploy.
 newGenericRevisionInfo ::
   GenericRevisionInfo
 newGenericRevisionInfo =
@@ -73,7 +73,7 @@ newGenericRevisionInfo =
 genericRevisionInfo_deploymentGroups :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe [Prelude.Text])
 genericRevisionInfo_deploymentGroups = Lens.lens (\GenericRevisionInfo' {deploymentGroups} -> deploymentGroups) (\s@GenericRevisionInfo' {} a -> s {deploymentGroups = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | When the revision was registered with AWS CodeDeploy.
+-- | When the revision was registered with CodeDeploy.
 genericRevisionInfo_registerTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_registerTime = Lens.lens (\GenericRevisionInfo' {registerTime} -> registerTime) (\s@GenericRevisionInfo' {} a -> s {registerTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
 
@@ -81,11 +81,11 @@ genericRevisionInfo_registerTime = Lens.lens (\GenericRevisionInfo' {registerTim
 genericRevisionInfo_description :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.Text)
 genericRevisionInfo_description = Lens.lens (\GenericRevisionInfo' {description} -> description) (\s@GenericRevisionInfo' {} a -> s {description = a} :: GenericRevisionInfo)
 
--- | When the revision was first used by AWS CodeDeploy.
+-- | When the revision was first used by CodeDeploy.
 genericRevisionInfo_firstUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_firstUsedTime = Lens.lens (\GenericRevisionInfo' {firstUsedTime} -> firstUsedTime) (\s@GenericRevisionInfo' {} a -> s {firstUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
 
--- | When the revision was last used by AWS CodeDeploy.
+-- | When the revision was last used by CodeDeploy.
 genericRevisionInfo_lastUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_lastUsedTime = Lens.lens (\GenericRevisionInfo' {lastUsedTime} -> lastUsedTime) (\s@GenericRevisionInfo' {} a -> s {lastUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
 

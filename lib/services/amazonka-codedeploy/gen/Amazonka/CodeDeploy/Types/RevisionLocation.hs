@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.RevisionLocation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,12 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRevisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-  { -- | Information about the location of an AWS Lambda deployment revision
-    -- stored as a RawString.
+  { -- | Information about the location of an Lambda deployment revision stored
+    -- as a RawString.
     string :: Prelude.Maybe RawString,
-    -- | The content of an AppSpec file for an AWS Lambda or Amazon ECS
-    -- deployment. The content is formatted as JSON or YAML and stored as a
-    -- RawString.
+    -- | The content of an AppSpec file for an Lambda or Amazon ECS deployment.
+    -- The content is formatted as JSON or YAML and stored as a RawString.
     appSpecContent :: Prelude.Maybe AppSpecContent,
     -- | Information about the location of a revision stored in Amazon S3.
     s3Location :: Prelude.Maybe S3Location,
@@ -51,13 +50,12 @@ data RevisionLocation = RevisionLocation'
     -- -   GitHub: An application revision stored in GitHub (EC2\/On-premises
     --     deployments only).
     --
-    -- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda
+    -- -   String: A YAML-formatted or JSON-formatted string (Lambda
     --     deployments only).
     --
     -- -   AppSpecContent: An @AppSpecContent@ object that contains the
-    --     contents of an AppSpec file for an AWS Lambda or Amazon ECS
-    --     deployment. The content is formatted as JSON or YAML stored as a
-    --     RawString.
+    --     contents of an AppSpec file for an Lambda or Amazon ECS deployment.
+    --     The content is formatted as JSON or YAML stored as a RawString.
     revisionType :: Prelude.Maybe RevisionLocationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,12 +68,11 @@ data RevisionLocation = RevisionLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'string', 'revisionLocation_string' - Information about the location of an AWS Lambda deployment revision
--- stored as a RawString.
+-- 'string', 'revisionLocation_string' - Information about the location of an Lambda deployment revision stored
+-- as a RawString.
 --
--- 'appSpecContent', 'revisionLocation_appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS
--- deployment. The content is formatted as JSON or YAML and stored as a
--- RawString.
+-- 'appSpecContent', 'revisionLocation_appSpecContent' - The content of an AppSpec file for an Lambda or Amazon ECS deployment.
+-- The content is formatted as JSON or YAML and stored as a RawString.
 --
 -- 's3Location', 'revisionLocation_s3Location' - Information about the location of a revision stored in Amazon S3.
 --
@@ -89,13 +86,12 @@ data RevisionLocation = RevisionLocation'
 -- -   GitHub: An application revision stored in GitHub (EC2\/On-premises
 --     deployments only).
 --
--- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda
+-- -   String: A YAML-formatted or JSON-formatted string (Lambda
 --     deployments only).
 --
 -- -   AppSpecContent: An @AppSpecContent@ object that contains the
---     contents of an AppSpec file for an AWS Lambda or Amazon ECS
---     deployment. The content is formatted as JSON or YAML stored as a
---     RawString.
+--     contents of an AppSpec file for an Lambda or Amazon ECS deployment.
+--     The content is formatted as JSON or YAML stored as a RawString.
 newRevisionLocation ::
   RevisionLocation
 newRevisionLocation =
@@ -107,14 +103,13 @@ newRevisionLocation =
       revisionType = Prelude.Nothing
     }
 
--- | Information about the location of an AWS Lambda deployment revision
--- stored as a RawString.
+-- | Information about the location of an Lambda deployment revision stored
+-- as a RawString.
 revisionLocation_string :: Lens.Lens' RevisionLocation (Prelude.Maybe RawString)
 revisionLocation_string = Lens.lens (\RevisionLocation' {string} -> string) (\s@RevisionLocation' {} a -> s {string = a} :: RevisionLocation)
 
--- | The content of an AppSpec file for an AWS Lambda or Amazon ECS
--- deployment. The content is formatted as JSON or YAML and stored as a
--- RawString.
+-- | The content of an AppSpec file for an Lambda or Amazon ECS deployment.
+-- The content is formatted as JSON or YAML and stored as a RawString.
 revisionLocation_appSpecContent :: Lens.Lens' RevisionLocation (Prelude.Maybe AppSpecContent)
 revisionLocation_appSpecContent = Lens.lens (\RevisionLocation' {appSpecContent} -> appSpecContent) (\s@RevisionLocation' {} a -> s {appSpecContent = a} :: RevisionLocation)
 
@@ -134,13 +129,12 @@ revisionLocation_gitHubLocation = Lens.lens (\RevisionLocation' {gitHubLocation}
 -- -   GitHub: An application revision stored in GitHub (EC2\/On-premises
 --     deployments only).
 --
--- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda
+-- -   String: A YAML-formatted or JSON-formatted string (Lambda
 --     deployments only).
 --
 -- -   AppSpecContent: An @AppSpecContent@ object that contains the
---     contents of an AppSpec file for an AWS Lambda or Amazon ECS
---     deployment. The content is formatted as JSON or YAML stored as a
---     RawString.
+--     contents of an AppSpec file for an Lambda or Amazon ECS deployment.
+--     The content is formatted as JSON or YAML stored as a RawString.
 revisionLocation_revisionType :: Lens.Lens' RevisionLocation (Prelude.Maybe RevisionLocationType)
 revisionLocation_revisionType = Lens.lens (\RevisionLocation' {revisionType} -> revisionType) (\s@RevisionLocation' {} a -> s {revisionType = a} :: RevisionLocation)
 

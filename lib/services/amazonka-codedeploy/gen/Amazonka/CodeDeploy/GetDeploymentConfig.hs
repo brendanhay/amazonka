@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.GetDeploymentConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newGetDeploymentConfig' smart constructor.
 data GetDeploymentConfig = GetDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or
-    -- AWS account.
+    -- Amazon Web Services account.
     deploymentConfigName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data GetDeploymentConfig = GetDeploymentConfig'
 -- for backwards compatibility:
 --
 -- 'deploymentConfigName', 'getDeploymentConfig_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
--- AWS account.
+-- Amazon Web Services account.
 newGetDeploymentConfig ::
   -- | 'deploymentConfigName'
   Prelude.Text ->
@@ -77,7 +77,7 @@ newGetDeploymentConfig pDeploymentConfigName_ =
     }
 
 -- | The name of a deployment configuration associated with the IAM user or
--- AWS account.
+-- Amazon Web Services account.
 getDeploymentConfig_deploymentConfigName :: Lens.Lens' GetDeploymentConfig Prelude.Text
 getDeploymentConfig_deploymentConfigName = Lens.lens (\GetDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@GetDeploymentConfig' {} a -> s {deploymentConfigName = a} :: GetDeploymentConfig)
 

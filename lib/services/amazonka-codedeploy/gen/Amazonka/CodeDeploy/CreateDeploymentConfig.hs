@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.CreateDeploymentConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
     -- -   FLEET_PERCENT: The value parameter represents the minimum number of
     --     healthy instances as a percentage of the total number of instances
     --     in the deployment. If you specify FLEET_PERCENT, at the start of the
-    --     deployment, AWS CodeDeploy converts the percentage to the equivalent
+    --     deployment, CodeDeploy converts the percentage to the equivalent
     --     number of instances and rounds up fractional instances.
     --
     -- The value parameter takes an integer.
@@ -108,7 +108,7 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 -- -   FLEET_PERCENT: The value parameter represents the minimum number of
 --     healthy instances as a percentage of the total number of instances
 --     in the deployment. If you specify FLEET_PERCENT, at the start of the
---     deployment, AWS CodeDeploy converts the percentage to the equivalent
+--     deployment, CodeDeploy converts the percentage to the equivalent
 --     number of instances and rounds up fractional instances.
 --
 -- The value parameter takes an integer.
@@ -151,7 +151,7 @@ createDeploymentConfig_trafficRoutingConfig = Lens.lens (\CreateDeploymentConfig
 -- -   FLEET_PERCENT: The value parameter represents the minimum number of
 --     healthy instances as a percentage of the total number of instances
 --     in the deployment. If you specify FLEET_PERCENT, at the start of the
---     deployment, AWS CodeDeploy converts the percentage to the equivalent
+--     deployment, CodeDeploy converts the percentage to the equivalent
 --     number of instances and rounds up fractional instances.
 --
 -- The value parameter takes an integer.

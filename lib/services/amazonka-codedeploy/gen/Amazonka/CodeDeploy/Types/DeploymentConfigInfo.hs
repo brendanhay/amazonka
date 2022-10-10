@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.DeploymentConfigInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
     -- @ECS@).
     computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The configuration that specifies how the deployment traffic is routed.
-    -- Used for deployments with a Lambda or ECS compute platform only.
+    -- Used for deployments with a Lambda or Amazon ECS compute platform only.
     trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
     -- | The time at which the deployment configuration was created.
     createTime :: Prelude.Maybe Core.POSIX,
@@ -61,7 +61,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
 -- @ECS@).
 --
 -- 'trafficRoutingConfig', 'deploymentConfigInfo_trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
--- Used for deployments with a Lambda or ECS compute platform only.
+-- Used for deployments with a Lambda or Amazon ECS compute platform only.
 --
 -- 'createTime', 'deploymentConfigInfo_createTime' - The time at which the deployment configuration was created.
 --
@@ -91,7 +91,7 @@ deploymentConfigInfo_computePlatform :: Lens.Lens' DeploymentConfigInfo (Prelude
 deploymentConfigInfo_computePlatform = Lens.lens (\DeploymentConfigInfo' {computePlatform} -> computePlatform) (\s@DeploymentConfigInfo' {} a -> s {computePlatform = a} :: DeploymentConfigInfo)
 
 -- | The configuration that specifies how the deployment traffic is routed.
--- Used for deployments with a Lambda or ECS compute platform only.
+-- Used for deployments with a Lambda or Amazon ECS compute platform only.
 deploymentConfigInfo_trafficRoutingConfig :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe TrafficRoutingConfig)
 deploymentConfigInfo_trafficRoutingConfig = Lens.lens (\DeploymentConfigInfo' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@DeploymentConfigInfo' {} a -> s {trafficRoutingConfig = a} :: DeploymentConfigInfo)
 

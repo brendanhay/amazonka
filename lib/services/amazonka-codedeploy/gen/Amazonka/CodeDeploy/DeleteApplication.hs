@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,8 +46,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { -- | The name of an AWS CodeDeploy application associated with the IAM user
-    -- or AWS account.
+  { -- | The name of an CodeDeploy application associated with the IAM user or
+    -- Amazon Web Services account.
     applicationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +60,8 @@ data DeleteApplication = DeleteApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'deleteApplication_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- 'applicationName', 'deleteApplication_applicationName' - The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 newDeleteApplication ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -72,8 +72,8 @@ newDeleteApplication pApplicationName_ =
         pApplicationName_
     }
 
--- | The name of an AWS CodeDeploy application associated with the IAM user
--- or AWS account.
+-- | The name of an CodeDeploy application associated with the IAM user or
+-- Amazon Web Services account.
 deleteApplication_applicationName :: Lens.Lens' DeleteApplication Prelude.Text
 deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationName} -> applicationName) (\s@DeleteApplication' {} a -> s {applicationName = a} :: DeleteApplication)
 

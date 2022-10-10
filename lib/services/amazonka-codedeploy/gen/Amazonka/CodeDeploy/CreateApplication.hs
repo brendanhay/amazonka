@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.CreateApplication
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ data CreateApplication = CreateApplication'
     -- @ECS@).
     computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The name of the application. This name must be unique with the
-    -- applicable IAM user or AWS account.
+    -- applicable IAM or Amazon Web Services account.
     applicationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data CreateApplication = CreateApplication'
 -- @ECS@).
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of the application. This name must be unique with the
--- applicable IAM user or AWS account.
+-- applicable IAM or Amazon Web Services account.
 newCreateApplication ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -105,7 +105,7 @@ createApplication_computePlatform :: Lens.Lens' CreateApplication (Prelude.Maybe
 createApplication_computePlatform = Lens.lens (\CreateApplication' {computePlatform} -> computePlatform) (\s@CreateApplication' {} a -> s {computePlatform = a} :: CreateApplication)
 
 -- | The name of the application. This name must be unique with the
--- applicable IAM user or AWS account.
+-- applicable IAM or Amazon Web Services account.
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 

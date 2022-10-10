@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.BatchGetApplicationRevisions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
-  { -- | The name of an AWS CodeDeploy application about which to get revision
+  { -- | The name of an CodeDeploy application about which to get revision
     -- information.
     applicationName :: Prelude.Text,
     -- | An array of @RevisionLocation@ objects that specify information to get
@@ -72,7 +72,7 @@ data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'batchGetApplicationRevisions_applicationName' - The name of an AWS CodeDeploy application about which to get revision
+-- 'applicationName', 'batchGetApplicationRevisions_applicationName' - The name of an CodeDeploy application about which to get revision
 -- information.
 --
 -- 'revisions', 'batchGetApplicationRevisions_revisions' - An array of @RevisionLocation@ objects that specify information to get
@@ -89,7 +89,7 @@ newBatchGetApplicationRevisions pApplicationName_ =
       revisions = Prelude.mempty
     }
 
--- | The name of an AWS CodeDeploy application about which to get revision
+-- | The name of an CodeDeploy application about which to get revision
 -- information.
 batchGetApplicationRevisions_applicationName :: Lens.Lens' BatchGetApplicationRevisions Prelude.Text
 batchGetApplicationRevisions_applicationName = Lens.lens (\BatchGetApplicationRevisions' {applicationName} -> applicationName) (\s@BatchGetApplicationRevisions' {} a -> s {applicationName = a} :: BatchGetApplicationRevisions)

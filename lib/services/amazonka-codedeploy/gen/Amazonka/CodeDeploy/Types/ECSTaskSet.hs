@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.ECSTaskSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,12 +25,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about a set of Amazon ECS tasks in an AWS CodeDeploy
--- deployment. An Amazon ECS task set includes details such as the desired
--- number of tasks, how many tasks are running, and whether the task set
--- serves production traffic. An AWS CodeDeploy application that uses the
--- Amazon ECS compute platform deploys a containerized application in an
--- Amazon ECS service as a task set.
+-- | Information about a set of Amazon ECS tasks in an CodeDeploy deployment.
+-- An Amazon ECS task set includes details such as the desired number of
+-- tasks, how many tasks are running, and whether the task set serves
+-- production traffic. An CodeDeploy application that uses the Amazon ECS
+-- compute platform deploys a containerized application in an Amazon ECS
+-- service as a task set.
 --
 -- /See:/ 'newECSTaskSet' smart constructor.
 data ECSTaskSet = ECSTaskSet'
@@ -47,7 +47,7 @@ data ECSTaskSet = ECSTaskSet'
     --     target group.
     status :: Prelude.Maybe Prelude.Text,
     -- | The target group associated with the task set. The target group is used
-    -- by AWS CodeDeploy to manage traffic to a task set.
+    -- by CodeDeploy to manage traffic to a task set.
     targetGroup :: Prelude.Maybe TargetGroupInfo,
     -- | The number of tasks in a task set. During a deployment that uses the
     -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
@@ -94,7 +94,7 @@ data ECSTaskSet = ECSTaskSet'
 --     target group.
 --
 -- 'targetGroup', 'eCSTaskSet_targetGroup' - The target group associated with the task set. The target group is used
--- by AWS CodeDeploy to manage traffic to a task set.
+-- by CodeDeploy to manage traffic to a task set.
 --
 -- 'desiredCount', 'eCSTaskSet_desiredCount' - The number of tasks in a task set. During a deployment that uses the
 -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
@@ -147,7 +147,7 @@ eCSTaskSet_status :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Text)
 eCSTaskSet_status = Lens.lens (\ECSTaskSet' {status} -> status) (\s@ECSTaskSet' {} a -> s {status = a} :: ECSTaskSet)
 
 -- | The target group associated with the task set. The target group is used
--- by AWS CodeDeploy to manage traffic to a task set.
+-- by CodeDeploy to manage traffic to a task set.
 eCSTaskSet_targetGroup :: Lens.Lens' ECSTaskSet (Prelude.Maybe TargetGroupInfo)
 eCSTaskSet_targetGroup = Lens.lens (\ECSTaskSet' {targetGroup} -> targetGroup) (\s@ECSTaskSet' {} a -> s {targetGroup = a} :: ECSTaskSet)
 

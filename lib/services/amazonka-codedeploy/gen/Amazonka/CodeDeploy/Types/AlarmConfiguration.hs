@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.AlarmConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,12 +24,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about alarms associated with the deployment group.
+-- | Information about alarms associated with a deployment or deployment
+-- group.
 --
 -- /See:/ 'newAlarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-  { -- | A list of alarms configured for the deployment group. A maximum of 10
-    -- alarms can be added to a deployment group.
+  { -- | A list of alarms configured for the deployment or deployment group. A
+    -- maximum of 10 alarms can be added.
     alarms :: Prelude.Maybe [Alarm],
     -- | Indicates whether a deployment should continue if information about the
     -- current state of alarms cannot be retrieved from Amazon CloudWatch. The
@@ -54,8 +55,8 @@ data AlarmConfiguration = AlarmConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarms', 'alarmConfiguration_alarms' - A list of alarms configured for the deployment group. A maximum of 10
--- alarms can be added to a deployment group.
+-- 'alarms', 'alarmConfiguration_alarms' - A list of alarms configured for the deployment or deployment group. A
+-- maximum of 10 alarms can be added.
 --
 -- 'ignorePollAlarmFailure', 'alarmConfiguration_ignorePollAlarmFailure' - Indicates whether a deployment should continue if information about the
 -- current state of alarms cannot be retrieved from Amazon CloudWatch. The
@@ -77,8 +78,8 @@ newAlarmConfiguration =
       enabled = Prelude.Nothing
     }
 
--- | A list of alarms configured for the deployment group. A maximum of 10
--- alarms can be added to a deployment group.
+-- | A list of alarms configured for the deployment or deployment group. A
+-- maximum of 10 alarms can be added.
 alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Prelude.Maybe [Alarm])
 alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.mapping Lens.coerced
 

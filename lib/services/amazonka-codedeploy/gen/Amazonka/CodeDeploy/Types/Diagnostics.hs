@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.Diagnostics
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ data Diagnostics = Diagnostics'
     message :: Prelude.Maybe Prelude.Text,
     -- | The last portion of the diagnostic log.
     --
-    -- If available, AWS CodeDeploy returns up to the last 4 KB of the
-    -- diagnostic log.
+    -- If available, CodeDeploy returns up to the last 4 KB of the diagnostic
+    -- log.
     logTail :: Prelude.Maybe Prelude.Text,
     -- | The associated error code:
     --
@@ -71,8 +71,8 @@ data Diagnostics = Diagnostics'
 --
 -- 'logTail', 'diagnostics_logTail' - The last portion of the diagnostic log.
 --
--- If available, AWS CodeDeploy returns up to the last 4 KB of the
--- diagnostic log.
+-- If available, CodeDeploy returns up to the last 4 KB of the diagnostic
+-- log.
 --
 -- 'errorCode', 'diagnostics_errorCode' - The associated error code:
 --
@@ -109,8 +109,8 @@ diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnos
 
 -- | The last portion of the diagnostic log.
 --
--- If available, AWS CodeDeploy returns up to the last 4 KB of the
--- diagnostic log.
+-- If available, CodeDeploy returns up to the last 4 KB of the diagnostic
+-- log.
 diagnostics_logTail :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_logTail = Lens.lens (\Diagnostics' {logTail} -> logTail) (\s@Diagnostics' {} a -> s {logTail = a} :: Diagnostics)
 

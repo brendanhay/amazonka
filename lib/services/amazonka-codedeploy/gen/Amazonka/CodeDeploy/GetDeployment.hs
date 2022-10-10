@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.GetDeployment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDeployment' smart constructor.
 data GetDeployment = GetDeployment'
-  { -- | The unique ID of a deployment associated with the IAM user or AWS
-    -- account.
+  { -- | The unique ID of a deployment associated with the IAM user or Amazon Web
+    -- Services account.
     deploymentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data GetDeployment = GetDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentId', 'getDeployment_deploymentId' - The unique ID of a deployment associated with the IAM user or AWS
--- account.
+-- 'deploymentId', 'getDeployment_deploymentId' - The unique ID of a deployment associated with the IAM user or Amazon Web
+-- Services account.
 newGetDeployment ::
   -- | 'deploymentId'
   Prelude.Text ->
@@ -78,8 +78,8 @@ newGetDeployment ::
 newGetDeployment pDeploymentId_ =
   GetDeployment' {deploymentId = pDeploymentId_}
 
--- | The unique ID of a deployment associated with the IAM user or AWS
--- account.
+-- | The unique ID of a deployment associated with the IAM user or Amazon Web
+-- Services account.
 getDeployment_deploymentId :: Lens.Lens' GetDeployment Prelude.Text
 getDeployment_deploymentId = Lens.lens (\GetDeployment' {deploymentId} -> deploymentId) (\s@GetDeployment' {} a -> s {deploymentId = a} :: GetDeployment)
 

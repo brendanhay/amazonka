@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.MinimumHealthyHosts
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,7 +47,7 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
     -- returns a minimum healthy instance type of MOST_CONCURRENCY and a value
     -- of 1. This means a deployment to only one instance at a time. (You
     -- cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or
-    -- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS
+    -- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime,
     -- CodeDeploy attempts to ensure that all instances but one are kept in a
     -- healthy state during the deployment. Although this allows one instance
     -- at a time to be taken offline for a new deployment, it also means that
@@ -55,8 +55,8 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
     -- still successful.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health>
-    -- in the /AWS CodeDeploy User Guide/.
+    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html CodeDeploy Instance Health>
+    -- in the /CodeDeploy User Guide/.
     type' :: Prelude.Maybe MinimumHealthyHostsType,
     -- | The minimum healthy instance value.
     value :: Prelude.Maybe Prelude.Int
@@ -90,7 +90,7 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 -- returns a minimum healthy instance type of MOST_CONCURRENCY and a value
 -- of 1. This means a deployment to only one instance at a time. (You
 -- cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or
--- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS
+-- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime,
 -- CodeDeploy attempts to ensure that all instances but one are kept in a
 -- healthy state during the deployment. Although this allows one instance
 -- at a time to be taken offline for a new deployment, it also means that
@@ -98,8 +98,8 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 -- still successful.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health>
--- in the /AWS CodeDeploy User Guide/.
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html CodeDeploy Instance Health>
+-- in the /CodeDeploy User Guide/.
 --
 -- 'value', 'minimumHealthyHosts_value' - The minimum healthy instance value.
 newMinimumHealthyHosts ::
@@ -129,7 +129,7 @@ newMinimumHealthyHosts =
 -- returns a minimum healthy instance type of MOST_CONCURRENCY and a value
 -- of 1. This means a deployment to only one instance at a time. (You
 -- cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or
--- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS
+-- FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime,
 -- CodeDeploy attempts to ensure that all instances but one are kept in a
 -- healthy state during the deployment. Although this allows one instance
 -- at a time to be taken offline for a new deployment, it also means that
@@ -137,8 +137,8 @@ newMinimumHealthyHosts =
 -- still successful.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health>
--- in the /AWS CodeDeploy User Guide/.
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html CodeDeploy Instance Health>
+-- in the /CodeDeploy User Guide/.
 minimumHealthyHosts_type :: Lens.Lens' MinimumHealthyHosts (Prelude.Maybe MinimumHealthyHostsType)
 minimumHealthyHosts_type = Lens.lens (\MinimumHealthyHosts' {type'} -> type') (\s@MinimumHealthyHosts' {} a -> s {type' = a} :: MinimumHealthyHosts)
 

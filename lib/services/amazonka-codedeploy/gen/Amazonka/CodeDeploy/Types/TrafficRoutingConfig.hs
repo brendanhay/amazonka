@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeDeploy.Types.TrafficRoutingConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that specifies how traffic is shifted from one version
--- of a Lambda function to another version during an AWS Lambda deployment,
--- or from one Amazon ECS task set to another during an Amazon ECS
--- deployment.
+-- of a Lambda function to another version during an Lambda deployment, or
+-- from one Amazon ECS task set to another during an Amazon ECS deployment.
 --
 -- /See:/ 'newTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
@@ -37,10 +36,10 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
     -- used by a deployment configuration.
     type' :: Prelude.Maybe TrafficRoutingType,
     -- | A configuration that shifts traffic from one version of a Lambda
-    -- function or ECS task set to another in equal increments, with an equal
-    -- number of minutes between each increment. The original and target Lambda
-    -- function versions or ECS task sets are specified in the deployment\'s
-    -- AppSpec file.
+    -- function or Amazon ECS task set to another in equal increments, with an
+    -- equal number of minutes between each increment. The original and target
+    -- Lambda function versions or Amazon ECS task sets are specified in the
+    -- deployment\'s AppSpec file.
     timeBasedLinear :: Prelude.Maybe TimeBasedLinear,
     -- | A configuration that shifts traffic from one version of a Lambda
     -- function or ECS task set to another in two increments. The original and
@@ -62,10 +61,10 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
 -- used by a deployment configuration.
 --
 -- 'timeBasedLinear', 'trafficRoutingConfig_timeBasedLinear' - A configuration that shifts traffic from one version of a Lambda
--- function or ECS task set to another in equal increments, with an equal
--- number of minutes between each increment. The original and target Lambda
--- function versions or ECS task sets are specified in the deployment\'s
--- AppSpec file.
+-- function or Amazon ECS task set to another in equal increments, with an
+-- equal number of minutes between each increment. The original and target
+-- Lambda function versions or Amazon ECS task sets are specified in the
+-- deployment\'s AppSpec file.
 --
 -- 'timeBasedCanary', 'trafficRoutingConfig_timeBasedCanary' - A configuration that shifts traffic from one version of a Lambda
 -- function or ECS task set to another in two increments. The original and
@@ -86,10 +85,10 @@ trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe Traf
 trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') (\s@TrafficRoutingConfig' {} a -> s {type' = a} :: TrafficRoutingConfig)
 
 -- | A configuration that shifts traffic from one version of a Lambda
--- function or ECS task set to another in equal increments, with an equal
--- number of minutes between each increment. The original and target Lambda
--- function versions or ECS task sets are specified in the deployment\'s
--- AppSpec file.
+-- function or Amazon ECS task set to another in equal increments, with an
+-- equal number of minutes between each increment. The original and target
+-- Lambda function versions or Amazon ECS task sets are specified in the
+-- deployment\'s AppSpec file.
 trafficRoutingConfig_timeBasedLinear :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedLinear)
 trafficRoutingConfig_timeBasedLinear = Lens.lens (\TrafficRoutingConfig' {timeBasedLinear} -> timeBasedLinear) (\s@TrafficRoutingConfig' {} a -> s {timeBasedLinear = a} :: TrafficRoutingConfig)
 

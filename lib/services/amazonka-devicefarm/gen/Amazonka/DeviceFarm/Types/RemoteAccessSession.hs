@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types.RemoteAccessSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ import Amazonka.DeviceFarm.Types.DeviceMinutes
 import Amazonka.DeviceFarm.Types.ExecutionResult
 import Amazonka.DeviceFarm.Types.ExecutionStatus
 import Amazonka.DeviceFarm.Types.InteractionMode
+import Amazonka.DeviceFarm.Types.VpcConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,6 +60,8 @@ data RemoteAccessSession = RemoteAccessSession'
     remoteDebugEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the app to be recorded in the remote access session.
     remoteRecordAppArn :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The date and time the remote access session was created.
     created :: Prelude.Maybe Core.POSIX,
     -- | This flag is set to @true@ if remote recording is enabled for the remote
@@ -143,7 +146,7 @@ data RemoteAccessSession = RemoteAccessSession'
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
-    -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+    -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
     skipAppResign :: Prelude.Maybe Prelude.Bool
   }
@@ -182,6 +185,8 @@ data RemoteAccessSession = RemoteAccessSession'
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
 --
 -- 'remoteRecordAppArn', 'remoteAccessSession_remoteRecordAppArn' - The ARN for the app to be recorded in the remote access session.
+--
+-- 'vpcConfig', 'remoteAccessSession_vpcConfig' - The VPC security groups and subnets that are attached to a project.
 --
 -- 'created', 'remoteAccessSession_created' - The date and time the remote access session was created.
 --
@@ -267,7 +272,7 @@ data RemoteAccessSession = RemoteAccessSession'
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 newRemoteAccessSession ::
   RemoteAccessSession
@@ -280,6 +285,7 @@ newRemoteAccessSession =
       clientId = Prelude.Nothing,
       remoteDebugEnabled = Prelude.Nothing,
       remoteRecordAppArn = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       created = Prelude.Nothing,
       remoteRecordEnabled = Prelude.Nothing,
       deviceMinutes = Prelude.Nothing,
@@ -335,6 +341,10 @@ remoteAccessSession_remoteDebugEnabled = Lens.lens (\RemoteAccessSession' {remot
 -- | The ARN for the app to be recorded in the remote access session.
 remoteAccessSession_remoteRecordAppArn :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_remoteRecordAppArn = Lens.lens (\RemoteAccessSession' {remoteRecordAppArn} -> remoteRecordAppArn) (\s@RemoteAccessSession' {} a -> s {remoteRecordAppArn = a} :: RemoteAccessSession)
+
+-- | The VPC security groups and subnets that are attached to a project.
+remoteAccessSession_vpcConfig :: Lens.Lens' RemoteAccessSession (Prelude.Maybe VpcConfig)
+remoteAccessSession_vpcConfig = Lens.lens (\RemoteAccessSession' {vpcConfig} -> vpcConfig) (\s@RemoteAccessSession' {} a -> s {vpcConfig = a} :: RemoteAccessSession)
 
 -- | The date and time the remote access session was created.
 remoteAccessSession_created :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
@@ -446,7 +456,7 @@ remoteAccessSession_hostAddress = Lens.lens (\RemoteAccessSession' {hostAddress}
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 remoteAccessSession_skipAppResign :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Bool)
 remoteAccessSession_skipAppResign = Lens.lens (\RemoteAccessSession' {skipAppResign} -> skipAppResign) (\s@RemoteAccessSession' {} a -> s {skipAppResign = a} :: RemoteAccessSession)
@@ -464,6 +474,7 @@ instance Core.FromJSON RemoteAccessSession where
             Prelude.<*> (x Core..:? "clientId")
             Prelude.<*> (x Core..:? "remoteDebugEnabled")
             Prelude.<*> (x Core..:? "remoteRecordAppArn")
+            Prelude.<*> (x Core..:? "vpcConfig")
             Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "remoteRecordEnabled")
             Prelude.<*> (x Core..:? "deviceMinutes")
@@ -489,6 +500,7 @@ instance Prelude.Hashable RemoteAccessSession where
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` remoteDebugEnabled
       `Prelude.hashWithSalt` remoteRecordAppArn
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` remoteRecordEnabled
       `Prelude.hashWithSalt` deviceMinutes
@@ -513,6 +525,7 @@ instance Prelude.NFData RemoteAccessSession where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf remoteDebugEnabled
       `Prelude.seq` Prelude.rnf remoteRecordAppArn
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf remoteRecordEnabled
       `Prelude.seq` Prelude.rnf deviceMinutes

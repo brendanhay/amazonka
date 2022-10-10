@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types.ExecutionConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data ExecutionConfiguration = ExecutionConfiguration'
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
-    -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+    -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
     skipAppResign :: Prelude.Maybe Prelude.Bool
   }
@@ -72,7 +72,7 @@ data ExecutionConfiguration = ExecutionConfiguration'
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 newExecutionConfiguration ::
   ExecutionConfiguration
@@ -109,7 +109,7 @@ executionConfiguration_appPackagesCleanup = Lens.lens (\ExecutionConfiguration' 
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 executionConfiguration_skipAppResign :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_skipAppResign = Lens.lens (\ExecutionConfiguration' {skipAppResign} -> skipAppResign) (\s@ExecutionConfiguration' {} a -> s {skipAppResign = a} :: ExecutionConfiguration)

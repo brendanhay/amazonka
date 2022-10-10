@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types.AccountSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ data AccountSettings = AccountSettings'
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
-    -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+    -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
     skipAppResign :: Prelude.Maybe Prelude.Bool
   }
@@ -89,7 +89,7 @@ data AccountSettings = AccountSettings'
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 newAccountSettings ::
   AccountSettings
@@ -143,7 +143,7 @@ accountSettings_maxJobTimeoutMinutes = Lens.lens (\AccountSettings' {maxJobTimeo
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
 accountSettings_skipAppResign :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
 accountSettings_skipAppResign = Lens.lens (\AccountSettings' {skipAppResign} -> skipAppResign) (\s@AccountSettings' {} a -> s {skipAppResign = a} :: AccountSettings)

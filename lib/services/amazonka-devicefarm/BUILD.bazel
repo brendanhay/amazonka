@@ -152,6 +152,7 @@ haskell_library(
         "gen/Amazonka/DeviceFarm/Types/UploadStatus.hs",
         "gen/Amazonka/DeviceFarm/Types/UploadType.hs",
         "gen/Amazonka/DeviceFarm/Types/VPCEConfiguration.hs",
+        "gen/Amazonka/DeviceFarm/Types/VpcConfig.hs",
         "gen/Amazonka/DeviceFarm/UntagResource.hs",
         "gen/Amazonka/DeviceFarm/UpdateDeviceInstance.hs",
         "gen/Amazonka/DeviceFarm/UpdateDevicePool.hs",

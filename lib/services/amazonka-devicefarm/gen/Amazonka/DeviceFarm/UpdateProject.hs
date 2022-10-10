@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.UpdateProject
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Amazonka.DeviceFarm.UpdateProject
 
     -- * Request Lenses
     updateProject_name,
+    updateProject_vpcConfig,
     updateProject_defaultJobTimeoutMinutes,
     updateProject_arn,
 
@@ -56,6 +57,8 @@ data UpdateProject = UpdateProject'
   { -- | A string that represents the new name of the project that you are
     -- updating.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The number of minutes a test run in the project executes before it times
     -- out.
     defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
@@ -75,6 +78,8 @@ data UpdateProject = UpdateProject'
 -- 'name', 'updateProject_name' - A string that represents the new name of the project that you are
 -- updating.
 --
+-- 'vpcConfig', 'updateProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'defaultJobTimeoutMinutes', 'updateProject_defaultJobTimeoutMinutes' - The number of minutes a test run in the project executes before it times
 -- out.
 --
@@ -86,6 +91,7 @@ newUpdateProject ::
 newUpdateProject pArn_ =
   UpdateProject'
     { name = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       defaultJobTimeoutMinutes = Prelude.Nothing,
       arn = pArn_
     }
@@ -94,6 +100,10 @@ newUpdateProject pArn_ =
 -- updating.
 updateProject_name :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
 updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject)
+
+-- | The VPC security groups and subnets that are attached to a project.
+updateProject_vpcConfig :: Lens.Lens' UpdateProject (Prelude.Maybe VpcConfig)
+updateProject_vpcConfig = Lens.lens (\UpdateProject' {vpcConfig} -> vpcConfig) (\s@UpdateProject' {} a -> s {vpcConfig = a} :: UpdateProject)
 
 -- | The number of minutes a test run in the project executes before it times
 -- out.
@@ -120,12 +130,14 @@ instance Core.AWSRequest UpdateProject where
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
       `Prelude.seq` Prelude.rnf arn
 
@@ -149,6 +161,7 @@ instance Core.ToJSON UpdateProject where
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
+            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("defaultJobTimeoutMinutes" Core..=)
               Prelude.<$> defaultJobTimeoutMinutes,
             Prelude.Just ("arn" Core..= arn)

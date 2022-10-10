@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,7 @@ module Amazonka.DeviceFarm.Lens
     createNetworkProfileResponse_httpStatus,
 
     -- ** CreateProject
+    createProject_vpcConfig,
     createProject_defaultJobTimeoutMinutes,
     createProject_name,
     createProjectResponse_project,
@@ -512,6 +513,7 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** UpdateProject
     updateProject_name,
+    updateProject_vpcConfig,
     updateProject_defaultJobTimeoutMinutes,
     updateProject_arn,
     updateProjectResponse_project,
@@ -744,6 +746,7 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** Project
     project_name,
+    project_vpcConfig,
     project_created,
     project_arn,
     project_defaultJobTimeoutMinutes,
@@ -766,6 +769,7 @@ module Amazonka.DeviceFarm.Lens
     remoteAccessSession_clientId,
     remoteAccessSession_remoteDebugEnabled,
     remoteAccessSession_remoteRecordAppArn,
+    remoteAccessSession_vpcConfig,
     remoteAccessSession_created,
     remoteAccessSession_remoteRecordEnabled,
     remoteAccessSession_deviceMinutes,
@@ -798,6 +802,7 @@ module Amazonka.DeviceFarm.Lens
     run_type,
     run_started,
     run_customerArtifactPaths,
+    run_vpcConfig,
     run_created,
     run_deviceMinutes,
     run_locale,
@@ -934,6 +939,11 @@ module Amazonka.DeviceFarm.Lens
     vPCEConfiguration_vpceConfigurationName,
     vPCEConfiguration_vpceConfigurationDescription,
     vPCEConfiguration_serviceDnsName,
+
+    -- ** VpcConfig
+    vpcConfig_securityGroupIds,
+    vpcConfig_subnetIds,
+    vpcConfig_vpcId,
   )
 where
 
@@ -1054,6 +1064,7 @@ import Amazonka.DeviceFarm.Types.TrialMinutes
 import Amazonka.DeviceFarm.Types.UniqueProblem
 import Amazonka.DeviceFarm.Types.Upload
 import Amazonka.DeviceFarm.Types.VPCEConfiguration
+import Amazonka.DeviceFarm.Types.VpcConfig
 import Amazonka.DeviceFarm.UntagResource
 import Amazonka.DeviceFarm.UpdateDeviceInstance
 import Amazonka.DeviceFarm.UpdateDevicePool

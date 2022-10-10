@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -370,6 +370,7 @@ module Amazonka.DeviceFarm.Types
     Project (..),
     newProject,
     project_name,
+    project_vpcConfig,
     project_created,
     project_arn,
     project_defaultJobTimeoutMinutes,
@@ -398,6 +399,7 @@ module Amazonka.DeviceFarm.Types
     remoteAccessSession_clientId,
     remoteAccessSession_remoteDebugEnabled,
     remoteAccessSession_remoteRecordAppArn,
+    remoteAccessSession_vpcConfig,
     remoteAccessSession_created,
     remoteAccessSession_remoteRecordEnabled,
     remoteAccessSession_deviceMinutes,
@@ -436,6 +438,7 @@ module Amazonka.DeviceFarm.Types
     run_type,
     run_started,
     run_customerArtifactPaths,
+    run_vpcConfig,
     run_created,
     run_deviceMinutes,
     run_locale,
@@ -602,6 +605,13 @@ module Amazonka.DeviceFarm.Types
     vPCEConfiguration_vpceConfigurationName,
     vPCEConfiguration_vpceConfigurationDescription,
     vPCEConfiguration_serviceDnsName,
+
+    -- * VpcConfig
+    VpcConfig (..),
+    newVpcConfig,
+    vpcConfig_securityGroupIds,
+    vpcConfig_subnetIds,
+    vpcConfig_vpcId,
   )
 where
 
@@ -683,6 +693,7 @@ import Amazonka.DeviceFarm.Types.UploadCategory
 import Amazonka.DeviceFarm.Types.UploadStatus
 import Amazonka.DeviceFarm.Types.UploadType
 import Amazonka.DeviceFarm.Types.VPCEConfiguration
+import Amazonka.DeviceFarm.Types.VpcConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign

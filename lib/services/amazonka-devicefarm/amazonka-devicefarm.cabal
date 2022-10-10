@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -190,6 +190,7 @@ library
     Amazonka.DeviceFarm.Types.UploadCategory
     Amazonka.DeviceFarm.Types.UploadStatus
     Amazonka.DeviceFarm.Types.UploadType
+    Amazonka.DeviceFarm.Types.VpcConfig
     Amazonka.DeviceFarm.Types.VPCEConfiguration
     Amazonka.DeviceFarm.UntagResource
     Amazonka.DeviceFarm.UpdateDeviceInstance
@@ -203,7 +204,7 @@ library
     Amazonka.DeviceFarm.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-devicefarm-test
@@ -222,9 +223,9 @@ test-suite amazonka-devicefarm-test
     Test.Amazonka.Gen.DeviceFarm
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-devicefarm
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

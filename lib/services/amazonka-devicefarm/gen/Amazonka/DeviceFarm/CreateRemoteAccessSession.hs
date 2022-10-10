@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.CreateRemoteAccessSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,7 +113,7 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
     --
     -- For more information on how Device Farm modifies your uploads during
     -- tests, see
-    -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?>
+    -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
     skipAppResign :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the project for which you want to
     -- create a remote access session.
@@ -184,7 +184,7 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 --
 -- For more information on how Device Farm modifies your uploads during
 -- tests, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?>
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
 --
 -- 'projectArn', 'createRemoteAccessSession_projectArn' - The Amazon Resource Name (ARN) of the project for which you want to
 -- create a remote access session.
@@ -283,7 +283,7 @@ createRemoteAccessSession_interactionMode = Lens.lens (\CreateRemoteAccessSessio
 --
 -- For more information on how Device Farm modifies your uploads during
 -- tests, see
--- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?>
+-- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
 createRemoteAccessSession_skipAppResign :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
 createRemoteAccessSession_skipAppResign = Lens.lens (\CreateRemoteAccessSession' {skipAppResign} -> skipAppResign) (\s@CreateRemoteAccessSession' {} a -> s {skipAppResign = a} :: CreateRemoteAccessSession)
 

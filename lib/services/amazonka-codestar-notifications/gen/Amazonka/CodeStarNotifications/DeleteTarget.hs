@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.DeleteTarget
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,11 +49,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteTarget' smart constructor.
 data DeleteTarget = DeleteTarget'
   { -- | A Boolean value that can be used to delete all associations with this
-    -- SNS topic. The default value is FALSE. If set to TRUE, all associations
-    -- between that target and every notification rule in your AWS account are
-    -- deleted.
+    -- Chatbot topic. The default value is FALSE. If set to TRUE, all
+    -- associations between that target and every notification rule in your
+    -- Amazon Web Services account are deleted.
     forceUnsubscribeAll :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the SNS topic to delete.
+    -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to
+    -- delete.
     targetAddress :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -67,11 +68,12 @@ data DeleteTarget = DeleteTarget'
 -- for backwards compatibility:
 --
 -- 'forceUnsubscribeAll', 'deleteTarget_forceUnsubscribeAll' - A Boolean value that can be used to delete all associations with this
--- SNS topic. The default value is FALSE. If set to TRUE, all associations
--- between that target and every notification rule in your AWS account are
--- deleted.
+-- Chatbot topic. The default value is FALSE. If set to TRUE, all
+-- associations between that target and every notification rule in your
+-- Amazon Web Services account are deleted.
 --
--- 'targetAddress', 'deleteTarget_targetAddress' - The Amazon Resource Name (ARN) of the SNS topic to delete.
+-- 'targetAddress', 'deleteTarget_targetAddress' - The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to
+-- delete.
 newDeleteTarget ::
   -- | 'targetAddress'
   Prelude.Text ->
@@ -85,13 +87,14 @@ newDeleteTarget pTargetAddress_ =
     }
 
 -- | A Boolean value that can be used to delete all associations with this
--- SNS topic. The default value is FALSE. If set to TRUE, all associations
--- between that target and every notification rule in your AWS account are
--- deleted.
+-- Chatbot topic. The default value is FALSE. If set to TRUE, all
+-- associations between that target and every notification rule in your
+-- Amazon Web Services account are deleted.
 deleteTarget_forceUnsubscribeAll :: Lens.Lens' DeleteTarget (Prelude.Maybe Prelude.Bool)
 deleteTarget_forceUnsubscribeAll = Lens.lens (\DeleteTarget' {forceUnsubscribeAll} -> forceUnsubscribeAll) (\s@DeleteTarget' {} a -> s {forceUnsubscribeAll = a} :: DeleteTarget)
 
--- | The Amazon Resource Name (ARN) of the SNS topic to delete.
+-- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to
+-- delete.
 deleteTarget_targetAddress :: Lens.Lens' DeleteTarget Prelude.Text
 deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> targetAddress) (\s@DeleteTarget' {} a -> s {targetAddress = a} :: DeleteTarget) Prelude.. Core._Sensitive
 

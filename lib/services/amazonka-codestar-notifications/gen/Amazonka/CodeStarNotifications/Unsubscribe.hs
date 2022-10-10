@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Unsubscribe
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an association between a notification rule and an Amazon SNS
--- topic so that subscribers to that topic stop receiving notifications
--- when the events described in the rule are triggered.
+-- Removes an association between a notification rule and an Chatbot topic
+-- so that subscribers to that topic stop receiving notifications when the
+-- events described in the rule are triggered.
 module Amazonka.CodeStarNotifications.Unsubscribe
   ( -- * Creating a Request
     Unsubscribe (..),
@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 data Unsubscribe = Unsubscribe'
   { -- | The Amazon Resource Name (ARN) of the notification rule.
     arn :: Prelude.Text,
-    -- | The ARN of the SNS topic to unsubscribe from the notification rule.
+    -- | The ARN of the Chatbot topic to unsubscribe from the notification rule.
     targetAddress :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data Unsubscribe = Unsubscribe'
 --
 -- 'arn', 'unsubscribe_arn' - The Amazon Resource Name (ARN) of the notification rule.
 --
--- 'targetAddress', 'unsubscribe_targetAddress' - The ARN of the SNS topic to unsubscribe from the notification rule.
+-- 'targetAddress', 'unsubscribe_targetAddress' - The ARN of the Chatbot topic to unsubscribe from the notification rule.
 newUnsubscribe ::
   -- | 'arn'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newUnsubscribe pArn_ pTargetAddress_ =
 unsubscribe_arn :: Lens.Lens' Unsubscribe Prelude.Text
 unsubscribe_arn = Lens.lens (\Unsubscribe' {arn} -> arn) (\s@Unsubscribe' {} a -> s {arn = a} :: Unsubscribe)
 
--- | The ARN of the SNS topic to unsubscribe from the notification rule.
+-- | The ARN of the Chatbot topic to unsubscribe from the notification rule.
 unsubscribe_targetAddress :: Lens.Lens' Unsubscribe Prelude.Text
 unsubscribe_targetAddress = Lens.lens (\Unsubscribe' {targetAddress} -> targetAddress) (\s@Unsubscribe' {} a -> s {targetAddress = a} :: Unsubscribe) Prelude.. Core._Sensitive
 

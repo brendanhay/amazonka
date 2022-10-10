@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types.TargetSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,9 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetSummary' smart constructor.
 data TargetSummary = TargetSummary'
-  { -- | The Amazon Resource Name (ARN) of the SNS topic.
+  { -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
     targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The type of the target (for example, SNS).
+    -- | The type of the target (for example, @SNS@).
+    --
+    -- -   Chatbot topics are specified as @SNS@.
+    --
+    -- -   Chatbot clients are specified as @AWSChatbotSlack@.
     targetType :: Prelude.Maybe Prelude.Text,
     -- | The status of the target.
     targetStatus :: Prelude.Maybe TargetStatus
@@ -45,9 +49,13 @@ data TargetSummary = TargetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetAddress', 'targetSummary_targetAddress' - The Amazon Resource Name (ARN) of the SNS topic.
+-- 'targetAddress', 'targetSummary_targetAddress' - The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 --
--- 'targetType', 'targetSummary_targetType' - The type of the target (for example, SNS).
+-- 'targetType', 'targetSummary_targetType' - The type of the target (for example, @SNS@).
+--
+-- -   Chatbot topics are specified as @SNS@.
+--
+-- -   Chatbot clients are specified as @AWSChatbotSlack@.
 --
 -- 'targetStatus', 'targetSummary_targetStatus' - The status of the target.
 newTargetSummary ::
@@ -59,11 +67,15 @@ newTargetSummary =
       targetStatus = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the SNS topic.
+-- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 targetSummary_targetAddress :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
 targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targetAddress) (\s@TargetSummary' {} a -> s {targetAddress = a} :: TargetSummary) Prelude.. Lens.mapping Core._Sensitive
 
--- | The type of the target (for example, SNS).
+-- | The type of the target (for example, @SNS@).
+--
+-- -   Chatbot topics are specified as @SNS@.
+--
+-- -   Chatbot clients are specified as @AWSChatbotSlack@.
 targetSummary_targetType :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
 targetSummary_targetType = Lens.lens (\TargetSummary' {targetType} -> targetType) (\s@TargetSummary' {} a -> s {targetType = a} :: TargetSummary)
 

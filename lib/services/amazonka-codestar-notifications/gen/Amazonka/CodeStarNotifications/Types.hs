@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -183,7 +183,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | A resource with the same name or ID already exists. Notification rule
--- names must be unique in your AWS account.
+-- names must be unique in your Amazon Web Services account.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError

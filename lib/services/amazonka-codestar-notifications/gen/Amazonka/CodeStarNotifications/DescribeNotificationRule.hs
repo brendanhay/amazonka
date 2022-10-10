@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.DescribeNotificationRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -145,9 +145,9 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The level of detail included in the notifications for this resource.
     -- BASIC will include only the contents of the event as it would appear in
-    -- AWS CloudWatch. FULL will include any supplemental information provided
-    -- by AWS CodeStar Notifications and\/or the service for the resource for
-    -- which the notification is created.
+    -- Amazon CloudWatch. FULL will include any supplemental information
+    -- provided by AWS CodeStar Notifications and\/or the service for the
+    -- resource for which the notification is created.
     detailType :: Prelude.Maybe DetailType,
     -- | The date and time the notification rule was created, in timestamp
     -- format.
@@ -158,7 +158,8 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
     -- | The status of the notification rule. Valid statuses are on (sending
     -- notifications) or off (not sending notifications).
     status :: Prelude.Maybe NotificationRuleStatus,
-    -- | A list of the SNS topics associated with the notification rule.
+    -- | A list of the Chatbot topics and Chatbot clients associated with the
+    -- notification rule.
     targets :: Prelude.Maybe [TargetSummary],
     -- | A list of the event types associated with the notification rule.
     eventTypes :: Prelude.Maybe [EventTypeSummary],
@@ -188,9 +189,9 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
 --
 -- 'detailType', 'describeNotificationRuleResponse_detailType' - The level of detail included in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- Amazon CloudWatch. FULL will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 --
 -- 'createdTimestamp', 'describeNotificationRuleResponse_createdTimestamp' - The date and time the notification rule was created, in timestamp
 -- format.
@@ -201,7 +202,8 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
 -- 'status', 'describeNotificationRuleResponse_status' - The status of the notification rule. Valid statuses are on (sending
 -- notifications) or off (not sending notifications).
 --
--- 'targets', 'describeNotificationRuleResponse_targets' - A list of the SNS topics associated with the notification rule.
+-- 'targets', 'describeNotificationRuleResponse_targets' - A list of the Chatbot topics and Chatbot clients associated with the
+-- notification rule.
 --
 -- 'eventTypes', 'describeNotificationRuleResponse_eventTypes' - A list of the event types associated with the notification rule.
 --
@@ -248,9 +250,9 @@ describeNotificationRuleResponse_name = Lens.lens (\DescribeNotificationRuleResp
 
 -- | The level of detail included in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- Amazon CloudWatch. FULL will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 describeNotificationRuleResponse_detailType :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe DetailType)
 describeNotificationRuleResponse_detailType = Lens.lens (\DescribeNotificationRuleResponse' {detailType} -> detailType) (\s@DescribeNotificationRuleResponse' {} a -> s {detailType = a} :: DescribeNotificationRuleResponse)
 
@@ -269,7 +271,8 @@ describeNotificationRuleResponse_lastModifiedTimestamp = Lens.lens (\DescribeNot
 describeNotificationRuleResponse_status :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe NotificationRuleStatus)
 describeNotificationRuleResponse_status = Lens.lens (\DescribeNotificationRuleResponse' {status} -> status) (\s@DescribeNotificationRuleResponse' {} a -> s {status = a} :: DescribeNotificationRuleResponse)
 
--- | A list of the SNS topics associated with the notification rule.
+-- | A list of the Chatbot topics and Chatbot clients associated with the
+-- notification rule.
 describeNotificationRuleResponse_targets :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe [TargetSummary])
 describeNotificationRuleResponse_targets = Lens.lens (\DescribeNotificationRuleResponse' {targets} -> targets) (\s@DescribeNotificationRuleResponse' {} a -> s {targets = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Lens.coerced
 

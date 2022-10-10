@@ -14,13 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.ListTargets
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the notification rule targets for an AWS account.
+-- Returns a list of the notification rule targets for an Amazon Web
+-- Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeStarNotifications.ListTargets

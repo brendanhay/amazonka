@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.UpdateNotificationRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,9 +61,9 @@ data UpdateNotificationRule = UpdateNotificationRule'
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The level of detail to include in the notifications for this resource.
     -- BASIC will include only the contents of the event as it would appear in
-    -- AWS CloudWatch. FULL will include any supplemental information provided
-    -- by AWS CodeStar Notifications and\/or the service for the resource for
-    -- which the notification is created.
+    -- Amazon CloudWatch. FULL will include any supplemental information
+    -- provided by AWS CodeStar Notifications and\/or the service for the
+    -- resource for which the notification is created.
     detailType :: Prelude.Maybe DetailType,
     -- | The status of the notification rule. Valid statuses include enabled
     -- (sending notifications) or disabled (not sending notifications).
@@ -71,7 +71,10 @@ data UpdateNotificationRule = UpdateNotificationRule'
     -- | The address and type of the targets to receive notifications from this
     -- notification rule.
     targets :: Prelude.Maybe [Target],
-    -- | A list of event types associated with this notification rule.
+    -- | A list of event types associated with this notification rule. For a
+    -- complete list of event types and IDs, see
+    -- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+    -- in the /Developer Tools Console User Guide/.
     eventTypeIds :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the notification rule.
     arn :: Prelude.Text
@@ -90,9 +93,9 @@ data UpdateNotificationRule = UpdateNotificationRule'
 --
 -- 'detailType', 'updateNotificationRule_detailType' - The level of detail to include in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- Amazon CloudWatch. FULL will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 --
 -- 'status', 'updateNotificationRule_status' - The status of the notification rule. Valid statuses include enabled
 -- (sending notifications) or disabled (not sending notifications).
@@ -100,7 +103,10 @@ data UpdateNotificationRule = UpdateNotificationRule'
 -- 'targets', 'updateNotificationRule_targets' - The address and type of the targets to receive notifications from this
 -- notification rule.
 --
--- 'eventTypeIds', 'updateNotificationRule_eventTypeIds' - A list of event types associated with this notification rule.
+-- 'eventTypeIds', 'updateNotificationRule_eventTypeIds' - A list of event types associated with this notification rule. For a
+-- complete list of event types and IDs, see
+-- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+-- in the /Developer Tools Console User Guide/.
 --
 -- 'arn', 'updateNotificationRule_arn' - The Amazon Resource Name (ARN) of the notification rule.
 newUpdateNotificationRule ::
@@ -123,9 +129,9 @@ updateNotificationRule_name = Lens.lens (\UpdateNotificationRule' {name} -> name
 
 -- | The level of detail to include in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
--- AWS CloudWatch. FULL will include any supplemental information provided
--- by AWS CodeStar Notifications and\/or the service for the resource for
--- which the notification is created.
+-- Amazon CloudWatch. FULL will include any supplemental information
+-- provided by AWS CodeStar Notifications and\/or the service for the
+-- resource for which the notification is created.
 updateNotificationRule_detailType :: Lens.Lens' UpdateNotificationRule (Prelude.Maybe DetailType)
 updateNotificationRule_detailType = Lens.lens (\UpdateNotificationRule' {detailType} -> detailType) (\s@UpdateNotificationRule' {} a -> s {detailType = a} :: UpdateNotificationRule)
 
@@ -139,7 +145,10 @@ updateNotificationRule_status = Lens.lens (\UpdateNotificationRule' {status} -> 
 updateNotificationRule_targets :: Lens.Lens' UpdateNotificationRule (Prelude.Maybe [Target])
 updateNotificationRule_targets = Lens.lens (\UpdateNotificationRule' {targets} -> targets) (\s@UpdateNotificationRule' {} a -> s {targets = a} :: UpdateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of event types associated with this notification rule.
+-- | A list of event types associated with this notification rule. For a
+-- complete list of event types and IDs, see
+-- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
+-- in the /Developer Tools Console User Guide/.
 updateNotificationRule_eventTypeIds :: Lens.Lens' UpdateNotificationRule (Prelude.Maybe [Prelude.Text])
 updateNotificationRule_eventTypeIds = Lens.lens (\UpdateNotificationRule' {eventTypeIds} -> eventTypeIds) (\s@UpdateNotificationRule' {} a -> s {eventTypeIds = a} :: UpdateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 

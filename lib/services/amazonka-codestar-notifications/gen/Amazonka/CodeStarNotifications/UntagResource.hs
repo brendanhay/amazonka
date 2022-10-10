@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.UntagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -121,19 +121,16 @@ instance Core.ToHeaders UntagResource where
       )
 
 instance Core.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
-          ]
-      )
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath UntagResource where
-  toPath = Prelude.const "/untagResource"
+  toPath UntagResource' {..} =
+    Prelude.mconcat ["/untagResource/", Core.toBS arn]
 
 instance Core.ToQuery UntagResource where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery UntagResource' {..} =
+    Prelude.mconcat
+      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'

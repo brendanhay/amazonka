@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.UpdateMacieSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,7 +55,7 @@ data UpdateMacieSession = UpdateMacieSession'
     status :: Prelude.Maybe MacieStatus,
     -- | Specifies how often to publish updates to policy findings for the
     -- account. This includes publishing updates to Security Hub and Amazon
-    -- EventBridge (formerly called Amazon CloudWatch Events).
+    -- EventBridge (formerly Amazon CloudWatch Events).
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data UpdateMacieSession = UpdateMacieSession'
 --
 -- 'findingPublishingFrequency', 'updateMacieSession_findingPublishingFrequency' - Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
--- EventBridge (formerly called Amazon CloudWatch Events).
+-- EventBridge (formerly Amazon CloudWatch Events).
 newUpdateMacieSession ::
   UpdateMacieSession
 newUpdateMacieSession =
@@ -91,7 +91,7 @@ updateMacieSession_status = Lens.lens (\UpdateMacieSession' {status} -> status) 
 
 -- | Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
--- EventBridge (formerly called Amazon CloudWatch Events).
+-- EventBridge (formerly Amazon CloudWatch Events).
 updateMacieSession_findingPublishingFrequency :: Lens.Lens' UpdateMacieSession (Prelude.Maybe FindingPublishingFrequency)
 updateMacieSession_findingPublishingFrequency = Lens.lens (\UpdateMacieSession' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@UpdateMacieSession' {} a -> s {findingPublishingFrequency = a} :: UpdateMacieSession)
 

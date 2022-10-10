@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.DeleteCustomDataIdentifier
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,8 +47,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCustomDataIdentifier' smart constructor.
 data DeleteCustomDataIdentifier = DeleteCustomDataIdentifier'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data DeleteCustomDataIdentifier = DeleteCustomDataIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'deleteCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'deleteCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newDeleteCustomDataIdentifier ::
   -- | 'id'
   Prelude.Text ->
@@ -70,8 +70,8 @@ newDeleteCustomDataIdentifier ::
 newDeleteCustomDataIdentifier pId_ =
   DeleteCustomDataIdentifier' {id = pId_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 deleteCustomDataIdentifier_id :: Lens.Lens' DeleteCustomDataIdentifier Prelude.Text
 deleteCustomDataIdentifier_id = Lens.lens (\DeleteCustomDataIdentifier' {id} -> id) (\s@DeleteCustomDataIdentifier' {} a -> s {id = a} :: DeleteCustomDataIdentifier)
 

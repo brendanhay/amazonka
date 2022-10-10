@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.UpdateMemberSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMemberSession' smart constructor.
 data UpdateMemberSession = UpdateMemberSession'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text,
     -- | Specifies the new status for the account. Valid values are: ENABLED,
     -- resume all Amazon Macie activities for the account; and, PAUSED, suspend
@@ -67,8 +67,8 @@ data UpdateMemberSession = UpdateMemberSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'updateMemberSession_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'updateMemberSession_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 --
 -- 'status', 'updateMemberSession_status' - Specifies the new status for the account. Valid values are: ENABLED,
 -- resume all Amazon Macie activities for the account; and, PAUSED, suspend
@@ -82,8 +82,8 @@ newUpdateMemberSession ::
 newUpdateMemberSession pId_ pStatus_ =
   UpdateMemberSession' {id = pId_, status = pStatus_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 updateMemberSession_id :: Lens.Lens' UpdateMemberSession Prelude.Text
 updateMemberSession_id = Lens.lens (\UpdateMemberSession' {id} -> id) (\s@UpdateMemberSession' {} a -> s {id = a} :: UpdateMemberSession)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.RevealStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of the configuration for the Amazon Macie account. In a
--- request, valid values are:
+-- | The status of the configuration for retrieving occurrences of sensitive
+-- data reported by findings. Valid values are:
 newtype RevealStatus = RevealStatus'
   { fromRevealStatus ::
       Core.Text

@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetSensitiveDataOccurrences
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves (reveals) occurrences of sensitive data reported by a finding.
+-- Retrieves occurrences of sensitive data reported by a finding.
 module Amazonka.MacieV2.GetSensitiveDataOccurrences
   ( -- * Creating a Request
     GetSensitiveDataOccurrences (..),

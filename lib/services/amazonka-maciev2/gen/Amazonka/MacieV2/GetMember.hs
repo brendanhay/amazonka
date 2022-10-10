@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetMember
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,8 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMember' smart constructor.
 data GetMember = GetMember'
-  { -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+  { -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,16 +71,16 @@ data GetMember = GetMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getMember_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'getMember_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newGetMember ::
   -- | 'id'
   Prelude.Text ->
   GetMember
 newGetMember pId_ = GetMember' {id = pId_}
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 getMember_id :: Lens.Lens' GetMember Prelude.Text
 getMember_id = Lens.lens (\GetMember' {id} -> id) (\s@GetMember' {} a -> s {id = a} :: GetMember)
 
@@ -130,8 +130,8 @@ instance Core.ToQuery GetMember where
 
 -- | /See:/ 'newGetMemberResponse' smart constructor.
 data GetMemberResponse = GetMemberResponse'
-  { -- | A map of key-value pairs that identifies the tags (keys and values) that
-    -- are associated with the member account in Amazon Macie.
+  { -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the account in Amazon Macie.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The email address for the account.
     email :: Prelude.Maybe Prelude.Text,
@@ -169,8 +169,8 @@ data GetMemberResponse = GetMemberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getMemberResponse_tags' - A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the member account in Amazon Macie.
+-- 'tags', 'getMemberResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
 --
 -- 'email', 'getMemberResponse_email' - The email address for the account.
 --
@@ -214,8 +214,8 @@ newGetMemberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the member account in Amazon Macie.
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
 getMemberResponse_tags :: Lens.Lens' GetMemberResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getMemberResponse_tags = Lens.lens (\GetMemberResponse' {tags} -> tags) (\s@GetMemberResponse' {} a -> s {tags = a} :: GetMemberResponse) Prelude.. Lens.mapping Lens.coerced
 

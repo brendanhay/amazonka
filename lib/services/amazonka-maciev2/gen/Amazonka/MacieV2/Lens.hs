@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,16 @@ module Amazonka.MacieV2.Lens
     batchGetCustomDataIdentifiersResponse_customDataIdentifiers,
     batchGetCustomDataIdentifiersResponse_httpStatus,
 
+    -- ** CreateAllowList
+    createAllowList_tags,
+    createAllowList_description,
+    createAllowList_criteria,
+    createAllowList_clientToken,
+    createAllowList_name,
+    createAllowListResponse_arn,
+    createAllowListResponse_id,
+    createAllowListResponse_httpStatus,
+
     -- ** CreateClassificationJob
     createClassificationJob_tags,
     createClassificationJob_customDataIdentifierIds,
@@ -33,6 +43,7 @@ module Amazonka.MacieV2.Lens
     createClassificationJob_scheduleFrequency,
     createClassificationJob_description,
     createClassificationJob_initialRun,
+    createClassificationJob_allowListIds,
     createClassificationJob_samplingPercentage,
     createClassificationJob_managedDataIdentifierIds,
     createClassificationJob_s3JobDefinition,
@@ -90,6 +101,11 @@ module Amazonka.MacieV2.Lens
     declineInvitationsResponse_unprocessedAccounts,
     declineInvitationsResponse_httpStatus,
 
+    -- ** DeleteAllowList
+    deleteAllowList_ignoreJobChecks,
+    deleteAllowList_id,
+    deleteAllowListResponse_httpStatus,
+
     -- ** DeleteCustomDataIdentifier
     deleteCustomDataIdentifier_id,
     deleteCustomDataIdentifierResponse_httpStatus,
@@ -131,6 +147,7 @@ module Amazonka.MacieV2.Lens
     describeClassificationJobResponse_description,
     describeClassificationJobResponse_s3JobDefinition,
     describeClassificationJobResponse_initialRun,
+    describeClassificationJobResponse_allowListIds,
     describeClassificationJobResponse_lastRunTime,
     describeClassificationJobResponse_lastRunErrorStatus,
     describeClassificationJobResponse_jobArn,
@@ -176,6 +193,19 @@ module Amazonka.MacieV2.Lens
     -- ** GetAdministratorAccount
     getAdministratorAccountResponse_administrator,
     getAdministratorAccountResponse_httpStatus,
+
+    -- ** GetAllowList
+    getAllowList_id,
+    getAllowListResponse_tags,
+    getAllowListResponse_name,
+    getAllowListResponse_criteria,
+    getAllowListResponse_arn,
+    getAllowListResponse_status,
+    getAllowListResponse_description,
+    getAllowListResponse_id,
+    getAllowListResponse_createdAt,
+    getAllowListResponse_updatedAt,
+    getAllowListResponse_httpStatus,
 
     -- ** GetBucketStatistics
     getBucketStatistics_accountId,
@@ -307,6 +337,13 @@ module Amazonka.MacieV2.Lens
     getUsageTotalsResponse_usageTotals,
     getUsageTotalsResponse_httpStatus,
 
+    -- ** ListAllowLists
+    listAllowLists_nextToken,
+    listAllowLists_maxResults,
+    listAllowListsResponse_nextToken,
+    listAllowListsResponse_allowLists,
+    listAllowListsResponse_httpStatus,
+
     -- ** ListClassificationJobs
     listClassificationJobs_sortCriteria,
     listClassificationJobs_nextToken,
@@ -410,6 +447,15 @@ module Amazonka.MacieV2.Lens
     untagResource_resourceArn,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateAllowList
+    updateAllowList_description,
+    updateAllowList_id,
+    updateAllowList_criteria,
+    updateAllowList_name,
+    updateAllowListResponse_arn,
+    updateAllowListResponse_id,
+    updateAllowListResponse_httpStatus,
+
     -- ** UpdateClassificationJob
     updateClassificationJob_jobId,
     updateClassificationJob_jobStatus,
@@ -462,6 +508,22 @@ module Amazonka.MacieV2.Lens
     -- ** AdminAccount
     adminAccount_status,
     adminAccount_accountId,
+
+    -- ** AllowListCriteria
+    allowListCriteria_regex,
+    allowListCriteria_s3WordsList,
+
+    -- ** AllowListStatus
+    allowListStatus_description,
+    allowListStatus_code,
+
+    -- ** AllowListSummary
+    allowListSummary_name,
+    allowListSummary_arn,
+    allowListSummary_description,
+    allowListSummary_id,
+    allowListSummary_createdAt,
+    allowListSummary_updatedAt,
 
     -- ** ApiCallDetails
     apiCallDetails_lastSeen,
@@ -925,6 +987,10 @@ module Amazonka.MacieV2.Lens
     s3Object_storageClass,
     s3Object_versionId,
 
+    -- ** S3WordsList
+    s3WordsList_bucketName,
+    s3WordsList_objectKey,
+
     -- ** Scoping
     scoping_excludes,
     scoping_includes,
@@ -1090,6 +1156,7 @@ where
 
 import Amazonka.MacieV2.AcceptInvitation
 import Amazonka.MacieV2.BatchGetCustomDataIdentifiers
+import Amazonka.MacieV2.CreateAllowList
 import Amazonka.MacieV2.CreateClassificationJob
 import Amazonka.MacieV2.CreateCustomDataIdentifier
 import Amazonka.MacieV2.CreateFindingsFilter
@@ -1097,6 +1164,7 @@ import Amazonka.MacieV2.CreateInvitations
 import Amazonka.MacieV2.CreateMember
 import Amazonka.MacieV2.CreateSampleFindings
 import Amazonka.MacieV2.DeclineInvitations
+import Amazonka.MacieV2.DeleteAllowList
 import Amazonka.MacieV2.DeleteCustomDataIdentifier
 import Amazonka.MacieV2.DeleteFindingsFilter
 import Amazonka.MacieV2.DeleteInvitations
@@ -1112,6 +1180,7 @@ import Amazonka.MacieV2.DisassociateMember
 import Amazonka.MacieV2.EnableMacie
 import Amazonka.MacieV2.EnableOrganizationAdminAccount
 import Amazonka.MacieV2.GetAdministratorAccount
+import Amazonka.MacieV2.GetAllowList
 import Amazonka.MacieV2.GetBucketStatistics
 import Amazonka.MacieV2.GetClassificationExportConfiguration
 import Amazonka.MacieV2.GetCustomDataIdentifier
@@ -1128,6 +1197,7 @@ import Amazonka.MacieV2.GetSensitiveDataOccurrences
 import Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
 import Amazonka.MacieV2.GetUsageStatistics
 import Amazonka.MacieV2.GetUsageTotals
+import Amazonka.MacieV2.ListAllowLists
 import Amazonka.MacieV2.ListClassificationJobs
 import Amazonka.MacieV2.ListCustomDataIdentifiers
 import Amazonka.MacieV2.ListFindings
@@ -1146,6 +1216,9 @@ import Amazonka.MacieV2.Types.AccessControlList
 import Amazonka.MacieV2.Types.AccountDetail
 import Amazonka.MacieV2.Types.AccountLevelPermissions
 import Amazonka.MacieV2.Types.AdminAccount
+import Amazonka.MacieV2.Types.AllowListCriteria
+import Amazonka.MacieV2.Types.AllowListStatus
+import Amazonka.MacieV2.Types.AllowListSummary
 import Amazonka.MacieV2.Types.ApiCallDetails
 import Amazonka.MacieV2.Types.AssumedRole
 import Amazonka.MacieV2.Types.AwsAccount
@@ -1226,6 +1299,7 @@ import Amazonka.MacieV2.Types.S3BucketOwner
 import Amazonka.MacieV2.Types.S3Destination
 import Amazonka.MacieV2.Types.S3JobDefinition
 import Amazonka.MacieV2.Types.S3Object
+import Amazonka.MacieV2.Types.S3WordsList
 import Amazonka.MacieV2.Types.Scoping
 import Amazonka.MacieV2.Types.SearchResourcesBucketCriteria
 import Amazonka.MacieV2.Types.SearchResourcesCriteria
@@ -1262,6 +1336,7 @@ import Amazonka.MacieV2.Types.UserIdentityRoot
 import Amazonka.MacieV2.Types.UserPausedDetails
 import Amazonka.MacieV2.Types.WeeklySchedule
 import Amazonka.MacieV2.UntagResource
+import Amazonka.MacieV2.UpdateAllowList
 import Amazonka.MacieV2.UpdateClassificationJob
 import Amazonka.MacieV2.UpdateFindingsFilter
 import Amazonka.MacieV2.UpdateMacieSession

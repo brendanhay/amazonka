@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.UntagResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags (keys and values) from a classification job,
--- custom data identifier, findings filter, or member account.
+-- Removes one or more tags (keys and values) from an Amazon Macie
+-- resource.
 module Amazonka.MacieV2.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -51,10 +51,9 @@ import qualified Amazonka.Response as Response
 data UntagResource = UntagResource'
   { -- | One or more tags (keys) to remove from the resource. In an HTTP request
     -- to remove multiple tags, append the tagKeys parameter and argument for
-    -- each tag to remove, and separate them with an ampersand (&).
+    -- each tag to remove, separated by an ampersand (&).
     tagKeys :: [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the classification job, custom data
-    -- identifier, findings filter, or member account.
+    -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,10 +68,9 @@ data UntagResource = UntagResource'
 --
 -- 'tagKeys', 'untagResource_tagKeys' - One or more tags (keys) to remove from the resource. In an HTTP request
 -- to remove multiple tags, append the tagKeys parameter and argument for
--- each tag to remove, and separate them with an ampersand (&).
+-- each tag to remove, separated by an ampersand (&).
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the classification job, custom data
--- identifier, findings filter, or member account.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -85,12 +83,11 @@ newUntagResource pResourceArn_ =
 
 -- | One or more tags (keys) to remove from the resource. In an HTTP request
 -- to remove multiple tags, append the tagKeys parameter and argument for
--- each tag to remove, and separate them with an ampersand (&).
+-- each tag to remove, separated by an ampersand (&).
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the classification job, custom data
--- identifier, findings filter, or member account.
+-- | The Amazon Resource Name (ARN) of the resource.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

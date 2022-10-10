@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetMacieSession
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -116,7 +116,7 @@ data GetMacieSessionResponse = GetMacieSessionResponse'
     serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The frequency with which Amazon Macie publishes updates to policy
     -- findings for the account. This includes publishing updates to Security
-    -- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+    -- Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The date and time, in UTC and extended ISO 8601 format, when the Amazon
     -- Macie account was created.
@@ -148,7 +148,7 @@ data GetMacieSessionResponse = GetMacieSessionResponse'
 --
 -- 'findingPublishingFrequency', 'getMacieSessionResponse_findingPublishingFrequency' - The frequency with which Amazon Macie publishes updates to policy
 -- findings for the account. This includes publishing updates to Security
--- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+-- Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).
 --
 -- 'createdAt', 'getMacieSessionResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the Amazon
 -- Macie account was created.
@@ -186,7 +186,7 @@ getMacieSessionResponse_serviceRole = Lens.lens (\GetMacieSessionResponse' {serv
 
 -- | The frequency with which Amazon Macie publishes updates to policy
 -- findings for the account. This includes publishing updates to Security
--- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+-- Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).
 getMacieSessionResponse_findingPublishingFrequency :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe FindingPublishingFrequency)
 getMacieSessionResponse_findingPublishingFrequency = Lens.lens (\GetMacieSessionResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetMacieSessionResponse' {} a -> s {findingPublishingFrequency = a} :: GetMacieSessionResponse)
 

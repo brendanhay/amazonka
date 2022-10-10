@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.Occurrences
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of 1-15 occurrences of sensitive data that was
 -- detected by a managed data identifier or a custom data identifier and
--- produced a sensitive data finding. Depending on the file or storage
--- format of the affected S3 object, you can optionally retrieve (reveal)
--- sample occurrences of the sensitive data that was detected.
+-- produced a sensitive data finding.
 --
 -- /See:/ 'newOccurrences' smart constructor.
 data Occurrences = Occurrences'

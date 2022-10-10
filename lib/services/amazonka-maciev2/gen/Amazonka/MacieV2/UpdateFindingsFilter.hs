@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.UpdateFindingsFilter
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,8 +85,8 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- is applied to findings, relative to other filters that are also applied
     -- to the findings.
     position :: Prelude.Maybe Prelude.Int,
-    -- | The unique identifier for the Amazon Macie resource or account that the
-    -- request applies to.
+    -- | The unique identifier for the Amazon Macie resource that the request
+    -- applies to.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -129,8 +129,8 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- is applied to findings, relative to other filters that are also applied
 -- to the findings.
 --
--- 'id', 'updateFindingsFilter_id' - The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- 'id', 'updateFindingsFilter_id' - The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 newUpdateFindingsFilter ::
   -- | 'id'
   Prelude.Text ->
@@ -188,8 +188,8 @@ updateFindingsFilter_action = Lens.lens (\UpdateFindingsFilter' {action} -> acti
 updateFindingsFilter_position :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Int)
 updateFindingsFilter_position = Lens.lens (\UpdateFindingsFilter' {position} -> position) (\s@UpdateFindingsFilter' {} a -> s {position = a} :: UpdateFindingsFilter)
 
--- | The unique identifier for the Amazon Macie resource or account that the
--- request applies to.
+-- | The unique identifier for the Amazon Macie resource that the request
+-- applies to.
 updateFindingsFilter_id :: Lens.Lens' UpdateFindingsFilter Prelude.Text
 updateFindingsFilter_id = Lens.lens (\UpdateFindingsFilter' {id} -> id) (\s@UpdateFindingsFilter' {} a -> s {id = a} :: UpdateFindingsFilter)
 

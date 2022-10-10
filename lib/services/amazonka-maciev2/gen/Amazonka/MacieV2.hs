@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,6 +72,12 @@ module Amazonka.MacieV2
     BatchGetCustomDataIdentifiersResponse (BatchGetCustomDataIdentifiersResponse'),
     newBatchGetCustomDataIdentifiersResponse,
 
+    -- ** CreateAllowList
+    CreateAllowList (CreateAllowList'),
+    newCreateAllowList,
+    CreateAllowListResponse (CreateAllowListResponse'),
+    newCreateAllowListResponse,
+
     -- ** CreateClassificationJob
     CreateClassificationJob (CreateClassificationJob'),
     newCreateClassificationJob,
@@ -113,6 +119,12 @@ module Amazonka.MacieV2
     newDeclineInvitations,
     DeclineInvitationsResponse (DeclineInvitationsResponse'),
     newDeclineInvitationsResponse,
+
+    -- ** DeleteAllowList
+    DeleteAllowList (DeleteAllowList'),
+    newDeleteAllowList,
+    DeleteAllowListResponse (DeleteAllowListResponse'),
+    newDeleteAllowListResponse,
 
     -- ** DeleteCustomDataIdentifier
     DeleteCustomDataIdentifier (DeleteCustomDataIdentifier'),
@@ -203,6 +215,12 @@ module Amazonka.MacieV2
     newGetAdministratorAccount,
     GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
     newGetAdministratorAccountResponse,
+
+    -- ** GetAllowList
+    GetAllowList (GetAllowList'),
+    newGetAllowList,
+    GetAllowListResponse (GetAllowListResponse'),
+    newGetAllowListResponse,
 
     -- ** GetBucketStatistics
     GetBucketStatistics (GetBucketStatistics'),
@@ -300,6 +318,12 @@ module Amazonka.MacieV2
     GetUsageTotalsResponse (GetUsageTotalsResponse'),
     newGetUsageTotalsResponse,
 
+    -- ** ListAllowLists
+    ListAllowLists (ListAllowLists'),
+    newListAllowLists,
+    ListAllowListsResponse (ListAllowListsResponse'),
+    newListAllowListsResponse,
+
     -- ** ListClassificationJobs (Paginated)
     ListClassificationJobs (ListClassificationJobs'),
     newListClassificationJobs,
@@ -390,6 +414,12 @@ module Amazonka.MacieV2
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateAllowList
+    UpdateAllowList (UpdateAllowList'),
+    newUpdateAllowList,
+    UpdateAllowListResponse (UpdateAllowListResponse'),
+    newUpdateAllowListResponse,
+
     -- ** UpdateClassificationJob
     UpdateClassificationJob (UpdateClassificationJob'),
     newUpdateClassificationJob,
@@ -430,6 +460,9 @@ module Amazonka.MacieV2
 
     -- ** AdminStatus
     AdminStatus (..),
+
+    -- ** AllowListStatusCode
+    AllowListStatusCode (..),
 
     -- ** AllowsUnencryptedObjectUploads
     AllowsUnencryptedObjectUploads (..),
@@ -596,6 +629,18 @@ module Amazonka.MacieV2
     -- ** AdminAccount
     AdminAccount (AdminAccount'),
     newAdminAccount,
+
+    -- ** AllowListCriteria
+    AllowListCriteria (AllowListCriteria'),
+    newAllowListCriteria,
+
+    -- ** AllowListStatus
+    AllowListStatus (AllowListStatus'),
+    newAllowListStatus,
+
+    -- ** AllowListSummary
+    AllowListSummary (AllowListSummary'),
+    newAllowListSummary,
 
     -- ** ApiCallDetails
     ApiCallDetails (ApiCallDetails'),
@@ -917,6 +962,10 @@ module Amazonka.MacieV2
     S3Object (S3Object'),
     newS3Object,
 
+    -- ** S3WordsList
+    S3WordsList (S3WordsList'),
+    newS3WordsList,
+
     -- ** Scoping
     Scoping (Scoping'),
     newScoping,
@@ -1061,6 +1110,7 @@ where
 
 import Amazonka.MacieV2.AcceptInvitation
 import Amazonka.MacieV2.BatchGetCustomDataIdentifiers
+import Amazonka.MacieV2.CreateAllowList
 import Amazonka.MacieV2.CreateClassificationJob
 import Amazonka.MacieV2.CreateCustomDataIdentifier
 import Amazonka.MacieV2.CreateFindingsFilter
@@ -1068,6 +1118,7 @@ import Amazonka.MacieV2.CreateInvitations
 import Amazonka.MacieV2.CreateMember
 import Amazonka.MacieV2.CreateSampleFindings
 import Amazonka.MacieV2.DeclineInvitations
+import Amazonka.MacieV2.DeleteAllowList
 import Amazonka.MacieV2.DeleteCustomDataIdentifier
 import Amazonka.MacieV2.DeleteFindingsFilter
 import Amazonka.MacieV2.DeleteInvitations
@@ -1083,6 +1134,7 @@ import Amazonka.MacieV2.DisassociateMember
 import Amazonka.MacieV2.EnableMacie
 import Amazonka.MacieV2.EnableOrganizationAdminAccount
 import Amazonka.MacieV2.GetAdministratorAccount
+import Amazonka.MacieV2.GetAllowList
 import Amazonka.MacieV2.GetBucketStatistics
 import Amazonka.MacieV2.GetClassificationExportConfiguration
 import Amazonka.MacieV2.GetCustomDataIdentifier
@@ -1100,6 +1152,7 @@ import Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
 import Amazonka.MacieV2.GetUsageStatistics
 import Amazonka.MacieV2.GetUsageTotals
 import Amazonka.MacieV2.Lens
+import Amazonka.MacieV2.ListAllowLists
 import Amazonka.MacieV2.ListClassificationJobs
 import Amazonka.MacieV2.ListCustomDataIdentifiers
 import Amazonka.MacieV2.ListFindings
@@ -1116,6 +1169,7 @@ import Amazonka.MacieV2.TagResource
 import Amazonka.MacieV2.TestCustomDataIdentifier
 import Amazonka.MacieV2.Types
 import Amazonka.MacieV2.UntagResource
+import Amazonka.MacieV2.UpdateAllowList
 import Amazonka.MacieV2.UpdateClassificationJob
 import Amazonka.MacieV2.UpdateFindingsFilter
 import Amazonka.MacieV2.UpdateMacieSession

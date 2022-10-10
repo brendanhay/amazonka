@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.AssociationDescription
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.SSM.Types.AssociationDescription where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.AssociationComplianceSeverity
 import Amazonka.SSM.Types.AssociationOverview
 import Amazonka.SSM.Types.AssociationStatus
@@ -74,6 +76,7 @@ data AssociationDescription = AssociationDescription'
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the association.
     overview :: Prelude.Maybe AssociationOverview,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The date when the association was last updated.
     lastUpdateAssociationDate :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of targets allowed to run the association at the same
@@ -111,6 +114,8 @@ data AssociationDescription = AssociationDescription'
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The date on which the association was last run.
     lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    -- | The CloudWatch alarm that was invoked during the association.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The severity level that is assigned to the association.
     complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
     -- | The mode for generating association compliance. You can specify @AUTO@
@@ -185,6 +190,8 @@ data AssociationDescription = AssociationDescription'
 --
 -- 'overview', 'associationDescription_overview' - Information about the association.
 --
+-- 'alarmConfiguration', 'associationDescription_alarmConfiguration' - Undocumented member.
+--
 -- 'lastUpdateAssociationDate', 'associationDescription_lastUpdateAssociationDate' - The date when the association was last updated.
 --
 -- 'maxConcurrency', 'associationDescription_maxConcurrency' - The maximum number of targets allowed to run the association at the same
@@ -221,6 +228,8 @@ data AssociationDescription = AssociationDescription'
 -- one at a time.
 --
 -- 'lastExecutionDate', 'associationDescription_lastExecutionDate' - The date on which the association was last run.
+--
+-- 'triggeredAlarms', 'associationDescription_triggeredAlarms' - The CloudWatch alarm that was invoked during the association.
 --
 -- 'complianceSeverity', 'associationDescription_complianceSeverity' - The severity level that is assigned to the association.
 --
@@ -265,11 +274,13 @@ newAssociationDescription =
       scheduleOffset = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       overview = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       lastUpdateAssociationDate = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
       lastExecutionDate = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       complianceSeverity = Prelude.Nothing,
       syncCompliance = Prelude.Nothing,
       associationId = Prelude.Nothing,
@@ -349,6 +360,10 @@ associationDescription_instanceId = Lens.lens (\AssociationDescription' {instanc
 associationDescription_overview :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationOverview)
 associationDescription_overview = Lens.lens (\AssociationDescription' {overview} -> overview) (\s@AssociationDescription' {} a -> s {overview = a} :: AssociationDescription)
 
+-- | Undocumented member.
+associationDescription_alarmConfiguration :: Lens.Lens' AssociationDescription (Prelude.Maybe AlarmConfiguration)
+associationDescription_alarmConfiguration = Lens.lens (\AssociationDescription' {alarmConfiguration} -> alarmConfiguration) (\s@AssociationDescription' {} a -> s {alarmConfiguration = a} :: AssociationDescription)
+
 -- | The date when the association was last updated.
 associationDescription_lastUpdateAssociationDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
 associationDescription_lastUpdateAssociationDate = Lens.lens (\AssociationDescription' {lastUpdateAssociationDate} -> lastUpdateAssociationDate) (\s@AssociationDescription' {} a -> s {lastUpdateAssociationDate = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
@@ -395,6 +410,10 @@ associationDescription_maxErrors = Lens.lens (\AssociationDescription' {maxError
 -- | The date on which the association was last run.
 associationDescription_lastExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
 associationDescription_lastExecutionDate = Lens.lens (\AssociationDescription' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationDescription' {} a -> s {lastExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The CloudWatch alarm that was invoked during the association.
+associationDescription_triggeredAlarms :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+associationDescription_triggeredAlarms = Lens.lens (\AssociationDescription' {triggeredAlarms} -> triggeredAlarms) (\s@AssociationDescription' {} a -> s {triggeredAlarms = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The severity level that is assigned to the association.
 associationDescription_complianceSeverity :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationComplianceSeverity)
@@ -451,11 +470,13 @@ instance Core.FromJSON AssociationDescription where
             Prelude.<*> (x Core..:? "ScheduleOffset")
             Prelude.<*> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Overview")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "LastUpdateAssociationDate")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
             Prelude.<*> (x Core..:? "MaxErrors")
             Prelude.<*> (x Core..:? "LastExecutionDate")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "ComplianceSeverity")
             Prelude.<*> (x Core..:? "SyncCompliance")
             Prelude.<*> (x Core..:? "AssociationId")
@@ -481,11 +502,13 @@ instance Prelude.Hashable AssociationDescription where
       `Prelude.hashWithSalt` scheduleOffset
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` overview
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` lastUpdateAssociationDate
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
       `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` triggeredAlarms
       `Prelude.hashWithSalt` complianceSeverity
       `Prelude.hashWithSalt` syncCompliance
       `Prelude.hashWithSalt` associationId
@@ -510,6 +533,7 @@ instance Prelude.NFData AssociationDescription where
       `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf overview
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf
         lastUpdateAssociationDate
       `Prelude.seq` Prelude.rnf maxConcurrency
@@ -518,6 +542,8 @@ instance Prelude.NFData AssociationDescription where
       `Prelude.seq` Prelude.rnf maxErrors
       `Prelude.seq` Prelude.rnf
         lastExecutionDate
+      `Prelude.seq` Prelude.rnf
+        triggeredAlarms
       `Prelude.seq` Prelude.rnf
         complianceSeverity
       `Prelude.seq` Prelude.rnf

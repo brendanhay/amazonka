@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.CreateAssociationBatchRequestEntry
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.SSM.Types.CreateAssociationBatchRequestEntry where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AssociationComplianceSeverity
 import Amazonka.SSM.Types.AssociationSyncCompliance
 import Amazonka.SSM.Types.InstanceAssociationOutputLocation
@@ -70,6 +71,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
     -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -192,6 +194,8 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
 -- must use the @Targets@ parameter.
 --
+-- 'alarmConfiguration', 'createAssociationBatchRequestEntry_alarmConfiguration' - Undocumented member.
+--
 -- 'maxConcurrency', 'createAssociationBatchRequestEntry_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
@@ -283,6 +287,7 @@ newCreateAssociationBatchRequestEntry pName_ =
       scheduleExpression = Prelude.Nothing,
       scheduleOffset = Prelude.Nothing,
       instanceId = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval =
         Prelude.Nothing,
@@ -350,6 +355,10 @@ createAssociationBatchRequestEntry_scheduleOffset = Lens.lens (\CreateAssociatio
 -- must use the @Targets@ parameter.
 createAssociationBatchRequestEntry_instanceId :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_instanceId = Lens.lens (\CreateAssociationBatchRequestEntry' {instanceId} -> instanceId) (\s@CreateAssociationBatchRequestEntry' {} a -> s {instanceId = a} :: CreateAssociationBatchRequestEntry)
+
+-- | Undocumented member.
+createAssociationBatchRequestEntry_alarmConfiguration :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe AlarmConfiguration)
+createAssociationBatchRequestEntry_alarmConfiguration = Lens.lens (\CreateAssociationBatchRequestEntry' {alarmConfiguration} -> alarmConfiguration) (\s@CreateAssociationBatchRequestEntry' {} a -> s {alarmConfiguration = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -460,6 +469,7 @@ instance
             Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "ScheduleOffset")
             Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
             Prelude.<*> (x Core..:? "MaxErrors")
@@ -487,6 +497,7 @@ instance
         `Prelude.hashWithSalt` scheduleExpression
         `Prelude.hashWithSalt` scheduleOffset
         `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` alarmConfiguration
         `Prelude.hashWithSalt` maxConcurrency
         `Prelude.hashWithSalt` applyOnlyAtCronInterval
         `Prelude.hashWithSalt` maxErrors
@@ -511,6 +522,7 @@ instance
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors
@@ -543,6 +555,8 @@ instance
             ("ScheduleOffset" Core..=)
               Prelude.<$> scheduleOffset,
             ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("ApplyOnlyAtCronInterval" Core..=)

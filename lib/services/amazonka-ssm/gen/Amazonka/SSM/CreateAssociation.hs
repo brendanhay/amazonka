@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.CreateAssociation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,7 @@ module Amazonka.SSM.CreateAssociation
     newCreateAssociation,
 
     -- * Request Lenses
+    createAssociation_tags,
     createAssociation_associationName,
     createAssociation_targetLocations,
     createAssociation_automationTargetParameterName,
@@ -51,6 +52,7 @@ module Amazonka.SSM.CreateAssociation
     createAssociation_scheduleExpression,
     createAssociation_scheduleOffset,
     createAssociation_instanceId,
+    createAssociation_alarmConfiguration,
     createAssociation_maxConcurrency,
     createAssociation_applyOnlyAtCronInterval,
     createAssociation_maxErrors,
@@ -79,7 +81,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-  { -- | Specify a descriptive name for the association.
+  { -- | Optional metadata that you assign to a resource. Tags enable you to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment. For example, you might want to tag an association to
+    -- identify the type of resource to which it applies, the environment, or
+    -- the purpose of the association.
+    tags :: Prelude.Maybe [Tag],
+    -- | Specify a descriptive name for the association.
     associationName :: Prelude.Maybe Prelude.Text,
     -- | A location is a combination of Amazon Web Services Regions and Amazon
     -- Web Services accounts where you want to run the association. Use this
@@ -136,6 +144,7 @@ data CreateAssociation = CreateAssociation'
     -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
     -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -229,6 +238,12 @@ data CreateAssociation = CreateAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createAssociation_tags' - Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an association to
+-- identify the type of resource to which it applies, the environment, or
+-- the purpose of the association.
+--
 -- 'associationName', 'createAssociation_associationName' - Specify a descriptive name for the association.
 --
 -- 'targetLocations', 'createAssociation_targetLocations' - A location is a combination of Amazon Web Services Regions and Amazon
@@ -285,6 +300,8 @@ data CreateAssociation = CreateAssociation'
 -- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
 -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
 -- must use the @Targets@ parameter.
+--
+-- 'alarmConfiguration', 'createAssociation_alarmConfiguration' - Undocumented member.
 --
 -- 'maxConcurrency', 'createAssociation_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -373,8 +390,8 @@ newCreateAssociation ::
   CreateAssociation
 newCreateAssociation pName_ =
   CreateAssociation'
-    { associationName =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      associationName = Prelude.Nothing,
       targetLocations = Prelude.Nothing,
       automationTargetParameterName = Prelude.Nothing,
       targetMaps = Prelude.Nothing,
@@ -384,6 +401,7 @@ newCreateAssociation pName_ =
       scheduleExpression = Prelude.Nothing,
       scheduleOffset = Prelude.Nothing,
       instanceId = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -393,6 +411,14 @@ newCreateAssociation pName_ =
       parameters = Prelude.Nothing,
       name = pName_
     }
+
+-- | Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an association to
+-- identify the type of resource to which it applies, the environment, or
+-- the purpose of the association.
+createAssociation_tags :: Lens.Lens' CreateAssociation (Prelude.Maybe [Tag])
+createAssociation_tags = Lens.lens (\CreateAssociation' {tags} -> tags) (\s@CreateAssociation' {} a -> s {tags = a} :: CreateAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify a descriptive name for the association.
 createAssociation_associationName :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
@@ -470,6 +496,10 @@ createAssociation_scheduleOffset = Lens.lens (\CreateAssociation' {scheduleOffse
 -- must use the @Targets@ parameter.
 createAssociation_instanceId :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_instanceId = Lens.lens (\CreateAssociation' {instanceId} -> instanceId) (\s@CreateAssociation' {} a -> s {instanceId = a} :: CreateAssociation)
+
+-- | Undocumented member.
+createAssociation_alarmConfiguration :: Lens.Lens' CreateAssociation (Prelude.Maybe AlarmConfiguration)
+createAssociation_alarmConfiguration = Lens.lens (\CreateAssociation' {alarmConfiguration} -> alarmConfiguration) (\s@CreateAssociation' {} a -> s {alarmConfiguration = a} :: CreateAssociation)
 
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -584,7 +614,8 @@ instance Core.AWSRequest CreateAssociation where
 
 instance Prelude.Hashable CreateAssociation where
   hashWithSalt _salt CreateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` targetLocations
       `Prelude.hashWithSalt` automationTargetParameterName
       `Prelude.hashWithSalt` targetMaps
@@ -594,6 +625,7 @@ instance Prelude.Hashable CreateAssociation where
       `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` scheduleOffset
       `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
@@ -605,7 +637,8 @@ instance Prelude.Hashable CreateAssociation where
 
 instance Prelude.NFData CreateAssociation where
   rnf CreateAssociation' {..} =
-    Prelude.rnf associationName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf associationName
       `Prelude.seq` Prelude.rnf targetLocations
       `Prelude.seq` Prelude.rnf automationTargetParameterName
       `Prelude.seq` Prelude.rnf targetMaps
@@ -615,6 +648,7 @@ instance Prelude.NFData CreateAssociation where
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors
@@ -643,7 +677,8 @@ instance Core.ToJSON CreateAssociation where
   toJSON CreateAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssociationName" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("AssociationName" Core..=)
               Prelude.<$> associationName,
             ("TargetLocations" Core..=)
               Prelude.<$> targetLocations,
@@ -659,6 +694,8 @@ instance Core.ToJSON CreateAssociation where
             ("ScheduleOffset" Core..=)
               Prelude.<$> scheduleOffset,
             ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("ApplyOnlyAtCronInterval" Core..=)

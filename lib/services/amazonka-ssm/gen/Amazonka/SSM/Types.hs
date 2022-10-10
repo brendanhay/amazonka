@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -123,6 +123,7 @@ module Amazonka.SSM.Types
     _InvalidParameters,
     _ResourceDataSyncCountExceededException,
     _InvalidNotificationConfig,
+    _InvalidTag,
     _InvalidDocumentSchemaVersion,
     _OpsMetadataNotFoundException,
     _InvalidOutputFolder,
@@ -245,6 +246,9 @@ module Amazonka.SSM.Types
 
     -- * ExecutionMode
     ExecutionMode (..),
+
+    -- * ExternalAlarmState
+    ExternalAlarmState (..),
 
     -- * Fault
     Fault (..),
@@ -413,6 +417,23 @@ module Amazonka.SSM.Types
     activation_registrationLimit,
     activation_expirationDate,
 
+    -- * Alarm
+    Alarm (..),
+    newAlarm,
+    alarm_name,
+
+    -- * AlarmConfiguration
+    AlarmConfiguration (..),
+    newAlarmConfiguration,
+    alarmConfiguration_ignorePollAlarmFailure,
+    alarmConfiguration_alarms,
+
+    -- * AlarmStateInformation
+    AlarmStateInformation (..),
+    newAlarmStateInformation,
+    alarmStateInformation_name,
+    alarmStateInformation_state,
+
     -- * Association
     Association (..),
     newAssociation,
@@ -448,11 +469,13 @@ module Amazonka.SSM.Types
     associationDescription_scheduleOffset,
     associationDescription_instanceId,
     associationDescription_overview,
+    associationDescription_alarmConfiguration,
     associationDescription_lastUpdateAssociationDate,
     associationDescription_maxConcurrency,
     associationDescription_applyOnlyAtCronInterval,
     associationDescription_maxErrors,
     associationDescription_lastExecutionDate,
+    associationDescription_triggeredAlarms,
     associationDescription_complianceSeverity,
     associationDescription_syncCompliance,
     associationDescription_associationId,
@@ -467,8 +490,10 @@ module Amazonka.SSM.Types
     associationExecution_status,
     associationExecution_resourceCountByStatus,
     associationExecution_executionId,
+    associationExecution_alarmConfiguration,
     associationExecution_detailedStatus,
     associationExecution_lastExecutionDate,
+    associationExecution_triggeredAlarms,
     associationExecution_associationId,
 
     -- * AssociationExecutionFilter
@@ -579,6 +604,7 @@ module Amazonka.SSM.Types
     automationExecution_documentName,
     automationExecution_automationSubtype,
     automationExecution_outputs,
+    automationExecution_alarmConfiguration,
     automationExecution_currentStepName,
     automationExecution_executedBy,
     automationExecution_maxConcurrency,
@@ -588,6 +614,7 @@ module Amazonka.SSM.Types
     automationExecution_parentAutomationExecutionId,
     automationExecution_automationExecutionStatus,
     automationExecution_runbooks,
+    automationExecution_triggeredAlarms,
     automationExecution_currentAction,
     automationExecution_stepExecutionsTruncated,
     automationExecution_progressCounters,
@@ -619,6 +646,7 @@ module Amazonka.SSM.Types
     automationExecutionMetadata_documentName,
     automationExecutionMetadata_automationSubtype,
     automationExecutionMetadata_outputs,
+    automationExecutionMetadata_alarmConfiguration,
     automationExecutionMetadata_currentStepName,
     automationExecutionMetadata_executedBy,
     automationExecutionMetadata_maxConcurrency,
@@ -629,6 +657,7 @@ module Amazonka.SSM.Types
     automationExecutionMetadata_parentAutomationExecutionId,
     automationExecutionMetadata_automationExecutionStatus,
     automationExecutionMetadata_runbooks,
+    automationExecutionMetadata_triggeredAlarms,
     automationExecutionMetadata_currentAction,
     automationExecutionMetadata_associationId,
     automationExecutionMetadata_scheduledTime,
@@ -671,6 +700,7 @@ module Amazonka.SSM.Types
     command_commandId,
     command_comment,
     command_documentName,
+    command_alarmConfiguration,
     command_maxConcurrency,
     command_completedCount,
     command_maxErrors,
@@ -678,6 +708,7 @@ module Amazonka.SSM.Types
     command_instanceIds,
     command_deliveryTimedOutCount,
     command_outputS3BucketName,
+    command_triggeredAlarms,
     command_outputS3KeyPrefix,
     command_documentVersion,
     command_parameters,
@@ -786,6 +817,7 @@ module Amazonka.SSM.Types
     createAssociationBatchRequestEntry_scheduleExpression,
     createAssociationBatchRequestEntry_scheduleOffset,
     createAssociationBatchRequestEntry_instanceId,
+    createAssociationBatchRequestEntry_alarmConfiguration,
     createAssociationBatchRequestEntry_maxConcurrency,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
     createAssociationBatchRequestEntry_maxErrors,
@@ -1173,6 +1205,8 @@ module Amazonka.SSM.Types
     maintenanceWindowExecutionTaskIdentity_status,
     maintenanceWindowExecutionTaskIdentity_endTime,
     maintenanceWindowExecutionTaskIdentity_taskType,
+    maintenanceWindowExecutionTaskIdentity_alarmConfiguration,
+    maintenanceWindowExecutionTaskIdentity_triggeredAlarms,
     maintenanceWindowExecutionTaskIdentity_startTime,
     maintenanceWindowExecutionTaskIdentity_taskExecutionId,
 
@@ -1271,6 +1305,7 @@ module Amazonka.SSM.Types
     maintenanceWindowTask_windowId,
     maintenanceWindowTask_targets,
     maintenanceWindowTask_description,
+    maintenanceWindowTask_alarmConfiguration,
     maintenanceWindowTask_priority,
     maintenanceWindowTask_maxConcurrency,
     maintenanceWindowTask_maxErrors,
@@ -1881,6 +1916,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AccountSharingInfo
 import Amazonka.SSM.Types.Activation
+import Amazonka.SSM.Types.Alarm
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.Association
 import Amazonka.SSM.Types.AssociationComplianceSeverity
 import Amazonka.SSM.Types.AssociationDescription
@@ -1959,6 +1997,7 @@ import Amazonka.SSM.Types.DocumentType
 import Amazonka.SSM.Types.DocumentVersionInfo
 import Amazonka.SSM.Types.EffectivePatch
 import Amazonka.SSM.Types.ExecutionMode
+import Amazonka.SSM.Types.ExternalAlarmState
 import Amazonka.SSM.Types.FailedCreateAssociation
 import Amazonka.SSM.Types.FailureDetails
 import Amazonka.SSM.Types.Fault
@@ -3050,6 +3089,11 @@ _InvalidNotificationConfig =
   Core._MatchServiceError
     defaultService
     "InvalidNotificationConfig"
+
+-- | The tag key or value isn\'t valid.
+_InvalidTag :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTag =
+  Core._MatchServiceError defaultService "InvalidTag"
 
 -- | The version of the document schema isn\'t supported.
 _InvalidDocumentSchemaVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

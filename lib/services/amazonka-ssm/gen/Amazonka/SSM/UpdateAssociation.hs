@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.UpdateAssociation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,7 @@ module Amazonka.SSM.UpdateAssociation
     updateAssociation_calendarNames,
     updateAssociation_scheduleExpression,
     updateAssociation_scheduleOffset,
+    updateAssociation_alarmConfiguration,
     updateAssociation_maxConcurrency,
     updateAssociation_applyOnlyAtCronInterval,
     updateAssociation_maxErrors,
@@ -150,6 +151,7 @@ data UpdateAssociation = UpdateAssociation'
     -- parameter. This option tells the system not to run an association
     -- immediately after you create it.
     scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -309,6 +311,8 @@ data UpdateAssociation = UpdateAssociation'
 -- parameter. This option tells the system not to run an association
 -- immediately after you create it.
 --
+-- 'alarmConfiguration', 'updateAssociation_alarmConfiguration' - Undocumented member.
+--
 -- 'maxConcurrency', 'updateAssociation_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
@@ -410,6 +414,7 @@ newUpdateAssociation pAssociationId_ =
       calendarNames = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
       scheduleOffset = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -505,6 +510,10 @@ updateAssociation_scheduleExpression = Lens.lens (\UpdateAssociation' {scheduleE
 -- immediately after you create it.
 updateAssociation_scheduleOffset :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Natural)
 updateAssociation_scheduleOffset = Lens.lens (\UpdateAssociation' {scheduleOffset} -> scheduleOffset) (\s@UpdateAssociation' {} a -> s {scheduleOffset = a} :: UpdateAssociation)
+
+-- | Undocumented member.
+updateAssociation_alarmConfiguration :: Lens.Lens' UpdateAssociation (Prelude.Maybe AlarmConfiguration)
+updateAssociation_alarmConfiguration = Lens.lens (\UpdateAssociation' {alarmConfiguration} -> alarmConfiguration) (\s@UpdateAssociation' {} a -> s {alarmConfiguration = a} :: UpdateAssociation)
 
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -632,6 +641,7 @@ instance Prelude.Hashable UpdateAssociation where
       `Prelude.hashWithSalt` calendarNames
       `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
@@ -654,6 +664,7 @@ instance Prelude.NFData UpdateAssociation where
       `Prelude.seq` Prelude.rnf calendarNames
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors
@@ -700,6 +711,8 @@ instance Core.ToJSON UpdateAssociation where
               Prelude.<$> scheduleExpression,
             ("ScheduleOffset" Core..=)
               Prelude.<$> scheduleOffset,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("ApplyOnlyAtCronInterval" Core..=)

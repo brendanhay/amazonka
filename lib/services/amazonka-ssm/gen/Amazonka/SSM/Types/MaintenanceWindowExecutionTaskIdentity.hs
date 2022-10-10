@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.MaintenanceWindowExecutionTaskIdentity
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.SSM.Types.MaintenanceWindowExecutionTaskIdentity where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.MaintenanceWindowExecutionStatus
 import Amazonka.SSM.Types.MaintenanceWindowTaskType
 
@@ -43,6 +45,11 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The type of task that ran.
     taskType :: Prelude.Maybe MaintenanceWindowTaskType,
+    -- | The details for the CloudWatch alarm applied to your maintenance window
+    -- task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | The CloudWatch alarm that was invoked by the maintenance window task.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The time the task execution started.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the specific task execution in the maintenance window
@@ -72,6 +79,11 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
 --
 -- 'taskType', 'maintenanceWindowExecutionTaskIdentity_taskType' - The type of task that ran.
 --
+-- 'alarmConfiguration', 'maintenanceWindowExecutionTaskIdentity_alarmConfiguration' - The details for the CloudWatch alarm applied to your maintenance window
+-- task.
+--
+-- 'triggeredAlarms', 'maintenanceWindowExecutionTaskIdentity_triggeredAlarms' - The CloudWatch alarm that was invoked by the maintenance window task.
+--
 -- 'startTime', 'maintenanceWindowExecutionTaskIdentity_startTime' - The time the task execution started.
 --
 -- 'taskExecutionId', 'maintenanceWindowExecutionTaskIdentity_taskExecutionId' - The ID of the specific task execution in the maintenance window
@@ -87,6 +99,9 @@ newMaintenanceWindowExecutionTaskIdentity =
       status = Prelude.Nothing,
       endTime = Prelude.Nothing,
       taskType = Prelude.Nothing,
+      alarmConfiguration =
+        Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       startTime = Prelude.Nothing,
       taskExecutionId = Prelude.Nothing
     }
@@ -116,6 +131,15 @@ maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowEx
 maintenanceWindowExecutionTaskIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe MaintenanceWindowTaskType)
 maintenanceWindowExecutionTaskIdentity_taskType = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskType} -> taskType) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskType = a} :: MaintenanceWindowExecutionTaskIdentity)
 
+-- | The details for the CloudWatch alarm applied to your maintenance window
+-- task.
+maintenanceWindowExecutionTaskIdentity_alarmConfiguration :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe AlarmConfiguration)
+maintenanceWindowExecutionTaskIdentity_alarmConfiguration = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {alarmConfiguration} -> alarmConfiguration) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {alarmConfiguration = a} :: MaintenanceWindowExecutionTaskIdentity)
+
+-- | The CloudWatch alarm that was invoked by the maintenance window task.
+maintenanceWindowExecutionTaskIdentity_triggeredAlarms :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+maintenanceWindowExecutionTaskIdentity_triggeredAlarms = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {triggeredAlarms} -> triggeredAlarms) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {triggeredAlarms = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Lens.coerced
+
 -- | The time the task execution started.
 maintenanceWindowExecutionTaskIdentity_startTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.UTCTime)
 maintenanceWindowExecutionTaskIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Core._Time
@@ -140,6 +164,8 @@ instance
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "TaskType")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "TaskExecutionId")
       )
@@ -157,6 +183,8 @@ instance
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` taskType
+        `Prelude.hashWithSalt` alarmConfiguration
+        `Prelude.hashWithSalt` triggeredAlarms
         `Prelude.hashWithSalt` startTime
         `Prelude.hashWithSalt` taskExecutionId
 
@@ -171,5 +199,7 @@ instance
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf triggeredAlarms
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf taskExecutionId

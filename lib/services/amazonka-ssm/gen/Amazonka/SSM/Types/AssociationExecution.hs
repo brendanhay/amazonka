@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.AssociationExecution
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.SSM.Types.AssociationExecution where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
+import Amazonka.SSM.Types.AlarmStateInformation
 
 -- | Includes information about the specified association.
 --
@@ -38,10 +40,13 @@ data AssociationExecution = AssociationExecution'
     resourceCountByStatus :: Prelude.Maybe Prelude.Text,
     -- | The execution ID for the association.
     executionId :: Prelude.Maybe Prelude.Text,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | Detailed status information about the execution.
     detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | The date of the last execution.
     lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    -- | The CloudWatch alarms that were invoked by the association.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The association ID.
     associationId :: Prelude.Maybe Prelude.Text
   }
@@ -66,9 +71,13 @@ data AssociationExecution = AssociationExecution'
 --
 -- 'executionId', 'associationExecution_executionId' - The execution ID for the association.
 --
+-- 'alarmConfiguration', 'associationExecution_alarmConfiguration' - Undocumented member.
+--
 -- 'detailedStatus', 'associationExecution_detailedStatus' - Detailed status information about the execution.
 --
 -- 'lastExecutionDate', 'associationExecution_lastExecutionDate' - The date of the last execution.
+--
+-- 'triggeredAlarms', 'associationExecution_triggeredAlarms' - The CloudWatch alarms that were invoked by the association.
 --
 -- 'associationId', 'associationExecution_associationId' - The association ID.
 newAssociationExecution ::
@@ -81,8 +90,10 @@ newAssociationExecution =
       status = Prelude.Nothing,
       resourceCountByStatus = Prelude.Nothing,
       executionId = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       detailedStatus = Prelude.Nothing,
       lastExecutionDate = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       associationId = Prelude.Nothing
     }
 
@@ -107,6 +118,10 @@ associationExecution_resourceCountByStatus = Lens.lens (\AssociationExecution' {
 associationExecution_executionId :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
 associationExecution_executionId = Lens.lens (\AssociationExecution' {executionId} -> executionId) (\s@AssociationExecution' {} a -> s {executionId = a} :: AssociationExecution)
 
+-- | Undocumented member.
+associationExecution_alarmConfiguration :: Lens.Lens' AssociationExecution (Prelude.Maybe AlarmConfiguration)
+associationExecution_alarmConfiguration = Lens.lens (\AssociationExecution' {alarmConfiguration} -> alarmConfiguration) (\s@AssociationExecution' {} a -> s {alarmConfiguration = a} :: AssociationExecution)
+
 -- | Detailed status information about the execution.
 associationExecution_detailedStatus :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
 associationExecution_detailedStatus = Lens.lens (\AssociationExecution' {detailedStatus} -> detailedStatus) (\s@AssociationExecution' {} a -> s {detailedStatus = a} :: AssociationExecution)
@@ -114,6 +129,10 @@ associationExecution_detailedStatus = Lens.lens (\AssociationExecution' {detaile
 -- | The date of the last execution.
 associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
 associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Core._Time
+
+-- | The CloudWatch alarms that were invoked by the association.
+associationExecution_triggeredAlarms :: Lens.Lens' AssociationExecution (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+associationExecution_triggeredAlarms = Lens.lens (\AssociationExecution' {triggeredAlarms} -> triggeredAlarms) (\s@AssociationExecution' {} a -> s {triggeredAlarms = a} :: AssociationExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The association ID.
 associationExecution_associationId :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
@@ -130,8 +149,10 @@ instance Core.FromJSON AssociationExecution where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ResourceCountByStatus")
             Prelude.<*> (x Core..:? "ExecutionId")
+            Prelude.<*> (x Core..:? "AlarmConfiguration")
             Prelude.<*> (x Core..:? "DetailedStatus")
             Prelude.<*> (x Core..:? "LastExecutionDate")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "AssociationId")
       )
 
@@ -142,8 +163,10 @@ instance Prelude.Hashable AssociationExecution where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` resourceCountByStatus
       `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` detailedStatus
       `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` triggeredAlarms
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData AssociationExecution where
@@ -153,6 +176,8 @@ instance Prelude.NFData AssociationExecution where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf resourceCountByStatus
       `Prelude.seq` Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf detailedStatus
       `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf triggeredAlarms
       `Prelude.seq` Prelude.rnf associationId

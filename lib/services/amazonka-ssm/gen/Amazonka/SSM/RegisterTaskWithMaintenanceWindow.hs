@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.RegisterTaskWithMaintenanceWindow
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,7 @@ module Amazonka.SSM.RegisterTaskWithMaintenanceWindow
     registerTaskWithMaintenanceWindow_taskInvocationParameters,
     registerTaskWithMaintenanceWindow_targets,
     registerTaskWithMaintenanceWindow_description,
+    registerTaskWithMaintenanceWindow_alarmConfiguration,
     registerTaskWithMaintenanceWindow_priority,
     registerTaskWithMaintenanceWindow_maxConcurrency,
     registerTaskWithMaintenanceWindow_maxErrors,
@@ -111,6 +112,8 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     targets :: Prelude.Maybe [Target],
     -- | An optional description for the task.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The CloudWatch alarm you want to apply to your maintenance window task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The priority of the task in the maintenance window, the lower the number
     -- the higher the priority. Tasks in a maintenance window are scheduled in
     -- priority order with tasks that have the same priority scheduled in
@@ -238,6 +241,8 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- 'description', 'registerTaskWithMaintenanceWindow_description' - An optional description for the task.
 --
+-- 'alarmConfiguration', 'registerTaskWithMaintenanceWindow_alarmConfiguration' - The CloudWatch alarm you want to apply to your maintenance window task.
+--
 -- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
 -- the higher the priority. Tasks in a maintenance window are scheduled in
 -- priority order with tasks that have the same priority scheduled in
@@ -326,6 +331,7 @@ newRegisterTaskWithMaintenanceWindow
           Prelude.Nothing,
         targets = Prelude.Nothing,
         description = Prelude.Nothing,
+        alarmConfiguration = Prelude.Nothing,
         priority = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
         maxErrors = Prelude.Nothing,
@@ -398,6 +404,10 @@ registerTaskWithMaintenanceWindow_targets = Lens.lens (\RegisterTaskWithMaintena
 -- | An optional description for the task.
 registerTaskWithMaintenanceWindow_description :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMaintenanceWindow' {description} -> description) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The CloudWatch alarm you want to apply to your maintenance window task.
+registerTaskWithMaintenanceWindow_alarmConfiguration :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe AlarmConfiguration)
+registerTaskWithMaintenanceWindow_alarmConfiguration = Lens.lens (\RegisterTaskWithMaintenanceWindow' {alarmConfiguration} -> alarmConfiguration) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {alarmConfiguration = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | The priority of the task in the maintenance window, the lower the number
 -- the higher the priority. Tasks in a maintenance window are scheduled in
@@ -512,6 +522,7 @@ instance
         `Prelude.hashWithSalt` taskInvocationParameters
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` alarmConfiguration
         `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` maxConcurrency
         `Prelude.hashWithSalt` maxErrors
@@ -533,6 +544,7 @@ instance
       `Prelude.seq` Prelude.rnf taskInvocationParameters
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
@@ -577,6 +589,8 @@ instance
               Prelude.<$> taskInvocationParameters,
             ("Targets" Core..=) Prelude.<$> targets,
             ("Description" Core..=) Prelude.<$> description,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("Priority" Core..=) Prelude.<$> priority,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,

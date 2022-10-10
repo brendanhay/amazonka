@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.GetMaintenanceWindowTask
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,6 +54,7 @@ module Amazonka.SSM.GetMaintenanceWindowTask
     getMaintenanceWindowTaskResponse_targets,
     getMaintenanceWindowTaskResponse_description,
     getMaintenanceWindowTaskResponse_taskType,
+    getMaintenanceWindowTaskResponse_alarmConfiguration,
     getMaintenanceWindowTaskResponse_priority,
     getMaintenanceWindowTaskResponse_maxConcurrency,
     getMaintenanceWindowTaskResponse_maxErrors,
@@ -129,6 +130,7 @@ instance Core.AWSRequest GetMaintenanceWindowTask where
             Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "TaskType")
+            Prelude.<*> (x Core..?> "AlarmConfiguration")
             Prelude.<*> (x Core..?> "Priority")
             Prelude.<*> (x Core..?> "MaxConcurrency")
             Prelude.<*> (x Core..?> "MaxErrors")
@@ -210,6 +212,9 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The type of task to run.
     taskType :: Prelude.Maybe MaintenanceWindowTaskType,
+    -- | The details for the CloudWatch alarm you applied to your maintenance
+    -- window task.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The priority of the task when it runs. The lower the number, the higher
     -- the priority. Tasks that have the same priority are scheduled in
     -- parallel.
@@ -293,6 +298,9 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
 --
 -- 'taskType', 'getMaintenanceWindowTaskResponse_taskType' - The type of task to run.
 --
+-- 'alarmConfiguration', 'getMaintenanceWindowTaskResponse_alarmConfiguration' - The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+--
 -- 'priority', 'getMaintenanceWindowTaskResponse_priority' - The priority of the task when it runs. The lower the number, the higher
 -- the priority. Tasks that have the same priority are scheduled in
 -- parallel.
@@ -351,6 +359,7 @@ newGetMaintenanceWindowTaskResponse pHttpStatus_ =
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
       taskType = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       priority = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -409,6 +418,11 @@ getMaintenanceWindowTaskResponse_description = Lens.lens (\GetMaintenanceWindowT
 -- | The type of task to run.
 getMaintenanceWindowTaskResponse_taskType :: Lens.Lens' GetMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskType)
 getMaintenanceWindowTaskResponse_taskType = Lens.lens (\GetMaintenanceWindowTaskResponse' {taskType} -> taskType) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {taskType = a} :: GetMaintenanceWindowTaskResponse)
+
+-- | The details for the CloudWatch alarm you applied to your maintenance
+-- window task.
+getMaintenanceWindowTaskResponse_alarmConfiguration :: Lens.Lens' GetMaintenanceWindowTaskResponse (Prelude.Maybe AlarmConfiguration)
+getMaintenanceWindowTaskResponse_alarmConfiguration = Lens.lens (\GetMaintenanceWindowTaskResponse' {alarmConfiguration} -> alarmConfiguration) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {alarmConfiguration = a} :: GetMaintenanceWindowTaskResponse)
 
 -- | The priority of the task when it runs. The lower the number, the higher
 -- the priority. Tasks that have the same priority are scheduled in
@@ -478,6 +492,7 @@ instance
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf taskType
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.DescribeInstanceInformation
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,9 +69,9 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters. Use a filter to return a more specific list of
-    -- managed nodes. You can filter based on tags applied to EC2 instances.
-    -- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
-    -- which is deprecated.
+    -- managed nodes. You can filter based on tags applied to your managed
+    -- nodes. Use this @Filters@ data type instead of
+    -- @InstanceInformationFilterList@, which is deprecated.
     filters :: Prelude.Maybe [InstanceInformationStringFilter],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
@@ -99,9 +99,9 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 -- from a previous call.)
 --
 -- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of
--- managed nodes. You can filter based on tags applied to EC2 instances.
--- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
--- which is deprecated.
+-- managed nodes. You can filter based on tags applied to your managed
+-- nodes. Use this @Filters@ data type instead of
+-- @InstanceInformationFilterList@, which is deprecated.
 --
 -- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -131,9 +131,9 @@ describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation 
 describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
 
 -- | One or more filters. Use a filter to return a more specific list of
--- managed nodes. You can filter based on tags applied to EC2 instances.
--- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
--- which is deprecated.
+-- managed nodes. You can filter based on tags applied to your managed
+-- nodes. Use this @Filters@ data type instead of
+-- @InstanceInformationFilterList@, which is deprecated.
 describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
 describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
 

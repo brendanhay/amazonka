@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.StartAutomationExecution
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ module Amazonka.SSM.StartAutomationExecution
     startAutomationExecution_targetParameterName,
     startAutomationExecution_targetMaps,
     startAutomationExecution_targets,
+    startAutomationExecution_alarmConfiguration,
     startAutomationExecution_maxConcurrency,
     startAutomationExecution_mode,
     startAutomationExecution_maxErrors,
@@ -93,6 +94,8 @@ data StartAutomationExecution = StartAutomationExecution'
     -- | A key-value mapping to target resources. Required if you specify
     -- TargetParameterName.
     targets :: Prelude.Maybe [Target],
+    -- | The CloudWatch alarm you want to apply to your automation.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The maximum number of targets allowed to run this task in parallel. You
     -- can specify a number, such as 10, or a percentage, such as 10%. The
     -- default value is @10@.
@@ -173,6 +176,8 @@ data StartAutomationExecution = StartAutomationExecution'
 -- 'targets', 'startAutomationExecution_targets' - A key-value mapping to target resources. Required if you specify
 -- TargetParameterName.
 --
+-- 'alarmConfiguration', 'startAutomationExecution_alarmConfiguration' - The CloudWatch alarm you want to apply to your automation.
+--
 -- 'maxConcurrency', 'startAutomationExecution_maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You
 -- can specify a number, such as 10, or a percentage, such as 10%. The
 -- default value is @10@.
@@ -219,6 +224,7 @@ newStartAutomationExecution pDocumentName_ =
       targetParameterName = Prelude.Nothing,
       targetMaps = Prelude.Nothing,
       targets = Prelude.Nothing,
+      alarmConfiguration = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       mode = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -272,6 +278,10 @@ startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {tar
 -- TargetParameterName.
 startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Target])
 startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The CloudWatch alarm you want to apply to your automation.
+startAutomationExecution_alarmConfiguration :: Lens.Lens' StartAutomationExecution (Prelude.Maybe AlarmConfiguration)
+startAutomationExecution_alarmConfiguration = Lens.lens (\StartAutomationExecution' {alarmConfiguration} -> alarmConfiguration) (\s@StartAutomationExecution' {} a -> s {alarmConfiguration = a} :: StartAutomationExecution)
 
 -- | The maximum number of targets allowed to run this task in parallel. You
 -- can specify a number, such as 10, or a percentage, such as 10%. The
@@ -341,6 +351,7 @@ instance Prelude.Hashable StartAutomationExecution where
       `Prelude.hashWithSalt` targetParameterName
       `Prelude.hashWithSalt` targetMaps
       `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` maxErrors
@@ -356,6 +367,7 @@ instance Prelude.NFData StartAutomationExecution where
       `Prelude.seq` Prelude.rnf targetParameterName
       `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf maxErrors
@@ -390,6 +402,8 @@ instance Core.ToJSON StartAutomationExecution where
               Prelude.<$> targetParameterName,
             ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("Targets" Core..=) Prelude.<$> targets,
+            ("AlarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("Mode" Core..=) Prelude.<$> mode,

@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SSM
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -368,6 +368,9 @@ module Amazonka.SSM
 
     -- ** InvalidNotificationConfig
     _InvalidNotificationConfig,
+
+    -- ** InvalidTag
+    _InvalidTag,
 
     -- ** InvalidDocumentSchemaVersion
     _InvalidDocumentSchemaVersion,
@@ -1346,6 +1349,9 @@ module Amazonka.SSM
     -- ** ExecutionMode
     ExecutionMode (..),
 
+    -- ** ExternalAlarmState
+    ExternalAlarmState (..),
+
     -- ** Fault
     Fault (..),
 
@@ -1500,6 +1506,18 @@ module Amazonka.SSM
     -- ** Activation
     Activation (Activation'),
     newActivation,
+
+    -- ** Alarm
+    Alarm (Alarm'),
+    newAlarm,
+
+    -- ** AlarmConfiguration
+    AlarmConfiguration (AlarmConfiguration'),
+    newAlarmConfiguration,
+
+    -- ** AlarmStateInformation
+    AlarmStateInformation (AlarmStateInformation'),
+    newAlarmStateInformation,
 
     -- ** Association
     Association (Association'),

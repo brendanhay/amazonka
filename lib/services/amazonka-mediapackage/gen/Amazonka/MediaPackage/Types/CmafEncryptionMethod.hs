@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaPackage.Types.UtcTiming
+-- Module      : Amazonka.MediaPackage.Types.CmafEncryptionMethod
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaPackage.Types.UtcTiming
-  ( UtcTiming
+module Amazonka.MediaPackage.Types.CmafEncryptionMethod
+  ( CmafEncryptionMethod
       ( ..,
-        UtcTiming_HTTP_HEAD,
-        UtcTiming_HTTP_ISO,
-        UtcTiming_HTTP_XSDATE,
-        UtcTiming_NONE
+        CmafEncryptionMethod_AES_CTR,
+        CmafEncryptionMethod_SAMPLE_AES
       ),
   )
 where
@@ -31,8 +29,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype UtcTiming = UtcTiming'
-  { fromUtcTiming ::
+-- | The encryption method to use.
+newtype CmafEncryptionMethod = CmafEncryptionMethod'
+  { fromCmafEncryptionMethod ::
       Core.Text
   }
   deriving stock
@@ -59,22 +58,14 @@ newtype UtcTiming = UtcTiming'
       Core.ToXML
     )
 
-pattern UtcTiming_HTTP_HEAD :: UtcTiming
-pattern UtcTiming_HTTP_HEAD = UtcTiming' "HTTP-HEAD"
+pattern CmafEncryptionMethod_AES_CTR :: CmafEncryptionMethod
+pattern CmafEncryptionMethod_AES_CTR = CmafEncryptionMethod' "AES_CTR"
 
-pattern UtcTiming_HTTP_ISO :: UtcTiming
-pattern UtcTiming_HTTP_ISO = UtcTiming' "HTTP-ISO"
-
-pattern UtcTiming_HTTP_XSDATE :: UtcTiming
-pattern UtcTiming_HTTP_XSDATE = UtcTiming' "HTTP-XSDATE"
-
-pattern UtcTiming_NONE :: UtcTiming
-pattern UtcTiming_NONE = UtcTiming' "NONE"
+pattern CmafEncryptionMethod_SAMPLE_AES :: CmafEncryptionMethod
+pattern CmafEncryptionMethod_SAMPLE_AES = CmafEncryptionMethod' "SAMPLE_AES"
 
 {-# COMPLETE
-  UtcTiming_HTTP_HEAD,
-  UtcTiming_HTTP_ISO,
-  UtcTiming_HTTP_XSDATE,
-  UtcTiming_NONE,
-  UtcTiming'
+  CmafEncryptionMethod_AES_CTR,
+  CmafEncryptionMethod_SAMPLE_AES,
+  CmafEncryptionMethod'
   #-}

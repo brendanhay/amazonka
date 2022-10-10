@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackage.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,9 @@ module Amazonka.MediaPackage.Types
 
     -- * AdsOnDeliveryRestrictions
     AdsOnDeliveryRestrictions (..),
+
+    -- * CmafEncryptionMethod
+    CmafEncryptionMethod (..),
 
     -- * EncryptionMethod
     EncryptionMethod (..),
@@ -90,6 +93,7 @@ module Amazonka.MediaPackage.Types
     CmafEncryption (..),
     newCmafEncryption,
     cmafEncryption_constantInitializationVector,
+    cmafEncryption_encryptionMethod,
     cmafEncryption_keyRotationIntervalSeconds,
     cmafEncryption_spekeKeyProvider,
 
@@ -179,10 +183,12 @@ module Amazonka.MediaPackage.Types
     HlsManifest (..),
     newHlsManifest,
     hlsManifest_playlistWindowSeconds,
+    hlsManifest_adsOnDeliveryRestrictions,
     hlsManifest_url,
     hlsManifest_programDateTimeIntervalSeconds,
     hlsManifest_includeIframeOnlyStream,
     hlsManifest_adMarkers,
+    hlsManifest_adTriggers,
     hlsManifest_manifestName,
     hlsManifest_playlistType,
     hlsManifest_id,
@@ -296,6 +302,7 @@ import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Amazonka.MediaPackage.Types.Authorization
 import Amazonka.MediaPackage.Types.Channel
 import Amazonka.MediaPackage.Types.CmafEncryption
+import Amazonka.MediaPackage.Types.CmafEncryptionMethod
 import Amazonka.MediaPackage.Types.CmafPackage
 import Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
 import Amazonka.MediaPackage.Types.DashEncryption

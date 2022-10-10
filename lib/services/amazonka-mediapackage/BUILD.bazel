@@ -28,6 +28,7 @@ haskell_library(
         "gen/Amazonka/MediaPackage/Types/Authorization.hs",
         "gen/Amazonka/MediaPackage/Types/Channel.hs",
         "gen/Amazonka/MediaPackage/Types/CmafEncryption.hs",
+        "gen/Amazonka/MediaPackage/Types/CmafEncryptionMethod.hs",
         "gen/Amazonka/MediaPackage/Types/CmafPackage.hs",
         "gen/Amazonka/MediaPackage/Types/CmafPackageCreateOrUpdateParameters.hs",
         "gen/Amazonka/MediaPackage/Types/DashEncryption.hs",

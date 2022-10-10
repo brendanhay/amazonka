@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackage.Types.HlsManifest
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.MediaPackage.Types.HlsManifest where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaPackage.Types.AdMarkers
+import Amazonka.MediaPackage.Types.AdTriggersElement
+import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Amazonka.MediaPackage.Types.PlaylistType
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,6 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data HlsManifest = HlsManifest'
   { -- | Time window (in seconds) contained in each parent manifest.
     playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
+    adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
     -- | The URL of the packaged OriginEndpoint for consumption.
     url :: Prelude.Maybe Prelude.Text,
     -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -55,6 +58,7 @@ data HlsManifest = HlsManifest'
     -- transition events in HLS and CMAF manifests. For this option, you must
     -- set a programDateTimeIntervalSeconds value that is greater than 0.
     adMarkers :: Prelude.Maybe AdMarkers,
+    adTriggers :: Prelude.Maybe [AdTriggersElement],
     -- | An optional short string appended to the end of the OriginEndpoint URL.
     -- If not specified, defaults to the manifestName for the OriginEndpoint.
     manifestName :: Prelude.Maybe Prelude.Text,
@@ -77,6 +81,8 @@ data HlsManifest = HlsManifest'
 -- for backwards compatibility:
 --
 -- 'playlistWindowSeconds', 'hlsManifest_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+--
+-- 'adsOnDeliveryRestrictions', 'hlsManifest_adsOnDeliveryRestrictions' - Undocumented member.
 --
 -- 'url', 'hlsManifest_url' - The URL of the packaged OriginEndpoint for consumption.
 --
@@ -102,6 +108,8 @@ data HlsManifest = HlsManifest'
 -- transition events in HLS and CMAF manifests. For this option, you must
 -- set a programDateTimeIntervalSeconds value that is greater than 0.
 --
+-- 'adTriggers', 'hlsManifest_adTriggers' - Undocumented member.
+--
 -- 'manifestName', 'hlsManifest_manifestName' - An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
 --
@@ -119,10 +127,12 @@ newHlsManifest pId_ =
   HlsManifest'
     { playlistWindowSeconds =
         Prelude.Nothing,
+      adsOnDeliveryRestrictions = Prelude.Nothing,
       url = Prelude.Nothing,
       programDateTimeIntervalSeconds = Prelude.Nothing,
       includeIframeOnlyStream = Prelude.Nothing,
       adMarkers = Prelude.Nothing,
+      adTriggers = Prelude.Nothing,
       manifestName = Prelude.Nothing,
       playlistType = Prelude.Nothing,
       id = pId_
@@ -131,6 +141,10 @@ newHlsManifest pId_ =
 -- | Time window (in seconds) contained in each parent manifest.
 hlsManifest_playlistWindowSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
 hlsManifest_playlistWindowSeconds = Lens.lens (\HlsManifest' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsManifest' {} a -> s {playlistWindowSeconds = a} :: HlsManifest)
+
+-- | Undocumented member.
+hlsManifest_adsOnDeliveryRestrictions :: Lens.Lens' HlsManifest (Prelude.Maybe AdsOnDeliveryRestrictions)
+hlsManifest_adsOnDeliveryRestrictions = Lens.lens (\HlsManifest' {adsOnDeliveryRestrictions} -> adsOnDeliveryRestrictions) (\s@HlsManifest' {} a -> s {adsOnDeliveryRestrictions = a} :: HlsManifest)
 
 -- | The URL of the packaged OriginEndpoint for consumption.
 hlsManifest_url :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
@@ -164,6 +178,10 @@ hlsManifest_includeIframeOnlyStream = Lens.lens (\HlsManifest' {includeIframeOnl
 hlsManifest_adMarkers :: Lens.Lens' HlsManifest (Prelude.Maybe AdMarkers)
 hlsManifest_adMarkers = Lens.lens (\HlsManifest' {adMarkers} -> adMarkers) (\s@HlsManifest' {} a -> s {adMarkers = a} :: HlsManifest)
 
+-- | Undocumented member.
+hlsManifest_adTriggers :: Lens.Lens' HlsManifest (Prelude.Maybe [AdTriggersElement])
+hlsManifest_adTriggers = Lens.lens (\HlsManifest' {adTriggers} -> adTriggers) (\s@HlsManifest' {} a -> s {adTriggers = a} :: HlsManifest) Prelude.. Lens.mapping Lens.coerced
+
 -- | An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
 hlsManifest_manifestName :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
@@ -187,10 +205,12 @@ instance Core.FromJSON HlsManifest where
       ( \x ->
           HlsManifest'
             Prelude.<$> (x Core..:? "playlistWindowSeconds")
+            Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
             Prelude.<*> (x Core..:? "url")
             Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
             Prelude.<*> (x Core..:? "includeIframeOnlyStream")
             Prelude.<*> (x Core..:? "adMarkers")
+            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "manifestName")
             Prelude.<*> (x Core..:? "playlistType")
             Prelude.<*> (x Core..: "id")
@@ -199,10 +219,12 @@ instance Core.FromJSON HlsManifest where
 instance Prelude.Hashable HlsManifest where
   hashWithSalt _salt HlsManifest' {..} =
     _salt `Prelude.hashWithSalt` playlistWindowSeconds
+      `Prelude.hashWithSalt` adsOnDeliveryRestrictions
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` programDateTimeIntervalSeconds
       `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` adTriggers
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` playlistType
       `Prelude.hashWithSalt` id
@@ -210,10 +232,12 @@ instance Prelude.Hashable HlsManifest where
 instance Prelude.NFData HlsManifest where
   rnf HlsManifest' {..} =
     Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
       `Prelude.seq` Prelude.rnf includeIframeOnlyStream
       `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf adTriggers
       `Prelude.seq` Prelude.rnf manifestName
       `Prelude.seq` Prelude.rnf playlistType
       `Prelude.seq` Prelude.rnf id

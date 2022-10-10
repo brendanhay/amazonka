@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.Origin
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,6 +86,12 @@ data Origin = Origin'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath Origin Path>
     -- in the /Amazon CloudFront Developer Guide/.
     originPath :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of an origin access control for this origin.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Restricting access to an Amazon S3 origin>
+    -- in the /Amazon CloudFront Developer Guide/.
+    originAccessControlId :: Prelude.Maybe Prelude.Text,
     -- | Use this type to specify an origin that is not an Amazon S3 bucket, with
     -- one exception. If the Amazon S3 bucket is configured with static website
     -- hosting, use this type. If the Amazon S3 bucket is not configured with
@@ -163,6 +169,12 @@ data Origin = Origin'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath Origin Path>
 -- in the /Amazon CloudFront Developer Guide/.
 --
+-- 'originAccessControlId', 'origin_originAccessControlId' - The unique identifier of an origin access control for this origin.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Restricting access to an Amazon S3 origin>
+-- in the /Amazon CloudFront Developer Guide/.
+--
 -- 'customOriginConfig', 'origin_customOriginConfig' - Use this type to specify an origin that is not an Amazon S3 bucket, with
 -- one exception. If the Amazon S3 bucket is configured with static website
 -- hosting, use this type. If the Amazon S3 bucket is not configured with
@@ -212,6 +224,7 @@ newOrigin pId_ pDomainName_ =
       connectionTimeout = Prelude.Nothing,
       s3OriginConfig = Prelude.Nothing,
       originPath = Prelude.Nothing,
+      originAccessControlId = Prelude.Nothing,
       customOriginConfig = Prelude.Nothing,
       originShield = Prelude.Nothing,
       connectionAttempts = Prelude.Nothing,
@@ -254,6 +267,14 @@ origin_s3OriginConfig = Lens.lens (\Origin' {s3OriginConfig} -> s3OriginConfig) 
 -- in the /Amazon CloudFront Developer Guide/.
 origin_originPath :: Lens.Lens' Origin (Prelude.Maybe Prelude.Text)
 origin_originPath = Lens.lens (\Origin' {originPath} -> originPath) (\s@Origin' {} a -> s {originPath = a} :: Origin)
+
+-- | The unique identifier of an origin access control for this origin.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Restricting access to an Amazon S3 origin>
+-- in the /Amazon CloudFront Developer Guide/.
+origin_originAccessControlId :: Lens.Lens' Origin (Prelude.Maybe Prelude.Text)
+origin_originAccessControlId = Lens.lens (\Origin' {originAccessControlId} -> originAccessControlId) (\s@Origin' {} a -> s {originAccessControlId = a} :: Origin)
 
 -- | Use this type to specify an origin that is not an Amazon S3 bucket, with
 -- one exception. If the Amazon S3 bucket is configured with static website
@@ -310,6 +331,7 @@ instance Core.FromXML Origin where
       Prelude.<*> (x Core..@? "ConnectionTimeout")
       Prelude.<*> (x Core..@? "S3OriginConfig")
       Prelude.<*> (x Core..@? "OriginPath")
+      Prelude.<*> (x Core..@? "OriginAccessControlId")
       Prelude.<*> (x Core..@? "CustomOriginConfig")
       Prelude.<*> (x Core..@? "OriginShield")
       Prelude.<*> (x Core..@? "ConnectionAttempts")
@@ -322,6 +344,7 @@ instance Prelude.Hashable Origin where
       `Prelude.hashWithSalt` connectionTimeout
       `Prelude.hashWithSalt` s3OriginConfig
       `Prelude.hashWithSalt` originPath
+      `Prelude.hashWithSalt` originAccessControlId
       `Prelude.hashWithSalt` customOriginConfig
       `Prelude.hashWithSalt` originShield
       `Prelude.hashWithSalt` connectionAttempts
@@ -334,6 +357,7 @@ instance Prelude.NFData Origin where
       `Prelude.seq` Prelude.rnf connectionTimeout
       `Prelude.seq` Prelude.rnf s3OriginConfig
       `Prelude.seq` Prelude.rnf originPath
+      `Prelude.seq` Prelude.rnf originAccessControlId
       `Prelude.seq` Prelude.rnf customOriginConfig
       `Prelude.seq` Prelude.rnf originShield
       `Prelude.seq` Prelude.rnf connectionAttempts
@@ -347,6 +371,8 @@ instance Core.ToXML Origin where
         "ConnectionTimeout" Core.@= connectionTimeout,
         "S3OriginConfig" Core.@= s3OriginConfig,
         "OriginPath" Core.@= originPath,
+        "OriginAccessControlId"
+          Core.@= originAccessControlId,
         "CustomOriginConfig" Core.@= customOriginConfig,
         "OriginShield" Core.@= originShield,
         "ConnectionAttempts" Core.@= connectionAttempts,

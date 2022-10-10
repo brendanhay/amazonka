@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -55,6 +55,7 @@ library
     Amazonka.CloudFront.CreateInvalidation
     Amazonka.CloudFront.CreateKeyGroup
     Amazonka.CloudFront.CreateMonitoringSubscription
+    Amazonka.CloudFront.CreateOriginAccessControl
     Amazonka.CloudFront.CreateOriginRequestPolicy
     Amazonka.CloudFront.CreatePublicKey
     Amazonka.CloudFront.CreateRealtimeLogConfig
@@ -69,6 +70,7 @@ library
     Amazonka.CloudFront.DeleteFunction
     Amazonka.CloudFront.DeleteKeyGroup
     Amazonka.CloudFront.DeleteMonitoringSubscription
+    Amazonka.CloudFront.DeleteOriginAccessControl
     Amazonka.CloudFront.DeleteOriginRequestPolicy
     Amazonka.CloudFront.DeletePublicKey
     Amazonka.CloudFront.DeleteRealtimeLogConfig
@@ -90,6 +92,8 @@ library
     Amazonka.CloudFront.GetKeyGroup
     Amazonka.CloudFront.GetKeyGroupConfig
     Amazonka.CloudFront.GetMonitoringSubscription
+    Amazonka.CloudFront.GetOriginAccessControl
+    Amazonka.CloudFront.GetOriginAccessControlConfig
     Amazonka.CloudFront.GetOriginRequestPolicy
     Amazonka.CloudFront.GetOriginRequestPolicyConfig
     Amazonka.CloudFront.GetPublicKey
@@ -115,6 +119,7 @@ library
     Amazonka.CloudFront.ListFunctions
     Amazonka.CloudFront.ListInvalidations
     Amazonka.CloudFront.ListKeyGroups
+    Amazonka.CloudFront.ListOriginAccessControls
     Amazonka.CloudFront.ListOriginRequestPolicies
     Amazonka.CloudFront.ListPublicKeys
     Amazonka.CloudFront.ListRealtimeLogConfigs
@@ -215,6 +220,13 @@ library
     Amazonka.CloudFront.Types.MinimumProtocolVersion
     Amazonka.CloudFront.Types.MonitoringSubscription
     Amazonka.CloudFront.Types.Origin
+    Amazonka.CloudFront.Types.OriginAccessControl
+    Amazonka.CloudFront.Types.OriginAccessControlConfig
+    Amazonka.CloudFront.Types.OriginAccessControlList
+    Amazonka.CloudFront.Types.OriginAccessControlOriginTypes
+    Amazonka.CloudFront.Types.OriginAccessControlSigningBehaviors
+    Amazonka.CloudFront.Types.OriginAccessControlSigningProtocols
+    Amazonka.CloudFront.Types.OriginAccessControlSummary
     Amazonka.CloudFront.Types.OriginCustomHeader
     Amazonka.CloudFront.Types.OriginGroup
     Amazonka.CloudFront.Types.OriginGroupFailoverCriteria
@@ -303,6 +315,7 @@ library
     Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
     Amazonka.CloudFront.UpdateFunction
     Amazonka.CloudFront.UpdateKeyGroup
+    Amazonka.CloudFront.UpdateOriginAccessControl
     Amazonka.CloudFront.UpdateOriginRequestPolicy
     Amazonka.CloudFront.UpdatePublicKey
     Amazonka.CloudFront.UpdateRealtimeLogConfig
@@ -311,7 +324,7 @@ library
     Amazonka.CloudFront.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-cloudfront-test
@@ -331,8 +344,8 @@ test-suite amazonka-cloudfront-test
 
   build-depends:
     , amazonka-cloudfront
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

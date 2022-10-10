@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.CloudFront
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestCreateMonitoringSubscription $
 --             newCreateMonitoringSubscription
 --
+--         , requestCreateOriginAccessControl $
+--             newCreateOriginAccessControl
+--
 --         , requestCreateOriginRequestPolicy $
 --             newCreateOriginRequestPolicy
 --
@@ -101,6 +104,9 @@ import Test.Tasty
 --
 --         , requestDeleteMonitoringSubscription $
 --             newDeleteMonitoringSubscription
+--
+--         , requestDeleteOriginAccessControl $
+--             newDeleteOriginAccessControl
 --
 --         , requestDeleteOriginRequestPolicy $
 --             newDeleteOriginRequestPolicy
@@ -164,6 +170,12 @@ import Test.Tasty
 --
 --         , requestGetMonitoringSubscription $
 --             newGetMonitoringSubscription
+--
+--         , requestGetOriginAccessControl $
+--             newGetOriginAccessControl
+--
+--         , requestGetOriginAccessControlConfig $
+--             newGetOriginAccessControlConfig
 --
 --         , requestGetOriginRequestPolicy $
 --             newGetOriginRequestPolicy
@@ -237,6 +249,9 @@ import Test.Tasty
 --         , requestListKeyGroups $
 --             newListKeyGroups
 --
+--         , requestListOriginAccessControls $
+--             newListOriginAccessControls
+--
 --         , requestListOriginRequestPolicies $
 --             newListOriginRequestPolicies
 --
@@ -287,6 +302,9 @@ import Test.Tasty
 --
 --         , requestUpdateKeyGroup $
 --             newUpdateKeyGroup
+--
+--         , requestUpdateOriginAccessControl $
+--             newUpdateOriginAccessControl
 --
 --         , requestUpdateOriginRequestPolicy $
 --             newUpdateOriginRequestPolicy
@@ -339,6 +357,9 @@ import Test.Tasty
 --         , responseCreateMonitoringSubscription $
 --             newCreateMonitoringSubscriptionResponse
 --
+--         , responseCreateOriginAccessControl $
+--             newCreateOriginAccessControlResponse
+--
 --         , responseCreateOriginRequestPolicy $
 --             newCreateOriginRequestPolicyResponse
 --
@@ -380,6 +401,9 @@ import Test.Tasty
 --
 --         , responseDeleteMonitoringSubscription $
 --             newDeleteMonitoringSubscriptionResponse
+--
+--         , responseDeleteOriginAccessControl $
+--             newDeleteOriginAccessControlResponse
 --
 --         , responseDeleteOriginRequestPolicy $
 --             newDeleteOriginRequestPolicyResponse
@@ -443,6 +467,12 @@ import Test.Tasty
 --
 --         , responseGetMonitoringSubscription $
 --             newGetMonitoringSubscriptionResponse
+--
+--         , responseGetOriginAccessControl $
+--             newGetOriginAccessControlResponse
+--
+--         , responseGetOriginAccessControlConfig $
+--             newGetOriginAccessControlConfigResponse
 --
 --         , responseGetOriginRequestPolicy $
 --             newGetOriginRequestPolicyResponse
@@ -516,6 +546,9 @@ import Test.Tasty
 --         , responseListKeyGroups $
 --             newListKeyGroupsResponse
 --
+--         , responseListOriginAccessControls $
+--             newListOriginAccessControlsResponse
+--
 --         , responseListOriginRequestPolicies $
 --             newListOriginRequestPoliciesResponse
 --
@@ -566,6 +599,9 @@ import Test.Tasty
 --
 --         , responseUpdateKeyGroup $
 --             newUpdateKeyGroupResponse
+--
+--         , responseUpdateOriginAccessControl $
+--             newUpdateOriginAccessControlResponse
 --
 --         , responseUpdateOriginRequestPolicy $
 --             newUpdateOriginRequestPolicyResponse
@@ -653,6 +689,12 @@ requestCreateMonitoringSubscription =
     "CreateMonitoringSubscription"
     "fixture/CreateMonitoringSubscription.yaml"
 
+requestCreateOriginAccessControl :: CreateOriginAccessControl -> TestTree
+requestCreateOriginAccessControl =
+  req
+    "CreateOriginAccessControl"
+    "fixture/CreateOriginAccessControl.yaml"
+
 requestCreateOriginRequestPolicy :: CreateOriginRequestPolicy -> TestTree
 requestCreateOriginRequestPolicy =
   req
@@ -736,6 +778,12 @@ requestDeleteMonitoringSubscription =
   req
     "DeleteMonitoringSubscription"
     "fixture/DeleteMonitoringSubscription.yaml"
+
+requestDeleteOriginAccessControl :: DeleteOriginAccessControl -> TestTree
+requestDeleteOriginAccessControl =
+  req
+    "DeleteOriginAccessControl"
+    "fixture/DeleteOriginAccessControl.yaml"
 
 requestDeleteOriginRequestPolicy :: DeleteOriginRequestPolicy -> TestTree
 requestDeleteOriginRequestPolicy =
@@ -862,6 +910,18 @@ requestGetMonitoringSubscription =
   req
     "GetMonitoringSubscription"
     "fixture/GetMonitoringSubscription.yaml"
+
+requestGetOriginAccessControl :: GetOriginAccessControl -> TestTree
+requestGetOriginAccessControl =
+  req
+    "GetOriginAccessControl"
+    "fixture/GetOriginAccessControl.yaml"
+
+requestGetOriginAccessControlConfig :: GetOriginAccessControlConfig -> TestTree
+requestGetOriginAccessControlConfig =
+  req
+    "GetOriginAccessControlConfig"
+    "fixture/GetOriginAccessControlConfig.yaml"
 
 requestGetOriginRequestPolicy :: GetOriginRequestPolicy -> TestTree
 requestGetOriginRequestPolicy =
@@ -1007,6 +1067,12 @@ requestListKeyGroups =
     "ListKeyGroups"
     "fixture/ListKeyGroups.yaml"
 
+requestListOriginAccessControls :: ListOriginAccessControls -> TestTree
+requestListOriginAccessControls =
+  req
+    "ListOriginAccessControls"
+    "fixture/ListOriginAccessControls.yaml"
+
 requestListOriginRequestPolicies :: ListOriginRequestPolicies -> TestTree
 requestListOriginRequestPolicies =
   req
@@ -1108,6 +1174,12 @@ requestUpdateKeyGroup =
   req
     "UpdateKeyGroup"
     "fixture/UpdateKeyGroup.yaml"
+
+requestUpdateOriginAccessControl :: UpdateOriginAccessControl -> TestTree
+requestUpdateOriginAccessControl =
+  req
+    "UpdateOriginAccessControl"
+    "fixture/UpdateOriginAccessControl.yaml"
 
 requestUpdateOriginRequestPolicy :: UpdateOriginRequestPolicy -> TestTree
 requestUpdateOriginRequestPolicy =
@@ -1229,6 +1301,14 @@ responseCreateMonitoringSubscription =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMonitoringSubscription)
 
+responseCreateOriginAccessControl :: CreateOriginAccessControlResponse -> TestTree
+responseCreateOriginAccessControl =
+  res
+    "CreateOriginAccessControlResponse"
+    "fixture/CreateOriginAccessControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateOriginAccessControl)
+
 responseCreateOriginRequestPolicy :: CreateOriginRequestPolicyResponse -> TestTree
 responseCreateOriginRequestPolicy =
   res
@@ -1340,6 +1420,14 @@ responseDeleteMonitoringSubscription =
     "fixture/DeleteMonitoringSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteMonitoringSubscription)
+
+responseDeleteOriginAccessControl :: DeleteOriginAccessControlResponse -> TestTree
+responseDeleteOriginAccessControl =
+  res
+    "DeleteOriginAccessControlResponse"
+    "fixture/DeleteOriginAccessControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteOriginAccessControl)
 
 responseDeleteOriginRequestPolicy :: DeleteOriginRequestPolicyResponse -> TestTree
 responseDeleteOriginRequestPolicy =
@@ -1508,6 +1596,22 @@ responseGetMonitoringSubscription =
     "fixture/GetMonitoringSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMonitoringSubscription)
+
+responseGetOriginAccessControl :: GetOriginAccessControlResponse -> TestTree
+responseGetOriginAccessControl =
+  res
+    "GetOriginAccessControlResponse"
+    "fixture/GetOriginAccessControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetOriginAccessControl)
+
+responseGetOriginAccessControlConfig :: GetOriginAccessControlConfigResponse -> TestTree
+responseGetOriginAccessControlConfig =
+  res
+    "GetOriginAccessControlConfigResponse"
+    "fixture/GetOriginAccessControlConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetOriginAccessControlConfig)
 
 responseGetOriginRequestPolicy :: GetOriginRequestPolicyResponse -> TestTree
 responseGetOriginRequestPolicy =
@@ -1701,6 +1805,14 @@ responseListKeyGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListKeyGroups)
 
+responseListOriginAccessControls :: ListOriginAccessControlsResponse -> TestTree
+responseListOriginAccessControls =
+  res
+    "ListOriginAccessControlsResponse"
+    "fixture/ListOriginAccessControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOriginAccessControls)
+
 responseListOriginRequestPolicies :: ListOriginRequestPoliciesResponse -> TestTree
 responseListOriginRequestPolicies =
   res
@@ -1836,6 +1948,14 @@ responseUpdateKeyGroup =
     "fixture/UpdateKeyGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateKeyGroup)
+
+responseUpdateOriginAccessControl :: UpdateOriginAccessControlResponse -> TestTree
+responseUpdateOriginAccessControl =
+  res
+    "UpdateOriginAccessControlResponse"
+    "fixture/UpdateOriginAccessControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateOriginAccessControl)
 
 responseUpdateOriginRequestPolicy :: UpdateOriginRequestPolicyResponse -> TestTree
 responseUpdateOriginRequestPolicy =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkFirewall.Types.StatefulRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Use this option to specify a simple Suricata rule with protocol, source
 -- and destination, ports, direction, and rule options. For information
 -- about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
 --
 -- /See:/ 'newStatefulRule' smart constructor.
 data StatefulRule = StatefulRule'

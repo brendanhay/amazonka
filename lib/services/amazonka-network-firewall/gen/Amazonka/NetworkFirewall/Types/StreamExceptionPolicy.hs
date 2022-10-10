@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.NetworkFirewall.Types.LogType
+-- Module      : Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.NetworkFirewall.Types.LogType
-  ( LogType
+module Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
+  ( StreamExceptionPolicy
       ( ..,
-        LogType_ALERT,
-        LogType_FLOW
+        StreamExceptionPolicy_CONTINUE,
+        StreamExceptionPolicy_DROP
       ),
   )
 where
@@ -29,7 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype LogType = LogType' {fromLogType :: Core.Text}
+newtype StreamExceptionPolicy = StreamExceptionPolicy'
+  { fromStreamExceptionPolicy ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -54,14 +57,14 @@ newtype LogType = LogType' {fromLogType :: Core.Text}
       Core.ToXML
     )
 
-pattern LogType_ALERT :: LogType
-pattern LogType_ALERT = LogType' "ALERT"
+pattern StreamExceptionPolicy_CONTINUE :: StreamExceptionPolicy
+pattern StreamExceptionPolicy_CONTINUE = StreamExceptionPolicy' "CONTINUE"
 
-pattern LogType_FLOW :: LogType
-pattern LogType_FLOW = LogType' "FLOW"
+pattern StreamExceptionPolicy_DROP :: StreamExceptionPolicy
+pattern StreamExceptionPolicy_DROP = StreamExceptionPolicy' "DROP"
 
 {-# COMPLETE
-  LogType_ALERT,
-  LogType_FLOW,
-  LogType'
+  StreamExceptionPolicy_CONTINUE,
+  StreamExceptionPolicy_DROP,
+  StreamExceptionPolicy'
   #-}

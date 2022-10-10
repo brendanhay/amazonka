@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,27 @@ module Amazonka.LookoutEquipment.Lens
     createInferenceSchedulerResponse_inferenceSchedulerArn,
     createInferenceSchedulerResponse_httpStatus,
 
+    -- ** CreateLabel
+    createLabel_equipment,
+    createLabel_faultCode,
+    createLabel_notes,
+    createLabel_labelGroupName,
+    createLabel_startTime,
+    createLabel_endTime,
+    createLabel_rating,
+    createLabel_clientToken,
+    createLabelResponse_labelId,
+    createLabelResponse_httpStatus,
+
+    -- ** CreateLabelGroup
+    createLabelGroup_tags,
+    createLabelGroup_faultCodes,
+    createLabelGroup_labelGroupName,
+    createLabelGroup_clientToken,
+    createLabelGroupResponse_labelGroupArn,
+    createLabelGroupResponse_labelGroupName,
+    createLabelGroupResponse_httpStatus,
+
     -- ** CreateModel
     createModel_tags,
     createModel_serverSideKmsKeyId,
@@ -65,6 +86,13 @@ module Amazonka.LookoutEquipment.Lens
 
     -- ** DeleteInferenceScheduler
     deleteInferenceScheduler_inferenceSchedulerName,
+
+    -- ** DeleteLabel
+    deleteLabel_labelGroupName,
+    deleteLabel_labelId,
+
+    -- ** DeleteLabelGroup
+    deleteLabelGroup_labelGroupName,
 
     -- ** DeleteModel
     deleteModel_modelName,
@@ -112,6 +140,7 @@ module Amazonka.LookoutEquipment.Lens
     describeInferenceSchedulerResponse_dataOutputConfiguration,
     describeInferenceSchedulerResponse_status,
     describeInferenceSchedulerResponse_modelArn,
+    describeInferenceSchedulerResponse_latestInferenceResult,
     describeInferenceSchedulerResponse_modelName,
     describeInferenceSchedulerResponse_dataUploadFrequency,
     describeInferenceSchedulerResponse_createdAt,
@@ -119,6 +148,30 @@ module Amazonka.LookoutEquipment.Lens
     describeInferenceSchedulerResponse_updatedAt,
     describeInferenceSchedulerResponse_dataInputConfiguration,
     describeInferenceSchedulerResponse_httpStatus,
+
+    -- ** DescribeLabel
+    describeLabel_labelGroupName,
+    describeLabel_labelId,
+    describeLabelResponse_equipment,
+    describeLabelResponse_labelId,
+    describeLabelResponse_endTime,
+    describeLabelResponse_faultCode,
+    describeLabelResponse_labelGroupArn,
+    describeLabelResponse_notes,
+    describeLabelResponse_rating,
+    describeLabelResponse_createdAt,
+    describeLabelResponse_startTime,
+    describeLabelResponse_labelGroupName,
+    describeLabelResponse_httpStatus,
+
+    -- ** DescribeLabelGroup
+    describeLabelGroup_labelGroupName,
+    describeLabelGroupResponse_faultCodes,
+    describeLabelGroupResponse_labelGroupArn,
+    describeLabelGroupResponse_createdAt,
+    describeLabelGroupResponse_updatedAt,
+    describeLabelGroupResponse_labelGroupName,
+    describeLabelGroupResponse_httpStatus,
 
     -- ** DescribeModel
     describeModel_modelName,
@@ -192,6 +245,26 @@ module Amazonka.LookoutEquipment.Lens
     listInferenceSchedulersResponse_inferenceSchedulerSummaries,
     listInferenceSchedulersResponse_httpStatus,
 
+    -- ** ListLabelGroups
+    listLabelGroups_nextToken,
+    listLabelGroups_labelGroupNameBeginsWith,
+    listLabelGroups_maxResults,
+    listLabelGroupsResponse_nextToken,
+    listLabelGroupsResponse_labelGroupSummaries,
+    listLabelGroupsResponse_httpStatus,
+
+    -- ** ListLabels
+    listLabels_equipment,
+    listLabels_nextToken,
+    listLabels_faultCode,
+    listLabels_intervalStartTime,
+    listLabels_maxResults,
+    listLabels_intervalEndTime,
+    listLabels_labelGroupName,
+    listLabelsResponse_nextToken,
+    listLabelsResponse_labelSummaries,
+    listLabelsResponse_httpStatus,
+
     -- ** ListModels
     listModels_nextToken,
     listModels_status,
@@ -260,6 +333,10 @@ module Amazonka.LookoutEquipment.Lens
     updateInferenceScheduler_dataUploadFrequency,
     updateInferenceScheduler_dataInputConfiguration,
     updateInferenceScheduler_inferenceSchedulerName,
+
+    -- ** UpdateLabelGroup
+    updateLabelGroup_faultCodes,
+    updateLabelGroup_labelGroupName,
 
     -- * Types
 
@@ -348,6 +425,7 @@ module Amazonka.LookoutEquipment.Lens
     inferenceSchedulerSummary_dataDelayOffsetInMinutes,
     inferenceSchedulerSummary_status,
     inferenceSchedulerSummary_modelArn,
+    inferenceSchedulerSummary_latestInferenceResult,
     inferenceSchedulerSummary_modelName,
     inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
@@ -373,8 +451,26 @@ module Amazonka.LookoutEquipment.Lens
     invalidSensorData_affectedSensorCount,
     invalidSensorData_totalNumberOfInvalidValues,
 
+    -- ** LabelGroupSummary
+    labelGroupSummary_labelGroupArn,
+    labelGroupSummary_createdAt,
+    labelGroupSummary_updatedAt,
+    labelGroupSummary_labelGroupName,
+
+    -- ** LabelSummary
+    labelSummary_equipment,
+    labelSummary_labelId,
+    labelSummary_endTime,
+    labelSummary_faultCode,
+    labelSummary_labelGroupArn,
+    labelSummary_rating,
+    labelSummary_createdAt,
+    labelSummary_startTime,
+    labelSummary_labelGroupName,
+
     -- ** LabelsInputConfiguration
     labelsInputConfiguration_s3InputConfiguration,
+    labelsInputConfiguration_labelGroupName,
 
     -- ** LabelsS3InputConfiguration
     labelsS3InputConfiguration_prefix,
@@ -440,19 +536,27 @@ where
 
 import Amazonka.LookoutEquipment.CreateDataset
 import Amazonka.LookoutEquipment.CreateInferenceScheduler
+import Amazonka.LookoutEquipment.CreateLabel
+import Amazonka.LookoutEquipment.CreateLabelGroup
 import Amazonka.LookoutEquipment.CreateModel
 import Amazonka.LookoutEquipment.DeleteDataset
 import Amazonka.LookoutEquipment.DeleteInferenceScheduler
+import Amazonka.LookoutEquipment.DeleteLabel
+import Amazonka.LookoutEquipment.DeleteLabelGroup
 import Amazonka.LookoutEquipment.DeleteModel
 import Amazonka.LookoutEquipment.DescribeDataIngestionJob
 import Amazonka.LookoutEquipment.DescribeDataset
 import Amazonka.LookoutEquipment.DescribeInferenceScheduler
+import Amazonka.LookoutEquipment.DescribeLabel
+import Amazonka.LookoutEquipment.DescribeLabelGroup
 import Amazonka.LookoutEquipment.DescribeModel
 import Amazonka.LookoutEquipment.ListDataIngestionJobs
 import Amazonka.LookoutEquipment.ListDatasets
 import Amazonka.LookoutEquipment.ListInferenceEvents
 import Amazonka.LookoutEquipment.ListInferenceExecutions
 import Amazonka.LookoutEquipment.ListInferenceSchedulers
+import Amazonka.LookoutEquipment.ListLabelGroups
+import Amazonka.LookoutEquipment.ListLabels
 import Amazonka.LookoutEquipment.ListModels
 import Amazonka.LookoutEquipment.ListSensorStatistics
 import Amazonka.LookoutEquipment.ListTagsForResource
@@ -481,6 +585,8 @@ import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
 import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
 import Amazonka.LookoutEquipment.Types.InsufficientSensorData
 import Amazonka.LookoutEquipment.Types.InvalidSensorData
+import Amazonka.LookoutEquipment.Types.LabelGroupSummary
+import Amazonka.LookoutEquipment.Types.LabelSummary
 import Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
 import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
 import Amazonka.LookoutEquipment.Types.LargeTimestampGaps
@@ -496,3 +602,4 @@ import Amazonka.LookoutEquipment.Types.Tag
 import Amazonka.LookoutEquipment.Types.UnsupportedTimestamps
 import Amazonka.LookoutEquipment.UntagResource
 import Amazonka.LookoutEquipment.UpdateInferenceScheduler
+import Amazonka.LookoutEquipment.UpdateLabelGroup

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.CreateInferenceScheduler
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,28 +69,33 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
     -- | Provides the identifier of the KMS key used to encrypt inference
     -- scheduler data by Amazon Lookout for Equipment.
     serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A period of time (in minutes) by which inference on the data is delayed
-    -- after the data starts. For instance, if you select an offset delay time
-    -- of five minutes, inference will not begin on the data until the first
-    -- data measurement after the five minute mark. For example, if five
-    -- minutes is selected, the inference scheduler will wake up at the
-    -- configured frequency with the additional five minute delay time to check
-    -- the customer S3 bucket. The customer can upload data at the same
-    -- frequency and they don\'t need to stop and restart the scheduler when
-    -- uploading new data.
+    -- | The interval (in minutes) of planned delay at the start of each
+    -- inference segment. For example, if inference is set to run every ten
+    -- minutes, the delay is set to five minutes and the time is 09:08. The
+    -- inference scheduler will wake up at the configured interval (which,
+    -- without a delay configured, would be 09:10) plus the additional five
+    -- minute delay time (so 09:15) to check your Amazon S3 bucket. The delay
+    -- provides a buffer for you to upload data at the same frequency, so that
+    -- you don\'t have to stop and restart the scheduler when uploading new
+    -- data.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The name of the previously trained ML model being used to create the
     -- inference scheduler.
     modelName :: Prelude.Text,
     -- | The name of the inference scheduler being created.
     inferenceSchedulerName :: Prelude.Text,
-    -- | How often data is uploaded to the source S3 bucket for the input data.
-    -- The value chosen is the length of time between data uploads. For
+    -- | How often data is uploaded to the source Amazon S3 bucket for the input
+    -- data. The value chosen is the length of time between data uploads. For
     -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
     -- upload the real-time data to the source bucket once every 5 minutes.
     -- This frequency also determines how often Amazon Lookout for Equipment
-    -- starts a scheduled inference on your data. In this example, it starts
-    -- once every 5 minutes.
+    -- runs inference on your data.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
     dataUploadFrequency :: DataUploadFrequency,
     -- | Specifies configuration information for the input data for the inference
     -- scheduler, including delimiter, format, and dataset location.
@@ -120,28 +125,33 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
 -- 'serverSideKmsKeyId', 'createInferenceScheduler_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference
 -- scheduler data by Amazon Lookout for Equipment.
 --
--- 'dataDelayOffsetInMinutes', 'createInferenceScheduler_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
--- after the data starts. For instance, if you select an offset delay time
--- of five minutes, inference will not begin on the data until the first
--- data measurement after the five minute mark. For example, if five
--- minutes is selected, the inference scheduler will wake up at the
--- configured frequency with the additional five minute delay time to check
--- the customer S3 bucket. The customer can upload data at the same
--- frequency and they don\'t need to stop and restart the scheduler when
--- uploading new data.
+-- 'dataDelayOffsetInMinutes', 'createInferenceScheduler_dataDelayOffsetInMinutes' - The interval (in minutes) of planned delay at the start of each
+-- inference segment. For example, if inference is set to run every ten
+-- minutes, the delay is set to five minutes and the time is 09:08. The
+-- inference scheduler will wake up at the configured interval (which,
+-- without a delay configured, would be 09:10) plus the additional five
+-- minute delay time (so 09:15) to check your Amazon S3 bucket. The delay
+-- provides a buffer for you to upload data at the same frequency, so that
+-- you don\'t have to stop and restart the scheduler when uploading new
+-- data.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
 --
 -- 'modelName', 'createInferenceScheduler_modelName' - The name of the previously trained ML model being used to create the
 -- inference scheduler.
 --
 -- 'inferenceSchedulerName', 'createInferenceScheduler_inferenceSchedulerName' - The name of the inference scheduler being created.
 --
--- 'dataUploadFrequency', 'createInferenceScheduler_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
--- The value chosen is the length of time between data uploads. For
+-- 'dataUploadFrequency', 'createInferenceScheduler_dataUploadFrequency' - How often data is uploaded to the source Amazon S3 bucket for the input
+-- data. The value chosen is the length of time between data uploads. For
 -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
 -- upload the real-time data to the source bucket once every 5 minutes.
 -- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
+-- runs inference on your data.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
 --
 -- 'dataInputConfiguration', 'createInferenceScheduler_dataInputConfiguration' - Specifies configuration information for the input data for the inference
 -- scheduler, including delimiter, format, and dataset location.
@@ -201,15 +211,18 @@ createInferenceScheduler_tags = Lens.lens (\CreateInferenceScheduler' {tags} -> 
 createInferenceScheduler_serverSideKmsKeyId :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Text)
 createInferenceScheduler_serverSideKmsKeyId = Lens.lens (\CreateInferenceScheduler' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@CreateInferenceScheduler' {} a -> s {serverSideKmsKeyId = a} :: CreateInferenceScheduler)
 
--- | A period of time (in minutes) by which inference on the data is delayed
--- after the data starts. For instance, if you select an offset delay time
--- of five minutes, inference will not begin on the data until the first
--- data measurement after the five minute mark. For example, if five
--- minutes is selected, the inference scheduler will wake up at the
--- configured frequency with the additional five minute delay time to check
--- the customer S3 bucket. The customer can upload data at the same
--- frequency and they don\'t need to stop and restart the scheduler when
--- uploading new data.
+-- | The interval (in minutes) of planned delay at the start of each
+-- inference segment. For example, if inference is set to run every ten
+-- minutes, the delay is set to five minutes and the time is 09:08. The
+-- inference scheduler will wake up at the configured interval (which,
+-- without a delay configured, would be 09:10) plus the additional five
+-- minute delay time (so 09:15) to check your Amazon S3 bucket. The delay
+-- provides a buffer for you to upload data at the same frequency, so that
+-- you don\'t have to stop and restart the scheduler when uploading new
+-- data.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
 createInferenceScheduler_dataDelayOffsetInMinutes :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Natural)
 createInferenceScheduler_dataDelayOffsetInMinutes = Lens.lens (\CreateInferenceScheduler' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@CreateInferenceScheduler' {} a -> s {dataDelayOffsetInMinutes = a} :: CreateInferenceScheduler)
 
@@ -222,13 +235,15 @@ createInferenceScheduler_modelName = Lens.lens (\CreateInferenceScheduler' {mode
 createInferenceScheduler_inferenceSchedulerName :: Lens.Lens' CreateInferenceScheduler Prelude.Text
 createInferenceScheduler_inferenceSchedulerName = Lens.lens (\CreateInferenceScheduler' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@CreateInferenceScheduler' {} a -> s {inferenceSchedulerName = a} :: CreateInferenceScheduler)
 
--- | How often data is uploaded to the source S3 bucket for the input data.
--- The value chosen is the length of time between data uploads. For
+-- | How often data is uploaded to the source Amazon S3 bucket for the input
+-- data. The value chosen is the length of time between data uploads. For
 -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
 -- upload the real-time data to the source bucket once every 5 minutes.
 -- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
+-- runs inference on your data.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
 createInferenceScheduler_dataUploadFrequency :: Lens.Lens' CreateInferenceScheduler DataUploadFrequency
 createInferenceScheduler_dataUploadFrequency = Lens.lens (\CreateInferenceScheduler' {dataUploadFrequency} -> dataUploadFrequency) (\s@CreateInferenceScheduler' {} a -> s {dataUploadFrequency = a} :: CreateInferenceScheduler)
 

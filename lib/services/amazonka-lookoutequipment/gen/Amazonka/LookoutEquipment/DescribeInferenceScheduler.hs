@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.DescribeInferenceScheduler
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,6 +42,7 @@ module Amazonka.LookoutEquipment.DescribeInferenceScheduler
     describeInferenceSchedulerResponse_dataOutputConfiguration,
     describeInferenceSchedulerResponse_status,
     describeInferenceSchedulerResponse_modelArn,
+    describeInferenceSchedulerResponse_latestInferenceResult,
     describeInferenceSchedulerResponse_modelName,
     describeInferenceSchedulerResponse_dataUploadFrequency,
     describeInferenceSchedulerResponse_createdAt,
@@ -106,6 +107,7 @@ instance Core.AWSRequest DescribeInferenceScheduler where
             Prelude.<*> (x Core..?> "DataOutputConfiguration")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ModelArn")
+            Prelude.<*> (x Core..?> "LatestInferenceResult")
             Prelude.<*> (x Core..?> "ModelName")
             Prelude.<*> (x Core..?> "DataUploadFrequency")
             Prelude.<*> (x Core..?> "CreatedAt")
@@ -183,6 +185,10 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
     -- | The Amazon Resource Name (ARN) of the ML model of the inference
     -- scheduler being described.
     modelArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the latest execution for the inference scheduler was
+    -- Anomalous (anomalous events found) or Normal (no anomalous events
+    -- found).
+    latestInferenceResult :: Prelude.Maybe LatestInferenceResult,
     -- | The name of the ML model of the inference scheduler being described.
     modelName :: Prelude.Maybe Prelude.Text,
     -- | Specifies how often data is uploaded to the source S3 bucket for the
@@ -243,6 +249,10 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
 -- 'modelArn', 'describeInferenceSchedulerResponse_modelArn' - The Amazon Resource Name (ARN) of the ML model of the inference
 -- scheduler being described.
 --
+-- 'latestInferenceResult', 'describeInferenceSchedulerResponse_latestInferenceResult' - Indicates whether the latest execution for the inference scheduler was
+-- Anomalous (anomalous events found) or Normal (no anomalous events
+-- found).
+--
 -- 'modelName', 'describeInferenceSchedulerResponse_modelName' - The name of the ML model of the inference scheduler being described.
 --
 -- 'dataUploadFrequency', 'describeInferenceSchedulerResponse_dataUploadFrequency' - Specifies how often data is uploaded to the source S3 bucket for the
@@ -281,6 +291,7 @@ newDescribeInferenceSchedulerResponse pHttpStatus_ =
         Prelude.Nothing,
       status = Prelude.Nothing,
       modelArn = Prelude.Nothing,
+      latestInferenceResult = Prelude.Nothing,
       modelName = Prelude.Nothing,
       dataUploadFrequency = Prelude.Nothing,
       createdAt = Prelude.Nothing,
@@ -331,6 +342,12 @@ describeInferenceSchedulerResponse_status = Lens.lens (\DescribeInferenceSchedul
 describeInferenceSchedulerResponse_modelArn :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 describeInferenceSchedulerResponse_modelArn = Lens.lens (\DescribeInferenceSchedulerResponse' {modelArn} -> modelArn) (\s@DescribeInferenceSchedulerResponse' {} a -> s {modelArn = a} :: DescribeInferenceSchedulerResponse)
 
+-- | Indicates whether the latest execution for the inference scheduler was
+-- Anomalous (anomalous events found) or Normal (no anomalous events
+-- found).
+describeInferenceSchedulerResponse_latestInferenceResult :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe LatestInferenceResult)
+describeInferenceSchedulerResponse_latestInferenceResult = Lens.lens (\DescribeInferenceSchedulerResponse' {latestInferenceResult} -> latestInferenceResult) (\s@DescribeInferenceSchedulerResponse' {} a -> s {latestInferenceResult = a} :: DescribeInferenceSchedulerResponse)
+
 -- | The name of the ML model of the inference scheduler being described.
 describeInferenceSchedulerResponse_modelName :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 describeInferenceSchedulerResponse_modelName = Lens.lens (\DescribeInferenceSchedulerResponse' {modelName} -> modelName) (\s@DescribeInferenceSchedulerResponse' {} a -> s {modelName = a} :: DescribeInferenceSchedulerResponse)
@@ -380,6 +397,7 @@ instance
       `Prelude.seq` Prelude.rnf dataOutputConfiguration
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf latestInferenceResult
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf dataUploadFrequency
       `Prelude.seq` Prelude.rnf createdAt

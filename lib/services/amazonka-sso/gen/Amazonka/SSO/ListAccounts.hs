@@ -14,17 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SSO.ListAccounts
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all Amazon Web Services accounts assigned to the user. These
--- Amazon Web Services accounts are assigned by the administrator of the
--- account. For more information, see
+-- Lists all AWS accounts assigned to the user. These AWS accounts are
+-- assigned by the administrator of the account. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers Assign User Access>
--- in the /Amazon Web Services SSO User Guide/. This operation returns a
+-- in the /IAM Identity Center User Guide/. This operation returns a
 -- paginated response.
 --
 -- This operation returns paginated results.
@@ -66,7 +65,7 @@ data ListAccounts = ListAccounts'
     -- | The token issued by the @CreateToken@ API call. For more information,
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
-    -- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+    -- in the /IAM Identity Center OIDC API Reference Guide/.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -87,7 +86,7 @@ data ListAccounts = ListAccounts'
 -- 'accessToken', 'listAccounts_accessToken' - The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+-- in the /IAM Identity Center OIDC API Reference Guide/.
 newListAccounts ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -111,7 +110,7 @@ listAccounts_maxResults = Lens.lens (\ListAccounts' {maxResults} -> maxResults) 
 -- | The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /Amazon Web Services SSO OIDC API Reference Guide/.
+-- in the /IAM Identity Center OIDC API Reference Guide/.
 listAccounts_accessToken :: Lens.Lens' ListAccounts Prelude.Text
 listAccounts_accessToken = Lens.lens (\ListAccounts' {accessToken} -> accessToken) (\s@ListAccounts' {} a -> s {accessToken = a} :: ListAccounts) Prelude.. Core._Sensitive
 

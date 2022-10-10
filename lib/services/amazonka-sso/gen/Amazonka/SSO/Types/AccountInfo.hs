@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSO.Types.AccountInfo
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,18 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides information about your Amazon Web Services account.
+-- | Provides information about your AWS account.
 --
 -- /See:/ 'newAccountInfo' smart constructor.
 data AccountInfo = AccountInfo'
-  { -- | The identifier of the Amazon Web Services account that is assigned to
-    -- the user.
+  { -- | The identifier of the AWS account that is assigned to the user.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the Amazon Web Services account that is assigned to
-    -- the user.
+    -- | The display name of the AWS account that is assigned to the user.
     accountName :: Prelude.Maybe Prelude.Text,
-    -- | The email address of the Amazon Web Services account that is assigned to
-    -- the user.
+    -- | The email address of the AWS account that is assigned to the user.
     emailAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,14 +44,11 @@ data AccountInfo = AccountInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'accountInfo_accountId' - The identifier of the Amazon Web Services account that is assigned to
--- the user.
+-- 'accountId', 'accountInfo_accountId' - The identifier of the AWS account that is assigned to the user.
 --
--- 'accountName', 'accountInfo_accountName' - The display name of the Amazon Web Services account that is assigned to
--- the user.
+-- 'accountName', 'accountInfo_accountName' - The display name of the AWS account that is assigned to the user.
 --
--- 'emailAddress', 'accountInfo_emailAddress' - The email address of the Amazon Web Services account that is assigned to
--- the user.
+-- 'emailAddress', 'accountInfo_emailAddress' - The email address of the AWS account that is assigned to the user.
 newAccountInfo ::
   AccountInfo
 newAccountInfo =
@@ -64,18 +58,15 @@ newAccountInfo =
       emailAddress = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Web Services account that is assigned to
--- the user.
+-- | The identifier of the AWS account that is assigned to the user.
 accountInfo_accountId :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_accountId = Lens.lens (\AccountInfo' {accountId} -> accountId) (\s@AccountInfo' {} a -> s {accountId = a} :: AccountInfo)
 
--- | The display name of the Amazon Web Services account that is assigned to
--- the user.
+-- | The display name of the AWS account that is assigned to the user.
 accountInfo_accountName :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_accountName = Lens.lens (\AccountInfo' {accountName} -> accountName) (\s@AccountInfo' {} a -> s {accountName = a} :: AccountInfo)
 
--- | The email address of the Amazon Web Services account that is assigned to
--- the user.
+-- | The email address of the AWS account that is assigned to the user.
 accountInfo_emailAddress :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_emailAddress = Lens.lens (\AccountInfo' {emailAddress} -> emailAddress) (\s@AccountInfo' {} a -> s {emailAddress = a} :: AccountInfo)
 

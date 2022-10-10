@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSO.Types.RoleCredentials
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,17 +31,17 @@ data RoleCredentials = RoleCredentials'
   { -- | The date on which temporary security credentials expire.
     expiration :: Prelude.Maybe Prelude.Integer,
     -- | The token used for temporary credentials. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
-    -- in the /Amazon Web Services IAM User Guide/.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+    -- in the /AWS IAM User Guide/.
     sessionToken :: Prelude.Maybe (Core.Sensitive Core.SessionToken),
     -- | The identifier used for the temporary security credentials. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
-    -- in the /Amazon Web Services IAM User Guide/.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+    -- in the /AWS IAM User Guide/.
     accessKeyId :: Core.AccessKey,
     -- | The key that is used to sign the request. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
-    -- in the /Amazon Web Services IAM User Guide/.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+    -- in the /AWS IAM User Guide/.
     secretAccessKey :: Core.Sensitive Core.SecretKey
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -57,17 +57,17 @@ data RoleCredentials = RoleCredentials'
 -- 'expiration', 'roleCredentials_expiration' - The date on which temporary security credentials expire.
 --
 -- 'sessionToken', 'roleCredentials_sessionToken' - The token used for temporary credentials. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 --
 -- 'accessKeyId', 'roleCredentials_accessKeyId' - The identifier used for the temporary security credentials. For more
 -- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 --
 -- 'secretAccessKey', 'roleCredentials_secretAccessKey' - The key that is used to sign the request. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 newRoleCredentials ::
   -- | 'accessKeyId'
   Core.AccessKey ->
@@ -88,21 +88,21 @@ roleCredentials_expiration :: Lens.Lens' RoleCredentials (Prelude.Maybe Prelude.
 roleCredentials_expiration = Lens.lens (\RoleCredentials' {expiration} -> expiration) (\s@RoleCredentials' {} a -> s {expiration = a} :: RoleCredentials)
 
 -- | The token used for temporary credentials. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 roleCredentials_sessionToken :: Lens.Lens' RoleCredentials (Prelude.Maybe Core.SessionToken)
 roleCredentials_sessionToken = Lens.lens (\RoleCredentials' {sessionToken} -> sessionToken) (\s@RoleCredentials' {} a -> s {sessionToken = a} :: RoleCredentials) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The identifier used for the temporary security credentials. For more
 -- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 roleCredentials_accessKeyId :: Lens.Lens' RoleCredentials Core.AccessKey
 roleCredentials_accessKeyId = Lens.lens (\RoleCredentials' {accessKeyId} -> accessKeyId) (\s@RoleCredentials' {} a -> s {accessKeyId = a} :: RoleCredentials)
 
 -- | The key that is used to sign the request. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to Amazon Web Services Resources>
--- in the /Amazon Web Services IAM User Guide/.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html Using Temporary Security Credentials to Request Access to AWS Resources>
+-- in the /AWS IAM User Guide/.
 roleCredentials_secretAccessKey :: Lens.Lens' RoleCredentials Core.SecretKey
 roleCredentials_secretAccessKey = Lens.lens (\RoleCredentials' {secretAccessKey} -> secretAccessKey) (\s@RoleCredentials' {} a -> s {secretAccessKey = a} :: RoleCredentials) Prelude.. Core._Sensitive
 

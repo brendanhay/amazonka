@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.UserSearchCriteria
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search criteria to be used to return users.
+--
+-- The @Username@, @Firstname@, and @Lastname@ fields support \"contains\"
+-- queries with a minimum of 2 characters and a maximum of 25 characters.
+-- Any queries with character lengths outside of this range result in empty
+-- results.
 --
 -- /See:/ 'newUserSearchCriteria' smart constructor.
 data UserSearchCriteria = UserSearchCriteria'

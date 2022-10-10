@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -130,6 +130,9 @@ module Amazonka.Connect.Types
 
     -- * ReferenceType
     ReferenceType (..),
+
+    -- * SearchableQueueType
+    SearchableQueueType (..),
 
     -- * SourceType
     SourceType (..),
@@ -708,6 +711,19 @@ module Amazonka.Connect.Types
     queueReference_arn,
     queueReference_id,
 
+    -- * QueueSearchCriteria
+    QueueSearchCriteria (..),
+    newQueueSearchCriteria,
+    queueSearchCriteria_stringCondition,
+    queueSearchCriteria_orConditions,
+    queueSearchCriteria_andConditions,
+    queueSearchCriteria_queueTypeCondition,
+
+    -- * QueueSearchFilter
+    QueueSearchFilter (..),
+    newQueueSearchFilter,
+    queueSearchFilter_tagFilter,
+
     -- * QueueSummary
     QueueSummary (..),
     newQueueSummary,
@@ -773,10 +789,12 @@ module Amazonka.Connect.Types
     newRoutingProfile,
     routingProfile_tags,
     routingProfile_name,
+    routingProfile_numberOfAssociatedUsers,
     routingProfile_description,
     routingProfile_mediaConcurrencies,
     routingProfile_routingProfileArn,
     routingProfile_instanceId,
+    routingProfile_numberOfAssociatedQueues,
     routingProfile_defaultOutboundQueueId,
     routingProfile_routingProfileId,
 
@@ -808,6 +826,18 @@ module Amazonka.Connect.Types
     newRoutingProfileReference,
     routingProfileReference_arn,
     routingProfileReference_id,
+
+    -- * RoutingProfileSearchCriteria
+    RoutingProfileSearchCriteria (..),
+    newRoutingProfileSearchCriteria,
+    routingProfileSearchCriteria_stringCondition,
+    routingProfileSearchCriteria_orConditions,
+    routingProfileSearchCriteria_andConditions,
+
+    -- * RoutingProfileSearchFilter
+    RoutingProfileSearchFilter (..),
+    newRoutingProfileSearchFilter,
+    routingProfileSearchFilter_tagFilter,
 
     -- * RoutingProfileSummary
     RoutingProfileSummary (..),
@@ -1176,6 +1206,8 @@ import Amazonka.Connect.Types.Queue
 import Amazonka.Connect.Types.QueueInfo
 import Amazonka.Connect.Types.QueueQuickConnectConfig
 import Amazonka.Connect.Types.QueueReference
+import Amazonka.Connect.Types.QueueSearchCriteria
+import Amazonka.Connect.Types.QueueSearchFilter
 import Amazonka.Connect.Types.QueueStatus
 import Amazonka.Connect.Types.QueueSummary
 import Amazonka.Connect.Types.QueueType
@@ -1194,8 +1226,11 @@ import Amazonka.Connect.Types.RoutingProfileQueueConfig
 import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
 import Amazonka.Connect.Types.RoutingProfileQueueReference
 import Amazonka.Connect.Types.RoutingProfileReference
+import Amazonka.Connect.Types.RoutingProfileSearchCriteria
+import Amazonka.Connect.Types.RoutingProfileSearchFilter
 import Amazonka.Connect.Types.RoutingProfileSummary
 import Amazonka.Connect.Types.S3Config
+import Amazonka.Connect.Types.SearchableQueueType
 import Amazonka.Connect.Types.SecurityKey
 import Amazonka.Connect.Types.SecurityProfile
 import Amazonka.Connect.Types.SecurityProfileSearchCriteria

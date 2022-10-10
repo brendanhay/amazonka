@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.CreateSecurityProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,9 @@ data CreateSecurityProfile = CreateSecurityProfile'
   { -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Permissions assigned to the security profile.
+    -- | Permissions assigned to the security profile. For a list of valid
+    -- permissions, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
     -- | The description of the security profile.
     description :: Prelude.Maybe Prelude.Text,
@@ -82,7 +84,9 @@ data CreateSecurityProfile = CreateSecurityProfile'
 -- 'tags', 'createSecurityProfile_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'permissions', 'createSecurityProfile_permissions' - Permissions assigned to the security profile.
+-- 'permissions', 'createSecurityProfile_permissions' - Permissions assigned to the security profile. For a list of valid
+-- permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
 -- 'description', 'createSecurityProfile_description' - The description of the security profile.
 --
@@ -112,7 +116,9 @@ newCreateSecurityProfile
 createSecurityProfile_tags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) (\s@CreateSecurityProfile' {} a -> s {tags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | Permissions assigned to the security profile.
+-- | Permissions assigned to the security profile. For a list of valid
+-- permissions, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 createSecurityProfile_permissions :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Prelude.Text])
 createSecurityProfile_permissions = Lens.lens (\CreateSecurityProfile' {permissions} -> permissions) (\s@CreateSecurityProfile' {} a -> s {permissions = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -149,6 +149,8 @@ library
     Amazonka.Connect.ReleasePhoneNumber
     Amazonka.Connect.ResumeContactRecording
     Amazonka.Connect.SearchAvailablePhoneNumbers
+    Amazonka.Connect.SearchQueues
+    Amazonka.Connect.SearchRoutingProfiles
     Amazonka.Connect.SearchSecurityProfiles
     Amazonka.Connect.SearchUsers
     Amazonka.Connect.SearchVocabularies
@@ -261,6 +263,8 @@ library
     Amazonka.Connect.Types.QueueInfo
     Amazonka.Connect.Types.QueueQuickConnectConfig
     Amazonka.Connect.Types.QueueReference
+    Amazonka.Connect.Types.QueueSearchCriteria
+    Amazonka.Connect.Types.QueueSearchFilter
     Amazonka.Connect.Types.QueueStatus
     Amazonka.Connect.Types.QueueSummary
     Amazonka.Connect.Types.QueueType
@@ -279,8 +283,11 @@ library
     Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
     Amazonka.Connect.Types.RoutingProfileQueueReference
     Amazonka.Connect.Types.RoutingProfileReference
+    Amazonka.Connect.Types.RoutingProfileSearchCriteria
+    Amazonka.Connect.Types.RoutingProfileSearchFilter
     Amazonka.Connect.Types.RoutingProfileSummary
     Amazonka.Connect.Types.S3Config
+    Amazonka.Connect.Types.SearchableQueueType
     Amazonka.Connect.Types.SecurityKey
     Amazonka.Connect.Types.SecurityProfile
     Amazonka.Connect.Types.SecurityProfileSearchCriteria
@@ -363,7 +370,7 @@ library
     Amazonka.Connect.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-connect-test
@@ -383,8 +390,8 @@ test-suite amazonka-connect-test
 
   build-depends:
     , amazonka-connect
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

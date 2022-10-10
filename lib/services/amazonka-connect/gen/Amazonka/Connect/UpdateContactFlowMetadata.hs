@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.UpdateContactFlowMetadata
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowMetadata' smart constructor.
 data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
-  { -- | TThe name of the flow.
+  { -- | The name of the flow.
     name :: Prelude.Maybe Prelude.Text,
     -- | The state of flow.
     contactFlowState :: Prelude.Maybe ContactFlowState,
@@ -70,7 +70,7 @@ data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateContactFlowMetadata_name' - TThe name of the flow.
+-- 'name', 'updateContactFlowMetadata_name' - The name of the flow.
 --
 -- 'contactFlowState', 'updateContactFlowMetadata_contactFlowState' - The state of flow.
 --
@@ -97,7 +97,7 @@ newUpdateContactFlowMetadata
         contactFlowId = pContactFlowId_
       }
 
--- | TThe name of the flow.
+-- | The name of the flow.
 updateContactFlowMetadata_name :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe Prelude.Text)
 updateContactFlowMetadata_name = Lens.lens (\UpdateContactFlowMetadata' {name} -> name) (\s@UpdateContactFlowMetadata' {} a -> s {name = a} :: UpdateContactFlowMetadata)
 

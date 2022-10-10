@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.ListBots
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,8 @@
 -- change.
 --
 -- For the specified version of Amazon Lex, returns a paginated list of all
--- the Amazon Lex bots currently associated with the instance.
+-- the Amazon Lex bots currently associated with the instance. Use this API
+-- to returns both Amazon Lex V1 and V2 bots.
 --
 -- This operation returns paginated results.
 module Amazonka.Connect.ListBots

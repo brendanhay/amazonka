@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Connect
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -728,6 +728,18 @@ module Amazonka.Connect
     SearchAvailablePhoneNumbersResponse (SearchAvailablePhoneNumbersResponse'),
     newSearchAvailablePhoneNumbersResponse,
 
+    -- ** SearchQueues (Paginated)
+    SearchQueues (SearchQueues'),
+    newSearchQueues,
+    SearchQueuesResponse (SearchQueuesResponse'),
+    newSearchQueuesResponse,
+
+    -- ** SearchRoutingProfiles (Paginated)
+    SearchRoutingProfiles (SearchRoutingProfiles'),
+    newSearchRoutingProfiles,
+    SearchRoutingProfilesResponse (SearchRoutingProfilesResponse'),
+    newSearchRoutingProfilesResponse,
+
     -- ** SearchSecurityProfiles (Paginated)
     SearchSecurityProfiles (SearchSecurityProfiles'),
     newSearchSecurityProfiles,
@@ -1111,6 +1123,9 @@ module Amazonka.Connect
     -- ** ReferenceType
     ReferenceType (..),
 
+    -- ** SearchableQueueType
+    SearchableQueueType (..),
+
     -- ** SourceType
     SourceType (..),
 
@@ -1431,6 +1446,14 @@ module Amazonka.Connect
     QueueReference (QueueReference'),
     newQueueReference,
 
+    -- ** QueueSearchCriteria
+    QueueSearchCriteria (QueueSearchCriteria'),
+    newQueueSearchCriteria,
+
+    -- ** QueueSearchFilter
+    QueueSearchFilter (QueueSearchFilter'),
+    newQueueSearchFilter,
+
     -- ** QueueSummary
     QueueSummary (QueueSummary'),
     newQueueSummary,
@@ -1482,6 +1505,14 @@ module Amazonka.Connect
     -- ** RoutingProfileReference
     RoutingProfileReference (RoutingProfileReference'),
     newRoutingProfileReference,
+
+    -- ** RoutingProfileSearchCriteria
+    RoutingProfileSearchCriteria (RoutingProfileSearchCriteria'),
+    newRoutingProfileSearchCriteria,
+
+    -- ** RoutingProfileSearchFilter
+    RoutingProfileSearchFilter (RoutingProfileSearchFilter'),
+    newRoutingProfileSearchFilter,
 
     -- ** RoutingProfileSummary
     RoutingProfileSummary (RoutingProfileSummary'),
@@ -1730,6 +1761,8 @@ import Amazonka.Connect.PutUserStatus
 import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ResumeContactRecording
 import Amazonka.Connect.SearchAvailablePhoneNumbers
+import Amazonka.Connect.SearchQueues
+import Amazonka.Connect.SearchRoutingProfiles
 import Amazonka.Connect.SearchSecurityProfiles
 import Amazonka.Connect.SearchUsers
 import Amazonka.Connect.SearchVocabularies

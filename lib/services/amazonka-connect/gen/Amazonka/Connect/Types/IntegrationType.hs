@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.IntegrationType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.Connect.Types.IntegrationType
   ( IntegrationType
       ( ..,
+        IntegrationType_CASES_DOMAIN,
         IntegrationType_EVENT,
         IntegrationType_PINPOINT_APP,
         IntegrationType_VOICE_ID,
@@ -60,6 +61,9 @@ newtype IntegrationType = IntegrationType'
       Core.ToXML
     )
 
+pattern IntegrationType_CASES_DOMAIN :: IntegrationType
+pattern IntegrationType_CASES_DOMAIN = IntegrationType' "CASES_DOMAIN"
+
 pattern IntegrationType_EVENT :: IntegrationType
 pattern IntegrationType_EVENT = IntegrationType' "EVENT"
 
@@ -76,6 +80,7 @@ pattern IntegrationType_WISDOM_KNOWLEDGE_BASE :: IntegrationType
 pattern IntegrationType_WISDOM_KNOWLEDGE_BASE = IntegrationType' "WISDOM_KNOWLEDGE_BASE"
 
 {-# COMPLETE
+  IntegrationType_CASES_DOMAIN,
   IntegrationType_EVENT,
   IntegrationType_PINPOINT_APP,
   IntegrationType_VOICE_ID,

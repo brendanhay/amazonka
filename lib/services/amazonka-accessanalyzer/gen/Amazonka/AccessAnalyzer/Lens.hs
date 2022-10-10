@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,8 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** CreateArchiveRule
     createArchiveRule_clientToken,
     createArchiveRule_analyzerName,
-    createArchiveRule_filter,
     createArchiveRule_ruleName,
+    createArchiveRule_filter,
 
     -- ** DeleteAnalyzer
     deleteAnalyzer_clientToken,
@@ -88,8 +88,8 @@ module Amazonka.AccessAnalyzer.Lens
     getGeneratedPolicy_includeResourcePlaceholders,
     getGeneratedPolicy_jobId,
     getGeneratedPolicyResponse_httpStatus,
-    getGeneratedPolicyResponse_generatedPolicyResult,
     getGeneratedPolicyResponse_jobDetails,
+    getGeneratedPolicyResponse_generatedPolicyResult,
 
     -- ** ListAccessPreviewFindings
     listAccessPreviewFindings_nextToken,
@@ -181,8 +181,8 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** UpdateArchiveRule
     updateArchiveRule_clientToken,
     updateArchiveRule_analyzerName,
-    updateArchiveRule_filter,
     updateArchiveRule_ruleName,
+    updateArchiveRule_filter,
 
     -- ** UpdateFindings
     updateFindings_clientToken,
@@ -206,10 +206,10 @@ module Amazonka.AccessAnalyzer.Lens
 
     -- ** AccessPreview
     accessPreview_statusReason,
+    accessPreview_id,
     accessPreview_analyzerArn,
     accessPreview_configurations,
     accessPreview_createdAt,
-    accessPreview_id,
     accessPreview_status,
 
     -- ** AccessPreviewFinding
@@ -222,21 +222,21 @@ module Amazonka.AccessAnalyzer.Lens
     accessPreviewFinding_error,
     accessPreviewFinding_existingFindingStatus,
     accessPreviewFinding_resource,
-    accessPreviewFinding_changeType,
-    accessPreviewFinding_createdAt,
     accessPreviewFinding_id,
-    accessPreviewFinding_resourceOwnerAccount,
     accessPreviewFinding_resourceType,
+    accessPreviewFinding_createdAt,
+    accessPreviewFinding_changeType,
     accessPreviewFinding_status,
+    accessPreviewFinding_resourceOwnerAccount,
 
     -- ** AccessPreviewStatusReason
     accessPreviewStatusReason_code,
 
     -- ** AccessPreviewSummary
     accessPreviewSummary_statusReason,
+    accessPreviewSummary_id,
     accessPreviewSummary_analyzerArn,
     accessPreviewSummary_createdAt,
-    accessPreviewSummary_id,
     accessPreviewSummary_status,
 
     -- ** AclGrantee
@@ -248,13 +248,13 @@ module Amazonka.AccessAnalyzer.Lens
     analyzedResource_sharedVia,
     analyzedResource_error,
     analyzedResource_actions,
-    analyzedResource_analyzedAt,
-    analyzedResource_createdAt,
-    analyzedResource_isPublic,
     analyzedResource_resourceArn,
-    analyzedResource_resourceOwnerAccount,
     analyzedResource_resourceType,
+    analyzedResource_createdAt,
+    analyzedResource_analyzedAt,
     analyzedResource_updatedAt,
+    analyzedResource_isPublic,
+    analyzedResource_resourceOwnerAccount,
 
     -- ** AnalyzedResourceSummary
     analyzedResourceSummary_resourceArn,
@@ -267,27 +267,27 @@ module Amazonka.AccessAnalyzer.Lens
     analyzerSummary_lastResourceAnalyzed,
     analyzerSummary_statusReason,
     analyzerSummary_arn,
-    analyzerSummary_createdAt,
     analyzerSummary_name,
-    analyzerSummary_status,
     analyzerSummary_type,
+    analyzerSummary_createdAt,
+    analyzerSummary_status,
 
     -- ** ArchiveRuleSummary
-    archiveRuleSummary_createdAt,
-    archiveRuleSummary_filter,
     archiveRuleSummary_ruleName,
+    archiveRuleSummary_filter,
+    archiveRuleSummary_createdAt,
     archiveRuleSummary_updatedAt,
 
     -- ** CloudTrailDetails
     cloudTrailDetails_endTime,
+    cloudTrailDetails_trails,
     cloudTrailDetails_accessRole,
     cloudTrailDetails_startTime,
-    cloudTrailDetails_trails,
 
     -- ** CloudTrailProperties
-    cloudTrailProperties_endTime,
-    cloudTrailProperties_startTime,
     cloudTrailProperties_trailProperties,
+    cloudTrailProperties_startTime,
+    cloudTrailProperties_endTime,
 
     -- ** Configuration
     configuration_s3Bucket,
@@ -309,14 +309,14 @@ module Amazonka.AccessAnalyzer.Lens
     finding_action,
     finding_error,
     finding_resource,
-    finding_analyzedAt,
+    finding_id,
+    finding_resourceType,
     finding_condition,
     finding_createdAt,
-    finding_id,
-    finding_resourceOwnerAccount,
-    finding_resourceType,
-    finding_status,
+    finding_analyzedAt,
     finding_updatedAt,
+    finding_status,
+    finding_resourceOwnerAccount,
 
     -- ** FindingSource
     findingSource_detail,
@@ -332,14 +332,14 @@ module Amazonka.AccessAnalyzer.Lens
     findingSummary_action,
     findingSummary_error,
     findingSummary_resource,
-    findingSummary_analyzedAt,
+    findingSummary_id,
+    findingSummary_resourceType,
     findingSummary_condition,
     findingSummary_createdAt,
-    findingSummary_id,
-    findingSummary_resourceOwnerAccount,
-    findingSummary_resourceType,
-    findingSummary_status,
+    findingSummary_analyzedAt,
     findingSummary_updatedAt,
+    findingSummary_status,
+    findingSummary_resourceOwnerAccount,
 
     -- ** GeneratedPolicy
     generatedPolicy_policy,
@@ -357,8 +357,8 @@ module Amazonka.AccessAnalyzer.Lens
     iamRoleConfiguration_trustPolicy,
 
     -- ** InlineArchiveRule
-    inlineArchiveRule_filter,
     inlineArchiveRule_ruleName,
+    inlineArchiveRule_filter,
 
     -- ** InternetConfiguration
 
@@ -366,8 +366,8 @@ module Amazonka.AccessAnalyzer.Lens
     jobDetails_jobError,
     jobDetails_completedOn,
     jobDetails_jobId,
-    jobDetails_startedOn,
     jobDetails_status,
+    jobDetails_startedOn,
 
     -- ** JobError
     jobError_code,
@@ -376,9 +376,9 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** KmsGrantConfiguration
     kmsGrantConfiguration_constraints,
     kmsGrantConfiguration_retiringPrincipal,
+    kmsGrantConfiguration_operations,
     kmsGrantConfiguration_granteePrincipal,
     kmsGrantConfiguration_issuingAccount,
-    kmsGrantConfiguration_operations,
 
     -- ** KmsGrantConstraints
     kmsGrantConstraints_encryptionContextSubset,
@@ -406,15 +406,15 @@ module Amazonka.AccessAnalyzer.Lens
     policyGeneration_completedOn,
     policyGeneration_jobId,
     policyGeneration_principalArn,
-    policyGeneration_startedOn,
     policyGeneration_status,
+    policyGeneration_startedOn,
 
     -- ** PolicyGenerationDetails
     policyGenerationDetails_principalArn,
 
     -- ** Position
-    position_column,
     position_line,
+    position_column,
     position_offset,
 
     -- ** S3AccessPointConfiguration
@@ -423,8 +423,8 @@ module Amazonka.AccessAnalyzer.Lens
     s3AccessPointConfiguration_accessPointPolicy,
 
     -- ** S3BucketAclGrantConfiguration
-    s3BucketAclGrantConfiguration_grantee,
     s3BucketAclGrantConfiguration_permission,
+    s3BucketAclGrantConfiguration_grantee,
 
     -- ** S3BucketConfiguration
     s3BucketConfiguration_accessPoints,
@@ -445,8 +445,8 @@ module Amazonka.AccessAnalyzer.Lens
     sortCriteria_attributeName,
 
     -- ** Span
-    span_end,
     span_start,
+    span_end,
 
     -- ** SqsQueueConfiguration
     sqsQueueConfiguration_queuePolicy,
@@ -455,8 +455,8 @@ module Amazonka.AccessAnalyzer.Lens
     statusReason_code,
 
     -- ** Substring
-    substring_length,
     substring_start,
+    substring_length,
 
     -- ** Trail
     trail_regions,

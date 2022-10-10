@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AccessPreviewFinding
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,6 +56,14 @@ data AccessPreviewFinding = AccessPreviewFinding'
     -- | The resource that an external principal has access to. This is the
     -- resource associated with the access preview.
     resource :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the access preview finding. This ID uniquely identifies the
+    -- element in the list of access preview findings and is not related to the
+    -- finding ID in Access Analyzer.
+    id :: Prelude.Text,
+    -- | The type of the resource that can be accessed in the finding.
+    resourceType :: ResourceType,
+    -- | The time at which the access preview finding was created.
+    createdAt :: Core.POSIX,
     -- | Provides context on how the access preview finding compares to existing
     -- access identified in IAM Access Analyzer.
     --
@@ -71,24 +79,16 @@ data AccessPreviewFinding = AccessPreviewFinding'
     -- existing status @Active@ indicates the existing @Active@ finding would
     -- become @Resolved@ as a result of the proposed permissions change.
     changeType :: FindingChangeType,
-    -- | The time at which the access preview finding was created.
-    createdAt :: Core.POSIX,
-    -- | The ID of the access preview finding. This ID uniquely identifies the
-    -- element in the list of access preview findings and is not related to the
-    -- finding ID in Access Analyzer.
-    id :: Prelude.Text,
-    -- | The Amazon Web Services account ID that owns the resource. For most
-    -- Amazon Web Services resources, the owning account is the account in
-    -- which the resource was created.
-    resourceOwnerAccount :: Prelude.Text,
-    -- | The type of the resource that can be accessed in the finding.
-    resourceType :: ResourceType,
     -- | The preview status of the finding. This is what the status of the
     -- finding would be after permissions deployment. For example, a @Changed@
     -- finding with preview status @Resolved@ and existing status @Active@
     -- indicates the existing @Active@ finding would become @Resolved@ as a
     -- result of the proposed permissions change.
-    status :: FindingStatus
+    status :: FindingStatus,
+    -- | The Amazon Web Services account ID that owns the resource. For most
+    -- Amazon Web Services resources, the owning account is the account in
+    -- which the resource was created.
+    resourceOwnerAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,6 +125,14 @@ data AccessPreviewFinding = AccessPreviewFinding'
 -- 'resource', 'accessPreviewFinding_resource' - The resource that an external principal has access to. This is the
 -- resource associated with the access preview.
 --
+-- 'id', 'accessPreviewFinding_id' - The ID of the access preview finding. This ID uniquely identifies the
+-- element in the list of access preview findings and is not related to the
+-- finding ID in Access Analyzer.
+--
+-- 'resourceType', 'accessPreviewFinding_resourceType' - The type of the resource that can be accessed in the finding.
+--
+-- 'createdAt', 'accessPreviewFinding_createdAt' - The time at which the access preview finding was created.
+--
 -- 'changeType', 'accessPreviewFinding_changeType' - Provides context on how the access preview finding compares to existing
 -- access identified in IAM Access Analyzer.
 --
@@ -140,44 +148,36 @@ data AccessPreviewFinding = AccessPreviewFinding'
 -- existing status @Active@ indicates the existing @Active@ finding would
 -- become @Resolved@ as a result of the proposed permissions change.
 --
--- 'createdAt', 'accessPreviewFinding_createdAt' - The time at which the access preview finding was created.
---
--- 'id', 'accessPreviewFinding_id' - The ID of the access preview finding. This ID uniquely identifies the
--- element in the list of access preview findings and is not related to the
--- finding ID in Access Analyzer.
---
--- 'resourceOwnerAccount', 'accessPreviewFinding_resourceOwnerAccount' - The Amazon Web Services account ID that owns the resource. For most
--- Amazon Web Services resources, the owning account is the account in
--- which the resource was created.
---
--- 'resourceType', 'accessPreviewFinding_resourceType' - The type of the resource that can be accessed in the finding.
---
 -- 'status', 'accessPreviewFinding_status' - The preview status of the finding. This is what the status of the
 -- finding would be after permissions deployment. For example, a @Changed@
 -- finding with preview status @Resolved@ and existing status @Active@
 -- indicates the existing @Active@ finding would become @Resolved@ as a
 -- result of the proposed permissions change.
+--
+-- 'resourceOwnerAccount', 'accessPreviewFinding_resourceOwnerAccount' - The Amazon Web Services account ID that owns the resource. For most
+-- Amazon Web Services resources, the owning account is the account in
+-- which the resource was created.
 newAccessPreviewFinding ::
-  -- | 'changeType'
-  FindingChangeType ->
-  -- | 'createdAt'
-  Prelude.UTCTime ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'resourceOwnerAccount'
   Prelude.Text ->
   -- | 'resourceType'
   ResourceType ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
+  -- | 'changeType'
+  FindingChangeType ->
   -- | 'status'
   FindingStatus ->
+  -- | 'resourceOwnerAccount'
+  Prelude.Text ->
   AccessPreviewFinding
 newAccessPreviewFinding
-  pChangeType_
-  pCreatedAt_
   pId_
-  pResourceOwnerAccount_
   pResourceType_
-  pStatus_ =
+  pCreatedAt_
+  pChangeType_
+  pStatus_
+  pResourceOwnerAccount_ =
     AccessPreviewFinding'
       { principal = Prelude.Nothing,
         sources = Prelude.Nothing,
@@ -188,12 +188,12 @@ newAccessPreviewFinding
         error = Prelude.Nothing,
         existingFindingStatus = Prelude.Nothing,
         resource = Prelude.Nothing,
-        changeType = pChangeType_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
         id = pId_,
-        resourceOwnerAccount = pResourceOwnerAccount_,
         resourceType = pResourceType_,
-        status = pStatus_
+        createdAt = Core._Time Lens.# pCreatedAt_,
+        changeType = pChangeType_,
+        status = pStatus_,
+        resourceOwnerAccount = pResourceOwnerAccount_
       }
 
 -- | The external principal that has access to a resource within the zone of
@@ -239,6 +239,20 @@ accessPreviewFinding_existingFindingStatus = Lens.lens (\AccessPreviewFinding' {
 accessPreviewFinding_resource :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Text)
 accessPreviewFinding_resource = Lens.lens (\AccessPreviewFinding' {resource} -> resource) (\s@AccessPreviewFinding' {} a -> s {resource = a} :: AccessPreviewFinding)
 
+-- | The ID of the access preview finding. This ID uniquely identifies the
+-- element in the list of access preview findings and is not related to the
+-- finding ID in Access Analyzer.
+accessPreviewFinding_id :: Lens.Lens' AccessPreviewFinding Prelude.Text
+accessPreviewFinding_id = Lens.lens (\AccessPreviewFinding' {id} -> id) (\s@AccessPreviewFinding' {} a -> s {id = a} :: AccessPreviewFinding)
+
+-- | The type of the resource that can be accessed in the finding.
+accessPreviewFinding_resourceType :: Lens.Lens' AccessPreviewFinding ResourceType
+accessPreviewFinding_resourceType = Lens.lens (\AccessPreviewFinding' {resourceType} -> resourceType) (\s@AccessPreviewFinding' {} a -> s {resourceType = a} :: AccessPreviewFinding)
+
+-- | The time at which the access preview finding was created.
+accessPreviewFinding_createdAt :: Lens.Lens' AccessPreviewFinding Prelude.UTCTime
+accessPreviewFinding_createdAt = Lens.lens (\AccessPreviewFinding' {createdAt} -> createdAt) (\s@AccessPreviewFinding' {} a -> s {createdAt = a} :: AccessPreviewFinding) Prelude.. Core._Time
+
 -- | Provides context on how the access preview finding compares to existing
 -- access identified in IAM Access Analyzer.
 --
@@ -256,26 +270,6 @@ accessPreviewFinding_resource = Lens.lens (\AccessPreviewFinding' {resource} -> 
 accessPreviewFinding_changeType :: Lens.Lens' AccessPreviewFinding FindingChangeType
 accessPreviewFinding_changeType = Lens.lens (\AccessPreviewFinding' {changeType} -> changeType) (\s@AccessPreviewFinding' {} a -> s {changeType = a} :: AccessPreviewFinding)
 
--- | The time at which the access preview finding was created.
-accessPreviewFinding_createdAt :: Lens.Lens' AccessPreviewFinding Prelude.UTCTime
-accessPreviewFinding_createdAt = Lens.lens (\AccessPreviewFinding' {createdAt} -> createdAt) (\s@AccessPreviewFinding' {} a -> s {createdAt = a} :: AccessPreviewFinding) Prelude.. Core._Time
-
--- | The ID of the access preview finding. This ID uniquely identifies the
--- element in the list of access preview findings and is not related to the
--- finding ID in Access Analyzer.
-accessPreviewFinding_id :: Lens.Lens' AccessPreviewFinding Prelude.Text
-accessPreviewFinding_id = Lens.lens (\AccessPreviewFinding' {id} -> id) (\s@AccessPreviewFinding' {} a -> s {id = a} :: AccessPreviewFinding)
-
--- | The Amazon Web Services account ID that owns the resource. For most
--- Amazon Web Services resources, the owning account is the account in
--- which the resource was created.
-accessPreviewFinding_resourceOwnerAccount :: Lens.Lens' AccessPreviewFinding Prelude.Text
-accessPreviewFinding_resourceOwnerAccount = Lens.lens (\AccessPreviewFinding' {resourceOwnerAccount} -> resourceOwnerAccount) (\s@AccessPreviewFinding' {} a -> s {resourceOwnerAccount = a} :: AccessPreviewFinding)
-
--- | The type of the resource that can be accessed in the finding.
-accessPreviewFinding_resourceType :: Lens.Lens' AccessPreviewFinding ResourceType
-accessPreviewFinding_resourceType = Lens.lens (\AccessPreviewFinding' {resourceType} -> resourceType) (\s@AccessPreviewFinding' {} a -> s {resourceType = a} :: AccessPreviewFinding)
-
 -- | The preview status of the finding. This is what the status of the
 -- finding would be after permissions deployment. For example, a @Changed@
 -- finding with preview status @Resolved@ and existing status @Active@
@@ -283,6 +277,12 @@ accessPreviewFinding_resourceType = Lens.lens (\AccessPreviewFinding' {resourceT
 -- result of the proposed permissions change.
 accessPreviewFinding_status :: Lens.Lens' AccessPreviewFinding FindingStatus
 accessPreviewFinding_status = Lens.lens (\AccessPreviewFinding' {status} -> status) (\s@AccessPreviewFinding' {} a -> s {status = a} :: AccessPreviewFinding)
+
+-- | The Amazon Web Services account ID that owns the resource. For most
+-- Amazon Web Services resources, the owning account is the account in
+-- which the resource was created.
+accessPreviewFinding_resourceOwnerAccount :: Lens.Lens' AccessPreviewFinding Prelude.Text
+accessPreviewFinding_resourceOwnerAccount = Lens.lens (\AccessPreviewFinding' {resourceOwnerAccount} -> resourceOwnerAccount) (\s@AccessPreviewFinding' {} a -> s {resourceOwnerAccount = a} :: AccessPreviewFinding)
 
 instance Core.FromJSON AccessPreviewFinding where
   parseJSON =
@@ -299,12 +299,12 @@ instance Core.FromJSON AccessPreviewFinding where
             Prelude.<*> (x Core..:? "error")
             Prelude.<*> (x Core..:? "existingFindingStatus")
             Prelude.<*> (x Core..:? "resource")
-            Prelude.<*> (x Core..: "changeType")
-            Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "resourceOwnerAccount")
             Prelude.<*> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Core..: "changeType")
             Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Core..: "resourceOwnerAccount")
       )
 
 instance Prelude.Hashable AccessPreviewFinding where
@@ -318,12 +318,12 @@ instance Prelude.Hashable AccessPreviewFinding where
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` existingFindingStatus
       `Prelude.hashWithSalt` resource
-      `Prelude.hashWithSalt` changeType
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` resourceOwnerAccount
       `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceOwnerAccount
 
 instance Prelude.NFData AccessPreviewFinding where
   rnf AccessPreviewFinding' {..} =
@@ -336,9 +336,9 @@ instance Prelude.NFData AccessPreviewFinding where
       `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf existingFindingStatus
       `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourceOwnerAccount
       `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf changeType
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount

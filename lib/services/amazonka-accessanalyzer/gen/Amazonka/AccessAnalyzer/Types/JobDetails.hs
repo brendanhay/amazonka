@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.JobDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,10 +38,10 @@ data JobDetails = JobDetails'
     -- generated policies or used with @CancelPolicyGeneration@ to cancel the
     -- policy generation request.
     jobId :: Prelude.Text,
-    -- | A timestamp of when the job was started.
-    startedOn :: Core.POSIX,
     -- | The status of the job request.
-    status :: JobStatus
+    status :: JobStatus,
+    -- | A timestamp of when the job was started.
+    startedOn :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,24 +62,24 @@ data JobDetails = JobDetails'
 -- generated policies or used with @CancelPolicyGeneration@ to cancel the
 -- policy generation request.
 --
--- 'startedOn', 'jobDetails_startedOn' - A timestamp of when the job was started.
---
 -- 'status', 'jobDetails_status' - The status of the job request.
+--
+-- 'startedOn', 'jobDetails_startedOn' - A timestamp of when the job was started.
 newJobDetails ::
   -- | 'jobId'
   Prelude.Text ->
-  -- | 'startedOn'
-  Prelude.UTCTime ->
   -- | 'status'
   JobStatus ->
+  -- | 'startedOn'
+  Prelude.UTCTime ->
   JobDetails
-newJobDetails pJobId_ pStartedOn_ pStatus_ =
+newJobDetails pJobId_ pStatus_ pStartedOn_ =
   JobDetails'
     { jobError = Prelude.Nothing,
       completedOn = Prelude.Nothing,
       jobId = pJobId_,
-      startedOn = Core._Time Lens.# pStartedOn_,
-      status = pStatus_
+      status = pStatus_,
+      startedOn = Core._Time Lens.# pStartedOn_
     }
 
 -- | The job error for the policy generation request.
@@ -97,13 +97,13 @@ jobDetails_completedOn = Lens.lens (\JobDetails' {completedOn} -> completedOn) (
 jobDetails_jobId :: Lens.Lens' JobDetails Prelude.Text
 jobDetails_jobId = Lens.lens (\JobDetails' {jobId} -> jobId) (\s@JobDetails' {} a -> s {jobId = a} :: JobDetails)
 
--- | A timestamp of when the job was started.
-jobDetails_startedOn :: Lens.Lens' JobDetails Prelude.UTCTime
-jobDetails_startedOn = Lens.lens (\JobDetails' {startedOn} -> startedOn) (\s@JobDetails' {} a -> s {startedOn = a} :: JobDetails) Prelude.. Core._Time
-
 -- | The status of the job request.
 jobDetails_status :: Lens.Lens' JobDetails JobStatus
 jobDetails_status = Lens.lens (\JobDetails' {status} -> status) (\s@JobDetails' {} a -> s {status = a} :: JobDetails)
+
+-- | A timestamp of when the job was started.
+jobDetails_startedOn :: Lens.Lens' JobDetails Prelude.UTCTime
+jobDetails_startedOn = Lens.lens (\JobDetails' {startedOn} -> startedOn) (\s@JobDetails' {} a -> s {startedOn = a} :: JobDetails) Prelude.. Core._Time
 
 instance Core.FromJSON JobDetails where
   parseJSON =
@@ -114,8 +114,8 @@ instance Core.FromJSON JobDetails where
             Prelude.<$> (x Core..:? "jobError")
             Prelude.<*> (x Core..:? "completedOn")
             Prelude.<*> (x Core..: "jobId")
-            Prelude.<*> (x Core..: "startedOn")
             Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Core..: "startedOn")
       )
 
 instance Prelude.Hashable JobDetails where
@@ -123,13 +123,13 @@ instance Prelude.Hashable JobDetails where
     _salt `Prelude.hashWithSalt` jobError
       `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` startedOn
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startedOn
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
     Prelude.rnf jobError
       `Prelude.seq` Prelude.rnf completedOn
       `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf startedOn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startedOn

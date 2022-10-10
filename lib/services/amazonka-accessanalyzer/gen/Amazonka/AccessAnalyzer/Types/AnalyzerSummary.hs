@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AnalyzerSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,10 +45,13 @@ data AnalyzerSummary = AnalyzerSummary'
     statusReason :: Prelude.Maybe StatusReason,
     -- | The ARN of the analyzer.
     arn :: Prelude.Text,
-    -- | A timestamp for the time at which the analyzer was created.
-    createdAt :: Core.POSIX,
     -- | The name of the analyzer.
     name :: Prelude.Text,
+    -- | The type of analyzer, which corresponds to the zone of trust chosen for
+    -- the analyzer.
+    type' :: Type,
+    -- | A timestamp for the time at which the analyzer was created.
+    createdAt :: Core.POSIX,
     -- | The status of the analyzer. An @Active@ analyzer successfully monitors
     -- supported resources and generates new findings. The analyzer is
     -- @Disabled@ when a user action, such as removing trusted access for
@@ -56,10 +59,7 @@ data AnalyzerSummary = AnalyzerSummary'
     -- causes the analyzer to stop generating new findings. The status is
     -- @Creating@ when the analyzer creation is in progress and @Failed@ when
     -- the analyzer creation has failed.
-    status :: AnalyzerStatus,
-    -- | The type of analyzer, which corresponds to the zone of trust chosen for
-    -- the analyzer.
-    type' :: Type
+    status :: AnalyzerStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,9 +86,12 @@ data AnalyzerSummary = AnalyzerSummary'
 --
 -- 'arn', 'analyzerSummary_arn' - The ARN of the analyzer.
 --
--- 'createdAt', 'analyzerSummary_createdAt' - A timestamp for the time at which the analyzer was created.
---
 -- 'name', 'analyzerSummary_name' - The name of the analyzer.
+--
+-- 'type'', 'analyzerSummary_type' - The type of analyzer, which corresponds to the zone of trust chosen for
+-- the analyzer.
+--
+-- 'createdAt', 'analyzerSummary_createdAt' - A timestamp for the time at which the analyzer was created.
 --
 -- 'status', 'analyzerSummary_status' - The status of the analyzer. An @Active@ analyzer successfully monitors
 -- supported resources and generates new findings. The analyzer is
@@ -97,37 +100,34 @@ data AnalyzerSummary = AnalyzerSummary'
 -- causes the analyzer to stop generating new findings. The status is
 -- @Creating@ when the analyzer creation is in progress and @Failed@ when
 -- the analyzer creation has failed.
---
--- 'type'', 'analyzerSummary_type' - The type of analyzer, which corresponds to the zone of trust chosen for
--- the analyzer.
 newAnalyzerSummary ::
   -- | 'arn'
   Prelude.Text ->
-  -- | 'createdAt'
-  Prelude.UTCTime ->
   -- | 'name'
   Prelude.Text ->
-  -- | 'status'
-  AnalyzerStatus ->
   -- | 'type''
   Type ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
+  -- | 'status'
+  AnalyzerStatus ->
   AnalyzerSummary
 newAnalyzerSummary
   pArn_
-  pCreatedAt_
   pName_
-  pStatus_
-  pType_ =
+  pType_
+  pCreatedAt_
+  pStatus_ =
     AnalyzerSummary'
       { tags = Prelude.Nothing,
         lastResourceAnalyzedAt = Prelude.Nothing,
         lastResourceAnalyzed = Prelude.Nothing,
         statusReason = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
         name = pName_,
-        status = pStatus_,
-        type' = pType_
+        type' = pType_,
+        createdAt = Core._Time Lens.# pCreatedAt_,
+        status = pStatus_
       }
 
 -- | The tags added to the analyzer.
@@ -155,13 +155,18 @@ analyzerSummary_statusReason = Lens.lens (\AnalyzerSummary' {statusReason} -> st
 analyzerSummary_arn :: Lens.Lens' AnalyzerSummary Prelude.Text
 analyzerSummary_arn = Lens.lens (\AnalyzerSummary' {arn} -> arn) (\s@AnalyzerSummary' {} a -> s {arn = a} :: AnalyzerSummary)
 
--- | A timestamp for the time at which the analyzer was created.
-analyzerSummary_createdAt :: Lens.Lens' AnalyzerSummary Prelude.UTCTime
-analyzerSummary_createdAt = Lens.lens (\AnalyzerSummary' {createdAt} -> createdAt) (\s@AnalyzerSummary' {} a -> s {createdAt = a} :: AnalyzerSummary) Prelude.. Core._Time
-
 -- | The name of the analyzer.
 analyzerSummary_name :: Lens.Lens' AnalyzerSummary Prelude.Text
 analyzerSummary_name = Lens.lens (\AnalyzerSummary' {name} -> name) (\s@AnalyzerSummary' {} a -> s {name = a} :: AnalyzerSummary)
+
+-- | The type of analyzer, which corresponds to the zone of trust chosen for
+-- the analyzer.
+analyzerSummary_type :: Lens.Lens' AnalyzerSummary Type
+analyzerSummary_type = Lens.lens (\AnalyzerSummary' {type'} -> type') (\s@AnalyzerSummary' {} a -> s {type' = a} :: AnalyzerSummary)
+
+-- | A timestamp for the time at which the analyzer was created.
+analyzerSummary_createdAt :: Lens.Lens' AnalyzerSummary Prelude.UTCTime
+analyzerSummary_createdAt = Lens.lens (\AnalyzerSummary' {createdAt} -> createdAt) (\s@AnalyzerSummary' {} a -> s {createdAt = a} :: AnalyzerSummary) Prelude.. Core._Time
 
 -- | The status of the analyzer. An @Active@ analyzer successfully monitors
 -- supported resources and generates new findings. The analyzer is
@@ -172,11 +177,6 @@ analyzerSummary_name = Lens.lens (\AnalyzerSummary' {name} -> name) (\s@Analyzer
 -- the analyzer creation has failed.
 analyzerSummary_status :: Lens.Lens' AnalyzerSummary AnalyzerStatus
 analyzerSummary_status = Lens.lens (\AnalyzerSummary' {status} -> status) (\s@AnalyzerSummary' {} a -> s {status = a} :: AnalyzerSummary)
-
--- | The type of analyzer, which corresponds to the zone of trust chosen for
--- the analyzer.
-analyzerSummary_type :: Lens.Lens' AnalyzerSummary Type
-analyzerSummary_type = Lens.lens (\AnalyzerSummary' {type'} -> type') (\s@AnalyzerSummary' {} a -> s {type' = a} :: AnalyzerSummary)
 
 instance Core.FromJSON AnalyzerSummary where
   parseJSON =
@@ -189,10 +189,10 @@ instance Core.FromJSON AnalyzerSummary where
             Prelude.<*> (x Core..:? "lastResourceAnalyzed")
             Prelude.<*> (x Core..:? "statusReason")
             Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
             Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Core..: "status")
       )
 
 instance Prelude.Hashable AnalyzerSummary where
@@ -202,10 +202,10 @@ instance Prelude.Hashable AnalyzerSummary where
       `Prelude.hashWithSalt` lastResourceAnalyzed
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AnalyzerSummary where
   rnf AnalyzerSummary' {..} =
@@ -214,7 +214,7 @@ instance Prelude.NFData AnalyzerSummary where
       `Prelude.seq` Prelude.rnf lastResourceAnalyzed
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AccessPreviewSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAccessPreviewSummary' smart constructor.
 data AccessPreviewSummary = AccessPreviewSummary'
   { statusReason :: Prelude.Maybe AccessPreviewStatusReason,
+    -- | The unique ID for the access preview.
+    id :: Prelude.Text,
     -- | The ARN of the analyzer used to generate the access preview.
     analyzerArn :: Prelude.Text,
     -- | The time at which the access preview was created.
     createdAt :: Core.POSIX,
-    -- | The unique ID for the access preview.
-    id :: Prelude.Text,
     -- | The status of the access preview.
     --
     -- -   @Creating@ - The access preview creation is in progress.
@@ -58,11 +58,11 @@ data AccessPreviewSummary = AccessPreviewSummary'
 --
 -- 'statusReason', 'accessPreviewSummary_statusReason' - Undocumented member.
 --
+-- 'id', 'accessPreviewSummary_id' - The unique ID for the access preview.
+--
 -- 'analyzerArn', 'accessPreviewSummary_analyzerArn' - The ARN of the analyzer used to generate the access preview.
 --
 -- 'createdAt', 'accessPreviewSummary_createdAt' - The time at which the access preview was created.
---
--- 'id', 'accessPreviewSummary_id' - The unique ID for the access preview.
 --
 -- 'status', 'accessPreviewSummary_status' - The status of the access preview.
 --
@@ -73,32 +73,36 @@ data AccessPreviewSummary = AccessPreviewSummary'
 --
 -- -   @Failed@ - The access preview creation has failed.
 newAccessPreviewSummary ::
+  -- | 'id'
+  Prelude.Text ->
   -- | 'analyzerArn'
   Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
-  -- | 'id'
-  Prelude.Text ->
   -- | 'status'
   AccessPreviewStatus ->
   AccessPreviewSummary
 newAccessPreviewSummary
+  pId_
   pAnalyzerArn_
   pCreatedAt_
-  pId_
   pStatus_ =
     AccessPreviewSummary'
       { statusReason =
           Prelude.Nothing,
+        id = pId_,
         analyzerArn = pAnalyzerArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
-        id = pId_,
         status = pStatus_
       }
 
 -- | Undocumented member.
 accessPreviewSummary_statusReason :: Lens.Lens' AccessPreviewSummary (Prelude.Maybe AccessPreviewStatusReason)
 accessPreviewSummary_statusReason = Lens.lens (\AccessPreviewSummary' {statusReason} -> statusReason) (\s@AccessPreviewSummary' {} a -> s {statusReason = a} :: AccessPreviewSummary)
+
+-- | The unique ID for the access preview.
+accessPreviewSummary_id :: Lens.Lens' AccessPreviewSummary Prelude.Text
+accessPreviewSummary_id = Lens.lens (\AccessPreviewSummary' {id} -> id) (\s@AccessPreviewSummary' {} a -> s {id = a} :: AccessPreviewSummary)
 
 -- | The ARN of the analyzer used to generate the access preview.
 accessPreviewSummary_analyzerArn :: Lens.Lens' AccessPreviewSummary Prelude.Text
@@ -107,10 +111,6 @@ accessPreviewSummary_analyzerArn = Lens.lens (\AccessPreviewSummary' {analyzerAr
 -- | The time at which the access preview was created.
 accessPreviewSummary_createdAt :: Lens.Lens' AccessPreviewSummary Prelude.UTCTime
 accessPreviewSummary_createdAt = Lens.lens (\AccessPreviewSummary' {createdAt} -> createdAt) (\s@AccessPreviewSummary' {} a -> s {createdAt = a} :: AccessPreviewSummary) Prelude.. Core._Time
-
--- | The unique ID for the access preview.
-accessPreviewSummary_id :: Lens.Lens' AccessPreviewSummary Prelude.Text
-accessPreviewSummary_id = Lens.lens (\AccessPreviewSummary' {id} -> id) (\s@AccessPreviewSummary' {} a -> s {id = a} :: AccessPreviewSummary)
 
 -- | The status of the access preview.
 --
@@ -130,24 +130,24 @@ instance Core.FromJSON AccessPreviewSummary where
       ( \x ->
           AccessPreviewSummary'
             Prelude.<$> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "analyzerArn")
             Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "status")
       )
 
 instance Prelude.Hashable AccessPreviewSummary where
   hashWithSalt _salt AccessPreviewSummary' {..} =
     _salt `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AccessPreviewSummary where
   rnf AccessPreviewSummary' {..} =
     Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf status

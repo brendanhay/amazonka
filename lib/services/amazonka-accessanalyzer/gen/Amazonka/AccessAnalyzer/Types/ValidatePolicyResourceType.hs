@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.ValidatePolicyResourceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.ValidatePolicyResourceType
   ( ValidatePolicyResourceType
       ( ..,
+        ValidatePolicyResourceType_AWS__IAM__AssumeRolePolicyDocument,
         ValidatePolicyResourceType_AWS__S3ObjectLambda__AccessPoint,
         ValidatePolicyResourceType_AWS__S3__AccessPoint,
         ValidatePolicyResourceType_AWS__S3__Bucket,
@@ -59,6 +60,9 @@ newtype ValidatePolicyResourceType = ValidatePolicyResourceType'
       Core.ToXML
     )
 
+pattern ValidatePolicyResourceType_AWS__IAM__AssumeRolePolicyDocument :: ValidatePolicyResourceType
+pattern ValidatePolicyResourceType_AWS__IAM__AssumeRolePolicyDocument = ValidatePolicyResourceType' "AWS::IAM::AssumeRolePolicyDocument"
+
 pattern ValidatePolicyResourceType_AWS__S3ObjectLambda__AccessPoint :: ValidatePolicyResourceType
 pattern ValidatePolicyResourceType_AWS__S3ObjectLambda__AccessPoint = ValidatePolicyResourceType' "AWS::S3ObjectLambda::AccessPoint"
 
@@ -72,6 +76,7 @@ pattern ValidatePolicyResourceType_AWS__S3__MultiRegionAccessPoint :: ValidatePo
 pattern ValidatePolicyResourceType_AWS__S3__MultiRegionAccessPoint = ValidatePolicyResourceType' "AWS::S3::MultiRegionAccessPoint"
 
 {-# COMPLETE
+  ValidatePolicyResourceType_AWS__IAM__AssumeRolePolicyDocument,
   ValidatePolicyResourceType_AWS__S3ObjectLambda__AccessPoint,
   ValidatePolicyResourceType_AWS__S3__AccessPoint,
   ValidatePolicyResourceType_AWS__S3__Bucket,

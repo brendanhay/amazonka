@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.CreateArchiveRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,8 @@ module Amazonka.AccessAnalyzer.CreateArchiveRule
     -- * Request Lenses
     createArchiveRule_clientToken,
     createArchiveRule_analyzerName,
-    createArchiveRule_filter,
     createArchiveRule_ruleName,
+    createArchiveRule_filter,
 
     -- * Destructuring the Response
     CreateArchiveRuleResponse (..),
@@ -60,10 +60,10 @@ data CreateArchiveRule = CreateArchiveRule'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the created analyzer.
     analyzerName :: Prelude.Text,
-    -- | The criteria for the rule.
-    filter' :: Prelude.HashMap Prelude.Text Criterion,
     -- | The name of the rule to create.
-    ruleName :: Prelude.Text
+    ruleName :: Prelude.Text,
+    -- | The criteria for the rule.
+    filter' :: Prelude.HashMap Prelude.Text Criterion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,9 +79,9 @@ data CreateArchiveRule = CreateArchiveRule'
 --
 -- 'analyzerName', 'createArchiveRule_analyzerName' - The name of the created analyzer.
 --
--- 'filter'', 'createArchiveRule_filter' - The criteria for the rule.
---
 -- 'ruleName', 'createArchiveRule_ruleName' - The name of the rule to create.
+--
+-- 'filter'', 'createArchiveRule_filter' - The criteria for the rule.
 newCreateArchiveRule ::
   -- | 'analyzerName'
   Prelude.Text ->
@@ -92,8 +92,8 @@ newCreateArchiveRule pAnalyzerName_ pRuleName_ =
   CreateArchiveRule'
     { clientToken = Prelude.Nothing,
       analyzerName = pAnalyzerName_,
-      filter' = Prelude.mempty,
-      ruleName = pRuleName_
+      ruleName = pRuleName_,
+      filter' = Prelude.mempty
     }
 
 -- | A client token.
@@ -104,13 +104,13 @@ createArchiveRule_clientToken = Lens.lens (\CreateArchiveRule' {clientToken} -> 
 createArchiveRule_analyzerName :: Lens.Lens' CreateArchiveRule Prelude.Text
 createArchiveRule_analyzerName = Lens.lens (\CreateArchiveRule' {analyzerName} -> analyzerName) (\s@CreateArchiveRule' {} a -> s {analyzerName = a} :: CreateArchiveRule)
 
--- | The criteria for the rule.
-createArchiveRule_filter :: Lens.Lens' CreateArchiveRule (Prelude.HashMap Prelude.Text Criterion)
-createArchiveRule_filter = Lens.lens (\CreateArchiveRule' {filter'} -> filter') (\s@CreateArchiveRule' {} a -> s {filter' = a} :: CreateArchiveRule) Prelude.. Lens.coerced
-
 -- | The name of the rule to create.
 createArchiveRule_ruleName :: Lens.Lens' CreateArchiveRule Prelude.Text
 createArchiveRule_ruleName = Lens.lens (\CreateArchiveRule' {ruleName} -> ruleName) (\s@CreateArchiveRule' {} a -> s {ruleName = a} :: CreateArchiveRule)
+
+-- | The criteria for the rule.
+createArchiveRule_filter :: Lens.Lens' CreateArchiveRule (Prelude.HashMap Prelude.Text Criterion)
+createArchiveRule_filter = Lens.lens (\CreateArchiveRule' {filter'} -> filter') (\s@CreateArchiveRule' {} a -> s {filter' = a} :: CreateArchiveRule) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateArchiveRule where
   type
@@ -124,15 +124,15 @@ instance Prelude.Hashable CreateArchiveRule where
   hashWithSalt _salt CreateArchiveRule' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` filter'
 
 instance Prelude.NFData CreateArchiveRule where
   rnf CreateArchiveRule' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders CreateArchiveRule where
   toHeaders =
@@ -150,8 +150,8 @@ instance Core.ToJSON CreateArchiveRule where
     Core.object
       ( Prelude.catMaybes
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("filter" Core..= filter'),
-            Prelude.Just ("ruleName" Core..= ruleName)
+            Prelude.Just ("ruleName" Core..= ruleName),
+            Prelude.Just ("filter" Core..= filter')
           ]
       )
 

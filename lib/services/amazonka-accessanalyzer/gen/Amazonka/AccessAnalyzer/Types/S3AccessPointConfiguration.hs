@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the proposed access point configuration in place of the existing access
 -- points. To propose an access point without a policy, you can provide an
 -- empty string as the access point policy. For more information, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html Creating access points>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html Creating access points>.
 -- For more information about access point policy limits, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html Access points restrictions and limitations>.
 --

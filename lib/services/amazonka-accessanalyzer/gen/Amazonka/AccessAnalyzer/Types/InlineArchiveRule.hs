@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.InlineArchiveRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInlineArchiveRule' smart constructor.
 data InlineArchiveRule = InlineArchiveRule'
-  { -- | The condition and values for a criterion.
-    filter' :: Prelude.HashMap Prelude.Text Criterion,
-    -- | The name of the rule.
-    ruleName :: Prelude.Text
+  { -- | The name of the rule.
+    ruleName :: Prelude.Text,
+    -- | The condition and values for a criterion.
+    filter' :: Prelude.HashMap Prelude.Text Criterion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,42 +44,42 @@ data InlineArchiveRule = InlineArchiveRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filter'', 'inlineArchiveRule_filter' - The condition and values for a criterion.
---
 -- 'ruleName', 'inlineArchiveRule_ruleName' - The name of the rule.
+--
+-- 'filter'', 'inlineArchiveRule_filter' - The condition and values for a criterion.
 newInlineArchiveRule ::
   -- | 'ruleName'
   Prelude.Text ->
   InlineArchiveRule
 newInlineArchiveRule pRuleName_ =
   InlineArchiveRule'
-    { filter' = Prelude.mempty,
-      ruleName = pRuleName_
+    { ruleName = pRuleName_,
+      filter' = Prelude.mempty
     }
-
--- | The condition and values for a criterion.
-inlineArchiveRule_filter :: Lens.Lens' InlineArchiveRule (Prelude.HashMap Prelude.Text Criterion)
-inlineArchiveRule_filter = Lens.lens (\InlineArchiveRule' {filter'} -> filter') (\s@InlineArchiveRule' {} a -> s {filter' = a} :: InlineArchiveRule) Prelude.. Lens.coerced
 
 -- | The name of the rule.
 inlineArchiveRule_ruleName :: Lens.Lens' InlineArchiveRule Prelude.Text
 inlineArchiveRule_ruleName = Lens.lens (\InlineArchiveRule' {ruleName} -> ruleName) (\s@InlineArchiveRule' {} a -> s {ruleName = a} :: InlineArchiveRule)
 
+-- | The condition and values for a criterion.
+inlineArchiveRule_filter :: Lens.Lens' InlineArchiveRule (Prelude.HashMap Prelude.Text Criterion)
+inlineArchiveRule_filter = Lens.lens (\InlineArchiveRule' {filter'} -> filter') (\s@InlineArchiveRule' {} a -> s {filter' = a} :: InlineArchiveRule) Prelude.. Lens.coerced
+
 instance Prelude.Hashable InlineArchiveRule where
   hashWithSalt _salt InlineArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` filter'
-      `Prelude.hashWithSalt` ruleName
+    _salt `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` filter'
 
 instance Prelude.NFData InlineArchiveRule where
   rnf InlineArchiveRule' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToJSON InlineArchiveRule where
   toJSON InlineArchiveRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("filter" Core..= filter'),
-            Prelude.Just ("ruleName" Core..= ruleName)
+          [ Prelude.Just ("ruleName" Core..= ruleName),
+            Prelude.Just ("filter" Core..= filter')
           ]
       )

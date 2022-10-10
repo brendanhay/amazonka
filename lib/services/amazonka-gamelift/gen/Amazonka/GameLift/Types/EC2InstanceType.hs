@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GameLift.Types.EC2InstanceType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,6 +46,30 @@ module Amazonka.GameLift.Types.EC2InstanceType
         EC2InstanceType_C5a_8xlarge,
         EC2InstanceType_C5a_large,
         EC2InstanceType_C5a_xlarge,
+        EC2InstanceType_C5d_12xlarge,
+        EC2InstanceType_C5d_18xlarge,
+        EC2InstanceType_C5d_24xlarge,
+        EC2InstanceType_C5d_2xlarge,
+        EC2InstanceType_C5d_4xlarge,
+        EC2InstanceType_C5d_9xlarge,
+        EC2InstanceType_C5d_large,
+        EC2InstanceType_C5d_xlarge,
+        EC2InstanceType_C6a_12xlarge,
+        EC2InstanceType_C6a_16xlarge,
+        EC2InstanceType_C6a_24xlarge,
+        EC2InstanceType_C6a_2xlarge,
+        EC2InstanceType_C6a_4xlarge,
+        EC2InstanceType_C6a_8xlarge,
+        EC2InstanceType_C6a_large,
+        EC2InstanceType_C6a_xlarge,
+        EC2InstanceType_C6i_12xlarge,
+        EC2InstanceType_C6i_16xlarge,
+        EC2InstanceType_C6i_24xlarge,
+        EC2InstanceType_C6i_2xlarge,
+        EC2InstanceType_C6i_4xlarge,
+        EC2InstanceType_C6i_8xlarge,
+        EC2InstanceType_C6i_large,
+        EC2InstanceType_C6i_xlarge,
         EC2InstanceType_M3_2xlarge,
         EC2InstanceType_M3_large,
         EC2InstanceType_M3_medium,
@@ -98,6 +122,14 @@ module Amazonka.GameLift.Types.EC2InstanceType
         EC2InstanceType_R5a_8xlarge,
         EC2InstanceType_R5a_large,
         EC2InstanceType_R5a_xlarge,
+        EC2InstanceType_R5d_12xlarge,
+        EC2InstanceType_R5d_16xlarge,
+        EC2InstanceType_R5d_24xlarge,
+        EC2InstanceType_R5d_2xlarge,
+        EC2InstanceType_R5d_4xlarge,
+        EC2InstanceType_R5d_8xlarge,
+        EC2InstanceType_R5d_large,
+        EC2InstanceType_R5d_xlarge,
         EC2InstanceType_T2_large,
         EC2InstanceType_T2_medium,
         EC2InstanceType_T2_micro,
@@ -214,6 +246,78 @@ pattern EC2InstanceType_C5a_large = EC2InstanceType' "c5a.large"
 
 pattern EC2InstanceType_C5a_xlarge :: EC2InstanceType
 pattern EC2InstanceType_C5a_xlarge = EC2InstanceType' "c5a.xlarge"
+
+pattern EC2InstanceType_C5d_12xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_12xlarge = EC2InstanceType' "c5d.12xlarge"
+
+pattern EC2InstanceType_C5d_18xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_18xlarge = EC2InstanceType' "c5d.18xlarge"
+
+pattern EC2InstanceType_C5d_24xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_24xlarge = EC2InstanceType' "c5d.24xlarge"
+
+pattern EC2InstanceType_C5d_2xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_2xlarge = EC2InstanceType' "c5d.2xlarge"
+
+pattern EC2InstanceType_C5d_4xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_4xlarge = EC2InstanceType' "c5d.4xlarge"
+
+pattern EC2InstanceType_C5d_9xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_9xlarge = EC2InstanceType' "c5d.9xlarge"
+
+pattern EC2InstanceType_C5d_large :: EC2InstanceType
+pattern EC2InstanceType_C5d_large = EC2InstanceType' "c5d.large"
+
+pattern EC2InstanceType_C5d_xlarge :: EC2InstanceType
+pattern EC2InstanceType_C5d_xlarge = EC2InstanceType' "c5d.xlarge"
+
+pattern EC2InstanceType_C6a_12xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_12xlarge = EC2InstanceType' "c6a.12xlarge"
+
+pattern EC2InstanceType_C6a_16xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_16xlarge = EC2InstanceType' "c6a.16xlarge"
+
+pattern EC2InstanceType_C6a_24xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_24xlarge = EC2InstanceType' "c6a.24xlarge"
+
+pattern EC2InstanceType_C6a_2xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_2xlarge = EC2InstanceType' "c6a.2xlarge"
+
+pattern EC2InstanceType_C6a_4xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_4xlarge = EC2InstanceType' "c6a.4xlarge"
+
+pattern EC2InstanceType_C6a_8xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_8xlarge = EC2InstanceType' "c6a.8xlarge"
+
+pattern EC2InstanceType_C6a_large :: EC2InstanceType
+pattern EC2InstanceType_C6a_large = EC2InstanceType' "c6a.large"
+
+pattern EC2InstanceType_C6a_xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6a_xlarge = EC2InstanceType' "c6a.xlarge"
+
+pattern EC2InstanceType_C6i_12xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_12xlarge = EC2InstanceType' "c6i.12xlarge"
+
+pattern EC2InstanceType_C6i_16xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_16xlarge = EC2InstanceType' "c6i.16xlarge"
+
+pattern EC2InstanceType_C6i_24xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_24xlarge = EC2InstanceType' "c6i.24xlarge"
+
+pattern EC2InstanceType_C6i_2xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_2xlarge = EC2InstanceType' "c6i.2xlarge"
+
+pattern EC2InstanceType_C6i_4xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_4xlarge = EC2InstanceType' "c6i.4xlarge"
+
+pattern EC2InstanceType_C6i_8xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_8xlarge = EC2InstanceType' "c6i.8xlarge"
+
+pattern EC2InstanceType_C6i_large :: EC2InstanceType
+pattern EC2InstanceType_C6i_large = EC2InstanceType' "c6i.large"
+
+pattern EC2InstanceType_C6i_xlarge :: EC2InstanceType
+pattern EC2InstanceType_C6i_xlarge = EC2InstanceType' "c6i.xlarge"
 
 pattern EC2InstanceType_M3_2xlarge :: EC2InstanceType
 pattern EC2InstanceType_M3_2xlarge = EC2InstanceType' "m3.2xlarge"
@@ -371,6 +475,30 @@ pattern EC2InstanceType_R5a_large = EC2InstanceType' "r5a.large"
 pattern EC2InstanceType_R5a_xlarge :: EC2InstanceType
 pattern EC2InstanceType_R5a_xlarge = EC2InstanceType' "r5a.xlarge"
 
+pattern EC2InstanceType_R5d_12xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_12xlarge = EC2InstanceType' "r5d.12xlarge"
+
+pattern EC2InstanceType_R5d_16xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_16xlarge = EC2InstanceType' "r5d.16xlarge"
+
+pattern EC2InstanceType_R5d_24xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_24xlarge = EC2InstanceType' "r5d.24xlarge"
+
+pattern EC2InstanceType_R5d_2xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_2xlarge = EC2InstanceType' "r5d.2xlarge"
+
+pattern EC2InstanceType_R5d_4xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_4xlarge = EC2InstanceType' "r5d.4xlarge"
+
+pattern EC2InstanceType_R5d_8xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_8xlarge = EC2InstanceType' "r5d.8xlarge"
+
+pattern EC2InstanceType_R5d_large :: EC2InstanceType
+pattern EC2InstanceType_R5d_large = EC2InstanceType' "r5d.large"
+
+pattern EC2InstanceType_R5d_xlarge :: EC2InstanceType
+pattern EC2InstanceType_R5d_xlarge = EC2InstanceType' "r5d.xlarge"
+
 pattern EC2InstanceType_T2_large :: EC2InstanceType
 pattern EC2InstanceType_T2_large = EC2InstanceType' "t2.large"
 
@@ -410,6 +538,30 @@ pattern EC2InstanceType_T2_small = EC2InstanceType' "t2.small"
   EC2InstanceType_C5a_8xlarge,
   EC2InstanceType_C5a_large,
   EC2InstanceType_C5a_xlarge,
+  EC2InstanceType_C5d_12xlarge,
+  EC2InstanceType_C5d_18xlarge,
+  EC2InstanceType_C5d_24xlarge,
+  EC2InstanceType_C5d_2xlarge,
+  EC2InstanceType_C5d_4xlarge,
+  EC2InstanceType_C5d_9xlarge,
+  EC2InstanceType_C5d_large,
+  EC2InstanceType_C5d_xlarge,
+  EC2InstanceType_C6a_12xlarge,
+  EC2InstanceType_C6a_16xlarge,
+  EC2InstanceType_C6a_24xlarge,
+  EC2InstanceType_C6a_2xlarge,
+  EC2InstanceType_C6a_4xlarge,
+  EC2InstanceType_C6a_8xlarge,
+  EC2InstanceType_C6a_large,
+  EC2InstanceType_C6a_xlarge,
+  EC2InstanceType_C6i_12xlarge,
+  EC2InstanceType_C6i_16xlarge,
+  EC2InstanceType_C6i_24xlarge,
+  EC2InstanceType_C6i_2xlarge,
+  EC2InstanceType_C6i_4xlarge,
+  EC2InstanceType_C6i_8xlarge,
+  EC2InstanceType_C6i_large,
+  EC2InstanceType_C6i_xlarge,
   EC2InstanceType_M3_2xlarge,
   EC2InstanceType_M3_large,
   EC2InstanceType_M3_medium,
@@ -462,6 +614,14 @@ pattern EC2InstanceType_T2_small = EC2InstanceType' "t2.small"
   EC2InstanceType_R5a_8xlarge,
   EC2InstanceType_R5a_large,
   EC2InstanceType_R5a_xlarge,
+  EC2InstanceType_R5d_12xlarge,
+  EC2InstanceType_R5d_16xlarge,
+  EC2InstanceType_R5d_24xlarge,
+  EC2InstanceType_R5d_2xlarge,
+  EC2InstanceType_R5d_4xlarge,
+  EC2InstanceType_R5d_8xlarge,
+  EC2InstanceType_R5d_large,
+  EC2InstanceType_R5d_xlarge,
   EC2InstanceType_T2_large,
   EC2InstanceType_T2_medium,
   EC2InstanceType_T2_micro,

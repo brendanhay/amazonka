@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.Addon
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ data Addon = Addon'
     addonName :: Prelude.Maybe Prelude.Text,
     -- | The version of the add-on.
     addonVersion :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents the health of the add-on.
+    -- | An object representing the health of the add-on.
     health :: Prelude.Maybe AddonHealth,
     -- | The Amazon Resource Name (ARN) of the add-on.
     addonArn :: Prelude.Maybe Prelude.Text,
@@ -79,7 +79,7 @@ data Addon = Addon'
 --
 -- 'addonVersion', 'addon_addonVersion' - The version of the add-on.
 --
--- 'health', 'addon_health' - An object that represents the health of the add-on.
+-- 'health', 'addon_health' - An object representing the health of the add-on.
 --
 -- 'addonArn', 'addon_addonArn' - The Amazon Resource Name (ARN) of the add-on.
 --
@@ -128,7 +128,7 @@ addon_addonName = Lens.lens (\Addon' {addonName} -> addonName) (\s@Addon' {} a -
 addon_addonVersion :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
 addon_addonVersion = Lens.lens (\Addon' {addonVersion} -> addonVersion) (\s@Addon' {} a -> s {addonVersion = a} :: Addon)
 
--- | An object that represents the health of the add-on.
+-- | An object representing the health of the add-on.
 addon_health :: Lens.Lens' Addon (Prelude.Maybe AddonHealth)
 addon_health = Lens.lens (\Addon' {health} -> health) (\s@Addon' {} a -> s {health = a} :: Addon)
 

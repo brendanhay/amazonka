@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.AddonHealth
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddonHealth' smart constructor.
 data AddonHealth = AddonHealth'
-  { -- | An object that represents the add-on\'s health issues.
+  { -- | An object representing the health issues for an add-on.
     issues :: Prelude.Maybe [AddonIssue]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,13 +41,13 @@ data AddonHealth = AddonHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'issues', 'addonHealth_issues' - An object that represents the add-on\'s health issues.
+-- 'issues', 'addonHealth_issues' - An object representing the health issues for an add-on.
 newAddonHealth ::
   AddonHealth
 newAddonHealth =
   AddonHealth' {issues = Prelude.Nothing}
 
--- | An object that represents the add-on\'s health issues.
+-- | An object representing the health issues for an add-on.
 addonHealth_issues :: Lens.Lens' AddonHealth (Prelude.Maybe [AddonIssue])
 addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Lens.coerced
 

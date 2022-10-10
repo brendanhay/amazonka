@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.Cluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,14 @@ module Amazonka.EKS.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EKS.Types.Certificate
+import Amazonka.EKS.Types.ClusterHealth
 import Amazonka.EKS.Types.ClusterStatus
 import Amazonka.EKS.Types.ConnectorConfigResponse
 import Amazonka.EKS.Types.EncryptionConfig
 import Amazonka.EKS.Types.Identity
 import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
 import Amazonka.EKS.Types.Logging
+import Amazonka.EKS.Types.OutpostConfigResponse
 import Amazonka.EKS.Types.VpcConfigResponse
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -55,6 +57,14 @@ data Cluster = Cluster'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the cluster.
     status :: Prelude.Maybe ClusterStatus,
+    -- | The ID of your local Amazon EKS cluster on an Amazon Web Services
+    -- Outpost. This property isn\'t available for an Amazon EKS cluster on the
+    -- Amazon Web Services cloud.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An object representing the configuration of your local Amazon EKS
+    -- cluster on an Amazon Web Services Outpost. This object isn\'t available
+    -- for clusters on the Amazon Web Services cloud.
+    outpostConfig :: Prelude.Maybe OutpostConfigResponse,
     -- | The logging configuration for your cluster.
     logging :: Prelude.Maybe Logging,
     -- | The identity provider information for the cluster.
@@ -63,6 +73,10 @@ data Cluster = Cluster'
     kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigResponse,
     -- | The configuration used to connect to a cluster for registration.
     connectorConfig :: Prelude.Maybe ConnectorConfigResponse,
+    -- | An object representing the health of your local Amazon EKS cluster on an
+    -- Amazon Web Services Outpost. This object isn\'t available for clusters
+    -- on the Amazon Web Services cloud.
+    health :: Prelude.Maybe ClusterHealth,
     -- | The platform version of your Amazon EKS cluster. For more information,
     -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html Platform Versions>
@@ -115,6 +129,14 @@ data Cluster = Cluster'
 --
 -- 'status', 'cluster_status' - The current status of the cluster.
 --
+-- 'id', 'cluster_id' - The ID of your local Amazon EKS cluster on an Amazon Web Services
+-- Outpost. This property isn\'t available for an Amazon EKS cluster on the
+-- Amazon Web Services cloud.
+--
+-- 'outpostConfig', 'cluster_outpostConfig' - An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. This object isn\'t available
+-- for clusters on the Amazon Web Services cloud.
+--
 -- 'logging', 'cluster_logging' - The logging configuration for your cluster.
 --
 -- 'identity', 'cluster_identity' - The identity provider information for the cluster.
@@ -122,6 +144,10 @@ data Cluster = Cluster'
 -- 'kubernetesNetworkConfig', 'cluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
 --
 -- 'connectorConfig', 'cluster_connectorConfig' - The configuration used to connect to a cluster for registration.
+--
+-- 'health', 'cluster_health' - An object representing the health of your local Amazon EKS cluster on an
+-- Amazon Web Services Outpost. This object isn\'t available for clusters
+-- on the Amazon Web Services cloud.
 --
 -- 'platformVersion', 'cluster_platformVersion' - The platform version of your Amazon EKS cluster. For more information,
 -- see
@@ -154,10 +180,13 @@ newCluster =
       clientRequestToken = Prelude.Nothing,
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
+      id = Prelude.Nothing,
+      outpostConfig = Prelude.Nothing,
       logging = Prelude.Nothing,
       identity = Prelude.Nothing,
       kubernetesNetworkConfig = Prelude.Nothing,
       connectorConfig = Prelude.Nothing,
+      health = Prelude.Nothing,
       platformVersion = Prelude.Nothing,
       certificateAuthority = Prelude.Nothing,
       endpoint = Prelude.Nothing,
@@ -200,6 +229,18 @@ cluster_arn = Lens.lens (\Cluster' {arn} -> arn) (\s@Cluster' {} a -> s {arn = a
 cluster_status :: Lens.Lens' Cluster (Prelude.Maybe ClusterStatus)
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
+-- | The ID of your local Amazon EKS cluster on an Amazon Web Services
+-- Outpost. This property isn\'t available for an Amazon EKS cluster on the
+-- Amazon Web Services cloud.
+cluster_id :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_id = Lens.lens (\Cluster' {id} -> id) (\s@Cluster' {} a -> s {id = a} :: Cluster)
+
+-- | An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. This object isn\'t available
+-- for clusters on the Amazon Web Services cloud.
+cluster_outpostConfig :: Lens.Lens' Cluster (Prelude.Maybe OutpostConfigResponse)
+cluster_outpostConfig = Lens.lens (\Cluster' {outpostConfig} -> outpostConfig) (\s@Cluster' {} a -> s {outpostConfig = a} :: Cluster)
+
 -- | The logging configuration for your cluster.
 cluster_logging :: Lens.Lens' Cluster (Prelude.Maybe Logging)
 cluster_logging = Lens.lens (\Cluster' {logging} -> logging) (\s@Cluster' {} a -> s {logging = a} :: Cluster)
@@ -215,6 +256,12 @@ cluster_kubernetesNetworkConfig = Lens.lens (\Cluster' {kubernetesNetworkConfig}
 -- | The configuration used to connect to a cluster for registration.
 cluster_connectorConfig :: Lens.Lens' Cluster (Prelude.Maybe ConnectorConfigResponse)
 cluster_connectorConfig = Lens.lens (\Cluster' {connectorConfig} -> connectorConfig) (\s@Cluster' {} a -> s {connectorConfig = a} :: Cluster)
+
+-- | An object representing the health of your local Amazon EKS cluster on an
+-- Amazon Web Services Outpost. This object isn\'t available for clusters
+-- on the Amazon Web Services cloud.
+cluster_health :: Lens.Lens' Cluster (Prelude.Maybe ClusterHealth)
+cluster_health = Lens.lens (\Cluster' {health} -> health) (\s@Cluster' {} a -> s {health = a} :: Cluster)
 
 -- | The platform version of your Amazon EKS cluster. For more information,
 -- see
@@ -264,10 +311,13 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "clientRequestToken")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "outpostConfig")
             Prelude.<*> (x Core..:? "logging")
             Prelude.<*> (x Core..:? "identity")
             Prelude.<*> (x Core..:? "kubernetesNetworkConfig")
             Prelude.<*> (x Core..:? "connectorConfig")
+            Prelude.<*> (x Core..:? "health")
             Prelude.<*> (x Core..:? "platformVersion")
             Prelude.<*> (x Core..:? "certificateAuthority")
             Prelude.<*> (x Core..:? "endpoint")
@@ -285,10 +335,13 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` outpostConfig
       `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` kubernetesNetworkConfig
       `Prelude.hashWithSalt` connectorConfig
+      `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` platformVersion
       `Prelude.hashWithSalt` certificateAuthority
       `Prelude.hashWithSalt` endpoint
@@ -305,10 +358,13 @@ instance Prelude.NFData Cluster where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf outpostConfig
       `Prelude.seq` Prelude.rnf logging
       `Prelude.seq` Prelude.rnf identity
       `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
       `Prelude.seq` Prelude.rnf connectorConfig
+      `Prelude.seq` Prelude.rnf health
       `Prelude.seq` Prelude.rnf platformVersion
       `Prelude.seq` Prelude.rnf certificateAuthority
       `Prelude.seq` Prelude.rnf endpoint

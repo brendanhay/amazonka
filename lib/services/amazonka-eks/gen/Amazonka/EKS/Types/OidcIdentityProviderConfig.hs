@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.OidcIdentityProviderConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@ import Amazonka.EKS.Types.ConfigStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that represents the configuration for an OpenID Connect (OIDC)
+-- | An object representing the configuration for an OpenID Connect (OIDC)
 -- identity provider.
 --
 -- /See:/ 'newOidcIdentityProviderConfig' smart constructor.

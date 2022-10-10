@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -86,6 +86,9 @@ library
     Amazonka.EKS.Types.CapacityTypes
     Amazonka.EKS.Types.Certificate
     Amazonka.EKS.Types.Cluster
+    Amazonka.EKS.Types.ClusterHealth
+    Amazonka.EKS.Types.ClusterIssue
+    Amazonka.EKS.Types.ClusterIssueCode
     Amazonka.EKS.Types.ClusterStatus
     Amazonka.EKS.Types.Compatibility
     Amazonka.EKS.Types.ConfigStatus
@@ -119,6 +122,8 @@ library
     Amazonka.EKS.Types.OIDC
     Amazonka.EKS.Types.OidcIdentityProviderConfig
     Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+    Amazonka.EKS.Types.OutpostConfigRequest
+    Amazonka.EKS.Types.OutpostConfigResponse
     Amazonka.EKS.Types.Provider
     Amazonka.EKS.Types.RemoteAccessConfig
     Amazonka.EKS.Types.ResolveConflicts
@@ -142,7 +147,7 @@ library
     Amazonka.EKS.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-eks-test
@@ -161,9 +166,9 @@ test-suite amazonka-eks-test
     Test.Amazonka.Gen.EKS
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-eks
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

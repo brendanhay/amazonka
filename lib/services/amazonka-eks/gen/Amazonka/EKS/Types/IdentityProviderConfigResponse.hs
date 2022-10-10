@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.IdentityProviderConfigResponse
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityProviderConfigResponse' smart constructor.
 data IdentityProviderConfigResponse = IdentityProviderConfigResponse'
-  { -- | An object that represents an OpenID Connect (OIDC) identity provider
+  { -- | An object representing an OpenID Connect (OIDC) identity provider
     -- configuration.
     oidc :: Prelude.Maybe OidcIdentityProviderConfig
   }
@@ -42,7 +42,7 @@ data IdentityProviderConfigResponse = IdentityProviderConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'oidc', 'identityProviderConfigResponse_oidc' - An object that represents an OpenID Connect (OIDC) identity provider
+-- 'oidc', 'identityProviderConfigResponse_oidc' - An object representing an OpenID Connect (OIDC) identity provider
 -- configuration.
 newIdentityProviderConfigResponse ::
   IdentityProviderConfigResponse
@@ -52,7 +52,7 @@ newIdentityProviderConfigResponse =
         Prelude.Nothing
     }
 
--- | An object that represents an OpenID Connect (OIDC) identity provider
+-- | An object representing an OpenID Connect (OIDC) identity provider
 -- configuration.
 identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Prelude.Maybe OidcIdentityProviderConfig)
 identityProviderConfigResponse_oidc = Lens.lens (\IdentityProviderConfigResponse' {oidc} -> oidc) (\s@IdentityProviderConfigResponse' {} a -> s {oidc = a} :: IdentityProviderConfigResponse)

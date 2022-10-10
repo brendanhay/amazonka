@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.CreateCluster
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,6 +57,7 @@ module Amazonka.EKS.CreateCluster
     createCluster_encryptionConfig,
     createCluster_tags,
     createCluster_clientRequestToken,
+    createCluster_outpostConfig,
     createCluster_logging,
     createCluster_kubernetesNetworkConfig,
     createCluster_version,
@@ -92,6 +93,13 @@ data CreateCluster = CreateCluster'
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An object representing the configuration of your local Amazon EKS
+    -- cluster on an Amazon Web Services Outpost. Before creating a local
+    -- cluster on an Outpost, review
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+    -- in the /Amazon EKS User Guide/. This object isn\'t available for
+    -- creating Amazon EKS clusters on the Amazon Web Services cloud.
+    outpostConfig :: Prelude.Maybe OutpostConfigRequest,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -105,7 +113,9 @@ data CreateCluster = CreateCluster'
     -- | The Kubernetes network configuration for the cluster.
     kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
     -- | The desired Kubernetes version for your cluster. If you don\'t specify a
-    -- value here, the latest version available in Amazon EKS is used.
+    -- value here, the default version available in Amazon EKS is used.
+    --
+    -- The default version might not be the latest version available.
     version :: Prelude.Maybe Prelude.Text,
     -- | The unique name to give to your cluster.
     name :: Prelude.Text,
@@ -145,6 +155,13 @@ data CreateCluster = CreateCluster'
 -- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
+-- 'outpostConfig', 'createCluster_outpostConfig' - An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. Before creating a local
+-- cluster on an Outpost, review
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+-- in the /Amazon EKS User Guide/. This object isn\'t available for
+-- creating Amazon EKS clusters on the Amazon Web Services cloud.
+--
 -- 'logging', 'createCluster_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -158,7 +175,9 @@ data CreateCluster = CreateCluster'
 -- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
 --
 -- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
+-- value here, the default version available in Amazon EKS is used.
+--
+-- The default version might not be the latest version available.
 --
 -- 'name', 'createCluster_name' - The unique name to give to your cluster.
 --
@@ -193,6 +212,7 @@ newCreateCluster
       { encryptionConfig = Prelude.Nothing,
         tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
+        outpostConfig = Prelude.Nothing,
         logging = Prelude.Nothing,
         kubernetesNetworkConfig = Prelude.Nothing,
         version = Prelude.Nothing,
@@ -216,6 +236,15 @@ createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluste
 createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToken} -> clientRequestToken) (\s@CreateCluster' {} a -> s {clientRequestToken = a} :: CreateCluster)
 
+-- | An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. Before creating a local
+-- cluster on an Outpost, review
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+-- in the /Amazon EKS User Guide/. This object isn\'t available for
+-- creating Amazon EKS clusters on the Amazon Web Services cloud.
+createCluster_outpostConfig :: Lens.Lens' CreateCluster (Prelude.Maybe OutpostConfigRequest)
+createCluster_outpostConfig = Lens.lens (\CreateCluster' {outpostConfig} -> outpostConfig) (\s@CreateCluster' {} a -> s {outpostConfig = a} :: CreateCluster)
+
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -233,7 +262,9 @@ createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe
 createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
 
 -- | The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
+-- value here, the default version available in Amazon EKS is used.
+--
+-- The default version might not be the latest version available.
 createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
 
@@ -279,6 +310,7 @@ instance Prelude.Hashable CreateCluster where
     _salt `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` outpostConfig
       `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` kubernetesNetworkConfig
       `Prelude.hashWithSalt` version
@@ -291,6 +323,7 @@ instance Prelude.NFData CreateCluster where
     Prelude.rnf encryptionConfig
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf outpostConfig
       `Prelude.seq` Prelude.rnf logging
       `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
       `Prelude.seq` Prelude.rnf version
@@ -318,6 +351,7 @@ instance Core.ToJSON CreateCluster where
             ("tags" Core..=) Prelude.<$> tags,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("outpostConfig" Core..=) Prelude.<$> outpostConfig,
             ("logging" Core..=) Prelude.<$> logging,
             ("kubernetesNetworkConfig" Core..=)
               Prelude.<$> kubernetesNetworkConfig,

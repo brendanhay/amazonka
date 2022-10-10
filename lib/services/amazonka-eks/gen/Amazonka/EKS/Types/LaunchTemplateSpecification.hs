@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.LaunchTemplateSpecification
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a node group launch template specification. The
--- launch template cannot include
+-- launch template can\'t include
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html SubnetId>
 -- ,
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html IamInstanceProfile>
@@ -42,16 +42,30 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
--- Specify either @name@ or @id@, but not both.
+-- You must specify either the launch template ID or the launch template
+-- name in the request, but not both.
 --
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The name of the launch template.
+    --
+    -- You must specify either the launch template name or the launch template
+    -- ID in the request, but not both.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the launch template.
+    --
+    -- You must specify either the launch template ID or the launch template
+    -- name in the request, but not both.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The version of the launch template to use. If no version is specified,
-    -- then the template\'s default version is used.
+    -- | The launch template version number, @$Latest@, or @$Default@.
+    --
+    -- If the value is @$Latest@, Amazon EKS uses the latest version of the
+    -- launch template.
+    --
+    -- If the value is @$Default@, Amazon EKS uses the default version of the
+    -- launch template.
+    --
+    -- Default: The default version of the launch template.
     version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,10 +80,23 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- 'name', 'launchTemplateSpecification_name' - The name of the launch template.
 --
+-- You must specify either the launch template name or the launch template
+-- ID in the request, but not both.
+--
 -- 'id', 'launchTemplateSpecification_id' - The ID of the launch template.
 --
--- 'version', 'launchTemplateSpecification_version' - The version of the launch template to use. If no version is specified,
--- then the template\'s default version is used.
+-- You must specify either the launch template ID or the launch template
+-- name in the request, but not both.
+--
+-- 'version', 'launchTemplateSpecification_version' - The launch template version number, @$Latest@, or @$Default@.
+--
+-- If the value is @$Latest@, Amazon EKS uses the latest version of the
+-- launch template.
+--
+-- If the value is @$Default@, Amazon EKS uses the default version of the
+-- launch template.
+--
+-- Default: The default version of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
@@ -81,15 +108,28 @@ newLaunchTemplateSpecification =
     }
 
 -- | The name of the launch template.
+--
+-- You must specify either the launch template name or the launch template
+-- ID in the request, but not both.
 launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_name = Lens.lens (\LaunchTemplateSpecification' {name} -> name) (\s@LaunchTemplateSpecification' {} a -> s {name = a} :: LaunchTemplateSpecification)
 
 -- | The ID of the launch template.
+--
+-- You must specify either the launch template ID or the launch template
+-- name in the request, but not both.
 launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_id = Lens.lens (\LaunchTemplateSpecification' {id} -> id) (\s@LaunchTemplateSpecification' {} a -> s {id = a} :: LaunchTemplateSpecification)
 
--- | The version of the launch template to use. If no version is specified,
--- then the template\'s default version is used.
+-- | The launch template version number, @$Latest@, or @$Default@.
+--
+-- If the value is @$Latest@, Amazon EKS uses the latest version of the
+-- launch template.
+--
+-- If the value is @$Default@, Amazon EKS uses the default version of the
+-- launch template.
+--
+-- Default: The default version of the launch template.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 

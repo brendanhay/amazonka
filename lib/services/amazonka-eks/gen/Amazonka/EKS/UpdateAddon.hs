@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.UpdateAddon
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,8 +74,20 @@ data UpdateAddon = UpdateAddon'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | How to resolve parameter value conflicts when applying the new version
-    -- of the add-on to the cluster.
+    -- | How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
+    -- changed a value from the Amazon EKS default value. Conflicts are handled
+    -- based on the option you choose:
+    --
+    -- -   __None__ – Amazon EKS doesn\'t change the value. The update might
+    --     fail.
+    --
+    -- -   __Overwrite__ – Amazon EKS overwrites the changed value back to the
+    --     Amazon EKS default value.
+    --
+    -- -   __Preserve__ – Amazon EKS preserves the value. If you choose this
+    --     option, we recommend that you test any field and value changes on a
+    --     non-production cluster before updating the add-on on your production
+    --     cluster.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
     -- | The name of the cluster.
     clusterName :: Prelude.Text,
@@ -115,8 +127,20 @@ data UpdateAddon = UpdateAddon'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
 --
--- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve parameter value conflicts when applying the new version
--- of the add-on to the cluster.
+-- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
+-- changed a value from the Amazon EKS default value. Conflicts are handled
+-- based on the option you choose:
+--
+-- -   __None__ – Amazon EKS doesn\'t change the value. The update might
+--     fail.
+--
+-- -   __Overwrite__ – Amazon EKS overwrites the changed value back to the
+--     Amazon EKS default value.
+--
+-- -   __Preserve__ – Amazon EKS preserves the value. If you choose this
+--     option, we recommend that you test any field and value changes on a
+--     non-production cluster before updating the add-on on your production
+--     cluster.
 --
 -- 'clusterName', 'updateAddon_clusterName' - The name of the cluster.
 --
@@ -166,8 +190,20 @@ updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersi
 updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
 updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@UpdateAddon' {} a -> s {serviceAccountRoleArn = a} :: UpdateAddon)
 
--- | How to resolve parameter value conflicts when applying the new version
--- of the add-on to the cluster.
+-- | How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
+-- changed a value from the Amazon EKS default value. Conflicts are handled
+-- based on the option you choose:
+--
+-- -   __None__ – Amazon EKS doesn\'t change the value. The update might
+--     fail.
+--
+-- -   __Overwrite__ – Amazon EKS overwrites the changed value back to the
+--     Amazon EKS default value.
+--
+-- -   __Preserve__ – Amazon EKS preserves the value. If you choose this
+--     option, we recommend that you test any field and value changes on a
+--     non-production cluster before updating the add-on on your production
+--     cluster.
 updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
 updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
 

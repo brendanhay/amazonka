@@ -1,0 +1,31 @@
+{-# OPTIONS_GHC -Wno-missing-methods #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Kendra.Types.DocumentAttributeValueCountPair
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Kendra.Types.DocumentAttributeValueCountPair where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
+
+data DocumentAttributeValueCountPair
+
+instance Prelude.Eq DocumentAttributeValueCountPair
+
+instance Prelude.Read DocumentAttributeValueCountPair
+
+instance Prelude.Show DocumentAttributeValueCountPair
+
+instance Prelude.Generic DocumentAttributeValueCountPair
+
+instance Core.FromJSON DocumentAttributeValueCountPair
+
+instance Prelude.NFData DocumentAttributeValueCountPair
+
+instance Prelude.Hashable DocumentAttributeValueCountPair

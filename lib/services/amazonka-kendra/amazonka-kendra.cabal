@@ -1,0 +1,331 @@
+cabal-version:      2.2
+name:               amazonka-kendra
+version:            2.0
+synopsis:           Amazon KendraFrontendService SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-02-03@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.Kendra.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.Kendra" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-kendra
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.Kendra
+    Amazonka.Kendra.AssociateEntitiesToExperience
+    Amazonka.Kendra.AssociatePersonasToEntities
+    Amazonka.Kendra.BatchDeleteDocument
+    Amazonka.Kendra.BatchGetDocumentStatus
+    Amazonka.Kendra.BatchPutDocument
+    Amazonka.Kendra.ClearQuerySuggestions
+    Amazonka.Kendra.CreateAccessControlConfiguration
+    Amazonka.Kendra.CreateDataSource
+    Amazonka.Kendra.CreateExperience
+    Amazonka.Kendra.CreateFaq
+    Amazonka.Kendra.CreateIndex
+    Amazonka.Kendra.CreateQuerySuggestionsBlockList
+    Amazonka.Kendra.CreateThesaurus
+    Amazonka.Kendra.DeleteAccessControlConfiguration
+    Amazonka.Kendra.DeleteDataSource
+    Amazonka.Kendra.DeleteExperience
+    Amazonka.Kendra.DeleteFaq
+    Amazonka.Kendra.DeleteIndex
+    Amazonka.Kendra.DeletePrincipalMapping
+    Amazonka.Kendra.DeleteQuerySuggestionsBlockList
+    Amazonka.Kendra.DeleteThesaurus
+    Amazonka.Kendra.DescribeAccessControlConfiguration
+    Amazonka.Kendra.DescribeDataSource
+    Amazonka.Kendra.DescribeExperience
+    Amazonka.Kendra.DescribeFaq
+    Amazonka.Kendra.DescribeIndex
+    Amazonka.Kendra.DescribePrincipalMapping
+    Amazonka.Kendra.DescribeQuerySuggestionsBlockList
+    Amazonka.Kendra.DescribeQuerySuggestionsConfig
+    Amazonka.Kendra.DescribeThesaurus
+    Amazonka.Kendra.DisassociateEntitiesFromExperience
+    Amazonka.Kendra.DisassociatePersonasFromEntities
+    Amazonka.Kendra.GetQuerySuggestions
+    Amazonka.Kendra.GetSnapshots
+    Amazonka.Kendra.Lens
+    Amazonka.Kendra.ListAccessControlConfigurations
+    Amazonka.Kendra.ListDataSources
+    Amazonka.Kendra.ListDataSourceSyncJobs
+    Amazonka.Kendra.ListEntityPersonas
+    Amazonka.Kendra.ListExperienceEntities
+    Amazonka.Kendra.ListExperiences
+    Amazonka.Kendra.ListFaqs
+    Amazonka.Kendra.ListGroupsOlderThanOrderingId
+    Amazonka.Kendra.ListIndices
+    Amazonka.Kendra.ListQuerySuggestionsBlockLists
+    Amazonka.Kendra.ListTagsForResource
+    Amazonka.Kendra.ListThesauri
+    Amazonka.Kendra.PutPrincipalMapping
+    Amazonka.Kendra.Query
+    Amazonka.Kendra.StartDataSourceSyncJob
+    Amazonka.Kendra.StopDataSourceSyncJob
+    Amazonka.Kendra.SubmitFeedback
+    Amazonka.Kendra.TagResource
+    Amazonka.Kendra.Types
+    Amazonka.Kendra.Types.AccessControlConfigurationSummary
+    Amazonka.Kendra.Types.AccessControlListConfiguration
+    Amazonka.Kendra.Types.AclConfiguration
+    Amazonka.Kendra.Types.AdditionalResultAttribute
+    Amazonka.Kendra.Types.AdditionalResultAttributeValue
+    Amazonka.Kendra.Types.AdditionalResultAttributeValueType
+    Amazonka.Kendra.Types.AlfrescoConfiguration
+    Amazonka.Kendra.Types.AlfrescoEntity
+    Amazonka.Kendra.Types.AttributeFilter
+    Amazonka.Kendra.Types.AuthenticationConfiguration
+    Amazonka.Kendra.Types.BasicAuthenticationConfiguration
+    Amazonka.Kendra.Types.BatchDeleteDocumentResponseFailedDocument
+    Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError
+    Amazonka.Kendra.Types.BatchPutDocumentResponseFailedDocument
+    Amazonka.Kendra.Types.BoxConfiguration
+    Amazonka.Kendra.Types.CapacityUnitsConfiguration
+    Amazonka.Kendra.Types.ClickFeedback
+    Amazonka.Kendra.Types.ColumnConfiguration
+    Amazonka.Kendra.Types.ConditionOperator
+    Amazonka.Kendra.Types.ConfluenceAttachmentConfiguration
+    Amazonka.Kendra.Types.ConfluenceAttachmentFieldName
+    Amazonka.Kendra.Types.ConfluenceAttachmentToIndexFieldMapping
+    Amazonka.Kendra.Types.ConfluenceAuthenticationType
+    Amazonka.Kendra.Types.ConfluenceBlogConfiguration
+    Amazonka.Kendra.Types.ConfluenceBlogFieldName
+    Amazonka.Kendra.Types.ConfluenceBlogToIndexFieldMapping
+    Amazonka.Kendra.Types.ConfluenceConfiguration
+    Amazonka.Kendra.Types.ConfluencePageConfiguration
+    Amazonka.Kendra.Types.ConfluencePageFieldName
+    Amazonka.Kendra.Types.ConfluencePageToIndexFieldMapping
+    Amazonka.Kendra.Types.ConfluenceSpaceConfiguration
+    Amazonka.Kendra.Types.ConfluenceSpaceFieldName
+    Amazonka.Kendra.Types.ConfluenceSpaceToIndexFieldMapping
+    Amazonka.Kendra.Types.ConfluenceVersion
+    Amazonka.Kendra.Types.ConnectionConfiguration
+    Amazonka.Kendra.Types.ContentSourceConfiguration
+    Amazonka.Kendra.Types.ContentType
+    Amazonka.Kendra.Types.Correction
+    Amazonka.Kendra.Types.CustomDocumentEnrichmentConfiguration
+    Amazonka.Kendra.Types.DatabaseConfiguration
+    Amazonka.Kendra.Types.DatabaseEngineType
+    Amazonka.Kendra.Types.DataSourceConfiguration
+    Amazonka.Kendra.Types.DataSourceGroup
+    Amazonka.Kendra.Types.DataSourceStatus
+    Amazonka.Kendra.Types.DataSourceSummary
+    Amazonka.Kendra.Types.DataSourceSyncJob
+    Amazonka.Kendra.Types.DataSourceSyncJobMetrics
+    Amazonka.Kendra.Types.DataSourceSyncJobMetricTarget
+    Amazonka.Kendra.Types.DataSourceSyncJobStatus
+    Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
+    Amazonka.Kendra.Types.DataSourceType
+    Amazonka.Kendra.Types.DataSourceVpcConfiguration
+    Amazonka.Kendra.Types.Document
+    Amazonka.Kendra.Types.DocumentAttribute
+    Amazonka.Kendra.Types.DocumentAttributeCondition
+    Amazonka.Kendra.Types.DocumentAttributeTarget
+    Amazonka.Kendra.Types.DocumentAttributeValue
+    Amazonka.Kendra.Types.DocumentAttributeValueCountPair
+    Amazonka.Kendra.Types.DocumentAttributeValueType
+    Amazonka.Kendra.Types.DocumentInfo
+    Amazonka.Kendra.Types.DocumentMetadataConfiguration
+    Amazonka.Kendra.Types.DocumentRelevanceConfiguration
+    Amazonka.Kendra.Types.DocumentsMetadataConfiguration
+    Amazonka.Kendra.Types.DocumentStatus
+    Amazonka.Kendra.Types.EndpointType
+    Amazonka.Kendra.Types.EntityConfiguration
+    Amazonka.Kendra.Types.EntityDisplayData
+    Amazonka.Kendra.Types.EntityPersonaConfiguration
+    Amazonka.Kendra.Types.EntityType
+    Amazonka.Kendra.Types.ErrorCode
+    Amazonka.Kendra.Types.ExperienceConfiguration
+    Amazonka.Kendra.Types.ExperienceEndpoint
+    Amazonka.Kendra.Types.ExperienceEntitiesSummary
+    Amazonka.Kendra.Types.ExperiencesSummary
+    Amazonka.Kendra.Types.ExperienceStatus
+    Amazonka.Kendra.Types.Facet
+    Amazonka.Kendra.Types.FacetResult
+    Amazonka.Kendra.Types.FailedEntity
+    Amazonka.Kendra.Types.FaqFileFormat
+    Amazonka.Kendra.Types.FaqStatistics
+    Amazonka.Kendra.Types.FaqStatus
+    Amazonka.Kendra.Types.FaqSummary
+    Amazonka.Kendra.Types.FsxConfiguration
+    Amazonka.Kendra.Types.FsxFileSystemType
+    Amazonka.Kendra.Types.GitHubConfiguration
+    Amazonka.Kendra.Types.GitHubDocumentCrawlProperties
+    Amazonka.Kendra.Types.GoogleDriveConfiguration
+    Amazonka.Kendra.Types.GroupMembers
+    Amazonka.Kendra.Types.GroupOrderingIdSummary
+    Amazonka.Kendra.Types.GroupSummary
+    Amazonka.Kendra.Types.HierarchicalPrincipal
+    Amazonka.Kendra.Types.Highlight
+    Amazonka.Kendra.Types.HighlightType
+    Amazonka.Kendra.Types.HookConfiguration
+    Amazonka.Kendra.Types.IndexConfigurationSummary
+    Amazonka.Kendra.Types.IndexEdition
+    Amazonka.Kendra.Types.IndexStatistics
+    Amazonka.Kendra.Types.IndexStatus
+    Amazonka.Kendra.Types.InlineCustomDocumentEnrichmentConfiguration
+    Amazonka.Kendra.Types.Interval
+    Amazonka.Kendra.Types.IssueSubEntity
+    Amazonka.Kendra.Types.JiraConfiguration
+    Amazonka.Kendra.Types.JsonTokenTypeConfiguration
+    Amazonka.Kendra.Types.JwtTokenTypeConfiguration
+    Amazonka.Kendra.Types.KeyLocation
+    Amazonka.Kendra.Types.MemberGroup
+    Amazonka.Kendra.Types.MemberUser
+    Amazonka.Kendra.Types.MetricType
+    Amazonka.Kendra.Types.Mode
+    Amazonka.Kendra.Types.OneDriveConfiguration
+    Amazonka.Kendra.Types.OneDriveUsers
+    Amazonka.Kendra.Types.OnPremiseConfiguration
+    Amazonka.Kendra.Types.Order
+    Amazonka.Kendra.Types.Persona
+    Amazonka.Kendra.Types.PersonasSummary
+    Amazonka.Kendra.Types.Principal
+    Amazonka.Kendra.Types.PrincipalMappingStatus
+    Amazonka.Kendra.Types.PrincipalType
+    Amazonka.Kendra.Types.ProxyConfiguration
+    Amazonka.Kendra.Types.QueryIdentifiersEnclosingOption
+    Amazonka.Kendra.Types.QueryResultItem
+    Amazonka.Kendra.Types.QueryResultType
+    Amazonka.Kendra.Types.QuerySuggestionsBlockListStatus
+    Amazonka.Kendra.Types.QuerySuggestionsBlockListSummary
+    Amazonka.Kendra.Types.QuerySuggestionsStatus
+    Amazonka.Kendra.Types.QuipConfiguration
+    Amazonka.Kendra.Types.ReadAccessType
+    Amazonka.Kendra.Types.Relevance
+    Amazonka.Kendra.Types.RelevanceFeedback
+    Amazonka.Kendra.Types.RelevanceType
+    Amazonka.Kendra.Types.S3DataSourceConfiguration
+    Amazonka.Kendra.Types.S3Path
+    Amazonka.Kendra.Types.SaaSConfiguration
+    Amazonka.Kendra.Types.SalesforceChatterFeedConfiguration
+    Amazonka.Kendra.Types.SalesforceChatterFeedIncludeFilterType
+    Amazonka.Kendra.Types.SalesforceConfiguration
+    Amazonka.Kendra.Types.SalesforceCustomKnowledgeArticleTypeConfiguration
+    Amazonka.Kendra.Types.SalesforceKnowledgeArticleConfiguration
+    Amazonka.Kendra.Types.SalesforceKnowledgeArticleState
+    Amazonka.Kendra.Types.SalesforceStandardKnowledgeArticleTypeConfiguration
+    Amazonka.Kendra.Types.SalesforceStandardObjectAttachmentConfiguration
+    Amazonka.Kendra.Types.SalesforceStandardObjectConfiguration
+    Amazonka.Kendra.Types.SalesforceStandardObjectName
+    Amazonka.Kendra.Types.ScoreAttributes
+    Amazonka.Kendra.Types.ScoreConfidence
+    Amazonka.Kendra.Types.Search
+    Amazonka.Kendra.Types.SeedUrlConfiguration
+    Amazonka.Kendra.Types.ServerSideEncryptionConfiguration
+    Amazonka.Kendra.Types.ServiceNowAuthenticationType
+    Amazonka.Kendra.Types.ServiceNowBuildVersionType
+    Amazonka.Kendra.Types.ServiceNowConfiguration
+    Amazonka.Kendra.Types.ServiceNowKnowledgeArticleConfiguration
+    Amazonka.Kendra.Types.ServiceNowServiceCatalogConfiguration
+    Amazonka.Kendra.Types.SharePointConfiguration
+    Amazonka.Kendra.Types.SharePointOnlineAuthenticationType
+    Amazonka.Kendra.Types.SharePointVersion
+    Amazonka.Kendra.Types.SiteMapsConfiguration
+    Amazonka.Kendra.Types.SlackConfiguration
+    Amazonka.Kendra.Types.SlackEntity
+    Amazonka.Kendra.Types.SortingConfiguration
+    Amazonka.Kendra.Types.SortOrder
+    Amazonka.Kendra.Types.SpellCorrectedQuery
+    Amazonka.Kendra.Types.SpellCorrectionConfiguration
+    Amazonka.Kendra.Types.SqlConfiguration
+    Amazonka.Kendra.Types.Status
+    Amazonka.Kendra.Types.Suggestion
+    Amazonka.Kendra.Types.SuggestionHighlight
+    Amazonka.Kendra.Types.SuggestionTextWithHighlights
+    Amazonka.Kendra.Types.SuggestionValue
+    Amazonka.Kendra.Types.Tag
+    Amazonka.Kendra.Types.Template
+    Amazonka.Kendra.Types.TemplateConfiguration
+    Amazonka.Kendra.Types.TextDocumentStatistics
+    Amazonka.Kendra.Types.TextWithHighlights
+    Amazonka.Kendra.Types.ThesaurusStatus
+    Amazonka.Kendra.Types.ThesaurusSummary
+    Amazonka.Kendra.Types.TimeRange
+    Amazonka.Kendra.Types.Type
+    Amazonka.Kendra.Types.Urls
+    Amazonka.Kendra.Types.UserContext
+    Amazonka.Kendra.Types.UserContextPolicy
+    Amazonka.Kendra.Types.UserGroupResolutionConfiguration
+    Amazonka.Kendra.Types.UserGroupResolutionMode
+    Amazonka.Kendra.Types.UserIdentityConfiguration
+    Amazonka.Kendra.Types.UserTokenConfiguration
+    Amazonka.Kendra.Types.Warning
+    Amazonka.Kendra.Types.WarningCode
+    Amazonka.Kendra.Types.WebCrawlerConfiguration
+    Amazonka.Kendra.Types.WebCrawlerMode
+    Amazonka.Kendra.Types.WorkDocsConfiguration
+    Amazonka.Kendra.UntagResource
+    Amazonka.Kendra.UpdateAccessControlConfiguration
+    Amazonka.Kendra.UpdateDataSource
+    Amazonka.Kendra.UpdateExperience
+    Amazonka.Kendra.UpdateIndex
+    Amazonka.Kendra.UpdateQuerySuggestionsBlockList
+    Amazonka.Kendra.UpdateQuerySuggestionsConfig
+    Amazonka.Kendra.UpdateThesaurus
+    Amazonka.Kendra.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-kendra-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.Kendra
+    Test.Amazonka.Kendra
+    Test.Amazonka.Kendra.Internal
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-kendra
+    , amazonka-test         >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,0 +1,104 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Kendra.Types.ExperienceEntitiesSummary
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Kendra.Types.ExperienceEntitiesSummary where
+
+import qualified Amazonka.Core as Core
+import Amazonka.Kendra.Types.EntityDisplayData
+import Amazonka.Kendra.Types.EntityType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | Summary information for users or groups in your IAM Identity Center
+-- identity source with granted access to your Amazon Kendra experience.
+-- You can create an Amazon Kendra experience such as a search application.
+-- For more information on creating a search application experience, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html Building a search experience with no code>.
+--
+-- /See:/ 'newExperienceEntitiesSummary' smart constructor.
+data ExperienceEntitiesSummary = ExperienceEntitiesSummary'
+  { -- | The identifier of a user or group in your IAM Identity Center identity
+    -- source. For example, a user ID could be an email.
+    entityId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the user entity.
+    displayData :: Prelude.Maybe EntityDisplayData,
+    -- | Shows the type as @User@ or @Group@.
+    entityType :: Prelude.Maybe EntityType
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ExperienceEntitiesSummary' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'entityId', 'experienceEntitiesSummary_entityId' - The identifier of a user or group in your IAM Identity Center identity
+-- source. For example, a user ID could be an email.
+--
+-- 'displayData', 'experienceEntitiesSummary_displayData' - Information about the user entity.
+--
+-- 'entityType', 'experienceEntitiesSummary_entityType' - Shows the type as @User@ or @Group@.
+newExperienceEntitiesSummary ::
+  ExperienceEntitiesSummary
+newExperienceEntitiesSummary =
+  ExperienceEntitiesSummary'
+    { entityId =
+        Prelude.Nothing,
+      displayData = Prelude.Nothing,
+      entityType = Prelude.Nothing
+    }
+
+-- | The identifier of a user or group in your IAM Identity Center identity
+-- source. For example, a user ID could be an email.
+experienceEntitiesSummary_entityId :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe Prelude.Text)
+experienceEntitiesSummary_entityId = Lens.lens (\ExperienceEntitiesSummary' {entityId} -> entityId) (\s@ExperienceEntitiesSummary' {} a -> s {entityId = a} :: ExperienceEntitiesSummary)
+
+-- | Information about the user entity.
+experienceEntitiesSummary_displayData :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityDisplayData)
+experienceEntitiesSummary_displayData = Lens.lens (\ExperienceEntitiesSummary' {displayData} -> displayData) (\s@ExperienceEntitiesSummary' {} a -> s {displayData = a} :: ExperienceEntitiesSummary)
+
+-- | Shows the type as @User@ or @Group@.
+experienceEntitiesSummary_entityType :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityType)
+experienceEntitiesSummary_entityType = Lens.lens (\ExperienceEntitiesSummary' {entityType} -> entityType) (\s@ExperienceEntitiesSummary' {} a -> s {entityType = a} :: ExperienceEntitiesSummary)
+
+instance Core.FromJSON ExperienceEntitiesSummary where
+  parseJSON =
+    Core.withObject
+      "ExperienceEntitiesSummary"
+      ( \x ->
+          ExperienceEntitiesSummary'
+            Prelude.<$> (x Core..:? "EntityId")
+            Prelude.<*> (x Core..:? "DisplayData")
+            Prelude.<*> (x Core..:? "EntityType")
+      )
+
+instance Prelude.Hashable ExperienceEntitiesSummary where
+  hashWithSalt _salt ExperienceEntitiesSummary' {..} =
+    _salt `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` displayData
+      `Prelude.hashWithSalt` entityType
+
+instance Prelude.NFData ExperienceEntitiesSummary where
+  rnf ExperienceEntitiesSummary' {..} =
+    Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf displayData
+      `Prelude.seq` Prelude.rnf entityType

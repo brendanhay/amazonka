@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SNS.CreateTopic
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,7 @@ module Amazonka.SNS.CreateTopic
     -- * Request Lenses
     createTopic_tags,
     createTopic_attributes,
+    createTopic_dataProtectionPolicy,
     createTopic_name,
 
     -- * Destructuring the Response
@@ -114,6 +115,14 @@ data CreateTopic = CreateTopic'
     --         value for the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The body of the policy document you want to use for this topic.
+    --
+    -- You can only add one policy per topic.
+    --
+    -- The policy must be in JSON string format.
+    --
+    -- Length Constraints: Maximum length of 30,720.
+    dataProtectionPolicy :: Prelude.Maybe Prelude.Text,
     -- | The name of the topic you want to create.
     --
     -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -190,6 +199,14 @@ data CreateTopic = CreateTopic'
 --         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 --
+-- 'dataProtectionPolicy', 'createTopic_dataProtectionPolicy' - The body of the policy document you want to use for this topic.
+--
+-- You can only add one policy per topic.
+--
+-- The policy must be in JSON string format.
+--
+-- Length Constraints: Maximum length of 30,720.
+--
 -- 'name', 'createTopic_name' - The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -206,6 +223,7 @@ newCreateTopic pName_ =
   CreateTopic'
     { tags = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      dataProtectionPolicy = Prelude.Nothing,
       name = pName_
     }
 
@@ -269,6 +287,16 @@ createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} 
 createTopic_attributes :: Lens.Lens' CreateTopic (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
+-- | The body of the policy document you want to use for this topic.
+--
+-- You can only add one policy per topic.
+--
+-- The policy must be in JSON string format.
+--
+-- Length Constraints: Maximum length of 30,720.
+createTopic_dataProtectionPolicy :: Lens.Lens' CreateTopic (Prelude.Maybe Prelude.Text)
+createTopic_dataProtectionPolicy = Lens.lens (\CreateTopic' {dataProtectionPolicy} -> dataProtectionPolicy) (\s@CreateTopic' {} a -> s {dataProtectionPolicy = a} :: CreateTopic)
+
 -- | The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -296,12 +324,14 @@ instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` dataProtectionPolicy
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateTopic where
   rnf CreateTopic' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf dataProtectionPolicy
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateTopic where
@@ -325,6 +355,7 @@ instance Core.ToQuery CreateTopic where
             ( Core.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
+        "DataProtectionPolicy" Core.=: dataProtectionPolicy,
         "Name" Core.=: name
       ]
 

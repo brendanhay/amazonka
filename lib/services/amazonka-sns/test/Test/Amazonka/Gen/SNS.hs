@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.SNS
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestDeleteTopic $
 --             newDeleteTopic
 --
+--         , requestGetDataProtectionPolicy $
+--             newGetDataProtectionPolicy
+--
 --         , requestGetEndpointAttributes $
 --             newGetEndpointAttributes
 --
@@ -113,6 +116,9 @@ import Test.Tasty
 --
 --         , requestPublishBatch $
 --             newPublishBatch
+--
+--         , requestPutDataProtectionPolicy $
+--             newPutDataProtectionPolicy
 --
 --         , requestRemovePermission $
 --             newRemovePermission
@@ -183,6 +189,9 @@ import Test.Tasty
 --         , responseDeleteTopic $
 --             newDeleteTopicResponse
 --
+--         , responseGetDataProtectionPolicy $
+--             newGetDataProtectionPolicyResponse
+--
 --         , responseGetEndpointAttributes $
 --             newGetEndpointAttributesResponse
 --
@@ -236,6 +245,9 @@ import Test.Tasty
 --
 --         , responsePublishBatch $
 --             newPublishBatchResponse
+--
+--         , responsePutDataProtectionPolicy $
+--             newPutDataProtectionPolicyResponse
 --
 --         , responseRemovePermission $
 --             newRemovePermissionResponse
@@ -340,6 +352,12 @@ requestDeleteTopic =
   req
     "DeleteTopic"
     "fixture/DeleteTopic.yaml"
+
+requestGetDataProtectionPolicy :: GetDataProtectionPolicy -> TestTree
+requestGetDataProtectionPolicy =
+  req
+    "GetDataProtectionPolicy"
+    "fixture/GetDataProtectionPolicy.yaml"
 
 requestGetEndpointAttributes :: GetEndpointAttributes -> TestTree
 requestGetEndpointAttributes =
@@ -448,6 +466,12 @@ requestPublishBatch =
   req
     "PublishBatch"
     "fixture/PublishBatch.yaml"
+
+requestPutDataProtectionPolicy :: PutDataProtectionPolicy -> TestTree
+requestPutDataProtectionPolicy =
+  req
+    "PutDataProtectionPolicy"
+    "fixture/PutDataProtectionPolicy.yaml"
 
 requestRemovePermission :: RemovePermission -> TestTree
 requestRemovePermission =
@@ -605,6 +629,14 @@ responseDeleteTopic =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTopic)
 
+responseGetDataProtectionPolicy :: GetDataProtectionPolicyResponse -> TestTree
+responseGetDataProtectionPolicy =
+  res
+    "GetDataProtectionPolicyResponse"
+    "fixture/GetDataProtectionPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataProtectionPolicy)
+
 responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
 responseGetEndpointAttributes =
   res
@@ -748,6 +780,14 @@ responsePublishBatch =
     "fixture/PublishBatchResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PublishBatch)
+
+responsePutDataProtectionPolicy :: PutDataProtectionPolicyResponse -> TestTree
+responsePutDataProtectionPolicy =
+  res
+    "PutDataProtectionPolicyResponse"
+    "fixture/PutDataProtectionPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDataProtectionPolicy)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =

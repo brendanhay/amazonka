@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -55,6 +55,7 @@ library
     Amazonka.SNS.DeletePlatformApplication
     Amazonka.SNS.DeleteSMSSandboxPhoneNumber
     Amazonka.SNS.DeleteTopic
+    Amazonka.SNS.GetDataProtectionPolicy
     Amazonka.SNS.GetEndpointAttributes
     Amazonka.SNS.GetPlatformApplicationAttributes
     Amazonka.SNS.GetSMSAttributes
@@ -74,6 +75,7 @@ library
     Amazonka.SNS.OptInPhoneNumber
     Amazonka.SNS.Publish
     Amazonka.SNS.PublishBatch
+    Amazonka.SNS.PutDataProtectionPolicy
     Amazonka.SNS.RemovePermission
     Amazonka.SNS.SetEndpointAttributes
     Amazonka.SNS.SetPlatformApplicationAttributes
@@ -104,7 +106,7 @@ library
     Amazonka.SNS.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-sns-test
@@ -123,9 +125,9 @@ test-suite amazonka-sns-test
     Test.Amazonka.SNS.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-sns
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

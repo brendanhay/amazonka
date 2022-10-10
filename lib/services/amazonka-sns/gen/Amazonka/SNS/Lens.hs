@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SNS.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,7 @@ module Amazonka.SNS.Lens
     -- ** CreateTopic
     createTopic_tags,
     createTopic_attributes,
+    createTopic_dataProtectionPolicy,
     createTopic_name,
     createTopicResponse_topicArn,
     createTopicResponse_httpStatus,
@@ -71,6 +72,11 @@ module Amazonka.SNS.Lens
 
     -- ** DeleteTopic
     deleteTopic_topicArn,
+
+    -- ** GetDataProtectionPolicy
+    getDataProtectionPolicy_resourceArn,
+    getDataProtectionPolicyResponse_dataProtectionPolicy,
+    getDataProtectionPolicyResponse_httpStatus,
 
     -- ** GetEndpointAttributes
     getEndpointAttributes_endpointArn,
@@ -182,6 +188,10 @@ module Amazonka.SNS.Lens
     publishBatchResponse_failed,
     publishBatchResponse_successful,
     publishBatchResponse_httpStatus,
+
+    -- ** PutDataProtectionPolicy
+    putDataProtectionPolicy_resourceArn,
+    putDataProtectionPolicy_dataProtectionPolicy,
 
     -- ** RemovePermission
     removePermission_topicArn,
@@ -310,6 +320,7 @@ import Amazonka.SNS.DeleteEndpoint
 import Amazonka.SNS.DeletePlatformApplication
 import Amazonka.SNS.DeleteSMSSandboxPhoneNumber
 import Amazonka.SNS.DeleteTopic
+import Amazonka.SNS.GetDataProtectionPolicy
 import Amazonka.SNS.GetEndpointAttributes
 import Amazonka.SNS.GetPlatformApplicationAttributes
 import Amazonka.SNS.GetSMSAttributes
@@ -328,6 +339,7 @@ import Amazonka.SNS.ListTopics
 import Amazonka.SNS.OptInPhoneNumber
 import Amazonka.SNS.Publish
 import Amazonka.SNS.PublishBatch
+import Amazonka.SNS.PutDataProtectionPolicy
 import Amazonka.SNS.RemovePermission
 import Amazonka.SNS.SetEndpointAttributes
 import Amazonka.SNS.SetPlatformApplicationAttributes

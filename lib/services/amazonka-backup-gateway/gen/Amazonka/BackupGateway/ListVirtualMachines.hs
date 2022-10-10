@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.ListVirtualMachines
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Amazonka.BackupGateway.ListVirtualMachines
     -- * Request Lenses
     listVirtualMachines_nextToken,
     listVirtualMachines_maxResults,
+    listVirtualMachines_hypervisorArn,
 
     -- * Destructuring the Response
     ListVirtualMachinesResponse (..),
@@ -58,7 +59,10 @@ data ListVirtualMachines = ListVirtualMachines'
     -- starting at the location pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of virtual machines to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the hypervisor connected to your
+    -- virtual machine.
+    hypervisorArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,12 +80,16 @@ data ListVirtualMachines = ListVirtualMachines'
 -- starting at the location pointed to by the next token.
 --
 -- 'maxResults', 'listVirtualMachines_maxResults' - The maximum number of virtual machines to list.
+--
+-- 'hypervisorArn', 'listVirtualMachines_hypervisorArn' - The Amazon Resource Name (ARN) of the hypervisor connected to your
+-- virtual machine.
 newListVirtualMachines ::
   ListVirtualMachines
 newListVirtualMachines =
   ListVirtualMachines'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      hypervisorArn = Prelude.Nothing
     }
 
 -- | The next item following a partial list of returned resources. For
@@ -94,6 +102,11 @@ listVirtualMachines_nextToken = Lens.lens (\ListVirtualMachines' {nextToken} -> 
 -- | The maximum number of virtual machines to list.
 listVirtualMachines_maxResults :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Natural)
 listVirtualMachines_maxResults = Lens.lens (\ListVirtualMachines' {maxResults} -> maxResults) (\s@ListVirtualMachines' {} a -> s {maxResults = a} :: ListVirtualMachines)
+
+-- | The Amazon Resource Name (ARN) of the hypervisor connected to your
+-- virtual machine.
+listVirtualMachines_hypervisorArn :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Text)
+listVirtualMachines_hypervisorArn = Lens.lens (\ListVirtualMachines' {hypervisorArn} -> hypervisorArn) (\s@ListVirtualMachines' {} a -> s {hypervisorArn = a} :: ListVirtualMachines)
 
 instance Core.AWSPager ListVirtualMachines where
   page rq rs
@@ -137,11 +150,13 @@ instance Prelude.Hashable ListVirtualMachines where
   hashWithSalt _salt ListVirtualMachines' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` hypervisorArn
 
 instance Prelude.NFData ListVirtualMachines where
   rnf ListVirtualMachines' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf hypervisorArn
 
 instance Core.ToHeaders ListVirtualMachines where
   toHeaders =
@@ -163,7 +178,8 @@ instance Core.ToJSON ListVirtualMachines where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("HypervisorArn" Core..=) Prelude.<$> hypervisorArn
           ]
       )
 

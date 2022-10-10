@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,11 @@ module Amazonka.BackupGateway.Lens
     getGatewayResponse_gateway,
     getGatewayResponse_httpStatus,
 
+    -- ** GetVirtualMachine
+    getVirtualMachine_resourceArn,
+    getVirtualMachineResponse_virtualMachine,
+    getVirtualMachineResponse_httpStatus,
+
     -- ** ImportHypervisorConfiguration
     importHypervisorConfiguration_tags,
     importHypervisorConfiguration_password,
@@ -81,6 +86,7 @@ module Amazonka.BackupGateway.Lens
     -- ** ListVirtualMachines
     listVirtualMachines_nextToken,
     listVirtualMachines_maxResults,
+    listVirtualMachines_hypervisorArn,
     listVirtualMachinesResponse_nextToken,
     listVirtualMachinesResponse_virtualMachines,
     listVirtualMachinesResponse_httpStatus,
@@ -146,6 +152,7 @@ module Amazonka.BackupGateway.Lens
     gatewayDetails_gatewayType,
     gatewayDetails_gatewayArn,
     gatewayDetails_nextUpdateAvailabilityTime,
+    gatewayDetails_maintenanceStartTime,
     gatewayDetails_hypervisorId,
     gatewayDetails_lastSeenTime,
     gatewayDetails_gatewayDisplayName,
@@ -158,6 +165,12 @@ module Amazonka.BackupGateway.Lens
     hypervisor_kmsKeyArn,
     hypervisor_hypervisorArn,
 
+    -- ** MaintenanceStartTime
+    maintenanceStartTime_dayOfWeek,
+    maintenanceStartTime_dayOfMonth,
+    maintenanceStartTime_hourOfDay,
+    maintenanceStartTime_minuteOfHour,
+
     -- ** Tag
     tag_key,
     tag_value,
@@ -169,6 +182,14 @@ module Amazonka.BackupGateway.Lens
     virtualMachine_resourceArn,
     virtualMachine_hypervisorId,
     virtualMachine_lastBackupDate,
+
+    -- ** VirtualMachineDetails
+    virtualMachineDetails_name,
+    virtualMachineDetails_path,
+    virtualMachineDetails_hostName,
+    virtualMachineDetails_resourceArn,
+    virtualMachineDetails_hypervisorId,
+    virtualMachineDetails_lastBackupDate,
   )
 where
 
@@ -178,6 +199,7 @@ import Amazonka.BackupGateway.DeleteGateway
 import Amazonka.BackupGateway.DeleteHypervisor
 import Amazonka.BackupGateway.DisassociateGatewayFromServer
 import Amazonka.BackupGateway.GetGateway
+import Amazonka.BackupGateway.GetVirtualMachine
 import Amazonka.BackupGateway.ImportHypervisorConfiguration
 import Amazonka.BackupGateway.ListGateways
 import Amazonka.BackupGateway.ListHypervisors
@@ -189,8 +211,10 @@ import Amazonka.BackupGateway.TestHypervisorConfiguration
 import Amazonka.BackupGateway.Types.Gateway
 import Amazonka.BackupGateway.Types.GatewayDetails
 import Amazonka.BackupGateway.Types.Hypervisor
+import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import Amazonka.BackupGateway.Types.Tag
 import Amazonka.BackupGateway.Types.VirtualMachine
+import Amazonka.BackupGateway.Types.VirtualMachineDetails
 import Amazonka.BackupGateway.UntagResource
 import Amazonka.BackupGateway.UpdateGatewayInformation
 import Amazonka.BackupGateway.UpdateGatewaySoftwareNow

@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.BackupGateway.Types
     _InternalServerException,
     _ResourceNotFoundException,
     _ConflictException,
+    _ThrottlingException,
     _ValidationException,
 
     -- * GatewayType
@@ -44,6 +45,7 @@ module Amazonka.BackupGateway.Types
     gatewayDetails_gatewayType,
     gatewayDetails_gatewayArn,
     gatewayDetails_nextUpdateAvailabilityTime,
+    gatewayDetails_maintenanceStartTime,
     gatewayDetails_hypervisorId,
     gatewayDetails_lastSeenTime,
     gatewayDetails_gatewayDisplayName,
@@ -57,6 +59,14 @@ module Amazonka.BackupGateway.Types
     hypervisor_state,
     hypervisor_kmsKeyArn,
     hypervisor_hypervisorArn,
+
+    -- * MaintenanceStartTime
+    MaintenanceStartTime (..),
+    newMaintenanceStartTime,
+    maintenanceStartTime_dayOfWeek,
+    maintenanceStartTime_dayOfMonth,
+    maintenanceStartTime_hourOfDay,
+    maintenanceStartTime_minuteOfHour,
 
     -- * Tag
     Tag (..),
@@ -73,6 +83,16 @@ module Amazonka.BackupGateway.Types
     virtualMachine_resourceArn,
     virtualMachine_hypervisorId,
     virtualMachine_lastBackupDate,
+
+    -- * VirtualMachineDetails
+    VirtualMachineDetails (..),
+    newVirtualMachineDetails,
+    virtualMachineDetails_name,
+    virtualMachineDetails_path,
+    virtualMachineDetails_hostName,
+    virtualMachineDetails_resourceArn,
+    virtualMachineDetails_hypervisorId,
+    virtualMachineDetails_lastBackupDate,
   )
 where
 
@@ -81,8 +101,10 @@ import Amazonka.BackupGateway.Types.GatewayDetails
 import Amazonka.BackupGateway.Types.GatewayType
 import Amazonka.BackupGateway.Types.Hypervisor
 import Amazonka.BackupGateway.Types.HypervisorState
+import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import Amazonka.BackupGateway.Types.Tag
 import Amazonka.BackupGateway.Types.VirtualMachine
+import Amazonka.BackupGateway.Types.VirtualMachineDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -187,6 +209,14 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | TPS has been limited to protect against intentional or unintentional
+-- high request volumes.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
 
 -- | The operation did not succeed because a validation error occurred.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

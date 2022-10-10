@@ -1,0 +1,261 @@
+cabal-version:      2.2
+name:               amazonka-fsx
+version:            2.0
+synopsis:           Amazon FSx SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-03-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.FSx.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.FSx" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-fsx
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.FSx
+    Amazonka.FSx.AssociateFileSystemAliases
+    Amazonka.FSx.CancelDataRepositoryTask
+    Amazonka.FSx.CopyBackup
+    Amazonka.FSx.CreateBackup
+    Amazonka.FSx.CreateDataRepositoryAssociation
+    Amazonka.FSx.CreateDataRepositoryTask
+    Amazonka.FSx.CreateFileCache
+    Amazonka.FSx.CreateFileSystem
+    Amazonka.FSx.CreateFileSystemFromBackup
+    Amazonka.FSx.CreateSnapshot
+    Amazonka.FSx.CreateStorageVirtualMachine
+    Amazonka.FSx.CreateVolume
+    Amazonka.FSx.CreateVolumeFromBackup
+    Amazonka.FSx.DeleteBackup
+    Amazonka.FSx.DeleteDataRepositoryAssociation
+    Amazonka.FSx.DeleteFileCache
+    Amazonka.FSx.DeleteFileSystem
+    Amazonka.FSx.DeleteSnapshot
+    Amazonka.FSx.DeleteStorageVirtualMachine
+    Amazonka.FSx.DeleteVolume
+    Amazonka.FSx.DescribeBackups
+    Amazonka.FSx.DescribeDataRepositoryAssociations
+    Amazonka.FSx.DescribeDataRepositoryTasks
+    Amazonka.FSx.DescribeFileCaches
+    Amazonka.FSx.DescribeFileSystemAliases
+    Amazonka.FSx.DescribeFileSystems
+    Amazonka.FSx.DescribeSnapshots
+    Amazonka.FSx.DescribeStorageVirtualMachines
+    Amazonka.FSx.DescribeVolumes
+    Amazonka.FSx.DisassociateFileSystemAliases
+    Amazonka.FSx.Lens
+    Amazonka.FSx.ListTagsForResource
+    Amazonka.FSx.ReleaseFileSystemNfsV3Locks
+    Amazonka.FSx.RestoreVolumeFromSnapshot
+    Amazonka.FSx.TagResource
+    Amazonka.FSx.Types
+    Amazonka.FSx.Types.ActiveDirectoryBackupAttributes
+    Amazonka.FSx.Types.AdministrativeAction
+    Amazonka.FSx.Types.AdministrativeActionFailureDetails
+    Amazonka.FSx.Types.AdministrativeActionType
+    Amazonka.FSx.Types.Alias
+    Amazonka.FSx.Types.AliasLifecycle
+    Amazonka.FSx.Types.AutoExportPolicy
+    Amazonka.FSx.Types.AutoImportPolicy
+    Amazonka.FSx.Types.AutoImportPolicyType
+    Amazonka.FSx.Types.Backup
+    Amazonka.FSx.Types.BackupFailureDetails
+    Amazonka.FSx.Types.BackupLifecycle
+    Amazonka.FSx.Types.BackupType
+    Amazonka.FSx.Types.CompletionReport
+    Amazonka.FSx.Types.CreateFileCacheLustreConfiguration
+    Amazonka.FSx.Types.CreateFileSystemLustreConfiguration
+    Amazonka.FSx.Types.CreateFileSystemOntapConfiguration
+    Amazonka.FSx.Types.CreateFileSystemOpenZFSConfiguration
+    Amazonka.FSx.Types.CreateFileSystemWindowsConfiguration
+    Amazonka.FSx.Types.CreateOntapVolumeConfiguration
+    Amazonka.FSx.Types.CreateOpenZFSOriginSnapshotConfiguration
+    Amazonka.FSx.Types.CreateOpenZFSVolumeConfiguration
+    Amazonka.FSx.Types.CreateSvmActiveDirectoryConfiguration
+    Amazonka.FSx.Types.DataCompressionType
+    Amazonka.FSx.Types.DataRepositoryAssociation
+    Amazonka.FSx.Types.DataRepositoryConfiguration
+    Amazonka.FSx.Types.DataRepositoryFailureDetails
+    Amazonka.FSx.Types.DataRepositoryLifecycle
+    Amazonka.FSx.Types.DataRepositoryTask
+    Amazonka.FSx.Types.DataRepositoryTaskFailureDetails
+    Amazonka.FSx.Types.DataRepositoryTaskFilter
+    Amazonka.FSx.Types.DataRepositoryTaskFilterName
+    Amazonka.FSx.Types.DataRepositoryTaskLifecycle
+    Amazonka.FSx.Types.DataRepositoryTaskStatus
+    Amazonka.FSx.Types.DataRepositoryTaskType
+    Amazonka.FSx.Types.DeleteFileSystemLustreConfiguration
+    Amazonka.FSx.Types.DeleteFileSystemLustreResponse
+    Amazonka.FSx.Types.DeleteFileSystemOpenZFSConfiguration
+    Amazonka.FSx.Types.DeleteFileSystemOpenZFSOption
+    Amazonka.FSx.Types.DeleteFileSystemOpenZFSResponse
+    Amazonka.FSx.Types.DeleteFileSystemWindowsConfiguration
+    Amazonka.FSx.Types.DeleteFileSystemWindowsResponse
+    Amazonka.FSx.Types.DeleteOpenZFSVolumeOption
+    Amazonka.FSx.Types.DeleteVolumeOntapConfiguration
+    Amazonka.FSx.Types.DeleteVolumeOntapResponse
+    Amazonka.FSx.Types.DeleteVolumeOpenZFSConfiguration
+    Amazonka.FSx.Types.DiskIopsConfiguration
+    Amazonka.FSx.Types.DiskIopsConfigurationMode
+    Amazonka.FSx.Types.DriveCacheType
+    Amazonka.FSx.Types.EventType
+    Amazonka.FSx.Types.FileCache
+    Amazonka.FSx.Types.FileCacheCreating
+    Amazonka.FSx.Types.FileCacheDataRepositoryAssociation
+    Amazonka.FSx.Types.FileCacheFailureDetails
+    Amazonka.FSx.Types.FileCacheLifecycle
+    Amazonka.FSx.Types.FileCacheLustreConfiguration
+    Amazonka.FSx.Types.FileCacheLustreDeploymentType
+    Amazonka.FSx.Types.FileCacheLustreMetadataConfiguration
+    Amazonka.FSx.Types.FileCacheNFSConfiguration
+    Amazonka.FSx.Types.FileCacheType
+    Amazonka.FSx.Types.FileSystem
+    Amazonka.FSx.Types.FileSystemEndpoint
+    Amazonka.FSx.Types.FileSystemEndpoints
+    Amazonka.FSx.Types.FileSystemFailureDetails
+    Amazonka.FSx.Types.FileSystemLifecycle
+    Amazonka.FSx.Types.FileSystemMaintenanceOperation
+    Amazonka.FSx.Types.FileSystemType
+    Amazonka.FSx.Types.Filter
+    Amazonka.FSx.Types.FilterName
+    Amazonka.FSx.Types.FlexCacheEndpointType
+    Amazonka.FSx.Types.LifecycleTransitionReason
+    Amazonka.FSx.Types.LustreAccessAuditLogLevel
+    Amazonka.FSx.Types.LustreDeploymentType
+    Amazonka.FSx.Types.LustreFileSystemConfiguration
+    Amazonka.FSx.Types.LustreLogConfiguration
+    Amazonka.FSx.Types.LustreLogCreateConfiguration
+    Amazonka.FSx.Types.LustreRootSquashConfiguration
+    Amazonka.FSx.Types.NFSDataRepositoryConfiguration
+    Amazonka.FSx.Types.NfsVersion
+    Amazonka.FSx.Types.OntapDeploymentType
+    Amazonka.FSx.Types.OntapFileSystemConfiguration
+    Amazonka.FSx.Types.OntapVolumeConfiguration
+    Amazonka.FSx.Types.OntapVolumeType
+    Amazonka.FSx.Types.OpenZFSClientConfiguration
+    Amazonka.FSx.Types.OpenZFSCopyStrategy
+    Amazonka.FSx.Types.OpenZFSCreateRootVolumeConfiguration
+    Amazonka.FSx.Types.OpenZFSDataCompressionType
+    Amazonka.FSx.Types.OpenZFSDeploymentType
+    Amazonka.FSx.Types.OpenZFSFileSystemConfiguration
+    Amazonka.FSx.Types.OpenZFSNfsExport
+    Amazonka.FSx.Types.OpenZFSOriginSnapshotConfiguration
+    Amazonka.FSx.Types.OpenZFSQuotaType
+    Amazonka.FSx.Types.OpenZFSUserOrGroupQuota
+    Amazonka.FSx.Types.OpenZFSVolumeConfiguration
+    Amazonka.FSx.Types.ReportFormat
+    Amazonka.FSx.Types.ReportScope
+    Amazonka.FSx.Types.ResourceType
+    Amazonka.FSx.Types.RestoreOpenZFSVolumeOption
+    Amazonka.FSx.Types.S3DataRepositoryConfiguration
+    Amazonka.FSx.Types.SecurityStyle
+    Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
+    Amazonka.FSx.Types.SelfManagedActiveDirectoryConfiguration
+    Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates
+    Amazonka.FSx.Types.Snapshot
+    Amazonka.FSx.Types.SnapshotFilter
+    Amazonka.FSx.Types.SnapshotFilterName
+    Amazonka.FSx.Types.SnapshotLifecycle
+    Amazonka.FSx.Types.Status
+    Amazonka.FSx.Types.StorageType
+    Amazonka.FSx.Types.StorageVirtualMachine
+    Amazonka.FSx.Types.StorageVirtualMachineFilter
+    Amazonka.FSx.Types.StorageVirtualMachineFilterName
+    Amazonka.FSx.Types.StorageVirtualMachineLifecycle
+    Amazonka.FSx.Types.StorageVirtualMachineRootVolumeSecurityStyle
+    Amazonka.FSx.Types.StorageVirtualMachineSubtype
+    Amazonka.FSx.Types.SvmActiveDirectoryConfiguration
+    Amazonka.FSx.Types.SvmEndpoint
+    Amazonka.FSx.Types.SvmEndpoints
+    Amazonka.FSx.Types.Tag
+    Amazonka.FSx.Types.TieringPolicy
+    Amazonka.FSx.Types.TieringPolicyName
+    Amazonka.FSx.Types.UpdateFileCacheLustreConfiguration
+    Amazonka.FSx.Types.UpdateFileSystemLustreConfiguration
+    Amazonka.FSx.Types.UpdateFileSystemOntapConfiguration
+    Amazonka.FSx.Types.UpdateFileSystemOpenZFSConfiguration
+    Amazonka.FSx.Types.UpdateFileSystemWindowsConfiguration
+    Amazonka.FSx.Types.UpdateOntapVolumeConfiguration
+    Amazonka.FSx.Types.UpdateOpenZFSVolumeConfiguration
+    Amazonka.FSx.Types.UpdateSvmActiveDirectoryConfiguration
+    Amazonka.FSx.Types.Volume
+    Amazonka.FSx.Types.VolumeFilter
+    Amazonka.FSx.Types.VolumeFilterName
+    Amazonka.FSx.Types.VolumeLifecycle
+    Amazonka.FSx.Types.VolumeType
+    Amazonka.FSx.Types.WindowsAccessAuditLogLevel
+    Amazonka.FSx.Types.WindowsAuditLogConfiguration
+    Amazonka.FSx.Types.WindowsAuditLogCreateConfiguration
+    Amazonka.FSx.Types.WindowsDeploymentType
+    Amazonka.FSx.Types.WindowsFileSystemConfiguration
+    Amazonka.FSx.UntagResource
+    Amazonka.FSx.UpdateDataRepositoryAssociation
+    Amazonka.FSx.UpdateFileCache
+    Amazonka.FSx.UpdateFileSystem
+    Amazonka.FSx.UpdateSnapshot
+    Amazonka.FSx.UpdateStorageVirtualMachine
+    Amazonka.FSx.UpdateVolume
+    Amazonka.FSx.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-fsx-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.FSx
+    Test.Amazonka.FSx.Internal
+    Test.Amazonka.Gen.FSx
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-fsx
+    , amazonka-test         >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

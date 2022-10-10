@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.FraudDetectionResult
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,8 @@ data FraudDetectionResult = FraudDetectionResult'
     -- or risk threshold changes, Voice ID always returns cached Fraud
     -- Detection result for this API.
     fraudDetectionResultId :: Prelude.Maybe Prelude.Text,
-    -- | Details about each risk analyzed for this speaker.
+    -- | Details about each risk analyzed for this speaker. Currently, this
+    -- contains KnownFraudsterRisk and VoiceSpoofingRisk details.
     riskDetails :: Prelude.Maybe FraudRiskDetails,
     -- | The @FraudDetectionConfiguration@ used to generate this fraud detection
     -- result.
@@ -54,8 +55,8 @@ data FraudDetectionResult = FraudDetectionResult'
     -- detection result.
     audioAggregationStartedAt :: Prelude.Maybe Core.POSIX,
     -- | The reason speaker was flagged by the fraud detection system. This is
-    -- only be populated if fraud detection Decision is @HIGH_RISK@, and only
-    -- has one possible value: @KNOWN_FRAUDSTER@.
+    -- only be populated if fraud detection Decision is @HIGH_RISK@, and the
+    -- following possible values: @KNOWN_FRAUDSTER@ and @VOICE_SPOOFING@.
     reasons :: Prelude.Maybe [FraudDetectionReason]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +79,8 @@ data FraudDetectionResult = FraudDetectionResult'
 -- or risk threshold changes, Voice ID always returns cached Fraud
 -- Detection result for this API.
 --
--- 'riskDetails', 'fraudDetectionResult_riskDetails' - Details about each risk analyzed for this speaker.
+-- 'riskDetails', 'fraudDetectionResult_riskDetails' - Details about each risk analyzed for this speaker. Currently, this
+-- contains KnownFraudsterRisk and VoiceSpoofingRisk details.
 --
 -- 'configuration', 'fraudDetectionResult_configuration' - The @FraudDetectionConfiguration@ used to generate this fraud detection
 -- result.
@@ -90,8 +92,8 @@ data FraudDetectionResult = FraudDetectionResult'
 -- detection result.
 --
 -- 'reasons', 'fraudDetectionResult_reasons' - The reason speaker was flagged by the fraud detection system. This is
--- only be populated if fraud detection Decision is @HIGH_RISK@, and only
--- has one possible value: @KNOWN_FRAUDSTER@.
+-- only be populated if fraud detection Decision is @HIGH_RISK@, and the
+-- following possible values: @KNOWN_FRAUDSTER@ and @VOICE_SPOOFING@.
 newFraudDetectionResult ::
   FraudDetectionResult
 newFraudDetectionResult =
@@ -120,7 +122,8 @@ fraudDetectionResult_audioAggregationEndedAt = Lens.lens (\FraudDetectionResult'
 fraudDetectionResult_fraudDetectionResultId :: Lens.Lens' FraudDetectionResult (Prelude.Maybe Prelude.Text)
 fraudDetectionResult_fraudDetectionResultId = Lens.lens (\FraudDetectionResult' {fraudDetectionResultId} -> fraudDetectionResultId) (\s@FraudDetectionResult' {} a -> s {fraudDetectionResultId = a} :: FraudDetectionResult)
 
--- | Details about each risk analyzed for this speaker.
+-- | Details about each risk analyzed for this speaker. Currently, this
+-- contains KnownFraudsterRisk and VoiceSpoofingRisk details.
 fraudDetectionResult_riskDetails :: Lens.Lens' FraudDetectionResult (Prelude.Maybe FraudRiskDetails)
 fraudDetectionResult_riskDetails = Lens.lens (\FraudDetectionResult' {riskDetails} -> riskDetails) (\s@FraudDetectionResult' {} a -> s {riskDetails = a} :: FraudDetectionResult)
 
@@ -140,8 +143,8 @@ fraudDetectionResult_audioAggregationStartedAt :: Lens.Lens' FraudDetectionResul
 fraudDetectionResult_audioAggregationStartedAt = Lens.lens (\FraudDetectionResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationStartedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Core._Time
 
 -- | The reason speaker was flagged by the fraud detection system. This is
--- only be populated if fraud detection Decision is @HIGH_RISK@, and only
--- has one possible value: @KNOWN_FRAUDSTER@.
+-- only be populated if fraud detection Decision is @HIGH_RISK@, and the
+-- following possible values: @KNOWN_FRAUDSTER@ and @VOICE_SPOOFING@.
 fraudDetectionResult_reasons :: Lens.Lens' FraudDetectionResult (Prelude.Maybe [FraudDetectionReason])
 fraudDetectionResult_reasons = Lens.lens (\FraudDetectionResult' {reasons} -> reasons) (\s@FraudDetectionResult' {} a -> s {reasons = a} :: FraudDetectionResult) Prelude.. Lens.mapping Lens.coerced
 

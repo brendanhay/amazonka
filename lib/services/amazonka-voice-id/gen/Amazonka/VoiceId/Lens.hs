@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -221,6 +221,7 @@ module Amazonka.VoiceId.Lens
 
     -- ** FraudRiskDetails
     fraudRiskDetails_knownFraudsterRisk,
+    fraudRiskDetails_voiceSpoofingRisk,
 
     -- ** Fraudster
     fraudster_generatedFraudsterId,
@@ -322,6 +323,9 @@ module Amazonka.VoiceId.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** VoiceSpoofingRisk
+    voiceSpoofingRisk_riskScore,
   )
 where
 
@@ -369,5 +373,6 @@ import Amazonka.VoiceId.Types.SpeakerEnrollmentJob
 import Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
 import Amazonka.VoiceId.Types.SpeakerSummary
 import Amazonka.VoiceId.Types.Tag
+import Amazonka.VoiceId.Types.VoiceSpoofingRisk
 import Amazonka.VoiceId.UntagResource
 import Amazonka.VoiceId.UpdateDomain

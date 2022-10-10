@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.DomainSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data DomainSummary = DomainSummary'
     -- | Details about the most recent server-side encryption configuration
     -- update. When the server-side encryption configuration is changed,
     -- dependency on the old KMS key is removed through an asynchronous
-    -- process. When this update is complete, the domain’s data can only be
+    -- process. When this update is complete, the domain\'s data can only be
     -- accessed using the new KMS key.
     serverSideEncryptionUpdateDetails :: Prelude.Maybe ServerSideEncryptionUpdateDetails,
     -- | The server-side encryption configuration containing the KMS key
@@ -69,7 +69,7 @@ data DomainSummary = DomainSummary'
 -- 'serverSideEncryptionUpdateDetails', 'domainSummary_serverSideEncryptionUpdateDetails' - Details about the most recent server-side encryption configuration
 -- update. When the server-side encryption configuration is changed,
 -- dependency on the old KMS key is removed through an asynchronous
--- process. When this update is complete, the domain’s data can only be
+-- process. When this update is complete, the domain\'s data can only be
 -- accessed using the new KMS key.
 --
 -- 'serverSideEncryptionConfiguration', 'domainSummary_serverSideEncryptionConfiguration' - The server-side encryption configuration containing the KMS key
@@ -108,7 +108,7 @@ domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummar
 -- | Details about the most recent server-side encryption configuration
 -- update. When the server-side encryption configuration is changed,
 -- dependency on the old KMS key is removed through an asynchronous
--- process. When this update is complete, the domain’s data can only be
+-- process. When this update is complete, the domain\'s data can only be
 -- accessed using the new KMS key.
 domainSummary_serverSideEncryptionUpdateDetails :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionUpdateDetails)
 domainSummary_serverSideEncryptionUpdateDetails = Lens.lens (\DomainSummary' {serverSideEncryptionUpdateDetails} -> serverSideEncryptionUpdateDetails) (\s@DomainSummary' {} a -> s {serverSideEncryptionUpdateDetails = a} :: DomainSummary)

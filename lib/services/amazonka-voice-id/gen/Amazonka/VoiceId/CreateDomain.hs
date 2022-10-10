@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.CreateDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data CreateDomain = CreateDomain'
     -- | The idempotency token for creating a new domain. If not provided, Amazon
     -- Web Services SDK populates this field.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A brief description of this domain.
+    -- | A brief description of the domain.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the domain.
     name :: Core.Sensitive Prelude.Text,
@@ -83,7 +83,7 @@ data CreateDomain = CreateDomain'
 -- 'clientToken', 'createDomain_clientToken' - The idempotency token for creating a new domain. If not provided, Amazon
 -- Web Services SDK populates this field.
 --
--- 'description', 'createDomain_description' - A brief description of this domain.
+-- 'description', 'createDomain_description' - A brief description of the domain.
 --
 -- 'name', 'createDomain_name' - The name of the domain.
 --
@@ -118,7 +118,7 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 createDomain_clientToken :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_clientToken = Lens.lens (\CreateDomain' {clientToken} -> clientToken) (\s@CreateDomain' {} a -> s {clientToken = a} :: CreateDomain)
 
--- | A brief description of this domain.
+-- | A brief description of the domain.
 createDomain_description :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_description = Lens.lens (\CreateDomain' {description} -> description) (\s@CreateDomain' {} a -> s {description = a} :: CreateDomain) Prelude.. Lens.mapping Core._Sensitive
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.OutputDataConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
-  { -- | the identifier of the KMS key you want Voice ID to use to encrypt the
-    -- output file of the fraudster registration job.
+  { -- | The identifier of the KMS key you want Voice ID to use to encrypt the
+    -- output file of a speaker enrollment job\/fraudster registration job.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The S3 path of the folder where Voice ID writes the job output file. It
     -- has a @*.out@ extension. For example, if the input file name is
@@ -47,8 +47,8 @@ data OutputDataConfig = OutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - the identifier of the KMS key you want Voice ID to use to encrypt the
--- output file of the fraudster registration job.
+-- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - The identifier of the KMS key you want Voice ID to use to encrypt the
+-- output file of a speaker enrollment job\/fraudster registration job.
 --
 -- 's3Uri', 'outputDataConfig_s3Uri' - The S3 path of the folder where Voice ID writes the job output file. It
 -- has a @*.out@ extension. For example, if the input file name is
@@ -65,8 +65,8 @@ newOutputDataConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | the identifier of the KMS key you want Voice ID to use to encrypt the
--- output file of the fraudster registration job.
+-- | The identifier of the KMS key you want Voice ID to use to encrypt the
+-- output file of a speaker enrollment job\/fraudster registration job.
 outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
 outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputDataConfig' {} a -> s {kmsKeyId = a} :: OutputDataConfig)
 

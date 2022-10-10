@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.FraudsterRegistrationJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ import Amazonka.VoiceId.Types.RegistrationConfig
 -- /See:/ 'newFraudsterRegistrationJob' smart constructor.
 data FraudsterRegistrationJob = FraudsterRegistrationJob'
   { -- | The output data config containing the S3 location where you want Voice
-    -- ID to write your job output file; you must also include a KMS key iD in
+    -- ID to write your job output file; you must also include a KMS key ID in
     -- order to encrypt the file.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The current status of the fraudster registration job.
@@ -81,7 +81,7 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
 -- for backwards compatibility:
 --
 -- 'outputDataConfig', 'fraudsterRegistrationJob_outputDataConfig' - The output data config containing the S3 location where you want Voice
--- ID to write your job output file; you must also include a KMS key iD in
+-- ID to write your job output file; you must also include a KMS key ID in
 -- order to encrypt the file.
 --
 -- 'jobStatus', 'fraudsterRegistrationJob_jobStatus' - The current status of the fraudster registration job.
@@ -135,7 +135,7 @@ newFraudsterRegistrationJob =
     }
 
 -- | The output data config containing the S3 location where you want Voice
--- ID to write your job output file; you must also include a KMS key iD in
+-- ID to write your job output file; you must also include a KMS key ID in
 -- order to encrypt the file.
 fraudsterRegistrationJob_outputDataConfig :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe OutputDataConfig)
 fraudsterRegistrationJob_outputDataConfig = Lens.lens (\FraudsterRegistrationJob' {outputDataConfig} -> outputDataConfig) (\s@FraudsterRegistrationJob' {} a -> s {outputDataConfig = a} :: FraudsterRegistrationJob)

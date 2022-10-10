@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.StartSpeakerEnrollmentJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
     -- to access customer\'s buckets to read the input manifest file and write
     -- the job output file. Refer to
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls>
-    -- documentation for the permissions needed in this role.
+    -- for the permissions needed in this role.
     dataAccessRoleArn :: Prelude.Text,
     -- | The identifier of the domain that contains the speaker enrollment job
     -- and in which the speakers are enrolled.
@@ -103,7 +103,7 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
 -- to access customer\'s buckets to read the input manifest file and write
 -- the job output file. Refer to
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls>
--- documentation for the permissions needed in this role.
+-- for the permissions needed in this role.
 --
 -- 'domainId', 'startSpeakerEnrollmentJob_domainId' - The identifier of the domain that contains the speaker enrollment job
 -- and in which the speakers are enrolled.
@@ -159,7 +159,7 @@ startSpeakerEnrollmentJob_jobName = Lens.lens (\StartSpeakerEnrollmentJob' {jobN
 -- to access customer\'s buckets to read the input manifest file and write
 -- the job output file. Refer to
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls>
--- documentation for the permissions needed in this role.
+-- for the permissions needed in this role.
 startSpeakerEnrollmentJob_dataAccessRoleArn :: Lens.Lens' StartSpeakerEnrollmentJob Prelude.Text
 startSpeakerEnrollmentJob_dataAccessRoleArn = Lens.lens (\StartSpeakerEnrollmentJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartSpeakerEnrollmentJob' {} a -> s {dataAccessRoleArn = a} :: StartSpeakerEnrollmentJob)
 

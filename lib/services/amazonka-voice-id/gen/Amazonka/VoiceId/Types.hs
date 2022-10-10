@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -142,6 +142,7 @@ module Amazonka.VoiceId.Types
     FraudRiskDetails (..),
     newFraudRiskDetails,
     fraudRiskDetails_knownFraudsterRisk,
+    fraudRiskDetails_voiceSpoofingRisk,
 
     -- * Fraudster
     Fraudster (..),
@@ -273,6 +274,11 @@ module Amazonka.VoiceId.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * VoiceSpoofingRisk
+    VoiceSpoofingRisk (..),
+    newVoiceSpoofingRisk,
+    voiceSpoofingRisk_riskScore,
   )
 where
 
@@ -317,6 +323,7 @@ import Amazonka.VoiceId.Types.SpeakerStatus
 import Amazonka.VoiceId.Types.SpeakerSummary
 import Amazonka.VoiceId.Types.StreamingStatus
 import Amazonka.VoiceId.Types.Tag
+import Amazonka.VoiceId.Types.VoiceSpoofingRisk
 
 -- | API version @2021-09-27@ of the Amazon Voice ID SDK configuration.
 defaultService :: Core.Service

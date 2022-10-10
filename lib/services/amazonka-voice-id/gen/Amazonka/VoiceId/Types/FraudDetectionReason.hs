@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.VoiceId.Types.FraudDetectionReason
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,8 @@
 module Amazonka.VoiceId.Types.FraudDetectionReason
   ( FraudDetectionReason
       ( ..,
-        FraudDetectionReason_KNOWN_FRAUDSTER
+        FraudDetectionReason_KNOWN_FRAUDSTER,
+        FraudDetectionReason_VOICE_SPOOFING
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype FraudDetectionReason = FraudDetectionReason'
 pattern FraudDetectionReason_KNOWN_FRAUDSTER :: FraudDetectionReason
 pattern FraudDetectionReason_KNOWN_FRAUDSTER = FraudDetectionReason' "KNOWN_FRAUDSTER"
 
+pattern FraudDetectionReason_VOICE_SPOOFING :: FraudDetectionReason
+pattern FraudDetectionReason_VOICE_SPOOFING = FraudDetectionReason' "VOICE_SPOOFING"
+
 {-# COMPLETE
   FraudDetectionReason_KNOWN_FRAUDSTER,
+  FraudDetectionReason_VOICE_SPOOFING,
   FraudDetectionReason'
   #-}

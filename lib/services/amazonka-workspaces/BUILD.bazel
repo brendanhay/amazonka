@@ -94,6 +94,7 @@ haskell_library(
         "gen/Amazonka/WorkSpaces/Types/IosClientBrandingAttributes.hs",
         "gen/Amazonka/WorkSpaces/Types/IosImportClientBrandingAttributes.hs",
         "gen/Amazonka/WorkSpaces/Types/IpRuleItem.hs",
+        "gen/Amazonka/WorkSpaces/Types/LogUploadEnum.hs",
         "gen/Amazonka/WorkSpaces/Types/ModificationResourceEnum.hs",
         "gen/Amazonka/WorkSpaces/Types/ModificationState.hs",
         "gen/Amazonka/WorkSpaces/Types/ModificationStateEnum.hs",

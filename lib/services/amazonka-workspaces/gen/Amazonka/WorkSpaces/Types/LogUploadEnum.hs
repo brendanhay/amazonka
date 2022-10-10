@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.WorkSpaces.Types.Application
+-- Module      : Amazonka.WorkSpaces.Types.LogUploadEnum
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.WorkSpaces.Types.Application
-  ( Application
+module Amazonka.WorkSpaces.Types.LogUploadEnum
+  ( LogUploadEnum
       ( ..,
-        Application_Microsoft_Office_2016,
-        Application_Microsoft_Office_2019
+        LogUploadEnum_DISABLED,
+        LogUploadEnum_ENABLED
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Application = Application'
-  { fromApplication ::
+newtype LogUploadEnum = LogUploadEnum'
+  { fromLogUploadEnum ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype Application = Application'
       Core.ToXML
     )
 
-pattern Application_Microsoft_Office_2016 :: Application
-pattern Application_Microsoft_Office_2016 = Application' "Microsoft_Office_2016"
+pattern LogUploadEnum_DISABLED :: LogUploadEnum
+pattern LogUploadEnum_DISABLED = LogUploadEnum' "DISABLED"
 
-pattern Application_Microsoft_Office_2019 :: Application
-pattern Application_Microsoft_Office_2019 = Application' "Microsoft_Office_2019"
+pattern LogUploadEnum_ENABLED :: LogUploadEnum
+pattern LogUploadEnum_ENABLED = LogUploadEnum' "ENABLED"
 
 {-# COMPLETE
-  Application_Microsoft_Office_2016,
-  Application_Microsoft_Office_2019,
-  Application'
+  LogUploadEnum_DISABLED,
+  LogUploadEnum_ENABLED,
+  LogUploadEnum'
   #-}

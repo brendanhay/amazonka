@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkSpaces.CreateWorkspaceImage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -208,7 +208,7 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
     -- more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>
     requiredTenancy :: Prelude.Maybe WorkspaceImageRequiredTenancy,
-    -- | The identifier of the AWS account that owns the image.
+    -- | The identifier of the Amazon Web Services account that owns the image.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the new WorkSpace image.
     imageId :: Prelude.Maybe Prelude.Text,
@@ -240,7 +240,7 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
 -- more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>
 --
--- 'ownerAccountId', 'createWorkspaceImageResponse_ownerAccountId' - The identifier of the AWS account that owns the image.
+-- 'ownerAccountId', 'createWorkspaceImageResponse_ownerAccountId' - The identifier of the Amazon Web Services account that owns the image.
 --
 -- 'imageId', 'createWorkspaceImageResponse_imageId' - The identifier of the new WorkSpace image.
 --
@@ -290,7 +290,7 @@ createWorkspaceImageResponse_description = Lens.lens (\CreateWorkspaceImageRespo
 createWorkspaceImageResponse_requiredTenancy :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageRequiredTenancy)
 createWorkspaceImageResponse_requiredTenancy = Lens.lens (\CreateWorkspaceImageResponse' {requiredTenancy} -> requiredTenancy) (\s@CreateWorkspaceImageResponse' {} a -> s {requiredTenancy = a} :: CreateWorkspaceImageResponse)
 
--- | The identifier of the AWS account that owns the image.
+-- | The identifier of the Amazon Web Services account that owns the image.
 createWorkspaceImageResponse_ownerAccountId :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
 createWorkspaceImageResponse_ownerAccountId = Lens.lens (\CreateWorkspaceImageResponse' {ownerAccountId} -> ownerAccountId) (\s@CreateWorkspaceImageResponse' {} a -> s {ownerAccountId = a} :: CreateWorkspaceImageResponse)
 

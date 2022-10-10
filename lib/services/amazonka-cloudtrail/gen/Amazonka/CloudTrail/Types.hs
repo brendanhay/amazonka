@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,11 @@ module Amazonka.CloudTrail.Types
     _CloudTrailARNInvalidException,
     _OrganizationNotInAllFeaturesModeException,
     _UnsupportedOperationException,
+    _ChannelARNInvalidException,
     _TagsLimitExceededException,
+    _EventDataStoreHasOngoingImportException,
     _TrailNotFoundException,
+    _AccountHasOngoingImportException,
     _InvalidCloudWatchLogsLogGroupArnException,
     _EventDataStoreAlreadyExistsException,
     _InvalidCloudWatchLogsRoleArnException,
@@ -40,15 +43,19 @@ module Amazonka.CloudTrail.Types
     _InvalidTagParameterException,
     _InactiveEventDataStoreException,
     _InvalidMaxResultsException,
+    _InvalidImportSourceException,
     _InvalidParameterCombinationException,
+    _ChannelNotFoundException,
     _CloudTrailInvalidClientTokenIdException,
     _InvalidEventDataStoreStatusException,
     _InvalidNextTokenException,
     _ConflictException,
+    _InvalidEventDataStoreCategoryException,
     _QueryIdNotFoundException,
     _KmsKeyNotFoundException,
     _InsightNotEnabledException,
     _EventDataStoreMaxLimitExceededException,
+    _ImportNotFoundException,
     _InvalidEventCategoryException,
     _InvalidDateRangeException,
     _EventDataStoreARNInvalidException,
@@ -76,11 +83,20 @@ module Amazonka.CloudTrail.Types
     _InvalidParameterException,
     _OrganizationsNotInUseException,
 
+    -- * DestinationType
+    DestinationType (..),
+
     -- * EventCategory
     EventCategory (..),
 
     -- * EventDataStoreStatus
     EventDataStoreStatus (..),
+
+    -- * ImportFailureStatus
+    ImportFailureStatus (..),
+
+    -- * ImportStatus
+    ImportStatus (..),
 
     -- * InsightType
     InsightType (..),
@@ -111,11 +127,23 @@ module Amazonka.CloudTrail.Types
     advancedFieldSelector_notStartsWith,
     advancedFieldSelector_field,
 
+    -- * Channel
+    Channel (..),
+    newChannel,
+    channel_name,
+    channel_channelArn,
+
     -- * DataResource
     DataResource (..),
     newDataResource,
     dataResource_type,
     dataResource_values,
+
+    -- * Destination
+    Destination (..),
+    newDestination,
+    destination_type,
+    destination_location,
 
     -- * Event
     Event (..),
@@ -151,6 +179,38 @@ module Amazonka.CloudTrail.Types
     eventSelector_includeManagementEvents,
     eventSelector_dataResources,
     eventSelector_readWriteType,
+
+    -- * ImportFailureListItem
+    ImportFailureListItem (..),
+    newImportFailureListItem,
+    importFailureListItem_errorMessage,
+    importFailureListItem_status,
+    importFailureListItem_lastUpdatedTime,
+    importFailureListItem_location,
+    importFailureListItem_errorType,
+
+    -- * ImportSource
+    ImportSource (..),
+    newImportSource,
+    importSource_s3,
+
+    -- * ImportStatistics
+    ImportStatistics (..),
+    newImportStatistics,
+    importStatistics_failedEntries,
+    importStatistics_eventsCompleted,
+    importStatistics_prefixesFound,
+    importStatistics_prefixesCompleted,
+    importStatistics_filesCompleted,
+
+    -- * ImportsListItem
+    ImportsListItem (..),
+    newImportsListItem,
+    importsListItem_createdTimestamp,
+    importsListItem_updatedTimestamp,
+    importsListItem_importId,
+    importsListItem_importStatus,
+    importsListItem_destinations,
 
     -- * InsightSelector
     InsightSelector (..),
@@ -206,6 +266,19 @@ module Amazonka.CloudTrail.Types
     resourceTag_resourceId,
     resourceTag_tagsList,
 
+    -- * S3ImportSource
+    S3ImportSource (..),
+    newS3ImportSource,
+    s3ImportSource_s3LocationUri,
+    s3ImportSource_s3BucketRegion,
+    s3ImportSource_s3BucketAccessRoleArn,
+
+    -- * SourceConfig
+    SourceConfig (..),
+    newSourceConfig,
+    sourceConfig_applyToAllRegions,
+    sourceConfig_advancedEventSelectors,
+
     -- * Tag
     Tag (..),
     newTag,
@@ -243,12 +316,21 @@ where
 
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
+import Amazonka.CloudTrail.Types.Channel
 import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.Destination
+import Amazonka.CloudTrail.Types.DestinationType
 import Amazonka.CloudTrail.Types.Event
 import Amazonka.CloudTrail.Types.EventCategory
 import Amazonka.CloudTrail.Types.EventDataStore
 import Amazonka.CloudTrail.Types.EventDataStoreStatus
 import Amazonka.CloudTrail.Types.EventSelector
+import Amazonka.CloudTrail.Types.ImportFailureListItem
+import Amazonka.CloudTrail.Types.ImportFailureStatus
+import Amazonka.CloudTrail.Types.ImportSource
+import Amazonka.CloudTrail.Types.ImportStatistics
+import Amazonka.CloudTrail.Types.ImportStatus
+import Amazonka.CloudTrail.Types.ImportsListItem
 import Amazonka.CloudTrail.Types.InsightSelector
 import Amazonka.CloudTrail.Types.InsightType
 import Amazonka.CloudTrail.Types.LookupAttribute
@@ -261,6 +343,8 @@ import Amazonka.CloudTrail.Types.QueryStatus
 import Amazonka.CloudTrail.Types.ReadWriteType
 import Amazonka.CloudTrail.Types.Resource
 import Amazonka.CloudTrail.Types.ResourceTag
+import Amazonka.CloudTrail.Types.S3ImportSource
+import Amazonka.CloudTrail.Types.SourceConfig
 import Amazonka.CloudTrail.Types.Tag
 import Amazonka.CloudTrail.Types.Trail
 import Amazonka.CloudTrail.Types.TrailInfo
@@ -388,6 +472,14 @@ _UnsupportedOperationException =
     defaultService
     "UnsupportedOperationException"
 
+-- | The specified channel ARN is not valid or does not map to a channel in
+-- your account.
+_ChannelARNInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ChannelARNInvalidException =
+  Core._MatchServiceError
+    defaultService
+    "ChannelARNInvalidException"
+
 -- | The number of tags per trail has exceeded the permitted amount.
 -- Currently, the limit is 50.
 _TagsLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -396,6 +488,14 @@ _TagsLimitExceededException =
     defaultService
     "TagsLimitExceededException"
 
+-- | This exception is thrown when you try to update or delete an event data
+-- store that currently has an import in progress.
+_EventDataStoreHasOngoingImportException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreHasOngoingImportException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreHasOngoingImportException"
+
 -- | This exception is thrown when the trail with the given name is not
 -- found.
 _TrailNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -403,6 +503,14 @@ _TrailNotFoundException =
   Core._MatchServiceError
     defaultService
     "TrailNotFoundException"
+
+-- | This exception is thrown when you start a new import and a previous
+-- import is still in progress.
+_AccountHasOngoingImportException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountHasOngoingImportException =
+  Core._MatchServiceError
+    defaultService
+    "AccountHasOngoingImportException"
 
 -- | This exception is thrown when the provided CloudWatch Logs log group is
 -- not valid.
@@ -520,6 +628,14 @@ _InvalidMaxResultsException =
     defaultService
     "InvalidMaxResultsException"
 
+-- | This exception is thrown when the provided source S3 bucket is not valid
+-- for import.
+_InvalidImportSourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidImportSourceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidImportSourceException"
+
 -- | This exception is thrown when the combination of parameters provided is
 -- not valid.
 _InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -527,6 +643,13 @@ _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterCombinationException"
+
+-- | The specified channel was not found.
+_ChannelNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ChannelNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ChannelNotFoundException"
 
 -- | This exception is thrown when a call results in the
 -- @InvalidClientTokenId@ error code. This can occur when you are creating
@@ -564,6 +687,14 @@ _ConflictException =
     defaultService
     "ConflictException"
 
+-- | This exception is thrown when the event data store category is not valid
+-- for the import.
+_InvalidEventDataStoreCategoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEventDataStoreCategoryException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidEventDataStoreCategoryException"
+
 -- | The query ID does not exist or does not map to a query.
 _QueryIdNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueryIdNotFoundException =
@@ -596,6 +727,13 @@ _EventDataStoreMaxLimitExceededException =
   Core._MatchServiceError
     defaultService
     "EventDataStoreMaxLimitExceededException"
+
+-- | The specified import was not found.
+_ImportNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ImportNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ImportNotFoundException"
 
 -- | Occurs if an event category that is not valid is specified as a value of
 -- @EventCategory@.

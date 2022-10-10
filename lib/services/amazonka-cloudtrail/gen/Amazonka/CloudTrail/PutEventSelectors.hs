@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.PutEventSelectors
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,10 @@
 --
 -- You can configure up to five event selectors for each trail. For more
 -- information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html Logging data and management events for trails>
--- and
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events for trails>
+-- ,
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- , and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Quotas in CloudTrail>
 -- in the /CloudTrail User Guide/.
 --

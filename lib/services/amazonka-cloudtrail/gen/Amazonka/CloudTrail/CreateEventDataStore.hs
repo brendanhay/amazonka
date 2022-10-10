@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.CreateEventDataStore
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,7 +75,7 @@ data CreateEventDataStore = CreateEventDataStore'
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     tagsList :: Prelude.Maybe [Tag],
     -- | The retention period of the event data store, in days. You can set a
-    -- retention period of up to 2555 days, the equivalent of seven years.
+    -- retention period of up to 2557 days, the equivalent of seven years.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
     -- | Specifies whether an event data store collects events logged for an
     -- organization in Organizations.
@@ -109,7 +109,7 @@ data CreateEventDataStore = CreateEventDataStore'
 -- 'tagsList', 'createEventDataStore_tagsList' - Undocumented member.
 --
 -- 'retentionPeriod', 'createEventDataStore_retentionPeriod' - The retention period of the event data store, in days. You can set a
--- retention period of up to 2555 days, the equivalent of seven years.
+-- retention period of up to 2557 days, the equivalent of seven years.
 --
 -- 'organizationEnabled', 'createEventDataStore_organizationEnabled' - Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
@@ -153,7 +153,7 @@ createEventDataStore_tagsList :: Lens.Lens' CreateEventDataStore (Prelude.Maybe 
 createEventDataStore_tagsList = Lens.lens (\CreateEventDataStore' {tagsList} -> tagsList) (\s@CreateEventDataStore' {} a -> s {tagsList = a} :: CreateEventDataStore) Prelude.. Lens.mapping Lens.coerced
 
 -- | The retention period of the event data store, in days. You can set a
--- retention period of up to 2555 days, the equivalent of seven years.
+-- retention period of up to 2557 days, the equivalent of seven years.
 createEventDataStore_retentionPeriod :: Lens.Lens' CreateEventDataStore (Prelude.Maybe Prelude.Natural)
 createEventDataStore_retentionPeriod = Lens.lens (\CreateEventDataStore' {retentionPeriod} -> retentionPeriod) (\s@CreateEventDataStore' {} a -> s {retentionPeriod = a} :: CreateEventDataStore)
 

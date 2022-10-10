@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Types.EventSelector
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ data EventSelector = EventSelector'
     -- your trail.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events>
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Management Events>
     -- in the /CloudTrail User Guide/.
     --
     -- By default, the value is @true@.
@@ -73,7 +73,7 @@ data EventSelector = EventSelector'
     -- resource logging for all data events.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events>
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
     -- and
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
     -- in the /CloudTrail User Guide/.
@@ -108,7 +108,7 @@ data EventSelector = EventSelector'
 -- your trail.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Management Events>
 -- in the /CloudTrail User Guide/.
 --
 -- By default, the value is @true@.
@@ -127,7 +127,7 @@ data EventSelector = EventSelector'
 -- resource logging for all data events.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
 -- and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
 -- in the /CloudTrail User Guide/.
@@ -163,7 +163,7 @@ eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {exclud
 -- your trail.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Management Events>
 -- in the /CloudTrail User Guide/.
 --
 -- By default, the value is @true@.
@@ -184,7 +184,7 @@ eventSelector_includeManagementEvents = Lens.lens (\EventSelector' {includeManag
 -- resource logging for all data events.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
 -- and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
 -- in the /CloudTrail User Guide/.

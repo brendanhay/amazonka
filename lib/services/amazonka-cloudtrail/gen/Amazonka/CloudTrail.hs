@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,11 +62,20 @@ module Amazonka.CloudTrail
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
+    -- ** ChannelARNInvalidException
+    _ChannelARNInvalidException,
+
     -- ** TagsLimitExceededException
     _TagsLimitExceededException,
 
+    -- ** EventDataStoreHasOngoingImportException
+    _EventDataStoreHasOngoingImportException,
+
     -- ** TrailNotFoundException
     _TrailNotFoundException,
+
+    -- ** AccountHasOngoingImportException
+    _AccountHasOngoingImportException,
 
     -- ** InvalidCloudWatchLogsLogGroupArnException
     _InvalidCloudWatchLogsLogGroupArnException,
@@ -113,8 +122,14 @@ module Amazonka.CloudTrail
     -- ** InvalidMaxResultsException
     _InvalidMaxResultsException,
 
+    -- ** InvalidImportSourceException
+    _InvalidImportSourceException,
+
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
+
+    -- ** ChannelNotFoundException
+    _ChannelNotFoundException,
 
     -- ** CloudTrailInvalidClientTokenIdException
     _CloudTrailInvalidClientTokenIdException,
@@ -128,6 +143,9 @@ module Amazonka.CloudTrail
     -- ** ConflictException
     _ConflictException,
 
+    -- ** InvalidEventDataStoreCategoryException
+    _InvalidEventDataStoreCategoryException,
+
     -- ** QueryIdNotFoundException
     _QueryIdNotFoundException,
 
@@ -139,6 +157,9 @@ module Amazonka.CloudTrail
 
     -- ** EventDataStoreMaxLimitExceededException
     _EventDataStoreMaxLimitExceededException,
+
+    -- ** ImportNotFoundException
+    _ImportNotFoundException,
 
     -- ** InvalidEventCategoryException
     _InvalidEventCategoryException,
@@ -272,6 +293,12 @@ module Amazonka.CloudTrail
     DescribeTrailsResponse (DescribeTrailsResponse'),
     newDescribeTrailsResponse,
 
+    -- ** GetChannel
+    GetChannel (GetChannel'),
+    newGetChannel,
+    GetChannelResponse (GetChannelResponse'),
+    newGetChannelResponse,
+
     -- ** GetEventDataStore
     GetEventDataStore (GetEventDataStore'),
     newGetEventDataStore,
@@ -283,6 +310,12 @@ module Amazonka.CloudTrail
     newGetEventSelectors,
     GetEventSelectorsResponse (GetEventSelectorsResponse'),
     newGetEventSelectorsResponse,
+
+    -- ** GetImport
+    GetImport (GetImport'),
+    newGetImport,
+    GetImportResponse (GetImportResponse'),
+    newGetImportResponse,
 
     -- ** GetInsightSelectors
     GetInsightSelectors (GetInsightSelectors'),
@@ -308,11 +341,29 @@ module Amazonka.CloudTrail
     GetTrailStatusResponse (GetTrailStatusResponse'),
     newGetTrailStatusResponse,
 
+    -- ** ListChannels
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
+
     -- ** ListEventDataStores
     ListEventDataStores (ListEventDataStores'),
     newListEventDataStores,
     ListEventDataStoresResponse (ListEventDataStoresResponse'),
     newListEventDataStoresResponse,
+
+    -- ** ListImportFailures (Paginated)
+    ListImportFailures (ListImportFailures'),
+    newListImportFailures,
+    ListImportFailuresResponse (ListImportFailuresResponse'),
+    newListImportFailuresResponse,
+
+    -- ** ListImports (Paginated)
+    ListImports (ListImports'),
+    newListImports,
+    ListImportsResponse (ListImportsResponse'),
+    newListImportsResponse,
 
     -- ** ListPublicKeys (Paginated)
     ListPublicKeys (ListPublicKeys'),
@@ -368,6 +419,12 @@ module Amazonka.CloudTrail
     RestoreEventDataStoreResponse (RestoreEventDataStoreResponse'),
     newRestoreEventDataStoreResponse,
 
+    -- ** StartImport
+    StartImport (StartImport'),
+    newStartImport,
+    StartImportResponse (StartImportResponse'),
+    newStartImportResponse,
+
     -- ** StartLogging
     StartLogging (StartLogging'),
     newStartLogging,
@@ -379,6 +436,12 @@ module Amazonka.CloudTrail
     newStartQuery,
     StartQueryResponse (StartQueryResponse'),
     newStartQueryResponse,
+
+    -- ** StopImport
+    StopImport (StopImport'),
+    newStopImport,
+    StopImportResponse (StopImportResponse'),
+    newStopImportResponse,
 
     -- ** StopLogging
     StopLogging (StopLogging'),
@@ -400,11 +463,20 @@ module Amazonka.CloudTrail
 
     -- * Types
 
+    -- ** DestinationType
+    DestinationType (..),
+
     -- ** EventCategory
     EventCategory (..),
 
     -- ** EventDataStoreStatus
     EventDataStoreStatus (..),
+
+    -- ** ImportFailureStatus
+    ImportFailureStatus (..),
+
+    -- ** ImportStatus
+    ImportStatus (..),
 
     -- ** InsightType
     InsightType (..),
@@ -426,9 +498,17 @@ module Amazonka.CloudTrail
     AdvancedFieldSelector (AdvancedFieldSelector'),
     newAdvancedFieldSelector,
 
+    -- ** Channel
+    Channel (Channel'),
+    newChannel,
+
     -- ** DataResource
     DataResource (DataResource'),
     newDataResource,
+
+    -- ** Destination
+    Destination (Destination'),
+    newDestination,
 
     -- ** Event
     Event (Event'),
@@ -441,6 +521,22 @@ module Amazonka.CloudTrail
     -- ** EventSelector
     EventSelector (EventSelector'),
     newEventSelector,
+
+    -- ** ImportFailureListItem
+    ImportFailureListItem (ImportFailureListItem'),
+    newImportFailureListItem,
+
+    -- ** ImportSource
+    ImportSource (ImportSource'),
+    newImportSource,
+
+    -- ** ImportStatistics
+    ImportStatistics (ImportStatistics'),
+    newImportStatistics,
+
+    -- ** ImportsListItem
+    ImportsListItem (ImportsListItem'),
+    newImportsListItem,
 
     -- ** InsightSelector
     InsightSelector (InsightSelector'),
@@ -474,6 +570,14 @@ module Amazonka.CloudTrail
     ResourceTag (ResourceTag'),
     newResourceTag,
 
+    -- ** S3ImportSource
+    S3ImportSource (S3ImportSource'),
+    newS3ImportSource,
+
+    -- ** SourceConfig
+    SourceConfig (SourceConfig'),
+    newSourceConfig,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -496,14 +600,19 @@ import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
 import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetChannel
 import Amazonka.CloudTrail.GetEventDataStore
 import Amazonka.CloudTrail.GetEventSelectors
+import Amazonka.CloudTrail.GetImport
 import Amazonka.CloudTrail.GetInsightSelectors
 import Amazonka.CloudTrail.GetQueryResults
 import Amazonka.CloudTrail.GetTrail
 import Amazonka.CloudTrail.GetTrailStatus
 import Amazonka.CloudTrail.Lens
+import Amazonka.CloudTrail.ListChannels
 import Amazonka.CloudTrail.ListEventDataStores
+import Amazonka.CloudTrail.ListImportFailures
+import Amazonka.CloudTrail.ListImports
 import Amazonka.CloudTrail.ListPublicKeys
 import Amazonka.CloudTrail.ListQueries
 import Amazonka.CloudTrail.ListTags
@@ -513,8 +622,10 @@ import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
 import Amazonka.CloudTrail.RemoveTags
 import Amazonka.CloudTrail.RestoreEventDataStore
+import Amazonka.CloudTrail.StartImport
 import Amazonka.CloudTrail.StartLogging
 import Amazonka.CloudTrail.StartQuery
+import Amazonka.CloudTrail.StopImport
 import Amazonka.CloudTrail.StopLogging
 import Amazonka.CloudTrail.Types
 import Amazonka.CloudTrail.UpdateEventDataStore

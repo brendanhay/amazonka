@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.UpdateEventDataStore
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@
 -- ARN or the ID portion of the ARN. Other parameters are optional, but at
 -- least one optional parameter must be specified, or CloudTrail throws an
 -- error. @RetentionPeriod@ is in days, and valid values are integers
--- between 90 and 2555. By default, @TerminationProtection@ is enabled.
+-- between 90 and 2557. By default, @TerminationProtection@ is enabled.
 -- @AdvancedEventSelectors@ includes or excludes management and data events
 -- in your event data store; for more information about
 -- @AdvancedEventSelectors@, see
@@ -74,7 +74,8 @@ data UpdateEventDataStore = UpdateEventDataStore'
   { -- | The event data store name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The advanced event selectors used to select events for the event data
-    -- store.
+    -- store. You can configure up to five advanced event selectors for each
+    -- event data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | Specifies whether an event data store collects events from all regions,
     -- or only from the region in which it was created.
@@ -104,7 +105,8 @@ data UpdateEventDataStore = UpdateEventDataStore'
 -- 'name', 'updateEventDataStore_name' - The event data store name.
 --
 -- 'advancedEventSelectors', 'updateEventDataStore_advancedEventSelectors' - The advanced event selectors used to select events for the event data
--- store.
+-- store. You can configure up to five advanced event selectors for each
+-- event data store.
 --
 -- 'multiRegionEnabled', 'updateEventDataStore_multiRegionEnabled' - Specifies whether an event data store collects events from all regions,
 -- or only from the region in which it was created.
@@ -139,7 +141,8 @@ updateEventDataStore_name :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prel
 updateEventDataStore_name = Lens.lens (\UpdateEventDataStore' {name} -> name) (\s@UpdateEventDataStore' {} a -> s {name = a} :: UpdateEventDataStore)
 
 -- | The advanced event selectors used to select events for the event data
--- store.
+-- store. You can configure up to five advanced event selectors for each
+-- event data store.
 updateEventDataStore_advancedEventSelectors :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe [AdvancedEventSelector])
 updateEventDataStore_advancedEventSelectors = Lens.lens (\UpdateEventDataStore' {advancedEventSelectors} -> advancedEventSelectors) (\s@UpdateEventDataStore' {} a -> s {advancedEventSelectors = a} :: UpdateEventDataStore) Prelude.. Lens.mapping Lens.coerced
 

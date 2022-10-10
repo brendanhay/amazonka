@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CloudTrail.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,6 +99,15 @@ module Amazonka.CloudTrail.Lens
     describeTrailsResponse_trailList,
     describeTrailsResponse_httpStatus,
 
+    -- ** GetChannel
+    getChannel_channel,
+    getChannelResponse_name,
+    getChannelResponse_sourceConfig,
+    getChannelResponse_channelArn,
+    getChannelResponse_source,
+    getChannelResponse_destinations,
+    getChannelResponse_httpStatus,
+
     -- ** GetEventDataStore
     getEventDataStore_eventDataStore,
     getEventDataStoreResponse_name,
@@ -119,6 +128,19 @@ module Amazonka.CloudTrail.Lens
     getEventSelectorsResponse_eventSelectors,
     getEventSelectorsResponse_trailARN,
     getEventSelectorsResponse_httpStatus,
+
+    -- ** GetImport
+    getImport_importId,
+    getImportResponse_importSource,
+    getImportResponse_endEventTime,
+    getImportResponse_createdTimestamp,
+    getImportResponse_updatedTimestamp,
+    getImportResponse_startEventTime,
+    getImportResponse_importStatistics,
+    getImportResponse_importId,
+    getImportResponse_importStatus,
+    getImportResponse_destinations,
+    getImportResponse_httpStatus,
 
     -- ** GetInsightSelectors
     getInsightSelectors_trailName,
@@ -164,12 +186,36 @@ module Amazonka.CloudTrail.Lens
     getTrailStatusResponse_latestDeliveryAttemptSucceeded,
     getTrailStatusResponse_httpStatus,
 
+    -- ** ListChannels
+    listChannels_nextToken,
+    listChannels_maxResults,
+    listChannelsResponse_nextToken,
+    listChannelsResponse_channels,
+    listChannelsResponse_httpStatus,
+
     -- ** ListEventDataStores
     listEventDataStores_nextToken,
     listEventDataStores_maxResults,
     listEventDataStoresResponse_nextToken,
     listEventDataStoresResponse_eventDataStores,
     listEventDataStoresResponse_httpStatus,
+
+    -- ** ListImportFailures
+    listImportFailures_nextToken,
+    listImportFailures_maxResults,
+    listImportFailures_importId,
+    listImportFailuresResponse_nextToken,
+    listImportFailuresResponse_failures,
+    listImportFailuresResponse_httpStatus,
+
+    -- ** ListImports
+    listImports_destination,
+    listImports_nextToken,
+    listImports_maxResults,
+    listImports_importStatus,
+    listImportsResponse_imports,
+    listImportsResponse_nextToken,
+    listImportsResponse_httpStatus,
 
     -- ** ListPublicKeys
     listPublicKeys_nextToken,
@@ -249,6 +295,22 @@ module Amazonka.CloudTrail.Lens
     restoreEventDataStoreResponse_terminationProtectionEnabled,
     restoreEventDataStoreResponse_httpStatus,
 
+    -- ** StartImport
+    startImport_importSource,
+    startImport_endEventTime,
+    startImport_startEventTime,
+    startImport_importId,
+    startImport_destinations,
+    startImportResponse_importSource,
+    startImportResponse_endEventTime,
+    startImportResponse_createdTimestamp,
+    startImportResponse_updatedTimestamp,
+    startImportResponse_startEventTime,
+    startImportResponse_importId,
+    startImportResponse_importStatus,
+    startImportResponse_destinations,
+    startImportResponse_httpStatus,
+
     -- ** StartLogging
     startLogging_name,
     startLoggingResponse_httpStatus,
@@ -257,6 +319,19 @@ module Amazonka.CloudTrail.Lens
     startQuery_queryStatement,
     startQueryResponse_queryId,
     startQueryResponse_httpStatus,
+
+    -- ** StopImport
+    stopImport_importId,
+    stopImportResponse_importSource,
+    stopImportResponse_endEventTime,
+    stopImportResponse_createdTimestamp,
+    stopImportResponse_updatedTimestamp,
+    stopImportResponse_startEventTime,
+    stopImportResponse_importStatistics,
+    stopImportResponse_importId,
+    stopImportResponse_importStatus,
+    stopImportResponse_destinations,
+    stopImportResponse_httpStatus,
 
     -- ** StopLogging
     stopLogging_name,
@@ -324,9 +399,17 @@ module Amazonka.CloudTrail.Lens
     advancedFieldSelector_notStartsWith,
     advancedFieldSelector_field,
 
+    -- ** Channel
+    channel_name,
+    channel_channelArn,
+
     -- ** DataResource
     dataResource_type,
     dataResource_values,
+
+    -- ** Destination
+    destination_type,
+    destination_location,
 
     -- ** Event
     event_username,
@@ -356,6 +439,30 @@ module Amazonka.CloudTrail.Lens
     eventSelector_includeManagementEvents,
     eventSelector_dataResources,
     eventSelector_readWriteType,
+
+    -- ** ImportFailureListItem
+    importFailureListItem_errorMessage,
+    importFailureListItem_status,
+    importFailureListItem_lastUpdatedTime,
+    importFailureListItem_location,
+    importFailureListItem_errorType,
+
+    -- ** ImportSource
+    importSource_s3,
+
+    -- ** ImportStatistics
+    importStatistics_failedEntries,
+    importStatistics_eventsCompleted,
+    importStatistics_prefixesFound,
+    importStatistics_prefixesCompleted,
+    importStatistics_filesCompleted,
+
+    -- ** ImportsListItem
+    importsListItem_createdTimestamp,
+    importsListItem_updatedTimestamp,
+    importsListItem_importId,
+    importsListItem_importStatus,
+    importsListItem_destinations,
 
     -- ** InsightSelector
     insightSelector_insightType,
@@ -395,6 +502,15 @@ module Amazonka.CloudTrail.Lens
     resourceTag_resourceId,
     resourceTag_tagsList,
 
+    -- ** S3ImportSource
+    s3ImportSource_s3LocationUri,
+    s3ImportSource_s3BucketRegion,
+    s3ImportSource_s3BucketAccessRoleArn,
+
+    -- ** SourceConfig
+    sourceConfig_applyToAllRegions,
+    sourceConfig_advancedEventSelectors,
+
     -- ** Tag
     tag_value,
     tag_key,
@@ -432,13 +548,18 @@ import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
 import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetChannel
 import Amazonka.CloudTrail.GetEventDataStore
 import Amazonka.CloudTrail.GetEventSelectors
+import Amazonka.CloudTrail.GetImport
 import Amazonka.CloudTrail.GetInsightSelectors
 import Amazonka.CloudTrail.GetQueryResults
 import Amazonka.CloudTrail.GetTrail
 import Amazonka.CloudTrail.GetTrailStatus
+import Amazonka.CloudTrail.ListChannels
 import Amazonka.CloudTrail.ListEventDataStores
+import Amazonka.CloudTrail.ListImportFailures
+import Amazonka.CloudTrail.ListImports
 import Amazonka.CloudTrail.ListPublicKeys
 import Amazonka.CloudTrail.ListQueries
 import Amazonka.CloudTrail.ListTags
@@ -448,15 +569,23 @@ import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
 import Amazonka.CloudTrail.RemoveTags
 import Amazonka.CloudTrail.RestoreEventDataStore
+import Amazonka.CloudTrail.StartImport
 import Amazonka.CloudTrail.StartLogging
 import Amazonka.CloudTrail.StartQuery
+import Amazonka.CloudTrail.StopImport
 import Amazonka.CloudTrail.StopLogging
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
+import Amazonka.CloudTrail.Types.Channel
 import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.Destination
 import Amazonka.CloudTrail.Types.Event
 import Amazonka.CloudTrail.Types.EventDataStore
 import Amazonka.CloudTrail.Types.EventSelector
+import Amazonka.CloudTrail.Types.ImportFailureListItem
+import Amazonka.CloudTrail.Types.ImportSource
+import Amazonka.CloudTrail.Types.ImportStatistics
+import Amazonka.CloudTrail.Types.ImportsListItem
 import Amazonka.CloudTrail.Types.InsightSelector
 import Amazonka.CloudTrail.Types.LookupAttribute
 import Amazonka.CloudTrail.Types.PublicKey
@@ -465,6 +594,8 @@ import Amazonka.CloudTrail.Types.QueryStatistics
 import Amazonka.CloudTrail.Types.QueryStatisticsForDescribeQuery
 import Amazonka.CloudTrail.Types.Resource
 import Amazonka.CloudTrail.Types.ResourceTag
+import Amazonka.CloudTrail.Types.S3ImportSource
+import Amazonka.CloudTrail.Types.SourceConfig
 import Amazonka.CloudTrail.Types.Tag
 import Amazonka.CloudTrail.Types.Trail
 import Amazonka.CloudTrail.Types.TrailInfo

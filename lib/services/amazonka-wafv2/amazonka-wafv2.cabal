@@ -1,0 +1,242 @@
+cabal-version:      2.2
+name:               amazonka-wafv2
+version:            2.0
+synopsis:           Amazon WAFV2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-07-29@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.WAFV2.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.WAFV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-wafv2
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.WAFV2
+    Amazonka.WAFV2.AssociateWebACL
+    Amazonka.WAFV2.CheckCapacity
+    Amazonka.WAFV2.CreateIPSet
+    Amazonka.WAFV2.CreateRegexPatternSet
+    Amazonka.WAFV2.CreateRuleGroup
+    Amazonka.WAFV2.CreateWebACL
+    Amazonka.WAFV2.DeleteFirewallManagerRuleGroups
+    Amazonka.WAFV2.DeleteIPSet
+    Amazonka.WAFV2.DeleteLoggingConfiguration
+    Amazonka.WAFV2.DeletePermissionPolicy
+    Amazonka.WAFV2.DeleteRegexPatternSet
+    Amazonka.WAFV2.DeleteRuleGroup
+    Amazonka.WAFV2.DeleteWebACL
+    Amazonka.WAFV2.DescribeManagedRuleGroup
+    Amazonka.WAFV2.DisassociateWebACL
+    Amazonka.WAFV2.GenerateMobileSdkReleaseUrl
+    Amazonka.WAFV2.GetIPSet
+    Amazonka.WAFV2.GetLoggingConfiguration
+    Amazonka.WAFV2.GetManagedRuleSet
+    Amazonka.WAFV2.GetMobileSdkRelease
+    Amazonka.WAFV2.GetPermissionPolicy
+    Amazonka.WAFV2.GetRateBasedStatementManagedKeys
+    Amazonka.WAFV2.GetRegexPatternSet
+    Amazonka.WAFV2.GetRuleGroup
+    Amazonka.WAFV2.GetSampledRequests
+    Amazonka.WAFV2.GetWebACL
+    Amazonka.WAFV2.GetWebACLForResource
+    Amazonka.WAFV2.Lens
+    Amazonka.WAFV2.ListAvailableManagedRuleGroups
+    Amazonka.WAFV2.ListAvailableManagedRuleGroupVersions
+    Amazonka.WAFV2.ListIPSets
+    Amazonka.WAFV2.ListLoggingConfigurations
+    Amazonka.WAFV2.ListManagedRuleSets
+    Amazonka.WAFV2.ListMobileSdkReleases
+    Amazonka.WAFV2.ListRegexPatternSets
+    Amazonka.WAFV2.ListResourcesForWebACL
+    Amazonka.WAFV2.ListRuleGroups
+    Amazonka.WAFV2.ListTagsForResource
+    Amazonka.WAFV2.ListWebACLs
+    Amazonka.WAFV2.PutLoggingConfiguration
+    Amazonka.WAFV2.PutManagedRuleSetVersions
+    Amazonka.WAFV2.PutPermissionPolicy
+    Amazonka.WAFV2.TagResource
+    Amazonka.WAFV2.Types
+    Amazonka.WAFV2.Types.ActionCondition
+    Amazonka.WAFV2.Types.ActionValue
+    Amazonka.WAFV2.Types.All
+    Amazonka.WAFV2.Types.AllowAction
+    Amazonka.WAFV2.Types.AllQueryArguments
+    Amazonka.WAFV2.Types.AndStatement
+    Amazonka.WAFV2.Types.BlockAction
+    Amazonka.WAFV2.Types.Body
+    Amazonka.WAFV2.Types.BodyParsingFallbackBehavior
+    Amazonka.WAFV2.Types.ByteMatchStatement
+    Amazonka.WAFV2.Types.CaptchaAction
+    Amazonka.WAFV2.Types.CaptchaConfig
+    Amazonka.WAFV2.Types.CaptchaResponse
+    Amazonka.WAFV2.Types.ComparisonOperator
+    Amazonka.WAFV2.Types.Condition
+    Amazonka.WAFV2.Types.CookieMatchPattern
+    Amazonka.WAFV2.Types.Cookies
+    Amazonka.WAFV2.Types.CountAction
+    Amazonka.WAFV2.Types.CountryCode
+    Amazonka.WAFV2.Types.CustomHTTPHeader
+    Amazonka.WAFV2.Types.CustomRequestHandling
+    Amazonka.WAFV2.Types.CustomResponse
+    Amazonka.WAFV2.Types.CustomResponseBody
+    Amazonka.WAFV2.Types.DefaultAction
+    Amazonka.WAFV2.Types.ExcludedRule
+    Amazonka.WAFV2.Types.FailureReason
+    Amazonka.WAFV2.Types.FallbackBehavior
+    Amazonka.WAFV2.Types.FieldToMatch
+    Amazonka.WAFV2.Types.Filter
+    Amazonka.WAFV2.Types.FilterBehavior
+    Amazonka.WAFV2.Types.FilterRequirement
+    Amazonka.WAFV2.Types.FirewallManagerRuleGroup
+    Amazonka.WAFV2.Types.FirewallManagerStatement
+    Amazonka.WAFV2.Types.ForwardedIPConfig
+    Amazonka.WAFV2.Types.ForwardedIPPosition
+    Amazonka.WAFV2.Types.GeoMatchStatement
+    Amazonka.WAFV2.Types.HeaderMatchPattern
+    Amazonka.WAFV2.Types.Headers
+    Amazonka.WAFV2.Types.HTTPHeader
+    Amazonka.WAFV2.Types.HTTPRequest
+    Amazonka.WAFV2.Types.ImmunityTimeProperty
+    Amazonka.WAFV2.Types.IPAddressVersion
+    Amazonka.WAFV2.Types.IPSet
+    Amazonka.WAFV2.Types.IPSetForwardedIPConfig
+    Amazonka.WAFV2.Types.IPSetReferenceStatement
+    Amazonka.WAFV2.Types.IPSetSummary
+    Amazonka.WAFV2.Types.JsonBody
+    Amazonka.WAFV2.Types.JsonMatchPattern
+    Amazonka.WAFV2.Types.JsonMatchScope
+    Amazonka.WAFV2.Types.Label
+    Amazonka.WAFV2.Types.LabelMatchScope
+    Amazonka.WAFV2.Types.LabelMatchStatement
+    Amazonka.WAFV2.Types.LabelNameCondition
+    Amazonka.WAFV2.Types.LabelSummary
+    Amazonka.WAFV2.Types.LoggingConfiguration
+    Amazonka.WAFV2.Types.LoggingFilter
+    Amazonka.WAFV2.Types.ManagedRuleGroupConfig
+    Amazonka.WAFV2.Types.ManagedRuleGroupStatement
+    Amazonka.WAFV2.Types.ManagedRuleGroupSummary
+    Amazonka.WAFV2.Types.ManagedRuleGroupVersion
+    Amazonka.WAFV2.Types.ManagedRuleSet
+    Amazonka.WAFV2.Types.ManagedRuleSetSummary
+    Amazonka.WAFV2.Types.ManagedRuleSetVersion
+    Amazonka.WAFV2.Types.MapMatchScope
+    Amazonka.WAFV2.Types.Method
+    Amazonka.WAFV2.Types.MobileSdkRelease
+    Amazonka.WAFV2.Types.NoneAction
+    Amazonka.WAFV2.Types.NotStatement
+    Amazonka.WAFV2.Types.OrStatement
+    Amazonka.WAFV2.Types.OverrideAction
+    Amazonka.WAFV2.Types.OversizeHandling
+    Amazonka.WAFV2.Types.PasswordField
+    Amazonka.WAFV2.Types.PayloadType
+    Amazonka.WAFV2.Types.Platform
+    Amazonka.WAFV2.Types.PositionalConstraint
+    Amazonka.WAFV2.Types.QueryString
+    Amazonka.WAFV2.Types.RateBasedStatement
+    Amazonka.WAFV2.Types.RateBasedStatementAggregateKeyType
+    Amazonka.WAFV2.Types.RateBasedStatementManagedKeysIPSet
+    Amazonka.WAFV2.Types.Regex
+    Amazonka.WAFV2.Types.RegexMatchStatement
+    Amazonka.WAFV2.Types.RegexPatternSet
+    Amazonka.WAFV2.Types.RegexPatternSetReferenceStatement
+    Amazonka.WAFV2.Types.RegexPatternSetSummary
+    Amazonka.WAFV2.Types.ReleaseSummary
+    Amazonka.WAFV2.Types.ResourceType
+    Amazonka.WAFV2.Types.ResponseContentType
+    Amazonka.WAFV2.Types.Rule
+    Amazonka.WAFV2.Types.RuleAction
+    Amazonka.WAFV2.Types.RuleGroup
+    Amazonka.WAFV2.Types.RuleGroupReferenceStatement
+    Amazonka.WAFV2.Types.RuleGroupSummary
+    Amazonka.WAFV2.Types.RuleSummary
+    Amazonka.WAFV2.Types.SampledHTTPRequest
+    Amazonka.WAFV2.Types.Scope
+    Amazonka.WAFV2.Types.SensitivityLevel
+    Amazonka.WAFV2.Types.SingleHeader
+    Amazonka.WAFV2.Types.SingleQueryArgument
+    Amazonka.WAFV2.Types.SizeConstraintStatement
+    Amazonka.WAFV2.Types.SqliMatchStatement
+    Amazonka.WAFV2.Types.Statement
+    Amazonka.WAFV2.Types.Tag
+    Amazonka.WAFV2.Types.TagInfoForResource
+    Amazonka.WAFV2.Types.TextTransformation
+    Amazonka.WAFV2.Types.TextTransformationType
+    Amazonka.WAFV2.Types.TimeWindow
+    Amazonka.WAFV2.Types.UriPath
+    Amazonka.WAFV2.Types.UsernameField
+    Amazonka.WAFV2.Types.VersionToPublish
+    Amazonka.WAFV2.Types.VisibilityConfig
+    Amazonka.WAFV2.Types.WebACL
+    Amazonka.WAFV2.Types.WebACLSummary
+    Amazonka.WAFV2.Types.XssMatchStatement
+    Amazonka.WAFV2.UntagResource
+    Amazonka.WAFV2.UpdateIPSet
+    Amazonka.WAFV2.UpdateManagedRuleSetVersionExpiryDate
+    Amazonka.WAFV2.UpdateRegexPatternSet
+    Amazonka.WAFV2.UpdateRuleGroup
+    Amazonka.WAFV2.UpdateWebACL
+    Amazonka.WAFV2.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-wafv2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.WAFV2
+    Test.Amazonka.WAFV2
+    Test.Amazonka.WAFV2.Internal
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
+    , amazonka-wafv2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerRuntime.InvokeEndpoint
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,6 +57,7 @@ module Amazonka.SageMakerRuntime.InvokeEndpoint
     invokeEndpoint_targetVariant,
     invokeEndpoint_customAttributes,
     invokeEndpoint_targetModel,
+    invokeEndpoint_enableExplanations,
     invokeEndpoint_inferenceId,
     invokeEndpoint_contentType,
     invokeEndpoint_endpointName,
@@ -120,6 +121,12 @@ data InvokeEndpoint = InvokeEndpoint'
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The model to request for inference when invoking a multi-model endpoint.
     targetModel :: Prelude.Maybe Prelude.Text,
+    -- | An optional JMESPath expression used to override the
+    -- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
+    -- the
+    -- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+    -- section in the developer guide for more information.
+    enableExplanations :: Prelude.Maybe Prelude.Text,
     -- | If you provide a value, it is added to the captured data when you enable
     -- data capture on the endpoint. For information about data capture, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
@@ -185,6 +192,12 @@ data InvokeEndpoint = InvokeEndpoint'
 --
 -- 'targetModel', 'invokeEndpoint_targetModel' - The model to request for inference when invoking a multi-model endpoint.
 --
+-- 'enableExplanations', 'invokeEndpoint_enableExplanations' - An optional JMESPath expression used to override the
+-- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
+-- the
+-- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+-- section in the developer guide for more information.
+--
 -- 'inferenceId', 'invokeEndpoint_inferenceId' - If you provide a value, it is added to the captured data when you enable
 -- data capture on the endpoint. For information about data capture, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
@@ -216,6 +229,7 @@ newInvokeEndpoint pEndpointName_ pBody_ =
       targetVariant = Prelude.Nothing,
       customAttributes = Prelude.Nothing,
       targetModel = Prelude.Nothing,
+      enableExplanations = Prelude.Nothing,
       inferenceId = Prelude.Nothing,
       contentType = Prelude.Nothing,
       endpointName = pEndpointName_,
@@ -268,6 +282,14 @@ invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes}
 invokeEndpoint_targetModel :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
 invokeEndpoint_targetModel = Lens.lens (\InvokeEndpoint' {targetModel} -> targetModel) (\s@InvokeEndpoint' {} a -> s {targetModel = a} :: InvokeEndpoint)
 
+-- | An optional JMESPath expression used to override the
+-- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
+-- the
+-- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+-- section in the developer guide for more information.
+invokeEndpoint_enableExplanations :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
+invokeEndpoint_enableExplanations = Lens.lens (\InvokeEndpoint' {enableExplanations} -> enableExplanations) (\s@InvokeEndpoint' {} a -> s {enableExplanations = a} :: InvokeEndpoint)
+
 -- | If you provide a value, it is added to the captured data when you enable
 -- data capture on the endpoint. For information about data capture, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
@@ -318,6 +340,7 @@ instance Prelude.Hashable InvokeEndpoint where
       `Prelude.hashWithSalt` targetVariant
       `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` targetModel
+      `Prelude.hashWithSalt` enableExplanations
       `Prelude.hashWithSalt` inferenceId
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` endpointName
@@ -330,6 +353,7 @@ instance Prelude.NFData InvokeEndpoint where
       `Prelude.seq` Prelude.rnf targetVariant
       `Prelude.seq` Prelude.rnf customAttributes
       `Prelude.seq` Prelude.rnf targetModel
+      `Prelude.seq` Prelude.rnf enableExplanations
       `Prelude.seq` Prelude.rnf inferenceId
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf endpointName
@@ -346,6 +370,8 @@ instance Core.ToHeaders InvokeEndpoint where
         "X-Amzn-SageMaker-Custom-Attributes"
           Core.=# customAttributes,
         "X-Amzn-SageMaker-Target-Model" Core.=# targetModel,
+        "X-Amzn-SageMaker-Enable-Explanations"
+          Core.=# enableExplanations,
         "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
         "Content-Type" Core.=# contentType
       ]
@@ -397,6 +423,12 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
     --
     -- For information about the format of the response body, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference>.
+    --
+    -- If the explainer is activated, the body includes the explanations
+    -- provided by the model. For more information, see the __Response
+    -- section__ under
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response Invoke the Endpoint>
+    -- in the Developer Guide.
     body :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -440,6 +472,12 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
 --
 -- For information about the format of the response body, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference>.
+--
+-- If the explainer is activated, the body includes the explanations
+-- provided by the model. For more information, see the __Response
+-- section__ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response Invoke the Endpoint>
+-- in the Developer Guide.
 newInvokeEndpointResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -495,6 +533,12 @@ invokeEndpointResponse_httpStatus = Lens.lens (\InvokeEndpointResponse' {httpSta
 --
 -- For information about the format of the response body, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference>.
+--
+-- If the explainer is activated, the body includes the explanations
+-- provided by the model. For more information, see the __Response
+-- section__ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response Invoke the Endpoint>
+-- in the Developer Guide.
 invokeEndpointResponse_body :: Lens.Lens' InvokeEndpointResponse Prelude.Text
 invokeEndpointResponse_body = Lens.lens (\InvokeEndpointResponse' {body} -> body) (\s@InvokeEndpointResponse' {} a -> s {body = a} :: InvokeEndpointResponse)
 

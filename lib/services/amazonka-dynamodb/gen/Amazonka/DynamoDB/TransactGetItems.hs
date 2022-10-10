@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DynamoDB.TransactGetItems
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- @TransactGetItems@ is a synchronous operation that atomically retrieves
 -- multiple items from one or more tables (but not from indexes) in a
 -- single account and Region. A @TransactGetItems@ call can contain up to
--- 25 @TransactGetItem@ objects, each of which contains a @Get@ structure
+-- 100 @TransactGetItem@ objects, each of which contains a @Get@ structure
 -- that specifies an item to retrieve from a table in the account and
 -- Region. A call to @TransactGetItems@ cannot retrieve items from tables
 -- in more than one Amazon Web Services account or Region. The aggregate
@@ -75,7 +75,7 @@ data TransactGetItems = TransactGetItems'
     -- and a value of @NONE@ prevents that information from being returned. No
     -- other value is valid.
     returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
-    -- | An ordered array of up to 25 @TransactGetItem@ objects, each of which
+    -- | An ordered array of up to 100 @TransactGetItem@ objects, each of which
     -- contains a @Get@ structure.
     transactItems :: Prelude.NonEmpty TransactGetItem
   }
@@ -93,7 +93,7 @@ data TransactGetItems = TransactGetItems'
 -- and a value of @NONE@ prevents that information from being returned. No
 -- other value is valid.
 --
--- 'transactItems', 'transactGetItems_transactItems' - An ordered array of up to 25 @TransactGetItem@ objects, each of which
+-- 'transactItems', 'transactGetItems_transactItems' - An ordered array of up to 100 @TransactGetItem@ objects, each of which
 -- contains a @Get@ structure.
 newTransactGetItems ::
   -- | 'transactItems'
@@ -112,7 +112,7 @@ newTransactGetItems pTransactItems_ =
 transactGetItems_returnConsumedCapacity :: Lens.Lens' TransactGetItems (Prelude.Maybe ReturnConsumedCapacity)
 transactGetItems_returnConsumedCapacity = Lens.lens (\TransactGetItems' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@TransactGetItems' {} a -> s {returnConsumedCapacity = a} :: TransactGetItems)
 
--- | An ordered array of up to 25 @TransactGetItem@ objects, each of which
+-- | An ordered array of up to 100 @TransactGetItem@ objects, each of which
 -- contains a @Get@ structure.
 transactGetItems_transactItems :: Lens.Lens' TransactGetItems (Prelude.NonEmpty TransactGetItem)
 transactGetItems_transactItems = Lens.lens (\TransactGetItems' {transactItems} -> transactItems) (\s@TransactGetItems' {} a -> s {transactItems = a} :: TransactGetItems) Prelude.. Lens.coerced
@@ -183,7 +183,7 @@ data TransactGetItemsResponse = TransactGetItemsResponse'
     -- @ConsumedCapacity@ objects report the read-capacity units consumed by
     -- the @TransactGetItems@ call in that table.
     consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
-    -- | An ordered array of up to 25 @ItemResponse@ objects, each of which
+    -- | An ordered array of up to 100 @ItemResponse@ objects, each of which
     -- corresponds to the @TransactGetItem@ object in the same position in the
     -- /TransactItems/ array. Each @ItemResponse@ object contains a Map of the
     -- name-value pairs that are the projected attributes of the requested
@@ -212,7 +212,7 @@ data TransactGetItemsResponse = TransactGetItemsResponse'
 -- @ConsumedCapacity@ objects report the read-capacity units consumed by
 -- the @TransactGetItems@ call in that table.
 --
--- 'responses', 'transactGetItemsResponse_responses' - An ordered array of up to 25 @ItemResponse@ objects, each of which
+-- 'responses', 'transactGetItemsResponse_responses' - An ordered array of up to 100 @ItemResponse@ objects, each of which
 -- corresponds to the @TransactGetItem@ object in the same position in the
 -- /TransactItems/ array. Each @ItemResponse@ object contains a Map of the
 -- name-value pairs that are the projected attributes of the requested
@@ -243,7 +243,7 @@ newTransactGetItemsResponse pHttpStatus_ =
 transactGetItemsResponse_consumedCapacity :: Lens.Lens' TransactGetItemsResponse (Prelude.Maybe [ConsumedCapacity])
 transactGetItemsResponse_consumedCapacity = Lens.lens (\TransactGetItemsResponse' {consumedCapacity} -> consumedCapacity) (\s@TransactGetItemsResponse' {} a -> s {consumedCapacity = a} :: TransactGetItemsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An ordered array of up to 25 @ItemResponse@ objects, each of which
+-- | An ordered array of up to 100 @ItemResponse@ objects, each of which
 -- corresponds to the @TransactGetItem@ object in the same position in the
 -- /TransactItems/ array. Each @ItemResponse@ object contains a Map of the
 -- name-value pairs that are the projected attributes of the requested

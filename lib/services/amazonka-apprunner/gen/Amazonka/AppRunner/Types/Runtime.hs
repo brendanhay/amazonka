@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AppRunner.Types.Runtime
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ module Amazonka.AppRunner.Types.Runtime
         Runtime_CORRETTO_8,
         Runtime_NODEJS_12,
         Runtime_NODEJS_14,
+        Runtime_NODEJS_16,
         Runtime_PYTHON_3
       ),
   )
@@ -69,6 +70,9 @@ pattern Runtime_NODEJS_12 = Runtime' "NODEJS_12"
 pattern Runtime_NODEJS_14 :: Runtime
 pattern Runtime_NODEJS_14 = Runtime' "NODEJS_14"
 
+pattern Runtime_NODEJS_16 :: Runtime
+pattern Runtime_NODEJS_16 = Runtime' "NODEJS_16"
+
 pattern Runtime_PYTHON_3 :: Runtime
 pattern Runtime_PYTHON_3 = Runtime' "PYTHON_3"
 
@@ -77,6 +81,7 @@ pattern Runtime_PYTHON_3 = Runtime' "PYTHON_3"
   Runtime_CORRETTO_8,
   Runtime_NODEJS_12,
   Runtime_NODEJS_14,
+  Runtime_NODEJS_16,
   Runtime_PYTHON_3,
   Runtime'
   #-}

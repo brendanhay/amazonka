@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.UpdateProject
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Amazonka.Evidently.UpdateProject
     newUpdateProject,
 
     -- * Request Lenses
+    updateProject_appConfigResource,
     updateProject_description,
     updateProject_project,
 
@@ -59,7 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | An optional description of the project.
+  { -- | Use this parameter if the project will use client-side evaluation
+    -- powered by AppConfig. Client-side evaluation allows your application to
+    -- assign variations to user sessions locally instead of by calling the
+    -- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+    -- operation. This mitigates the latency and availability risks that come
+    -- with an API call. allows you to
+    --
+    -- This parameter is a structure that contains information about the
+    -- AppConfig application that will be used for client-side evaluation.
+    appConfigResource :: Prelude.Maybe ProjectAppConfigResourceConfig,
+    -- | An optional description of the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the project to update.
     project :: Prelude.Text
@@ -74,6 +85,16 @@ data UpdateProject = UpdateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appConfigResource', 'updateProject_appConfigResource' - Use this parameter if the project will use client-side evaluation
+-- powered by AppConfig. Client-side evaluation allows your application to
+-- assign variations to user sessions locally instead of by calling the
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+-- operation. This mitigates the latency and availability risks that come
+-- with an API call. allows you to
+--
+-- This parameter is a structure that contains information about the
+-- AppConfig application that will be used for client-side evaluation.
+--
 -- 'description', 'updateProject_description' - An optional description of the project.
 --
 -- 'project', 'updateProject_project' - The name or ARN of the project to update.
@@ -83,9 +104,22 @@ newUpdateProject ::
   UpdateProject
 newUpdateProject pProject_ =
   UpdateProject'
-    { description = Prelude.Nothing,
+    { appConfigResource = Prelude.Nothing,
+      description = Prelude.Nothing,
       project = pProject_
     }
+
+-- | Use this parameter if the project will use client-side evaluation
+-- powered by AppConfig. Client-side evaluation allows your application to
+-- assign variations to user sessions locally instead of by calling the
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+-- operation. This mitigates the latency and availability risks that come
+-- with an API call. allows you to
+--
+-- This parameter is a structure that contains information about the
+-- AppConfig application that will be used for client-side evaluation.
+updateProject_appConfigResource :: Lens.Lens' UpdateProject (Prelude.Maybe ProjectAppConfigResourceConfig)
+updateProject_appConfigResource = Lens.lens (\UpdateProject' {appConfigResource} -> appConfigResource) (\s@UpdateProject' {} a -> s {appConfigResource = a} :: UpdateProject)
 
 -- | An optional description of the project.
 updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
@@ -110,12 +144,14 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` appConfigResource
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf description
+    Prelude.rnf appConfigResource
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf project
 
 instance Core.ToHeaders UpdateProject where
@@ -133,7 +169,10 @@ instance Core.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("description" Core..=) Prelude.<$> description]
+          [ ("appConfigResource" Core..=)
+              Prelude.<$> appConfigResource,
+            ("description" Core..=) Prelude.<$> description
+          ]
       )
 
 instance Core.ToPath UpdateProject where

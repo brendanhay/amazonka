@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,7 @@ module Amazonka.Evidently.Lens
     -- ** CreateProject
     createProject_tags,
     createProject_dataDelivery,
+    createProject_appConfigResource,
     createProject_description,
     createProject_name,
     createProjectResponse_httpStatus,
@@ -297,6 +298,7 @@ module Amazonka.Evidently.Lens
     updateLaunchResponse_launch,
 
     -- ** UpdateProject
+    updateProject_appConfigResource,
     updateProject_description,
     updateProject_project,
     updateProjectResponse_httpStatus,
@@ -478,6 +480,7 @@ module Amazonka.Evidently.Lens
     -- ** Project
     project_tags,
     project_dataDelivery,
+    project_appConfigResource,
     project_description,
     project_activeLaunchCount,
     project_featureCount,
@@ -489,6 +492,15 @@ module Amazonka.Evidently.Lens
     project_lastUpdatedTime,
     project_name,
     project_status,
+
+    -- ** ProjectAppConfigResource
+    projectAppConfigResource_applicationId,
+    projectAppConfigResource_configurationProfileId,
+    projectAppConfigResource_environmentId,
+
+    -- ** ProjectAppConfigResourceConfig
+    projectAppConfigResourceConfig_environmentId,
+    projectAppConfigResourceConfig_applicationId,
 
     -- ** ProjectDataDelivery
     projectDataDelivery_cloudWatchLogs,
@@ -651,6 +663,8 @@ import Amazonka.Evidently.Types.MetricMonitorConfig
 import Amazonka.Evidently.Types.OnlineAbConfig
 import Amazonka.Evidently.Types.OnlineAbDefinition
 import Amazonka.Evidently.Types.Project
+import Amazonka.Evidently.Types.ProjectAppConfigResource
+import Amazonka.Evidently.Types.ProjectAppConfigResourceConfig
 import Amazonka.Evidently.Types.ProjectDataDelivery
 import Amazonka.Evidently.Types.ProjectDataDeliveryConfig
 import Amazonka.Evidently.Types.ProjectSummary

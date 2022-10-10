@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.CreateProject
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,7 @@ module Amazonka.Evidently.CreateProject
     -- * Request Lenses
     createProject_tags,
     createProject_dataDelivery,
+    createProject_appConfigResource,
     createProject_description,
     createProject_name,
 
@@ -72,6 +73,21 @@ data CreateProject = CreateProject'
     -- you choose not to store these events, Evidently deletes them after using
     -- them to produce metrics and other experiment results that you can view.
     dataDelivery :: Prelude.Maybe ProjectDataDeliveryConfig,
+    -- | Use this parameter if the project will use /client-side evaluation
+    -- powered by AppConfig/. Client-side evaluation allows your application to
+    -- assign variations to user sessions locally instead of by calling the
+    -- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+    -- operation. This mitigates the latency and availability risks that come
+    -- with an API call. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html Client-side evaluation - powered by AppConfig.>
+    --
+    -- This parameter is a structure that contains information about the
+    -- AppConfig application and environment that will be used as for
+    -- client-side evaluation.
+    --
+    -- To create a project that uses client-side evaluation, you must have the
+    -- @evidently:ExportProjectAsConfiguration@ permission.
+    appConfigResource :: Prelude.Maybe ProjectAppConfigResourceConfig,
     -- | An optional description of the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name for the project.
@@ -103,6 +119,21 @@ data CreateProject = CreateProject'
 -- you choose not to store these events, Evidently deletes them after using
 -- them to produce metrics and other experiment results that you can view.
 --
+-- 'appConfigResource', 'createProject_appConfigResource' - Use this parameter if the project will use /client-side evaluation
+-- powered by AppConfig/. Client-side evaluation allows your application to
+-- assign variations to user sessions locally instead of by calling the
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+-- operation. This mitigates the latency and availability risks that come
+-- with an API call. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html Client-side evaluation - powered by AppConfig.>
+--
+-- This parameter is a structure that contains information about the
+-- AppConfig application and environment that will be used as for
+-- client-side evaluation.
+--
+-- To create a project that uses client-side evaluation, you must have the
+-- @evidently:ExportProjectAsConfiguration@ permission.
+--
 -- 'description', 'createProject_description' - An optional description of the project.
 --
 -- 'name', 'createProject_name' - The name for the project.
@@ -114,6 +145,7 @@ newCreateProject pName_ =
   CreateProject'
     { tags = Prelude.Nothing,
       dataDelivery = Prelude.Nothing,
+      appConfigResource = Prelude.Nothing,
       description = Prelude.Nothing,
       name = pName_
     }
@@ -137,6 +169,23 @@ createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProjec
 -- them to produce metrics and other experiment results that you can view.
 createProject_dataDelivery :: Lens.Lens' CreateProject (Prelude.Maybe ProjectDataDeliveryConfig)
 createProject_dataDelivery = Lens.lens (\CreateProject' {dataDelivery} -> dataDelivery) (\s@CreateProject' {} a -> s {dataDelivery = a} :: CreateProject)
+
+-- | Use this parameter if the project will use /client-side evaluation
+-- powered by AppConfig/. Client-side evaluation allows your application to
+-- assign variations to user sessions locally instead of by calling the
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+-- operation. This mitigates the latency and availability risks that come
+-- with an API call. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html Client-side evaluation - powered by AppConfig.>
+--
+-- This parameter is a structure that contains information about the
+-- AppConfig application and environment that will be used as for
+-- client-side evaluation.
+--
+-- To create a project that uses client-side evaluation, you must have the
+-- @evidently:ExportProjectAsConfiguration@ permission.
+createProject_appConfigResource :: Lens.Lens' CreateProject (Prelude.Maybe ProjectAppConfigResourceConfig)
+createProject_appConfigResource = Lens.lens (\CreateProject' {appConfigResource} -> appConfigResource) (\s@CreateProject' {} a -> s {appConfigResource = a} :: CreateProject)
 
 -- | An optional description of the project.
 createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
@@ -163,6 +212,7 @@ instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataDelivery
+      `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
@@ -170,6 +220,7 @@ instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataDelivery
+      `Prelude.seq` Prelude.rnf appConfigResource
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
@@ -190,6 +241,8 @@ instance Core.ToJSON CreateProject where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("dataDelivery" Core..=) Prelude.<$> dataDelivery,
+            ("appConfigResource" Core..=)
+              Prelude.<$> appConfigResource,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name)
           ]

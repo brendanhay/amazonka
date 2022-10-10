@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.Types.Protocol
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,7 @@ module Amazonka.MediaConnect.Types.Protocol
         Protocol_Rist,
         Protocol_Rtp,
         Protocol_Rtp_fec,
+        Protocol_Srt_caller,
         Protocol_Srt_listener,
         Protocol_St2110_jpegxs,
         Protocol_Zixi_pull,
@@ -79,6 +80,9 @@ pattern Protocol_Rtp = Protocol' "rtp"
 pattern Protocol_Rtp_fec :: Protocol
 pattern Protocol_Rtp_fec = Protocol' "rtp-fec"
 
+pattern Protocol_Srt_caller :: Protocol
+pattern Protocol_Srt_caller = Protocol' "srt-caller"
+
 pattern Protocol_Srt_listener :: Protocol
 pattern Protocol_Srt_listener = Protocol' "srt-listener"
 
@@ -97,6 +101,7 @@ pattern Protocol_Zixi_push = Protocol' "zixi-push"
   Protocol_Rist,
   Protocol_Rtp,
   Protocol_Rtp_fec,
+  Protocol_Srt_caller,
   Protocol_Srt_listener,
   Protocol_St2110_jpegxs,
   Protocol_Zixi_pull,

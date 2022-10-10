@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.GreengrassV2.Types.ComponentDependencyType
+-- Module      : Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.GreengrassV2.Types.ComponentDependencyType
-  ( ComponentDependencyType
+module Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter
+  ( InstalledComponentTopologyFilter
       ( ..,
-        ComponentDependencyType_HARD,
-        ComponentDependencyType_SOFT
+        InstalledComponentTopologyFilter_ALL,
+        InstalledComponentTopologyFilter_ROOT
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ComponentDependencyType = ComponentDependencyType'
-  { fromComponentDependencyType ::
+newtype InstalledComponentTopologyFilter = InstalledComponentTopologyFilter'
+  { fromInstalledComponentTopologyFilter ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype ComponentDependencyType = ComponentDependencyType'
       Core.ToXML
     )
 
-pattern ComponentDependencyType_HARD :: ComponentDependencyType
-pattern ComponentDependencyType_HARD = ComponentDependencyType' "HARD"
+pattern InstalledComponentTopologyFilter_ALL :: InstalledComponentTopologyFilter
+pattern InstalledComponentTopologyFilter_ALL = InstalledComponentTopologyFilter' "ALL"
 
-pattern ComponentDependencyType_SOFT :: ComponentDependencyType
-pattern ComponentDependencyType_SOFT = ComponentDependencyType' "SOFT"
+pattern InstalledComponentTopologyFilter_ROOT :: InstalledComponentTopologyFilter
+pattern InstalledComponentTopologyFilter_ROOT = InstalledComponentTopologyFilter' "ROOT"
 
 {-# COMPLETE
-  ComponentDependencyType_HARD,
-  ComponentDependencyType_SOFT,
-  ComponentDependencyType'
+  InstalledComponentTopologyFilter_ALL,
+  InstalledComponentTopologyFilter_ROOT,
+  InstalledComponentTopologyFilter'
   #-}

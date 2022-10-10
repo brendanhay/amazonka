@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -192,6 +192,7 @@ module Amazonka.GreengrassV2.Lens
 
     -- ** ListInstalledComponents
     listInstalledComponents_nextToken,
+    listInstalledComponents_topologyFilter,
     listInstalledComponents_maxResults,
     listInstalledComponents_coreDeviceThingName,
     listInstalledComponentsResponse_nextToken,
@@ -354,6 +355,7 @@ module Amazonka.GreengrassV2.Lens
     installedComponent_componentName,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
+    installedComponent_lastStatusChangeTimestamp,
     installedComponent_isRoot,
 
     -- ** IoTJobAbortConfig

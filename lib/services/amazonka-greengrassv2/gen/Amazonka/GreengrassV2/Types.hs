@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,9 @@ module Amazonka.GreengrassV2.Types
 
     -- * InstalledComponentLifecycleState
     InstalledComponentLifecycleState (..),
+
+    -- * InstalledComponentTopologyFilter
+    InstalledComponentTopologyFilter (..),
 
     -- * IoTJobAbortAction
     IoTJobAbortAction (..),
@@ -254,6 +257,7 @@ module Amazonka.GreengrassV2.Types
     installedComponent_componentName,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
+    installedComponent_lastStatusChangeTimestamp,
     installedComponent_isRoot,
 
     -- * IoTJobAbortConfig
@@ -406,6 +410,7 @@ import Amazonka.GreengrassV2.Types.EffectiveDeployment
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
 import Amazonka.GreengrassV2.Types.InstalledComponent
 import Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
+import Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter
 import Amazonka.GreengrassV2.Types.IoTJobAbortAction
 import Amazonka.GreengrassV2.Types.IoTJobAbortConfig
 import Amazonka.GreengrassV2.Types.IoTJobAbortCriteria

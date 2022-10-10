@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.Types.InstalledComponent
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,13 @@ data InstalledComponent = InstalledComponent'
     lifecycleState :: Prelude.Maybe InstalledComponentLifecycleState,
     -- | The details about the lifecycle state of the component.
     lifecycleStateDetails :: Prelude.Maybe Prelude.Text,
+    -- | The status of how current the data is.
+    --
+    -- This response is based off of component state changes. The status
+    -- reflects component disruptions and deployments. If a component only sees
+    -- a configuration update during a deployment, it might not undergo a state
+    -- change and this status would not be updated.
+    lastStatusChangeTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Whether or not the component is a root component.
     isRoot :: Prelude.Maybe Prelude.Bool
   }
@@ -57,6 +64,13 @@ data InstalledComponent = InstalledComponent'
 --
 -- 'lifecycleStateDetails', 'installedComponent_lifecycleStateDetails' - The details about the lifecycle state of the component.
 --
+-- 'lastStatusChangeTimestamp', 'installedComponent_lastStatusChangeTimestamp' - The status of how current the data is.
+--
+-- This response is based off of component state changes. The status
+-- reflects component disruptions and deployments. If a component only sees
+-- a configuration update during a deployment, it might not undergo a state
+-- change and this status would not be updated.
+--
 -- 'isRoot', 'installedComponent_isRoot' - Whether or not the component is a root component.
 newInstalledComponent ::
   InstalledComponent
@@ -67,6 +81,7 @@ newInstalledComponent =
       componentName = Prelude.Nothing,
       lifecycleState = Prelude.Nothing,
       lifecycleStateDetails = Prelude.Nothing,
+      lastStatusChangeTimestamp = Prelude.Nothing,
       isRoot = Prelude.Nothing
     }
 
@@ -86,6 +101,15 @@ installedComponent_lifecycleState = Lens.lens (\InstalledComponent' {lifecycleSt
 installedComponent_lifecycleStateDetails :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Text)
 installedComponent_lifecycleStateDetails = Lens.lens (\InstalledComponent' {lifecycleStateDetails} -> lifecycleStateDetails) (\s@InstalledComponent' {} a -> s {lifecycleStateDetails = a} :: InstalledComponent)
 
+-- | The status of how current the data is.
+--
+-- This response is based off of component state changes. The status
+-- reflects component disruptions and deployments. If a component only sees
+-- a configuration update during a deployment, it might not undergo a state
+-- change and this status would not be updated.
+installedComponent_lastStatusChangeTimestamp :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.UTCTime)
+installedComponent_lastStatusChangeTimestamp = Lens.lens (\InstalledComponent' {lastStatusChangeTimestamp} -> lastStatusChangeTimestamp) (\s@InstalledComponent' {} a -> s {lastStatusChangeTimestamp = a} :: InstalledComponent) Prelude.. Lens.mapping Core._Time
+
 -- | Whether or not the component is a root component.
 installedComponent_isRoot :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Bool)
 installedComponent_isRoot = Lens.lens (\InstalledComponent' {isRoot} -> isRoot) (\s@InstalledComponent' {} a -> s {isRoot = a} :: InstalledComponent)
@@ -100,6 +124,7 @@ instance Core.FromJSON InstalledComponent where
             Prelude.<*> (x Core..:? "componentName")
             Prelude.<*> (x Core..:? "lifecycleState")
             Prelude.<*> (x Core..:? "lifecycleStateDetails")
+            Prelude.<*> (x Core..:? "lastStatusChangeTimestamp")
             Prelude.<*> (x Core..:? "isRoot")
       )
 
@@ -109,6 +134,7 @@ instance Prelude.Hashable InstalledComponent where
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` lifecycleState
       `Prelude.hashWithSalt` lifecycleStateDetails
+      `Prelude.hashWithSalt` lastStatusChangeTimestamp
       `Prelude.hashWithSalt` isRoot
 
 instance Prelude.NFData InstalledComponent where
@@ -117,4 +143,5 @@ instance Prelude.NFData InstalledComponent where
       `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf lifecycleState
       `Prelude.seq` Prelude.rnf lifecycleStateDetails
+      `Prelude.seq` Prelude.rnf lastStatusChangeTimestamp
       `Prelude.seq` Prelude.rnf isRoot

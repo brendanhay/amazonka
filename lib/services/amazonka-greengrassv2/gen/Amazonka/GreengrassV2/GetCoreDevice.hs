@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.GreengrassV2.GetCoreDevice
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,9 @@
 -- -   At a
 --     <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss regular interval that you can configure>,
 --     which defaults to 24 hours
+--
+-- -   For IoT Greengrass Core v2.7.0, the core device sends status updates
+--     upon local deployment and cloud deployment
 module Amazonka.GreengrassV2.GetCoreDevice
   ( -- * Creating a Request
     GetCoreDevice (..),

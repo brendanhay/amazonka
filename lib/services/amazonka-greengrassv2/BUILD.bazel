@@ -68,6 +68,7 @@ haskell_library(
         "gen/Amazonka/GreengrassV2/Types/EffectiveDeploymentExecutionStatus.hs",
         "gen/Amazonka/GreengrassV2/Types/InstalledComponent.hs",
         "gen/Amazonka/GreengrassV2/Types/InstalledComponentLifecycleState.hs",
+        "gen/Amazonka/GreengrassV2/Types/InstalledComponentTopologyFilter.hs",
         "gen/Amazonka/GreengrassV2/Types/IoTJobAbortAction.hs",
         "gen/Amazonka/GreengrassV2/Types/IoTJobAbortConfig.hs",
         "gen/Amazonka/GreengrassV2/Types/IoTJobAbortCriteria.hs",

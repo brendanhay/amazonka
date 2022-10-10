@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1039,6 +1039,15 @@ module Amazonka.Lightsail.Lens
     updateDomainEntryResponse_operations,
     updateDomainEntryResponse_httpStatus,
 
+    -- ** UpdateInstanceMetadataOptions
+    updateInstanceMetadataOptions_httpPutResponseHopLimit,
+    updateInstanceMetadataOptions_httpTokens,
+    updateInstanceMetadataOptions_httpEndpoint,
+    updateInstanceMetadataOptions_httpProtocolIpv6,
+    updateInstanceMetadataOptions_instanceName,
+    updateInstanceMetadataOptionsResponse_operation,
+    updateInstanceMetadataOptionsResponse_httpStatus,
+
     -- ** UpdateLoadBalancerAttribute
     updateLoadBalancerAttribute_loadBalancerName,
     updateLoadBalancerAttribute_attributeName,
@@ -1510,6 +1519,7 @@ module Amazonka.Lightsail.Lens
     instance_networking,
     instance_createdAt,
     instance_ipv6Addresses,
+    instance_metadataOptions,
 
     -- ** InstanceAccessDetails
     instanceAccessDetails_hostKeys,
@@ -1539,6 +1549,13 @@ module Amazonka.Lightsail.Lens
     instanceHealthSummary_instanceHealthReason,
     instanceHealthSummary_instanceHealth,
     instanceHealthSummary_instanceName,
+
+    -- ** InstanceMetadataOptions
+    instanceMetadataOptions_httpPutResponseHopLimit,
+    instanceMetadataOptions_state,
+    instanceMetadataOptions_httpTokens,
+    instanceMetadataOptions_httpEndpoint,
+    instanceMetadataOptions_httpProtocolIpv6,
 
     -- ** InstanceNetworking
     instanceNetworking_ports,
@@ -2107,6 +2124,7 @@ import Amazonka.Lightsail.Types.InstanceAccessDetails
 import Amazonka.Lightsail.Types.InstanceEntry
 import Amazonka.Lightsail.Types.InstanceHardware
 import Amazonka.Lightsail.Types.InstanceHealthSummary
+import Amazonka.Lightsail.Types.InstanceMetadataOptions
 import Amazonka.Lightsail.Types.InstanceNetworking
 import Amazonka.Lightsail.Types.InstancePortInfo
 import Amazonka.Lightsail.Types.InstancePortState
@@ -2158,6 +2176,7 @@ import Amazonka.Lightsail.UpdateContainerService
 import Amazonka.Lightsail.UpdateDistribution
 import Amazonka.Lightsail.UpdateDistributionBundle
 import Amazonka.Lightsail.UpdateDomainEntry
+import Amazonka.Lightsail.UpdateInstanceMetadataOptions
 import Amazonka.Lightsail.UpdateLoadBalancerAttribute
 import Amazonka.Lightsail.UpdateRelationalDatabase
 import Amazonka.Lightsail.UpdateRelationalDatabaseParameters

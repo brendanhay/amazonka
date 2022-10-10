@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -971,6 +971,12 @@ module Amazonka.Lightsail
     UpdateDomainEntryResponse (UpdateDomainEntryResponse'),
     newUpdateDomainEntryResponse,
 
+    -- ** UpdateInstanceMetadataOptions
+    UpdateInstanceMetadataOptions (UpdateInstanceMetadataOptions'),
+    newUpdateInstanceMetadataOptions,
+    UpdateInstanceMetadataOptionsResponse (UpdateInstanceMetadataOptionsResponse'),
+    newUpdateInstanceMetadataOptionsResponse,
+
     -- ** UpdateLoadBalancerAttribute
     UpdateLoadBalancerAttribute (UpdateLoadBalancerAttribute'),
     newUpdateLoadBalancerAttribute,
@@ -1075,6 +1081,15 @@ module Amazonka.Lightsail
     -- ** HeaderEnum
     HeaderEnum (..),
 
+    -- ** HttpEndpoint
+    HttpEndpoint (..),
+
+    -- ** HttpProtocolIpv6
+    HttpProtocolIpv6 (..),
+
+    -- ** HttpTokens
+    HttpTokens (..),
+
     -- ** InstanceAccessProtocol
     InstanceAccessProtocol (..),
 
@@ -1083,6 +1098,9 @@ module Amazonka.Lightsail
 
     -- ** InstanceHealthState
     InstanceHealthState (..),
+
+    -- ** InstanceMetadataState
+    InstanceMetadataState (..),
 
     -- ** InstanceMetricName
     InstanceMetricName (..),
@@ -1423,6 +1441,10 @@ module Amazonka.Lightsail
     InstanceHealthSummary (InstanceHealthSummary'),
     newInstanceHealthSummary,
 
+    -- ** InstanceMetadataOptions
+    InstanceMetadataOptions (InstanceMetadataOptions'),
+    newInstanceMetadataOptions,
+
     -- ** InstanceNetworking
     InstanceNetworking (InstanceNetworking'),
     newInstanceNetworking,
@@ -1750,6 +1772,7 @@ import Amazonka.Lightsail.UpdateContainerService
 import Amazonka.Lightsail.UpdateDistribution
 import Amazonka.Lightsail.UpdateDistributionBundle
 import Amazonka.Lightsail.UpdateDomainEntry
+import Amazonka.Lightsail.UpdateInstanceMetadataOptions
 import Amazonka.Lightsail.UpdateLoadBalancerAttribute
 import Amazonka.Lightsail.UpdateRelationalDatabase
 import Amazonka.Lightsail.UpdateRelationalDatabaseParameters

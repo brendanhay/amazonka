@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -271,6 +271,9 @@ library
     Amazonka.Lightsail.Types.HeaderEnum
     Amazonka.Lightsail.Types.HeaderObject
     Amazonka.Lightsail.Types.HostKeyAttributes
+    Amazonka.Lightsail.Types.HttpEndpoint
+    Amazonka.Lightsail.Types.HttpProtocolIpv6
+    Amazonka.Lightsail.Types.HttpTokens
     Amazonka.Lightsail.Types.InputOrigin
     Amazonka.Lightsail.Types.Instance
     Amazonka.Lightsail.Types.InstanceAccessDetails
@@ -280,6 +283,8 @@ library
     Amazonka.Lightsail.Types.InstanceHealthReason
     Amazonka.Lightsail.Types.InstanceHealthState
     Amazonka.Lightsail.Types.InstanceHealthSummary
+    Amazonka.Lightsail.Types.InstanceMetadataOptions
+    Amazonka.Lightsail.Types.InstanceMetadataState
     Amazonka.Lightsail.Types.InstanceMetricName
     Amazonka.Lightsail.Types.InstanceNetworking
     Amazonka.Lightsail.Types.InstancePlatform
@@ -364,13 +369,14 @@ library
     Amazonka.Lightsail.UpdateDistribution
     Amazonka.Lightsail.UpdateDistributionBundle
     Amazonka.Lightsail.UpdateDomainEntry
+    Amazonka.Lightsail.UpdateInstanceMetadataOptions
     Amazonka.Lightsail.UpdateLoadBalancerAttribute
     Amazonka.Lightsail.UpdateRelationalDatabase
     Amazonka.Lightsail.UpdateRelationalDatabaseParameters
     Amazonka.Lightsail.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-lightsail-test
@@ -389,9 +395,9 @@ test-suite amazonka-lightsail-test
     Test.Amazonka.Lightsail.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-lightsail
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

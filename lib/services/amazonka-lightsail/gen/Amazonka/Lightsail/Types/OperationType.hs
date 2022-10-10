@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Types.OperationType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,6 +96,7 @@ module Amazonka.Lightsail.Types.OperationType
         OperationType_UpdateDistribution,
         OperationType_UpdateDistributionBundle,
         OperationType_UpdateDomainEntry,
+        OperationType_UpdateInstanceMetadataOptions,
         OperationType_UpdateLoadBalancerAttribute,
         OperationType_UpdateRelationalDatabase,
         OperationType_UpdateRelationalDatabaseParameters
@@ -362,6 +363,9 @@ pattern OperationType_UpdateDistributionBundle = OperationType' "UpdateDistribut
 pattern OperationType_UpdateDomainEntry :: OperationType
 pattern OperationType_UpdateDomainEntry = OperationType' "UpdateDomainEntry"
 
+pattern OperationType_UpdateInstanceMetadataOptions :: OperationType
+pattern OperationType_UpdateInstanceMetadataOptions = OperationType' "UpdateInstanceMetadataOptions"
+
 pattern OperationType_UpdateLoadBalancerAttribute :: OperationType
 pattern OperationType_UpdateLoadBalancerAttribute = OperationType' "UpdateLoadBalancerAttribute"
 
@@ -448,6 +452,7 @@ pattern OperationType_UpdateRelationalDatabaseParameters = OperationType' "Updat
   OperationType_UpdateDistribution,
   OperationType_UpdateDistributionBundle,
   OperationType_UpdateDomainEntry,
+  OperationType_UpdateInstanceMetadataOptions,
   OperationType_UpdateLoadBalancerAttribute,
   OperationType_UpdateRelationalDatabase,
   OperationType_UpdateRelationalDatabaseParameters,

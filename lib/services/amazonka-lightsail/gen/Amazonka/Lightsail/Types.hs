@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,6 +109,15 @@ module Amazonka.Lightsail.Types
     -- * HeaderEnum
     HeaderEnum (..),
 
+    -- * HttpEndpoint
+    HttpEndpoint (..),
+
+    -- * HttpProtocolIpv6
+    HttpProtocolIpv6 (..),
+
+    -- * HttpTokens
+    HttpTokens (..),
+
     -- * InstanceAccessProtocol
     InstanceAccessProtocol (..),
 
@@ -117,6 +126,9 @@ module Amazonka.Lightsail.Types
 
     -- * InstanceHealthState
     InstanceHealthState (..),
+
+    -- * InstanceMetadataState
+    InstanceMetadataState (..),
 
     -- * InstanceMetricName
     InstanceMetricName (..),
@@ -771,6 +783,7 @@ module Amazonka.Lightsail.Types
     instance_networking,
     instance_createdAt,
     instance_ipv6Addresses,
+    instance_metadataOptions,
 
     -- * InstanceAccessDetails
     InstanceAccessDetails (..),
@@ -808,6 +821,15 @@ module Amazonka.Lightsail.Types
     instanceHealthSummary_instanceHealthReason,
     instanceHealthSummary_instanceHealth,
     instanceHealthSummary_instanceName,
+
+    -- * InstanceMetadataOptions
+    InstanceMetadataOptions (..),
+    newInstanceMetadataOptions,
+    instanceMetadataOptions_httpPutResponseHopLimit,
+    instanceMetadataOptions_state,
+    instanceMetadataOptions_httpTokens,
+    instanceMetadataOptions_httpEndpoint,
+    instanceMetadataOptions_httpProtocolIpv6,
 
     -- * InstanceNetworking
     InstanceNetworking (..),
@@ -1343,6 +1365,9 @@ import Amazonka.Lightsail.Types.ForwardValues
 import Amazonka.Lightsail.Types.HeaderEnum
 import Amazonka.Lightsail.Types.HeaderObject
 import Amazonka.Lightsail.Types.HostKeyAttributes
+import Amazonka.Lightsail.Types.HttpEndpoint
+import Amazonka.Lightsail.Types.HttpProtocolIpv6
+import Amazonka.Lightsail.Types.HttpTokens
 import Amazonka.Lightsail.Types.InputOrigin
 import Amazonka.Lightsail.Types.Instance
 import Amazonka.Lightsail.Types.InstanceAccessDetails
@@ -1352,6 +1377,8 @@ import Amazonka.Lightsail.Types.InstanceHardware
 import Amazonka.Lightsail.Types.InstanceHealthReason
 import Amazonka.Lightsail.Types.InstanceHealthState
 import Amazonka.Lightsail.Types.InstanceHealthSummary
+import Amazonka.Lightsail.Types.InstanceMetadataOptions
+import Amazonka.Lightsail.Types.InstanceMetadataState
 import Amazonka.Lightsail.Types.InstanceMetricName
 import Amazonka.Lightsail.Types.InstanceNetworking
 import Amazonka.Lightsail.Types.InstancePlatform

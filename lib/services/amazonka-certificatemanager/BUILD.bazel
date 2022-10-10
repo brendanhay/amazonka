@@ -44,6 +44,8 @@ haskell_library(
         "gen/Amazonka/CertificateManager/Types/RenewalSummary.hs",
         "gen/Amazonka/CertificateManager/Types/ResourceRecord.hs",
         "gen/Amazonka/CertificateManager/Types/RevocationReason.hs",
+        "gen/Amazonka/CertificateManager/Types/SortBy.hs",
+        "gen/Amazonka/CertificateManager/Types/SortOrder.hs",
         "gen/Amazonka/CertificateManager/Types/Tag.hs",
         "gen/Amazonka/CertificateManager/Types/ValidationMethod.hs",
         "gen/Amazonka/CertificateManager/UpdateCertificateOptions.hs",

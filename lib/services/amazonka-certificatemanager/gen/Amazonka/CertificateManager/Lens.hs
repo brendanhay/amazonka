@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,10 @@ module Amazonka.CertificateManager.Lens
     importCertificateResponse_httpStatus,
 
     -- ** ListCertificates
+    listCertificates_sortOrder,
     listCertificates_nextToken,
     listCertificates_maxItems,
+    listCertificates_sortBy,
     listCertificates_includes,
     listCertificates_certificateStatuses,
     listCertificatesResponse_nextToken,
@@ -133,8 +135,24 @@ module Amazonka.CertificateManager.Lens
     certificateOptions_certificateTransparencyLoggingPreference,
 
     -- ** CertificateSummary
+    certificateSummary_subjectAlternativeNameSummaries,
+    certificateSummary_type,
     certificateSummary_domainName,
+    certificateSummary_exported,
+    certificateSummary_keyUsages,
+    certificateSummary_keyAlgorithm,
+    certificateSummary_extendedKeyUsages,
+    certificateSummary_status,
+    certificateSummary_hasAdditionalSubjectAlternativeNames,
     certificateSummary_certificateArn,
+    certificateSummary_importedAt,
+    certificateSummary_notBefore,
+    certificateSummary_inUse,
+    certificateSummary_revokedAt,
+    certificateSummary_notAfter,
+    certificateSummary_renewalEligibility,
+    certificateSummary_createdAt,
+    certificateSummary_issuedAt,
 
     -- ** DomainValidation
     domainValidation_validationStatus,

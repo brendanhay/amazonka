@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -83,13 +83,15 @@ library
     Amazonka.CertificateManager.Types.RenewalSummary
     Amazonka.CertificateManager.Types.ResourceRecord
     Amazonka.CertificateManager.Types.RevocationReason
+    Amazonka.CertificateManager.Types.SortBy
+    Amazonka.CertificateManager.Types.SortOrder
     Amazonka.CertificateManager.Types.Tag
     Amazonka.CertificateManager.Types.ValidationMethod
     Amazonka.CertificateManager.UpdateCertificateOptions
     Amazonka.CertificateManager.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-certificatemanager-test
@@ -109,8 +111,8 @@ test-suite amazonka-certificatemanager-test
 
   build-depends:
     , amazonka-certificatemanager
-    , amazonka-core                ^>=2.0
-    , amazonka-test                ^>=2.0
+    , amazonka-core                >=2.0 && <2.1
+    , amazonka-test                >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.CertificateManager.Types.ValidationMethod
+-- Module      : Amazonka.CertificateManager.Types.SortOrder
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.CertificateManager.Types.ValidationMethod
-  ( ValidationMethod
+module Amazonka.CertificateManager.Types.SortOrder
+  ( SortOrder
       ( ..,
-        ValidationMethod_DNS,
-        ValidationMethod_EMAIL
+        SortOrder_ASCENDING,
+        SortOrder_DESCENDING
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ValidationMethod = ValidationMethod'
-  { fromValidationMethod ::
+newtype SortOrder = SortOrder'
+  { fromSortOrder ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype ValidationMethod = ValidationMethod'
       Core.ToXML
     )
 
-pattern ValidationMethod_DNS :: ValidationMethod
-pattern ValidationMethod_DNS = ValidationMethod' "DNS"
+pattern SortOrder_ASCENDING :: SortOrder
+pattern SortOrder_ASCENDING = SortOrder' "ASCENDING"
 
-pattern ValidationMethod_EMAIL :: ValidationMethod
-pattern ValidationMethod_EMAIL = ValidationMethod' "EMAIL"
+pattern SortOrder_DESCENDING :: SortOrder
+pattern SortOrder_DESCENDING = SortOrder' "DESCENDING"
 
 {-# COMPLETE
-  ValidationMethod_DNS,
-  ValidationMethod_EMAIL,
-  ValidationMethod'
+  SortOrder_ASCENDING,
+  SortOrder_DESCENDING,
+  SortOrder'
   #-}

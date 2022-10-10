@@ -14,13 +14,17 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.DescribeCertificate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns detailed metadata about the specified ACM certificate.
+--
+-- If you have just created a certificate using the @RequestCertificate@
+-- action, there is a delay of several seconds before you can retrieve
+-- information about it.
 module Amazonka.CertificateManager.DescribeCertificate
   ( -- * Creating a Request
     DescribeCertificate (..),

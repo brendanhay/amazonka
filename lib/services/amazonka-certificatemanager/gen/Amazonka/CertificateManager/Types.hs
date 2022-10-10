@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,6 +70,12 @@ module Amazonka.CertificateManager.Types
     -- * RevocationReason
     RevocationReason (..),
 
+    -- * SortBy
+    SortBy (..),
+
+    -- * SortOrder
+    SortOrder (..),
+
     -- * ValidationMethod
     ValidationMethod (..),
 
@@ -111,8 +117,24 @@ module Amazonka.CertificateManager.Types
     -- * CertificateSummary
     CertificateSummary (..),
     newCertificateSummary,
+    certificateSummary_subjectAlternativeNameSummaries,
+    certificateSummary_type,
     certificateSummary_domainName,
+    certificateSummary_exported,
+    certificateSummary_keyUsages,
+    certificateSummary_keyAlgorithm,
+    certificateSummary_extendedKeyUsages,
+    certificateSummary_status,
+    certificateSummary_hasAdditionalSubjectAlternativeNames,
     certificateSummary_certificateArn,
+    certificateSummary_importedAt,
+    certificateSummary_notBefore,
+    certificateSummary_inUse,
+    certificateSummary_revokedAt,
+    certificateSummary_notAfter,
+    certificateSummary_renewalEligibility,
+    certificateSummary_createdAt,
+    certificateSummary_issuedAt,
 
     -- * DomainValidation
     DomainValidation (..),
@@ -199,6 +221,8 @@ import Amazonka.CertificateManager.Types.RenewalStatus
 import Amazonka.CertificateManager.Types.RenewalSummary
 import Amazonka.CertificateManager.Types.ResourceRecord
 import Amazonka.CertificateManager.Types.RevocationReason
+import Amazonka.CertificateManager.Types.SortBy
+import Amazonka.CertificateManager.Types.SortOrder
 import Amazonka.CertificateManager.Types.Tag
 import Amazonka.CertificateManager.Types.ValidationMethod
 import qualified Amazonka.Core as Core

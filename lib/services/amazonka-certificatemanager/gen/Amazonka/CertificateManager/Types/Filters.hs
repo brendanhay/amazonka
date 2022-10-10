@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManager.Types.Filters
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@ data Filters = Filters'
     -- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates
     -- that have at least one domain. To return other certificate types,
     -- provide the desired type signatures in a comma-separated list. For
-    -- example, @\"keyTypes\": [\"RSA_2048,RSA_4096\"]@ returns both @RSA_2048@
-    -- and @RSA_4096@ certificates.
+    -- example, @\"keyTypes\": [\"RSA_2048\",\"RSA_4096\"]@ returns both
+    -- @RSA_2048@ and @RSA_4096@ certificates.
     keyTypes :: Prelude.Maybe [KeyAlgorithm],
     -- | Specify one or more KeyUsage extension values.
     keyUsage :: Prelude.Maybe [KeyUsageName]
@@ -61,8 +61,8 @@ data Filters = Filters'
 -- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates
 -- that have at least one domain. To return other certificate types,
 -- provide the desired type signatures in a comma-separated list. For
--- example, @\"keyTypes\": [\"RSA_2048,RSA_4096\"]@ returns both @RSA_2048@
--- and @RSA_4096@ certificates.
+-- example, @\"keyTypes\": [\"RSA_2048\",\"RSA_4096\"]@ returns both
+-- @RSA_2048@ and @RSA_4096@ certificates.
 --
 -- 'keyUsage', 'filters_keyUsage' - Specify one or more KeyUsage extension values.
 newFilters ::
@@ -83,8 +83,8 @@ filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKe
 -- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates
 -- that have at least one domain. To return other certificate types,
 -- provide the desired type signatures in a comma-separated list. For
--- example, @\"keyTypes\": [\"RSA_2048,RSA_4096\"]@ returns both @RSA_2048@
--- and @RSA_4096@ certificates.
+-- example, @\"keyTypes\": [\"RSA_2048\",\"RSA_4096\"]@ returns both
+-- @RSA_2048@ and @RSA_4096@ certificates.
 filters_keyTypes :: Lens.Lens' Filters (Prelude.Maybe [KeyAlgorithm])
 filters_keyTypes = Lens.lens (\Filters' {keyTypes} -> keyTypes) (\s@Filters' {} a -> s {keyTypes = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 

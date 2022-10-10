@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types.Job
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.ExecutionProperty
 import Amazonka.Glue.Types.JobCommand
 import Amazonka.Glue.Types.NotificationProperty
+import Amazonka.Glue.Types.SourceControlDetails
 import Amazonka.Glue.Types.WorkerType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -120,6 +121,9 @@ data Job = Job'
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The details for a source control configuration for a job, allowing
+    -- synchronization of job artifacts to or from a remote repository.
+    sourceControlDetails :: Prelude.Maybe SourceControlDetails,
     -- | This field is reserved for future use.
     logUri :: Prelude.Maybe Prelude.Text,
     -- | The connections used for this job.
@@ -262,6 +266,9 @@ data Job = Job'
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 --
+-- 'sourceControlDetails', 'job_sourceControlDetails' - The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+--
 -- 'logUri', 'job_logUri' - This field is reserved for future use.
 --
 -- 'connections', 'job_connections' - The connections used for this job.
@@ -327,6 +334,7 @@ newJob =
       maxRetries = Prelude.Nothing,
       codeGenConfigurationNodes = Prelude.Nothing,
       defaultArguments = Prelude.Nothing,
+      sourceControlDetails = Prelude.Nothing,
       logUri = Prelude.Nothing,
       connections = Prelude.Nothing,
       role' = Prelude.Nothing,
@@ -454,6 +462,11 @@ job_codeGenConfigurationNodes = Lens.lens (\Job' {codeGenConfigurationNodes} -> 
 job_defaultArguments :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 job_defaultArguments = Lens.lens (\Job' {defaultArguments} -> defaultArguments) (\s@Job' {} a -> s {defaultArguments = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
+-- | The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+job_sourceControlDetails :: Lens.Lens' Job (Prelude.Maybe SourceControlDetails)
+job_sourceControlDetails = Lens.lens (\Job' {sourceControlDetails} -> sourceControlDetails) (\s@Job' {} a -> s {sourceControlDetails = a} :: Job)
+
 -- | This field is reserved for future use.
 job_logUri :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_logUri = Lens.lens (\Job' {logUri} -> logUri) (\s@Job' {} a -> s {logUri = a} :: Job)
@@ -538,6 +551,7 @@ instance Core.FromJSON Job where
             Prelude.<*> ( x Core..:? "DefaultArguments"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "SourceControlDetails")
             Prelude.<*> (x Core..:? "LogUri")
             Prelude.<*> (x Core..:? "Connections")
             Prelude.<*> (x Core..:? "Role")
@@ -564,6 +578,7 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` sourceControlDetails
       `Prelude.hashWithSalt` logUri
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` role'
@@ -589,8 +604,10 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf codeGenConfigurationNodes
       `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf sourceControlDetails
       `Prelude.seq` Prelude.rnf logUri
       `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf executionClass
+      `Prelude.seq` Prelude.rnf
+        executionClass

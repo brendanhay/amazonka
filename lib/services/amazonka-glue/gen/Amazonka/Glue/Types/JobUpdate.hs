@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types.JobUpdate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.ExecutionProperty
 import Amazonka.Glue.Types.JobCommand
 import Amazonka.Glue.Types.NotificationProperty
+import Amazonka.Glue.Types.SourceControlDetails
 import Amazonka.Glue.Types.WorkerType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -112,6 +113,9 @@ data JobUpdate = JobUpdate'
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The details for a source control configuration for a job, allowing
+    -- synchronization of job artifacts to or from a remote repository.
+    sourceControlDetails :: Prelude.Maybe SourceControlDetails,
     -- | This field is reserved for future use.
     logUri :: Prelude.Maybe Prelude.Text,
     -- | The connections used for this job.
@@ -244,6 +248,9 @@ data JobUpdate = JobUpdate'
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 --
+-- 'sourceControlDetails', 'jobUpdate_sourceControlDetails' - The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+--
 -- 'logUri', 'jobUpdate_logUri' - This field is reserved for future use.
 --
 -- 'connections', 'jobUpdate_connections' - The connections used for this job.
@@ -305,6 +312,7 @@ newJobUpdate =
       maxRetries = Prelude.Nothing,
       codeGenConfigurationNodes = Prelude.Nothing,
       defaultArguments = Prelude.Nothing,
+      sourceControlDetails = Prelude.Nothing,
       logUri = Prelude.Nothing,
       connections = Prelude.Nothing,
       role' = Prelude.Nothing,
@@ -417,6 +425,11 @@ jobUpdate_codeGenConfigurationNodes = Lens.lens (\JobUpdate' {codeGenConfigurati
 jobUpdate_defaultArguments :: Lens.Lens' JobUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobUpdate_defaultArguments = Lens.lens (\JobUpdate' {defaultArguments} -> defaultArguments) (\s@JobUpdate' {} a -> s {defaultArguments = a} :: JobUpdate) Prelude.. Lens.mapping Lens.coerced
 
+-- | The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+jobUpdate_sourceControlDetails :: Lens.Lens' JobUpdate (Prelude.Maybe SourceControlDetails)
+jobUpdate_sourceControlDetails = Lens.lens (\JobUpdate' {sourceControlDetails} -> sourceControlDetails) (\s@JobUpdate' {} a -> s {sourceControlDetails = a} :: JobUpdate)
+
 -- | This field is reserved for future use.
 jobUpdate_logUri :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Text)
 jobUpdate_logUri = Lens.lens (\JobUpdate' {logUri} -> logUri) (\s@JobUpdate' {} a -> s {logUri = a} :: JobUpdate)
@@ -487,6 +500,7 @@ instance Prelude.Hashable JobUpdate where
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` sourceControlDetails
       `Prelude.hashWithSalt` logUri
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` role'
@@ -509,6 +523,7 @@ instance Prelude.NFData JobUpdate where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf codeGenConfigurationNodes
       `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf sourceControlDetails
       `Prelude.seq` Prelude.rnf logUri
       `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf role'
@@ -541,6 +556,8 @@ instance Core.ToJSON JobUpdate where
               Prelude.<$> codeGenConfigurationNodes,
             ("DefaultArguments" Core..=)
               Prelude.<$> defaultArguments,
+            ("SourceControlDetails" Core..=)
+              Prelude.<$> sourceControlDetails,
             ("LogUri" Core..=) Prelude.<$> logUri,
             ("Connections" Core..=) Prelude.<$> connections,
             ("Role" Core..=) Prelude.<$> role',

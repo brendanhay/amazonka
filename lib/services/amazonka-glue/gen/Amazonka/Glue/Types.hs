@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -220,6 +220,12 @@ module Amazonka.Glue.Types
 
     -- * SortDirectionType
     SortDirectionType (..),
+
+    -- * SourceControlAuthStrategy
+    SourceControlAuthStrategy (..),
+
+    -- * SourceControlProvider
+    SourceControlProvider (..),
 
     -- * StartingPosition
     StartingPosition (..),
@@ -456,6 +462,8 @@ module Amazonka.Glue.Types
     -- * CatalogTarget
     CatalogTarget (..),
     newCatalogTarget,
+    catalogTarget_dlqEventQueueArn,
+    catalogTarget_eventQueueArn,
     catalogTarget_connectionName,
     catalogTarget_databaseName,
     catalogTarget_tables,
@@ -1215,6 +1223,7 @@ module Amazonka.Glue.Types
     job_maxRetries,
     job_codeGenConfigurationNodes,
     job_defaultArguments,
+    job_sourceControlDetails,
     job_logUri,
     job_connections,
     job_role,
@@ -1295,6 +1304,7 @@ module Amazonka.Glue.Types
     jobUpdate_maxRetries,
     jobUpdate_codeGenConfigurationNodes,
     jobUpdate_defaultArguments,
+    jobUpdate_sourceControlDetails,
     jobUpdate_logUri,
     jobUpdate_connections,
     jobUpdate_role,
@@ -2010,6 +2020,18 @@ module Amazonka.Glue.Types
     sortCriterion_fieldName,
     sortCriterion_sort,
 
+    -- * SourceControlDetails
+    SourceControlDetails (..),
+    newSourceControlDetails,
+    sourceControlDetails_branch,
+    sourceControlDetails_folder,
+    sourceControlDetails_repository,
+    sourceControlDetails_authToken,
+    sourceControlDetails_provider,
+    sourceControlDetails_owner,
+    sourceControlDetails_lastCommitId,
+    sourceControlDetails_authStrategy,
+
     -- * SparkConnectorSource
     SparkConnectorSource (..),
     newSparkConnectorSource,
@@ -2679,6 +2701,9 @@ import Amazonka.Glue.Types.SkewedInfo
 import Amazonka.Glue.Types.Sort
 import Amazonka.Glue.Types.SortCriterion
 import Amazonka.Glue.Types.SortDirectionType
+import Amazonka.Glue.Types.SourceControlAuthStrategy
+import Amazonka.Glue.Types.SourceControlDetails
+import Amazonka.Glue.Types.SourceControlProvider
 import Amazonka.Glue.Types.SparkConnectorSource
 import Amazonka.Glue.Types.SparkConnectorTarget
 import Amazonka.Glue.Types.SparkSQL

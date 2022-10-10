@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -467,6 +467,9 @@ library
     Amazonka.Glue.Types.Sort
     Amazonka.Glue.Types.SortCriterion
     Amazonka.Glue.Types.SortDirectionType
+    Amazonka.Glue.Types.SourceControlAuthStrategy
+    Amazonka.Glue.Types.SourceControlDetails
+    Amazonka.Glue.Types.SourceControlProvider
     Amazonka.Glue.Types.SparkConnectorSource
     Amazonka.Glue.Types.SparkConnectorTarget
     Amazonka.Glue.Types.SparkSQL
@@ -538,10 +541,12 @@ library
     Amazonka.Glue.UpdateDatabase
     Amazonka.Glue.UpdateDevEndpoint
     Amazonka.Glue.UpdateJob
+    Amazonka.Glue.UpdateJobFromSourceControl
     Amazonka.Glue.UpdateMLTransform
     Amazonka.Glue.UpdatePartition
     Amazonka.Glue.UpdateRegistry
     Amazonka.Glue.UpdateSchema
+    Amazonka.Glue.UpdateSourceControlFromJob
     Amazonka.Glue.UpdateTable
     Amazonka.Glue.UpdateTrigger
     Amazonka.Glue.UpdateUserDefinedFunction
@@ -549,7 +554,7 @@ library
     Amazonka.Glue.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-glue-test
@@ -568,9 +573,9 @@ test-suite amazonka-glue-test
     Test.Amazonka.Glue.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-glue
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.CreateJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,7 @@ module Amazonka.Glue.CreateJob
     createJob_maxRetries,
     createJob_codeGenConfigurationNodes,
     createJob_defaultArguments,
+    createJob_sourceControlDetails,
     createJob_logUri,
     createJob_connections,
     createJob_maxCapacity,
@@ -155,6 +156,9 @@ data CreateJob = CreateJob'
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The details for a source control configuration for a job, allowing
+    -- synchronization of job artifacts to or from a remote repository.
+    sourceControlDetails :: Prelude.Maybe SourceControlDetails,
     -- | This field is reserved for future use.
     logUri :: Prelude.Maybe Prelude.Text,
     -- | The connections used for this job.
@@ -302,6 +306,9 @@ data CreateJob = CreateJob'
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 --
+-- 'sourceControlDetails', 'createJob_sourceControlDetails' - The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+--
 -- 'logUri', 'createJob_logUri' - This field is reserved for future use.
 --
 -- 'connections', 'createJob_connections' - The connections used for this job.
@@ -374,6 +381,7 @@ newCreateJob pName_ pRole_ pCommand_ =
       maxRetries = Prelude.Nothing,
       codeGenConfigurationNodes = Prelude.Nothing,
       defaultArguments = Prelude.Nothing,
+      sourceControlDetails = Prelude.Nothing,
       logUri = Prelude.Nothing,
       connections = Prelude.Nothing,
       maxCapacity = Prelude.Nothing,
@@ -498,6 +506,11 @@ createJob_codeGenConfigurationNodes = Lens.lens (\CreateJob' {codeGenConfigurati
 createJob_defaultArguments :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_defaultArguments = Lens.lens (\CreateJob' {defaultArguments} -> defaultArguments) (\s@CreateJob' {} a -> s {defaultArguments = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
+-- | The details for a source control configuration for a job, allowing
+-- synchronization of job artifacts to or from a remote repository.
+createJob_sourceControlDetails :: Lens.Lens' CreateJob (Prelude.Maybe SourceControlDetails)
+createJob_sourceControlDetails = Lens.lens (\CreateJob' {sourceControlDetails} -> sourceControlDetails) (\s@CreateJob' {} a -> s {sourceControlDetails = a} :: CreateJob)
+
 -- | This field is reserved for future use.
 createJob_logUri :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_logUri = Lens.lens (\CreateJob' {logUri} -> logUri) (\s@CreateJob' {} a -> s {logUri = a} :: CreateJob)
@@ -588,6 +601,7 @@ instance Prelude.Hashable CreateJob where
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` sourceControlDetails
       `Prelude.hashWithSalt` logUri
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` maxCapacity
@@ -612,6 +626,7 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf codeGenConfigurationNodes
       `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf sourceControlDetails
       `Prelude.seq` Prelude.rnf logUri
       `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf maxCapacity
@@ -659,6 +674,8 @@ instance Core.ToJSON CreateJob where
               Prelude.<$> codeGenConfigurationNodes,
             ("DefaultArguments" Core..=)
               Prelude.<$> defaultArguments,
+            ("SourceControlDetails" Core..=)
+              Prelude.<$> sourceControlDetails,
             ("LogUri" Core..=) Prelude.<$> logUri,
             ("Connections" Core..=) Prelude.<$> connections,
             ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,

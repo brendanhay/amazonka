@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Glue
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1170,6 +1170,12 @@ module Amazonka.Glue
     UpdateJobResponse (UpdateJobResponse'),
     newUpdateJobResponse,
 
+    -- ** UpdateJobFromSourceControl
+    UpdateJobFromSourceControl (UpdateJobFromSourceControl'),
+    newUpdateJobFromSourceControl,
+    UpdateJobFromSourceControlResponse (UpdateJobFromSourceControlResponse'),
+    newUpdateJobFromSourceControlResponse,
+
     -- ** UpdateMLTransform
     UpdateMLTransform (UpdateMLTransform'),
     newUpdateMLTransform,
@@ -1193,6 +1199,12 @@ module Amazonka.Glue
     newUpdateSchema,
     UpdateSchemaResponse (UpdateSchemaResponse'),
     newUpdateSchemaResponse,
+
+    -- ** UpdateSourceControlFromJob
+    UpdateSourceControlFromJob (UpdateSourceControlFromJob'),
+    newUpdateSourceControlFromJob,
+    UpdateSourceControlFromJobResponse (UpdateSourceControlFromJobResponse'),
+    newUpdateSourceControlFromJobResponse,
 
     -- ** UpdateTable
     UpdateTable (UpdateTable'),
@@ -1393,6 +1405,12 @@ module Amazonka.Glue
 
     -- ** SortDirectionType
     SortDirectionType (..),
+
+    -- ** SourceControlAuthStrategy
+    SourceControlAuthStrategy (..),
+
+    -- ** SourceControlProvider
+    SourceControlProvider (..),
 
     -- ** StartingPosition
     StartingPosition (..),
@@ -2234,6 +2252,10 @@ module Amazonka.Glue
     SortCriterion (SortCriterion'),
     newSortCriterion,
 
+    -- ** SourceControlDetails
+    SourceControlDetails (SourceControlDetails'),
+    newSourceControlDetails,
+
     -- ** SparkConnectorSource
     SparkConnectorSource (SparkConnectorSource'),
     newSparkConnectorSource,
@@ -2590,10 +2612,12 @@ import Amazonka.Glue.UpdateCrawlerSchedule
 import Amazonka.Glue.UpdateDatabase
 import Amazonka.Glue.UpdateDevEndpoint
 import Amazonka.Glue.UpdateJob
+import Amazonka.Glue.UpdateJobFromSourceControl
 import Amazonka.Glue.UpdateMLTransform
 import Amazonka.Glue.UpdatePartition
 import Amazonka.Glue.UpdateRegistry
 import Amazonka.Glue.UpdateSchema
+import Amazonka.Glue.UpdateSourceControlFromJob
 import Amazonka.Glue.UpdateTable
 import Amazonka.Glue.UpdateTrigger
 import Amazonka.Glue.UpdateUserDefinedFunction

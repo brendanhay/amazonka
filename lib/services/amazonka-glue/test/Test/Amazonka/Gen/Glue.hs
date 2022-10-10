@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Glue
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -555,6 +555,9 @@ import Test.Tasty
 --         , requestUpdateJob $
 --             newUpdateJob
 --
+--         , requestUpdateJobFromSourceControl $
+--             newUpdateJobFromSourceControl
+--
 --         , requestUpdateMLTransform $
 --             newUpdateMLTransform
 --
@@ -566,6 +569,9 @@ import Test.Tasty
 --
 --         , requestUpdateSchema $
 --             newUpdateSchema
+--
+--         , requestUpdateSourceControlFromJob $
+--             newUpdateSourceControlFromJob
 --
 --         , requestUpdateTable $
 --             newUpdateTable
@@ -1110,6 +1116,9 @@ import Test.Tasty
 --         , responseUpdateJob $
 --             newUpdateJobResponse
 --
+--         , responseUpdateJobFromSourceControl $
+--             newUpdateJobFromSourceControlResponse
+--
 --         , responseUpdateMLTransform $
 --             newUpdateMLTransformResponse
 --
@@ -1121,6 +1130,9 @@ import Test.Tasty
 --
 --         , responseUpdateSchema $
 --             newUpdateSchemaResponse
+--
+--         , responseUpdateSourceControlFromJob $
+--             newUpdateSourceControlFromJobResponse
 --
 --         , responseUpdateTable $
 --             newUpdateTableResponse
@@ -2195,6 +2207,12 @@ requestUpdateJob =
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
+requestUpdateJobFromSourceControl :: UpdateJobFromSourceControl -> TestTree
+requestUpdateJobFromSourceControl =
+  req
+    "UpdateJobFromSourceControl"
+    "fixture/UpdateJobFromSourceControl.yaml"
+
 requestUpdateMLTransform :: UpdateMLTransform -> TestTree
 requestUpdateMLTransform =
   req
@@ -2218,6 +2236,12 @@ requestUpdateSchema =
   req
     "UpdateSchema"
     "fixture/UpdateSchema.yaml"
+
+requestUpdateSourceControlFromJob :: UpdateSourceControlFromJob -> TestTree
+requestUpdateSourceControlFromJob =
+  req
+    "UpdateSourceControlFromJob"
+    "fixture/UpdateSourceControlFromJob.yaml"
 
 requestUpdateTable :: UpdateTable -> TestTree
 requestUpdateTable =
@@ -3653,6 +3677,14 @@ responseUpdateJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateJob)
 
+responseUpdateJobFromSourceControl :: UpdateJobFromSourceControlResponse -> TestTree
+responseUpdateJobFromSourceControl =
+  res
+    "UpdateJobFromSourceControlResponse"
+    "fixture/UpdateJobFromSourceControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobFromSourceControl)
+
 responseUpdateMLTransform :: UpdateMLTransformResponse -> TestTree
 responseUpdateMLTransform =
   res
@@ -3684,6 +3716,14 @@ responseUpdateSchema =
     "fixture/UpdateSchemaResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateSchema)
+
+responseUpdateSourceControlFromJob :: UpdateSourceControlFromJobResponse -> TestTree
+responseUpdateSourceControlFromJob =
+  res
+    "UpdateSourceControlFromJobResponse"
+    "fixture/UpdateSourceControlFromJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSourceControlFromJob)
 
 responseUpdateTable :: UpdateTableResponse -> TestTree
 responseUpdateTable =

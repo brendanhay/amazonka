@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IAM.SimulatePrincipalPolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -233,14 +233,6 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
     -- in the /Amazon EC2 User Guide/.
     --
-    -- -   __EC2-Classic-InstanceStore__
-    --
-    --     instance, image, security group
-    --
-    -- -   __EC2-Classic-EBS__
-    --
-    --     instance, image, security group, volume
-    --
     -- -   __EC2-VPC-InstanceStore__
     --
     --     instance, image, security group, network interface
@@ -439,14 +431,6 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
 -- information on the EC2 scenario options, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
 -- in the /Amazon EC2 User Guide/.
---
--- -   __EC2-Classic-InstanceStore__
---
---     instance, image, security group
---
--- -   __EC2-Classic-EBS__
---
---     instance, image, security group, volume
 --
 -- -   __EC2-VPC-InstanceStore__
 --
@@ -671,14 +655,6 @@ simulatePrincipalPolicy_callerArn = Lens.lens (\SimulatePrincipalPolicy' {caller
 -- information on the EC2 scenario options, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported platforms>
 -- in the /Amazon EC2 User Guide/.
---
--- -   __EC2-Classic-InstanceStore__
---
---     instance, image, security group
---
--- -   __EC2-Classic-EBS__
---
---     instance, image, security group, volume
 --
 -- -   __EC2-VPC-InstanceStore__
 --

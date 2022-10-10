@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53.Types.ResourceRecordSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -139,9 +139,6 @@ data ResourceRecordSet = ResourceRecordSet'
     --
     -- -   You can\'t create an alias resource record set in a private hosted
     --     zone to route traffic to a CloudFront distribution.
-    --
-    -- -   Creating geolocation alias resource record sets or latency alias
-    --     resource record sets in a private hosted zone is unsupported.
     --
     -- -   For information about creating failover resource record sets in a
     --     private hosted zone, see
@@ -616,9 +613,6 @@ data ResourceRecordSet = ResourceRecordSet'
 --
 -- -   You can\'t create an alias resource record set in a private hosted
 --     zone to route traffic to a CloudFront distribution.
---
--- -   Creating geolocation alias resource record sets or latency alias
---     resource record sets in a private hosted zone is unsupported.
 --
 -- -   For information about creating failover resource record sets in a
 --     private hosted zone, see
@@ -1116,9 +1110,6 @@ resourceRecordSet_region = Lens.lens (\ResourceRecordSet' {region} -> region) (\
 --
 -- -   You can\'t create an alias resource record set in a private hosted
 --     zone to route traffic to a CloudFront distribution.
---
--- -   Creating geolocation alias resource record sets or latency alias
---     resource record sets in a private hosted zone is unsupported.
 --
 -- -   For information about creating failover resource record sets in a
 --     private hosted zone, see

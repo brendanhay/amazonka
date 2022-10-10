@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -687,6 +687,7 @@ module Amazonka.MediaLive.Lens
     audioCodecSettings_mp2Settings,
     audioCodecSettings_wavSettings,
     audioCodecSettings_ac3Settings,
+    audioCodecSettings_eac3AtmosSettings,
     audioCodecSettings_aacSettings,
 
     -- ** AudioDescription
@@ -907,6 +908,8 @@ module Amazonka.MediaLive.Lens
 
     -- ** ColorSpacePassthroughSettings
 
+    -- ** DolbyVision81Settings
+
     -- ** DvbNitSettings
     dvbNitSettings_repInterval,
     dvbNitSettings_networkName,
@@ -943,6 +946,15 @@ module Amazonka.MediaLive.Lens
 
     -- ** DvbTdtSettings
     dvbTdtSettings_repInterval,
+
+    -- ** Eac3AtmosSettings
+    eac3AtmosSettings_bitrate,
+    eac3AtmosSettings_drcLine,
+    eac3AtmosSettings_drcRf,
+    eac3AtmosSettings_heightTrim,
+    eac3AtmosSettings_dialnorm,
+    eac3AtmosSettings_codingMode,
+    eac3AtmosSettings_surroundTrim,
 
     -- ** Eac3Settings
     eac3Settings_bitstreamMode,
@@ -1107,6 +1119,7 @@ module Amazonka.MediaLive.Lens
     h265ColorSpaceSettings_rec601Settings,
     h265ColorSpaceSettings_hdr10Settings,
     h265ColorSpaceSettings_rec709Settings,
+    h265ColorSpaceSettings_dolbyVision81Settings,
 
     -- ** H265FilterSettings
     h265FilterSettings_temporalFilterSettings,
@@ -2157,11 +2170,13 @@ import Amazonka.MediaLive.Types.Channel
 import Amazonka.MediaLive.Types.ChannelEgressEndpoint
 import Amazonka.MediaLive.Types.ChannelSummary
 import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
+import Amazonka.MediaLive.Types.DolbyVision81Settings
 import Amazonka.MediaLive.Types.DvbNitSettings
 import Amazonka.MediaLive.Types.DvbSdtSettings
 import Amazonka.MediaLive.Types.DvbSubDestinationSettings
 import Amazonka.MediaLive.Types.DvbSubSourceSettings
 import Amazonka.MediaLive.Types.DvbTdtSettings
+import Amazonka.MediaLive.Types.Eac3AtmosSettings
 import Amazonka.MediaLive.Types.Eac3Settings
 import Amazonka.MediaLive.Types.EbuTtDDestinationSettings
 import Amazonka.MediaLive.Types.EmbeddedDestinationSettings

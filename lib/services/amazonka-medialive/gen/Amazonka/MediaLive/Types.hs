@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -167,6 +167,15 @@ module Amazonka.MediaLive.Types
 
     -- * DvbSubOcrLanguage
     DvbSubOcrLanguage (..),
+
+    -- * Eac3AtmosCodingMode
+    Eac3AtmosCodingMode (..),
+
+    -- * Eac3AtmosDrcLine
+    Eac3AtmosDrcLine (..),
+
+    -- * Eac3AtmosDrcRf
+    Eac3AtmosDrcRf (..),
 
     -- * Eac3AttenuationControl
     Eac3AttenuationControl (..),
@@ -879,6 +888,7 @@ module Amazonka.MediaLive.Types
     audioCodecSettings_mp2Settings,
     audioCodecSettings_wavSettings,
     audioCodecSettings_ac3Settings,
+    audioCodecSettings_eac3AtmosSettings,
     audioCodecSettings_aacSettings,
 
     -- * AudioDescription
@@ -1169,6 +1179,10 @@ module Amazonka.MediaLive.Types
     ColorSpacePassthroughSettings (..),
     newColorSpacePassthroughSettings,
 
+    -- * DolbyVision81Settings
+    DolbyVision81Settings (..),
+    newDolbyVision81Settings,
+
     -- * DvbNitSettings
     DvbNitSettings (..),
     newDvbNitSettings,
@@ -1215,6 +1229,17 @@ module Amazonka.MediaLive.Types
     DvbTdtSettings (..),
     newDvbTdtSettings,
     dvbTdtSettings_repInterval,
+
+    -- * Eac3AtmosSettings
+    Eac3AtmosSettings (..),
+    newEac3AtmosSettings,
+    eac3AtmosSettings_bitrate,
+    eac3AtmosSettings_drcLine,
+    eac3AtmosSettings_drcRf,
+    eac3AtmosSettings_heightTrim,
+    eac3AtmosSettings_dialnorm,
+    eac3AtmosSettings_codingMode,
+    eac3AtmosSettings_surroundTrim,
 
     -- * Eac3Settings
     Eac3Settings (..),
@@ -1427,6 +1452,7 @@ module Amazonka.MediaLive.Types
     h265ColorSpaceSettings_rec601Settings,
     h265ColorSpaceSettings_hdr10Settings,
     h265ColorSpaceSettings_rec709Settings,
+    h265ColorSpaceSettings_dolbyVision81Settings,
 
     -- * H265FilterSettings
     H265FilterSettings (..),
@@ -2771,6 +2797,7 @@ import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
 import Amazonka.MediaLive.Types.ContentType
 import Amazonka.MediaLive.Types.DeviceSettingsSyncState
 import Amazonka.MediaLive.Types.DeviceUpdateStatus
+import Amazonka.MediaLive.Types.DolbyVision81Settings
 import Amazonka.MediaLive.Types.DvbNitSettings
 import Amazonka.MediaLive.Types.DvbSdtOutputSdt
 import Amazonka.MediaLive.Types.DvbSdtSettings
@@ -2784,6 +2811,10 @@ import Amazonka.MediaLive.Types.DvbSubDestinationTeletextGridControl
 import Amazonka.MediaLive.Types.DvbSubOcrLanguage
 import Amazonka.MediaLive.Types.DvbSubSourceSettings
 import Amazonka.MediaLive.Types.DvbTdtSettings
+import Amazonka.MediaLive.Types.Eac3AtmosCodingMode
+import Amazonka.MediaLive.Types.Eac3AtmosDrcLine
+import Amazonka.MediaLive.Types.Eac3AtmosDrcRf
+import Amazonka.MediaLive.Types.Eac3AtmosSettings
 import Amazonka.MediaLive.Types.Eac3AttenuationControl
 import Amazonka.MediaLive.Types.Eac3BitstreamMode
 import Amazonka.MediaLive.Types.Eac3CodingMode

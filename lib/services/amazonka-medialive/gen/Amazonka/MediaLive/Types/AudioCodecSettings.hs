@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.AudioCodecSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaLive.Types.AacSettings
 import Amazonka.MediaLive.Types.Ac3Settings
+import Amazonka.MediaLive.Types.Eac3AtmosSettings
 import Amazonka.MediaLive.Types.Eac3Settings
 import Amazonka.MediaLive.Types.Mp2Settings
 import Amazonka.MediaLive.Types.PassThroughSettings
@@ -38,6 +39,7 @@ data AudioCodecSettings = AudioCodecSettings'
     mp2Settings :: Prelude.Maybe Mp2Settings,
     wavSettings :: Prelude.Maybe WavSettings,
     ac3Settings :: Prelude.Maybe Ac3Settings,
+    eac3AtmosSettings :: Prelude.Maybe Eac3AtmosSettings,
     aacSettings :: Prelude.Maybe AacSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,6 +62,8 @@ data AudioCodecSettings = AudioCodecSettings'
 --
 -- 'ac3Settings', 'audioCodecSettings_ac3Settings' - Undocumented member.
 --
+-- 'eac3AtmosSettings', 'audioCodecSettings_eac3AtmosSettings' - Undocumented member.
+--
 -- 'aacSettings', 'audioCodecSettings_aacSettings' - Undocumented member.
 newAudioCodecSettings ::
   AudioCodecSettings
@@ -70,6 +74,7 @@ newAudioCodecSettings =
       mp2Settings = Prelude.Nothing,
       wavSettings = Prelude.Nothing,
       ac3Settings = Prelude.Nothing,
+      eac3AtmosSettings = Prelude.Nothing,
       aacSettings = Prelude.Nothing
     }
 
@@ -94,6 +99,10 @@ audioCodecSettings_ac3Settings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe A
 audioCodecSettings_ac3Settings = Lens.lens (\AudioCodecSettings' {ac3Settings} -> ac3Settings) (\s@AudioCodecSettings' {} a -> s {ac3Settings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
+audioCodecSettings_eac3AtmosSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe Eac3AtmosSettings)
+audioCodecSettings_eac3AtmosSettings = Lens.lens (\AudioCodecSettings' {eac3AtmosSettings} -> eac3AtmosSettings) (\s@AudioCodecSettings' {} a -> s {eac3AtmosSettings = a} :: AudioCodecSettings)
+
+-- | Undocumented member.
 audioCodecSettings_aacSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe AacSettings)
 audioCodecSettings_aacSettings = Lens.lens (\AudioCodecSettings' {aacSettings} -> aacSettings) (\s@AudioCodecSettings' {} a -> s {aacSettings = a} :: AudioCodecSettings)
 
@@ -108,6 +117,7 @@ instance Core.FromJSON AudioCodecSettings where
             Prelude.<*> (x Core..:? "mp2Settings")
             Prelude.<*> (x Core..:? "wavSettings")
             Prelude.<*> (x Core..:? "ac3Settings")
+            Prelude.<*> (x Core..:? "eac3AtmosSettings")
             Prelude.<*> (x Core..:? "aacSettings")
       )
 
@@ -118,6 +128,7 @@ instance Prelude.Hashable AudioCodecSettings where
       `Prelude.hashWithSalt` mp2Settings
       `Prelude.hashWithSalt` wavSettings
       `Prelude.hashWithSalt` ac3Settings
+      `Prelude.hashWithSalt` eac3AtmosSettings
       `Prelude.hashWithSalt` aacSettings
 
 instance Prelude.NFData AudioCodecSettings where
@@ -127,6 +138,7 @@ instance Prelude.NFData AudioCodecSettings where
       `Prelude.seq` Prelude.rnf mp2Settings
       `Prelude.seq` Prelude.rnf wavSettings
       `Prelude.seq` Prelude.rnf ac3Settings
+      `Prelude.seq` Prelude.rnf eac3AtmosSettings
       `Prelude.seq` Prelude.rnf aacSettings
 
 instance Core.ToJSON AudioCodecSettings where
@@ -139,6 +151,8 @@ instance Core.ToJSON AudioCodecSettings where
             ("mp2Settings" Core..=) Prelude.<$> mp2Settings,
             ("wavSettings" Core..=) Prelude.<$> wavSettings,
             ("ac3Settings" Core..=) Prelude.<$> ac3Settings,
+            ("eac3AtmosSettings" Core..=)
+              Prelude.<$> eac3AtmosSettings,
             ("aacSettings" Core..=) Prelude.<$> aacSettings
           ]
       )

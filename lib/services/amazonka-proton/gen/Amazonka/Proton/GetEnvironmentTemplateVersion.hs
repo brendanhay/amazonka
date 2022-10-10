@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.GetEnvironmentTemplateVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data GetEnvironmentTemplateVersion = GetEnvironmentTemplateVersion'
     -- @minorVersion@.
     minorVersion :: Prelude.Text,
     -- | The name of the environment template a version of which you want to get
-    -- detailed data for..
+    -- detailed data for.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetEnvironmentTemplateVersion = GetEnvironmentTemplateVersion'
 -- @minorVersion@.
 --
 -- 'templateName', 'getEnvironmentTemplateVersion_templateName' - The name of the environment template a version of which you want to get
--- detailed data for..
+-- detailed data for.
 newGetEnvironmentTemplateVersion ::
   -- | 'majorVersion'
   Prelude.Text ->
@@ -109,7 +109,7 @@ getEnvironmentTemplateVersion_minorVersion :: Lens.Lens' GetEnvironmentTemplateV
 getEnvironmentTemplateVersion_minorVersion = Lens.lens (\GetEnvironmentTemplateVersion' {minorVersion} -> minorVersion) (\s@GetEnvironmentTemplateVersion' {} a -> s {minorVersion = a} :: GetEnvironmentTemplateVersion)
 
 -- | The name of the environment template a version of which you want to get
--- detailed data for..
+-- detailed data for.
 getEnvironmentTemplateVersion_templateName :: Lens.Lens' GetEnvironmentTemplateVersion Prelude.Text
 getEnvironmentTemplateVersion_templateName = Lens.lens (\GetEnvironmentTemplateVersion' {templateName} -> templateName) (\s@GetEnvironmentTemplateVersion' {} a -> s {templateName = a} :: GetEnvironmentTemplateVersion)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.RepositoryBranch
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,11 +24,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
--- | Detail data for a repository branch.
+-- | Detail data for a linked repository branch.
 --
 -- /See:/ 'newRepositoryBranch' smart constructor.
 data RepositoryBranch = RepositoryBranch'
-  { -- | The Amazon Resource Name (ARN) of the repository branch.
+  { -- | The Amazon Resource Name (ARN) of the linked repository.
     arn :: Prelude.Text,
     -- | The repository branch.
     branch :: Prelude.Text,
@@ -47,7 +47,7 @@ data RepositoryBranch = RepositoryBranch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'repositoryBranch_arn' - The Amazon Resource Name (ARN) of the repository branch.
+-- 'arn', 'repositoryBranch_arn' - The Amazon Resource Name (ARN) of the linked repository.
 --
 -- 'branch', 'repositoryBranch_branch' - The repository branch.
 --
@@ -72,7 +72,7 @@ newRepositoryBranch pArn_ pBranch_ pName_ pProvider_ =
       provider = pProvider_
     }
 
--- | The Amazon Resource Name (ARN) of the repository branch.
+-- | The Amazon Resource Name (ARN) of the linked repository.
 repositoryBranch_arn :: Lens.Lens' RepositoryBranch Prelude.Text
 repositoryBranch_arn = Lens.lens (\RepositoryBranch' {arn} -> arn) (\s@RepositoryBranch' {} a -> s {arn = a} :: RepositoryBranch)
 

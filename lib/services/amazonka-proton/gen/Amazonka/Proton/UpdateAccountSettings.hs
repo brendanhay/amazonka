@@ -14,19 +14,21 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateAccountSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the Proton service pipeline role or repository settings.
+-- Update Proton settings that are used for multiple services in the Amazon
+-- Web Services account.
 module Amazonka.Proton.UpdateAccountSettings
   ( -- * Creating a Request
     UpdateAccountSettings (..),
     newUpdateAccountSettings,
 
     -- * Request Lenses
+    updateAccountSettings_deletePipelineProvisioningRepository,
     updateAccountSettings_pipelineProvisioningRepository,
     updateAccountSettings_pipelineServiceRoleArn,
 
@@ -49,14 +51,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAccountSettings' smart constructor.
 data UpdateAccountSettings = UpdateAccountSettings'
-  { -- | A repository for pipeline provisioning. Specify it if you have
+  { -- | Set to @true@ to remove a configured pipeline repository from the
+    -- account settings. Don\'t set this field if you are updating the
+    -- configured pipeline repository.
+    deletePipelineProvisioningRepository :: Prelude.Maybe Prelude.Bool,
+    -- | A linked repository for pipeline provisioning. Specify it if you have
     -- environments configured for self-managed provisioning with services that
-    -- include pipelines.
+    -- include pipelines. A linked repository is a repository that has been
+    -- registered with Proton. For more information, see CreateRepository.
+    --
+    -- To remove a previously configured repository, set
+    -- @deletePipelineProvisioningRepository@ to @true@, and don\'t set
+    -- @pipelineProvisioningRepository@.
     pipelineProvisioningRepository :: Prelude.Maybe RepositoryBranchInput,
     -- | The Amazon Resource Name (ARN) of the service role you want to use for
     -- provisioning pipelines. Assumed by Proton for Amazon Web
     -- Services-managed provisioning, and by customer-owned automation for
     -- self-managed provisioning.
+    --
+    -- To remove a previously configured ARN, specify an empty string.
     pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,26 +82,49 @@ data UpdateAccountSettings = UpdateAccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineProvisioningRepository', 'updateAccountSettings_pipelineProvisioningRepository' - A repository for pipeline provisioning. Specify it if you have
+-- 'deletePipelineProvisioningRepository', 'updateAccountSettings_deletePipelineProvisioningRepository' - Set to @true@ to remove a configured pipeline repository from the
+-- account settings. Don\'t set this field if you are updating the
+-- configured pipeline repository.
+--
+-- 'pipelineProvisioningRepository', 'updateAccountSettings_pipelineProvisioningRepository' - A linked repository for pipeline provisioning. Specify it if you have
 -- environments configured for self-managed provisioning with services that
--- include pipelines.
+-- include pipelines. A linked repository is a repository that has been
+-- registered with Proton. For more information, see CreateRepository.
+--
+-- To remove a previously configured repository, set
+-- @deletePipelineProvisioningRepository@ to @true@, and don\'t set
+-- @pipelineProvisioningRepository@.
 --
 -- 'pipelineServiceRoleArn', 'updateAccountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the service role you want to use for
 -- provisioning pipelines. Assumed by Proton for Amazon Web
 -- Services-managed provisioning, and by customer-owned automation for
 -- self-managed provisioning.
+--
+-- To remove a previously configured ARN, specify an empty string.
 newUpdateAccountSettings ::
   UpdateAccountSettings
 newUpdateAccountSettings =
   UpdateAccountSettings'
-    { pipelineProvisioningRepository =
+    { deletePipelineProvisioningRepository =
         Prelude.Nothing,
+      pipelineProvisioningRepository = Prelude.Nothing,
       pipelineServiceRoleArn = Prelude.Nothing
     }
 
--- | A repository for pipeline provisioning. Specify it if you have
+-- | Set to @true@ to remove a configured pipeline repository from the
+-- account settings. Don\'t set this field if you are updating the
+-- configured pipeline repository.
+updateAccountSettings_deletePipelineProvisioningRepository :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Bool)
+updateAccountSettings_deletePipelineProvisioningRepository = Lens.lens (\UpdateAccountSettings' {deletePipelineProvisioningRepository} -> deletePipelineProvisioningRepository) (\s@UpdateAccountSettings' {} a -> s {deletePipelineProvisioningRepository = a} :: UpdateAccountSettings)
+
+-- | A linked repository for pipeline provisioning. Specify it if you have
 -- environments configured for self-managed provisioning with services that
--- include pipelines.
+-- include pipelines. A linked repository is a repository that has been
+-- registered with Proton. For more information, see CreateRepository.
+--
+-- To remove a previously configured repository, set
+-- @deletePipelineProvisioningRepository@ to @true@, and don\'t set
+-- @pipelineProvisioningRepository@.
 updateAccountSettings_pipelineProvisioningRepository :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe RepositoryBranchInput)
 updateAccountSettings_pipelineProvisioningRepository = Lens.lens (\UpdateAccountSettings' {pipelineProvisioningRepository} -> pipelineProvisioningRepository) (\s@UpdateAccountSettings' {} a -> s {pipelineProvisioningRepository = a} :: UpdateAccountSettings)
 
@@ -96,6 +132,8 @@ updateAccountSettings_pipelineProvisioningRepository = Lens.lens (\UpdateAccount
 -- provisioning pipelines. Assumed by Proton for Amazon Web
 -- Services-managed provisioning, and by customer-owned automation for
 -- self-managed provisioning.
+--
+-- To remove a previously configured ARN, specify an empty string.
 updateAccountSettings_pipelineServiceRoleArn :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Text)
 updateAccountSettings_pipelineServiceRoleArn = Lens.lens (\UpdateAccountSettings' {pipelineServiceRoleArn} -> pipelineServiceRoleArn) (\s@UpdateAccountSettings' {} a -> s {pipelineServiceRoleArn = a} :: UpdateAccountSettings)
 
@@ -115,12 +153,14 @@ instance Core.AWSRequest UpdateAccountSettings where
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` deletePipelineProvisioningRepository
       `Prelude.hashWithSalt` pipelineProvisioningRepository
       `Prelude.hashWithSalt` pipelineServiceRoleArn
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
-    Prelude.rnf pipelineProvisioningRepository
+    Prelude.rnf deletePipelineProvisioningRepository
+      `Prelude.seq` Prelude.rnf pipelineProvisioningRepository
       `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
 
 instance Core.ToHeaders UpdateAccountSettings where
@@ -142,7 +182,9 @@ instance Core.ToJSON UpdateAccountSettings where
   toJSON UpdateAccountSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pipelineProvisioningRepository" Core..=)
+          [ ("deletePipelineProvisioningRepository" Core..=)
+              Prelude.<$> deletePipelineProvisioningRepository,
+            ("pipelineProvisioningRepository" Core..=)
               Prelude.<$> pipelineProvisioningRepository,
             ("pipelineServiceRoleArn" Core..=)
               Prelude.<$> pipelineServiceRoleArn

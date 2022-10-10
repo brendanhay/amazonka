@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateEnvironmentTemplate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an environment template for Proton. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html Environment Templates>
+-- in the /Proton User Guide/.
 --
 -- You can create an environment template in one of the two following ways:
 --
@@ -36,8 +36,8 @@
 --     provisioned and managed infrastructure, include the @provisioning@
 --     parameter and set the value to @CUSTOMER_MANAGED@. For more
 --     information, see
---     <https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html Register and publish an environment template>
---     in the /Proton Administrator Guide/.
+--     <https://docs.aws.amazon.com/proton/latest/userguide/template-create.html Register and publish an environment template>
+--     in the /Proton User Guide/.
 module Amazonka.Proton.CreateEnvironmentTemplate
   ( -- * Creating a Request
     CreateEnvironmentTemplate (..),
@@ -73,10 +73,9 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton environment template. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
@@ -103,10 +102,9 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
 -- 'tags', 'createEnvironmentTemplate_tags' - An optional list of metadata items that you can associate with the
 -- Proton environment template. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'provisioning', 'createEnvironmentTemplate_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
@@ -135,10 +133,9 @@ newCreateEnvironmentTemplate pName_ =
 -- | An optional list of metadata items that you can associate with the
 -- Proton environment template. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createEnvironmentTemplate_tags :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe [Tag])
 createEnvironmentTemplate_tags = Lens.lens (\CreateEnvironmentTemplate' {tags} -> tags) (\s@CreateEnvironmentTemplate' {} a -> s {tags = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Lens.coerced
 

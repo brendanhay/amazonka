@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Proton.GetAccountSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for the Proton pipeline service role.
+-- Get detail data for Proton account-wide settings.
 module Amazonka.Proton.GetAccountSettings
   ( -- * Creating a Request
     GetAccountSettings (..),

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CancelEnvironmentDeployment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,8 @@
 --
 -- Attempts to cancel an environment deployment on an UpdateEnvironment
 -- action, if the deployment is @IN_PROGRESS@. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html Update an environment>
--- in the /Proton Administrator guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html Update an environment>
+-- in the /Proton User guide/.
 --
 -- The following list includes potential cancellation scenarios.
 --

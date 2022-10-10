@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateService
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,8 @@
 -- an attached component.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 module Amazonka.Proton.UpdateService
   ( -- * Creating a Request
     UpdateService (..),
@@ -70,10 +70,9 @@ data UpdateService = UpdateService'
     -- | Lists the service instances to add and the existing service instances to
     -- remain. Omit the existing service instances to delete from the list.
     -- /Don\'t/ include edits to the existing service instances or pipeline.
-    -- For more information, see /Edit a service/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
-    -- or the
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html Edit a service>
+    -- in the /Proton User Guide/.
     spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the service to edit.
     name :: Prelude.Text
@@ -93,10 +92,9 @@ data UpdateService = UpdateService'
 -- 'spec', 'updateService_spec' - Lists the service instances to add and the existing service instances to
 -- remain. Omit the existing service instances to delete from the list.
 -- /Don\'t/ include edits to the existing service instances or pipeline.
--- For more information, see /Edit a service/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
--- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html Edit a service>
+-- in the /Proton User Guide/.
 --
 -- 'name', 'updateService_name' - The name of the service to edit.
 newUpdateService ::
@@ -117,10 +115,9 @@ updateService_description = Lens.lens (\UpdateService' {description} -> descript
 -- | Lists the service instances to add and the existing service instances to
 -- remain. Omit the existing service instances to delete from the list.
 -- /Don\'t/ include edits to the existing service instances or pipeline.
--- For more information, see /Edit a service/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
--- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html Edit a service>
+-- in the /Proton User Guide/.
 updateService_spec :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
 updateService_spec = Lens.lens (\UpdateService' {spec} -> spec) (\s@UpdateService' {} a -> s {spec = a} :: UpdateService) Prelude.. Lens.mapping Core._Sensitive
 

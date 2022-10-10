@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.AccountSettings
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,14 +24,15 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryBranch
 
--- | The Proton pipeline service role and repository data shared across the
--- Amazon Web Services account.
+-- | Proton settings that are used for multiple services in the Amazon Web
+-- Services account.
 --
 -- /See:/ 'newAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { -- | The repository configured in the Amazon Web Services account for
-    -- pipeline provisioning. Required it if you have environments configured
-    -- for self-managed provisioning with services that include pipelines.
+  { -- | The linked repository for pipeline provisioning. Required if you have
+    -- environments configured for self-managed provisioning with services that
+    -- include pipelines. A linked repository is a repository that has been
+    -- registered with Proton. For more information, see CreateRepository.
     pipelineProvisioningRepository :: Prelude.Maybe RepositoryBranch,
     -- | The Amazon Resource Name (ARN) of the service role you want to use for
     -- provisioning pipelines. Assumed by Proton for Amazon Web
@@ -49,9 +50,10 @@ data AccountSettings = AccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineProvisioningRepository', 'accountSettings_pipelineProvisioningRepository' - The repository configured in the Amazon Web Services account for
--- pipeline provisioning. Required it if you have environments configured
--- for self-managed provisioning with services that include pipelines.
+-- 'pipelineProvisioningRepository', 'accountSettings_pipelineProvisioningRepository' - The linked repository for pipeline provisioning. Required if you have
+-- environments configured for self-managed provisioning with services that
+-- include pipelines. A linked repository is a repository that has been
+-- registered with Proton. For more information, see CreateRepository.
 --
 -- 'pipelineServiceRoleArn', 'accountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the service role you want to use for
 -- provisioning pipelines. Assumed by Proton for Amazon Web
@@ -66,9 +68,10 @@ newAccountSettings =
       pipelineServiceRoleArn = Prelude.Nothing
     }
 
--- | The repository configured in the Amazon Web Services account for
--- pipeline provisioning. Required it if you have environments configured
--- for self-managed provisioning with services that include pipelines.
+-- | The linked repository for pipeline provisioning. Required if you have
+-- environments configured for self-managed provisioning with services that
+-- include pipelines. A linked repository is a repository that has been
+-- registered with Proton. For more information, see CreateRepository.
 accountSettings_pipelineProvisioningRepository :: Lens.Lens' AccountSettings (Prelude.Maybe RepositoryBranch)
 accountSettings_pipelineProvisioningRepository = Lens.lens (\AccountSettings' {pipelineProvisioningRepository} -> pipelineProvisioningRepository) (\s@AccountSettings' {} a -> s {pipelineProvisioningRepository = a} :: AccountSettings)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateServiceTemplateVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,10 +61,9 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
   { -- | An optional list of metadata items that you can associate with the
     -- Proton service template version. A tag is a key-value pair.
     --
-    -- For more information, see /Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | To create a new minor version of the service template, include a
     -- @major Version@.
@@ -81,8 +80,8 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
     -- template version.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | A description of the new version of a service template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -109,10 +108,9 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
 -- 'tags', 'createServiceTemplateVersion_tags' - An optional list of metadata items that you can associate with the
 -- Proton service template version. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'majorVersion', 'createServiceTemplateVersion_majorVersion' - To create a new minor version of the service template, include a
 -- @major Version@.
@@ -129,8 +127,8 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
 -- template version.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'description', 'createServiceTemplateVersion_description' - A description of the new version of a service template.
 --
@@ -171,10 +169,9 @@ newCreateServiceTemplateVersion
 -- | An optional list of metadata items that you can associate with the
 -- Proton service template version. A tag is a key-value pair.
 --
--- For more information, see /Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createServiceTemplateVersion_tags :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe [Tag])
 createServiceTemplateVersion_tags = Lens.lens (\CreateServiceTemplateVersion' {tags} -> tags) (\s@CreateServiceTemplateVersion' {} a -> s {tags = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
@@ -197,8 +194,8 @@ createServiceTemplateVersion_clientToken = Lens.lens (\CreateServiceTemplateVers
 -- template version.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 createServiceTemplateVersion_supportedComponentSources :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
 createServiceTemplateVersion_supportedComponentSources = Lens.lens (\CreateServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@CreateServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 

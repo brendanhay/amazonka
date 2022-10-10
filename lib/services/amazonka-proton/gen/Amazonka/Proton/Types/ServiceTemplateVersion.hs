@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.ServiceTemplateVersion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,8 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
     -- template version.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | A description of the version of a service template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -80,8 +80,8 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
 -- template version.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'description', 'serviceTemplateVersion_description' - A description of the version of a service template.
 --
@@ -154,8 +154,8 @@ newServiceTemplateVersion
 -- template version.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 serviceTemplateVersion_supportedComponentSources :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
 serviceTemplateVersion_supportedComponentSources = Lens.lens (\ServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@ServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 

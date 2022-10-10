@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateEnvironmentAccountConnection
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,8 @@
 -- use a new IAM role.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /Proton Administrator guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html Environment account connections>
+-- in the /Proton User guide/.
 module Amazonka.Proton.UpdateEnvironmentAccountConnection
   ( -- * Creating a Request
     UpdateEnvironmentAccountConnection (..),
@@ -68,8 +68,8 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
     -- running in the account.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection to update.
     id :: Prelude.Text
@@ -97,8 +97,8 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'id', 'updateEnvironmentAccountConnection_id' - The ID of the environment account connection to update.
 newUpdateEnvironmentAccountConnection ::
@@ -128,8 +128,8 @@ updateEnvironmentAccountConnection_roleArn = Lens.lens (\UpdateEnvironmentAccoun
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 updateEnvironmentAccountConnection_componentRoleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 updateEnvironmentAccountConnection_componentRoleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {componentRoleArn} -> componentRoleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {componentRoleArn = a} :: UpdateEnvironmentAccountConnection)
 

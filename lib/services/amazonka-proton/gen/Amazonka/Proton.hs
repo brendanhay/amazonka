@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Proton
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,11 +41,7 @@
 -- /list/, /update/ and /delete/ API operations and the service instance
 -- /list/ and /update/ API operations.
 --
--- To learn more about Proton administration, see the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html Proton Administrator Guide>.
---
--- To learn more about deploying serverless and containerized applications
--- on Proton, see the
+-- To learn more about Proton, see the
 -- <https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html Proton User Guide>.
 --
 -- __Ensuring Idempotency__

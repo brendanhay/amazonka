@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.DeleteRepository
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { -- | The name of the repository.
+  { -- | The repository name.
     name :: Prelude.Text,
     -- | The repository provider.
     provider :: RepositoryProvider
@@ -64,7 +64,7 @@ data DeleteRepository = DeleteRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteRepository_name' - The name of the repository.
+-- 'name', 'deleteRepository_name' - The repository name.
 --
 -- 'provider', 'deleteRepository_provider' - The repository provider.
 newDeleteRepository ::
@@ -79,7 +79,7 @@ newDeleteRepository pName_ pProvider_ =
       provider = pProvider_
     }
 
--- | The name of the repository.
+-- | The repository name.
 deleteRepository_name :: Lens.Lens' DeleteRepository Prelude.Text
 deleteRepository_name = Lens.lens (\DeleteRepository' {name} -> name) (\s@DeleteRepository' {} a -> s {name = a} :: DeleteRepository)
 
@@ -141,7 +141,7 @@ instance Core.ToQuery DeleteRepository where
 
 -- | /See:/ 'newDeleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-  { -- | The repository detail data that\'s returned by Proton.
+  { -- | The deleted repository link\'s detail data that\'s returned by Proton.
     repository :: Prelude.Maybe Repository,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -156,7 +156,7 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repository', 'deleteRepositoryResponse_repository' - The repository detail data that\'s returned by Proton.
+-- 'repository', 'deleteRepositoryResponse_repository' - The deleted repository link\'s detail data that\'s returned by Proton.
 --
 -- 'httpStatus', 'deleteRepositoryResponse_httpStatus' - The response's http status code.
 newDeleteRepositoryResponse ::
@@ -170,7 +170,7 @@ newDeleteRepositoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The repository detail data that\'s returned by Proton.
+-- | The deleted repository link\'s detail data that\'s returned by Proton.
 deleteRepositoryResponse_repository :: Lens.Lens' DeleteRepositoryResponse (Prelude.Maybe Repository)
 deleteRepositoryResponse_repository = Lens.lens (\DeleteRepositoryResponse' {repository} -> repository) (\s@DeleteRepositoryResponse' {} a -> s {repository = a} :: DeleteRepositoryResponse)
 

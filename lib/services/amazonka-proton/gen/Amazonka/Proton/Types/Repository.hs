@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.Repository
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,16 +24,17 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
--- | Detailed data of a repository that has been registered with Proton.
+-- | Detailed data of a linked repository—a repository that has been
+-- registered with Proton.
 --
 -- /See:/ 'newRepository' smart constructor.
 data Repository = Repository'
   { -- | Your customer Amazon Web Services KMS encryption key.
     encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | The repository Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) of the linked repository.
     arn :: Prelude.Text,
-    -- | The repository Amazon Web Services CodeStar connection that connects
-    -- Proton to your repository.
+    -- | The Amazon Resource Name (ARN) of your AWS CodeStar connection that
+    -- connects Proton to your repository provider account.
     connectionArn :: Prelude.Text,
     -- | The repository name.
     name :: Prelude.Text,
@@ -52,10 +53,10 @@ data Repository = Repository'
 --
 -- 'encryptionKey', 'repository_encryptionKey' - Your customer Amazon Web Services KMS encryption key.
 --
--- 'arn', 'repository_arn' - The repository Amazon Resource Name (ARN).
+-- 'arn', 'repository_arn' - The Amazon Resource Name (ARN) of the linked repository.
 --
--- 'connectionArn', 'repository_connectionArn' - The repository Amazon Web Services CodeStar connection that connects
--- Proton to your repository.
+-- 'connectionArn', 'repository_connectionArn' - The Amazon Resource Name (ARN) of your AWS CodeStar connection that
+-- connects Proton to your repository provider account.
 --
 -- 'name', 'repository_name' - The repository name.
 --
@@ -83,12 +84,12 @@ newRepository pArn_ pConnectionArn_ pName_ pProvider_ =
 repository_encryptionKey :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_encryptionKey = Lens.lens (\Repository' {encryptionKey} -> encryptionKey) (\s@Repository' {} a -> s {encryptionKey = a} :: Repository)
 
--- | The repository Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the linked repository.
 repository_arn :: Lens.Lens' Repository Prelude.Text
 repository_arn = Lens.lens (\Repository' {arn} -> arn) (\s@Repository' {} a -> s {arn = a} :: Repository)
 
--- | The repository Amazon Web Services CodeStar connection that connects
--- Proton to your repository.
+-- | The Amazon Resource Name (ARN) of your AWS CodeStar connection that
+-- connects Proton to your repository provider account.
 repository_connectionArn :: Lens.Lens' Repository Prelude.Text
 repository_connectionArn = Lens.lens (\Repository' {connectionArn} -> connectionArn) (\s@Repository' {} a -> s {connectionArn = a} :: Repository)
 

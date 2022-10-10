@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Proton.ListRepositories
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List repositories with detail data.
+-- List linked repositories with detail data.
 --
 -- This operation returns paginated results.
 module Amazonka.Proton.ListRepositories
@@ -169,7 +169,7 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An array of repositories.
+    -- | An array of repository links.
     repositories :: [RepositorySummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -187,7 +187,7 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 --
 -- 'httpStatus', 'listRepositoriesResponse_httpStatus' - The response's http status code.
 --
--- 'repositories', 'listRepositoriesResponse_repositories' - An array of repositories.
+-- 'repositories', 'listRepositoriesResponse_repositories' - An array of repository links.
 newListRepositoriesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -209,7 +209,7 @@ listRepositoriesResponse_nextToken = Lens.lens (\ListRepositoriesResponse' {next
 listRepositoriesResponse_httpStatus :: Lens.Lens' ListRepositoriesResponse Prelude.Int
 listRepositoriesResponse_httpStatus = Lens.lens (\ListRepositoriesResponse' {httpStatus} -> httpStatus) (\s@ListRepositoriesResponse' {} a -> s {httpStatus = a} :: ListRepositoriesResponse)
 
--- | An array of repositories.
+-- | An array of repository links.
 listRepositoriesResponse_repositories :: Lens.Lens' ListRepositoriesResponse [RepositorySummary]
 listRepositoriesResponse_repositories = Lens.lens (\ListRepositoriesResponse' {repositories} -> repositories) (\s@ListRepositoriesResponse' {} a -> s {repositories = a} :: ListRepositoriesResponse) Prelude.. Lens.coerced
 

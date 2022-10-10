@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.Environment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,10 @@ data Environment = Environment'
   { -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
     provisioning :: Prelude.Maybe Provisioning,
-    -- | The infrastructure repository that you use to host your rendered
-    -- infrastructure templates for self-managed provisioning.
+    -- | The linked repository that you use to host your rendered infrastructure
+    -- templates for self-managed provisioning. A linked repository is a
+    -- repository that has been registered with Proton. For more information,
+    -- see CreateRepository.
     provisioningRepository :: Prelude.Maybe RepositoryBranch,
     -- | The description of the environment.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -57,8 +59,8 @@ data Environment = Environment'
     -- components to be associated with the environment.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection that\'s used to provision
     -- infrastructure resources in an environment account.
@@ -95,8 +97,10 @@ data Environment = Environment'
 -- 'provisioning', 'environment_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
 --
--- 'provisioningRepository', 'environment_provisioningRepository' - The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- 'provisioningRepository', 'environment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 --
 -- 'description', 'environment_description' - The description of the environment.
 --
@@ -118,8 +122,8 @@ data Environment = Environment'
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'environmentAccountConnectionId', 'environment_environmentAccountConnectionId' - The ID of the environment account connection that\'s used to provision
 -- infrastructure resources in an environment account.
@@ -199,8 +203,10 @@ newEnvironment
 environment_provisioning :: Lens.Lens' Environment (Prelude.Maybe Provisioning)
 environment_provisioning = Lens.lens (\Environment' {provisioning} -> provisioning) (\s@Environment' {} a -> s {provisioning = a} :: Environment)
 
--- | The infrastructure repository that you use to host your rendered
--- infrastructure templates for self-managed provisioning.
+-- | The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 environment_provisioningRepository :: Lens.Lens' Environment (Prelude.Maybe RepositoryBranch)
 environment_provisioningRepository = Lens.lens (\Environment' {provisioningRepository} -> provisioningRepository) (\s@Environment' {} a -> s {provisioningRepository = a} :: Environment)
 
@@ -234,8 +240,8 @@ environment_environmentAccountId = Lens.lens (\Environment' {environmentAccountI
 -- components to be associated with the environment.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 environment_componentRoleArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_componentRoleArn = Lens.lens (\Environment' {componentRoleArn} -> componentRoleArn) (\s@Environment' {} a -> s {componentRoleArn = a} :: Environment)
 

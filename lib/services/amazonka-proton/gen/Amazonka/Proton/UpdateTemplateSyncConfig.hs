@@ -14,14 +14,17 @@
 
 -- |
 -- Module      : Amazonka.Proton.UpdateTemplateSyncConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Update template sync configuration parameters, except for the
--- @templateName@ and @templateType@.
+-- @templateName@ and @templateType@. Repository details (branch, name, and
+-- provider) should be of a linked repository. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
 module Amazonka.Proton.UpdateTemplateSyncConfig
   ( -- * Creating a Request
     UpdateTemplateSyncConfig (..),
@@ -57,9 +60,9 @@ data UpdateTemplateSyncConfig = UpdateTemplateSyncConfig'
   { -- | A subdirectory path to your template bundle version. When included,
     -- limits the template bundle search to this repository directory.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | The repository branch.
+    -- | The repository branch for your template.
     branch :: Prelude.Text,
-    -- | The name of the repository (for example, @myrepos\/myrepo@).
+    -- | The repository name (for example, @myrepos\/myrepo@).
     repositoryName :: Prelude.Text,
     -- | The repository provider.
     repositoryProvider :: RepositoryProvider,
@@ -81,9 +84,9 @@ data UpdateTemplateSyncConfig = UpdateTemplateSyncConfig'
 -- 'subdirectory', 'updateTemplateSyncConfig_subdirectory' - A subdirectory path to your template bundle version. When included,
 -- limits the template bundle search to this repository directory.
 --
--- 'branch', 'updateTemplateSyncConfig_branch' - The repository branch.
+-- 'branch', 'updateTemplateSyncConfig_branch' - The repository branch for your template.
 --
--- 'repositoryName', 'updateTemplateSyncConfig_repositoryName' - The name of the repository (for example, @myrepos\/myrepo@).
+-- 'repositoryName', 'updateTemplateSyncConfig_repositoryName' - The repository name (for example, @myrepos\/myrepo@).
 --
 -- 'repositoryProvider', 'updateTemplateSyncConfig_repositoryProvider' - The repository provider.
 --
@@ -123,11 +126,11 @@ newUpdateTemplateSyncConfig
 updateTemplateSyncConfig_subdirectory :: Lens.Lens' UpdateTemplateSyncConfig (Prelude.Maybe Prelude.Text)
 updateTemplateSyncConfig_subdirectory = Lens.lens (\UpdateTemplateSyncConfig' {subdirectory} -> subdirectory) (\s@UpdateTemplateSyncConfig' {} a -> s {subdirectory = a} :: UpdateTemplateSyncConfig)
 
--- | The repository branch.
+-- | The repository branch for your template.
 updateTemplateSyncConfig_branch :: Lens.Lens' UpdateTemplateSyncConfig Prelude.Text
 updateTemplateSyncConfig_branch = Lens.lens (\UpdateTemplateSyncConfig' {branch} -> branch) (\s@UpdateTemplateSyncConfig' {} a -> s {branch = a} :: UpdateTemplateSyncConfig)
 
--- | The name of the repository (for example, @myrepos\/myrepo@).
+-- | The repository name (for example, @myrepos\/myrepo@).
 updateTemplateSyncConfig_repositoryName :: Lens.Lens' UpdateTemplateSyncConfig Prelude.Text
 updateTemplateSyncConfig_repositoryName = Lens.lens (\UpdateTemplateSyncConfig' {repositoryName} -> repositoryName) (\s@UpdateTemplateSyncConfig' {} a -> s {repositoryName = a} :: UpdateTemplateSyncConfig)
 

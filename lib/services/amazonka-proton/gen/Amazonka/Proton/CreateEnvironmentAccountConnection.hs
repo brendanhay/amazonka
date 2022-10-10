@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.CreateEnvironmentAccountConnection
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@
 -- An environment account connection is a secure bi-directional connection
 -- between a /management account/ and an /environment account/ that
 -- maintains authorization and permissions. For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /Proton Administrator guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html Environment account connections>
+-- in the /Proton User guide/.
 module Amazonka.Proton.CreateEnvironmentAccountConnection
   ( -- * Creating a Request
     CreateEnvironmentAccountConnection (..),
@@ -65,8 +65,8 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
     -- Proton environment account connection. A tag is a key-value pair.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton resources and tagging>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | When included, if two identical requests are made with the same client
     -- token, Proton returns the environment account connection that the first
@@ -81,8 +81,8 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
     -- to be associated with any environments running in this account.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Proton environment that\'s created in the associated
     -- management account.
@@ -113,8 +113,8 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 -- Proton environment account connection. A tag is a key-value pair.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton resources and tagging>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'clientToken', 'createEnvironmentAccountConnection_clientToken' - When included, if two identical requests are made with the same client
 -- token, Proton returns the environment account connection that the first
@@ -129,8 +129,8 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 -- to be associated with any environments running in this account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'environmentName', 'createEnvironmentAccountConnection_environmentName' - The name of the Proton environment that\'s created in the associated
 -- management account.
@@ -172,8 +172,8 @@ newCreateEnvironmentAccountConnection
 -- Proton environment account connection. A tag is a key-value pair.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton resources and tagging>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 createEnvironmentAccountConnection_tags :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe [Tag])
 createEnvironmentAccountConnection_tags = Lens.lens (\CreateEnvironmentAccountConnection' {tags} -> tags) (\s@CreateEnvironmentAccountConnection' {} a -> s {tags = a} :: CreateEnvironmentAccountConnection) Prelude.. Lens.mapping Lens.coerced
 
@@ -192,8 +192,8 @@ createEnvironmentAccountConnection_clientToken = Lens.lens (\CreateEnvironmentAc
 -- to be associated with any environments running in this account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 createEnvironmentAccountConnection_componentRoleArn :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 createEnvironmentAccountConnection_componentRoleArn = Lens.lens (\CreateEnvironmentAccountConnection' {componentRoleArn} -> componentRoleArn) (\s@CreateEnvironmentAccountConnection' {} a -> s {componentRoleArn = a} :: CreateEnvironmentAccountConnection)
 

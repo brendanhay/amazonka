@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.EnvironmentAccountConnectionSummary
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@ data EnvironmentAccountConnectionSummary = EnvironmentAccountConnectionSummary'
     -- running in the account.
     --
     -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
-    -- in the /Proton Administrator Guide/.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment account connection.
     arn :: Prelude.Text,
@@ -84,8 +84,8 @@ data EnvironmentAccountConnectionSummary = EnvironmentAccountConnectionSummary'
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'arn', 'environmentAccountConnectionSummary_arn' - The Amazon Resource Name (ARN) of the environment account connection.
 --
@@ -166,8 +166,8 @@ newEnvironmentAccountConnectionSummary
 -- running in the account.
 --
 -- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
--- in the /Proton Administrator Guide/.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 environmentAccountConnectionSummary_componentRoleArn :: Lens.Lens' EnvironmentAccountConnectionSummary (Prelude.Maybe Prelude.Text)
 environmentAccountConnectionSummary_componentRoleArn = Lens.lens (\EnvironmentAccountConnectionSummary' {componentRoleArn} -> componentRoleArn) (\s@EnvironmentAccountConnectionSummary' {} a -> s {componentRoleArn = a} :: EnvironmentAccountConnectionSummary)
 

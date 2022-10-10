@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Proton.Types.TemplateSyncConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ data TemplateSyncConfig = TemplateSyncConfig'
     subdirectory :: Prelude.Maybe Prelude.Text,
     -- | The repository branch.
     branch :: Prelude.Text,
-    -- | The name of the repository, for example @myrepos\/myrepo@.
+    -- | The repository name (for example, @myrepos\/myrepo@).
     repositoryName :: Prelude.Text,
     -- | The repository provider.
     repositoryProvider :: RepositoryProvider,
@@ -56,7 +56,7 @@ data TemplateSyncConfig = TemplateSyncConfig'
 --
 -- 'branch', 'templateSyncConfig_branch' - The repository branch.
 --
--- 'repositoryName', 'templateSyncConfig_repositoryName' - The name of the repository, for example @myrepos\/myrepo@.
+-- 'repositoryName', 'templateSyncConfig_repositoryName' - The repository name (for example, @myrepos\/myrepo@).
 --
 -- 'repositoryProvider', 'templateSyncConfig_repositoryProvider' - The repository provider.
 --
@@ -98,7 +98,7 @@ templateSyncConfig_subdirectory = Lens.lens (\TemplateSyncConfig' {subdirectory}
 templateSyncConfig_branch :: Lens.Lens' TemplateSyncConfig Prelude.Text
 templateSyncConfig_branch = Lens.lens (\TemplateSyncConfig' {branch} -> branch) (\s@TemplateSyncConfig' {} a -> s {branch = a} :: TemplateSyncConfig)
 
--- | The name of the repository, for example @myrepos\/myrepo@.
+-- | The repository name (for example, @myrepos\/myrepo@).
 templateSyncConfig_repositoryName :: Lens.Lens' TemplateSyncConfig Prelude.Text
 templateSyncConfig_repositoryName = Lens.lens (\TemplateSyncConfig' {repositoryName} -> repositoryName) (\s@TemplateSyncConfig' {} a -> s {repositoryName = a} :: TemplateSyncConfig)
 

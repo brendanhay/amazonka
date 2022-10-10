@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.CreateRecordingConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,6 +43,7 @@ module Amazonka.IVS.CreateRecordingConfiguration
     createRecordingConfiguration_tags,
     createRecordingConfiguration_name,
     createRecordingConfiguration_thumbnailConfiguration,
+    createRecordingConfiguration_recordingReconnectWindowSeconds,
     createRecordingConfiguration_destinationConfiguration,
 
     -- * Destructuring the Response
@@ -76,6 +77,10 @@ data CreateRecordingConfiguration = CreateRecordingConfiguration'
     -- thumbnails for a live session and modify the interval at which
     -- thumbnails are generated for the live session.
     thumbnailConfiguration :: Prelude.Maybe ThumbnailConfiguration,
+    -- | If a broadcast disconnects and then reconnects within the specified
+    -- interval, the multiple streams will be considered a single broadcast and
+    -- merged together. Default: 0.
+    recordingReconnectWindowSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains a destination configuration for where
     -- recorded video will be stored.
     destinationConfiguration :: DestinationConfiguration
@@ -102,6 +107,10 @@ data CreateRecordingConfiguration = CreateRecordingConfiguration'
 -- thumbnails for a live session and modify the interval at which
 -- thumbnails are generated for the live session.
 --
+-- 'recordingReconnectWindowSeconds', 'createRecordingConfiguration_recordingReconnectWindowSeconds' - If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+--
 -- 'destinationConfiguration', 'createRecordingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where
 -- recorded video will be stored.
 newCreateRecordingConfiguration ::
@@ -115,6 +124,8 @@ newCreateRecordingConfiguration
           Prelude.Nothing,
         name = Prelude.Nothing,
         thumbnailConfiguration = Prelude.Nothing,
+        recordingReconnectWindowSeconds =
+          Prelude.Nothing,
         destinationConfiguration =
           pDestinationConfiguration_
       }
@@ -136,6 +147,12 @@ createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {n
 -- thumbnails are generated for the live session.
 createRecordingConfiguration_thumbnailConfiguration :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe ThumbnailConfiguration)
 createRecordingConfiguration_thumbnailConfiguration = Lens.lens (\CreateRecordingConfiguration' {thumbnailConfiguration} -> thumbnailConfiguration) (\s@CreateRecordingConfiguration' {} a -> s {thumbnailConfiguration = a} :: CreateRecordingConfiguration)
+
+-- | If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+createRecordingConfiguration_recordingReconnectWindowSeconds :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Natural)
+createRecordingConfiguration_recordingReconnectWindowSeconds = Lens.lens (\CreateRecordingConfiguration' {recordingReconnectWindowSeconds} -> recordingReconnectWindowSeconds) (\s@CreateRecordingConfiguration' {} a -> s {recordingReconnectWindowSeconds = a} :: CreateRecordingConfiguration)
 
 -- | A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -163,6 +180,7 @@ instance
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` thumbnailConfiguration
+      `Prelude.hashWithSalt` recordingReconnectWindowSeconds
       `Prelude.hashWithSalt` destinationConfiguration
 
 instance Prelude.NFData CreateRecordingConfiguration where
@@ -170,6 +188,7 @@ instance Prelude.NFData CreateRecordingConfiguration where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf thumbnailConfiguration
+      `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
 instance Core.ToHeaders CreateRecordingConfiguration where
@@ -191,6 +210,8 @@ instance Core.ToJSON CreateRecordingConfiguration where
             ("name" Core..=) Prelude.<$> name,
             ("thumbnailConfiguration" Core..=)
               Prelude.<$> thumbnailConfiguration,
+            ("recordingReconnectWindowSeconds" Core..=)
+              Prelude.<$> recordingReconnectWindowSeconds,
             Prelude.Just
               ( "destinationConfiguration"
                   Core..= destinationConfiguration

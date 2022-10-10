@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,7 @@ module Amazonka.IVS.Lens
     createRecordingConfiguration_tags,
     createRecordingConfiguration_name,
     createRecordingConfiguration_thumbnailConfiguration,
+    createRecordingConfiguration_recordingReconnectWindowSeconds,
     createRecordingConfiguration_destinationConfiguration,
     createRecordingConfigurationResponse_recordingConfiguration,
     createRecordingConfigurationResponse_httpStatus,
@@ -236,6 +237,7 @@ module Amazonka.IVS.Lens
     recordingConfiguration_tags,
     recordingConfiguration_name,
     recordingConfiguration_thumbnailConfiguration,
+    recordingConfiguration_recordingReconnectWindowSeconds,
     recordingConfiguration_arn,
     recordingConfiguration_destinationConfiguration,
     recordingConfiguration_state,

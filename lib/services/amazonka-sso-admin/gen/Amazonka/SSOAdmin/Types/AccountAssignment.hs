@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.AccountAssignment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,24 +25,24 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.PrincipalType
 
 -- | The assignment that indicates a principal\'s limited access to a
--- specified Amazon Web Services account with a specified permission set.
+-- specified AWS account with a specified permission set.
 --
 -- The term /principal/ here refers to a user or group that is defined in
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 --
 -- /See:/ 'newAccountAssignment' smart constructor.
 data AccountAssignment = AccountAssignment'
-  { -- | An identifier for an object in Amazon Web Services SSO, such as a user
-    -- or group. PrincipalIds are GUIDs (For example,
+  { -- | An identifier for an object in IAM Identity Center, such as a user or
+    -- group. PrincipalIds are GUIDs (For example,
     -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
-    -- PrincipalIds in Amazon Web Services SSO, see the
-    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+    -- PrincipalIds in IAM Identity Center, see the
+    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Web Services account.
+    -- | The identifier of the AWS account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the permission set. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     permissionSetArn :: Prelude.Maybe Prelude.Text,
     -- | The entity type for which the assignment will be created.
     principalType :: Prelude.Maybe PrincipalType
@@ -57,17 +57,17 @@ data AccountAssignment = AccountAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'accountAssignment_principalId' - An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- 'principalId', 'accountAssignment_principalId' - An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 --
--- 'accountId', 'accountAssignment_accountId' - The identifier of the Amazon Web Services account.
+-- 'accountId', 'accountAssignment_accountId' - The identifier of the AWS account.
 --
 -- 'permissionSetArn', 'accountAssignment_permissionSetArn' - The ARN of the permission set. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'principalType', 'accountAssignment_principalType' - The entity type for which the assignment will be created.
 newAccountAssignment ::
@@ -80,21 +80,21 @@ newAccountAssignment =
       principalType = Prelude.Nothing
     }
 
--- | An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- | An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 accountAssignment_principalId :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
 accountAssignment_principalId = Lens.lens (\AccountAssignment' {principalId} -> principalId) (\s@AccountAssignment' {} a -> s {principalId = a} :: AccountAssignment)
 
--- | The identifier of the Amazon Web Services account.
+-- | The identifier of the AWS account.
 accountAssignment_accountId :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
 accountAssignment_accountId = Lens.lens (\AccountAssignment' {accountId} -> accountId) (\s@AccountAssignment' {} a -> s {accountId = a} :: AccountAssignment)
 
 -- | The ARN of the permission set. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 accountAssignment_permissionSetArn :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
 accountAssignment_permissionSetArn = Lens.lens (\AccountAssignment' {permissionSetArn} -> permissionSetArn) (\s@AccountAssignment' {} a -> s {permissionSetArn = a} :: AccountAssignment)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.UpdatePermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,10 +59,10 @@ data UpdatePermissionSet = UpdatePermissionSet'
     -- | Used to redirect users within the application during the federation
     -- authentication process.
     relayState :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the permission set.
     permissionSetArn :: Prelude.Text
@@ -85,10 +85,10 @@ data UpdatePermissionSet = UpdatePermissionSet'
 -- 'relayState', 'updatePermissionSet_relayState' - Used to redirect users within the application during the federation
 -- authentication process.
 --
--- 'instanceArn', 'updatePermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'updatePermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'permissionSetArn', 'updatePermissionSet_permissionSetArn' - The ARN of the permission set.
 newUpdatePermissionSet ::
@@ -122,10 +122,10 @@ updatePermissionSet_sessionDuration = Lens.lens (\UpdatePermissionSet' {sessionD
 updatePermissionSet_relayState :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
 updatePermissionSet_relayState = Lens.lens (\UpdatePermissionSet' {relayState} -> relayState) (\s@UpdatePermissionSet' {} a -> s {relayState = a} :: UpdatePermissionSet)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 updatePermissionSet_instanceArn :: Lens.Lens' UpdatePermissionSet Prelude.Text
 updatePermissionSet_instanceArn = Lens.lens (\UpdatePermissionSet' {instanceArn} -> instanceArn) (\s@UpdatePermissionSet' {} a -> s {instanceArn = a} :: UpdatePermissionSet)
 

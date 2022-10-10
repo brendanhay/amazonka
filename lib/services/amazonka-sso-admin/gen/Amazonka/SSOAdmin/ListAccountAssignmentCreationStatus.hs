@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the status of the Amazon Web Services account assignment creation
--- requests for a specified Amazon Web Services SSO instance.
+-- Lists the status of the AWS account assignment creation requests for a
+-- specified IAM Identity Center instance.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
@@ -62,10 +62,10 @@ data ListAccountAssignmentCreationStatus = ListAccountAssignmentCreationStatus'
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,10 +85,10 @@ data ListAccountAssignmentCreationStatus = ListAccountAssignmentCreationStatus'
 --
 -- 'maxResults', 'listAccountAssignmentCreationStatus_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listAccountAssignmentCreationStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'listAccountAssignmentCreationStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 newListAccountAssignmentCreationStatus ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -115,10 +115,10 @@ listAccountAssignmentCreationStatus_filter = Lens.lens (\ListAccountAssignmentCr
 listAccountAssignmentCreationStatus_maxResults :: Lens.Lens' ListAccountAssignmentCreationStatus (Prelude.Maybe Prelude.Natural)
 listAccountAssignmentCreationStatus_maxResults = Lens.lens (\ListAccountAssignmentCreationStatus' {maxResults} -> maxResults) (\s@ListAccountAssignmentCreationStatus' {} a -> s {maxResults = a} :: ListAccountAssignmentCreationStatus)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 listAccountAssignmentCreationStatus_instanceArn :: Lens.Lens' ListAccountAssignmentCreationStatus Prelude.Text
 listAccountAssignmentCreationStatus_instanceArn = Lens.lens (\ListAccountAssignmentCreationStatus' {instanceArn} -> instanceArn) (\s@ListAccountAssignmentCreationStatus' {} a -> s {instanceArn = a} :: ListAccountAssignmentCreationStatus)
 

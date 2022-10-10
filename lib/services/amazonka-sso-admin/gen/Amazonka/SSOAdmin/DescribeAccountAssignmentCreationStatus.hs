@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,10 +49,10 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeAccountAssignmentCreationStatus' smart constructor.
 data DescribeAccountAssignmentCreationStatus = DescribeAccountAssignmentCreationStatus'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The identifier that is used to track the request operation progress.
     accountAssignmentCreationRequestId :: Prelude.Text
@@ -67,10 +67,10 @@ data DescribeAccountAssignmentCreationStatus = DescribeAccountAssignmentCreation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeAccountAssignmentCreationStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'describeAccountAssignmentCreationStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'accountAssignmentCreationRequestId', 'describeAccountAssignmentCreationStatus_accountAssignmentCreationRequestId' - The identifier that is used to track the request operation progress.
 newDescribeAccountAssignmentCreationStatus ::
@@ -89,10 +89,10 @@ newDescribeAccountAssignmentCreationStatus
           pAccountAssignmentCreationRequestId_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 describeAccountAssignmentCreationStatus_instanceArn :: Lens.Lens' DescribeAccountAssignmentCreationStatus Prelude.Text
 describeAccountAssignmentCreationStatus_instanceArn = Lens.lens (\DescribeAccountAssignmentCreationStatus' {instanceArn} -> instanceArn) (\s@DescribeAccountAssignmentCreationStatus' {} a -> s {instanceArn = a} :: DescribeAccountAssignmentCreationStatus)
 

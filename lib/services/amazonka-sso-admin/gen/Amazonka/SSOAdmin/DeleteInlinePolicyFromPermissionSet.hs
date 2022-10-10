@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,10 +48,10 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteInlinePolicyFromPermissionSet' smart constructor.
 data DeleteInlinePolicyFromPermissionSet = DeleteInlinePolicyFromPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the permission set that will be used to remove access.
     permissionSetArn :: Prelude.Text
@@ -66,10 +66,10 @@ data DeleteInlinePolicyFromPermissionSet = DeleteInlinePolicyFromPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteInlinePolicyFromPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'deleteInlinePolicyFromPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'permissionSetArn', 'deleteInlinePolicyFromPermissionSet_permissionSetArn' - The ARN of the permission set that will be used to remove access.
 newDeleteInlinePolicyFromPermissionSet ::
@@ -87,10 +87,10 @@ newDeleteInlinePolicyFromPermissionSet
         permissionSetArn = pPermissionSetArn_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 deleteInlinePolicyFromPermissionSet_instanceArn :: Lens.Lens' DeleteInlinePolicyFromPermissionSet Prelude.Text
 deleteInlinePolicyFromPermissionSet_instanceArn = Lens.lens (\DeleteInlinePolicyFromPermissionSet' {instanceArn} -> instanceArn) (\s@DeleteInlinePolicyFromPermissionSet' {} a -> s {instanceArn = a} :: DeleteInlinePolicyFromPermissionSet)
 

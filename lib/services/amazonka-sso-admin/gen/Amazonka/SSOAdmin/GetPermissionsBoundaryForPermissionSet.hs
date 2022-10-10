@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.GetPermissionsBoundaryForPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newGetPermissionsBoundaryForPermissionSet' smart constructor.
 data GetPermissionsBoundaryForPermissionSet = GetPermissionsBoundaryForPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text
@@ -65,8 +65,8 @@ data GetPermissionsBoundaryForPermissionSet = GetPermissionsBoundaryForPermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'getPermissionsBoundaryForPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'getPermissionsBoundaryForPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'getPermissionsBoundaryForPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 newGetPermissionsBoundaryForPermissionSet ::
@@ -85,8 +85,8 @@ newGetPermissionsBoundaryForPermissionSet
           pPermissionSetArn_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 getPermissionsBoundaryForPermissionSet_instanceArn :: Lens.Lens' GetPermissionsBoundaryForPermissionSet Prelude.Text
 getPermissionsBoundaryForPermissionSet_instanceArn = Lens.lens (\GetPermissionsBoundaryForPermissionSet' {instanceArn} -> instanceArn) (\s@GetPermissionsBoundaryForPermissionSet' {} a -> s {instanceArn = a} :: GetPermissionsBoundaryForPermissionSet)
 

@@ -14,24 +14,24 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.CreateAccountAssignment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns access to a principal for a specified Amazon Web Services
--- account using a specified permission set.
+-- Assigns access to a principal for a specified AWS account using a
+-- specified permission set.
 --
 -- The term /principal/ here refers to a user or group that is defined in
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 --
 -- As part of a successful @CreateAccountAssignment@ call, the specified
 -- permission set will automatically be provisioned to the account in the
 -- form of an IAM policy. That policy is attached to the IAM role created
--- in Amazon Web Services SSO. If the permission set is subsequently
--- updated, the corresponding IAM policies attached to roles in your
--- accounts will not be updated automatically. In this case, you must call
+-- in IAM Identity Center. If the permission set is subsequently updated,
+-- the corresponding IAM policies attached to roles in your accounts will
+-- not be updated automatically. In this case, you must call
 -- @ ProvisionPermissionSet @ to make these updates.
 --
 -- After a successful response, call
@@ -69,13 +69,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newCreateAccountAssignment' smart constructor.
 data CreateAccountAssignment = CreateAccountAssignment'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
-    -- | TargetID is an Amazon Web Services account identifier, typically a 10-12
-    -- digit string (For example, 123456789012).
+    -- | TargetID is an AWS account identifier, typically a 10-12 digit string
+    -- (For example, 123456789012).
     targetId :: Prelude.Text,
     -- | The entity type for which the assignment will be created.
     targetType :: TargetType,
@@ -84,11 +84,11 @@ data CreateAccountAssignment = CreateAccountAssignment'
     permissionSetArn :: Prelude.Text,
     -- | The entity type for which the assignment will be created.
     principalType :: PrincipalType,
-    -- | An identifier for an object in Amazon Web Services SSO, such as a user
-    -- or group. PrincipalIds are GUIDs (For example,
+    -- | An identifier for an object in IAM Identity Center, such as a user or
+    -- group. PrincipalIds are GUIDs (For example,
     -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
-    -- PrincipalIds in Amazon Web Services SSO, see the
-    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+    -- PrincipalIds in IAM Identity Center, see the
+    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
     principalId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,13 +101,13 @@ data CreateAccountAssignment = CreateAccountAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'createAccountAssignment_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'createAccountAssignment_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
--- 'targetId', 'createAccountAssignment_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- 'targetId', 'createAccountAssignment_targetId' - TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 --
 -- 'targetType', 'createAccountAssignment_targetType' - The entity type for which the assignment will be created.
 --
@@ -116,11 +116,11 @@ data CreateAccountAssignment = CreateAccountAssignment'
 --
 -- 'principalType', 'createAccountAssignment_principalType' - The entity type for which the assignment will be created.
 --
--- 'principalId', 'createAccountAssignment_principalId' - An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- 'principalId', 'createAccountAssignment_principalId' - An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 newCreateAccountAssignment ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -152,15 +152,15 @@ newCreateAccountAssignment
         principalId = pPrincipalId_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 createAccountAssignment_instanceArn :: Lens.Lens' CreateAccountAssignment Prelude.Text
 createAccountAssignment_instanceArn = Lens.lens (\CreateAccountAssignment' {instanceArn} -> instanceArn) (\s@CreateAccountAssignment' {} a -> s {instanceArn = a} :: CreateAccountAssignment)
 
--- | TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- | TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 createAccountAssignment_targetId :: Lens.Lens' CreateAccountAssignment Prelude.Text
 createAccountAssignment_targetId = Lens.lens (\CreateAccountAssignment' {targetId} -> targetId) (\s@CreateAccountAssignment' {} a -> s {targetId = a} :: CreateAccountAssignment)
 
@@ -177,11 +177,11 @@ createAccountAssignment_permissionSetArn = Lens.lens (\CreateAccountAssignment' 
 createAccountAssignment_principalType :: Lens.Lens' CreateAccountAssignment PrincipalType
 createAccountAssignment_principalType = Lens.lens (\CreateAccountAssignment' {principalType} -> principalType) (\s@CreateAccountAssignment' {} a -> s {principalType = a} :: CreateAccountAssignment)
 
--- | An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- | An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 createAccountAssignment_principalId :: Lens.Lens' CreateAccountAssignment Prelude.Text
 createAccountAssignment_principalId = Lens.lens (\CreateAccountAssignment' {principalId} -> principalId) (\s@CreateAccountAssignment' {} a -> s {principalId = a} :: CreateAccountAssignment)
 

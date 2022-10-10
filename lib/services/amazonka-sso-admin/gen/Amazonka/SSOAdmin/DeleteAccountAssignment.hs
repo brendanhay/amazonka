@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DeleteAccountAssignment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a principal\'s access from a specified Amazon Web Services
--- account using a specified permission set.
+-- Deletes a principal\'s access from a specified AWS account using a
+-- specified permission set.
 --
 -- After a successful response, call
 -- @DescribeAccountAssignmentCreationStatus@ to describe the status of an
@@ -58,13 +58,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteAccountAssignment' smart constructor.
 data DeleteAccountAssignment = DeleteAccountAssignment'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
-    -- | TargetID is an Amazon Web Services account identifier, typically a 10-12
-    -- digit string (For example, 123456789012).
+    -- | TargetID is an AWS account identifier, typically a 10-12 digit string
+    -- (For example, 123456789012).
     targetId :: Prelude.Text,
     -- | The entity type for which the assignment will be deleted.
     targetType :: TargetType,
@@ -72,11 +72,11 @@ data DeleteAccountAssignment = DeleteAccountAssignment'
     permissionSetArn :: Prelude.Text,
     -- | The entity type for which the assignment will be deleted.
     principalType :: PrincipalType,
-    -- | An identifier for an object in Amazon Web Services SSO, such as a user
-    -- or group. PrincipalIds are GUIDs (For example,
+    -- | An identifier for an object in IAM Identity Center, such as a user or
+    -- group. PrincipalIds are GUIDs (For example,
     -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
-    -- PrincipalIds in Amazon Web Services SSO, see the
-    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+    -- PrincipalIds in IAM Identity Center, see the
+    -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
     principalId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,13 +89,13 @@ data DeleteAccountAssignment = DeleteAccountAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteAccountAssignment_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'deleteAccountAssignment_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
--- 'targetId', 'deleteAccountAssignment_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- 'targetId', 'deleteAccountAssignment_targetId' - TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 --
 -- 'targetType', 'deleteAccountAssignment_targetType' - The entity type for which the assignment will be deleted.
 --
@@ -103,11 +103,11 @@ data DeleteAccountAssignment = DeleteAccountAssignment'
 --
 -- 'principalType', 'deleteAccountAssignment_principalType' - The entity type for which the assignment will be deleted.
 --
--- 'principalId', 'deleteAccountAssignment_principalId' - An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- 'principalId', 'deleteAccountAssignment_principalId' - An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 newDeleteAccountAssignment ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -139,15 +139,15 @@ newDeleteAccountAssignment
         principalId = pPrincipalId_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 deleteAccountAssignment_instanceArn :: Lens.Lens' DeleteAccountAssignment Prelude.Text
 deleteAccountAssignment_instanceArn = Lens.lens (\DeleteAccountAssignment' {instanceArn} -> instanceArn) (\s@DeleteAccountAssignment' {} a -> s {instanceArn = a} :: DeleteAccountAssignment)
 
--- | TargetID is an Amazon Web Services account identifier, typically a 10-12
--- digit string (For example, 123456789012).
+-- | TargetID is an AWS account identifier, typically a 10-12 digit string
+-- (For example, 123456789012).
 deleteAccountAssignment_targetId :: Lens.Lens' DeleteAccountAssignment Prelude.Text
 deleteAccountAssignment_targetId = Lens.lens (\DeleteAccountAssignment' {targetId} -> targetId) (\s@DeleteAccountAssignment' {} a -> s {targetId = a} :: DeleteAccountAssignment)
 
@@ -163,11 +163,11 @@ deleteAccountAssignment_permissionSetArn = Lens.lens (\DeleteAccountAssignment' 
 deleteAccountAssignment_principalType :: Lens.Lens' DeleteAccountAssignment PrincipalType
 deleteAccountAssignment_principalType = Lens.lens (\DeleteAccountAssignment' {principalType} -> principalType) (\s@DeleteAccountAssignment' {} a -> s {principalType = a} :: DeleteAccountAssignment)
 
--- | An identifier for an object in Amazon Web Services SSO, such as a user
--- or group. PrincipalIds are GUIDs (For example,
+-- | An identifier for an object in IAM Identity Center, such as a user or
+-- group. PrincipalIds are GUIDs (For example,
 -- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about
--- PrincipalIds in Amazon Web Services SSO, see the
--- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
+-- PrincipalIds in IAM Identity Center, see the
+-- </singlesignon/latest/IdentityStoreAPIReference/welcome.html IAM Identity Center Identity Store API Reference>.
 deleteAccountAssignment_principalId :: Lens.Lens' DeleteAccountAssignment Prelude.Text
 deleteAccountAssignment_principalId = Lens.lens (\DeleteAccountAssignment' {principalId} -> principalId) (\s@DeleteAccountAssignment' {} a -> s {principalId = a} :: DeleteAccountAssignment)
 

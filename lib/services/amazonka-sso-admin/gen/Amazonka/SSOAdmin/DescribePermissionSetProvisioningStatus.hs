@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,10 +49,10 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribePermissionSetProvisioningStatus' smart constructor.
 data DescribePermissionSetProvisioningStatus = DescribePermissionSetProvisioningStatus'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The identifier that is provided by the ProvisionPermissionSet call to
     -- retrieve the current status of the provisioning workflow.
@@ -68,10 +68,10 @@ data DescribePermissionSetProvisioningStatus = DescribePermissionSetProvisioning
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describePermissionSetProvisioningStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'describePermissionSetProvisioningStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'provisionPermissionSetRequestId', 'describePermissionSetProvisioningStatus_provisionPermissionSetRequestId' - The identifier that is provided by the ProvisionPermissionSet call to
 -- retrieve the current status of the provisioning workflow.
@@ -91,10 +91,10 @@ newDescribePermissionSetProvisioningStatus
           pProvisionPermissionSetRequestId_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 describePermissionSetProvisioningStatus_instanceArn :: Lens.Lens' DescribePermissionSetProvisioningStatus Prelude.Text
 describePermissionSetProvisioningStatus_instanceArn = Lens.lens (\DescribePermissionSetProvisioningStatus' {instanceArn} -> instanceArn) (\s@DescribePermissionSetProvisioningStatus' {} a -> s {instanceArn = a} :: DescribePermissionSetProvisioningStatus)
 

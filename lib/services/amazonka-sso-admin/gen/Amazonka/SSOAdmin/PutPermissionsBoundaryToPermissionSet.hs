@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.PutPermissionsBoundaryToPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an Amazon Web Services managed or customer managed policy to
--- the specified PermissionSet as a permissions boundary.
+-- Attaches an AWS managed or customer managed policy to the specified
+-- PermissionSet as a permissions boundary.
 module Amazonka.SSOAdmin.PutPermissionsBoundaryToPermissionSet
   ( -- * Creating a Request
     PutPermissionsBoundaryToPermissionSet (..),
@@ -50,8 +50,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newPutPermissionsBoundaryToPermissionSet' smart constructor.
 data PutPermissionsBoundaryToPermissionSet = PutPermissionsBoundaryToPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text,
@@ -68,8 +68,8 @@ data PutPermissionsBoundaryToPermissionSet = PutPermissionsBoundaryToPermissionS
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'putPermissionsBoundaryToPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'putPermissionsBoundaryToPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'putPermissionsBoundaryToPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 --
@@ -95,8 +95,8 @@ newPutPermissionsBoundaryToPermissionSet
           pPermissionsBoundary_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 putPermissionsBoundaryToPermissionSet_instanceArn :: Lens.Lens' PutPermissionsBoundaryToPermissionSet Prelude.Text
 putPermissionsBoundaryToPermissionSet_instanceArn = Lens.lens (\PutPermissionsBoundaryToPermissionSet' {instanceArn} -> instanceArn) (\s@PutPermissionsBoundaryToPermissionSet' {} a -> s {instanceArn = a} :: PutPermissionsBoundaryToPermissionSet)
 

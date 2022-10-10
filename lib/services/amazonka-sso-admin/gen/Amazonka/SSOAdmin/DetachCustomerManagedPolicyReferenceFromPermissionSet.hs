@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DetachCustomerManagedPolicyReferenceFromPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,14 +50,14 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDetachCustomerManagedPolicyReferenceFromPermissionSet' smart constructor.
 data DetachCustomerManagedPolicyReferenceFromPermissionSet = DetachCustomerManagedPolicyReferenceFromPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text,
     -- | Specifies the name and path of a customer managed policy. You must have
-    -- an IAM policy that matches the name and path in each Amazon Web Services
-    -- account where you want to deploy your permission set.
+    -- an IAM policy that matches the name and path in each AWS account where
+    -- you want to deploy your permission set.
     customerManagedPolicyReference :: CustomerManagedPolicyReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,14 +70,14 @@ data DetachCustomerManagedPolicyReferenceFromPermissionSet = DetachCustomerManag
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'detachCustomerManagedPolicyReferenceFromPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'detachCustomerManagedPolicyReferenceFromPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'detachCustomerManagedPolicyReferenceFromPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 --
 -- 'customerManagedPolicyReference', 'detachCustomerManagedPolicyReferenceFromPermissionSet_customerManagedPolicyReference' - Specifies the name and path of a customer managed policy. You must have
--- an IAM policy that matches the name and path in each Amazon Web Services
--- account where you want to deploy your permission set.
+-- an IAM policy that matches the name and path in each AWS account where
+-- you want to deploy your permission set.
 newDetachCustomerManagedPolicyReferenceFromPermissionSet ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -99,8 +99,8 @@ newDetachCustomerManagedPolicyReferenceFromPermissionSet
           pCustomerManagedPolicyReference_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 detachCustomerManagedPolicyReferenceFromPermissionSet_instanceArn :: Lens.Lens' DetachCustomerManagedPolicyReferenceFromPermissionSet Prelude.Text
 detachCustomerManagedPolicyReferenceFromPermissionSet_instanceArn = Lens.lens (\DetachCustomerManagedPolicyReferenceFromPermissionSet' {instanceArn} -> instanceArn) (\s@DetachCustomerManagedPolicyReferenceFromPermissionSet' {} a -> s {instanceArn = a} :: DetachCustomerManagedPolicyReferenceFromPermissionSet)
 
@@ -109,8 +109,8 @@ detachCustomerManagedPolicyReferenceFromPermissionSet_permissionSetArn :: Lens.L
 detachCustomerManagedPolicyReferenceFromPermissionSet_permissionSetArn = Lens.lens (\DetachCustomerManagedPolicyReferenceFromPermissionSet' {permissionSetArn} -> permissionSetArn) (\s@DetachCustomerManagedPolicyReferenceFromPermissionSet' {} a -> s {permissionSetArn = a} :: DetachCustomerManagedPolicyReferenceFromPermissionSet)
 
 -- | Specifies the name and path of a customer managed policy. You must have
--- an IAM policy that matches the name and path in each Amazon Web Services
--- account where you want to deploy your permission set.
+-- an IAM policy that matches the name and path in each AWS account where
+-- you want to deploy your permission set.
 detachCustomerManagedPolicyReferenceFromPermissionSet_customerManagedPolicyReference :: Lens.Lens' DetachCustomerManagedPolicyReferenceFromPermissionSet CustomerManagedPolicyReference
 detachCustomerManagedPolicyReferenceFromPermissionSet_customerManagedPolicyReference = Lens.lens (\DetachCustomerManagedPolicyReferenceFromPermissionSet' {customerManagedPolicyReference} -> customerManagedPolicyReference) (\s@DetachCustomerManagedPolicyReferenceFromPermissionSet' {} a -> s {customerManagedPolicyReference = a} :: DetachCustomerManagedPolicyReferenceFromPermissionSet)
 

@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the status of the permission set provisioning requests for a
--- specified Amazon Web Services SSO instance.
+-- specified IAM Identity Center instance.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
@@ -62,10 +62,10 @@ data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,10 +85,10 @@ data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
 --
 -- 'maxResults', 'listPermissionSetProvisioningStatus_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listPermissionSetProvisioningStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'listPermissionSetProvisioningStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 newListPermissionSetProvisioningStatus ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -115,10 +115,10 @@ listPermissionSetProvisioningStatus_filter = Lens.lens (\ListPermissionSetProvis
 listPermissionSetProvisioningStatus_maxResults :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe Prelude.Natural)
 listPermissionSetProvisioningStatus_maxResults = Lens.lens (\ListPermissionSetProvisioningStatus' {maxResults} -> maxResults) (\s@ListPermissionSetProvisioningStatus' {} a -> s {maxResults = a} :: ListPermissionSetProvisioningStatus)
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 listPermissionSetProvisioningStatus_instanceArn :: Lens.Lens' ListPermissionSetProvisioningStatus Prelude.Text
 listPermissionSetProvisioningStatus_instanceArn = Lens.lens (\ListPermissionSetProvisioningStatus' {instanceArn} -> instanceArn) (\s@ListPermissionSetProvisioningStatus' {} a -> s {instanceArn = a} :: ListPermissionSetProvisioningStatus)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,10 +49,10 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeAccountAssignmentDeletionStatus' smart constructor.
 data DescribeAccountAssignmentDeletionStatus = DescribeAccountAssignmentDeletionStatus'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed. For more information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed. For more information about ARNs, see
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     instanceArn :: Prelude.Text,
     -- | The identifier that is used to track the request operation progress.
     accountAssignmentDeletionRequestId :: Prelude.Text
@@ -67,10 +67,10 @@ data DescribeAccountAssignmentDeletionStatus = DescribeAccountAssignmentDeletion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeAccountAssignmentDeletionStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- 'instanceArn', 'describeAccountAssignmentDeletionStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'accountAssignmentDeletionRequestId', 'describeAccountAssignmentDeletionStatus_accountAssignmentDeletionRequestId' - The identifier that is used to track the request operation progress.
 newDescribeAccountAssignmentDeletionStatus ::
@@ -89,10 +89,10 @@ newDescribeAccountAssignmentDeletionStatus
           pAccountAssignmentDeletionRequestId_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed. For more information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed. For more information about ARNs, see
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 describeAccountAssignmentDeletionStatus_instanceArn :: Lens.Lens' DescribeAccountAssignmentDeletionStatus Prelude.Text
 describeAccountAssignmentDeletionStatus_instanceArn = Lens.lens (\DescribeAccountAssignmentDeletionStatus' {instanceArn} -> instanceArn) (\s@DescribeAccountAssignmentDeletionStatus' {} a -> s {instanceArn = a} :: DescribeAccountAssignmentDeletionStatus)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,13 +34,12 @@ data PermissionSetProvisioningStatus = PermissionSetProvisioningStatus'
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The status of the permission set provisioning process.
     status :: Prelude.Maybe StatusValues,
-    -- | The identifier of the Amazon Web Services account from which to list the
-    -- assignments.
+    -- | The identifier of the AWS account from which to list the assignments.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the permission set that is being provisioned. For more
     -- information about ARNs, see
-    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the /Amazon Web Services General Reference/.
+    -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
     permissionSetArn :: Prelude.Maybe Prelude.Text,
     -- | The date that the permission set was created.
     createdDate :: Prelude.Maybe Core.POSIX,
@@ -63,13 +62,12 @@ data PermissionSetProvisioningStatus = PermissionSetProvisioningStatus'
 --
 -- 'status', 'permissionSetProvisioningStatus_status' - The status of the permission set provisioning process.
 --
--- 'accountId', 'permissionSetProvisioningStatus_accountId' - The identifier of the Amazon Web Services account from which to list the
--- assignments.
+-- 'accountId', 'permissionSetProvisioningStatus_accountId' - The identifier of the AWS account from which to list the assignments.
 --
 -- 'permissionSetArn', 'permissionSetProvisioningStatus_permissionSetArn' - The ARN of the permission set that is being provisioned. For more
 -- information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 --
 -- 'createdDate', 'permissionSetProvisioningStatus_createdDate' - The date that the permission set was created.
 --
@@ -97,15 +95,14 @@ permissionSetProvisioningStatus_requestId = Lens.lens (\PermissionSetProvisionin
 permissionSetProvisioningStatus_status :: Lens.Lens' PermissionSetProvisioningStatus (Prelude.Maybe StatusValues)
 permissionSetProvisioningStatus_status = Lens.lens (\PermissionSetProvisioningStatus' {status} -> status) (\s@PermissionSetProvisioningStatus' {} a -> s {status = a} :: PermissionSetProvisioningStatus)
 
--- | The identifier of the Amazon Web Services account from which to list the
--- assignments.
+-- | The identifier of the AWS account from which to list the assignments.
 permissionSetProvisioningStatus_accountId :: Lens.Lens' PermissionSetProvisioningStatus (Prelude.Maybe Prelude.Text)
 permissionSetProvisioningStatus_accountId = Lens.lens (\PermissionSetProvisioningStatus' {accountId} -> accountId) (\s@PermissionSetProvisioningStatus' {} a -> s {accountId = a} :: PermissionSetProvisioningStatus)
 
 -- | The ARN of the permission set that is being provisioned. For more
 -- information about ARNs, see
--- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the /Amazon Web Services General Reference/.
+-- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 permissionSetProvisioningStatus_permissionSetArn :: Lens.Lens' PermissionSetProvisioningStatus (Prelude.Maybe Prelude.Text)
 permissionSetProvisioningStatus_permissionSetArn = Lens.lens (\PermissionSetProvisioningStatus' {permissionSetArn} -> permissionSetArn) (\s@PermissionSetProvisioningStatus' {} a -> s {permissionSetArn = a} :: PermissionSetProvisioningStatus)
 

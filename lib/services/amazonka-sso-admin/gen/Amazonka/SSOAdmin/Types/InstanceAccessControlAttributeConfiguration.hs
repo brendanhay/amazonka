@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ import Amazonka.SSOAdmin.Types.AccessControlAttribute
 --
 -- /See:/ 'newInstanceAccessControlAttributeConfiguration' smart constructor.
 data InstanceAccessControlAttributeConfiguration = InstanceAccessControlAttributeConfiguration'
-  { -- | Lists the attributes that are configured for ABAC in the specified
-    -- Amazon Web Services SSO instance.
+  { -- | Lists the attributes that are configured for ABAC in the specified IAM
+    -- Identity Center instance.
     accessControlAttributes :: [AccessControlAttribute]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data InstanceAccessControlAttributeConfiguration = InstanceAccessControlAttribut
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessControlAttributes', 'instanceAccessControlAttributeConfiguration_accessControlAttributes' - Lists the attributes that are configured for ABAC in the specified
--- Amazon Web Services SSO instance.
+-- 'accessControlAttributes', 'instanceAccessControlAttributeConfiguration_accessControlAttributes' - Lists the attributes that are configured for ABAC in the specified IAM
+-- Identity Center instance.
 newInstanceAccessControlAttributeConfiguration ::
   InstanceAccessControlAttributeConfiguration
 newInstanceAccessControlAttributeConfiguration =
@@ -53,8 +53,8 @@ newInstanceAccessControlAttributeConfiguration =
         Prelude.mempty
     }
 
--- | Lists the attributes that are configured for ABAC in the specified
--- Amazon Web Services SSO instance.
+-- | Lists the attributes that are configured for ABAC in the specified IAM
+-- Identity Center instance.
 instanceAccessControlAttributeConfiguration_accessControlAttributes :: Lens.Lens' InstanceAccessControlAttributeConfiguration [AccessControlAttribute]
 instanceAccessControlAttributeConfiguration_accessControlAttributes = Lens.lens (\InstanceAccessControlAttributeConfiguration' {accessControlAttributes} -> accessControlAttributes) (\s@InstanceAccessControlAttributeConfiguration' {} a -> s {accessControlAttributes = a} :: InstanceAccessControlAttributeConfiguration) Prelude.. Lens.coerced
 

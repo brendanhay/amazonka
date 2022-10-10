@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.AttachCustomerManagedPolicyReferenceToPermissionSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,14 +50,14 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newAttachCustomerManagedPolicyReferenceToPermissionSet' smart constructor.
 data AttachCustomerManagedPolicyReferenceToPermissionSet = AttachCustomerManagedPolicyReferenceToPermissionSet'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text,
     -- | The ARN of the @PermissionSet@.
     permissionSetArn :: Prelude.Text,
     -- | Specifies the name and path of a customer managed policy. You must have
-    -- an IAM policy that matches the name and path in each Amazon Web Services
-    -- account where you want to deploy your permission set.
+    -- an IAM policy that matches the name and path in each AWS account where
+    -- you want to deploy your permission set.
     customerManagedPolicyReference :: CustomerManagedPolicyReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,14 +70,14 @@ data AttachCustomerManagedPolicyReferenceToPermissionSet = AttachCustomerManaged
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'attachCustomerManagedPolicyReferenceToPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'attachCustomerManagedPolicyReferenceToPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 --
 -- 'permissionSetArn', 'attachCustomerManagedPolicyReferenceToPermissionSet_permissionSetArn' - The ARN of the @PermissionSet@.
 --
 -- 'customerManagedPolicyReference', 'attachCustomerManagedPolicyReferenceToPermissionSet_customerManagedPolicyReference' - Specifies the name and path of a customer managed policy. You must have
--- an IAM policy that matches the name and path in each Amazon Web Services
--- account where you want to deploy your permission set.
+-- an IAM policy that matches the name and path in each AWS account where
+-- you want to deploy your permission set.
 newAttachCustomerManagedPolicyReferenceToPermissionSet ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -99,8 +99,8 @@ newAttachCustomerManagedPolicyReferenceToPermissionSet
           pCustomerManagedPolicyReference_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 attachCustomerManagedPolicyReferenceToPermissionSet_instanceArn :: Lens.Lens' AttachCustomerManagedPolicyReferenceToPermissionSet Prelude.Text
 attachCustomerManagedPolicyReferenceToPermissionSet_instanceArn = Lens.lens (\AttachCustomerManagedPolicyReferenceToPermissionSet' {instanceArn} -> instanceArn) (\s@AttachCustomerManagedPolicyReferenceToPermissionSet' {} a -> s {instanceArn = a} :: AttachCustomerManagedPolicyReferenceToPermissionSet)
 
@@ -109,8 +109,8 @@ attachCustomerManagedPolicyReferenceToPermissionSet_permissionSetArn :: Lens.Len
 attachCustomerManagedPolicyReferenceToPermissionSet_permissionSetArn = Lens.lens (\AttachCustomerManagedPolicyReferenceToPermissionSet' {permissionSetArn} -> permissionSetArn) (\s@AttachCustomerManagedPolicyReferenceToPermissionSet' {} a -> s {permissionSetArn = a} :: AttachCustomerManagedPolicyReferenceToPermissionSet)
 
 -- | Specifies the name and path of a customer managed policy. You must have
--- an IAM policy that matches the name and path in each Amazon Web Services
--- account where you want to deploy your permission set.
+-- an IAM policy that matches the name and path in each AWS account where
+-- you want to deploy your permission set.
 attachCustomerManagedPolicyReferenceToPermissionSet_customerManagedPolicyReference :: Lens.Lens' AttachCustomerManagedPolicyReferenceToPermissionSet CustomerManagedPolicyReference
 attachCustomerManagedPolicyReferenceToPermissionSet_customerManagedPolicyReference = Lens.lens (\AttachCustomerManagedPolicyReferenceToPermissionSet' {customerManagedPolicyReference} -> customerManagedPolicyReference) (\s@AttachCustomerManagedPolicyReferenceToPermissionSet' {} a -> s {customerManagedPolicyReference = a} :: AttachCustomerManagedPolicyReferenceToPermissionSet)
 

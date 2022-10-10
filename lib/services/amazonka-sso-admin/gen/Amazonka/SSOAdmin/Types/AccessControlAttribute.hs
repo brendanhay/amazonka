@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.AccessControlAttribute
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,19 +24,19 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.AccessControlAttributeValue
 
--- | These are Amazon Web Services SSO identity store attributes that you can
+-- | These are IAM Identity Center identity store attributes that you can
 -- configure for use in attributes-based access control (ABAC). You can
--- create permissions policies that determine who can access your Amazon
--- Web Services resources based upon the configured attribute values. When
--- you enable ABAC and specify @AccessControlAttributes@, Amazon Web
--- Services SSO passes the attribute values of the authenticated user into
--- IAM for use in policy evaluation.
+-- create permissions policies that determine who can access your AWS
+-- resources based upon the configured attribute values. When you enable
+-- ABAC and specify @AccessControlAttributes@, IAM Identity Center passes
+-- the attribute values of the authenticated user into IAM for use in
+-- policy evaluation.
 --
 -- /See:/ 'newAccessControlAttribute' smart constructor.
 data AccessControlAttribute = AccessControlAttribute'
   { -- | The name of the attribute associated with your identities in your
     -- identity source. This is used to map a specified attribute in your
-    -- identity source with an attribute in Amazon Web Services SSO.
+    -- identity source with an attribute in IAM Identity Center.
     key :: Prelude.Text,
     -- | The value used for mapping a specified attribute to an identity source.
     value :: AccessControlAttributeValue
@@ -53,7 +53,7 @@ data AccessControlAttribute = AccessControlAttribute'
 --
 -- 'key', 'accessControlAttribute_key' - The name of the attribute associated with your identities in your
 -- identity source. This is used to map a specified attribute in your
--- identity source with an attribute in Amazon Web Services SSO.
+-- identity source with an attribute in IAM Identity Center.
 --
 -- 'value', 'accessControlAttribute_value' - The value used for mapping a specified attribute to an identity source.
 newAccessControlAttribute ::
@@ -70,7 +70,7 @@ newAccessControlAttribute pKey_ pValue_ =
 
 -- | The name of the attribute associated with your identities in your
 -- identity source. This is used to map a specified attribute in your
--- identity source with an attribute in Amazon Web Services SSO.
+-- identity source with an attribute in IAM Identity Center.
 accessControlAttribute_key :: Lens.Lens' AccessControlAttribute Prelude.Text
 accessControlAttribute_key = Lens.lens (\AccessControlAttribute' {key} -> key) (\s@AccessControlAttribute' {} a -> s {key = a} :: AccessControlAttribute)
 

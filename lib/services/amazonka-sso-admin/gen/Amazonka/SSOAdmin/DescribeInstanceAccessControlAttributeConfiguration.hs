@@ -14,19 +14,19 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of Amazon Web Services SSO identity store attributes
--- that have been configured to work with attributes-based access control
--- (ABAC) for the specified Amazon Web Services SSO instance. This will not
--- return attributes configured and sent by an external identity provider.
--- For more information about ABAC, see
+-- Returns the list of IAM Identity Center identity store attributes that
+-- have been configured to work with attributes-based access control (ABAC)
+-- for the specified IAM Identity Center instance. This will not return
+-- attributes configured and sent by an external identity provider. For
+-- more information about ABAC, see
 -- </singlesignon/latest/userguide/abac.html Attribute-Based Access Control>
--- in the /Amazon Web Services SSO User Guide/.
+-- in the /IAM Identity Center User Guide/.
 module Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
   ( -- * Creating a Request
     DescribeInstanceAccessControlAttributeConfiguration (..),
@@ -56,8 +56,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeInstanceAccessControlAttributeConfiguration' smart constructor.
 data DescribeInstanceAccessControlAttributeConfiguration = DescribeInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the Amazon Web Services SSO instance under which the
-    -- operation will be executed.
+  { -- | The ARN of the IAM Identity Center instance under which the operation
+    -- will be executed.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,8 +70,8 @@ data DescribeInstanceAccessControlAttributeConfiguration = DescribeInstanceAcces
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- 'instanceArn', 'describeInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 newDescribeInstanceAccessControlAttributeConfiguration ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -83,8 +83,8 @@ newDescribeInstanceAccessControlAttributeConfiguration
           pInstanceArn_
       }
 
--- | The ARN of the Amazon Web Services SSO instance under which the
--- operation will be executed.
+-- | The ARN of the IAM Identity Center instance under which the operation
+-- will be executed.
 describeInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' DescribeInstanceAccessControlAttributeConfiguration Prelude.Text
 describeInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\DescribeInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@DescribeInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: DescribeInstanceAccessControlAttributeConfiguration)
 
@@ -169,8 +169,8 @@ instance
 
 -- | /See:/ 'newDescribeInstanceAccessControlAttributeConfigurationResponse' smart constructor.
 data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInstanceAccessControlAttributeConfigurationResponse'
-  { -- | Gets the list of Amazon Web Services SSO identity store attributes that
-    -- have been added to your ABAC configuration.
+  { -- | Gets the list of IAM Identity Center identity store attributes that have
+    -- been added to your ABAC configuration.
     instanceAccessControlAttributeConfiguration :: Prelude.Maybe InstanceAccessControlAttributeConfiguration,
     -- | Provides more details about the current status of the specified
     -- attribute.
@@ -190,8 +190,8 @@ data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInsta
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceAccessControlAttributeConfiguration', 'describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration' - Gets the list of Amazon Web Services SSO identity store attributes that
--- have been added to your ABAC configuration.
+-- 'instanceAccessControlAttributeConfiguration', 'describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration' - Gets the list of IAM Identity Center identity store attributes that have
+-- been added to your ABAC configuration.
 --
 -- 'statusReason', 'describeInstanceAccessControlAttributeConfigurationResponse_statusReason' - Provides more details about the current status of the specified
 -- attribute.
@@ -216,8 +216,8 @@ newDescribeInstanceAccessControlAttributeConfigurationResponse
           pHttpStatus_
       }
 
--- | Gets the list of Amazon Web Services SSO identity store attributes that
--- have been added to your ABAC configuration.
+-- | Gets the list of IAM Identity Center identity store attributes that have
+-- been added to your ABAC configuration.
 describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfiguration)
 describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {instanceAccessControlAttributeConfiguration} -> instanceAccessControlAttributeConfiguration) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {instanceAccessControlAttributeConfiguration = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
 

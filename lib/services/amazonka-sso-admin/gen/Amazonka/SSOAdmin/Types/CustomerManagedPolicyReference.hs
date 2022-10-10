@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name and path of a customer managed policy. You must have
--- an IAM policy that matches the name and path in each Amazon Web Services
--- account where you want to deploy your permission set.
+-- an IAM policy that matches the name and path in each AWS account where
+-- you want to deploy your permission set.
 --
 -- /See:/ 'newCustomerManagedPolicyReference' smart constructor.
 data CustomerManagedPolicyReference = CustomerManagedPolicyReference'
@@ -33,7 +33,7 @@ data CustomerManagedPolicyReference = CustomerManagedPolicyReference'
     -- where you want to deploy your permission set. The default is @\/@. For
     -- more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
-    -- in the /Identity and Access Management User Guide/.
+    -- in the /IAM User Guide/.
     path :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM policy that you have configured in each account
     -- where you want to deploy your permission set.
@@ -53,7 +53,7 @@ data CustomerManagedPolicyReference = CustomerManagedPolicyReference'
 -- where you want to deploy your permission set. The default is @\/@. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
--- in the /Identity and Access Management User Guide/.
+-- in the /IAM User Guide/.
 --
 -- 'name', 'customerManagedPolicyReference_name' - The name of the IAM policy that you have configured in each account
 -- where you want to deploy your permission set.
@@ -72,7 +72,7 @@ newCustomerManagedPolicyReference pName_ =
 -- where you want to deploy your permission set. The default is @\/@. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
--- in the /Identity and Access Management User Guide/.
+-- in the /IAM User Guide/.
 customerManagedPolicyReference_path :: Lens.Lens' CustomerManagedPolicyReference (Prelude.Maybe Prelude.Text)
 customerManagedPolicyReference_path = Lens.lens (\CustomerManagedPolicyReference' {path} -> path) (\s@CustomerManagedPolicyReference' {} a -> s {path = a} :: CustomerManagedPolicyReference)
 

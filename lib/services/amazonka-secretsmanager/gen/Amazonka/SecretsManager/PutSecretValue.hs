@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.PutSecretValue
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,12 +38,10 @@
 -- Manager automatically moves the staging label @AWSCURRENT@ to this
 -- version. If this operation creates the first version for the secret,
 -- then Secrets Manager automatically attaches the staging label
--- @AWSCURRENT@ to it .
---
--- If this operation moves the staging label @AWSCURRENT@ from another
--- version to this version, then Secrets Manager also automatically moves
--- the staging label @AWSPREVIOUS@ to the version that @AWSCURRENT@ was
--- removed from.
+-- @AWSCURRENT@ to it. If this operation moves the staging label
+-- @AWSCURRENT@ from another version to this version, then Secrets Manager
+-- also automatically moves the staging label @AWSPREVIOUS@ to the version
+-- that @AWSCURRENT@ was removed from.
 --
 -- This operation is idempotent. If you call this operation with a
 -- @ClientRequestToken@ that matches an existing version\'s VersionId, and
@@ -51,6 +49,12 @@
 -- nothing. However, if the secret data is different, then the operation
 -- fails because you can\'t modify an existing version; you can only create
 -- new ones.
+--
+-- Secrets Manager generates a CloudTrail log entry when you call this
+-- action. Do not include sensitive information in request parameters
+-- except @SecretBinary@ or @SecretString@ because it might be logged. For
+-- more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html Logging Secrets Manager events with CloudTrail>.
 --
 -- __Required permissions:__ @secretsmanager:PutSecretValue@. For more
 -- information, see

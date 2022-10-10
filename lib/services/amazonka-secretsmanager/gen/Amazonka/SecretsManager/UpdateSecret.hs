@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.UpdateSecret
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,14 +36,21 @@
 -- secret versions.
 --
 -- If you include @SecretString@ or @SecretBinary@ to create a new secret
--- version, Secrets Manager automatically attaches the staging label
--- @AWSCURRENT@ to the new version.
+-- version, Secrets Manager automatically moves the staging label
+-- @AWSCURRENT@ to the new version. Then it attaches the label
+-- @AWSPREVIOUS@ to the version that @AWSCURRENT@ was removed from.
 --
 -- If you call this operation with a @ClientRequestToken@ that matches an
 -- existing version\'s @VersionId@, the operation results in an error. You
 -- can\'t modify an existing version, you can only create a new version. To
 -- remove a version, remove all staging labels from it. See
 -- UpdateSecretVersionStage.
+--
+-- Secrets Manager generates a CloudTrail log entry when you call this
+-- action. Do not include sensitive information in request parameters
+-- except @SecretBinary@ or @SecretString@ because it might be logged. For
+-- more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html Logging Secrets Manager events with CloudTrail>.
 --
 -- __Required permissions:__ @secretsmanager:UpdateSecret@. For more
 -- information, see

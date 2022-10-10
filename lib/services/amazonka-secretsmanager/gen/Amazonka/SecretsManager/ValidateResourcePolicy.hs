@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.ValidateResourcePolicy
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,11 @@
 -- -   Checks for correct syntax in a policy.
 --
 -- -   Verifies the policy does not lock out a caller.
+--
+-- Secrets Manager generates a CloudTrail log entry when you call this
+-- action. Do not include sensitive information in request parameters
+-- because it might be logged. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html Logging Secrets Manager events with CloudTrail>.
 --
 -- __Required permissions:__ @secretsmanager:ValidateResourcePolicy@. For
 -- more information, see

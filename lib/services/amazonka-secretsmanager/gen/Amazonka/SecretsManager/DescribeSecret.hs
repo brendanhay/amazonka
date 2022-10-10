@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.DescribeSecret
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,11 @@
 -- Retrieves the details of a secret. It does not include the encrypted
 -- secret value. Secrets Manager only returns fields that have a value in
 -- the response.
+--
+-- Secrets Manager generates a CloudTrail log entry when you call this
+-- action. Do not include sensitive information in request parameters
+-- because it might be logged. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html Logging Secrets Manager events with CloudTrail>.
 --
 -- __Required permissions:__ @secretsmanager:DescribeSecret@. For more
 -- information, see

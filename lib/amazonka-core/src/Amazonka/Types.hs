@@ -150,6 +150,7 @@ import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)
+import Data.Time (defaultTimeLocale, parseTimeM, formatTime)
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -815,30 +816,54 @@ pattern Mumbai = Region' "ap-south-1"
   Region'
   #-}
 
--- | An integral value representing seconds.
-newtype Seconds = Seconds Int
+-- | A numeric value representing seconds.
+newtype Seconds = Seconds DiffTime
   deriving stock (Eq, Ord, Read, Show, Generic)
   deriving newtype
     ( Enum,
       Num,
-      Bounded,
-      Integral,
       Real,
-      ToQuery,
-      ToByteString,
-      ToText,
-      FromText,
       Hashable,
       NFData
     )
 
-instance ToLog Seconds where
-  build s = build (toSeconds s) <> "s"
+instance FromText Seconds where
+  fromText t = maybe (Left err) (Right . Seconds)
+    $ parseTimeM False defaultTimeLocale diffTimeFormatString str
+   where
+    str = Text.unpack t
+    err =
+      "Seconds value failed to parse as expected format ("
+        <> diffTimeFormatString
+        <> "): "
+        <> str
 
-toSeconds :: Seconds -> Int
+instance ToText Seconds where
+  toText =
+    Text.pack . formatTime defaultTimeLocale diffTimeFormatString . toSeconds
+
+-- | Format string used in parse/format options
+--
+-- Currently @%Es@, which is "total seconds, with decimal point and up to
+-- <width> (default 12) decimal places, without trailing zeros. For a whole
+-- number of seconds, %Es omits the decimal point unless padding is specified."
+--
+-- We also use 'defaultTimeLocale', which means @0.1@ and not @0,1@.
+--
+diffTimeFormatString :: String
+diffTimeFormatString = "%Es"
+
+instance ToByteString Seconds
+
+instance ToQuery Seconds
+
+instance ToLog Seconds where
+  build s = build (toText s) <> "s"
+
+toSeconds :: Seconds -> DiffTime
 toSeconds (Seconds n)
   | n < 0 = 0
   | otherwise = n
 
 toMicroseconds :: Seconds -> Int
-toMicroseconds = (1000000 *) . toSeconds
+toMicroseconds = round . (1000000 *) . toSeconds

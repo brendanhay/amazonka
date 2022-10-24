@@ -325,7 +325,7 @@ userdata m =
     Exception.try (get m (latest <> "user-data")) >>= \case
       Left (Client.HttpExceptionRequest _ (Client.StatusCodeException rs _))
         | fromEnum (Client.responseStatus rs) == 404 ->
-            return Nothing
+          return Nothing
       --
       Left e -> Exception.throwIO e
       --

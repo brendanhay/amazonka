@@ -97,9 +97,9 @@ serviceError a s h c m r =
 
 getRequestId :: [Header] -> Maybe RequestId
 getRequestId h
-  | Right hAMZ  <- h .# hAMZRequestId  = Just hAMZ
+  | Right hAMZ <- h .# hAMZRequestId = Just hAMZ
   | Right hAMZN <- h .# hAMZNRequestId = Just hAMZN
-  | otherwise                          = Nothing
+  | otherwise = Nothing
 
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
@@ -147,7 +147,10 @@ parseXMLError ::
 parseXMLError a s h bs = decodeError a s h bs (go <$> decodeXML bs)
   where
     go x =
-      serviceError a s h
+      serviceError
+        a
+        s
+        h
         (code x)
         (may' (firstElement "Message" x))
         (may' (firstElement "RequestId" x) <|> may' (firstElement "RequestID" x))
@@ -177,7 +180,7 @@ decodeError ::
 decodeError a s h bs e
   | LBS.null bs = parseRESTError a s h bs
   | otherwise =
-      either
-        (SerializeError . SerializeError' a s (Just bs))
-        ServiceError
-        e
+    either
+      (SerializeError . SerializeError' a s (Just bs))
+      ServiceError
+      e

@@ -819,13 +819,10 @@ pattern Mumbai = Region' "ap-south-1"
 -- | A numeric value representing seconds.
 newtype Seconds = Seconds DiffTime
   deriving stock (Eq, Ord, Read, Show, Generic)
-  deriving newtype
-    ( Enum,
-      Num,
-      Real,
-      Hashable,
-      NFData
-    )
+  deriving newtype (Enum, Num, Real, NFData)
+
+instance Hashable Seconds where
+  hashWithSalt salt = hashWithSalt salt . toRational . toSeconds
 
 instance FromText Seconds where
   fromText t = maybe (Left err) (Right . Seconds)

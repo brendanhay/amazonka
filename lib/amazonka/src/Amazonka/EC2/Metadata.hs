@@ -60,6 +60,7 @@ import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
+import Network.HTTP.Simple (setRequestHeader, setRequestMethod)
 
 data Dynamic
   = -- | Value showing whether the customer has enabled detailed one-minute
@@ -324,7 +325,7 @@ userdata m =
     Exception.try (get m (latest <> "user-data")) >>= \case
       Left (Client.HttpExceptionRequest _ (Client.StatusCodeException rs _))
         | fromEnum (Client.responseStatus rs) == 404 ->
-          return Nothing
+            return Nothing
       --
       Left e -> Exception.throwIO e
       --
@@ -444,15 +445,36 @@ identity ::
 identity m = eitherDecode . LBS.fromStrict <$> dynamic m Document
 
 get :: MonadIO m => Client.Manager -> Text -> m ByteString
-get m url = liftIO (strip <$> request m url)
+get m url = liftIO $ do
+  token <- strip <$> requestToken
+  strip <$> requestWith (addToken token) m url
   where
+    requestToken =
+      requestWith
+        ( setRequestMethod "PUT"
+            . setRequestHeader (headerPrefix <> "token-ttl-seconds") ["21600"]
+        )
+        m
+        (latest <> "/api/token")
+
+    addToken token = setRequestHeader (headerPrefix <> "token") [token]
+
+    headerPrefix = "X-aws-ec2-metadata-"
+
     strip bs
       | BS8.isSuffixOf "\n" bs = BS8.init bs
       | otherwise = bs
 
 request :: Client.Manager -> Text -> IO ByteString
-request m url = do
+request = requestWith id
+
+requestWith ::
+  (Client.Request -> Client.Request) ->
+  Client.Manager ->
+  Text ->
+  IO ByteString
+requestWith modifyRequest m url = do
   rq <- Client.parseUrlThrow (Text.unpack url)
-  rs <- Client.httpLbs rq m
+  rs <- Client.httpLbs (modifyRequest rq) m
 
   return . LBS.toStrict $ Client.responseBody rs

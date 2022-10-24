@@ -15,6 +15,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import Data.Either (fromRight)
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
@@ -104,7 +105,12 @@ getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
   case h .# hAMZNErrorType of
     Left _ -> newErrorCode (toText (statusMessage s))
-    Right x -> newErrorCode x
+    Right x -> newErrorCode code
+      where
+        -- For headers only, botocore takes everything in the header
+        -- value before a colon:
+        -- https://github.com/boto/botocore/blob/fec0e5bd5e4a9d7dcadb36198423e61437294fe6/botocore/parsers.py#L1006-L1015
+        (code, _) = Text.break (== ':') x
 
 parseJSONError ::
   Abbrev ->

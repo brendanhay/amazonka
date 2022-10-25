@@ -9,6 +9,7 @@ module Test.Amazonka.Error (tests) where
 
 import Amazonka.Core
 import Amazonka.Prelude
+import Network.HTTP.Types.Status (status400, status404)
 import Test.Amazonka.Arbitrary ()
 import Test.QuickCheck.Property ()
 import Test.Tasty
@@ -19,6 +20,18 @@ tests =
   testGroup
     "errors"
     [ testGroup
+        "getErrorCode"
+        [ testCase "with header, colon" $
+            getErrorCode status404 [(hAMZNErrorType, "ResourceNotFoundException")]
+              @?= ErrorCode "ResourceNotFound",
+          testCase "with header, no colon" $
+            getErrorCode status404 [(hAMZNErrorType, "ResourceNotFoundException:http://iot.amazonaws.com/doc/2015-10-02/")]
+              @?= ErrorCode "ResourceNotFound",
+          testCase "no header" $
+            getErrorCode status400 []
+              @?= ErrorCode "Bad Request"
+        ],
+      testGroup
         "xml"
         [ testCase "ec2" $
             xmlError

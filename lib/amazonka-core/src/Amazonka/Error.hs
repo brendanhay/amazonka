@@ -15,6 +15,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import Data.Either (fromRight)
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
@@ -96,15 +97,20 @@ serviceError a s h c m r =
 
 getRequestId :: [Header] -> Maybe RequestId
 getRequestId h
-  | Right hAMZ  <- h .# hAMZRequestId  = Just hAMZ
+  | Right hAMZ <- h .# hAMZRequestId = Just hAMZ
   | Right hAMZN <- h .# hAMZNRequestId = Just hAMZN
-  | otherwise                          = Nothing
+  | otherwise = Nothing
 
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
   case h .# hAMZNErrorType of
     Left _ -> newErrorCode (toText (statusMessage s))
-    Right x -> newErrorCode x
+    Right x -> newErrorCode code
+      where
+        -- For headers only, botocore takes everything in the header
+        -- value before a colon:
+        -- https://github.com/boto/botocore/blob/fec0e5bd5e4a9d7dcadb36198423e61437294fe6/botocore/parsers.py#L1006-L1015
+        (code, _) = Text.break (== ':') x
 
 parseJSONError ::
   Abbrev ->
@@ -141,7 +147,10 @@ parseXMLError ::
 parseXMLError a s h bs = decodeError a s h bs (go <$> decodeXML bs)
   where
     go x =
-      serviceError a s h
+      serviceError
+        a
+        s
+        h
         (code x)
         (may' (firstElement "Message" x))
         (may' (firstElement "RequestId" x) <|> may' (firstElement "RequestID" x))
@@ -171,7 +180,7 @@ decodeError ::
 decodeError a s h bs e
   | LBS.null bs = parseRESTError a s h bs
   | otherwise =
-      either
-        (SerializeError . SerializeError' a s (Just bs))
-        ServiceError
-        e
+    either
+      (SerializeError . SerializeError' a s (Just bs))
+      ServiceError
+      e

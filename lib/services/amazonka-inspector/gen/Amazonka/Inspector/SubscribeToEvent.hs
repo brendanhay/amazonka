@@ -103,7 +103,8 @@ instance Core.AWSRequest SubscribeToEvent where
   type
     AWSResponse SubscribeToEvent =
       SubscribeToEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SubscribeToEventResponse'
 

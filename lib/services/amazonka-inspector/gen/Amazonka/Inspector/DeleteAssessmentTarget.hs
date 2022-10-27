@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteAssessmentTarget where
   type
     AWSResponse DeleteAssessmentTarget =
       DeleteAssessmentTargetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteAssessmentTargetResponse'

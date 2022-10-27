@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeExclusions where
   type
     AWSResponse DescribeExclusions =
       DescribeExclusionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -94,7 +94,8 @@ instance Core.AWSRequest AddAttributesToFindings where
   type
     AWSResponse AddAttributesToFindings =
       AddAttributesToFindingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteAssessmentTemplate where
   type
     AWSResponse DeleteAssessmentTemplate =
       DeleteAssessmentTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteAssessmentTemplateResponse'

@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the array properties of a job.
+-- | An object that represents the array properties of a job.
 --
 -- /See:/ 'newArrayPropertiesSummary' smart constructor.
 data ArrayPropertiesSummary = ArrayPropertiesSummary'

@@ -23,7 +23,7 @@
 -- Lists the tags for an Batch resource. Batch resources that support tags
 -- are compute environments, jobs, job definitions, job queues, and
 -- scheduling policies. ARNs for child jobs of array and multi-node
--- parallel (MNP) jobs are not supported.
+-- parallel (MNP) jobs aren\'t supported.
 module Amazonka.Batch.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -57,7 +57,7 @@ data ListTagsForResource = ListTagsForResource'
     -- are listed for. Batch resources that support tags are compute
     -- environments, jobs, job definitions, job queues, and scheduling
     -- policies. ARNs for child jobs of array and multi-node parallel (MNP)
-    -- jobs are not supported.
+    -- jobs aren\'t supported.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data ListTagsForResource = ListTagsForResource'
 -- are listed for. Batch resources that support tags are compute
 -- environments, jobs, job definitions, job queues, and scheduling
 -- policies. ARNs for child jobs of array and multi-node parallel (MNP)
--- jobs are not supported.
+-- jobs aren\'t supported.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newListTagsForResource pResourceArn_ =
 -- are listed for. Batch resources that support tags are compute
 -- environments, jobs, job definitions, job queues, and scheduling
 -- policies. ARNs for child jobs of array and multi-node parallel (MNP)
--- jobs are not supported.
+-- jobs aren\'t supported.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -94,7 +94,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

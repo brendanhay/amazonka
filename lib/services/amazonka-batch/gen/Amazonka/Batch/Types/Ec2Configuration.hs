@@ -46,28 +46,53 @@ data Ec2Configuration = Ec2Configuration'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     imageIdOverride :: Prelude.Maybe Prelude.Text,
-    -- | The image type to match with the instance type to select an AMI. If the
-    -- @imageIdOverride@ parameter isn\'t specified, then a recent
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
-    -- (@ECS_AL2@) is used. If a new image type is specified in an update, but
-    -- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
-    -- then the latest Amazon ECS optimized AMI for that image type that\'s
-    -- supported by Batch is used.
+    -- | The Kubernetes version for the compute environment. If you don\'t
+    -- specify a value, the latest version that Batch supports is used.
+    imageKubernetesVersion :: Prelude.Maybe Prelude.Text,
+    -- | The image type to match with the instance type to select an AMI. The
+    -- supported values are different for @ECS@ and @EKS@ resources.
     --
-    -- [ECS_AL2]
-    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
-    --     Default for all non-GPU instance families.
+    -- [ECS]
+    --     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+    --     (@ECS_AL2@) is used. If a new image type is specified in an update,
+    --     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+    --     specified, then the latest Amazon ECS optimized AMI for that image
+    --     type that\'s supported by Batch is used.
     --
-    -- [ECS_AL2_NVIDIA]
-    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
-    --     for all GPU instance families (for example @P4@ and @G4@) and can be
-    --     used for all non Amazon Web Services Graviton-based instance types.
+    --     [ECS_AL2]
+    --         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>:
+    --         Default for all non-GPU instance families.
     --
-    -- [ECS_AL1]
-    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
-    --     Amazon Linux is reaching the end-of-life of standard support. For
-    --     more information, see
-    --     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+    --     [ECS_AL2_NVIDIA]
+    --         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>:
+    --         Default for all GPU instance families (for example @P4@ and
+    --         @G4@) and can be used for all non Amazon Web Services
+    --         Graviton-based instance types.
+    --
+    --     [ECS_AL1]
+    --         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
+    --         Amazon Linux has reached the end-of-life of standard support.
+    --         For more information, see
+    --         <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+    --
+    -- [EKS]
+    --     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+    --     <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon EKS-optimized Amazon Linux AMI>
+    --     (@EKS_AL2@) is used. If a new image type is specified in an update,
+    --     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+    --     specified, then the latest Amazon EKS optimized AMI for that image
+    --     type that Batch supports is used.
+    --
+    --     [EKS_AL2]
+    --         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2>:
+    --         Default for all non-GPU instance families.
+    --
+    --     [EKS_AL2_NVIDIA]
+    --         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2 (accelerated)>:
+    --         Default for all GPU instance families (for example, @P4@ and
+    --         @G4@) and can be used for all non Amazon Web Services
+    --         Graviton-based instance types.
     imageType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,28 +118,53 @@ data Ec2Configuration = Ec2Configuration'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'imageType', 'ec2Configuration_imageType' - The image type to match with the instance type to select an AMI. If the
--- @imageIdOverride@ parameter isn\'t specified, then a recent
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
--- (@ECS_AL2@) is used. If a new image type is specified in an update, but
--- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
--- then the latest Amazon ECS optimized AMI for that image type that\'s
--- supported by Batch is used.
+-- 'imageKubernetesVersion', 'ec2Configuration_imageKubernetesVersion' - The Kubernetes version for the compute environment. If you don\'t
+-- specify a value, the latest version that Batch supports is used.
 --
--- [ECS_AL2]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
---     Default for all non-GPU instance families.
+-- 'imageType', 'ec2Configuration_imageType' - The image type to match with the instance type to select an AMI. The
+-- supported values are different for @ECS@ and @EKS@ resources.
 --
--- [ECS_AL2_NVIDIA]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
---     for all GPU instance families (for example @P4@ and @G4@) and can be
---     used for all non Amazon Web Services Graviton-based instance types.
+-- [ECS]
+--     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+--     (@ECS_AL2@) is used. If a new image type is specified in an update,
+--     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+--     specified, then the latest Amazon ECS optimized AMI for that image
+--     type that\'s supported by Batch is used.
 --
--- [ECS_AL1]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
---     Amazon Linux is reaching the end-of-life of standard support. For
---     more information, see
---     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+--     [ECS_AL2]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>:
+--         Default for all non-GPU instance families.
+--
+--     [ECS_AL2_NVIDIA]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>:
+--         Default for all GPU instance families (for example @P4@ and
+--         @G4@) and can be used for all non Amazon Web Services
+--         Graviton-based instance types.
+--
+--     [ECS_AL1]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
+--         Amazon Linux has reached the end-of-life of standard support.
+--         For more information, see
+--         <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+--
+-- [EKS]
+--     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+--     <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon EKS-optimized Amazon Linux AMI>
+--     (@EKS_AL2@) is used. If a new image type is specified in an update,
+--     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+--     specified, then the latest Amazon EKS optimized AMI for that image
+--     type that Batch supports is used.
+--
+--     [EKS_AL2]
+--         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2>:
+--         Default for all non-GPU instance families.
+--
+--     [EKS_AL2_NVIDIA]
+--         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2 (accelerated)>:
+--         Default for all GPU instance families (for example, @P4@ and
+--         @G4@) and can be used for all non Amazon Web Services
+--         Graviton-based instance types.
 newEc2Configuration ::
   -- | 'imageType'
   Prelude.Text ->
@@ -123,6 +173,7 @@ newEc2Configuration pImageType_ =
   Ec2Configuration'
     { imageIdOverride =
         Prelude.Nothing,
+      imageKubernetesVersion = Prelude.Nothing,
       imageType = pImageType_
     }
 
@@ -141,28 +192,55 @@ newEc2Configuration pImageType_ =
 ec2Configuration_imageIdOverride :: Lens.Lens' Ec2Configuration (Prelude.Maybe Prelude.Text)
 ec2Configuration_imageIdOverride = Lens.lens (\Ec2Configuration' {imageIdOverride} -> imageIdOverride) (\s@Ec2Configuration' {} a -> s {imageIdOverride = a} :: Ec2Configuration)
 
--- | The image type to match with the instance type to select an AMI. If the
--- @imageIdOverride@ parameter isn\'t specified, then a recent
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
--- (@ECS_AL2@) is used. If a new image type is specified in an update, but
--- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
--- then the latest Amazon ECS optimized AMI for that image type that\'s
--- supported by Batch is used.
+-- | The Kubernetes version for the compute environment. If you don\'t
+-- specify a value, the latest version that Batch supports is used.
+ec2Configuration_imageKubernetesVersion :: Lens.Lens' Ec2Configuration (Prelude.Maybe Prelude.Text)
+ec2Configuration_imageKubernetesVersion = Lens.lens (\Ec2Configuration' {imageKubernetesVersion} -> imageKubernetesVersion) (\s@Ec2Configuration' {} a -> s {imageKubernetesVersion = a} :: Ec2Configuration)
+
+-- | The image type to match with the instance type to select an AMI. The
+-- supported values are different for @ECS@ and @EKS@ resources.
 --
--- [ECS_AL2]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
---     Default for all non-GPU instance families.
+-- [ECS]
+--     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+--     (@ECS_AL2@) is used. If a new image type is specified in an update,
+--     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+--     specified, then the latest Amazon ECS optimized AMI for that image
+--     type that\'s supported by Batch is used.
 --
--- [ECS_AL2_NVIDIA]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
---     for all GPU instance families (for example @P4@ and @G4@) and can be
---     used for all non Amazon Web Services Graviton-based instance types.
+--     [ECS_AL2]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>:
+--         Default for all non-GPU instance families.
 --
--- [ECS_AL1]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
---     Amazon Linux is reaching the end-of-life of standard support. For
---     more information, see
---     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+--     [ECS_AL2_NVIDIA]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>:
+--         Default for all GPU instance families (for example @P4@ and
+--         @G4@) and can be used for all non Amazon Web Services
+--         Graviton-based instance types.
+--
+--     [ECS_AL1]
+--         <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
+--         Amazon Linux has reached the end-of-life of standard support.
+--         For more information, see
+--         <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
+--
+-- [EKS]
+--     If the @imageIdOverride@ parameter isn\'t specified, then a recent
+--     <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon EKS-optimized Amazon Linux AMI>
+--     (@EKS_AL2@) is used. If a new image type is specified in an update,
+--     but neither an @imageId@ nor a @imageIdOverride@ parameter is
+--     specified, then the latest Amazon EKS optimized AMI for that image
+--     type that Batch supports is used.
+--
+--     [EKS_AL2]
+--         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2>:
+--         Default for all non-GPU instance families.
+--
+--     [EKS_AL2_NVIDIA]
+--         <https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html Amazon Linux 2 (accelerated)>:
+--         Default for all GPU instance families (for example, @P4@ and
+--         @G4@) and can be used for all non Amazon Web Services
+--         Graviton-based instance types.
 ec2Configuration_imageType :: Lens.Lens' Ec2Configuration Prelude.Text
 ec2Configuration_imageType = Lens.lens (\Ec2Configuration' {imageType} -> imageType) (\s@Ec2Configuration' {} a -> s {imageType = a} :: Ec2Configuration)
 
@@ -173,17 +251,20 @@ instance Core.FromJSON Ec2Configuration where
       ( \x ->
           Ec2Configuration'
             Prelude.<$> (x Core..:? "imageIdOverride")
+            Prelude.<*> (x Core..:? "imageKubernetesVersion")
             Prelude.<*> (x Core..: "imageType")
       )
 
 instance Prelude.Hashable Ec2Configuration where
   hashWithSalt _salt Ec2Configuration' {..} =
     _salt `Prelude.hashWithSalt` imageIdOverride
+      `Prelude.hashWithSalt` imageKubernetesVersion
       `Prelude.hashWithSalt` imageType
 
 instance Prelude.NFData Ec2Configuration where
   rnf Ec2Configuration' {..} =
     Prelude.rnf imageIdOverride
+      `Prelude.seq` Prelude.rnf imageKubernetesVersion
       `Prelude.seq` Prelude.rnf imageType
 
 instance Core.ToJSON Ec2Configuration where
@@ -192,6 +273,8 @@ instance Core.ToJSON Ec2Configuration where
       ( Prelude.catMaybes
           [ ("imageIdOverride" Core..=)
               Prelude.<$> imageIdOverride,
+            ("imageKubernetesVersion" Core..=)
+              Prelude.<$> imageKubernetesVersion,
             Prelude.Just ("imageType" Core..= imageType)
           ]
       )

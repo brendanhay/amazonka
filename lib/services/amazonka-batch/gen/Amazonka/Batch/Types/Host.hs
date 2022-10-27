@@ -24,10 +24,10 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determine whether your data volume persists on the host container
--- instance and where it is stored. If this parameter is empty, then the
--- Docker daemon assigns a host path for your data volume, but the data
--- isn\'t guaranteed to persist after the containers associated with it
--- stop running.
+-- instance and where it\'s stored. If this parameter is empty, then the
+-- Docker daemon assigns a host path for your data volume. However, the
+-- data isn\'t guaranteed to persist after the containers that are
+-- associated with it stop running.
 --
 -- /See:/ 'newHost' smart constructor.
 data Host = Host'
@@ -40,8 +40,8 @@ data Host = Host'
     -- daemon creates it. If the location does exist, the contents of the
     -- source path folder are exported.
     --
-    -- This parameter isn\'t applicable to jobs that run on Fargate resources
-    -- and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to jobs that run on Fargate resources.
+    -- Don\'t provide this for these jobs.
     sourcePath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +63,8 @@ data Host = Host'
 -- daemon creates it. If the location does exist, the contents of the
 -- source path folder are exported.
 --
--- This parameter isn\'t applicable to jobs that run on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that run on Fargate resources.
+-- Don\'t provide this for these jobs.
 newHost ::
   Host
 newHost = Host' {sourcePath = Prelude.Nothing}
@@ -78,8 +78,8 @@ newHost = Host' {sourcePath = Prelude.Nothing}
 -- daemon creates it. If the location does exist, the contents of the
 -- source path folder are exported.
 --
--- This parameter isn\'t applicable to jobs that run on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that run on Fargate resources.
+-- Don\'t provide this for these jobs.
 host_sourcePath :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_sourcePath = Lens.lens (\Host' {sourcePath} -> sourcePath) (\s@Host' {} a -> s {sourcePath = a} :: Host)
 

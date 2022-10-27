@@ -33,7 +33,7 @@ data UpdatePolicy = UpdatePolicy'
   { -- | Specifies whether jobs are automatically terminated when the computer
     -- environment infrastructure is updated. The default value is @false@.
     terminateJobsOnUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the job timeout, in minutes, when the compute environment
+    -- | Specifies the job timeout (in minutes) when the compute environment
     -- infrastructure is updated. The default value is 30.
     jobExecutionTimeoutMinutes :: Prelude.Maybe Prelude.Natural
   }
@@ -50,7 +50,7 @@ data UpdatePolicy = UpdatePolicy'
 -- 'terminateJobsOnUpdate', 'updatePolicy_terminateJobsOnUpdate' - Specifies whether jobs are automatically terminated when the computer
 -- environment infrastructure is updated. The default value is @false@.
 --
--- 'jobExecutionTimeoutMinutes', 'updatePolicy_jobExecutionTimeoutMinutes' - Specifies the job timeout, in minutes, when the compute environment
+-- 'jobExecutionTimeoutMinutes', 'updatePolicy_jobExecutionTimeoutMinutes' - Specifies the job timeout (in minutes) when the compute environment
 -- infrastructure is updated. The default value is 30.
 newUpdatePolicy ::
   UpdatePolicy
@@ -66,7 +66,7 @@ newUpdatePolicy =
 updatePolicy_terminateJobsOnUpdate :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Bool)
 updatePolicy_terminateJobsOnUpdate = Lens.lens (\UpdatePolicy' {terminateJobsOnUpdate} -> terminateJobsOnUpdate) (\s@UpdatePolicy' {} a -> s {terminateJobsOnUpdate = a} :: UpdatePolicy)
 
--- | Specifies the job timeout, in minutes, when the compute environment
+-- | Specifies the job timeout (in minutes) when the compute environment
 -- infrastructure is updated. The default value is 30.
 updatePolicy_jobExecutionTimeoutMinutes :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Natural)
 updatePolicy_jobExecutionTimeoutMinutes = Lens.lens (\UpdatePolicy' {jobExecutionTimeoutMinutes} -> jobExecutionTimeoutMinutes) (\s@UpdatePolicy' {} a -> s {jobExecutionTimeoutMinutes = a} :: UpdatePolicy)

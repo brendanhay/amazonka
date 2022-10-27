@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a container instance host device.
+-- | An object that represents a container instance host device.
 --
 -- This object isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.

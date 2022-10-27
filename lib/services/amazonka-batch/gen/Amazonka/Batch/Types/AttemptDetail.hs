@@ -24,18 +24,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a job attempt.
+-- | An object that represents a job attempt.
 --
 -- /See:/ 'newAttemptDetail' smart constructor.
 data AttemptDetail = AttemptDetail'
-  { -- | A short, human-readable string to provide additional details about the
+  { -- | A short, human-readable string to provide additional details for the
     -- current status of the job attempt.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp (in milliseconds) for when the attempt was started
     -- (when the attempt transitioned from the @STARTING@ state to the
     -- @RUNNING@ state).
     startedAt :: Prelude.Maybe Prelude.Integer,
-    -- | Details about the container in this job attempt.
+    -- | The details for the container in this job attempt.
     container :: Prelude.Maybe AttemptContainerDetail,
     -- | The Unix timestamp (in milliseconds) for when the attempt was stopped
     -- (when the attempt transitioned from the @RUNNING@ state to a terminal
@@ -52,14 +52,14 @@ data AttemptDetail = AttemptDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusReason', 'attemptDetail_statusReason' - A short, human-readable string to provide additional details about the
+-- 'statusReason', 'attemptDetail_statusReason' - A short, human-readable string to provide additional details for the
 -- current status of the job attempt.
 --
 -- 'startedAt', 'attemptDetail_startedAt' - The Unix timestamp (in milliseconds) for when the attempt was started
 -- (when the attempt transitioned from the @STARTING@ state to the
 -- @RUNNING@ state).
 --
--- 'container', 'attemptDetail_container' - Details about the container in this job attempt.
+-- 'container', 'attemptDetail_container' - The details for the container in this job attempt.
 --
 -- 'stoppedAt', 'attemptDetail_stoppedAt' - The Unix timestamp (in milliseconds) for when the attempt was stopped
 -- (when the attempt transitioned from the @RUNNING@ state to a terminal
@@ -74,7 +74,7 @@ newAttemptDetail =
       stoppedAt = Prelude.Nothing
     }
 
--- | A short, human-readable string to provide additional details about the
+-- | A short, human-readable string to provide additional details for the
 -- current status of the job attempt.
 attemptDetail_statusReason :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Text)
 attemptDetail_statusReason = Lens.lens (\AttemptDetail' {statusReason} -> statusReason) (\s@AttemptDetail' {} a -> s {statusReason = a} :: AttemptDetail)
@@ -85,7 +85,7 @@ attemptDetail_statusReason = Lens.lens (\AttemptDetail' {statusReason} -> status
 attemptDetail_startedAt :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Integer)
 attemptDetail_startedAt = Lens.lens (\AttemptDetail' {startedAt} -> startedAt) (\s@AttemptDetail' {} a -> s {startedAt = a} :: AttemptDetail)
 
--- | Details about the container in this job attempt.
+-- | The details for the container in this job attempt.
 attemptDetail_container :: Lens.Lens' AttemptDetail (Prelude.Maybe AttemptContainerDetail)
 attemptDetail_container = Lens.lens (\AttemptDetail' {container} -> container) (\s@AttemptDetail' {} a -> s {container = a} :: AttemptDetail)
 

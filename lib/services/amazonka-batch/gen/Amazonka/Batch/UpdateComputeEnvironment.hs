@@ -108,10 +108,10 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- in the /Batch User Guide/.
     computeResources :: Prelude.Maybe ComputeResourceUpdate,
     -- | The maximum number of vCPUs expected to be used for an unmanaged compute
-    -- environment. Do not specify this parameter for a managed compute
+    -- environment. Don\'t specify this parameter for a managed compute
     -- environment. This parameter is only used for fair share scheduling to
-    -- reserve vCPU capacity for new share identifiers. If this parameter is
-    -- not provided for a fair share job queue, no vCPU capacity will be
+    -- reserve vCPU capacity for new share identifiers. If this parameter
+    -- isn\'t provided for a fair share job queue, no vCPU capacity is
     -- reserved.
     unmanagedvCpus :: Prelude.Maybe Prelude.Int,
     -- | The name or full Amazon Resource Name (ARN) of the compute environment
@@ -180,10 +180,10 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- in the /Batch User Guide/.
 --
 -- 'unmanagedvCpus', 'updateComputeEnvironment_unmanagedvCpus' - The maximum number of vCPUs expected to be used for an unmanaged compute
--- environment. Do not specify this parameter for a managed compute
+-- environment. Don\'t specify this parameter for a managed compute
 -- environment. This parameter is only used for fair share scheduling to
--- reserve vCPU capacity for new share identifiers. If this parameter is
--- not provided for a fair share job queue, no vCPU capacity will be
+-- reserve vCPU capacity for new share identifiers. If this parameter
+-- isn\'t provided for a fair share job queue, no vCPU capacity is
 -- reserved.
 --
 -- 'computeEnvironment', 'updateComputeEnvironment_computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment
@@ -262,10 +262,10 @@ updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment
 updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
 
 -- | The maximum number of vCPUs expected to be used for an unmanaged compute
--- environment. Do not specify this parameter for a managed compute
+-- environment. Don\'t specify this parameter for a managed compute
 -- environment. This parameter is only used for fair share scheduling to
--- reserve vCPU capacity for new share identifiers. If this parameter is
--- not provided for a fair share job queue, no vCPU capacity will be
+-- reserve vCPU capacity for new share identifiers. If this parameter
+-- isn\'t provided for a fair share job queue, no vCPU capacity is
 -- reserved.
 updateComputeEnvironment_unmanagedvCpus :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe Prelude.Int)
 updateComputeEnvironment_unmanagedvCpus = Lens.lens (\UpdateComputeEnvironment' {unmanagedvCpus} -> unmanagedvCpus) (\s@UpdateComputeEnvironment' {} a -> s {unmanagedvCpus = a} :: UpdateComputeEnvironment)
@@ -279,7 +279,8 @@ instance Core.AWSRequest UpdateComputeEnvironment where
   type
     AWSResponse UpdateComputeEnvironment =
       UpdateComputeEnvironmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -344,9 +345,9 @@ instance Core.ToQuery UpdateComputeEnvironment where
 data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
   { -- | The Amazon Resource Name (ARN) of the compute environment.
     computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the compute environment. It can be up to 128 letters long.
-    -- It can contain uppercase and lowercase letters, numbers, hyphens (-),
-    -- and underscores (_).
+    -- | The name of the compute environment. It can be up to 128 characters
+    -- long. It can contain uppercase and lowercase letters, numbers, hyphens
+    -- (-), and underscores (_).
     computeEnvironmentName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -363,9 +364,9 @@ data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
 --
 -- 'computeEnvironmentArn', 'updateComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
 --
--- 'computeEnvironmentName', 'updateComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- 'computeEnvironmentName', 'updateComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 --
 -- 'httpStatus', 'updateComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newUpdateComputeEnvironmentResponse ::
@@ -384,9 +385,9 @@ newUpdateComputeEnvironmentResponse pHttpStatus_ =
 updateComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' UpdateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 updateComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\UpdateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@UpdateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: UpdateComputeEnvironmentResponse)
 
--- | The name of the compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- | The name of the compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 updateComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' UpdateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 updateComputeEnvironmentResponse_computeEnvironmentName = Lens.lens (\UpdateComputeEnvironmentResponse' {computeEnvironmentName} -> computeEnvironmentName) (\s@UpdateComputeEnvironmentResponse' {} a -> s {computeEnvironmentName = a} :: UpdateComputeEnvironmentResponse)
 

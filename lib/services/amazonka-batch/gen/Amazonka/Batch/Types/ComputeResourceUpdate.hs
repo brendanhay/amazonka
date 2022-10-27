@@ -27,20 +27,20 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the attributes of a compute environment that can
--- be updated. For more information, see
+-- | An object that represents the attributes of a compute environment that
+-- can be updated. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
 -- in the /Batch User Guide/.
 --
 -- /See:/ 'newComputeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
   { -- | Key-value pair tags to be applied to EC2 resources that are launched in
-    -- the compute environment. For Batch, these take the form of \"String1\":
-    -- \"String2\", where String1 is the tag key and String2 is the tag
-    -- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
-    -- is helpful for recognizing your Batch instances in the Amazon EC2
-    -- console. These tags aren\'t seen when using the Batch
-    -- @ListTagsForResource@ API operation.
+    -- the compute environment. For Batch, these take the form of
+    -- @\"String1\": \"String2\"@, where @String1@ is the tag key and @String2@
+    -- is the tag value-for example,
+    -- @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This is helpful for
+    -- recognizing your Batch instances in the Amazon EC2 console. These tags
+    -- aren\'t seen when using the Batch @ListTagsForResource@ API operation.
     --
     -- When updating a compute environment, changing this setting requires an
     -- infrastructure update of the compute environment. For more information,
@@ -49,15 +49,16 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies whether the AMI ID is updated to the latest one that\'s
     -- supported by Batch when the compute environment has an infrastructure
     -- update. The default value is @false@.
     --
-    -- If an AMI ID is specified in the @imageId@ or @imageIdOverride@
-    -- parameters or by the launch template specified in the @launchTemplate@
-    -- parameter, this parameter is ignored. For more information on updating
+    -- An AMI ID can either be specified in the @imageId@ or @imageIdOverride@
+    -- parameters or be determined by the launch template that\'s specified in
+    -- the @launchTemplate@ parameter. If an AMI ID is specified any of these
+    -- ways, this parameter is ignored. For more information about to update
     -- AMI IDs during an infrastructure update, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami Updating the AMI ID>
     -- in the /Batch User Guide/.
@@ -80,7 +81,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     ec2KeyPair :: Prelude.Maybe Prelude.Text,
     -- | The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
     -- @FARGATE_SPOT@. For more information, see
@@ -113,13 +114,13 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- One or two values can be provided.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     ec2Configuration :: Prelude.Maybe [Ec2Configuration],
     -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain (even if the compute environment is @DISABLED@).
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     minvCpus :: Prelude.Maybe Prelude.Int,
     -- | The instances types that can be launched. You can specify instance
     -- families to launch any instance type within those families (for example,
@@ -135,7 +136,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     --
     -- When you create a compute environment, the instance types that you
     -- select for the compute environment must share the same architecture. For
@@ -144,14 +145,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     --
     -- Currently, @optimal@ uses instance types from the C4, M4, and R4
     -- instance families. In Regions that don\'t have instance types from those
-    -- instance families, instance types from the C5, M5. and R5 instance
+    -- instance families, instance types from the C5, M5, and R5 instance
     -- families are used.
     instanceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon EC2 security groups associated with instances launched in the
-    -- compute environment. This parameter is required for Fargate compute
-    -- resources, where it can contain up to 5 security groups. For Fargate
-    -- compute resources, providing an empty list is handled as if this
-    -- parameter wasn\'t specified and no change is made. For EC2 compute
+    -- | The Amazon EC2 security groups that are associated with instances
+    -- launched in the compute environment. This parameter is required for
+    -- Fargate compute resources, where it can contain up to 5 security groups.
+    -- For Fargate compute resources, providing an empty list is handled as if
+    -- this parameter wasn\'t specified and no change is made. For EC2 compute
     -- resources, providing an empty list removes the security groups from the
     -- compute resource.
     --
@@ -166,15 +167,17 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- queue demand.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     desiredvCpus :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     --
     -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
-    -- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
-    -- your capacity requirements. In this event, Batch never exceeds
-    -- @maxvCpus@ by more than a single instance. That is, no more than a
-    -- single instance from among those specified in your compute environment.
+    -- allocation strategies using On-Demand or Spot Instances, and the
+    -- @BEST_FIT@ strategy using Spot Instances, Batch might need to exceed
+    -- @maxvCpus@ to meet your capacity requirements. In this event, Batch
+    -- never exceeds @maxvCpus@ by more than a single instance. That is, no
+    -- more than a single instance from among those specified in your compute
+    -- environment.
     maxvCpus :: Prelude.Maybe Prelude.Int,
     -- | The VPC subnets where the compute resources are launched. Fargate
     -- compute resources can contain up to 16 subnets. For Fargate compute
@@ -210,14 +213,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The maximum percentage that a Spot Instance price can be when compared
     -- with the On-Demand price for that instance type before instances are
-    -- launched. For example, if your maximum percentage is 20%, then the Spot
-    -- price must be less than 20% of the current On-Demand price for that
-    -- Amazon EC2 instance. You always pay the lowest (market) price and never
-    -- more than your maximum percentage.
+    -- launched. For example, if your maximum percentage is 20%, the Spot price
+    -- must be less than 20% of the current On-Demand price for that Amazon EC2
+    -- instance. You always pay the lowest (market) price and never more than
+    -- your maximum percentage.
     --
     -- When updating a compute environment, changing the bid percentage
     -- requires an infrastructure update of the compute environment. For more
@@ -226,7 +229,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     bidPercentage :: Prelude.Maybe Prelude.Int,
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
     -- compute environment. You can specify the short name or full Amazon
@@ -244,11 +247,12 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     instanceRole :: Prelude.Maybe Prelude.Text,
-    -- | The allocation strategy to use for the compute resource if not enough
-    -- instances of the best fitting instance type can be allocated. This might
-    -- be because of availability of the instance type in the Region or
+    -- | The allocation strategy to use for the compute resource if there\'s not
+    -- enough instances of the best fitting instance type that can be
+    -- allocated. This might be because of availability of the instance type in
+    -- the Region or
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
     -- For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
@@ -262,26 +266,27 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- compute environment.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     --
     -- [BEST_FIT_PROGRESSIVE]
-    --     Batch will select additional instance types that are large enough to
-    --     meet the requirements of the jobs in the queue, with a preference
-    --     for instance types with a lower cost per unit vCPU. If additional
-    --     instances of the previously selected instance types aren\'t
-    --     available, Batch will select new instance types.
+    --     Batch selects additional instance types that are large enough to
+    --     meet the requirements of the jobs in the queue. Its preference is
+    --     for instance types with lower cost vCPUs. If additional instances of
+    --     the previously selected instance types aren\'t available, Batch
+    --     selects new instance types.
     --
     -- [SPOT_CAPACITY_OPTIMIZED]
-    --     Batch will select one or more instance types that are large enough
-    --     to meet the requirements of the jobs in the queue, with a preference
+    --     Batch selects one or more instance types that are large enough to
+    --     meet the requirements of the jobs in the queue. Its preference is
     --     for instance types that are less likely to be interrupted. This
     --     allocation strategy is only available for Spot Instance compute
     --     resources.
     --
     -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
-    -- strategies, Batch might need to go above @maxvCpus@ to meet your
-    -- capacity requirements. In this event, Batch never exceeds @maxvCpus@ by
-    -- more than a single instance.
+    -- strategies using On-Demand or Spot Instances, and the @BEST_FIT@
+    -- strategy using Spot Instances, Batch might need to exceed @maxvCpus@ to
+    -- meet your capacity requirements. In this event, Batch never exceeds
+    -- @maxvCpus@ by more than a single instance.
     allocationStrategy :: Prelude.Maybe CRUpdateAllocationStrategy,
     -- | The Amazon EC2 placement group to associate with your compute resources.
     -- If you intend to submit multi-node parallel jobs to your compute
@@ -300,7 +305,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     placementGroup :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Machine Image (AMI) ID used for instances launched in the
     -- compute environment. This parameter is overridden by the
@@ -315,7 +320,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
+    -- resources. Don\'t specify it.
     --
     -- The AMI that you choose for a compute environment must match the
     -- architecture of the instance types that you intend to use for that
@@ -338,12 +343,12 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- for backwards compatibility:
 --
 -- 'tags', 'computeResourceUpdate_tags' - Key-value pair tags to be applied to EC2 resources that are launched in
--- the compute environment. For Batch, these take the form of \"String1\":
--- \"String2\", where String1 is the tag key and String2 is the tag
--- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
--- is helpful for recognizing your Batch instances in the Amazon EC2
--- console. These tags aren\'t seen when using the Batch
--- @ListTagsForResource@ API operation.
+-- the compute environment. For Batch, these take the form of
+-- @\"String1\": \"String2\"@, where @String1@ is the tag key and @String2@
+-- is the tag value-for example,
+-- @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This is helpful for
+-- recognizing your Batch instances in the Amazon EC2 console. These tags
+-- aren\'t seen when using the Batch @ListTagsForResource@ API operation.
 --
 -- When updating a compute environment, changing this setting requires an
 -- infrastructure update of the compute environment. For more information,
@@ -352,15 +357,16 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'updateToLatestImageVersion', 'computeResourceUpdate_updateToLatestImageVersion' - Specifies whether the AMI ID is updated to the latest one that\'s
 -- supported by Batch when the compute environment has an infrastructure
 -- update. The default value is @false@.
 --
--- If an AMI ID is specified in the @imageId@ or @imageIdOverride@
--- parameters or by the launch template specified in the @launchTemplate@
--- parameter, this parameter is ignored. For more information on updating
+-- An AMI ID can either be specified in the @imageId@ or @imageIdOverride@
+-- parameters or be determined by the launch template that\'s specified in
+-- the @launchTemplate@ parameter. If an AMI ID is specified any of these
+-- ways, this parameter is ignored. For more information about to update
 -- AMI IDs during an infrastructure update, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami Updating the AMI ID>
 -- in the /Batch User Guide/.
@@ -383,7 +389,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'type'', 'computeResourceUpdate_type' - The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
 -- @FARGATE_SPOT@. For more information, see
@@ -416,13 +422,13 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- One or two values can be provided.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain (even if the compute environment is @DISABLED@).
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'instanceTypes', 'computeResourceUpdate_instanceTypes' - The instances types that can be launched. You can specify instance
 -- families to launch any instance type within those families (for example,
@@ -438,7 +444,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- When you create a compute environment, the instance types that you
 -- select for the compute environment must share the same architecture. For
@@ -447,14 +453,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 --
 -- Currently, @optimal@ uses instance types from the C4, M4, and R4
 -- instance families. In Regions that don\'t have instance types from those
--- instance families, instance types from the C5, M5. and R5 instance
+-- instance families, instance types from the C5, M5, and R5 instance
 -- families are used.
 --
--- 'securityGroupIds', 'computeResourceUpdate_securityGroupIds' - The Amazon EC2 security groups associated with instances launched in the
--- compute environment. This parameter is required for Fargate compute
--- resources, where it can contain up to 5 security groups. For Fargate
--- compute resources, providing an empty list is handled as if this
--- parameter wasn\'t specified and no change is made. For EC2 compute
+-- 'securityGroupIds', 'computeResourceUpdate_securityGroupIds' - The Amazon EC2 security groups that are associated with instances
+-- launched in the compute environment. This parameter is required for
+-- Fargate compute resources, where it can contain up to 5 security groups.
+-- For Fargate compute resources, providing an empty list is handled as if
+-- this parameter wasn\'t specified and no change is made. For EC2 compute
 -- resources, providing an empty list removes the security groups from the
 -- compute resource.
 --
@@ -469,15 +475,17 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- queue demand.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'maxvCpus', 'computeResourceUpdate_maxvCpus' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
--- your capacity requirements. In this event, Batch never exceeds
--- @maxvCpus@ by more than a single instance. That is, no more than a
--- single instance from among those specified in your compute environment.
+-- allocation strategies using On-Demand or Spot Instances, and the
+-- @BEST_FIT@ strategy using Spot Instances, Batch might need to exceed
+-- @maxvCpus@ to meet your capacity requirements. In this event, Batch
+-- never exceeds @maxvCpus@ by more than a single instance. That is, no
+-- more than a single instance from among those specified in your compute
+-- environment.
 --
 -- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
 -- compute resources can contain up to 16 subnets. For Fargate compute
@@ -513,14 +521,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'bidPercentage', 'computeResourceUpdate_bidPercentage' - The maximum percentage that a Spot Instance price can be when compared
 -- with the On-Demand price for that instance type before instances are
--- launched. For example, if your maximum percentage is 20%, then the Spot
--- price must be less than 20% of the current On-Demand price for that
--- Amazon EC2 instance. You always pay the lowest (market) price and never
--- more than your maximum percentage.
+-- launched. For example, if your maximum percentage is 20%, the Spot price
+-- must be less than 20% of the current On-Demand price for that Amazon EC2
+-- instance. You always pay the lowest (market) price and never more than
+-- your maximum percentage.
 --
 -- When updating a compute environment, changing the bid percentage
 -- requires an infrastructure update of the compute environment. For more
@@ -529,7 +537,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'instanceRole', 'computeResourceUpdate_instanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
@@ -547,11 +555,12 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
--- 'allocationStrategy', 'computeResourceUpdate_allocationStrategy' - The allocation strategy to use for the compute resource if not enough
--- instances of the best fitting instance type can be allocated. This might
--- be because of availability of the instance type in the Region or
+-- 'allocationStrategy', 'computeResourceUpdate_allocationStrategy' - The allocation strategy to use for the compute resource if there\'s not
+-- enough instances of the best fitting instance type that can be
+-- allocated. This might be because of availability of the instance type in
+-- the Region or
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
@@ -565,26 +574,27 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- compute environment.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- [BEST_FIT_PROGRESSIVE]
---     Batch will select additional instance types that are large enough to
---     meet the requirements of the jobs in the queue, with a preference
---     for instance types with a lower cost per unit vCPU. If additional
---     instances of the previously selected instance types aren\'t
---     available, Batch will select new instance types.
+--     Batch selects additional instance types that are large enough to
+--     meet the requirements of the jobs in the queue. Its preference is
+--     for instance types with lower cost vCPUs. If additional instances of
+--     the previously selected instance types aren\'t available, Batch
+--     selects new instance types.
 --
 -- [SPOT_CAPACITY_OPTIMIZED]
---     Batch will select one or more instance types that are large enough
---     to meet the requirements of the jobs in the queue, with a preference
+--     Batch selects one or more instance types that are large enough to
+--     meet the requirements of the jobs in the queue. Its preference is
 --     for instance types that are less likely to be interrupted. This
 --     allocation strategy is only available for Spot Instance compute
 --     resources.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- strategies, Batch might need to go above @maxvCpus@ to meet your
--- capacity requirements. In this event, Batch never exceeds @maxvCpus@ by
--- more than a single instance.
+-- strategies using On-Demand or Spot Instances, and the @BEST_FIT@
+-- strategy using Spot Instances, Batch might need to exceed @maxvCpus@ to
+-- meet your capacity requirements. In this event, Batch never exceeds
+-- @maxvCpus@ by more than a single instance.
 --
 -- 'placementGroup', 'computeResourceUpdate_placementGroup' - The Amazon EC2 placement group to associate with your compute resources.
 -- If you intend to submit multi-node parallel jobs to your compute
@@ -603,7 +613,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- 'imageId', 'computeResourceUpdate_imageId' - The Amazon Machine Image (AMI) ID used for instances launched in the
 -- compute environment. This parameter is overridden by the
@@ -618,7 +628,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- The AMI that you choose for a compute environment must match the
 -- architecture of the instance types that you intend to use for that
@@ -652,12 +662,12 @@ newComputeResourceUpdate =
     }
 
 -- | Key-value pair tags to be applied to EC2 resources that are launched in
--- the compute environment. For Batch, these take the form of \"String1\":
--- \"String2\", where String1 is the tag key and String2 is the tag
--- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
--- is helpful for recognizing your Batch instances in the Amazon EC2
--- console. These tags aren\'t seen when using the Batch
--- @ListTagsForResource@ API operation.
+-- the compute environment. For Batch, these take the form of
+-- @\"String1\": \"String2\"@, where @String1@ is the tag key and @String2@
+-- is the tag value-for example,
+-- @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This is helpful for
+-- recognizing your Batch instances in the Amazon EC2 console. These tags
+-- aren\'t seen when using the Batch @ListTagsForResource@ API operation.
 --
 -- When updating a compute environment, changing this setting requires an
 -- infrastructure update of the compute environment. For more information,
@@ -666,7 +676,7 @@ newComputeResourceUpdate =
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_tags :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 computeResourceUpdate_tags = Lens.lens (\ComputeResourceUpdate' {tags} -> tags) (\s@ComputeResourceUpdate' {} a -> s {tags = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
@@ -674,9 +684,10 @@ computeResourceUpdate_tags = Lens.lens (\ComputeResourceUpdate' {tags} -> tags) 
 -- supported by Batch when the compute environment has an infrastructure
 -- update. The default value is @false@.
 --
--- If an AMI ID is specified in the @imageId@ or @imageIdOverride@
--- parameters or by the launch template specified in the @launchTemplate@
--- parameter, this parameter is ignored. For more information on updating
+-- An AMI ID can either be specified in the @imageId@ or @imageIdOverride@
+-- parameters or be determined by the launch template that\'s specified in
+-- the @launchTemplate@ parameter. If an AMI ID is specified any of these
+-- ways, this parameter is ignored. For more information about to update
 -- AMI IDs during an infrastructure update, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami Updating the AMI ID>
 -- in the /Batch User Guide/.
@@ -701,7 +712,7 @@ computeResourceUpdate_updateToLatestImageVersion = Lens.lens (\ComputeResourceUp
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_ec2KeyPair :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Text)
 computeResourceUpdate_ec2KeyPair = Lens.lens (\ComputeResourceUpdate' {ec2KeyPair} -> ec2KeyPair) (\s@ComputeResourceUpdate' {} a -> s {ec2KeyPair = a} :: ComputeResourceUpdate)
 
@@ -738,7 +749,7 @@ computeResourceUpdate_type = Lens.lens (\ComputeResourceUpdate' {type'} -> type'
 -- One or two values can be provided.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_ec2Configuration :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Ec2Configuration])
 computeResourceUpdate_ec2Configuration = Lens.lens (\ComputeResourceUpdate' {ec2Configuration} -> ec2Configuration) (\s@ComputeResourceUpdate' {} a -> s {ec2Configuration = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
@@ -746,7 +757,7 @@ computeResourceUpdate_ec2Configuration = Lens.lens (\ComputeResourceUpdate' {ec2
 -- maintain (even if the compute environment is @DISABLED@).
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -> minvCpus) (\s@ComputeResourceUpdate' {} a -> s {minvCpus = a} :: ComputeResourceUpdate)
 
@@ -764,7 +775,7 @@ computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- When you create a compute environment, the instance types that you
 -- select for the compute environment must share the same architecture. For
@@ -773,16 +784,16 @@ computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -
 --
 -- Currently, @optimal@ uses instance types from the C4, M4, and R4
 -- instance families. In Regions that don\'t have instance types from those
--- instance families, instance types from the C5, M5. and R5 instance
+-- instance families, instance types from the C5, M5, and R5 instance
 -- families are used.
 computeResourceUpdate_instanceTypes :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
 computeResourceUpdate_instanceTypes = Lens.lens (\ComputeResourceUpdate' {instanceTypes} -> instanceTypes) (\s@ComputeResourceUpdate' {} a -> s {instanceTypes = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon EC2 security groups associated with instances launched in the
--- compute environment. This parameter is required for Fargate compute
--- resources, where it can contain up to 5 security groups. For Fargate
--- compute resources, providing an empty list is handled as if this
--- parameter wasn\'t specified and no change is made. For EC2 compute
+-- | The Amazon EC2 security groups that are associated with instances
+-- launched in the compute environment. This parameter is required for
+-- Fargate compute resources, where it can contain up to 5 security groups.
+-- For Fargate compute resources, providing an empty list is handled as if
+-- this parameter wasn\'t specified and no change is made. For EC2 compute
 -- resources, providing an empty list removes the security groups from the
 -- compute resource.
 --
@@ -799,17 +810,19 @@ computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {sec
 -- queue demand.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
 -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
--- your capacity requirements. In this event, Batch never exceeds
--- @maxvCpus@ by more than a single instance. That is, no more than a
--- single instance from among those specified in your compute environment.
+-- allocation strategies using On-Demand or Spot Instances, and the
+-- @BEST_FIT@ strategy using Spot Instances, Batch might need to exceed
+-- @maxvCpus@ to meet your capacity requirements. In this event, Batch
+-- never exceeds @maxvCpus@ by more than a single instance. That is, no
+-- more than a single instance from among those specified in your compute
+-- environment.
 computeResourceUpdate_maxvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -> maxvCpus) (\s@ComputeResourceUpdate' {} a -> s {maxvCpus = a} :: ComputeResourceUpdate)
 
@@ -849,16 +862,16 @@ computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> 
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_launchTemplate :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe LaunchTemplateSpecification)
 computeResourceUpdate_launchTemplate = Lens.lens (\ComputeResourceUpdate' {launchTemplate} -> launchTemplate) (\s@ComputeResourceUpdate' {} a -> s {launchTemplate = a} :: ComputeResourceUpdate)
 
 -- | The maximum percentage that a Spot Instance price can be when compared
 -- with the On-Demand price for that instance type before instances are
--- launched. For example, if your maximum percentage is 20%, then the Spot
--- price must be less than 20% of the current On-Demand price for that
--- Amazon EC2 instance. You always pay the lowest (market) price and never
--- more than your maximum percentage.
+-- launched. For example, if your maximum percentage is 20%, the Spot price
+-- must be less than 20% of the current On-Demand price for that Amazon EC2
+-- instance. You always pay the lowest (market) price and never more than
+-- your maximum percentage.
 --
 -- When updating a compute environment, changing the bid percentage
 -- requires an infrastructure update of the compute environment. For more
@@ -867,7 +880,7 @@ computeResourceUpdate_launchTemplate = Lens.lens (\ComputeResourceUpdate' {launc
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_bidPercentage :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_bidPercentage = Lens.lens (\ComputeResourceUpdate' {bidPercentage} -> bidPercentage) (\s@ComputeResourceUpdate' {} a -> s {bidPercentage = a} :: ComputeResourceUpdate)
 
@@ -887,13 +900,14 @@ computeResourceUpdate_bidPercentage = Lens.lens (\ComputeResourceUpdate' {bidPer
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_instanceRole :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Text)
 computeResourceUpdate_instanceRole = Lens.lens (\ComputeResourceUpdate' {instanceRole} -> instanceRole) (\s@ComputeResourceUpdate' {} a -> s {instanceRole = a} :: ComputeResourceUpdate)
 
--- | The allocation strategy to use for the compute resource if not enough
--- instances of the best fitting instance type can be allocated. This might
--- be because of availability of the instance type in the Region or
+-- | The allocation strategy to use for the compute resource if there\'s not
+-- enough instances of the best fitting instance type that can be
+-- allocated. This might be because of availability of the instance type in
+-- the Region or
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
@@ -907,26 +921,27 @@ computeResourceUpdate_instanceRole = Lens.lens (\ComputeResourceUpdate' {instanc
 -- compute environment.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- [BEST_FIT_PROGRESSIVE]
---     Batch will select additional instance types that are large enough to
---     meet the requirements of the jobs in the queue, with a preference
---     for instance types with a lower cost per unit vCPU. If additional
---     instances of the previously selected instance types aren\'t
---     available, Batch will select new instance types.
+--     Batch selects additional instance types that are large enough to
+--     meet the requirements of the jobs in the queue. Its preference is
+--     for instance types with lower cost vCPUs. If additional instances of
+--     the previously selected instance types aren\'t available, Batch
+--     selects new instance types.
 --
 -- [SPOT_CAPACITY_OPTIMIZED]
---     Batch will select one or more instance types that are large enough
---     to meet the requirements of the jobs in the queue, with a preference
+--     Batch selects one or more instance types that are large enough to
+--     meet the requirements of the jobs in the queue. Its preference is
 --     for instance types that are less likely to be interrupted. This
 --     allocation strategy is only available for Spot Instance compute
 --     resources.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- strategies, Batch might need to go above @maxvCpus@ to meet your
--- capacity requirements. In this event, Batch never exceeds @maxvCpus@ by
--- more than a single instance.
+-- strategies using On-Demand or Spot Instances, and the @BEST_FIT@
+-- strategy using Spot Instances, Batch might need to exceed @maxvCpus@ to
+-- meet your capacity requirements. In this event, Batch never exceeds
+-- @maxvCpus@ by more than a single instance.
 computeResourceUpdate_allocationStrategy :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe CRUpdateAllocationStrategy)
 computeResourceUpdate_allocationStrategy = Lens.lens (\ComputeResourceUpdate' {allocationStrategy} -> allocationStrategy) (\s@ComputeResourceUpdate' {} a -> s {allocationStrategy = a} :: ComputeResourceUpdate)
 
@@ -947,7 +962,7 @@ computeResourceUpdate_allocationStrategy = Lens.lens (\ComputeResourceUpdate' {a
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 computeResourceUpdate_placementGroup :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Text)
 computeResourceUpdate_placementGroup = Lens.lens (\ComputeResourceUpdate' {placementGroup} -> placementGroup) (\s@ComputeResourceUpdate' {} a -> s {placementGroup = a} :: ComputeResourceUpdate)
 
@@ -964,7 +979,7 @@ computeResourceUpdate_placementGroup = Lens.lens (\ComputeResourceUpdate' {place
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- resources. Don\'t specify it.
 --
 -- The AMI that you choose for a compute environment must match the
 -- architecture of the instance types that you intend to use for that

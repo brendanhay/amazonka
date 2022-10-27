@@ -35,6 +35,7 @@ module Amazonka.Batch.RegisterJobDefinition
     registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
     registerJobDefinition_schedulingPriority,
+    registerJobDefinition_eksProperties,
     registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
@@ -77,10 +78,11 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
     -- in the /Batch User Guide/.
     timeout :: Prelude.Maybe JobTimeout,
-    -- | An object with various properties specific to single-node
-    -- container-based jobs. If the job definition\'s @type@ parameter is
-    -- @container@, then you must specify either @containerProperties@ or
-    -- @nodeProperties@.
+    -- | An object with various properties specific to Amazon ECS based
+    -- single-node container-based jobs. If the job definition\'s @type@
+    -- parameter is @container@, then you must specify either
+    -- @containerProperties@ or @nodeProperties@. This must not be specified
+    -- for Amazon EKS based job definitions.
     --
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use only @containerProperties@.
@@ -93,6 +95,9 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- | The platform capabilities required by the job definition. If no value is
     -- specified, it defaults to @EC2@. To run the job on Fargate resources,
     -- specify @FARGATE@.
+    --
+    -- If the job runs on Amazon EKS resources, then you must not specify
+    -- @platformCapabilities@.
     platformCapabilities :: Prelude.Maybe [PlatformCapability],
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -100,6 +105,9 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- creation. For tags with the same name, job tags are given priority over
     -- job definitions tags. If the total number of combined tags from the job
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
+    --
+    -- If the job runs on Amazon EKS resources, then you must not specify
+    -- @propagateTags@.
     propagateTags :: Prelude.Maybe Prelude.Bool,
     -- | An object with various properties specific to multi-node parallel jobs.
     -- If you specify node properties for a job, it becomes a multi-node
@@ -111,15 +119,21 @@ data RegisterJobDefinition = RegisterJobDefinition'
     --
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use @containerProperties@ instead.
+    --
+    -- If the job runs on Amazon EKS resources, then you must not specify
+    -- @nodeProperties@.
     nodeProperties :: Prelude.Maybe NodeProperties,
     -- | The scheduling priority for jobs that are submitted with this job
-    -- definition. This will only affect jobs in job queues with a fair share
-    -- policy. Jobs with a higher scheduling priority will be scheduled before
-    -- jobs with a lower scheduling priority.
+    -- definition. This only affects jobs in job queues with a fair share
+    -- policy. Jobs with a higher scheduling priority are scheduled before jobs
+    -- with a lower scheduling priority.
     --
     -- The minimum supported value is 0 and the maximum supported value is
     -- 9999.
     schedulingPriority :: Prelude.Maybe Prelude.Int,
+    -- | An object with various properties that are specific to Amazon EKS based
+    -- jobs. This must not be specified for Amazon ECS based job definitions.
+    eksProperties :: Prelude.Maybe EksProperties,
     -- | Default parameter substitution placeholders to set in the job
     -- definition. Parameters are specified as a key-value pair mapping.
     -- Parameters in a @SubmitJob@ request override any corresponding parameter
@@ -163,10 +177,11 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
 -- in the /Batch User Guide/.
 --
--- 'containerProperties', 'registerJobDefinition_containerProperties' - An object with various properties specific to single-node
--- container-based jobs. If the job definition\'s @type@ parameter is
--- @container@, then you must specify either @containerProperties@ or
--- @nodeProperties@.
+-- 'containerProperties', 'registerJobDefinition_containerProperties' - An object with various properties specific to Amazon ECS based
+-- single-node container-based jobs. If the job definition\'s @type@
+-- parameter is @container@, then you must specify either
+-- @containerProperties@ or @nodeProperties@. This must not be specified
+-- for Amazon EKS based job definitions.
 --
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use only @containerProperties@.
@@ -180,12 +195,18 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- specified, it defaults to @EC2@. To run the job on Fargate resources,
 -- specify @FARGATE@.
 --
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @platformCapabilities@.
+--
 -- 'propagateTags', 'registerJobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
 -- are not propagated. Tags can only be propagated to the tasks during task
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @propagateTags@.
 --
 -- 'nodeProperties', 'registerJobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
 -- If you specify node properties for a job, it becomes a multi-node
@@ -198,13 +219,19 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
 --
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @nodeProperties@.
+--
 -- 'schedulingPriority', 'registerJobDefinition_schedulingPriority' - The scheduling priority for jobs that are submitted with this job
--- definition. This will only affect jobs in job queues with a fair share
--- policy. Jobs with a higher scheduling priority will be scheduled before
--- jobs with a lower scheduling priority.
+-- definition. This only affects jobs in job queues with a fair share
+-- policy. Jobs with a higher scheduling priority are scheduled before jobs
+-- with a lower scheduling priority.
 --
 -- The minimum supported value is 0 and the maximum supported value is
 -- 9999.
+--
+-- 'eksProperties', 'registerJobDefinition_eksProperties' - An object with various properties that are specific to Amazon EKS based
+-- jobs. This must not be specified for Amazon ECS based job definitions.
 --
 -- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
 -- definition. Parameters are specified as a key-value pair mapping.
@@ -238,6 +265,7 @@ newRegisterJobDefinition pJobDefinitionName_ pType_ =
       propagateTags = Prelude.Nothing,
       nodeProperties = Prelude.Nothing,
       schedulingPriority = Prelude.Nothing,
+      eksProperties = Prelude.Nothing,
       parameters = Prelude.Nothing,
       jobDefinitionName = pJobDefinitionName_,
       type' = pType_
@@ -262,10 +290,11 @@ registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) 
 registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe JobTimeout)
 registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> timeout) (\s@RegisterJobDefinition' {} a -> s {timeout = a} :: RegisterJobDefinition)
 
--- | An object with various properties specific to single-node
--- container-based jobs. If the job definition\'s @type@ parameter is
--- @container@, then you must specify either @containerProperties@ or
--- @nodeProperties@.
+-- | An object with various properties specific to Amazon ECS based
+-- single-node container-based jobs. If the job definition\'s @type@
+-- parameter is @container@, then you must specify either
+-- @containerProperties@ or @nodeProperties@. This must not be specified
+-- for Amazon EKS based job definitions.
 --
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use only @containerProperties@.
@@ -282,6 +311,9 @@ registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryS
 -- | The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. To run the job on Fargate resources,
 -- specify @FARGATE@.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @platformCapabilities@.
 registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe [PlatformCapability])
 registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -291,6 +323,9 @@ registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' 
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @propagateTags@.
 registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Bool)
 registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propagateTags} -> propagateTags) (\s@RegisterJobDefinition' {} a -> s {propagateTags = a} :: RegisterJobDefinition)
 
@@ -304,18 +339,26 @@ registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propag
 --
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @nodeProperties@.
 registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
 registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
 
 -- | The scheduling priority for jobs that are submitted with this job
--- definition. This will only affect jobs in job queues with a fair share
--- policy. Jobs with a higher scheduling priority will be scheduled before
--- jobs with a lower scheduling priority.
+-- definition. This only affects jobs in job queues with a fair share
+-- policy. Jobs with a higher scheduling priority are scheduled before jobs
+-- with a lower scheduling priority.
 --
 -- The minimum supported value is 0 and the maximum supported value is
 -- 9999.
 registerJobDefinition_schedulingPriority :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Int)
 registerJobDefinition_schedulingPriority = Lens.lens (\RegisterJobDefinition' {schedulingPriority} -> schedulingPriority) (\s@RegisterJobDefinition' {} a -> s {schedulingPriority = a} :: RegisterJobDefinition)
+
+-- | An object with various properties that are specific to Amazon EKS based
+-- jobs. This must not be specified for Amazon ECS based job definitions.
+registerJobDefinition_eksProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe EksProperties)
+registerJobDefinition_eksProperties = Lens.lens (\RegisterJobDefinition' {eksProperties} -> eksProperties) (\s@RegisterJobDefinition' {} a -> s {eksProperties = a} :: RegisterJobDefinition)
 
 -- | Default parameter substitution placeholders to set in the job
 -- definition. Parameters are specified as a key-value pair mapping.
@@ -344,7 +387,8 @@ instance Core.AWSRequest RegisterJobDefinition where
   type
     AWSResponse RegisterJobDefinition =
       RegisterJobDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -365,6 +409,7 @@ instance Prelude.Hashable RegisterJobDefinition where
       `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
       `Prelude.hashWithSalt` schedulingPriority
+      `Prelude.hashWithSalt` eksProperties
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` type'
@@ -379,6 +424,7 @@ instance Prelude.NFData RegisterJobDefinition where
       `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
       `Prelude.seq` Prelude.rnf schedulingPriority
+      `Prelude.seq` Prelude.rnf eksProperties
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf type'
@@ -410,6 +456,7 @@ instance Core.ToJSON RegisterJobDefinition where
               Prelude.<$> nodeProperties,
             ("schedulingPriority" Core..=)
               Prelude.<$> schedulingPriority,
+            ("eksProperties" Core..=) Prelude.<$> eksProperties,
             ("parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("jobDefinitionName" Core..= jobDefinitionName),

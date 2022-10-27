@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the elastic network interface for a multi-node
+-- | An object that represents the elastic network interface for a multi-node
 -- parallel job node.
 --
 -- /See:/ 'newNetworkInterface' smart constructor.

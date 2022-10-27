@@ -33,12 +33,12 @@ data ResourceRequirement = ResourceRequirement'
     -- values vary based on the @type@ specified.
     --
     -- [type=\"GPU\"]
-    --     The number of physical GPUs to reserve for the container. The number
-    --     of GPUs reserved for all containers in a job shouldn\'t exceed the
-    --     number of available GPUs on the compute resource that the job is
-    --     launched on.
+    --     The number of physical GPUs to reserve for the container. Make sure
+    --     that the number of GPUs reserved for all containers in a job
+    --     doesn\'t exceed the number of available GPUs on the compute resource
+    --     that the job is launched on.
     --
-    --     GPUs are not available for jobs that are running on Fargate
+    --     GPUs aren\'t available for jobs that are running on Fargate
     --     resources.
     --
     -- [type=\"MEMORY\"]
@@ -152,12 +152,12 @@ data ResourceRequirement = ResourceRequirement'
 -- values vary based on the @type@ specified.
 --
 -- [type=\"GPU\"]
---     The number of physical GPUs to reserve for the container. The number
---     of GPUs reserved for all containers in a job shouldn\'t exceed the
---     number of available GPUs on the compute resource that the job is
---     launched on.
+--     The number of physical GPUs to reserve for the container. Make sure
+--     that the number of GPUs reserved for all containers in a job
+--     doesn\'t exceed the number of available GPUs on the compute resource
+--     that the job is launched on.
 --
---     GPUs are not available for jobs that are running on Fargate
+--     GPUs aren\'t available for jobs that are running on Fargate
 --     resources.
 --
 -- [type=\"MEMORY\"]
@@ -271,12 +271,12 @@ newResourceRequirement pValue_ pType_ =
 -- values vary based on the @type@ specified.
 --
 -- [type=\"GPU\"]
---     The number of physical GPUs to reserve for the container. The number
---     of GPUs reserved for all containers in a job shouldn\'t exceed the
---     number of available GPUs on the compute resource that the job is
---     launched on.
+--     The number of physical GPUs to reserve for the container. Make sure
+--     that the number of GPUs reserved for all containers in a job
+--     doesn\'t exceed the number of available GPUs on the compute resource
+--     that the job is launched on.
 --
---     GPUs are not available for jobs that are running on Fargate
+--     GPUs aren\'t available for jobs that are running on Fargate
 --     resources.
 --
 -- [type=\"MEMORY\"]

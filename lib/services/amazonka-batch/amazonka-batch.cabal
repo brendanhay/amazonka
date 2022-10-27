@@ -94,6 +94,26 @@ library
     Amazonka.Batch.Types.EFSAuthorizationConfigIAM
     Amazonka.Batch.Types.EFSTransitEncryption
     Amazonka.Batch.Types.EFSVolumeConfiguration
+    Amazonka.Batch.Types.EksAttemptContainerDetail
+    Amazonka.Batch.Types.EksAttemptDetail
+    Amazonka.Batch.Types.EksConfiguration
+    Amazonka.Batch.Types.EksContainer
+    Amazonka.Batch.Types.EksContainerDetail
+    Amazonka.Batch.Types.EksContainerEnvironmentVariable
+    Amazonka.Batch.Types.EksContainerOverride
+    Amazonka.Batch.Types.EksContainerResourceRequirements
+    Amazonka.Batch.Types.EksContainerSecurityContext
+    Amazonka.Batch.Types.EksContainerVolumeMount
+    Amazonka.Batch.Types.EksEmptyDir
+    Amazonka.Batch.Types.EksHostPath
+    Amazonka.Batch.Types.EksPodProperties
+    Amazonka.Batch.Types.EksPodPropertiesDetail
+    Amazonka.Batch.Types.EksPodPropertiesOverride
+    Amazonka.Batch.Types.EksProperties
+    Amazonka.Batch.Types.EksPropertiesDetail
+    Amazonka.Batch.Types.EksPropertiesOverride
+    Amazonka.Batch.Types.EksSecret
+    Amazonka.Batch.Types.EksVolume
     Amazonka.Batch.Types.EvaluateOnExit
     Amazonka.Batch.Types.FairsharePolicy
     Amazonka.Batch.Types.FargatePlatformConfiguration
@@ -123,6 +143,7 @@ library
     Amazonka.Batch.Types.NodePropertiesSummary
     Amazonka.Batch.Types.NodePropertyOverride
     Amazonka.Batch.Types.NodeRangeProperty
+    Amazonka.Batch.Types.OrchestrationType
     Amazonka.Batch.Types.PlatformCapability
     Amazonka.Batch.Types.ResourceRequirement
     Amazonka.Batch.Types.ResourceType

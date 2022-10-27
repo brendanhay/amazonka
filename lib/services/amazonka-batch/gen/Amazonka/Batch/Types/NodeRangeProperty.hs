@@ -24,8 +24,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the properties of the node range for a multi-node
--- parallel job.
+-- | An object that represents the properties of the node range for a
+-- multi-node parallel job.
 --
 -- /See:/ 'newNodeRangeProperty' smart constructor.
 data NodeRangeProperty = NodeRangeProperty'
@@ -36,8 +36,8 @@ data NodeRangeProperty = NodeRangeProperty'
     -- is omitted (@:n@), then @0@ is used to start the range. If the ending
     -- range value is omitted (@n:@), then the highest possible node index is
     -- used to end the range. Your accumulative node ranges must account for
-    -- all nodes (@0:n@). You can nest node ranges, for example @0:10@ and
-    -- @4:5@, in which case the @4:5@ range properties override the @0:10@
+    -- all nodes (@0:n@). You can nest node ranges (for example, @0:10@ and
+    -- @4:5@). In this case, the @4:5@ range properties override the @0:10@
     -- properties.
     targetNodes :: Prelude.Text
   }
@@ -58,8 +58,8 @@ data NodeRangeProperty = NodeRangeProperty'
 -- is omitted (@:n@), then @0@ is used to start the range. If the ending
 -- range value is omitted (@n:@), then the highest possible node index is
 -- used to end the range. Your accumulative node ranges must account for
--- all nodes (@0:n@). You can nest node ranges, for example @0:10@ and
--- @4:5@, in which case the @4:5@ range properties override the @0:10@
+-- all nodes (@0:n@). You can nest node ranges (for example, @0:10@ and
+-- @4:5@). In this case, the @4:5@ range properties override the @0:10@
 -- properties.
 newNodeRangeProperty ::
   -- | 'targetNodes'
@@ -80,8 +80,8 @@ nodeRangeProperty_container = Lens.lens (\NodeRangeProperty' {container} -> cont
 -- is omitted (@:n@), then @0@ is used to start the range. If the ending
 -- range value is omitted (@n:@), then the highest possible node index is
 -- used to end the range. Your accumulative node ranges must account for
--- all nodes (@0:n@). You can nest node ranges, for example @0:10@ and
--- @4:5@, in which case the @4:5@ range properties override the @0:10@
+-- all nodes (@0:n@). You can nest node ranges (for example, @0:10@ and
+-- @4:5@). In this case, the @4:5@ range properties override the @0:10@
 -- properties.
 nodeRangeProperty_targetNodes :: Lens.Lens' NodeRangeProperty Prelude.Text
 nodeRangeProperty_targetNodes = Lens.lens (\NodeRangeProperty' {targetNodes} -> targetNodes) (\s@NodeRangeProperty' {} a -> s {targetNodes = a} :: NodeRangeProperty)

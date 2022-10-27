@@ -80,7 +80,8 @@ instance Core.AWSRequest DescribeSchedulingPolicies where
   type
     AWSResponse DescribeSchedulingPolicies =
       DescribeSchedulingPoliciesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,9 +76,8 @@ data ListJobs = ListJobs'
     -- results that returned the @nextToken@ value. This value is @null@ when
     -- there are no more results to return.
     --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The job status used to filter jobs in the specified queue. If the
     -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
@@ -97,8 +96,8 @@ data ListJobs = ListJobs'
     --
     -- [JOB_NAME]
     --     The value of the filter is a case-insensitive match for the job
-    --     name. If the value ends with an asterisk (*), the filter will match
-    --     any job name that begins with the string before the \'*\'. This
+    --     name. If the value ends with an asterisk (*), the filter matches any
+    --     job name that begins with the string before the \'*\'. This
     --     corresponds to the @jobName@ value. For example, @test1@ matches
     --     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
     --     @Test10@. When the @JOB_NAME@ filter is used, the results are
@@ -110,15 +109,15 @@ data ListJobs = ListJobs'
     --     value. The value is case sensitive. When the value for the filter is
     --     the job definition name, the results include all the jobs that used
     --     any revision of that job definition name. If the value ends with an
-    --     asterisk (*), the filter will match any job definition name that
-    --     begins with the string before the \'*\'. For example, @jd1@ matches
-    --     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
-    --     the job definition that\'s used doesn\'t affect the sort order. When
-    --     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
-    --     the form
+    --     asterisk (*), the filter matches any job definition name that begins
+    --     with the string before the \'*\'. For example, @jd1@ matches only
+    --     @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of the
+    --     job definition that\'s used doesn\'t affect the sort order. When the
+    --     @JOB_DEFINITION@ filter is used and the ARN is used (which is in the
+    --     form
     --     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
     --     the results include jobs that used the specified revision of the job
-    --     definition. Asterisk (*) is not supported when the ARN is used.
+    --     definition. Asterisk (*) isn\'t supported when the ARN is used.
     --
     -- [BEFORE_CREATED_AT]
     --     The value for the filter is the time that\'s before the job was
@@ -164,9 +163,8 @@ data ListJobs = ListJobs'
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 --
 -- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
 -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
@@ -185,8 +183,8 @@ data ListJobs = ListJobs'
 --
 -- [JOB_NAME]
 --     The value of the filter is a case-insensitive match for the job
---     name. If the value ends with an asterisk (*), the filter will match
---     any job name that begins with the string before the \'*\'. This
+--     name. If the value ends with an asterisk (*), the filter matches any
+--     job name that begins with the string before the \'*\'. This
 --     corresponds to the @jobName@ value. For example, @test1@ matches
 --     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
 --     @Test10@. When the @JOB_NAME@ filter is used, the results are
@@ -198,15 +196,15 @@ data ListJobs = ListJobs'
 --     value. The value is case sensitive. When the value for the filter is
 --     the job definition name, the results include all the jobs that used
 --     any revision of that job definition name. If the value ends with an
---     asterisk (*), the filter will match any job definition name that
---     begins with the string before the \'*\'. For example, @jd1@ matches
---     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
---     the job definition that\'s used doesn\'t affect the sort order. When
---     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
---     the form
+--     asterisk (*), the filter matches any job definition name that begins
+--     with the string before the \'*\'. For example, @jd1@ matches only
+--     @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of the
+--     job definition that\'s used doesn\'t affect the sort order. When the
+--     @JOB_DEFINITION@ filter is used and the ARN is used (which is in the
+--     form
 --     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
 --     the results include jobs that used the specified revision of the job
---     definition. Asterisk (*) is not supported when the ARN is used.
+--     definition. Asterisk (*) isn\'t supported when the ARN is used.
 --
 -- [BEFORE_CREATED_AT]
 --     The value for the filter is the time that\'s before the job was
@@ -253,9 +251,8 @@ newListJobs =
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
@@ -280,8 +277,8 @@ listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJob
 --
 -- [JOB_NAME]
 --     The value of the filter is a case-insensitive match for the job
---     name. If the value ends with an asterisk (*), the filter will match
---     any job name that begins with the string before the \'*\'. This
+--     name. If the value ends with an asterisk (*), the filter matches any
+--     job name that begins with the string before the \'*\'. This
 --     corresponds to the @jobName@ value. For example, @test1@ matches
 --     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
 --     @Test10@. When the @JOB_NAME@ filter is used, the results are
@@ -293,15 +290,15 @@ listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJob
 --     value. The value is case sensitive. When the value for the filter is
 --     the job definition name, the results include all the jobs that used
 --     any revision of that job definition name. If the value ends with an
---     asterisk (*), the filter will match any job definition name that
---     begins with the string before the \'*\'. For example, @jd1@ matches
---     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
---     the job definition that\'s used doesn\'t affect the sort order. When
---     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
---     the form
+--     asterisk (*), the filter matches any job definition name that begins
+--     with the string before the \'*\'. For example, @jd1@ matches only
+--     @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of the
+--     job definition that\'s used doesn\'t affect the sort order. When the
+--     @JOB_DEFINITION@ filter is used and the ARN is used (which is in the
+--     form
 --     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
 --     the results include jobs that used the specified revision of the job
---     definition. Asterisk (*) is not supported when the ARN is used.
+--     definition. Asterisk (*) isn\'t supported when the ARN is used.
 --
 -- [BEFORE_CREATED_AT]
 --     The value for the filter is the time that\'s before the job was
@@ -357,7 +354,8 @@ instance Core.AWSPager ListJobs where
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

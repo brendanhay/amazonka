@@ -61,9 +61,8 @@ data DescribeJobQueues = DescribeJobQueues'
     -- of the previous results that returned the @nextToken@ value. This value
     -- is @null@ when there are no more results to return.
     --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @DescribeJobQueues@ in
     -- paginated output. When this parameter is used, @DescribeJobQueues@ only
@@ -94,9 +93,8 @@ data DescribeJobQueues = DescribeJobQueues'
 -- of the previous results that returned the @nextToken@ value. This value
 -- is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 --
 -- 'maxResults', 'describeJobQueues_maxResults' - The maximum number of results returned by @DescribeJobQueues@ in
 -- paginated output. When this parameter is used, @DescribeJobQueues@ only
@@ -124,9 +122,8 @@ newDescribeJobQueues =
 -- of the previous results that returned the @nextToken@ value. This value
 -- is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 describeJobQueues_nextToken :: Lens.Lens' DescribeJobQueues (Prelude.Maybe Prelude.Text)
 describeJobQueues_nextToken = Lens.lens (\DescribeJobQueues' {nextToken} -> nextToken) (\s@DescribeJobQueues' {} a -> s {nextToken = a} :: DescribeJobQueues)
 
@@ -172,7 +169,8 @@ instance Core.AWSRequest DescribeJobQueues where
   type
     AWSResponse DescribeJobQueues =
       DescribeJobQueuesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

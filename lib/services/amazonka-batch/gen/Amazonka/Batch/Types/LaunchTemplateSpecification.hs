@@ -23,9 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a launch template associated with a compute
--- resource. You must specify either the launch template ID or launch
--- template name in the request, but not both.
+-- | An object that represents a launch template that\'s associated with a
+-- compute resource. You must specify either the launch template ID or
+-- launch template name in the request, but not both.
 --
 -- If security groups are specified using both the @securityGroupIds@
 -- parameter of @CreateComputeEnvironment@ and the launch template, the

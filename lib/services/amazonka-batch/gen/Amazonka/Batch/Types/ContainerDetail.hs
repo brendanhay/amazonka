@@ -34,7 +34,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the details of a container that\'s part of a job.
+-- | An object that represents the details of a container that\'s part of a
+-- job.
 --
 -- /See:/ 'newContainerDetail' smart constructor.
 data ContainerDetail = ContainerDetail'
@@ -48,8 +49,8 @@ data ContainerDetail = ContainerDetail'
     readonlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
     -- | The environment variables to pass to a container.
     --
-    -- Environment variables must not start with @AWS_BATCH@; this naming
-    -- convention is reserved for variables that are set by the Batch service.
+    -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+    -- convention is reserved for variables that Batch sets.
     environment :: Prelude.Maybe [KeyValuePair],
     -- | The log configuration specification for the container.
     --
@@ -77,7 +78,7 @@ data ContainerDetail = ContainerDetail'
     --
     -- This parameter requires version 1.18 of the Docker Remote API or greater
     -- on your container instance. To check the Docker Remote API version on
-    -- your container instance, log into your container instance and run the
+    -- your container instance, log in to your container instance and run the
     -- following command: @sudo docker version | grep \"Server API version\"@
     --
     -- The Amazon ECS container agent running on a container instance must
@@ -119,7 +120,7 @@ data ContainerDetail = ContainerDetail'
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources.
     ulimits :: Prelude.Maybe [Ulimit],
-    -- | The Amazon Resource Name (ARN) associated with the job upon execution.
+    -- | The Amazon Resource Name (ARN) that\'s associated with the job when run.
     jobRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The platform configuration for jobs that are running on Fargate
     -- resources. Jobs that are running on EC2 resources must not specify this
@@ -141,17 +142,17 @@ data ContainerDetail = ContainerDetail'
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | A list of volumes associated with the job.
+    -- | A list of volumes that are associated with the job.
     volumes :: Prelude.Maybe [Volume],
     -- | When this parameter is true, the container is given elevated permissions
     -- on the host container instance (similar to the @root@ user). The default
-    -- value is false.
+    -- value is @false@.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources and shouldn\'t be provided, or specified as false.
+    -- resources and shouldn\'t be provided, or specified as @false@.
     privileged :: Prelude.Maybe Prelude.Bool,
     -- | A short (255 max characters) human-readable string to provide additional
-    -- details about a running or stopped container.
+    -- details for a running or stopped container.
     reason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the container instance that the
     -- container is running on.
@@ -183,9 +184,9 @@ data ContainerDetail = ContainerDetail'
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The mount points for data volumes in your container.
     mountPoints :: Prelude.Maybe [MountPoint],
-    -- | The name of the CloudWatch Logs log stream associated with the
-    -- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
-    -- container attempt receives a log stream name when they reach the
+    -- | The name of the Amazon CloudWatch Logs log stream that\'s associated
+    -- with the container. The log group for Batch jobs is @\/aws\/batch\/job@.
+    -- Each container attempt receives a log stream name when they reach the
     -- @RUNNING@ status.
     logStreamName :: Prelude.Maybe Prelude.Text,
     -- | The image used to start the container.
@@ -193,7 +194,7 @@ data ContainerDetail = ContainerDetail'
     -- | Linux-specific modifications that are applied to the container, such as
     -- details for device mappings.
     linuxParameters :: Prelude.Maybe LinuxParameters,
-    -- | The network interfaces associated with the job.
+    -- | The network interfaces that are associated with the job.
     networkInterfaces :: Prelude.Maybe [NetworkInterface]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -216,8 +217,8 @@ data ContainerDetail = ContainerDetail'
 --
 -- 'environment', 'containerDetail_environment' - The environment variables to pass to a container.
 --
--- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the Batch service.
+-- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+-- convention is reserved for variables that Batch sets.
 --
 -- 'logConfiguration', 'containerDetail_logConfiguration' - The log configuration specification for the container.
 --
@@ -245,7 +246,7 @@ data ContainerDetail = ContainerDetail'
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
--- your container instance, log into your container instance and run the
+-- your container instance, log in to your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
 --
 -- The Amazon ECS container agent running on a container instance must
@@ -287,7 +288,7 @@ data ContainerDetail = ContainerDetail'
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources.
 --
--- 'jobRoleArn', 'containerDetail_jobRoleArn' - The Amazon Resource Name (ARN) associated with the job upon execution.
+-- 'jobRoleArn', 'containerDetail_jobRoleArn' - The Amazon Resource Name (ARN) that\'s associated with the job when run.
 --
 -- 'fargatePlatformConfiguration', 'containerDetail_fargatePlatformConfiguration' - The platform configuration for jobs that are running on Fargate
 -- resources. Jobs that are running on EC2 resources must not specify this
@@ -309,17 +310,17 @@ data ContainerDetail = ContainerDetail'
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources.
 --
--- 'volumes', 'containerDetail_volumes' - A list of volumes associated with the job.
+-- 'volumes', 'containerDetail_volumes' - A list of volumes that are associated with the job.
 --
 -- 'privileged', 'containerDetail_privileged' - When this parameter is true, the container is given elevated permissions
 -- on the host container instance (similar to the @root@ user). The default
--- value is false.
+-- value is @false@.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided, or specified as false.
+-- resources and shouldn\'t be provided, or specified as @false@.
 --
 -- 'reason', 'containerDetail_reason' - A short (255 max characters) human-readable string to provide additional
--- details about a running or stopped container.
+-- details for a running or stopped container.
 --
 -- 'containerInstanceArn', 'containerDetail_containerInstanceArn' - The Amazon Resource Name (ARN) of the container instance that the
 -- container is running on.
@@ -351,9 +352,9 @@ data ContainerDetail = ContainerDetail'
 --
 -- 'mountPoints', 'containerDetail_mountPoints' - The mount points for data volumes in your container.
 --
--- 'logStreamName', 'containerDetail_logStreamName' - The name of the CloudWatch Logs log stream associated with the
--- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
--- container attempt receives a log stream name when they reach the
+-- 'logStreamName', 'containerDetail_logStreamName' - The name of the Amazon CloudWatch Logs log stream that\'s associated
+-- with the container. The log group for Batch jobs is @\/aws\/batch\/job@.
+-- Each container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 --
 -- 'image', 'containerDetail_image' - The image used to start the container.
@@ -361,7 +362,7 @@ data ContainerDetail = ContainerDetail'
 -- 'linuxParameters', 'containerDetail_linuxParameters' - Linux-specific modifications that are applied to the container, such as
 -- details for device mappings.
 --
--- 'networkInterfaces', 'containerDetail_networkInterfaces' - The network interfaces associated with the job.
+-- 'networkInterfaces', 'containerDetail_networkInterfaces' - The network interfaces that are associated with the job.
 newContainerDetail ::
   ContainerDetail
 newContainerDetail =
@@ -407,8 +408,8 @@ containerDetail_readonlyRootFilesystem = Lens.lens (\ContainerDetail' {readonlyR
 
 -- | The environment variables to pass to a container.
 --
--- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the Batch service.
+-- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+-- convention is reserved for variables that Batch sets.
 containerDetail_environment :: Lens.Lens' ContainerDetail (Prelude.Maybe [KeyValuePair])
 containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> environment) (\s@ContainerDetail' {} a -> s {environment = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
@@ -438,7 +439,7 @@ containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> envi
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
--- your container instance, log into your container instance and run the
+-- your container instance, log in to your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
 --
 -- The Amazon ECS container agent running on a container instance must
@@ -492,7 +493,7 @@ containerDetail_taskArn = Lens.lens (\ContainerDetail' {taskArn} -> taskArn) (\s
 containerDetail_ulimits :: Lens.Lens' ContainerDetail (Prelude.Maybe [Ulimit])
 containerDetail_ulimits = Lens.lens (\ContainerDetail' {ulimits} -> ulimits) (\s@ContainerDetail' {} a -> s {ulimits = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) associated with the job upon execution.
+-- | The Amazon Resource Name (ARN) that\'s associated with the job when run.
 containerDetail_jobRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_jobRoleArn = Lens.lens (\ContainerDetail' {jobRoleArn} -> jobRoleArn) (\s@ContainerDetail' {} a -> s {jobRoleArn = a} :: ContainerDetail)
 
@@ -526,21 +527,21 @@ containerDetail_secrets = Lens.lens (\ContainerDetail' {secrets} -> secrets) (\s
 containerDetail_instanceType :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_instanceType = Lens.lens (\ContainerDetail' {instanceType} -> instanceType) (\s@ContainerDetail' {} a -> s {instanceType = a} :: ContainerDetail)
 
--- | A list of volumes associated with the job.
+-- | A list of volumes that are associated with the job.
 containerDetail_volumes :: Lens.Lens' ContainerDetail (Prelude.Maybe [Volume])
 containerDetail_volumes = Lens.lens (\ContainerDetail' {volumes} -> volumes) (\s@ContainerDetail' {} a -> s {volumes = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | When this parameter is true, the container is given elevated permissions
 -- on the host container instance (similar to the @root@ user). The default
--- value is false.
+-- value is @false@.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided, or specified as false.
+-- resources and shouldn\'t be provided, or specified as @false@.
 containerDetail_privileged :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Bool)
 containerDetail_privileged = Lens.lens (\ContainerDetail' {privileged} -> privileged) (\s@ContainerDetail' {} a -> s {privileged = a} :: ContainerDetail)
 
 -- | A short (255 max characters) human-readable string to provide additional
--- details about a running or stopped container.
+-- details for a running or stopped container.
 containerDetail_reason :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_reason = Lens.lens (\ContainerDetail' {reason} -> reason) (\s@ContainerDetail' {} a -> s {reason = a} :: ContainerDetail)
 
@@ -584,9 +585,9 @@ containerDetail_executionRoleArn = Lens.lens (\ContainerDetail' {executionRoleAr
 containerDetail_mountPoints :: Lens.Lens' ContainerDetail (Prelude.Maybe [MountPoint])
 containerDetail_mountPoints = Lens.lens (\ContainerDetail' {mountPoints} -> mountPoints) (\s@ContainerDetail' {} a -> s {mountPoints = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the CloudWatch Logs log stream associated with the
--- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
--- container attempt receives a log stream name when they reach the
+-- | The name of the Amazon CloudWatch Logs log stream that\'s associated
+-- with the container. The log group for Batch jobs is @\/aws\/batch\/job@.
+-- Each container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 containerDetail_logStreamName :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_logStreamName = Lens.lens (\ContainerDetail' {logStreamName} -> logStreamName) (\s@ContainerDetail' {} a -> s {logStreamName = a} :: ContainerDetail)
@@ -600,7 +601,7 @@ containerDetail_image = Lens.lens (\ContainerDetail' {image} -> image) (\s@Conta
 containerDetail_linuxParameters :: Lens.Lens' ContainerDetail (Prelude.Maybe LinuxParameters)
 containerDetail_linuxParameters = Lens.lens (\ContainerDetail' {linuxParameters} -> linuxParameters) (\s@ContainerDetail' {} a -> s {linuxParameters = a} :: ContainerDetail)
 
--- | The network interfaces associated with the job.
+-- | The network interfaces that are associated with the job.
 containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Prelude.Maybe [NetworkInterface])
 containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 

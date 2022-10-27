@@ -24,12 +24,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Object representing any node overrides to a job definition that\'s used
--- in a SubmitJob API operation.
+-- | The object that represents any node overrides to a job definition
+-- that\'s used in a SubmitJob API operation.
 --
 -- /See:/ 'newNodePropertyOverride' smart constructor.
 data NodePropertyOverride = NodePropertyOverride'
-  { -- | The overrides that should be sent to a node range.
+  { -- | The overrides that are sent to a node range.
     containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | The range of nodes, using node index values, that\'s used to override. A
     -- range of @0:3@ indicates nodes with index values of @0@ through @3@. If
@@ -48,7 +48,7 @@ data NodePropertyOverride = NodePropertyOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerOverrides', 'nodePropertyOverride_containerOverrides' - The overrides that should be sent to a node range.
+-- 'containerOverrides', 'nodePropertyOverride_containerOverrides' - The overrides that are sent to a node range.
 --
 -- 'targetNodes', 'nodePropertyOverride_targetNodes' - The range of nodes, using node index values, that\'s used to override. A
 -- range of @0:3@ indicates nodes with index values of @0@ through @3@. If
@@ -66,7 +66,7 @@ newNodePropertyOverride pTargetNodes_ =
       targetNodes = pTargetNodes_
     }
 
--- | The overrides that should be sent to a node range.
+-- | The overrides that are sent to a node range.
 nodePropertyOverride_containerOverrides :: Lens.Lens' NodePropertyOverride (Prelude.Maybe ContainerOverrides)
 nodePropertyOverride_containerOverrides = Lens.lens (\NodePropertyOverride' {containerOverrides} -> containerOverrides) (\s@NodePropertyOverride' {} a -> s {containerOverrides = a} :: NodePropertyOverride)
 

@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteComputeEnvironment where
   type
     AWSResponse DeleteComputeEnvironment =
       DeleteComputeEnvironmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

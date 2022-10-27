@@ -23,10 +23,10 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on a Docker volume mount point that\'s used in a job\'s
+-- | Details for a Docker volume mount point that\'s used in a job\'s
 -- container properties. This parameter maps to @Volumes@ in the
 -- <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container Create a container>
--- section of the Docker Remote API and the @--volume@ option to docker
+-- section of the /Docker Remote API/ and the @--volume@ option to docker
 -- run.
 --
 -- /See:/ 'newMountPoint' smart constructor.

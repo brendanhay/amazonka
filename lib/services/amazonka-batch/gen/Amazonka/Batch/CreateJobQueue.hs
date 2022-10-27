@@ -81,7 +81,7 @@ data CreateJobQueue = CreateJobQueue'
     -- you can replace but can\'t remove the fair share scheduling policy. The
     -- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
     -- An example is
-    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the job queue. It can be up to 128 letters long. It can
     -- contain uppercase and lowercase letters, numbers, hyphens (-), and
@@ -137,7 +137,7 @@ data CreateJobQueue = CreateJobQueue'
 -- you can replace but can\'t remove the fair share scheduling policy. The
 -- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
 -- An example is
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 --
 -- 'jobQueueName', 'createJobQueue_jobQueueName' - The name of the job queue. It can be up to 128 letters long. It can
 -- contain uppercase and lowercase letters, numbers, hyphens (-), and
@@ -201,7 +201,7 @@ createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJ
 -- you can replace but can\'t remove the fair share scheduling policy. The
 -- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
 -- An example is
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 createJobQueue_schedulingPolicyArn :: Lens.Lens' CreateJobQueue (Prelude.Maybe Prelude.Text)
 createJobQueue_schedulingPolicyArn = Lens.lens (\CreateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@CreateJobQueue' {} a -> s {schedulingPolicyArn = a} :: CreateJobQueue)
 
@@ -241,7 +241,8 @@ instance Core.AWSRequest CreateJobQueue where
   type
     AWSResponse CreateJobQueue =
       CreateJobQueueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

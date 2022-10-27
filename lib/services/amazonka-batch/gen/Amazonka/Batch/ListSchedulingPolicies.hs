@@ -60,9 +60,8 @@ data ListSchedulingPolicies = ListSchedulingPolicies'
     -- the end of the previous results that returned the @nextToken@ value.
     -- This value is @null@ when there are no more results to return.
     --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that\'s returned by
     -- @ListSchedulingPolicies@ in paginated output. When this parameter is
@@ -91,9 +90,8 @@ data ListSchedulingPolicies = ListSchedulingPolicies'
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 --
 -- 'maxResults', 'listSchedulingPolicies_maxResults' - The maximum number of results that\'s returned by
 -- @ListSchedulingPolicies@ in paginated output. When this parameter is
@@ -119,9 +117,8 @@ newListSchedulingPolicies =
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 listSchedulingPolicies_nextToken :: Lens.Lens' ListSchedulingPolicies (Prelude.Maybe Prelude.Text)
 listSchedulingPolicies_nextToken = Lens.lens (\ListSchedulingPolicies' {nextToken} -> nextToken) (\s@ListSchedulingPolicies' {} a -> s {nextToken = a} :: ListSchedulingPolicies)
 
@@ -163,7 +160,8 @@ instance Core.AWSRequest ListSchedulingPolicies where
   type
     AWSResponse ListSchedulingPolicies =
       ListSchedulingPoliciesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

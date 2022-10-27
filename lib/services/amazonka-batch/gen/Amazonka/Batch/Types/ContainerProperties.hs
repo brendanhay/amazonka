@@ -33,8 +33,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Container properties are used in job definitions to describe the
--- container that\'s launched as part of a job.
+-- | Container properties are used for Amazon ECS based job definitions.
+-- These properties to describe the container that\'s launched as part of a
+-- job.
 --
 -- /See:/ 'newContainerProperties' smart constructor.
 data ContainerProperties = ContainerProperties'
@@ -56,8 +57,8 @@ data ContainerProperties = ContainerProperties'
     -- We don\'t recommend using plaintext environment variables for sensitive
     -- information, such as credential data.
     --
-    -- Environment variables must not start with @AWS_BATCH@; this naming
-    -- convention is reserved for variables that are set by the Batch service.
+    -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+    -- convention is reserved for variables that Batch sets.
     environment :: Prelude.Maybe [KeyValuePair],
     -- | The log configuration specification for the container.
     --
@@ -82,7 +83,7 @@ data ContainerProperties = ContainerProperties'
     --
     -- This parameter requires version 1.18 of the Docker Remote API or greater
     -- on your container instance. To check the Docker Remote API version on
-    -- your container instance, log into your container instance and run the
+    -- your container instance, log in to your container instance and run the
     -- following command: @sudo docker version | grep \"Server API version\"@
     --
     -- The Amazon ECS container agent running on a container instance must
@@ -98,7 +99,7 @@ data ContainerProperties = ContainerProperties'
     resourceRequirements :: Prelude.Maybe [ResourceRequirement],
     -- | This parameter is deprecated, use @resourceRequirements@ to specify the
     -- memory requirements for the job definition. It\'s not supported for jobs
-    -- running on Fargate resources. For jobs running on EC2 resources, it
+    -- running on Fargate resources. For jobs that run on EC2 resources, it
     -- specifies the memory hard limit (in MiB) for a container. If your
     -- container attempts to exceed the specified number, it\'s terminated. You
     -- must specify at least 4 MiB of memory for a job using this parameter.
@@ -204,10 +205,10 @@ data ContainerProperties = ContainerProperties'
     -- | The image used to start a container. This string is passed directly to
     -- the Docker daemon. Images in the Docker Hub registry are available by
     -- default. Other repositories are specified with
-    -- @ repository-url\/image:tag @. Up to 255 letters (uppercase and
-    -- lowercase), numbers, hyphens, underscores, colons, periods, forward
-    -- slashes, and number signs are allowed. This parameter maps to @Image@ in
-    -- the
+    -- @ repository-url\/image:tag @. It can be 255 characters long. It can
+    -- contain uppercase and lowercase letters, numbers, hyphens (-),
+    -- underscores (_), colons (:), periods (.), forward slashes (\/), and
+    -- number signs (#). This parameter maps to @Image@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -225,7 +226,7 @@ data ContainerProperties = ContainerProperties'
     --
     -- -   Images in Amazon ECR repositories use the full registry and
     --     repository URI (for example,
-    --     @012345678910.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
+    --     @123456789012.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
     --
     -- -   Images in official repositories on Docker Hub use a single name (for
     --     example, @ubuntu@ or @mongo@).
@@ -268,8 +269,8 @@ data ContainerProperties = ContainerProperties'
 -- We don\'t recommend using plaintext environment variables for sensitive
 -- information, such as credential data.
 --
--- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the Batch service.
+-- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+-- convention is reserved for variables that Batch sets.
 --
 -- 'logConfiguration', 'containerProperties_logConfiguration' - The log configuration specification for the container.
 --
@@ -294,7 +295,7 @@ data ContainerProperties = ContainerProperties'
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
--- your container instance, log into your container instance and run the
+-- your container instance, log in to your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
 --
 -- The Amazon ECS container agent running on a container instance must
@@ -310,7 +311,7 @@ data ContainerProperties = ContainerProperties'
 --
 -- 'memory', 'containerProperties_memory' - This parameter is deprecated, use @resourceRequirements@ to specify the
 -- memory requirements for the job definition. It\'s not supported for jobs
--- running on Fargate resources. For jobs running on EC2 resources, it
+-- running on Fargate resources. For jobs that run on EC2 resources, it
 -- specifies the memory hard limit (in MiB) for a container. If your
 -- container attempts to exceed the specified number, it\'s terminated. You
 -- must specify at least 4 MiB of memory for a job using this parameter.
@@ -416,10 +417,10 @@ data ContainerProperties = ContainerProperties'
 -- 'image', 'containerProperties_image' - The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. Up to 255 letters (uppercase and
--- lowercase), numbers, hyphens, underscores, colons, periods, forward
--- slashes, and number signs are allowed. This parameter maps to @Image@ in
--- the
+-- @ repository-url\/image:tag @. It can be 255 characters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-),
+-- underscores (_), colons (:), periods (.), forward slashes (\/), and
+-- number signs (#). This parameter maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -437,7 +438,7 @@ data ContainerProperties = ContainerProperties'
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
---     @012345678910.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
+--     @123456789012.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
 --
 -- -   Images in official repositories on Docker Hub use a single name (for
 --     example, @ubuntu@ or @mongo@).
@@ -497,8 +498,8 @@ containerProperties_readonlyRootFilesystem = Lens.lens (\ContainerProperties' {r
 -- We don\'t recommend using plaintext environment variables for sensitive
 -- information, such as credential data.
 --
--- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the Batch service.
+-- Environment variables cannot start with \"@AWS_BATCH@\". This naming
+-- convention is reserved for variables that Batch sets.
 containerProperties_environment :: Lens.Lens' ContainerProperties (Prelude.Maybe [KeyValuePair])
 containerProperties_environment = Lens.lens (\ContainerProperties' {environment} -> environment) (\s@ContainerProperties' {} a -> s {environment = a} :: ContainerProperties) Prelude.. Lens.mapping Lens.coerced
 
@@ -525,7 +526,7 @@ containerProperties_environment = Lens.lens (\ContainerProperties' {environment}
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
--- your container instance, log into your container instance and run the
+-- your container instance, log in to your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
 --
 -- The Amazon ECS container agent running on a container instance must
@@ -545,7 +546,7 @@ containerProperties_resourceRequirements = Lens.lens (\ContainerProperties' {res
 
 -- | This parameter is deprecated, use @resourceRequirements@ to specify the
 -- memory requirements for the job definition. It\'s not supported for jobs
--- running on Fargate resources. For jobs running on EC2 resources, it
+-- running on Fargate resources. For jobs that run on EC2 resources, it
 -- specifies the memory hard limit (in MiB) for a container. If your
 -- container attempts to exceed the specified number, it\'s terminated. You
 -- must specify at least 4 MiB of memory for a job using this parameter.
@@ -679,10 +680,10 @@ containerProperties_mountPoints = Lens.lens (\ContainerProperties' {mountPoints}
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. Up to 255 letters (uppercase and
--- lowercase), numbers, hyphens, underscores, colons, periods, forward
--- slashes, and number signs are allowed. This parameter maps to @Image@ in
--- the
+-- @ repository-url\/image:tag @. It can be 255 characters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-),
+-- underscores (_), colons (:), periods (.), forward slashes (\/), and
+-- number signs (#). This parameter maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -700,7 +701,7 @@ containerProperties_mountPoints = Lens.lens (\ContainerProperties' {mountPoints}
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
---     @012345678910.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
+--     @123456789012.dkr.ecr.\<region-name>.amazonaws.com\/\<repository-name>@).
 --
 -- -   Images in official repositories on Docker Hub use a single name (for
 --     example, @ubuntu@ or @mongo@).

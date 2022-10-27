@@ -41,14 +41,14 @@ data ShareAttributes = ShareAttributes'
     -- | A fair share identifier or fair share identifier prefix. If the string
     -- ends with an asterisk (*), this entry specifies the weight factor to use
     -- for fair share identifiers that start with that prefix. The list of fair
-    -- share identifiers in a fair share policy cannot overlap. For example,
+    -- share identifiers in a fair share policy can\'t overlap. For example,
     -- you can\'t have one that specifies a @shareIdentifier@ of @UserA*@ and
     -- another that specifies a @shareIdentifier@ of @UserA-1@.
     --
     -- There can be no more than 500 fair share identifiers active in a job
     -- queue.
     --
-    -- The string is limited to 255 alphanumeric characters, optionally
+    -- The string is limited to 255 alphanumeric characters, and can be
     -- followed by an asterisk (*).
     shareIdentifier :: Prelude.Text
   }
@@ -74,14 +74,14 @@ data ShareAttributes = ShareAttributes'
 -- 'shareIdentifier', 'shareAttributes_shareIdentifier' - A fair share identifier or fair share identifier prefix. If the string
 -- ends with an asterisk (*), this entry specifies the weight factor to use
 -- for fair share identifiers that start with that prefix. The list of fair
--- share identifiers in a fair share policy cannot overlap. For example,
+-- share identifiers in a fair share policy can\'t overlap. For example,
 -- you can\'t have one that specifies a @shareIdentifier@ of @UserA*@ and
 -- another that specifies a @shareIdentifier@ of @UserA-1@.
 --
 -- There can be no more than 500 fair share identifiers active in a job
 -- queue.
 --
--- The string is limited to 255 alphanumeric characters, optionally
+-- The string is limited to 255 alphanumeric characters, and can be
 -- followed by an asterisk (*).
 newShareAttributes ::
   -- | 'shareIdentifier'
@@ -107,14 +107,14 @@ shareAttributes_weightFactor = Lens.lens (\ShareAttributes' {weightFactor} -> we
 -- | A fair share identifier or fair share identifier prefix. If the string
 -- ends with an asterisk (*), this entry specifies the weight factor to use
 -- for fair share identifiers that start with that prefix. The list of fair
--- share identifiers in a fair share policy cannot overlap. For example,
+-- share identifiers in a fair share policy can\'t overlap. For example,
 -- you can\'t have one that specifies a @shareIdentifier@ of @UserA*@ and
 -- another that specifies a @shareIdentifier@ of @UserA-1@.
 --
 -- There can be no more than 500 fair share identifiers active in a job
 -- queue.
 --
--- The string is limited to 255 alphanumeric characters, optionally
+-- The string is limited to 255 alphanumeric characters, and can be
 -- followed by an asterisk (*).
 shareAttributes_shareIdentifier :: Lens.Lens' ShareAttributes Prelude.Text
 shareAttributes_shareIdentifier = Lens.lens (\ShareAttributes' {shareIdentifier} -> shareIdentifier) (\s@ShareAttributes' {} a -> s {shareIdentifier = a} :: ShareAttributes)

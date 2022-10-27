@@ -113,6 +113,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cloud9",
       Core._serviceSigningName = "cloud9",
       Core._serviceVersion = "2017-09-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -331,7 +331,8 @@ instance Core.AWSRequest CreateEnvironmentEC2 where
   type
     AWSResponse CreateEnvironmentEC2 =
       CreateEnvironmentEC2Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

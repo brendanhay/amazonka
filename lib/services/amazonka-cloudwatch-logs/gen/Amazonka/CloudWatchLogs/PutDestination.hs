@@ -131,7 +131,8 @@ instance Core.AWSRequest PutDestination where
   type
     AWSResponse PutDestination =
       PutDestinationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

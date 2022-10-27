@@ -101,7 +101,8 @@ instance Core.AWSRequest CreateLogStream where
   type
     AWSResponse CreateLogStream =
       CreateLogStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateLogStreamResponse'
 

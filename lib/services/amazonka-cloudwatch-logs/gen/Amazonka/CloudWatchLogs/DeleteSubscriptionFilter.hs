@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
   type
     AWSResponse DeleteSubscriptionFilter =
       DeleteSubscriptionFilterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteSubscriptionFilterResponse'

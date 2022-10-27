@@ -92,7 +92,8 @@ getLogRecord_logRecordPointer = Lens.lens (\GetLogRecord' {logRecordPointer} -> 
 
 instance Core.AWSRequest GetLogRecord where
   type AWSResponse GetLogRecord = GetLogRecordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

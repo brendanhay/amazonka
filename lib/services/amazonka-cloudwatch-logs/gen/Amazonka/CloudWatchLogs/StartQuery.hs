@@ -182,7 +182,8 @@ startQuery_queryString = Lens.lens (\StartQuery' {queryString} -> queryString) (
 
 instance Core.AWSRequest StartQuery where
   type AWSResponse StartQuery = StartQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

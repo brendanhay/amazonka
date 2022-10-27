@@ -172,7 +172,8 @@ putLogEvents_logEvents = Lens.lens (\PutLogEvents' {logEvents} -> logEvents) (\s
 
 instance Core.AWSRequest PutLogEvents where
   type AWSResponse PutLogEvents = PutLogEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

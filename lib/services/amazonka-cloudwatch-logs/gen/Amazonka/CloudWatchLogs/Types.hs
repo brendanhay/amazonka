@@ -261,6 +261,8 @@ defaultService =
       Core._serviceEndpointPrefix = "logs",
       Core._serviceSigningName = "logs",
       Core._serviceVersion = "2014-03-28",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -75,7 +75,8 @@ instance Core.AWSRequest CancelExportTask where
   type
     AWSResponse CancelExportTask =
       CancelExportTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CancelExportTaskResponse'
 

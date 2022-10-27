@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateServerEngineAttributes where
   type
     AWSResponse UpdateServerEngineAttributes =
       UpdateServerEngineAttributesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

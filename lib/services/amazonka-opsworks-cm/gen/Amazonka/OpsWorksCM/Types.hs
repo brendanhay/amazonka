@@ -149,6 +149,8 @@ defaultService =
       Core._serviceEndpointPrefix = "opsworks-cm",
       Core._serviceSigningName = "opsworks-cm",
       Core._serviceVersion = "2016-11-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

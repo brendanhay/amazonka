@@ -751,7 +751,8 @@ createServer_serviceRoleArn = Lens.lens (\CreateServer' {serviceRoleArn} -> serv
 
 instance Core.AWSRequest CreateServer where
   type AWSResponse CreateServer = CreateServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

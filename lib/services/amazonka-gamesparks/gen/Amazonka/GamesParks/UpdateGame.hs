@@ -87,7 +87,8 @@ updateGame_gameName = Lens.lens (\UpdateGame' {gameName} -> gameName) (\s@Update
 
 instance Core.AWSRequest UpdateGame where
   type AWSResponse UpdateGame = UpdateGameResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

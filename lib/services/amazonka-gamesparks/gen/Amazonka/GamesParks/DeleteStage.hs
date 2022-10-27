@@ -88,7 +88,8 @@ deleteStage_stageName = Lens.lens (\DeleteStage' {stageName} -> stageName) (\s@D
 
 instance Core.AWSRequest DeleteStage where
   type AWSResponse DeleteStage = DeleteStageResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

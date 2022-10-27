@@ -74,7 +74,8 @@ deleteGame_gameName = Lens.lens (\DeleteGame' {gameName} -> gameName) (\s@Delete
 
 instance Core.AWSRequest DeleteGame where
   type AWSResponse DeleteGame = DeleteGameResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

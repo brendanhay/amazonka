@@ -110,7 +110,8 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
   type
     AWSResponse GetPlayerConnectionStatus =
       GetPlayerConnectionStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

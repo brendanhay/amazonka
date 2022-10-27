@@ -75,7 +75,8 @@ getGame_gameName = Lens.lens (\GetGame' {gameName} -> gameName) (\s@GetGame' {} 
 
 instance Core.AWSRequest GetGame where
   type AWSResponse GetGame = GetGameResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

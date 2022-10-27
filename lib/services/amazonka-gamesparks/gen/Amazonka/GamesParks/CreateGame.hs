@@ -112,7 +112,8 @@ createGame_gameName = Lens.lens (\CreateGame' {gameName} -> gameName) (\s@Create
 
 instance Core.AWSRequest CreateGame where
   type AWSResponse CreateGame = CreateGameResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -89,7 +89,8 @@ getExtension_namespace = Lens.lens (\GetExtension' {namespace} -> namespace) (\s
 
 instance Core.AWSRequest GetExtension where
   type AWSResponse GetExtension = GetExtensionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

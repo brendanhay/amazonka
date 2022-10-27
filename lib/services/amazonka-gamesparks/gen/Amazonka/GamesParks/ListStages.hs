@@ -140,7 +140,8 @@ instance Core.AWSPager ListStages where
 
 instance Core.AWSRequest ListStages where
   type AWSResponse ListStages = ListStagesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

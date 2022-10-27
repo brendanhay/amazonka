@@ -89,7 +89,8 @@ instance Core.AWSRequest GetGameConfiguration where
   type
     AWSResponse GetGameConfiguration =
       GetGameConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

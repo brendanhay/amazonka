@@ -89,7 +89,8 @@ instance Core.AWSRequest CancelResourceRequest where
   type
     AWSResponse CancelResourceRequest =
       CancelResourceRequestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

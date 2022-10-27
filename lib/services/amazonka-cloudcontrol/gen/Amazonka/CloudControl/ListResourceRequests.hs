@@ -157,7 +157,8 @@ instance Core.AWSRequest ListResourceRequests where
   type
     AWSResponse ListResourceRequests =
       ListResourceRequestsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -121,7 +121,8 @@ instance Core.AWSRequest SubmitFeedback where
   type
     AWSResponse SubmitFeedback =
       SubmitFeedbackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SubmitFeedbackResponse'
 

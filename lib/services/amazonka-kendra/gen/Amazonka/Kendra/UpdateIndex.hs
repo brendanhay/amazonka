@@ -193,7 +193,8 @@ updateIndex_id = Lens.lens (\UpdateIndex' {id} -> id) (\s@UpdateIndex' {} a -> s
 
 instance Core.AWSRequest UpdateIndex where
   type AWSResponse UpdateIndex = UpdateIndexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UpdateIndexResponse'
 
 instance Prelude.Hashable UpdateIndex where

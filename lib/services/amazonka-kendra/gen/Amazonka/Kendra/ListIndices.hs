@@ -95,7 +95,8 @@ listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListIndices where
   type AWSResponse ListIndices = ListIndicesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

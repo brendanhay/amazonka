@@ -107,7 +107,8 @@ listFaqs_indexId = Lens.lens (\ListFaqs' {indexId} -> indexId) (\s@ListFaqs' {} 
 
 instance Core.AWSRequest ListFaqs where
   type AWSResponse ListFaqs = ListFaqsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

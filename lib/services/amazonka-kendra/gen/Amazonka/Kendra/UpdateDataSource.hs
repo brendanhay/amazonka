@@ -213,7 +213,8 @@ instance Core.AWSRequest UpdateDataSource where
   type
     AWSResponse UpdateDataSource =
       UpdateDataSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDataSourceResponse'
 

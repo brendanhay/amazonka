@@ -138,7 +138,8 @@ instance Core.AWSRequest ListDistributedGrants where
   type
     AWSResponse ListDistributedGrants =
       ListDistributedGrantsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

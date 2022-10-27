@@ -90,7 +90,8 @@ instance Core.AWSRequest GetAccessToken where
   type
     AWSResponse GetAccessToken =
       GetAccessTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

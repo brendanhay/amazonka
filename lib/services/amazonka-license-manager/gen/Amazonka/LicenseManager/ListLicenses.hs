@@ -130,7 +130,8 @@ listLicenses_maxResults = Lens.lens (\ListLicenses' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListLicenses where
   type AWSResponse ListLicenses = ListLicensesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -163,7 +163,8 @@ instance Core.AWSRequest UpdateLicenseConfiguration where
   type
     AWSResponse UpdateLicenseConfiguration =
       UpdateLicenseConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

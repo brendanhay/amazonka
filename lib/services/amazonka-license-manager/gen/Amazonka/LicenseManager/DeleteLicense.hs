@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteLicense where
   type
     AWSResponse DeleteLicense =
       DeleteLicenseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

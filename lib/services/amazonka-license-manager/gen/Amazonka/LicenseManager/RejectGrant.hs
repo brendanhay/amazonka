@@ -77,7 +77,8 @@ rejectGrant_grantArn = Lens.lens (\RejectGrant' {grantArn} -> grantArn) (\s@Reje
 
 instance Core.AWSRequest RejectGrant where
   type AWSResponse RejectGrant = RejectGrantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

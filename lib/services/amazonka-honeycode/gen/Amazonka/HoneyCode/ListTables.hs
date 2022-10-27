@@ -139,7 +139,8 @@ instance Core.AWSPager ListTables where
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

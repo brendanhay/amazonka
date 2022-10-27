@@ -191,7 +191,8 @@ instance Core.AWSRequest BatchUpdateTableRows where
   type
     AWSResponse BatchUpdateTableRows =
       BatchUpdateTableRowsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

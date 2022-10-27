@@ -200,7 +200,8 @@ instance Core.AWSRequest StartTableDataImportJob where
   type
     AWSResponse StartTableDataImportJob =
       StartTableDataImportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -90,7 +90,8 @@ instance Core.AWSRequest ModifyTargetGroupAttributes where
   type
     AWSResponse ModifyTargetGroupAttributes =
       ModifyTargetGroupAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyTargetGroupAttributesResult"

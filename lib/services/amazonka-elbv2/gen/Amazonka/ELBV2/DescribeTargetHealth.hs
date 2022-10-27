@@ -89,7 +89,8 @@ instance Core.AWSRequest DescribeTargetHealth where
   type
     AWSResponse DescribeTargetHealth =
       DescribeTargetHealthResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTargetHealthResult"

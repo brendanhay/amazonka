@@ -95,7 +95,8 @@ instance Core.AWSRequest SetSecurityGroups where
   type
     AWSResponse SetSecurityGroups =
       SetSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSecurityGroupsResult"

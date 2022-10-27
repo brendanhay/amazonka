@@ -103,7 +103,8 @@ instance Core.AWSRequest AddListenerCertificates where
   type
     AWSResponse AddListenerCertificates =
       AddListenerCertificatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddListenerCertificatesResult"

@@ -93,7 +93,8 @@ instance Core.AWSRequest RemoveListenerCertificates where
   type
     AWSResponse RemoveListenerCertificates =
       RemoveListenerCertificatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveListenerCertificatesResult"

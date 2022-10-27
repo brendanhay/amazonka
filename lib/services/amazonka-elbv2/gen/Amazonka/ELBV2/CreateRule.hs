@@ -131,7 +131,8 @@ createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRul
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateRuleResult"

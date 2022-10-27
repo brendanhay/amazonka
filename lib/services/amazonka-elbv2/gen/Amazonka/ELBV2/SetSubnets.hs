@@ -219,7 +219,8 @@ setSubnets_loadBalancerArn = Lens.lens (\SetSubnets' {loadBalancerArn} -> loadBa
 
 instance Core.AWSRequest SetSubnets where
   type AWSResponse SetSubnets = SetSubnetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSubnetsResult"

@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribeSSLPolicies where
   type
     AWSResponse DescribeSSLPolicies =
       DescribeSSLPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSSLPoliciesResult"

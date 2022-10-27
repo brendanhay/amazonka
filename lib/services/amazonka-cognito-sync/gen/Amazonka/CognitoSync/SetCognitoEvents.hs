@@ -97,7 +97,8 @@ instance Core.AWSRequest SetCognitoEvents where
   type
     AWSResponse SetCognitoEvents =
       SetCognitoEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetCognitoEventsResponse'
 

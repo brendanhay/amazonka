@@ -213,7 +213,8 @@ instance Core.AWSRequest GetDimensionKeyDetails where
   type
     AWSResponse GetDimensionKeyDetails =
       GetDimensionKeyDetailsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

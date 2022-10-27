@@ -178,7 +178,8 @@ instance Core.AWSPager ViewBilling where
 
 instance Core.AWSRequest ViewBilling where
   type AWSResponse ViewBilling = ViewBillingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

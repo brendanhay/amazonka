@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateDomainNameservers where
   type
     AWSResponse UpdateDomainNameservers =
       UpdateDomainNameserversResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

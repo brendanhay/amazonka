@@ -77,7 +77,8 @@ instance Core.AWSRequest DisableDomainAutoRenew where
   type
     AWSResponse DisableDomainAutoRenew =
       DisableDomainAutoRenewResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateDomainContact where
   type
     AWSResponse UpdateDomainContact =
       UpdateDomainContactResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

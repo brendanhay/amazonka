@@ -115,7 +115,8 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
   type
     AWSResponse ModifyLoadBalancerAttributes =
       ModifyLoadBalancerAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyLoadBalancerAttributesResult"

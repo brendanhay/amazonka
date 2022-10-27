@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribeLoadBalancers where
   type
     AWSResponse DescribeLoadBalancers =
       DescribeLoadBalancersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoadBalancersResult"

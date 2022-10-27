@@ -91,7 +91,8 @@ deleteLabel_labelId = Lens.lens (\DeleteLabel' {labelId} -> labelId) (\s@DeleteL
 
 instance Core.AWSRequest DeleteLabel where
   type AWSResponse DeleteLabel = DeleteLabelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteLabelResponse'
 
 instance Prelude.Hashable DeleteLabel where

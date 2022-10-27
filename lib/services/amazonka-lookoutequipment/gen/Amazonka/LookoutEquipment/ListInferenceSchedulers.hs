@@ -113,7 +113,8 @@ instance Core.AWSRequest ListInferenceSchedulers where
   type
     AWSResponse ListInferenceSchedulers =
       ListInferenceSchedulersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

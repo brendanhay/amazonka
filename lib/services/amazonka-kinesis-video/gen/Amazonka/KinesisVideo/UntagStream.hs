@@ -103,7 +103,8 @@ untagStream_tagKeyList = Lens.lens (\UntagStream' {tagKeyList} -> tagKeyList) (\
 
 instance Core.AWSRequest UntagStream where
   type AWSResponse UntagStream = UntagStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -113,7 +113,8 @@ tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s
 
 instance Core.AWSRequest TagStream where
   type AWSResponse TagStream = TagStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

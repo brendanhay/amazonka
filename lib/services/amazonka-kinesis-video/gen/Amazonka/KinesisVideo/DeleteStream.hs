@@ -116,7 +116,8 @@ deleteStream_streamARN = Lens.lens (\DeleteStream' {streamARN} -> streamARN) (\s
 
 instance Core.AWSRequest DeleteStream where
   type AWSResponse DeleteStream = DeleteStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

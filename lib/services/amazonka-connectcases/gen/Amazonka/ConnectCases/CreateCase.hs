@@ -119,7 +119,8 @@ createCase_templateId = Lens.lens (\CreateCase' {templateId} -> templateId) (\s@
 
 instance Core.AWSRequest CreateCase where
   type AWSResponse CreateCase = CreateCaseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

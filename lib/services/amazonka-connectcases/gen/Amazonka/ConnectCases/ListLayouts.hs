@@ -105,7 +105,8 @@ listLayouts_domainId = Lens.lens (\ListLayouts' {domainId} -> domainId) (\s@List
 
 instance Core.AWSRequest ListLayouts where
   type AWSResponse ListLayouts = ListLayoutsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

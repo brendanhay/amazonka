@@ -117,7 +117,8 @@ createField_type = Lens.lens (\CreateField' {type'} -> type') (\s@CreateField' {
 
 instance Core.AWSRequest CreateField where
   type AWSResponse CreateField = CreateFieldResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

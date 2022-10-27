@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateTemplate where
   type
     AWSResponse CreateTemplate =
       CreateTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

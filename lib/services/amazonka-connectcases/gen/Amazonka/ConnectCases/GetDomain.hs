@@ -80,7 +80,8 @@ getDomain_domainId = Lens.lens (\GetDomain' {domainId} -> domainId) (\s@GetDomai
 
 instance Core.AWSRequest GetDomain where
   type AWSResponse GetDomain = GetDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

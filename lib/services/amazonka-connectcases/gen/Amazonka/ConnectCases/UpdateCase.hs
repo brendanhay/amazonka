@@ -106,7 +106,8 @@ updateCase_fields = Lens.lens (\UpdateCase' {fields} -> fields) (\s@UpdateCase' 
 
 instance Core.AWSRequest UpdateCase where
   type AWSResponse UpdateCase = UpdateCaseResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

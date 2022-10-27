@@ -104,7 +104,8 @@ listFields_domainId = Lens.lens (\ListFields' {domainId} -> domainId) (\s@ListFi
 
 instance Core.AWSRequest ListFields where
   type AWSResponse ListFields = ListFieldsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

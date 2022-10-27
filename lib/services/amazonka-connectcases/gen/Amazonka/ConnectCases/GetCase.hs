@@ -120,7 +120,8 @@ getCase_fields = Lens.lens (\GetCase' {fields} -> fields) (\s@GetCase' {} a -> s
 
 instance Core.AWSRequest GetCase where
   type AWSResponse GetCase = GetCaseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

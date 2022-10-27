@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateInsight where
   type
     AWSResponse CreateInsight =
       CreateInsightResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

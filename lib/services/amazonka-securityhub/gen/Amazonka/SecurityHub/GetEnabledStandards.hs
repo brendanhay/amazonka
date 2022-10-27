@@ -143,7 +143,8 @@ instance Core.AWSRequest GetEnabledStandards where
   type
     AWSResponse GetEnabledStandards =
       GetEnabledStandardsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

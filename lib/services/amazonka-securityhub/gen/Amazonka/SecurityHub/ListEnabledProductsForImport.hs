@@ -132,7 +132,8 @@ instance Core.AWSRequest ListEnabledProductsForImport where
   type
     AWSResponse ListEnabledProductsForImport =
       ListEnabledProductsForImportResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

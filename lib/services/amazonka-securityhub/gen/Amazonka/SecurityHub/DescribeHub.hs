@@ -76,7 +76,8 @@ describeHub_hubArn = Lens.lens (\DescribeHub' {hubArn} -> hubArn) (\s@DescribeHu
 
 instance Core.AWSRequest DescribeHub where
   type AWSResponse DescribeHub = DescribeHubResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

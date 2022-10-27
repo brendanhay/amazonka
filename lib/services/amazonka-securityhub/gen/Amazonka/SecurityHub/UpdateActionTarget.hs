@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateActionTarget where
   type
     AWSResponse UpdateActionTarget =
       UpdateActionTargetResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

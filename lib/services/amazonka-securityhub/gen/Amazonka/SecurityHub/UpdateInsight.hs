@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateInsight where
   type
     AWSResponse UpdateInsight =
       UpdateInsightResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

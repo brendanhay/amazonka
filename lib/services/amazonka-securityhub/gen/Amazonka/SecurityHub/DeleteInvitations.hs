@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteInvitations where
   type
     AWSResponse DeleteInvitations =
       DeleteInvitationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteTopicRule where
   type
     AWSResponse DeleteTopicRule =
       DeleteTopicRuleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteTopicRuleResponse'
 

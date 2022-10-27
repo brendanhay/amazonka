@@ -78,7 +78,8 @@ deleteStream_streamId = Lens.lens (\DeleteStream' {streamId} -> streamId) (\s@De
 
 instance Core.AWSRequest DeleteStream where
   type AWSResponse DeleteStream = DeleteStreamResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

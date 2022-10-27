@@ -86,7 +86,8 @@ instance Core.AWSRequest CreateTopicRuleDestination where
   type
     AWSResponse CreateTopicRuleDestination =
       CreateTopicRuleDestinationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

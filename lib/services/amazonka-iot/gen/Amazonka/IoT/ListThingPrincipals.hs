@@ -138,7 +138,8 @@ instance Core.AWSRequest ListThingPrincipals where
   type
     AWSResponse ListThingPrincipals =
       ListThingPrincipalsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

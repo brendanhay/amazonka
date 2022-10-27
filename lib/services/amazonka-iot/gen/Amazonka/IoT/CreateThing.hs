@@ -143,7 +143,8 @@ createThing_thingName = Lens.lens (\CreateThing' {thingName} -> thingName) (\s@C
 
 instance Core.AWSRequest CreateThing where
   type AWSResponse CreateThing = CreateThingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

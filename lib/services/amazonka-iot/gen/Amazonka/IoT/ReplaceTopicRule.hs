@@ -96,7 +96,8 @@ instance Core.AWSRequest ReplaceTopicRule where
   type
     AWSResponse ReplaceTopicRule =
       ReplaceTopicRuleResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
 

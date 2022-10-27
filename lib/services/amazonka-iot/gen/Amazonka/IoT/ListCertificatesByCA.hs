@@ -146,7 +146,8 @@ instance Core.AWSRequest ListCertificatesByCA where
   type
     AWSResponse ListCertificatesByCA =
       ListCertificatesByCAResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

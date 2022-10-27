@@ -132,7 +132,8 @@ searchIndex_queryString = Lens.lens (\SearchIndex' {queryString} -> queryString)
 
 instance Core.AWSRequest SearchIndex where
   type AWSResponse SearchIndex = SearchIndexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

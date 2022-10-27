@@ -102,7 +102,8 @@ deleteThing_thingName = Lens.lens (\DeleteThing' {thingName} -> thingName) (\s@D
 
 instance Core.AWSRequest DeleteThing where
   type AWSResponse DeleteThing = DeleteThingResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

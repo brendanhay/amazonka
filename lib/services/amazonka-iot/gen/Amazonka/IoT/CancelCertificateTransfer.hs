@@ -95,7 +95,8 @@ instance Core.AWSRequest CancelCertificateTransfer where
   type
     AWSResponse CancelCertificateTransfer =
       CancelCertificateTransferResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull
       CancelCertificateTransferResponse'

@@ -142,7 +142,8 @@ instance Core.AWSRequest ListTopicRules where
   type
     AWSResponse ListTopicRules =
       ListTopicRulesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

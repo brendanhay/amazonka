@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateMitigationAction where
   type
     AWSResponse UpdateMitigationAction =
       UpdateMitigationActionResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

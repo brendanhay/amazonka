@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateCustomMetric where
   type
     AWSResponse UpdateCustomMetric =
       UpdateCustomMetricResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

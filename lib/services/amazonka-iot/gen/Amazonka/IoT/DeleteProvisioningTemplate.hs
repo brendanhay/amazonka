@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteProvisioningTemplate where
   type
     AWSResponse DeleteProvisioningTemplate =
       DeleteProvisioningTemplateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

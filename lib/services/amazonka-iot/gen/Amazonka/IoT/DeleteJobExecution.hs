@@ -192,7 +192,8 @@ instance Core.AWSRequest DeleteJobExecution where
   type
     AWSResponse DeleteJobExecution =
       DeleteJobExecutionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteJobExecutionResponse'
 

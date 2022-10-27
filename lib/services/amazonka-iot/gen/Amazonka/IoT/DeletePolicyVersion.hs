@@ -96,7 +96,8 @@ instance Core.AWSRequest DeletePolicyVersion where
   type
     AWSResponse DeletePolicyVersion =
       DeletePolicyVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePolicyVersionResponse'
 

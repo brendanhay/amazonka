@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeCACertificate where
   type
     AWSResponse DescribeCACertificate =
       DescribeCACertificateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

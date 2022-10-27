@@ -197,7 +197,8 @@ instance Core.AWSRequest CreateDomainConfiguration where
   type
     AWSResponse CreateDomainConfiguration =
       CreateDomainConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

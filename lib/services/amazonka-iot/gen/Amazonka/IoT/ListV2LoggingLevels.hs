@@ -135,7 +135,8 @@ instance Core.AWSRequest ListV2LoggingLevels where
   type
     AWSResponse ListV2LoggingLevels =
       ListV2LoggingLevelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

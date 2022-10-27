@@ -91,7 +91,8 @@ instance Core.AWSRequest DescribeMitigationAction where
   type
     AWSResponse DescribeMitigationAction =
       DescribeMitigationActionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

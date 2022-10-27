@@ -114,7 +114,8 @@ instance Core.AWSPager ListIndices where
 
 instance Core.AWSRequest ListIndices where
   type AWSResponse ListIndices = ListIndicesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

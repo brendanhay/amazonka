@@ -82,7 +82,8 @@ getTopicRule_ruleName = Lens.lens (\GetTopicRule' {ruleName} -> ruleName) (\s@Ge
 
 instance Core.AWSRequest GetTopicRule where
   type AWSResponse GetTopicRule = GetTopicRuleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

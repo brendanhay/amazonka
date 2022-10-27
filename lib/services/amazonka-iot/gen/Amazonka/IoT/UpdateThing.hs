@@ -158,7 +158,8 @@ updateThing_thingName = Lens.lens (\UpdateThing' {thingName} -> thingName) (\s@U
 
 instance Core.AWSRequest UpdateThing where
   type AWSResponse UpdateThing = UpdateThingResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

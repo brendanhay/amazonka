@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateThingGroupsForThing where
   type
     AWSResponse UpdateThingGroupsForThing =
       UpdateThingGroupsForThingResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

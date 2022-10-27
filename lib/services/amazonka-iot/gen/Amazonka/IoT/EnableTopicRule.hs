@@ -79,7 +79,8 @@ instance Core.AWSRequest EnableTopicRule where
   type
     AWSResponse EnableTopicRule =
       EnableTopicRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull EnableTopicRuleResponse'
 

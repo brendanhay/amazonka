@@ -88,7 +88,8 @@ instance Core.AWSRequest DeleteCACertificate where
   type
     AWSResponse DeleteCACertificate =
       DeleteCACertificateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

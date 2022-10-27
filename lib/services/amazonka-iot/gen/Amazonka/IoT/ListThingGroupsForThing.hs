@@ -135,7 +135,8 @@ instance Core.AWSRequest ListThingGroupsForThing where
   type
     AWSResponse ListThingGroupsForThing =
       ListThingGroupsForThingResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

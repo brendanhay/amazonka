@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteBillingGroup where
   type
     AWSResponse DeleteBillingGroup =
       DeleteBillingGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

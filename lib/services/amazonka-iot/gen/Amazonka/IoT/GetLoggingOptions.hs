@@ -71,7 +71,8 @@ instance Core.AWSRequest GetLoggingOptions where
   type
     AWSResponse GetLoggingOptions =
       GetLoggingOptionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -97,7 +97,8 @@ instance Core.AWSRequest SetV2LoggingOptions where
   type
     AWSResponse SetV2LoggingOptions =
       SetV2LoggingOptionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetV2LoggingOptionsResponse'
 

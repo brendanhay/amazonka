@@ -99,7 +99,8 @@ instance Core.AWSRequest DetachSecurityProfile where
   type
     AWSResponse DetachSecurityProfile =
       DetachSecurityProfileResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

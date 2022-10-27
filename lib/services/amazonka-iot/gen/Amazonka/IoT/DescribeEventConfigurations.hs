@@ -68,7 +68,8 @@ instance Core.AWSRequest DescribeEventConfigurations where
   type
     AWSResponse DescribeEventConfigurations =
       DescribeEventConfigurationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

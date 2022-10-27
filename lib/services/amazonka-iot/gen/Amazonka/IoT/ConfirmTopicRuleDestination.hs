@@ -90,7 +90,8 @@ instance Core.AWSRequest ConfirmTopicRuleDestination where
   type
     AWSResponse ConfirmTopicRuleDestination =
       ConfirmTopicRuleDestinationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveEmpty
       ( \s h x ->

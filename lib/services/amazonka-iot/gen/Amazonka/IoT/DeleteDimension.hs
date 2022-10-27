@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteDimension where
   type
     AWSResponse DeleteDimension =
       DeleteDimensionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

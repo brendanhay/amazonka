@@ -140,6 +140,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cognito-identity",
       Core._serviceSigningName = "cognito-identity",
       Core._serviceVersion = "2014-06-30",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

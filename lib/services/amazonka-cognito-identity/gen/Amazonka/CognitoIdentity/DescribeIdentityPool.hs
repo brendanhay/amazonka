@@ -91,7 +91,8 @@ describeIdentityPool_identityPoolId = Lens.lens (\DescribeIdentityPool' {identit
 
 instance Core.AWSRequest DescribeIdentityPool where
   type AWSResponse DescribeIdentityPool = IdentityPool
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

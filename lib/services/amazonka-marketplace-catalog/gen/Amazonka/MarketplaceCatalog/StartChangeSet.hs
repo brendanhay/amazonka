@@ -130,7 +130,8 @@ instance Core.AWSRequest StartChangeSet where
   type
     AWSResponse StartChangeSet =
       StartChangeSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

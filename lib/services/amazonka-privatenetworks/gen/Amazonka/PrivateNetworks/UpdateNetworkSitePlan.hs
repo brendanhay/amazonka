@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateNetworkSitePlan where
   type
     AWSResponse UpdateNetworkSitePlan =
       UpdateNetworkSiteResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

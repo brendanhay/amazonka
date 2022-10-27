@@ -72,7 +72,8 @@ instance Core.AWSRequest DeleteConnection where
   type
     AWSResponse DeleteConnection =
       DeleteConnectionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteConnectionResponse'
 

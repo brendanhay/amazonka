@@ -87,7 +87,8 @@ instance Core.AWSRequest PostToConnection where
   type
     AWSResponse PostToConnection =
       PostToConnectionResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveNull PostToConnectionResponse'
 

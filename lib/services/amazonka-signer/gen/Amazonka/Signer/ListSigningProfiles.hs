@@ -164,7 +164,8 @@ instance Core.AWSRequest ListSigningProfiles where
   type
     AWSResponse ListSigningProfiles =
       ListSigningProfilesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,7 +76,8 @@ instance Core.AWSRequest CancelSigningProfile where
   type
     AWSResponse CancelSigningProfile =
       CancelSigningProfileResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull CancelSigningProfileResponse'
 

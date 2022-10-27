@@ -97,7 +97,8 @@ instance Core.AWSRequest DescribeSigningJob where
   type
     AWSResponse DescribeSigningJob =
       DescribeSigningJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

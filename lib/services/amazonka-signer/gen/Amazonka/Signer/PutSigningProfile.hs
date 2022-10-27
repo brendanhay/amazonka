@@ -161,7 +161,8 @@ instance Core.AWSRequest PutSigningProfile where
   type
     AWSResponse PutSigningProfile =
       PutSigningProfileResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -70,6 +70,8 @@ defaultService =
       Core._serviceEndpointPrefix = "account",
       Core._serviceSigningName = "account",
       Core._serviceVersion = "2021-02-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

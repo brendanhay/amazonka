@@ -323,7 +323,8 @@ instance Core.AWSRequest GetNetworkResources where
   type
     AWSResponse GetNetworkResources =
       GetNetworkResourcesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

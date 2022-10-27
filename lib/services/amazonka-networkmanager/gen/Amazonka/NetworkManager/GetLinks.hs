@@ -163,7 +163,8 @@ instance Core.AWSPager GetLinks where
 
 instance Core.AWSRequest GetLinks where
   type AWSResponse GetLinks = GetLinksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

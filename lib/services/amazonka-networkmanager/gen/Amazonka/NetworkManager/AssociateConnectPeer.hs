@@ -121,7 +121,8 @@ instance Core.AWSRequest AssociateConnectPeer where
   type
     AWSResponse AssociateConnectPeer =
       AssociateConnectPeerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

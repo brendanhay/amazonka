@@ -96,7 +96,8 @@ instance Core.AWSRequest UpdateGlobalNetwork where
   type
     AWSResponse UpdateGlobalNetwork =
       UpdateGlobalNetworkResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

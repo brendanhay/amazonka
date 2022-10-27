@@ -129,7 +129,8 @@ instance Core.AWSPager GetSites where
 
 instance Core.AWSRequest GetSites where
   type AWSResponse GetSites = GetSitesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

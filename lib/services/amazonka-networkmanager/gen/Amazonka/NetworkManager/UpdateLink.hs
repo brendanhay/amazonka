@@ -148,7 +148,8 @@ updateLink_linkId = Lens.lens (\UpdateLink' {linkId} -> linkId) (\s@UpdateLink' 
 
 instance Core.AWSRequest UpdateLink where
   type AWSResponse UpdateLink = UpdateLinkResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

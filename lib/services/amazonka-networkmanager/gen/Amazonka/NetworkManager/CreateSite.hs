@@ -137,7 +137,8 @@ createSite_globalNetworkId = Lens.lens (\CreateSite' {globalNetworkId} -> global
 
 instance Core.AWSRequest CreateSite where
   type AWSResponse CreateSite = CreateSiteResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

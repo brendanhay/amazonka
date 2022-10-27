@@ -144,7 +144,8 @@ instance Core.AWSRequest GetConnections where
   type
     AWSResponse GetConnections =
       GetConnectionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

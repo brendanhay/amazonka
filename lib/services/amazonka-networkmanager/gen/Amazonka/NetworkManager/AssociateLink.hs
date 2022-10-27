@@ -108,7 +108,8 @@ instance Core.AWSRequest AssociateLink where
   type
     AWSResponse AssociateLink =
       AssociateLinkResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

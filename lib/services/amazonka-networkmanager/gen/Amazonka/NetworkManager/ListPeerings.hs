@@ -147,7 +147,8 @@ instance Core.AWSPager ListPeerings where
 
 instance Core.AWSRequest ListPeerings where
   type AWSResponse ListPeerings = ListPeeringsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

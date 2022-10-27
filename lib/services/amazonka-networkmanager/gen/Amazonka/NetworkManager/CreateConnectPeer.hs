@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateConnectPeer where
   type
     AWSResponse CreateConnectPeer =
       CreateConnectPeerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

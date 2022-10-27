@@ -196,7 +196,8 @@ updateDevice_deviceId = Lens.lens (\UpdateDevice' {deviceId} -> deviceId) (\s@Up
 
 instance Core.AWSRequest UpdateDevice where
   type AWSResponse UpdateDevice = UpdateDeviceResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

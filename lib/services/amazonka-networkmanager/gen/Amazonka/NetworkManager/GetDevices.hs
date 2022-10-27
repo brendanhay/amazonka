@@ -139,7 +139,8 @@ instance Core.AWSPager GetDevices where
 
 instance Core.AWSRequest GetDevices where
   type AWSResponse GetDevices = GetDevicesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

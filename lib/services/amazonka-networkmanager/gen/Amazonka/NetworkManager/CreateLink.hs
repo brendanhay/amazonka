@@ -165,7 +165,8 @@ createLink_siteId = Lens.lens (\CreateLink' {siteId} -> siteId) (\s@CreateLink' 
 
 instance Core.AWSRequest CreateLink where
   type AWSResponse CreateLink = CreateLinkResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

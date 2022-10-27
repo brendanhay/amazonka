@@ -77,7 +77,8 @@ instance Core.AWSRequest GetConnectPeer where
   type
     AWSResponse GetConnectPeer =
       GetConnectPeerResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

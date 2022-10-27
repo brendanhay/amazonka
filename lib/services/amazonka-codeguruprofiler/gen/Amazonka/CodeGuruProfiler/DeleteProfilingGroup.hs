@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteProfilingGroup where
   type
     AWSResponse DeleteProfilingGroup =
       DeleteProfilingGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

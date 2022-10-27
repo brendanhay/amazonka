@@ -151,7 +151,8 @@ instance Core.AWSRequest ListProfilingGroups where
   type
     AWSResponse ListProfilingGroups =
       ListProfilingGroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

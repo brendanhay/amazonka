@@ -198,7 +198,8 @@ getProfile_profilingGroupName = Lens.lens (\GetProfile' {profilingGroupName} -> 
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = GetProfileResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

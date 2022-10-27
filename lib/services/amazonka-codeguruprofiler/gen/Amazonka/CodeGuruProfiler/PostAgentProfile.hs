@@ -141,7 +141,8 @@ instance Core.AWSRequest PostAgentProfile where
   type
     AWSResponse PostAgentProfile =
       PostAgentProfileResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

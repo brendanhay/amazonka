@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteRevision where
   type
     AWSResponse DeleteRevision =
       DeleteRevisionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRevisionResponse'
 

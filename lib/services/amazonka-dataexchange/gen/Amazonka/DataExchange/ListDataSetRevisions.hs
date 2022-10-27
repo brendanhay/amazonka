@@ -128,7 +128,8 @@ instance Core.AWSRequest ListDataSetRevisions where
   type
     AWSResponse ListDataSetRevisions =
       ListDataSetRevisionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

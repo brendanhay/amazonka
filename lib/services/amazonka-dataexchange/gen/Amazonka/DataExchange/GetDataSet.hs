@@ -85,7 +85,8 @@ getDataSet_dataSetId = Lens.lens (\GetDataSet' {dataSetId} -> dataSetId) (\s@Get
 
 instance Core.AWSRequest GetDataSet where
   type AWSResponse GetDataSet = GetDataSetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -110,7 +110,8 @@ getAsset_revisionId = Lens.lens (\GetAsset' {revisionId} -> revisionId) (\s@GetA
 
 instance Core.AWSRequest GetAsset where
   type AWSResponse GetAsset = GetAssetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

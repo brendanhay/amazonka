@@ -140,7 +140,8 @@ instance Core.AWSRequest ListRevisionAssets where
   type
     AWSResponse ListRevisionAssets =
       ListRevisionAssetsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

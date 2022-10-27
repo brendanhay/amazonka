@@ -100,7 +100,8 @@ getRevision_revisionId = Lens.lens (\GetRevision' {revisionId} -> revisionId) (\
 
 instance Core.AWSRequest GetRevision where
   type AWSResponse GetRevision = GetRevisionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

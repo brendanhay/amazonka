@@ -101,6 +101,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
     -- parameter.
     transactionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database schema.
+    --
+    -- Currently, the @schema@ parameter isn\'t supported.
     schema :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
@@ -147,6 +149,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- parameter.
 --
 -- 'schema', 'batchExecuteStatement_schema' - The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
 --
 -- 'resourceArn', 'batchExecuteStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
@@ -210,6 +214,8 @@ batchExecuteStatement_transactionId :: Lens.Lens' BatchExecuteStatement (Prelude
 batchExecuteStatement_transactionId = Lens.lens (\BatchExecuteStatement' {transactionId} -> transactionId) (\s@BatchExecuteStatement' {} a -> s {transactionId = a} :: BatchExecuteStatement)
 
 -- | The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
 batchExecuteStatement_schema :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
 batchExecuteStatement_schema = Lens.lens (\BatchExecuteStatement' {schema} -> schema) (\s@BatchExecuteStatement' {} a -> s {schema = a} :: BatchExecuteStatement)
 
@@ -234,7 +240,8 @@ instance Core.AWSRequest BatchExecuteStatement where
   type
     AWSResponse BatchExecuteStatement =
       BatchExecuteStatementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

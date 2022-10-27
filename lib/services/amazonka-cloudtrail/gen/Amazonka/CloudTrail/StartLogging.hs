@@ -92,7 +92,8 @@ startLogging_name = Lens.lens (\StartLogging' {name} -> name) (\s@StartLogging' 
 
 instance Core.AWSRequest StartLogging where
   type AWSResponse StartLogging = StartLoggingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

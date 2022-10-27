@@ -33,7 +33,7 @@ data Channel = Channel'
     -- that created the channel and @custom-suffix@ represents the suffix
     -- created by the Amazon Web Services service.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the channel.
+    -- | The Amazon Resource Name (ARN) of a channel.
     channelArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data Channel = Channel'
 -- that created the channel and @custom-suffix@ represents the suffix
 -- created by the Amazon Web Services service.
 --
--- 'channelArn', 'channel_channelArn' - The Amazon Resource Name (ARN) of the channel.
+-- 'channelArn', 'channel_channelArn' - The Amazon Resource Name (ARN) of a channel.
 newChannel ::
   Channel
 newChannel =
@@ -69,7 +69,7 @@ newChannel =
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
 
--- | The Amazon Resource Name (ARN) of the channel.
+-- | The Amazon Resource Name (ARN) of a channel.
 channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
 

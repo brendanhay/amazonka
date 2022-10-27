@@ -225,7 +225,8 @@ instance Core.AWSPager LookupEvents where
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

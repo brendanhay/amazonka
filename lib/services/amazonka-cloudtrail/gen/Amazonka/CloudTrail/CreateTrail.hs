@@ -99,7 +99,7 @@ data CreateTrail = CreateTrail'
     -- that log events in all regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the KMS key ID to use to encrypt the logs delivered by
-    -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
+    -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
     -- fully specified ARN to an alias, a fully specified ARN to a key, or a
     -- globally unique identifier.
     --
@@ -110,13 +110,13 @@ data CreateTrail = CreateTrail'
     --
     -- Examples:
     --
-    -- -   alias\/MyAliasName
+    -- -   @alias\/MyAliasName@
     --
-    -- -   arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName
+    -- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
     --
-    -- -   arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012
+    -- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     --
-    -- -   12345678-1234-1234-1234-123456789012
+    -- -   @12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether log file integrity validation is enabled. The default
     -- is false.
@@ -194,7 +194,7 @@ data CreateTrail = CreateTrail'
 -- that log events in all regions.
 --
 -- 'kmsKeyId', 'createTrail_kmsKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by
--- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
+-- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
 -- fully specified ARN to an alias, a fully specified ARN to a key, or a
 -- globally unique identifier.
 --
@@ -205,13 +205,13 @@ data CreateTrail = CreateTrail'
 --
 -- Examples:
 --
--- -   alias\/MyAliasName
+-- -   @alias\/MyAliasName@
 --
--- -   arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName
+-- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
 --
--- -   arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
--- -   12345678-1234-1234-1234-123456789012
+-- -   @12345678-1234-1234-1234-123456789012@
 --
 -- 'enableLogFileValidation', 'createTrail_enableLogFileValidation' - Specifies whether log file integrity validation is enabled. The default
 -- is false.
@@ -311,7 +311,7 @@ createTrail_isMultiRegionTrail :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.
 createTrail_isMultiRegionTrail = Lens.lens (\CreateTrail' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrail' {} a -> s {isMultiRegionTrail = a} :: CreateTrail)
 
 -- | Specifies the KMS key ID to use to encrypt the logs delivered by
--- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
+-- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
 -- fully specified ARN to an alias, a fully specified ARN to a key, or a
 -- globally unique identifier.
 --
@@ -322,13 +322,13 @@ createTrail_isMultiRegionTrail = Lens.lens (\CreateTrail' {isMultiRegionTrail} -
 --
 -- Examples:
 --
--- -   alias\/MyAliasName
+-- -   @alias\/MyAliasName@
 --
--- -   arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName
+-- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
 --
--- -   arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
--- -   12345678-1234-1234-1234-123456789012
+-- -   @12345678-1234-1234-1234-123456789012@
 createTrail_kmsKeyId :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Text)
 createTrail_kmsKeyId = Lens.lens (\CreateTrail' {kmsKeyId} -> kmsKeyId) (\s@CreateTrail' {} a -> s {kmsKeyId = a} :: CreateTrail)
 
@@ -383,7 +383,8 @@ createTrail_s3BucketName = Lens.lens (\CreateTrail' {s3BucketName} -> s3BucketNa
 
 instance Core.AWSRequest CreateTrail where
   type AWSResponse CreateTrail = CreateTrailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -512,8 +513,9 @@ data CreateTrailResponse = CreateTrailResponse'
     snsTopicARN :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the trail exists in one region or in all regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
-    -- The value is a fully specified ARN to a KMS key in the following format.
+    -- | Specifies the KMS key ID that encrypts the events delivered by
+    -- CloudTrail. The value is a fully specified ARN to a KMS key in the
+    -- following format.
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -568,8 +570,9 @@ data CreateTrailResponse = CreateTrailResponse'
 --
 -- 'isMultiRegionTrail', 'createTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
 --
--- 'kmsKeyId', 'createTrailResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
--- The value is a fully specified ARN to a KMS key in the following format.
+-- 'kmsKeyId', 'createTrailResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
@@ -652,8 +655,9 @@ createTrailResponse_snsTopicARN = Lens.lens (\CreateTrailResponse' {snsTopicARN}
 createTrailResponse_isMultiRegionTrail :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Bool)
 createTrailResponse_isMultiRegionTrail = Lens.lens (\CreateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: CreateTrailResponse)
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
--- The value is a fully specified ARN to a KMS key in the following format.
+-- | Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 createTrailResponse_kmsKeyId :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)

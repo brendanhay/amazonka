@@ -84,7 +84,8 @@ deleteTrail_name = Lens.lens (\DeleteTrail' {name} -> name) (\s@DeleteTrail' {} 
 
 instance Core.AWSRequest DeleteTrail where
   type AWSResponse DeleteTrail = DeleteTrailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

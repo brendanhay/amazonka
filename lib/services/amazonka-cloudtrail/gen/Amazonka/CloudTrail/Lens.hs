@@ -90,6 +90,8 @@ module Amazonka.CloudTrail.Lens
     describeQueryResponse_queryStatus,
     describeQueryResponse_errorMessage,
     describeQueryResponse_queryId,
+    describeQueryResponse_deliveryStatus,
+    describeQueryResponse_deliveryS3Uri,
     describeQueryResponse_queryString,
     describeQueryResponse_httpStatus,
 
@@ -316,6 +318,7 @@ module Amazonka.CloudTrail.Lens
     startLoggingResponse_httpStatus,
 
     -- ** StartQuery
+    startQuery_deliveryS3Uri,
     startQuery_queryStatement,
     startQueryResponse_queryId,
     startQueryResponse_httpStatus,

@@ -83,6 +83,9 @@ module Amazonka.CloudTrail.Types
     _InvalidParameterException,
     _OrganizationsNotInUseException,
 
+    -- * DeliveryStatus
+    DeliveryStatus (..),
+
     -- * DestinationType
     DestinationType (..),
 
@@ -318,6 +321,7 @@ import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
 import Amazonka.CloudTrail.Types.Channel
 import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.DeliveryStatus
 import Amazonka.CloudTrail.Types.Destination
 import Amazonka.CloudTrail.Types.DestinationType
 import Amazonka.CloudTrail.Types.Event
@@ -362,6 +366,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudtrail",
       Core._serviceSigningName = "cloudtrail",
       Core._serviceVersion = "2013-11-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -472,8 +478,8 @@ _UnsupportedOperationException =
     defaultService
     "UnsupportedOperationException"
 
--- | The specified channel ARN is not valid or does not map to a channel in
--- your account.
+-- | This exception is thrown when the specified value of @ChannelARN@ is not
+-- valid.
 _ChannelARNInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ChannelARNInvalidException =
   Core._MatchServiceError
@@ -687,8 +693,8 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | This exception is thrown when the event data store category is not valid
--- for the import.
+-- | This exception is thrown when event categories of specified event data
+-- stores are not valid.
 _InvalidEventDataStoreCategoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidEventDataStoreCategoryException =
   Core._MatchServiceError
@@ -814,8 +820,8 @@ _KmsException =
     defaultService
     "KmsException"
 
--- | This exception is thrown when the policy on the S3 bucket or KMS key is
--- not sufficient.
+-- | This exception is thrown when the policy on the S3 bucket or KMS key
+-- does not have sufficient permissions for the operation.
 _InsufficientEncryptionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientEncryptionPolicyException =
   Core._MatchServiceError

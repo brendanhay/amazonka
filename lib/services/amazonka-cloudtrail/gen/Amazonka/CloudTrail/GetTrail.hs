@@ -77,7 +77,8 @@ getTrail_name = Lens.lens (\GetTrail' {name} -> name) (\s@GetTrail' {} a -> s {n
 
 instance Core.AWSRequest GetTrail where
   type AWSResponse GetTrail = GetTrailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

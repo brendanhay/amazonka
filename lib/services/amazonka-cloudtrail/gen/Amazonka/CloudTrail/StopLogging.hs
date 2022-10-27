@@ -95,7 +95,8 @@ stopLogging_name = Lens.lens (\StopLogging' {name} -> name) (\s@StopLogging' {} 
 
 instance Core.AWSRequest StopLogging where
   type AWSResponse StopLogging = StopLoggingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

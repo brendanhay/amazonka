@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImports' smart constructor.
 data ListImports = ListImports'
-  { -- | The destination event data store.
+  { -- | The ARN of the destination event data store.
     destination :: Prelude.Maybe Prelude.Text,
     -- | A token you can use to get the next page of import results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -74,7 +74,7 @@ data ListImports = ListImports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'listImports_destination' - The destination event data store.
+-- 'destination', 'listImports_destination' - The ARN of the destination event data store.
 --
 -- 'nextToken', 'listImports_nextToken' - A token you can use to get the next page of import results.
 --
@@ -91,7 +91,7 @@ newListImports =
       importStatus = Prelude.Nothing
     }
 
--- | The destination event data store.
+-- | The ARN of the destination event data store.
 listImports_destination :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
 listImports_destination = Lens.lens (\ListImports' {destination} -> destination) (\s@ListImports' {} a -> s {destination = a} :: ListImports)
 
@@ -128,7 +128,8 @@ instance Core.AWSPager ListImports where
 
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

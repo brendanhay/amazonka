@@ -226,7 +226,8 @@ putFile_filePath = Lens.lens (\PutFile' {filePath} -> filePath) (\s@PutFile' {} 
 
 instance Core.AWSRequest PutFile where
   type AWSResponse PutFile = PutFileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

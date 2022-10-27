@@ -95,7 +95,8 @@ instance Core.AWSRequest UpdatePullRequestTitle where
   type
     AWSResponse UpdatePullRequestTitle =
       UpdatePullRequestTitleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

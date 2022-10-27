@@ -126,7 +126,8 @@ getFolder_folderPath = Lens.lens (\GetFolder' {folderPath} -> folderPath) (\s@Ge
 
 instance Core.AWSRequest GetFolder where
   type AWSResponse GetFolder = GetFolderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -83,7 +83,8 @@ getComment_commentId = Lens.lens (\GetComment' {commentId} -> commentId) (\s@Get
 
 instance Core.AWSRequest GetComment where
   type AWSResponse GetComment = GetCommentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

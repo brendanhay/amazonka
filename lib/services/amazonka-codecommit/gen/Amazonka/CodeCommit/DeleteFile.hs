@@ -210,7 +210,8 @@ deleteFile_parentCommitId = Lens.lens (\DeleteFile' {parentCommitId} -> parentCo
 
 instance Core.AWSRequest DeleteFile where
   type AWSResponse DeleteFile = DeleteFileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

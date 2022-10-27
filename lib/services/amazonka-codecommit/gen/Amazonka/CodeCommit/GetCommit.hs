@@ -92,7 +92,8 @@ getCommit_commitId = Lens.lens (\GetCommit' {commitId} -> commitId) (\s@GetCommi
 
 instance Core.AWSRequest GetCommit where
   type AWSResponse GetCommit = GetCommitResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

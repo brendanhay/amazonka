@@ -177,7 +177,8 @@ instance Core.AWSRequest GetCommentsForPullRequest where
   type
     AWSResponse GetCommentsForPullRequest =
       GetCommentsForPullRequestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

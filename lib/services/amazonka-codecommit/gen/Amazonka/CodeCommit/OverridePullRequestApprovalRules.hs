@@ -125,7 +125,8 @@ instance
   type
     AWSResponse OverridePullRequestApprovalRules =
       OverridePullRequestApprovalRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       OverridePullRequestApprovalRulesResponse'

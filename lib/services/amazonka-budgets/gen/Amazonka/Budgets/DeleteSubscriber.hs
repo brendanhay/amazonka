@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteSubscriber where
   type
     AWSResponse DeleteSubscriber =
       DeleteSubscriberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

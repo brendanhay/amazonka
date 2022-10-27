@@ -120,7 +120,8 @@ createBudget_budget = Lens.lens (\CreateBudget' {budget} -> budget) (\s@CreateBu
 
 instance Core.AWSRequest CreateBudget where
   type AWSResponse CreateBudget = CreateBudgetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

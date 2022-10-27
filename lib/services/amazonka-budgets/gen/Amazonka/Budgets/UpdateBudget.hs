@@ -103,7 +103,8 @@ updateBudget_newBudget = Lens.lens (\UpdateBudget' {newBudget'} -> newBudget') (
 
 instance Core.AWSRequest UpdateBudget where
   type AWSResponse UpdateBudget = UpdateBudgetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

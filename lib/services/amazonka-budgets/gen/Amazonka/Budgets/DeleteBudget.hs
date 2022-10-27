@@ -96,7 +96,8 @@ deleteBudget_budgetName = Lens.lens (\DeleteBudget' {budgetName} -> budgetName) 
 
 instance Core.AWSRequest DeleteBudget where
   type AWSResponse DeleteBudget = DeleteBudgetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeBudget where
   type
     AWSResponse DescribeBudget =
       DescribeBudgetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

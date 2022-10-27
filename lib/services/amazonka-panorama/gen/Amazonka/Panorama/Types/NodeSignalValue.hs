@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Panorama.Types.JobType
+-- Module      : Amazonka.Panorama.Types.NodeSignalValue
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Panorama.Types.JobType
-  ( JobType
+module Amazonka.Panorama.Types.NodeSignalValue
+  ( NodeSignalValue
       ( ..,
-        JobType_OTA,
-        JobType_REBOOT
+        NodeSignalValue_PAUSE,
+        NodeSignalValue_RESUME
       ),
   )
 where
@@ -29,7 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype JobType = JobType' {fromJobType :: Core.Text}
+newtype NodeSignalValue = NodeSignalValue'
+  { fromNodeSignalValue ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -54,14 +57,14 @@ newtype JobType = JobType' {fromJobType :: Core.Text}
       Core.ToXML
     )
 
-pattern JobType_OTA :: JobType
-pattern JobType_OTA = JobType' "OTA"
+pattern NodeSignalValue_PAUSE :: NodeSignalValue
+pattern NodeSignalValue_PAUSE = NodeSignalValue' "PAUSE"
 
-pattern JobType_REBOOT :: JobType
-pattern JobType_REBOOT = JobType' "REBOOT"
+pattern NodeSignalValue_RESUME :: NodeSignalValue
+pattern NodeSignalValue_RESUME = NodeSignalValue' "RESUME"
 
 {-# COMPLETE
-  JobType_OTA,
-  JobType_REBOOT,
-  JobType'
+  NodeSignalValue_PAUSE,
+  NodeSignalValue_RESUME,
+  NodeSignalValue'
   #-}

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.LatestDeviceJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Panorama.Types.JobType
 import Amazonka.Panorama.Types.UpdateProgress
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,9 @@ data LatestDeviceJob = LatestDeviceJob'
   { -- | Status of the latest device job.
     status :: Prelude.Maybe UpdateProgress,
     -- | The target version of the device software.
-    imageVersion :: Prelude.Maybe Prelude.Text
+    imageVersion :: Prelude.Maybe Prelude.Text,
+    -- | The job\'s type.
+    jobType :: Prelude.Maybe JobType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,12 +49,15 @@ data LatestDeviceJob = LatestDeviceJob'
 -- 'status', 'latestDeviceJob_status' - Status of the latest device job.
 --
 -- 'imageVersion', 'latestDeviceJob_imageVersion' - The target version of the device software.
+--
+-- 'jobType', 'latestDeviceJob_jobType' - The job\'s type.
 newLatestDeviceJob ::
   LatestDeviceJob
 newLatestDeviceJob =
   LatestDeviceJob'
     { status = Prelude.Nothing,
-      imageVersion = Prelude.Nothing
+      imageVersion = Prelude.Nothing,
+      jobType = Prelude.Nothing
     }
 
 -- | Status of the latest device job.
@@ -62,6 +68,10 @@ latestDeviceJob_status = Lens.lens (\LatestDeviceJob' {status} -> status) (\s@La
 latestDeviceJob_imageVersion :: Lens.Lens' LatestDeviceJob (Prelude.Maybe Prelude.Text)
 latestDeviceJob_imageVersion = Lens.lens (\LatestDeviceJob' {imageVersion} -> imageVersion) (\s@LatestDeviceJob' {} a -> s {imageVersion = a} :: LatestDeviceJob)
 
+-- | The job\'s type.
+latestDeviceJob_jobType :: Lens.Lens' LatestDeviceJob (Prelude.Maybe JobType)
+latestDeviceJob_jobType = Lens.lens (\LatestDeviceJob' {jobType} -> jobType) (\s@LatestDeviceJob' {} a -> s {jobType = a} :: LatestDeviceJob)
+
 instance Core.FromJSON LatestDeviceJob where
   parseJSON =
     Core.withObject
@@ -70,14 +80,17 @@ instance Core.FromJSON LatestDeviceJob where
           LatestDeviceJob'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ImageVersion")
+            Prelude.<*> (x Core..:? "JobType")
       )
 
 instance Prelude.Hashable LatestDeviceJob where
   hashWithSalt _salt LatestDeviceJob' {..} =
     _salt `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` imageVersion
+      `Prelude.hashWithSalt` jobType
 
 instance Prelude.NFData LatestDeviceJob where
   rnf LatestDeviceJob' {..} =
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf imageVersion
+      `Prelude.seq` Prelude.rnf jobType

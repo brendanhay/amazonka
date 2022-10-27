@@ -27,8 +27,8 @@ module Amazonka.Panorama.Lens
     createApplicationInstanceResponse_applicationInstanceId,
 
     -- ** CreateJobForDevices
-    createJobForDevices_deviceIds,
     createJobForDevices_deviceJobConfig,
+    createJobForDevices_deviceIds,
     createJobForDevices_jobType,
     createJobForDevicesResponse_httpStatus,
     createJobForDevicesResponse_jobs,
@@ -87,6 +87,7 @@ module Amazonka.Panorama.Lens
     describeApplicationInstanceResponse_createdTime,
     describeApplicationInstanceResponse_defaultRuntimeContextDevice,
     describeApplicationInstanceResponse_applicationInstanceIdToReplace,
+    describeApplicationInstanceResponse_runtimeContextStates,
     describeApplicationInstanceResponse_healthStatus,
     describeApplicationInstanceResponse_arn,
     describeApplicationInstanceResponse_status,
@@ -143,6 +144,7 @@ module Amazonka.Panorama.Lens
     describeDeviceJobResponse_imageVersion,
     describeDeviceJobResponse_deviceArn,
     describeDeviceJobResponse_deviceType,
+    describeDeviceJobResponse_jobType,
     describeDeviceJobResponse_httpStatus,
 
     -- ** DescribeNode
@@ -330,6 +332,12 @@ module Amazonka.Panorama.Lens
     removeApplicationInstance_applicationInstanceId,
     removeApplicationInstanceResponse_httpStatus,
 
+    -- ** SignalApplicationInstanceNodeInstances
+    signalApplicationInstanceNodeInstances_applicationInstanceId,
+    signalApplicationInstanceNodeInstances_nodeSignals,
+    signalApplicationInstanceNodeInstancesResponse_httpStatus,
+    signalApplicationInstanceNodeInstancesResponse_applicationInstanceId,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -357,6 +365,7 @@ module Amazonka.Panorama.Lens
     applicationInstance_name,
     applicationInstance_createdTime,
     applicationInstance_defaultRuntimeContextDevice,
+    applicationInstance_runtimeContextStates,
     applicationInstance_healthStatus,
     applicationInstance_arn,
     applicationInstance_status,
@@ -384,6 +393,7 @@ module Amazonka.Panorama.Lens
     deviceJob_deviceId,
     deviceJob_deviceName,
     deviceJob_jobId,
+    deviceJob_jobType,
 
     -- ** DeviceJobConfig
     deviceJobConfig_oTAJobConfig,
@@ -408,6 +418,7 @@ module Amazonka.Panorama.Lens
     -- ** LatestDeviceJob
     latestDeviceJob_status,
     latestDeviceJob_imageVersion,
+    latestDeviceJob_jobType,
 
     -- ** ManifestOverridesPayload
     manifestOverridesPayload_payloadData,
@@ -472,6 +483,10 @@ module Amazonka.Panorama.Lens
     nodeOutputPort_type,
     nodeOutputPort_description,
 
+    -- ** NodeSignal
+    nodeSignal_nodeInstanceId,
+    nodeSignal_signal,
+
     -- ** NtpPayload
     ntpPayload_ntpServers,
 
@@ -527,6 +542,12 @@ module Amazonka.Panorama.Lens
     packageVersionOutputConfig_packageName,
     packageVersionOutputConfig_packageVersion,
 
+    -- ** ReportedRuntimeContextState
+    reportedRuntimeContextState_desiredState,
+    reportedRuntimeContextState_deviceReportedStatus,
+    reportedRuntimeContextState_deviceReportedTime,
+    reportedRuntimeContextState_runtimeContextName,
+
     -- ** S3Location
     s3Location_region,
     s3Location_bucketName,
@@ -577,6 +598,7 @@ import Amazonka.Panorama.ListTagsForResource
 import Amazonka.Panorama.ProvisionDevice
 import Amazonka.Panorama.RegisterPackageVersion
 import Amazonka.Panorama.RemoveApplicationInstance
+import Amazonka.Panorama.SignalApplicationInstanceNodeInstances
 import Amazonka.Panorama.TagResource
 import Amazonka.Panorama.Types.AlternateSoftwareMetadata
 import Amazonka.Panorama.Types.ApplicationInstance
@@ -598,6 +620,7 @@ import Amazonka.Panorama.Types.NodeInputPort
 import Amazonka.Panorama.Types.NodeInstance
 import Amazonka.Panorama.Types.NodeInterface
 import Amazonka.Panorama.Types.NodeOutputPort
+import Amazonka.Panorama.Types.NodeSignal
 import Amazonka.Panorama.Types.NtpPayload
 import Amazonka.Panorama.Types.NtpStatus
 import Amazonka.Panorama.Types.OTAJobConfig
@@ -610,6 +633,7 @@ import Amazonka.Panorama.Types.PackageListItem
 import Amazonka.Panorama.Types.PackageObject
 import Amazonka.Panorama.Types.PackageVersionInputConfig
 import Amazonka.Panorama.Types.PackageVersionOutputConfig
+import Amazonka.Panorama.Types.ReportedRuntimeContextState
 import Amazonka.Panorama.Types.S3Location
 import Amazonka.Panorama.Types.StaticIpConnectionInfo
 import Amazonka.Panorama.Types.StorageLocation

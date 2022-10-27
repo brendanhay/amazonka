@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
+import Amazonka.Panorama.Types.ReportedRuntimeContextState
 import qualified Amazonka.Prelude as Prelude
 
 -- | An application instance on a device.
@@ -39,6 +40,8 @@ data ApplicationInstance = ApplicationInstance'
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The device\'s ID.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
+    -- | The application\'s state.
+    runtimeContextStates :: Prelude.Maybe [ReportedRuntimeContextState],
     -- | The application instance\'s health status.
     healthStatus :: Prelude.Maybe ApplicationInstanceHealthStatus,
     -- | The application instance\'s ARN.
@@ -72,6 +75,8 @@ data ApplicationInstance = ApplicationInstance'
 --
 -- 'defaultRuntimeContextDevice', 'applicationInstance_defaultRuntimeContextDevice' - The device\'s ID.
 --
+-- 'runtimeContextStates', 'applicationInstance_runtimeContextStates' - The application\'s state.
+--
 -- 'healthStatus', 'applicationInstance_healthStatus' - The application instance\'s health status.
 --
 -- 'arn', 'applicationInstance_arn' - The application instance\'s ARN.
@@ -92,6 +97,7 @@ newApplicationInstance =
       name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       defaultRuntimeContextDevice = Prelude.Nothing,
+      runtimeContextStates = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -119,6 +125,10 @@ applicationInstance_createdTime = Lens.lens (\ApplicationInstance' {createdTime}
 -- | The device\'s ID.
 applicationInstance_defaultRuntimeContextDevice :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
 applicationInstance_defaultRuntimeContextDevice = Lens.lens (\ApplicationInstance' {defaultRuntimeContextDevice} -> defaultRuntimeContextDevice) (\s@ApplicationInstance' {} a -> s {defaultRuntimeContextDevice = a} :: ApplicationInstance)
+
+-- | The application\'s state.
+applicationInstance_runtimeContextStates :: Lens.Lens' ApplicationInstance (Prelude.Maybe [ReportedRuntimeContextState])
+applicationInstance_runtimeContextStates = Lens.lens (\ApplicationInstance' {runtimeContextStates} -> runtimeContextStates) (\s@ApplicationInstance' {} a -> s {runtimeContextStates = a} :: ApplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application instance\'s health status.
 applicationInstance_healthStatus :: Lens.Lens' ApplicationInstance (Prelude.Maybe ApplicationInstanceHealthStatus)
@@ -155,6 +165,9 @@ instance Core.FromJSON ApplicationInstance where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "DefaultRuntimeContextDevice")
+            Prelude.<*> ( x Core..:? "RuntimeContextStates"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "HealthStatus")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Status")
@@ -170,6 +183,7 @@ instance Prelude.Hashable ApplicationInstance where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` defaultRuntimeContextDevice
+      `Prelude.hashWithSalt` runtimeContextStates
       `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
@@ -184,6 +198,7 @@ instance Prelude.NFData ApplicationInstance where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
+      `Prelude.seq` Prelude.rnf runtimeContextStates
       `Prelude.seq` Prelude.rnf healthStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

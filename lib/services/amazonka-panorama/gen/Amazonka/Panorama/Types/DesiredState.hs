@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Panorama.Types.JobType
+-- Module      : Amazonka.Panorama.Types.DesiredState
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Panorama.Types.JobType
-  ( JobType
+module Amazonka.Panorama.Types.DesiredState
+  ( DesiredState
       ( ..,
-        JobType_OTA,
-        JobType_REBOOT
+        DesiredState_REMOVED,
+        DesiredState_RUNNING,
+        DesiredState_STOPPED
       ),
   )
 where
@@ -29,7 +30,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype JobType = JobType' {fromJobType :: Core.Text}
+newtype DesiredState = DesiredState'
+  { fromDesiredState ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -54,14 +58,18 @@ newtype JobType = JobType' {fromJobType :: Core.Text}
       Core.ToXML
     )
 
-pattern JobType_OTA :: JobType
-pattern JobType_OTA = JobType' "OTA"
+pattern DesiredState_REMOVED :: DesiredState
+pattern DesiredState_REMOVED = DesiredState' "REMOVED"
 
-pattern JobType_REBOOT :: JobType
-pattern JobType_REBOOT = JobType' "REBOOT"
+pattern DesiredState_RUNNING :: DesiredState
+pattern DesiredState_RUNNING = DesiredState' "RUNNING"
+
+pattern DesiredState_STOPPED :: DesiredState
+pattern DesiredState_STOPPED = DesiredState' "STOPPED"
 
 {-# COMPLETE
-  JobType_OTA,
-  JobType_REBOOT,
-  JobType'
+  DesiredState_REMOVED,
+  DesiredState_RUNNING,
+  DesiredState_STOPPED,
+  DesiredState'
   #-}

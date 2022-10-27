@@ -40,6 +40,7 @@ module Amazonka.Panorama.DescribeApplicationInstance
     describeApplicationInstanceResponse_createdTime,
     describeApplicationInstanceResponse_defaultRuntimeContextDevice,
     describeApplicationInstanceResponse_applicationInstanceIdToReplace,
+    describeApplicationInstanceResponse_runtimeContextStates,
     describeApplicationInstanceResponse_healthStatus,
     describeApplicationInstanceResponse_arn,
     describeApplicationInstanceResponse_status,
@@ -94,7 +95,8 @@ instance Core.AWSRequest DescribeApplicationInstance where
   type
     AWSResponse DescribeApplicationInstance =
       DescribeApplicationInstanceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +107,9 @@ instance Core.AWSRequest DescribeApplicationInstance where
             Prelude.<*> (x Core..?> "CreatedTime")
             Prelude.<*> (x Core..?> "DefaultRuntimeContextDevice")
             Prelude.<*> (x Core..?> "ApplicationInstanceIdToReplace")
+            Prelude.<*> ( x Core..?> "RuntimeContextStates"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "HealthStatus")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Status")
@@ -159,6 +164,8 @@ data DescribeApplicationInstanceResponse = DescribeApplicationInstanceResponse'
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application instance that this instance replaced.
     applicationInstanceIdToReplace :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s state.
+    runtimeContextStates :: Prelude.Maybe [ReportedRuntimeContextState],
     -- | The application instance\'s health status.
     healthStatus :: Prelude.Maybe ApplicationInstanceHealthStatus,
     -- | The application instance\'s ARN.
@@ -200,6 +207,8 @@ data DescribeApplicationInstanceResponse = DescribeApplicationInstanceResponse'
 --
 -- 'applicationInstanceIdToReplace', 'describeApplicationInstanceResponse_applicationInstanceIdToReplace' - The ID of the application instance that this instance replaced.
 --
+-- 'runtimeContextStates', 'describeApplicationInstanceResponse_runtimeContextStates' - The application instance\'s state.
+--
 -- 'healthStatus', 'describeApplicationInstanceResponse_healthStatus' - The application instance\'s health status.
 --
 -- 'arn', 'describeApplicationInstanceResponse_arn' - The application instance\'s ARN.
@@ -232,6 +241,7 @@ newDescribeApplicationInstanceResponse pHttpStatus_ =
         Prelude.Nothing,
       applicationInstanceIdToReplace =
         Prelude.Nothing,
+      runtimeContextStates = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -268,6 +278,10 @@ describeApplicationInstanceResponse_defaultRuntimeContextDevice = Lens.lens (\De
 -- | The ID of the application instance that this instance replaced.
 describeApplicationInstanceResponse_applicationInstanceIdToReplace :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe Prelude.Text)
 describeApplicationInstanceResponse_applicationInstanceIdToReplace = Lens.lens (\DescribeApplicationInstanceResponse' {applicationInstanceIdToReplace} -> applicationInstanceIdToReplace) (\s@DescribeApplicationInstanceResponse' {} a -> s {applicationInstanceIdToReplace = a} :: DescribeApplicationInstanceResponse)
+
+-- | The application instance\'s state.
+describeApplicationInstanceResponse_runtimeContextStates :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe [ReportedRuntimeContextState])
+describeApplicationInstanceResponse_runtimeContextStates = Lens.lens (\DescribeApplicationInstanceResponse' {runtimeContextStates} -> runtimeContextStates) (\s@DescribeApplicationInstanceResponse' {} a -> s {runtimeContextStates = a} :: DescribeApplicationInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application instance\'s health status.
 describeApplicationInstanceResponse_healthStatus :: Lens.Lens' DescribeApplicationInstanceResponse (Prelude.Maybe ApplicationInstanceHealthStatus)
@@ -316,6 +330,7 @@ instance
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
       `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
+      `Prelude.seq` Prelude.rnf runtimeContextStates
       `Prelude.seq` Prelude.rnf healthStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

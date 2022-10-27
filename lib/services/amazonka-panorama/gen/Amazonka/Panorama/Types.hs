@@ -33,6 +33,9 @@ module Amazonka.Panorama.Types
     -- * ConnectionType
     ConnectionType (..),
 
+    -- * DesiredState
+    DesiredState (..),
+
     -- * DeviceAggregatedStatus
     DeviceAggregatedStatus (..),
 
@@ -41,6 +44,9 @@ module Amazonka.Panorama.Types
 
     -- * DeviceConnectionStatus
     DeviceConnectionStatus (..),
+
+    -- * DeviceReportedStatus
+    DeviceReportedStatus (..),
 
     -- * DeviceStatus
     DeviceStatus (..),
@@ -68,6 +74,9 @@ module Amazonka.Panorama.Types
 
     -- * NodeInstanceStatus
     NodeInstanceStatus (..),
+
+    -- * NodeSignalValue
+    NodeSignalValue (..),
 
     -- * PackageImportJobStatus
     PackageImportJobStatus (..),
@@ -106,6 +115,7 @@ module Amazonka.Panorama.Types
     applicationInstance_name,
     applicationInstance_createdTime,
     applicationInstance_defaultRuntimeContextDevice,
+    applicationInstance_runtimeContextStates,
     applicationInstance_healthStatus,
     applicationInstance_arn,
     applicationInstance_status,
@@ -137,6 +147,7 @@ module Amazonka.Panorama.Types
     deviceJob_deviceId,
     deviceJob_deviceName,
     deviceJob_jobId,
+    deviceJob_jobType,
 
     -- * DeviceJobConfig
     DeviceJobConfig (..),
@@ -173,6 +184,7 @@ module Amazonka.Panorama.Types
     newLatestDeviceJob,
     latestDeviceJob_status,
     latestDeviceJob_imageVersion,
+    latestDeviceJob_jobType,
 
     -- * ManifestOverridesPayload
     ManifestOverridesPayload (..),
@@ -257,6 +269,12 @@ module Amazonka.Panorama.Types
     nodeOutputPort_type,
     nodeOutputPort_description,
 
+    -- * NodeSignal
+    NodeSignal (..),
+    newNodeSignal,
+    nodeSignal_nodeInstanceId,
+    nodeSignal_signal,
+
     -- * NtpPayload
     NtpPayload (..),
     newNtpPayload,
@@ -336,6 +354,14 @@ module Amazonka.Panorama.Types
     packageVersionOutputConfig_packageName,
     packageVersionOutputConfig_packageVersion,
 
+    -- * ReportedRuntimeContextState
+    ReportedRuntimeContextState (..),
+    newReportedRuntimeContextState,
+    reportedRuntimeContextState_desiredState,
+    reportedRuntimeContextState_deviceReportedStatus,
+    reportedRuntimeContextState_deviceReportedTime,
+    reportedRuntimeContextState_runtimeContextName,
+
     -- * S3Location
     S3Location (..),
     newS3Location,
@@ -369,12 +395,14 @@ import Amazonka.Panorama.Types.ApplicationInstance
 import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
 import Amazonka.Panorama.Types.ConnectionType
+import Amazonka.Panorama.Types.DesiredState
 import Amazonka.Panorama.Types.Device
 import Amazonka.Panorama.Types.DeviceAggregatedStatus
 import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceConnectionStatus
 import Amazonka.Panorama.Types.DeviceJob
 import Amazonka.Panorama.Types.DeviceJobConfig
+import Amazonka.Panorama.Types.DeviceReportedStatus
 import Amazonka.Panorama.Types.DeviceStatus
 import Amazonka.Panorama.Types.DeviceType
 import Amazonka.Panorama.Types.EthernetPayload
@@ -399,6 +427,8 @@ import Amazonka.Panorama.Types.NodeInstance
 import Amazonka.Panorama.Types.NodeInstanceStatus
 import Amazonka.Panorama.Types.NodeInterface
 import Amazonka.Panorama.Types.NodeOutputPort
+import Amazonka.Panorama.Types.NodeSignal
+import Amazonka.Panorama.Types.NodeSignalValue
 import Amazonka.Panorama.Types.NtpPayload
 import Amazonka.Panorama.Types.NtpStatus
 import Amazonka.Panorama.Types.OTAJobConfig
@@ -415,6 +445,7 @@ import Amazonka.Panorama.Types.PackageVersionInputConfig
 import Amazonka.Panorama.Types.PackageVersionOutputConfig
 import Amazonka.Panorama.Types.PackageVersionStatus
 import Amazonka.Panorama.Types.PortType
+import Amazonka.Panorama.Types.ReportedRuntimeContextState
 import Amazonka.Panorama.Types.S3Location
 import Amazonka.Panorama.Types.SortOrder
 import Amazonka.Panorama.Types.StaticIpConnectionInfo
@@ -434,6 +465,8 @@ defaultService =
       Core._serviceEndpointPrefix = "panorama",
       Core._serviceSigningName = "panorama",
       Core._serviceVersion = "2019-07-24",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

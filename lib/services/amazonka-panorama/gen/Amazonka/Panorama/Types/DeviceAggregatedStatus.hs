@@ -28,6 +28,7 @@ module Amazonka.Panorama.Types.DeviceAggregatedStatus
         DeviceAggregatedStatus_OFFLINE,
         DeviceAggregatedStatus_ONLINE,
         DeviceAggregatedStatus_PENDING,
+        DeviceAggregatedStatus_REBOOTING,
         DeviceAggregatedStatus_UPDATE_NEEDED
       ),
   )
@@ -88,6 +89,9 @@ pattern DeviceAggregatedStatus_ONLINE = DeviceAggregatedStatus' "ONLINE"
 pattern DeviceAggregatedStatus_PENDING :: DeviceAggregatedStatus
 pattern DeviceAggregatedStatus_PENDING = DeviceAggregatedStatus' "PENDING"
 
+pattern DeviceAggregatedStatus_REBOOTING :: DeviceAggregatedStatus
+pattern DeviceAggregatedStatus_REBOOTING = DeviceAggregatedStatus' "REBOOTING"
+
 pattern DeviceAggregatedStatus_UPDATE_NEEDED :: DeviceAggregatedStatus
 pattern DeviceAggregatedStatus_UPDATE_NEEDED = DeviceAggregatedStatus' "UPDATE_NEEDED"
 
@@ -100,6 +104,7 @@ pattern DeviceAggregatedStatus_UPDATE_NEEDED = DeviceAggregatedStatus' "UPDATE_N
   DeviceAggregatedStatus_OFFLINE,
   DeviceAggregatedStatus_ONLINE,
   DeviceAggregatedStatus_PENDING,
+  DeviceAggregatedStatus_REBOOTING,
   DeviceAggregatedStatus_UPDATE_NEEDED,
   DeviceAggregatedStatus'
   #-}

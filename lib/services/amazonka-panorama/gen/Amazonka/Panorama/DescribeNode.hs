@@ -100,7 +100,8 @@ describeNode_nodeId = Lens.lens (\DescribeNode' {nodeId} -> nodeId) (\s@Describe
 
 instance Core.AWSRequest DescribeNode where
   type AWSResponse DescribeNode = DescribeNodeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

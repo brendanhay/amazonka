@@ -154,7 +154,8 @@ instance Core.AWSRequest CreateApplicationInstance where
   type
     AWSResponse CreateApplicationInstance =
       CreateApplicationInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

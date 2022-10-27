@@ -230,6 +230,12 @@ module Amazonka.Panorama
     RemoveApplicationInstanceResponse (RemoveApplicationInstanceResponse'),
     newRemoveApplicationInstanceResponse,
 
+    -- ** SignalApplicationInstanceNodeInstances
+    SignalApplicationInstanceNodeInstances (SignalApplicationInstanceNodeInstances'),
+    newSignalApplicationInstanceNodeInstances,
+    SignalApplicationInstanceNodeInstancesResponse (SignalApplicationInstanceNodeInstancesResponse'),
+    newSignalApplicationInstanceNodeInstancesResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -259,6 +265,9 @@ module Amazonka.Panorama
     -- ** ConnectionType
     ConnectionType (..),
 
+    -- ** DesiredState
+    DesiredState (..),
+
     -- ** DeviceAggregatedStatus
     DeviceAggregatedStatus (..),
 
@@ -267,6 +276,9 @@ module Amazonka.Panorama
 
     -- ** DeviceConnectionStatus
     DeviceConnectionStatus (..),
+
+    -- ** DeviceReportedStatus
+    DeviceReportedStatus (..),
 
     -- ** DeviceStatus
     DeviceStatus (..),
@@ -294,6 +306,9 @@ module Amazonka.Panorama
 
     -- ** NodeInstanceStatus
     NodeInstanceStatus (..),
+
+    -- ** NodeSignalValue
+    NodeSignalValue (..),
 
     -- ** PackageImportJobStatus
     PackageImportJobStatus (..),
@@ -399,6 +414,10 @@ module Amazonka.Panorama
     NodeOutputPort (NodeOutputPort'),
     newNodeOutputPort,
 
+    -- ** NodeSignal
+    NodeSignal (NodeSignal'),
+    newNodeSignal,
+
     -- ** NtpPayload
     NtpPayload (NtpPayload'),
     newNtpPayload,
@@ -447,6 +466,10 @@ module Amazonka.Panorama
     PackageVersionOutputConfig (PackageVersionOutputConfig'),
     newPackageVersionOutputConfig,
 
+    -- ** ReportedRuntimeContextState
+    ReportedRuntimeContextState (ReportedRuntimeContextState'),
+    newReportedRuntimeContextState,
+
     -- ** S3Location
     S3Location (S3Location'),
     newS3Location,
@@ -492,6 +515,7 @@ import Amazonka.Panorama.ListTagsForResource
 import Amazonka.Panorama.ProvisionDevice
 import Amazonka.Panorama.RegisterPackageVersion
 import Amazonka.Panorama.RemoveApplicationInstance
+import Amazonka.Panorama.SignalApplicationInstanceNodeInstances
 import Amazonka.Panorama.TagResource
 import Amazonka.Panorama.Types
 import Amazonka.Panorama.UntagResource

@@ -22,6 +22,7 @@ module Amazonka.Panorama.Types.NodeInstanceStatus
       ( ..,
         NodeInstanceStatus_ERROR,
         NodeInstanceStatus_NOT_AVAILABLE,
+        NodeInstanceStatus_PAUSED,
         NodeInstanceStatus_RUNNING
       ),
   )
@@ -64,12 +65,16 @@ pattern NodeInstanceStatus_ERROR = NodeInstanceStatus' "ERROR"
 pattern NodeInstanceStatus_NOT_AVAILABLE :: NodeInstanceStatus
 pattern NodeInstanceStatus_NOT_AVAILABLE = NodeInstanceStatus' "NOT_AVAILABLE"
 
+pattern NodeInstanceStatus_PAUSED :: NodeInstanceStatus
+pattern NodeInstanceStatus_PAUSED = NodeInstanceStatus' "PAUSED"
+
 pattern NodeInstanceStatus_RUNNING :: NodeInstanceStatus
 pattern NodeInstanceStatus_RUNNING = NodeInstanceStatus' "RUNNING"
 
 {-# COMPLETE
   NodeInstanceStatus_ERROR,
   NodeInstanceStatus_NOT_AVAILABLE,
+  NodeInstanceStatus_PAUSED,
   NodeInstanceStatus_RUNNING,
   NodeInstanceStatus'
   #-}

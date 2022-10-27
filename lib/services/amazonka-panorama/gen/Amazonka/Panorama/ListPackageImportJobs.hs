@@ -94,7 +94,8 @@ instance Core.AWSRequest ListPackageImportJobs where
   type
     AWSResponse ListPackageImportJobs =
       ListPackageImportJobsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

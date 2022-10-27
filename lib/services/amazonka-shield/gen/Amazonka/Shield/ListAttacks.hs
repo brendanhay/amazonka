@@ -229,7 +229,8 @@ instance Core.AWSPager ListAttacks where
 
 instance Core.AWSRequest ListAttacks where
   type AWSResponse ListAttacks = ListAttacksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

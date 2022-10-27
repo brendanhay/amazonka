@@ -77,7 +77,8 @@ instance Core.AWSRequest DescribeAttack where
   type
     AWSResponse DescribeAttack =
       DescribeAttackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

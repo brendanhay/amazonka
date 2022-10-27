@@ -63,7 +63,8 @@ instance Core.AWSRequest EnableProactiveEngagement where
   type
     AWSResponse EnableProactiveEngagement =
       EnableProactiveEngagementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

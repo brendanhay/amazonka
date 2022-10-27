@@ -99,7 +99,8 @@ instance Core.AWSRequest DescribeProtection where
   type
     AWSResponse DescribeProtection =
       DescribeProtectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

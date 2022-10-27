@@ -175,7 +175,8 @@ instance Core.AWSRequest ListProtectionGroups where
   type
     AWSResponse ListProtectionGroups =
       ListProtectionGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

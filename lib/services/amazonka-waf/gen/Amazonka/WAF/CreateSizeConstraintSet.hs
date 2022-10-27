@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateSizeConstraintSet where
   type
     AWSResponse CreateSizeConstraintSet =
       CreateSizeConstraintSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

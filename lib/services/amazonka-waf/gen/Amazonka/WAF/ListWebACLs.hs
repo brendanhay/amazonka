@@ -140,7 +140,8 @@ instance Core.AWSPager ListWebACLs where
 
 instance Core.AWSRequest ListWebACLs where
   type AWSResponse ListWebACLs = ListWebACLsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

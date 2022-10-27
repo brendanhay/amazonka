@@ -112,7 +112,8 @@ deleteWebACL_changeToken = Lens.lens (\DeleteWebACL' {changeToken} -> changeToke
 
 instance Core.AWSRequest DeleteWebACL where
   type AWSResponse DeleteWebACL = DeleteWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

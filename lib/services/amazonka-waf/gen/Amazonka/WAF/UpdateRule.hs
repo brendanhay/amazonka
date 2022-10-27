@@ -169,7 +169,8 @@ updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRul
 
 instance Core.AWSRequest UpdateRule where
   type AWSResponse UpdateRule = UpdateRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

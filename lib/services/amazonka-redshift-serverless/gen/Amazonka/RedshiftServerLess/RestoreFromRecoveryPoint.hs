@@ -108,7 +108,8 @@ instance Core.AWSRequest RestoreFromRecoveryPoint where
   type
     AWSResponse RestoreFromRecoveryPoint =
       RestoreFromRecoveryPointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

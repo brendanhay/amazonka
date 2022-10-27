@@ -89,7 +89,8 @@ instance Core.AWSRequest UpdateSnapshot where
   type
     AWSResponse UpdateSnapshot =
       UpdateSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

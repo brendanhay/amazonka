@@ -75,7 +75,8 @@ getNamespace_namespaceName = Lens.lens (\GetNamespace' {namespaceName} -> namesp
 
 instance Core.AWSRequest GetNamespace where
   type AWSResponse GetNamespace = GetNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ readPipeline_id = Lens.lens (\ReadPipeline' {id} -> id) (\s@ReadPipeline' {} a -
 
 instance Core.AWSRequest ReadPipeline where
   type AWSResponse ReadPipeline = ReadPipelineResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

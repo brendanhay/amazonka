@@ -216,7 +216,8 @@ createJob_pipelineId = Lens.lens (\CreateJob' {pipelineId} -> pipelineId) (\s@Cr
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

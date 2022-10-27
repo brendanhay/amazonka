@@ -79,7 +79,8 @@ readPreset_id = Lens.lens (\ReadPreset' {id} -> id) (\s@ReadPreset' {} a -> s {i
 
 instance Core.AWSRequest ReadPreset where
   type AWSResponse ReadPreset = ReadPresetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

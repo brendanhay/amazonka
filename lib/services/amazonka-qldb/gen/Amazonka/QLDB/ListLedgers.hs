@@ -102,7 +102,8 @@ listLedgers_maxResults = Lens.lens (\ListLedgers' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListLedgers where
   type AWSResponse ListLedgers = ListLedgersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

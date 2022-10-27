@@ -136,7 +136,8 @@ getBlock_blockAddress = Lens.lens (\GetBlock' {blockAddress} -> blockAddress) (\
 
 instance Core.AWSRequest GetBlock where
   type AWSResponse GetBlock = GetBlockResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

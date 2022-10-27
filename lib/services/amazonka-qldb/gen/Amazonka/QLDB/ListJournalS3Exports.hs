@@ -113,7 +113,8 @@ instance Core.AWSRequest ListJournalS3Exports where
   type
     AWSResponse ListJournalS3Exports =
       ListJournalS3ExportsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

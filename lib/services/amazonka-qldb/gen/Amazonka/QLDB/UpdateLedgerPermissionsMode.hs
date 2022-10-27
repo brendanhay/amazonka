@@ -176,7 +176,8 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
   type
     AWSResponse UpdateLedgerPermissionsMode =
       UpdateLedgerPermissionsModeResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

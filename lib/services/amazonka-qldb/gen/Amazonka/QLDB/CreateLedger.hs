@@ -357,7 +357,8 @@ createLedger_permissionsMode = Lens.lens (\CreateLedger' {permissionsMode} -> pe
 
 instance Core.AWSRequest CreateLedger where
   type AWSResponse CreateLedger = CreateLedgerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

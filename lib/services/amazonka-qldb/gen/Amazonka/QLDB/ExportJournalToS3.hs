@@ -257,7 +257,8 @@ instance Core.AWSRequest ExportJournalToS3 where
   type
     AWSResponse ExportJournalToS3 =
       ExportJournalToS3Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -524,6 +524,8 @@ defaultService =
       Core._serviceEndpointPrefix = "eks",
       Core._serviceSigningName = "eks",
       Core._serviceVersion = "2017-11-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

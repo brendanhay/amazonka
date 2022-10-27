@@ -161,7 +161,8 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
   type
     AWSResponse ListIdentityProviderConfigs =
       ListIdentityProviderConfigsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

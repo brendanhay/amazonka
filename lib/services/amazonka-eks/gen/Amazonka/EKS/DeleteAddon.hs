@@ -115,7 +115,8 @@ deleteAddon_addonName = Lens.lens (\DeleteAddon' {addonName} -> addonName) (\s@D
 
 instance Core.AWSRequest DeleteAddon where
   type AWSResponse DeleteAddon = DeleteAddonResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

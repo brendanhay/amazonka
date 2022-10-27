@@ -161,7 +161,8 @@ instance Core.AWSPager ListAddons where
 
 instance Core.AWSRequest ListAddons where
   type AWSResponse ListAddons = ListAddonsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

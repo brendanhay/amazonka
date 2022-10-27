@@ -303,6 +303,7 @@ module Amazonka.GuardDuty.Types
     EbsVolumesResult (..),
     newEbsVolumesResult,
     ebsVolumesResult_status,
+    ebsVolumesResult_reason,
 
     -- * EcsClusterDetails
     EcsClusterDetails (..),
@@ -925,6 +926,11 @@ module Amazonka.GuardDuty.Types
     unprocessedAccount_accountId,
     unprocessedAccount_result,
 
+    -- * UnprocessedDataSourcesResult
+    UnprocessedDataSourcesResult (..),
+    newUnprocessedDataSourcesResult,
+    unprocessedDataSourcesResult_malwareProtection,
+
     -- * UsageAccountResult
     UsageAccountResult (..),
     newUsageAccountResult,
@@ -1122,6 +1128,7 @@ import Amazonka.GuardDuty.Types.ThreatsDetectedItemCount
 import Amazonka.GuardDuty.Types.Total
 import Amazonka.GuardDuty.Types.TriggerDetails
 import Amazonka.GuardDuty.Types.UnprocessedAccount
+import Amazonka.GuardDuty.Types.UnprocessedDataSourcesResult
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageCriteria
 import Amazonka.GuardDuty.Types.UsageDataSourceResult
@@ -1144,6 +1151,8 @@ defaultService =
       Core._serviceEndpointPrefix = "guardduty",
       Core._serviceSigningName = "guardduty",
       Core._serviceVersion = "2017-11-28",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

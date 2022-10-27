@@ -26,7 +26,10 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a condition that when matched will be added to the response
--- of the operation.
+-- of the operation. Irrespective of using any filter criteria, an
+-- administrator account can view the scan entries for all of its member
+-- accounts. However, each member account can view the scan entries only
+-- for their own account.
 --
 -- /See:/ 'newFilterCriterion' smart constructor.
 data FilterCriterion = FilterCriterion'

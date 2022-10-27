@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates GuardDuty member accounts (to the current GuardDuty
--- administrator account) specified by the account IDs.
+-- Disassociates GuardDuty member accounts (to the current administrator
+-- account) specified by the account IDs.
 module Amazonka.GuardDuty.DisassociateMembers
   ( -- * Creating a Request
     DisassociateMembers (..),
@@ -98,7 +98,8 @@ instance Core.AWSRequest DisassociateMembers where
   type
     AWSResponse DisassociateMembers =
       DisassociateMembersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

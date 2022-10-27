@@ -235,6 +235,7 @@ library
     Amazonka.GuardDuty.Types.Total
     Amazonka.GuardDuty.Types.TriggerDetails
     Amazonka.GuardDuty.Types.UnprocessedAccount
+    Amazonka.GuardDuty.Types.UnprocessedDataSourcesResult
     Amazonka.GuardDuty.Types.UsageAccountResult
     Amazonka.GuardDuty.Types.UsageCriteria
     Amazonka.GuardDuty.Types.UsageDataSourceResult

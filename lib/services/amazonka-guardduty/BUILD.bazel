@@ -196,6 +196,7 @@ haskell_library(
         "gen/Amazonka/GuardDuty/Types/Total.hs",
         "gen/Amazonka/GuardDuty/Types/TriggerDetails.hs",
         "gen/Amazonka/GuardDuty/Types/UnprocessedAccount.hs",
+        "gen/Amazonka/GuardDuty/Types/UnprocessedDataSourcesResult.hs",
         "gen/Amazonka/GuardDuty/Types/UsageAccountResult.hs",
         "gen/Amazonka/GuardDuty/Types/UsageCriteria.hs",
         "gen/Amazonka/GuardDuty/Types/UsageDataSourceResult.hs",

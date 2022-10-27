@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 data DataSourcesFreeTrial = DataSourcesFreeTrial'
   { -- | Describes whether Malware Protection is enabled as a data source.
     malwareProtection :: Prelude.Maybe MalwareProtectionDataSourceFreeTrial,
-    -- | Describes whether any AWS CloudTrail management event logs are enabled
-    -- as data sources.
+    -- | Describes whether any Amazon Web Services CloudTrail management event
+    -- logs are enabled as data sources.
     cloudTrail :: Prelude.Maybe DataSourceFreeTrial,
     -- | Describes whether any DNS logs are enabled as data sources.
     dnsLogs :: Prelude.Maybe DataSourceFreeTrial,
@@ -57,8 +57,8 @@ data DataSourcesFreeTrial = DataSourcesFreeTrial'
 --
 -- 'malwareProtection', 'dataSourcesFreeTrial_malwareProtection' - Describes whether Malware Protection is enabled as a data source.
 --
--- 'cloudTrail', 'dataSourcesFreeTrial_cloudTrail' - Describes whether any AWS CloudTrail management event logs are enabled
--- as data sources.
+-- 'cloudTrail', 'dataSourcesFreeTrial_cloudTrail' - Describes whether any Amazon Web Services CloudTrail management event
+-- logs are enabled as data sources.
 --
 -- 'dnsLogs', 'dataSourcesFreeTrial_dnsLogs' - Describes whether any DNS logs are enabled as data sources.
 --
@@ -84,8 +84,8 @@ newDataSourcesFreeTrial =
 dataSourcesFreeTrial_malwareProtection :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe MalwareProtectionDataSourceFreeTrial)
 dataSourcesFreeTrial_malwareProtection = Lens.lens (\DataSourcesFreeTrial' {malwareProtection} -> malwareProtection) (\s@DataSourcesFreeTrial' {} a -> s {malwareProtection = a} :: DataSourcesFreeTrial)
 
--- | Describes whether any AWS CloudTrail management event logs are enabled
--- as data sources.
+-- | Describes whether any Amazon Web Services CloudTrail management event
+-- logs are enabled as data sources.
 dataSourcesFreeTrial_cloudTrail :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
 dataSourcesFreeTrial_cloudTrail = Lens.lens (\DataSourcesFreeTrial' {cloudTrail} -> cloudTrail) (\s@DataSourcesFreeTrial' {} a -> s {cloudTrail = a} :: DataSourcesFreeTrial)
 

@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateFindingsFeedback where
   type
     AWSResponse UpdateFindingsFeedback =
       UpdateFindingsFeedbackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

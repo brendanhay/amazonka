@@ -170,7 +170,8 @@ createIPSet_activate = Lens.lens (\CreateIPSet' {activate} -> activate) (\s@Crea
 
 instance Core.AWSRequest CreateIPSet where
   type AWSResponse CreateIPSet = CreateIPSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

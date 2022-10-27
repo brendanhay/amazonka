@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateThreatIntelSet where
   type
     AWSResponse UpdateThreatIntelSet =
       UpdateThreatIntelSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

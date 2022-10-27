@@ -111,7 +111,8 @@ instance Core.AWSRequest ListPublishingDestinations where
   type
     AWSResponse ListPublishingDestinations =
       ListPublishingDestinationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

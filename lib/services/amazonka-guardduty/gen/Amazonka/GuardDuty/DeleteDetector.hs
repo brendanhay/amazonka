@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteDetector where
   type
     AWSResponse DeleteDetector =
       DeleteDetectorResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

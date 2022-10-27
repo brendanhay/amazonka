@@ -133,7 +133,8 @@ instance Core.AWSRequest AddAttachmentsToSet where
   type
     AWSResponse AddAttachmentsToSet =
       AddAttachmentsToSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

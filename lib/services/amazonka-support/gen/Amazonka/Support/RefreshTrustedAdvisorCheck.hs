@@ -105,7 +105,8 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
   type
     AWSResponse RefreshTrustedAdvisorCheck =
       RefreshTrustedAdvisorCheckResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

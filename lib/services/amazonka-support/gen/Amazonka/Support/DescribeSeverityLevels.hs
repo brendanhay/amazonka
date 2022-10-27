@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeSeverityLevels where
   type
     AWSResponse DescribeSeverityLevels =
       DescribeSeverityLevelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

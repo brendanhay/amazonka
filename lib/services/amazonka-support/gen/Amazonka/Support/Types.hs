@@ -185,6 +185,8 @@ defaultService =
       Core._serviceEndpointPrefix = "support",
       Core._serviceSigningName = "support",
       Core._serviceVersion = "2013-04-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -123,7 +123,8 @@ instance Core.AWSRequest AssociateDiscoveredResource where
   type
     AWSResponse AssociateDiscoveredResource =
       AssociateDiscoveredResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

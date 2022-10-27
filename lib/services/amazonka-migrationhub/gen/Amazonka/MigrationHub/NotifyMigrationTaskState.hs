@@ -167,7 +167,8 @@ instance Core.AWSRequest NotifyMigrationTaskState where
   type
     AWSResponse NotifyMigrationTaskState =
       NotifyMigrationTaskStateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -136,7 +136,8 @@ instance Core.AWSRequest ListMigrationTasks where
   type
     AWSResponse ListMigrationTasks =
       ListMigrationTasksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

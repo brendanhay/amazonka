@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateNotificationSettings where
   type
     AWSResponse UpdateNotificationSettings =
       UpdateNotificationSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

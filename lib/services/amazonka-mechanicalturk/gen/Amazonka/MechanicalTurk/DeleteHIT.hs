@@ -93,7 +93,8 @@ deleteHIT_hITId = Lens.lens (\DeleteHIT' {hITId} -> hITId) (\s@DeleteHIT' {} a -
 
 instance Core.AWSRequest DeleteHIT where
   type AWSResponse DeleteHIT = DeleteHITResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

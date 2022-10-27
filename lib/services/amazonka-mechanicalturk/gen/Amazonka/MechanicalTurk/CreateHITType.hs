@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateHITType where
   type
     AWSResponse CreateHITType =
       CreateHITTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

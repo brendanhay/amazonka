@@ -74,7 +74,8 @@ getHIT_hITId = Lens.lens (\GetHIT' {hITId} -> hITId) (\s@GetHIT' {} a -> s {hITI
 
 instance Core.AWSRequest GetHIT where
   type AWSResponse GetHIT = GetHITResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

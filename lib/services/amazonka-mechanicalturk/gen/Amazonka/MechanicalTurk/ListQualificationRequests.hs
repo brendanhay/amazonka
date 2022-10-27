@@ -126,7 +126,8 @@ instance Core.AWSRequest ListQualificationRequests where
   type
     AWSResponse ListQualificationRequests =
       ListQualificationRequestsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteFraudster where
   type
     AWSResponse DeleteFraudster =
       DeleteFraudsterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteFraudsterResponse'
 

@@ -135,7 +135,8 @@ createDomain_serverSideEncryptionConfiguration = Lens.lens (\CreateDomain' {serv
 
 instance Core.AWSRequest CreateDomain where
   type AWSResponse CreateDomain = CreateDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

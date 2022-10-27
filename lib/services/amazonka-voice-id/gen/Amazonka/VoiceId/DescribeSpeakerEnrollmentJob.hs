@@ -92,7 +92,8 @@ instance Core.AWSRequest DescribeSpeakerEnrollmentJob where
   type
     AWSResponse DescribeSpeakerEnrollmentJob =
       DescribeSpeakerEnrollmentJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

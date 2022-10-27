@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteSpeaker where
   type
     AWSResponse DeleteSpeaker =
       DeleteSpeakerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteSpeakerResponse'
 

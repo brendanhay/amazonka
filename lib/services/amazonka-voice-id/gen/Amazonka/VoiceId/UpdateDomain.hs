@@ -135,7 +135,8 @@ updateDomain_serverSideEncryptionConfiguration = Lens.lens (\UpdateDomain' {serv
 
 instance Core.AWSRequest UpdateDomain where
   type AWSResponse UpdateDomain = UpdateDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

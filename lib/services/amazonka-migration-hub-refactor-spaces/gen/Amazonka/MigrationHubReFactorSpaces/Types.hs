@@ -283,6 +283,8 @@ defaultService =
       Core._serviceEndpointPrefix = "refactor-spaces",
       Core._serviceSigningName = "refactor-spaces",
       Core._serviceVersion = "2021-10-26",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

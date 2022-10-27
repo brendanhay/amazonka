@@ -121,7 +121,8 @@ getService_serviceIdentifier = Lens.lens (\GetService' {serviceIdentifier} -> se
 
 instance Core.AWSRequest GetService where
   type AWSResponse GetService = GetServiceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

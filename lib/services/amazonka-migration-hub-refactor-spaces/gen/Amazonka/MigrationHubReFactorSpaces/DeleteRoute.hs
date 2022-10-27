@@ -110,7 +110,8 @@ deleteRoute_routeIdentifier = Lens.lens (\DeleteRoute' {routeIdentifier} -> rout
 
 instance Core.AWSRequest DeleteRoute where
   type AWSResponse DeleteRoute = DeleteRouteResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

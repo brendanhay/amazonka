@@ -57,9 +57,6 @@ data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
     policyName :: Prelude.Maybe Prelude.Text,
     -- | The type of resiliency policy to be created, including the recovery time
     -- objective (RTO) and recovery point objective (RPO) in seconds.
-    --
-    -- If you do not want to specify regional targets for a regional policy,
-    -- you must set the values of @rpoInSecs@ and @rtoInSecs@ to @-1@.
     policy :: Prelude.Maybe (Prelude.HashMap DisruptionType FailurePolicy),
     -- | Specifies a high-level geographical location constraint for where your
     -- resilience policy data can be stored.
@@ -91,9 +88,6 @@ data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
 --
 -- 'policy', 'updateResiliencyPolicy_policy' - The type of resiliency policy to be created, including the recovery time
 -- objective (RTO) and recovery point objective (RPO) in seconds.
---
--- If you do not want to specify regional targets for a regional policy,
--- you must set the values of @rpoInSecs@ and @rtoInSecs@ to @-1@.
 --
 -- 'dataLocationConstraint', 'updateResiliencyPolicy_dataLocationConstraint' - Specifies a high-level geographical location constraint for where your
 -- resilience policy data can be stored.
@@ -130,9 +124,6 @@ updateResiliencyPolicy_policyName = Lens.lens (\UpdateResiliencyPolicy' {policyN
 
 -- | The type of resiliency policy to be created, including the recovery time
 -- objective (RTO) and recovery point objective (RPO) in seconds.
---
--- If you do not want to specify regional targets for a regional policy,
--- you must set the values of @rpoInSecs@ and @rtoInSecs@ to @-1@.
 updateResiliencyPolicy_policy :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap DisruptionType FailurePolicy))
 updateResiliencyPolicy_policy = Lens.lens (\UpdateResiliencyPolicy' {policy} -> policy) (\s@UpdateResiliencyPolicy' {} a -> s {policy = a} :: UpdateResiliencyPolicy) Prelude.. Lens.mapping Lens.coerced
 
@@ -163,7 +154,8 @@ instance Core.AWSRequest UpdateResiliencyPolicy where
   type
     AWSResponse UpdateResiliencyPolicy =
       UpdateResiliencyPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

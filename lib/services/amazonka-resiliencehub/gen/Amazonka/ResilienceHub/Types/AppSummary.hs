@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AppAssessmentScheduleType
 import Amazonka.ResilienceHub.Types.AppComplianceStatusType
+import Amazonka.ResilienceHub.Types.AppStatusType
 
 -- | Defines an application summary.
 --
@@ -33,6 +34,8 @@ data AppSummary = AppSummary'
     resiliencyScore :: Prelude.Maybe Prelude.Double,
     -- | The current status of compliance for the resiliency policy.
     complianceStatus :: Prelude.Maybe AppComplianceStatusType,
+    -- | The status of the application.
+    status :: Prelude.Maybe AppStatusType,
     -- | The optional description for an app.
     description :: Prelude.Maybe Prelude.Text,
     -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
@@ -62,6 +65,8 @@ data AppSummary = AppSummary'
 --
 -- 'complianceStatus', 'appSummary_complianceStatus' - The current status of compliance for the resiliency policy.
 --
+-- 'status', 'appSummary_status' - The status of the application.
+--
 -- 'description', 'appSummary_description' - The optional description for an app.
 --
 -- 'assessmentSchedule', 'appSummary_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
@@ -87,6 +92,7 @@ newAppSummary pAppArn_ pCreationTime_ pName_ =
   AppSummary'
     { resiliencyScore = Prelude.Nothing,
       complianceStatus = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
       assessmentSchedule = Prelude.Nothing,
       appArn = pAppArn_,
@@ -101,6 +107,10 @@ appSummary_resiliencyScore = Lens.lens (\AppSummary' {resiliencyScore} -> resili
 -- | The current status of compliance for the resiliency policy.
 appSummary_complianceStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppComplianceStatusType)
 appSummary_complianceStatus = Lens.lens (\AppSummary' {complianceStatus} -> complianceStatus) (\s@AppSummary' {} a -> s {complianceStatus = a} :: AppSummary)
+
+-- | The status of the application.
+appSummary_status :: Lens.Lens' AppSummary (Prelude.Maybe AppStatusType)
+appSummary_status = Lens.lens (\AppSummary' {status} -> status) (\s@AppSummary' {} a -> s {status = a} :: AppSummary)
 
 -- | The optional description for an app.
 appSummary_description :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
@@ -134,6 +144,7 @@ instance Core.FromJSON AppSummary where
           AppSummary'
             Prelude.<$> (x Core..:? "resiliencyScore")
             Prelude.<*> (x Core..:? "complianceStatus")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "assessmentSchedule")
             Prelude.<*> (x Core..: "appArn")
@@ -145,6 +156,7 @@ instance Prelude.Hashable AppSummary where
   hashWithSalt _salt AppSummary' {..} =
     _salt `Prelude.hashWithSalt` resiliencyScore
       `Prelude.hashWithSalt` complianceStatus
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` appArn
@@ -155,6 +167,7 @@ instance Prelude.NFData AppSummary where
   rnf AppSummary' {..} =
     Prelude.rnf resiliencyScore
       `Prelude.seq` Prelude.rnf complianceStatus
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf appArn

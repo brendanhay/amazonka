@@ -37,7 +37,7 @@ data App = App'
     resiliencyScore :: Prelude.Maybe Prelude.Double,
     -- | The current status of compliance for the resiliency policy.
     complianceStatus :: Prelude.Maybe AppComplianceStatusType,
-    -- | The status of the action.
+    -- | The status of the application.
     status :: Prelude.Maybe AppStatusType,
     -- | The optional description for an app.
     description :: Prelude.Maybe Prelude.Text,
@@ -82,7 +82,7 @@ data App = App'
 --
 -- 'complianceStatus', 'app_complianceStatus' - The current status of compliance for the resiliency policy.
 --
--- 'status', 'app_status' - The status of the action.
+-- 'status', 'app_status' - The status of the application.
 --
 -- 'description', 'app_description' - The optional description for an app.
 --
@@ -145,7 +145,7 @@ app_resiliencyScore = Lens.lens (\App' {resiliencyScore} -> resiliencyScore) (\s
 app_complianceStatus :: Lens.Lens' App (Prelude.Maybe AppComplianceStatusType)
 app_complianceStatus = Lens.lens (\App' {complianceStatus} -> complianceStatus) (\s@App' {} a -> s {complianceStatus = a} :: App)
 
--- | The status of the action.
+-- | The status of the application.
 app_status :: Lens.Lens' App (Prelude.Maybe AppStatusType)
 app_status = Lens.lens (\App' {status} -> status) (\s@App' {} a -> s {status = a} :: App)
 

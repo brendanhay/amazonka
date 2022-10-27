@@ -413,6 +413,7 @@ module Amazonka.ResilienceHub.Lens
     -- ** AppSummary
     appSummary_resiliencyScore,
     appSummary_complianceStatus,
+    appSummary_status,
     appSummary_description,
     appSummary_assessmentSchedule,
     appSummary_appArn,

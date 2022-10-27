@@ -87,7 +87,8 @@ describeApp_appArn = Lens.lens (\DescribeApp' {appArn} -> appArn) (\s@DescribeAp
 
 instance Core.AWSRequest DescribeApp where
   type AWSResponse DescribeApp = DescribeAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ instance Core.AWSRequest ListResiliencyPolicies where
   type
     AWSResponse ListResiliencyPolicies =
       ListResiliencyPoliciesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

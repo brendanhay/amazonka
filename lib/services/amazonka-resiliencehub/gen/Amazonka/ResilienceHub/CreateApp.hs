@@ -163,7 +163,8 @@ createApp_name = Lens.lens (\CreateApp' {name} -> name) (\s@CreateApp' {} a -> s
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

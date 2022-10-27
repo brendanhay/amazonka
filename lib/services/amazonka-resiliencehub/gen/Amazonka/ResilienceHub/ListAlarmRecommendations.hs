@@ -122,7 +122,8 @@ instance Core.AWSRequest ListAlarmRecommendations where
   type
     AWSResponse ListAlarmRecommendations =
       ListAlarmRecommendationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

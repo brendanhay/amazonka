@@ -122,7 +122,8 @@ instance Core.AWSRequest ListAppComponentCompliances where
   type
     AWSResponse ListAppComponentCompliances =
       ListAppComponentCompliancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

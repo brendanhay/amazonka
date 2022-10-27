@@ -82,7 +82,8 @@ instance Core.AWSRequest PutLoggingOptions where
   type
     AWSResponse PutLoggingOptions =
       PutLoggingOptionsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull PutLoggingOptionsResponse'
 

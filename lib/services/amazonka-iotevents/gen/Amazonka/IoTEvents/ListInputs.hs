@@ -86,7 +86,8 @@ listInputs_maxResults = Lens.lens (\ListInputs' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

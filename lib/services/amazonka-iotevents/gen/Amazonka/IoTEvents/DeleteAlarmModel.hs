@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteAlarmModel where
   type
     AWSResponse DeleteAlarmModel =
       DeleteAlarmModelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

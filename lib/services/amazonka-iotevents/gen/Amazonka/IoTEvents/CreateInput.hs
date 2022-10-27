@@ -109,7 +109,8 @@ createInput_inputDefinition = Lens.lens (\CreateInput' {inputDefinition} -> inpu
 
 instance Core.AWSRequest CreateInput where
   type AWSResponse CreateInput = CreateInputResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

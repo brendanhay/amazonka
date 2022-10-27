@@ -500,7 +500,7 @@ module Amazonka.Neptune
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
-    -- ** DescribeGlobalClusters
+    -- ** DescribeGlobalClusters (Paginated)
     DescribeGlobalClusters (DescribeGlobalClusters'),
     newDescribeGlobalClusters,
     DescribeGlobalClustersResponse (DescribeGlobalClustersResponse'),
@@ -831,6 +831,14 @@ module Amazonka.Neptune
     -- ** ResourcePendingMaintenanceActions
     ResourcePendingMaintenanceActions (ResourcePendingMaintenanceActions'),
     newResourcePendingMaintenanceActions,
+
+    -- ** ServerlessV2ScalingConfiguration
+    ServerlessV2ScalingConfiguration (ServerlessV2ScalingConfiguration'),
+    newServerlessV2ScalingConfiguration,
+
+    -- ** ServerlessV2ScalingConfigurationInfo
+    ServerlessV2ScalingConfigurationInfo (ServerlessV2ScalingConfigurationInfo'),
+    newServerlessV2ScalingConfigurationInfo,
 
     -- ** Subnet
     Subnet (Subnet'),

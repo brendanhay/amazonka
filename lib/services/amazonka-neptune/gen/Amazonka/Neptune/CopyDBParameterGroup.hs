@@ -182,7 +182,8 @@ instance Core.AWSRequest CopyDBParameterGroup where
   type
     AWSResponse CopyDBParameterGroup =
       CopyDBParameterGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyDBParameterGroupResult"

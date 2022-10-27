@@ -155,6 +155,8 @@ library
     Amazonka.Neptune.Types.PendingModifiedValues
     Amazonka.Neptune.Types.Range
     Amazonka.Neptune.Types.ResourcePendingMaintenanceActions
+    Amazonka.Neptune.Types.ServerlessV2ScalingConfiguration
+    Amazonka.Neptune.Types.ServerlessV2ScalingConfigurationInfo
     Amazonka.Neptune.Types.SourceType
     Amazonka.Neptune.Types.Subnet
     Amazonka.Neptune.Types.Tag

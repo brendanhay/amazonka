@@ -38,6 +38,7 @@ module Amazonka.Neptune.RestoreDBClusterFromSnapshot
     -- * Request Lenses
     restoreDBClusterFromSnapshot_tags,
     restoreDBClusterFromSnapshot_port,
+    restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration,
     restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
     restoreDBClusterFromSnapshot_copyTagsToSnapshot,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
@@ -81,6 +82,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     --
     -- Default: The same port as the original DB cluster.
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A list of VPC security groups that the new DB cluster will belong to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | /If set to @true@, tags are copied to any snapshot of the restored DB
@@ -190,6 +192,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- Default: The same port as the original DB cluster.
 --
+-- 'serverlessV2ScalingConfiguration', 'restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'vpcSecurityGroupIds', 'restoreDBClusterFromSnapshot_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster will belong to.
 --
 -- 'copyTagsToSnapshot', 'restoreDBClusterFromSnapshot_copyTagsToSnapshot' - /If set to @true@, tags are copied to any snapshot of the restored DB
@@ -295,6 +299,8 @@ newRestoreDBClusterFromSnapshot
       { tags =
           Prelude.Nothing,
         port = Prelude.Nothing,
+        serverlessV2ScalingConfiguration =
+          Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
@@ -324,6 +330,10 @@ restoreDBClusterFromSnapshot_tags = Lens.lens (\RestoreDBClusterFromSnapshot' {t
 -- Default: The same port as the original DB cluster.
 restoreDBClusterFromSnapshot_port :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Int)
 restoreDBClusterFromSnapshot_port = Lens.lens (\RestoreDBClusterFromSnapshot' {port} -> port) (\s@RestoreDBClusterFromSnapshot' {} a -> s {port = a} :: RestoreDBClusterFromSnapshot)
+
+-- | Undocumented member.
+restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe ServerlessV2ScalingConfiguration)
+restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterFromSnapshot' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterFromSnapshot' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterFromSnapshot)
 
 -- | A list of VPC security groups that the new DB cluster will belong to.
 restoreDBClusterFromSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
@@ -449,7 +459,8 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
   type
     AWSResponse RestoreDBClusterFromSnapshot =
       RestoreDBClusterFromSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterFromSnapshotResult"
@@ -466,6 +477,7 @@ instance
   hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` dbSubnetGroupName
@@ -486,6 +498,7 @@ instance Prelude.NFData RestoreDBClusterFromSnapshot where
   rnf RestoreDBClusterFromSnapshot' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
@@ -521,6 +534,8 @@ instance Core.ToQuery RestoreDBClusterFromSnapshot where
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
+        "ServerlessV2ScalingConfiguration"
+          Core.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"

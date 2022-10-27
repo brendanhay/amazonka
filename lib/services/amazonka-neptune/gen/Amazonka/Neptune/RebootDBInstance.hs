@@ -120,7 +120,8 @@ instance Core.AWSRequest RebootDBInstance where
   type
     AWSResponse RebootDBInstance =
       RebootDBInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootDBInstanceResult"

@@ -112,6 +112,7 @@ module Amazonka.Neptune.Types
     DBCluster (..),
     newDBCluster,
     dbCluster_port,
+    dbCluster_serverlessV2ScalingConfiguration,
     dbCluster_cloneGroupId,
     dbCluster_dbClusterArn,
     dbCluster_hostedZoneId,
@@ -529,6 +530,18 @@ module Amazonka.Neptune.Types
     resourcePendingMaintenanceActions_resourceIdentifier,
     resourcePendingMaintenanceActions_pendingMaintenanceActionDetails,
 
+    -- * ServerlessV2ScalingConfiguration
+    ServerlessV2ScalingConfiguration (..),
+    newServerlessV2ScalingConfiguration,
+    serverlessV2ScalingConfiguration_maxCapacity,
+    serverlessV2ScalingConfiguration_minCapacity,
+
+    -- * ServerlessV2ScalingConfigurationInfo
+    ServerlessV2ScalingConfigurationInfo (..),
+    newServerlessV2ScalingConfigurationInfo,
+    serverlessV2ScalingConfigurationInfo_maxCapacity,
+    serverlessV2ScalingConfigurationInfo_minCapacity,
+
     -- * Subnet
     Subnet (..),
     newSubnet,
@@ -620,6 +633,8 @@ import Amazonka.Neptune.Types.PendingMaintenanceAction
 import Amazonka.Neptune.Types.PendingModifiedValues
 import Amazonka.Neptune.Types.Range
 import Amazonka.Neptune.Types.ResourcePendingMaintenanceActions
+import Amazonka.Neptune.Types.ServerlessV2ScalingConfiguration
+import Amazonka.Neptune.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.Neptune.Types.SourceType
 import Amazonka.Neptune.Types.Subnet
 import Amazonka.Neptune.Types.Tag
@@ -640,6 +655,8 @@ defaultService =
       Core._serviceEndpointPrefix = "rds",
       Core._serviceSigningName = "rds",
       Core._serviceVersion = "2014-10-31",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

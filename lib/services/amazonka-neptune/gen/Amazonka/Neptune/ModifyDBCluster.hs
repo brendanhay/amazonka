@@ -31,6 +31,7 @@ module Amazonka.Neptune.ModifyDBCluster
     -- * Request Lenses
     modifyDBCluster_newDBClusterIdentifier,
     modifyDBCluster_port,
+    modifyDBCluster_serverlessV2ScalingConfiguration,
     modifyDBCluster_vpcSecurityGroupIds,
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_backupRetentionPeriod,
@@ -86,6 +87,7 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Default: The same port as the original DB cluster.
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A list of VPC security groups that the DB cluster will belong to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The daily time range during which automated backups are created if
@@ -233,6 +235,8 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Default: The same port as the original DB cluster.
 --
+-- 'serverlessV2ScalingConfiguration', 'modifyDBCluster_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
 --
 -- 'preferredBackupWindow', 'modifyDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
@@ -358,6 +362,7 @@ newModifyDBCluster pDBClusterIdentifier_ =
     { newDBClusterIdentifier' =
         Prelude.Nothing,
       port = Prelude.Nothing,
+      serverlessV2ScalingConfiguration = Prelude.Nothing,
       vpcSecurityGroupIds = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
@@ -398,6 +403,10 @@ modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClus
 -- Default: The same port as the original DB cluster.
 modifyDBCluster_port :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
 modifyDBCluster_port = Lens.lens (\ModifyDBCluster' {port} -> port) (\s@ModifyDBCluster' {} a -> s {port = a} :: ModifyDBCluster)
+
+-- | Undocumented member.
+modifyDBCluster_serverlessV2ScalingConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe ServerlessV2ScalingConfiguration)
+modifyDBCluster_serverlessV2ScalingConfiguration = Lens.lens (\ModifyDBCluster' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@ModifyDBCluster' {} a -> s {serverlessV2ScalingConfiguration = a} :: ModifyDBCluster)
 
 -- | A list of VPC security groups that the DB cluster will belong to.
 modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
@@ -552,7 +561,8 @@ instance Core.AWSRequest ModifyDBCluster where
   type
     AWSResponse ModifyDBCluster =
       ModifyDBClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterResult"
@@ -567,6 +577,7 @@ instance Prelude.Hashable ModifyDBCluster where
     _salt
       `Prelude.hashWithSalt` newDBClusterIdentifier'
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
@@ -588,6 +599,7 @@ instance Prelude.NFData ModifyDBCluster where
   rnf ModifyDBCluster' {..} =
     Prelude.rnf newDBClusterIdentifier'
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
@@ -623,6 +635,8 @@ instance Core.ToQuery ModifyDBCluster where
         "NewDBClusterIdentifier"
           Core.=: newDBClusterIdentifier',
         "Port" Core.=: port,
+        "ServerlessV2ScalingConfiguration"
+          Core.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"

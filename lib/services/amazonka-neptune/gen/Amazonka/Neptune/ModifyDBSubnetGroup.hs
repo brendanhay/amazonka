@@ -119,7 +119,8 @@ instance Core.AWSRequest ModifyDBSubnetGroup where
   type
     AWSResponse ModifyDBSubnetGroup =
       ModifyDBSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBSubnetGroupResult"

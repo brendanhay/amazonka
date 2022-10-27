@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Neptune.Types.DBClusterMember
 import Amazonka.Neptune.Types.DBClusterOptionGroupStatus
 import Amazonka.Neptune.Types.DBClusterRole
+import Amazonka.Neptune.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.Neptune.Types.VpcSecurityGroupMembership
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,6 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 data DBCluster = DBCluster'
   { -- | Specifies the port that the database engine is listening on.
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfigurationInfo,
     -- | Identifies the clone group to which the DB cluster is associated.
     cloneGroupId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the DB cluster.
@@ -165,6 +167,8 @@ data DBCluster = DBCluster'
 --
 -- 'port', 'dbCluster_port' - Specifies the port that the database engine is listening on.
 --
+-- 'serverlessV2ScalingConfiguration', 'dbCluster_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'cloneGroupId', 'dbCluster_cloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 --
 -- 'dbClusterArn', 'dbCluster_dbClusterArn' - The Amazon Resource Name (ARN) for the DB cluster.
@@ -285,6 +289,7 @@ newDBCluster ::
 newDBCluster =
   DBCluster'
     { port = Prelude.Nothing,
+      serverlessV2ScalingConfiguration = Prelude.Nothing,
       cloneGroupId = Prelude.Nothing,
       dbClusterArn = Prelude.Nothing,
       hostedZoneId = Prelude.Nothing,
@@ -329,6 +334,10 @@ newDBCluster =
 -- | Specifies the port that the database engine is listening on.
 dbCluster_port :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
 dbCluster_port = Lens.lens (\DBCluster' {port} -> port) (\s@DBCluster' {} a -> s {port = a} :: DBCluster)
+
+-- | Undocumented member.
+dbCluster_serverlessV2ScalingConfiguration :: Lens.Lens' DBCluster (Prelude.Maybe ServerlessV2ScalingConfigurationInfo)
+dbCluster_serverlessV2ScalingConfiguration = Lens.lens (\DBCluster' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@DBCluster' {} a -> s {serverlessV2ScalingConfiguration = a} :: DBCluster)
 
 -- | Identifies the clone group to which the DB cluster is associated.
 dbCluster_cloneGroupId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
@@ -528,6 +537,7 @@ instance Core.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "ServerlessV2ScalingConfiguration")
       Prelude.<*> (x Core..@? "CloneGroupId")
       Prelude.<*> (x Core..@? "DBClusterArn")
       Prelude.<*> (x Core..@? "HostedZoneId")
@@ -592,6 +602,7 @@ instance Core.FromXML DBCluster where
 instance Prelude.Hashable DBCluster where
   hashWithSalt _salt DBCluster' {..} =
     _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` cloneGroupId
       `Prelude.hashWithSalt` dbClusterArn
       `Prelude.hashWithSalt` hostedZoneId
@@ -635,6 +646,7 @@ instance Prelude.Hashable DBCluster where
 instance Prelude.NFData DBCluster where
   rnf DBCluster' {..} =
     Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf cloneGroupId
       `Prelude.seq` Prelude.rnf dbClusterArn
       `Prelude.seq` Prelude.rnf hostedZoneId

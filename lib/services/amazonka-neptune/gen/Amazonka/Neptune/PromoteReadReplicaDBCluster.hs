@@ -80,7 +80,8 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
   type
     AWSResponse PromoteReadReplicaDBCluster =
       PromoteReadReplicaDBClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PromoteReadReplicaDBClusterResult"

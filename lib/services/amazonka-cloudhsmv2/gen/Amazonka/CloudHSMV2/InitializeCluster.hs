@@ -132,7 +132,8 @@ instance Core.AWSRequest InitializeCluster where
   type
     AWSResponse InitializeCluster =
       InitializeClusterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

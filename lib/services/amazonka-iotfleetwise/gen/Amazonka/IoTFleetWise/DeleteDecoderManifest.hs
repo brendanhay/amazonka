@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteDecoderManifest where
   type
     AWSResponse DeleteDecoderManifest =
       DeleteDecoderManifestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

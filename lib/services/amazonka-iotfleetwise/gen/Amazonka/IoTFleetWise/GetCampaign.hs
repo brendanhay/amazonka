@@ -91,7 +91,8 @@ getCampaign_name = Lens.lens (\GetCampaign' {name} -> name) (\s@GetCampaign' {} 
 
 instance Core.AWSRequest GetCampaign where
   type AWSResponse GetCampaign = GetCampaignResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

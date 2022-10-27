@@ -80,7 +80,8 @@ getFleet_fleetId = Lens.lens (\GetFleet' {fleetId} -> fleetId) (\s@GetFleet' {} 
 
 instance Core.AWSRequest GetFleet where
   type AWSResponse GetFleet = GetFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

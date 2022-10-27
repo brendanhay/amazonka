@@ -136,7 +136,8 @@ instance Core.AWSRequest ListSignalCatalogs where
   type
     AWSResponse ListSignalCatalogs =
       ListSignalCatalogsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

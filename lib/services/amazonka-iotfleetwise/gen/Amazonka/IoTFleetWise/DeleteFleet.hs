@@ -82,7 +82,8 @@ deleteFleet_fleetId = Lens.lens (\DeleteFleet' {fleetId} -> fleetId) (\s@DeleteF
 
 instance Core.AWSRequest DeleteFleet where
   type AWSResponse DeleteFleet = DeleteFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

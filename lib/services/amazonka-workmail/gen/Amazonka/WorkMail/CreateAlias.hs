@@ -100,7 +100,8 @@ createAlias_alias = Lens.lens (\CreateAlias' {alias} -> alias) (\s@CreateAlias' 
 
 instance Core.AWSRequest CreateAlias where
   type AWSResponse CreateAlias = CreateAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -147,7 +147,8 @@ instance Core.AWSRequest ListMailboxPermissions where
   type
     AWSResponse ListMailboxPermissions =
       ListMailboxPermissionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

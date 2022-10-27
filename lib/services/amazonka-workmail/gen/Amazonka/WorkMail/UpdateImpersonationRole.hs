@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateImpersonationRole where
   type
     AWSResponse UpdateImpersonationRole =
       UpdateImpersonationRoleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

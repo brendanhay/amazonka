@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateMemberToGroup where
   type
     AWSResponse AssociateMemberToGroup =
       AssociateMemberToGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -96,7 +96,8 @@ instance Core.AWSRequest GetMailDomain where
   type
     AWSResponse GetMailDomain =
       GetMailDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -84,7 +84,8 @@ instance Core.AWSRequest GetSuppressedDestination where
   type
     AWSResponse GetSuppressedDestination =
       GetSuppressedDestinationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

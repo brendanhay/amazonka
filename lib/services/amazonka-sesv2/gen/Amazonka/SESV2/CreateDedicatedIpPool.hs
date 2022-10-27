@@ -32,6 +32,7 @@ module Amazonka.SESV2.CreateDedicatedIpPool
 
     -- * Request Lenses
     createDedicatedIpPool_tags,
+    createDedicatedIpPool_scalingMode,
     createDedicatedIpPool_poolName,
 
     -- * Destructuring the Response
@@ -57,6 +58,8 @@ data CreateDedicatedIpPool = CreateDedicatedIpPool'
   { -- | An object that defines the tags (keys and values) that you want to
     -- associate with the pool.
     tags :: Prelude.Maybe [Tag],
+    -- | The type of scaling mode.
+    scalingMode :: Prelude.Maybe ScalingMode,
     -- | The name of the dedicated IP pool.
     poolName :: Prelude.Text
   }
@@ -73,6 +76,8 @@ data CreateDedicatedIpPool = CreateDedicatedIpPool'
 -- 'tags', 'createDedicatedIpPool_tags' - An object that defines the tags (keys and values) that you want to
 -- associate with the pool.
 --
+-- 'scalingMode', 'createDedicatedIpPool_scalingMode' - The type of scaling mode.
+--
 -- 'poolName', 'createDedicatedIpPool_poolName' - The name of the dedicated IP pool.
 newCreateDedicatedIpPool ::
   -- | 'poolName'
@@ -81,6 +86,7 @@ newCreateDedicatedIpPool ::
 newCreateDedicatedIpPool pPoolName_ =
   CreateDedicatedIpPool'
     { tags = Prelude.Nothing,
+      scalingMode = Prelude.Nothing,
       poolName = pPoolName_
     }
 
@@ -88,6 +94,10 @@ newCreateDedicatedIpPool pPoolName_ =
 -- associate with the pool.
 createDedicatedIpPool_tags :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe [Tag])
 createDedicatedIpPool_tags = Lens.lens (\CreateDedicatedIpPool' {tags} -> tags) (\s@CreateDedicatedIpPool' {} a -> s {tags = a} :: CreateDedicatedIpPool) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of scaling mode.
+createDedicatedIpPool_scalingMode :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe ScalingMode)
+createDedicatedIpPool_scalingMode = Lens.lens (\CreateDedicatedIpPool' {scalingMode} -> scalingMode) (\s@CreateDedicatedIpPool' {} a -> s {scalingMode = a} :: CreateDedicatedIpPool)
 
 -- | The name of the dedicated IP pool.
 createDedicatedIpPool_poolName :: Lens.Lens' CreateDedicatedIpPool Prelude.Text
@@ -97,7 +107,8 @@ instance Core.AWSRequest CreateDedicatedIpPool where
   type
     AWSResponse CreateDedicatedIpPool =
       CreateDedicatedIpPoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -108,11 +119,14 @@ instance Core.AWSRequest CreateDedicatedIpPool where
 instance Prelude.Hashable CreateDedicatedIpPool where
   hashWithSalt _salt CreateDedicatedIpPool' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` scalingMode
       `Prelude.hashWithSalt` poolName
 
 instance Prelude.NFData CreateDedicatedIpPool where
   rnf CreateDedicatedIpPool' {..} =
-    Prelude.rnf tags `Prelude.seq` Prelude.rnf poolName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf scalingMode
+      `Prelude.seq` Prelude.rnf poolName
 
 instance Core.ToHeaders CreateDedicatedIpPool where
   toHeaders =
@@ -130,6 +144,7 @@ instance Core.ToJSON CreateDedicatedIpPool where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ScalingMode" Core..=) Prelude.<$> scalingMode,
             Prelude.Just ("PoolName" Core..= poolName)
           ]
       )

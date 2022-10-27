@@ -29,8 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlacklistEntry' smart constructor.
 data BlacklistEntry = BlacklistEntry'
-  { -- | The time when the blacklisting event occurred, shown in Unix time
-    -- format.
+  { -- | The time when the blacklisting event occurred.
     listingTime :: Prelude.Maybe Core.POSIX,
     -- | Additional information about the blacklisting event, as provided by the
     -- blacklist maintainer.
@@ -48,8 +47,7 @@ data BlacklistEntry = BlacklistEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'listingTime', 'blacklistEntry_listingTime' - The time when the blacklisting event occurred, shown in Unix time
--- format.
+-- 'listingTime', 'blacklistEntry_listingTime' - The time when the blacklisting event occurred.
 --
 -- 'description', 'blacklistEntry_description' - Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
@@ -64,8 +62,7 @@ newBlacklistEntry =
       rblName = Prelude.Nothing
     }
 
--- | The time when the blacklisting event occurred, shown in Unix time
--- format.
+-- | The time when the blacklisting event occurred.
 blacklistEntry_listingTime :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.UTCTime)
 blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Core._Time
 

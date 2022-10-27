@@ -44,6 +44,7 @@ module Amazonka.SESV2.GetEmailIdentity
     getEmailIdentityResponse_policies,
     getEmailIdentityResponse_dkimAttributes,
     getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_verificationStatus,
     getEmailIdentityResponse_httpStatus,
   )
 where
@@ -88,7 +89,8 @@ instance Core.AWSRequest GetEmailIdentity where
   type
     AWSResponse GetEmailIdentity =
       GetEmailIdentityResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +103,7 @@ instance Core.AWSRequest GetEmailIdentity where
             Prelude.<*> (x Core..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "DkimAttributes")
             Prelude.<*> (x Core..?> "IdentityType")
+            Prelude.<*> (x Core..?> "VerificationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,6 +170,22 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
     -- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
     -- supported.
     identityType :: Prelude.Maybe IdentityType,
+    -- | The verification status of the identity. The status can be one of the
+    -- following:
+    --
+    -- -   @PENDING@ – The verification process was initiated, but Amazon SES
+    --     hasn\'t yet been able to verify the identity.
+    --
+    -- -   @SUCCESS@ – The verification process completed successfully.
+    --
+    -- -   @FAILED@ – The verification process failed.
+    --
+    -- -   @TEMPORARY_FAILURE@ – A temporary issue is preventing Amazon SES
+    --     from determining the verification status of the identity.
+    --
+    -- -   @NOT_STARTED@ – The verification process hasn\'t been initiated for
+    --     the identity.
+    verificationStatus :: Prelude.Maybe VerificationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,6 +232,22 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
 -- 'identityType', 'getEmailIdentityResponse_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
 -- supported.
 --
+-- 'verificationStatus', 'getEmailIdentityResponse_verificationStatus' - The verification status of the identity. The status can be one of the
+-- following:
+--
+-- -   @PENDING@ – The verification process was initiated, but Amazon SES
+--     hasn\'t yet been able to verify the identity.
+--
+-- -   @SUCCESS@ – The verification process completed successfully.
+--
+-- -   @FAILED@ – The verification process failed.
+--
+-- -   @TEMPORARY_FAILURE@ – A temporary issue is preventing Amazon SES
+--     from determining the verification status of the identity.
+--
+-- -   @NOT_STARTED@ – The verification process hasn\'t been initiated for
+--     the identity.
+--
 -- 'httpStatus', 'getEmailIdentityResponse_httpStatus' - The response's http status code.
 newGetEmailIdentityResponse ::
   -- | 'httpStatus'
@@ -228,6 +263,7 @@ newGetEmailIdentityResponse pHttpStatus_ =
       policies = Prelude.Nothing,
       dkimAttributes = Prelude.Nothing,
       identityType = Prelude.Nothing,
+      verificationStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -280,6 +316,24 @@ getEmailIdentityResponse_dkimAttributes = Lens.lens (\GetEmailIdentityResponse' 
 getEmailIdentityResponse_identityType :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe IdentityType)
 getEmailIdentityResponse_identityType = Lens.lens (\GetEmailIdentityResponse' {identityType} -> identityType) (\s@GetEmailIdentityResponse' {} a -> s {identityType = a} :: GetEmailIdentityResponse)
 
+-- | The verification status of the identity. The status can be one of the
+-- following:
+--
+-- -   @PENDING@ – The verification process was initiated, but Amazon SES
+--     hasn\'t yet been able to verify the identity.
+--
+-- -   @SUCCESS@ – The verification process completed successfully.
+--
+-- -   @FAILED@ – The verification process failed.
+--
+-- -   @TEMPORARY_FAILURE@ – A temporary issue is preventing Amazon SES
+--     from determining the verification status of the identity.
+--
+-- -   @NOT_STARTED@ – The verification process hasn\'t been initiated for
+--     the identity.
+getEmailIdentityResponse_verificationStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe VerificationStatus)
+getEmailIdentityResponse_verificationStatus = Lens.lens (\GetEmailIdentityResponse' {verificationStatus} -> verificationStatus) (\s@GetEmailIdentityResponse' {} a -> s {verificationStatus = a} :: GetEmailIdentityResponse)
+
 -- | The response's http status code.
 getEmailIdentityResponse_httpStatus :: Lens.Lens' GetEmailIdentityResponse Prelude.Int
 getEmailIdentityResponse_httpStatus = Lens.lens (\GetEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@GetEmailIdentityResponse' {} a -> s {httpStatus = a} :: GetEmailIdentityResponse)
@@ -294,4 +348,5 @@ instance Prelude.NFData GetEmailIdentityResponse where
       `Prelude.seq` Prelude.rnf policies
       `Prelude.seq` Prelude.rnf dkimAttributes
       `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf verificationStatus
       `Prelude.seq` Prelude.rnf httpStatus

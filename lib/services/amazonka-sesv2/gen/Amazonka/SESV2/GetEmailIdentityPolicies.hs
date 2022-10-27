@@ -95,7 +95,8 @@ instance Core.AWSRequest GetEmailIdentityPolicies where
   type
     AWSResponse GetEmailIdentityPolicies =
       GetEmailIdentityPoliciesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

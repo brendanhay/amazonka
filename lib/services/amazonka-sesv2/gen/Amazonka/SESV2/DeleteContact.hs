@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteContact where
   type
     AWSResponse DeleteContact =
       DeleteContactResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

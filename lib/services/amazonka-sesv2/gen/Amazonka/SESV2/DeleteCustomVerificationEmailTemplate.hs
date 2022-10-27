@@ -23,7 +23,7 @@
 -- Deletes an existing custom verification email template.
 --
 -- For more information about custom verification email templates, see
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html Using Custom Verification Email Templates>
+-- <https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom Using custom verification email templates>
 -- in the /Amazon SES Developer Guide/.
 --
 -- You can execute this operation no more than once per second.
@@ -96,7 +96,8 @@ instance
     AWSResponse
       DeleteCustomVerificationEmailTemplate =
       DeleteCustomVerificationEmailTemplateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

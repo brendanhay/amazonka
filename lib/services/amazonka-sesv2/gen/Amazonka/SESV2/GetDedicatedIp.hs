@@ -86,7 +86,8 @@ instance Core.AWSRequest GetDedicatedIp where
   type
     AWSResponse GetDedicatedIp =
       GetDedicatedIpResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

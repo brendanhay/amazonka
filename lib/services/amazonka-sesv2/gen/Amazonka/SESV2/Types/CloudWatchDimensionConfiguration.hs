@@ -48,8 +48,8 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
     -- CloudWatch if you don\'t provide the value of the dimension when you
     -- send an email. This value has to meet the following criteria:
     --
-    -- -   It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-    --     underscores (_), or dashes (-).
+    -- -   Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+    --     underscores (_), or dashes (-), at signs (\@), and periods (.).
     --
     -- -   It can contain no more than 256 characters.
     defaultDimensionValue :: Prelude.Text
@@ -83,8 +83,8 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
 -- CloudWatch if you don\'t provide the value of the dimension when you
 -- send an email. This value has to meet the following criteria:
 --
--- -   It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
---     underscores (_), or dashes (-).
+-- -   Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+--     underscores (_), or dashes (-), at signs (\@), and periods (.).
 --
 -- -   It can contain no more than 256 characters.
 newCloudWatchDimensionConfiguration ::
@@ -131,8 +131,8 @@ cloudWatchDimensionConfiguration_dimensionValueSource = Lens.lens (\CloudWatchDi
 -- CloudWatch if you don\'t provide the value of the dimension when you
 -- send an email. This value has to meet the following criteria:
 --
--- -   It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
---     underscores (_), or dashes (-).
+-- -   Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+--     underscores (_), or dashes (-), at signs (\@), and periods (.).
 --
 -- -   It can contain no more than 256 characters.
 cloudWatchDimensionConfiguration_defaultDimensionValue :: Lens.Lens' CloudWatchDimensionConfiguration Prelude.Text

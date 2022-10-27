@@ -107,7 +107,8 @@ instance Core.AWSRequest PutDedicatedIpInPool where
   type
     AWSResponse PutDedicatedIpInPool =
       PutDedicatedIpInPoolResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -145,7 +145,8 @@ instance Core.AWSRequest UpdateEmailIdentityPolicy where
   type
     AWSResponse UpdateEmailIdentityPolicy =
       UpdateEmailIdentityPolicyResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

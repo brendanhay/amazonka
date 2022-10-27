@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteContactList where
   type
     AWSResponse DeleteContactList =
       DeleteContactListResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -184,7 +184,8 @@ instance Core.AWSRequest DescribeStream where
   type
     AWSResponse DescribeStream =
       DescribeStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

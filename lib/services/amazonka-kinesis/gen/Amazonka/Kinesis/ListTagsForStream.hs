@@ -118,7 +118,8 @@ instance Core.AWSRequest ListTagsForStream where
   type
     AWSResponse ListTagsForStream =
       ListTagsForStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

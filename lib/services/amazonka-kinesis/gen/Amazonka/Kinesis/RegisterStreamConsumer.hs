@@ -117,7 +117,8 @@ instance Core.AWSRequest RegisterStreamConsumer where
   type
     AWSResponse RegisterStreamConsumer =
       RegisterStreamConsumerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

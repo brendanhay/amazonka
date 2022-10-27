@@ -96,7 +96,8 @@ instance Core.AWSRequest RemoveTagsFromStream where
   type
     AWSResponse RemoveTagsFromStream =
       RemoveTagsFromStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RemoveTagsFromStreamResponse'
 

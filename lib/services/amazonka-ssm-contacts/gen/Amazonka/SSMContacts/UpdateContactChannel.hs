@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateContactChannel where
   type
     AWSResponse UpdateContactChannel =
       UpdateContactChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -107,7 +107,8 @@ updateGroup_operations = Lens.lens (\UpdateGroup' {operations} -> operations) (\
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

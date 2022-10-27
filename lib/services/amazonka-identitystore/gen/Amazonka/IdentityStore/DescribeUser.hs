@@ -117,7 +117,8 @@ describeUser_userId = Lens.lens (\DescribeUser' {userId} -> userId) (\s@Describe
 
 instance Core.AWSRequest DescribeUser where
   type AWSResponse DescribeUser = DescribeUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

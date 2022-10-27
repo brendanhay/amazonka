@@ -93,7 +93,8 @@ instance Core.AWSRequest DeleteGroupMembership where
   type
     AWSResponse DeleteGroupMembership =
       DeleteGroupMembershipResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

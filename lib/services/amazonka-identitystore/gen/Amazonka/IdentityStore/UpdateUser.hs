@@ -104,7 +104,8 @@ updateUser_operations = Lens.lens (\UpdateUser' {operations} -> operations) (\s@
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

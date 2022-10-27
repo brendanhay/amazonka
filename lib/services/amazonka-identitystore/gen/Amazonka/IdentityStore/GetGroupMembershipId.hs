@@ -114,7 +114,8 @@ instance Core.AWSRequest GetGroupMembershipId where
   type
     AWSResponse GetGroupMembershipId =
       GetGroupMembershipIdResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteEventSubscription where
   type
     AWSResponse DeleteEventSubscription =
       DeleteEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteEventSubscriptionResult"

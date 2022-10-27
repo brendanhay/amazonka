@@ -365,7 +365,8 @@ instance Core.AWSRequest CreateCustomDBEngineVersion where
   type
     AWSResponse CreateCustomDBEngineVersion =
       DBEngineVersion
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCustomDBEngineVersionResult"

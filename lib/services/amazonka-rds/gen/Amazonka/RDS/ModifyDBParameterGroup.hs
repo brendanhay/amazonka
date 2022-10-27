@@ -188,7 +188,8 @@ instance Core.AWSRequest ModifyDBParameterGroup where
   type
     AWSResponse ModifyDBParameterGroup =
       DBParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBParameterGroupResult"

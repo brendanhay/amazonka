@@ -89,7 +89,8 @@ instance Core.AWSRequest StartDBInstance where
   type
     AWSResponse StartDBInstance =
       StartDBInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartDBInstanceResult"

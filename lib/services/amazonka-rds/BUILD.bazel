@@ -204,6 +204,7 @@ haskell_library(
         "gen/Amazonka/RDS/Types/Event.hs",
         "gen/Amazonka/RDS/Types/EventCategoriesMap.hs",
         "gen/Amazonka/RDS/Types/EventSubscription.hs",
+        "gen/Amazonka/RDS/Types/ExportSourceType.hs",
         "gen/Amazonka/RDS/Types/ExportTask.hs",
         "gen/Amazonka/RDS/Types/FailoverState.hs",
         "gen/Amazonka/RDS/Types/FailoverStatus.hs",

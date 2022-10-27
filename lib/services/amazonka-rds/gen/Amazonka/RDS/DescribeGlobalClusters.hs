@@ -187,7 +187,8 @@ instance Core.AWSRequest DescribeGlobalClusters where
   type
     AWSResponse DescribeGlobalClusters =
       DescribeGlobalClustersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeGlobalClustersResult"

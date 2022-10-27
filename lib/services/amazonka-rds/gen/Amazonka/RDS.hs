@@ -1316,6 +1316,9 @@ module Amazonka.RDS
     -- ** EngineFamily
     EngineFamily (..),
 
+    -- ** ExportSourceType
+    ExportSourceType (..),
+
     -- ** FailoverStatus
     FailoverStatus (..),
 

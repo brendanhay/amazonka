@@ -172,6 +172,9 @@ module Amazonka.RDS.Types
     -- * EngineFamily
     EngineFamily (..),
 
+    -- * ExportSourceType
+    ExportSourceType (..),
+
     -- * FailoverStatus
     FailoverStatus (..),
 
@@ -835,6 +838,7 @@ module Amazonka.RDS.Types
     exportTask_sourceArn,
     exportTask_totalExtractedDataInGB,
     exportTask_status,
+    exportTask_sourceType,
     exportTask_warningMessage,
     exportTask_snapshotTime,
     exportTask_exportTaskIdentifier,
@@ -1324,6 +1328,7 @@ import Amazonka.RDS.Types.EngineFamily
 import Amazonka.RDS.Types.Event
 import Amazonka.RDS.Types.EventCategoriesMap
 import Amazonka.RDS.Types.EventSubscription
+import Amazonka.RDS.Types.ExportSourceType
 import Amazonka.RDS.Types.ExportTask
 import Amazonka.RDS.Types.FailoverState
 import Amazonka.RDS.Types.FailoverStatus
@@ -1387,6 +1392,8 @@ defaultService =
       Core._serviceEndpointPrefix = "rds",
       Core._serviceSigningName = "rds",
       Core._serviceVersion = "2014-10-31",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -492,7 +492,8 @@ instance Core.AWSRequest DescribeDBEngineVersions where
   type
     AWSResponse DescribeDBEngineVersions =
       DescribeDBEngineVersionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBEngineVersionsResult"

@@ -175,7 +175,8 @@ instance Core.AWSRequest RevokeDBSecurityGroupIngress where
   type
     AWSResponse RevokeDBSecurityGroupIngress =
       RevokeDBSecurityGroupIngressResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RevokeDBSecurityGroupIngressResult"

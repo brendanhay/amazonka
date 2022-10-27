@@ -33,6 +33,7 @@ module Amazonka.RDS.DescribeExportTasks
     describeExportTasks_marker,
     describeExportTasks_sourceArn,
     describeExportTasks_filters,
+    describeExportTasks_sourceType,
     describeExportTasks_maxRecords,
     describeExportTasks_exportTaskIdentifier,
 
@@ -92,6 +93,8 @@ data DescribeExportTasks = DescribeExportTasks'
     --
     --     -   @starting@
     filters :: Prelude.Maybe [Filter],
+    -- | The type of source for the export.
+    sourceType :: Prelude.Maybe ExportSourceType,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified value, a pagination token called a
     -- marker is included in the response. You can use the marker in a later
@@ -150,6 +153,8 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 --     -   @starting@
 --
+-- 'sourceType', 'describeExportTasks_sourceType' - The type of source for the export.
+--
 -- 'maxRecords', 'describeExportTasks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified value, a pagination token called a
 -- marker is included in the response. You can use the marker in a later
@@ -167,6 +172,7 @@ newDescribeExportTasks =
     { marker = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
       filters = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       exportTaskIdentifier = Prelude.Nothing
     }
@@ -213,6 +219,10 @@ describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> 
 describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
 describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of source for the export.
+describeExportTasks_sourceType :: Lens.Lens' DescribeExportTasks (Prelude.Maybe ExportSourceType)
+describeExportTasks_sourceType = Lens.lens (\DescribeExportTasks' {sourceType} -> sourceType) (\s@DescribeExportTasks' {} a -> s {sourceType = a} :: DescribeExportTasks)
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified value, a pagination token called a
 -- marker is included in the response. You can use the marker in a later
@@ -254,7 +264,8 @@ instance Core.AWSRequest DescribeExportTasks where
   type
     AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeExportTasksResult"
@@ -272,6 +283,7 @@ instance Prelude.Hashable DescribeExportTasks where
     _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` exportTaskIdentifier
 
@@ -280,6 +292,7 @@ instance Prelude.NFData DescribeExportTasks where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf exportTaskIdentifier
 
@@ -301,6 +314,7 @@ instance Core.ToQuery DescribeExportTasks where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
+        "SourceType" Core.=: sourceType,
         "MaxRecords" Core.=: maxRecords,
         "ExportTaskIdentifier" Core.=: exportTaskIdentifier
       ]

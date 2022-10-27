@@ -441,7 +441,8 @@ instance Core.AWSRequest DescribeDBSnapshots where
   type
     AWSResponse DescribeDBSnapshots =
       DescribeDBSnapshotsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBSnapshotsResult"

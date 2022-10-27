@@ -185,7 +185,8 @@ instance Core.AWSRequest ModifyDBSnapshot where
   type
     AWSResponse ModifyDBSnapshot =
       ModifyDBSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBSnapshotResult"

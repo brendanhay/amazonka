@@ -90,6 +90,10 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     --
     -- -   @aurora-postgresql13@
     --
+    -- -   @aurora-postgresql14@
+    --
+    -- -   @custom-oracle-ee-19@
+    --
     -- -   @mariadb10.2@
     --
     -- -   @mariadb10.3@
@@ -103,6 +107,18 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     -- -   @mysql5.7@
     --
     -- -   @mysql8.0@
+    --
+    -- -   @oracle-ee-19@
+    --
+    -- -   @oracle-ee-cdb-19@
+    --
+    -- -   @oracle-ee-cdb-21@
+    --
+    -- -   @oracle-se2-19@
+    --
+    -- -   @oracle-se2-cdb-19@
+    --
+    -- -   @oracle-se2-cdb-21@
     --
     -- -   @postgres10@
     --
@@ -199,6 +215,10 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- -   @aurora-postgresql13@
 --
+-- -   @aurora-postgresql14@
+--
+-- -   @custom-oracle-ee-19@
+--
 -- -   @mariadb10.2@
 --
 -- -   @mariadb10.3@
@@ -212,6 +232,18 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- -   @mysql5.7@
 --
 -- -   @mysql8.0@
+--
+-- -   @oracle-ee-19@
+--
+-- -   @oracle-ee-cdb-19@
+--
+-- -   @oracle-ee-cdb-21@
+--
+-- -   @oracle-se2-19@
+--
+-- -   @oracle-se2-cdb-19@
+--
+-- -   @oracle-se2-cdb-21@
 --
 -- -   @postgres10@
 --
@@ -317,6 +349,10 @@ describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultPa
 --
 -- -   @aurora-postgresql13@
 --
+-- -   @aurora-postgresql14@
+--
+-- -   @custom-oracle-ee-19@
+--
 -- -   @mariadb10.2@
 --
 -- -   @mariadb10.3@
@@ -330,6 +366,18 @@ describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultPa
 -- -   @mysql5.7@
 --
 -- -   @mysql8.0@
+--
+-- -   @oracle-ee-19@
+--
+-- -   @oracle-ee-cdb-19@
+--
+-- -   @oracle-ee-cdb-21@
+--
+-- -   @oracle-se2-19@
+--
+-- -   @oracle-se2-cdb-19@
+--
+-- -   @oracle-se2-cdb-21@
 --
 -- -   @postgres10@
 --
@@ -418,7 +466,8 @@ instance
   type
     AWSResponse DescribeEngineDefaultParameters =
       DescribeEngineDefaultParametersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEngineDefaultParametersResult"

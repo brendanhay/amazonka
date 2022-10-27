@@ -139,7 +139,8 @@ instance Core.AWSRequest ModifyOptionGroup where
   type
     AWSResponse ModifyOptionGroup =
       ModifyOptionGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyOptionGroupResult"

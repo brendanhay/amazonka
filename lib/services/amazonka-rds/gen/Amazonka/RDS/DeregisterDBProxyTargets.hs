@@ -113,7 +113,8 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
   type
     AWSResponse DeregisterDBProxyTargets =
       DeregisterDBProxyTargetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterDBProxyTargetsResult"

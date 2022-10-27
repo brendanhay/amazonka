@@ -207,7 +207,8 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
   type
     AWSResponse ModifyDBSnapshotAttribute =
       ModifyDBSnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBSnapshotAttributeResult"

@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteDBSnapshot where
   type
     AWSResponse DeleteDBSnapshot =
       DeleteDBSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBSnapshotResult"

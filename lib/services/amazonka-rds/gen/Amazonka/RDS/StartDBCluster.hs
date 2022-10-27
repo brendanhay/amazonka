@@ -91,7 +91,8 @@ instance Core.AWSRequest StartDBCluster where
   type
     AWSResponse StartDBCluster =
       StartDBClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartDBClusterResult"

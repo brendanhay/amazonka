@@ -113,7 +113,8 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
   type
     AWSResponse RemoveRoleFromDBInstance =
       RemoveRoleFromDBInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveRoleFromDBInstanceResponse'

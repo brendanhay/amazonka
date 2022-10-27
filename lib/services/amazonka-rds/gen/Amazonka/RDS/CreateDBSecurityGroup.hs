@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateDBSecurityGroup where
   type
     AWSResponse CreateDBSecurityGroup =
       CreateDBSecurityGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBSecurityGroupResult"

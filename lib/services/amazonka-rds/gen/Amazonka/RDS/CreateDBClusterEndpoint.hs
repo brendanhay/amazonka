@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
   type
     AWSResponse CreateDBClusterEndpoint =
       DBClusterEndpoint
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterEndpointResult"

@@ -211,7 +211,8 @@ instance Core.AWSRequest DescribeDBClusterEndpoints where
   type
     AWSResponse DescribeDBClusterEndpoints =
       DescribeDBClusterEndpointsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterEndpointsResult"

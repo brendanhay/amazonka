@@ -984,7 +984,8 @@ instance Core.AWSRequest RestoreDBClusterFromS3 where
   type
     AWSResponse RestoreDBClusterFromS3 =
       RestoreDBClusterFromS3Response
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterFromS3Result"

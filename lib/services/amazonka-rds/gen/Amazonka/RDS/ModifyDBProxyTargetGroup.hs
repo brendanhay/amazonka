@@ -123,7 +123,8 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
   type
     AWSResponse ModifyDBProxyTargetGroup =
       ModifyDBProxyTargetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBProxyTargetGroupResult"

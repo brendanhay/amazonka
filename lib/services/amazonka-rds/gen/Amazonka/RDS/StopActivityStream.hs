@@ -107,7 +107,8 @@ instance Core.AWSRequest StopActivityStream where
   type
     AWSResponse StopActivityStream =
       StopActivityStreamResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopActivityStreamResult"

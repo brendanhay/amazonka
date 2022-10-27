@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteDBProxyEndpoint where
   type
     AWSResponse DeleteDBProxyEndpoint =
       DeleteDBProxyEndpointResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBProxyEndpointResult"

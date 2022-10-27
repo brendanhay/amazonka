@@ -157,7 +157,8 @@ deleteFleets_terminateInstances = Lens.lens (\DeleteFleets' {terminateInstances}
 
 instance Core.AWSRequest DeleteFleets where
   type AWSResponse DeleteFleets = DeleteFleetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

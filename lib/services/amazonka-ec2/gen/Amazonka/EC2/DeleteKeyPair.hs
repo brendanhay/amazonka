@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteKeyPair where
   type
     AWSResponse DeleteKeyPair =
       DeleteKeyPairResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteKeyPairResponse'
 

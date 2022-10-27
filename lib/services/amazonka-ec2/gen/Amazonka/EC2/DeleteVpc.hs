@@ -97,7 +97,8 @@ deleteVpc_vpcId = Lens.lens (\DeleteVpc' {vpcId} -> vpcId) (\s@DeleteVpc' {} a -
 
 instance Core.AWSRequest DeleteVpc where
   type AWSResponse DeleteVpc = DeleteVpcResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteVpcResponse'
 
 instance Prelude.Hashable DeleteVpc where

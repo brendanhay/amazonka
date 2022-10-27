@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteNetworkAcl where
   type
     AWSResponse DeleteNetworkAcl =
       DeleteNetworkAclResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteNetworkAclResponse'
 

@@ -106,7 +106,8 @@ instance Core.AWSRequest GetLaunchTemplateData where
   type
     AWSResponse GetLaunchTemplateData =
       GetLaunchTemplateDataResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

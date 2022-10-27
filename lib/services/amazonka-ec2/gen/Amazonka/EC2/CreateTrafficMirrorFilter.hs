@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
   type
     AWSResponse CreateTrafficMirrorFilter =
       CreateTrafficMirrorFilterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

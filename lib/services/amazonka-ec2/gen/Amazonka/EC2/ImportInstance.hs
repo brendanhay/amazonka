@@ -141,7 +141,8 @@ instance Core.AWSRequest ImportInstance where
   type
     AWSResponse ImportInstance =
       ImportInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

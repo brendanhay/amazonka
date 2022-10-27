@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateClientVpnRoute where
   type
     AWSResponse CreateClientVpnRoute =
       CreateClientVpnRouteResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

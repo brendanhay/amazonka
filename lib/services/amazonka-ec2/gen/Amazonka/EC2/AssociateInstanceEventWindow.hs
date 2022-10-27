@@ -120,7 +120,8 @@ instance Core.AWSRequest AssociateInstanceEventWindow where
   type
     AWSResponse AssociateInstanceEventWindow =
       AssociateInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

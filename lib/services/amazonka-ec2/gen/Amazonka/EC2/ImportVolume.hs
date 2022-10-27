@@ -144,7 +144,8 @@ importVolume_volume = Lens.lens (\ImportVolume' {volume} -> volume) (\s@ImportVo
 
 instance Core.AWSRequest ImportVolume where
   type AWSResponse ImportVolume = ImportVolumeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

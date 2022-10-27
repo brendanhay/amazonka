@@ -256,7 +256,8 @@ createSubnet_vpcId = Lens.lens (\CreateSubnet' {vpcId} -> vpcId) (\s@CreateSubne
 
 instance Core.AWSRequest CreateSubnet where
   type AWSResponse CreateSubnet = CreateSubnetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

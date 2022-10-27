@@ -427,7 +427,8 @@ instance Core.AWSRequest DescribeSubnets where
   type
     AWSResponse DescribeSubnets =
       DescribeSubnetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

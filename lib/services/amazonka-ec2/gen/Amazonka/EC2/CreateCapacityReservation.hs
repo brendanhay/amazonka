@@ -443,7 +443,8 @@ instance Core.AWSRequest CreateCapacityReservation where
   type
     AWSResponse CreateCapacityReservation =
       CreateCapacityReservationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

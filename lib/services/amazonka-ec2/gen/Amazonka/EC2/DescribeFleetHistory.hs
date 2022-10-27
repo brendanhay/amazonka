@@ -166,7 +166,8 @@ instance Core.AWSRequest DescribeFleetHistory where
   type
     AWSResponse DescribeFleetHistory =
       DescribeFleetHistoryResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

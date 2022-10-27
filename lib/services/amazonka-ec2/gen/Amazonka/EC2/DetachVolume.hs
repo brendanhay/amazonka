@@ -166,7 +166,8 @@ detachVolume_volumeId = Lens.lens (\DetachVolume' {volumeId} -> volumeId) (\s@De
 
 instance Core.AWSRequest DetachVolume where
   type AWSResponse DetachVolume = VolumeAttachment
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 

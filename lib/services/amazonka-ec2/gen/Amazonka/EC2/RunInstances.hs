@@ -1087,7 +1087,8 @@ runInstances_minCount = Lens.lens (\RunInstances' {minCount} -> minCount) (\s@Ru
 
 instance Core.AWSRequest RunInstances where
   type AWSResponse RunInstances = Reservation
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 

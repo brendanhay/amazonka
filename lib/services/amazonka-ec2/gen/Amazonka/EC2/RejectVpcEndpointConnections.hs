@@ -110,7 +110,8 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
   type
     AWSResponse RejectVpcEndpointConnections =
       RejectVpcEndpointConnectionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

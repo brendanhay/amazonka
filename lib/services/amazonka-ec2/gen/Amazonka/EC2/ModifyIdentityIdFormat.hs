@@ -168,7 +168,8 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
   type
     AWSResponse ModifyIdentityIdFormat =
       ModifyIdentityIdFormatResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifyIdentityIdFormatResponse'

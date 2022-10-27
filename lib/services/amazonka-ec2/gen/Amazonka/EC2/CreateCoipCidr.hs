@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateCoipCidr where
   type
     AWSResponse CreateCoipCidr =
       CreateCoipCidrResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -262,7 +262,8 @@ replaceRoute_routeTableId = Lens.lens (\ReplaceRoute' {routeTableId} -> routeTab
 
 instance Core.AWSRequest ReplaceRoute where
   type AWSResponse ReplaceRoute = ReplaceRouteResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull ReplaceRouteResponse'
 
 instance Prelude.Hashable ReplaceRoute where

@@ -187,7 +187,8 @@ instance Core.AWSRequest DescribeIpv6Pools where
   type
     AWSResponse DescribeIpv6Pools =
       DescribeIpv6PoolsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -282,7 +282,8 @@ instance Core.AWSRequest ModifySubnetAttribute where
   type
     AWSResponse ModifySubnetAttribute =
       ModifySubnetAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ModifySubnetAttributeResponse'
 

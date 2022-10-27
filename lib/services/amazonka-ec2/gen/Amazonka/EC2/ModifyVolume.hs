@@ -304,7 +304,8 @@ modifyVolume_volumeId = Lens.lens (\ModifyVolume' {volumeId} -> volumeId) (\s@Mo
 
 instance Core.AWSRequest ModifyVolume where
   type AWSResponse ModifyVolume = ModifyVolumeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

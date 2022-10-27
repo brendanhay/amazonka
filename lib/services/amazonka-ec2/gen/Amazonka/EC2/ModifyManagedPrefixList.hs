@@ -177,7 +177,8 @@ instance Core.AWSRequest ModifyManagedPrefixList where
   type
     AWSResponse ModifyManagedPrefixList =
       ModifyManagedPrefixListResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

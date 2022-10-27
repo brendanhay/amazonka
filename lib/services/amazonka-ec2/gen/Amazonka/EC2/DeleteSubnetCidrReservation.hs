@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
   type
     AWSResponse DeleteSubnetCidrReservation =
       DeleteSubnetCidrReservationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

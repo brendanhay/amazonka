@@ -109,7 +109,8 @@ instance Core.AWSRequest AttachInternetGateway where
   type
     AWSResponse AttachInternetGateway =
       AttachInternetGatewayResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachInternetGatewayResponse'
 

@@ -99,7 +99,8 @@ instance Core.AWSRequest CreateVpnConnectionRoute where
   type
     AWSResponse CreateVpnConnectionRoute =
       CreateVpnConnectionRouteResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       CreateVpnConnectionRouteResponse'

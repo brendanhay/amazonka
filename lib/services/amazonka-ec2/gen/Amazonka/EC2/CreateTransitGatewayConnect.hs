@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
   type
     AWSResponse CreateTransitGatewayConnect =
       CreateTransitGatewayConnectResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

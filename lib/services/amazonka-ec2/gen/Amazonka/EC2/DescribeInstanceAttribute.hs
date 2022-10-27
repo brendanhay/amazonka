@@ -138,7 +138,8 @@ instance Core.AWSRequest DescribeInstanceAttribute where
   type
     AWSResponse DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

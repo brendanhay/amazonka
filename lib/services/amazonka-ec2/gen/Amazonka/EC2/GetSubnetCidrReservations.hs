@@ -179,7 +179,8 @@ instance Core.AWSRequest GetSubnetCidrReservations where
   type
     AWSResponse GetSubnetCidrReservations =
       GetSubnetCidrReservationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -86,7 +86,8 @@ releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@Relea
 
 instance Core.AWSRequest ReleaseHosts where
   type AWSResponse ReleaseHosts = ReleaseHostsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

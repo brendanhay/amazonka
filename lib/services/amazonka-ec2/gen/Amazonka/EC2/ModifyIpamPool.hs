@@ -250,7 +250,8 @@ instance Core.AWSRequest ModifyIpamPool where
   type
     AWSResponse ModifyIpamPool =
       ModifyIpamPoolResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

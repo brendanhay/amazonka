@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateInstanceEventWindow where
   type
     AWSResponse CreateInstanceEventWindow =
       CreateInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

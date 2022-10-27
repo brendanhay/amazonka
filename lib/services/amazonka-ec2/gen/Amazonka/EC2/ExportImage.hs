@@ -187,7 +187,8 @@ exportImage_s3ExportLocation = Lens.lens (\ExportImage' {s3ExportLocation} -> s3
 
 instance Core.AWSRequest ExportImage where
   type AWSResponse ExportImage = ExportImageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

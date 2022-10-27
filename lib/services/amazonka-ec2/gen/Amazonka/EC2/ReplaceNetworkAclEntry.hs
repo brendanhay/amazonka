@@ -229,7 +229,8 @@ instance Core.AWSRequest ReplaceNetworkAclEntry where
   type
     AWSResponse ReplaceNetworkAclEntry =
       ReplaceNetworkAclEntryResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ReplaceNetworkAclEntryResponse'

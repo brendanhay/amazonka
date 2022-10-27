@@ -177,7 +177,8 @@ modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyH
 
 instance Core.AWSRequest ModifyHosts where
   type AWSResponse ModifyHosts = ModifyHostsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

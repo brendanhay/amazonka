@@ -114,7 +114,8 @@ instance Core.AWSRequest ConfirmProductInstance where
   type
     AWSResponse ConfirmProductInstance =
       ConfirmProductInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

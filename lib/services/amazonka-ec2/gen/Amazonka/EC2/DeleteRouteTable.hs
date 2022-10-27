@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteRouteTable where
   type
     AWSResponse DeleteRouteTable =
       DeleteRouteTableResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteRouteTableResponse'
 

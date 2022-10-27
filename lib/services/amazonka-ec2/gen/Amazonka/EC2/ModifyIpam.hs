@@ -148,7 +148,8 @@ modifyIpam_ipamId = Lens.lens (\ModifyIpam' {ipamId} -> ipamId) (\s@ModifyIpam' 
 
 instance Core.AWSRequest ModifyIpam where
   type AWSResponse ModifyIpam = ModifyIpamResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

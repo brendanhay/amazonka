@@ -332,7 +332,8 @@ instance Core.AWSRequest DescribeNetworkAcls where
   type
     AWSResponse DescribeNetworkAcls =
       DescribeNetworkAclsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

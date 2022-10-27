@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteVpcEndpoints where
   type
     AWSResponse DeleteVpcEndpoints =
       DeleteVpcEndpointsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

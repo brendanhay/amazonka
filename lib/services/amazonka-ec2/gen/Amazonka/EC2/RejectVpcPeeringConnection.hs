@@ -106,7 +106,8 @@ instance Core.AWSRequest RejectVpcPeeringConnection where
   type
     AWSResponse RejectVpcPeeringConnection =
       RejectVpcPeeringConnectionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

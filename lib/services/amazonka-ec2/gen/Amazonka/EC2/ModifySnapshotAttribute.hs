@@ -161,7 +161,8 @@ instance Core.AWSRequest ModifySnapshotAttribute where
   type
     AWSResponse ModifySnapshotAttribute =
       ModifySnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifySnapshotAttributeResponse'

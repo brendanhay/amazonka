@@ -114,7 +114,8 @@ instance Core.AWSRequest ModifyVolumeAttribute where
   type
     AWSResponse ModifyVolumeAttribute =
       ModifyVolumeAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ModifyVolumeAttributeResponse'
 

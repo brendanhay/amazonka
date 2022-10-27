@@ -445,7 +445,8 @@ importImage_architecture = Lens.lens (\ImportImage' {architecture} -> architectu
 
 instance Core.AWSRequest ImportImage where
   type AWSResponse ImportImage = ImportImageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -112,7 +112,8 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
   type
     AWSResponse DisableVgwRoutePropagation =
       DisableVgwRoutePropagationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisableVgwRoutePropagationResponse'

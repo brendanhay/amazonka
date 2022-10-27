@@ -95,7 +95,8 @@ updateCell_cells = Lens.lens (\UpdateCell' {cells} -> cells) (\s@UpdateCell' {} 
 
 instance Core.AWSRequest UpdateCell where
   type AWSResponse UpdateCell = UpdateCellResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

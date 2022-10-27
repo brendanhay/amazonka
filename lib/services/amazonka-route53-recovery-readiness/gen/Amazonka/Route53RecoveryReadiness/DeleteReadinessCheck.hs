@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteReadinessCheck where
   type
     AWSResponse DeleteReadinessCheck =
       DeleteReadinessCheckResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteReadinessCheckResponse'
 

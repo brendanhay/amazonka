@@ -81,7 +81,8 @@ getCell_cellName = Lens.lens (\GetCell' {cellName} -> cellName) (\s@GetCell' {} 
 
 instance Core.AWSRequest GetCell where
   type AWSResponse GetCell = GetCellResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

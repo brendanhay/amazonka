@@ -83,7 +83,8 @@ instance Core.AWSRequest GetQueryRuntimeStatistics where
   type
     AWSResponse GetQueryRuntimeStatistics =
       GetQueryRuntimeStatisticsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

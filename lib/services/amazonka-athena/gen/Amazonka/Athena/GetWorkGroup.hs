@@ -75,7 +75,8 @@ getWorkGroup_workGroup = Lens.lens (\GetWorkGroup' {workGroup} -> workGroup) (\s
 
 instance Core.AWSRequest GetWorkGroup where
   type AWSResponse GetWorkGroup = GetWorkGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

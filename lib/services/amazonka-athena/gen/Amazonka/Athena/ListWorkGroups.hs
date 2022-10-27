@@ -97,7 +97,8 @@ instance Core.AWSRequest ListWorkGroups where
   type
     AWSResponse ListWorkGroups =
       ListWorkGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

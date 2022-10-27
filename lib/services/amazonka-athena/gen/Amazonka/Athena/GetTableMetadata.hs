@@ -109,7 +109,8 @@ instance Core.AWSRequest GetTableMetadata where
   type
     AWSResponse GetTableMetadata =
       GetTableMetadataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

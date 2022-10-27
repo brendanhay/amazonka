@@ -133,7 +133,8 @@ instance Core.AWSRequest SendVoiceMessage where
   type
     AWSResponse SendVoiceMessage =
       SendVoiceMessageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

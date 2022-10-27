@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateBillingGroup where
   type
     AWSResponse UpdateBillingGroup =
       UpdateBillingGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

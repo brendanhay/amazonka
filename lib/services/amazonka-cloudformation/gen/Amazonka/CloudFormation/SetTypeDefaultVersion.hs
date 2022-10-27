@@ -134,7 +134,8 @@ instance Core.AWSRequest SetTypeDefaultVersion where
   type
     AWSResponse SetTypeDefaultVersion =
       SetTypeDefaultVersionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetTypeDefaultVersionResult"

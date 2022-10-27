@@ -155,7 +155,8 @@ getTemplate_stackName = Lens.lens (\GetTemplate' {stackName} -> stackName) (\s@G
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateResult"

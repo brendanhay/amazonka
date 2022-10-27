@@ -920,7 +920,8 @@ instance Core.AWSRequest UpdateStackSet where
   type
     AWSResponse UpdateStackSet =
       UpdateStackSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateStackSetResult"

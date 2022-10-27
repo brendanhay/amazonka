@@ -334,7 +334,8 @@ registerType_schemaHandlerPackage = Lens.lens (\RegisterType' {schemaHandlerPack
 
 instance Core.AWSRequest RegisterType where
   type AWSResponse RegisterType = RegisterTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterTypeResult"

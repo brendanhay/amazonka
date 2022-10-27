@@ -123,7 +123,8 @@ instance Core.AWSRequest ListChangeSets where
   type
     AWSResponse ListChangeSets =
       ListChangeSetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListChangeSetsResult"

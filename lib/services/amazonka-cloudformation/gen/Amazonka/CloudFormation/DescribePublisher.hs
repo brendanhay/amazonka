@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribePublisher where
   type
     AWSResponse DescribePublisher =
       DescribePublisherResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePublisherResult"

@@ -270,7 +270,8 @@ instance Core.AWSRequest DeleteStackInstances where
   type
     AWSResponse DeleteStackInstances =
       DeleteStackInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteStackInstancesResult"

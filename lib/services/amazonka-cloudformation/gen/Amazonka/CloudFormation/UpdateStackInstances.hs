@@ -391,7 +391,8 @@ instance Core.AWSRequest UpdateStackInstances where
   type
     AWSResponse UpdateStackInstances =
       UpdateStackInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateStackInstancesResult"

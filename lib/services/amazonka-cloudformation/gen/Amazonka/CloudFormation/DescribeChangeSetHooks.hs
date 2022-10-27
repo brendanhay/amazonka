@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribeChangeSetHooks where
   type
     AWSResponse DescribeChangeSetHooks =
       DescribeChangeSetHooksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeChangeSetHooksResult"

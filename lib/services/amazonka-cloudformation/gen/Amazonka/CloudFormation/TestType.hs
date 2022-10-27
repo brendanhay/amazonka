@@ -231,7 +231,8 @@ testType_versionId = Lens.lens (\TestType' {versionId} -> versionId) (\s@TestTyp
 
 instance Core.AWSRequest TestType where
   type AWSResponse TestType = TestTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestTypeResult"

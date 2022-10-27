@@ -782,7 +782,8 @@ updateStack_stackName = Lens.lens (\UpdateStack' {stackName} -> stackName) (\s@U
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateStackResult"

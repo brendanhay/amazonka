@@ -92,7 +92,8 @@ instance
   type
     AWSResponse BatchDescribeTypeConfigurations =
       BatchDescribeTypeConfigurationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDescribeTypeConfigurationsResult"

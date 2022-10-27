@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteStackSet where
   type
     AWSResponse DeleteStackSet =
       DeleteStackSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteStackSetResult"

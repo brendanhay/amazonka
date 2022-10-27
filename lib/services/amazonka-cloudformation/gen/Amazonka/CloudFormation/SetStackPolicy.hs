@@ -115,7 +115,8 @@ instance Core.AWSRequest SetStackPolicy where
   type
     AWSResponse SetStackPolicy =
       SetStackPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetStackPolicyResponse'
 

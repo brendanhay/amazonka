@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateTerminationProtection where
   type
     AWSResponse UpdateTerminationProtection =
       UpdateTerminationProtectionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateTerminationProtectionResult"

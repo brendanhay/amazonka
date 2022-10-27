@@ -754,7 +754,8 @@ createStack_stackName = Lens.lens (\CreateStack' {stackName} -> stackName) (\s@C
 
 instance Core.AWSRequest CreateStack where
   type AWSResponse CreateStack = CreateStackResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStackResult"

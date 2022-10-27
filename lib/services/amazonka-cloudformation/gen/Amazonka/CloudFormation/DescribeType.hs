@@ -201,7 +201,8 @@ describeType_versionId = Lens.lens (\DescribeType' {versionId} -> versionId) (\s
 
 instance Core.AWSRequest DescribeType where
   type AWSResponse DescribeType = DescribeTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTypeResult"

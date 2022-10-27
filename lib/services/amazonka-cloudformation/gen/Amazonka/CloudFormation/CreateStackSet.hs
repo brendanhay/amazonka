@@ -654,7 +654,8 @@ instance Core.AWSRequest CreateStackSet where
   type
     AWSResponse CreateStackSet =
       CreateStackSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStackSetResult"

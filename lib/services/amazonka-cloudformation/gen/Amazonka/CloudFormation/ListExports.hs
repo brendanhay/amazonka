@@ -105,7 +105,8 @@ instance Core.AWSPager ListExports where
 
 instance Core.AWSRequest ListExports where
   type AWSResponse ListExports = ListExportsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListExportsResult"

@@ -286,7 +286,8 @@ activateType_loggingConfig = Lens.lens (\ActivateType' {loggingConfig} -> loggin
 
 instance Core.AWSRequest ActivateType where
   type AWSResponse ActivateType = ActivateTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ActivateTypeResult"

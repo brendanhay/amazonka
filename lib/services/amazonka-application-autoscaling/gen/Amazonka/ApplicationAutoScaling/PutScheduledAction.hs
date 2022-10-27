@@ -689,7 +689,8 @@ instance Core.AWSRequest PutScheduledAction where
   type
     AWSResponse PutScheduledAction =
       PutScheduledActionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

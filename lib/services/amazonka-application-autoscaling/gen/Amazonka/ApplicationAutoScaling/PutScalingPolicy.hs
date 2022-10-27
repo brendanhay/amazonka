@@ -645,7 +645,8 @@ instance Core.AWSRequest PutScalingPolicy where
   type
     AWSResponse PutScalingPolicy =
       PutScalingPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

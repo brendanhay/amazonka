@@ -78,7 +78,8 @@ instance Core.AWSRequest GetRawMessageContent where
   type
     AWSResponse GetRawMessageContent =
       GetRawMessageContentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

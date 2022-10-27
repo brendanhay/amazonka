@@ -103,7 +103,8 @@ instance Core.AWSRequest PutRawMessageContent where
   type
     AWSResponse PutRawMessageContent =
       PutRawMessageContentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

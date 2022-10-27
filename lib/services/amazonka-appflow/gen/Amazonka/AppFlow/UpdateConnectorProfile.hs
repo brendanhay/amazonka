@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateConnectorProfile where
   type
     AWSResponse UpdateConnectorProfile =
       UpdateConnectorProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

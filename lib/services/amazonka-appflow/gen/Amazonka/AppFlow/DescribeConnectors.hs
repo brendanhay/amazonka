@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeConnectors where
   type
     AWSResponse DescribeConnectors =
       DescribeConnectorsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

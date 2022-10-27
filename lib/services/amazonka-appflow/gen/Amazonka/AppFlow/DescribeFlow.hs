@@ -93,7 +93,8 @@ describeFlow_flowName = Lens.lens (\DescribeFlow' {flowName} -> flowName) (\s@De
 
 instance Core.AWSRequest DescribeFlow where
   type AWSResponse DescribeFlow = DescribeFlowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

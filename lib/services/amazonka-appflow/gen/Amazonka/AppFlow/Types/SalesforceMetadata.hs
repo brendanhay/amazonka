@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppFlow.Types.SalesforceMetadata where
 
+import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -27,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceMetadata' smart constructor.
 data SalesforceMetadata = SalesforceMetadata'
-  { -- | The desired authorization scope for the Salesforce account.
+  { -- | The Salesforce APIs that you can have Amazon AppFlow use when your flows
+    -- transfers data to or from Salesforce.
+    dataTransferApis :: Prelude.Maybe [SalesforceDataTransferApi],
+    -- | The desired authorization scope for the Salesforce account.
     oAuthScopes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,11 +44,23 @@ data SalesforceMetadata = SalesforceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataTransferApis', 'salesforceMetadata_dataTransferApis' - The Salesforce APIs that you can have Amazon AppFlow use when your flows
+-- transfers data to or from Salesforce.
+--
 -- 'oAuthScopes', 'salesforceMetadata_oAuthScopes' - The desired authorization scope for the Salesforce account.
 newSalesforceMetadata ::
   SalesforceMetadata
 newSalesforceMetadata =
-  SalesforceMetadata' {oAuthScopes = Prelude.Nothing}
+  SalesforceMetadata'
+    { dataTransferApis =
+        Prelude.Nothing,
+      oAuthScopes = Prelude.Nothing
+    }
+
+-- | The Salesforce APIs that you can have Amazon AppFlow use when your flows
+-- transfers data to or from Salesforce.
+salesforceMetadata_dataTransferApis :: Lens.Lens' SalesforceMetadata (Prelude.Maybe [SalesforceDataTransferApi])
+salesforceMetadata_dataTransferApis = Lens.lens (\SalesforceMetadata' {dataTransferApis} -> dataTransferApis) (\s@SalesforceMetadata' {} a -> s {dataTransferApis = a} :: SalesforceMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The desired authorization scope for the Salesforce account.
 salesforceMetadata_oAuthScopes :: Lens.Lens' SalesforceMetadata (Prelude.Maybe [Prelude.Text])
@@ -56,12 +72,18 @@ instance Core.FromJSON SalesforceMetadata where
       "SalesforceMetadata"
       ( \x ->
           SalesforceMetadata'
-            Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<$> ( x Core..:? "dataTransferApis"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SalesforceMetadata where
   hashWithSalt _salt SalesforceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` oAuthScopes
+    _salt `Prelude.hashWithSalt` dataTransferApis
+      `Prelude.hashWithSalt` oAuthScopes
 
 instance Prelude.NFData SalesforceMetadata where
-  rnf SalesforceMetadata' {..} = Prelude.rnf oAuthScopes
+  rnf SalesforceMetadata' {..} =
+    Prelude.rnf dataTransferApis
+      `Prelude.seq` Prelude.rnf oAuthScopes

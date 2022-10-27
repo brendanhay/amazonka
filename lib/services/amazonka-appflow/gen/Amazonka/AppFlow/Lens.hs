@@ -747,15 +747,18 @@ module Amazonka.AppFlow.Lens
 
     -- ** SalesforceDestinationProperties
     salesforceDestinationProperties_errorHandlingConfig,
+    salesforceDestinationProperties_dataTransferApi,
     salesforceDestinationProperties_idFieldNames,
     salesforceDestinationProperties_writeOperationType,
     salesforceDestinationProperties_object,
 
     -- ** SalesforceMetadata
+    salesforceMetadata_dataTransferApis,
     salesforceMetadata_oAuthScopes,
 
     -- ** SalesforceSourceProperties
     salesforceSourceProperties_includeDeletedRecords,
+    salesforceSourceProperties_dataTransferApi,
     salesforceSourceProperties_enableDynamicFieldUpdate,
     salesforceSourceProperties_object,
 

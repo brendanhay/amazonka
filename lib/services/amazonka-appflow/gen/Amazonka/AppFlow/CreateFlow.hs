@@ -181,7 +181,8 @@ createFlow_tasks = Lens.lens (\CreateFlow' {tasks} -> tasks) (\s@CreateFlow' {} 
 
 instance Core.AWSRequest CreateFlow where
   type AWSResponse CreateFlow = CreateFlowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -181,6 +181,7 @@ library
     Amazonka.AppFlow.Types.SalesforceConnectorOperator
     Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials
     Amazonka.AppFlow.Types.SalesforceConnectorProfileProperties
+    Amazonka.AppFlow.Types.SalesforceDataTransferApi
     Amazonka.AppFlow.Types.SalesforceDestinationProperties
     Amazonka.AppFlow.Types.SalesforceMetadata
     Amazonka.AppFlow.Types.SalesforceSourceProperties

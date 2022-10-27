@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.SalesforceDestinationProperties where
 
 import Amazonka.AppFlow.Types.ErrorHandlingConfig
+import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -37,6 +38,47 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
     -- failure. @ErrorHandlingConfig@ is a part of the destination connector
     -- details.
     errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    -- | Specifies which Salesforce API is used by Amazon AppFlow when your flow
+    -- transfers data to Salesforce.
+    --
+    -- [AUTOMATIC]
+    --     The default. Amazon AppFlow selects which API to use based on the
+    --     number of records that your flow transfers to Salesforce. If your
+    --     flow transfers fewer than 1,000 records, Amazon AppFlow uses
+    --     Salesforce REST API. If your flow transfers 1,000 records or more,
+    --     Amazon AppFlow uses Salesforce Bulk API 2.0.
+    --
+    --     Each of these Salesforce APIs structures data differently. If Amazon
+    --     AppFlow selects the API automatically, be aware that, for recurring
+    --     flows, the data output might vary from one flow run to the next. For
+    --     example, if a flow runs daily, it might use REST API on one day to
+    --     transfer 900 records, and it might use Bulk API 2.0 on the next day
+    --     to transfer 1,100 records. For each of these flow runs, the
+    --     respective Salesforce API formats the data differently. Some of the
+    --     differences include how dates are formatted and null values are
+    --     represented. Also, Bulk API 2.0 doesn\'t transfer Salesforce
+    --     compound fields.
+    --
+    --     By choosing this option, you optimize flow performance for both
+    --     small and large data transfers, but the tradeoff is inconsistent
+    --     formatting in the output.
+    --
+    -- [BULKV2]
+    --     Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs
+    --     asynchronous data transfers, and it\'s optimal for large sets of
+    --     data. By choosing this option, you ensure that your flow writes
+    --     consistent output, but you optimize performance only for large data
+    --     transfers.
+    --
+    --     Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+    --
+    -- [REST_SYNC]
+    --     Amazon AppFlow uses only Salesforce REST API. By choosing this
+    --     option, you ensure that your flow writes consistent output, but you
+    --     decrease performance for large data transfers that are better suited
+    --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
+    --     vary large set of data, it might fail with a timed out error.
+    dataTransferApi :: Prelude.Maybe SalesforceDataTransferApi,
     -- | The name of the field that Amazon AppFlow uses as an ID when performing
     -- a write operation such as update or delete.
     idFieldNames :: Prelude.Maybe [Prelude.Text],
@@ -63,6 +105,47 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
 -- failure. @ErrorHandlingConfig@ is a part of the destination connector
 -- details.
 --
+-- 'dataTransferApi', 'salesforceDestinationProperties_dataTransferApi' - Specifies which Salesforce API is used by Amazon AppFlow when your flow
+-- transfers data to Salesforce.
+--
+-- [AUTOMATIC]
+--     The default. Amazon AppFlow selects which API to use based on the
+--     number of records that your flow transfers to Salesforce. If your
+--     flow transfers fewer than 1,000 records, Amazon AppFlow uses
+--     Salesforce REST API. If your flow transfers 1,000 records or more,
+--     Amazon AppFlow uses Salesforce Bulk API 2.0.
+--
+--     Each of these Salesforce APIs structures data differently. If Amazon
+--     AppFlow selects the API automatically, be aware that, for recurring
+--     flows, the data output might vary from one flow run to the next. For
+--     example, if a flow runs daily, it might use REST API on one day to
+--     transfer 900 records, and it might use Bulk API 2.0 on the next day
+--     to transfer 1,100 records. For each of these flow runs, the
+--     respective Salesforce API formats the data differently. Some of the
+--     differences include how dates are formatted and null values are
+--     represented. Also, Bulk API 2.0 doesn\'t transfer Salesforce
+--     compound fields.
+--
+--     By choosing this option, you optimize flow performance for both
+--     small and large data transfers, but the tradeoff is inconsistent
+--     formatting in the output.
+--
+-- [BULKV2]
+--     Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs
+--     asynchronous data transfers, and it\'s optimal for large sets of
+--     data. By choosing this option, you ensure that your flow writes
+--     consistent output, but you optimize performance only for large data
+--     transfers.
+--
+--     Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+--
+-- [REST_SYNC]
+--     Amazon AppFlow uses only Salesforce REST API. By choosing this
+--     option, you ensure that your flow writes consistent output, but you
+--     decrease performance for large data transfers that are better suited
+--     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
+--     vary large set of data, it might fail with a timed out error.
+--
 -- 'idFieldNames', 'salesforceDestinationProperties_idFieldNames' - The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update or delete.
 --
@@ -78,6 +161,7 @@ newSalesforceDestinationProperties pObject_ =
   SalesforceDestinationProperties'
     { errorHandlingConfig =
         Prelude.Nothing,
+      dataTransferApi = Prelude.Nothing,
       idFieldNames = Prelude.Nothing,
       writeOperationType = Prelude.Nothing,
       object' = pObject_
@@ -91,6 +175,49 @@ newSalesforceDestinationProperties pObject_ =
 -- details.
 salesforceDestinationProperties_errorHandlingConfig :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
 salesforceDestinationProperties_errorHandlingConfig = Lens.lens (\SalesforceDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SalesforceDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SalesforceDestinationProperties)
+
+-- | Specifies which Salesforce API is used by Amazon AppFlow when your flow
+-- transfers data to Salesforce.
+--
+-- [AUTOMATIC]
+--     The default. Amazon AppFlow selects which API to use based on the
+--     number of records that your flow transfers to Salesforce. If your
+--     flow transfers fewer than 1,000 records, Amazon AppFlow uses
+--     Salesforce REST API. If your flow transfers 1,000 records or more,
+--     Amazon AppFlow uses Salesforce Bulk API 2.0.
+--
+--     Each of these Salesforce APIs structures data differently. If Amazon
+--     AppFlow selects the API automatically, be aware that, for recurring
+--     flows, the data output might vary from one flow run to the next. For
+--     example, if a flow runs daily, it might use REST API on one day to
+--     transfer 900 records, and it might use Bulk API 2.0 on the next day
+--     to transfer 1,100 records. For each of these flow runs, the
+--     respective Salesforce API formats the data differently. Some of the
+--     differences include how dates are formatted and null values are
+--     represented. Also, Bulk API 2.0 doesn\'t transfer Salesforce
+--     compound fields.
+--
+--     By choosing this option, you optimize flow performance for both
+--     small and large data transfers, but the tradeoff is inconsistent
+--     formatting in the output.
+--
+-- [BULKV2]
+--     Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs
+--     asynchronous data transfers, and it\'s optimal for large sets of
+--     data. By choosing this option, you ensure that your flow writes
+--     consistent output, but you optimize performance only for large data
+--     transfers.
+--
+--     Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+--
+-- [REST_SYNC]
+--     Amazon AppFlow uses only Salesforce REST API. By choosing this
+--     option, you ensure that your flow writes consistent output, but you
+--     decrease performance for large data transfers that are better suited
+--     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
+--     vary large set of data, it might fail with a timed out error.
+salesforceDestinationProperties_dataTransferApi :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe SalesforceDataTransferApi)
+salesforceDestinationProperties_dataTransferApi = Lens.lens (\SalesforceDestinationProperties' {dataTransferApi} -> dataTransferApi) (\s@SalesforceDestinationProperties' {} a -> s {dataTransferApi = a} :: SalesforceDestinationProperties)
 
 -- | The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update or delete.
@@ -116,6 +243,7 @@ instance
       ( \x ->
           SalesforceDestinationProperties'
             Prelude.<$> (x Core..:? "errorHandlingConfig")
+            Prelude.<*> (x Core..:? "dataTransferApi")
             Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "writeOperationType")
             Prelude.<*> (x Core..: "object")
@@ -129,6 +257,7 @@ instance
     _salt
     SalesforceDestinationProperties' {..} =
       _salt `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` dataTransferApi
         `Prelude.hashWithSalt` idFieldNames
         `Prelude.hashWithSalt` writeOperationType
         `Prelude.hashWithSalt` object'
@@ -139,6 +268,7 @@ instance
   where
   rnf SalesforceDestinationProperties' {..} =
     Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf dataTransferApi
       `Prelude.seq` Prelude.rnf idFieldNames
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
@@ -149,6 +279,8 @@ instance Core.ToJSON SalesforceDestinationProperties where
       ( Prelude.catMaybes
           [ ("errorHandlingConfig" Core..=)
               Prelude.<$> errorHandlingConfig,
+            ("dataTransferApi" Core..=)
+              Prelude.<$> dataTransferApi,
             ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
             ("writeOperationType" Core..=)
               Prelude.<$> writeOperationType,

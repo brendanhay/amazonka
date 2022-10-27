@@ -112,6 +112,9 @@ module Amazonka.AppFlow.Types
     -- * SalesforceConnectorOperator
     SalesforceConnectorOperator (..),
 
+    -- * SalesforceDataTransferApi
+    SalesforceDataTransferApi (..),
+
     -- * ScheduleFrequencyType
     ScheduleFrequencyType (..),
 
@@ -891,6 +894,7 @@ module Amazonka.AppFlow.Types
     SalesforceDestinationProperties (..),
     newSalesforceDestinationProperties,
     salesforceDestinationProperties_errorHandlingConfig,
+    salesforceDestinationProperties_dataTransferApi,
     salesforceDestinationProperties_idFieldNames,
     salesforceDestinationProperties_writeOperationType,
     salesforceDestinationProperties_object,
@@ -898,12 +902,14 @@ module Amazonka.AppFlow.Types
     -- * SalesforceMetadata
     SalesforceMetadata (..),
     newSalesforceMetadata,
+    salesforceMetadata_dataTransferApis,
     salesforceMetadata_oAuthScopes,
 
     -- * SalesforceSourceProperties
     SalesforceSourceProperties (..),
     newSalesforceSourceProperties,
     salesforceSourceProperties_includeDeletedRecords,
+    salesforceSourceProperties_dataTransferApi,
     salesforceSourceProperties_enableDynamicFieldUpdate,
     salesforceSourceProperties_object,
 
@@ -1293,6 +1299,7 @@ import Amazonka.AppFlow.Types.SAPODataSourceProperties
 import Amazonka.AppFlow.Types.SalesforceConnectorOperator
 import Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials
 import Amazonka.AppFlow.Types.SalesforceConnectorProfileProperties
+import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import Amazonka.AppFlow.Types.SalesforceDestinationProperties
 import Amazonka.AppFlow.Types.SalesforceMetadata
 import Amazonka.AppFlow.Types.SalesforceSourceProperties
@@ -1361,6 +1368,8 @@ defaultService =
       Core._serviceEndpointPrefix = "appflow",
       Core._serviceSigningName = "appflow",
       Core._serviceVersion = "2020-08-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -76,7 +76,8 @@ deleteApp_appId = Lens.lens (\DeleteApp' {appId} -> appId) (\s@DeleteApp' {} a -
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

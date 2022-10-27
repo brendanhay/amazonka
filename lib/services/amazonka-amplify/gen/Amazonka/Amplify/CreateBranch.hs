@@ -278,7 +278,8 @@ createBranch_branchName = Lens.lens (\CreateBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest CreateBranch where
   type AWSResponse CreateBranch = CreateBranchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

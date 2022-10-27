@@ -91,7 +91,8 @@ getBranch_branchName = Lens.lens (\GetBranch' {branchName} -> branchName) (\s@Ge
 
 instance Core.AWSRequest GetBranch where
   type AWSResponse GetBranch = GetBranchResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

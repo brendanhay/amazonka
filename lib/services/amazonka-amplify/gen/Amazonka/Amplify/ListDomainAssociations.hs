@@ -132,7 +132,8 @@ instance Core.AWSRequest ListDomainAssociations where
   type
     AWSResponse ListDomainAssociations =
       ListDomainAssociationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

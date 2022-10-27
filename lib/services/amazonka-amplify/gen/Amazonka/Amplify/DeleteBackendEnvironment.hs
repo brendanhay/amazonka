@@ -93,7 +93,8 @@ instance Core.AWSRequest DeleteBackendEnvironment where
   type
     AWSResponse DeleteBackendEnvironment =
       DeleteBackendEnvironmentResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

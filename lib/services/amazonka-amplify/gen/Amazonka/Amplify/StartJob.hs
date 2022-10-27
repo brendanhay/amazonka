@@ -168,7 +168,8 @@ startJob_jobType = Lens.lens (\StartJob' {jobType} -> jobType) (\s@StartJob' {} 
 
 instance Core.AWSRequest StartJob where
   type AWSResponse StartJob = StartJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

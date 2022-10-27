@@ -106,7 +106,8 @@ listWebhooks_appId = Lens.lens (\ListWebhooks' {appId} -> appId) (\s@ListWebhook
 
 instance Core.AWSRequest ListWebhooks where
   type AWSResponse ListWebhooks = ListWebhooksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

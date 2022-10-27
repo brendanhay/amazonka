@@ -91,7 +91,8 @@ deleteBranch_branchName = Lens.lens (\DeleteBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest DeleteBranch where
   type AWSResponse DeleteBranch = DeleteBranchResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

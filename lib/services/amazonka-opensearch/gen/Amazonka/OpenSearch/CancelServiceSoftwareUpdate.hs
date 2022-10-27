@@ -90,7 +90,8 @@ instance Core.AWSRequest CancelServiceSoftwareUpdate where
   type
     AWSResponse CancelServiceSoftwareUpdate =
       CancelServiceSoftwareUpdateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

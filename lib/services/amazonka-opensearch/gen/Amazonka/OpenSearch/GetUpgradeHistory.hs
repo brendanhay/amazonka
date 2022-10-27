@@ -101,7 +101,8 @@ instance Core.AWSRequest GetUpgradeHistory where
   type
     AWSResponse GetUpgradeHistory =
       GetUpgradeHistoryResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -267,7 +267,8 @@ instance Core.AWSRequest UpdateDomainConfig where
   type
     AWSResponse UpdateDomainConfig =
       UpdateDomainConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

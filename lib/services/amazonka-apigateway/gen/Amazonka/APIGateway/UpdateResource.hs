@@ -107,7 +107,8 @@ updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resource
 
 instance Core.AWSRequest UpdateResource where
   type AWSResponse UpdateResource = Resource
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

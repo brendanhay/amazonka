@@ -329,7 +329,8 @@ createAuthorizer_type = Lens.lens (\CreateAuthorizer' {type'} -> type') (\s@Crea
 
 instance Core.AWSRequest CreateAuthorizer where
   type AWSResponse CreateAuthorizer = Authorizer
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

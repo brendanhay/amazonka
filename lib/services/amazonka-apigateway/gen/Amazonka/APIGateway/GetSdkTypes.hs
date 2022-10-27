@@ -112,7 +112,8 @@ instance Core.AWSPager GetSdkTypes where
 
 instance Core.AWSRequest GetSdkTypes where
   type AWSResponse GetSdkTypes = GetSdkTypesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -152,7 +152,8 @@ instance Core.AWSPager GetResources where
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

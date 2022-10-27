@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteDocumentationPart where
   type
     AWSResponse DeleteDocumentationPart =
       DeleteDocumentationPartResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteDocumentationPartResponse'

@@ -144,7 +144,8 @@ createUsagePlan_name = Lens.lens (\CreateUsagePlan' {name} -> name) (\s@CreateUs
 
 instance Core.AWSRequest CreateUsagePlan where
   type AWSResponse CreateUsagePlan = UsagePlan
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

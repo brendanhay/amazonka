@@ -124,7 +124,8 @@ instance Core.AWSPager GetModels where
 
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

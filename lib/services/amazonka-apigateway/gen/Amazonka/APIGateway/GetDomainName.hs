@@ -93,7 +93,8 @@ getDomainName_domainName = Lens.lens (\GetDomainName' {domainName} -> domainName
 
 instance Core.AWSRequest GetDomainName where
   type AWSResponse GetDomainName = DomainName
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

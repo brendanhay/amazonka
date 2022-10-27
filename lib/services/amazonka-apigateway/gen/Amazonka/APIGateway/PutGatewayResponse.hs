@@ -133,7 +133,8 @@ putGatewayResponse_responseType = Lens.lens (\PutGatewayResponse' {responseType}
 
 instance Core.AWSRequest PutGatewayResponse where
   type AWSResponse PutGatewayResponse = GatewayResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

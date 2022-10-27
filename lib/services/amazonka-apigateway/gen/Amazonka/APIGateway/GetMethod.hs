@@ -112,7 +112,8 @@ getMethod_httpMethod = Lens.lens (\GetMethod' {httpMethod} -> httpMethod) (\s@Ge
 
 instance Core.AWSRequest GetMethod where
   type AWSResponse GetMethod = Method
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

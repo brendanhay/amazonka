@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteDocumentationVersion where
   type
     AWSResponse DeleteDocumentationVersion =
       DeleteDocumentationVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteDocumentationVersionResponse'

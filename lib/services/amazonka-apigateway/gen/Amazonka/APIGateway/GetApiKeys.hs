@@ -149,7 +149,8 @@ instance Core.AWSPager GetApiKeys where
 
 instance Core.AWSRequest GetApiKeys where
   type AWSResponse GetApiKeys = GetApiKeysResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

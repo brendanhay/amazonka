@@ -160,7 +160,8 @@ putRestApi_body = Lens.lens (\PutRestApi' {body} -> body) (\s@PutRestApi' {} a -
 
 instance Core.AWSRequest PutRestApi where
   type AWSResponse PutRestApi = RestApi
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

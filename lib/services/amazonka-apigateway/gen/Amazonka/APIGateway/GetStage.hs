@@ -106,7 +106,8 @@ getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStag
 
 instance Core.AWSRequest GetStage where
   type AWSResponse GetStage = Stage
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

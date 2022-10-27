@@ -181,7 +181,8 @@ importRestApi_body = Lens.lens (\ImportRestApi' {body} -> body) (\s@ImportRestAp
 
 instance Core.AWSRequest ImportRestApi where
   type AWSResponse ImportRestApi = RestApi
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

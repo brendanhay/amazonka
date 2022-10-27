@@ -136,7 +136,8 @@ getSdk_sdkType = Lens.lens (\GetSdk' {sdkType} -> sdkType) (\s@GetSdk' {} a -> s
 
 instance Core.AWSRequest GetSdk where
   type AWSResponse GetSdk = GetSdkResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

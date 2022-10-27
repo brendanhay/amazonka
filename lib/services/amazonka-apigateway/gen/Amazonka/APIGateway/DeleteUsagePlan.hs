@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteUsagePlan where
   type
     AWSResponse DeleteUsagePlan =
       DeleteUsagePlanResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteUsagePlanResponse'
 

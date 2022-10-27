@@ -99,7 +99,8 @@ instance Core.AWSRequest GenerateClientCertificate where
   type
     AWSResponse GenerateClientCertificate =
       ClientCertificate
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -241,7 +241,8 @@ createRestApi_name = Lens.lens (\CreateRestApi' {name} -> name) (\s@CreateRestAp
 
 instance Core.AWSRequest CreateRestApi where
   type AWSResponse CreateRestApi = RestApi
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteRequestValidator where
   type
     AWSResponse DeleteRequestValidator =
       DeleteRequestValidatorResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteRequestValidatorResponse'

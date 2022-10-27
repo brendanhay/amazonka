@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteIntegration where
   type
     AWSResponse DeleteIntegration =
       DeleteIntegrationResponse'
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteIntegrationResponse''
 

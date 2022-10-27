@@ -96,7 +96,8 @@ getGatewayResponse_responseType = Lens.lens (\GetGatewayResponse' {responseType}
 
 instance Core.AWSRequest GetGatewayResponse where
   type AWSResponse GetGatewayResponse = GatewayResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

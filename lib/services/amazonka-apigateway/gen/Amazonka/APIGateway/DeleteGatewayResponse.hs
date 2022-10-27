@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteGatewayResponse where
   type
     AWSResponse DeleteGatewayResponse =
       DeleteGatewayResponseResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteGatewayResponseResponse'
 

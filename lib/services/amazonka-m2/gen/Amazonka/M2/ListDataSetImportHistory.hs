@@ -130,7 +130,8 @@ instance Core.AWSRequest ListDataSetImportHistory where
   type
     AWSResponse ListDataSetImportHistory =
       ListDataSetImportHistoryResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -127,7 +127,8 @@ instance Core.AWSRequest ListEngineVersions where
   type
     AWSResponse ListEngineVersions =
       ListEngineVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

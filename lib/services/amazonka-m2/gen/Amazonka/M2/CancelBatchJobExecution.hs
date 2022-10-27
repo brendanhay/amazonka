@@ -93,7 +93,8 @@ instance Core.AWSRequest CancelBatchJobExecution where
   type
     AWSResponse CancelBatchJobExecution =
       CancelBatchJobExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

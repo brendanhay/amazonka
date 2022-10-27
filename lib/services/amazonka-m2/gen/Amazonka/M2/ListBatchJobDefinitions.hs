@@ -145,7 +145,8 @@ instance Core.AWSRequest ListBatchJobDefinitions where
   type
     AWSResponse ListBatchJobDefinitions =
       ListBatchJobDefinitionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

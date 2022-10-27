@@ -101,7 +101,8 @@ instance Core.AWSRequest GetPipelineDefinition where
   type
     AWSResponse GetPipelineDefinition =
       GetPipelineDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

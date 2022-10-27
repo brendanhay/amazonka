@@ -170,7 +170,8 @@ instance Core.AWSPager QueryObjects where
 
 instance Core.AWSRequest QueryObjects where
   type AWSResponse QueryObjects = QueryObjectsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

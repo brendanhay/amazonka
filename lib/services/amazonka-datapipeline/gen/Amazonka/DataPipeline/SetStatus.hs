@@ -111,7 +111,8 @@ setStatus_status = Lens.lens (\SetStatus' {status} -> status) (\s@SetStatus' {} 
 
 instance Core.AWSRequest SetStatus where
   type AWSResponse SetStatus = SetStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull SetStatusResponse'
 
 instance Prelude.Hashable SetStatus where

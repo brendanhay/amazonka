@@ -89,7 +89,8 @@ instance Core.AWSRequest UpdateResolverEndpoint where
   type
     AWSResponse UpdateResolverEndpoint =
       UpdateResolverEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteFirewallRuleGroup where
   type
     AWSResponse DeleteFirewallRuleGroup =
       DeleteFirewallRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

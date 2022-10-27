@@ -363,7 +363,8 @@ instance Core.AWSRequest ListResolverQueryLogConfigs where
   type
     AWSResponse ListResolverQueryLogConfigs =
       ListResolverQueryLogConfigsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

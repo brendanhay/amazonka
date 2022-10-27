@@ -210,7 +210,8 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
   type
     AWSResponse AssociateFirewallRuleGroup =
       AssociateFirewallRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

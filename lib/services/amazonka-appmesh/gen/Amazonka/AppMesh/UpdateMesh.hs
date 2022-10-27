@@ -105,7 +105,8 @@ updateMesh_meshName = Lens.lens (\UpdateMesh' {meshName} -> meshName) (\s@Update
 
 instance Core.AWSRequest UpdateMesh where
   type AWSResponse UpdateMesh = UpdateMeshResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

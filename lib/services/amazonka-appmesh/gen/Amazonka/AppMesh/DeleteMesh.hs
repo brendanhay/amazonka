@@ -81,7 +81,8 @@ deleteMesh_meshName = Lens.lens (\DeleteMesh' {meshName} -> meshName) (\s@Delete
 
 instance Core.AWSRequest DeleteMesh where
   type AWSResponse DeleteMesh = DeleteMeshResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

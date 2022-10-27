@@ -136,7 +136,8 @@ createMesh_meshName = Lens.lens (\CreateMesh' {meshName} -> meshName) (\s@Create
 
 instance Core.AWSRequest CreateMesh where
   type AWSResponse CreateMesh = CreateMeshResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

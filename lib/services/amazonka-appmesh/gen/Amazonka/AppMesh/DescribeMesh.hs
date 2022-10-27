@@ -98,7 +98,8 @@ describeMesh_meshName = Lens.lens (\DescribeMesh' {meshName} -> meshName) (\s@De
 
 instance Core.AWSRequest DescribeMesh where
   type AWSResponse DescribeMesh = DescribeMeshResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

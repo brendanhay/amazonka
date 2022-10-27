@@ -191,7 +191,8 @@ createRoute_virtualRouterName = Lens.lens (\CreateRoute' {virtualRouterName} -> 
 
 instance Core.AWSRequest CreateRoute where
   type AWSResponse CreateRoute = CreateRouteResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

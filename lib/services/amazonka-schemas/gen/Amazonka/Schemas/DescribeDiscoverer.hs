@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeDiscoverer where
   type
     AWSResponse DescribeDiscoverer =
       DescribeDiscovererResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

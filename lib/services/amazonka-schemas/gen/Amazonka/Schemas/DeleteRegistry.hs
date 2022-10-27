@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteRegistry where
   type
     AWSResponse DeleteRegistry =
       DeleteRegistryResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRegistryResponse'
 

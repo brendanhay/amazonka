@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteDiscoverer where
   type
     AWSResponse DeleteDiscoverer =
       DeleteDiscovererResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDiscovererResponse'
 

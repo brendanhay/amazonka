@@ -138,7 +138,8 @@ updateSchema_schemaName = Lens.lens (\UpdateSchema' {schemaName} -> schemaName) 
 
 instance Core.AWSRequest UpdateSchema where
   type AWSResponse UpdateSchema = UpdateSchemaResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

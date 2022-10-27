@@ -141,7 +141,8 @@ instance Core.AWSRequest ListSchemaVersions where
   type
     AWSResponse ListSchemaVersions =
       ListSchemaVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -78,7 +78,8 @@ instance Core.AWSRequest StopDiscoverer where
   type
     AWSResponse StopDiscoverer =
       StopDiscovererResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

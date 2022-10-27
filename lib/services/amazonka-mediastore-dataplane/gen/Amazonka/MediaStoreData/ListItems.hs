@@ -163,7 +163,8 @@ instance Core.AWSPager ListItems where
 
 instance Core.AWSRequest ListItems where
   type AWSResponse ListItems = ListItemsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -179,7 +179,8 @@ getObject_path = Lens.lens (\GetObject' {path} -> path) (\s@GetObject' {} a -> s
 
 instance Core.AWSRequest GetObject where
   type AWSResponse GetObject = GetObjectResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

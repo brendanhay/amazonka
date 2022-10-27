@@ -76,7 +76,8 @@ deleteObject_path = Lens.lens (\DeleteObject' {path} -> path) (\s@DeleteObject' 
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

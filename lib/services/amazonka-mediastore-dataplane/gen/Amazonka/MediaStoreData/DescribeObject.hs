@@ -84,7 +84,8 @@ instance Core.AWSRequest DescribeObject where
   type
     AWSResponse DescribeObject =
       DescribeObjectResponse
-  request = Request.head' defaultService
+  service _ = defaultService
+  request srv = Request.head' srv
   response =
     Response.receiveEmpty
       ( \s h x ->

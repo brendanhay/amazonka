@@ -157,7 +157,8 @@ instance Core.AWSRequest MergeProfiles where
   type
     AWSResponse MergeProfiles =
       MergeProfilesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

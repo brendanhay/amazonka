@@ -120,7 +120,8 @@ instance Core.AWSRequest PutProfileObject where
   type
     AWSResponse PutProfileObject =
       PutProfileObjectResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

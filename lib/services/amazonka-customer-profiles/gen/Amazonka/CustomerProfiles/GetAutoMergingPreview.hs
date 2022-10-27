@@ -141,7 +141,8 @@ instance Core.AWSRequest GetAutoMergingPreview where
   type
     AWSResponse GetAutoMergingPreview =
       GetAutoMergingPreviewResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

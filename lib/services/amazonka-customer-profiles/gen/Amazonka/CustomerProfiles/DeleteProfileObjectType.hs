@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteProfileObjectType where
   type
     AWSResponse DeleteProfileObjectType =
       DeleteProfileObjectTypeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

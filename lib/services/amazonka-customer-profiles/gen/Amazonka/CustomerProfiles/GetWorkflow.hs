@@ -96,7 +96,8 @@ getWorkflow_workflowId = Lens.lens (\GetWorkflow' {workflowId} -> workflowId) (\
 
 instance Core.AWSRequest GetWorkflow where
   type AWSResponse GetWorkflow = GetWorkflowResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

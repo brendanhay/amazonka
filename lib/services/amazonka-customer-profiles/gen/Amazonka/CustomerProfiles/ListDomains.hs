@@ -87,7 +87,8 @@ listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

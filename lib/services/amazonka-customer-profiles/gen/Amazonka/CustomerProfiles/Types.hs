@@ -573,6 +573,8 @@ defaultService =
       Core._serviceEndpointPrefix = "profile",
       Core._serviceSigningName = "profile",
       Core._serviceVersion = "2020-08-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

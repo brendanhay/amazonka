@@ -97,7 +97,8 @@ instance Core.AWSRequest PutBackupVaultAccessPolicy where
   type
     AWSResponse PutBackupVaultAccessPolicy =
       PutBackupVaultAccessPolicyResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       PutBackupVaultAccessPolicyResponse'

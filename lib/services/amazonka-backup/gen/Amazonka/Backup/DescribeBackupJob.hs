@@ -96,7 +96,8 @@ instance Core.AWSRequest DescribeBackupJob where
   type
     AWSResponse DescribeBackupJob =
       DescribeBackupJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

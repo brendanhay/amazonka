@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeProtectedResource where
   type
     AWSResponse DescribeProtectedResource =
       DescribeProtectedResourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

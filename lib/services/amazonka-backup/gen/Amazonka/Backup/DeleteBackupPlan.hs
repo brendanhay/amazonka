@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteBackupPlan where
   type
     AWSResponse DeleteBackupPlan =
       DeleteBackupPlanResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

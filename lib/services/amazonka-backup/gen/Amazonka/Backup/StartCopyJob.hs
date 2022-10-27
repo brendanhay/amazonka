@@ -173,7 +173,8 @@ startCopyJob_iamRoleArn = Lens.lens (\StartCopyJob' {iamRoleArn} -> iamRoleArn) 
 
 instance Core.AWSRequest StartCopyJob where
   type AWSResponse StartCopyJob = StartCopyJobResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

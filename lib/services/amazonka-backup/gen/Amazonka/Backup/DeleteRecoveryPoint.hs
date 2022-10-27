@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteRecoveryPoint where
   type
     AWSResponse DeleteRecoveryPoint =
       DeleteRecoveryPointResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRecoveryPointResponse'
 

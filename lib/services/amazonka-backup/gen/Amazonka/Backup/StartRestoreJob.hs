@@ -317,7 +317,8 @@ instance Core.AWSRequest StartRestoreJob where
   type
     AWSResponse StartRestoreJob =
       StartRestoreJobResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

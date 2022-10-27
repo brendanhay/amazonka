@@ -77,7 +77,8 @@ instance Core.AWSRequest DescribeCopyJob where
   type
     AWSResponse DescribeCopyJob =
       DescribeCopyJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

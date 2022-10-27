@@ -118,7 +118,8 @@ instance Core.AWSRequest ListEnvironmentOutputs where
   type
     AWSResponse ListEnvironmentOutputs =
       ListEnvironmentOutputsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

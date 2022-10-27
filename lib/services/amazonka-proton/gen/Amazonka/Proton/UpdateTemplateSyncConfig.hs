@@ -150,7 +150,8 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
   type
     AWSResponse UpdateTemplateSyncConfig =
       UpdateTemplateSyncConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

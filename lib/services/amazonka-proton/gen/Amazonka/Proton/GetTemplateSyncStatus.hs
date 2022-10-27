@@ -109,7 +109,8 @@ instance Core.AWSRequest GetTemplateSyncStatus where
   type
     AWSResponse GetTemplateSyncStatus =
       GetTemplateSyncStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

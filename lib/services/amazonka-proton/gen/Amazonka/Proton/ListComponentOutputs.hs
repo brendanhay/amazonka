@@ -118,7 +118,8 @@ instance Core.AWSRequest ListComponentOutputs where
   type
     AWSResponse ListComponentOutputs =
       ListComponentOutputsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

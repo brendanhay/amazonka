@@ -243,7 +243,8 @@ instance Core.AWSRequest UpdateServiceInstance where
   type
     AWSResponse UpdateServiceInstance =
       UpdateServiceInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

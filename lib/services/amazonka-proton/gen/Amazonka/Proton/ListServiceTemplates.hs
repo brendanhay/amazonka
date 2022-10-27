@@ -115,7 +115,8 @@ instance Core.AWSRequest ListServiceTemplates where
   type
     AWSResponse ListServiceTemplates =
       ListServiceTemplatesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -100,7 +100,8 @@ deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> target
 
 instance Core.AWSRequest DeleteTarget where
   type AWSResponse DeleteTarget = DeleteTargetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

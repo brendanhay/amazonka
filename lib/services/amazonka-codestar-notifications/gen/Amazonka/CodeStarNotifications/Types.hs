@@ -120,6 +120,8 @@ defaultService =
         "codestar-notifications",
       Core._serviceSigningName = "codestar-notifications",
       Core._serviceVersion = "2019-10-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

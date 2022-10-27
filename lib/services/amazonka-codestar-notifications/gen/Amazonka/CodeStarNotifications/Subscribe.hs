@@ -106,7 +106,8 @@ subscribe_target = Lens.lens (\Subscribe' {target} -> target) (\s@Subscribe' {} 
 
 instance Core.AWSRequest Subscribe where
   type AWSResponse Subscribe = SubscribeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

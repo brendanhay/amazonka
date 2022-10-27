@@ -92,7 +92,8 @@ instance Core.AWSRequest GetDashboardForJobRun where
   type
     AWSResponse GetDashboardForJobRun =
       GetDashboardForJobRunResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

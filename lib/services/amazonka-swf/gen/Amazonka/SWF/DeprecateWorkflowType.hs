@@ -121,7 +121,8 @@ instance Core.AWSRequest DeprecateWorkflowType where
   type
     AWSResponse DeprecateWorkflowType =
       DeprecateWorkflowTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeprecateWorkflowTypeResponse'
 

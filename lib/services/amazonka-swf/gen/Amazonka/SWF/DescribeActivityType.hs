@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeActivityType where
   type
     AWSResponse DescribeActivityType =
       DescribeActivityTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

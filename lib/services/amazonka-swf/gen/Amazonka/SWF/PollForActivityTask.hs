@@ -164,7 +164,8 @@ instance Core.AWSRequest PollForActivityTask where
   type
     AWSResponse PollForActivityTask =
       PollForActivityTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -398,7 +398,8 @@ instance Core.AWSRequest RegisterWorkflowType where
   type
     AWSResponse RegisterWorkflowType =
       RegisterWorkflowTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterWorkflowTypeResponse'
 

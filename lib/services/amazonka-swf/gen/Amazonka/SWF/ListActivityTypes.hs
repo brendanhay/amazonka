@@ -211,7 +211,8 @@ instance Core.AWSRequest ListActivityTypes where
   type
     AWSResponse ListActivityTypes =
       ListActivityTypesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

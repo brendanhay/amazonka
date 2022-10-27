@@ -77,7 +77,8 @@ instance Core.AWSRequest AllocateStaticIp where
   type
     AWSResponse AllocateStaticIp =
       AllocateStaticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

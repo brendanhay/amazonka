@@ -107,7 +107,8 @@ instance Core.AWSPager GetDisks where
 
 instance Core.AWSRequest GetDisks where
   type AWSResponse GetDisks = GetDisksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

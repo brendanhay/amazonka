@@ -100,7 +100,8 @@ getRegions_includeAvailabilityZones = Lens.lens (\GetRegions' {includeAvailabili
 
 instance Core.AWSRequest GetRegions where
   type AWSResponse GetRegions = GetRegionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

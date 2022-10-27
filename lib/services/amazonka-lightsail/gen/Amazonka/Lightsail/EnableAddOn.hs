@@ -94,7 +94,8 @@ enableAddOn_addOnRequest = Lens.lens (\EnableAddOn' {addOnRequest} -> addOnReque
 
 instance Core.AWSRequest EnableAddOn where
   type AWSResponse EnableAddOn = EnableAddOnResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

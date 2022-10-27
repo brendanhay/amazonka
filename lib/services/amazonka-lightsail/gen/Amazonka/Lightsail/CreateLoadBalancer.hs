@@ -264,7 +264,8 @@ instance Core.AWSRequest CreateLoadBalancer where
   type
     AWSResponse CreateLoadBalancer =
       CreateLoadBalancerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,7 +76,8 @@ getInstance_instanceName = Lens.lens (\GetInstance' {instanceName} -> instanceNa
 
 instance Core.AWSRequest GetInstance where
   type AWSResponse GetInstance = GetInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

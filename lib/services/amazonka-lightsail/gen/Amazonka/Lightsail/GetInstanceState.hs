@@ -78,7 +78,8 @@ instance Core.AWSRequest GetInstanceState where
   type
     AWSResponse GetInstanceState =
       GetInstanceStateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

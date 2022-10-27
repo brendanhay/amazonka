@@ -113,7 +113,8 @@ stopInstance_instanceName = Lens.lens (\StopInstance' {instanceName} -> instance
 
 instance Core.AWSRequest StopInstance where
   type AWSResponse StopInstance = StopInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -91,7 +91,8 @@ instance Core.AWSRequest AttachStaticIp where
   type
     AWSResponse AttachStaticIp =
       AttachStaticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

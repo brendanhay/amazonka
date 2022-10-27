@@ -78,7 +78,8 @@ instance Core.AWSRequest DetachStaticIp where
   type
     AWSResponse DetachStaticIp =
       DetachStaticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

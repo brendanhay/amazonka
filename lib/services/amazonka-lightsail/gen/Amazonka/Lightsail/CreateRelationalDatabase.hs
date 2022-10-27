@@ -672,7 +672,8 @@ instance Core.AWSRequest CreateRelationalDatabase where
   type
     AWSResponse CreateRelationalDatabase =
       CreateRelationalDatabaseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

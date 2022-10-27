@@ -82,7 +82,8 @@ instance Core.AWSRequest GetInstancePortStates where
   type
     AWSResponse GetInstancePortStates =
       GetInstancePortStatesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

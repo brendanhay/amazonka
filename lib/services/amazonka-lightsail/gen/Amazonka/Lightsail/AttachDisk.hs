@@ -110,7 +110,8 @@ attachDisk_diskPath = Lens.lens (\AttachDisk' {diskPath} -> diskPath) (\s@Attach
 
 instance Core.AWSRequest AttachDisk where
   type AWSResponse AttachDisk = AttachDiskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

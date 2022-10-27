@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateDistributionBundle where
   type
     AWSResponse UpdateDistributionBundle =
       UpdateDistributionBundleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

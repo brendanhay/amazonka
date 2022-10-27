@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteContainerService where
   type
     AWSResponse DeleteContainerService =
       DeleteContainerServiceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

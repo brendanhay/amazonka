@@ -135,7 +135,8 @@ getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@
 
 instance Core.AWSRequest GetBuckets where
   type AWSResponse GetBuckets = GetBucketsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

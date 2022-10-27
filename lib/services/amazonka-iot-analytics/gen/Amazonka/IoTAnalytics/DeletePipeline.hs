@@ -73,7 +73,8 @@ instance Core.AWSRequest DeletePipeline where
   type
     AWSResponse DeletePipeline =
       DeletePipelineResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePipelineResponse'
 

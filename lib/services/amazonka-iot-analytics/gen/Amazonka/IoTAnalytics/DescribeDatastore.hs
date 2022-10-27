@@ -97,7 +97,8 @@ instance Core.AWSRequest DescribeDatastore where
   type
     AWSResponse DescribeDatastore =
       DescribeDatastoreResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

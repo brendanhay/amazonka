@@ -117,7 +117,8 @@ instance Core.AWSRequest ListDatastores where
   type
     AWSResponse ListDatastores =
       ListDatastoresResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

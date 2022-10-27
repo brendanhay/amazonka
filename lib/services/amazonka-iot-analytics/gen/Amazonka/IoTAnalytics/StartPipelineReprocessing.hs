@@ -140,7 +140,8 @@ instance Core.AWSRequest StartPipelineReprocessing where
   type
     AWSResponse StartPipelineReprocessing =
       StartPipelineReprocessingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

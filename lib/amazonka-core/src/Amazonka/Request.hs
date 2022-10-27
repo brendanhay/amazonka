@@ -167,10 +167,19 @@ glacierVersionHeader version rq =
   rq {_requestHeaders = hdr "x-amz-glacier-version" version (_requestHeaders rq)}
 
 -- Rewrite a request to use virtual-hosted-style buckets where
--- possible.  A request to endpoint "s3.region.amazonaws.com" with
--- path "/foo/bar" means "object bar in bucket foo". Rewrite it to
--- endpoint "foo.s3.region.amazonaws.com" and path "/bar".
+-- possible and requested.
 --
+-- Example: A request to endpoint "s3.region.amazonaws.com" with path
+-- "/foo/bar" means "object bar in bucket foo". Rewrite it to endpoint
+-- "foo.s3.region.amazonaws.com" and path "/bar".
+--
+-- This is basically the logic in
+-- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1922-L1941
+-- except that we can't tell if an endpoint has been overridden, as a
+-- 'Request' contains a 'Service' after all overrides have been
+-- applied.
+--
+-- See: https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/s3.html#changing-the-addressing-style
 -- See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
 s3vhost :: Request a -> Request a
 s3vhost rq = case _requestPath rq of
@@ -182,12 +191,17 @@ s3vhost rq = case _requestPath rq of
         -- Inspired by:
         -- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1067
         rewritePossible
-          | not $ rq ^. requestService . serviceRewriteS3VHost = False
           | '.' `B8.elem` bucketName = False
           | bucketNameLen < 3 || bucketNameLen > 63 = False
           | not $ bucketName =~ ("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$" :: ByteString) = False
           | otherwise = True
-     in if rewritePossible
+
+        doRewrite = case rq ^. requestService . serviceS3AddressingStyle of
+          S3AddressingStyleAuto ->  rewritePossible
+          S3AddressingStylePath -> False
+          S3AddressingStyleVirtual -> True
+
+     in if doRewrite
           then
             rq
               & requestService . serviceEndpoint . endpointHost %~ ((bucketName <> ".") <>)

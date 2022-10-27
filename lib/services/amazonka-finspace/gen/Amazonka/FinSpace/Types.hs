@@ -86,6 +86,8 @@ defaultService =
       Core._serviceEndpointPrefix = "finspace",
       Core._serviceSigningName = "finspace",
       Core._serviceVersion = "2021-03-12",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

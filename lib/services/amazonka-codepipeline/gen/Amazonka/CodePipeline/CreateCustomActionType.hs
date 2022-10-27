@@ -190,7 +190,8 @@ instance Core.AWSRequest CreateCustomActionType where
   type
     AWSResponse CreateCustomActionType =
       CreateCustomActionTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

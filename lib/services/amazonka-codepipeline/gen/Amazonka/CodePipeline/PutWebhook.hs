@@ -107,7 +107,8 @@ putWebhook_webhook = Lens.lens (\PutWebhook' {webhook} -> webhook) (\s@PutWebhoo
 
 instance Core.AWSRequest PutWebhook where
   type AWSResponse PutWebhook = PutWebhookResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

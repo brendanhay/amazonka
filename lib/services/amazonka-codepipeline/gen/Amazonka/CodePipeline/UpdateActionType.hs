@@ -76,7 +76,8 @@ instance Core.AWSRequest UpdateActionType where
   type
     AWSResponse UpdateActionType =
       UpdateActionTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateActionTypeResponse'
 

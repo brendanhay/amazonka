@@ -149,7 +149,8 @@ instance Core.AWSRequest PutJobSuccessResult where
   type
     AWSResponse PutJobSuccessResult =
       PutJobSuccessResultResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutJobSuccessResultResponse'
 

@@ -145,7 +145,8 @@ tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' 
 
 instance Core.AWSRequest TagResources where
   type AWSResponse TagResources = TagResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

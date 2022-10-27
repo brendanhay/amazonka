@@ -85,7 +85,8 @@ tagMeeting_tags = Lens.lens (\TagMeeting' {tags} -> tags) (\s@TagMeeting' {} a -
 
 instance Core.AWSRequest TagMeeting where
   type AWSResponse TagMeeting = TagMeetingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull TagMeetingResponse'
 
 instance Prelude.Hashable TagMeeting where

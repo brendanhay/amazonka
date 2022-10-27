@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteChannelMembership where
   type
     AWSResponse DeleteChannelMembership =
       DeleteChannelMembershipResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteChannelMembershipResponse'

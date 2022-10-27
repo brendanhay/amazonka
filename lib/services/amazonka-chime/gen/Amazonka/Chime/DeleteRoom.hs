@@ -85,7 +85,8 @@ deleteRoom_roomId = Lens.lens (\DeleteRoom' {roomId} -> roomId) (\s@DeleteRoom' 
 
 instance Core.AWSRequest DeleteRoom where
   type AWSResponse DeleteRoom = DeleteRoomResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteRoomResponse'
 
 instance Prelude.Hashable DeleteRoom where

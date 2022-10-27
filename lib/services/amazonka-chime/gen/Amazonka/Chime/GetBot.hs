@@ -87,7 +87,8 @@ getBot_botId = Lens.lens (\GetBot' {botId} -> botId) (\s@GetBot' {} a -> s {botI
 
 instance Core.AWSRequest GetBot where
   type AWSResponse GetBot = GetBotResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

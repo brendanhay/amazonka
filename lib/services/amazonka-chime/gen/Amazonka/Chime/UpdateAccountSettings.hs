@@ -96,7 +96,8 @@ instance Core.AWSRequest UpdateAccountSettings where
   type
     AWSResponse UpdateAccountSettings =
       UpdateAccountSettingsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -103,7 +103,8 @@ instance Core.AWSRequest ListAttendees where
   type
     AWSResponse ListAttendees =
       ListAttendeesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

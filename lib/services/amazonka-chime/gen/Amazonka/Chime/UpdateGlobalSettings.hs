@@ -85,7 +85,8 @@ instance Core.AWSRequest UpdateGlobalSettings where
   type
     AWSResponse UpdateGlobalSettings =
       UpdateGlobalSettingsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateGlobalSettingsResponse'
 

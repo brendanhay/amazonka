@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateVoiceConnectorGroup where
   type
     AWSResponse UpdateVoiceConnectorGroup =
       UpdateVoiceConnectorGroupResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

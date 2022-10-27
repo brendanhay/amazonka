@@ -91,7 +91,8 @@ instance Core.AWSRequest ListAttendeeTags where
   type
     AWSResponse ListAttendeeTags =
       ListAttendeeTagsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

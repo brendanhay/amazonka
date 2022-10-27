@@ -133,7 +133,8 @@ instance Core.AWSPager ListAccounts where
 
 instance Core.AWSRequest ListAccounts where
   type AWSResponse ListAccounts = ListAccountsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

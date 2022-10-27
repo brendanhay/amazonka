@@ -140,7 +140,8 @@ listChannels_appInstanceArn = Lens.lens (\ListChannels' {appInstanceArn} -> appI
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

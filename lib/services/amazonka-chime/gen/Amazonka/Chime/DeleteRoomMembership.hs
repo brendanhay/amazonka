@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteRoomMembership where
   type
     AWSResponse DeleteRoomMembership =
       DeleteRoomMembershipResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRoomMembershipResponse'
 

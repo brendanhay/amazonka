@@ -90,7 +90,8 @@ getRoom_roomId = Lens.lens (\GetRoom' {roomId} -> roomId) (\s@GetRoom' {} a -> s
 
 instance Core.AWSRequest GetRoom where
   type AWSResponse GetRoom = GetRoomResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

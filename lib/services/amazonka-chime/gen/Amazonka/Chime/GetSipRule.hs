@@ -76,7 +76,8 @@ getSipRule_sipRuleId = Lens.lens (\GetSipRule' {sipRuleId} -> sipRuleId) (\s@Get
 
 instance Core.AWSRequest GetSipRule where
   type AWSResponse GetSipRule = GetSipRuleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

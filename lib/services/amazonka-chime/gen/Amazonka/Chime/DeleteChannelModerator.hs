@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteChannelModerator where
   type
     AWSResponse DeleteChannelModerator =
       DeleteChannelModeratorResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteChannelModeratorResponse'

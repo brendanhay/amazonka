@@ -78,7 +78,8 @@ getMeeting_meetingId = Lens.lens (\GetMeeting' {meetingId} -> meetingId) (\s@Get
 
 instance Core.AWSRequest GetMeeting where
   type AWSResponse GetMeeting = GetMeetingResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

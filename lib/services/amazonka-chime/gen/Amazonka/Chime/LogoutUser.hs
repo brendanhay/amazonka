@@ -89,7 +89,8 @@ logoutUser_userId = Lens.lens (\LogoutUser' {userId} -> userId) (\s@LogoutUser' 
 
 instance Core.AWSRequest LogoutUser where
   type AWSResponse LogoutUser = LogoutUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

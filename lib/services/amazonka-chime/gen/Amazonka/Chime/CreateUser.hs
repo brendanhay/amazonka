@@ -107,7 +107,8 @@ createUser_accountId = Lens.lens (\CreateUser' {accountId} -> accountId) (\s@Cre
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

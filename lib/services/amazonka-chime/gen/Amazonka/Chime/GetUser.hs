@@ -93,7 +93,8 @@ getUser_userId = Lens.lens (\GetUser' {userId} -> userId) (\s@GetUser' {} a -> s
 
 instance Core.AWSRequest GetUser where
   type AWSResponse GetUser = GetUserResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

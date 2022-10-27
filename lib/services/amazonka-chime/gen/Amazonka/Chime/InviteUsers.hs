@@ -99,7 +99,8 @@ inviteUsers_userEmailList = Lens.lens (\InviteUsers' {userEmailList} -> userEmai
 
 instance Core.AWSRequest InviteUsers where
   type AWSResponse InviteUsers = InviteUsersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

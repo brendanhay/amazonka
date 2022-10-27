@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteSipMediaApplication where
   type
     AWSResponse DeleteSipMediaApplication =
       DeleteSipMediaApplicationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteSipMediaApplicationResponse'

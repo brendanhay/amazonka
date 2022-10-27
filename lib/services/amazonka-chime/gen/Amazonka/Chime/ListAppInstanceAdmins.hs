@@ -104,7 +104,8 @@ instance Core.AWSRequest ListAppInstanceAdmins where
   type
     AWSResponse ListAppInstanceAdmins =
       ListAppInstanceAdminsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

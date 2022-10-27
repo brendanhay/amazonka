@@ -99,7 +99,8 @@ instance Core.AWSRequest UntagAttendee where
   type
     AWSResponse UntagAttendee =
       UntagAttendeeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UntagAttendeeResponse'
 

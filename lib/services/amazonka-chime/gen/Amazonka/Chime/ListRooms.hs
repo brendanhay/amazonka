@@ -110,7 +110,8 @@ listRooms_accountId = Lens.lens (\ListRooms' {accountId} -> accountId) (\s@ListR
 
 instance Core.AWSRequest ListRooms where
   type AWSResponse ListRooms = ListRoomsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

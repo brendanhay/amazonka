@@ -143,7 +143,8 @@ instance Core.AWSRequest ListCostAllocationTags where
   type
     AWSResponse ListCostAllocationTags =
       ListCostAllocationTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -239,7 +239,8 @@ getTags_timePeriod = Lens.lens (\GetTags' {timePeriod} -> timePeriod) (\s@GetTag
 
 instance Core.AWSRequest GetTags where
   type AWSResponse GetTags = GetTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -949,6 +949,8 @@ defaultService =
       Core._serviceEndpointPrefix = "ce",
       Core._serviceSigningName = "ce",
       Core._serviceVersion = "2017-10-25",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

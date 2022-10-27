@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
   type
     AWSResponse CreateCostCategoryDefinition =
       CreateCostCategoryDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

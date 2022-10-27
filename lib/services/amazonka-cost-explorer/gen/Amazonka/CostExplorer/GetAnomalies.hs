@@ -150,7 +150,8 @@ getAnomalies_dateInterval = Lens.lens (\GetAnomalies' {dateInterval} -> dateInte
 
 instance Core.AWSRequest GetAnomalies where
   type AWSResponse GetAnomalies = GetAnomaliesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

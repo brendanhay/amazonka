@@ -343,7 +343,8 @@ instance Core.AWSRequest GetCostForecast where
   type
     AWSResponse GetCostForecast =
       GetCostForecastResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

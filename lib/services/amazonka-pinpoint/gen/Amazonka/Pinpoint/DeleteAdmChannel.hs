@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteAdmChannel where
   type
     AWSResponse DeleteAdmChannel =
       DeleteAdmChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

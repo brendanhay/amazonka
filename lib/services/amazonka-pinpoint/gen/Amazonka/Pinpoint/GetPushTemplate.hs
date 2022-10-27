@@ -162,7 +162,8 @@ instance Core.AWSRequest GetPushTemplate where
   type
     AWSResponse GetPushTemplate =
       GetPushTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -95,7 +95,8 @@ getApps_token = Lens.lens (\GetApps' {token} -> token) (\s@GetApps' {} a -> s {t
 
 instance Core.AWSRequest GetApps where
   type AWSResponse GetApps = GetAppsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteEmailChannel where
   type
     AWSResponse DeleteEmailChannel =
       DeleteEmailChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

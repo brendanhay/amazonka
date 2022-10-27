@@ -110,7 +110,8 @@ getSegments_applicationId = Lens.lens (\GetSegments' {applicationId} -> applicat
 
 instance Core.AWSRequest GetSegments where
   type AWSResponse GetSegments = GetSegmentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -93,7 +93,8 @@ getExportJob_jobId = Lens.lens (\GetExportJob' {jobId} -> jobId) (\s@GetExportJo
 
 instance Core.AWSRequest GetExportJob where
   type AWSResponse GetExportJob = GetExportJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

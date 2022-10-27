@@ -93,7 +93,8 @@ getJourney_applicationId = Lens.lens (\GetJourney' {applicationId} -> applicatio
 
 instance Core.AWSRequest GetJourney where
   type AWSResponse GetJourney = GetJourneyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

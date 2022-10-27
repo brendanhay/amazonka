@@ -210,7 +210,8 @@ instance Core.AWSRequest UpdateVoiceTemplate where
   type
     AWSResponse UpdateVoiceTemplate =
       UpdateVoiceTemplateResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

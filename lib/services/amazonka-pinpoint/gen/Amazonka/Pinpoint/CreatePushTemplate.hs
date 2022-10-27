@@ -103,7 +103,8 @@ instance Core.AWSRequest CreatePushTemplate where
   type
     AWSResponse CreatePushTemplate =
       CreatePushTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

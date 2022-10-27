@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteApnsSandboxChannel where
   type
     AWSResponse DeleteApnsSandboxChannel =
       DeleteApnsSandboxChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

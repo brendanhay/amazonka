@@ -81,7 +81,8 @@ instance Core.AWSRequest GetSmsChannel where
   type
     AWSResponse GetSmsChannel =
       GetSmsChannelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

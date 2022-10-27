@@ -162,7 +162,8 @@ instance Core.AWSRequest DeleteSmsTemplate where
   type
     AWSResponse DeleteSmsTemplate =
       DeleteSmsTemplateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

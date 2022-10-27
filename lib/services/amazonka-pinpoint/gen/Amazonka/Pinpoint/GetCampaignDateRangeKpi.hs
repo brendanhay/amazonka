@@ -202,7 +202,8 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
   type
     AWSResponse GetCampaignDateRangeKpi =
       GetCampaignDateRangeKpiResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

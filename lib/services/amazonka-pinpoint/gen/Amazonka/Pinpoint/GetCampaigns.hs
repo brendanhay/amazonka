@@ -110,7 +110,8 @@ getCampaigns_applicationId = Lens.lens (\GetCampaigns' {applicationId} -> applic
 
 instance Core.AWSRequest GetCampaigns where
   type AWSResponse GetCampaigns = GetCampaignsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

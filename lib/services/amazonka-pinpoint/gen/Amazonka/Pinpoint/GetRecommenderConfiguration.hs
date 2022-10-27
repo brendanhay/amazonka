@@ -87,7 +87,8 @@ instance Core.AWSRequest GetRecommenderConfiguration where
   type
     AWSResponse GetRecommenderConfiguration =
       GetRecommenderConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

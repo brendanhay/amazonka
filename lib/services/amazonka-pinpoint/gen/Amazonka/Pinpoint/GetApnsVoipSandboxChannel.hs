@@ -84,7 +84,8 @@ instance Core.AWSRequest GetApnsVoipSandboxChannel where
   type
     AWSResponse GetApnsVoipSandboxChannel =
       GetApnsVoipSandboxChannelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

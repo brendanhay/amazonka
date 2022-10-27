@@ -162,7 +162,8 @@ instance Core.AWSRequest GetSmsTemplate where
   type
     AWSResponse GetSmsTemplate =
       GetSmsTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

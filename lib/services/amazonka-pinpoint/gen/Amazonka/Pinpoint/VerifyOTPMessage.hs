@@ -93,7 +93,8 @@ instance Core.AWSRequest VerifyOTPMessage where
   type
     AWSResponse VerifyOTPMessage =
       VerifyOTPMessageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

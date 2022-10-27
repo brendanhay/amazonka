@@ -95,7 +95,8 @@ getAppsList_listId = Lens.lens (\GetAppsList' {listId} -> listId) (\s@GetAppsLis
 
 instance Core.AWSRequest GetAppsList where
   type AWSResponse GetAppsList = GetAppsListResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

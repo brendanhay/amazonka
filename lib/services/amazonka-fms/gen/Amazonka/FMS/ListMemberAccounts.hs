@@ -143,7 +143,8 @@ instance Core.AWSRequest ListMemberAccounts where
   type
     AWSResponse ListMemberAccounts =
       ListMemberAccountsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

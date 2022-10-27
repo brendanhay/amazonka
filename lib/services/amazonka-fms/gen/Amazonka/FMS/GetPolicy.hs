@@ -76,7 +76,8 @@ getPolicy_policyId = Lens.lens (\GetPolicy' {policyId} -> policyId) (\s@GetPolic
 
 instance Core.AWSRequest GetPolicy where
   type AWSResponse GetPolicy = GetPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -175,7 +175,8 @@ deleteIPSet_lockToken = Lens.lens (\DeleteIPSet' {lockToken} -> lockToken) (\s@D
 
 instance Core.AWSRequest DeleteIPSet where
   type AWSResponse DeleteIPSet = DeleteIPSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

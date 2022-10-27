@@ -117,7 +117,8 @@ instance Core.AWSRequest ListResourcesForWebACL where
   type
     AWSResponse ListResourcesForWebACL =
       ListResourcesForWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

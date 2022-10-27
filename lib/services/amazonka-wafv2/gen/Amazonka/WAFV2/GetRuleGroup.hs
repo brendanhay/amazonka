@@ -148,7 +148,8 @@ getRuleGroup_scope = Lens.lens (\GetRuleGroup' {scope} -> scope) (\s@GetRuleGrou
 
 instance Core.AWSRequest GetRuleGroup where
   type AWSResponse GetRuleGroup = GetRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -207,7 +207,8 @@ instance
   type
     AWSResponse GetRateBasedStatementManagedKeys =
       GetRateBasedStatementManagedKeysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

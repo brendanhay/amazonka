@@ -150,7 +150,8 @@ listIPSets_scope = Lens.lens (\ListIPSets' {scope} -> scope) (\s@ListIPSets' {} 
 
 instance Core.AWSRequest ListIPSets where
   type AWSResponse ListIPSets = ListIPSetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -83,7 +83,8 @@ instance Core.AWSRequest GetLoggingConfiguration where
   type
     AWSResponse GetLoggingConfiguration =
       GetLoggingConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

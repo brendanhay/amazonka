@@ -144,7 +144,8 @@ getIPSet_id = Lens.lens (\GetIPSet' {id} -> id) (\s@GetIPSet' {} a -> s {id = a}
 
 instance Core.AWSRequest GetIPSet where
   type AWSResponse GetIPSet = GetIPSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

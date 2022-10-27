@@ -277,7 +277,8 @@ createWebACL_visibilityConfig = Lens.lens (\CreateWebACL' {visibilityConfig} -> 
 
 instance Core.AWSRequest CreateWebACL where
   type AWSResponse CreateWebACL = CreateWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

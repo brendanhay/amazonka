@@ -853,7 +853,8 @@ createStack_defaultInstanceProfileArn = Lens.lens (\CreateStack' {defaultInstanc
 
 instance Core.AWSRequest CreateStack where
   type AWSResponse CreateStack = CreateStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

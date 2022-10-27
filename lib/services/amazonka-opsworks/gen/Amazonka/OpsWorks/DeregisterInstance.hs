@@ -82,7 +82,8 @@ instance Core.AWSRequest DeregisterInstance where
   type
     AWSResponse DeregisterInstance =
       DeregisterInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterInstanceResponse'
 

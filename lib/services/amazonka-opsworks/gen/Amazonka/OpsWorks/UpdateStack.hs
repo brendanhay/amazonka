@@ -666,7 +666,8 @@ updateStack_stackId = Lens.lens (\UpdateStack' {stackId} -> stackId) (\s@UpdateS
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UpdateStackResponse'
 
 instance Prelude.Hashable UpdateStack where

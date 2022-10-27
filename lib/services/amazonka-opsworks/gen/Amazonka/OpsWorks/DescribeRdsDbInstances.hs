@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeRdsDbInstances where
   type
     AWSResponse DescribeRdsDbInstances =
       DescribeRdsDbInstancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

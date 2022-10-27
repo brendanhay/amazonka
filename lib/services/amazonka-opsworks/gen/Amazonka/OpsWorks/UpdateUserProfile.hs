@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateUserProfile where
   type
     AWSResponse UpdateUserProfile =
       UpdateUserProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateUserProfileResponse'
 

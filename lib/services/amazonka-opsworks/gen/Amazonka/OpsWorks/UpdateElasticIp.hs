@@ -93,7 +93,8 @@ instance Core.AWSRequest UpdateElasticIp where
   type
     AWSResponse UpdateElasticIp =
       UpdateElasticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateElasticIpResponse'
 

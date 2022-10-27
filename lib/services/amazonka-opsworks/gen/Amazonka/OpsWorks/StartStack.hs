@@ -77,7 +77,8 @@ startStack_stackId = Lens.lens (\StartStack' {stackId} -> stackId) (\s@StartStac
 
 instance Core.AWSRequest StartStack where
   type AWSResponse StartStack = StartStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StartStackResponse'
 
 instance Prelude.Hashable StartStack where

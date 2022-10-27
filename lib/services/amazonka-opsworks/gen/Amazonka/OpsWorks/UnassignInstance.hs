@@ -82,7 +82,8 @@ instance Core.AWSRequest UnassignInstance where
   type
     AWSResponse UnassignInstance =
       UnassignInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnassignInstanceResponse'
 

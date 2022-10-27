@@ -81,7 +81,8 @@ instance Core.AWSRequest DeregisterElasticIp where
   type
     AWSResponse DeregisterElasticIp =
       DeregisterElasticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterElasticIpResponse'
 

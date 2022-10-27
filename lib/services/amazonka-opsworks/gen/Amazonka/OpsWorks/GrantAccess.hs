@@ -98,7 +98,8 @@ grantAccess_instanceId = Lens.lens (\GrantAccess' {instanceId} -> instanceId) (\
 
 instance Core.AWSRequest GrantAccess where
   type AWSResponse GrantAccess = GrantAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

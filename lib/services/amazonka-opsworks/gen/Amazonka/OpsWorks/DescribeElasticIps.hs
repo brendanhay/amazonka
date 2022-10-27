@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeElasticIps where
   type
     AWSResponse DescribeElasticIps =
       DescribeElasticIpsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

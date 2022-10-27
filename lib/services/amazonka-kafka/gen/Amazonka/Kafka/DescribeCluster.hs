@@ -78,7 +78,8 @@ instance Core.AWSRequest DescribeCluster where
   type
     AWSResponse DescribeCluster =
       DescribeClusterResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

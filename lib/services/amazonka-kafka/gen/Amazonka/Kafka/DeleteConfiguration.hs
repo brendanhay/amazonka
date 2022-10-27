@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteConfiguration where
   type
     AWSResponse DeleteConfiguration =
       DeleteConfigurationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -28,6 +28,7 @@ import Amazonka.Kafka.Types.EncryptionInfo
 import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoring
+import Amazonka.Kafka.Types.StorageMode
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,6 +41,8 @@ data MutableClusterInfo = MutableClusterInfo'
     openMonitoring :: Prelude.Maybe OpenMonitoring,
     -- | Information about the broker access configuration.
     connectivityInfo :: Prelude.Maybe ConnectivityInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | The number of broker nodes in the cluster.
@@ -77,6 +80,8 @@ data MutableClusterInfo = MutableClusterInfo'
 --
 -- 'connectivityInfo', 'mutableClusterInfo_connectivityInfo' - Information about the broker access configuration.
 --
+-- 'storageMode', 'mutableClusterInfo_storageMode' - This controls storage mode for supported storage tiers.
+--
 -- 'encryptionInfo', 'mutableClusterInfo_encryptionInfo' - Includes all encryption-related information.
 --
 -- 'numberOfBrokerNodes', 'mutableClusterInfo_numberOfBrokerNodes' - The number of broker nodes in the cluster.
@@ -105,6 +110,7 @@ newMutableClusterInfo =
     { openMonitoring =
         Prelude.Nothing,
       connectivityInfo = Prelude.Nothing,
+      storageMode = Prelude.Nothing,
       encryptionInfo = Prelude.Nothing,
       numberOfBrokerNodes = Prelude.Nothing,
       clientAuthentication = Prelude.Nothing,
@@ -123,6 +129,10 @@ mutableClusterInfo_openMonitoring = Lens.lens (\MutableClusterInfo' {openMonitor
 -- | Information about the broker access configuration.
 mutableClusterInfo_connectivityInfo :: Lens.Lens' MutableClusterInfo (Prelude.Maybe ConnectivityInfo)
 mutableClusterInfo_connectivityInfo = Lens.lens (\MutableClusterInfo' {connectivityInfo} -> connectivityInfo) (\s@MutableClusterInfo' {} a -> s {connectivityInfo = a} :: MutableClusterInfo)
+
+-- | This controls storage mode for supported storage tiers.
+mutableClusterInfo_storageMode :: Lens.Lens' MutableClusterInfo (Prelude.Maybe StorageMode)
+mutableClusterInfo_storageMode = Lens.lens (\MutableClusterInfo' {storageMode} -> storageMode) (\s@MutableClusterInfo' {} a -> s {storageMode = a} :: MutableClusterInfo)
 
 -- | Includes all encryption-related information.
 mutableClusterInfo_encryptionInfo :: Lens.Lens' MutableClusterInfo (Prelude.Maybe EncryptionInfo)
@@ -172,6 +182,7 @@ instance Core.FromJSON MutableClusterInfo where
           MutableClusterInfo'
             Prelude.<$> (x Core..:? "openMonitoring")
             Prelude.<*> (x Core..:? "connectivityInfo")
+            Prelude.<*> (x Core..:? "storageMode")
             Prelude.<*> (x Core..:? "encryptionInfo")
             Prelude.<*> (x Core..:? "numberOfBrokerNodes")
             Prelude.<*> (x Core..:? "clientAuthentication")
@@ -189,6 +200,7 @@ instance Prelude.Hashable MutableClusterInfo where
   hashWithSalt _salt MutableClusterInfo' {..} =
     _salt `Prelude.hashWithSalt` openMonitoring
       `Prelude.hashWithSalt` connectivityInfo
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` numberOfBrokerNodes
       `Prelude.hashWithSalt` clientAuthentication
@@ -203,6 +215,7 @@ instance Prelude.NFData MutableClusterInfo where
   rnf MutableClusterInfo' {..} =
     Prelude.rnf openMonitoring
       `Prelude.seq` Prelude.rnf connectivityInfo
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes
       `Prelude.seq` Prelude.rnf clientAuthentication

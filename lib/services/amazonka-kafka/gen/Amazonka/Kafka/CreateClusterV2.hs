@@ -112,7 +112,8 @@ instance Core.AWSRequest CreateClusterV2 where
   type
     AWSResponse CreateClusterV2 =
       CreateClusterV2Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -27,6 +27,7 @@ import Amazonka.Kafka.Types.EncryptionInfo
 import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoringInfo
+import Amazonka.Kafka.Types.StorageMode
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,6 +37,8 @@ import qualified Amazonka.Prelude as Prelude
 data Provisioned = Provisioned'
   { -- | The settings for open monitoring.
     openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | Includes all client authentication information.
@@ -70,6 +73,8 @@ data Provisioned = Provisioned'
 --
 -- 'openMonitoring', 'provisioned_openMonitoring' - The settings for open monitoring.
 --
+-- 'storageMode', 'provisioned_storageMode' - This controls storage mode for supported storage tiers.
+--
 -- 'encryptionInfo', 'provisioned_encryptionInfo' - Includes all encryption-related information.
 --
 -- 'clientAuthentication', 'provisioned_clientAuthentication' - Includes all client authentication information.
@@ -101,6 +106,7 @@ newProvisioned
   pNumberOfBrokerNodes_ =
     Provisioned'
       { openMonitoring = Prelude.Nothing,
+        storageMode = Prelude.Nothing,
         encryptionInfo = Prelude.Nothing,
         clientAuthentication = Prelude.Nothing,
         zookeeperConnectString = Prelude.Nothing,
@@ -115,6 +121,10 @@ newProvisioned
 -- | The settings for open monitoring.
 provisioned_openMonitoring :: Lens.Lens' Provisioned (Prelude.Maybe OpenMonitoringInfo)
 provisioned_openMonitoring = Lens.lens (\Provisioned' {openMonitoring} -> openMonitoring) (\s@Provisioned' {} a -> s {openMonitoring = a} :: Provisioned)
+
+-- | This controls storage mode for supported storage tiers.
+provisioned_storageMode :: Lens.Lens' Provisioned (Prelude.Maybe StorageMode)
+provisioned_storageMode = Lens.lens (\Provisioned' {storageMode} -> storageMode) (\s@Provisioned' {} a -> s {storageMode = a} :: Provisioned)
 
 -- | Includes all encryption-related information.
 provisioned_encryptionInfo :: Lens.Lens' Provisioned (Prelude.Maybe EncryptionInfo)
@@ -162,6 +172,7 @@ instance Core.FromJSON Provisioned where
       ( \x ->
           Provisioned'
             Prelude.<$> (x Core..:? "openMonitoring")
+            Prelude.<*> (x Core..:? "storageMode")
             Prelude.<*> (x Core..:? "encryptionInfo")
             Prelude.<*> (x Core..:? "clientAuthentication")
             Prelude.<*> (x Core..:? "zookeeperConnectString")
@@ -176,6 +187,7 @@ instance Core.FromJSON Provisioned where
 instance Prelude.Hashable Provisioned where
   hashWithSalt _salt Provisioned' {..} =
     _salt `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` zookeeperConnectString
@@ -189,6 +201,7 @@ instance Prelude.Hashable Provisioned where
 instance Prelude.NFData Provisioned where
   rnf Provisioned' {..} =
     Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf zookeeperConnectString

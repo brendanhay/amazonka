@@ -128,6 +128,7 @@ library
     Amazonka.Kafka.Types.ServerlessSasl
     Amazonka.Kafka.Types.StateInfo
     Amazonka.Kafka.Types.StorageInfo
+    Amazonka.Kafka.Types.StorageMode
     Amazonka.Kafka.Types.Tls
     Amazonka.Kafka.Types.Unauthenticated
     Amazonka.Kafka.Types.UnprocessedScramSecret
@@ -143,6 +144,7 @@ library
     Amazonka.Kafka.UpdateConnectivity
     Amazonka.Kafka.UpdateMonitoring
     Amazonka.Kafka.UpdateSecurity
+    Amazonka.Kafka.UpdateStorage
     Amazonka.Kafka.Waiters
 
   build-depends:

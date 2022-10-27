@@ -31,6 +31,7 @@ module Amazonka.Kafka.Lens
     -- ** CreateCluster
     createCluster_tags,
     createCluster_openMonitoring,
+    createCluster_storageMode,
     createCluster_encryptionInfo,
     createCluster_clientAuthentication,
     createCluster_loggingInfo,
@@ -292,6 +293,16 @@ module Amazonka.Kafka.Lens
     updateSecurityResponse_clusterOperationArn,
     updateSecurityResponse_httpStatus,
 
+    -- ** UpdateStorage
+    updateStorage_storageMode,
+    updateStorage_provisionedThroughput,
+    updateStorage_volumeSizeGB,
+    updateStorage_clusterArn,
+    updateStorage_currentVersion,
+    updateStorageResponse_clusterArn,
+    updateStorageResponse_clusterOperationArn,
+    updateStorageResponse_httpStatus,
+
     -- * Types
 
     -- ** BrokerEBSVolumeInfo
@@ -351,6 +362,7 @@ module Amazonka.Kafka.Lens
     clusterInfo_clusterArn,
     clusterInfo_tags,
     clusterInfo_openMonitoring,
+    clusterInfo_storageMode,
     clusterInfo_encryptionInfo,
     clusterInfo_stateInfo,
     clusterInfo_brokerNodeGroupInfo,
@@ -454,6 +466,7 @@ module Amazonka.Kafka.Lens
     -- ** MutableClusterInfo
     mutableClusterInfo_openMonitoring,
     mutableClusterInfo_connectivityInfo,
+    mutableClusterInfo_storageMode,
     mutableClusterInfo_encryptionInfo,
     mutableClusterInfo_numberOfBrokerNodes,
     mutableClusterInfo_clientAuthentication,
@@ -494,6 +507,7 @@ module Amazonka.Kafka.Lens
 
     -- ** Provisioned
     provisioned_openMonitoring,
+    provisioned_storageMode,
     provisioned_encryptionInfo,
     provisioned_clientAuthentication,
     provisioned_zookeeperConnectString,
@@ -506,6 +520,7 @@ module Amazonka.Kafka.Lens
 
     -- ** ProvisionedRequest
     provisionedRequest_openMonitoring,
+    provisionedRequest_storageMode,
     provisionedRequest_encryptionInfo,
     provisionedRequest_clientAuthentication,
     provisionedRequest_loggingInfo,
@@ -669,3 +684,4 @@ import Amazonka.Kafka.UpdateConfiguration
 import Amazonka.Kafka.UpdateConnectivity
 import Amazonka.Kafka.UpdateMonitoring
 import Amazonka.Kafka.UpdateSecurity
+import Amazonka.Kafka.UpdateStorage

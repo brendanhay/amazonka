@@ -128,7 +128,8 @@ instance Core.AWSPager ListNodes where
 
 instance Core.AWSRequest ListNodes where
   type AWSResponse ListNodes = ListNodesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ getKeyspace_keyspaceName = Lens.lens (\GetKeyspace' {keyspaceName} -> keyspaceNa
 
 instance Core.AWSRequest GetKeyspace where
   type AWSResponse GetKeyspace = GetKeyspaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

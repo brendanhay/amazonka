@@ -155,7 +155,8 @@ instance Core.AWSRequest DescribeEventAggregates where
   type
     AWSResponse DescribeEventAggregates =
       DescribeEventAggregatesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

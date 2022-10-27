@@ -115,7 +115,8 @@ instance Core.AWSPager ListBundles where
 
 instance Core.AWSRequest ListBundles where
   type AWSResponse ListBundles = ListBundlesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

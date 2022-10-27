@@ -79,7 +79,8 @@ instance Core.AWSRequest DescribeBundle where
   type
     AWSResponse DescribeBundle =
       DescribeBundleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

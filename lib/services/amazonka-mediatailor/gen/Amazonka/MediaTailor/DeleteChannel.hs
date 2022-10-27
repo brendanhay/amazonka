@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a channel. You must stop the channel before it can be deleted.
+-- Deletes a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DeleteChannel
   ( -- * Creating a Request
     DeleteChannel (..),
@@ -47,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteChannel' smart constructor.
 data DeleteChannel = DeleteChannel'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +62,7 @@ data DeleteChannel = DeleteChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'deleteChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'deleteChannel_channelName' - The name of the channel.
 newDeleteChannel ::
   -- | 'channelName'
   Prelude.Text ->
@@ -68,7 +70,7 @@ newDeleteChannel ::
 newDeleteChannel pChannelName_ =
   DeleteChannel' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 deleteChannel_channelName :: Lens.Lens' DeleteChannel Prelude.Text
 deleteChannel_channelName = Lens.lens (\DeleteChannel' {channelName} -> channelName) (\s@DeleteChannel' {} a -> s {channelName = a} :: DeleteChannel)
 
@@ -76,7 +78,8 @@ instance Core.AWSRequest DeleteChannel where
   type
     AWSResponse DeleteChannel =
       DeleteChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

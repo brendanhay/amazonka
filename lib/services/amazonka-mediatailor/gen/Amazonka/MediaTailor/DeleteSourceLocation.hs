@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a source location on a specific channel.
+-- Deletes a source location. A source location is a container for sources.
+-- For more information about source locations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html Working with source locations>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DeleteSourceLocation
   ( -- * Creating a Request
     DeleteSourceLocation (..),
@@ -47,7 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSourceLocation' smart constructor.
 data DeleteSourceLocation = DeleteSourceLocation'
-  { -- | The identifier for the source location you are working on.
+  { -- | The name of the source location.
     sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +63,7 @@ data DeleteSourceLocation = DeleteSourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'deleteSourceLocation_sourceLocationName' - The identifier for the source location you are working on.
+-- 'sourceLocationName', 'deleteSourceLocation_sourceLocationName' - The name of the source location.
 newDeleteSourceLocation ::
   -- | 'sourceLocationName'
   Prelude.Text ->
@@ -71,7 +74,7 @@ newDeleteSourceLocation pSourceLocationName_ =
         pSourceLocationName_
     }
 
--- | The identifier for the source location you are working on.
+-- | The name of the source location.
 deleteSourceLocation_sourceLocationName :: Lens.Lens' DeleteSourceLocation Prelude.Text
 deleteSourceLocation_sourceLocationName = Lens.lens (\DeleteSourceLocation' {sourceLocationName} -> sourceLocationName) (\s@DeleteSourceLocation' {} a -> s {sourceLocationName = a} :: DeleteSourceLocation)
 
@@ -79,7 +82,8 @@ instance Core.AWSRequest DeleteSourceLocation where
   type
     AWSResponse DeleteSourceLocation =
       DeleteSourceLocationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

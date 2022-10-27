@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a channel\'s IAM policy.
+-- The channel policy to delete.
 module Amazonka.MediaTailor.DeleteChannelPolicy
   ( -- * Creating a Request
     DeleteChannelPolicy (..),
@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteChannelPolicy' smart constructor.
 data DeleteChannelPolicy = DeleteChannelPolicy'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel associated with this channel policy.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteChannelPolicy = DeleteChannelPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'deleteChannelPolicy_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'deleteChannelPolicy_channelName' - The name of the channel associated with this channel policy.
 newDeleteChannelPolicy ::
   -- | 'channelName'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteChannelPolicy ::
 newDeleteChannelPolicy pChannelName_ =
   DeleteChannelPolicy' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel associated with this channel policy.
 deleteChannelPolicy_channelName :: Lens.Lens' DeleteChannelPolicy Prelude.Text
 deleteChannelPolicy_channelName = Lens.lens (\DeleteChannelPolicy' {channelName} -> channelName) (\s@DeleteChannelPolicy' {} a -> s {channelName = a} :: DeleteChannelPolicy)
 
@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteChannelPolicy where
   type
     AWSResponse DeleteChannelPolicy =
       DeleteChannelPolicyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

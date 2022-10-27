@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new playback configuration to AWS Elemental MediaTailor.
+-- Creates a playback configuration. For information about MediaTailor
+-- configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 module Amazonka.MediaTailor.PutPlaybackConfiguration
   ( -- * Creating a Request
     PutPlaybackConfiguration (..),
@@ -28,7 +30,6 @@ module Amazonka.MediaTailor.PutPlaybackConfiguration
 
     -- * Request Lenses
     putPlaybackConfiguration_tags,
-    putPlaybackConfiguration_name,
     putPlaybackConfiguration_configurationAliases,
     putPlaybackConfiguration_cdnConfiguration,
     putPlaybackConfiguration_bumper,
@@ -41,6 +42,7 @@ module Amazonka.MediaTailor.PutPlaybackConfiguration
     putPlaybackConfiguration_slateAdUrl,
     putPlaybackConfiguration_availSuppression,
     putPlaybackConfiguration_personalizationThresholdSeconds,
+    putPlaybackConfiguration_name,
 
     -- * Destructuring the Response
     PutPlaybackConfigurationResponse (..),
@@ -79,10 +81,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutPlaybackConfiguration' smart constructor.
 data PutPlaybackConfiguration = PutPlaybackConfiguration'
-  { -- | The tags to assign to the playback configuration.
+  { -- | The tags to assign to the playback configuration. Tags are key-value
+    -- pairs that you can associate with Amazon resources to help with
+    -- organization, access control, and cost tracking. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier for the playback configuration.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The player parameters and aliases used as dynamic variables during
     -- session initialization. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html Domain Variables>.
@@ -138,7 +142,9 @@ data PutPlaybackConfiguration = PutPlaybackConfiguration'
     -- because it relies on an underlying content stream. For more information
     -- about ad break behavior, including ad replacement and insertion, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Behavior in AWS Elemental MediaTailor>.
-    personalizationThresholdSeconds :: Prelude.Maybe Prelude.Natural
+    personalizationThresholdSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the playback configuration.
+    name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,9 +156,11 @@ data PutPlaybackConfiguration = PutPlaybackConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putPlaybackConfiguration_tags' - The tags to assign to the playback configuration.
---
--- 'name', 'putPlaybackConfiguration_name' - The identifier for the playback configuration.
+-- 'tags', 'putPlaybackConfiguration_tags' - The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'configurationAliases', 'putPlaybackConfiguration_configurationAliases' - The player parameters and aliases used as dynamic variables during
 -- session initialization. For more information, see
@@ -209,12 +217,15 @@ data PutPlaybackConfiguration = PutPlaybackConfiguration'
 -- because it relies on an underlying content stream. For more information
 -- about ad break behavior, including ad replacement and insertion, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Behavior in AWS Elemental MediaTailor>.
+--
+-- 'name', 'putPlaybackConfiguration_name' - The identifier for the playback configuration.
 newPutPlaybackConfiguration ::
+  -- | 'name'
+  Prelude.Text ->
   PutPlaybackConfiguration
-newPutPlaybackConfiguration =
+newPutPlaybackConfiguration pName_ =
   PutPlaybackConfiguration'
     { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
       configurationAliases = Prelude.Nothing,
       cdnConfiguration = Prelude.Nothing,
       bumper = Prelude.Nothing,
@@ -226,16 +237,17 @@ newPutPlaybackConfiguration =
       videoContentSourceUrl = Prelude.Nothing,
       slateAdUrl = Prelude.Nothing,
       availSuppression = Prelude.Nothing,
-      personalizationThresholdSeconds = Prelude.Nothing
+      personalizationThresholdSeconds = Prelude.Nothing,
+      name = pName_
     }
 
--- | The tags to assign to the playback configuration.
+-- | The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 putPlaybackConfiguration_tags :: Lens.Lens' PutPlaybackConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putPlaybackConfiguration_tags = Lens.lens (\PutPlaybackConfiguration' {tags} -> tags) (\s@PutPlaybackConfiguration' {} a -> s {tags = a} :: PutPlaybackConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier for the playback configuration.
-putPlaybackConfiguration_name :: Lens.Lens' PutPlaybackConfiguration (Prelude.Maybe Prelude.Text)
-putPlaybackConfiguration_name = Lens.lens (\PutPlaybackConfiguration' {name} -> name) (\s@PutPlaybackConfiguration' {} a -> s {name = a} :: PutPlaybackConfiguration)
 
 -- | The player parameters and aliases used as dynamic variables during
 -- session initialization. For more information, see
@@ -317,11 +329,16 @@ putPlaybackConfiguration_availSuppression = Lens.lens (\PutPlaybackConfiguration
 putPlaybackConfiguration_personalizationThresholdSeconds :: Lens.Lens' PutPlaybackConfiguration (Prelude.Maybe Prelude.Natural)
 putPlaybackConfiguration_personalizationThresholdSeconds = Lens.lens (\PutPlaybackConfiguration' {personalizationThresholdSeconds} -> personalizationThresholdSeconds) (\s@PutPlaybackConfiguration' {} a -> s {personalizationThresholdSeconds = a} :: PutPlaybackConfiguration)
 
+-- | The identifier for the playback configuration.
+putPlaybackConfiguration_name :: Lens.Lens' PutPlaybackConfiguration Prelude.Text
+putPlaybackConfiguration_name = Lens.lens (\PutPlaybackConfiguration' {name} -> name) (\s@PutPlaybackConfiguration' {} a -> s {name = a} :: PutPlaybackConfiguration)
+
 instance Core.AWSRequest PutPlaybackConfiguration where
   type
     AWSResponse PutPlaybackConfiguration =
       PutPlaybackConfigurationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -353,7 +370,6 @@ instance Core.AWSRequest PutPlaybackConfiguration where
 instance Prelude.Hashable PutPlaybackConfiguration where
   hashWithSalt _salt PutPlaybackConfiguration' {..} =
     _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configurationAliases
       `Prelude.hashWithSalt` cdnConfiguration
       `Prelude.hashWithSalt` bumper
@@ -366,11 +382,11 @@ instance Prelude.Hashable PutPlaybackConfiguration where
       `Prelude.hashWithSalt` slateAdUrl
       `Prelude.hashWithSalt` availSuppression
       `Prelude.hashWithSalt` personalizationThresholdSeconds
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PutPlaybackConfiguration where
   rnf PutPlaybackConfiguration' {..} =
     Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf configurationAliases
       `Prelude.seq` Prelude.rnf cdnConfiguration
       `Prelude.seq` Prelude.rnf bumper
@@ -382,8 +398,8 @@ instance Prelude.NFData PutPlaybackConfiguration where
       `Prelude.seq` Prelude.rnf videoContentSourceUrl
       `Prelude.seq` Prelude.rnf slateAdUrl
       `Prelude.seq` Prelude.rnf availSuppression
-      `Prelude.seq` Prelude.rnf
-        personalizationThresholdSeconds
+      `Prelude.seq` Prelude.rnf personalizationThresholdSeconds
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PutPlaybackConfiguration where
   toHeaders =
@@ -401,7 +417,6 @@ instance Core.ToJSON PutPlaybackConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
             ("ConfigurationAliases" Core..=)
               Prelude.<$> configurationAliases,
             ("CdnConfiguration" Core..=)
@@ -423,7 +438,8 @@ instance Core.ToJSON PutPlaybackConfiguration where
             ("AvailSuppression" Core..=)
               Prelude.<$> availSuppression,
             ("PersonalizationThresholdSeconds" Core..=)
-              Prelude.<$> personalizationThresholdSeconds
+              Prelude.<$> personalizationThresholdSeconds,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
@@ -435,7 +451,11 @@ instance Core.ToQuery PutPlaybackConfiguration where
 
 -- | /See:/ 'newPutPlaybackConfigurationResponse' smart constructor.
 data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
-  { -- | The tags assigned to the playback configuration.
+  { -- | The tags to assign to the playback configuration. Tags are key-value
+    -- pairs that you can associate with Amazon resources to help with
+    -- organization, access control, and cost tracking. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier for the playback configuration.
     name :: Prelude.Maybe Prelude.Text,
@@ -445,8 +465,8 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
     configurationAliases :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The Amazon CloudWatch log settings for a playback configuration.
     logConfiguration :: Prelude.Maybe LogConfiguration,
-    -- | The URL that the player uses to initialize a session that uses
-    -- client-side reporting.
+    -- | The session initialization endpoint prefix associated with the playback
+    -- configuration.
     sessionInitializationEndpointPrefix :: Prelude.Maybe Prelude.Text,
     -- | The configuration for using a content delivery network (CDN), like
     -- Amazon CloudFront, for content and ad segment management.
@@ -468,7 +488,7 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
     -- specification of static parameters and placeholders for dynamic
     -- parameters. AWS Elemental MediaTailor substitutes player-specific and
     -- session-specific parameters as needed when calling the ADS. Alternately,
-    -- for testing, you can provide a static VAST URL. The maximum length is
+    -- for testing you can provide a static VAST URL. The maximum length is
     -- 25,000 characters.
     adDecisionServerUrl :: Prelude.Maybe Prelude.Text,
     -- | The name that is used to associate this playback configuration with a
@@ -479,15 +499,16 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
     -- | The URL prefix for the parent manifest for the stream, minus the asset
     -- ID. The maximum length is 512 characters.
     videoContentSourceUrl :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the playback configuration.
+    -- | The Amazon Resource Name (ARN) associated with the playback
+    -- configuration.
     playbackConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration for HLS content.
     hlsConfiguration :: Prelude.Maybe HlsConfiguration,
     -- | The URL for a high-quality video asset to transcode and use to fill in
     -- time that\'s not used by ads. AWS Elemental MediaTailor shows the slate
     -- to fill in gaps in media content. Configuring the slate is optional for
-    -- non-VPAID playback configurations. For VPAID, the slate is required
-    -- because MediaTailor provides it in the slots designated for dynamic ad
+    -- non-VPAID configurations. For VPAID, the slate is required because
+    -- MediaTailor provides it in the slots that are designated for dynamic ad
     -- content. The slate must be a high-quality asset that contains both audio
     -- and video.
     slateAdUrl :: Prelude.Maybe Prelude.Text,
@@ -495,8 +516,7 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
     -- For more information about ad suppression, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Suppression>.
     availSuppression :: Prelude.Maybe AvailSuppression,
-    -- | The URL that the player accesses to get a manifest from AWS Elemental
-    -- MediaTailor. This session will use server-side reporting.
+    -- | The playback endpoint prefix associated with the playback configuration.
     playbackEndpointPrefix :: Prelude.Maybe Prelude.Text,
     -- | Defines the maximum duration of underfilled ad time (in seconds) allowed
     -- in an ad break. If the duration of underfilled ad time exceeds the
@@ -520,7 +540,11 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putPlaybackConfigurationResponse_tags' - The tags assigned to the playback configuration.
+-- 'tags', 'putPlaybackConfigurationResponse_tags' - The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'name', 'putPlaybackConfigurationResponse_name' - The identifier for the playback configuration.
 --
@@ -530,8 +554,8 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
 --
 -- 'logConfiguration', 'putPlaybackConfigurationResponse_logConfiguration' - The Amazon CloudWatch log settings for a playback configuration.
 --
--- 'sessionInitializationEndpointPrefix', 'putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix' - The URL that the player uses to initialize a session that uses
--- client-side reporting.
+-- 'sessionInitializationEndpointPrefix', 'putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix' - The session initialization endpoint prefix associated with the playback
+-- configuration.
 --
 -- 'cdnConfiguration', 'putPlaybackConfigurationResponse_cdnConfiguration' - The configuration for using a content delivery network (CDN), like
 -- Amazon CloudFront, for content and ad segment management.
@@ -553,7 +577,7 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
 -- specification of static parameters and placeholders for dynamic
 -- parameters. AWS Elemental MediaTailor substitutes player-specific and
 -- session-specific parameters as needed when calling the ADS. Alternately,
--- for testing, you can provide a static VAST URL. The maximum length is
+-- for testing you can provide a static VAST URL. The maximum length is
 -- 25,000 characters.
 --
 -- 'transcodeProfileName', 'putPlaybackConfigurationResponse_transcodeProfileName' - The name that is used to associate this playback configuration with a
@@ -564,15 +588,16 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
 -- 'videoContentSourceUrl', 'putPlaybackConfigurationResponse_videoContentSourceUrl' - The URL prefix for the parent manifest for the stream, minus the asset
 -- ID. The maximum length is 512 characters.
 --
--- 'playbackConfigurationArn', 'putPlaybackConfigurationResponse_playbackConfigurationArn' - The Amazon Resource Name (ARN) for the playback configuration.
+-- 'playbackConfigurationArn', 'putPlaybackConfigurationResponse_playbackConfigurationArn' - The Amazon Resource Name (ARN) associated with the playback
+-- configuration.
 --
 -- 'hlsConfiguration', 'putPlaybackConfigurationResponse_hlsConfiguration' - The configuration for HLS content.
 --
 -- 'slateAdUrl', 'putPlaybackConfigurationResponse_slateAdUrl' - The URL for a high-quality video asset to transcode and use to fill in
 -- time that\'s not used by ads. AWS Elemental MediaTailor shows the slate
 -- to fill in gaps in media content. Configuring the slate is optional for
--- non-VPAID playback configurations. For VPAID, the slate is required
--- because MediaTailor provides it in the slots designated for dynamic ad
+-- non-VPAID configurations. For VPAID, the slate is required because
+-- MediaTailor provides it in the slots that are designated for dynamic ad
 -- content. The slate must be a high-quality asset that contains both audio
 -- and video.
 --
@@ -580,8 +605,7 @@ data PutPlaybackConfigurationResponse = PutPlaybackConfigurationResponse'
 -- For more information about ad suppression, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Suppression>.
 --
--- 'playbackEndpointPrefix', 'putPlaybackConfigurationResponse_playbackEndpointPrefix' - The URL that the player accesses to get a manifest from AWS Elemental
--- MediaTailor. This session will use server-side reporting.
+-- 'playbackEndpointPrefix', 'putPlaybackConfigurationResponse_playbackEndpointPrefix' - The playback endpoint prefix associated with the playback configuration.
 --
 -- 'personalizationThresholdSeconds', 'putPlaybackConfigurationResponse_personalizationThresholdSeconds' - Defines the maximum duration of underfilled ad time (in seconds) allowed
 -- in an ad break. If the duration of underfilled ad time exceeds the
@@ -626,7 +650,11 @@ newPutPlaybackConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the playback configuration.
+-- | The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 putPlaybackConfigurationResponse_tags :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putPlaybackConfigurationResponse_tags = Lens.lens (\PutPlaybackConfigurationResponse' {tags} -> tags) (\s@PutPlaybackConfigurationResponse' {} a -> s {tags = a} :: PutPlaybackConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -644,8 +672,8 @@ putPlaybackConfigurationResponse_configurationAliases = Lens.lens (\PutPlaybackC
 putPlaybackConfigurationResponse_logConfiguration :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe LogConfiguration)
 putPlaybackConfigurationResponse_logConfiguration = Lens.lens (\PutPlaybackConfigurationResponse' {logConfiguration} -> logConfiguration) (\s@PutPlaybackConfigurationResponse' {} a -> s {logConfiguration = a} :: PutPlaybackConfigurationResponse)
 
--- | The URL that the player uses to initialize a session that uses
--- client-side reporting.
+-- | The session initialization endpoint prefix associated with the playback
+-- configuration.
 putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
 putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix = Lens.lens (\PutPlaybackConfigurationResponse' {sessionInitializationEndpointPrefix} -> sessionInitializationEndpointPrefix) (\s@PutPlaybackConfigurationResponse' {} a -> s {sessionInitializationEndpointPrefix = a} :: PutPlaybackConfigurationResponse)
 
@@ -679,7 +707,7 @@ putPlaybackConfigurationResponse_dashConfiguration = Lens.lens (\PutPlaybackConf
 -- specification of static parameters and placeholders for dynamic
 -- parameters. AWS Elemental MediaTailor substitutes player-specific and
 -- session-specific parameters as needed when calling the ADS. Alternately,
--- for testing, you can provide a static VAST URL. The maximum length is
+-- for testing you can provide a static VAST URL. The maximum length is
 -- 25,000 characters.
 putPlaybackConfigurationResponse_adDecisionServerUrl :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
 putPlaybackConfigurationResponse_adDecisionServerUrl = Lens.lens (\PutPlaybackConfigurationResponse' {adDecisionServerUrl} -> adDecisionServerUrl) (\s@PutPlaybackConfigurationResponse' {} a -> s {adDecisionServerUrl = a} :: PutPlaybackConfigurationResponse)
@@ -696,7 +724,8 @@ putPlaybackConfigurationResponse_transcodeProfileName = Lens.lens (\PutPlaybackC
 putPlaybackConfigurationResponse_videoContentSourceUrl :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
 putPlaybackConfigurationResponse_videoContentSourceUrl = Lens.lens (\PutPlaybackConfigurationResponse' {videoContentSourceUrl} -> videoContentSourceUrl) (\s@PutPlaybackConfigurationResponse' {} a -> s {videoContentSourceUrl = a} :: PutPlaybackConfigurationResponse)
 
--- | The Amazon Resource Name (ARN) for the playback configuration.
+-- | The Amazon Resource Name (ARN) associated with the playback
+-- configuration.
 putPlaybackConfigurationResponse_playbackConfigurationArn :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
 putPlaybackConfigurationResponse_playbackConfigurationArn = Lens.lens (\PutPlaybackConfigurationResponse' {playbackConfigurationArn} -> playbackConfigurationArn) (\s@PutPlaybackConfigurationResponse' {} a -> s {playbackConfigurationArn = a} :: PutPlaybackConfigurationResponse)
 
@@ -707,8 +736,8 @@ putPlaybackConfigurationResponse_hlsConfiguration = Lens.lens (\PutPlaybackConfi
 -- | The URL for a high-quality video asset to transcode and use to fill in
 -- time that\'s not used by ads. AWS Elemental MediaTailor shows the slate
 -- to fill in gaps in media content. Configuring the slate is optional for
--- non-VPAID playback configurations. For VPAID, the slate is required
--- because MediaTailor provides it in the slots designated for dynamic ad
+-- non-VPAID configurations. For VPAID, the slate is required because
+-- MediaTailor provides it in the slots that are designated for dynamic ad
 -- content. The slate must be a high-quality asset that contains both audio
 -- and video.
 putPlaybackConfigurationResponse_slateAdUrl :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
@@ -720,8 +749,7 @@ putPlaybackConfigurationResponse_slateAdUrl = Lens.lens (\PutPlaybackConfigurati
 putPlaybackConfigurationResponse_availSuppression :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe AvailSuppression)
 putPlaybackConfigurationResponse_availSuppression = Lens.lens (\PutPlaybackConfigurationResponse' {availSuppression} -> availSuppression) (\s@PutPlaybackConfigurationResponse' {} a -> s {availSuppression = a} :: PutPlaybackConfigurationResponse)
 
--- | The URL that the player accesses to get a manifest from AWS Elemental
--- MediaTailor. This session will use server-side reporting.
+-- | The playback endpoint prefix associated with the playback configuration.
 putPlaybackConfigurationResponse_playbackEndpointPrefix :: Lens.Lens' PutPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
 putPlaybackConfigurationResponse_playbackEndpointPrefix = Lens.lens (\PutPlaybackConfigurationResponse' {playbackEndpointPrefix} -> playbackEndpointPrefix) (\s@PutPlaybackConfigurationResponse' {} a -> s {playbackEndpointPrefix = a} :: PutPlaybackConfigurationResponse)
 

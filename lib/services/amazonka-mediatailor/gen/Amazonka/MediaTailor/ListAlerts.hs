@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of alerts for the given resource.
+-- Lists the alerts that are associated with a MediaTailor channel assembly
+-- resource.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListAlerts
@@ -53,11 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlerts' smart constructor.
 data ListAlerts = ListAlerts'
-  { -- | Pagination token from the GET list request. Use the token to fetch the
-    -- next page of results.
+  { -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return. The maximum number of
-    -- results is 100.
+    -- | The maximum number of alerts that you want MediaTailor to return in
+    -- response to the current request. If there are more than @MaxResults@
+    -- alerts, use the value of @NextToken@ in the response to get the next
+    -- page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text
@@ -72,11 +75,13 @@ data ListAlerts = ListAlerts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlerts_nextToken' - Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- 'nextToken', 'listAlerts_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
--- 'maxResults', 'listAlerts_maxResults' - Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- 'maxResults', 'listAlerts_maxResults' - The maximum number of alerts that you want MediaTailor to return in
+-- response to the current request. If there are more than @MaxResults@
+-- alerts, use the value of @NextToken@ in the response to get the next
+-- page of results.
 --
 -- 'resourceArn', 'listAlerts_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newListAlerts ::
@@ -90,13 +95,15 @@ newListAlerts pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listAlerts_nextToken :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
 listAlerts_nextToken = Lens.lens (\ListAlerts' {nextToken} -> nextToken) (\s@ListAlerts' {} a -> s {nextToken = a} :: ListAlerts)
 
--- | Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- | The maximum number of alerts that you want MediaTailor to return in
+-- response to the current request. If there are more than @MaxResults@
+-- alerts, use the value of @NextToken@ in the response to get the next
+-- page of results.
 listAlerts_maxResults :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Natural)
 listAlerts_maxResults = Lens.lens (\ListAlerts' {maxResults} -> maxResults) (\s@ListAlerts' {} a -> s {maxResults = a} :: ListAlerts)
 
@@ -125,7 +132,8 @@ instance Core.AWSPager ListAlerts where
 
 instance Core.AWSRequest ListAlerts where
   type AWSResponse ListAlerts = ListAlertsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,8 +181,8 @@ instance Core.ToQuery ListAlerts where
 data ListAlertsResponse = ListAlertsResponse'
   { -- | A list of alerts that are associated with this resource.
     items :: Prelude.Maybe [Alert],
-    -- | Pagination token from the list request. Use the token to fetch the next
-    -- page of results.
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -191,8 +199,8 @@ data ListAlertsResponse = ListAlertsResponse'
 --
 -- 'items', 'listAlertsResponse_items' - A list of alerts that are associated with this resource.
 --
--- 'nextToken', 'listAlertsResponse_nextToken' - Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- 'nextToken', 'listAlertsResponse_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'httpStatus', 'listAlertsResponse_httpStatus' - The response's http status code.
 newListAlertsResponse ::
@@ -210,8 +218,8 @@ newListAlertsResponse pHttpStatus_ =
 listAlertsResponse_items :: Lens.Lens' ListAlertsResponse (Prelude.Maybe [Alert])
 listAlertsResponse_items = Lens.lens (\ListAlertsResponse' {items} -> items) (\s@ListAlertsResponse' {} a -> s {items = a} :: ListAlertsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listAlertsResponse_nextToken :: Lens.Lens' ListAlertsResponse (Prelude.Maybe Prelude.Text)
 listAlertsResponse_nextToken = Lens.lens (\ListAlertsResponse' {nextToken} -> nextToken) (\s@ListAlertsResponse' {} a -> s {nextToken = a} :: ListAlertsResponse)
 

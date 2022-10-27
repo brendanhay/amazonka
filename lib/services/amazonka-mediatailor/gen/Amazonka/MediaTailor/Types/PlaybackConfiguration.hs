@@ -31,13 +31,17 @@ import Amazonka.MediaTailor.Types.LogConfiguration
 import Amazonka.MediaTailor.Types.ManifestProcessingRules
 import qualified Amazonka.Prelude as Prelude
 
--- | Creates a playback configuration. For information about MediaTailor
+-- | A playback configuration. For information about MediaTailor
 -- configurations, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 --
 -- /See:/ 'newPlaybackConfiguration' smart constructor.
 data PlaybackConfiguration = PlaybackConfiguration'
-  { -- | The tags to assign to the playback configuration.
+  { -- | The tags to assign to the playback configuration. Tags are key-value
+    -- pairs that you can associate with Amazon resources to help with
+    -- organization, access control, and cost tracking. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier for the playback configuration.
     name :: Prelude.Maybe Prelude.Text,
@@ -120,7 +124,11 @@ data PlaybackConfiguration = PlaybackConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'playbackConfiguration_tags' - The tags to assign to the playback configuration.
+-- 'tags', 'playbackConfiguration_tags' - The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'name', 'playbackConfiguration_name' - The identifier for the playback configuration.
 --
@@ -217,7 +225,11 @@ newPlaybackConfiguration =
       personalizationThresholdSeconds = Prelude.Nothing
     }
 
--- | The tags to assign to the playback configuration.
+-- | The tags to assign to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 playbackConfiguration_tags :: Lens.Lens' PlaybackConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 playbackConfiguration_tags = Lens.lens (\PlaybackConfiguration' {tags} -> tags) (\s@PlaybackConfiguration' {} a -> s {tags = a} :: PlaybackConfiguration) Prelude.. Lens.mapping Lens.coerced
 

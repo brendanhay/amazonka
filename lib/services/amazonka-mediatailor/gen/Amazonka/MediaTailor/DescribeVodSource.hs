@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides details about a specific VOD source in a specific source
--- location.
+-- Provides details about a specific video on demand (VOD) source in a
+-- specific source location.
 module Amazonka.MediaTailor.DescribeVodSource
   ( -- * Creating a Request
     DescribeVodSource (..),
@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVodSource' smart constructor.
 data DescribeVodSource = DescribeVodSource'
-  { -- | The identifier for the source location you are working on.
+  { -- | The name of the source location associated with this VOD Source.
     sourceLocationName :: Prelude.Text,
-    -- | The identifier for the VOD source you are working on.
+    -- | The name of the VOD Source.
     vodSourceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,9 +71,9 @@ data DescribeVodSource = DescribeVodSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'describeVodSource_sourceLocationName' - The identifier for the source location you are working on.
+-- 'sourceLocationName', 'describeVodSource_sourceLocationName' - The name of the source location associated with this VOD Source.
 --
--- 'vodSourceName', 'describeVodSource_vodSourceName' - The identifier for the VOD source you are working on.
+-- 'vodSourceName', 'describeVodSource_vodSourceName' - The name of the VOD Source.
 newDescribeVodSource ::
   -- | 'sourceLocationName'
   Prelude.Text ->
@@ -89,11 +89,11 @@ newDescribeVodSource
         vodSourceName = pVodSourceName_
       }
 
--- | The identifier for the source location you are working on.
+-- | The name of the source location associated with this VOD Source.
 describeVodSource_sourceLocationName :: Lens.Lens' DescribeVodSource Prelude.Text
 describeVodSource_sourceLocationName = Lens.lens (\DescribeVodSource' {sourceLocationName} -> sourceLocationName) (\s@DescribeVodSource' {} a -> s {sourceLocationName = a} :: DescribeVodSource)
 
--- | The identifier for the VOD source you are working on.
+-- | The name of the VOD Source.
 describeVodSource_vodSourceName :: Lens.Lens' DescribeVodSource Prelude.Text
 describeVodSource_vodSourceName = Lens.lens (\DescribeVodSource' {vodSourceName} -> vodSourceName) (\s@DescribeVodSource' {} a -> s {vodSourceName = a} :: DescribeVodSource)
 
@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeVodSource where
   type
     AWSResponse DescribeVodSource =
       DescribeVodSourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,7 +154,10 @@ instance Core.ToQuery DescribeVodSource where
 
 -- | /See:/ 'newDescribeVodSourceResponse' smart constructor.
 data DescribeVodSourceResponse = DescribeVodSourceResponse'
-  { -- | The tags assigned to the VOD source.
+  { -- | The tags assigned to the VOD source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the VOD source.
     vodSourceName :: Prelude.Maybe Prelude.Text,
@@ -180,7 +184,10 @@ data DescribeVodSourceResponse = DescribeVodSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeVodSourceResponse_tags' - The tags assigned to the VOD source.
+-- 'tags', 'describeVodSourceResponse_tags' - The tags assigned to the VOD source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'vodSourceName', 'describeVodSourceResponse_vodSourceName' - The name of the VOD source.
 --
@@ -211,7 +218,10 @@ newDescribeVodSourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the VOD source.
+-- | The tags assigned to the VOD source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 describeVodSourceResponse_tags :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeVodSourceResponse_tags = Lens.lens (\DescribeVodSourceResponse' {tags} -> tags) (\s@DescribeVodSourceResponse' {} a -> s {tags = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
 

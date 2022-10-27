@@ -32,10 +32,10 @@ data AccessConfiguration = AccessConfiguration'
   { -- | AWS Secrets Manager access token configuration parameters.
     secretsManagerAccessTokenConfiguration :: Prelude.Maybe SecretsManagerAccessTokenConfiguration,
     -- | The type of authentication used to access content from
-    -- HttpConfiguration::BaseUrl on your source location. Accepted value:
-    -- S3_SIGV4.
+    -- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
+    -- @S3_SIGV4@.
     --
-    -- S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted
+    -- @S3_SIGV4@ - AWS Signature Version 4 authentication for Amazon S3 hosted
     -- virtual-style access. If your source location base URL is an Amazon S3
     -- bucket, MediaTailor can use AWS Signature Version 4 (SigV4)
     -- authentication to access the bucket where your source content is stored.
@@ -43,7 +43,7 @@ data AccessConfiguration = AccessConfiguration'
     -- hosted-style request URL format. For example,
     -- https:\/\/bucket-name.s3.Region.amazonaws.com\/key-name.
     --
-    -- Before you can use S3_SIGV4, you must meet these requirements:
+    -- Before you can use @S3_SIGV4@, you must meet these requirements:
     --
     -- • You must allow MediaTailor to access your S3 bucket by granting
     -- mediatailor.amazonaws.com principal access in IAM. For information about
@@ -71,10 +71,10 @@ data AccessConfiguration = AccessConfiguration'
 -- 'secretsManagerAccessTokenConfiguration', 'accessConfiguration_secretsManagerAccessTokenConfiguration' - AWS Secrets Manager access token configuration parameters.
 --
 -- 'accessType', 'accessConfiguration_accessType' - The type of authentication used to access content from
--- HttpConfiguration::BaseUrl on your source location. Accepted value:
--- S3_SIGV4.
+-- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
+-- @S3_SIGV4@.
 --
--- S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted
+-- @S3_SIGV4@ - AWS Signature Version 4 authentication for Amazon S3 hosted
 -- virtual-style access. If your source location base URL is an Amazon S3
 -- bucket, MediaTailor can use AWS Signature Version 4 (SigV4)
 -- authentication to access the bucket where your source content is stored.
@@ -82,7 +82,7 @@ data AccessConfiguration = AccessConfiguration'
 -- hosted-style request URL format. For example,
 -- https:\/\/bucket-name.s3.Region.amazonaws.com\/key-name.
 --
--- Before you can use S3_SIGV4, you must meet these requirements:
+-- Before you can use @S3_SIGV4@, you must meet these requirements:
 --
 -- • You must allow MediaTailor to access your S3 bucket by granting
 -- mediatailor.amazonaws.com principal access in IAM. For information about
@@ -109,10 +109,10 @@ accessConfiguration_secretsManagerAccessTokenConfiguration :: Lens.Lens' AccessC
 accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessConfiguration' {secretsManagerAccessTokenConfiguration} -> secretsManagerAccessTokenConfiguration) (\s@AccessConfiguration' {} a -> s {secretsManagerAccessTokenConfiguration = a} :: AccessConfiguration)
 
 -- | The type of authentication used to access content from
--- HttpConfiguration::BaseUrl on your source location. Accepted value:
--- S3_SIGV4.
+-- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
+-- @S3_SIGV4@.
 --
--- S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted
+-- @S3_SIGV4@ - AWS Signature Version 4 authentication for Amazon S3 hosted
 -- virtual-style access. If your source location base URL is an Amazon S3
 -- bucket, MediaTailor can use AWS Signature Version 4 (SigV4)
 -- authentication to access the bucket where your source content is stored.
@@ -120,7 +120,7 @@ accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessC
 -- hosted-style request URL format. For example,
 -- https:\/\/bucket-name.s3.Region.amazonaws.com\/key-name.
 --
--- Before you can use S3_SIGV4, you must meet these requirements:
+-- Before you can use @S3_SIGV4@, you must meet these requirements:
 --
 -- • You must allow MediaTailor to access your S3 bucket by granting
 -- mediatailor.amazonaws.com principal access in IAM. For information about

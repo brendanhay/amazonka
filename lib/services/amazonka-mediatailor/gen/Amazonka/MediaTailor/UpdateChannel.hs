@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing channel.
+-- Updates a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.UpdateChannel
   ( -- * Creating a Request
     UpdateChannel (..),
@@ -60,11 +62,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
   { -- | The slate used to fill gaps between programs in the schedule. You must
-    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
-    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
-    -- PlaybackMode.
+    -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+    -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+    -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
-    -- | The identifier for the channel you are working on.
+    -- | The name of the channel.
     channelName :: Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: [RequestOutputItem]
@@ -80,11 +82,11 @@ data UpdateChannel = UpdateChannel'
 -- for backwards compatibility:
 --
 -- 'fillerSlate', 'updateChannel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 --
--- 'channelName', 'updateChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'updateChannel_channelName' - The name of the channel.
 --
 -- 'outputs', 'updateChannel_outputs' - The channel\'s output properties.
 newUpdateChannel ::
@@ -99,13 +101,13 @@ newUpdateChannel pChannelName_ =
     }
 
 -- | The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 updateChannel_fillerSlate :: Lens.Lens' UpdateChannel (Prelude.Maybe SlateSource)
 updateChannel_fillerSlate = Lens.lens (\UpdateChannel' {fillerSlate} -> fillerSlate) (\s@UpdateChannel' {} a -> s {fillerSlate = a} :: UpdateChannel)
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 updateChannel_channelName :: Lens.Lens' UpdateChannel Prelude.Text
 updateChannel_channelName = Lens.lens (\UpdateChannel' {channelName} -> channelName) (\s@UpdateChannel' {} a -> s {channelName = a} :: UpdateChannel)
 
@@ -117,7 +119,8 @@ instance Core.AWSRequest UpdateChannel where
   type
     AWSResponse UpdateChannel =
       UpdateChannelResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,26 +180,37 @@ instance Core.ToQuery UpdateChannel where
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { -- | The tags assigned to the channel.
+  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel.
     channelName :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the slate used to fill gaps between programs
-    -- in the schedule.
+    -- | The slate used to fill gaps between programs in the schedule. You must
+    -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+    -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+    -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
-    -- | The ARN of the channel.
+    -- | The Amazon Resource Name (ARN) associated with the channel.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the channel was last modified.
+    -- | The timestamp that indicates when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The channel\'s tier.
+    -- | The tier associated with this Channel.
     tier :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The channel\'s playback mode.
+    -- | The type of playback mode for this channel.
+    --
+    -- @LINEAR@ - Programs play back-to-back only once.
+    --
+    -- @LOOP@ - Programs play back-to-back in an endless loop. When the last
+    -- program in the schedule plays, playback loops back to the first program
+    -- in the schedule.
     playbackMode :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the channel is in a running state or not.
+    -- | Returns the state whether the channel is running or not.
     channelState :: Prelude.Maybe ChannelState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -211,26 +225,37 @@ data UpdateChannelResponse = UpdateChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateChannelResponse_tags' - The tags assigned to the channel.
+-- 'tags', 'updateChannelResponse_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'channelName', 'updateChannelResponse_channelName' - The name of the channel.
 --
--- 'fillerSlate', 'updateChannelResponse_fillerSlate' - Contains information about the slate used to fill gaps between programs
--- in the schedule.
+-- 'fillerSlate', 'updateChannelResponse_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 --
--- 'arn', 'updateChannelResponse_arn' - The ARN of the channel.
+-- 'arn', 'updateChannelResponse_arn' - The Amazon Resource Name (ARN) associated with the channel.
 --
--- 'lastModifiedTime', 'updateChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
+-- 'lastModifiedTime', 'updateChannelResponse_lastModifiedTime' - The timestamp that indicates when the channel was last modified.
 --
--- 'tier', 'updateChannelResponse_tier' - The channel\'s tier.
+-- 'tier', 'updateChannelResponse_tier' - The tier associated with this Channel.
 --
 -- 'outputs', 'updateChannelResponse_outputs' - The channel\'s output properties.
 --
 -- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
 --
--- 'playbackMode', 'updateChannelResponse_playbackMode' - The channel\'s playback mode.
+-- 'playbackMode', 'updateChannelResponse_playbackMode' - The type of playback mode for this channel.
 --
--- 'channelState', 'updateChannelResponse_channelState' - Indicates whether the channel is in a running state or not.
+-- @LINEAR@ - Programs play back-to-back only once.
+--
+-- @LOOP@ - Programs play back-to-back in an endless loop. When the last
+-- program in the schedule plays, playback loops back to the first program
+-- in the schedule.
+--
+-- 'channelState', 'updateChannelResponse_channelState' - Returns the state whether the channel is running or not.
 --
 -- 'httpStatus', 'updateChannelResponse_httpStatus' - The response's http status code.
 newUpdateChannelResponse ::
@@ -252,7 +277,10 @@ newUpdateChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the channel.
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 updateChannelResponse_tags :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) (\s@UpdateChannelResponse' {} a -> s {tags = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -260,20 +288,22 @@ updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) 
 updateChannelResponse_channelName :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_channelName = Lens.lens (\UpdateChannelResponse' {channelName} -> channelName) (\s@UpdateChannelResponse' {} a -> s {channelName = a} :: UpdateChannelResponse)
 
--- | Contains information about the slate used to fill gaps between programs
--- in the schedule.
+-- | The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 updateChannelResponse_fillerSlate :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe SlateSource)
 updateChannelResponse_fillerSlate = Lens.lens (\UpdateChannelResponse' {fillerSlate} -> fillerSlate) (\s@UpdateChannelResponse' {} a -> s {fillerSlate = a} :: UpdateChannelResponse)
 
--- | The ARN of the channel.
+-- | The Amazon Resource Name (ARN) associated with the channel.
 updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s@UpdateChannelResponse' {} a -> s {arn = a} :: UpdateChannelResponse)
 
--- | The timestamp of when the channel was last modified.
+-- | The timestamp that indicates when the channel was last modified.
 updateChannelResponse_lastModifiedTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 updateChannelResponse_lastModifiedTime = Lens.lens (\UpdateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateChannelResponse' {} a -> s {lastModifiedTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The channel\'s tier.
+-- | The tier associated with this Channel.
 updateChannelResponse_tier :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_tier = Lens.lens (\UpdateChannelResponse' {tier} -> tier) (\s@UpdateChannelResponse' {} a -> s {tier = a} :: UpdateChannelResponse)
 
@@ -285,11 +315,17 @@ updateChannelResponse_outputs = Lens.lens (\UpdateChannelResponse' {outputs} -> 
 updateChannelResponse_creationTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creationTime} -> creationTime) (\s@UpdateChannelResponse' {} a -> s {creationTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The channel\'s playback mode.
+-- | The type of playback mode for this channel.
+--
+-- @LINEAR@ - Programs play back-to-back only once.
+--
+-- @LOOP@ - Programs play back-to-back in an endless loop. When the last
+-- program in the schedule plays, playback loops back to the first program
+-- in the schedule.
 updateChannelResponse_playbackMode :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_playbackMode = Lens.lens (\UpdateChannelResponse' {playbackMode} -> playbackMode) (\s@UpdateChannelResponse' {} a -> s {playbackMode = a} :: UpdateChannelResponse)
 
--- | Indicates whether the channel is in a running state or not.
+-- | Returns the state whether the channel is running or not.
 updateChannelResponse_channelState :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe ChannelState)
 updateChannelResponse_channelState = Lens.lens (\UpdateChannelResponse' {channelState} -> channelState) (\s@UpdateChannelResponse' {} a -> s {channelState = a} :: UpdateChannelResponse)
 

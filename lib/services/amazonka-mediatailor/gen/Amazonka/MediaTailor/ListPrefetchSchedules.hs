@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new prefetch schedule.
+-- Lists the prefetch schedules for a playback configuration.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListPrefetchSchedules
@@ -54,28 +54,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPrefetchSchedules' smart constructor.
 data ListPrefetchSchedules = ListPrefetchSchedules'
-  { -- | (Optional) If the playback configuration has more than MaxResults
-    -- prefetch schedules, use NextToken to get the second and subsequent pages
-    -- of results.
+  { -- | (Optional) If the playback configuration has more than @MaxResults@
+    -- prefetch schedules, use @NextToken@ to get the second and subsequent
+    -- pages of results.
     --
-    -- For the first ListPrefetchSchedulesRequest request, omit this value.
+    -- For the first @ListPrefetchSchedulesRequest@ request, omit this value.
     --
-    -- For the second and subsequent requests, get the value of NextToken from
-    -- the previous response and specify that value for NextToken in the
+    -- For the second and subsequent requests, get the value of @NextToken@
+    -- from the previous response and specify that value for @NextToken@ in the
     -- request.
     --
-    -- If the previous response didn\'t include a NextToken element, there are
-    -- no more prefetch schedules to get.
+    -- If the previous response didn\'t include a @NextToken@ element, there
+    -- are no more prefetch schedules to get.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional filtering parameter whereby MediaTailor filters the prefetch
     -- schedules to include only specific streams.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of prefetch schedules that you want MediaTailor to
-    -- return in response to the current request. If the playback configuration
-    -- has more than MaxResults prefetch schedules, use the value of NextToken
-    -- in the response to get the next page of results.
+    -- return in response to the current request. If there are more than
+    -- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+    -- response to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the playback configuration.
+    -- | Retrieves the prefetch schedule(s) for a specific playback
+    -- configuration.
     playbackConfigurationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,28 +89,29 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPrefetchSchedules_nextToken' - (Optional) If the playback configuration has more than MaxResults
--- prefetch schedules, use NextToken to get the second and subsequent pages
--- of results.
+-- 'nextToken', 'listPrefetchSchedules_nextToken' - (Optional) If the playback configuration has more than @MaxResults@
+-- prefetch schedules, use @NextToken@ to get the second and subsequent
+-- pages of results.
 --
--- For the first ListPrefetchSchedulesRequest request, omit this value.
+-- For the first @ListPrefetchSchedulesRequest@ request, omit this value.
 --
--- For the second and subsequent requests, get the value of NextToken from
--- the previous response and specify that value for NextToken in the
+-- For the second and subsequent requests, get the value of @NextToken@
+-- from the previous response and specify that value for @NextToken@ in the
 -- request.
 --
--- If the previous response didn\'t include a NextToken element, there are
--- no more prefetch schedules to get.
+-- If the previous response didn\'t include a @NextToken@ element, there
+-- are no more prefetch schedules to get.
 --
 -- 'streamId', 'listPrefetchSchedules_streamId' - An optional filtering parameter whereby MediaTailor filters the prefetch
 -- schedules to include only specific streams.
 --
 -- 'maxResults', 'listPrefetchSchedules_maxResults' - The maximum number of prefetch schedules that you want MediaTailor to
--- return in response to the current request. If the playback configuration
--- has more than MaxResults prefetch schedules, use the value of NextToken
--- in the response to get the next page of results.
+-- return in response to the current request. If there are more than
+-- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+-- response to get the next page of results.
 --
--- 'playbackConfigurationName', 'listPrefetchSchedules_playbackConfigurationName' - The name of the playback configuration.
+-- 'playbackConfigurationName', 'listPrefetchSchedules_playbackConfigurationName' - Retrieves the prefetch schedule(s) for a specific playback
+-- configuration.
 newListPrefetchSchedules ::
   -- | 'playbackConfigurationName'
   Prelude.Text ->
@@ -123,18 +125,18 @@ newListPrefetchSchedules pPlaybackConfigurationName_ =
         pPlaybackConfigurationName_
     }
 
--- | (Optional) If the playback configuration has more than MaxResults
--- prefetch schedules, use NextToken to get the second and subsequent pages
--- of results.
+-- | (Optional) If the playback configuration has more than @MaxResults@
+-- prefetch schedules, use @NextToken@ to get the second and subsequent
+-- pages of results.
 --
--- For the first ListPrefetchSchedulesRequest request, omit this value.
+-- For the first @ListPrefetchSchedulesRequest@ request, omit this value.
 --
--- For the second and subsequent requests, get the value of NextToken from
--- the previous response and specify that value for NextToken in the
+-- For the second and subsequent requests, get the value of @NextToken@
+-- from the previous response and specify that value for @NextToken@ in the
 -- request.
 --
--- If the previous response didn\'t include a NextToken element, there are
--- no more prefetch schedules to get.
+-- If the previous response didn\'t include a @NextToken@ element, there
+-- are no more prefetch schedules to get.
 listPrefetchSchedules_nextToken :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Text)
 listPrefetchSchedules_nextToken = Lens.lens (\ListPrefetchSchedules' {nextToken} -> nextToken) (\s@ListPrefetchSchedules' {} a -> s {nextToken = a} :: ListPrefetchSchedules)
 
@@ -144,13 +146,14 @@ listPrefetchSchedules_streamId :: Lens.Lens' ListPrefetchSchedules (Prelude.Mayb
 listPrefetchSchedules_streamId = Lens.lens (\ListPrefetchSchedules' {streamId} -> streamId) (\s@ListPrefetchSchedules' {} a -> s {streamId = a} :: ListPrefetchSchedules)
 
 -- | The maximum number of prefetch schedules that you want MediaTailor to
--- return in response to the current request. If the playback configuration
--- has more than MaxResults prefetch schedules, use the value of NextToken
--- in the response to get the next page of results.
+-- return in response to the current request. If there are more than
+-- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+-- response to get the next page of results.
 listPrefetchSchedules_maxResults :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Natural)
 listPrefetchSchedules_maxResults = Lens.lens (\ListPrefetchSchedules' {maxResults} -> maxResults) (\s@ListPrefetchSchedules' {} a -> s {maxResults = a} :: ListPrefetchSchedules)
 
--- | The name of the playback configuration.
+-- | Retrieves the prefetch schedule(s) for a specific playback
+-- configuration.
 listPrefetchSchedules_playbackConfigurationName :: Lens.Lens' ListPrefetchSchedules Prelude.Text
 listPrefetchSchedules_playbackConfigurationName = Lens.lens (\ListPrefetchSchedules' {playbackConfigurationName} -> playbackConfigurationName) (\s@ListPrefetchSchedules' {} a -> s {playbackConfigurationName = a} :: ListPrefetchSchedules)
 
@@ -180,7 +183,8 @@ instance Core.AWSRequest ListPrefetchSchedules where
   type
     AWSResponse ListPrefetchSchedules =
       ListPrefetchSchedulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -237,11 +241,11 @@ instance Core.ToQuery ListPrefetchSchedules where
 
 -- | /See:/ 'newListPrefetchSchedulesResponse' smart constructor.
 data ListPrefetchSchedulesResponse = ListPrefetchSchedulesResponse'
-  { -- | Lists the prefetch schedules. An empty Items list doesn\'t mean there
+  { -- | Lists the prefetch schedules. An empty @Items@ list doesn\'t mean there
     -- aren\'t more items to fetch, just that that page was empty.
     items :: Prelude.Maybe [PrefetchSchedule],
-    -- | The value that you will use forNextToken in the next
-    -- ListPrefetchSchedulesRequest request.
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -256,11 +260,11 @@ data ListPrefetchSchedulesResponse = ListPrefetchSchedulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'listPrefetchSchedulesResponse_items' - Lists the prefetch schedules. An empty Items list doesn\'t mean there
+-- 'items', 'listPrefetchSchedulesResponse_items' - Lists the prefetch schedules. An empty @Items@ list doesn\'t mean there
 -- aren\'t more items to fetch, just that that page was empty.
 --
--- 'nextToken', 'listPrefetchSchedulesResponse_nextToken' - The value that you will use forNextToken in the next
--- ListPrefetchSchedulesRequest request.
+-- 'nextToken', 'listPrefetchSchedulesResponse_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'httpStatus', 'listPrefetchSchedulesResponse_httpStatus' - The response's http status code.
 newListPrefetchSchedulesResponse ::
@@ -275,13 +279,13 @@ newListPrefetchSchedulesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Lists the prefetch schedules. An empty Items list doesn\'t mean there
+-- | Lists the prefetch schedules. An empty @Items@ list doesn\'t mean there
 -- aren\'t more items to fetch, just that that page was empty.
 listPrefetchSchedulesResponse_items :: Lens.Lens' ListPrefetchSchedulesResponse (Prelude.Maybe [PrefetchSchedule])
 listPrefetchSchedulesResponse_items = Lens.lens (\ListPrefetchSchedulesResponse' {items} -> items) (\s@ListPrefetchSchedulesResponse' {} a -> s {items = a} :: ListPrefetchSchedulesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The value that you will use forNextToken in the next
--- ListPrefetchSchedulesRequest request.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listPrefetchSchedulesResponse_nextToken :: Lens.Lens' ListPrefetchSchedulesResponse (Prelude.Maybe Prelude.Text)
 listPrefetchSchedulesResponse_nextToken = Lens.lens (\ListPrefetchSchedulesResponse' {nextToken} -> nextToken) (\s@ListPrefetchSchedulesResponse' {} a -> s {nextToken = a} :: ListPrefetchSchedulesResponse)
 

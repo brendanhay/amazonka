@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsPlaylistSettings' smart constructor.
 data HlsPlaylistSettings = HlsPlaylistSettings'
-  { -- | The total duration (in seconds) of each manifest. Minimum value: 30
-    -- seconds. Maximum value: 3600 seconds.
+  { -- | The total duration (in seconds) of each manifest. Minimum value: @30@
+    -- seconds. Maximum value: @3600@ seconds.
     manifestWindowSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,8 +41,8 @@ data HlsPlaylistSettings = HlsPlaylistSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manifestWindowSeconds', 'hlsPlaylistSettings_manifestWindowSeconds' - The total duration (in seconds) of each manifest. Minimum value: 30
--- seconds. Maximum value: 3600 seconds.
+-- 'manifestWindowSeconds', 'hlsPlaylistSettings_manifestWindowSeconds' - The total duration (in seconds) of each manifest. Minimum value: @30@
+-- seconds. Maximum value: @3600@ seconds.
 newHlsPlaylistSettings ::
   HlsPlaylistSettings
 newHlsPlaylistSettings =
@@ -51,8 +51,8 @@ newHlsPlaylistSettings =
         Prelude.Nothing
     }
 
--- | The total duration (in seconds) of each manifest. Minimum value: 30
--- seconds. Maximum value: 3600 seconds.
+-- | The total duration (in seconds) of each manifest. Minimum value: @30@
+-- seconds. Maximum value: @3600@ seconds.
 hlsPlaylistSettings_manifestWindowSeconds :: Lens.Lens' HlsPlaylistSettings (Prelude.Maybe Prelude.Int)
 hlsPlaylistSettings_manifestWindowSeconds = Lens.lens (\HlsPlaylistSettings' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@HlsPlaylistSettings' {} a -> s {manifestWindowSeconds = a} :: HlsPlaylistSettings)
 

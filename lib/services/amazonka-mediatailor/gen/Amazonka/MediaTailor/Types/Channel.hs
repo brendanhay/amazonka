@@ -25,40 +25,46 @@ import Amazonka.MediaTailor.Types.ResponseOutputItem
 import Amazonka.MediaTailor.Types.SlateSource
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration parameters for a channel.
+-- | The configuration parameters for a channel. For information about
+-- MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | The tags to assign to the channel.
+  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The slate used to fill gaps between programs in the schedule. You must
-    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
-    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
-    -- PlaybackMode.
+    -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+    -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+    -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp of when the channel was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | Returns the state whether the channel is running or not.
-    channelState :: Prelude.Text,
-    -- | The name of the channel.
-    channelName :: Prelude.Text,
-    -- | The tier for this channel. STANDARD tier channels can contain live
-    -- programs.
-    tier :: Prelude.Text,
-    -- | The channel\'s output properties.
-    outputs :: [ResponseOutputItem],
     -- | The ARN of the channel.
     arn :: Prelude.Text,
+    -- | The name of the channel.
+    channelName :: Prelude.Text,
+    -- | Returns the state whether the channel is running or not.
+    channelState :: Prelude.Text,
+    -- | The channel\'s output properties.
+    outputs :: [ResponseOutputItem],
     -- | The type of playback mode for this channel.
     --
-    -- LINEAR - Programs play back-to-back only once.
+    -- @LINEAR@ - Programs play back-to-back only once.
     --
-    -- LOOP - Programs play back-to-back in an endless loop. When the last
+    -- @LOOP@ - Programs play back-to-back in an endless loop. When the last
     -- program in the schedule plays, playback loops back to the first program
     -- in the schedule.
-    playbackMode :: Prelude.Text
+    playbackMode :: Prelude.Text,
+    -- | The tier for this channel. STANDARD tier channels can contain live
+    -- programs.
+    tier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,74 +76,80 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'channel_tags' - The tags to assign to the channel.
+-- 'tags', 'channel_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'fillerSlate', 'channel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 --
 -- 'lastModifiedTime', 'channel_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
 -- 'creationTime', 'channel_creationTime' - The timestamp of when the channel was created.
 --
--- 'channelState', 'channel_channelState' - Returns the state whether the channel is running or not.
+-- 'arn', 'channel_arn' - The ARN of the channel.
 --
 -- 'channelName', 'channel_channelName' - The name of the channel.
 --
--- 'tier', 'channel_tier' - The tier for this channel. STANDARD tier channels can contain live
--- programs.
+-- 'channelState', 'channel_channelState' - Returns the state whether the channel is running or not.
 --
 -- 'outputs', 'channel_outputs' - The channel\'s output properties.
 --
--- 'arn', 'channel_arn' - The ARN of the channel.
---
 -- 'playbackMode', 'channel_playbackMode' - The type of playback mode for this channel.
 --
--- LINEAR - Programs play back-to-back only once.
+-- @LINEAR@ - Programs play back-to-back only once.
 --
--- LOOP - Programs play back-to-back in an endless loop. When the last
+-- @LOOP@ - Programs play back-to-back in an endless loop. When the last
 -- program in the schedule plays, playback loops back to the first program
 -- in the schedule.
+--
+-- 'tier', 'channel_tier' - The tier for this channel. STANDARD tier channels can contain live
+-- programs.
 newChannel ::
-  -- | 'channelState'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'channelName'
   Prelude.Text ->
-  -- | 'tier'
-  Prelude.Text ->
-  -- | 'arn'
+  -- | 'channelState'
   Prelude.Text ->
   -- | 'playbackMode'
   Prelude.Text ->
+  -- | 'tier'
+  Prelude.Text ->
   Channel
 newChannel
-  pChannelState_
-  pChannelName_
-  pTier_
   pArn_
-  pPlaybackMode_ =
+  pChannelName_
+  pChannelState_
+  pPlaybackMode_
+  pTier_ =
     Channel'
       { tags = Prelude.Nothing,
         fillerSlate = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         creationTime = Prelude.Nothing,
-        channelState = pChannelState_,
-        channelName = pChannelName_,
-        tier = pTier_,
-        outputs = Prelude.mempty,
         arn = pArn_,
-        playbackMode = pPlaybackMode_
+        channelName = pChannelName_,
+        channelState = pChannelState_,
+        outputs = Prelude.mempty,
+        playbackMode = pPlaybackMode_,
+        tier = pTier_
       }
 
--- | The tags to assign to the channel.
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 channel_fillerSlate :: Lens.Lens' Channel (Prelude.Maybe SlateSource)
 channel_fillerSlate = Lens.lens (\Channel' {fillerSlate} -> fillerSlate) (\s@Channel' {} a -> s {fillerSlate = a} :: Channel)
 
@@ -149,36 +161,36 @@ channel_lastModifiedTime = Lens.lens (\Channel' {lastModifiedTime} -> lastModifi
 channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
 channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
 
--- | Returns the state whether the channel is running or not.
-channel_channelState :: Lens.Lens' Channel Prelude.Text
-channel_channelState = Lens.lens (\Channel' {channelState} -> channelState) (\s@Channel' {} a -> s {channelState = a} :: Channel)
+-- | The ARN of the channel.
+channel_arn :: Lens.Lens' Channel Prelude.Text
+channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
 
 -- | The name of the channel.
 channel_channelName :: Lens.Lens' Channel Prelude.Text
 channel_channelName = Lens.lens (\Channel' {channelName} -> channelName) (\s@Channel' {} a -> s {channelName = a} :: Channel)
 
--- | The tier for this channel. STANDARD tier channels can contain live
--- programs.
-channel_tier :: Lens.Lens' Channel Prelude.Text
-channel_tier = Lens.lens (\Channel' {tier} -> tier) (\s@Channel' {} a -> s {tier = a} :: Channel)
+-- | Returns the state whether the channel is running or not.
+channel_channelState :: Lens.Lens' Channel Prelude.Text
+channel_channelState = Lens.lens (\Channel' {channelState} -> channelState) (\s@Channel' {} a -> s {channelState = a} :: Channel)
 
 -- | The channel\'s output properties.
 channel_outputs :: Lens.Lens' Channel [ResponseOutputItem]
 channel_outputs = Lens.lens (\Channel' {outputs} -> outputs) (\s@Channel' {} a -> s {outputs = a} :: Channel) Prelude.. Lens.coerced
 
--- | The ARN of the channel.
-channel_arn :: Lens.Lens' Channel Prelude.Text
-channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
-
 -- | The type of playback mode for this channel.
 --
--- LINEAR - Programs play back-to-back only once.
+-- @LINEAR@ - Programs play back-to-back only once.
 --
--- LOOP - Programs play back-to-back in an endless loop. When the last
+-- @LOOP@ - Programs play back-to-back in an endless loop. When the last
 -- program in the schedule plays, playback loops back to the first program
 -- in the schedule.
 channel_playbackMode :: Lens.Lens' Channel Prelude.Text
 channel_playbackMode = Lens.lens (\Channel' {playbackMode} -> playbackMode) (\s@Channel' {} a -> s {playbackMode = a} :: Channel)
+
+-- | The tier for this channel. STANDARD tier channels can contain live
+-- programs.
+channel_tier :: Lens.Lens' Channel Prelude.Text
+channel_tier = Lens.lens (\Channel' {tier} -> tier) (\s@Channel' {} a -> s {tier = a} :: Channel)
 
 instance Core.FromJSON Channel where
   parseJSON =
@@ -190,12 +202,12 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..:? "FillerSlate")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "ChannelState")
-            Prelude.<*> (x Core..: "ChannelName")
-            Prelude.<*> (x Core..: "Tier")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "Arn")
+            Prelude.<*> (x Core..: "ChannelName")
+            Prelude.<*> (x Core..: "ChannelState")
+            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "PlaybackMode")
+            Prelude.<*> (x Core..: "Tier")
       )
 
 instance Prelude.Hashable Channel where
@@ -204,12 +216,12 @@ instance Prelude.Hashable Channel where
       `Prelude.hashWithSalt` fillerSlate
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` channelState
-      `Prelude.hashWithSalt` channelName
-      `Prelude.hashWithSalt` tier
-      `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` channelState
+      `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` tier
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
@@ -217,9 +229,9 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf channelState
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf tier

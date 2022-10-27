@@ -23,19 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The base URL of the host or path of the segment delivery server that
--- you\'re using to serve segments. This is typically a content delivery
--- network (CDN). The URL can be absolute or relative. To use an absolute
--- URL include the protocol, such as https:\/\/example.com\/some\/path. To
--- use a relative URL specify the relative path, such as \/some\/path*.
+-- | The segment delivery configuration settings.
 --
 -- /See:/ 'newSegmentDeliveryConfiguration' smart constructor.
 data SegmentDeliveryConfiguration = SegmentDeliveryConfiguration'
   { -- | The base URL of the host or path of the segment delivery server that
     -- you\'re using to serve segments. This is typically a content delivery
     -- network (CDN). The URL can be absolute or relative. To use an absolute
-    -- URL include the protocol, such as https:\/\/example.com\/some\/path. To
-    -- use a relative URL specify the relative path, such as \/some\/path*.
+    -- URL include the protocol, such as @https:\/\/example.com\/some\/path@.
+    -- To use a relative URL specify the relative path, such as
+    -- @\/some\/path*@.
     baseUrl :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier used to distinguish between multiple segment
     -- delivery configurations in a source location.
@@ -54,8 +51,9 @@ data SegmentDeliveryConfiguration = SegmentDeliveryConfiguration'
 -- 'baseUrl', 'segmentDeliveryConfiguration_baseUrl' - The base URL of the host or path of the segment delivery server that
 -- you\'re using to serve segments. This is typically a content delivery
 -- network (CDN). The URL can be absolute or relative. To use an absolute
--- URL include the protocol, such as https:\/\/example.com\/some\/path. To
--- use a relative URL specify the relative path, such as \/some\/path*.
+-- URL include the protocol, such as @https:\/\/example.com\/some\/path@.
+-- To use a relative URL specify the relative path, such as
+-- @\/some\/path*@.
 --
 -- 'name', 'segmentDeliveryConfiguration_name' - A unique identifier used to distinguish between multiple segment
 -- delivery configurations in a source location.
@@ -71,8 +69,9 @@ newSegmentDeliveryConfiguration =
 -- | The base URL of the host or path of the segment delivery server that
 -- you\'re using to serve segments. This is typically a content delivery
 -- network (CDN). The URL can be absolute or relative. To use an absolute
--- URL include the protocol, such as https:\/\/example.com\/some\/path. To
--- use a relative URL specify the relative path, such as \/some\/path*.
+-- URL include the protocol, such as @https:\/\/example.com\/some\/path@.
+-- To use a relative URL specify the relative path, such as
+-- @\/some\/path*@.
 segmentDeliveryConfiguration_baseUrl :: Lens.Lens' SegmentDeliveryConfiguration (Prelude.Maybe Prelude.Text)
 segmentDeliveryConfiguration_baseUrl = Lens.lens (\SegmentDeliveryConfiguration' {baseUrl} -> baseUrl) (\s@SegmentDeliveryConfiguration' {} a -> s {baseUrl = a} :: SegmentDeliveryConfiguration)
 

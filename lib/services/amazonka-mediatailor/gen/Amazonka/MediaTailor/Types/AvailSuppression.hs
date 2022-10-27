@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data AvailSuppression = AvailSuppression'
   { -- | Sets the ad suppression mode. By default, ad suppression is off and all
     -- ad breaks are filled with ads or slate. When Mode is set to
-    -- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+    -- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
     -- ad breaks on or behind the ad suppression Value time in the manifest
     -- lookback window.
     mode :: Prelude.Maybe Mode,
@@ -59,7 +59,7 @@ data AvailSuppression = AvailSuppression'
 --
 -- 'mode', 'availSuppression_mode' - Sets the ad suppression mode. By default, ad suppression is off and all
 -- ad breaks are filled with ads or slate. When Mode is set to
--- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+-- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
 -- ad breaks on or behind the ad suppression Value time in the manifest
 -- lookback window.
 --
@@ -82,7 +82,7 @@ newAvailSuppression =
 
 -- | Sets the ad suppression mode. By default, ad suppression is off and all
 -- ad breaks are filled with ads or slate. When Mode is set to
--- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+-- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
 -- ad breaks on or behind the ad suppression Value time in the manifest
 -- lookback window.
 availSuppression_mode :: Lens.Lens' AvailSuppression (Prelude.Maybe Mode)

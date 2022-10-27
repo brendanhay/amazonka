@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the properties of the requested source location.
+-- Describes a source location. A source location is a container for
+-- sources. For more information about source locations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html Working with source locations>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DescribeSourceLocation
   ( -- * Creating a Request
     DescribeSourceLocation (..),
@@ -56,7 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSourceLocation' smart constructor.
 data DescribeSourceLocation = DescribeSourceLocation'
-  { -- | The identifier for the source location you are working on.
+  { -- | The name of the source location.
     sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +72,7 @@ data DescribeSourceLocation = DescribeSourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'describeSourceLocation_sourceLocationName' - The identifier for the source location you are working on.
+-- 'sourceLocationName', 'describeSourceLocation_sourceLocationName' - The name of the source location.
 newDescribeSourceLocation ::
   -- | 'sourceLocationName'
   Prelude.Text ->
@@ -80,7 +83,7 @@ newDescribeSourceLocation pSourceLocationName_ =
         pSourceLocationName_
     }
 
--- | The identifier for the source location you are working on.
+-- | The name of the source location.
 describeSourceLocation_sourceLocationName :: Lens.Lens' DescribeSourceLocation Prelude.Text
 describeSourceLocation_sourceLocationName = Lens.lens (\DescribeSourceLocation' {sourceLocationName} -> sourceLocationName) (\s@DescribeSourceLocation' {} a -> s {sourceLocationName = a} :: DescribeSourceLocation)
 
@@ -88,7 +91,8 @@ instance Core.AWSRequest DescribeSourceLocation where
   type
     AWSResponse DescribeSourceLocation =
       DescribeSourceLocationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,7 +140,10 @@ instance Core.ToQuery DescribeSourceLocation where
 
 -- | /See:/ 'newDescribeSourceLocationResponse' smart constructor.
 data DescribeSourceLocationResponse = DescribeSourceLocationResponse'
-  { -- | The tags assigned to the source location.
+  { -- | The tags assigned to the source location. Tags are key-value pairs that
+    -- you can associate with Amazon resources to help with organization,
+    -- access control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of the segment delivery configurations associated with this
     -- resource.
@@ -168,7 +175,10 @@ data DescribeSourceLocationResponse = DescribeSourceLocationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeSourceLocationResponse_tags' - The tags assigned to the source location.
+-- 'tags', 'describeSourceLocationResponse_tags' - The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'segmentDeliveryConfigurations', 'describeSourceLocationResponse_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
 -- resource.
@@ -209,7 +219,10 @@ newDescribeSourceLocationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the source location.
+-- | The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 describeSourceLocationResponse_tags :: Lens.Lens' DescribeSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeSourceLocationResponse_tags = Lens.lens (\DescribeSourceLocationResponse' {tags} -> tags) (\s@DescribeSourceLocationResponse' {} a -> s {tags = a} :: DescribeSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 

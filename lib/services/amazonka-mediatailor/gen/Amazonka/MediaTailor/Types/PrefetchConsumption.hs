@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPrefetchConsumption' smart constructor.
 data PrefetchConsumption = PrefetchConsumption'
   { -- | If you only want MediaTailor to insert prefetched ads into avails (ad
-    -- breaks) that match specific dynamic variables, such as scte.event_id,
+    -- breaks) that match specific dynamic variables, such as @scte.event_id@,
     -- set the avail matching criteria.
     availMatchingCriteria :: Prelude.Maybe [AvailMatchingCriteria],
     -- | The time when prefetched ads are considered for use in an ad break. If
-    -- you don\'t specify StartTime, the prefetched ads are available after
+    -- you don\'t specify @StartTime@, the prefetched ads are available after
     -- MediaTailor retrives them from the ad decision server.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The time when MediaTailor no longer considers the prefetched ads for use
     -- in an ad break. MediaTailor automatically deletes prefetch schedules no
     -- less than seven days after the end time. If you\'d like to manually
-    -- delete the prefetch schedule, you can call DeletePrefetchSchedule.
+    -- delete the prefetch schedule, you can call @DeletePrefetchSchedule@.
     endTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,17 +54,17 @@ data PrefetchConsumption = PrefetchConsumption'
 -- for backwards compatibility:
 --
 -- 'availMatchingCriteria', 'prefetchConsumption_availMatchingCriteria' - If you only want MediaTailor to insert prefetched ads into avails (ad
--- breaks) that match specific dynamic variables, such as scte.event_id,
+-- breaks) that match specific dynamic variables, such as @scte.event_id@,
 -- set the avail matching criteria.
 --
 -- 'startTime', 'prefetchConsumption_startTime' - The time when prefetched ads are considered for use in an ad break. If
--- you don\'t specify StartTime, the prefetched ads are available after
+-- you don\'t specify @StartTime@, the prefetched ads are available after
 -- MediaTailor retrives them from the ad decision server.
 --
 -- 'endTime', 'prefetchConsumption_endTime' - The time when MediaTailor no longer considers the prefetched ads for use
 -- in an ad break. MediaTailor automatically deletes prefetch schedules no
 -- less than seven days after the end time. If you\'d like to manually
--- delete the prefetch schedule, you can call DeletePrefetchSchedule.
+-- delete the prefetch schedule, you can call @DeletePrefetchSchedule@.
 newPrefetchConsumption ::
   -- | 'endTime'
   Prelude.UTCTime ->
@@ -78,13 +78,13 @@ newPrefetchConsumption pEndTime_ =
     }
 
 -- | If you only want MediaTailor to insert prefetched ads into avails (ad
--- breaks) that match specific dynamic variables, such as scte.event_id,
+-- breaks) that match specific dynamic variables, such as @scte.event_id@,
 -- set the avail matching criteria.
 prefetchConsumption_availMatchingCriteria :: Lens.Lens' PrefetchConsumption (Prelude.Maybe [AvailMatchingCriteria])
 prefetchConsumption_availMatchingCriteria = Lens.lens (\PrefetchConsumption' {availMatchingCriteria} -> availMatchingCriteria) (\s@PrefetchConsumption' {} a -> s {availMatchingCriteria = a} :: PrefetchConsumption) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time when prefetched ads are considered for use in an ad break. If
--- you don\'t specify StartTime, the prefetched ads are available after
+-- you don\'t specify @StartTime@, the prefetched ads are available after
 -- MediaTailor retrives them from the ad decision server.
 prefetchConsumption_startTime :: Lens.Lens' PrefetchConsumption (Prelude.Maybe Prelude.UTCTime)
 prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> startTime) (\s@PrefetchConsumption' {} a -> s {startTime = a} :: PrefetchConsumption) Prelude.. Lens.mapping Core._Time
@@ -92,7 +92,7 @@ prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> 
 -- | The time when MediaTailor no longer considers the prefetched ads for use
 -- in an ad break. MediaTailor automatically deletes prefetch schedules no
 -- less than seven days after the end time. If you\'d like to manually
--- delete the prefetch schedule, you can call DeletePrefetchSchedule.
+-- delete the prefetch schedule, you can call @DeletePrefetchSchedule@.
 prefetchConsumption_endTime :: Lens.Lens' PrefetchConsumption Prelude.UTCTime
 prefetchConsumption_endTime = Lens.lens (\PrefetchConsumption' {endTime} -> endTime) (\s@PrefetchConsumption' {} a -> s {endTime = a} :: PrefetchConsumption) Prelude.. Core._Time
 

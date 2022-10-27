@@ -25,7 +25,7 @@ import Amazonka.MediaTailor.Types.DashPlaylistSettings
 import Amazonka.MediaTailor.Types.HlsPlaylistSettings
 import qualified Amazonka.Prelude as Prelude
 
--- | This response includes only the \"property\" : \"type\" property.
+-- | The output item response.
 --
 -- /See:/ 'newResponseOutputItem' smart constructor.
 data ResponseOutputItem = ResponseOutputItem'

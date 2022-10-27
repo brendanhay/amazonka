@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a source location on a specific channel.
+-- Updates a source location. A source location is a container for sources.
+-- For more information about source locations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html Working with source locations>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.UpdateSourceLocation
   ( -- * Creating a Request
     UpdateSourceLocation (..),
@@ -30,8 +33,8 @@ module Amazonka.MediaTailor.UpdateSourceLocation
     updateSourceLocation_segmentDeliveryConfigurations,
     updateSourceLocation_accessConfiguration,
     updateSourceLocation_defaultSegmentDeliveryConfiguration,
-    updateSourceLocation_sourceLocationName,
     updateSourceLocation_httpConfiguration,
+    updateSourceLocation_sourceLocationName,
 
     -- * Destructuring the Response
     UpdateSourceLocationResponse (..),
@@ -68,10 +71,10 @@ data UpdateSourceLocation = UpdateSourceLocation'
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
     -- | The optional configuration for the host server that serves segments.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
-    -- | The identifier for the source location you are working on.
-    sourceLocationName :: Prelude.Text,
     -- | The HTTP configuration for the source location.
-    httpConfiguration :: HttpConfiguration
+    httpConfiguration :: HttpConfiguration,
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,26 +94,26 @@ data UpdateSourceLocation = UpdateSourceLocation'
 --
 -- 'defaultSegmentDeliveryConfiguration', 'updateSourceLocation_defaultSegmentDeliveryConfiguration' - The optional configuration for the host server that serves segments.
 --
--- 'sourceLocationName', 'updateSourceLocation_sourceLocationName' - The identifier for the source location you are working on.
---
 -- 'httpConfiguration', 'updateSourceLocation_httpConfiguration' - The HTTP configuration for the source location.
+--
+-- 'sourceLocationName', 'updateSourceLocation_sourceLocationName' - The name of the source location.
 newUpdateSourceLocation ::
-  -- | 'sourceLocationName'
-  Prelude.Text ->
   -- | 'httpConfiguration'
   HttpConfiguration ->
+  -- | 'sourceLocationName'
+  Prelude.Text ->
   UpdateSourceLocation
 newUpdateSourceLocation
-  pSourceLocationName_
-  pHttpConfiguration_ =
+  pHttpConfiguration_
+  pSourceLocationName_ =
     UpdateSourceLocation'
       { segmentDeliveryConfigurations =
           Prelude.Nothing,
         accessConfiguration = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
-        sourceLocationName = pSourceLocationName_,
-        httpConfiguration = pHttpConfiguration_
+        httpConfiguration = pHttpConfiguration_,
+        sourceLocationName = pSourceLocationName_
       }
 
 -- | A list of the segment delivery configurations associated with this
@@ -127,19 +130,20 @@ updateSourceLocation_accessConfiguration = Lens.lens (\UpdateSourceLocation' {ac
 updateSourceLocation_defaultSegmentDeliveryConfiguration :: Lens.Lens' UpdateSourceLocation (Prelude.Maybe DefaultSegmentDeliveryConfiguration)
 updateSourceLocation_defaultSegmentDeliveryConfiguration = Lens.lens (\UpdateSourceLocation' {defaultSegmentDeliveryConfiguration} -> defaultSegmentDeliveryConfiguration) (\s@UpdateSourceLocation' {} a -> s {defaultSegmentDeliveryConfiguration = a} :: UpdateSourceLocation)
 
--- | The identifier for the source location you are working on.
-updateSourceLocation_sourceLocationName :: Lens.Lens' UpdateSourceLocation Prelude.Text
-updateSourceLocation_sourceLocationName = Lens.lens (\UpdateSourceLocation' {sourceLocationName} -> sourceLocationName) (\s@UpdateSourceLocation' {} a -> s {sourceLocationName = a} :: UpdateSourceLocation)
-
 -- | The HTTP configuration for the source location.
 updateSourceLocation_httpConfiguration :: Lens.Lens' UpdateSourceLocation HttpConfiguration
 updateSourceLocation_httpConfiguration = Lens.lens (\UpdateSourceLocation' {httpConfiguration} -> httpConfiguration) (\s@UpdateSourceLocation' {} a -> s {httpConfiguration = a} :: UpdateSourceLocation)
+
+-- | The name of the source location.
+updateSourceLocation_sourceLocationName :: Lens.Lens' UpdateSourceLocation Prelude.Text
+updateSourceLocation_sourceLocationName = Lens.lens (\UpdateSourceLocation' {sourceLocationName} -> sourceLocationName) (\s@UpdateSourceLocation' {} a -> s {sourceLocationName = a} :: UpdateSourceLocation)
 
 instance Core.AWSRequest UpdateSourceLocation where
   type
     AWSResponse UpdateSourceLocation =
       UpdateSourceLocationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,16 +168,16 @@ instance Prelude.Hashable UpdateSourceLocation where
       `Prelude.hashWithSalt` segmentDeliveryConfigurations
       `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
-      `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` httpConfiguration
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData UpdateSourceLocation where
   rnf UpdateSourceLocation' {..} =
     Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders UpdateSourceLocation where
   toHeaders =
@@ -211,16 +215,21 @@ instance Core.ToQuery UpdateSourceLocation where
 
 -- | /See:/ 'newUpdateSourceLocationResponse' smart constructor.
 data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
-  { -- | The tags assigned to the source location.
+  { -- | The tags to assign to the source location. Tags are key-value pairs that
+    -- you can associate with Amazon resources to help with organization,
+    -- access control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of the segment delivery configurations associated with this
-    -- resource.
+    -- | The segment delivery configurations for the source location. For
+    -- information about MediaTailor configurations, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
     segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
-    -- | The ARN of the source location.
+    -- | The Amazon Resource Name (ARN) associated with the source location.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The access configuration for the source location.
+    -- | Access configuration parameters. Configures the type of authentication
+    -- used to access content from your source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
-    -- | The default segment delivery configuration settings.
+    -- | The optional configuration for the host server that serves segments.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
     -- | The timestamp that indicates when the source location was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
@@ -228,7 +237,7 @@ data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the source location.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configuration settings for the source location.
+    -- | The HTTP configuration for the source location.
     httpConfiguration :: Prelude.Maybe HttpConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -243,16 +252,21 @@ data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateSourceLocationResponse_tags' - The tags assigned to the source location.
+-- 'tags', 'updateSourceLocationResponse_tags' - The tags to assign to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
--- 'segmentDeliveryConfigurations', 'updateSourceLocationResponse_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
--- resource.
+-- 'segmentDeliveryConfigurations', 'updateSourceLocationResponse_segmentDeliveryConfigurations' - The segment delivery configurations for the source location. For
+-- information about MediaTailor configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 --
--- 'arn', 'updateSourceLocationResponse_arn' - The ARN of the source location.
+-- 'arn', 'updateSourceLocationResponse_arn' - The Amazon Resource Name (ARN) associated with the source location.
 --
--- 'accessConfiguration', 'updateSourceLocationResponse_accessConfiguration' - The access configuration for the source location.
+-- 'accessConfiguration', 'updateSourceLocationResponse_accessConfiguration' - Access configuration parameters. Configures the type of authentication
+-- used to access content from your source location.
 --
--- 'defaultSegmentDeliveryConfiguration', 'updateSourceLocationResponse_defaultSegmentDeliveryConfiguration' - The default segment delivery configuration settings.
+-- 'defaultSegmentDeliveryConfiguration', 'updateSourceLocationResponse_defaultSegmentDeliveryConfiguration' - The optional configuration for the host server that serves segments.
 --
 -- 'lastModifiedTime', 'updateSourceLocationResponse_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
 --
@@ -260,7 +274,7 @@ data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
 --
 -- 'sourceLocationName', 'updateSourceLocationResponse_sourceLocationName' - The name of the source location.
 --
--- 'httpConfiguration', 'updateSourceLocationResponse_httpConfiguration' - The HTTP package configuration settings for the source location.
+-- 'httpConfiguration', 'updateSourceLocationResponse_httpConfiguration' - The HTTP configuration for the source location.
 --
 -- 'httpStatus', 'updateSourceLocationResponse_httpStatus' - The response's http status code.
 newUpdateSourceLocationResponse ::
@@ -284,24 +298,29 @@ newUpdateSourceLocationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the source location.
+-- | The tags to assign to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 updateSourceLocationResponse_tags :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateSourceLocationResponse_tags = Lens.lens (\UpdateSourceLocationResponse' {tags} -> tags) (\s@UpdateSourceLocationResponse' {} a -> s {tags = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of the segment delivery configurations associated with this
--- resource.
+-- | The segment delivery configurations for the source location. For
+-- information about MediaTailor configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 updateSourceLocationResponse_segmentDeliveryConfigurations :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe [SegmentDeliveryConfiguration])
 updateSourceLocationResponse_segmentDeliveryConfigurations = Lens.lens (\UpdateSourceLocationResponse' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@UpdateSourceLocationResponse' {} a -> s {segmentDeliveryConfigurations = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the source location.
+-- | The Amazon Resource Name (ARN) associated with the source location.
 updateSourceLocationResponse_arn :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
 updateSourceLocationResponse_arn = Lens.lens (\UpdateSourceLocationResponse' {arn} -> arn) (\s@UpdateSourceLocationResponse' {} a -> s {arn = a} :: UpdateSourceLocationResponse)
 
--- | The access configuration for the source location.
+-- | Access configuration parameters. Configures the type of authentication
+-- used to access content from your source location.
 updateSourceLocationResponse_accessConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe AccessConfiguration)
 updateSourceLocationResponse_accessConfiguration = Lens.lens (\UpdateSourceLocationResponse' {accessConfiguration} -> accessConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {accessConfiguration = a} :: UpdateSourceLocationResponse)
 
--- | The default segment delivery configuration settings.
+-- | The optional configuration for the host server that serves segments.
 updateSourceLocationResponse_defaultSegmentDeliveryConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe DefaultSegmentDeliveryConfiguration)
 updateSourceLocationResponse_defaultSegmentDeliveryConfiguration = Lens.lens (\UpdateSourceLocationResponse' {defaultSegmentDeliveryConfiguration} -> defaultSegmentDeliveryConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {defaultSegmentDeliveryConfiguration = a} :: UpdateSourceLocationResponse)
 
@@ -317,7 +336,7 @@ updateSourceLocationResponse_creationTime = Lens.lens (\UpdateSourceLocationResp
 updateSourceLocationResponse_sourceLocationName :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
 updateSourceLocationResponse_sourceLocationName = Lens.lens (\UpdateSourceLocationResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateSourceLocationResponse' {} a -> s {sourceLocationName = a} :: UpdateSourceLocationResponse)
 
--- | The HTTP package configuration settings for the source location.
+-- | The HTTP configuration for the source location.
 updateSourceLocationResponse_httpConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe HttpConfiguration)
 updateSourceLocationResponse_httpConfiguration = Lens.lens (\UpdateSourceLocationResponse' {httpConfiguration} -> httpConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {httpConfiguration = a} :: UpdateSourceLocationResponse)
 

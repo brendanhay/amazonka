@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the properties of the requested program.
+-- Describes a program within a channel. For information about programs,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html Working with programs>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DescribeProgram
   ( -- * Creating a Request
     DescribeProgram (..),
@@ -57,9 +60,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeProgram' smart constructor.
 data DescribeProgram = DescribeProgram'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel associated with this Program.
     channelName :: Prelude.Text,
-    -- | The identifier for the program you are working on.
+    -- | The name of the program.
     programName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,9 +75,9 @@ data DescribeProgram = DescribeProgram'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'describeProgram_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'describeProgram_channelName' - The name of the channel associated with this Program.
 --
--- 'programName', 'describeProgram_programName' - The identifier for the program you are working on.
+-- 'programName', 'describeProgram_programName' - The name of the program.
 newDescribeProgram ::
   -- | 'channelName'
   Prelude.Text ->
@@ -87,11 +90,11 @@ newDescribeProgram pChannelName_ pProgramName_ =
       programName = pProgramName_
     }
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel associated with this Program.
 describeProgram_channelName :: Lens.Lens' DescribeProgram Prelude.Text
 describeProgram_channelName = Lens.lens (\DescribeProgram' {channelName} -> channelName) (\s@DescribeProgram' {} a -> s {channelName = a} :: DescribeProgram)
 
--- | The identifier for the program you are working on.
+-- | The name of the program.
 describeProgram_programName :: Lens.Lens' DescribeProgram Prelude.Text
 describeProgram_programName = Lens.lens (\DescribeProgram' {programName} -> programName) (\s@DescribeProgram' {} a -> s {programName = a} :: DescribeProgram)
 
@@ -99,7 +102,8 @@ instance Core.AWSRequest DescribeProgram where
   type
     AWSResponse DescribeProgram =
       DescribeProgramResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

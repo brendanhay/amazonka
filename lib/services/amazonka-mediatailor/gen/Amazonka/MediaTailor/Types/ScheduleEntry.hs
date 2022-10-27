@@ -38,19 +38,17 @@ data ScheduleEntry = ScheduleEntry'
     -- | The approximate duration of this program, in seconds.
     approximateDurationSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The type of schedule entry.
-    --
-    -- Valid values: PROGRAM or FILLER_SLATE.
     scheduleEntryType :: Prelude.Maybe ScheduleEntryType,
     -- | The schedule\'s ad break properties.
     scheduleAdBreaks :: Prelude.Maybe [ScheduleAdBreak],
-    -- | The name of the source location.
-    sourceLocationName :: Prelude.Text,
-    -- | The name of the channel that uses this schedule.
-    channelName :: Prelude.Text,
     -- | The ARN of the program.
     arn :: Prelude.Text,
+    -- | The name of the channel that uses this schedule.
+    channelName :: Prelude.Text,
     -- | The name of the program.
-    programName :: Prelude.Text
+    programName :: Prelude.Text,
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,32 +70,30 @@ data ScheduleEntry = ScheduleEntry'
 --
 -- 'scheduleEntryType', 'scheduleEntry_scheduleEntryType' - The type of schedule entry.
 --
--- Valid values: PROGRAM or FILLER_SLATE.
---
 -- 'scheduleAdBreaks', 'scheduleEntry_scheduleAdBreaks' - The schedule\'s ad break properties.
---
--- 'sourceLocationName', 'scheduleEntry_sourceLocationName' - The name of the source location.
---
--- 'channelName', 'scheduleEntry_channelName' - The name of the channel that uses this schedule.
 --
 -- 'arn', 'scheduleEntry_arn' - The ARN of the program.
 --
+-- 'channelName', 'scheduleEntry_channelName' - The name of the channel that uses this schedule.
+--
 -- 'programName', 'scheduleEntry_programName' - The name of the program.
+--
+-- 'sourceLocationName', 'scheduleEntry_sourceLocationName' - The name of the source location.
 newScheduleEntry ::
-  -- | 'sourceLocationName'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'channelName'
   Prelude.Text ->
-  -- | 'arn'
-  Prelude.Text ->
   -- | 'programName'
+  Prelude.Text ->
+  -- | 'sourceLocationName'
   Prelude.Text ->
   ScheduleEntry
 newScheduleEntry
-  pSourceLocationName_
-  pChannelName_
   pArn_
-  pProgramName_ =
+  pChannelName_
+  pProgramName_
+  pSourceLocationName_ =
     ScheduleEntry'
       { approximateStartTime =
           Prelude.Nothing,
@@ -106,10 +102,10 @@ newScheduleEntry
         approximateDurationSeconds = Prelude.Nothing,
         scheduleEntryType = Prelude.Nothing,
         scheduleAdBreaks = Prelude.Nothing,
-        sourceLocationName = pSourceLocationName_,
-        channelName = pChannelName_,
         arn = pArn_,
-        programName = pProgramName_
+        channelName = pChannelName_,
+        programName = pProgramName_,
+        sourceLocationName = pSourceLocationName_
       }
 
 -- | The approximate time that the program will start playing.
@@ -129,8 +125,6 @@ scheduleEntry_approximateDurationSeconds :: Lens.Lens' ScheduleEntry (Prelude.Ma
 scheduleEntry_approximateDurationSeconds = Lens.lens (\ScheduleEntry' {approximateDurationSeconds} -> approximateDurationSeconds) (\s@ScheduleEntry' {} a -> s {approximateDurationSeconds = a} :: ScheduleEntry)
 
 -- | The type of schedule entry.
---
--- Valid values: PROGRAM or FILLER_SLATE.
 scheduleEntry_scheduleEntryType :: Lens.Lens' ScheduleEntry (Prelude.Maybe ScheduleEntryType)
 scheduleEntry_scheduleEntryType = Lens.lens (\ScheduleEntry' {scheduleEntryType} -> scheduleEntryType) (\s@ScheduleEntry' {} a -> s {scheduleEntryType = a} :: ScheduleEntry)
 
@@ -138,21 +132,21 @@ scheduleEntry_scheduleEntryType = Lens.lens (\ScheduleEntry' {scheduleEntryType}
 scheduleEntry_scheduleAdBreaks :: Lens.Lens' ScheduleEntry (Prelude.Maybe [ScheduleAdBreak])
 scheduleEntry_scheduleAdBreaks = Lens.lens (\ScheduleEntry' {scheduleAdBreaks} -> scheduleAdBreaks) (\s@ScheduleEntry' {} a -> s {scheduleAdBreaks = a} :: ScheduleEntry) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the source location.
-scheduleEntry_sourceLocationName :: Lens.Lens' ScheduleEntry Prelude.Text
-scheduleEntry_sourceLocationName = Lens.lens (\ScheduleEntry' {sourceLocationName} -> sourceLocationName) (\s@ScheduleEntry' {} a -> s {sourceLocationName = a} :: ScheduleEntry)
+-- | The ARN of the program.
+scheduleEntry_arn :: Lens.Lens' ScheduleEntry Prelude.Text
+scheduleEntry_arn = Lens.lens (\ScheduleEntry' {arn} -> arn) (\s@ScheduleEntry' {} a -> s {arn = a} :: ScheduleEntry)
 
 -- | The name of the channel that uses this schedule.
 scheduleEntry_channelName :: Lens.Lens' ScheduleEntry Prelude.Text
 scheduleEntry_channelName = Lens.lens (\ScheduleEntry' {channelName} -> channelName) (\s@ScheduleEntry' {} a -> s {channelName = a} :: ScheduleEntry)
 
--- | The ARN of the program.
-scheduleEntry_arn :: Lens.Lens' ScheduleEntry Prelude.Text
-scheduleEntry_arn = Lens.lens (\ScheduleEntry' {arn} -> arn) (\s@ScheduleEntry' {} a -> s {arn = a} :: ScheduleEntry)
-
 -- | The name of the program.
 scheduleEntry_programName :: Lens.Lens' ScheduleEntry Prelude.Text
 scheduleEntry_programName = Lens.lens (\ScheduleEntry' {programName} -> programName) (\s@ScheduleEntry' {} a -> s {programName = a} :: ScheduleEntry)
+
+-- | The name of the source location.
+scheduleEntry_sourceLocationName :: Lens.Lens' ScheduleEntry Prelude.Text
+scheduleEntry_sourceLocationName = Lens.lens (\ScheduleEntry' {sourceLocationName} -> sourceLocationName) (\s@ScheduleEntry' {} a -> s {sourceLocationName = a} :: ScheduleEntry)
 
 instance Core.FromJSON ScheduleEntry where
   parseJSON =
@@ -168,10 +162,10 @@ instance Core.FromJSON ScheduleEntry where
             Prelude.<*> ( x Core..:? "ScheduleAdBreaks"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SourceLocationName")
-            Prelude.<*> (x Core..: "ChannelName")
             Prelude.<*> (x Core..: "Arn")
+            Prelude.<*> (x Core..: "ChannelName")
             Prelude.<*> (x Core..: "ProgramName")
+            Prelude.<*> (x Core..: "SourceLocationName")
       )
 
 instance Prelude.Hashable ScheduleEntry where
@@ -182,10 +176,10 @@ instance Prelude.Hashable ScheduleEntry where
       `Prelude.hashWithSalt` approximateDurationSeconds
       `Prelude.hashWithSalt` scheduleEntryType
       `Prelude.hashWithSalt` scheduleAdBreaks
-      `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData ScheduleEntry where
   rnf ScheduleEntry' {..} =
@@ -195,7 +189,7 @@ instance Prelude.NFData ScheduleEntry where
       `Prelude.seq` Prelude.rnf approximateDurationSeconds
       `Prelude.seq` Prelude.rnf scheduleEntryType
       `Prelude.seq` Prelude.rnf scheduleAdBreaks
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf sourceLocationName

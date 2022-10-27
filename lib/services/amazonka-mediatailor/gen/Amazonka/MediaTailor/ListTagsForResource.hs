@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the tags assigned to the specified playback
--- configuration resource.
+-- A list of tags that are associated with this resource. Tags are
+-- key-value pairs that you can associate with Amazon resources to help
+-- with organization, access control, and cost tracking. For more
+-- information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 module Amazonka.MediaTailor.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -49,8 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) for the playback configuration. You can
-    -- get this from the response to any playback configuration request.
+  { -- | The Amazon Resource Name (ARN) associated with this resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +65,7 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) associated with this resource.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -72,8 +73,7 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- | The Amazon Resource Name (ARN) associated with this resource.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -81,7 +81,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,7 +119,10 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | A comma-separated list of tag key:value pairs.
+  { -- | The tags associated with this resource. Tags are key-value pairs that
+    -- you can associate with Amazon resources to help with organization,
+    -- access control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -133,7 +137,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - A comma-separated list of tag key:value pairs.
+-- 'tags', 'listTagsForResourceResponse_tags' - The tags associated with this resource. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -147,7 +154,10 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A comma-separated list of tag key:value pairs.
+-- | The tags associated with this resource. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

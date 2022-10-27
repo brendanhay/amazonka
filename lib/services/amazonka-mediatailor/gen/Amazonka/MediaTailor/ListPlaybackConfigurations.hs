@@ -20,12 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the playback configurations defined in AWS Elemental
--- MediaTailor. You can specify a maximum number of configurations to
--- return at a time. The default maximum is 50. Results are returned in
--- pagefuls. If MediaTailor has more configurations than the specified
--- maximum, it provides parameters in the response that you can use to
--- retrieve the next pageful.
+-- Retrieves existing playback configurations. For information about
+-- MediaTailor configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with Configurations in AWS Elemental MediaTailor>.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListPlaybackConfigurations
@@ -57,10 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlaybackConfigurations' smart constructor.
 data ListPlaybackConfigurations = ListPlaybackConfigurations'
-  { -- | Pagination token returned by the GET list request when results exceed
-    -- the maximum allowed. Use the token to fetch the next page of results.
+  { -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of records to return.
+    -- | The maximum number of playback configurations that you want MediaTailor
+    -- to return in response to the current request. If there are more than
+    -- @MaxResults@ playback configurations, use the value of @NextToken@ in
+    -- the response to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,10 +73,13 @@ data ListPlaybackConfigurations = ListPlaybackConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaybackConfigurations_nextToken' - Pagination token returned by the GET list request when results exceed
--- the maximum allowed. Use the token to fetch the next page of results.
+-- 'nextToken', 'listPlaybackConfigurations_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
--- 'maxResults', 'listPlaybackConfigurations_maxResults' - Maximum number of records to return.
+-- 'maxResults', 'listPlaybackConfigurations_maxResults' - The maximum number of playback configurations that you want MediaTailor
+-- to return in response to the current request. If there are more than
+-- @MaxResults@ playback configurations, use the value of @NextToken@ in
+-- the response to get the next page of results.
 newListPlaybackConfigurations ::
   ListPlaybackConfigurations
 newListPlaybackConfigurations =
@@ -86,12 +89,15 @@ newListPlaybackConfigurations =
       maxResults = Prelude.Nothing
     }
 
--- | Pagination token returned by the GET list request when results exceed
--- the maximum allowed. Use the token to fetch the next page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listPlaybackConfigurations_nextToken :: Lens.Lens' ListPlaybackConfigurations (Prelude.Maybe Prelude.Text)
 listPlaybackConfigurations_nextToken = Lens.lens (\ListPlaybackConfigurations' {nextToken} -> nextToken) (\s@ListPlaybackConfigurations' {} a -> s {nextToken = a} :: ListPlaybackConfigurations)
 
--- | Maximum number of records to return.
+-- | The maximum number of playback configurations that you want MediaTailor
+-- to return in response to the current request. If there are more than
+-- @MaxResults@ playback configurations, use the value of @NextToken@ in
+-- the response to get the next page of results.
 listPlaybackConfigurations_maxResults :: Lens.Lens' ListPlaybackConfigurations (Prelude.Maybe Prelude.Natural)
 listPlaybackConfigurations_maxResults = Lens.lens (\ListPlaybackConfigurations' {maxResults} -> maxResults) (\s@ListPlaybackConfigurations' {} a -> s {maxResults = a} :: ListPlaybackConfigurations)
 
@@ -121,7 +127,8 @@ instance Core.AWSRequest ListPlaybackConfigurations where
   type
     AWSResponse ListPlaybackConfigurations =
       ListPlaybackConfigurationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

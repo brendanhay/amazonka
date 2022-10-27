@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of channels that are associated with this account.
+-- Retrieves information about the channels that are associated with the
+-- current AWS account.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListChannels
@@ -52,11 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | Pagination token from the GET list request. Use the token to fetch the
-    -- next page of results.
+  { -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return. The maximum number of
-    -- results is 100.
+    -- | The maximum number of channels that you want MediaTailor to return in
+    -- response to the current request. If there are more than @MaxResults@
+    -- channels, use the value of @NextToken@ in the response to get the next
+    -- page of results.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +72,13 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannels_nextToken' - Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- 'nextToken', 'listChannels_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
--- 'maxResults', 'listChannels_maxResults' - Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- 'maxResults', 'listChannels_maxResults' - The maximum number of channels that you want MediaTailor to return in
+-- response to the current request. If there are more than @MaxResults@
+-- channels, use the value of @NextToken@ in the response to get the next
+-- page of results.
 newListChannels ::
   ListChannels
 newListChannels =
@@ -82,13 +87,15 @@ newListChannels =
       maxResults = Prelude.Nothing
     }
 
--- | Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
--- | Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- | The maximum number of channels that you want MediaTailor to return in
+-- response to the current request. If there are more than @MaxResults@
+-- channels, use the value of @NextToken@ in the response to get the next
+-- page of results.
 listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
 listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
@@ -113,7 +120,8 @@ instance Core.AWSPager ListChannels where
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

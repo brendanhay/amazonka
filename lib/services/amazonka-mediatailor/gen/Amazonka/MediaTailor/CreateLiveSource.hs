@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates name for a specific live source in a source location.
+-- The live source configuration.
 module Amazonka.MediaTailor.CreateLiveSource
   ( -- * Creating a Request
     CreateLiveSource (..),
@@ -28,9 +28,9 @@ module Amazonka.MediaTailor.CreateLiveSource
 
     -- * Request Lenses
     createLiveSource_tags,
-    createLiveSource_sourceLocationName,
-    createLiveSource_liveSourceName,
     createLiveSource_httpPackageConfigurations,
+    createLiveSource_liveSourceName,
+    createLiveSource_sourceLocationName,
 
     -- * Destructuring the Response
     CreateLiveSourceResponse (..),
@@ -57,14 +57,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLiveSource' smart constructor.
 data CreateLiveSource = CreateLiveSource'
-  { -- | The tags to assign to the live source.
+  { -- | The tags to assign to the live source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier for the source location you are working on.
-    sourceLocationName :: Prelude.Text,
-    -- | The identifier for the live source you are working on.
-    liveSourceName :: Prelude.Text,
     -- | A list of HTTP package configuration parameters for this live source.
-    httpPackageConfigurations :: [HttpPackageConfiguration]
+    httpPackageConfigurations :: [HttpPackageConfiguration],
+    -- | The name of the live source.
+    liveSourceName :: Prelude.Text,
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,50 +79,57 @@ data CreateLiveSource = CreateLiveSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLiveSource_tags' - The tags to assign to the live source.
---
--- 'sourceLocationName', 'createLiveSource_sourceLocationName' - The identifier for the source location you are working on.
---
--- 'liveSourceName', 'createLiveSource_liveSourceName' - The identifier for the live source you are working on.
+-- 'tags', 'createLiveSource_tags' - The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'httpPackageConfigurations', 'createLiveSource_httpPackageConfigurations' - A list of HTTP package configuration parameters for this live source.
+--
+-- 'liveSourceName', 'createLiveSource_liveSourceName' - The name of the live source.
+--
+-- 'sourceLocationName', 'createLiveSource_sourceLocationName' - The name of the source location.
 newCreateLiveSource ::
-  -- | 'sourceLocationName'
-  Prelude.Text ->
   -- | 'liveSourceName'
+  Prelude.Text ->
+  -- | 'sourceLocationName'
   Prelude.Text ->
   CreateLiveSource
 newCreateLiveSource
-  pSourceLocationName_
-  pLiveSourceName_ =
+  pLiveSourceName_
+  pSourceLocationName_ =
     CreateLiveSource'
       { tags = Prelude.Nothing,
-        sourceLocationName = pSourceLocationName_,
+        httpPackageConfigurations = Prelude.mempty,
         liveSourceName = pLiveSourceName_,
-        httpPackageConfigurations = Prelude.mempty
+        sourceLocationName = pSourceLocationName_
       }
 
--- | The tags to assign to the live source.
+-- | The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 createLiveSource_tags :: Lens.Lens' CreateLiveSource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLiveSource_tags = Lens.lens (\CreateLiveSource' {tags} -> tags) (\s@CreateLiveSource' {} a -> s {tags = a} :: CreateLiveSource) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier for the source location you are working on.
-createLiveSource_sourceLocationName :: Lens.Lens' CreateLiveSource Prelude.Text
-createLiveSource_sourceLocationName = Lens.lens (\CreateLiveSource' {sourceLocationName} -> sourceLocationName) (\s@CreateLiveSource' {} a -> s {sourceLocationName = a} :: CreateLiveSource)
-
--- | The identifier for the live source you are working on.
-createLiveSource_liveSourceName :: Lens.Lens' CreateLiveSource Prelude.Text
-createLiveSource_liveSourceName = Lens.lens (\CreateLiveSource' {liveSourceName} -> liveSourceName) (\s@CreateLiveSource' {} a -> s {liveSourceName = a} :: CreateLiveSource)
 
 -- | A list of HTTP package configuration parameters for this live source.
 createLiveSource_httpPackageConfigurations :: Lens.Lens' CreateLiveSource [HttpPackageConfiguration]
 createLiveSource_httpPackageConfigurations = Lens.lens (\CreateLiveSource' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@CreateLiveSource' {} a -> s {httpPackageConfigurations = a} :: CreateLiveSource) Prelude.. Lens.coerced
 
+-- | The name of the live source.
+createLiveSource_liveSourceName :: Lens.Lens' CreateLiveSource Prelude.Text
+createLiveSource_liveSourceName = Lens.lens (\CreateLiveSource' {liveSourceName} -> liveSourceName) (\s@CreateLiveSource' {} a -> s {liveSourceName = a} :: CreateLiveSource)
+
+-- | The name of the source location.
+createLiveSource_sourceLocationName :: Lens.Lens' CreateLiveSource Prelude.Text
+createLiveSource_sourceLocationName = Lens.lens (\CreateLiveSource' {sourceLocationName} -> sourceLocationName) (\s@CreateLiveSource' {} a -> s {sourceLocationName = a} :: CreateLiveSource)
+
 instance Core.AWSRequest CreateLiveSource where
   type
     AWSResponse CreateLiveSource =
       CreateLiveSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,16 +149,16 @@ instance Core.AWSRequest CreateLiveSource where
 instance Prelude.Hashable CreateLiveSource where
   hashWithSalt _salt CreateLiveSource' {..} =
     _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` liveSourceName
       `Prelude.hashWithSalt` httpPackageConfigurations
+      `Prelude.hashWithSalt` liveSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData CreateLiveSource where
   rnf CreateLiveSource' {..} =
     Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders CreateLiveSource where
   toHeaders =
@@ -187,19 +197,22 @@ instance Core.ToQuery CreateLiveSource where
 
 -- | /See:/ 'newCreateLiveSourceResponse' smart constructor.
 data CreateLiveSourceResponse = CreateLiveSourceResponse'
-  { -- | The tags assigned to the live source.
+  { -- | The tags to assign to the live source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the live source.
+    -- | The name to assign to the live source.
     liveSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the live source.
+    -- | The ARN to assign to the live source.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that indicates when the live source was modified.
+    -- | The time the live source was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The timestamp that indicates when the live source was created.
+    -- | The time the live source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location associated with the VOD source.
+    -- | The name to assign to the source location of the live source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configurations.
+    -- | A list of HTTP package configuration parameters for this live source.
     httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -214,19 +227,22 @@ data CreateLiveSourceResponse = CreateLiveSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLiveSourceResponse_tags' - The tags assigned to the live source.
+-- 'tags', 'createLiveSourceResponse_tags' - The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
--- 'liveSourceName', 'createLiveSourceResponse_liveSourceName' - The name of the live source.
+-- 'liveSourceName', 'createLiveSourceResponse_liveSourceName' - The name to assign to the live source.
 --
--- 'arn', 'createLiveSourceResponse_arn' - The ARN of the live source.
+-- 'arn', 'createLiveSourceResponse_arn' - The ARN to assign to the live source.
 --
--- 'lastModifiedTime', 'createLiveSourceResponse_lastModifiedTime' - The timestamp that indicates when the live source was modified.
+-- 'lastModifiedTime', 'createLiveSourceResponse_lastModifiedTime' - The time the live source was last modified.
 --
--- 'creationTime', 'createLiveSourceResponse_creationTime' - The timestamp that indicates when the live source was created.
+-- 'creationTime', 'createLiveSourceResponse_creationTime' - The time the live source was created.
 --
--- 'sourceLocationName', 'createLiveSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+-- 'sourceLocationName', 'createLiveSourceResponse_sourceLocationName' - The name to assign to the source location of the live source.
 --
--- 'httpPackageConfigurations', 'createLiveSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
+-- 'httpPackageConfigurations', 'createLiveSourceResponse_httpPackageConfigurations' - A list of HTTP package configuration parameters for this live source.
 --
 -- 'httpStatus', 'createLiveSourceResponse_httpStatus' - The response's http status code.
 newCreateLiveSourceResponse ::
@@ -245,31 +261,34 @@ newCreateLiveSourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the live source.
+-- | The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 createLiveSourceResponse_tags :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLiveSourceResponse_tags = Lens.lens (\CreateLiveSourceResponse' {tags} -> tags) (\s@CreateLiveSourceResponse' {} a -> s {tags = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the live source.
+-- | The name to assign to the live source.
 createLiveSourceResponse_liveSourceName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 createLiveSourceResponse_liveSourceName = Lens.lens (\CreateLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@CreateLiveSourceResponse' {} a -> s {liveSourceName = a} :: CreateLiveSourceResponse)
 
--- | The ARN of the live source.
+-- | The ARN to assign to the live source.
 createLiveSourceResponse_arn :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 createLiveSourceResponse_arn = Lens.lens (\CreateLiveSourceResponse' {arn} -> arn) (\s@CreateLiveSourceResponse' {} a -> s {arn = a} :: CreateLiveSourceResponse)
 
--- | The timestamp that indicates when the live source was modified.
+-- | The time the live source was last modified.
 createLiveSourceResponse_lastModifiedTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
 createLiveSourceResponse_lastModifiedTime = Lens.lens (\CreateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
 
--- | The timestamp that indicates when the live source was created.
+-- | The time the live source was created.
 createLiveSourceResponse_creationTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
 createLiveSourceResponse_creationTime = Lens.lens (\CreateLiveSourceResponse' {creationTime} -> creationTime) (\s@CreateLiveSourceResponse' {} a -> s {creationTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the source location associated with the VOD source.
+-- | The name to assign to the source location of the live source.
 createLiveSourceResponse_sourceLocationName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 createLiveSourceResponse_sourceLocationName = Lens.lens (\CreateLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateLiveSourceResponse' {} a -> s {sourceLocationName = a} :: CreateLiveSourceResponse)
 
--- | The HTTP package configurations.
+-- | A list of HTTP package configuration parameters for this live source.
 createLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
 createLiveSourceResponse_httpPackageConfigurations = Lens.lens (\CreateLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@CreateLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 

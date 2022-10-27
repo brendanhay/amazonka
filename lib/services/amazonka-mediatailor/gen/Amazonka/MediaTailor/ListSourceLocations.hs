@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of source locations.
+-- Lists the source locations for a channel. A source location defines the
+-- host server URL, and contains a list of sources.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListSourceLocations
@@ -52,11 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSourceLocations' smart constructor.
 data ListSourceLocations = ListSourceLocations'
-  { -- | Pagination token from the GET list request. Use the token to fetch the
-    -- next page of results.
+  { -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return. The maximum number of
-    -- results is 100.
+    -- | The maximum number of source locations that you want MediaTailor to
+    -- return in response to the current request. If there are more than
+    -- @MaxResults@ source locations, use the value of @NextToken@ in the
+    -- response to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +72,13 @@ data ListSourceLocations = ListSourceLocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSourceLocations_nextToken' - Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- 'nextToken', 'listSourceLocations_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
--- 'maxResults', 'listSourceLocations_maxResults' - Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- 'maxResults', 'listSourceLocations_maxResults' - The maximum number of source locations that you want MediaTailor to
+-- return in response to the current request. If there are more than
+-- @MaxResults@ source locations, use the value of @NextToken@ in the
+-- response to get the next page of results.
 newListSourceLocations ::
   ListSourceLocations
 newListSourceLocations =
@@ -82,13 +87,15 @@ newListSourceLocations =
       maxResults = Prelude.Nothing
     }
 
--- | Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listSourceLocations_nextToken :: Lens.Lens' ListSourceLocations (Prelude.Maybe Prelude.Text)
 listSourceLocations_nextToken = Lens.lens (\ListSourceLocations' {nextToken} -> nextToken) (\s@ListSourceLocations' {} a -> s {nextToken = a} :: ListSourceLocations)
 
--- | Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- | The maximum number of source locations that you want MediaTailor to
+-- return in response to the current request. If there are more than
+-- @MaxResults@ source locations, use the value of @NextToken@ in the
+-- response to get the next page of results.
 listSourceLocations_maxResults :: Lens.Lens' ListSourceLocations (Prelude.Maybe Prelude.Natural)
 listSourceLocations_maxResults = Lens.lens (\ListSourceLocations' {maxResults} -> maxResults) (\s@ListSourceLocations' {} a -> s {maxResults = a} :: ListSourceLocations)
 
@@ -118,7 +125,8 @@ instance Core.AWSRequest ListSourceLocations where
   type
     AWSResponse ListSourceLocations =
       ListSourceLocationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,8 +171,8 @@ instance Core.ToQuery ListSourceLocations where
 data ListSourceLocationsResponse = ListSourceLocationsResponse'
   { -- | A list of source locations.
     items :: Prelude.Maybe [SourceLocation],
-    -- | Pagination token from the list request. Use the token to fetch the next
-    -- page of results.
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,8 +189,8 @@ data ListSourceLocationsResponse = ListSourceLocationsResponse'
 --
 -- 'items', 'listSourceLocationsResponse_items' - A list of source locations.
 --
--- 'nextToken', 'listSourceLocationsResponse_nextToken' - Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- 'nextToken', 'listSourceLocationsResponse_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'httpStatus', 'listSourceLocationsResponse_httpStatus' - The response's http status code.
 newListSourceLocationsResponse ::
@@ -201,8 +209,8 @@ newListSourceLocationsResponse pHttpStatus_ =
 listSourceLocationsResponse_items :: Lens.Lens' ListSourceLocationsResponse (Prelude.Maybe [SourceLocation])
 listSourceLocationsResponse_items = Lens.lens (\ListSourceLocationsResponse' {items} -> items) (\s@ListSourceLocationsResponse' {} a -> s {items = a} :: ListSourceLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listSourceLocationsResponse_nextToken :: Lens.Lens' ListSourceLocationsResponse (Prelude.Maybe Prelude.Text)
 listSourceLocationsResponse_nextToken = Lens.lens (\ListSourceLocationsResponse' {nextToken} -> nextToken) (\s@ListSourceLocationsResponse' {} a -> s {nextToken = a} :: ListSourceLocationsResponse)
 

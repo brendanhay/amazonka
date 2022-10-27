@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDashPlaylistSettings' smart constructor.
 data DashPlaylistSettings = DashPlaylistSettings'
   { -- | Amount of time (in seconds) that the player should be from the live
-    -- point at the end of the manifest. Minimum value: 2 seconds. Maximum
-    -- value: 60 seconds.
+    -- point at the end of the manifest. Minimum value: @2@ seconds. Maximum
+    -- value: @60@ seconds.
     suggestedPresentationDelaySeconds :: Prelude.Maybe Prelude.Int,
-    -- | The total duration (in seconds) of each manifest. Minimum value: 30
-    -- seconds. Maximum value: 3600 seconds.
+    -- | The total duration (in seconds) of each manifest. Minimum value: @30@
+    -- seconds. Maximum value: @3600@ seconds.
     manifestWindowSeconds :: Prelude.Maybe Prelude.Int,
     -- | Minimum amount of time (in seconds) that the player should wait before
-    -- requesting updates to the manifest. Minimum value: 2 seconds. Maximum
-    -- value: 60 seconds.
+    -- requesting updates to the manifest. Minimum value: @2@ seconds. Maximum
+    -- value: @60@ seconds.
     minUpdatePeriodSeconds :: Prelude.Maybe Prelude.Int,
     -- | Minimum amount of content (measured in seconds) that a player must keep
-    -- available in the buffer. Minimum value: 2 seconds. Maximum value: 60
+    -- available in the buffer. Minimum value: @2@ seconds. Maximum value: @60@
     -- seconds.
     minBufferTimeSeconds :: Prelude.Maybe Prelude.Int
   }
@@ -54,18 +54,18 @@ data DashPlaylistSettings = DashPlaylistSettings'
 -- for backwards compatibility:
 --
 -- 'suggestedPresentationDelaySeconds', 'dashPlaylistSettings_suggestedPresentationDelaySeconds' - Amount of time (in seconds) that the player should be from the live
--- point at the end of the manifest. Minimum value: 2 seconds. Maximum
--- value: 60 seconds.
+-- point at the end of the manifest. Minimum value: @2@ seconds. Maximum
+-- value: @60@ seconds.
 --
--- 'manifestWindowSeconds', 'dashPlaylistSettings_manifestWindowSeconds' - The total duration (in seconds) of each manifest. Minimum value: 30
--- seconds. Maximum value: 3600 seconds.
+-- 'manifestWindowSeconds', 'dashPlaylistSettings_manifestWindowSeconds' - The total duration (in seconds) of each manifest. Minimum value: @30@
+-- seconds. Maximum value: @3600@ seconds.
 --
 -- 'minUpdatePeriodSeconds', 'dashPlaylistSettings_minUpdatePeriodSeconds' - Minimum amount of time (in seconds) that the player should wait before
--- requesting updates to the manifest. Minimum value: 2 seconds. Maximum
--- value: 60 seconds.
+-- requesting updates to the manifest. Minimum value: @2@ seconds. Maximum
+-- value: @60@ seconds.
 --
 -- 'minBufferTimeSeconds', 'dashPlaylistSettings_minBufferTimeSeconds' - Minimum amount of content (measured in seconds) that a player must keep
--- available in the buffer. Minimum value: 2 seconds. Maximum value: 60
+-- available in the buffer. Minimum value: @2@ seconds. Maximum value: @60@
 -- seconds.
 newDashPlaylistSettings ::
   DashPlaylistSettings
@@ -79,24 +79,24 @@ newDashPlaylistSettings =
     }
 
 -- | Amount of time (in seconds) that the player should be from the live
--- point at the end of the manifest. Minimum value: 2 seconds. Maximum
--- value: 60 seconds.
+-- point at the end of the manifest. Minimum value: @2@ seconds. Maximum
+-- value: @60@ seconds.
 dashPlaylistSettings_suggestedPresentationDelaySeconds :: Lens.Lens' DashPlaylistSettings (Prelude.Maybe Prelude.Int)
 dashPlaylistSettings_suggestedPresentationDelaySeconds = Lens.lens (\DashPlaylistSettings' {suggestedPresentationDelaySeconds} -> suggestedPresentationDelaySeconds) (\s@DashPlaylistSettings' {} a -> s {suggestedPresentationDelaySeconds = a} :: DashPlaylistSettings)
 
--- | The total duration (in seconds) of each manifest. Minimum value: 30
--- seconds. Maximum value: 3600 seconds.
+-- | The total duration (in seconds) of each manifest. Minimum value: @30@
+-- seconds. Maximum value: @3600@ seconds.
 dashPlaylistSettings_manifestWindowSeconds :: Lens.Lens' DashPlaylistSettings (Prelude.Maybe Prelude.Int)
 dashPlaylistSettings_manifestWindowSeconds = Lens.lens (\DashPlaylistSettings' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@DashPlaylistSettings' {} a -> s {manifestWindowSeconds = a} :: DashPlaylistSettings)
 
 -- | Minimum amount of time (in seconds) that the player should wait before
--- requesting updates to the manifest. Minimum value: 2 seconds. Maximum
--- value: 60 seconds.
+-- requesting updates to the manifest. Minimum value: @2@ seconds. Maximum
+-- value: @60@ seconds.
 dashPlaylistSettings_minUpdatePeriodSeconds :: Lens.Lens' DashPlaylistSettings (Prelude.Maybe Prelude.Int)
 dashPlaylistSettings_minUpdatePeriodSeconds = Lens.lens (\DashPlaylistSettings' {minUpdatePeriodSeconds} -> minUpdatePeriodSeconds) (\s@DashPlaylistSettings' {} a -> s {minUpdatePeriodSeconds = a} :: DashPlaylistSettings)
 
 -- | Minimum amount of content (measured in seconds) that a player must keep
--- available in the buffer. Minimum value: 2 seconds. Maximum value: 60
+-- available in the buffer. Minimum value: @2@ seconds. Maximum value: @60@
 -- seconds.
 dashPlaylistSettings_minBufferTimeSeconds :: Lens.Lens' DashPlaylistSettings (Prelude.Maybe Prelude.Int)
 dashPlaylistSettings_minBufferTimeSeconds = Lens.lens (\DashPlaylistSettings' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashPlaylistSettings' {} a -> s {minBufferTimeSeconds = a} :: DashPlaylistSettings)

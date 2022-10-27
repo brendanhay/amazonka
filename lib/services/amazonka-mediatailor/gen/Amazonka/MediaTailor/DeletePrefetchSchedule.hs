@@ -21,8 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a prefetch schedule for a specific playback configuration. If
--- you call DeletePrefetchSchedule on an expired prefetch schedule,
--- MediaTailor returns an HTTP 404 status code.
+-- you call @DeletePrefetchSchedule@ on an expired prefetch schedule,
+-- MediaTailor returns an HTTP 404 status code. For more information about
+-- ad prefetching, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html Using ad prefetching>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DeletePrefetchSchedule
   ( -- * Creating a Request
     DeletePrefetchSchedule (..),
@@ -50,9 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePrefetchSchedule' smart constructor.
 data DeletePrefetchSchedule = DeletePrefetchSchedule'
-  { -- | The identifier for the playback configuration.
+  { -- | The name of the prefetch schedule. If the action is successful, the
+    -- service sends back an HTTP 204 response with an empty HTTP body.
     name :: Prelude.Text,
-    -- | The name of the playback configuration.
+    -- | The name of the playback configuration for this prefetch schedule.
     playbackConfigurationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +69,10 @@ data DeletePrefetchSchedule = DeletePrefetchSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deletePrefetchSchedule_name' - The identifier for the playback configuration.
+-- 'name', 'deletePrefetchSchedule_name' - The name of the prefetch schedule. If the action is successful, the
+-- service sends back an HTTP 204 response with an empty HTTP body.
 --
--- 'playbackConfigurationName', 'deletePrefetchSchedule_playbackConfigurationName' - The name of the playback configuration.
+-- 'playbackConfigurationName', 'deletePrefetchSchedule_playbackConfigurationName' - The name of the playback configuration for this prefetch schedule.
 newDeletePrefetchSchedule ::
   -- | 'name'
   Prelude.Text ->
@@ -83,11 +88,12 @@ newDeletePrefetchSchedule
           pPlaybackConfigurationName_
       }
 
--- | The identifier for the playback configuration.
+-- | The name of the prefetch schedule. If the action is successful, the
+-- service sends back an HTTP 204 response with an empty HTTP body.
 deletePrefetchSchedule_name :: Lens.Lens' DeletePrefetchSchedule Prelude.Text
 deletePrefetchSchedule_name = Lens.lens (\DeletePrefetchSchedule' {name} -> name) (\s@DeletePrefetchSchedule' {} a -> s {name = a} :: DeletePrefetchSchedule)
 
--- | The name of the playback configuration.
+-- | The name of the playback configuration for this prefetch schedule.
 deletePrefetchSchedule_playbackConfigurationName :: Lens.Lens' DeletePrefetchSchedule Prelude.Text
 deletePrefetchSchedule_playbackConfigurationName = Lens.lens (\DeletePrefetchSchedule' {playbackConfigurationName} -> playbackConfigurationName) (\s@DeletePrefetchSchedule' {} a -> s {playbackConfigurationName = a} :: DeletePrefetchSchedule)
 
@@ -95,7 +101,8 @@ instance Core.AWSRequest DeletePrefetchSchedule where
   type
     AWSResponse DeletePrefetchSchedule =
       DeletePrefetchScheduleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

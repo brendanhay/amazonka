@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newHttpPackageConfiguration' smart constructor.
 data HttpPackageConfiguration = HttpPackageConfiguration'
   { -- | The relative path to the URL for this VOD source. This is combined with
-    -- SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.
+    -- @SourceLocation::HttpConfiguration::BaseUrl@ to form a valid URL.
     path :: Prelude.Text,
-    -- | The streaming protocol for this package configuration. Supported values
-    -- are HLS and DASH.
-    type' :: Type,
     -- | The name of the source group. This has to match one of the
-    -- Channel::Outputs::SourceGroup.
-    sourceGroup :: Prelude.Text
+    -- @Channel::Outputs::SourceGroup@.
+    sourceGroup :: Prelude.Text,
+    -- | The streaming protocol for this package configuration. Supported values
+    -- are @HLS@ and @DASH@.
+    type' :: Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data HttpPackageConfiguration = HttpPackageConfiguration'
 -- for backwards compatibility:
 --
 -- 'path', 'httpPackageConfiguration_path' - The relative path to the URL for this VOD source. This is combined with
--- SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.
---
--- 'type'', 'httpPackageConfiguration_type' - The streaming protocol for this package configuration. Supported values
--- are HLS and DASH.
+-- @SourceLocation::HttpConfiguration::BaseUrl@ to form a valid URL.
 --
 -- 'sourceGroup', 'httpPackageConfiguration_sourceGroup' - The name of the source group. This has to match one of the
--- Channel::Outputs::SourceGroup.
+-- @Channel::Outputs::SourceGroup@.
+--
+-- 'type'', 'httpPackageConfiguration_type' - The streaming protocol for this package configuration. Supported values
+-- are @HLS@ and @DASH@.
 newHttpPackageConfiguration ::
   -- | 'path'
   Prelude.Text ->
-  -- | 'type''
-  Type ->
   -- | 'sourceGroup'
   Prelude.Text ->
+  -- | 'type''
+  Type ->
   HttpPackageConfiguration
 newHttpPackageConfiguration
   pPath_
-  pType_
-  pSourceGroup_ =
+  pSourceGroup_
+  pType_ =
     HttpPackageConfiguration'
       { path = pPath_,
-        type' = pType_,
-        sourceGroup = pSourceGroup_
+        sourceGroup = pSourceGroup_,
+        type' = pType_
       }
 
 -- | The relative path to the URL for this VOD source. This is combined with
--- SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.
+-- @SourceLocation::HttpConfiguration::BaseUrl@ to form a valid URL.
 httpPackageConfiguration_path :: Lens.Lens' HttpPackageConfiguration Prelude.Text
 httpPackageConfiguration_path = Lens.lens (\HttpPackageConfiguration' {path} -> path) (\s@HttpPackageConfiguration' {} a -> s {path = a} :: HttpPackageConfiguration)
 
--- | The streaming protocol for this package configuration. Supported values
--- are HLS and DASH.
-httpPackageConfiguration_type :: Lens.Lens' HttpPackageConfiguration Type
-httpPackageConfiguration_type = Lens.lens (\HttpPackageConfiguration' {type'} -> type') (\s@HttpPackageConfiguration' {} a -> s {type' = a} :: HttpPackageConfiguration)
-
 -- | The name of the source group. This has to match one of the
--- Channel::Outputs::SourceGroup.
+-- @Channel::Outputs::SourceGroup@.
 httpPackageConfiguration_sourceGroup :: Lens.Lens' HttpPackageConfiguration Prelude.Text
 httpPackageConfiguration_sourceGroup = Lens.lens (\HttpPackageConfiguration' {sourceGroup} -> sourceGroup) (\s@HttpPackageConfiguration' {} a -> s {sourceGroup = a} :: HttpPackageConfiguration)
+
+-- | The streaming protocol for this package configuration. Supported values
+-- are @HLS@ and @DASH@.
+httpPackageConfiguration_type :: Lens.Lens' HttpPackageConfiguration Type
+httpPackageConfiguration_type = Lens.lens (\HttpPackageConfiguration' {type'} -> type') (\s@HttpPackageConfiguration' {} a -> s {type' = a} :: HttpPackageConfiguration)
 
 instance Core.FromJSON HttpPackageConfiguration where
   parseJSON =
@@ -96,28 +96,28 @@ instance Core.FromJSON HttpPackageConfiguration where
       ( \x ->
           HttpPackageConfiguration'
             Prelude.<$> (x Core..: "Path")
-            Prelude.<*> (x Core..: "Type")
             Prelude.<*> (x Core..: "SourceGroup")
+            Prelude.<*> (x Core..: "Type")
       )
 
 instance Prelude.Hashable HttpPackageConfiguration where
   hashWithSalt _salt HttpPackageConfiguration' {..} =
     _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` sourceGroup
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData HttpPackageConfiguration where
   rnf HttpPackageConfiguration' {..} =
     Prelude.rnf path
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf sourceGroup
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON HttpPackageConfiguration where
   toJSON HttpPackageConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
           [ Prelude.Just ("Path" Core..= path),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("SourceGroup" Core..= sourceGroup)
+            Prelude.Just ("SourceGroup" Core..= sourceGroup),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

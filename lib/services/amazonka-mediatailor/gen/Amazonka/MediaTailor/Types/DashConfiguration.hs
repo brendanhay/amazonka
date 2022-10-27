@@ -38,14 +38,14 @@ data DashConfiguration = DashConfiguration'
     -- sticky redirects. Disable this if you have CDN routing rules set up for
     -- accessing MediaTailor manifests, and you are either using client-side
     -- reporting or your players support sticky HTTP redirects. Valid values
-    -- are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the
+    -- are @DISABLED@ and @EMT_DEFAULT@. The @EMT_DEFAULT@ setting enables the
     -- inclusion of the tag and is the default value.
     mpdLocation :: Prelude.Maybe Prelude.Text,
     -- | The setting that controls whether MediaTailor handles manifests from the
     -- origin server as multi-period manifests or single-period manifests. If
     -- your origin server produces single-period manifests, set this to
-    -- SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period
-    -- manifests, omit this setting or set it to MULTI_PERIOD.
+    -- @SINGLE_PERIOD@. The default setting is @MULTI_PERIOD@. For multi-period
+    -- manifests, omit this setting or set it to @MULTI_PERIOD@.
     originManifestType :: Prelude.Maybe OriginManifestType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,14 +68,14 @@ data DashConfiguration = DashConfiguration'
 -- sticky redirects. Disable this if you have CDN routing rules set up for
 -- accessing MediaTailor manifests, and you are either using client-side
 -- reporting or your players support sticky HTTP redirects. Valid values
--- are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the
+-- are @DISABLED@ and @EMT_DEFAULT@. The @EMT_DEFAULT@ setting enables the
 -- inclusion of the tag and is the default value.
 --
 -- 'originManifestType', 'dashConfiguration_originManifestType' - The setting that controls whether MediaTailor handles manifests from the
 -- origin server as multi-period manifests or single-period manifests. If
 -- your origin server produces single-period manifests, set this to
--- SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period
--- manifests, omit this setting or set it to MULTI_PERIOD.
+-- @SINGLE_PERIOD@. The default setting is @MULTI_PERIOD@. For multi-period
+-- manifests, omit this setting or set it to @MULTI_PERIOD@.
 newDashConfiguration ::
   DashConfiguration
 newDashConfiguration =
@@ -98,7 +98,7 @@ dashConfiguration_manifestEndpointPrefix = Lens.lens (\DashConfiguration' {manif
 -- sticky redirects. Disable this if you have CDN routing rules set up for
 -- accessing MediaTailor manifests, and you are either using client-side
 -- reporting or your players support sticky HTTP redirects. Valid values
--- are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the
+-- are @DISABLED@ and @EMT_DEFAULT@. The @EMT_DEFAULT@ setting enables the
 -- inclusion of the tag and is the default value.
 dashConfiguration_mpdLocation :: Lens.Lens' DashConfiguration (Prelude.Maybe Prelude.Text)
 dashConfiguration_mpdLocation = Lens.lens (\DashConfiguration' {mpdLocation} -> mpdLocation) (\s@DashConfiguration' {} a -> s {mpdLocation = a} :: DashConfiguration)
@@ -106,8 +106,8 @@ dashConfiguration_mpdLocation = Lens.lens (\DashConfiguration' {mpdLocation} -> 
 -- | The setting that controls whether MediaTailor handles manifests from the
 -- origin server as multi-period manifests or single-period manifests. If
 -- your origin server produces single-period manifests, set this to
--- SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period
--- manifests, omit this setting or set it to MULTI_PERIOD.
+-- @SINGLE_PERIOD@. The default setting is @MULTI_PERIOD@. For multi-period
+-- manifests, omit this setting or set it to @MULTI_PERIOD@.
 dashConfiguration_originManifestType :: Lens.Lens' DashConfiguration (Prelude.Maybe OriginManifestType)
 dashConfiguration_originManifestType = Lens.lens (\DashConfiguration' {originManifestType} -> originManifestType) (\s@DashConfiguration' {} a -> s {originManifestType = a} :: DashConfiguration)
 

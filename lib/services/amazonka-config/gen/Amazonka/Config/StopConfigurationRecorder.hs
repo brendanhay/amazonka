@@ -83,7 +83,8 @@ instance Core.AWSRequest StopConfigurationRecorder where
   type
     AWSResponse StopConfigurationRecorder =
       StopConfigurationRecorderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopConfigurationRecorderResponse'

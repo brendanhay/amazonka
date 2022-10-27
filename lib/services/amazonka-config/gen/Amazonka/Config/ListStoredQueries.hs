@@ -92,7 +92,8 @@ instance Core.AWSRequest ListStoredQueries where
   type
     AWSResponse ListStoredQueries =
       ListStoredQueriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

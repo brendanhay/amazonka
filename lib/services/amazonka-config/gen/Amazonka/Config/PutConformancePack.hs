@@ -22,8 +22,8 @@
 --
 -- Creates or updates a conformance pack. A conformance pack is a
 -- collection of Config rules that can be easily deployed in an account and
--- a region and across Amazon Web Services Organization. For information on
--- how many conformance packs you can have per account, see
+-- a region and across an organization. For information on how many
+-- conformance packs you can have per account, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
 -- in the Config Developer Guide.
 --
@@ -31,8 +31,8 @@
 -- in your account. The service-linked role is created only when the role
 -- does not exist in your account.
 --
--- You must specify one and only one of the@TemplateS3Uri@, @TemplateBody@
--- or @TemplateSSMDocumentDetails@ parameters.
+-- You must specify only one of the follow parameters: @TemplateS3Uri@,
+-- @TemplateBody@ or @TemplateSSMDocumentDetails@.
 module Amazonka.Config.PutConformancePack
   ( -- * Creating a Request
     PutConformancePack (..),
@@ -69,7 +69,7 @@ data PutConformancePack = PutConformancePack'
   { -- | The location of the file containing the template body
     -- (@s3:\/\/bucketname\/prefix@). The uri must point to a conformance pack
     -- template (max size: 300 KB) that is located in an Amazon S3 bucket in
-    -- the same region as the conformance pack.
+    -- the same Region as the conformance pack.
     --
     -- You must have access to read Amazon S3 bucket.
     templateS3Uri :: Prelude.Maybe Prelude.Text,
@@ -79,7 +79,7 @@ data PutConformancePack = PutConformancePack'
     -- structure containing the template body has a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes.
     --
-    -- You can only use a YAML template with two resource types: Config rule
+    -- You can use a YAML template with two resource types: Config rule
     -- (@AWS::Config::ConfigRule@) and remediation action
     -- (@AWS::Config::RemediationConfiguration@).
     templateBody :: Prelude.Maybe Prelude.Text,
@@ -113,7 +113,7 @@ data PutConformancePack = PutConformancePack'
 -- 'templateS3Uri', 'putConformancePack_templateS3Uri' - The location of the file containing the template body
 -- (@s3:\/\/bucketname\/prefix@). The uri must point to a conformance pack
 -- template (max size: 300 KB) that is located in an Amazon S3 bucket in
--- the same region as the conformance pack.
+-- the same Region as the conformance pack.
 --
 -- You must have access to read Amazon S3 bucket.
 --
@@ -123,7 +123,7 @@ data PutConformancePack = PutConformancePack'
 -- structure containing the template body has a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes.
 --
--- You can only use a YAML template with two resource types: Config rule
+-- You can use a YAML template with two resource types: Config rule
 -- (@AWS::Config::ConfigRule@) and remediation action
 -- (@AWS::Config::RemediationConfiguration@).
 --
@@ -161,7 +161,7 @@ newPutConformancePack pConformancePackName_ =
 -- | The location of the file containing the template body
 -- (@s3:\/\/bucketname\/prefix@). The uri must point to a conformance pack
 -- template (max size: 300 KB) that is located in an Amazon S3 bucket in
--- the same region as the conformance pack.
+-- the same Region as the conformance pack.
 --
 -- You must have access to read Amazon S3 bucket.
 putConformancePack_templateS3Uri :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
@@ -175,7 +175,7 @@ putConformancePack_conformancePackInputParameters = Lens.lens (\PutConformancePa
 -- structure containing the template body has a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes.
 --
--- You can only use a YAML template with two resource types: Config rule
+-- You can use a YAML template with two resource types: Config rule
 -- (@AWS::Config::ConfigRule@) and remediation action
 -- (@AWS::Config::RemediationConfiguration@).
 putConformancePack_templateBody :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
@@ -209,7 +209,8 @@ instance Core.AWSRequest PutConformancePack where
   type
     AWSResponse PutConformancePack =
       PutConformancePackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

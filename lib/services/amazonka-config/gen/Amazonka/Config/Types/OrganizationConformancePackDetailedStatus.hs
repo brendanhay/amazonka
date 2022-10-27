@@ -44,11 +44,11 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
     -- | The name of conformance pack deployed in the member account.
     conformancePackName :: Prelude.Text,
     -- | Indicates deployment status for conformance pack in a member account.
-    -- When master account calls @PutOrganizationConformancePack@ action for
-    -- the first time, conformance pack status is created in the member
-    -- account. When master account calls @PutOrganizationConformancePack@
+    -- When management account calls @PutOrganizationConformancePack@ action
+    -- for the first time, conformance pack status is created in the member
+    -- account. When management account calls @PutOrganizationConformancePack@
     -- action for the second time, conformance pack status is updated in the
-    -- member account. Conformance pack status is deleted when the master
+    -- member account. Conformance pack status is deleted when the management
     -- account deletes @OrganizationConformancePack@ and disables service
     -- access for @config-multiaccountsetup.amazonaws.com@.
     --
@@ -105,11 +105,11 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
 -- 'conformancePackName', 'organizationConformancePackDetailedStatus_conformancePackName' - The name of conformance pack deployed in the member account.
 --
 -- 'status', 'organizationConformancePackDetailedStatus_status' - Indicates deployment status for conformance pack in a member account.
--- When master account calls @PutOrganizationConformancePack@ action for
--- the first time, conformance pack status is created in the member
--- account. When master account calls @PutOrganizationConformancePack@
+-- When management account calls @PutOrganizationConformancePack@ action
+-- for the first time, conformance pack status is created in the member
+-- account. When management account calls @PutOrganizationConformancePack@
 -- action for the second time, conformance pack status is updated in the
--- member account. Conformance pack status is deleted when the master
+-- member account. Conformance pack status is deleted when the management
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
@@ -187,11 +187,11 @@ organizationConformancePackDetailedStatus_conformancePackName :: Lens.Lens' Orga
 organizationConformancePackDetailedStatus_conformancePackName = Lens.lens (\OrganizationConformancePackDetailedStatus' {conformancePackName} -> conformancePackName) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {conformancePackName = a} :: OrganizationConformancePackDetailedStatus)
 
 -- | Indicates deployment status for conformance pack in a member account.
--- When master account calls @PutOrganizationConformancePack@ action for
--- the first time, conformance pack status is created in the member
--- account. When master account calls @PutOrganizationConformancePack@
+-- When management account calls @PutOrganizationConformancePack@ action
+-- for the first time, conformance pack status is created in the member
+-- account. When management account calls @PutOrganizationConformancePack@
 -- action for the second time, conformance pack status is updated in the
--- member account. Conformance pack status is deleted when the master
+-- member account. Conformance pack status is deleted when the management
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --

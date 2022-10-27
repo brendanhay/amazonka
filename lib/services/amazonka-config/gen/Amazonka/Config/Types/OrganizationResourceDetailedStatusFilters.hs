@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOrganizationResourceDetailedStatusFilters' smart constructor.
 data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedStatusFilters'
   { -- | Indicates deployment status for conformance pack in a member account.
-    -- When master account calls @PutOrganizationConformancePack@ action for
-    -- the first time, conformance pack status is created in the member
-    -- account. When master account calls @PutOrganizationConformancePack@
+    -- When management account calls @PutOrganizationConformancePack@ action
+    -- for the first time, conformance pack status is created in the member
+    -- account. When management account calls @PutOrganizationConformancePack@
     -- action for the second time, conformance pack status is updated in the
-    -- member account. Conformance pack status is deleted when the master
+    -- member account. Conformance pack status is deleted when the management
     -- account deletes @OrganizationConformancePack@ and disables service
     -- access for @config-multiaccountsetup.amazonaws.com@.
     --
@@ -81,11 +81,11 @@ data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedSta
 -- for backwards compatibility:
 --
 -- 'status', 'organizationResourceDetailedStatusFilters_status' - Indicates deployment status for conformance pack in a member account.
--- When master account calls @PutOrganizationConformancePack@ action for
--- the first time, conformance pack status is created in the member
--- account. When master account calls @PutOrganizationConformancePack@
+-- When management account calls @PutOrganizationConformancePack@ action
+-- for the first time, conformance pack status is created in the member
+-- account. When management account calls @PutOrganizationConformancePack@
 -- action for the second time, conformance pack status is updated in the
--- member account. Conformance pack status is deleted when the master
+-- member account. Conformance pack status is deleted when the management
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
@@ -129,11 +129,11 @@ newOrganizationResourceDetailedStatusFilters =
     }
 
 -- | Indicates deployment status for conformance pack in a member account.
--- When master account calls @PutOrganizationConformancePack@ action for
--- the first time, conformance pack status is created in the member
--- account. When master account calls @PutOrganizationConformancePack@
+-- When management account calls @PutOrganizationConformancePack@ action
+-- for the first time, conformance pack status is created in the member
+-- account. When management account calls @PutOrganizationConformancePack@
 -- action for the second time, conformance pack status is updated in the
--- member account. Conformance pack status is deleted when the master
+-- member account. Conformance pack status is deleted when the management
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --

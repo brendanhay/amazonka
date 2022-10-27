@@ -134,7 +134,8 @@ instance Core.AWSRequest SelectResourceConfig where
   type
     AWSResponse SelectResourceConfig =
       SelectResourceConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

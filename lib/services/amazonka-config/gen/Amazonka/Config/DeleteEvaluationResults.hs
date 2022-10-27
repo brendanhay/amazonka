@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteEvaluationResults where
   type
     AWSResponse DeleteEvaluationResults =
       DeleteEvaluationResultsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

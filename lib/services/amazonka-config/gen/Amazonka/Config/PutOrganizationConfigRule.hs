@@ -27,18 +27,18 @@
 -- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
 -- in the /Config Developer Guide/.
 --
--- Only a master account and a delegated administrator can create or update
--- an organization Config rule. When calling this API with a delegated
--- administrator, you must ensure Organizations
+-- Only a management account and a delegated administrator can create or
+-- update an organization Config rule. When calling this API with a
+-- delegated administrator, you must ensure Organizations
 -- @ListDelegatedAdministrator@ permissions are added. An organization can
 -- have up to 3 delegated administrators.
 --
 -- This API enables organization service access through the
 -- @EnableAWSServiceAccess@ action and creates a service-linked role
--- @AWSServiceRoleForConfigMultiAccountSetup@ in the master or delegated
--- administrator account of your organization. The service-linked role is
--- created only when the role does not exist in the caller account. Config
--- verifies the existence of role with @GetRole@ action.
+-- @AWSServiceRoleForConfigMultiAccountSetup@ in the management or
+-- delegated administrator account of your organization. The service-linked
+-- role is created only when the role does not exist in the caller account.
+-- Config verifies the existence of role with @GetRole@ action.
 --
 -- To use this API with delegated administrator, register a delegated
 -- administrator by calling Amazon Web Services Organization
@@ -55,10 +55,10 @@
 -- is a policy-as-code language that allows you to write policies that are
 -- enforced by Config Custom Policy rules. Lambda uses custom code that you
 -- upload to evaluate a custom rule. If you are adding a new Custom Lambda
--- rule, you first need to create an Lambda function in the master account
--- or a delegated administrator that the rule invokes to evaluate your
--- resources. You also need to create an IAM role in the managed account
--- that can be assumed by the Lambda function. When you use
+-- rule, you first need to create an Lambda function in the management
+-- account or a delegated administrator that the rule invokes to evaluate
+-- your resources. You also need to create an IAM role in the managed
+-- account that can be assumed by the Lambda function. When you use
 -- @PutOrganizationConfigRule@ to add a Custom Lambda rule to Config, you
 -- must specify the Amazon Resource Name (ARN) that Lambda assigns to the
 -- function.
@@ -229,7 +229,8 @@ instance Core.AWSRequest PutOrganizationConfigRule where
   type
     AWSResponse PutOrganizationConfigRule =
       PutOrganizationConfigRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

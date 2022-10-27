@@ -175,7 +175,8 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
   type
     AWSResponse GetDiscoveredResourceCounts =
       GetDiscoveredResourceCountsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

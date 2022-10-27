@@ -43,12 +43,13 @@ data MemberAccountStatus = MemberAccountStatus'
     -- | The name of Config rule deployed in the member account.
     configRuleName :: Prelude.Text,
     -- | Indicates deployment status for Config rule in the member account. When
-    -- master account calls @PutOrganizationConfigRule@ action for the first
-    -- time, Config rule status is created in the member account. When master
-    -- account calls @PutOrganizationConfigRule@ action for the second time,
-    -- Config rule status is updated in the member account. Config rule status
-    -- is deleted when the master account deletes @OrganizationConfigRule@ and
-    -- disables service access for @config-multiaccountsetup.amazonaws.com@.
+    -- management account calls @PutOrganizationConfigRule@ action for the
+    -- first time, Config rule status is created in the member account. When
+    -- management account calls @PutOrganizationConfigRule@ action for the
+    -- second time, Config rule status is updated in the member account. Config
+    -- rule status is deleted when the management account deletes
+    -- @OrganizationConfigRule@ and disables service access for
+    -- @config-multiaccountsetup.amazonaws.com@.
     --
     -- Config sets the state of the rule to:
     --
@@ -103,12 +104,13 @@ data MemberAccountStatus = MemberAccountStatus'
 -- 'configRuleName', 'memberAccountStatus_configRuleName' - The name of Config rule deployed in the member account.
 --
 -- 'memberAccountRuleStatus', 'memberAccountStatus_memberAccountRuleStatus' - Indicates deployment status for Config rule in the member account. When
--- master account calls @PutOrganizationConfigRule@ action for the first
--- time, Config rule status is created in the member account. When master
--- account calls @PutOrganizationConfigRule@ action for the second time,
--- Config rule status is updated in the member account. Config rule status
--- is deleted when the master account deletes @OrganizationConfigRule@ and
--- disables service access for @config-multiaccountsetup.amazonaws.com@.
+-- management account calls @PutOrganizationConfigRule@ action for the
+-- first time, Config rule status is created in the member account. When
+-- management account calls @PutOrganizationConfigRule@ action for the
+-- second time, Config rule status is updated in the member account. Config
+-- rule status is deleted when the management account deletes
+-- @OrganizationConfigRule@ and disables service access for
+-- @config-multiaccountsetup.amazonaws.com@.
 --
 -- Config sets the state of the rule to:
 --
@@ -183,12 +185,13 @@ memberAccountStatus_configRuleName :: Lens.Lens' MemberAccountStatus Prelude.Tex
 memberAccountStatus_configRuleName = Lens.lens (\MemberAccountStatus' {configRuleName} -> configRuleName) (\s@MemberAccountStatus' {} a -> s {configRuleName = a} :: MemberAccountStatus)
 
 -- | Indicates deployment status for Config rule in the member account. When
--- master account calls @PutOrganizationConfigRule@ action for the first
--- time, Config rule status is created in the member account. When master
--- account calls @PutOrganizationConfigRule@ action for the second time,
--- Config rule status is updated in the member account. Config rule status
--- is deleted when the master account deletes @OrganizationConfigRule@ and
--- disables service access for @config-multiaccountsetup.amazonaws.com@.
+-- management account calls @PutOrganizationConfigRule@ action for the
+-- first time, Config rule status is created in the member account. When
+-- management account calls @PutOrganizationConfigRule@ action for the
+-- second time, Config rule status is updated in the member account. Config
+-- rule status is deleted when the management account deletes
+-- @OrganizationConfigRule@ and disables service access for
+-- @config-multiaccountsetup.amazonaws.com@.
 --
 -- Config sets the state of the rule to:
 --

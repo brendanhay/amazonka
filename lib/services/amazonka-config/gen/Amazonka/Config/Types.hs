@@ -1083,6 +1083,8 @@ defaultService =
       Core._serviceEndpointPrefix = "config",
       Core._serviceSigningName = "config",
       Core._serviceVersion = "2014-11-12",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -1158,8 +1160,10 @@ _InvalidConfigurationRecorderNameException =
     defaultService
     "InvalidConfigurationRecorderNameException"
 
--- | You have reached the limit (100,000) of active custom resource types in
--- your account. Delete unused resources using @DeleteResourceConfig@.
+-- | You have reached the limit of active custom resource types in your
+-- account. There is a limit of 100,000. Delete unused resources using
+-- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html DeleteResourceConfig>
+-- @@.
 _MaxActiveResourcesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxActiveResourcesExceededException =
   Core._MatchServiceError
@@ -1180,7 +1184,7 @@ _MaxNumberOfConfigurationRecordersExceededException =
     defaultService
     "MaxNumberOfConfigurationRecordersExceededException"
 
--- | You have specified a template that is not valid or supported.
+-- | You have specified a template that is invalid or supported.
 _ConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConformancePackTemplateValidationException =
   Core._MatchServiceError
@@ -1210,12 +1214,14 @@ _InvalidRecordingGroupException =
 --     action or create a service-linked role.
 --
 -- -   For PutConformancePack and PutOrganizationConformancePack, a
---     conformance pack cannot be created because you do not have
---     permissions:
+--     conformance pack cannot be created because you do not have the
+--     following permissions:
 --
---     -   To call IAM @GetRole@ action or create a service-linked role.
+--     -   You do not have permission to call IAM @GetRole@ action or
+--         create a service-linked role.
 --
---     -   To read Amazon S3 bucket or call SSM:GetDocument.
+--     -   You do not have permission to read Amazon S3 bucket or call
+--         SSM:GetDocument.
 _InsufficientPermissionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientPermissionsException =
   Core._MatchServiceError
@@ -1230,8 +1236,10 @@ _MaxNumberOfDeliveryChannelsExceededException =
     defaultService
     "MaxNumberOfDeliveryChannelsExceededException"
 
--- | You have reached the limit of the number of tags you can use. You have
--- more than 50 tags.
+-- | You have reached the limit of the number of tags you can use. For more
+-- information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
+-- in the Config Developer Guide.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
@@ -1290,7 +1298,7 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
 
--- | The specified delivery channel name is not valid.
+-- | The specified delivery channel name is invalid.
 _InvalidDeliveryChannelNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidDeliveryChannelNameException =
   Core._MatchServiceError
@@ -1324,14 +1332,14 @@ _InvalidLimitException =
     defaultService
     "InvalidLimitException"
 
--- | The specified Amazon S3 key prefix is not valid.
+-- | The specified Amazon S3 key prefix is invalid.
 _InvalidS3KeyPrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KeyPrefixException =
   Core._MatchServiceError
     defaultService
     "InvalidS3KeyPrefixException"
 
--- | You have specified a template that is not valid or supported.
+-- | You have specified a template that is invalid or supported.
 _OrganizationConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OrganizationConformancePackTemplateValidationException =
   Core._MatchServiceError
@@ -1416,7 +1424,9 @@ _InsufficientDeliveryPolicyException =
     "InsufficientDeliveryPolicyException"
 
 -- | You have reached the limit of the number of organization Config rules
--- you can create.
+-- you can create. For more information, see see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
+-- in the Config Developer Guide.
 _MaxNumberOfOrganizationConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfOrganizationConfigRulesExceededException =
   Core._MatchServiceError
@@ -1446,7 +1456,7 @@ _MaxNumberOfOrganizationConfigRulesExceededException =
 --
 -- For all @OrganizationConfigRule@ and @OrganizationConformancePack@ APIs,
 -- Config throws an exception if APIs are called from member accounts. All
--- APIs must be called from organization master account.
+-- APIs must be called from organization management account.
 _OrganizationAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OrganizationAccessDeniedException =
   Core._MatchServiceError
@@ -1461,14 +1471,14 @@ _LastDeliveryChannelDeleteFailedException =
     defaultService
     "LastDeliveryChannelDeleteFailedException"
 
--- | The specified Amazon KMS Key ARN is not valid.
+-- | The specified Amazon KMS Key ARN is invalid.
 _InvalidS3KmsKeyArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KmsKeyArnException =
   Core._MatchServiceError
     defaultService
     "InvalidS3KmsKeyArnException"
 
--- | The Config rule in the request is not valid. Verify that the rule is an
+-- | The Config rule in the request is invalid. Verify that the rule is an
 -- Config Custom Policy rule, that the rule name is correct, and that valid
 -- Amazon Resouce Names (ARNs) are used before trying again.
 _NoSuchConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1486,7 +1496,7 @@ _MaxNumberOfConfigRulesExceededException =
     defaultService
     "MaxNumberOfConfigRulesExceededException"
 
--- | The requested action is not valid.
+-- | The requested action is invalid.
 --
 -- For PutStoredQuery, you will see this exception if there are missing
 -- required fields or if the input value fails the validation, or if you
@@ -1516,9 +1526,10 @@ _ResourceConcurrentModificationException =
     defaultService
     "ResourceConcurrentModificationException"
 
--- | You have reached the limit (6) of the number of organization conformance
--- packs in an account (6 conformance pack with 25 Config rules per pack
--- per account).
+-- | You have reached the limit of the number of organization conformance
+-- packs you can create in an account. For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
+-- in the Config Developer Guide.
 _MaxNumberOfOrganizationConformancePacksExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfOrganizationConformancePacksExceededException =
   Core._MatchServiceError
@@ -1532,7 +1543,7 @@ _NoSuchConfigRuleInConformancePackException =
     defaultService
     "NoSuchConfigRuleInConformancePackException"
 
--- | The specified time range is not valid. The earlier time is not
+-- | The specified time range is invalid. The earlier time is not
 -- chronologically before the later time.
 _InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidTimeRangeException =
@@ -1577,8 +1588,10 @@ _ResourceNotDiscoveredException =
     defaultService
     "ResourceNotDiscoveredException"
 
--- | You have reached the limit (6) of the number of conformance packs in an
--- account (6 conformance pack with 25 Config rules per pack).
+-- | You have reached the limit of the number of conformance packs you can
+-- create in an account. For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
+-- in the Config Developer Guide.
 _MaxNumberOfConformancePacksExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfConformancePacksExceededException =
   Core._MatchServiceError
@@ -1614,7 +1627,7 @@ _InvalidParameterValueException =
     defaultService
     "InvalidParameterValueException"
 
--- | The Config rule in the request is not valid. Verify that the rule is an
+-- | The Config rule in the request is invalid. Verify that the rule is an
 -- organization Config Custom Policy rule, that the rule name is correct,
 -- and that valid Amazon Resouce Names (ARNs) are used before trying again.
 _NoSuchOrganizationConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

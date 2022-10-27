@@ -25,8 +25,8 @@
 -- in a conformance pack compared to the number of total possible
 -- rule-resource combinations in the conformance pack. This metric provides
 -- you with a high-level view of the compliance state of your conformance
--- packs, and can be used to identify, investigate, and understand the
--- level of compliance in your conformance packs.
+-- packs. You can use it to identify, investigate, and understand the level
+-- of compliance in your conformance packs.
 --
 -- Conformance packs with no evaluation results will have a compliance
 -- score of @INSUFFICIENT_DATA@.
@@ -65,9 +65,16 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
   { -- | Determines the order in which conformance pack compliance scores are
     -- sorted. Either in ascending or descending order.
     --
-    -- Conformance packs with a compliance score of @INSUFFICIENT_DATA@ will be
-    -- first when sorting by ascending order and last when sorting by
-    -- descending order.
+    -- By default, conformance pack compliance scores are sorted in
+    -- alphabetical order by name of the conformance pack. Conformance pack
+    -- compliance scores are sorted in reverse alphabetical order if you enter
+    -- @DESCENDING@.
+    --
+    -- You can sort conformance pack compliance scores by the numerical value
+    -- of the compliance score by entering @SCORE@ in the @SortBy@ action. When
+    -- compliance scores are sorted by @SCORE@, conformance packs with a
+    -- compliance score of @INSUFFICIENT_DATA@ will be last when sorting by
+    -- ascending order and first when sorting by descending order.
     sortOrder :: Prelude.Maybe SortOrder,
     -- | The @nextToken@ string in a prior request that you can use to get the
     -- paginated response for next set of conformance pack compliance scores.
@@ -78,10 +85,10 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
     -- | Sorts your conformance pack compliance scores in either ascending or
     -- descending order, depending on @SortOrder@.
     --
-    -- By default, conformance pack compliance scores are sorted in ascending
-    -- order by compliance score and alphabetically by name of the conformance
-    -- pack if there is more than one conformance pack with the same compliance
-    -- score.
+    -- By default, conformance pack compliance scores are sorted in
+    -- alphabetical order by name of the conformance pack. Enter @SCORE@, to
+    -- sort conformance pack compliance scores by the numerical value of the
+    -- compliance score.
     sortBy :: Prelude.Maybe SortBy,
     -- | The maximum number of conformance pack compliance scores returned on
     -- each page.
@@ -100,9 +107,16 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
 -- 'sortOrder', 'listConformancePackComplianceScores_sortOrder' - Determines the order in which conformance pack compliance scores are
 -- sorted. Either in ascending or descending order.
 --
--- Conformance packs with a compliance score of @INSUFFICIENT_DATA@ will be
--- first when sorting by ascending order and last when sorting by
--- descending order.
+-- By default, conformance pack compliance scores are sorted in
+-- alphabetical order by name of the conformance pack. Conformance pack
+-- compliance scores are sorted in reverse alphabetical order if you enter
+-- @DESCENDING@.
+--
+-- You can sort conformance pack compliance scores by the numerical value
+-- of the compliance score by entering @SCORE@ in the @SortBy@ action. When
+-- compliance scores are sorted by @SCORE@, conformance packs with a
+-- compliance score of @INSUFFICIENT_DATA@ will be last when sorting by
+-- ascending order and first when sorting by descending order.
 --
 -- 'nextToken', 'listConformancePackComplianceScores_nextToken' - The @nextToken@ string in a prior request that you can use to get the
 -- paginated response for next set of conformance pack compliance scores.
@@ -113,10 +127,10 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
 -- 'sortBy', 'listConformancePackComplianceScores_sortBy' - Sorts your conformance pack compliance scores in either ascending or
 -- descending order, depending on @SortOrder@.
 --
--- By default, conformance pack compliance scores are sorted in ascending
--- order by compliance score and alphabetically by name of the conformance
--- pack if there is more than one conformance pack with the same compliance
--- score.
+-- By default, conformance pack compliance scores are sorted in
+-- alphabetical order by name of the conformance pack. Enter @SCORE@, to
+-- sort conformance pack compliance scores by the numerical value of the
+-- compliance score.
 --
 -- 'limit', 'listConformancePackComplianceScores_limit' - The maximum number of conformance pack compliance scores returned on
 -- each page.
@@ -135,9 +149,16 @@ newListConformancePackComplianceScores =
 -- | Determines the order in which conformance pack compliance scores are
 -- sorted. Either in ascending or descending order.
 --
--- Conformance packs with a compliance score of @INSUFFICIENT_DATA@ will be
--- first when sorting by ascending order and last when sorting by
--- descending order.
+-- By default, conformance pack compliance scores are sorted in
+-- alphabetical order by name of the conformance pack. Conformance pack
+-- compliance scores are sorted in reverse alphabetical order if you enter
+-- @DESCENDING@.
+--
+-- You can sort conformance pack compliance scores by the numerical value
+-- of the compliance score by entering @SCORE@ in the @SortBy@ action. When
+-- compliance scores are sorted by @SCORE@, conformance packs with a
+-- compliance score of @INSUFFICIENT_DATA@ will be last when sorting by
+-- ascending order and first when sorting by descending order.
 listConformancePackComplianceScores_sortOrder :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe SortOrder)
 listConformancePackComplianceScores_sortOrder = Lens.lens (\ListConformancePackComplianceScores' {sortOrder} -> sortOrder) (\s@ListConformancePackComplianceScores' {} a -> s {sortOrder = a} :: ListConformancePackComplianceScores)
 
@@ -154,10 +175,10 @@ listConformancePackComplianceScores_filters = Lens.lens (\ListConformancePackCom
 -- | Sorts your conformance pack compliance scores in either ascending or
 -- descending order, depending on @SortOrder@.
 --
--- By default, conformance pack compliance scores are sorted in ascending
--- order by compliance score and alphabetically by name of the conformance
--- pack if there is more than one conformance pack with the same compliance
--- score.
+-- By default, conformance pack compliance scores are sorted in
+-- alphabetical order by name of the conformance pack. Enter @SCORE@, to
+-- sort conformance pack compliance scores by the numerical value of the
+-- compliance score.
 listConformancePackComplianceScores_sortBy :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe SortBy)
 listConformancePackComplianceScores_sortBy = Lens.lens (\ListConformancePackComplianceScores' {sortBy} -> sortBy) (\s@ListConformancePackComplianceScores' {} a -> s {sortBy = a} :: ListConformancePackComplianceScores)
 
@@ -173,7 +194,8 @@ instance
   type
     AWSResponse ListConformancePackComplianceScores =
       ListConformancePackComplianceScoresResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -23,9 +23,9 @@
 -- Deletes the specified organization Config rule and all of its evaluation
 -- results from all member accounts in that organization.
 --
--- Only a master account and a delegated administrator account can delete
--- an organization Config rule. When calling this API with a delegated
--- administrator, you must ensure Organizations
+-- Only a management account and a delegated administrator account can
+-- delete an organization Config rule. When calling this API with a
+-- delegated administrator, you must ensure Organizations
 -- @ListDelegatedAdministrator@ permissions are added.
 --
 -- Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion
@@ -86,7 +86,8 @@ instance Core.AWSRequest DeleteOrganizationConfigRule where
   type
     AWSResponse DeleteOrganizationConfigRule =
       DeleteOrganizationConfigRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteOrganizationConfigRuleResponse'

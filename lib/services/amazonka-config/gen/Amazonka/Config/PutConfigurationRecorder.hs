@@ -93,7 +93,8 @@ instance Core.AWSRequest PutConfigurationRecorder where
   type
     AWSResponse PutConfigurationRecorder =
       PutConfigurationRecorderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutConfigurationRecorderResponse'

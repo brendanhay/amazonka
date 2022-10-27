@@ -97,7 +97,8 @@ instance Core.AWSRequest GetBatchPrediction where
   type
     AWSResponse GetBatchPrediction =
       GetBatchPredictionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

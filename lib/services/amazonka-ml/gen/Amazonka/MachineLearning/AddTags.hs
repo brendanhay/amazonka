@@ -109,7 +109,8 @@ addTags_resourceType = Lens.lens (\AddTags' {resourceType} -> resourceType) (\s@
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

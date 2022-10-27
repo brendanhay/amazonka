@@ -335,7 +335,8 @@ instance Core.AWSRequest CreateMLModel where
   type
     AWSResponse CreateMLModel =
       CreateMLModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

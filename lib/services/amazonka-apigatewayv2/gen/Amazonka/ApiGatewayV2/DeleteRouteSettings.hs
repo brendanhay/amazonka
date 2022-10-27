@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteRouteSettings where
   type
     AWSResponse DeleteRouteSettings =
       DeleteRouteSettingsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRouteSettingsResponse'
 

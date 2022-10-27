@@ -89,7 +89,8 @@ getApi_apiId = Lens.lens (\GetApi' {apiId} -> apiId) (\s@GetApi' {} a -> s {apiI
 
 instance Core.AWSRequest GetApi where
   type AWSResponse GetApi = GetApiResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

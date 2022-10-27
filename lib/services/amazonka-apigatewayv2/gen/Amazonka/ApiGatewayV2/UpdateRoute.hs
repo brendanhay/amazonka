@@ -240,7 +240,8 @@ updateRoute_routeId = Lens.lens (\UpdateRoute' {routeId} -> routeId) (\s@UpdateR
 
 instance Core.AWSRequest UpdateRoute where
   type AWSResponse UpdateRoute = UpdateRouteResponse'
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

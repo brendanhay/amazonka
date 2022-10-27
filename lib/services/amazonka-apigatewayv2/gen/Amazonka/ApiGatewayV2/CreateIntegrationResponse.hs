@@ -234,7 +234,8 @@ instance Core.AWSRequest CreateIntegrationResponse where
   type
     AWSResponse CreateIntegrationResponse =
       CreateIntegrationResponseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

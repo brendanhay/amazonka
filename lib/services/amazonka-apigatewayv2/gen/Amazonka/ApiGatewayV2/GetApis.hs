@@ -110,7 +110,8 @@ instance Core.AWSPager GetApis where
 
 instance Core.AWSRequest GetApis where
   type AWSResponse GetApis = GetApisResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -89,7 +89,8 @@ getVpcLinks_maxResults = Lens.lens (\GetVpcLinks' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest GetVpcLinks where
   type AWSResponse GetVpcLinks = GetVpcLinksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

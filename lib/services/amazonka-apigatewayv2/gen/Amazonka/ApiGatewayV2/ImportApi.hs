@@ -132,7 +132,8 @@ importApi_body = Lens.lens (\ImportApi' {body} -> body) (\s@ImportApi' {} a -> s
 
 instance Core.AWSRequest ImportApi where
   type AWSResponse ImportApi = ImportApiResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

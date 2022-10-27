@@ -303,7 +303,8 @@ createApi_name = Lens.lens (\CreateApi' {name} -> name) (\s@CreateApi' {} a -> s
 
 instance Core.AWSRequest CreateApi where
   type AWSResponse CreateApi = CreateApiResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

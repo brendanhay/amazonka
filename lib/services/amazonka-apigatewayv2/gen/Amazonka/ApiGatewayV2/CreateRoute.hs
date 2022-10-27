@@ -230,7 +230,8 @@ createRoute_routeKey = Lens.lens (\CreateRoute' {routeKey} -> routeKey) (\s@Crea
 
 instance Core.AWSRequest CreateRoute where
   type AWSResponse CreateRoute = CreateRouteResponse'
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

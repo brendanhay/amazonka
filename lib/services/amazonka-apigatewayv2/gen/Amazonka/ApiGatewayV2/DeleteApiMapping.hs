@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteApiMapping where
   type
     AWSResponse DeleteApiMapping =
       DeleteApiMappingResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteApiMappingResponse'
 

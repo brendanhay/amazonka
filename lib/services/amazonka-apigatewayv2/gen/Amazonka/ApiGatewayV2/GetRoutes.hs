@@ -122,7 +122,8 @@ instance Core.AWSPager GetRoutes where
 
 instance Core.AWSRequest GetRoutes where
   type AWSResponse GetRoutes = GetRoutesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

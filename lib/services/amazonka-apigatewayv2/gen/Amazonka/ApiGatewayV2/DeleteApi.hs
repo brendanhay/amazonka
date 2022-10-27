@@ -70,7 +70,8 @@ deleteApi_apiId = Lens.lens (\DeleteApi' {apiId} -> apiId) (\s@DeleteApi' {} a -
 
 instance Core.AWSRequest DeleteApi where
   type AWSResponse DeleteApi = DeleteApiResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteApiResponse'
 
 instance Prelude.Hashable DeleteApi where

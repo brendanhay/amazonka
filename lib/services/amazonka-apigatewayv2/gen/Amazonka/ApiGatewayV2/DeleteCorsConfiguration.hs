@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteCorsConfiguration where
   type
     AWSResponse DeleteCorsConfiguration =
       DeleteCorsConfigurationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteCorsConfigurationResponse'

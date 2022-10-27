@@ -160,7 +160,8 @@ instance Core.AWSRequest BatchGetDeploymentTargets where
   type
     AWSResponse BatchGetDeploymentTargets =
       BatchGetDeploymentTargetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

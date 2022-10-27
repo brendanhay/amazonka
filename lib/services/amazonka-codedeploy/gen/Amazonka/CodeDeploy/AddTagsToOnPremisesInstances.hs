@@ -96,7 +96,8 @@ instance Core.AWSRequest AddTagsToOnPremisesInstances where
   type
     AWSResponse AddTagsToOnPremisesInstances =
       AddTagsToOnPremisesInstancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AddTagsToOnPremisesInstancesResponse'

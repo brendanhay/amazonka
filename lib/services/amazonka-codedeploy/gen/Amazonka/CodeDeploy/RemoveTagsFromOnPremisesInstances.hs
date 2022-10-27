@@ -89,7 +89,8 @@ instance
   type
     AWSResponse RemoveTagsFromOnPremisesInstances =
       RemoveTagsFromOnPremisesInstancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveTagsFromOnPremisesInstancesResponse'

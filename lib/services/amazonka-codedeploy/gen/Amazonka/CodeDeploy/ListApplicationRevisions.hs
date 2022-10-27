@@ -269,7 +269,8 @@ instance Core.AWSRequest ListApplicationRevisions where
   type
     AWSResponse ListApplicationRevisions =
       ListApplicationRevisionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

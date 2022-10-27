@@ -122,7 +122,8 @@ instance Core.AWSRequest ListCatalogItems where
   type
     AWSResponse ListCatalogItems =
       ListCatalogItemsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

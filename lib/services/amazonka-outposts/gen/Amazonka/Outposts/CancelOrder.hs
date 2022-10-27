@@ -74,7 +74,8 @@ cancelOrder_orderId = Lens.lens (\CancelOrder' {orderId} -> orderId) (\s@CancelO
 
 instance Core.AWSRequest CancelOrder where
   type AWSResponse CancelOrder = CancelOrderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

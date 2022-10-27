@@ -159,7 +159,8 @@ createSite_name = Lens.lens (\CreateSite' {name} -> name) (\s@CreateSite' {} a -
 
 instance Core.AWSRequest CreateSite where
   type AWSResponse CreateSite = CreateSiteResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

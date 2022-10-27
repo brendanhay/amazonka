@@ -222,7 +222,8 @@ instance Core.AWSRequest UpdateJobExecution where
   type
     AWSResponse UpdateJobExecution =
       UpdateJobExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

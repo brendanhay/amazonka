@@ -453,9 +453,9 @@ headObject_key = Lens.lens (\HeadObject' {key} -> key) (\s@HeadObject' {} a -> s
 
 instance Core.AWSRequest HeadObject where
   type AWSResponse HeadObject = HeadObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.head' defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.head' srv
   response =
     Response.receiveEmpty
       ( \s h x ->

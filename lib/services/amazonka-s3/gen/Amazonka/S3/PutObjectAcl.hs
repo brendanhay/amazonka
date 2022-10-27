@@ -541,9 +541,9 @@ putObjectAcl_key = Lens.lens (\PutObjectAcl' {key} -> key) (\s@PutObjectAcl' {} 
 
 instance Core.AWSRequest PutObjectAcl where
   type AWSResponse PutObjectAcl = PutObjectAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -580,9 +580,9 @@ getObject_key = Lens.lens (\GetObject' {key} -> key) (\s@GetObject' {} a -> s {k
 
 instance Core.AWSRequest GetObject where
   type AWSResponse GetObject = GetObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

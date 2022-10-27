@@ -308,9 +308,9 @@ createBucket_bucket = Lens.lens (\CreateBucket' {bucket} -> bucket) (\s@CreateBu
 
 instance Core.AWSRequest CreateBucket where
   type AWSResponse CreateBucket = CreateBucketResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

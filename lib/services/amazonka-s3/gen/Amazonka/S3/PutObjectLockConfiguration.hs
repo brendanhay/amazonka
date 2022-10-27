@@ -207,9 +207,9 @@ instance Core.AWSRequest PutObjectLockConfiguration where
   type
     AWSResponse PutObjectLockConfiguration =
       PutObjectLockConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -409,9 +409,9 @@ instance Core.AWSRequest SelectObjectContent where
   type
     AWSResponse SelectObjectContent =
       SelectObjectContentResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

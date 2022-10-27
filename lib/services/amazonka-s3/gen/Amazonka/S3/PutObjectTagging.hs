@@ -309,9 +309,9 @@ instance Core.AWSRequest PutObjectTagging where
   type
     AWSResponse PutObjectTagging =
       PutObjectTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

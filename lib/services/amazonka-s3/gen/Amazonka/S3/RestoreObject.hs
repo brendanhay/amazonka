@@ -462,9 +462,9 @@ instance Core.AWSRequest RestoreObject where
   type
     AWSResponse RestoreObject =
       RestoreObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -249,9 +249,9 @@ deleteObject_key = Lens.lens (\DeleteObject' {key} -> key) (\s@DeleteObject' {} 
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

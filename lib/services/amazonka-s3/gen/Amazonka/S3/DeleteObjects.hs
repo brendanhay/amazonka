@@ -302,10 +302,11 @@ instance Core.AWSRequest DeleteObjects where
   type
     AWSResponse DeleteObjects =
       DeleteObjectsResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.postXML defaultService
+      Prelude.. Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

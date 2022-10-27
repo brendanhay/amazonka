@@ -1029,9 +1029,9 @@ copyObject_key = Lens.lens (\CopyObject' {key} -> key) (\s@CopyObject' {} a -> s
 
 instance Core.AWSRequest CopyObject where
   type AWSResponse CopyObject = CopyObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.put defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.put srv
   response =
     Response.receiveXML
       ( \s h x ->

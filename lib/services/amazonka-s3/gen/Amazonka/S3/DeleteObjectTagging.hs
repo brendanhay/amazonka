@@ -194,9 +194,9 @@ instance Core.AWSRequest DeleteObjectTagging where
   type
     AWSResponse DeleteObjectTagging =
       DeleteObjectTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

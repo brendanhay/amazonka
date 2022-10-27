@@ -226,9 +226,9 @@ instance Core.AWSRequest PutBucketVersioning where
   type
     AWSResponse PutBucketVersioning =
       PutBucketVersioningResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketVersioningResponse'
 

@@ -136,7 +136,8 @@ instance Core.AWSRequest PutMaintenanceStartTime where
   type
     AWSResponse PutMaintenanceStartTime =
       PutMaintenanceStartTimeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

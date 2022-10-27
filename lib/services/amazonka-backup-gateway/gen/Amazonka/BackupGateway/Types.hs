@@ -119,6 +119,8 @@ defaultService =
       Core._serviceEndpointPrefix = "backup-gateway",
       Core._serviceSigningName = "backup-gateway",
       Core._serviceVersion = "2021-01-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteVpcConnector where
   type
     AWSResponse DeleteVpcConnector =
       DeleteVpcConnectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -116,7 +116,8 @@ instance Core.AWSRequest ListVpcConnectors where
   type
     AWSResponse ListVpcConnectors =
       ListVpcConnectorsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

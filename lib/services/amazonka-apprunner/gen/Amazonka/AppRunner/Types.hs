@@ -368,6 +368,8 @@ defaultService =
       Core._serviceEndpointPrefix = "apprunner",
       Core._serviceSigningName = "apprunner",
       Core._serviceVersion = "2020-05-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

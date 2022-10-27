@@ -89,7 +89,8 @@ instance Core.AWSRequest DescribeVpcConnector where
   type
     AWSResponse DescribeVpcConnector =
       DescribeVpcConnectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -71,7 +71,8 @@ launchApp_appId = Lens.lens (\LaunchApp' {appId} -> appId) (\s@LaunchApp' {} a -
 
 instance Core.AWSRequest LaunchApp where
   type AWSResponse LaunchApp = LaunchAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

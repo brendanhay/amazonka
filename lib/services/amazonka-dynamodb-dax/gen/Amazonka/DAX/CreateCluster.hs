@@ -403,7 +403,8 @@ instance Core.AWSRequest CreateCluster where
   type
     AWSResponse CreateCluster =
       CreateClusterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

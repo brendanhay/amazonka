@@ -229,6 +229,8 @@ defaultService =
       Core._serviceEndpointPrefix = "dax",
       Core._serviceSigningName = "dax",
       Core._serviceVersion = "2017-04-19",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

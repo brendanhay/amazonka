@@ -111,7 +111,8 @@ listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@Li
 
 instance Core.AWSRequest ListRooms where
   type AWSResponse ListRooms = ListRoomsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

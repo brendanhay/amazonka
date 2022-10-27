@@ -107,7 +107,8 @@ sendEvent_roomIdentifier = Lens.lens (\SendEvent' {roomIdentifier} -> roomIdenti
 
 instance Core.AWSRequest SendEvent where
   type AWSResponse SendEvent = SendEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

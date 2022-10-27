@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateChatToken where
   type
     AWSResponse CreateChatToken =
       CreateChatTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

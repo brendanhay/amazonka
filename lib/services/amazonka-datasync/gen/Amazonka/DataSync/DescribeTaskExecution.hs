@@ -42,6 +42,7 @@ module Amazonka.DataSync.DescribeTaskExecution
     describeTaskExecutionResponse_includes,
     describeTaskExecutionResponse_result,
     describeTaskExecutionResponse_estimatedBytesToTransfer,
+    describeTaskExecutionResponse_bytesCompressed,
     describeTaskExecutionResponse_bytesTransferred,
     describeTaskExecutionResponse_taskExecutionArn,
     describeTaskExecutionResponse_bytesWritten,
@@ -93,7 +94,8 @@ instance Core.AWSRequest DescribeTaskExecution where
   type
     AWSResponse DescribeTaskExecution =
       DescribeTaskExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +108,7 @@ instance Core.AWSRequest DescribeTaskExecution where
             Prelude.<*> (x Core..?> "Includes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Result")
             Prelude.<*> (x Core..?> "EstimatedBytesToTransfer")
+            Prelude.<*> (x Core..?> "BytesCompressed")
             Prelude.<*> (x Core..?> "BytesTransferred")
             Prelude.<*> (x Core..?> "TaskExecutionArn")
             Prelude.<*> (x Core..?> "BytesWritten")
@@ -194,6 +197,10 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
     -- | The estimated physical number of bytes that is to be transferred over
     -- the network.
     estimatedBytesToTransfer :: Prelude.Maybe Prelude.Integer,
+    -- | The physical number of bytes transferred over the network after
+    -- compression was applied. In most cases, this number is less than
+    -- @BytesTransferred@.
+    bytesCompressed :: Prelude.Maybe Prelude.Integer,
     -- | The physical number of bytes transferred over the network.
     bytesTransferred :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the task execution that was described.
@@ -263,6 +270,10 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 -- 'estimatedBytesToTransfer', 'describeTaskExecutionResponse_estimatedBytesToTransfer' - The estimated physical number of bytes that is to be transferred over
 -- the network.
 --
+-- 'bytesCompressed', 'describeTaskExecutionResponse_bytesCompressed' - The physical number of bytes transferred over the network after
+-- compression was applied. In most cases, this number is less than
+-- @BytesTransferred@.
+--
 -- 'bytesTransferred', 'describeTaskExecutionResponse_bytesTransferred' - The physical number of bytes transferred over the network.
 --
 -- 'taskExecutionArn', 'describeTaskExecutionResponse_taskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that was described.
@@ -295,6 +306,7 @@ newDescribeTaskExecutionResponse pHttpStatus_ =
       includes = Prelude.Nothing,
       result = Prelude.Nothing,
       estimatedBytesToTransfer = Prelude.Nothing,
+      bytesCompressed = Prelude.Nothing,
       bytesTransferred = Prelude.Nothing,
       taskExecutionArn = Prelude.Nothing,
       bytesWritten = Prelude.Nothing,
@@ -358,6 +370,12 @@ describeTaskExecutionResponse_result = Lens.lens (\DescribeTaskExecutionResponse
 describeTaskExecutionResponse_estimatedBytesToTransfer :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_estimatedBytesToTransfer = Lens.lens (\DescribeTaskExecutionResponse' {estimatedBytesToTransfer} -> estimatedBytesToTransfer) (\s@DescribeTaskExecutionResponse' {} a -> s {estimatedBytesToTransfer = a} :: DescribeTaskExecutionResponse)
 
+-- | The physical number of bytes transferred over the network after
+-- compression was applied. In most cases, this number is less than
+-- @BytesTransferred@.
+describeTaskExecutionResponse_bytesCompressed :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
+describeTaskExecutionResponse_bytesCompressed = Lens.lens (\DescribeTaskExecutionResponse' {bytesCompressed} -> bytesCompressed) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesCompressed = a} :: DescribeTaskExecutionResponse)
+
 -- | The physical number of bytes transferred over the network.
 describeTaskExecutionResponse_bytesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_bytesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {bytesTransferred} -> bytesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesTransferred = a} :: DescribeTaskExecutionResponse)
@@ -396,6 +414,7 @@ instance Prelude.NFData DescribeTaskExecutionResponse where
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf estimatedBytesToTransfer
+      `Prelude.seq` Prelude.rnf bytesCompressed
       `Prelude.seq` Prelude.rnf bytesTransferred
       `Prelude.seq` Prelude.rnf taskExecutionArn
       `Prelude.seq` Prelude.rnf bytesWritten

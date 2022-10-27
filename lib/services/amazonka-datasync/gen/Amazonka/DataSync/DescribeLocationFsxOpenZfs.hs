@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about an Amazon FSx for OpenZFS location, such as
--- information about its path.
+-- Provides details about how an DataSync location for an Amazon FSx for
+-- OpenZFS file system is configured.
+--
+-- Response elements related to @SMB@ aren\'t supported with the
+-- @DescribeLocationFsxOpenZfs@ operation.
 module Amazonka.DataSync.DescribeLocationFsxOpenZfs
   ( -- * Creating a Request
     DescribeLocationFsxOpenZfs (..),
@@ -88,7 +91,8 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
   type
     AWSResponse DescribeLocationFsxOpenZfs =
       DescribeLocationFsxOpenZfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -36,6 +36,7 @@ module Amazonka.DataSync.DescribeLocationObjectStorage
 
     -- * Response Lenses
     describeLocationObjectStorageResponse_serverProtocol,
+    describeLocationObjectStorageResponse_serverCertificate,
     describeLocationObjectStorageResponse_locationArn,
     describeLocationObjectStorageResponse_serverPort,
     describeLocationObjectStorageResponse_accessKey,
@@ -95,12 +96,14 @@ instance
   type
     AWSResponse DescribeLocationObjectStorage =
       DescribeLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationObjectStorageResponse'
             Prelude.<$> (x Core..?> "ServerProtocol")
+            Prelude.<*> (x Core..?> "ServerCertificate")
             Prelude.<*> (x Core..?> "LocationArn")
             Prelude.<*> (x Core..?> "ServerPort")
             Prelude.<*> (x Core..?> "AccessKey")
@@ -153,15 +156,18 @@ instance Core.ToQuery DescribeLocationObjectStorage where
 --
 -- /See:/ 'newDescribeLocationObjectStorageResponse' smart constructor.
 data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageResponse'
-  { -- | The protocol that your object storage server uses to communicate.
+  { -- | The protocol that your object storage system uses to communicate.
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | The self-signed certificate that DataSync uses to securely authenticate
+    -- with your object storage system.
+    serverCertificate :: Prelude.Maybe Core.Base64,
     -- | The ARN of the object storage system location.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The port that your object storage server accepts inbound network traffic
     -- on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
     -- | The access key (for example, a user name) required to authenticate with
-    -- the object storage server.
+    -- the object storage system.
     accessKey :: Prelude.Maybe Prelude.Text,
     -- | The URL of the object storage system location.
     locationUri :: Prelude.Maybe Prelude.Text,
@@ -183,7 +189,14 @@ data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverProtocol', 'describeLocationObjectStorageResponse_serverProtocol' - The protocol that your object storage server uses to communicate.
+-- 'serverProtocol', 'describeLocationObjectStorageResponse_serverProtocol' - The protocol that your object storage system uses to communicate.
+--
+-- 'serverCertificate', 'describeLocationObjectStorageResponse_serverCertificate' - The self-signed certificate that DataSync uses to securely authenticate
+-- with your object storage system.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'locationArn', 'describeLocationObjectStorageResponse_locationArn' - The ARN of the object storage system location.
 --
@@ -191,7 +204,7 @@ data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageRespon
 -- on (for example, port 443).
 --
 -- 'accessKey', 'describeLocationObjectStorageResponse_accessKey' - The access key (for example, a user name) required to authenticate with
--- the object storage server.
+-- the object storage system.
 --
 -- 'locationUri', 'describeLocationObjectStorageResponse_locationUri' - The URL of the object storage system location.
 --
@@ -209,6 +222,7 @@ newDescribeLocationObjectStorageResponse pHttpStatus_ =
   DescribeLocationObjectStorageResponse'
     { serverProtocol =
         Prelude.Nothing,
+      serverCertificate = Prelude.Nothing,
       locationArn = Prelude.Nothing,
       serverPort = Prelude.Nothing,
       accessKey = Prelude.Nothing,
@@ -218,9 +232,18 @@ newDescribeLocationObjectStorageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The protocol that your object storage server uses to communicate.
+-- | The protocol that your object storage system uses to communicate.
 describeLocationObjectStorageResponse_serverProtocol :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe ObjectStorageServerProtocol)
 describeLocationObjectStorageResponse_serverProtocol = Lens.lens (\DescribeLocationObjectStorageResponse' {serverProtocol} -> serverProtocol) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverProtocol = a} :: DescribeLocationObjectStorageResponse)
+
+-- | The self-signed certificate that DataSync uses to securely authenticate
+-- with your object storage system.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+describeLocationObjectStorageResponse_serverCertificate :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.ByteString)
+describeLocationObjectStorageResponse_serverCertificate = Lens.lens (\DescribeLocationObjectStorageResponse' {serverCertificate} -> serverCertificate) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverCertificate = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The ARN of the object storage system location.
 describeLocationObjectStorageResponse_locationArn :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
@@ -232,7 +255,7 @@ describeLocationObjectStorageResponse_serverPort :: Lens.Lens' DescribeLocationO
 describeLocationObjectStorageResponse_serverPort = Lens.lens (\DescribeLocationObjectStorageResponse' {serverPort} -> serverPort) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverPort = a} :: DescribeLocationObjectStorageResponse)
 
 -- | The access key (for example, a user name) required to authenticate with
--- the object storage server.
+-- the object storage system.
 describeLocationObjectStorageResponse_accessKey :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
 describeLocationObjectStorageResponse_accessKey = Lens.lens (\DescribeLocationObjectStorageResponse' {accessKey} -> accessKey) (\s@DescribeLocationObjectStorageResponse' {} a -> s {accessKey = a} :: DescribeLocationObjectStorageResponse)
 
@@ -259,6 +282,7 @@ instance
   where
   rnf DescribeLocationObjectStorageResponse' {..} =
     Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf serverCertificate
       `Prelude.seq` Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf serverPort
       `Prelude.seq` Prelude.rnf accessKey

@@ -31,6 +31,7 @@ module Amazonka.DataSync.CreateLocationObjectStorage
     -- * Request Lenses
     createLocationObjectStorage_tags,
     createLocationObjectStorage_serverProtocol,
+    createLocationObjectStorage_serverCertificate,
     createLocationObjectStorage_serverPort,
     createLocationObjectStorage_accessKey,
     createLocationObjectStorage_secretKey,
@@ -67,6 +68,14 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
     -- | Specifies the protocol that your object storage server uses to
     -- communicate.
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | Specifies a certificate to authenticate with an object storage system
+    -- that uses a private or self-signed certificate authority (CA). You must
+    -- specify a Base64-encoded @.pem@ file (for example,
+    -- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+    -- certificate can be up to 32768 bytes (before Base64 encoding).
+    --
+    -- To use this parameter, configure @ServerProtocol@ to @HTTPS@.
+    serverCertificate :: Prelude.Maybe Core.Base64,
     -- | Specifies the port that your object storage server accepts inbound
     -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
@@ -108,6 +117,18 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 -- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
 -- communicate.
 --
+-- 'serverCertificate', 'createLocationObjectStorage_serverCertificate' - Specifies a certificate to authenticate with an object storage system
+-- that uses a private or self-signed certificate authority (CA). You must
+-- specify a Base64-encoded @.pem@ file (for example,
+-- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+-- certificate can be up to 32768 bytes (before Base64 encoding).
+--
+-- To use this parameter, configure @ServerProtocol@ to @HTTPS@.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'serverPort', 'createLocationObjectStorage_serverPort' - Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
 --
@@ -146,6 +167,7 @@ newCreateLocationObjectStorage
       { tags =
           Prelude.Nothing,
         serverProtocol = Prelude.Nothing,
+        serverCertificate = Prelude.Nothing,
         serverPort = Prelude.Nothing,
         accessKey = Prelude.Nothing,
         secretKey = Prelude.Nothing,
@@ -165,6 +187,20 @@ createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tag
 -- communicate.
 createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
 createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
+
+-- | Specifies a certificate to authenticate with an object storage system
+-- that uses a private or self-signed certificate authority (CA). You must
+-- specify a Base64-encoded @.pem@ file (for example,
+-- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+-- certificate can be up to 32768 bytes (before Base64 encoding).
+--
+-- To use this parameter, configure @ServerProtocol@ to @HTTPS@.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+createLocationObjectStorage_serverCertificate :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.ByteString)
+createLocationObjectStorage_serverCertificate = Lens.lens (\CreateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@CreateLocationObjectStorage' {} a -> s {serverCertificate = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Core._Base64
 
 -- | Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
@@ -207,7 +243,8 @@ instance Core.AWSRequest CreateLocationObjectStorage where
   type
     AWSResponse CreateLocationObjectStorage =
       CreateLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -220,6 +257,7 @@ instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` serverCertificate
       `Prelude.hashWithSalt` serverPort
       `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` secretKey
@@ -232,6 +270,7 @@ instance Prelude.NFData CreateLocationObjectStorage where
   rnf CreateLocationObjectStorage' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf serverCertificate
       `Prelude.seq` Prelude.rnf serverPort
       `Prelude.seq` Prelude.rnf accessKey
       `Prelude.seq` Prelude.rnf secretKey
@@ -262,6 +301,8 @@ instance Core.ToJSON CreateLocationObjectStorage where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("ServerProtocol" Core..=)
               Prelude.<$> serverProtocol,
+            ("ServerCertificate" Core..=)
+              Prelude.<$> serverCertificate,
             ("ServerPort" Core..=) Prelude.<$> serverPort,
             ("AccessKey" Core..=) Prelude.<$> accessKey,
             ("SecretKey" Core..=) Prelude.<$> secretKey,

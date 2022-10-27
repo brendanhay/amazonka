@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels execution of a task.
+-- Stops an DataSync task execution that\'s in progress. The transfer of
+-- some files are abruptly interrupted. File contents that\'re transferred
+-- to the destination might be incomplete or inconsistent with the source
+-- files.
 --
--- When you cancel a task execution, the transfer of some files is abruptly
--- interrupted. The contents of files that are transferred to the
--- destination might be incomplete or inconsistent with the source files.
--- However, if you start a new task execution on the same task and you
--- allow the task execution to complete, file content on the destination is
--- complete and consistent. This applies to other unexpected failures that
--- interrupt a task execution. In all of these cases, DataSync successfully
--- complete the transfer when you start the next task execution.
+-- However, if you start a new task execution using the same task and allow
+-- it to finish, file content on the destination will be complete and
+-- consistent. This applies to other unexpected failures that interrupt a
+-- task execution. In all of these cases, DataSync successfully completes
+-- the transfer when you start the next task execution.
 module Amazonka.DataSync.CancelTaskExecution
   ( -- * Creating a Request
     CancelTaskExecution (..),
@@ -58,7 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCancelTaskExecution' smart constructor.
 data CancelTaskExecution = CancelTaskExecution'
-  { -- | The Amazon Resource Name (ARN) of the task execution to cancel.
+  { -- | The Amazon Resource Name (ARN) of the task execution to stop.
     taskExecutionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +71,7 @@ data CancelTaskExecution = CancelTaskExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskExecutionArn', 'cancelTaskExecution_taskExecutionArn' - The Amazon Resource Name (ARN) of the task execution to cancel.
+-- 'taskExecutionArn', 'cancelTaskExecution_taskExecutionArn' - The Amazon Resource Name (ARN) of the task execution to stop.
 newCancelTaskExecution ::
   -- | 'taskExecutionArn'
   Prelude.Text ->
@@ -82,7 +82,7 @@ newCancelTaskExecution pTaskExecutionArn_ =
         pTaskExecutionArn_
     }
 
--- | The Amazon Resource Name (ARN) of the task execution to cancel.
+-- | The Amazon Resource Name (ARN) of the task execution to stop.
 cancelTaskExecution_taskExecutionArn :: Lens.Lens' CancelTaskExecution Prelude.Text
 cancelTaskExecution_taskExecutionArn = Lens.lens (\CancelTaskExecution' {taskExecutionArn} -> taskExecutionArn) (\s@CancelTaskExecution' {} a -> s {taskExecutionArn = a} :: CancelTaskExecution)
 
@@ -90,7 +90,8 @@ instance Core.AWSRequest CancelTaskExecution where
   type
     AWSResponse CancelTaskExecution =
       CancelTaskExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -336,6 +336,8 @@ defaultService =
       Core._serviceEndpointPrefix = "datasync",
       Core._serviceSigningName = "datasync",
       Core._serviceVersion = "2018-11-09",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -86,7 +86,8 @@ deleteAgent_agentArn = Lens.lens (\DeleteAgent' {agentArn} -> agentArn) (\s@Dele
 
 instance Core.AWSRequest DeleteAgent where
   type AWSResponse DeleteAgent = DeleteAgentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

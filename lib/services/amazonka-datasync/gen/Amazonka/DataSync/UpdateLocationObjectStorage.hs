@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates some of the parameters of a previously created location for
--- self-managed object storage server access. For information about
--- creating a self-managed object storage location, see
+-- Updates some parameters of an existing object storage location that
+-- DataSync accesses for a transfer. For information about creating a
+-- self-managed object storage location, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html Creating a location for object storage>.
 module Amazonka.DataSync.UpdateLocationObjectStorage
   ( -- * Creating a Request
@@ -31,6 +31,7 @@ module Amazonka.DataSync.UpdateLocationObjectStorage
 
     -- * Request Lenses
     updateLocationObjectStorage_serverProtocol,
+    updateLocationObjectStorage_serverCertificate,
     updateLocationObjectStorage_serverPort,
     updateLocationObjectStorage_accessKey,
     updateLocationObjectStorage_secretKey,
@@ -56,32 +57,38 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLocationObjectStorage' smart constructor.
 data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
-  { -- | The protocol that the object storage server uses to communicate. Valid
-    -- values are @HTTP@ or @HTTPS@.
+  { -- | Specifies the protocol that your object storage server uses to
+    -- communicate.
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
-    -- | The port that your self-managed object storage server accepts inbound
-    -- network traffic on. The server port is set by default to TCP 80 (HTTP)
-    -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
-    -- object storage server requires one.
+    -- | Specifies a certificate to authenticate with an object storage system
+    -- that uses a private or self-signed certificate authority (CA). You must
+    -- specify a Base64-encoded @.pem@ file (for example,
+    -- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+    -- certificate can be up to 32768 bytes (before Base64 encoding).
+    --
+    -- To use this parameter, configure @ServerProtocol@ to @HTTPS@.
+    --
+    -- Updating the certificate doesn\'t interfere with tasks that you have in
+    -- progress.
+    serverCertificate :: Prelude.Maybe Core.Base64,
+    -- | Specifies the port that your object storage server accepts inbound
+    -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. The access key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
+    -- | Specifies the access key (for example, a user name) if credentials are
+    -- required to authenticate with the object storage server.
     accessKey :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The secret key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
+    -- | Specifies the secret key (for example, a password) if credentials are
+    -- required to authenticate with the object storage server.
     secretKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The subdirectory in the self-managed object storage server that is used
-    -- to read data from.
+    -- | Specifies the object prefix for your object storage server. If this is a
+    -- source location, DataSync only copies objects with this prefix. If this
+    -- is a destination location, DataSync writes all objects with this prefix.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the agents associated with the
-    -- self-managed object storage server location.
+    -- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+    -- can securely connect with your location.
     agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the self-managed object storage server
-    -- location to be updated.
+    -- | Specifies the ARN of the object storage system location that you\'re
+    -- updating.
     locationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -94,32 +101,42 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
--- values are @HTTP@ or @HTTPS@.
+-- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
+-- communicate.
 --
--- 'serverPort', 'updateLocationObjectStorage_serverPort' - The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
--- object storage server requires one.
+-- 'serverCertificate', 'updateLocationObjectStorage_serverCertificate' - Specifies a certificate to authenticate with an object storage system
+-- that uses a private or self-signed certificate authority (CA). You must
+-- specify a Base64-encoded @.pem@ file (for example,
+-- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+-- certificate can be up to 32768 bytes (before Base64 encoding).
 --
--- 'accessKey', 'updateLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- To use this parameter, configure @ServerProtocol@ to @HTTPS@.
 --
--- 'secretKey', 'updateLocationObjectStorage_secretKey' - Optional. The secret key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- Updating the certificate doesn\'t interfere with tasks that you have in
+-- progress.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'subdirectory', 'updateLocationObjectStorage_subdirectory' - The subdirectory in the self-managed object storage server that is used
--- to read data from.
+-- 'serverPort', 'updateLocationObjectStorage_serverPort' - Specifies the port that your object storage server accepts inbound
+-- network traffic on (for example, port 443).
 --
--- 'agentArns', 'updateLocationObjectStorage_agentArns' - The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- 'accessKey', 'updateLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
 --
--- 'locationArn', 'updateLocationObjectStorage_locationArn' - The Amazon Resource Name (ARN) of the self-managed object storage server
--- location to be updated.
+-- 'secretKey', 'updateLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
+--
+-- 'subdirectory', 'updateLocationObjectStorage_subdirectory' - Specifies the object prefix for your object storage server. If this is a
+-- source location, DataSync only copies objects with this prefix. If this
+-- is a destination location, DataSync writes all objects with this prefix.
+--
+-- 'agentArns', 'updateLocationObjectStorage_agentArns' - Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
+--
+-- 'locationArn', 'updateLocationObjectStorage_locationArn' - Specifies the ARN of the object storage system location that you\'re
+-- updating.
 newUpdateLocationObjectStorage ::
   -- | 'locationArn'
   Prelude.Text ->
@@ -128,6 +145,7 @@ newUpdateLocationObjectStorage pLocationArn_ =
   UpdateLocationObjectStorage'
     { serverProtocol =
         Prelude.Nothing,
+      serverCertificate = Prelude.Nothing,
       serverPort = Prelude.Nothing,
       accessKey = Prelude.Nothing,
       secretKey = Prelude.Nothing,
@@ -136,44 +154,56 @@ newUpdateLocationObjectStorage pLocationArn_ =
       locationArn = pLocationArn_
     }
 
--- | The protocol that the object storage server uses to communicate. Valid
--- values are @HTTP@ or @HTTPS@.
+-- | Specifies the protocol that your object storage server uses to
+-- communicate.
 updateLocationObjectStorage_serverProtocol :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
 updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@UpdateLocationObjectStorage' {} a -> s {serverProtocol = a} :: UpdateLocationObjectStorage)
 
--- | The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
--- object storage server requires one.
+-- | Specifies a certificate to authenticate with an object storage system
+-- that uses a private or self-signed certificate authority (CA). You must
+-- specify a Base64-encoded @.pem@ file (for example,
+-- @file:\/\/\/home\/user\/.ssh\/storage_sys_certificate.pem@). The
+-- certificate can be up to 32768 bytes (before Base64 encoding).
+--
+-- To use this parameter, configure @ServerProtocol@ to @HTTPS@.
+--
+-- Updating the certificate doesn\'t interfere with tasks that you have in
+-- progress.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+updateLocationObjectStorage_serverCertificate :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.ByteString)
+updateLocationObjectStorage_serverCertificate = Lens.lens (\UpdateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@UpdateLocationObjectStorage' {} a -> s {serverCertificate = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Core._Base64
+
+-- | Specifies the port that your object storage server accepts inbound
+-- network traffic on (for example, port 443).
 updateLocationObjectStorage_serverPort :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 updateLocationObjectStorage_serverPort = Lens.lens (\UpdateLocationObjectStorage' {serverPort} -> serverPort) (\s@UpdateLocationObjectStorage' {} a -> s {serverPort = a} :: UpdateLocationObjectStorage)
 
--- | Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- | Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
 updateLocationObjectStorage_accessKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage' {accessKey} -> accessKey) (\s@UpdateLocationObjectStorage' {} a -> s {accessKey = a} :: UpdateLocationObjectStorage)
 
--- | Optional. The secret key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- | Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
 updateLocationObjectStorage_secretKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage' {secretKey} -> secretKey) (\s@UpdateLocationObjectStorage' {} a -> s {secretKey = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Core._Sensitive
 
--- | The subdirectory in the self-managed object storage server that is used
--- to read data from.
+-- | Specifies the object prefix for your object storage server. If this is a
+-- source location, DataSync only copies objects with this prefix. If this
+-- is a destination location, DataSync writes all objects with this prefix.
 updateLocationObjectStorage_subdirectory :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 updateLocationObjectStorage_subdirectory = Lens.lens (\UpdateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@UpdateLocationObjectStorage' {} a -> s {subdirectory = a} :: UpdateLocationObjectStorage)
 
--- | The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
 updateLocationObjectStorage_agentArns :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateLocationObjectStorage_agentArns = Lens.lens (\UpdateLocationObjectStorage' {agentArns} -> agentArns) (\s@UpdateLocationObjectStorage' {} a -> s {agentArns = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the self-managed object storage server
--- location to be updated.
+-- | Specifies the ARN of the object storage system location that you\'re
+-- updating.
 updateLocationObjectStorage_locationArn :: Lens.Lens' UpdateLocationObjectStorage Prelude.Text
 updateLocationObjectStorage_locationArn = Lens.lens (\UpdateLocationObjectStorage' {locationArn} -> locationArn) (\s@UpdateLocationObjectStorage' {} a -> s {locationArn = a} :: UpdateLocationObjectStorage)
 
@@ -181,7 +211,8 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
   type
     AWSResponse UpdateLocationObjectStorage =
       UpdateLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -192,6 +223,7 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
 instance Prelude.Hashable UpdateLocationObjectStorage where
   hashWithSalt _salt UpdateLocationObjectStorage' {..} =
     _salt `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` serverCertificate
       `Prelude.hashWithSalt` serverPort
       `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` secretKey
@@ -202,6 +234,7 @@ instance Prelude.Hashable UpdateLocationObjectStorage where
 instance Prelude.NFData UpdateLocationObjectStorage where
   rnf UpdateLocationObjectStorage' {..} =
     Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf serverCertificate
       `Prelude.seq` Prelude.rnf serverPort
       `Prelude.seq` Prelude.rnf accessKey
       `Prelude.seq` Prelude.rnf secretKey
@@ -230,6 +263,8 @@ instance Core.ToJSON UpdateLocationObjectStorage where
       ( Prelude.catMaybes
           [ ("ServerProtocol" Core..=)
               Prelude.<$> serverProtocol,
+            ("ServerCertificate" Core..=)
+              Prelude.<$> serverCertificate,
             ("ServerPort" Core..=) Prelude.<$> serverPort,
             ("AccessKey" Core..=) Prelude.<$> accessKey,
             ("SecretKey" Core..=) Prelude.<$> secretKey,

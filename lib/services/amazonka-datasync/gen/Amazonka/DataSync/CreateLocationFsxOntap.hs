@@ -189,7 +189,8 @@ instance Core.AWSRequest CreateLocationFsxOntap where
   type
     AWSResponse CreateLocationFsxOntap =
       CreateLocationFsxOntapResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

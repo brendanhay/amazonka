@@ -330,7 +330,8 @@ instance Core.AWSRequest CreateLocationHdfs where
   type
     AWSResponse CreateLocationHdfs =
       CreateLocationHdfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

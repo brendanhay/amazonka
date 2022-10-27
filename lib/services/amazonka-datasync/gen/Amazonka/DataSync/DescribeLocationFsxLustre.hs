@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about an Amazon FSx for Lustre location, such as
--- information about its path.
+-- Provides details about how an DataSync location for an Amazon FSx for
+-- Lustre file system is configured.
 module Amazonka.DataSync.DescribeLocationFsxLustre
   ( -- * Creating a Request
     DescribeLocationFsxLustre (..),
@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
   type
     AWSResponse DescribeLocationFsxLustre =
       DescribeLocationFsxLustreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

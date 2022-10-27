@@ -76,7 +76,8 @@ deleteTask_taskArn = Lens.lens (\DeleteTask' {taskArn} -> taskArn) (\s@DeleteTas
 
 instance Core.AWSRequest DeleteTask where
   type AWSResponse DeleteTask = DeleteTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

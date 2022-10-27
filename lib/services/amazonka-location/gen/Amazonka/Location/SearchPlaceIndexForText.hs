@@ -315,7 +315,8 @@ instance Core.AWSRequest SearchPlaceIndexForText where
   type
     AWSResponse SearchPlaceIndexForText =
       SearchPlaceIndexForTextResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

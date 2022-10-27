@@ -413,7 +413,8 @@ instance Core.AWSRequest CalculateRouteMatrix where
   type
     AWSResponse CalculateRouteMatrix =
       CalculateRouteMatrixResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

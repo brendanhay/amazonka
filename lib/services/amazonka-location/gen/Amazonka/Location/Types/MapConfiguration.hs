@@ -67,6 +67,10 @@ data MapConfiguration = MapConfiguration'
     --     high contrast detailed base map of the world that blends 3D and 2D
     --     rendering.
     --
+    --     The @VectorHereContrast@ style has been renamed from
+    --     @VectorHereBerlin@. @VectorHereBerlin@ has been deprecated, but will
+    --     continue to work in applications that use it.
+    --
     -- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
     --     global map and its features including roads, buildings, landmarks,
     --     and water features. It also now includes a fully designed map of
@@ -77,9 +81,18 @@ data MapConfiguration = MapConfiguration'
     --     symbolized with highlighted segments and icons on top of HERE
     --     Explore to support use cases within transport and logistics.
     --
-    -- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
-    -- @VectorHereBerlin@ has been deprecated, but will continue to work in
-    -- applications that use it.
+    -- -   @RasterHereExploreSatellite@ – A global map containing high
+    --     resolution satellite imagery.
+    --
+    -- -   @HybridHereExploreSatellite@ – A global map displaying the road
+    --     network, street names, and city labels over satellite imagery. This
+    --     style will automatically retrieve both raster and vector tiles, and
+    --     your charges will be based on total tiles retrieved.
+    --
+    --     Hybrid styles use both vector and raster tiles when rendering the
+    --     map that you see. This means that more tiles are retrieved than when
+    --     using either vector or raster tiles alone. Your charges will include
+    --     all tiles retrieved.
     style :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,6 +145,10 @@ data MapConfiguration = MapConfiguration'
 --     high contrast detailed base map of the world that blends 3D and 2D
 --     rendering.
 --
+--     The @VectorHereContrast@ style has been renamed from
+--     @VectorHereBerlin@. @VectorHereBerlin@ has been deprecated, but will
+--     continue to work in applications that use it.
+--
 -- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
 --     global map and its features including roads, buildings, landmarks,
 --     and water features. It also now includes a fully designed map of
@@ -142,9 +159,18 @@ data MapConfiguration = MapConfiguration'
 --     symbolized with highlighted segments and icons on top of HERE
 --     Explore to support use cases within transport and logistics.
 --
--- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
--- @VectorHereBerlin@ has been deprecated, but will continue to work in
--- applications that use it.
+-- -   @RasterHereExploreSatellite@ – A global map containing high
+--     resolution satellite imagery.
+--
+-- -   @HybridHereExploreSatellite@ – A global map displaying the road
+--     network, street names, and city labels over satellite imagery. This
+--     style will automatically retrieve both raster and vector tiles, and
+--     your charges will be based on total tiles retrieved.
+--
+--     Hybrid styles use both vector and raster tiles when rendering the
+--     map that you see. This means that more tiles are retrieved than when
+--     using either vector or raster tiles alone. Your charges will include
+--     all tiles retrieved.
 newMapConfiguration ::
   -- | 'style'
   Prelude.Text ->
@@ -192,6 +218,10 @@ newMapConfiguration pStyle_ =
 --     high contrast detailed base map of the world that blends 3D and 2D
 --     rendering.
 --
+--     The @VectorHereContrast@ style has been renamed from
+--     @VectorHereBerlin@. @VectorHereBerlin@ has been deprecated, but will
+--     continue to work in applications that use it.
+--
 -- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
 --     global map and its features including roads, buildings, landmarks,
 --     and water features. It also now includes a fully designed map of
@@ -202,9 +232,18 @@ newMapConfiguration pStyle_ =
 --     symbolized with highlighted segments and icons on top of HERE
 --     Explore to support use cases within transport and logistics.
 --
--- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
--- @VectorHereBerlin@ has been deprecated, but will continue to work in
--- applications that use it.
+-- -   @RasterHereExploreSatellite@ – A global map containing high
+--     resolution satellite imagery.
+--
+-- -   @HybridHereExploreSatellite@ – A global map displaying the road
+--     network, street names, and city labels over satellite imagery. This
+--     style will automatically retrieve both raster and vector tiles, and
+--     your charges will be based on total tiles retrieved.
+--
+--     Hybrid styles use both vector and raster tiles when rendering the
+--     map that you see. This means that more tiles are retrieved than when
+--     using either vector or raster tiles alone. Your charges will include
+--     all tiles retrieved.
 mapConfiguration_style :: Lens.Lens' MapConfiguration Prelude.Text
 mapConfiguration_style = Lens.lens (\MapConfiguration' {style} -> style) (\s@MapConfiguration' {} a -> s {style = a} :: MapConfiguration)
 

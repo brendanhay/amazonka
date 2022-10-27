@@ -78,7 +78,8 @@ instance Core.AWSRequest DeletePlaceIndex where
   type
     AWSResponse DeletePlaceIndex =
       DeletePlaceIndexResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

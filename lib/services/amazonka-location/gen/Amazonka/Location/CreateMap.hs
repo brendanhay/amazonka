@@ -87,7 +87,9 @@ data CreateMap = CreateMap'
     -- | No longer used. If included, the only allowed value is
     -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Specifies the map style selected from an available data provider.
+    -- | Specifies the @MapConfiguration@, including the map style, for the map
+    -- resource that you create. The map style defines the look of maps and the
+    -- data provider for your map resource.
     configuration :: MapConfiguration,
     -- | The name for the map resource.
     --
@@ -137,7 +139,9 @@ data CreateMap = CreateMap'
 -- 'pricingPlan', 'createMap_pricingPlan' - No longer used. If included, the only allowed value is
 -- @RequestBasedUsage@.
 --
--- 'configuration', 'createMap_configuration' - Specifies the map style selected from an available data provider.
+-- 'configuration', 'createMap_configuration' - Specifies the @MapConfiguration@, including the map style, for the map
+-- resource that you create. The map style defines the look of maps and the
+-- data provider for your map resource.
 --
 -- 'mapName', 'createMap_mapName' - The name for the map resource.
 --
@@ -196,7 +200,9 @@ createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s
 createMap_pricingPlan :: Lens.Lens' CreateMap (Prelude.Maybe PricingPlan)
 createMap_pricingPlan = Lens.lens (\CreateMap' {pricingPlan} -> pricingPlan) (\s@CreateMap' {} a -> s {pricingPlan = a} :: CreateMap)
 
--- | Specifies the map style selected from an available data provider.
+-- | Specifies the @MapConfiguration@, including the map style, for the map
+-- resource that you create. The map style defines the look of maps and the
+-- data provider for your map resource.
 createMap_configuration :: Lens.Lens' CreateMap MapConfiguration
 createMap_configuration = Lens.lens (\CreateMap' {configuration} -> configuration) (\s@CreateMap' {} a -> s {configuration = a} :: CreateMap)
 
@@ -215,7 +221,8 @@ createMap_mapName = Lens.lens (\CreateMap' {mapName} -> mapName) (\s@CreateMap' 
 
 instance Core.AWSRequest CreateMap where
   type AWSResponse CreateMap = CreateMapResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -282,7 +289,7 @@ data CreateMapResponse = CreateMapResponse'
     -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
     -- resource across all AWS.
     --
-    -- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+    -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
     mapArn :: Prelude.Text,
     -- | The name of the map resource.
     mapName :: Prelude.Text
@@ -306,7 +313,7 @@ data CreateMapResponse = CreateMapResponse'
 -- 'mapArn', 'createMapResponse_mapArn' - The Amazon Resource Name (ARN) for the map resource. Used to specify a
 -- resource across all AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 --
 -- 'mapName', 'createMapResponse_mapName' - The name of the map resource.
 newCreateMapResponse ::
@@ -344,7 +351,7 @@ createMapResponse_createTime = Lens.lens (\CreateMapResponse' {createTime} -> cr
 -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
 -- resource across all AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 createMapResponse_mapArn :: Lens.Lens' CreateMapResponse Prelude.Text
 createMapResponse_mapArn = Lens.lens (\CreateMapResponse' {mapArn} -> mapArn) (\s@CreateMapResponse' {} a -> s {mapArn = a} :: CreateMapResponse)
 

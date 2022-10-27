@@ -454,6 +454,8 @@ defaultService =
       Core._serviceEndpointPrefix = "geo",
       Core._serviceSigningName = "geo",
       Core._serviceVersion = "2020-11-19",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

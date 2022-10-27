@@ -121,7 +121,8 @@ getMapTile_z = Lens.lens (\GetMapTile' {z} -> z) (\s@GetMapTile' {} a -> s {z = 
 
 instance Core.AWSRequest GetMapTile where
   type AWSResponse GetMapTile = GetMapTileResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

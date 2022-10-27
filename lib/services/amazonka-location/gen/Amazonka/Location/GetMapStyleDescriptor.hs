@@ -83,7 +83,8 @@ instance Core.AWSRequest GetMapStyleDescriptor where
   type
     AWSResponse GetMapStyleDescriptor =
       GetMapStyleDescriptorResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

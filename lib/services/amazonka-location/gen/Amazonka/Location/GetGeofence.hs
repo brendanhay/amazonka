@@ -93,7 +93,8 @@ getGeofence_geofenceId = Lens.lens (\GetGeofence' {geofenceId} -> geofenceId) (\
 
 instance Core.AWSRequest GetGeofence where
   type AWSResponse GetGeofence = GetGeofenceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateRouteCalculator where
   type
     AWSResponse UpdateRouteCalculator =
       UpdateRouteCalculatorResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

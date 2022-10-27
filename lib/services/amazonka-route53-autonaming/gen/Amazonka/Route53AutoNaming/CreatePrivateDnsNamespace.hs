@@ -27,7 +27,8 @@
 -- @backend.example.com@. Service instances that are registered using a
 -- private DNS namespace can be discovered using either a
 -- @DiscoverInstances@ request or using DNS. For the current quota on the
--- number of namespaces that you can create using the same account, see
+-- number of namespaces that you can create using the same Amazon Web
+-- Services account, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
 -- in the /Cloud Map Developer Guide/.
 module Amazonka.Route53AutoNaming.CreatePrivateDnsNamespace
@@ -76,8 +77,8 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
     -- (for example, a date\/timestamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace. When you create a
-    -- private DNS namespace, Cloud Map automatically creates an Amazon Route
-    -- 53 private hosted zone that has the same name as the namespace.
+    -- private DNS namespace, Cloud Map automatically creates an Amazon
+    -- Route 53 private hosted zone that has the same name as the namespace.
     name :: Prelude.Text,
     -- | The ID of the Amazon VPC that you want to associate the namespace with.
     vpc :: Prelude.Text
@@ -106,8 +107,8 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
 -- (for example, a date\/timestamp).
 --
 -- 'name', 'createPrivateDnsNamespace_name' - The name that you want to assign to this namespace. When you create a
--- private DNS namespace, Cloud Map automatically creates an Amazon Route
--- 53 private hosted zone that has the same name as the namespace.
+-- private DNS namespace, Cloud Map automatically creates an Amazon
+-- Route 53 private hosted zone that has the same name as the namespace.
 --
 -- 'vpc', 'createPrivateDnsNamespace_vpc' - The ID of the Amazon VPC that you want to associate the namespace with.
 newCreatePrivateDnsNamespace ::
@@ -148,8 +149,8 @@ createPrivateDnsNamespace_creatorRequestId :: Lens.Lens' CreatePrivateDnsNamespa
 createPrivateDnsNamespace_creatorRequestId = Lens.lens (\CreatePrivateDnsNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreatePrivateDnsNamespace' {} a -> s {creatorRequestId = a} :: CreatePrivateDnsNamespace)
 
 -- | The name that you want to assign to this namespace. When you create a
--- private DNS namespace, Cloud Map automatically creates an Amazon Route
--- 53 private hosted zone that has the same name as the namespace.
+-- private DNS namespace, Cloud Map automatically creates an Amazon
+-- Route 53 private hosted zone that has the same name as the namespace.
 createPrivateDnsNamespace_name :: Lens.Lens' CreatePrivateDnsNamespace Prelude.Text
 createPrivateDnsNamespace_name = Lens.lens (\CreatePrivateDnsNamespace' {name} -> name) (\s@CreatePrivateDnsNamespace' {} a -> s {name = a} :: CreatePrivateDnsNamespace)
 
@@ -161,7 +162,8 @@ instance Core.AWSRequest CreatePrivateDnsNamespace where
   type
     AWSResponse CreatePrivateDnsNamespace =
       CreatePrivateDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -24,14 +24,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.RecordType
 
--- | A complex type that contains information about the Route 53 DNS records
+-- | A complex type that contains information about the Route 53 DNS records
 -- that you want Cloud Map to create when you register an instance.
 --
 -- /See:/ 'newDnsRecord' smart constructor.
 data DnsRecord = DnsRecord'
-  { -- | The type of the resource, which indicates the type of value that Route
-    -- 53 returns in response to DNS queries. You can specify values for @Type@
-    -- in the following combinations:
+  { -- | The type of the resource, which indicates the type of value that
+    -- Route 53 returns in response to DNS queries. You can specify values for
+    -- @Type@ in the following combinations:
     --
     -- -   __@A@__
     --
@@ -43,7 +43,7 @@ data DnsRecord = DnsRecord'
     --
     -- -   __@CNAME@__
     --
-    -- If you want Cloud Map to create a Route 53 alias record when you
+    -- If you want Cloud Map to create a Route 53 alias record when you
     -- register an instance, specify @A@ or @AAAA@ for @Type@.
     --
     -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -53,15 +53,15 @@ data DnsRecord = DnsRecord'
     -- The following values are supported:
     --
     -- [A]
-    --     Route 53 returns the IP address of the resource in IPv4 format, such
+    --     Route 53 returns the IP address of the resource in IPv4 format, such
     --     as 192.0.2.44.
     --
     -- [AAAA]
-    --     Route 53 returns the IP address of the resource in IPv6 format, such
+    --     Route 53 returns the IP address of the resource in IPv6 format, such
     --     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
     --
     -- [CNAME]
-    --     Route 53 returns the domain name of the resource, such as
+    --     Route 53 returns the domain name of the resource, such as
     --     www.example.com. Note the following:
     --
     --     -   You specify the domain name that you want to route traffic to
@@ -77,7 +77,7 @@ data DnsRecord = DnsRecord'
     --         @InvalidInput@ error.
     --
     -- [SRV]
-    --     Route 53 returns the value for an @SRV@ record. The value for an
+    --     Route 53 returns the value for an @SRV@ record. The value for an
     --     @SRV@ record uses the following values:
     --
     --     @priority weight port service-hostname@
@@ -125,7 +125,7 @@ data DnsRecord = DnsRecord'
     -- | The amount of time, in seconds, that you want DNS resolvers to cache the
     -- settings for this record.
     --
-    -- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+    -- Alias records don\'t include a TTL because Route 53 uses the TTL for the
     -- Amazon Web Services resource that an alias record routes traffic to. If
     -- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
@@ -144,9 +144,9 @@ data DnsRecord = DnsRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dnsRecord_type' - The type of the resource, which indicates the type of value that Route
--- 53 returns in response to DNS queries. You can specify values for @Type@
--- in the following combinations:
+-- 'type'', 'dnsRecord_type' - The type of the resource, which indicates the type of value that
+-- Route 53 returns in response to DNS queries. You can specify values for
+-- @Type@ in the following combinations:
 --
 -- -   __@A@__
 --
@@ -158,7 +158,7 @@ data DnsRecord = DnsRecord'
 --
 -- -   __@CNAME@__
 --
--- If you want Cloud Map to create a Route 53 alias record when you
+-- If you want Cloud Map to create a Route 53 alias record when you
 -- register an instance, specify @A@ or @AAAA@ for @Type@.
 --
 -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -168,15 +168,15 @@ data DnsRecord = DnsRecord'
 -- The following values are supported:
 --
 -- [A]
---     Route 53 returns the IP address of the resource in IPv4 format, such
+--     Route 53 returns the IP address of the resource in IPv4 format, such
 --     as 192.0.2.44.
 --
 -- [AAAA]
---     Route 53 returns the IP address of the resource in IPv6 format, such
+--     Route 53 returns the IP address of the resource in IPv6 format, such
 --     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
 --
 -- [CNAME]
---     Route 53 returns the domain name of the resource, such as
+--     Route 53 returns the domain name of the resource, such as
 --     www.example.com. Note the following:
 --
 --     -   You specify the domain name that you want to route traffic to
@@ -192,7 +192,7 @@ data DnsRecord = DnsRecord'
 --         @InvalidInput@ error.
 --
 -- [SRV]
---     Route 53 returns the value for an @SRV@ record. The value for an
+--     Route 53 returns the value for an @SRV@ record. The value for an
 --     @SRV@ record uses the following values:
 --
 --     @priority weight port service-hostname@
@@ -240,7 +240,7 @@ data DnsRecord = DnsRecord'
 -- 'ttl', 'dnsRecord_ttl' - The amount of time, in seconds, that you want DNS resolvers to cache the
 -- settings for this record.
 --
--- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+-- Alias records don\'t include a TTL because Route 53 uses the TTL for the
 -- Amazon Web Services resource that an alias record routes traffic to. If
 -- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
@@ -256,9 +256,9 @@ newDnsRecord ::
 newDnsRecord pType_ pTTL_ =
   DnsRecord' {type' = pType_, ttl = pTTL_}
 
--- | The type of the resource, which indicates the type of value that Route
--- 53 returns in response to DNS queries. You can specify values for @Type@
--- in the following combinations:
+-- | The type of the resource, which indicates the type of value that
+-- Route 53 returns in response to DNS queries. You can specify values for
+-- @Type@ in the following combinations:
 --
 -- -   __@A@__
 --
@@ -270,7 +270,7 @@ newDnsRecord pType_ pTTL_ =
 --
 -- -   __@CNAME@__
 --
--- If you want Cloud Map to create a Route 53 alias record when you
+-- If you want Cloud Map to create a Route 53 alias record when you
 -- register an instance, specify @A@ or @AAAA@ for @Type@.
 --
 -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -280,15 +280,15 @@ newDnsRecord pType_ pTTL_ =
 -- The following values are supported:
 --
 -- [A]
---     Route 53 returns the IP address of the resource in IPv4 format, such
+--     Route 53 returns the IP address of the resource in IPv4 format, such
 --     as 192.0.2.44.
 --
 -- [AAAA]
---     Route 53 returns the IP address of the resource in IPv6 format, such
+--     Route 53 returns the IP address of the resource in IPv6 format, such
 --     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
 --
 -- [CNAME]
---     Route 53 returns the domain name of the resource, such as
+--     Route 53 returns the domain name of the resource, such as
 --     www.example.com. Note the following:
 --
 --     -   You specify the domain name that you want to route traffic to
@@ -304,7 +304,7 @@ newDnsRecord pType_ pTTL_ =
 --         @InvalidInput@ error.
 --
 -- [SRV]
---     Route 53 returns the value for an @SRV@ record. The value for an
+--     Route 53 returns the value for an @SRV@ record. The value for an
 --     @SRV@ record uses the following values:
 --
 --     @priority weight port service-hostname@
@@ -354,7 +354,7 @@ dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a ->
 -- | The amount of time, in seconds, that you want DNS resolvers to cache the
 -- settings for this record.
 --
--- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+-- Alias records don\'t include a TTL because Route 53 uses the TTL for the
 -- Amazon Web Services resource that an alias record routes traffic to. If
 -- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>

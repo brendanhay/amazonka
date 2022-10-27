@@ -47,8 +47,11 @@ data ServiceInfo = ServiceInfo'
     -- [DNS]
     --     Reserved.
     type' :: Prelude.Maybe ServiceType,
-    -- | A complex type that contains information about the Route 53 DNS records
+    -- | A complex type that contains information about the Route 53 DNS records
     -- that you want Cloud Map to create when you register an instance.
+    --
+    -- The record types of a service can only be changed by deleting the
+    -- service and recreating it with a new @Dnsconfig@.
     dnsConfig :: Prelude.Maybe DnsConfig,
     -- | A complex type that contains information about an optional custom health
     -- check.
@@ -86,7 +89,7 @@ data ServiceInfo = ServiceInfo'
     -- that you specify in @DnsConfig@.
     --
     -- For information about the charges for health checks, see
-    -- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+    -- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
     healthCheckConfig :: Prelude.Maybe HealthCheckConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -115,8 +118,11 @@ data ServiceInfo = ServiceInfo'
 -- [DNS]
 --     Reserved.
 --
--- 'dnsConfig', 'serviceInfo_dnsConfig' - A complex type that contains information about the Route 53 DNS records
+-- 'dnsConfig', 'serviceInfo_dnsConfig' - A complex type that contains information about the Route 53 DNS records
 -- that you want Cloud Map to create when you register an instance.
+--
+-- The record types of a service can only be changed by deleting the
+-- service and recreating it with a new @Dnsconfig@.
 --
 -- 'healthCheckCustomConfig', 'serviceInfo_healthCheckCustomConfig' - A complex type that contains information about an optional custom health
 -- check.
@@ -154,7 +160,7 @@ data ServiceInfo = ServiceInfo'
 -- that you specify in @DnsConfig@.
 --
 -- For information about the charges for health checks, see
--- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+-- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 newServiceInfo ::
   ServiceInfo
 newServiceInfo =
@@ -193,8 +199,11 @@ serviceInfo_name = Lens.lens (\ServiceInfo' {name} -> name) (\s@ServiceInfo' {} 
 serviceInfo_type :: Lens.Lens' ServiceInfo (Prelude.Maybe ServiceType)
 serviceInfo_type = Lens.lens (\ServiceInfo' {type'} -> type') (\s@ServiceInfo' {} a -> s {type' = a} :: ServiceInfo)
 
--- | A complex type that contains information about the Route 53 DNS records
+-- | A complex type that contains information about the Route 53 DNS records
 -- that you want Cloud Map to create when you register an instance.
+--
+-- The record types of a service can only be changed by deleting the
+-- service and recreating it with a new @Dnsconfig@.
 serviceInfo_dnsConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe DnsConfig)
 serviceInfo_dnsConfig = Lens.lens (\ServiceInfo' {dnsConfig} -> dnsConfig) (\s@ServiceInfo' {} a -> s {dnsConfig = a} :: ServiceInfo)
 
@@ -250,7 +259,7 @@ serviceInfo_namespaceId = Lens.lens (\ServiceInfo' {namespaceId} -> namespaceId)
 -- that you specify in @DnsConfig@.
 --
 -- For information about the charges for health checks, see
--- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+-- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 serviceInfo_healthCheckConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe HealthCheckConfig)
 serviceInfo_healthCheckConfig = Lens.lens (\ServiceInfo' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceInfo' {} a -> s {healthCheckConfig = a} :: ServiceInfo)
 

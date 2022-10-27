@@ -44,15 +44,18 @@ data Instance = Instance'
     --
     -- -   For each attribute, the applicable value.
     --
+    -- Do not include sensitive information in the attributes if the namespace
+    -- is discoverable by public DNS queries.
+    --
     -- Supported attribute keys include the following:
     --
     -- [AWS_ALIAS_DNS_NAME]
-    --     If you want Cloud Map to create a Route 53 alias record that routes
+    --     If you want Cloud Map to create a Route 53 alias record that routes
     --     traffic to an Elastic Load Balancing load balancer, specify the DNS
     --     name that\'s associated with the load balancer. For information
     --     about how to get the DNS name, see
     --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-DNSName AliasTarget->DNSName>
-    --     in the /Route 53 API Reference/.
+    --     in the /Route 53 API Reference/.
     --
     --     Note the following:
     --
@@ -89,7 +92,7 @@ data Instance = Instance'
     --
     -- [AWS_INSTANCE_CNAME]
     --     If the service configuration includes a @CNAME@ record, the domain
-    --     name that you want Route 53 to return in response to DNS queries
+    --     name that you want Route 53 to return in response to DNS queries
     --     (for example, @example.com@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -97,7 +100,7 @@ data Instance = Instance'
     --
     -- [AWS_INSTANCE_IPV4]
     --     If the service configuration includes an @A@ record, the IPv4
-    --     address that you want Route 53 to return in response to DNS queries
+    --     address that you want Route 53 to return in response to DNS queries
     --     (for example, @192.0.2.44@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -107,7 +110,7 @@ data Instance = Instance'
     --
     -- [AWS_INSTANCE_IPV6]
     --     If the service configuration includes an @AAAA@ record, the IPv6
-    --     address that you want Route 53 to return in response to DNS queries
+    --     address that you want Route 53 to return in response to DNS queries
     --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -117,13 +120,13 @@ data Instance = Instance'
     --
     -- [AWS_INSTANCE_PORT]
     --     If the service includes an @SRV@ record, the value that you want
-    --     Route 53 to return for the port.
+    --     Route 53 to return for the port.
     --
     --     If the service includes @HealthCheckConfig@, the port on the
-    --     endpoint that you want Route 53 to send requests to.
+    --     endpoint that you want Route 53 to send requests to.
     --
     --     This value is required if you specified settings for an @SRV@ record
-    --     or a Route 53 health check when you created the service.
+    --     or a Route 53 health check when you created the service.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An identifier that you want to associate with the instance. Note the
     -- following:
@@ -174,15 +177,18 @@ data Instance = Instance'
 --
 -- -   For each attribute, the applicable value.
 --
+-- Do not include sensitive information in the attributes if the namespace
+-- is discoverable by public DNS queries.
+--
 -- Supported attribute keys include the following:
 --
 -- [AWS_ALIAS_DNS_NAME]
---     If you want Cloud Map to create a Route 53 alias record that routes
+--     If you want Cloud Map to create a Route 53 alias record that routes
 --     traffic to an Elastic Load Balancing load balancer, specify the DNS
 --     name that\'s associated with the load balancer. For information
 --     about how to get the DNS name, see
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-DNSName AliasTarget->DNSName>
---     in the /Route 53 API Reference/.
+--     in the /Route 53 API Reference/.
 --
 --     Note the following:
 --
@@ -219,7 +225,7 @@ data Instance = Instance'
 --
 -- [AWS_INSTANCE_CNAME]
 --     If the service configuration includes a @CNAME@ record, the domain
---     name that you want Route 53 to return in response to DNS queries
+--     name that you want Route 53 to return in response to DNS queries
 --     (for example, @example.com@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -227,7 +233,7 @@ data Instance = Instance'
 --
 -- [AWS_INSTANCE_IPV4]
 --     If the service configuration includes an @A@ record, the IPv4
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @192.0.2.44@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -237,7 +243,7 @@ data Instance = Instance'
 --
 -- [AWS_INSTANCE_IPV6]
 --     If the service configuration includes an @AAAA@ record, the IPv6
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -247,13 +253,13 @@ data Instance = Instance'
 --
 -- [AWS_INSTANCE_PORT]
 --     If the service includes an @SRV@ record, the value that you want
---     Route 53 to return for the port.
+--     Route 53 to return for the port.
 --
 --     If the service includes @HealthCheckConfig@, the port on the
---     endpoint that you want Route 53 to send requests to.
+--     endpoint that you want Route 53 to send requests to.
 --
 --     This value is required if you specified settings for an @SRV@ record
---     or a Route 53 health check when you created the service.
+--     or a Route 53 health check when you created the service.
 --
 -- 'id', 'instance_id' - An identifier that you want to associate with the instance. Note the
 -- following:
@@ -305,15 +311,18 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --
 -- -   For each attribute, the applicable value.
 --
+-- Do not include sensitive information in the attributes if the namespace
+-- is discoverable by public DNS queries.
+--
 -- Supported attribute keys include the following:
 --
 -- [AWS_ALIAS_DNS_NAME]
---     If you want Cloud Map to create a Route 53 alias record that routes
+--     If you want Cloud Map to create a Route 53 alias record that routes
 --     traffic to an Elastic Load Balancing load balancer, specify the DNS
 --     name that\'s associated with the load balancer. For information
 --     about how to get the DNS name, see
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-DNSName AliasTarget->DNSName>
---     in the /Route 53 API Reference/.
+--     in the /Route 53 API Reference/.
 --
 --     Note the following:
 --
@@ -350,7 +359,7 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --
 -- [AWS_INSTANCE_CNAME]
 --     If the service configuration includes a @CNAME@ record, the domain
---     name that you want Route 53 to return in response to DNS queries
+--     name that you want Route 53 to return in response to DNS queries
 --     (for example, @example.com@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -358,7 +367,7 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --
 -- [AWS_INSTANCE_IPV4]
 --     If the service configuration includes an @A@ record, the IPv4
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @192.0.2.44@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -368,7 +377,7 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --
 -- [AWS_INSTANCE_IPV6]
 --     If the service configuration includes an @AAAA@ record, the IPv6
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -378,13 +387,13 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --
 -- [AWS_INSTANCE_PORT]
 --     If the service includes an @SRV@ record, the value that you want
---     Route 53 to return for the port.
+--     Route 53 to return for the port.
 --
 --     If the service includes @HealthCheckConfig@, the port on the
---     endpoint that you want Route 53 to send requests to.
+--     endpoint that you want Route 53 to send requests to.
 --
 --     This value is required if you specified settings for an @SRV@ record
---     or a Route 53 health check when you created the service.
+--     or a Route 53 health check when you created the service.
 instance_attributes :: Lens.Lens' Instance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instance_attributes = Lens.lens (\Instance' {attributes} -> attributes) (\s@Instance' {} a -> s {attributes = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 

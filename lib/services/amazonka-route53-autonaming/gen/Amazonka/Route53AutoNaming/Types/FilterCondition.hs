@@ -20,6 +20,7 @@
 module Amazonka.Route53AutoNaming.Types.FilterCondition
   ( FilterCondition
       ( ..,
+        FilterCondition_BEGINS_WITH,
         FilterCondition_BETWEEN,
         FilterCondition_EQ,
         FilterCondition_IN
@@ -58,6 +59,9 @@ newtype FilterCondition = FilterCondition'
       Core.ToXML
     )
 
+pattern FilterCondition_BEGINS_WITH :: FilterCondition
+pattern FilterCondition_BEGINS_WITH = FilterCondition' "BEGINS_WITH"
+
 pattern FilterCondition_BETWEEN :: FilterCondition
 pattern FilterCondition_BETWEEN = FilterCondition' "BETWEEN"
 
@@ -68,6 +72,7 @@ pattern FilterCondition_IN :: FilterCondition
 pattern FilterCondition_IN = FilterCondition' "IN"
 
 {-# COMPLETE
+  FilterCondition_BEGINS_WITH,
   FilterCondition_BETWEEN,
   FilterCondition_EQ,
   FilterCondition_IN,

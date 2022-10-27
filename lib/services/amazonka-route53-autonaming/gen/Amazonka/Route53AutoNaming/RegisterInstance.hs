@@ -117,6 +117,11 @@ data RegisterInstance = RegisterInstance'
     --
     --     The health check isn\'t deleted immediately, so it will still appear
     --     for a while if you submit a @ListHealthChecks@ request, for example.
+    --
+    -- Do not include sensitive information in @InstanceId@ if the namespace is
+    -- discoverable by public DNS queries and any @Type@ member of @DnsRecord@
+    -- for the service contains @SRV@ because the @InstanceId@ is discoverable
+    -- by public DNS queries.
     instanceId :: Prelude.Text,
     -- | A string map that contains the following information for the service
     -- that you specify in @ServiceId@:
@@ -126,16 +131,19 @@ data RegisterInstance = RegisterInstance'
     --
     -- -   For each attribute, the applicable value.
     --
+    -- Do not include sensitive information in the attributes if the namespace
+    -- is discoverable by public DNS queries.
+    --
     -- Supported attribute keys include the following:
     --
     -- [AWS_ALIAS_DNS_NAME]
-    --     If you want Cloud Map to create an Amazon Route 53 alias record that
+    --     If you want Cloud Map to create an Amazon Route 53 alias record that
     --     routes traffic to an Elastic Load Balancing load balancer, specify
     --     the DNS name that\'s associated with the load balancer. For
     --     information about how to get the DNS name, see \"DNSName\" in the
     --     topic
     --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget>
-    --     in the /Route 53 API Reference/.
+    --     in the /Route 53 API Reference/.
     --
     --     Note the following:
     --
@@ -147,7 +155,7 @@ data RegisterInstance = RegisterInstance'
     --         @RoutingPolicy@ must be @WEIGHTED@.
     --
     --     -   If the service that\'s specified by @ServiceId@ includes
-    --         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
+    --         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
     --         health check, but it doesn\'t associate the health check with
     --         the alias record.
     --
@@ -175,7 +183,7 @@ data RegisterInstance = RegisterInstance'
     --
     -- [AWS_INSTANCE_CNAME]
     --     If the service configuration includes a @CNAME@ record, the domain
-    --     name that you want Route 53 to return in response to DNS queries
+    --     name that you want Route 53 to return in response to DNS queries
     --     (for example, @example.com@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -183,7 +191,7 @@ data RegisterInstance = RegisterInstance'
     --
     -- [AWS_INSTANCE_IPV4]
     --     If the service configuration includes an @A@ record, the IPv4
-    --     address that you want Route 53 to return in response to DNS queries
+    --     address that you want Route 53 to return in response to DNS queries
     --     (for example, @192.0.2.44@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -193,7 +201,7 @@ data RegisterInstance = RegisterInstance'
     --
     -- [AWS_INSTANCE_IPV6]
     --     If the service configuration includes an @AAAA@ record, the IPv6
-    --     address that you want Route 53 to return in response to DNS queries
+    --     address that you want Route 53 to return in response to DNS queries
     --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
     --
     --     This value is required if the service specified by @ServiceId@
@@ -203,13 +211,13 @@ data RegisterInstance = RegisterInstance'
     --
     -- [AWS_INSTANCE_PORT]
     --     If the service includes an @SRV@ record, the value that you want
-    --     Route 53 to return for the port.
+    --     Route 53 to return for the port.
     --
     --     If the service includes @HealthCheckConfig@, the port on the
-    --     endpoint that you want Route 53 to send requests to.
+    --     endpoint that you want Route 53 to send requests to.
     --
     --     This value is required if you specified settings for an @SRV@ record
-    --     or a Route 53 health check when you created the service.
+    --     or a Route 53 health check when you created the service.
     --
     -- [Custom attributes]
     --     You can add up to 30 custom attributes. For each key-value pair, the
@@ -262,6 +270,11 @@ data RegisterInstance = RegisterInstance'
 --     The health check isn\'t deleted immediately, so it will still appear
 --     for a while if you submit a @ListHealthChecks@ request, for example.
 --
+-- Do not include sensitive information in @InstanceId@ if the namespace is
+-- discoverable by public DNS queries and any @Type@ member of @DnsRecord@
+-- for the service contains @SRV@ because the @InstanceId@ is discoverable
+-- by public DNS queries.
+--
 -- 'attributes', 'registerInstance_attributes' - A string map that contains the following information for the service
 -- that you specify in @ServiceId@:
 --
@@ -270,16 +283,19 @@ data RegisterInstance = RegisterInstance'
 --
 -- -   For each attribute, the applicable value.
 --
+-- Do not include sensitive information in the attributes if the namespace
+-- is discoverable by public DNS queries.
+--
 -- Supported attribute keys include the following:
 --
 -- [AWS_ALIAS_DNS_NAME]
---     If you want Cloud Map to create an Amazon Route 53 alias record that
+--     If you want Cloud Map to create an Amazon Route 53 alias record that
 --     routes traffic to an Elastic Load Balancing load balancer, specify
 --     the DNS name that\'s associated with the load balancer. For
 --     information about how to get the DNS name, see \"DNSName\" in the
 --     topic
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget>
---     in the /Route 53 API Reference/.
+--     in the /Route 53 API Reference/.
 --
 --     Note the following:
 --
@@ -291,7 +307,7 @@ data RegisterInstance = RegisterInstance'
 --         @RoutingPolicy@ must be @WEIGHTED@.
 --
 --     -   If the service that\'s specified by @ServiceId@ includes
---         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
+--         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
 --         health check, but it doesn\'t associate the health check with
 --         the alias record.
 --
@@ -319,7 +335,7 @@ data RegisterInstance = RegisterInstance'
 --
 -- [AWS_INSTANCE_CNAME]
 --     If the service configuration includes a @CNAME@ record, the domain
---     name that you want Route 53 to return in response to DNS queries
+--     name that you want Route 53 to return in response to DNS queries
 --     (for example, @example.com@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -327,7 +343,7 @@ data RegisterInstance = RegisterInstance'
 --
 -- [AWS_INSTANCE_IPV4]
 --     If the service configuration includes an @A@ record, the IPv4
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @192.0.2.44@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -337,7 +353,7 @@ data RegisterInstance = RegisterInstance'
 --
 -- [AWS_INSTANCE_IPV6]
 --     If the service configuration includes an @AAAA@ record, the IPv6
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -347,13 +363,13 @@ data RegisterInstance = RegisterInstance'
 --
 -- [AWS_INSTANCE_PORT]
 --     If the service includes an @SRV@ record, the value that you want
---     Route 53 to return for the port.
+--     Route 53 to return for the port.
 --
 --     If the service includes @HealthCheckConfig@, the port on the
---     endpoint that you want Route 53 to send requests to.
+--     endpoint that you want Route 53 to send requests to.
 --
 --     This value is required if you specified settings for an @SRV@ record
---     or a Route 53 health check when you created the service.
+--     or a Route 53 health check when you created the service.
 --
 -- [Custom attributes]
 --     You can add up to 30 custom attributes. For each key-value pair, the
@@ -412,6 +428,11 @@ registerInstance_serviceId = Lens.lens (\RegisterInstance' {serviceId} -> servic
 --
 --     The health check isn\'t deleted immediately, so it will still appear
 --     for a while if you submit a @ListHealthChecks@ request, for example.
+--
+-- Do not include sensitive information in @InstanceId@ if the namespace is
+-- discoverable by public DNS queries and any @Type@ member of @DnsRecord@
+-- for the service contains @SRV@ because the @InstanceId@ is discoverable
+-- by public DNS queries.
 registerInstance_instanceId :: Lens.Lens' RegisterInstance Prelude.Text
 registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> instanceId) (\s@RegisterInstance' {} a -> s {instanceId = a} :: RegisterInstance)
 
@@ -423,16 +444,19 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --
 -- -   For each attribute, the applicable value.
 --
+-- Do not include sensitive information in the attributes if the namespace
+-- is discoverable by public DNS queries.
+--
 -- Supported attribute keys include the following:
 --
 -- [AWS_ALIAS_DNS_NAME]
---     If you want Cloud Map to create an Amazon Route 53 alias record that
+--     If you want Cloud Map to create an Amazon Route 53 alias record that
 --     routes traffic to an Elastic Load Balancing load balancer, specify
 --     the DNS name that\'s associated with the load balancer. For
 --     information about how to get the DNS name, see \"DNSName\" in the
 --     topic
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget>
---     in the /Route 53 API Reference/.
+--     in the /Route 53 API Reference/.
 --
 --     Note the following:
 --
@@ -444,7 +468,7 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --         @RoutingPolicy@ must be @WEIGHTED@.
 --
 --     -   If the service that\'s specified by @ServiceId@ includes
---         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
+--         @HealthCheckConfig@ settings, Cloud Map will create the Route 53
 --         health check, but it doesn\'t associate the health check with
 --         the alias record.
 --
@@ -472,7 +496,7 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --
 -- [AWS_INSTANCE_CNAME]
 --     If the service configuration includes a @CNAME@ record, the domain
---     name that you want Route 53 to return in response to DNS queries
+--     name that you want Route 53 to return in response to DNS queries
 --     (for example, @example.com@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -480,7 +504,7 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --
 -- [AWS_INSTANCE_IPV4]
 --     If the service configuration includes an @A@ record, the IPv4
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @192.0.2.44@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -490,7 +514,7 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --
 -- [AWS_INSTANCE_IPV6]
 --     If the service configuration includes an @AAAA@ record, the IPv6
---     address that you want Route 53 to return in response to DNS queries
+--     address that you want Route 53 to return in response to DNS queries
 --     (for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 --     This value is required if the service specified by @ServiceId@
@@ -500,13 +524,13 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --
 -- [AWS_INSTANCE_PORT]
 --     If the service includes an @SRV@ record, the value that you want
---     Route 53 to return for the port.
+--     Route 53 to return for the port.
 --
 --     If the service includes @HealthCheckConfig@, the port on the
---     endpoint that you want Route 53 to send requests to.
+--     endpoint that you want Route 53 to send requests to.
 --
 --     This value is required if you specified settings for an @SRV@ record
---     or a Route 53 health check when you created the service.
+--     or a Route 53 health check when you created the service.
 --
 -- [Custom attributes]
 --     You can add up to 30 custom attributes. For each key-value pair, the
@@ -521,7 +545,8 @@ instance Core.AWSRequest RegisterInstance where
   type
     AWSResponse RegisterInstance =
       RegisterInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

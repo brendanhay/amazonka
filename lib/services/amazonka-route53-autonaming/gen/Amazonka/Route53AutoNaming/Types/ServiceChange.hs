@@ -29,7 +29,7 @@ import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
 --
 -- /See:/ 'newServiceChange' smart constructor.
 data ServiceChange = ServiceChange'
-  { -- | Information about the Route 53 DNS records that you want Cloud Map to
+  { -- | Information about the Route 53 DNS records that you want Cloud Map to
     -- create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfigChange,
     -- | A description for the service.
@@ -49,7 +49,7 @@ data ServiceChange = ServiceChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsConfig', 'serviceChange_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
+-- 'dnsConfig', 'serviceChange_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
 --
 -- 'description', 'serviceChange_description' - A description for the service.
@@ -66,7 +66,7 @@ newServiceChange =
       healthCheckConfig = Prelude.Nothing
     }
 
--- | Information about the Route 53 DNS records that you want Cloud Map to
+-- | Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
 serviceChange_dnsConfig :: Lens.Lens' ServiceChange (Prelude.Maybe DnsConfigChange)
 serviceChange_dnsConfig = Lens.lens (\ServiceChange' {dnsConfig} -> dnsConfig) (\s@ServiceChange' {} a -> s {dnsConfig = a} :: ServiceChange)

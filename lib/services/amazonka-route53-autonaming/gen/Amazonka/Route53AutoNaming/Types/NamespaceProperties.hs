@@ -30,7 +30,7 @@ import Amazonka.Route53AutoNaming.Types.HttpProperties
 --
 -- /See:/ 'newNamespaceProperties' smart constructor.
 data NamespaceProperties = NamespaceProperties'
-  { -- | A complex type that contains the ID for the Route 53 hosted zone that
+  { -- | A complex type that contains the ID for the Route 53 hosted zone that
     -- Cloud Map creates when you create a namespace.
     dnsProperties :: Prelude.Maybe DnsProperties,
     -- | A complex type that contains the name of an HTTP namespace.
@@ -46,7 +46,7 @@ data NamespaceProperties = NamespaceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsProperties', 'namespaceProperties_dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that
+-- 'dnsProperties', 'namespaceProperties_dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that
 -- Cloud Map creates when you create a namespace.
 --
 -- 'httpProperties', 'namespaceProperties_httpProperties' - A complex type that contains the name of an HTTP namespace.
@@ -59,7 +59,7 @@ newNamespaceProperties =
       httpProperties = Prelude.Nothing
     }
 
--- | A complex type that contains the ID for the Route 53 hosted zone that
+-- | A complex type that contains the ID for the Route 53 hosted zone that
 -- Cloud Map creates when you create a namespace.
 namespaceProperties_dnsProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe DnsProperties)
 namespaceProperties_dnsProperties = Lens.lens (\NamespaceProperties' {dnsProperties} -> dnsProperties) (\s@NamespaceProperties' {} a -> s {dnsProperties = a} :: NamespaceProperties)

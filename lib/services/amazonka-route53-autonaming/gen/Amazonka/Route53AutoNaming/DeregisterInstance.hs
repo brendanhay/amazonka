@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the Amazon Route 53 DNS records and health check, if any, that
+-- Deletes the Amazon Route 53 DNS records and health check, if any, that
 -- Cloud Map created for the specified instance.
 module Amazonka.Route53AutoNaming.DeregisterInstance
   ( -- * Creating a Request
@@ -98,7 +98,8 @@ instance Core.AWSRequest DeregisterInstance where
   type
     AWSResponse DeregisterInstance =
       DeregisterInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

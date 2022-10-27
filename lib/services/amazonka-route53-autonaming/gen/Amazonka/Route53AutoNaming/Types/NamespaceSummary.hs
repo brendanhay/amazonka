@@ -30,7 +30,7 @@ import Amazonka.Route53AutoNaming.Types.NamespaceType
 -- /See:/ 'newNamespaceSummary' smart constructor.
 data NamespaceSummary = NamespaceSummary'
   { -- | The name of the namespace. When you create a namespace, Cloud Map
-    -- automatically creates a Route 53 hosted zone that has the same name as
+    -- automatically creates a Route 53 hosted zone that has the same name as
     -- the namespace.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of the namespace, either public or private.
@@ -60,7 +60,7 @@ data NamespaceSummary = NamespaceSummary'
 -- for backwards compatibility:
 --
 -- 'name', 'namespaceSummary_name' - The name of the namespace. When you create a namespace, Cloud Map
--- automatically creates a Route 53 hosted zone that has the same name as
+-- automatically creates a Route 53 hosted zone that has the same name as
 -- the namespace.
 --
 -- 'type'', 'namespaceSummary_type' - The type of the namespace, either public or private.
@@ -92,7 +92,7 @@ newNamespaceSummary =
     }
 
 -- | The name of the namespace. When you create a namespace, Cloud Map
--- automatically creates a Route 53 hosted zone that has the same name as
+-- automatically creates a Route 53 hosted zone that has the same name as
 -- the namespace.
 namespaceSummary_name :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Text)
 namespaceSummary_name = Lens.lens (\NamespaceSummary' {name} -> name) (\s@NamespaceSummary' {} a -> s {name = a} :: NamespaceSummary)

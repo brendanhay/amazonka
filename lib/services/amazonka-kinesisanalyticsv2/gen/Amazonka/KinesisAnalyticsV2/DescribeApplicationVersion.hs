@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeApplicationVersion where
   type
     AWSResponse DescribeApplicationVersion =
       DescribeApplicationVersionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

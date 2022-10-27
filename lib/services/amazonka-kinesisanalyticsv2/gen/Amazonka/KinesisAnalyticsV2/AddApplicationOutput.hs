@@ -151,7 +151,8 @@ instance Core.AWSRequest AddApplicationOutput where
   type
     AWSResponse AddApplicationOutput =
       AddApplicationOutputResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

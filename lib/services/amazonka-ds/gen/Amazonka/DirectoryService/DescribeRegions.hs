@@ -22,6 +22,8 @@
 --
 -- Provides information about the Regions that are configured for
 -- multi-Region replication.
+--
+-- This operation returns paginated results.
 module Amazonka.DirectoryService.DescribeRegions
   ( -- * Creating a Request
     DescribeRegions (..),
@@ -100,11 +102,34 @@ describeRegions_regionName = Lens.lens (\DescribeRegions' {regionName} -> region
 describeRegions_directoryId :: Lens.Lens' DescribeRegions Prelude.Text
 describeRegions_directoryId = Lens.lens (\DescribeRegions' {directoryId} -> directoryId) (\s@DescribeRegions' {} a -> s {directoryId = a} :: DescribeRegions)
 
+instance Core.AWSPager DescribeRegions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeRegionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeRegionsResponse_regionsDescription
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeRegions_nextToken
+          Lens..~ rs
+          Lens.^? describeRegionsResponse_nextToken
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest DescribeRegions where
   type
     AWSResponse DescribeRegions =
       DescribeRegionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

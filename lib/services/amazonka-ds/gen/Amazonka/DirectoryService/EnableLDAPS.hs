@@ -92,7 +92,8 @@ enableLDAPS_type = Lens.lens (\EnableLDAPS' {type'} -> type') (\s@EnableLDAPS' {
 
 instance Core.AWSRequest EnableLDAPS where
   type AWSResponse EnableLDAPS = EnableLDAPSResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

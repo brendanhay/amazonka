@@ -128,7 +128,8 @@ disableSso_directoryId = Lens.lens (\DisableSso' {directoryId} -> directoryId) (
 
 instance Core.AWSRequest DisableSso where
   type AWSResponse DisableSso = DisableSsoResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

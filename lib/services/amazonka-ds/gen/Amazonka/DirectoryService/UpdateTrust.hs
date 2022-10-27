@@ -89,7 +89,8 @@ updateTrust_trustId = Lens.lens (\UpdateTrust' {trustId} -> trustId) (\s@UpdateT
 
 instance Core.AWSRequest UpdateTrust where
   type AWSResponse UpdateTrust = UpdateTrustResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

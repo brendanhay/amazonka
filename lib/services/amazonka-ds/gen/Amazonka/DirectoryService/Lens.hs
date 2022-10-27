@@ -250,6 +250,15 @@ module Amazonka.DirectoryService.Lens
     describeTrustsResponse_trusts,
     describeTrustsResponse_httpStatus,
 
+    -- ** DescribeUpdateDirectory
+    describeUpdateDirectory_nextToken,
+    describeUpdateDirectory_regionName,
+    describeUpdateDirectory_directoryId,
+    describeUpdateDirectory_updateType,
+    describeUpdateDirectoryResponse_nextToken,
+    describeUpdateDirectoryResponse_updateActivities,
+    describeUpdateDirectoryResponse_httpStatus,
+
     -- ** DisableClientAuthentication
     disableClientAuthentication_directoryId,
     disableClientAuthentication_type,
@@ -410,6 +419,13 @@ module Amazonka.DirectoryService.Lens
     updateConditionalForwarder_dnsIpAddrs,
     updateConditionalForwarderResponse_httpStatus,
 
+    -- ** UpdateDirectorySetup
+    updateDirectorySetup_createSnapshotBeforeUpdate,
+    updateDirectorySetup_oSUpdateSettings,
+    updateDirectorySetup_directoryId,
+    updateDirectorySetup_updateType,
+    updateDirectorySetupResponse_httpStatus,
+
     -- ** UpdateNumberOfDomainControllers
     updateNumberOfDomainControllers_directoryId,
     updateNumberOfDomainControllers_desiredNumber,
@@ -506,6 +522,7 @@ module Amazonka.DirectoryService.Lens
     directoryDescription_shareMethod,
     directoryDescription_size,
     directoryDescription_vpcSettings,
+    directoryDescription_osVersion,
     directoryDescription_ownerDirectoryDescription,
     directoryDescription_edition,
     directoryDescription_description,
@@ -581,6 +598,9 @@ module Amazonka.DirectoryService.Lens
     logSubscription_directoryId,
     logSubscription_subscriptionCreatedDateTime,
     logSubscription_logGroupName,
+
+    -- ** OSUpdateSettings
+    oSUpdateSettings_oSVersion,
 
     -- ** OwnerDirectoryDescription
     ownerDirectoryDescription_directoryId,
@@ -688,6 +708,19 @@ module Amazonka.DirectoryService.Lens
     -- ** UnshareTarget
     unshareTarget_id,
     unshareTarget_type,
+
+    -- ** UpdateInfoEntry
+    updateInfoEntry_initiatedBy,
+    updateInfoEntry_previousValue,
+    updateInfoEntry_statusReason,
+    updateInfoEntry_status,
+    updateInfoEntry_region,
+    updateInfoEntry_newValue,
+    updateInfoEntry_startTime,
+    updateInfoEntry_lastUpdatedDateTime,
+
+    -- ** UpdateValue
+    updateValue_oSUpdateSettings,
   )
 where
 
@@ -724,6 +757,7 @@ import Amazonka.DirectoryService.DescribeSettings
 import Amazonka.DirectoryService.DescribeSharedDirectories
 import Amazonka.DirectoryService.DescribeSnapshots
 import Amazonka.DirectoryService.DescribeTrusts
+import Amazonka.DirectoryService.DescribeUpdateDirectory
 import Amazonka.DirectoryService.DisableClientAuthentication
 import Amazonka.DirectoryService.DisableLDAPS
 import Amazonka.DirectoryService.DisableRadius
@@ -768,6 +802,7 @@ import Amazonka.DirectoryService.Types.IpRoute
 import Amazonka.DirectoryService.Types.IpRouteInfo
 import Amazonka.DirectoryService.Types.LDAPSSettingInfo
 import Amazonka.DirectoryService.Types.LogSubscription
+import Amazonka.DirectoryService.Types.OSUpdateSettings
 import Amazonka.DirectoryService.Types.OwnerDirectoryDescription
 import Amazonka.DirectoryService.Types.RadiusSettings
 import Amazonka.DirectoryService.Types.RegionDescription
@@ -782,8 +817,11 @@ import Amazonka.DirectoryService.Types.SnapshotLimits
 import Amazonka.DirectoryService.Types.Tag
 import Amazonka.DirectoryService.Types.Trust
 import Amazonka.DirectoryService.Types.UnshareTarget
+import Amazonka.DirectoryService.Types.UpdateInfoEntry
+import Amazonka.DirectoryService.Types.UpdateValue
 import Amazonka.DirectoryService.UnshareDirectory
 import Amazonka.DirectoryService.UpdateConditionalForwarder
+import Amazonka.DirectoryService.UpdateDirectorySetup
 import Amazonka.DirectoryService.UpdateNumberOfDomainControllers
 import Amazonka.DirectoryService.UpdateRadius
 import Amazonka.DirectoryService.UpdateSettings

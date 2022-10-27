@@ -243,7 +243,8 @@ instance Core.AWSRequest CreateDirectory where
   type
     AWSResponse CreateDirectory =
       CreateDirectoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

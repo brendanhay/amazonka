@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeDirectories where
   type
     AWSResponse DescribeDirectories =
       DescribeDirectoriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

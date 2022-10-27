@@ -131,7 +131,8 @@ enableSso_directoryId = Lens.lens (\EnableSso' {directoryId} -> directoryId) (\s
 
 instance Core.AWSRequest EnableSso where
   type AWSResponse EnableSso = EnableSsoResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

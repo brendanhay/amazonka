@@ -82,7 +82,8 @@ verifyTrust_trustId = Lens.lens (\VerifyTrust' {trustId} -> trustId) (\s@VerifyT
 
 instance Core.AWSRequest VerifyTrust where
   type AWSResponse VerifyTrust = VerifyTrustResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

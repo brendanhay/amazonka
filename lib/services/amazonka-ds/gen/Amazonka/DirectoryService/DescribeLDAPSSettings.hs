@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the status of LDAP security for the specified directory.
+--
+-- This operation returns paginated results.
 module Amazonka.DirectoryService.DescribeLDAPSSettings
   ( -- * Creating a Request
     DescribeLDAPSSettings (..),
@@ -109,11 +111,34 @@ describeLDAPSSettings_limit = Lens.lens (\DescribeLDAPSSettings' {limit} -> limi
 describeLDAPSSettings_directoryId :: Lens.Lens' DescribeLDAPSSettings Prelude.Text
 describeLDAPSSettings_directoryId = Lens.lens (\DescribeLDAPSSettings' {directoryId} -> directoryId) (\s@DescribeLDAPSSettings' {} a -> s {directoryId = a} :: DescribeLDAPSSettings)
 
+instance Core.AWSPager DescribeLDAPSSettings where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeLDAPSSettingsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeLDAPSSettingsResponse_lDAPSSettingsInfo
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeLDAPSSettings_nextToken
+          Lens..~ rs
+          Lens.^? describeLDAPSSettingsResponse_nextToken
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest DescribeLDAPSSettings where
   type
     AWSResponse DescribeLDAPSSettings =
       DescribeLDAPSSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

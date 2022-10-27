@@ -25,6 +25,8 @@
 -- information about all client authentication types that are supported for
 -- the specified directory is retrieved. Currently, only @SmartCard@ is
 -- supported.
+--
+-- This operation returns paginated results.
 module Amazonka.DirectoryService.DescribeClientAuthenticationSettings
   ( -- * Creating a Request
     DescribeClientAuthenticationSettings (..),
@@ -130,13 +132,39 @@ describeClientAuthenticationSettings_directoryId :: Lens.Lens' DescribeClientAut
 describeClientAuthenticationSettings_directoryId = Lens.lens (\DescribeClientAuthenticationSettings' {directoryId} -> directoryId) (\s@DescribeClientAuthenticationSettings' {} a -> s {directoryId = a} :: DescribeClientAuthenticationSettings)
 
 instance
+  Core.AWSPager
+    DescribeClientAuthenticationSettings
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeClientAuthenticationSettingsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeClientAuthenticationSettings_nextToken
+          Lens..~ rs
+            Lens.^? describeClientAuthenticationSettingsResponse_nextToken
+              Prelude.. Lens._Just
+
+instance
   Core.AWSRequest
     DescribeClientAuthenticationSettings
   where
   type
     AWSResponse DescribeClientAuthenticationSettings =
       DescribeClientAuthenticationSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

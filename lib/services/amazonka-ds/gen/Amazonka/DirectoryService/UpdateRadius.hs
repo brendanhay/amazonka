@@ -97,7 +97,8 @@ updateRadius_radiusSettings = Lens.lens (\UpdateRadius' {radiusSettings} -> radi
 
 instance Core.AWSRequest UpdateRadius where
   type AWSResponse UpdateRadius = UpdateRadiusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

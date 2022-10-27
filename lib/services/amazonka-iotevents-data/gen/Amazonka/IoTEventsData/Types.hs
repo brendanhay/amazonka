@@ -346,6 +346,8 @@ defaultService =
       Core._serviceEndpointPrefix = "data.iotevents",
       Core._serviceSigningName = "ioteventsdata",
       Core._serviceVersion = "2018-10-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -81,7 +81,8 @@ instance Core.AWSRequest GetImagePolicy where
   type
     AWSResponse GetImagePolicy =
       GetImagePolicyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

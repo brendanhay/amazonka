@@ -99,7 +99,8 @@ instance Core.AWSRequest StartImagePipelineExecution where
   type
     AWSResponse StartImagePipelineExecution =
       StartImagePipelineExecutionResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -97,7 +97,8 @@ deleteImage_imageBuildVersionArn = Lens.lens (\DeleteImage' {imageBuildVersionAr
 
 instance Core.AWSRequest DeleteImage where
   type AWSResponse DeleteImage = DeleteImageResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

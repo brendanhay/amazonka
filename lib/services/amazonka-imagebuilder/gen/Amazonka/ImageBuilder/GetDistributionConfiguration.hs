@@ -85,7 +85,8 @@ instance Core.AWSRequest GetDistributionConfiguration where
   type
     AWSResponse GetDistributionConfiguration =
       GetDistributionConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

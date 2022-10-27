@@ -82,7 +82,8 @@ getComponent_componentBuildVersionArn = Lens.lens (\GetComponent' {componentBuil
 
 instance Core.AWSRequest GetComponent where
   type AWSResponse GetComponent = GetComponentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

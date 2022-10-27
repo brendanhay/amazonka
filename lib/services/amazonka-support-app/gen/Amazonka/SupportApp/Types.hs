@@ -24,6 +24,9 @@ module Amazonka.SupportApp.Types
     _ConflictException,
     _ValidationException,
 
+    -- * AccountType
+    AccountType (..),
+
     -- * NotificationSeverityLevel
     NotificationSeverityLevel (..),
 
@@ -42,6 +45,8 @@ module Amazonka.SupportApp.Types
     -- * SlackWorkspaceConfiguration
     SlackWorkspaceConfiguration (..),
     newSlackWorkspaceConfiguration,
+    slackWorkspaceConfiguration_teamName,
+    slackWorkspaceConfiguration_allowOrganizationMemberAccount,
     slackWorkspaceConfiguration_teamId,
   )
 where
@@ -50,6 +55,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.SupportApp.Types.AccountType
 import Amazonka.SupportApp.Types.NotificationSeverityLevel
 import Amazonka.SupportApp.Types.SlackChannelConfiguration
 import Amazonka.SupportApp.Types.SlackWorkspaceConfiguration
@@ -63,6 +69,8 @@ defaultService =
       Core._serviceEndpointPrefix = "supportapp",
       Core._serviceSigningName = "supportapp",
       Core._serviceVersion = "2021-08-20",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -154,7 +162,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The specified resource is missing or doesn\'t exist, such as an account
--- alias or Slack channel configuration.
+-- alias, Slack channel configuration, or Slack workspace configuration.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -175,6 +183,13 @@ _ResourceNotFoundException =
 --
 -- -   Delete a Slack workspace from your Amazon Web Services account that
 --     has an active live chat channel.
+--
+-- -   Call the @RegisterSlackWorkspaceForOrganization@ API from an Amazon
+--     Web Services account that doesn\'t belong to an organization.
+--
+-- -   Call the @RegisterSlackWorkspaceForOrganization@ API from a member
+--     account, but the management account hasn\'t registered that
+--     workspace yet for the organization.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError

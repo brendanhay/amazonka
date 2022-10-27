@@ -57,6 +57,13 @@ module Amazonka.SupportApp.Lens
     putAccountAlias_accountAlias,
     putAccountAliasResponse_httpStatus,
 
+    -- ** RegisterSlackWorkspaceForOrganization
+    registerSlackWorkspaceForOrganization_teamId,
+    registerSlackWorkspaceForOrganizationResponse_teamName,
+    registerSlackWorkspaceForOrganizationResponse_teamId,
+    registerSlackWorkspaceForOrganizationResponse_accountType,
+    registerSlackWorkspaceForOrganizationResponse_httpStatus,
+
     -- ** UpdateSlackChannelConfiguration
     updateSlackChannelConfiguration_channelRoleArn,
     updateSlackChannelConfiguration_notifyOnCaseSeverity,
@@ -89,6 +96,8 @@ module Amazonka.SupportApp.Lens
     slackChannelConfiguration_teamId,
 
     -- ** SlackWorkspaceConfiguration
+    slackWorkspaceConfiguration_teamName,
+    slackWorkspaceConfiguration_allowOrganizationMemberAccount,
     slackWorkspaceConfiguration_teamId,
   )
 where
@@ -101,6 +110,7 @@ import Amazonka.SupportApp.GetAccountAlias
 import Amazonka.SupportApp.ListSlackChannelConfigurations
 import Amazonka.SupportApp.ListSlackWorkspaceConfigurations
 import Amazonka.SupportApp.PutAccountAlias
+import Amazonka.SupportApp.RegisterSlackWorkspaceForOrganization
 import Amazonka.SupportApp.Types.SlackChannelConfiguration
 import Amazonka.SupportApp.Types.SlackWorkspaceConfiguration
 import Amazonka.SupportApp.UpdateSlackChannelConfiguration

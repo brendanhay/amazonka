@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestPutAccountAlias $
 --             newPutAccountAlias
 --
+--         , requestRegisterSlackWorkspaceForOrganization $
+--             newRegisterSlackWorkspaceForOrganization
+--
 --         , requestUpdateSlackChannelConfiguration $
 --             newUpdateSlackChannelConfiguration
 --
@@ -80,6 +83,9 @@ import Test.Tasty
 --
 --         , responsePutAccountAlias $
 --             newPutAccountAliasResponse
+--
+--         , responseRegisterSlackWorkspaceForOrganization $
+--             newRegisterSlackWorkspaceForOrganizationResponse
 --
 --         , responseUpdateSlackChannelConfiguration $
 --             newUpdateSlackChannelConfigurationResponse
@@ -136,6 +142,12 @@ requestPutAccountAlias =
   req
     "PutAccountAlias"
     "fixture/PutAccountAlias.yaml"
+
+requestRegisterSlackWorkspaceForOrganization :: RegisterSlackWorkspaceForOrganization -> TestTree
+requestRegisterSlackWorkspaceForOrganization =
+  req
+    "RegisterSlackWorkspaceForOrganization"
+    "fixture/RegisterSlackWorkspaceForOrganization.yaml"
 
 requestUpdateSlackChannelConfiguration :: UpdateSlackChannelConfiguration -> TestTree
 requestUpdateSlackChannelConfiguration =
@@ -208,6 +220,14 @@ responsePutAccountAlias =
     "fixture/PutAccountAliasResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAccountAlias)
+
+responseRegisterSlackWorkspaceForOrganization :: RegisterSlackWorkspaceForOrganizationResponse -> TestTree
+responseRegisterSlackWorkspaceForOrganization =
+  res
+    "RegisterSlackWorkspaceForOrganizationResponse"
+    "fixture/RegisterSlackWorkspaceForOrganizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterSlackWorkspaceForOrganization)
 
 responseUpdateSlackChannelConfiguration :: UpdateSlackChannelConfigurationResponse -> TestTree
 responseUpdateSlackChannelConfiguration =

@@ -136,7 +136,8 @@ instance Core.AWSRequest SendHeartbeat where
   type
     AWSResponse SendHeartbeat =
       SendHeartbeatResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SendHeartbeatResponse'
 

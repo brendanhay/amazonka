@@ -94,7 +94,8 @@ instance Core.AWSRequest GetDeployments where
   type
     AWSResponse GetDeployments =
       GetDeploymentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

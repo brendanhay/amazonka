@@ -96,7 +96,8 @@ getBackend_appId = Lens.lens (\GetBackend' {appId} -> appId) (\s@GetBackend' {} 
 
 instance Core.AWSRequest GetBackend where
   type AWSResponse GetBackend = GetBackendResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

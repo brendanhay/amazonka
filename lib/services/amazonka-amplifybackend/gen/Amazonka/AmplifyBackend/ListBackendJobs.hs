@@ -173,7 +173,8 @@ instance Core.AWSRequest ListBackendJobs where
   type
     AWSResponse ListBackendJobs =
       ListBackendJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

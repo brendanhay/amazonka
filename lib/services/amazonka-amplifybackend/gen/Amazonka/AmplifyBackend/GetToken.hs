@@ -89,7 +89,8 @@ getToken_appId = Lens.lens (\GetToken' {appId} -> appId) (\s@GetToken' {} a -> s
 
 instance Core.AWSRequest GetToken where
   type AWSResponse GetToken = GetTokenResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

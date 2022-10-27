@@ -109,7 +109,8 @@ instance Core.AWSRequest GetBackendAPIModels where
   type
     AWSResponse GetBackendAPIModels =
       GetBackendAPIModelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

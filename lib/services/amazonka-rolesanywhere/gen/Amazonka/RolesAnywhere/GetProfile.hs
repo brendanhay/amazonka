@@ -76,7 +76,8 @@ getProfile_profileId = Lens.lens (\GetProfile' {profileId} -> profileId) (\s@Get
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = ProfileDetailResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

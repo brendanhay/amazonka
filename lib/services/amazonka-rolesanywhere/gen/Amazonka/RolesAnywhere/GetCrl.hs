@@ -75,7 +75,8 @@ getCrl_crlId = Lens.lens (\GetCrl' {crlId} -> crlId) (\s@GetCrl' {} a -> s {crlI
 
 instance Core.AWSRequest GetCrl where
   type AWSResponse GetCrl = CrlDetailResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

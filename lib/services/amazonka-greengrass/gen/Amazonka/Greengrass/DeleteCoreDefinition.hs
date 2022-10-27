@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteCoreDefinition where
   type
     AWSResponse DeleteCoreDefinition =
       DeleteCoreDefinitionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

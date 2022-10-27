@@ -864,6 +864,7 @@ module Amazonka.Greengrass.Lens
     functionConfiguration_memorySize,
     functionConfiguration_execArgs,
     functionConfiguration_environment,
+    functionConfiguration_functionRuntimeOverride,
     functionConfiguration_executable,
     functionConfiguration_pinned,
     functionConfiguration_encodingType,

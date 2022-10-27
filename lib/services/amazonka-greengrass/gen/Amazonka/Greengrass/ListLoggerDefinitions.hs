@@ -115,7 +115,8 @@ instance Core.AWSRequest ListLoggerDefinitions where
   type
     AWSResponse ListLoggerDefinitions =
       ListLoggerDefinitionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

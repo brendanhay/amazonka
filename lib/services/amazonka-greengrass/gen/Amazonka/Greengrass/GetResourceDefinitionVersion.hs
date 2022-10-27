@@ -114,7 +114,8 @@ instance Core.AWSRequest GetResourceDefinitionVersion where
   type
     AWSResponse GetResourceDefinitionVersion =
       GetResourceDefinitionVersionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

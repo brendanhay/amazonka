@@ -128,7 +128,8 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
   type
     AWSResponse GetDeviceDefinitionVersion =
       GetDeviceDefinitionVersionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

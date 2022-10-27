@@ -99,7 +99,8 @@ getSlotType_version = Lens.lens (\GetSlotType' {version} -> version) (\s@GetSlot
 
 instance Core.AWSRequest GetSlotType where
   type AWSResponse GetSlotType = GetSlotTypeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

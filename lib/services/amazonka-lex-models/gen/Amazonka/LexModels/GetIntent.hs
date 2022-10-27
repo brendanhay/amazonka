@@ -107,7 +107,8 @@ getIntent_version = Lens.lens (\GetIntent' {version} -> version) (\s@GetIntent' 
 
 instance Core.AWSRequest GetIntent where
   type AWSResponse GetIntent = GetIntentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

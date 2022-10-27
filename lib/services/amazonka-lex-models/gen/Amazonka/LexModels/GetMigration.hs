@@ -89,7 +89,8 @@ getMigration_migrationId = Lens.lens (\GetMigration' {migrationId} -> migrationI
 
 instance Core.AWSRequest GetMigration where
   type AWSResponse GetMigration = GetMigrationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

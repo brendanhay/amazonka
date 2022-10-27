@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
   type
     AWSResponse DeleteBotChannelAssociation =
       DeleteBotChannelAssociationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteBotChannelAssociationResponse'

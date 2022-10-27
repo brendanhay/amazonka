@@ -148,7 +148,8 @@ instance Core.AWSRequest GetSlotTypeVersions where
   type
     AWSResponse GetSlotTypeVersions =
       GetSlotTypeVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

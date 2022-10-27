@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteIntentVersion where
   type
     AWSResponse DeleteIntentVersion =
       DeleteIntentVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteIntentVersionResponse'
 

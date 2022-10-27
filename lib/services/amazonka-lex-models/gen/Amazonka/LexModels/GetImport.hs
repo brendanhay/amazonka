@@ -82,7 +82,8 @@ getImport_importId = Lens.lens (\GetImport' {importId} -> importId) (\s@GetImpor
 
 instance Core.AWSRequest GetImport where
   type AWSResponse GetImport = GetImportResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -91,7 +91,8 @@ instance Core.AWSRequest GetBuiltinIntent where
   type
     AWSResponse GetBuiltinIntent =
       GetBuiltinIntentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

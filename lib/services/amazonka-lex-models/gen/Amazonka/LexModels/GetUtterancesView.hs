@@ -140,7 +140,8 @@ instance Core.AWSRequest GetUtterancesView where
   type
     AWSResponse GetUtterancesView =
       GetUtterancesViewResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

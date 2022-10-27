@@ -87,7 +87,8 @@ deleteBot_name = Lens.lens (\DeleteBot' {name} -> name) (\s@DeleteBot' {} a -> s
 
 instance Core.AWSRequest DeleteBot where
   type AWSResponse DeleteBot = DeleteBotResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteBotResponse'
 
 instance Prelude.Hashable DeleteBot where

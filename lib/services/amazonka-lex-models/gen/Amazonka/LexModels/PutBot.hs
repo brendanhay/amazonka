@@ -807,7 +807,8 @@ putBot_childDirected = Lens.lens (\PutBot' {childDirected} -> childDirected) (\s
 
 instance Core.AWSRequest PutBot where
   type AWSResponse PutBot = PutBotResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

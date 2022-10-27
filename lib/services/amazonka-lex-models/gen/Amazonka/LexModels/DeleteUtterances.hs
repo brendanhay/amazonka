@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteUtterances where
   type
     AWSResponse DeleteUtterances =
       DeleteUtterancesResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteUtterancesResponse'
 

@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateIntentVersion where
   type
     AWSResponse CreateIntentVersion =
       CreateIntentVersionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteBotAlias where
   type
     AWSResponse DeleteBotAlias =
       DeleteBotAliasResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBotAliasResponse'
 

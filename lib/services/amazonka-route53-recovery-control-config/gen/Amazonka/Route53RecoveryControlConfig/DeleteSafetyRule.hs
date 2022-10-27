@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteSafetyRule where
   type
     AWSResponse DeleteSafetyRule =
       DeleteSafetyRuleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

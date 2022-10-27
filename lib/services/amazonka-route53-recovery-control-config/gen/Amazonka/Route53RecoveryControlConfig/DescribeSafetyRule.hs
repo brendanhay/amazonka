@@ -81,7 +81,8 @@ instance Core.AWSRequest DescribeSafetyRule where
   type
     AWSResponse DescribeSafetyRule =
       DescribeSafetyRuleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

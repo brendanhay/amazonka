@@ -1164,6 +1164,8 @@ defaultService =
       Core._serviceEndpointPrefix = "fsx",
       Core._serviceSigningName = "fsx",
       Core._serviceVersion = "2018-03-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

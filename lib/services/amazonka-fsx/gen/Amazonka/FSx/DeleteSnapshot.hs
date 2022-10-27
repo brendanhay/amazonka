@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteSnapshot where
   type
     AWSResponse DeleteSnapshot =
       DeleteSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

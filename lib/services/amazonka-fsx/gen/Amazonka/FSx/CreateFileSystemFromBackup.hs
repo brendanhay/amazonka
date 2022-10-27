@@ -367,7 +367,8 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
   type
     AWSResponse CreateFileSystemFromBackup =
       CreateFileSystemFromBackupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

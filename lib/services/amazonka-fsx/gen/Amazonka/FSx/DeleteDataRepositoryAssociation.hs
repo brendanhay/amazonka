@@ -113,7 +113,8 @@ instance
   type
     AWSResponse DeleteDataRepositoryAssociation =
       DeleteDataRepositoryAssociationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

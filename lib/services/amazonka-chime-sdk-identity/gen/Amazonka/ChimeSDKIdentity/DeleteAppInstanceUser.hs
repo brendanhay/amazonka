@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteAppInstanceUser where
   type
     AWSResponse DeleteAppInstanceUser =
       DeleteAppInstanceUserResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAppInstanceUserResponse'
 

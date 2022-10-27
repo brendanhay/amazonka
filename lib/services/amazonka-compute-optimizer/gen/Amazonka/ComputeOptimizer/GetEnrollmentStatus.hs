@@ -72,7 +72,8 @@ instance Core.AWSRequest GetEnrollmentStatus where
   type
     AWSResponse GetEnrollmentStatus =
       GetEnrollmentStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

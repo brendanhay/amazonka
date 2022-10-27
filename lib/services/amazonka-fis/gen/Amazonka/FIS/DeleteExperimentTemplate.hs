@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteExperimentTemplate where
   type
     AWSResponse DeleteExperimentTemplate =
       DeleteExperimentTemplateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

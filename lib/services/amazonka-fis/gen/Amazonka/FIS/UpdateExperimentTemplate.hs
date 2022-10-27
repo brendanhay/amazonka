@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateExperimentTemplate where
   type
     AWSResponse UpdateExperimentTemplate =
       UpdateExperimentTemplateResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

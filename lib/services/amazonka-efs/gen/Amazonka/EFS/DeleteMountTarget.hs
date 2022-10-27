@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteMountTarget where
   type
     AWSResponse DeleteMountTarget =
       DeleteMountTargetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMountTargetResponse'
 

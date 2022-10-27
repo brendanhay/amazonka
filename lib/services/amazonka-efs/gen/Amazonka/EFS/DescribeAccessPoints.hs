@@ -133,7 +133,8 @@ instance Core.AWSRequest DescribeAccessPoints where
   type
     AWSResponse DescribeAccessPoints =
       DescribeAccessPointsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

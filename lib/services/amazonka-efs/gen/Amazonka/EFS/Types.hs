@@ -258,6 +258,8 @@ defaultService =
       Core._serviceEndpointPrefix = "elasticfilesystem",
       Core._serviceSigningName = "elasticfilesystem",
       Core._serviceVersion = "2015-02-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -85,7 +85,8 @@ instance Core.AWSRequest DeleteFileSystemPolicy where
   type
     AWSResponse DeleteFileSystemPolicy =
       DeleteFileSystemPolicyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFileSystemPolicyResponse'

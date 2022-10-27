@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteAccessPoint where
   type
     AWSResponse DeleteAccessPoint =
       DeleteAccessPointResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAccessPointResponse'
 

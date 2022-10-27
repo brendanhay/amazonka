@@ -107,7 +107,8 @@ instance
   type
     AWSResponse ModifyMountTargetSecurityGroups =
       ModifyMountTargetSecurityGroupsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       ModifyMountTargetSecurityGroupsResponse'

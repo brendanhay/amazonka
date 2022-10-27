@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeAccountPreferences where
   type
     AWSResponse DescribeAccountPreferences =
       DescribeAccountPreferencesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

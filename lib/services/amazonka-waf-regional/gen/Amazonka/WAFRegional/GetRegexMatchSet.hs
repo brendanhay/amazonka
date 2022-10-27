@@ -95,7 +95,8 @@ instance Core.AWSRequest GetRegexMatchSet where
   type
     AWSResponse GetRegexMatchSet =
       GetRegexMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

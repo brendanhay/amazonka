@@ -127,7 +127,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
   type
     AWSResponse ListSqlInjectionMatchSets =
       ListSqlInjectionMatchSetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

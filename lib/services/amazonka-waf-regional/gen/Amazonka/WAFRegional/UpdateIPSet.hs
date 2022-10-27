@@ -189,7 +189,8 @@ updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateI
 
 instance Core.AWSRequest UpdateIPSet where
   type AWSResponse UpdateIPSet = UpdateIPSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

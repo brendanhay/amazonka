@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteXssMatchSet where
   type
     AWSResponse DeleteXssMatchSet =
       DeleteXssMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

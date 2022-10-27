@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteNetworkSettings where
   type
     AWSResponse DeleteNetworkSettings =
       DeleteNetworkSettingsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

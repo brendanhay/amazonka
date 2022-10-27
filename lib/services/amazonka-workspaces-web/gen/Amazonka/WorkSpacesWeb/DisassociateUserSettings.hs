@@ -76,7 +76,8 @@ instance Core.AWSRequest DisassociateUserSettings where
   type
     AWSResponse DisassociateUserSettings =
       DisassociateUserSettingsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

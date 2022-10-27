@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestAssociateTrustStore $
 --             newAssociateTrustStore
 --
+--         , requestAssociateUserAccessLoggingSettings $
+--             newAssociateUserAccessLoggingSettings
+--
 --         , requestAssociateUserSettings $
 --             newAssociateUserSettings
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , requestCreateTrustStore $
 --             newCreateTrustStore
+--
+--         , requestCreateUserAccessLoggingSettings $
+--             newCreateUserAccessLoggingSettings
 --
 --         , requestCreateUserSettings $
 --             newCreateUserSettings
@@ -72,6 +78,9 @@ import Test.Tasty
 --         , requestDeleteTrustStore $
 --             newDeleteTrustStore
 --
+--         , requestDeleteUserAccessLoggingSettings $
+--             newDeleteUserAccessLoggingSettings
+--
 --         , requestDeleteUserSettings $
 --             newDeleteUserSettings
 --
@@ -83,6 +92,9 @@ import Test.Tasty
 --
 --         , requestDisassociateTrustStore $
 --             newDisassociateTrustStore
+--
+--         , requestDisassociateUserAccessLoggingSettings $
+--             newDisassociateUserAccessLoggingSettings
 --
 --         , requestDisassociateUserSettings $
 --             newDisassociateUserSettings
@@ -108,6 +120,9 @@ import Test.Tasty
 --         , requestGetTrustStoreCertificate $
 --             newGetTrustStoreCertificate
 --
+--         , requestGetUserAccessLoggingSettings $
+--             newGetUserAccessLoggingSettings
+--
 --         , requestGetUserSettings $
 --             newGetUserSettings
 --
@@ -131,6 +146,9 @@ import Test.Tasty
 --
 --         , requestListTrustStores $
 --             newListTrustStores
+--
+--         , requestListUserAccessLoggingSettings $
+--             newListUserAccessLoggingSettings
 --
 --         , requestListUserSettings $
 --             newListUserSettings
@@ -156,6 +174,9 @@ import Test.Tasty
 --         , requestUpdateTrustStore $
 --             newUpdateTrustStore
 --
+--         , requestUpdateUserAccessLoggingSettings $
+--             newUpdateUserAccessLoggingSettings
+--
 --         , requestUpdateUserSettings $
 --             newUpdateUserSettings
 --
@@ -170,6 +191,9 @@ import Test.Tasty
 --
 --         , responseAssociateTrustStore $
 --             newAssociateTrustStoreResponse
+--
+--         , responseAssociateUserAccessLoggingSettings $
+--             newAssociateUserAccessLoggingSettingsResponse
 --
 --         , responseAssociateUserSettings $
 --             newAssociateUserSettingsResponse
@@ -189,6 +213,9 @@ import Test.Tasty
 --         , responseCreateTrustStore $
 --             newCreateTrustStoreResponse
 --
+--         , responseCreateUserAccessLoggingSettings $
+--             newCreateUserAccessLoggingSettingsResponse
+--
 --         , responseCreateUserSettings $
 --             newCreateUserSettingsResponse
 --
@@ -207,6 +234,9 @@ import Test.Tasty
 --         , responseDeleteTrustStore $
 --             newDeleteTrustStoreResponse
 --
+--         , responseDeleteUserAccessLoggingSettings $
+--             newDeleteUserAccessLoggingSettingsResponse
+--
 --         , responseDeleteUserSettings $
 --             newDeleteUserSettingsResponse
 --
@@ -218,6 +248,9 @@ import Test.Tasty
 --
 --         , responseDisassociateTrustStore $
 --             newDisassociateTrustStoreResponse
+--
+--         , responseDisassociateUserAccessLoggingSettings $
+--             newDisassociateUserAccessLoggingSettingsResponse
 --
 --         , responseDisassociateUserSettings $
 --             newDisassociateUserSettingsResponse
@@ -243,6 +276,9 @@ import Test.Tasty
 --         , responseGetTrustStoreCertificate $
 --             newGetTrustStoreCertificateResponse
 --
+--         , responseGetUserAccessLoggingSettings $
+--             newGetUserAccessLoggingSettingsResponse
+--
 --         , responseGetUserSettings $
 --             newGetUserSettingsResponse
 --
@@ -267,6 +303,9 @@ import Test.Tasty
 --         , responseListTrustStores $
 --             newListTrustStoresResponse
 --
+--         , responseListUserAccessLoggingSettings $
+--             newListUserAccessLoggingSettingsResponse
+--
 --         , responseListUserSettings $
 --             newListUserSettingsResponse
 --
@@ -290,6 +329,9 @@ import Test.Tasty
 --
 --         , responseUpdateTrustStore $
 --             newUpdateTrustStoreResponse
+--
+--         , responseUpdateUserAccessLoggingSettings $
+--             newUpdateUserAccessLoggingSettingsResponse
 --
 --         , responseUpdateUserSettings $
 --             newUpdateUserSettingsResponse
@@ -316,6 +358,12 @@ requestAssociateTrustStore =
   req
     "AssociateTrustStore"
     "fixture/AssociateTrustStore.yaml"
+
+requestAssociateUserAccessLoggingSettings :: AssociateUserAccessLoggingSettings -> TestTree
+requestAssociateUserAccessLoggingSettings =
+  req
+    "AssociateUserAccessLoggingSettings"
+    "fixture/AssociateUserAccessLoggingSettings.yaml"
 
 requestAssociateUserSettings :: AssociateUserSettings -> TestTree
 requestAssociateUserSettings =
@@ -353,6 +401,12 @@ requestCreateTrustStore =
     "CreateTrustStore"
     "fixture/CreateTrustStore.yaml"
 
+requestCreateUserAccessLoggingSettings :: CreateUserAccessLoggingSettings -> TestTree
+requestCreateUserAccessLoggingSettings =
+  req
+    "CreateUserAccessLoggingSettings"
+    "fixture/CreateUserAccessLoggingSettings.yaml"
+
 requestCreateUserSettings :: CreateUserSettings -> TestTree
 requestCreateUserSettings =
   req
@@ -389,6 +443,12 @@ requestDeleteTrustStore =
     "DeleteTrustStore"
     "fixture/DeleteTrustStore.yaml"
 
+requestDeleteUserAccessLoggingSettings :: DeleteUserAccessLoggingSettings -> TestTree
+requestDeleteUserAccessLoggingSettings =
+  req
+    "DeleteUserAccessLoggingSettings"
+    "fixture/DeleteUserAccessLoggingSettings.yaml"
+
 requestDeleteUserSettings :: DeleteUserSettings -> TestTree
 requestDeleteUserSettings =
   req
@@ -412,6 +472,12 @@ requestDisassociateTrustStore =
   req
     "DisassociateTrustStore"
     "fixture/DisassociateTrustStore.yaml"
+
+requestDisassociateUserAccessLoggingSettings :: DisassociateUserAccessLoggingSettings -> TestTree
+requestDisassociateUserAccessLoggingSettings =
+  req
+    "DisassociateUserAccessLoggingSettings"
+    "fixture/DisassociateUserAccessLoggingSettings.yaml"
 
 requestDisassociateUserSettings :: DisassociateUserSettings -> TestTree
 requestDisassociateUserSettings =
@@ -461,6 +527,12 @@ requestGetTrustStoreCertificate =
     "GetTrustStoreCertificate"
     "fixture/GetTrustStoreCertificate.yaml"
 
+requestGetUserAccessLoggingSettings :: GetUserAccessLoggingSettings -> TestTree
+requestGetUserAccessLoggingSettings =
+  req
+    "GetUserAccessLoggingSettings"
+    "fixture/GetUserAccessLoggingSettings.yaml"
+
 requestGetUserSettings :: GetUserSettings -> TestTree
 requestGetUserSettings =
   req
@@ -508,6 +580,12 @@ requestListTrustStores =
   req
     "ListTrustStores"
     "fixture/ListTrustStores.yaml"
+
+requestListUserAccessLoggingSettings :: ListUserAccessLoggingSettings -> TestTree
+requestListUserAccessLoggingSettings =
+  req
+    "ListUserAccessLoggingSettings"
+    "fixture/ListUserAccessLoggingSettings.yaml"
 
 requestListUserSettings :: ListUserSettings -> TestTree
 requestListUserSettings =
@@ -557,6 +635,12 @@ requestUpdateTrustStore =
     "UpdateTrustStore"
     "fixture/UpdateTrustStore.yaml"
 
+requestUpdateUserAccessLoggingSettings :: UpdateUserAccessLoggingSettings -> TestTree
+requestUpdateUserAccessLoggingSettings =
+  req
+    "UpdateUserAccessLoggingSettings"
+    "fixture/UpdateUserAccessLoggingSettings.yaml"
+
 requestUpdateUserSettings :: UpdateUserSettings -> TestTree
 requestUpdateUserSettings =
   req
@@ -588,6 +672,14 @@ responseAssociateTrustStore =
     "fixture/AssociateTrustStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateTrustStore)
+
+responseAssociateUserAccessLoggingSettings :: AssociateUserAccessLoggingSettingsResponse -> TestTree
+responseAssociateUserAccessLoggingSettings =
+  res
+    "AssociateUserAccessLoggingSettingsResponse"
+    "fixture/AssociateUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateUserAccessLoggingSettings)
 
 responseAssociateUserSettings :: AssociateUserSettingsResponse -> TestTree
 responseAssociateUserSettings =
@@ -637,6 +729,14 @@ responseCreateTrustStore =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTrustStore)
 
+responseCreateUserAccessLoggingSettings :: CreateUserAccessLoggingSettingsResponse -> TestTree
+responseCreateUserAccessLoggingSettings =
+  res
+    "CreateUserAccessLoggingSettingsResponse"
+    "fixture/CreateUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateUserAccessLoggingSettings)
+
 responseCreateUserSettings :: CreateUserSettingsResponse -> TestTree
 responseCreateUserSettings =
   res
@@ -685,6 +785,14 @@ responseDeleteTrustStore =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTrustStore)
 
+responseDeleteUserAccessLoggingSettings :: DeleteUserAccessLoggingSettingsResponse -> TestTree
+responseDeleteUserAccessLoggingSettings =
+  res
+    "DeleteUserAccessLoggingSettingsResponse"
+    "fixture/DeleteUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserAccessLoggingSettings)
+
 responseDeleteUserSettings :: DeleteUserSettingsResponse -> TestTree
 responseDeleteUserSettings =
   res
@@ -716,6 +824,14 @@ responseDisassociateTrustStore =
     "fixture/DisassociateTrustStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateTrustStore)
+
+responseDisassociateUserAccessLoggingSettings :: DisassociateUserAccessLoggingSettingsResponse -> TestTree
+responseDisassociateUserAccessLoggingSettings =
+  res
+    "DisassociateUserAccessLoggingSettingsResponse"
+    "fixture/DisassociateUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateUserAccessLoggingSettings)
 
 responseDisassociateUserSettings :: DisassociateUserSettingsResponse -> TestTree
 responseDisassociateUserSettings =
@@ -781,6 +897,14 @@ responseGetTrustStoreCertificate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTrustStoreCertificate)
 
+responseGetUserAccessLoggingSettings :: GetUserAccessLoggingSettingsResponse -> TestTree
+responseGetUserAccessLoggingSettings =
+  res
+    "GetUserAccessLoggingSettingsResponse"
+    "fixture/GetUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUserAccessLoggingSettings)
+
 responseGetUserSettings :: GetUserSettingsResponse -> TestTree
 responseGetUserSettings =
   res
@@ -845,6 +969,14 @@ responseListTrustStores =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTrustStores)
 
+responseListUserAccessLoggingSettings :: ListUserAccessLoggingSettingsResponse -> TestTree
+responseListUserAccessLoggingSettings =
+  res
+    "ListUserAccessLoggingSettingsResponse"
+    "fixture/ListUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUserAccessLoggingSettings)
+
 responseListUserSettings :: ListUserSettingsResponse -> TestTree
 responseListUserSettings =
   res
@@ -908,6 +1040,14 @@ responseUpdateTrustStore =
     "fixture/UpdateTrustStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateTrustStore)
+
+responseUpdateUserAccessLoggingSettings :: UpdateUserAccessLoggingSettingsResponse -> TestTree
+responseUpdateUserAccessLoggingSettings =
+  res
+    "UpdateUserAccessLoggingSettingsResponse"
+    "fixture/UpdateUserAccessLoggingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserAccessLoggingSettings)
 
 responseUpdateUserSettings :: UpdateUserSettingsResponse -> TestTree
 responseUpdateUserSettings =

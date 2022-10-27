@@ -47,22 +47,26 @@ library
     Amazonka.WorkSpacesWeb.AssociateBrowserSettings
     Amazonka.WorkSpacesWeb.AssociateNetworkSettings
     Amazonka.WorkSpacesWeb.AssociateTrustStore
+    Amazonka.WorkSpacesWeb.AssociateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.AssociateUserSettings
     Amazonka.WorkSpacesWeb.CreateBrowserSettings
     Amazonka.WorkSpacesWeb.CreateIdentityProvider
     Amazonka.WorkSpacesWeb.CreateNetworkSettings
     Amazonka.WorkSpacesWeb.CreatePortal
     Amazonka.WorkSpacesWeb.CreateTrustStore
+    Amazonka.WorkSpacesWeb.CreateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.CreateUserSettings
     Amazonka.WorkSpacesWeb.DeleteBrowserSettings
     Amazonka.WorkSpacesWeb.DeleteIdentityProvider
     Amazonka.WorkSpacesWeb.DeleteNetworkSettings
     Amazonka.WorkSpacesWeb.DeletePortal
     Amazonka.WorkSpacesWeb.DeleteTrustStore
+    Amazonka.WorkSpacesWeb.DeleteUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.DeleteUserSettings
     Amazonka.WorkSpacesWeb.DisassociateBrowserSettings
     Amazonka.WorkSpacesWeb.DisassociateNetworkSettings
     Amazonka.WorkSpacesWeb.DisassociateTrustStore
+    Amazonka.WorkSpacesWeb.DisassociateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.DisassociateUserSettings
     Amazonka.WorkSpacesWeb.GetBrowserSettings
     Amazonka.WorkSpacesWeb.GetIdentityProvider
@@ -71,6 +75,7 @@ library
     Amazonka.WorkSpacesWeb.GetPortalServiceProviderMetadata
     Amazonka.WorkSpacesWeb.GetTrustStore
     Amazonka.WorkSpacesWeb.GetTrustStoreCertificate
+    Amazonka.WorkSpacesWeb.GetUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.GetUserSettings
     Amazonka.WorkSpacesWeb.Lens
     Amazonka.WorkSpacesWeb.ListBrowserSettings
@@ -80,6 +85,7 @@ library
     Amazonka.WorkSpacesWeb.ListTagsForResource
     Amazonka.WorkSpacesWeb.ListTrustStoreCertificates
     Amazonka.WorkSpacesWeb.ListTrustStores
+    Amazonka.WorkSpacesWeb.ListUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.ListUserSettings
     Amazonka.WorkSpacesWeb.TagResource
     Amazonka.WorkSpacesWeb.Types
@@ -101,6 +107,8 @@ library
     Amazonka.WorkSpacesWeb.Types.Tag
     Amazonka.WorkSpacesWeb.Types.TrustStore
     Amazonka.WorkSpacesWeb.Types.TrustStoreSummary
+    Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettings
+    Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettingsSummary
     Amazonka.WorkSpacesWeb.Types.UserSettings
     Amazonka.WorkSpacesWeb.Types.UserSettingsSummary
     Amazonka.WorkSpacesWeb.UntagResource
@@ -109,6 +117,7 @@ library
     Amazonka.WorkSpacesWeb.UpdateNetworkSettings
     Amazonka.WorkSpacesWeb.UpdatePortal
     Amazonka.WorkSpacesWeb.UpdateTrustStore
+    Amazonka.WorkSpacesWeb.UpdateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.UpdateUserSettings
     Amazonka.WorkSpacesWeb.Waiters
 

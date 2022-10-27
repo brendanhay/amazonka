@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteBrowserSettings where
   type
     AWSResponse DeleteBrowserSettings =
       DeleteBrowserSettingsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

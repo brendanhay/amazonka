@@ -150,7 +150,8 @@ instance Core.AWSRequest UpdateNetworkSettings where
   type
     AWSResponse UpdateNetworkSettings =
       UpdateNetworkSettingsResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -74,6 +74,12 @@ module Amazonka.WorkSpacesWeb
     AssociateTrustStoreResponse (AssociateTrustStoreResponse'),
     newAssociateTrustStoreResponse,
 
+    -- ** AssociateUserAccessLoggingSettings
+    AssociateUserAccessLoggingSettings (AssociateUserAccessLoggingSettings'),
+    newAssociateUserAccessLoggingSettings,
+    AssociateUserAccessLoggingSettingsResponse (AssociateUserAccessLoggingSettingsResponse'),
+    newAssociateUserAccessLoggingSettingsResponse,
+
     -- ** AssociateUserSettings
     AssociateUserSettings (AssociateUserSettings'),
     newAssociateUserSettings,
@@ -109,6 +115,12 @@ module Amazonka.WorkSpacesWeb
     newCreateTrustStore,
     CreateTrustStoreResponse (CreateTrustStoreResponse'),
     newCreateTrustStoreResponse,
+
+    -- ** CreateUserAccessLoggingSettings
+    CreateUserAccessLoggingSettings (CreateUserAccessLoggingSettings'),
+    newCreateUserAccessLoggingSettings,
+    CreateUserAccessLoggingSettingsResponse (CreateUserAccessLoggingSettingsResponse'),
+    newCreateUserAccessLoggingSettingsResponse,
 
     -- ** CreateUserSettings
     CreateUserSettings (CreateUserSettings'),
@@ -146,6 +158,12 @@ module Amazonka.WorkSpacesWeb
     DeleteTrustStoreResponse (DeleteTrustStoreResponse'),
     newDeleteTrustStoreResponse,
 
+    -- ** DeleteUserAccessLoggingSettings
+    DeleteUserAccessLoggingSettings (DeleteUserAccessLoggingSettings'),
+    newDeleteUserAccessLoggingSettings,
+    DeleteUserAccessLoggingSettingsResponse (DeleteUserAccessLoggingSettingsResponse'),
+    newDeleteUserAccessLoggingSettingsResponse,
+
     -- ** DeleteUserSettings
     DeleteUserSettings (DeleteUserSettings'),
     newDeleteUserSettings,
@@ -169,6 +187,12 @@ module Amazonka.WorkSpacesWeb
     newDisassociateTrustStore,
     DisassociateTrustStoreResponse (DisassociateTrustStoreResponse'),
     newDisassociateTrustStoreResponse,
+
+    -- ** DisassociateUserAccessLoggingSettings
+    DisassociateUserAccessLoggingSettings (DisassociateUserAccessLoggingSettings'),
+    newDisassociateUserAccessLoggingSettings,
+    DisassociateUserAccessLoggingSettingsResponse (DisassociateUserAccessLoggingSettingsResponse'),
+    newDisassociateUserAccessLoggingSettingsResponse,
 
     -- ** DisassociateUserSettings
     DisassociateUserSettings (DisassociateUserSettings'),
@@ -218,6 +242,12 @@ module Amazonka.WorkSpacesWeb
     GetTrustStoreCertificateResponse (GetTrustStoreCertificateResponse'),
     newGetTrustStoreCertificateResponse,
 
+    -- ** GetUserAccessLoggingSettings
+    GetUserAccessLoggingSettings (GetUserAccessLoggingSettings'),
+    newGetUserAccessLoggingSettings,
+    GetUserAccessLoggingSettingsResponse (GetUserAccessLoggingSettingsResponse'),
+    newGetUserAccessLoggingSettingsResponse,
+
     -- ** GetUserSettings
     GetUserSettings (GetUserSettings'),
     newGetUserSettings,
@@ -266,6 +296,12 @@ module Amazonka.WorkSpacesWeb
     ListTrustStoresResponse (ListTrustStoresResponse'),
     newListTrustStoresResponse,
 
+    -- ** ListUserAccessLoggingSettings
+    ListUserAccessLoggingSettings (ListUserAccessLoggingSettings'),
+    newListUserAccessLoggingSettings,
+    ListUserAccessLoggingSettingsResponse (ListUserAccessLoggingSettingsResponse'),
+    newListUserAccessLoggingSettingsResponse,
+
     -- ** ListUserSettings
     ListUserSettings (ListUserSettings'),
     newListUserSettings,
@@ -313,6 +349,12 @@ module Amazonka.WorkSpacesWeb
     newUpdateTrustStore,
     UpdateTrustStoreResponse (UpdateTrustStoreResponse'),
     newUpdateTrustStoreResponse,
+
+    -- ** UpdateUserAccessLoggingSettings
+    UpdateUserAccessLoggingSettings (UpdateUserAccessLoggingSettings'),
+    newUpdateUserAccessLoggingSettings,
+    UpdateUserAccessLoggingSettingsResponse (UpdateUserAccessLoggingSettingsResponse'),
+    newUpdateUserAccessLoggingSettingsResponse,
 
     -- ** UpdateUserSettings
     UpdateUserSettings (UpdateUserSettings'),
@@ -389,6 +431,14 @@ module Amazonka.WorkSpacesWeb
     TrustStoreSummary (TrustStoreSummary'),
     newTrustStoreSummary,
 
+    -- ** UserAccessLoggingSettings
+    UserAccessLoggingSettings (UserAccessLoggingSettings'),
+    newUserAccessLoggingSettings,
+
+    -- ** UserAccessLoggingSettingsSummary
+    UserAccessLoggingSettingsSummary (UserAccessLoggingSettingsSummary'),
+    newUserAccessLoggingSettingsSummary,
+
     -- ** UserSettings
     UserSettings (UserSettings'),
     newUserSettings,
@@ -402,22 +452,26 @@ where
 import Amazonka.WorkSpacesWeb.AssociateBrowserSettings
 import Amazonka.WorkSpacesWeb.AssociateNetworkSettings
 import Amazonka.WorkSpacesWeb.AssociateTrustStore
+import Amazonka.WorkSpacesWeb.AssociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.AssociateUserSettings
 import Amazonka.WorkSpacesWeb.CreateBrowserSettings
 import Amazonka.WorkSpacesWeb.CreateIdentityProvider
 import Amazonka.WorkSpacesWeb.CreateNetworkSettings
 import Amazonka.WorkSpacesWeb.CreatePortal
 import Amazonka.WorkSpacesWeb.CreateTrustStore
+import Amazonka.WorkSpacesWeb.CreateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.CreateUserSettings
 import Amazonka.WorkSpacesWeb.DeleteBrowserSettings
 import Amazonka.WorkSpacesWeb.DeleteIdentityProvider
 import Amazonka.WorkSpacesWeb.DeleteNetworkSettings
 import Amazonka.WorkSpacesWeb.DeletePortal
 import Amazonka.WorkSpacesWeb.DeleteTrustStore
+import Amazonka.WorkSpacesWeb.DeleteUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DeleteUserSettings
 import Amazonka.WorkSpacesWeb.DisassociateBrowserSettings
 import Amazonka.WorkSpacesWeb.DisassociateNetworkSettings
 import Amazonka.WorkSpacesWeb.DisassociateTrustStore
+import Amazonka.WorkSpacesWeb.DisassociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DisassociateUserSettings
 import Amazonka.WorkSpacesWeb.GetBrowserSettings
 import Amazonka.WorkSpacesWeb.GetIdentityProvider
@@ -426,6 +480,7 @@ import Amazonka.WorkSpacesWeb.GetPortal
 import Amazonka.WorkSpacesWeb.GetPortalServiceProviderMetadata
 import Amazonka.WorkSpacesWeb.GetTrustStore
 import Amazonka.WorkSpacesWeb.GetTrustStoreCertificate
+import Amazonka.WorkSpacesWeb.GetUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.GetUserSettings
 import Amazonka.WorkSpacesWeb.Lens
 import Amazonka.WorkSpacesWeb.ListBrowserSettings
@@ -435,6 +490,7 @@ import Amazonka.WorkSpacesWeb.ListPortals
 import Amazonka.WorkSpacesWeb.ListTagsForResource
 import Amazonka.WorkSpacesWeb.ListTrustStoreCertificates
 import Amazonka.WorkSpacesWeb.ListTrustStores
+import Amazonka.WorkSpacesWeb.ListUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.ListUserSettings
 import Amazonka.WorkSpacesWeb.TagResource
 import Amazonka.WorkSpacesWeb.Types
@@ -444,6 +500,7 @@ import Amazonka.WorkSpacesWeb.UpdateIdentityProvider
 import Amazonka.WorkSpacesWeb.UpdateNetworkSettings
 import Amazonka.WorkSpacesWeb.UpdatePortal
 import Amazonka.WorkSpacesWeb.UpdateTrustStore
+import Amazonka.WorkSpacesWeb.UpdateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.UpdateUserSettings
 import Amazonka.WorkSpacesWeb.Waiters
 

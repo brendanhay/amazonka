@@ -111,6 +111,7 @@ module Amazonka.WorkSpacesWeb.Types
     portal_statusReason,
     portal_creationDate,
     portal_portalEndpoint,
+    portal_userAccessLoggingSettingsArn,
     portal_browserSettingsArn,
     portal_userSettingsArn,
     portal_portalStatus,
@@ -126,6 +127,7 @@ module Amazonka.WorkSpacesWeb.Types
     portalSummary_displayName,
     portalSummary_creationDate,
     portalSummary_portalEndpoint,
+    portalSummary_userAccessLoggingSettingsArn,
     portalSummary_browserSettingsArn,
     portalSummary_userSettingsArn,
     portalSummary_portalStatus,
@@ -149,6 +151,19 @@ module Amazonka.WorkSpacesWeb.Types
     TrustStoreSummary (..),
     newTrustStoreSummary,
     trustStoreSummary_trustStoreArn,
+
+    -- * UserAccessLoggingSettings
+    UserAccessLoggingSettings (..),
+    newUserAccessLoggingSettings,
+    userAccessLoggingSettings_associatedPortalArns,
+    userAccessLoggingSettings_kinesisStreamArn,
+    userAccessLoggingSettings_userAccessLoggingSettingsArn,
+
+    -- * UserAccessLoggingSettingsSummary
+    UserAccessLoggingSettingsSummary (..),
+    newUserAccessLoggingSettingsSummary,
+    userAccessLoggingSettingsSummary_kinesisStreamArn,
+    userAccessLoggingSettingsSummary_userAccessLoggingSettingsArn,
 
     -- * UserSettings
     UserSettings (..),
@@ -199,6 +214,8 @@ import Amazonka.WorkSpacesWeb.Types.RendererType
 import Amazonka.WorkSpacesWeb.Types.Tag
 import Amazonka.WorkSpacesWeb.Types.TrustStore
 import Amazonka.WorkSpacesWeb.Types.TrustStoreSummary
+import Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettings
+import Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettingsSummary
 import Amazonka.WorkSpacesWeb.Types.UserSettings
 import Amazonka.WorkSpacesWeb.Types.UserSettingsSummary
 
@@ -211,6 +228,8 @@ defaultService =
       Core._serviceEndpointPrefix = "workspaces-web",
       Core._serviceSigningName = "workspaces-web",
       Core._serviceVersion = "2020-07-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

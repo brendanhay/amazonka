@@ -41,6 +41,9 @@ data PortalSummary = PortalSummary'
     -- | The endpoint URL of the web portal that users access in order to start
     -- streaming sessions.
     portalEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the user access logging settings that is associated with the
+    -- web portal.
+    userAccessLoggingSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the browser settings that is associated with the web portal.
     browserSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the user settings that is associated with the web portal.
@@ -75,6 +78,9 @@ data PortalSummary = PortalSummary'
 -- 'portalEndpoint', 'portalSummary_portalEndpoint' - The endpoint URL of the web portal that users access in order to start
 -- streaming sessions.
 --
+-- 'userAccessLoggingSettingsArn', 'portalSummary_userAccessLoggingSettingsArn' - The ARN of the user access logging settings that is associated with the
+-- web portal.
+--
 -- 'browserSettingsArn', 'portalSummary_browserSettingsArn' - The ARN of the browser settings that is associated with the web portal.
 --
 -- 'userSettingsArn', 'portalSummary_userSettingsArn' - The ARN of the user settings that is associated with the web portal.
@@ -95,6 +101,7 @@ newPortalSummary =
       displayName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       portalEndpoint = Prelude.Nothing,
+      userAccessLoggingSettingsArn = Prelude.Nothing,
       browserSettingsArn = Prelude.Nothing,
       userSettingsArn = Prelude.Nothing,
       portalStatus = Prelude.Nothing,
@@ -123,6 +130,11 @@ portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creati
 -- streaming sessions.
 portalSummary_portalEndpoint :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
 portalSummary_portalEndpoint = Lens.lens (\PortalSummary' {portalEndpoint} -> portalEndpoint) (\s@PortalSummary' {} a -> s {portalEndpoint = a} :: PortalSummary)
+
+-- | The ARN of the user access logging settings that is associated with the
+-- web portal.
+portalSummary_userAccessLoggingSettingsArn :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
+portalSummary_userAccessLoggingSettingsArn = Lens.lens (\PortalSummary' {userAccessLoggingSettingsArn} -> userAccessLoggingSettingsArn) (\s@PortalSummary' {} a -> s {userAccessLoggingSettingsArn = a} :: PortalSummary)
 
 -- | The ARN of the browser settings that is associated with the web portal.
 portalSummary_browserSettingsArn :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
@@ -159,6 +171,7 @@ instance Core.FromJSON PortalSummary where
             Prelude.<*> (x Core..:? "displayName")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "portalEndpoint")
+            Prelude.<*> (x Core..:? "userAccessLoggingSettingsArn")
             Prelude.<*> (x Core..:? "browserSettingsArn")
             Prelude.<*> (x Core..:? "userSettingsArn")
             Prelude.<*> (x Core..:? "portalStatus")
@@ -174,6 +187,7 @@ instance Prelude.Hashable PortalSummary where
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` portalEndpoint
+      `Prelude.hashWithSalt` userAccessLoggingSettingsArn
       `Prelude.hashWithSalt` browserSettingsArn
       `Prelude.hashWithSalt` userSettingsArn
       `Prelude.hashWithSalt` portalStatus
@@ -188,6 +202,7 @@ instance Prelude.NFData PortalSummary where
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf portalEndpoint
+      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
       `Prelude.seq` Prelude.rnf browserSettingsArn
       `Prelude.seq` Prelude.rnf userSettingsArn
       `Prelude.seq` Prelude.rnf portalStatus

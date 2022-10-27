@@ -91,7 +91,8 @@ instance Core.AWSRequest ListBrowserSettings where
   type
     AWSResponse ListBrowserSettings =
       ListBrowserSettingsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

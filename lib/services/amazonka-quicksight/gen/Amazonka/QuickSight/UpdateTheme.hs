@@ -153,7 +153,8 @@ updateTheme_baseThemeId = Lens.lens (\UpdateTheme' {baseThemeId} -> baseThemeId)
 
 instance Core.AWSRequest UpdateTheme where
   type AWSResponse UpdateTheme = UpdateThemeResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

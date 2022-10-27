@@ -120,7 +120,8 @@ instance Core.AWSRequest SearchFolders where
   type
     AWSResponse SearchFolders =
       SearchFoldersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

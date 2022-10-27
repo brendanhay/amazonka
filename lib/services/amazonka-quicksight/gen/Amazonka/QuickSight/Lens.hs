@@ -1507,10 +1507,12 @@ module Amazonka.QuickSight.Lens
     dataSource_lastUpdatedTime,
     dataSource_vpcConnectionProperties,
     dataSource_sslProperties,
+    dataSource_secretArn,
     dataSource_alternateDataSourceParameters,
     dataSource_errorInfo,
 
     -- ** DataSourceCredentials
+    dataSourceCredentials_secretArn,
     dataSourceCredentials_credentialPair,
     dataSourceCredentials_copySourceArn,
 
@@ -1595,8 +1597,8 @@ module Amazonka.QuickSight.Lens
     folderSummary_folderType,
 
     -- ** GeoSpatialColumnGroup
-    geoSpatialColumnGroup_name,
     geoSpatialColumnGroup_countryCode,
+    geoSpatialColumnGroup_name,
     geoSpatialColumnGroup_columns,
 
     -- ** Group

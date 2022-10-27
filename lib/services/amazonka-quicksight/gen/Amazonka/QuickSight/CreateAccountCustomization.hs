@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateAccountCustomization where
   type
     AWSResponse CreateAccountCustomization =
       CreateAccountCustomizationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

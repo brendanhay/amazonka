@@ -368,7 +368,8 @@ updateUser_role = Lens.lens (\UpdateUser' {role'} -> role') (\s@UpdateUser' {} a
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteDashboard where
   type
     AWSResponse DeleteDashboard =
       DeleteDashboardResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

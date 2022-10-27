@@ -102,7 +102,8 @@ listFolders_awsAccountId = Lens.lens (\ListFolders' {awsAccountId} -> awsAccount
 
 instance Core.AWSRequest ListFolders where
   type AWSResponse ListFolders = ListFoldersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateDataSetPermissions where
   type
     AWSResponse UpdateDataSetPermissions =
       UpdateDataSetPermissionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

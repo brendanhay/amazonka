@@ -305,7 +305,8 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
   type
     AWSResponse GetDashboardEmbedUrl =
       GetDashboardEmbedUrlResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

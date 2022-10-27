@@ -91,7 +91,8 @@ deleteFolder_folderId = Lens.lens (\DeleteFolder' {folderId} -> folderId) (\s@De
 
 instance Core.AWSRequest DeleteFolder where
   type AWSResponse DeleteFolder = DeleteFolderResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -122,7 +122,8 @@ instance Core.AWSPager ListAnalyses where
 
 instance Core.AWSRequest ListAnalyses where
   type AWSResponse ListAnalyses = ListAnalysesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

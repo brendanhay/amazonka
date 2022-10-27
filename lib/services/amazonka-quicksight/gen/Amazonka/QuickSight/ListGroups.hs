@@ -117,7 +117,8 @@ listGroups_namespace = Lens.lens (\ListGroups' {namespace} -> namespace) (\s@Lis
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

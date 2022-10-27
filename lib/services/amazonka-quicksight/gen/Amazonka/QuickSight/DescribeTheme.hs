@@ -133,7 +133,8 @@ instance Core.AWSRequest DescribeTheme where
   type
     AWSResponse DescribeTheme =
       DescribeThemeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

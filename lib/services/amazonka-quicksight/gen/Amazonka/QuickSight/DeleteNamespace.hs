@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteNamespace where
   type
     AWSResponse DeleteNamespace =
       DeleteNamespaceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

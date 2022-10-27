@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeAnalysisPermissions where
   type
     AWSResponse DescribeAnalysisPermissions =
       DescribeAnalysisPermissionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

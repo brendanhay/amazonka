@@ -62,7 +62,8 @@ instance Core.AWSRequest DescribeStorage where
   type
     AWSResponse DescribeStorage =
       DescribeStorageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStorageResult"

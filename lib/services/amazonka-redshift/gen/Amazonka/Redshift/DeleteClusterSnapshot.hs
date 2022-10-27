@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteClusterSnapshot where
   type
     AWSResponse DeleteClusterSnapshot =
       DeleteClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteClusterSnapshotResult"

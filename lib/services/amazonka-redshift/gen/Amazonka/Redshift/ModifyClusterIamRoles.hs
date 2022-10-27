@@ -127,7 +127,8 @@ instance Core.AWSRequest ModifyClusterIamRoles where
   type
     AWSResponse ModifyClusterIamRoles =
       ModifyClusterIamRolesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterIamRolesResult"

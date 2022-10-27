@@ -230,7 +230,8 @@ instance Core.AWSRequest DescribeClusterSubnetGroups where
   type
     AWSResponse DescribeClusterSubnetGroups =
       DescribeClusterSubnetGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterSubnetGroupsResult"

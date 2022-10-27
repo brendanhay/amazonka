@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteClusterParameterGroup where
   type
     AWSResponse DeleteClusterParameterGroup =
       DeleteClusterParameterGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteClusterParameterGroupResponse'

@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeEventCategories where
   type
     AWSResponse DescribeEventCategories =
       DescribeEventCategoriesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEventCategoriesResult"

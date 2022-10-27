@@ -101,7 +101,8 @@ instance Core.AWSRequest ModifyEndpointAccess where
   type
     AWSResponse ModifyEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyEndpointAccessResult"

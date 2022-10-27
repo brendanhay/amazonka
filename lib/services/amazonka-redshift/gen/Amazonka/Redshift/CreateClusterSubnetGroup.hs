@@ -160,7 +160,8 @@ instance Core.AWSRequest CreateClusterSubnetGroup where
   type
     AWSResponse CreateClusterSubnetGroup =
       CreateClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateClusterSubnetGroupResult"

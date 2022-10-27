@@ -183,7 +183,8 @@ instance Core.AWSRequest ResizeCluster where
   type
     AWSResponse ResizeCluster =
       ResizeClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResizeClusterResult"

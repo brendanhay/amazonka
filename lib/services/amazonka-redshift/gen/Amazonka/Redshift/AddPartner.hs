@@ -124,7 +124,8 @@ instance Core.AWSRequest AddPartner where
   type
     AWSResponse AddPartner =
       PartnerIntegrationOutputMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddPartnerResult"

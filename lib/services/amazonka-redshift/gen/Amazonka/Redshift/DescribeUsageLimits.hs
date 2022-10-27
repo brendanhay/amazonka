@@ -254,7 +254,8 @@ instance Core.AWSRequest DescribeUsageLimits where
   type
     AWSResponse DescribeUsageLimits =
       DescribeUsageLimitsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeUsageLimitsResult"

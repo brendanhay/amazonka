@@ -150,7 +150,8 @@ instance Core.AWSRequest DescribeDataShares where
   type
     AWSResponse DescribeDataShares =
       DescribeDataSharesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDataSharesResult"

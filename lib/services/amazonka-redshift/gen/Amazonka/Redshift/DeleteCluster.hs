@@ -231,7 +231,8 @@ instance Core.AWSRequest DeleteCluster where
   type
     AWSResponse DeleteCluster =
       DeleteClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteClusterResult"

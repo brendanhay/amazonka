@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteAuthenticationProfile where
   type
     AWSResponse DeleteAuthenticationProfile =
       DeleteAuthenticationProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAuthenticationProfileResult"

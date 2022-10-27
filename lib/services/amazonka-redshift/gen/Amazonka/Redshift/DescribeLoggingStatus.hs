@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeLoggingStatus where
   type
     AWSResponse DescribeLoggingStatus =
       LoggingStatus
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoggingStatusResult"

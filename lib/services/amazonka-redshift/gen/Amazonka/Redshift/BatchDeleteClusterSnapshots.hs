@@ -79,7 +79,8 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
   type
     AWSResponse BatchDeleteClusterSnapshots =
       BatchDeleteClusterSnapshotsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDeleteClusterSnapshotsResult"

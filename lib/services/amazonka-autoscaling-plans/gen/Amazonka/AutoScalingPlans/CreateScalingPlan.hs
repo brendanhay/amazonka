@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateScalingPlan where
   type
     AWSResponse CreateScalingPlan =
       CreateScalingPlanResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

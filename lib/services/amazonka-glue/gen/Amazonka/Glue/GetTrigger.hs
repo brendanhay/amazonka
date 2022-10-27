@@ -74,7 +74,8 @@ getTrigger_name = Lens.lens (\GetTrigger' {name} -> name) (\s@GetTrigger' {} a -
 
 instance Core.AWSRequest GetTrigger where
   type AWSResponse GetTrigger = GetTriggerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

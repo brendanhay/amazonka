@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteClassifier where
   type
     AWSResponse DeleteClassifier =
       DeleteClassifierResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

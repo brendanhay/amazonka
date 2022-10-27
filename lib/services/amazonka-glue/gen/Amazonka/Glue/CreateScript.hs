@@ -96,7 +96,8 @@ createScript_dagEdges = Lens.lens (\CreateScript' {dagEdges} -> dagEdges) (\s@Cr
 
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

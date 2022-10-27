@@ -97,7 +97,8 @@ instance Core.AWSRequest CancelMLTaskRun where
   type
     AWSResponse CancelMLTaskRun =
       CancelMLTaskRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

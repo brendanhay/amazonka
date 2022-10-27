@@ -130,7 +130,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
   type
     AWSResponse GetUnfilteredTableMetadata =
       GetUnfilteredTableMetadataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

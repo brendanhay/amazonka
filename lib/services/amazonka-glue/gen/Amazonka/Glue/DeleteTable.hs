@@ -128,7 +128,8 @@ deleteTable_name = Lens.lens (\DeleteTable' {name} -> name) (\s@DeleteTable' {} 
 
 instance Core.AWSRequest DeleteTable where
   type AWSResponse DeleteTable = DeleteTableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

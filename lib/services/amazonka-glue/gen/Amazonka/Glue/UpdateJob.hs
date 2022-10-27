@@ -93,7 +93,8 @@ updateJob_jobUpdate = Lens.lens (\UpdateJob' {jobUpdate} -> jobUpdate) (\s@Updat
 
 instance Core.AWSRequest UpdateJob where
   type AWSResponse UpdateJob = UpdateJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -74,7 +74,8 @@ getCrawler_name = Lens.lens (\GetCrawler' {name} -> name) (\s@GetCrawler' {} a -
 
 instance Core.AWSRequest GetCrawler where
   type AWSResponse GetCrawler = GetCrawlerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -102,7 +102,8 @@ getMLTaskRun_taskRunId = Lens.lens (\GetMLTaskRun' {taskRunId} -> taskRunId) (\s
 
 instance Core.AWSRequest GetMLTaskRun where
   type AWSResponse GetMLTaskRun = GetMLTaskRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

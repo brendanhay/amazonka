@@ -81,7 +81,8 @@ instance Core.AWSRequest GetCatalogImportStatus where
   type
     AWSResponse GetCatalogImportStatus =
       GetCatalogImportStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -107,7 +107,8 @@ instance Core.AWSRequest ResumeWorkflowRun where
   type
     AWSResponse ResumeWorkflowRun =
       ResumeWorkflowRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

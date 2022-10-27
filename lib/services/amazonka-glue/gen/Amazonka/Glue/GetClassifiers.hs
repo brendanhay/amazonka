@@ -111,7 +111,8 @@ instance Core.AWSRequest GetClassifiers where
   type
     AWSResponse GetClassifiers =
       GetClassifiersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -73,7 +73,8 @@ stopCrawler_name = Lens.lens (\StopCrawler' {name} -> name) (\s@StopCrawler' {} 
 
 instance Core.AWSRequest StopCrawler where
   type AWSResponse StopCrawler = StopCrawlerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

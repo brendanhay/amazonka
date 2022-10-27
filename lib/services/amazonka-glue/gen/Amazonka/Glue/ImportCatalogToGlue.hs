@@ -77,7 +77,8 @@ instance Core.AWSRequest ImportCatalogToGlue where
   type
     AWSResponse ImportCatalogToGlue =
       ImportCatalogToGlueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

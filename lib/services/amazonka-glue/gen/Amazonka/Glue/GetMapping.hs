@@ -97,7 +97,8 @@ getMapping_source = Lens.lens (\GetMapping' {source} -> source) (\s@GetMapping' 
 
 instance Core.AWSRequest GetMapping where
   type AWSResponse GetMapping = GetMappingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

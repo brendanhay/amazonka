@@ -87,7 +87,8 @@ getSession_id = Lens.lens (\GetSession' {id} -> id) (\s@GetSession' {} a -> s {i
 
 instance Core.AWSRequest GetSession where
   type AWSResponse GetSession = GetSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

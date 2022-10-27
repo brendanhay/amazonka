@@ -76,7 +76,8 @@ startTrigger_name = Lens.lens (\StartTrigger' {name} -> name) (\s@StartTrigger' 
 
 instance Core.AWSRequest StartTrigger where
   type AWSResponse StartTrigger = StartTriggerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

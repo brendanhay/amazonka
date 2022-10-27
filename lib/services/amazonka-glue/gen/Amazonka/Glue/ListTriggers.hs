@@ -120,7 +120,8 @@ listTriggers_dependentJobName = Lens.lens (\ListTriggers' {dependentJobName} -> 
 
 instance Core.AWSRequest ListTriggers where
   type AWSResponse ListTriggers = ListTriggersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

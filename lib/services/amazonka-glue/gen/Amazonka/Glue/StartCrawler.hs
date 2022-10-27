@@ -75,7 +75,8 @@ startCrawler_name = Lens.lens (\StartCrawler' {name} -> name) (\s@StartCrawler' 
 
 instance Core.AWSRequest StartCrawler where
   type AWSResponse StartCrawler = StartCrawlerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

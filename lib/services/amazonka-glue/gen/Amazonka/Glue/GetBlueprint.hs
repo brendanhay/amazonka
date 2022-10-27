@@ -97,7 +97,8 @@ getBlueprint_name = Lens.lens (\GetBlueprint' {name} -> name) (\s@GetBlueprint' 
 
 instance Core.AWSRequest GetBlueprint where
   type AWSResponse GetBlueprint = GetBlueprintResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

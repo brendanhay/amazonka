@@ -100,7 +100,8 @@ instance Core.AWSRequest GetBlueprintRuns where
   type
     AWSResponse GetBlueprintRuns =
       GetBlueprintRunsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

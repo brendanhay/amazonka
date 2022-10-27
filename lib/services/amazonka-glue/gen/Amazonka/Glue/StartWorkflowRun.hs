@@ -89,7 +89,8 @@ instance Core.AWSRequest StartWorkflowRun where
   type
     AWSResponse StartWorkflowRun =
       StartWorkflowRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

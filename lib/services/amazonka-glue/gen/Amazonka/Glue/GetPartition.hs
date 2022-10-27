@@ -112,7 +112,8 @@ getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> pa
 
 instance Core.AWSRequest GetPartition where
   type AWSResponse GetPartition = GetPartitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

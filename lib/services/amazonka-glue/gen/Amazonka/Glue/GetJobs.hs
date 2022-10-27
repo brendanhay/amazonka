@@ -107,7 +107,8 @@ instance Core.AWSPager GetJobs where
 
 instance Core.AWSRequest GetJobs where
   type AWSResponse GetJobs = GetJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -84,7 +84,8 @@ deleteSchema_schemaId = Lens.lens (\DeleteSchema' {schemaId} -> schemaId) (\s@De
 
 instance Core.AWSRequest DeleteSchema where
   type AWSResponse DeleteSchema = DeleteSchemaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

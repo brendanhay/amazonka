@@ -152,7 +152,8 @@ getPlan_source = Lens.lens (\GetPlan' {source} -> source) (\s@GetPlan' {} a -> s
 
 instance Core.AWSRequest GetPlan where
   type AWSResponse GetPlan = GetPlanResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

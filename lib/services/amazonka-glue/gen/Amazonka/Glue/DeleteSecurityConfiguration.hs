@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteSecurityConfiguration where
   type
     AWSResponse DeleteSecurityConfiguration =
       DeleteSecurityConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

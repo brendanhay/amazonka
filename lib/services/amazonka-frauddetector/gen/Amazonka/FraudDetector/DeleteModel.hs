@@ -94,7 +94,8 @@ deleteModel_modelType = Lens.lens (\DeleteModel' {modelType} -> modelType) (\s@D
 
 instance Core.AWSRequest DeleteModel where
   type AWSResponse DeleteModel = DeleteModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

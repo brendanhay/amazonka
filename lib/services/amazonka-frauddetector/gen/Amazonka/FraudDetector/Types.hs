@@ -702,6 +702,8 @@ defaultService =
       Core._serviceEndpointPrefix = "frauddetector",
       Core._serviceSigningName = "frauddetector",
       Core._serviceVersion = "2019-11-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

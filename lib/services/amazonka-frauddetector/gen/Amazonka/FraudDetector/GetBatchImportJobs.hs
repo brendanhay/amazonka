@@ -104,7 +104,8 @@ instance Core.AWSRequest GetBatchImportJobs where
   type
     AWSResponse GetBatchImportJobs =
       GetBatchImportJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -161,7 +161,8 @@ sendEvent_entities = Lens.lens (\SendEvent' {entities} -> entities) (\s@SendEven
 
 instance Core.AWSRequest SendEvent where
   type AWSResponse SendEvent = SendEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -150,7 +150,8 @@ createRule_outcomes = Lens.lens (\CreateRule' {outcomes} -> outcomes) (\s@Create
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

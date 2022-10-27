@@ -150,7 +150,8 @@ putEventType_entityTypes = Lens.lens (\PutEventType' {entityTypes} -> entityType
 
 instance Core.AWSRequest PutEventType where
   type AWSResponse PutEventType = PutEventTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

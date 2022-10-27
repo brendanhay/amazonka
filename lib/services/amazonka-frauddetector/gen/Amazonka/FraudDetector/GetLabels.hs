@@ -101,7 +101,8 @@ getLabels_maxResults = Lens.lens (\GetLabels' {maxResults} -> maxResults) (\s@Ge
 
 instance Core.AWSRequest GetLabels where
   type AWSResponse GetLabels = GetLabelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

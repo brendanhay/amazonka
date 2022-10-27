@@ -56,6 +56,8 @@ data UpdateDetectorVersionStatus = UpdateDetectorVersionStatus'
     -- | The detector version ID.
     detectorVersionId :: Prelude.Text,
     -- | The new status.
+    --
+    -- The only supported values are @ACTIVE@ and @INACTIVE@
     status :: DetectorVersionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,6 +75,8 @@ data UpdateDetectorVersionStatus = UpdateDetectorVersionStatus'
 -- 'detectorVersionId', 'updateDetectorVersionStatus_detectorVersionId' - The detector version ID.
 --
 -- 'status', 'updateDetectorVersionStatus_status' - The new status.
+--
+-- The only supported values are @ACTIVE@ and @INACTIVE@
 newUpdateDetectorVersionStatus ::
   -- | 'detectorId'
   Prelude.Text ->
@@ -101,6 +105,8 @@ updateDetectorVersionStatus_detectorVersionId :: Lens.Lens' UpdateDetectorVersio
 updateDetectorVersionStatus_detectorVersionId = Lens.lens (\UpdateDetectorVersionStatus' {detectorVersionId} -> detectorVersionId) (\s@UpdateDetectorVersionStatus' {} a -> s {detectorVersionId = a} :: UpdateDetectorVersionStatus)
 
 -- | The new status.
+--
+-- The only supported values are @ACTIVE@ and @INACTIVE@
 updateDetectorVersionStatus_status :: Lens.Lens' UpdateDetectorVersionStatus DetectorVersionStatus
 updateDetectorVersionStatus_status = Lens.lens (\UpdateDetectorVersionStatus' {status} -> status) (\s@UpdateDetectorVersionStatus' {} a -> s {status = a} :: UpdateDetectorVersionStatus)
 
@@ -108,7 +114,8 @@ instance Core.AWSRequest UpdateDetectorVersionStatus where
   type
     AWSResponse UpdateDetectorVersionStatus =
       UpdateDetectorVersionStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

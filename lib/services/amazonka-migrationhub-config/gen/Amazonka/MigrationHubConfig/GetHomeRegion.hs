@@ -66,7 +66,8 @@ instance Core.AWSRequest GetHomeRegion where
   type
     AWSResponse GetHomeRegion =
       GetHomeRegionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

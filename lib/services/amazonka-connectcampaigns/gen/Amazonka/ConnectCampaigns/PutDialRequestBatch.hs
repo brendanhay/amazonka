@@ -94,7 +94,8 @@ instance Core.AWSRequest PutDialRequestBatch where
   type
     AWSResponse PutDialRequestBatch =
       PutDialRequestBatchResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

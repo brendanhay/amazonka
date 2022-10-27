@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteInstanceOnboardingJob where
   type
     AWSResponse DeleteInstanceOnboardingJob =
       DeleteInstanceOnboardingJobResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteInstanceOnboardingJobResponse'

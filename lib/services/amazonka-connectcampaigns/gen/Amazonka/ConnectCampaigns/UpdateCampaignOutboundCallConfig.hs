@@ -108,7 +108,8 @@ instance
   type
     AWSResponse UpdateCampaignOutboundCallConfig =
       UpdateCampaignOutboundCallConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateCampaignOutboundCallConfigResponse'

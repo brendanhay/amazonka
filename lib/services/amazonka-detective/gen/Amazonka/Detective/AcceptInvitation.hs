@@ -88,7 +88,8 @@ instance Core.AWSRequest AcceptInvitation where
   type
     AWSResponse AcceptInvitation =
       AcceptInvitationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull AcceptInvitationResponse'
 

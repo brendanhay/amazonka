@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeMatchmakingRuleSets where
   type
     AWSResponse DescribeMatchmakingRuleSets =
       DescribeMatchmakingRuleSetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

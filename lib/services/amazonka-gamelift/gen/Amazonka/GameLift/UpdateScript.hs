@@ -199,7 +199,8 @@ updateScript_scriptId = Lens.lens (\UpdateScript' {scriptId} -> scriptId) (\s@Up
 
 instance Core.AWSRequest UpdateScript where
   type AWSResponse UpdateScript = UpdateScriptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

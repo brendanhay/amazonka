@@ -198,7 +198,8 @@ instance Core.AWSRequest DescribeFleetEvents where
   type
     AWSResponse DescribeFleetEvents =
       DescribeFleetEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

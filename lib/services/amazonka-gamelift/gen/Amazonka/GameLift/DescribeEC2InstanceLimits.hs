@@ -166,7 +166,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
   type
     AWSResponse DescribeEC2InstanceLimits =
       DescribeEC2InstanceLimitsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -180,7 +180,8 @@ instance Core.AWSRequest DescribeFleetAttributes where
   type
     AWSResponse DescribeFleetAttributes =
       DescribeFleetAttributesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

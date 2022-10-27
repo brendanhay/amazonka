@@ -174,7 +174,8 @@ instance Core.AWSRequest ListGameServers where
   type
     AWSResponse ListGameServers =
       ListGameServersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

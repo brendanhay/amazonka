@@ -158,7 +158,8 @@ instance Core.AWSRequest StartMatchmaking where
   type
     AWSResponse StartMatchmaking =
       StartMatchmakingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -142,7 +142,8 @@ acceptMatch_acceptanceType = Lens.lens (\AcceptMatch' {acceptanceType} -> accept
 
 instance Core.AWSRequest AcceptMatch where
   type AWSResponse AcceptMatch = AcceptMatchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

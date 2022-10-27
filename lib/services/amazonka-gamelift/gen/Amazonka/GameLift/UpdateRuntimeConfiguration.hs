@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
   type
     AWSResponse UpdateRuntimeConfiguration =
       UpdateRuntimeConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

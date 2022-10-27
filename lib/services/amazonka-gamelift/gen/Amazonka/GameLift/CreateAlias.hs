@@ -166,7 +166,8 @@ createAlias_routingStrategy = Lens.lens (\CreateAlias' {routingStrategy} -> rout
 
 instance Core.AWSRequest CreateAlias where
   type AWSResponse CreateAlias = CreateAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

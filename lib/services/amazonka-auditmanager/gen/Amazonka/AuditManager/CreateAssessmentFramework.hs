@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateAssessmentFramework where
   type
     AWSResponse CreateAssessmentFramework =
       CreateAssessmentFrameworkResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

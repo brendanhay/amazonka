@@ -108,7 +108,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
   type
     AWSResponse ListAssessmentFrameworks =
       ListAssessmentFrameworksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

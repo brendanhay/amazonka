@@ -101,7 +101,8 @@ listControls_controlType = Lens.lens (\ListControls' {controlType} -> controlTyp
 
 instance Core.AWSRequest ListControls where
   type AWSResponse ListControls = ListControlsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

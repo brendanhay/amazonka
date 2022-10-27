@@ -75,7 +75,8 @@ getSettings_attribute = Lens.lens (\GetSettings' {attribute} -> attribute) (\s@G
 
 instance Core.AWSRequest GetSettings where
   type AWSResponse GetSettings = GetSettingsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

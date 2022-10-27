@@ -62,7 +62,8 @@ instance Core.AWSRequest GetServicesInScope where
   type
     AWSResponse GetServicesInScope =
       GetServicesInScopeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

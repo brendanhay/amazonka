@@ -117,7 +117,8 @@ getEvidence_evidenceId = Lens.lens (\GetEvidence' {evidenceId} -> evidenceId) (\
 
 instance Core.AWSRequest GetEvidence where
   type AWSResponse GetEvidence = GetEvidenceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

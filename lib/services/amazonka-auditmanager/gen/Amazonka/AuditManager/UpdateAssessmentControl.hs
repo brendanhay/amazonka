@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateAssessmentControl where
   type
     AWSResponse UpdateAssessmentControl =
       UpdateAssessmentControlResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

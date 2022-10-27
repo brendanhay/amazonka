@@ -197,10 +197,9 @@ s3vhost rq = case _requestPath rq of
           | otherwise = True
 
         doRewrite = case rq ^. requestService . serviceS3AddressingStyle of
-          S3AddressingStyleAuto ->  rewritePossible
+          S3AddressingStyleAuto -> rewritePossible
           S3AddressingStylePath -> False
           S3AddressingStyleVirtual -> True
-
      in if doRewrite
           then
             rq

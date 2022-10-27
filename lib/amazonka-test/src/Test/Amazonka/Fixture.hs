@@ -52,7 +52,8 @@ res n f s p e =
       >>= assertDiff f e
 
 req ::
-  forall a. (AWSRequest a, Eq a, Show a) =>
+  forall a.
+  (AWSRequest a, Eq a, Show a) =>
   TestName ->
   FilePath ->
   a ->

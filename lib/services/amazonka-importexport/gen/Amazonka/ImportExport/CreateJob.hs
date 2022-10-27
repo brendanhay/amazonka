@@ -128,7 +128,8 @@ createJob_validateOnly = Lens.lens (\CreateJob' {validateOnly} -> validateOnly) 
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateJobResult"

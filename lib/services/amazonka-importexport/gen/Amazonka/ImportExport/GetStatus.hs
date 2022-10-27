@@ -105,7 +105,8 @@ getStatus_jobId = Lens.lens (\GetStatus' {jobId} -> jobId) (\s@GetStatus' {} a -
 
 instance Core.AWSRequest GetStatus where
   type AWSResponse GetStatus = GetStatusResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetStatusResult"

@@ -74,6 +74,8 @@ defaultService =
       Core._serviceEndpointPrefix = "importexport",
       Core._serviceSigningName = "importexport",
       Core._serviceVersion = "2010-06-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

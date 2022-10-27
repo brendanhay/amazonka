@@ -216,6 +216,8 @@ defaultService =
       Core._serviceEndpointPrefix = "applicationinsights",
       Core._serviceSigningName = "applicationinsights",
       Core._serviceVersion = "2018-11-25",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

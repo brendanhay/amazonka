@@ -80,7 +80,8 @@ instance Core.AWSRequest DescribeProblemObservations where
   type
     AWSResponse DescribeProblemObservations =
       DescribeProblemObservationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

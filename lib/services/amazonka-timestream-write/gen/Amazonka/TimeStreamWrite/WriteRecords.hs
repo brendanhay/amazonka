@@ -177,7 +177,8 @@ writeRecords_records = Lens.lens (\WriteRecords' {records} -> records) (\s@Write
 
 instance Core.AWSRequest WriteRecords where
   type AWSResponse WriteRecords = WriteRecordsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

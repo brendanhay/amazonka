@@ -51,13 +51,23 @@ data ManagedScaling = ManagedScaling'
     instanceWarmupPeriod :: Prelude.Maybe Prelude.Natural,
     -- | Determines whether to use managed scaling for the capacity provider.
     status :: Prelude.Maybe ManagedScalingStatus,
-    -- | The minimum number of container instances that Amazon ECS scales in or
-    -- scales out at one time. If this parameter is omitted, the default value
-    -- of @1@ is used.
+    -- | The minimum number of Amazon EC2 instances that Amazon ECS will scale
+    -- out at one time. The scale in process is not affected by this parameter
+    -- If this parameter is omitted, the default value of @1@ is used.
+    --
+    -- When additional capacity is required, Amazon ECS will scale up the
+    -- minimum scaling step size even if the actual demand is less than the
+    -- minimum scaling step size.
+    --
+    -- If you use a capacity provider with an Auto Scaling group configured
+    -- with more than one Amazon EC2 instance type or Availability Zone, Amazon
+    -- ECS will scale up by the exact minimum scaling step size value and will
+    -- ignore both the maximum scaling step size as well as the capacity
+    -- demand.
     minimumScalingStepSize :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of container instances that Amazon ECS scales in or
-    -- scales out at one time. If this parameter is omitted, the default value
-    -- of @10000@ is used.
+    -- | The maximum number of Amazon EC2 instances that Amazon ECS will scale
+    -- out at one time. The scale in process is not affected by this parameter.
+    -- If this parameter is omitted, the default value of @10000@ is used.
     maximumScalingStepSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,13 +91,23 @@ data ManagedScaling = ManagedScaling'
 --
 -- 'status', 'managedScaling_status' - Determines whether to use managed scaling for the capacity provider.
 --
--- 'minimumScalingStepSize', 'managedScaling_minimumScalingStepSize' - The minimum number of container instances that Amazon ECS scales in or
--- scales out at one time. If this parameter is omitted, the default value
--- of @1@ is used.
+-- 'minimumScalingStepSize', 'managedScaling_minimumScalingStepSize' - The minimum number of Amazon EC2 instances that Amazon ECS will scale
+-- out at one time. The scale in process is not affected by this parameter
+-- If this parameter is omitted, the default value of @1@ is used.
 --
--- 'maximumScalingStepSize', 'managedScaling_maximumScalingStepSize' - The maximum number of container instances that Amazon ECS scales in or
--- scales out at one time. If this parameter is omitted, the default value
--- of @10000@ is used.
+-- When additional capacity is required, Amazon ECS will scale up the
+-- minimum scaling step size even if the actual demand is less than the
+-- minimum scaling step size.
+--
+-- If you use a capacity provider with an Auto Scaling group configured
+-- with more than one Amazon EC2 instance type or Availability Zone, Amazon
+-- ECS will scale up by the exact minimum scaling step size value and will
+-- ignore both the maximum scaling step size as well as the capacity
+-- demand.
+--
+-- 'maximumScalingStepSize', 'managedScaling_maximumScalingStepSize' - The maximum number of Amazon EC2 instances that Amazon ECS will scale
+-- out at one time. The scale in process is not affected by this parameter.
+-- If this parameter is omitted, the default value of @10000@ is used.
 newManagedScaling ::
   ManagedScaling
 newManagedScaling =
@@ -116,15 +136,25 @@ managedScaling_instanceWarmupPeriod = Lens.lens (\ManagedScaling' {instanceWarmu
 managedScaling_status :: Lens.Lens' ManagedScaling (Prelude.Maybe ManagedScalingStatus)
 managedScaling_status = Lens.lens (\ManagedScaling' {status} -> status) (\s@ManagedScaling' {} a -> s {status = a} :: ManagedScaling)
 
--- | The minimum number of container instances that Amazon ECS scales in or
--- scales out at one time. If this parameter is omitted, the default value
--- of @1@ is used.
+-- | The minimum number of Amazon EC2 instances that Amazon ECS will scale
+-- out at one time. The scale in process is not affected by this parameter
+-- If this parameter is omitted, the default value of @1@ is used.
+--
+-- When additional capacity is required, Amazon ECS will scale up the
+-- minimum scaling step size even if the actual demand is less than the
+-- minimum scaling step size.
+--
+-- If you use a capacity provider with an Auto Scaling group configured
+-- with more than one Amazon EC2 instance type or Availability Zone, Amazon
+-- ECS will scale up by the exact minimum scaling step size value and will
+-- ignore both the maximum scaling step size as well as the capacity
+-- demand.
 managedScaling_minimumScalingStepSize :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_minimumScalingStepSize = Lens.lens (\ManagedScaling' {minimumScalingStepSize} -> minimumScalingStepSize) (\s@ManagedScaling' {} a -> s {minimumScalingStepSize = a} :: ManagedScaling)
 
--- | The maximum number of container instances that Amazon ECS scales in or
--- scales out at one time. If this parameter is omitted, the default value
--- of @10000@ is used.
+-- | The maximum number of Amazon EC2 instances that Amazon ECS will scale
+-- out at one time. The scale in process is not affected by this parameter.
+-- If this parameter is omitted, the default value of @10000@ is used.
 managedScaling_maximumScalingStepSize :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_maximumScalingStepSize = Lens.lens (\ManagedScaling' {maximumScalingStepSize} -> maximumScalingStepSize) (\s@ManagedScaling' {} a -> s {maximumScalingStepSize = a} :: ManagedScaling)
 

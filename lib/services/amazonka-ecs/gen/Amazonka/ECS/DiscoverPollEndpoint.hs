@@ -104,7 +104,8 @@ instance Core.AWSRequest DiscoverPollEndpoint where
   type
     AWSResponse DiscoverPollEndpoint =
       DiscoverPollEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

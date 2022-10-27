@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeCapacityProviders where
   type
     AWSResponse DescribeCapacityProviders =
       DescribeCapacityProvidersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

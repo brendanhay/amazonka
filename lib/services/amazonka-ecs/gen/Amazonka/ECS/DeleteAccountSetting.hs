@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteAccountSetting where
   type
     AWSResponse DeleteAccountSetting =
       DeleteAccountSettingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

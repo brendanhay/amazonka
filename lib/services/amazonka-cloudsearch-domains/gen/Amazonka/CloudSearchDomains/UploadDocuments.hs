@@ -133,7 +133,8 @@ instance Core.AWSRequest UploadDocuments where
   type
     AWSResponse UploadDocuments =
       UploadDocumentsResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

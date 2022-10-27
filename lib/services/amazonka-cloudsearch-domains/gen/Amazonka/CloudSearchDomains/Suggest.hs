@@ -120,7 +120,8 @@ suggest_suggester = Lens.lens (\Suggest' {suggester} -> suggester) (\s@Suggest' 
 
 instance Core.AWSRequest Suggest where
   type AWSResponse Suggest = SuggestResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

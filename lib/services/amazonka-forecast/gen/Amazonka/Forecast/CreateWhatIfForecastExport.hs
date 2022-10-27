@@ -173,7 +173,8 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
   type
     AWSResponse CreateWhatIfForecastExport =
       CreateWhatIfForecastExportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

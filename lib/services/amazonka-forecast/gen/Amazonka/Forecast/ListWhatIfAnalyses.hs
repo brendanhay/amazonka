@@ -196,7 +196,8 @@ instance Core.AWSRequest ListWhatIfAnalyses where
   type
     AWSResponse ListWhatIfAnalyses =
       ListWhatIfAnalysesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

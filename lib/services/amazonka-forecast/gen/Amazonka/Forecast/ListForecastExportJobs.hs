@@ -197,7 +197,8 @@ instance Core.AWSRequest ListForecastExportJobs where
   type
     AWSResponse ListForecastExportJobs =
       ListForecastExportJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

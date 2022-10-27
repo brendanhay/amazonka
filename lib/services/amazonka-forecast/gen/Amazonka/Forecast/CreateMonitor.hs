@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateMonitor where
   type
     AWSResponse CreateMonitor =
       CreateMonitorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

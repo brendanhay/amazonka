@@ -602,7 +602,8 @@ instance Core.AWSRequest CreatePredictor where
   type
     AWSResponse CreatePredictor =
       CreatePredictorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

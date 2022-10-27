@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateFunction where
   type
     AWSResponse CreateFunction =
       CreateFunctionResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateKeyGroup where
   type
     AWSResponse UpdateKeyGroup =
       UpdateKeyGroupResponse
-  request = Request.putXML defaultService
+  service _ = defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->

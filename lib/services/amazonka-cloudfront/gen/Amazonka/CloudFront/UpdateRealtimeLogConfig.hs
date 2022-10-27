@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
   type
     AWSResponse UpdateRealtimeLogConfig =
       UpdateRealtimeLogConfigResponse
-  request = Request.putXML defaultService
+  service _ = defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -143,7 +143,8 @@ instance
   type
     AWSResponse ListDistributionsByRealtimeLogConfig =
       ListDistributionsByRealtimeLogConfigResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

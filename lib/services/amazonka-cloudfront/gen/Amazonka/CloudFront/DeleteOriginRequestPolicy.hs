@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteOriginRequestPolicy where
   type
     AWSResponse DeleteOriginRequestPolicy =
       DeleteOriginRequestPolicyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteOriginRequestPolicyResponse'

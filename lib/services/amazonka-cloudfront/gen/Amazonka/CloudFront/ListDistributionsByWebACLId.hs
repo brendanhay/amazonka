@@ -127,7 +127,8 @@ instance Core.AWSRequest ListDistributionsByWebACLId where
   type
     AWSResponse ListDistributionsByWebACLId =
       ListDistributionsByWebACLIdResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

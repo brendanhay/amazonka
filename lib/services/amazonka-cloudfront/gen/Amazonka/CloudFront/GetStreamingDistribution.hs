@@ -81,7 +81,8 @@ instance Core.AWSRequest GetStreamingDistribution where
   type
     AWSResponse GetStreamingDistribution =
       GetStreamingDistributionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -100,7 +100,8 @@ instance Core.AWSRequest GetOriginRequestPolicyConfig where
   type
     AWSResponse GetOriginRequestPolicyConfig =
       GetOriginRequestPolicyConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

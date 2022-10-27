@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteOriginAccessControl where
   type
     AWSResponse DeleteOriginAccessControl =
       DeleteOriginAccessControlResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteOriginAccessControlResponse'

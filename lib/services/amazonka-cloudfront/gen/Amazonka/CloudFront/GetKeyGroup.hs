@@ -85,7 +85,8 @@ getKeyGroup_id = Lens.lens (\GetKeyGroup' {id} -> id) (\s@GetKeyGroup' {} a -> s
 
 instance Core.AWSRequest GetKeyGroup where
   type AWSResponse GetKeyGroup = GetKeyGroupResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

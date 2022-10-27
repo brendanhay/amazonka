@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
   type
     AWSResponse UpdateOriginRequestPolicy =
       UpdateOriginRequestPolicyResponse
-  request = Request.putXML defaultService
+  service _ = defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->

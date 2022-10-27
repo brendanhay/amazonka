@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateAlias where
   type
     AWSResponse AssociateAlias =
       AssociateAliasResponse
-  request = Request.put defaultService
+  service _ = defaultService
+  request srv = Request.put srv
   response =
     Response.receiveNull AssociateAliasResponse'
 

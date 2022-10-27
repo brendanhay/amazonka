@@ -150,7 +150,8 @@ testFunction_eventObject = Lens.lens (\TestFunction' {eventObject} -> eventObjec
 
 instance Core.AWSRequest TestFunction where
   type AWSResponse TestFunction = TestFunctionResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

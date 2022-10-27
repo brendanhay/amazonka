@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteResponseHeadersPolicy where
   type
     AWSResponse DeleteResponseHeadersPolicy =
       DeleteResponseHeadersPolicyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteResponseHeadersPolicyResponse'

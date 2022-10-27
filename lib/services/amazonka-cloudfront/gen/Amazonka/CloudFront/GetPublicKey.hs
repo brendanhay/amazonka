@@ -75,7 +75,8 @@ getPublicKey_id = Lens.lens (\GetPublicKey' {id} -> id) (\s@GetPublicKey' {} a -
 
 instance Core.AWSRequest GetPublicKey where
   type AWSResponse GetPublicKey = GetPublicKeyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

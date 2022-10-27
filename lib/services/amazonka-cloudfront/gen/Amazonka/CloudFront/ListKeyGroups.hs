@@ -106,7 +106,8 @@ instance Core.AWSRequest ListKeyGroups where
   type
     AWSResponse ListKeyGroups =
       ListKeyGroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

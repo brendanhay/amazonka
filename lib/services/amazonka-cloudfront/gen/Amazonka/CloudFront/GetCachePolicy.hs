@@ -99,7 +99,8 @@ instance Core.AWSRequest GetCachePolicy where
   type
     AWSResponse GetCachePolicy =
       GetCachePolicyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

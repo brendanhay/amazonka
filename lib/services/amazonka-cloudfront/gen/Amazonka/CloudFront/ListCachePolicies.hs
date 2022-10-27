@@ -141,7 +141,8 @@ instance Core.AWSRequest ListCachePolicies where
   type
     AWSResponse ListCachePolicies =
       ListCachePoliciesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

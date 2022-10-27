@@ -97,7 +97,8 @@ instance Core.AWSRequest CreateInvalidation where
   type
     AWSResponse CreateInvalidation =
       CreateInvalidationResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -531,7 +531,8 @@ createJob_onDeviceServiceConfiguration = Lens.lens (\CreateJob' {onDeviceService
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
   type
     AWSResponse DeleteUserHierarchyGroup =
       DeleteUserHierarchyGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'

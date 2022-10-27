@@ -20,7 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Claims an available phone number to your Amazon Connect instance.
+-- Claims an available phone number to your Amazon Connect instance or
+-- traffic distribution group. You can call this API only in the same
+-- Amazon Web Services Region where the Amazon Connect instance or traffic
+-- distribution group was created.
+--
+-- You can call the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+-- API to verify the status of a previous
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html ClaimPhoneNumber>
+-- operation.
 module Amazonka.Connect.ClaimPhoneNumber
   ( -- * Creating a Request
     ClaimPhoneNumber (..),
@@ -57,12 +66,14 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the phone number.
     phoneNumberDescription :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Text,
     -- | The phone number you want to claim. Phone numbers are formatted
     -- @[+] [country code] [subscriber number including area code]@.
@@ -82,12 +93,14 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'clientToken', 'claimPhoneNumber_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'phoneNumberDescription', 'claimPhoneNumber_phoneNumberDescription' - The description of the phone number.
 --
--- 'targetArn', 'claimPhoneNumber_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- 'targetArn', 'claimPhoneNumber_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 --
 -- 'phoneNumber', 'claimPhoneNumber_phoneNumber' - The phone number you want to claim. Phone numbers are formatted
 -- @[+] [country code] [subscriber number including area code]@.
@@ -112,7 +125,9 @@ claimPhoneNumber_tags :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe (Prelude.Has
 claimPhoneNumber_tags = Lens.lens (\ClaimPhoneNumber' {tags} -> tags) (\s@ClaimPhoneNumber' {} a -> s {tags = a} :: ClaimPhoneNumber) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 claimPhoneNumber_clientToken :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe Prelude.Text)
 claimPhoneNumber_clientToken = Lens.lens (\ClaimPhoneNumber' {clientToken} -> clientToken) (\s@ClaimPhoneNumber' {} a -> s {clientToken = a} :: ClaimPhoneNumber)
 
@@ -120,8 +135,8 @@ claimPhoneNumber_clientToken = Lens.lens (\ClaimPhoneNumber' {clientToken} -> cl
 claimPhoneNumber_phoneNumberDescription :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe Prelude.Text)
 claimPhoneNumber_phoneNumberDescription = Lens.lens (\ClaimPhoneNumber' {phoneNumberDescription} -> phoneNumberDescription) (\s@ClaimPhoneNumber' {} a -> s {phoneNumberDescription = a} :: ClaimPhoneNumber)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 claimPhoneNumber_targetArn :: Lens.Lens' ClaimPhoneNumber Prelude.Text
 claimPhoneNumber_targetArn = Lens.lens (\ClaimPhoneNumber' {targetArn} -> targetArn) (\s@ClaimPhoneNumber' {} a -> s {targetArn = a} :: ClaimPhoneNumber)
 
@@ -134,7 +149,8 @@ instance Core.AWSRequest ClaimPhoneNumber where
   type
     AWSResponse ClaimPhoneNumber =
       ClaimPhoneNumberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

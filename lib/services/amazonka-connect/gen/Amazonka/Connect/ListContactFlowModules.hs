@@ -145,7 +145,8 @@ instance Core.AWSRequest ListContactFlowModules where
   type
     AWSResponse ListContactFlowModules =
       ListContactFlowModulesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

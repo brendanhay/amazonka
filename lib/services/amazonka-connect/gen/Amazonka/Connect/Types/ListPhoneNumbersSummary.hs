@@ -26,7 +26,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about phone numbers that have been claimed to your Amazon
--- Connect instance.
+-- Connect instance or traffic distribution group.
 --
 -- /See:/ 'newListPhoneNumbersSummary' smart constructor.
 data ListPhoneNumbersSummary = ListPhoneNumbersSummary'
@@ -36,8 +36,8 @@ data ListPhoneNumbersSummary = ListPhoneNumbersSummary'
     phoneNumberArn :: Prelude.Maybe Prelude.Text,
     -- | The type of phone number.
     phoneNumberType :: Prelude.Maybe PhoneNumberType,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the phone number.
     phoneNumberId :: Prelude.Maybe Prelude.Text,
@@ -61,8 +61,8 @@ data ListPhoneNumbersSummary = ListPhoneNumbersSummary'
 --
 -- 'phoneNumberType', 'listPhoneNumbersSummary_phoneNumberType' - The type of phone number.
 --
--- 'targetArn', 'listPhoneNumbersSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- 'targetArn', 'listPhoneNumbersSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 --
 -- 'phoneNumberId', 'listPhoneNumbersSummary_phoneNumberId' - A unique identifier for the phone number.
 --
@@ -93,8 +93,8 @@ listPhoneNumbersSummary_phoneNumberArn = Lens.lens (\ListPhoneNumbersSummary' {p
 listPhoneNumbersSummary_phoneNumberType :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe PhoneNumberType)
 listPhoneNumbersSummary_phoneNumberType = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberType} -> phoneNumberType) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberType = a} :: ListPhoneNumbersSummary)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 listPhoneNumbersSummary_targetArn :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
 listPhoneNumbersSummary_targetArn = Lens.lens (\ListPhoneNumbersSummary' {targetArn} -> targetArn) (\s@ListPhoneNumbersSummary' {} a -> s {targetArn = a} :: ListPhoneNumbersSummary)
 

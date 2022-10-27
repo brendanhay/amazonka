@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateContactFlow where
   type
     AWSResponse CreateContactFlow =
       CreateContactFlowResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

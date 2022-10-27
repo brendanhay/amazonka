@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data LexBot = LexBot'
   { -- | The name of the Amazon Lex bot.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Region that the Amazon Lex bot was created in.
+    -- | The Amazon Web Services Region where the Amazon Lex bot was created.
     lexRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data LexBot = LexBot'
 --
 -- 'name', 'lexBot_name' - The name of the Amazon Lex bot.
 --
--- 'lexRegion', 'lexBot_lexRegion' - The Region that the Amazon Lex bot was created in.
+-- 'lexRegion', 'lexBot_lexRegion' - The Amazon Web Services Region where the Amazon Lex bot was created.
 newLexBot ::
   LexBot
 newLexBot =
@@ -57,7 +57,7 @@ newLexBot =
 lexBot_name :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
 lexBot_name = Lens.lens (\LexBot' {name} -> name) (\s@LexBot' {} a -> s {name = a} :: LexBot)
 
--- | The Region that the Amazon Lex bot was created in.
+-- | The Amazon Web Services Region where the Amazon Lex bot was created.
 lexBot_lexRegion :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
 lexBot_lexRegion = Lens.lens (\LexBot' {lexRegion} -> lexRegion) (\s@LexBot' {} a -> s {lexRegion = a} :: LexBot)
 

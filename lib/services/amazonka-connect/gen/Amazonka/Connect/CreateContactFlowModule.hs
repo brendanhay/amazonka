@@ -58,7 +58,9 @@ data CreateContactFlowModule = CreateContactFlowModule'
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the flow module.
     description :: Prelude.Maybe Prelude.Text,
@@ -84,7 +86,9 @@ data CreateContactFlowModule = CreateContactFlowModule'
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'clientToken', 'createContactFlowModule_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createContactFlowModule_description' - The description of the flow module.
 --
@@ -121,7 +125,9 @@ createContactFlowModule_tags :: Lens.Lens' CreateContactFlowModule (Prelude.Mayb
 createContactFlowModule_tags = Lens.lens (\CreateContactFlowModule' {tags} -> tags) (\s@CreateContactFlowModule' {} a -> s {tags = a} :: CreateContactFlowModule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createContactFlowModule_clientToken :: Lens.Lens' CreateContactFlowModule (Prelude.Maybe Prelude.Text)
 createContactFlowModule_clientToken = Lens.lens (\CreateContactFlowModule' {clientToken} -> clientToken) (\s@CreateContactFlowModule' {} a -> s {clientToken = a} :: CreateContactFlowModule)
 
@@ -146,7 +152,8 @@ instance Core.AWSRequest CreateContactFlowModule where
   type
     AWSResponse CreateContactFlowModule =
       CreateContactFlowModuleResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

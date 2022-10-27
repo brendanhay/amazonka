@@ -18,6 +18,7 @@ module Amazonka.Connect.Types
 
     -- * Errors
     _InvalidContactFlowException,
+    _ResourceNotReadyException,
     _AccessDeniedException,
     _DuplicateResourceException,
     _UserNotFoundException,
@@ -151,6 +152,9 @@ module Amazonka.Connect.Types
 
     -- * TaskTemplateStatus
     TaskTemplateStatus (..),
+
+    -- * TrafficDistributionGroupStatus
+    TrafficDistributionGroupStatus (..),
 
     -- * TrafficType
     TrafficType (..),
@@ -379,6 +383,12 @@ module Amazonka.Connect.Types
     newDimensions,
     dimensions_channel,
     dimensions_queue,
+
+    -- * Distribution
+    Distribution (..),
+    newDistribution,
+    distribution_region,
+    distribution_percentage,
 
     -- * EmailReference
     EmailReference (..),
@@ -960,11 +970,36 @@ module Amazonka.Connect.Types
     taskTemplateMetadata_description,
     taskTemplateMetadata_lastModifiedTime,
 
+    -- * TelephonyConfig
+    TelephonyConfig (..),
+    newTelephonyConfig,
+    telephonyConfig_distributions,
+
     -- * Threshold
     Threshold (..),
     newThreshold,
     threshold_thresholdValue,
     threshold_comparison,
+
+    -- * TrafficDistributionGroup
+    TrafficDistributionGroup (..),
+    newTrafficDistributionGroup,
+    trafficDistributionGroup_tags,
+    trafficDistributionGroup_name,
+    trafficDistributionGroup_arn,
+    trafficDistributionGroup_status,
+    trafficDistributionGroup_id,
+    trafficDistributionGroup_description,
+    trafficDistributionGroup_instanceArn,
+
+    -- * TrafficDistributionGroupSummary
+    TrafficDistributionGroupSummary (..),
+    newTrafficDistributionGroupSummary,
+    trafficDistributionGroupSummary_name,
+    trafficDistributionGroupSummary_arn,
+    trafficDistributionGroupSummary_status,
+    trafficDistributionGroupSummary_id,
+    trafficDistributionGroupSummary_instanceArn,
 
     -- * UrlReference
     UrlReference (..),
@@ -1016,7 +1051,9 @@ module Amazonka.Connect.Types
     newUserIdentityInfo,
     userIdentityInfo_firstName,
     userIdentityInfo_email,
+    userIdentityInfo_secondaryEmail,
     userIdentityInfo_lastName,
+    userIdentityInfo_mobile,
 
     -- * UserIdentityInfoLite
     UserIdentityInfoLite (..),
@@ -1147,6 +1184,7 @@ import Amazonka.Connect.Types.DateReference
 import Amazonka.Connect.Types.DefaultVocabulary
 import Amazonka.Connect.Types.Dimensions
 import Amazonka.Connect.Types.DirectoryType
+import Amazonka.Connect.Types.Distribution
 import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
 import Amazonka.Connect.Types.EncryptionType
@@ -1252,7 +1290,11 @@ import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import Amazonka.Connect.Types.TaskTemplateFieldType
 import Amazonka.Connect.Types.TaskTemplateMetadata
 import Amazonka.Connect.Types.TaskTemplateStatus
+import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.TrafficDistributionGroup
+import Amazonka.Connect.Types.TrafficDistributionGroupStatus
+import Amazonka.Connect.Types.TrafficDistributionGroupSummary
 import Amazonka.Connect.Types.TrafficType
 import Amazonka.Connect.Types.Unit
 import Amazonka.Connect.Types.UrlReference
@@ -1290,6 +1332,8 @@ defaultService =
       Core._serviceEndpointPrefix = "connect",
       Core._serviceSigningName = "connect",
       Core._serviceVersion = "2017-08-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -1358,6 +1402,14 @@ _InvalidContactFlowException =
     defaultService
     "InvalidContactFlowException"
     Prelude.. Core.hasStatus 400
+
+-- | The resource is not ready.
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotReadyException"
+    Prelude.. Core.hasStatus 409
 
 -- | You do not have sufficient permissions to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

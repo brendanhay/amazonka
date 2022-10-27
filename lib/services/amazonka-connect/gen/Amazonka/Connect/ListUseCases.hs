@@ -147,7 +147,8 @@ instance Core.AWSPager ListUseCases where
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

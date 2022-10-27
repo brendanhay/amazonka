@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateAgentStatus where
   type
     AWSResponse UpdateAgentStatus =
       UpdateAgentStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateAgentStatusResponse'
 

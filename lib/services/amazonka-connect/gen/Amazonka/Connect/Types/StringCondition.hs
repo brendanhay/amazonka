@@ -24,8 +24,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A leaf node condition which can be used to specify a string condition,
--- for example, @username = \'abc\'@.
+-- | A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported value for @FieldName@: @name@
 --
 -- /See:/ 'newStringCondition' smart constructor.
 data StringCondition = StringCondition'

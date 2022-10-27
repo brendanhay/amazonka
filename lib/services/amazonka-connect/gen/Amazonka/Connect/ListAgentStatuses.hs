@@ -146,7 +146,8 @@ instance Core.AWSRequest ListAgentStatuses where
   type
     AWSResponse ListAgentStatuses =
       ListAgentStatusesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

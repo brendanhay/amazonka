@@ -20,8 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Releases a phone number previously claimed to an Amazon Connect
--- instance.
+-- Releases a phone number previously claimed to an Amazon Connect instance
+-- or traffic distribution group. You can call this API only in the Amazon
+-- Web Services Region where the number was claimed.
+--
+-- To release phone numbers from a traffic distribution group, use the
+-- @ReleasePhoneNumber@ API, not the Amazon Connect console.
+--
+-- After releasing a phone number, the phone number enters into a cooldown
+-- period of 30 days. It cannot be searched for or claimed again until the
+-- period has ended. If you accidentally release a phone number, contact
+-- Amazon Web Services Support.
 module Amazonka.Connect.ReleasePhoneNumber
   ( -- * Creating a Request
     ReleasePhoneNumber (..),
@@ -47,7 +56,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newReleasePhoneNumber' smart constructor.
 data ReleasePhoneNumber = ReleasePhoneNumber'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the phone number.
     phoneNumberId :: Prelude.Text
@@ -63,7 +74,9 @@ data ReleasePhoneNumber = ReleasePhoneNumber'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'releasePhoneNumber_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'phoneNumberId', 'releasePhoneNumber_phoneNumberId' - A unique identifier for the phone number.
 newReleasePhoneNumber ::
@@ -77,7 +90,9 @@ newReleasePhoneNumber pPhoneNumberId_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 releasePhoneNumber_clientToken :: Lens.Lens' ReleasePhoneNumber (Prelude.Maybe Prelude.Text)
 releasePhoneNumber_clientToken = Lens.lens (\ReleasePhoneNumber' {clientToken} -> clientToken) (\s@ReleasePhoneNumber' {} a -> s {clientToken = a} :: ReleasePhoneNumber)
 
@@ -89,7 +104,8 @@ instance Core.AWSRequest ReleasePhoneNumber where
   type
     AWSResponse ReleasePhoneNumber =
       ReleasePhoneNumberResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull ReleasePhoneNumberResponse'
 

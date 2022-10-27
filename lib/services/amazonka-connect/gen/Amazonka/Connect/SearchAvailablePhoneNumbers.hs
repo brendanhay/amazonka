@@ -21,7 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Searches for available phone numbers that you can claim to your Amazon
--- Connect instance.
+-- Connect instance or traffic distribution group. If the provided
+-- @TargetArn@ is a traffic distribution group, you can call this API in
+-- both Amazon Web Services Regions associated with the traffic
+-- distribution group.
 --
 -- This operation returns paginated results.
 module Amazonka.Connect.SearchAvailablePhoneNumbers
@@ -66,8 +69,8 @@ data SearchAvailablePhoneNumbers = SearchAvailablePhoneNumbers'
     phoneNumberPrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Text,
     -- | The ISO country code.
     phoneNumberCountryCode :: PhoneNumberCountryCode,
@@ -93,8 +96,8 @@ data SearchAvailablePhoneNumbers = SearchAvailablePhoneNumbers'
 --
 -- 'maxResults', 'searchAvailablePhoneNumbers_maxResults' - The maximum number of results to return per page.
 --
--- 'targetArn', 'searchAvailablePhoneNumbers_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- 'targetArn', 'searchAvailablePhoneNumbers_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 --
 -- 'phoneNumberCountryCode', 'searchAvailablePhoneNumbers_phoneNumberCountryCode' - The ISO country code.
 --
@@ -137,8 +140,8 @@ searchAvailablePhoneNumbers_phoneNumberPrefix = Lens.lens (\SearchAvailablePhone
 searchAvailablePhoneNumbers_maxResults :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Natural)
 searchAvailablePhoneNumbers_maxResults = Lens.lens (\SearchAvailablePhoneNumbers' {maxResults} -> maxResults) (\s@SearchAvailablePhoneNumbers' {} a -> s {maxResults = a} :: SearchAvailablePhoneNumbers)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 searchAvailablePhoneNumbers_targetArn :: Lens.Lens' SearchAvailablePhoneNumbers Prelude.Text
 searchAvailablePhoneNumbers_targetArn = Lens.lens (\SearchAvailablePhoneNumbers' {targetArn} -> targetArn) (\s@SearchAvailablePhoneNumbers' {} a -> s {targetArn = a} :: SearchAvailablePhoneNumbers)
 
@@ -176,7 +179,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
   type
     AWSResponse SearchAvailablePhoneNumbers =
       SearchAvailablePhoneNumbersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,8 +251,8 @@ data SearchAvailablePhoneNumbersResponse = SearchAvailablePhoneNumbersResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of available phone numbers that you can claim for your Amazon
-    -- Connect instance.
+    -- | A list of available phone numbers that you can claim to your Amazon
+    -- Connect instance or traffic distribution group.
     availableNumbersList :: Prelude.Maybe [AvailableNumberSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -266,8 +270,8 @@ data SearchAvailablePhoneNumbersResponse = SearchAvailablePhoneNumbersResponse'
 -- 'nextToken', 'searchAvailablePhoneNumbersResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
--- 'availableNumbersList', 'searchAvailablePhoneNumbersResponse_availableNumbersList' - A list of available phone numbers that you can claim for your Amazon
--- Connect instance.
+-- 'availableNumbersList', 'searchAvailablePhoneNumbersResponse_availableNumbersList' - A list of available phone numbers that you can claim to your Amazon
+-- Connect instance or traffic distribution group.
 --
 -- 'httpStatus', 'searchAvailablePhoneNumbersResponse_httpStatus' - The response's http status code.
 newSearchAvailablePhoneNumbersResponse ::
@@ -287,8 +291,8 @@ newSearchAvailablePhoneNumbersResponse pHttpStatus_ =
 searchAvailablePhoneNumbersResponse_nextToken :: Lens.Lens' SearchAvailablePhoneNumbersResponse (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbersResponse_nextToken = Lens.lens (\SearchAvailablePhoneNumbersResponse' {nextToken} -> nextToken) (\s@SearchAvailablePhoneNumbersResponse' {} a -> s {nextToken = a} :: SearchAvailablePhoneNumbersResponse)
 
--- | A list of available phone numbers that you can claim for your Amazon
--- Connect instance.
+-- | A list of available phone numbers that you can claim to your Amazon
+-- Connect instance or traffic distribution group.
 searchAvailablePhoneNumbersResponse_availableNumbersList :: Lens.Lens' SearchAvailablePhoneNumbersResponse (Prelude.Maybe [AvailableNumberSummary])
 searchAvailablePhoneNumbersResponse_availableNumbersList = Lens.lens (\SearchAvailablePhoneNumbersResponse' {availableNumbersList} -> availableNumbersList) (\s@SearchAvailablePhoneNumbersResponse' {} a -> s {availableNumbersList = a} :: SearchAvailablePhoneNumbersResponse) Prelude.. Lens.mapping Lens.coerced
 

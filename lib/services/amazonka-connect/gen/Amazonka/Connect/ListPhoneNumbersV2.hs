@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists phone numbers claimed to your Amazon Connect instance.
+-- Lists phone numbers claimed to your Amazon Connect instance or traffic
+-- distribution group. If the provided @TargetArn@ is a traffic
+-- distribution group, you can call this API in both Amazon Web Services
+-- Regions associated with traffic distribution group.
 --
 -- For more information about phone numbers, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html Set Up Phone Numbers for Your Contact Center>
@@ -64,10 +67,11 @@ data ListPhoneNumbersV2 = ListPhoneNumbersV2'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to. If @TargetArn@ input is not provided, this API
-    -- lists numbers claimed to all the Amazon Connect instances belonging to
-    -- your account.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to. If @TargetArn@
+    -- input is not provided, this API lists numbers claimed to all the Amazon
+    -- Connect instances belonging to your account in the same Amazon Web
+    -- Services Region as the request.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | The prefix of the phone number. If provided, it must contain @+@ as part
     -- of the country code.
@@ -93,10 +97,11 @@ data ListPhoneNumbersV2 = ListPhoneNumbersV2'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'targetArn', 'listPhoneNumbersV2_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to. If @TargetArn@ input is not provided, this API
--- lists numbers claimed to all the Amazon Connect instances belonging to
--- your account.
+-- 'targetArn', 'listPhoneNumbersV2_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to. If @TargetArn@
+-- input is not provided, this API lists numbers claimed to all the Amazon
+-- Connect instances belonging to your account in the same Amazon Web
+-- Services Region as the request.
 --
 -- 'phoneNumberPrefix', 'listPhoneNumbersV2_phoneNumberPrefix' - The prefix of the phone number. If provided, it must contain @+@ as part
 -- of the country code.
@@ -124,10 +129,11 @@ newListPhoneNumbersV2 =
 listPhoneNumbersV2_nextToken :: Lens.Lens' ListPhoneNumbersV2 (Prelude.Maybe Prelude.Text)
 listPhoneNumbersV2_nextToken = Lens.lens (\ListPhoneNumbersV2' {nextToken} -> nextToken) (\s@ListPhoneNumbersV2' {} a -> s {nextToken = a} :: ListPhoneNumbersV2)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to. If @TargetArn@ input is not provided, this API
--- lists numbers claimed to all the Amazon Connect instances belonging to
--- your account.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to. If @TargetArn@
+-- input is not provided, this API lists numbers claimed to all the Amazon
+-- Connect instances belonging to your account in the same Amazon Web
+-- Services Region as the request.
 listPhoneNumbersV2_targetArn :: Lens.Lens' ListPhoneNumbersV2 (Prelude.Maybe Prelude.Text)
 listPhoneNumbersV2_targetArn = Lens.lens (\ListPhoneNumbersV2' {targetArn} -> targetArn) (\s@ListPhoneNumbersV2' {} a -> s {targetArn = a} :: ListPhoneNumbersV2)
 
@@ -174,7 +180,8 @@ instance Core.AWSRequest ListPhoneNumbersV2 where
   type
     AWSResponse ListPhoneNumbersV2 =
       ListPhoneNumbersV2Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -243,7 +250,7 @@ data ListPhoneNumbersV2Response = ListPhoneNumbersV2Response'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about phone numbers that have been claimed to your Amazon
-    -- Connect instances.
+    -- Connect instances or traffic distribution groups.
     listPhoneNumbersSummaryList :: Prelude.Maybe [ListPhoneNumbersSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -262,7 +269,7 @@ data ListPhoneNumbersV2Response = ListPhoneNumbersV2Response'
 -- results.
 --
 -- 'listPhoneNumbersSummaryList', 'listPhoneNumbersV2Response_listPhoneNumbersSummaryList' - Information about phone numbers that have been claimed to your Amazon
--- Connect instances.
+-- Connect instances or traffic distribution groups.
 --
 -- 'httpStatus', 'listPhoneNumbersV2Response_httpStatus' - The response's http status code.
 newListPhoneNumbersV2Response ::
@@ -283,7 +290,7 @@ listPhoneNumbersV2Response_nextToken :: Lens.Lens' ListPhoneNumbersV2Response (P
 listPhoneNumbersV2Response_nextToken = Lens.lens (\ListPhoneNumbersV2Response' {nextToken} -> nextToken) (\s@ListPhoneNumbersV2Response' {} a -> s {nextToken = a} :: ListPhoneNumbersV2Response)
 
 -- | Information about phone numbers that have been claimed to your Amazon
--- Connect instances.
+-- Connect instances or traffic distribution groups.
 listPhoneNumbersV2Response_listPhoneNumbersSummaryList :: Lens.Lens' ListPhoneNumbersV2Response (Prelude.Maybe [ListPhoneNumbersSummary])
 listPhoneNumbersV2Response_listPhoneNumbersSummaryList = Lens.lens (\ListPhoneNumbersV2Response' {listPhoneNumbersSummaryList} -> listPhoneNumbersSummaryList) (\s@ListPhoneNumbersV2Response' {} a -> s {listPhoneNumbersSummaryList = a} :: ListPhoneNumbersV2Response) Prelude.. Lens.mapping Lens.coerced
 

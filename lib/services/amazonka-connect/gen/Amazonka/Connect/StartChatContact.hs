@@ -85,7 +85,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartChatContact' smart constructor.
 data StartChatContact = StartChatContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The supported chat message content types. Content types can be
     -- text\/plain or both text\/plain and text\/markdown.
@@ -131,7 +133,9 @@ data StartChatContact = StartChatContact'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'startChatContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'supportedMessagingContentTypes', 'startChatContact_supportedMessagingContentTypes' - The supported chat message content types. Content types can be
 -- text\/plain or both text\/plain and text\/markdown.
@@ -188,7 +192,9 @@ newStartChatContact
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startChatContact_clientToken :: Lens.Lens' StartChatContact (Prelude.Maybe Prelude.Text)
 startChatContact_clientToken = Lens.lens (\StartChatContact' {clientToken} -> clientToken) (\s@StartChatContact' {} a -> s {clientToken = a} :: StartChatContact)
 
@@ -242,7 +248,8 @@ instance Core.AWSRequest StartChatContact where
   type
     AWSResponse StartChatContact =
       StartChatContactResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

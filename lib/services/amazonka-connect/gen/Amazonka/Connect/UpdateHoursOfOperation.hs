@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateHoursOfOperation where
   type
     AWSResponse UpdateHoursOfOperation =
       UpdateHoursOfOperationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateHoursOfOperationResponse'

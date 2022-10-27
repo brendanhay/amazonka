@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
   type
     AWSResponse UpdateContactFlowMetadata =
       UpdateContactFlowMetadataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateContactFlowMetadataResponse'

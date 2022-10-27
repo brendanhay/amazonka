@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateUserPhoneConfig where
   type
     AWSResponse UpdateUserPhoneConfig =
       UpdateUserPhoneConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateUserPhoneConfigResponse'
 

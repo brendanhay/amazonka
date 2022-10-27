@@ -201,6 +201,16 @@ module Amazonka.Connect.Lens
     createTaskTemplateResponse_id,
     createTaskTemplateResponse_arn,
 
+    -- ** CreateTrafficDistributionGroup
+    createTrafficDistributionGroup_tags,
+    createTrafficDistributionGroup_clientToken,
+    createTrafficDistributionGroup_description,
+    createTrafficDistributionGroup_name,
+    createTrafficDistributionGroup_instanceId,
+    createTrafficDistributionGroupResponse_arn,
+    createTrafficDistributionGroupResponse_id,
+    createTrafficDistributionGroupResponse_httpStatus,
+
     -- ** CreateUseCase
     createUseCase_tags,
     createUseCase_instanceId,
@@ -278,6 +288,10 @@ module Amazonka.Connect.Lens
     deleteTaskTemplate_instanceId,
     deleteTaskTemplate_taskTemplateId,
     deleteTaskTemplateResponse_httpStatus,
+
+    -- ** DeleteTrafficDistributionGroup
+    deleteTrafficDistributionGroup_trafficDistributionGroupId,
+    deleteTrafficDistributionGroupResponse_httpStatus,
 
     -- ** DeleteUseCase
     deleteUseCase_instanceId,
@@ -376,6 +390,11 @@ module Amazonka.Connect.Lens
     describeSecurityProfile_instanceId,
     describeSecurityProfileResponse_securityProfile,
     describeSecurityProfileResponse_httpStatus,
+
+    -- ** DescribeTrafficDistributionGroup
+    describeTrafficDistributionGroup_trafficDistributionGroupId,
+    describeTrafficDistributionGroupResponse_trafficDistributionGroup,
+    describeTrafficDistributionGroupResponse_httpStatus,
 
     -- ** DescribeUser
     describeUser_userId,
@@ -504,6 +523,13 @@ module Amazonka.Connect.Lens
     getTaskTemplateResponse_id,
     getTaskTemplateResponse_arn,
     getTaskTemplateResponse_name,
+
+    -- ** GetTrafficDistribution
+    getTrafficDistribution_id,
+    getTrafficDistributionResponse_arn,
+    getTrafficDistributionResponse_id,
+    getTrafficDistributionResponse_telephonyConfig,
+    getTrafficDistributionResponse_httpStatus,
 
     -- ** ListAgentStatuses
     listAgentStatuses_nextToken,
@@ -737,6 +763,14 @@ module Amazonka.Connect.Lens
     listTaskTemplatesResponse_taskTemplates,
     listTaskTemplatesResponse_httpStatus,
 
+    -- ** ListTrafficDistributionGroups
+    listTrafficDistributionGroups_nextToken,
+    listTrafficDistributionGroups_instanceId,
+    listTrafficDistributionGroups_maxResults,
+    listTrafficDistributionGroupsResponse_nextToken,
+    listTrafficDistributionGroupsResponse_trafficDistributionGroupSummaryList,
+    listTrafficDistributionGroupsResponse_httpStatus,
+
     -- ** ListUseCases
     listUseCases_nextToken,
     listUseCases_maxResults,
@@ -771,6 +805,15 @@ module Amazonka.Connect.Lens
     -- ** ReleasePhoneNumber
     releasePhoneNumber_clientToken,
     releasePhoneNumber_phoneNumberId,
+
+    -- ** ReplicateInstance
+    replicateInstance_clientToken,
+    replicateInstance_instanceId,
+    replicateInstance_replicaRegion,
+    replicateInstance_replicaAlias,
+    replicateInstanceResponse_arn,
+    replicateInstanceResponse_id,
+    replicateInstanceResponse_httpStatus,
 
     -- ** ResumeContactRecording
     resumeContactRecording_instanceId,
@@ -1120,6 +1163,11 @@ module Amazonka.Connect.Lens
     updateTaskTemplateResponse_contactFlowId,
     updateTaskTemplateResponse_httpStatus,
 
+    -- ** UpdateTrafficDistribution
+    updateTrafficDistribution_telephonyConfig,
+    updateTrafficDistribution_id,
+    updateTrafficDistributionResponse_httpStatus,
+
     -- ** UpdateUserHierarchy
     updateUserHierarchy_hierarchyGroupId,
     updateUserHierarchy_userId,
@@ -1313,6 +1361,10 @@ module Amazonka.Connect.Lens
     -- ** Dimensions
     dimensions_channel,
     dimensions_queue,
+
+    -- ** Distribution
+    distribution_region,
+    distribution_percentage,
 
     -- ** EmailReference
     emailReference_name,
@@ -1736,9 +1788,28 @@ module Amazonka.Connect.Lens
     taskTemplateMetadata_description,
     taskTemplateMetadata_lastModifiedTime,
 
+    -- ** TelephonyConfig
+    telephonyConfig_distributions,
+
     -- ** Threshold
     threshold_thresholdValue,
     threshold_comparison,
+
+    -- ** TrafficDistributionGroup
+    trafficDistributionGroup_tags,
+    trafficDistributionGroup_name,
+    trafficDistributionGroup_arn,
+    trafficDistributionGroup_status,
+    trafficDistributionGroup_id,
+    trafficDistributionGroup_description,
+    trafficDistributionGroup_instanceArn,
+
+    -- ** TrafficDistributionGroupSummary
+    trafficDistributionGroupSummary_name,
+    trafficDistributionGroupSummary_arn,
+    trafficDistributionGroupSummary_status,
+    trafficDistributionGroupSummary_id,
+    trafficDistributionGroupSummary_instanceArn,
 
     -- ** UrlReference
     urlReference_name,
@@ -1778,7 +1849,9 @@ module Amazonka.Connect.Lens
     -- ** UserIdentityInfo
     userIdentityInfo_firstName,
     userIdentityInfo_email,
+    userIdentityInfo_secondaryEmail,
     userIdentityInfo_lastName,
+    userIdentityInfo_mobile,
 
     -- ** UserIdentityInfoLite
     userIdentityInfoLite_firstName,
@@ -1871,6 +1944,7 @@ import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
 import Amazonka.Connect.CreateSecurityProfile
 import Amazonka.Connect.CreateTaskTemplate
+import Amazonka.Connect.CreateTrafficDistributionGroup
 import Amazonka.Connect.CreateUseCase
 import Amazonka.Connect.CreateUser
 import Amazonka.Connect.CreateUserHierarchyGroup
@@ -1883,6 +1957,7 @@ import Amazonka.Connect.DeleteIntegrationAssociation
 import Amazonka.Connect.DeleteQuickConnect
 import Amazonka.Connect.DeleteSecurityProfile
 import Amazonka.Connect.DeleteTaskTemplate
+import Amazonka.Connect.DeleteTrafficDistributionGroup
 import Amazonka.Connect.DeleteUseCase
 import Amazonka.Connect.DeleteUser
 import Amazonka.Connect.DeleteUserHierarchyGroup
@@ -1900,6 +1975,7 @@ import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
 import Amazonka.Connect.DescribeSecurityProfile
+import Amazonka.Connect.DescribeTrafficDistributionGroup
 import Amazonka.Connect.DescribeUser
 import Amazonka.Connect.DescribeUserHierarchyGroup
 import Amazonka.Connect.DescribeUserHierarchyStructure
@@ -1919,6 +1995,7 @@ import Amazonka.Connect.GetCurrentUserData
 import Amazonka.Connect.GetFederationToken
 import Amazonka.Connect.GetMetricData
 import Amazonka.Connect.GetTaskTemplate
+import Amazonka.Connect.GetTrafficDistribution
 import Amazonka.Connect.ListAgentStatuses
 import Amazonka.Connect.ListApprovedOrigins
 import Amazonka.Connect.ListBots
@@ -1946,11 +2023,13 @@ import Amazonka.Connect.ListSecurityProfilePermissions
 import Amazonka.Connect.ListSecurityProfiles
 import Amazonka.Connect.ListTagsForResource
 import Amazonka.Connect.ListTaskTemplates
+import Amazonka.Connect.ListTrafficDistributionGroups
 import Amazonka.Connect.ListUseCases
 import Amazonka.Connect.ListUserHierarchyGroups
 import Amazonka.Connect.ListUsers
 import Amazonka.Connect.PutUserStatus
 import Amazonka.Connect.ReleasePhoneNumber
+import Amazonka.Connect.ReplicateInstance
 import Amazonka.Connect.ResumeContactRecording
 import Amazonka.Connect.SearchAvailablePhoneNumbers
 import Amazonka.Connect.SearchQueues
@@ -1995,6 +2074,7 @@ import Amazonka.Connect.Types.CurrentMetricResult
 import Amazonka.Connect.Types.DateReference
 import Amazonka.Connect.Types.DefaultVocabulary
 import Amazonka.Connect.Types.Dimensions
+import Amazonka.Connect.Types.Distribution
 import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
 import Amazonka.Connect.Types.Filters
@@ -2074,7 +2154,10 @@ import Amazonka.Connect.Types.TaskTemplateDefaults
 import Amazonka.Connect.Types.TaskTemplateField
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import Amazonka.Connect.Types.TaskTemplateMetadata
+import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.TrafficDistributionGroup
+import Amazonka.Connect.Types.TrafficDistributionGroupSummary
 import Amazonka.Connect.Types.UrlReference
 import Amazonka.Connect.Types.UseCase
 import Amazonka.Connect.Types.User
@@ -2119,6 +2202,7 @@ import Amazonka.Connect.UpdateRoutingProfileName
 import Amazonka.Connect.UpdateRoutingProfileQueues
 import Amazonka.Connect.UpdateSecurityProfile
 import Amazonka.Connect.UpdateTaskTemplate
+import Amazonka.Connect.UpdateTrafficDistribution
 import Amazonka.Connect.UpdateUserHierarchy
 import Amazonka.Connect.UpdateUserHierarchyGroupName
 import Amazonka.Connect.UpdateUserHierarchyStructure

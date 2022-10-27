@@ -85,7 +85,8 @@ instance Core.AWSRequest DeleteInstance where
   type
     AWSResponse DeleteInstance =
       DeleteInstanceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteInstanceResponse'
 

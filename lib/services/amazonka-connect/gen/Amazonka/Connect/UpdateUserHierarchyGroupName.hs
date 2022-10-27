@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateUserHierarchyGroupName where
   type
     AWSResponse UpdateUserHierarchyGroupName =
       UpdateUserHierarchyGroupNameResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserHierarchyGroupNameResponse'

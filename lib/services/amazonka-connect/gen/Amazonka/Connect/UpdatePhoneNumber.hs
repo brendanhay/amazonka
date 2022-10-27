@@ -21,7 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates your claimed phone number from its current Amazon Connect
--- instance to another Amazon Connect instance in the same Region.
+-- instance or traffic distribution group to another Amazon Connect
+-- instance or traffic distribution group in the same Amazon Web Services
+-- Region.
+--
+-- You can call
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+-- API to verify the status of a previous
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+-- operation.
 module Amazonka.Connect.UpdatePhoneNumber
   ( -- * Creating a Request
     UpdatePhoneNumber (..),
@@ -53,12 +61,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdatePhoneNumber' smart constructor.
 data UpdatePhoneNumber = UpdatePhoneNumber'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the phone number.
     phoneNumberId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +82,14 @@ data UpdatePhoneNumber = UpdatePhoneNumber'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'updatePhoneNumber_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'phoneNumberId', 'updatePhoneNumber_phoneNumberId' - A unique identifier for the phone number.
 --
--- 'targetArn', 'updatePhoneNumber_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- 'targetArn', 'updatePhoneNumber_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 newUpdatePhoneNumber ::
   -- | 'phoneNumberId'
   Prelude.Text ->
@@ -92,7 +104,9 @@ newUpdatePhoneNumber pPhoneNumberId_ pTargetArn_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 updatePhoneNumber_clientToken :: Lens.Lens' UpdatePhoneNumber (Prelude.Maybe Prelude.Text)
 updatePhoneNumber_clientToken = Lens.lens (\UpdatePhoneNumber' {clientToken} -> clientToken) (\s@UpdatePhoneNumber' {} a -> s {clientToken = a} :: UpdatePhoneNumber)
 
@@ -100,8 +114,8 @@ updatePhoneNumber_clientToken = Lens.lens (\UpdatePhoneNumber' {clientToken} -> 
 updatePhoneNumber_phoneNumberId :: Lens.Lens' UpdatePhoneNumber Prelude.Text
 updatePhoneNumber_phoneNumberId = Lens.lens (\UpdatePhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@UpdatePhoneNumber' {} a -> s {phoneNumberId = a} :: UpdatePhoneNumber)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 updatePhoneNumber_targetArn :: Lens.Lens' UpdatePhoneNumber Prelude.Text
 updatePhoneNumber_targetArn = Lens.lens (\UpdatePhoneNumber' {targetArn} -> targetArn) (\s@UpdatePhoneNumber' {} a -> s {targetArn = a} :: UpdatePhoneNumber)
 
@@ -109,7 +123,8 @@ instance Core.AWSRequest UpdatePhoneNumber where
   type
     AWSResponse UpdatePhoneNumber =
       UpdatePhoneNumberResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

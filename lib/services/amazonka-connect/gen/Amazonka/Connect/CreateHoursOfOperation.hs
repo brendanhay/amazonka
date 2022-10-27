@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateHoursOfOperation where
   type
     AWSResponse CreateHoursOfOperation =
       CreateHoursOfOperationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

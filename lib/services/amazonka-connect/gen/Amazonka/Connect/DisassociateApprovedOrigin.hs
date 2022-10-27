@@ -94,7 +94,8 @@ instance Core.AWSRequest DisassociateApprovedOrigin where
   type
     AWSResponse DisassociateApprovedOrigin =
       DisassociateApprovedOriginResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateApprovedOriginResponse'

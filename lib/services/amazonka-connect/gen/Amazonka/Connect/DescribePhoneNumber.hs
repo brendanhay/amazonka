@@ -21,7 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets details and status of a phone number that’s claimed to your Amazon
--- Connect instance
+-- Connect instance or traffic distribution group.
+--
+-- If the number is claimed to a traffic distribution group, and you are
+-- calling in the Amazon Web Services Region where the traffic distribution
+-- group was created, you can use either a phone number ARN or UUID value
+-- for the @PhoneNumberId@ URI request parameter. However, if the number is
+-- claimed to a traffic distribution group and you are calling this API in
+-- the alternate Amazon Web Services Region associated with the traffic
+-- distribution group, you must provide a full phone number ARN. If a UUID
+-- is provided in this scenario, you will receive a
+-- @ResourceNotFoundException@.
 module Amazonka.Connect.DescribePhoneNumber
   ( -- * Creating a Request
     DescribePhoneNumber (..),
@@ -81,7 +91,8 @@ instance Core.AWSRequest DescribePhoneNumber where
   type
     AWSResponse DescribePhoneNumber =
       DescribePhoneNumberResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,7 +131,7 @@ instance Core.ToQuery DescribePhoneNumber where
 -- | /See:/ 'newDescribePhoneNumberResponse' smart constructor.
 data DescribePhoneNumberResponse = DescribePhoneNumberResponse'
   { -- | Information about a phone number that\'s been claimed to your Amazon
-    -- Connect instance.
+    -- Connect instance or traffic distribution group.
     claimedPhoneNumberSummary :: Prelude.Maybe ClaimedPhoneNumberSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,7 +147,7 @@ data DescribePhoneNumberResponse = DescribePhoneNumberResponse'
 -- for backwards compatibility:
 --
 -- 'claimedPhoneNumberSummary', 'describePhoneNumberResponse_claimedPhoneNumberSummary' - Information about a phone number that\'s been claimed to your Amazon
--- Connect instance.
+-- Connect instance or traffic distribution group.
 --
 -- 'httpStatus', 'describePhoneNumberResponse_httpStatus' - The response's http status code.
 newDescribePhoneNumberResponse ::
@@ -151,7 +162,7 @@ newDescribePhoneNumberResponse pHttpStatus_ =
     }
 
 -- | Information about a phone number that\'s been claimed to your Amazon
--- Connect instance.
+-- Connect instance or traffic distribution group.
 describePhoneNumberResponse_claimedPhoneNumberSummary :: Lens.Lens' DescribePhoneNumberResponse (Prelude.Maybe ClaimedPhoneNumberSummary)
 describePhoneNumberResponse_claimedPhoneNumberSummary = Lens.lens (\DescribePhoneNumberResponse' {claimedPhoneNumberSummary} -> claimedPhoneNumberSummary) (\s@DescribePhoneNumberResponse' {} a -> s {claimedPhoneNumberSummary = a} :: DescribePhoneNumberResponse)
 

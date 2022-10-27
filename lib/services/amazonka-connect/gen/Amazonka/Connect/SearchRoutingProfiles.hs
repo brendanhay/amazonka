@@ -158,7 +158,8 @@ instance Core.AWSRequest SearchRoutingProfiles where
   type
     AWSResponse SearchRoutingProfiles =
       SearchRoutingProfilesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

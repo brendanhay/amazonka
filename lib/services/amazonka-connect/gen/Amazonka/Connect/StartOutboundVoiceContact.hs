@@ -78,8 +78,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartOutboundVoiceContact' smart constructor.
 data StartOutboundVoiceContact = StartOutboundVoiceContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. The token is valid for 7 days after
-    -- creation. If a contact is already started, the contact ID is returned.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+    -- The token is valid for 7 days after creation. If a contact is already
+    -- started, the contact ID is returned.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Denotes the class of traffic. Calls with different traffic types are
     -- handled differently by Amazon Connect. The default value is @GENERAL@.
@@ -133,8 +136,11 @@ data StartOutboundVoiceContact = StartOutboundVoiceContact'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'startOutboundVoiceContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. The token is valid for 7 days after
--- creation. If a contact is already started, the contact ID is returned.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+-- The token is valid for 7 days after creation. If a contact is already
+-- started, the contact ID is returned.
 --
 -- 'trafficType', 'startOutboundVoiceContact_trafficType' - Denotes the class of traffic. Calls with different traffic types are
 -- handled differently by Amazon Connect. The default value is @GENERAL@.
@@ -203,8 +209,11 @@ newStartOutboundVoiceContact
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. The token is valid for 7 days after
--- creation. If a contact is already started, the contact ID is returned.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+-- The token is valid for 7 days after creation. If a contact is already
+-- started, the contact ID is returned.
 startOutboundVoiceContact_clientToken :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
 startOutboundVoiceContact_clientToken = Lens.lens (\StartOutboundVoiceContact' {clientToken} -> clientToken) (\s@StartOutboundVoiceContact' {} a -> s {clientToken = a} :: StartOutboundVoiceContact)
 
@@ -270,7 +279,8 @@ instance Core.AWSRequest StartOutboundVoiceContact where
   type
     AWSResponse StartOutboundVoiceContact =
       StartOutboundVoiceContactResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

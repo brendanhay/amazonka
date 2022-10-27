@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateTaskTemplate' smart constructor.
 data CreateTaskTemplate = CreateTaskTemplate'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
@@ -94,7 +96,9 @@ data CreateTaskTemplate = CreateTaskTemplate'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createTaskTemplate_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'constraints', 'createTaskTemplate_constraints' - Constraints that are applicable to the fields listed.
 --
@@ -137,7 +141,9 @@ newCreateTaskTemplate pInstanceId_ pName_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createTaskTemplate_clientToken :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe Prelude.Text)
 createTaskTemplate_clientToken = Lens.lens (\CreateTaskTemplate' {clientToken} -> clientToken) (\s@CreateTaskTemplate' {} a -> s {clientToken = a} :: CreateTaskTemplate)
 
@@ -183,7 +189,8 @@ instance Core.AWSRequest CreateTaskTemplate where
   type
     AWSResponse CreateTaskTemplate =
       CreateTaskTemplateResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

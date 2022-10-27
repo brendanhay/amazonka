@@ -73,7 +73,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTransferContact' smart constructor.
 data TransferContact = TransferContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Maybe Prelude.Text,
@@ -98,7 +100,9 @@ data TransferContact = TransferContact'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'transferContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'queueId', 'transferContact_queueId' - The identifier for the queue.
 --
@@ -132,7 +136,9 @@ newTransferContact
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 transferContact_clientToken :: Lens.Lens' TransferContact (Prelude.Maybe Prelude.Text)
 transferContact_clientToken = Lens.lens (\TransferContact' {clientToken} -> clientToken) (\s@TransferContact' {} a -> s {clientToken = a} :: TransferContact)
 
@@ -161,7 +167,8 @@ instance Core.AWSRequest TransferContact where
   type
     AWSResponse TransferContact =
       TransferContactResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

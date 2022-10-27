@@ -59,7 +59,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartTaskContact' smart constructor.
 data StartTaskContact = StartTaskContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Maybe Prelude.Text,
@@ -112,7 +114,9 @@ data StartTaskContact = StartTaskContact'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'startTaskContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'taskTemplateId', 'startTaskContact_taskTemplateId' - A unique identifier for the task template.
 --
@@ -174,7 +178,9 @@ newStartTaskContact pInstanceId_ pName_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startTaskContact_clientToken :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_clientToken = Lens.lens (\StartTaskContact' {clientToken} -> clientToken) (\s@StartTaskContact' {} a -> s {clientToken = a} :: StartTaskContact)
 
@@ -241,7 +247,8 @@ instance Core.AWSRequest StartTaskContact where
   type
     AWSResponse StartTaskContact =
       StartTaskContactResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

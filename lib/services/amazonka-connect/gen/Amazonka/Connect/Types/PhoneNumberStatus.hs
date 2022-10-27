@@ -26,6 +26,33 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the phone number.
 --
+-- -   @CLAIMED@ means the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation succeeded.
+--
+-- -   @IN_PROGRESS@ means a
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation is still in progress and has not yet completed. You can
+--     call
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+--     at a later time to verify if the previous operation has completed.
+--
+-- -   @FAILED@ indicates that the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation has failed. It will include a message indicating the
+--     failure reason. A common reason for a failure may be that the
+--     @TargetArn@ value you are claiming or updating a phone number to has
+--     reached its limit of total claimed numbers. If you received a
+--     @FAILED@ status from a @ClaimPhoneNumber@ API call, you have one day
+--     to retry claiming the phone number before the number is released
+--     back to the inventory for other customers to claim.
+--
 -- /See:/ 'newPhoneNumberStatus' smart constructor.
 data PhoneNumberStatus = PhoneNumberStatus'
   { -- | The status message.

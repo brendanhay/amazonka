@@ -221,6 +221,10 @@ module Amazonka.MediaPackageVOD.Lens
     egressEndpoint_status,
     egressEndpoint_packagingConfigurationId,
 
+    -- ** EncryptionContractConfiguration
+    encryptionContractConfiguration_presetSpeke20Audio,
+    encryptionContractConfiguration_presetSpeke20Video,
+
     -- ** HlsEncryption
     hlsEncryption_constantInitializationVector,
     hlsEncryption_encryptionMethod,
@@ -272,6 +276,7 @@ module Amazonka.MediaPackageVOD.Lens
     packagingGroup_egressAccessLogs,
 
     -- ** SpekeKeyProvider
+    spekeKeyProvider_encryptionContractConfiguration,
     spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
     spekeKeyProvider_roleArn,
@@ -307,6 +312,7 @@ import Amazonka.MediaPackageVOD.Types.DashManifest
 import Amazonka.MediaPackageVOD.Types.DashPackage
 import Amazonka.MediaPackageVOD.Types.EgressAccessLogs
 import Amazonka.MediaPackageVOD.Types.EgressEndpoint
+import Amazonka.MediaPackageVOD.Types.EncryptionContractConfiguration
 import Amazonka.MediaPackageVOD.Types.HlsEncryption
 import Amazonka.MediaPackageVOD.Types.HlsManifest
 import Amazonka.MediaPackageVOD.Types.HlsPackage

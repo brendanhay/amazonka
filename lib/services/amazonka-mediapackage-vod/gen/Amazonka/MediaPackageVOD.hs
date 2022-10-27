@@ -159,6 +159,12 @@ module Amazonka.MediaPackageVOD
     -- ** PeriodTriggersElement
     PeriodTriggersElement (..),
 
+    -- ** PresetSpeke20Audio
+    PresetSpeke20Audio (..),
+
+    -- ** PresetSpeke20Video
+    PresetSpeke20Video (..),
+
     -- ** Profile
     Profile (..),
 
@@ -206,6 +212,10 @@ module Amazonka.MediaPackageVOD
     -- ** EgressEndpoint
     EgressEndpoint (EgressEndpoint'),
     newEgressEndpoint,
+
+    -- ** EncryptionContractConfiguration
+    EncryptionContractConfiguration (EncryptionContractConfiguration'),
+    newEncryptionContractConfiguration,
 
     -- ** HlsEncryption
     HlsEncryption (HlsEncryption'),

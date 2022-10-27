@@ -82,7 +82,8 @@ instance Core.AWSRequest DescribePackagingGroup where
   type
     AWSResponse DescribePackagingGroup =
       DescribePackagingGroupResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

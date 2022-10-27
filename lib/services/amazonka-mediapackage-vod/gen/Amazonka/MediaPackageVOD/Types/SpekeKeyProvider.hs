@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.SpekeKeyProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackageVOD.Types.EncryptionContractConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for accessing an external Secure Packager and Encoder
@@ -28,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpekeKeyProvider' smart constructor.
 data SpekeKeyProvider = SpekeKeyProvider'
-  { -- | The system IDs to include in key requests.
+  { encryptionContractConfiguration :: Prelude.Maybe EncryptionContractConfiguration,
+    -- | The system IDs to include in key requests.
     systemIds :: [Prelude.Text],
     -- | The URL of the external key provider service.
     url :: Prelude.Text,
@@ -46,6 +48,8 @@ data SpekeKeyProvider = SpekeKeyProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionContractConfiguration', 'spekeKeyProvider_encryptionContractConfiguration' - Undocumented member.
+--
 -- 'systemIds', 'spekeKeyProvider_systemIds' - The system IDs to include in key requests.
 --
 -- 'url', 'spekeKeyProvider_url' - The URL of the external key provider service.
@@ -60,10 +64,16 @@ newSpekeKeyProvider ::
   SpekeKeyProvider
 newSpekeKeyProvider pUrl_ pRoleArn_ =
   SpekeKeyProvider'
-    { systemIds = Prelude.mempty,
+    { encryptionContractConfiguration =
+        Prelude.Nothing,
+      systemIds = Prelude.mempty,
       url = pUrl_,
       roleArn = pRoleArn_
     }
+
+-- | Undocumented member.
+spekeKeyProvider_encryptionContractConfiguration :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe EncryptionContractConfiguration)
+spekeKeyProvider_encryptionContractConfiguration = Lens.lens (\SpekeKeyProvider' {encryptionContractConfiguration} -> encryptionContractConfiguration) (\s@SpekeKeyProvider' {} a -> s {encryptionContractConfiguration = a} :: SpekeKeyProvider)
 
 -- | The system IDs to include in key requests.
 spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider [Prelude.Text]
@@ -84,20 +94,24 @@ instance Core.FromJSON SpekeKeyProvider where
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            Prelude.<$> (x Core..:? "systemIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "encryptionContractConfiguration")
+            Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "url")
             Prelude.<*> (x Core..: "roleArn")
       )
 
 instance Prelude.Hashable SpekeKeyProvider where
   hashWithSalt _salt SpekeKeyProvider' {..} =
-    _salt `Prelude.hashWithSalt` systemIds
+    _salt
+      `Prelude.hashWithSalt` encryptionContractConfiguration
+      `Prelude.hashWithSalt` systemIds
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData SpekeKeyProvider where
   rnf SpekeKeyProvider' {..} =
-    Prelude.rnf systemIds
+    Prelude.rnf encryptionContractConfiguration
+      `Prelude.seq` Prelude.rnf systemIds
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -105,7 +119,9 @@ instance Core.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("systemIds" Core..= systemIds),
+          [ ("encryptionContractConfiguration" Core..=)
+              Prelude.<$> encryptionContractConfiguration,
+            Prelude.Just ("systemIds" Core..= systemIds),
             Prelude.Just ("url" Core..= url),
             Prelude.Just ("roleArn" Core..= roleArn)
           ]

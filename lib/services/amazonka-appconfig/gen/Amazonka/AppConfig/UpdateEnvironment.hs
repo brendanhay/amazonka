@@ -123,7 +123,8 @@ updateEnvironment_environmentId = Lens.lens (\UpdateEnvironment' {environmentId}
 
 instance Core.AWSRequest UpdateEnvironment where
   type AWSResponse UpdateEnvironment = Environment
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

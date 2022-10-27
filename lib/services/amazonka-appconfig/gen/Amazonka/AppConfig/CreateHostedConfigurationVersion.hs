@@ -167,7 +167,8 @@ instance
   type
     AWSResponse CreateHostedConfigurationVersion =
       HostedConfigurationVersion
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->

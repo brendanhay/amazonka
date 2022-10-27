@@ -125,7 +125,8 @@ updateExtension_extensionIdentifier = Lens.lens (\UpdateExtension' {extensionIde
 
 instance Core.AWSRequest UpdateExtension where
   type AWSResponse UpdateExtension = Extension
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateExtensionAssociation where
   type
     AWSResponse CreateExtensionAssociation =
       ExtensionAssociation
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

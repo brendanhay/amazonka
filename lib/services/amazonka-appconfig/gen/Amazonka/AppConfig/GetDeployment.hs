@@ -121,7 +121,8 @@ getDeployment_deploymentNumber = Lens.lens (\GetDeployment' {deploymentNumber} -
 
 instance Core.AWSRequest GetDeployment where
   type AWSResponse GetDeployment = Deployment
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

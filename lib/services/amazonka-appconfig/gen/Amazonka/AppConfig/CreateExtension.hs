@@ -169,7 +169,8 @@ createExtension_actions = Lens.lens (\CreateExtension' {actions} -> actions) (\s
 
 instance Core.AWSRequest CreateExtension where
   type AWSResponse CreateExtension = Extension
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

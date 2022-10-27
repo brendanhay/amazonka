@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateDeploymentStrategy where
   type
     AWSResponse UpdateDeploymentStrategy =
       DeploymentStrategy
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

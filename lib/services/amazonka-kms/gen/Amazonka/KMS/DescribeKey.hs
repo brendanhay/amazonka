@@ -244,7 +244,8 @@ describeKey_keyId = Lens.lens (\DescribeKey' {keyId} -> keyId) (\s@DescribeKey' 
 
 instance Core.AWSRequest DescribeKey where
   type AWSResponse DescribeKey = DescribeKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

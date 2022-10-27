@@ -127,7 +127,8 @@ disableKey_keyId = Lens.lens (\DisableKey' {keyId} -> keyId) (\s@DisableKey' {} 
 
 instance Core.AWSRequest DisableKey where
   type AWSResponse DisableKey = DisableKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DisableKeyResponse'
 
 instance Prelude.Hashable DisableKey where

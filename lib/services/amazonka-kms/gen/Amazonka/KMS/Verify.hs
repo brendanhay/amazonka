@@ -333,7 +333,8 @@ verify_signingAlgorithm = Lens.lens (\Verify' {signingAlgorithm} -> signingAlgor
 
 instance Core.AWSRequest Verify where
   type AWSResponse Verify = VerifyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

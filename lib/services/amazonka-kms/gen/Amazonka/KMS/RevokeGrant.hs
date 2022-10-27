@@ -161,7 +161,8 @@ revokeGrant_grantId = Lens.lens (\RevokeGrant' {grantId} -> grantId) (\s@RevokeG
 
 instance Core.AWSRequest RevokeGrant where
   type AWSResponse RevokeGrant = RevokeGrantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull RevokeGrantResponse'
 
 instance Prelude.Hashable RevokeGrant where

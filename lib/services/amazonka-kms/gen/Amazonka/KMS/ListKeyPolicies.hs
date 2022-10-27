@@ -204,7 +204,8 @@ instance Core.AWSRequest ListKeyPolicies where
   type
     AWSResponse ListKeyPolicies =
       ListKeyPoliciesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -147,7 +147,8 @@ instance Core.AWSPager ListKeys where
 
 instance Core.AWSRequest ListKeys where
   type AWSResponse ListKeys = ListKeysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

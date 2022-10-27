@@ -123,7 +123,8 @@ instance Core.AWSRequest DisconnectCustomKeyStore where
   type
     AWSResponse DisconnectCustomKeyStore =
       DisconnectCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

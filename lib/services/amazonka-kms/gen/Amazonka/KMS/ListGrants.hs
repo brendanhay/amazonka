@@ -242,7 +242,8 @@ instance Core.AWSPager ListGrants where
 
 instance Core.AWSRequest ListGrants where
   type AWSResponse ListGrants = ListGrantsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

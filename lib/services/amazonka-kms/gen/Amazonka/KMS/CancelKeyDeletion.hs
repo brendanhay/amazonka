@@ -134,7 +134,8 @@ instance Core.AWSRequest CancelKeyDeletion where
   type
     AWSResponse CancelKeyDeletion =
       CancelKeyDeletionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

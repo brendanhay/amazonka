@@ -1031,7 +1031,8 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 
 instance Core.AWSRequest CreateKey where
   type AWSResponse CreateKey = CreateKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

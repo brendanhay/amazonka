@@ -113,7 +113,8 @@ instance Core.AWSRequest UntagSAMLProvider where
   type
     AWSResponse UntagSAMLProvider =
       UntagSAMLProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagSAMLProviderResponse'
 

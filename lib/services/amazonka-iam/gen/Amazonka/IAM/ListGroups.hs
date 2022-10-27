@@ -187,7 +187,8 @@ instance Core.AWSPager ListGroups where
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListGroupsResult"

@@ -170,7 +170,8 @@ instance Core.AWSPager GetGroup where
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetGroupResult"

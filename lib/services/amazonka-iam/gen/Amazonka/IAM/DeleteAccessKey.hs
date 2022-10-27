@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteAccessKey where
   type
     AWSResponse DeleteAccessKey =
       DeleteAccessKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteAccessKeyResponse'
 

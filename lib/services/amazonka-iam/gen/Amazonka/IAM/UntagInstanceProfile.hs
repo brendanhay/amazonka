@@ -107,7 +107,8 @@ instance Core.AWSRequest UntagInstanceProfile where
   type
     AWSResponse UntagInstanceProfile =
       UntagInstanceProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagInstanceProfileResponse'
 

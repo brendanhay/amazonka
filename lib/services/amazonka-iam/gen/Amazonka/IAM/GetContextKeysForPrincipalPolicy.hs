@@ -183,7 +183,8 @@ instance
   type
     AWSResponse GetContextKeysForPrincipalPolicy =
       GetContextKeysForPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetContextKeysForPrincipalPolicyResult"

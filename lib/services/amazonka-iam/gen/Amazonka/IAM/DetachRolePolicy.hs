@@ -122,7 +122,8 @@ instance Core.AWSRequest DetachRolePolicy where
   type
     AWSResponse DetachRolePolicy =
       DetachRolePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DetachRolePolicyResponse'
 

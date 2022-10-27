@@ -151,7 +151,8 @@ listRoleTags_roleName = Lens.lens (\ListRoleTags' {roleName} -> roleName) (\s@Li
 
 instance Core.AWSRequest ListRoleTags where
   type AWSResponse ListRoleTags = ListRoleTagsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListRoleTagsResult"

@@ -66,7 +66,8 @@ instance Core.AWSRequest GenerateCredentialReport where
   type
     AWSResponse GenerateCredentialReport =
       GenerateCredentialReportResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GenerateCredentialReportResult"

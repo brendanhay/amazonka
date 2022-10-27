@@ -142,7 +142,8 @@ createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@C
 
 instance Core.AWSRequest CreateGroup where
   type AWSResponse CreateGroup = CreateGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateGroupResult"

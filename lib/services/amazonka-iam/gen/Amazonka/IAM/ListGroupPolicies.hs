@@ -183,7 +183,8 @@ instance Core.AWSRequest ListGroupPolicies where
   type
     AWSResponse ListGroupPolicies =
       ListGroupPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListGroupPoliciesResult"

@@ -182,7 +182,8 @@ instance Core.AWSRequest ListUserPolicies where
   type
     AWSResponse ListUserPolicies =
       ListUserPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListUserPoliciesResult"

@@ -100,7 +100,8 @@ getRole_roleName = Lens.lens (\GetRole' {roleName} -> roleName) (\s@GetRole' {} 
 
 instance Core.AWSRequest GetRole where
   type AWSResponse GetRole = GetRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetRoleResult"

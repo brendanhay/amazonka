@@ -112,7 +112,8 @@ instance Core.AWSRequest UntagMFADevice where
   type
     AWSResponse UntagMFADevice =
       UntagMFADeviceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagMFADeviceResponse'
 

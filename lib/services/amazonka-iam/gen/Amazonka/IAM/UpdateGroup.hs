@@ -166,7 +166,8 @@ updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@U
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UpdateGroupResponse'
 
 instance Prelude.Hashable UpdateGroup where

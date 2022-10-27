@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateSAMLProvider where
   type
     AWSResponse UpdateSAMLProvider =
       UpdateSAMLProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateSAMLProviderResult"

@@ -117,7 +117,8 @@ instance Core.AWSRequest RemoveUserFromGroup where
   type
     AWSResponse RemoveUserFromGroup =
       RemoveUserFromGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RemoveUserFromGroupResponse'
 

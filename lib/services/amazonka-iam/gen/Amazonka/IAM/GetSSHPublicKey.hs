@@ -147,7 +147,8 @@ instance Core.AWSRequest GetSSHPublicKey where
   type
     AWSResponse GetSSHPublicKey =
       GetSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSSHPublicKeyResult"

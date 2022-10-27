@@ -99,7 +99,8 @@ instance Core.AWSRequest GetInstanceProfile where
   type
     AWSResponse GetInstanceProfile =
       GetInstanceProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetInstanceProfileResult"

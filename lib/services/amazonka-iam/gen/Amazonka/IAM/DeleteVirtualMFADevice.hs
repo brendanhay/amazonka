@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteVirtualMFADevice where
   type
     AWSResponse DeleteVirtualMFADevice =
       DeleteVirtualMFADeviceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteVirtualMFADeviceResponse'

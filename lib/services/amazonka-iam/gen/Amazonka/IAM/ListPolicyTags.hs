@@ -153,7 +153,8 @@ instance Core.AWSRequest ListPolicyTags where
   type
     AWSResponse ListPolicyTags =
       ListPolicyTagsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPolicyTagsResult"

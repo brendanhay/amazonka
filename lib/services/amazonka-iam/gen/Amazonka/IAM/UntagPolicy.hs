@@ -107,7 +107,8 @@ untagPolicy_tagKeys = Lens.lens (\UntagPolicy' {tagKeys} -> tagKeys) (\s@UntagPo
 
 instance Core.AWSRequest UntagPolicy where
   type AWSResponse UntagPolicy = UntagPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UntagPolicyResponse'
 
 instance Prelude.Hashable UntagPolicy where

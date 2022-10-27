@@ -139,7 +139,8 @@ instance Core.AWSRequest TagOpenIDConnectProvider where
   type
     AWSResponse TagOpenIDConnectProvider =
       TagOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       TagOpenIDConnectProviderResponse'

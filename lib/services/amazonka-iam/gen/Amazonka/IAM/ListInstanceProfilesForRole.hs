@@ -180,7 +180,8 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
   type
     AWSResponse ListInstanceProfilesForRole =
       ListInstanceProfilesForRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListInstanceProfilesForRoleResult"

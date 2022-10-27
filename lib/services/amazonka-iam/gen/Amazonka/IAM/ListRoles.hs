@@ -195,7 +195,8 @@ instance Core.AWSPager ListRoles where
 
 instance Core.AWSRequest ListRoles where
   type AWSResponse ListRoles = ListRolesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListRolesResult"

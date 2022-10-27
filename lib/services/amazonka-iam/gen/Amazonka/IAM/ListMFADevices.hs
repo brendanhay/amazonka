@@ -176,7 +176,8 @@ instance Core.AWSRequest ListMFADevices where
   type
     AWSResponse ListMFADevices =
       ListMFADevicesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMFADevicesResult"

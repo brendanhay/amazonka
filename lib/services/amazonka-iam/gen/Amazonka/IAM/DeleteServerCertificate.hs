@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteServerCertificate where
   type
     AWSResponse DeleteServerCertificate =
       DeleteServerCertificateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteServerCertificateResponse'

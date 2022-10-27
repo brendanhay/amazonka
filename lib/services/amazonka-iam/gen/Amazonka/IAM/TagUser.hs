@@ -138,7 +138,8 @@ tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags
 
 instance Core.AWSRequest TagUser where
   type AWSResponse TagUser = TagUserResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull TagUserResponse'
 
 instance Prelude.Hashable TagUser where

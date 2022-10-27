@@ -208,7 +208,8 @@ instance Core.AWSRequest PutRolePolicy where
   type
     AWSResponse PutRolePolicy =
       PutRolePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutRolePolicyResponse'
 

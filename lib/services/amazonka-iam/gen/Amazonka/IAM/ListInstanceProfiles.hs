@@ -200,7 +200,8 @@ instance Core.AWSRequest ListInstanceProfiles where
   type
     AWSResponse ListInstanceProfiles =
       ListInstanceProfilesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListInstanceProfilesResult"

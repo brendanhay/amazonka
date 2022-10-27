@@ -68,7 +68,8 @@ instance Core.AWSRequest ListSAMLProviders where
   type
     AWSResponse ListSAMLProviders =
       ListSAMLProvidersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSAMLProvidersResult"

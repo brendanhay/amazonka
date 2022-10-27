@@ -286,7 +286,8 @@ instance Core.AWSPager ListPolicies where
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPoliciesResult"

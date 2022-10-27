@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateLoginProfile where
   type
     AWSResponse CreateLoginProfile =
       CreateLoginProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateLoginProfileResult"

@@ -91,7 +91,8 @@ cancelJobRun_virtualClusterId = Lens.lens (\CancelJobRun' {virtualClusterId} -> 
 
 instance Core.AWSRequest CancelJobRun where
   type AWSResponse CancelJobRun = CancelJobRunResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

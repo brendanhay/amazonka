@@ -161,7 +161,8 @@ instance Core.AWSPager ListJobRuns where
 
 instance Core.AWSRequest ListJobRuns where
   type AWSResponse ListJobRuns = ListJobRunsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

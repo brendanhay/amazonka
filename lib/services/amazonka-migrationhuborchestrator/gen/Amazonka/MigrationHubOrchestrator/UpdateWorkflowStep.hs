@@ -203,7 +203,8 @@ instance Core.AWSRequest UpdateWorkflowStep where
   type
     AWSResponse UpdateWorkflowStep =
       UpdateWorkflowStepResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

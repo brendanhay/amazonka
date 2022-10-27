@@ -136,7 +136,8 @@ instance Core.AWSRequest ListTemplateSteps where
   type
     AWSResponse ListTemplateSteps =
       ListTemplateStepsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

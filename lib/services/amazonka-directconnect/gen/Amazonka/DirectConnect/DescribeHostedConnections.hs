@@ -82,7 +82,8 @@ instance Core.AWSRequest DescribeHostedConnections where
   type
     AWSResponse DescribeHostedConnections =
       Connections
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

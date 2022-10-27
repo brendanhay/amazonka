@@ -102,7 +102,8 @@ instance Core.AWSRequest CreateBGPPeer where
   type
     AWSResponse CreateBGPPeer =
       CreateBGPPeerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

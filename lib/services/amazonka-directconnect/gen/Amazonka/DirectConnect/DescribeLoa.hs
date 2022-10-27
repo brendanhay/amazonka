@@ -115,7 +115,8 @@ describeLoa_connectionId = Lens.lens (\DescribeLoa' {connectionId} -> connection
 
 instance Core.AWSRequest DescribeLoa where
   type AWSResponse DescribeLoa = DescribeLoaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

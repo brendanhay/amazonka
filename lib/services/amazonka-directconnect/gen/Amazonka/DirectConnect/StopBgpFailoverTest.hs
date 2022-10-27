@@ -80,7 +80,8 @@ instance Core.AWSRequest StopBgpFailoverTest where
   type
     AWSResponse StopBgpFailoverTest =
       StopBgpFailoverTestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

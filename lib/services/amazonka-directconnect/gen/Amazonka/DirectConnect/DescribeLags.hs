@@ -73,7 +73,8 @@ describeLags_lagId = Lens.lens (\DescribeLags' {lagId} -> lagId) (\s@DescribeLag
 
 instance Core.AWSRequest DescribeLags where
   type AWSResponse DescribeLags = DescribeLagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

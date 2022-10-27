@@ -128,7 +128,8 @@ instance Core.AWSRequest AssociateDeviceWithPlacement where
   type
     AWSResponse AssociateDeviceWithPlacement =
       AssociateDeviceWithPlacementResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

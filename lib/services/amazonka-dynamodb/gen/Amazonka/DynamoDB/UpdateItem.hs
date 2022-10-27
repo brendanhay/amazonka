@@ -779,7 +779,8 @@ updateItem_key = Lens.lens (\UpdateItem' {key} -> key) (\s@UpdateItem' {} a -> s
 
 instance Core.AWSRequest UpdateItem where
   type AWSResponse UpdateItem = UpdateItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

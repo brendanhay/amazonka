@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateContributorInsights where
   type
     AWSResponse UpdateContributorInsights =
       UpdateContributorInsightsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateContinuousBackups where
   type
     AWSResponse UpdateContinuousBackups =
       UpdateContinuousBackupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

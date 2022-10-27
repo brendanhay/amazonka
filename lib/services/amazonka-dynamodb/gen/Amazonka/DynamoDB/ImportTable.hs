@@ -176,7 +176,8 @@ importTable_tableCreationParameters = Lens.lens (\ImportTable' {tableCreationPar
 
 instance Core.AWSRequest ImportTable where
   type AWSResponse ImportTable = ImportTableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

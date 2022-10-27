@@ -54,6 +54,8 @@ defaultService =
       Core._serviceEndpointPrefix = "kinesisvideo",
       Core._serviceSigningName = "kinesisvideo",
       Core._serviceVersion = "2017-09-30",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

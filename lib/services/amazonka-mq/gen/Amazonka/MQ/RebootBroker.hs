@@ -74,7 +74,8 @@ rebootBroker_brokerId = Lens.lens (\RebootBroker' {brokerId} -> brokerId) (\s@Re
 
 instance Core.AWSRequest RebootBroker where
   type AWSResponse RebootBroker = RebootBrokerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

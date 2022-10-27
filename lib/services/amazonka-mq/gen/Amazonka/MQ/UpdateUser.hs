@@ -141,7 +141,8 @@ updateUser_brokerId = Lens.lens (\UpdateUser' {brokerId} -> brokerId) (\s@Update
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

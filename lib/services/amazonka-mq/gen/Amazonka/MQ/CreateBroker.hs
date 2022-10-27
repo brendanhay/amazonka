@@ -444,7 +444,8 @@ createBroker_publiclyAccessible = Lens.lens (\CreateBroker' {publiclyAccessible}
 
 instance Core.AWSRequest CreateBroker where
   type AWSResponse CreateBroker = CreateBrokerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

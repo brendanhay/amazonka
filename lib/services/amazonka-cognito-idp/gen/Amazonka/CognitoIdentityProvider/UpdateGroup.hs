@@ -133,7 +133,8 @@ updateGroup_userPoolId = Lens.lens (\UpdateGroup' {userPoolId} -> userPoolId) (\
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

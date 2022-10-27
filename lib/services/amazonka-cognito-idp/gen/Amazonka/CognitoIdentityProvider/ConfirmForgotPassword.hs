@@ -273,7 +273,8 @@ instance Core.AWSRequest ConfirmForgotPassword where
   type
     AWSResponse ConfirmForgotPassword =
       ConfirmForgotPasswordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

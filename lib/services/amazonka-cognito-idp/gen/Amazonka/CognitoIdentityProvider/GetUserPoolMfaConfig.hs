@@ -79,7 +79,8 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
   type
     AWSResponse GetUserPoolMfaConfig =
       GetUserPoolMfaConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -91,7 +91,8 @@ getGroup_userPoolId = Lens.lens (\GetGroup' {userPoolId} -> userPoolId) (\s@GetG
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

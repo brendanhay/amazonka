@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteUserPool where
   type
     AWSResponse DeleteUserPool =
       DeleteUserPoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteUserPoolResponse'
 

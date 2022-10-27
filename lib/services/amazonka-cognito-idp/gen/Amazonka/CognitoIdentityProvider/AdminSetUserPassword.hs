@@ -129,7 +129,8 @@ instance Core.AWSRequest AdminSetUserPassword where
   type
     AWSResponse AdminSetUserPassword =
       AdminSetUserPasswordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

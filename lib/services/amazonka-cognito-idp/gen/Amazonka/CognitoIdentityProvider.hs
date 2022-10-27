@@ -800,6 +800,9 @@ module Amazonka.CognitoIdentityProvider
     -- ** DefaultEmailOptionType
     DefaultEmailOptionType (..),
 
+    -- ** DeletionProtectionType
+    DeletionProtectionType (..),
+
     -- ** DeliveryMediumType
     DeliveryMediumType (..),
 

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateIdentityProvider where
   type
     AWSResponse UpdateIdentityProvider =
       UpdateIdentityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,7 +188,7 @@ instance Core.ToQuery UpdateIdentityProvider where
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The IdP object.
+    -- | The identity provider details.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -202,7 +203,7 @@ data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
 --
 -- 'httpStatus', 'updateIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'updateIdentityProviderResponse_identityProvider' - The IdP object.
+-- 'identityProvider', 'updateIdentityProviderResponse_identityProvider' - The identity provider details.
 newUpdateIdentityProviderResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -222,7 +223,7 @@ newUpdateIdentityProviderResponse
 updateIdentityProviderResponse_httpStatus :: Lens.Lens' UpdateIdentityProviderResponse Prelude.Int
 updateIdentityProviderResponse_httpStatus = Lens.lens (\UpdateIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateIdentityProviderResponse' {} a -> s {httpStatus = a} :: UpdateIdentityProviderResponse)
 
--- | The IdP object.
+-- | The identity provider details.
 updateIdentityProviderResponse_identityProvider :: Lens.Lens' UpdateIdentityProviderResponse IdentityProviderType
 updateIdentityProviderResponse_identityProvider = Lens.lens (\UpdateIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@UpdateIdentityProviderResponse' {} a -> s {identityProvider = a} :: UpdateIdentityProviderResponse)
 

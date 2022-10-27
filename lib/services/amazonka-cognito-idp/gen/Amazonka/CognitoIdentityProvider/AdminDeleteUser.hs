@@ -91,7 +91,8 @@ instance Core.AWSRequest AdminDeleteUser where
   type
     AWSResponse AdminDeleteUser =
       AdminDeleteUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AdminDeleteUserResponse'
 

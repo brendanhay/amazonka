@@ -115,19 +115,28 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     --
     -- The default time unit for @AccessTokenValidity@ in an API request is
     -- hours. /Valid range/ is displayed below in seconds.
+    --
+    -- If you don\'t specify otherwise in the configuration of your app client,
+    -- your access tokens are valid for one hour.
     accessTokenValidity :: Prelude.Maybe Prelude.Natural,
-    -- | The authentication flows that are supported by the user pool clients.
-    -- Flow names without the @ALLOW_@ prefix are no longer supported in favor
-    -- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
-    -- prefix must be used only along with values with the @ALLOW_@ prefix.
+    -- | The authentication flows that you want your user pool client to support.
+    -- For each app client in your user pool, you can sign in your users with
+    -- any combination of one or more flows, including with a user name and
+    -- Secure Remote Password (SRP), a user name and password, or a custom
+    -- authentication process that you define with Lambda functions.
+    --
+    -- If you don\'t specify a value for @ExplicitAuthFlows@, your user client
+    -- supports @ALLOW_REFRESH_TOKEN_AUTH@, @ALLOW_USER_SRP_AUTH@, and
+    -- @ALLOW_CUSTOM_AUTH@.
     --
     -- Valid values include:
     --
     -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
     --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
     --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
-    --     flow, Amazon Cognito receives the password in the request instead of
-    --     using the Secure Remote Password (SRP) protocol to verify passwords.
+    --     flow, your app passes a user name and password to Amazon Cognito in
+    --     the request, instead of using the Secure Remote Password (SRP)
+    --     protocol to securely transmit the password.
     --
     -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
     --
@@ -139,6 +148,11 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
     --
     -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
+    --
+    -- In some environments, you will see the values @ADMIN_NO_SRP_AUTH@,
+    -- @CUSTOM_AUTH_FLOW_ONLY@, or @USER_PASSWORD_AUTH@. You can\'t assign
+    -- these legacy @ExplicitAuthFlows@ values to user pool clients at the same
+    -- time as values that begin with @ALLOW_@, like @ALLOW_USER_SRP_AUTH@.
     explicitAuthFlows :: Prelude.Maybe [ExplicitAuthFlowsType],
     -- | A list of allowed redirect (callback) URLs for the IdPs.
     --
@@ -174,6 +188,9 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     --
     -- The default time unit for @AccessTokenValidity@ in an API request is
     -- hours. /Valid range/ is displayed below in seconds.
+    --
+    -- If you don\'t specify otherwise in the configuration of your app client,
+    -- your ID tokens are valid for one hour.
     idTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | Set to true if the client is allowed to follow the OAuth protocol when
     -- interacting with Amazon Cognito user pools.
@@ -191,6 +208,9 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     -- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
     -- Cognito overrides the value with the default value of 30 days. /Valid
     -- range/ is displayed below in seconds.
+    --
+    -- If you don\'t specify otherwise in the configuration of your app client,
+    -- your refresh tokens are valid for 30 days.
     refreshTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Pinpoint analytics configuration necessary to collect metrics
     -- for this user pool.
@@ -315,18 +335,27 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 -- The default time unit for @AccessTokenValidity@ in an API request is
 -- hours. /Valid range/ is displayed below in seconds.
 --
--- 'explicitAuthFlows', 'updateUserPoolClient_explicitAuthFlows' - The authentication flows that are supported by the user pool clients.
--- Flow names without the @ALLOW_@ prefix are no longer supported in favor
--- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
--- prefix must be used only along with values with the @ALLOW_@ prefix.
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your access tokens are valid for one hour.
+--
+-- 'explicitAuthFlows', 'updateUserPoolClient_explicitAuthFlows' - The authentication flows that you want your user pool client to support.
+-- For each app client in your user pool, you can sign in your users with
+-- any combination of one or more flows, including with a user name and
+-- Secure Remote Password (SRP), a user name and password, or a custom
+-- authentication process that you define with Lambda functions.
+--
+-- If you don\'t specify a value for @ExplicitAuthFlows@, your user client
+-- supports @ALLOW_REFRESH_TOKEN_AUTH@, @ALLOW_USER_SRP_AUTH@, and
+-- @ALLOW_CUSTOM_AUTH@.
 --
 -- Valid values include:
 --
 -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
 --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
 --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
---     flow, Amazon Cognito receives the password in the request instead of
---     using the Secure Remote Password (SRP) protocol to verify passwords.
+--     flow, your app passes a user name and password to Amazon Cognito in
+--     the request, instead of using the Secure Remote Password (SRP)
+--     protocol to securely transmit the password.
 --
 -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
 --
@@ -338,6 +367,11 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
 --
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
+--
+-- In some environments, you will see the values @ADMIN_NO_SRP_AUTH@,
+-- @CUSTOM_AUTH_FLOW_ONLY@, or @USER_PASSWORD_AUTH@. You can\'t assign
+-- these legacy @ExplicitAuthFlows@ values to user pool clients at the same
+-- time as values that begin with @ALLOW_@, like @ALLOW_USER_SRP_AUTH@.
 --
 -- 'callbackURLs', 'updateUserPoolClient_callbackURLs' - A list of allowed redirect (callback) URLs for the IdPs.
 --
@@ -374,6 +408,9 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 -- The default time unit for @AccessTokenValidity@ in an API request is
 -- hours. /Valid range/ is displayed below in seconds.
 --
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your ID tokens are valid for one hour.
+--
 -- 'allowedOAuthFlowsUserPoolClient', 'updateUserPoolClient_allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when
 -- interacting with Amazon Cognito user pools.
 --
@@ -390,6 +427,9 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 -- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
 -- Cognito overrides the value with the default value of 30 days. /Valid
 -- range/ is displayed below in seconds.
+--
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your refresh tokens are valid for 30 days.
 --
 -- 'analyticsConfiguration', 'updateUserPoolClient_analyticsConfiguration' - The Amazon Pinpoint analytics configuration necessary to collect metrics
 -- for this user pool.
@@ -539,21 +579,30 @@ updateUserPoolClient_defaultRedirectURI = Lens.lens (\UpdateUserPoolClient' {def
 --
 -- The default time unit for @AccessTokenValidity@ in an API request is
 -- hours. /Valid range/ is displayed below in seconds.
+--
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your access tokens are valid for one hour.
 updateUserPoolClient_accessTokenValidity :: Lens.Lens' UpdateUserPoolClient (Prelude.Maybe Prelude.Natural)
 updateUserPoolClient_accessTokenValidity = Lens.lens (\UpdateUserPoolClient' {accessTokenValidity} -> accessTokenValidity) (\s@UpdateUserPoolClient' {} a -> s {accessTokenValidity = a} :: UpdateUserPoolClient)
 
--- | The authentication flows that are supported by the user pool clients.
--- Flow names without the @ALLOW_@ prefix are no longer supported in favor
--- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
--- prefix must be used only along with values with the @ALLOW_@ prefix.
+-- | The authentication flows that you want your user pool client to support.
+-- For each app client in your user pool, you can sign in your users with
+-- any combination of one or more flows, including with a user name and
+-- Secure Remote Password (SRP), a user name and password, or a custom
+-- authentication process that you define with Lambda functions.
+--
+-- If you don\'t specify a value for @ExplicitAuthFlows@, your user client
+-- supports @ALLOW_REFRESH_TOKEN_AUTH@, @ALLOW_USER_SRP_AUTH@, and
+-- @ALLOW_CUSTOM_AUTH@.
 --
 -- Valid values include:
 --
 -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
 --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
 --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
---     flow, Amazon Cognito receives the password in the request instead of
---     using the Secure Remote Password (SRP) protocol to verify passwords.
+--     flow, your app passes a user name and password to Amazon Cognito in
+--     the request, instead of using the Secure Remote Password (SRP)
+--     protocol to securely transmit the password.
 --
 -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
 --
@@ -565,6 +614,11 @@ updateUserPoolClient_accessTokenValidity = Lens.lens (\UpdateUserPoolClient' {ac
 -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
 --
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
+--
+-- In some environments, you will see the values @ADMIN_NO_SRP_AUTH@,
+-- @CUSTOM_AUTH_FLOW_ONLY@, or @USER_PASSWORD_AUTH@. You can\'t assign
+-- these legacy @ExplicitAuthFlows@ values to user pool clients at the same
+-- time as values that begin with @ALLOW_@, like @ALLOW_USER_SRP_AUTH@.
 updateUserPoolClient_explicitAuthFlows :: Lens.Lens' UpdateUserPoolClient (Prelude.Maybe [ExplicitAuthFlowsType])
 updateUserPoolClient_explicitAuthFlows = Lens.lens (\UpdateUserPoolClient' {explicitAuthFlows} -> explicitAuthFlows) (\s@UpdateUserPoolClient' {} a -> s {explicitAuthFlows = a} :: UpdateUserPoolClient) Prelude.. Lens.mapping Lens.coerced
 
@@ -606,6 +660,9 @@ updateUserPoolClient_allowedOAuthScopes = Lens.lens (\UpdateUserPoolClient' {all
 --
 -- The default time unit for @AccessTokenValidity@ in an API request is
 -- hours. /Valid range/ is displayed below in seconds.
+--
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your ID tokens are valid for one hour.
 updateUserPoolClient_idTokenValidity :: Lens.Lens' UpdateUserPoolClient (Prelude.Maybe Prelude.Natural)
 updateUserPoolClient_idTokenValidity = Lens.lens (\UpdateUserPoolClient' {idTokenValidity} -> idTokenValidity) (\s@UpdateUserPoolClient' {} a -> s {idTokenValidity = a} :: UpdateUserPoolClient)
 
@@ -627,6 +684,9 @@ updateUserPoolClient_allowedOAuthFlowsUserPoolClient = Lens.lens (\UpdateUserPoo
 -- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
 -- Cognito overrides the value with the default value of 30 days. /Valid
 -- range/ is displayed below in seconds.
+--
+-- If you don\'t specify otherwise in the configuration of your app client,
+-- your refresh tokens are valid for 30 days.
 updateUserPoolClient_refreshTokenValidity :: Lens.Lens' UpdateUserPoolClient (Prelude.Maybe Prelude.Natural)
 updateUserPoolClient_refreshTokenValidity = Lens.lens (\UpdateUserPoolClient' {refreshTokenValidity} -> refreshTokenValidity) (\s@UpdateUserPoolClient' {} a -> s {refreshTokenValidity = a} :: UpdateUserPoolClient)
 
@@ -737,7 +797,8 @@ instance Core.AWSRequest UpdateUserPoolClient where
   type
     AWSResponse UpdateUserPoolClient =
       UpdateUserPoolClientResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateAuthEventFeedback where
   type
     AWSResponse UpdateAuthEventFeedback =
       UpdateAuthEventFeedbackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

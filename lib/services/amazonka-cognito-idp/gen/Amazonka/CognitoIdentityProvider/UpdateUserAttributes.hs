@@ -238,7 +238,8 @@ instance Core.AWSRequest UpdateUserAttributes where
   type
     AWSResponse UpdateUserAttributes =
       UpdateUserAttributesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ adminGetUser_username = Lens.lens (\AdminGetUser' {username} -> username) (\s@Ad
 
 instance Core.AWSRequest AdminGetUser where
   type AWSResponse AdminGetUser = AdminGetUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

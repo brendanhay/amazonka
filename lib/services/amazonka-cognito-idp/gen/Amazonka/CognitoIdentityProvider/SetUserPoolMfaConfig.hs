@@ -74,7 +74,7 @@ import qualified Amazonka.Response as Response
 data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
   { -- | The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
     -- only users who have set up an MFA factor can sign in. To learn more, see
-    -- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
     -- Valid values include:
     --
     -- -   @OFF@ MFA won\'t be used for any users.
@@ -103,7 +103,7 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
 --
 -- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
 -- only users who have set up an MFA factor can sign in. To learn more, see
--- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
 -- Valid values include:
 --
 -- -   @OFF@ MFA won\'t be used for any users.
@@ -133,7 +133,7 @@ newSetUserPoolMfaConfig pUserPoolId_ =
 
 -- | The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
 -- only users who have set up an MFA factor can sign in. To learn more, see
--- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
 -- Valid values include:
 --
 -- -   @OFF@ MFA won\'t be used for any users.
@@ -161,7 +161,8 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
   type
     AWSResponse SetUserPoolMfaConfig =
       SetUserPoolMfaConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

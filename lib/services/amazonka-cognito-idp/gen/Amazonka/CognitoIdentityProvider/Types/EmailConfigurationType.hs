@@ -76,8 +76,8 @@ data EmailConfigurationType = EmailConfigurationType'
     --     configuration.
     --
     --     To look up the email delivery limit for the default option, see
-    --     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits in>
-    --     in the /Developer Guide/.
+    --     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits>
+    --     in the /Amazon Cognito Developer Guide/.
     --
     --     The default FROM address is @no-reply\@verificationemail.com@. To
     --     customize the FROM address, provide the Amazon Resource Name (ARN)
@@ -98,10 +98,11 @@ data EmailConfigurationType = EmailConfigurationType'
     --     Before Amazon Cognito can email your users, it requires additional
     --     permissions to call Amazon SES on your behalf. When you update your
     --     user pool with this option, Amazon Cognito creates a /service-linked
-    --     role/, which is a type of role, in your Amazon Web Services account.
-    --     This role contains the permissions that allow to access Amazon SES
-    --     and send email messages with your address. For more information
-    --     about the service-linked role that Amazon Cognito creates, see
+    --     role/, which is a type of role in your Amazon Web Services account.
+    --     This role contains the permissions that allow you to access Amazon
+    --     SES and send email messages from your email address. For more
+    --     information about the service-linked role that Amazon Cognito
+    --     creates, see
     --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
     --     in the /Amazon Cognito Developer Guide/.
     emailSendingAccount :: Prelude.Maybe EmailSendingAccountType,
@@ -175,8 +176,8 @@ data EmailConfigurationType = EmailConfigurationType'
 --     configuration.
 --
 --     To look up the email delivery limit for the default option, see
---     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits in>
---     in the /Developer Guide/.
+--     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits>
+--     in the /Amazon Cognito Developer Guide/.
 --
 --     The default FROM address is @no-reply\@verificationemail.com@. To
 --     customize the FROM address, provide the Amazon Resource Name (ARN)
@@ -197,10 +198,11 @@ data EmailConfigurationType = EmailConfigurationType'
 --     Before Amazon Cognito can email your users, it requires additional
 --     permissions to call Amazon SES on your behalf. When you update your
 --     user pool with this option, Amazon Cognito creates a /service-linked
---     role/, which is a type of role, in your Amazon Web Services account.
---     This role contains the permissions that allow to access Amazon SES
---     and send email messages with your address. For more information
---     about the service-linked role that Amazon Cognito creates, see
+--     role/, which is a type of role in your Amazon Web Services account.
+--     This role contains the permissions that allow you to access Amazon
+--     SES and send email messages from your email address. For more
+--     information about the service-linked role that Amazon Cognito
+--     creates, see
 --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
 --     in the /Amazon Cognito Developer Guide/.
 --
@@ -279,8 +281,8 @@ emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceAr
 --     configuration.
 --
 --     To look up the email delivery limit for the default option, see
---     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits in>
---     in the /Developer Guide/.
+--     <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html Limits>
+--     in the /Amazon Cognito Developer Guide/.
 --
 --     The default FROM address is @no-reply\@verificationemail.com@. To
 --     customize the FROM address, provide the Amazon Resource Name (ARN)
@@ -301,10 +303,11 @@ emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceAr
 --     Before Amazon Cognito can email your users, it requires additional
 --     permissions to call Amazon SES on your behalf. When you update your
 --     user pool with this option, Amazon Cognito creates a /service-linked
---     role/, which is a type of role, in your Amazon Web Services account.
---     This role contains the permissions that allow to access Amazon SES
---     and send email messages with your address. For more information
---     about the service-linked role that Amazon Cognito creates, see
+--     role/, which is a type of role in your Amazon Web Services account.
+--     This role contains the permissions that allow you to access Amazon
+--     SES and send email messages from your email address. For more
+--     information about the service-linked role that Amazon Cognito
+--     creates, see
 --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
 --     in the /Amazon Cognito Developer Guide/.
 emailConfigurationType_emailSendingAccount :: Lens.Lens' EmailConfigurationType (Prelude.Maybe EmailSendingAccountType)

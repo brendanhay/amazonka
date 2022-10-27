@@ -21,6 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This method takes a user pool ID, and returns the signing certificate.
+-- The issued certificate is valid for 10 years from the date of issue.
+--
+-- Amazon Cognito issues and assigns a new signing certificate annually.
+-- This process returns a new value in the response to
+-- @GetSigningCertificate@, but doesn\'t invalidate the original
+-- certificate.
 module Amazonka.CognitoIdentityProvider.GetSigningCertificate
   ( -- * Creating a Request
     GetSigningCertificate (..),
@@ -79,7 +85,8 @@ instance Core.AWSRequest GetSigningCertificate where
   type
     AWSResponse GetSigningCertificate =
       GetSigningCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

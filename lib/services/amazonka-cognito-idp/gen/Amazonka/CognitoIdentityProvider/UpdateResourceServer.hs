@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateResourceServer where
   type
     AWSResponse UpdateResourceServer =
       UpdateResourceServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

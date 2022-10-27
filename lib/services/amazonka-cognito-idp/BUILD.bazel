@@ -126,6 +126,7 @@ haskell_library(
         "gen/Amazonka/CognitoIdentityProvider/Types/CustomSMSLambdaVersionConfigType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/CustomSMSSenderLambdaVersionType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/DefaultEmailOptionType.hs",
+        "gen/Amazonka/CognitoIdentityProvider/Types/DeletionProtectionType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/DeliveryMediumType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/DeviceConfigurationType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/DeviceRememberedStatusType.hs",

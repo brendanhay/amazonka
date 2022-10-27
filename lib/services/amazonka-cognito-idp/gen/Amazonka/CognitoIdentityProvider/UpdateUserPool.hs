@@ -63,6 +63,7 @@ module Amazonka.CognitoIdentityProvider.UpdateUserPool
     updateUserPool_accountRecoverySetting,
     updateUserPool_userAttributeUpdateSettings,
     updateUserPool_userPoolTags,
+    updateUserPool_deletionProtection,
     updateUserPool_emailVerificationMessage,
     updateUserPool_smsAuthenticationMessage,
     updateUserPool_lambdaConfig,
@@ -157,6 +158,15 @@ data UpdateUserPool = UpdateUserPool'
     -- that you can use to categorize and manage user pools in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | When active, @DeletionProtection@ prevents accidental deletion of your
+    -- user pool. Before you can delete a user pool that you have protected
+    -- against deletion, you must deactivate this feature.
+    --
+    -- When you try to delete a protected user pool in a @DeleteUserPool@ API
+    -- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+    -- delete a protected user pool, send a new @DeleteUserPool@ request after
+    -- you deactivate deletion protection in an @UpdateUserPool@ API request.
+    deletionProtection :: Prelude.Maybe DeletionProtectionType,
     -- | This parameter is no longer used. See
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationMessage :: Prelude.Maybe Prelude.Text,
@@ -249,6 +259,15 @@ data UpdateUserPool = UpdateUserPool'
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 --
+-- 'deletionProtection', 'updateUserPool_deletionProtection' - When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
+--
 -- 'emailVerificationMessage', 'updateUserPool_emailVerificationMessage' - This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
@@ -281,6 +300,7 @@ newUpdateUserPool pUserPoolId_ =
       accountRecoverySetting = Prelude.Nothing,
       userAttributeUpdateSettings = Prelude.Nothing,
       userPoolTags = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       emailVerificationMessage = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
@@ -382,6 +402,17 @@ updateUserPool_userAttributeUpdateSettings = Lens.lens (\UpdateUserPool' {userAt
 updateUserPool_userPoolTags :: Lens.Lens' UpdateUserPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateUserPool_userPoolTags = Lens.lens (\UpdateUserPool' {userPoolTags} -> userPoolTags) (\s@UpdateUserPool' {} a -> s {userPoolTags = a} :: UpdateUserPool) Prelude.. Lens.mapping Lens.coerced
 
+-- | When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
+updateUserPool_deletionProtection :: Lens.Lens' UpdateUserPool (Prelude.Maybe DeletionProtectionType)
+updateUserPool_deletionProtection = Lens.lens (\UpdateUserPool' {deletionProtection} -> deletionProtection) (\s@UpdateUserPool' {} a -> s {deletionProtection = a} :: UpdateUserPool)
+
 -- | This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 updateUserPool_emailVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
@@ -409,7 +440,8 @@ instance Core.AWSRequest UpdateUserPool where
   type
     AWSResponse UpdateUserPool =
       UpdateUserPoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -432,6 +464,7 @@ instance Prelude.Hashable UpdateUserPool where
       `Prelude.hashWithSalt` accountRecoverySetting
       `Prelude.hashWithSalt` userAttributeUpdateSettings
       `Prelude.hashWithSalt` userPoolTags
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` emailVerificationMessage
       `Prelude.hashWithSalt` smsAuthenticationMessage
       `Prelude.hashWithSalt` lambdaConfig
@@ -453,6 +486,7 @@ instance Prelude.NFData UpdateUserPool where
       `Prelude.seq` Prelude.rnf accountRecoverySetting
       `Prelude.seq` Prelude.rnf userAttributeUpdateSettings
       `Prelude.seq` Prelude.rnf userPoolTags
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf emailVerificationMessage
       `Prelude.seq` Prelude.rnf smsAuthenticationMessage
       `Prelude.seq` Prelude.rnf lambdaConfig
@@ -502,6 +536,8 @@ instance Core.ToJSON UpdateUserPool where
             ("UserAttributeUpdateSettings" Core..=)
               Prelude.<$> userAttributeUpdateSettings,
             ("UserPoolTags" Core..=) Prelude.<$> userPoolTags,
+            ("DeletionProtection" Core..=)
+              Prelude.<$> deletionProtection,
             ("EmailVerificationMessage" Core..=)
               Prelude.<$> emailVerificationMessage,
             ("SmsAuthenticationMessage" Core..=)

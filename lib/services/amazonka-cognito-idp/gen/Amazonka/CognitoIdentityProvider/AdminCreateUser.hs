@@ -494,7 +494,8 @@ instance Core.AWSRequest AdminCreateUser where
   type
     AWSResponse AdminCreateUser =
       AdminCreateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

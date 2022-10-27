@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 data AdminListUserAuthEvents = AdminListUserAuthEvents'
   { -- | A pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of authentication events to return.
+    -- | The maximum number of authentication events to return. Returns 60 events
+    -- if you set @MaxResults@ to 0, or if you don\'t include a @MaxResults@
+    -- parameter.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
@@ -76,7 +78,9 @@ data AdminListUserAuthEvents = AdminListUserAuthEvents'
 --
 -- 'nextToken', 'adminListUserAuthEvents_nextToken' - A pagination token.
 --
--- 'maxResults', 'adminListUserAuthEvents_maxResults' - The maximum number of authentication events to return.
+-- 'maxResults', 'adminListUserAuthEvents_maxResults' - The maximum number of authentication events to return. Returns 60 events
+-- if you set @MaxResults@ to 0, or if you don\'t include a @MaxResults@
+-- parameter.
 --
 -- 'userPoolId', 'adminListUserAuthEvents_userPoolId' - The user pool ID.
 --
@@ -100,7 +104,9 @@ newAdminListUserAuthEvents pUserPoolId_ pUsername_ =
 adminListUserAuthEvents_nextToken :: Lens.Lens' AdminListUserAuthEvents (Prelude.Maybe Prelude.Text)
 adminListUserAuthEvents_nextToken = Lens.lens (\AdminListUserAuthEvents' {nextToken} -> nextToken) (\s@AdminListUserAuthEvents' {} a -> s {nextToken = a} :: AdminListUserAuthEvents)
 
--- | The maximum number of authentication events to return.
+-- | The maximum number of authentication events to return. Returns 60 events
+-- if you set @MaxResults@ to 0, or if you don\'t include a @MaxResults@
+-- parameter.
 adminListUserAuthEvents_maxResults :: Lens.Lens' AdminListUserAuthEvents (Prelude.Maybe Prelude.Natural)
 adminListUserAuthEvents_maxResults = Lens.lens (\AdminListUserAuthEvents' {maxResults} -> maxResults) (\s@AdminListUserAuthEvents' {} a -> s {maxResults = a} :: AdminListUserAuthEvents)
 
@@ -138,7 +144,8 @@ instance Core.AWSRequest AdminListUserAuthEvents where
   type
     AWSResponse AdminListUserAuthEvents =
       AdminListUserAuthEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

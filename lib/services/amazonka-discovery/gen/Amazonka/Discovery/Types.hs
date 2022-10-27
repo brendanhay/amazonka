@@ -277,6 +277,8 @@ defaultService =
       Core._serviceEndpointPrefix = "discovery",
       Core._serviceSigningName = "discovery",
       Core._serviceVersion = "2015-11-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

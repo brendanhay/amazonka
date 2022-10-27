@@ -97,7 +97,8 @@ deleteTags_configurationIds = Lens.lens (\DeleteTags' {configurationIds} -> conf
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

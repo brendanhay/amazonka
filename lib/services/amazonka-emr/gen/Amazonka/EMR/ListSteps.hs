@@ -151,7 +151,8 @@ instance Core.AWSPager ListSteps where
 
 instance Core.AWSRequest ListSteps where
   type AWSResponse ListSteps = ListStepsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

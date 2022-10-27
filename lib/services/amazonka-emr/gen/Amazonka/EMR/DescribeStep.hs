@@ -91,7 +91,8 @@ describeStep_stepId = Lens.lens (\DescribeStep' {stepId} -> stepId) (\s@Describe
 
 instance Core.AWSRequest DescribeStep where
   type AWSResponse DescribeStep = DescribeStepResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

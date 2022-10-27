@@ -129,7 +129,8 @@ updateStudio_studioId = Lens.lens (\UpdateStudio' {studioId} -> studioId) (\s@Up
 
 instance Core.AWSRequest UpdateStudio where
   type AWSResponse UpdateStudio = UpdateStudioResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UpdateStudioResponse'
 
 instance Prelude.Hashable UpdateStudio where

@@ -80,7 +80,8 @@ instance Core.AWSRequest DescribeNotebookExecution where
   type
     AWSResponse DescribeNotebookExecution =
       DescribeNotebookExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

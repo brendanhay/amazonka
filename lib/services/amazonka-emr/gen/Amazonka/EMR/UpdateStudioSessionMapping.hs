@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateStudioSessionMapping where
   type
     AWSResponse UpdateStudioSessionMapping =
       UpdateStudioSessionMappingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateStudioSessionMappingResponse'

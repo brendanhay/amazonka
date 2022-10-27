@@ -117,7 +117,8 @@ instance Core.AWSRequest ListInstanceFleets where
   type
     AWSResponse ListInstanceFleets =
       ListInstanceFleetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

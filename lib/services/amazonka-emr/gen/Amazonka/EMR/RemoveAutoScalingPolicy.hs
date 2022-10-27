@@ -99,7 +99,8 @@ instance Core.AWSRequest RemoveAutoScalingPolicy where
   type
     AWSResponse RemoveAutoScalingPolicy =
       RemoveAutoScalingPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

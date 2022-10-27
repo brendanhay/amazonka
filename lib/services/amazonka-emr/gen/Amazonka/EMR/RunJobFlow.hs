@@ -749,7 +749,8 @@ runJobFlow_instances = Lens.lens (\RunJobFlow' {instances} -> instances) (\s@Run
 
 instance Core.AWSRequest RunJobFlow where
   type AWSResponse RunJobFlow = RunJobFlowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

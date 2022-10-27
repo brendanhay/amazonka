@@ -136,7 +136,8 @@ instance Core.AWSPager ListFindings where
 
 instance Core.AWSRequest ListFindings where
   type AWSResponse ListFindings = ListFindingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

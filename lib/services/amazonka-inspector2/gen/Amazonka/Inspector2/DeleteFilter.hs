@@ -74,7 +74,8 @@ deleteFilter_arn = Lens.lens (\DeleteFilter' {arn} -> arn) (\s@DeleteFilter' {} 
 
 instance Core.AWSRequest DeleteFilter where
   type AWSResponse DeleteFilter = DeleteFilterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

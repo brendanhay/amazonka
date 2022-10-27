@@ -81,7 +81,8 @@ instance Core.AWSRequest AssociateMember where
   type
     AWSResponse AssociateMember =
       AssociateMemberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

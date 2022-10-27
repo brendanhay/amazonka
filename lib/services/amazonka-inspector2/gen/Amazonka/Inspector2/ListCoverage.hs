@@ -130,7 +130,8 @@ instance Core.AWSPager ListCoverage where
 
 instance Core.AWSRequest ListCoverage where
   type AWSResponse ListCoverage = ListCoverageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

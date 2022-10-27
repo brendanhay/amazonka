@@ -961,6 +961,8 @@ defaultService =
       Core._serviceEndpointPrefix = "inspector2",
       Core._serviceSigningName = "inspector2",
       Core._serviceVersion = "2020-06-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

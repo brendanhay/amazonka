@@ -110,7 +110,8 @@ getRecord_recordIdentifierValueAsString = Lens.lens (\GetRecord' {recordIdentifi
 
 instance Core.AWSRequest GetRecord where
   type AWSResponse GetRecord = GetRecordResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -113,7 +113,8 @@ instance Core.AWSRequest GetResourceLFTags where
   type
     AWSResponse GetResourceLFTags =
       GetResourceLFTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

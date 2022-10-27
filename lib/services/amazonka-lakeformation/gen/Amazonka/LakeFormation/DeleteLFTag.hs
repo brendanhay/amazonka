@@ -100,7 +100,8 @@ deleteLFTag_tagKey = Lens.lens (\DeleteLFTag' {tagKey} -> tagKey) (\s@DeleteLFTa
 
 instance Core.AWSRequest DeleteLFTag where
   type AWSResponse DeleteLFTag = DeleteLFTagResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

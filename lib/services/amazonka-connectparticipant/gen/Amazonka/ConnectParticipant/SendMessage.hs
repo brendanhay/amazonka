@@ -122,7 +122,8 @@ sendMessage_connectionToken = Lens.lens (\SendMessage' {connectionToken} -> conn
 
 instance Core.AWSRequest SendMessage where
   type AWSResponse SendMessage = SendMessageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

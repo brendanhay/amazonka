@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateSuiteDefinition where
   type
     AWSResponse UpdateSuiteDefinition =
       UpdateSuiteDefinitionResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

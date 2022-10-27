@@ -152,6 +152,8 @@ defaultService =
       Core._serviceEndpointPrefix = "api.iotdeviceadvisor",
       Core._serviceSigningName = "iotdeviceadvisor",
       Core._serviceVersion = "2020-09-18",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

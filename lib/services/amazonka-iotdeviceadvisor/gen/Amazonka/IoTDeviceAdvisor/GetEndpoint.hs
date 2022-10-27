@@ -85,7 +85,8 @@ getEndpoint_certificateArn = Lens.lens (\GetEndpoint' {certificateArn} -> certif
 
 instance Core.AWSRequest GetEndpoint where
   type AWSResponse GetEndpoint = GetEndpointResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

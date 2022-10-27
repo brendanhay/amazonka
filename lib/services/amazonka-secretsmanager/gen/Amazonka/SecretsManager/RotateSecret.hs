@@ -264,7 +264,8 @@ rotateSecret_secretId = Lens.lens (\RotateSecret' {secretId} -> secretId) (\s@Ro
 
 instance Core.AWSRequest RotateSecret where
   type AWSResponse RotateSecret = RotateSecretResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeSecret where
   type
     AWSResponse DescribeSecret =
       DescribeSecretResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

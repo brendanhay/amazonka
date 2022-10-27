@@ -191,7 +191,8 @@ instance Core.AWSRequest GetRandomPassword where
   type
     AWSResponse GetRandomPassword =
       GetRandomPasswordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

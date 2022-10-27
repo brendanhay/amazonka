@@ -283,7 +283,8 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
   type
     AWSResponse StartSpeechSynthesisTask =
       StartSpeechSynthesisTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

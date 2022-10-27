@@ -101,7 +101,8 @@ putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexico
 
 instance Core.AWSRequest PutLexicon where
   type AWSResponse PutLexicon = PutLexiconResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

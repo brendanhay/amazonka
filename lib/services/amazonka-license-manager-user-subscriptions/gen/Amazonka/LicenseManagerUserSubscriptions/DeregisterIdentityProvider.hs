@@ -95,7 +95,8 @@ instance Core.AWSRequest DeregisterIdentityProvider where
   type
     AWSResponse DeregisterIdentityProvider =
       DeregisterIdentityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

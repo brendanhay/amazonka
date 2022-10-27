@@ -101,7 +101,8 @@ getTheme_id = Lens.lens (\GetTheme' {id} -> id) (\s@GetTheme' {} a -> s {id = a}
 
 instance Core.AWSRequest GetTheme where
   type AWSResponse GetTheme = GetThemeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

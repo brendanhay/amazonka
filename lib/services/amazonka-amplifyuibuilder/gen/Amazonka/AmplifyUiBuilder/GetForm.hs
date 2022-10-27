@@ -101,7 +101,8 @@ getForm_id = Lens.lens (\GetForm' {id} -> id) (\s@GetForm' {} a -> s {id = a} ::
 
 instance Core.AWSRequest GetForm where
   type AWSResponse GetForm = GetFormResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

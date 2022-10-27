@@ -97,7 +97,8 @@ deleteForm_id = Lens.lens (\DeleteForm' {id} -> id) (\s@DeleteForm' {} a -> s {i
 
 instance Core.AWSRequest DeleteForm where
   type AWSResponse DeleteForm = DeleteFormResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteFormResponse'
 
 instance Prelude.Hashable DeleteForm where

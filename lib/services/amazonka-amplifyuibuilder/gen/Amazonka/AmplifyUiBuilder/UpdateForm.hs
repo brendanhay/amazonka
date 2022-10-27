@@ -127,7 +127,8 @@ updateForm_updatedForm = Lens.lens (\UpdateForm' {updatedForm} -> updatedForm) (
 
 instance Core.AWSRequest UpdateForm where
   type AWSResponse UpdateForm = UpdateFormResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

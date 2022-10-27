@@ -232,6 +232,7 @@ module Amazonka.AmplifyUiBuilder.Types
     fieldInputConfig_defaultValue,
     fieldInputConfig_minValue,
     fieldInputConfig_readOnly,
+    fieldInputConfig_isArray,
     fieldInputConfig_step,
     fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultChecked,
@@ -515,6 +516,8 @@ defaultService =
       Core._serviceEndpointPrefix = "amplifyuibuilder",
       Core._serviceSigningName = "amplifyuibuilder",
       Core._serviceVersion = "2021-08-11",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

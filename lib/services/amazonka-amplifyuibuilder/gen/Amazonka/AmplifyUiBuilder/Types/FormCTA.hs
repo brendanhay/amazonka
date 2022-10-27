@@ -25,7 +25,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the call to action button configuration for the form..
+-- | Describes the call to action button configuration for the form.
 --
 -- /See:/ 'newFormCTA' smart constructor.
 data FormCTA = FormCTA'

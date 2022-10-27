@@ -89,7 +89,8 @@ getMetadata_environmentName = Lens.lens (\GetMetadata' {environmentName} -> envi
 
 instance Core.AWSRequest GetMetadata where
   type AWSResponse GetMetadata = GetMetadataResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

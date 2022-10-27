@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteIdentityPolicy where
   type
     AWSResponse DeleteIdentityPolicy =
       DeleteIdentityPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteIdentityPolicyResult"

@@ -80,7 +80,8 @@ instance Core.AWSRequest UpdateTemplate where
   type
     AWSResponse UpdateTemplate =
       UpdateTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateTemplateResult"

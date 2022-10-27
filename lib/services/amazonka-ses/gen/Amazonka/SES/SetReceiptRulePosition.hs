@@ -116,7 +116,8 @@ instance Core.AWSRequest SetReceiptRulePosition where
   type
     AWSResponse SetReceiptRulePosition =
       SetReceiptRulePositionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetReceiptRulePositionResult"

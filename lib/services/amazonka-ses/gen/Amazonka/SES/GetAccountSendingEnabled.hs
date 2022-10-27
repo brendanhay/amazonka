@@ -65,7 +65,8 @@ instance Core.AWSRequest GetAccountSendingEnabled where
   type
     AWSResponse GetAccountSendingEnabled =
       GetAccountSendingEnabledResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccountSendingEnabledResult"

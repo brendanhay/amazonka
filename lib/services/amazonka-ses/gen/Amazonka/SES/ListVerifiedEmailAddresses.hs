@@ -63,7 +63,8 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
   type
     AWSResponse ListVerifiedEmailAddresses =
       ListVerifiedEmailAddressesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListVerifiedEmailAddressesResult"

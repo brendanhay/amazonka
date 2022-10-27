@@ -100,7 +100,8 @@ instance Core.AWSRequest TestRenderTemplate where
   type
     AWSResponse TestRenderTemplate =
       TestRenderTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestRenderTemplateResult"

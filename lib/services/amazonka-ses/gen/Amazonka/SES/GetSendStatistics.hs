@@ -66,7 +66,8 @@ instance Core.AWSRequest GetSendStatistics where
   type
     AWSResponse GetSendStatistics =
       GetSendStatisticsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSendStatisticsResult"

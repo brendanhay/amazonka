@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateReceiptRule where
   type
     AWSResponse UpdateReceiptRule =
       UpdateReceiptRuleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateReceiptRuleResult"

@@ -132,7 +132,8 @@ instance Core.AWSRequest GetIdentityPolicies where
   type
     AWSResponse GetIdentityPolicies =
       GetIdentityPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityPoliciesResult"

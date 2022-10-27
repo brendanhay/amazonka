@@ -107,7 +107,8 @@ instance Core.AWSRequest CreateReceiptRuleSet where
   type
     AWSResponse CreateReceiptRuleSet =
       CreateReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateReceiptRuleSetResult"

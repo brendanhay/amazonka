@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteReceiptRule where
   type
     AWSResponse DeleteReceiptRule =
       DeleteReceiptRuleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteReceiptRuleResult"

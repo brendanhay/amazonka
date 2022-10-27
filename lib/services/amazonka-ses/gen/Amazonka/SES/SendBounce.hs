@@ -175,7 +175,8 @@ sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientI
 
 instance Core.AWSRequest SendBounce where
   type AWSResponse SendBounce = SendBounceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendBounceResult"

@@ -385,7 +385,8 @@ sendEmail_message = Lens.lens (\SendEmail' {message} -> message) (\s@SendEmail' 
 
 instance Core.AWSRequest SendEmail where
   type AWSResponse SendEmail = SendEmailResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendEmailResult"

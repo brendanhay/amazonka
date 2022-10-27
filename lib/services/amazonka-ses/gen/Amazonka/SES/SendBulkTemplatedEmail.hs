@@ -425,7 +425,8 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
   type
     AWSResponse SendBulkTemplatedEmail =
       SendBulkTemplatedEmailResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendBulkTemplatedEmailResult"

@@ -78,7 +78,8 @@ getTemplate_templateName = Lens.lens (\GetTemplate' {templateName} -> templateNa
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateResult"

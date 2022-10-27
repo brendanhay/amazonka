@@ -125,7 +125,8 @@ instance Core.AWSRequest ListTemplates where
   type
     AWSResponse ListTemplates =
       ListTemplatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTemplatesResult"

@@ -158,7 +158,8 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
   type
     AWSResponse SetIdentityMailFromDomain =
       SetIdentityMailFromDomainResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityMailFromDomainResult"

@@ -115,7 +115,8 @@ instance Core.AWSRequest PutAlertManagerDefinition where
   type
     AWSResponse PutAlertManagerDefinition =
       PutAlertManagerDefinitionResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

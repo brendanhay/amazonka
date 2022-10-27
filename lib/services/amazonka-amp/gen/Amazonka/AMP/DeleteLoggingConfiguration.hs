@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
   type
     AWSResponse DeleteLoggingConfiguration =
       DeleteLoggingConfigurationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteLoggingConfigurationResponse'

@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
   type
     AWSResponse DescribeRuleGroupsNamespace =
       DescribeRuleGroupsNamespaceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

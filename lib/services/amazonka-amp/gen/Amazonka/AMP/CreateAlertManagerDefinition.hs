@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
   type
     AWSResponse CreateAlertManagerDefinition =
       CreateAlertManagerDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

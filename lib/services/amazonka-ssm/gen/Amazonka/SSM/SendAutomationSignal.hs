@@ -154,7 +154,8 @@ instance Core.AWSRequest SendAutomationSignal where
   type
     AWSResponse SendAutomationSignal =
       SendAutomationSignalResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

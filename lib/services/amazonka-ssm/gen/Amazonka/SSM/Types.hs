@@ -2162,6 +2162,8 @@ defaultService =
       Core._serviceEndpointPrefix = "ssm",
       Core._serviceSigningName = "ssm",
       Core._serviceVersion = "2014-11-06",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -2297,9 +2299,14 @@ _InvalidOptionException =
     "InvalidOptionException"
 
 -- | The document can\'t be shared with more Amazon Web Services user
--- accounts. You can share a document with a maximum of 20 accounts. You
--- can publicly share up to five documents. If you need to increase this
--- limit, contact Amazon Web Services Support.
+-- accounts. You can specify a maximum of 20 accounts per API operation to
+-- share a private document.
+--
+-- By default, you can share a private document with a maximum of 1,000
+-- accounts and publicly share up to five documents.
+--
+-- If you need to increase the quota for privately or publicly shared
+-- Systems Manager documents, contact Amazon Web Services Support.
 _DocumentPermissionLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DocumentPermissionLimit =
   Core._MatchServiceError
@@ -3090,7 +3097,7 @@ _InvalidNotificationConfig =
     defaultService
     "InvalidNotificationConfig"
 
--- | The tag key or value isn\'t valid.
+-- | The specified tag key or value isn\'t valid.
 _InvalidTag :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidTag =
   Core._MatchServiceError defaultService "InvalidTag"

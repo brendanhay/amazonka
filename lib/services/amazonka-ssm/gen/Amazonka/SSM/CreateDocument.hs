@@ -341,7 +341,8 @@ instance Core.AWSRequest CreateDocument where
   type
     AWSResponse CreateDocument =
       CreateDocumentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

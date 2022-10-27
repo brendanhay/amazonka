@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateResourceDataSync where
   type
     AWSResponse CreateResourceDataSync =
       CreateResourceDataSyncResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

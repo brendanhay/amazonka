@@ -86,7 +86,8 @@ getOpsItem_opsItemId = Lens.lens (\GetOpsItem' {opsItemId} -> opsItemId) (\s@Get
 
 instance Core.AWSRequest GetOpsItem where
   type AWSResponse GetOpsItem = GetOpsItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

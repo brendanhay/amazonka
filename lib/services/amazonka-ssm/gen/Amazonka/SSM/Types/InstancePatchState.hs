@@ -99,21 +99,21 @@ data InstancePatchState = InstancePatchState'
     -- | The number of patches from the patch baseline that are applicable for
     -- the managed node but aren\'t currently installed.
     missingCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of managed nodes with patches installed that are specified as
-    -- other than @Critical@ or @Security@ but aren\'t compliant with the patch
-    -- baseline. The status of these managed nodes is @NON_COMPLIANT@.
+    -- | The number of patches per node that are specified as other than
+    -- @Critical@ or @Security@ but aren\'t compliant with the patch baseline.
+    -- The status of these managed nodes is @NON_COMPLIANT@.
     otherNonCompliantCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of managed nodes where patches that are specified as
-    -- @Security@ in a patch advisory aren\'t installed. These patches might be
-    -- missing, have failed installation, were rejected, or were installed but
-    -- awaiting a required managed node reboot. The status of these managed
-    -- nodes is @NON_COMPLIANT@.
+    -- | The number of patches per node that are specified as @Security@ in a
+    -- patch advisory aren\'t installed. These patches might be missing, have
+    -- failed installation, were rejected, or were installed but awaiting a
+    -- required managed node reboot. The status of these managed nodes is
+    -- @NON_COMPLIANT@.
     securityNonCompliantCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of managed nodes where patches that are specified as
-    -- @Critical@ for compliance reporting in the patch baseline aren\'t
-    -- installed. These patches might be missing, have failed installation,
-    -- were rejected, or were installed but awaiting a required managed node
-    -- reboot. The status of these managed nodes is @NON_COMPLIANT@.
+    -- | The number of patches per node that are specified as @Critical@ for
+    -- compliance reporting in the patch baseline aren\'t installed. These
+    -- patches might be missing, have failed installation, were rejected, or
+    -- were installed but awaiting a required managed node reboot. The status
+    -- of these managed nodes is @NON_COMPLIANT@.
     criticalNonCompliantCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the managed node the high-level patch compliance information
     -- was collected for.
@@ -212,21 +212,21 @@ data InstancePatchState = InstancePatchState'
 -- 'missingCount', 'instancePatchState_missingCount' - The number of patches from the patch baseline that are applicable for
 -- the managed node but aren\'t currently installed.
 --
--- 'otherNonCompliantCount', 'instancePatchState_otherNonCompliantCount' - The number of managed nodes with patches installed that are specified as
--- other than @Critical@ or @Security@ but aren\'t compliant with the patch
--- baseline. The status of these managed nodes is @NON_COMPLIANT@.
+-- 'otherNonCompliantCount', 'instancePatchState_otherNonCompliantCount' - The number of patches per node that are specified as other than
+-- @Critical@ or @Security@ but aren\'t compliant with the patch baseline.
+-- The status of these managed nodes is @NON_COMPLIANT@.
 --
--- 'securityNonCompliantCount', 'instancePatchState_securityNonCompliantCount' - The number of managed nodes where patches that are specified as
--- @Security@ in a patch advisory aren\'t installed. These patches might be
--- missing, have failed installation, were rejected, or were installed but
--- awaiting a required managed node reboot. The status of these managed
--- nodes is @NON_COMPLIANT@.
+-- 'securityNonCompliantCount', 'instancePatchState_securityNonCompliantCount' - The number of patches per node that are specified as @Security@ in a
+-- patch advisory aren\'t installed. These patches might be missing, have
+-- failed installation, were rejected, or were installed but awaiting a
+-- required managed node reboot. The status of these managed nodes is
+-- @NON_COMPLIANT@.
 --
--- 'criticalNonCompliantCount', 'instancePatchState_criticalNonCompliantCount' - The number of managed nodes where patches that are specified as
--- @Critical@ for compliance reporting in the patch baseline aren\'t
--- installed. These patches might be missing, have failed installation,
--- were rejected, or were installed but awaiting a required managed node
--- reboot. The status of these managed nodes is @NON_COMPLIANT@.
+-- 'criticalNonCompliantCount', 'instancePatchState_criticalNonCompliantCount' - The number of patches per node that are specified as @Critical@ for
+-- compliance reporting in the patch baseline aren\'t installed. These
+-- patches might be missing, have failed installation, were rejected, or
+-- were installed but awaiting a required managed node reboot. The status
+-- of these managed nodes is @NON_COMPLIANT@.
 --
 -- 'instanceId', 'instancePatchState_instanceId' - The ID of the managed node the high-level patch compliance information
 -- was collected for.
@@ -388,25 +388,25 @@ instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInfo
 instancePatchState_missingCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_missingCount = Lens.lens (\InstancePatchState' {missingCount} -> missingCount) (\s@InstancePatchState' {} a -> s {missingCount = a} :: InstancePatchState)
 
--- | The number of managed nodes with patches installed that are specified as
--- other than @Critical@ or @Security@ but aren\'t compliant with the patch
--- baseline. The status of these managed nodes is @NON_COMPLIANT@.
+-- | The number of patches per node that are specified as other than
+-- @Critical@ or @Security@ but aren\'t compliant with the patch baseline.
+-- The status of these managed nodes is @NON_COMPLIANT@.
 instancePatchState_otherNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_otherNonCompliantCount = Lens.lens (\InstancePatchState' {otherNonCompliantCount} -> otherNonCompliantCount) (\s@InstancePatchState' {} a -> s {otherNonCompliantCount = a} :: InstancePatchState)
 
--- | The number of managed nodes where patches that are specified as
--- @Security@ in a patch advisory aren\'t installed. These patches might be
--- missing, have failed installation, were rejected, or were installed but
--- awaiting a required managed node reboot. The status of these managed
--- nodes is @NON_COMPLIANT@.
+-- | The number of patches per node that are specified as @Security@ in a
+-- patch advisory aren\'t installed. These patches might be missing, have
+-- failed installation, were rejected, or were installed but awaiting a
+-- required managed node reboot. The status of these managed nodes is
+-- @NON_COMPLIANT@.
 instancePatchState_securityNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_securityNonCompliantCount = Lens.lens (\InstancePatchState' {securityNonCompliantCount} -> securityNonCompliantCount) (\s@InstancePatchState' {} a -> s {securityNonCompliantCount = a} :: InstancePatchState)
 
--- | The number of managed nodes where patches that are specified as
--- @Critical@ for compliance reporting in the patch baseline aren\'t
--- installed. These patches might be missing, have failed installation,
--- were rejected, or were installed but awaiting a required managed node
--- reboot. The status of these managed nodes is @NON_COMPLIANT@.
+-- | The number of patches per node that are specified as @Critical@ for
+-- compliance reporting in the patch baseline aren\'t installed. These
+-- patches might be missing, have failed installation, were rejected, or
+-- were installed but awaiting a required managed node reboot. The status
+-- of these managed nodes is @NON_COMPLIANT@.
 instancePatchState_criticalNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_criticalNonCompliantCount = Lens.lens (\InstancePatchState' {criticalNonCompliantCount} -> criticalNonCompliantCount) (\s@InstancePatchState' {} a -> s {criticalNonCompliantCount = a} :: InstancePatchState)
 

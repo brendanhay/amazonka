@@ -120,7 +120,8 @@ instance Core.AWSRequest GetCalendarState where
   type
     AWSResponse GetCalendarState =
       GetCalendarStateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

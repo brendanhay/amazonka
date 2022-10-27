@@ -165,7 +165,8 @@ instance Core.AWSRequest GetCommandInvocation where
   type
     AWSResponse GetCommandInvocation =
       GetCommandInvocationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

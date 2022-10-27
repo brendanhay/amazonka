@@ -750,7 +750,8 @@ putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParamete
 
 instance Core.AWSRequest PutParameter where
   type AWSResponse PutParameter = PutParameterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

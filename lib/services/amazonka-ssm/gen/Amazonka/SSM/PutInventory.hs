@@ -91,7 +91,8 @@ putInventory_items = Lens.lens (\PutInventory' {items} -> items) (\s@PutInventor
 
 instance Core.AWSRequest PutInventory where
   type AWSResponse PutInventory = PutInventoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

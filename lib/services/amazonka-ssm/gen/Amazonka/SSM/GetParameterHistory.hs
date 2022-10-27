@@ -151,7 +151,8 @@ instance Core.AWSRequest GetParameterHistory where
   type
     AWSResponse GetParameterHistory =
       GetParameterHistoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

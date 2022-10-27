@@ -153,7 +153,8 @@ instance Core.AWSRequest ListAssociations where
   type
     AWSResponse ListAssociations =
       ListAssociationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

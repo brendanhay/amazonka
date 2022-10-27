@@ -85,7 +85,8 @@ instance Core.AWSRequest DeleteParameters where
   type
     AWSResponse DeleteParameters =
       DeleteParametersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

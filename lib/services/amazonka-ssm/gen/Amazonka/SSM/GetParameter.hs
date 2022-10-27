@@ -103,7 +103,8 @@ getParameter_name = Lens.lens (\GetParameter' {name} -> name) (\s@GetParameter' 
 
 instance Core.AWSRequest GetParameter where
   type AWSResponse GetParameter = GetParameterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

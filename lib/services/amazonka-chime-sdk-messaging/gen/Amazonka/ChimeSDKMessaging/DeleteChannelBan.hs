@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteChannelBan where
   type
     AWSResponse DeleteChannelBan =
       DeleteChannelBanResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteChannelBanResponse'
 

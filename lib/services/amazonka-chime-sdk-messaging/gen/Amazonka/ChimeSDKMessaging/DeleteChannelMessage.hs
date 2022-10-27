@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteChannelMessage where
   type
     AWSResponse DeleteChannelMessage =
       DeleteChannelMessageResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteChannelMessageResponse'
 

@@ -109,7 +109,8 @@ instance Core.AWSRequest DisassociateChannelFlow where
   type
     AWSResponse DisassociateChannelFlow =
       DisassociateChannelFlowResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateChannelFlowResponse'

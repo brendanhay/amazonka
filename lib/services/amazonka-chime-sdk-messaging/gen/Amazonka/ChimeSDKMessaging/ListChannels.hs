@@ -142,7 +142,8 @@ listChannels_chimeBearer = Lens.lens (\ListChannels' {chimeBearer} -> chimeBeare
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

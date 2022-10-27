@@ -102,7 +102,8 @@ instance Core.AWSRequest DescribeCertificate where
   type
     AWSResponse DescribeCertificate =
       DescribeCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

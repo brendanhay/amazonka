@@ -124,7 +124,8 @@ instance Core.AWSRequest AddTagsToCertificate where
   type
     AWSResponse AddTagsToCertificate =
       AddTagsToCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AddTagsToCertificateResponse'
 

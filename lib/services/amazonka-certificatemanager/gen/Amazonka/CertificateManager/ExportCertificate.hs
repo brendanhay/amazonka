@@ -151,7 +151,8 @@ instance Core.AWSRequest ExportCertificate where
   type
     AWSResponse ExportCertificate =
       ExportCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

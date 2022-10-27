@@ -112,7 +112,8 @@ instance Core.AWSRequest ListInputDevices where
   type
     AWSResponse ListInputDevices =
       ListInputDevicesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

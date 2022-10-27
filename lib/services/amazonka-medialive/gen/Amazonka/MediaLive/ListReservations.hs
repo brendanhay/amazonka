@@ -195,7 +195,8 @@ instance Core.AWSRequest ListReservations where
   type
     AWSResponse ListReservations =
       ListReservationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

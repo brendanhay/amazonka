@@ -83,7 +83,8 @@ createTags_resourceArn = Lens.lens (\CreateTags' {resourceArn} -> resourceArn) (
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull CreateTagsResponse'
 
 instance Prelude.Hashable CreateTags where

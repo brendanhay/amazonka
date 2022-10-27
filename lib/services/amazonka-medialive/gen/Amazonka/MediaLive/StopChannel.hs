@@ -94,7 +94,8 @@ stopChannel_channelId = Lens.lens (\StopChannel' {channelId} -> channelId) (\s@S
 
 instance Core.AWSRequest StopChannel where
   type AWSResponse StopChannel = StopChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

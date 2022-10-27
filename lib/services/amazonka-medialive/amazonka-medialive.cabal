@@ -225,6 +225,7 @@ library
     Amazonka.MediaLive.Types.EmbeddedScte20Detection
     Amazonka.MediaLive.Types.EmbeddedSourceSettings
     Amazonka.MediaLive.Types.EncoderSettings
+    Amazonka.MediaLive.Types.Esam
     Amazonka.MediaLive.Types.FailoverCondition
     Amazonka.MediaLive.Types.FailoverConditionSettings
     Amazonka.MediaLive.Types.FeatureActivations
@@ -528,6 +529,8 @@ library
     Amazonka.MediaLive.Types.Scte35Descriptor
     Amazonka.MediaLive.Types.Scte35DescriptorSettings
     Amazonka.MediaLive.Types.Scte35DeviceRestrictions
+    Amazonka.MediaLive.Types.Scte35InputMode
+    Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings
     Amazonka.MediaLive.Types.Scte35NoRegionalBlackoutFlag
     Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
     Amazonka.MediaLive.Types.Scte35SegmentationCancelIndicator

@@ -112,7 +112,8 @@ instance Core.AWSRequest TransferInputDevice' where
   type
     AWSResponse TransferInputDevice' =
       TransferInputDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

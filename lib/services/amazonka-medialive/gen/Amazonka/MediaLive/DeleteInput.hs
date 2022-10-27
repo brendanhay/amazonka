@@ -76,7 +76,8 @@ deleteInput_inputId = Lens.lens (\DeleteInput' {inputId} -> inputId) (\s@DeleteI
 
 instance Core.AWSRequest DeleteInput where
   type AWSResponse DeleteInput = DeleteInputResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

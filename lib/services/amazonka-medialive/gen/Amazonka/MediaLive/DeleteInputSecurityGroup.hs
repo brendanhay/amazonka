@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteInputSecurityGroup where
   type
     AWSResponse DeleteInputSecurityGroup =
       DeleteInputSecurityGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

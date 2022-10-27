@@ -732,6 +732,9 @@ module Amazonka.MediaLive.Types
     -- * Scte35DeviceRestrictions
     Scte35DeviceRestrictions (..),
 
+    -- * Scte35InputMode
+    Scte35InputMode (..),
+
     -- * Scte35NoRegionalBlackoutFlag
     Scte35NoRegionalBlackoutFlag (..),
 
@@ -996,6 +999,7 @@ module Amazonka.MediaLive.Types
     AvailSettings (..),
     newAvailSettings,
     availSettings_scte35TimeSignalApos,
+    availSettings_esam,
     availSettings_scte35SpliceInsert,
 
     -- * BatchFailedResultModel
@@ -1304,6 +1308,16 @@ module Amazonka.MediaLive.Types
     encoderSettings_audioDescriptions,
     encoderSettings_outputGroups,
     encoderSettings_timecodeConfig,
+
+    -- * Esam
+    Esam (..),
+    newEsam,
+    esam_username,
+    esam_passwordParam,
+    esam_zoneIdentity,
+    esam_adAvailOffset,
+    esam_acquisitionPointId,
+    esam_poisEndpoint,
 
     -- * FailoverCondition
     FailoverCondition (..),
@@ -2425,6 +2439,7 @@ module Amazonka.MediaLive.Types
     scheduleActionSettings_inputPrepareSettings,
     scheduleActionSettings_staticImageActivateSettings,
     scheduleActionSettings_inputSwitchSettings,
+    scheduleActionSettings_scte35InputSettings,
     scheduleActionSettings_hlsId3SegmentTaggingSettings,
     scheduleActionSettings_motionGraphicsImageDeactivateSettings,
     scheduleActionSettings_scte35SpliceInsertSettings,
@@ -2478,6 +2493,12 @@ module Amazonka.MediaLive.Types
     Scte35DescriptorSettings (..),
     newScte35DescriptorSettings,
     scte35DescriptorSettings_segmentationDescriptorScte35DescriptorSettings,
+
+    -- * Scte35InputScheduleActionSettings
+    Scte35InputScheduleActionSettings (..),
+    newScte35InputScheduleActionSettings,
+    scte35InputScheduleActionSettings_inputAttachmentNameReference,
+    scte35InputScheduleActionSettings_mode,
 
     -- * Scte35ReturnToNetworkScheduleActionSettings
     Scte35ReturnToNetworkScheduleActionSettings (..),
@@ -2839,6 +2860,7 @@ import Amazonka.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
 import Amazonka.MediaLive.Types.EmbeddedScte20Detection
 import Amazonka.MediaLive.Types.EmbeddedSourceSettings
 import Amazonka.MediaLive.Types.EncoderSettings
+import Amazonka.MediaLive.Types.Esam
 import Amazonka.MediaLive.Types.FailoverCondition
 import Amazonka.MediaLive.Types.FailoverConditionSettings
 import Amazonka.MediaLive.Types.FeatureActivations
@@ -3142,6 +3164,8 @@ import Amazonka.MediaLive.Types.Scte35DeliveryRestrictions
 import Amazonka.MediaLive.Types.Scte35Descriptor
 import Amazonka.MediaLive.Types.Scte35DescriptorSettings
 import Amazonka.MediaLive.Types.Scte35DeviceRestrictions
+import Amazonka.MediaLive.Types.Scte35InputMode
+import Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35NoRegionalBlackoutFlag
 import Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35SegmentationCancelIndicator
@@ -3213,6 +3237,8 @@ defaultService =
       Core._serviceEndpointPrefix = "medialive",
       Core._serviceSigningName = "medialive",
       Core._serviceVersion = "2017-10-14",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

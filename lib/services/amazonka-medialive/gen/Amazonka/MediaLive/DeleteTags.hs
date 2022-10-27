@@ -84,7 +84,8 @@ deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteTagsResponse'
 
 instance Prelude.Hashable DeleteTags where

@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
   type
     AWSResponse DescribeInputDeviceThumbnail =
       DescribeInputDeviceThumbnailResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

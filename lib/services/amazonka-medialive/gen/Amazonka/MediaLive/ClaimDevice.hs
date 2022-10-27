@@ -76,7 +76,8 @@ claimDevice_id = Lens.lens (\ClaimDevice' {id} -> id) (\s@ClaimDevice' {} a -> s
 
 instance Core.AWSRequest ClaimDevice where
   type AWSResponse ClaimDevice = ClaimDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

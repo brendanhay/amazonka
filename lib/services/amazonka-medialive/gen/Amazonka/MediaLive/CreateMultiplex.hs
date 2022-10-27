@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateMultiplex' where
   type
     AWSResponse CreateMultiplex' =
       CreateMultiplexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

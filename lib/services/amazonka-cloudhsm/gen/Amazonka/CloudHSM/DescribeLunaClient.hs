@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeLunaClient where
   type
     AWSResponse DescribeLunaClient =
       DescribeLunaClientResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

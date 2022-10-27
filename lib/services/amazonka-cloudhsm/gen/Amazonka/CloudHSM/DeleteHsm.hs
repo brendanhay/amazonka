@@ -91,7 +91,8 @@ deleteHsm_hsmArn = Lens.lens (\DeleteHsm' {hsmArn} -> hsmArn) (\s@DeleteHsm' {} 
 
 instance Core.AWSRequest DeleteHsm where
   type AWSResponse DeleteHsm = DeleteHsmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

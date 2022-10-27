@@ -91,7 +91,8 @@ deleteHapg_hapgArn = Lens.lens (\DeleteHapg' {hapgArn} -> hapgArn) (\s@DeleteHap
 
 instance Core.AWSRequest DeleteHapg where
   type AWSResponse DeleteHapg = DeleteHapgResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

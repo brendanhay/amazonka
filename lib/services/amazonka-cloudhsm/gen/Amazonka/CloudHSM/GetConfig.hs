@@ -119,7 +119,8 @@ getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfi
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

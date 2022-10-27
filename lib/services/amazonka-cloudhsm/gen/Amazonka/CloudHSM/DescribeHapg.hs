@@ -99,7 +99,8 @@ describeHapg_hapgArn = Lens.lens (\DescribeHapg' {hapgArn} -> hapgArn) (\s@Descr
 
 instance Core.AWSRequest DescribeHapg where
   type AWSResponse DescribeHapg = DescribeHapgResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

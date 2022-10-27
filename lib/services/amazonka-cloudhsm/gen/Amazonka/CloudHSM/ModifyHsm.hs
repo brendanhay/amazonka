@@ -170,7 +170,8 @@ modifyHsm_hsmArn = Lens.lens (\ModifyHsm' {hsmArn} -> hsmArn) (\s@ModifyHsm' {} 
 
 instance Core.AWSRequest ModifyHsm where
   type AWSResponse ModifyHsm = ModifyHsmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

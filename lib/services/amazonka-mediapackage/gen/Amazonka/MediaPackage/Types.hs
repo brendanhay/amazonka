@@ -347,6 +347,8 @@ defaultService =
       Core._serviceEndpointPrefix = "mediapackage",
       Core._serviceSigningName = "mediapackage",
       Core._serviceVersion = "2017-10-12",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

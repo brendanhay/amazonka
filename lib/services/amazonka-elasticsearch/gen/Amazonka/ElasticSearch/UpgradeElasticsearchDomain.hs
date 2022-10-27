@@ -113,7 +113,8 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
   type
     AWSResponse UpgradeElasticsearchDomain =
       UpgradeElasticsearchDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

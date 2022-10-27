@@ -183,7 +183,8 @@ instance Core.AWSRequest TerminateProvisionedProduct where
   type
     AWSResponse TerminateProvisionedProduct =
       TerminateProvisionedProductResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

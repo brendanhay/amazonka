@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdatePortfolioShare where
   type
     AWSResponse UpdatePortfolioShare =
       UpdatePortfolioShareResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -268,7 +268,8 @@ instance Core.AWSRequest CreateProvisionedProductPlan where
   type
     AWSResponse CreateProvisionedProductPlan =
       CreateProvisionedProductPlanResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

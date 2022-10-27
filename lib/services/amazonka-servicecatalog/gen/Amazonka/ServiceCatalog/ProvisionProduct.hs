@@ -261,7 +261,8 @@ instance Core.AWSRequest ProvisionProduct where
   type
     AWSResponse ProvisionProduct =
       ProvisionProductResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

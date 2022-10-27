@@ -303,7 +303,8 @@ instance Core.AWSRequest UpdateConstraint where
   type
     AWSResponse UpdateConstraint =
       UpdateConstraintResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

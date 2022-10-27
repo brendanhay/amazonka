@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeProductView where
   type
     AWSResponse DescribeProductView =
       DescribeProductViewResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

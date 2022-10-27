@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeProduct where
   type
     AWSResponse DescribeProduct =
       DescribeProductResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -104,7 +104,8 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
   type
     AWSResponse ModifyReplicationSubnetGroup =
       ModifyReplicationSubnetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

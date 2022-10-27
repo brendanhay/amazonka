@@ -100,7 +100,8 @@ instance Core.AWSRequest MoveReplicationTask where
   type
     AWSResponse MoveReplicationTask =
       MoveReplicationTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -150,7 +150,8 @@ instance
     AWSResponse
       DescribeOrderableReplicationInstances =
       DescribeOrderableReplicationInstancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

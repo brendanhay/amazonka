@@ -99,7 +99,8 @@ instance Core.AWSRequest TestConnection where
   type
     AWSResponse TestConnection =
       TestConnectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

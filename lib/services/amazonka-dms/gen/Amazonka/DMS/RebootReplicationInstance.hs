@@ -123,7 +123,8 @@ instance Core.AWSRequest RebootReplicationInstance where
   type
     AWSResponse RebootReplicationInstance =
       RebootReplicationInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -722,7 +722,8 @@ instance Core.AWSRequest ModifyEndpoint where
   type
     AWSResponse ModifyEndpoint =
       ModifyEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteFleetAdvisorCollector where
   type
     AWSResponse DeleteFleetAdvisorCollector =
       DeleteFleetAdvisorCollectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteFleetAdvisorCollectorResponse'

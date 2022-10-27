@@ -122,7 +122,8 @@ reloadTables_tablesToReload = Lens.lens (\ReloadTables' {tablesToReload} -> tabl
 
 instance Core.AWSRequest ReloadTables where
   type AWSResponse ReloadTables = ReloadTablesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

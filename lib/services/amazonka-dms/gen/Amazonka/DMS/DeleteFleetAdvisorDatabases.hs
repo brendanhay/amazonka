@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteFleetAdvisorDatabases where
   type
     AWSResponse DeleteFleetAdvisorDatabases =
       DeleteFleetAdvisorDatabasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

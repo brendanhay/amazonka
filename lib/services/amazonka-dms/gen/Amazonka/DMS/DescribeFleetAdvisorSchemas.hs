@@ -181,7 +181,8 @@ instance Core.AWSRequest DescribeFleetAdvisorSchemas where
   type
     AWSResponse DescribeFleetAdvisorSchemas =
       DescribeFleetAdvisorSchemasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

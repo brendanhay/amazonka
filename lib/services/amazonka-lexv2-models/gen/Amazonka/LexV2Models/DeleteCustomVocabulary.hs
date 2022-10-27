@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteCustomVocabulary where
   type
     AWSResponse DeleteCustomVocabulary =
       DeleteCustomVocabularyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

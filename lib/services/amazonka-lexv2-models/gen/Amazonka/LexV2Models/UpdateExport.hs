@@ -98,7 +98,8 @@ updateExport_exportId = Lens.lens (\UpdateExport' {exportId} -> exportId) (\s@Up
 
 instance Core.AWSRequest UpdateExport where
   type AWSResponse UpdateExport = UpdateExportResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

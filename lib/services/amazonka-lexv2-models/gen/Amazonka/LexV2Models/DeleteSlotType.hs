@@ -148,7 +148,8 @@ instance Core.AWSRequest DeleteSlotType where
   type
     AWSResponse DeleteSlotType =
       DeleteSlotTypeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSlotTypeResponse'
 

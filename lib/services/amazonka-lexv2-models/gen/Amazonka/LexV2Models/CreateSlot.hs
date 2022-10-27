@@ -263,7 +263,8 @@ createSlot_intentId = Lens.lens (\CreateSlot' {intentId} -> intentId) (\s@Create
 
 instance Core.AWSRequest CreateSlot where
   type AWSResponse CreateSlot = CreateSlotResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

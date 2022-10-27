@@ -143,7 +143,8 @@ startImport_mergeStrategy = Lens.lens (\StartImport' {mergeStrategy} -> mergeStr
 
 instance Core.AWSRequest StartImport where
   type AWSResponse StartImport = StartImportResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

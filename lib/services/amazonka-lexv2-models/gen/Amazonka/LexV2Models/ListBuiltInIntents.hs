@@ -147,7 +147,8 @@ instance Core.AWSRequest ListBuiltInIntents where
   type
     AWSResponse ListBuiltInIntents =
       ListBuiltInIntentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -142,7 +142,8 @@ listBots_maxResults = Lens.lens (\ListBots' {maxResults} -> maxResults) (\s@List
 
 instance Core.AWSRequest ListBots where
   type AWSResponse ListBots = ListBotsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

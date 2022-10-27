@@ -193,7 +193,8 @@ listIntents_localeId = Lens.lens (\ListIntents' {localeId} -> localeId) (\s@List
 
 instance Core.AWSRequest ListIntents where
   type AWSResponse ListIntents = ListIntentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

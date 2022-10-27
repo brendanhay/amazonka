@@ -85,7 +85,8 @@ instance Core.AWSRequest DescribeResourcePolicy where
   type
     AWSResponse DescribeResourcePolicy =
       DescribeResourcePolicyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

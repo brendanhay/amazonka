@@ -1314,6 +1314,8 @@ defaultService =
       Core._serviceEndpointPrefix = "models-v2-lex",
       Core._serviceSigningName = "lex",
       Core._serviceVersion = "2020-08-07",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

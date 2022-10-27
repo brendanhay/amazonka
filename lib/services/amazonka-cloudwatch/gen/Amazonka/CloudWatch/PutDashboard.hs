@@ -135,7 +135,8 @@ putDashboard_dashboardBody = Lens.lens (\PutDashboard' {dashboardBody} -> dashbo
 
 instance Core.AWSRequest PutDashboard where
   type AWSResponse PutDashboard = PutDashboardResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutDashboardResult"

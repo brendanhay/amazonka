@@ -149,7 +149,8 @@ instance Core.AWSRequest SetAlarmState where
   type
     AWSResponse SetAlarmState =
       SetAlarmStateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetAlarmStateResponse'
 

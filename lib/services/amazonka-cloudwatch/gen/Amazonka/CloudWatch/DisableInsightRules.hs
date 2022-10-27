@@ -82,7 +82,8 @@ instance Core.AWSRequest DisableInsightRules where
   type
     AWSResponse DisableInsightRules =
       DisableInsightRulesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisableInsightRulesResult"

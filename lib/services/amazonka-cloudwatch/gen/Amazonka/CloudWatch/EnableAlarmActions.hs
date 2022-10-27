@@ -71,7 +71,8 @@ instance Core.AWSRequest EnableAlarmActions where
   type
     AWSResponse EnableAlarmActions =
       EnableAlarmActionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull EnableAlarmActionsResponse'
 

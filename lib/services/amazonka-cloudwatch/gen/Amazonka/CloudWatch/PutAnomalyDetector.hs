@@ -256,7 +256,8 @@ instance Core.AWSRequest PutAnomalyDetector where
   type
     AWSResponse PutAnomalyDetector =
       PutAnomalyDetectorResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutAnomalyDetectorResult"

@@ -235,7 +235,8 @@ instance Core.AWSRequest DeleteAnomalyDetector where
   type
     AWSResponse DeleteAnomalyDetector =
       DeleteAnomalyDetectorResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAnomalyDetectorResult"

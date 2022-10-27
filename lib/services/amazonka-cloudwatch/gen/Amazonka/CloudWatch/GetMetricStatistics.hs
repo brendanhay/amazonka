@@ -449,7 +449,8 @@ instance Core.AWSRequest GetMetricStatistics where
   type
     AWSResponse GetMetricStatistics =
       GetMetricStatisticsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetMetricStatisticsResult"

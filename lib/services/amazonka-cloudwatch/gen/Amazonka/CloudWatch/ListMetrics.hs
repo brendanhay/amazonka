@@ -190,7 +190,8 @@ instance Core.AWSPager ListMetrics where
 
 instance Core.AWSRequest ListMetrics where
   type AWSResponse ListMetrics = ListMetricsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMetricsResult"

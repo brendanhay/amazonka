@@ -109,7 +109,8 @@ instance Core.AWSRequest BatchPutAssetPropertyValue where
   type
     AWSResponse BatchPutAssetPropertyValue =
       BatchPutAssetPropertyValueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

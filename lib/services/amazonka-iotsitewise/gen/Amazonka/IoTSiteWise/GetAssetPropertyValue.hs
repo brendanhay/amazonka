@@ -124,7 +124,8 @@ instance Core.AWSRequest GetAssetPropertyValue where
   type
     AWSResponse GetAssetPropertyValue =
       GetAssetPropertyValueResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

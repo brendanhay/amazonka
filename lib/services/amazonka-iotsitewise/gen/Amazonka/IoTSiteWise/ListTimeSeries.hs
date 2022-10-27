@@ -158,7 +158,8 @@ instance Core.AWSRequest ListTimeSeries where
   type
     AWSResponse ListTimeSeries =
       ListTimeSeriesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

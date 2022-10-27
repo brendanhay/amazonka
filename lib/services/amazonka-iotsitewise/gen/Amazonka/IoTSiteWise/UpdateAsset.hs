@@ -117,7 +117,8 @@ updateAsset_assetName = Lens.lens (\UpdateAsset' {assetName} -> assetName) (\s@U
 
 instance Core.AWSRequest UpdateAsset where
   type AWSResponse UpdateAsset = UpdateAssetResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

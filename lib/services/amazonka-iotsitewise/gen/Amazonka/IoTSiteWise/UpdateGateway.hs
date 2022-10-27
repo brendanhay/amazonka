@@ -87,7 +87,8 @@ instance Core.AWSRequest UpdateGateway where
   type
     AWSResponse UpdateGateway =
       UpdateGatewayResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateGatewayResponse'
 

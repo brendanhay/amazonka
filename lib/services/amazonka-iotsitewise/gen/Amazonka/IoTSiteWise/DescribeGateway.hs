@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeGateway where
   type
     AWSResponse DescribeGateway =
       DescribeGatewayResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

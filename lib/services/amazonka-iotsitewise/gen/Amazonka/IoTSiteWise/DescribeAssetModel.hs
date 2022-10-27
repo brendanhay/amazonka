@@ -86,7 +86,8 @@ instance Core.AWSRequest DescribeAssetModel where
   type
     AWSResponse DescribeAssetModel =
       DescribeAssetModelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

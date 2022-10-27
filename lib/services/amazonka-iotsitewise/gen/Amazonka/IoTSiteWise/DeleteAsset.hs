@@ -100,7 +100,8 @@ deleteAsset_assetId = Lens.lens (\DeleteAsset' {assetId} -> assetId) (\s@DeleteA
 
 instance Core.AWSRequest DeleteAsset where
   type AWSResponse DeleteAsset = DeleteAssetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

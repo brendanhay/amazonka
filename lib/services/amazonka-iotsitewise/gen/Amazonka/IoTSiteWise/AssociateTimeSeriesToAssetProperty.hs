@@ -122,7 +122,8 @@ instance
   type
     AWSResponse AssociateTimeSeriesToAssetProperty =
       AssociateTimeSeriesToAssetPropertyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateTimeSeriesToAssetPropertyResponse'

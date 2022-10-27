@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateAccessPolicy where
   type
     AWSResponse CreateAccessPolicy =
       CreateAccessPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

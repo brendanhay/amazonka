@@ -218,7 +218,8 @@ instance Core.AWSRequest ListDatabases where
   type
     AWSResponse ListDatabases =
       ListDatabasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

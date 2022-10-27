@@ -95,7 +95,8 @@ instance Core.AWSPager GetGroups where
 
 instance Core.AWSRequest GetGroups where
   type AWSResponse GetGroups = GetGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -100,7 +100,8 @@ instance Core.AWSRequest GetSamplingRules where
   type
     AWSResponse GetSamplingRules =
       GetSamplingRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

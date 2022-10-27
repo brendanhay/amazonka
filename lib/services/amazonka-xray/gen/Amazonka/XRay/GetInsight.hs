@@ -81,7 +81,8 @@ getInsight_insightId = Lens.lens (\GetInsight' {insightId} -> insightId) (\s@Get
 
 instance Core.AWSRequest GetInsight where
   type AWSResponse GetInsight = GetInsightResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

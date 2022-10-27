@@ -103,7 +103,8 @@ instance Core.AWSRequest PutTelemetryRecords where
   type
     AWSResponse PutTelemetryRecords =
       PutTelemetryRecordsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

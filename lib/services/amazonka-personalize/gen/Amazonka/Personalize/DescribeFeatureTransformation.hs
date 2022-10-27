@@ -87,7 +87,8 @@ instance
   type
     AWSResponse DescribeFeatureTransformation =
       DescribeFeatureTransformationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

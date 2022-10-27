@@ -82,7 +82,8 @@ instance Core.AWSRequest DescribeBatchSegmentJob where
   type
     AWSResponse DescribeBatchSegmentJob =
       DescribeBatchSegmentJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteRecommender where
   type
     AWSResponse DeleteRecommender =
       DeleteRecommenderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteRecommenderResponse'
 

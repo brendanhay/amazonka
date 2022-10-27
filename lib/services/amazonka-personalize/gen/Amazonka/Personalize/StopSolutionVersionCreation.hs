@@ -93,7 +93,8 @@ instance Core.AWSRequest StopSolutionVersionCreation where
   type
     AWSResponse StopSolutionVersionCreation =
       StopSolutionVersionCreationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopSolutionVersionCreationResponse'

@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteSolution where
   type
     AWSResponse DeleteSolution =
       DeleteSolutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteSolutionResponse'
 

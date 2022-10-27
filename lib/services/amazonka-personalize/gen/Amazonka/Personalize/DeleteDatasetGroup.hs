@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteDatasetGroup where
   type
     AWSResponse DeleteDatasetGroup =
       DeleteDatasetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDatasetGroupResponse'
 

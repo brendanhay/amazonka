@@ -138,7 +138,8 @@ instance Core.AWSPager ListRecipes where
 
 instance Core.AWSRequest ListRecipes where
   type AWSResponse ListRecipes = ListRecipesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

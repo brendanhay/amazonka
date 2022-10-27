@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateRecommender where
   type
     AWSResponse CreateRecommender =
       CreateRecommenderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

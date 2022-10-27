@@ -78,7 +78,8 @@ instance Core.AWSRequest StopRecommender where
   type
     AWSResponse StopRecommender =
       StopRecommenderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

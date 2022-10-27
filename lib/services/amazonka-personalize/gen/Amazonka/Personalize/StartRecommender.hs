@@ -82,7 +82,8 @@ instance Core.AWSRequest StartRecommender where
   type
     AWSResponse StartRecommender =
       StartRecommenderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

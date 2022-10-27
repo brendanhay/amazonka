@@ -82,7 +82,8 @@ instance Core.AWSRequest DescribeBatchInferenceJob where
   type
     AWSResponse DescribeBatchInferenceJob =
       DescribeBatchInferenceJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -129,7 +129,8 @@ instance Core.AWSRequest ListSolutionVersions where
   type
     AWSResponse ListSolutionVersions =
       ListSolutionVersionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

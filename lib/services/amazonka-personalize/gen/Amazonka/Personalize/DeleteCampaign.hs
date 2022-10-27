@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteCampaign where
   type
     AWSResponse DeleteCampaign =
       DeleteCampaignResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteCampaignResponse'
 

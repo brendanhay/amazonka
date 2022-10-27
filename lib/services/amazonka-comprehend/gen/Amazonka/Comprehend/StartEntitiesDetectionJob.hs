@@ -256,7 +256,8 @@ instance Core.AWSRequest StartEntitiesDetectionJob where
   type
     AWSResponse StartEntitiesDetectionJob =
       StartEntitiesDetectionJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -181,7 +181,8 @@ instance Core.AWSRequest StartEventsDetectionJob where
   type
     AWSResponse StartEventsDetectionJob =
       StartEventsDetectionJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

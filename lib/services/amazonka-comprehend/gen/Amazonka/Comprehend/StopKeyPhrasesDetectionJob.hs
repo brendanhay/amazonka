@@ -90,7 +90,8 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
   type
     AWSResponse StopKeyPhrasesDetectionJob =
       StopKeyPhrasesDetectionJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

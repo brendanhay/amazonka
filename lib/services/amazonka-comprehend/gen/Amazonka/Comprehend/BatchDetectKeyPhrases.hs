@@ -106,7 +106,8 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
   type
     AWSResponse BatchDetectKeyPhrases =
       BatchDetectKeyPhrasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

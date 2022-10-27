@@ -105,7 +105,8 @@ instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
   type
     AWSResponse ListPiiEntitiesDetectionJobs =
       ListPiiEntitiesDetectionJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

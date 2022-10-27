@@ -101,7 +101,8 @@ detectSyntax_languageCode = Lens.lens (\DetectSyntax' {languageCode} -> language
 
 instance Core.AWSRequest DetectSyntax where
   type AWSResponse DetectSyntax = DetectSyntaxResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

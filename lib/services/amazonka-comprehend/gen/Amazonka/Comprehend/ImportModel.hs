@@ -188,7 +188,8 @@ importModel_sourceModelArn = Lens.lens (\ImportModel' {sourceModelArn} -> source
 
 instance Core.AWSRequest ImportModel where
   type AWSResponse ImportModel = ImportModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

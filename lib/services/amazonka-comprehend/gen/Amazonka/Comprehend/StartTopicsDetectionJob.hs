@@ -232,7 +232,8 @@ instance Core.AWSRequest StartTopicsDetectionJob where
   type
     AWSResponse StartTopicsDetectionJob =
       StartTopicsDetectionJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

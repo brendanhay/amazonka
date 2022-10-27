@@ -94,7 +94,8 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
   type
     AWSResponse UpdateSMBLocalGroups =
       UpdateSMBLocalGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

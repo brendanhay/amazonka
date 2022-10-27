@@ -729,7 +729,8 @@ instance Core.AWSRequest CreateSMBFileShare where
   type
     AWSResponse CreateSMBFileShare =
       CreateSMBFileShareResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

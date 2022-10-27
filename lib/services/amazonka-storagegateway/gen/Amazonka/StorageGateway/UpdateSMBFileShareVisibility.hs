@@ -95,7 +95,8 @@ instance Core.AWSRequest UpdateSMBFileShareVisibility where
   type
     AWSResponse UpdateSMBFileShareVisibility =
       UpdateSMBFileShareVisibilityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -278,7 +278,8 @@ createTapes_tapeBarcodePrefix = Lens.lens (\CreateTapes' {tapeBarcodePrefix} -> 
 
 instance Core.AWSRequest CreateTapes where
   type AWSResponse CreateTapes = CreateTapesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateTapePool where
   type
     AWSResponse CreateTapePool =
       CreateTapePoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -86,7 +86,8 @@ instance Core.AWSRequest StartAvailabilityMonitorTest where
   type
     AWSResponse StartAvailabilityMonitorTest =
       StartAvailabilityMonitorTestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

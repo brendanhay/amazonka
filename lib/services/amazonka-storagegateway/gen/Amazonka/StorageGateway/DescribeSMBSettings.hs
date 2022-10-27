@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeSMBSettings where
   type
     AWSResponse DescribeSMBSettings =
       DescribeSMBSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

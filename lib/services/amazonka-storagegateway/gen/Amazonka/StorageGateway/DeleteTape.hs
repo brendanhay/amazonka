@@ -121,7 +121,8 @@ deleteTape_tapeARN = Lens.lens (\DeleteTape' {tapeARN} -> tapeARN) (\s@DeleteTap
 
 instance Core.AWSRequest DeleteTape where
   type AWSResponse DeleteTape = DeleteTapeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -187,7 +187,8 @@ joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDo
 
 instance Core.AWSRequest JoinDomain where
   type AWSResponse JoinDomain = JoinDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

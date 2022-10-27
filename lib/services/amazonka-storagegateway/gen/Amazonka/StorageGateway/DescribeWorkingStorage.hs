@@ -91,7 +91,8 @@ instance Core.AWSRequest DescribeWorkingStorage where
   type
     AWSResponse DescribeWorkingStorage =
       DescribeWorkingStorageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

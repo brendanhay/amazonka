@@ -63,7 +63,8 @@ instance Core.AWSRequest DescribeAcceleratorTypes where
   type
     AWSResponse DescribeAcceleratorTypes =
       DescribeAcceleratorTypesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

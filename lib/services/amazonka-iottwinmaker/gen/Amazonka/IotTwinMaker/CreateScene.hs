@@ -138,7 +138,8 @@ createScene_workspaceId = Lens.lens (\CreateScene' {workspaceId} -> workspaceId)
 
 instance Core.AWSRequest CreateScene where
   type AWSResponse CreateScene = CreateSceneResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

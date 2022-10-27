@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateComponentType where
   type
     AWSResponse CreateComponentType =
       CreateComponentTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

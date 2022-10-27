@@ -131,7 +131,8 @@ instance Core.AWSRequest GetPropertyValue where
   type
     AWSResponse GetPropertyValue =
       GetPropertyValueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -81,7 +81,8 @@ getWorkspace_workspaceId = Lens.lens (\GetWorkspace' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest GetWorkspace where
   type AWSResponse GetWorkspace = GetWorkspaceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

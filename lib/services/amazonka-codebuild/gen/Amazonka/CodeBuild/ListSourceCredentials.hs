@@ -61,7 +61,8 @@ instance Core.AWSRequest ListSourceCredentials where
   type
     AWSResponse ListSourceCredentials =
       ListSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

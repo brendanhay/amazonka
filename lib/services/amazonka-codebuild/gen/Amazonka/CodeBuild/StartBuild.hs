@@ -699,7 +699,8 @@ startBuild_projectName = Lens.lens (\StartBuild' {projectName} -> projectName) (
 
 instance Core.AWSRequest StartBuild where
   type AWSResponse StartBuild = StartBuildResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

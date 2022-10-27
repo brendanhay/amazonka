@@ -74,7 +74,8 @@ stopBuild_id = Lens.lens (\StopBuild' {id} -> id) (\s@StopBuild' {} a -> s {id =
 
 instance Core.AWSRequest StopBuild where
   type AWSResponse StopBuild = StopBuildResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

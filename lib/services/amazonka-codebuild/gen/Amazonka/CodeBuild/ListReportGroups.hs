@@ -185,7 +185,8 @@ instance Core.AWSRequest ListReportGroups where
   type
     AWSResponse ListReportGroups =
       ListReportGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

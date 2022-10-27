@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeTestCases where
   type
     AWSResponse DescribeTestCases =
       DescribeTestCasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

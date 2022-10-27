@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateReportGroup where
   type
     AWSResponse CreateReportGroup =
       CreateReportGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

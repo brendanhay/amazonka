@@ -105,7 +105,8 @@ listTunnels_maxResults = Lens.lens (\ListTunnels' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListTunnels where
   type AWSResponse ListTunnels = ListTunnelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

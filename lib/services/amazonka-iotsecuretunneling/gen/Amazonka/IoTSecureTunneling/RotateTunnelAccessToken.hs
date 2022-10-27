@@ -117,7 +117,8 @@ instance Core.AWSRequest RotateTunnelAccessToken where
   type
     AWSResponse RotateTunnelAccessToken =
       RotateTunnelAccessTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

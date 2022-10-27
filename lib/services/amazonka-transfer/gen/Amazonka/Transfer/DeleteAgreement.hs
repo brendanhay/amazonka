@@ -48,7 +48,8 @@ data DeleteAgreement = DeleteAgreement'
   { -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
     agreementId :: Prelude.Text,
-    -- | The server ID associated with the agreement that you are deleting.
+    -- | The server identifier associated with the agreement that you are
+    -- deleting.
     serverId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,8 @@ data DeleteAgreement = DeleteAgreement'
 -- 'agreementId', 'deleteAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
 --
--- 'serverId', 'deleteAgreement_serverId' - The server ID associated with the agreement that you are deleting.
+-- 'serverId', 'deleteAgreement_serverId' - The server identifier associated with the agreement that you are
+-- deleting.
 newDeleteAgreement ::
   -- | 'agreementId'
   Prelude.Text ->
@@ -82,7 +84,8 @@ newDeleteAgreement pAgreementId_ pServerId_ =
 deleteAgreement_agreementId :: Lens.Lens' DeleteAgreement Prelude.Text
 deleteAgreement_agreementId = Lens.lens (\DeleteAgreement' {agreementId} -> agreementId) (\s@DeleteAgreement' {} a -> s {agreementId = a} :: DeleteAgreement)
 
--- | The server ID associated with the agreement that you are deleting.
+-- | The server identifier associated with the agreement that you are
+-- deleting.
 deleteAgreement_serverId :: Lens.Lens' DeleteAgreement Prelude.Text
 deleteAgreement_serverId = Lens.lens (\DeleteAgreement' {serverId} -> serverId) (\s@DeleteAgreement' {} a -> s {serverId = a} :: DeleteAgreement)
 
@@ -90,7 +93,8 @@ instance Core.AWSRequest DeleteAgreement where
   type
     AWSResponse DeleteAgreement =
       DeleteAgreementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAgreementResponse'
 

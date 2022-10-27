@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeSecurityPolicy where
   type
     AWSResponse DescribeSecurityPolicy =
       DescribeSecurityPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

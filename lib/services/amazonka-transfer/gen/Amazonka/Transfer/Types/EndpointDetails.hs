@@ -54,7 +54,7 @@ data EndpointDetails = EndpointDetails'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html ModifyVpcEndpoint>
     -- API.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the VPC endpoint.
+    -- | The identifier of the VPC endpoint.
     --
     -- This property can only be set when @EndpointType@ is set to
     -- @VPC_ENDPOINT@.
@@ -68,7 +68,8 @@ data EndpointDetails = EndpointDetails'
     -- This property can only be set when @EndpointType@ is set to @VPC@ and it
     -- is only valid in the @UpdateServer@ API.
     addressAllocationIds :: Prelude.Maybe [Prelude.Text],
-    -- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+    -- | The VPC identifier of the VPC in which a server\'s endpoint will be
+    -- hosted.
     --
     -- This property can only be set when @EndpointType@ is set to @VPC@.
     vpcId :: Prelude.Maybe Prelude.Text,
@@ -101,7 +102,7 @@ data EndpointDetails = EndpointDetails'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html ModifyVpcEndpoint>
 -- API.
 --
--- 'vpcEndpointId', 'endpointDetails_vpcEndpointId' - The ID of the VPC endpoint.
+-- 'vpcEndpointId', 'endpointDetails_vpcEndpointId' - The identifier of the VPC endpoint.
 --
 -- This property can only be set when @EndpointType@ is set to
 -- @VPC_ENDPOINT@.
@@ -115,7 +116,8 @@ data EndpointDetails = EndpointDetails'
 -- This property can only be set when @EndpointType@ is set to @VPC@ and it
 -- is only valid in the @UpdateServer@ API.
 --
--- 'vpcId', 'endpointDetails_vpcId' - The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+-- 'vpcId', 'endpointDetails_vpcId' - The VPC identifier of the VPC in which a server\'s endpoint will be
+-- hosted.
 --
 -- This property can only be set when @EndpointType@ is set to @VPC@.
 --
@@ -150,7 +152,7 @@ newEndpointDetails =
 endpointDetails_securityGroupIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
 endpointDetails_securityGroupIds = Lens.lens (\EndpointDetails' {securityGroupIds} -> securityGroupIds) (\s@EndpointDetails' {} a -> s {securityGroupIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the VPC endpoint.
+-- | The identifier of the VPC endpoint.
 --
 -- This property can only be set when @EndpointType@ is set to
 -- @VPC_ENDPOINT@.
@@ -168,7 +170,8 @@ endpointDetails_vpcEndpointId = Lens.lens (\EndpointDetails' {vpcEndpointId} -> 
 endpointDetails_addressAllocationIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
 endpointDetails_addressAllocationIds = Lens.lens (\EndpointDetails' {addressAllocationIds} -> addressAllocationIds) (\s@EndpointDetails' {} a -> s {addressAllocationIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+-- | The VPC identifier of the VPC in which a server\'s endpoint will be
+-- hosted.
 --
 -- This property can only be set when @EndpointType@ is set to @VPC@.
 endpointDetails_vpcId :: Lens.Lens' EndpointDetails (Prelude.Maybe Prelude.Text)

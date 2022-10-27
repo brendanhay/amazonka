@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data EfsFileLocation = EfsFileLocation'
   { -- | The pathname for the folder being used by a workflow.
     path :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the file system, assigned by Amazon EFS.
+    -- | The identifier of the file system, assigned by Amazon EFS.
     fileSystemId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data EfsFileLocation = EfsFileLocation'
 --
 -- 'path', 'efsFileLocation_path' - The pathname for the folder being used by a workflow.
 --
--- 'fileSystemId', 'efsFileLocation_fileSystemId' - The ID of the file system, assigned by Amazon EFS.
+-- 'fileSystemId', 'efsFileLocation_fileSystemId' - The identifier of the file system, assigned by Amazon EFS.
 newEfsFileLocation ::
   EfsFileLocation
 newEfsFileLocation =
@@ -57,7 +57,7 @@ newEfsFileLocation =
 efsFileLocation_path :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
 efsFileLocation_path = Lens.lens (\EfsFileLocation' {path} -> path) (\s@EfsFileLocation' {} a -> s {path = a} :: EfsFileLocation)
 
--- | The ID of the file system, assigned by Amazon EFS.
+-- | The identifier of the file system, assigned by Amazon EFS.
 efsFileLocation_fileSystemId :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
 efsFileLocation_fileSystemId = Lens.lens (\EfsFileLocation' {fileSystemId} -> fileSystemId) (\s@EfsFileLocation' {} a -> s {fileSystemId = a} :: EfsFileLocation)
 

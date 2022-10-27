@@ -131,7 +131,8 @@ deleteAccess_externalId = Lens.lens (\DeleteAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest DeleteAccess where
   type AWSResponse DeleteAccess = DeleteAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteAccessResponse'
 
 instance Prelude.Hashable DeleteAccess where

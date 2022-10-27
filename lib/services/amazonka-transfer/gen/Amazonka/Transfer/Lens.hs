@@ -769,6 +769,7 @@ module Amazonka.Transfer.Lens
     workflowDetail_executionRole,
 
     -- ** WorkflowDetails
+    workflowDetails_onPartialUpload,
     workflowDetails_onUpload,
 
     -- ** WorkflowStep

@@ -240,8 +240,15 @@ data CreateServer = CreateServer'
     postAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
+    --
+    -- In additon to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- for a workflow to execute on partial upload. A partial upload occurs
+    -- when a file is open when the session disconnects.
     workflowDetails :: Prelude.Maybe WorkflowDetails,
-    -- | The RSA, ECDSA, or ED25519 private key to use for your server.
+    -- | The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+    -- server. You can add multiple host keys, in case you want to rotate keys,
+    -- or have a set of active keys that use different algorithms.
     --
     -- Use the following command to generate an RSA 2048 bit key with no
     -- passphrase:
@@ -270,7 +277,7 @@ data CreateServer = CreateServer'
     -- Accidentally changing a server\'s host key can be disruptive.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
     hostKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
@@ -459,7 +466,14 @@ data CreateServer = CreateServer'
 -- 'workflowDetails', 'createServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- 'hostKey', 'createServer_hostKey' - The RSA, ECDSA, or ED25519 private key to use for your server.
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- for a workflow to execute on partial upload. A partial upload occurs
+-- when a file is open when the session disconnects.
+--
+-- 'hostKey', 'createServer_hostKey' - The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+-- server. You can add multiple host keys, in case you want to rotate keys,
+-- or have a set of active keys that use different algorithms.
 --
 -- Use the following command to generate an RSA 2048 bit key with no
 -- passphrase:
@@ -488,7 +502,7 @@ data CreateServer = CreateServer'
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 newCreateServer ::
   CreateServer
@@ -711,10 +725,17 @@ createServer_postAuthenticationLoginBanner = Lens.lens (\CreateServer' {postAuth
 
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
+--
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- for a workflow to execute on partial upload. A partial upload occurs
+-- when a file is open when the session disconnects.
 createServer_workflowDetails :: Lens.Lens' CreateServer (Prelude.Maybe WorkflowDetails)
 createServer_workflowDetails = Lens.lens (\CreateServer' {workflowDetails} -> workflowDetails) (\s@CreateServer' {} a -> s {workflowDetails = a} :: CreateServer)
 
--- | The RSA, ECDSA, or ED25519 private key to use for your server.
+-- | The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+-- server. You can add multiple host keys, in case you want to rotate keys,
+-- or have a set of active keys that use different algorithms.
 --
 -- Use the following command to generate an RSA 2048 bit key with no
 -- passphrase:
@@ -743,14 +764,15 @@ createServer_workflowDetails = Lens.lens (\CreateServer' {workflowDetails} -> wo
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 createServer_hostKey :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_hostKey = Lens.lens (\CreateServer' {hostKey} -> hostKey) (\s@CreateServer' {} a -> s {hostKey = a} :: CreateServer) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.AWSRequest CreateServer where
   type AWSResponse CreateServer = CreateServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -850,7 +872,7 @@ instance Core.ToQuery CreateServer where
 data CreateServerResponse = CreateServerResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service-assigned ID of the server that is created.
+    -- | The service-assigned identifier of the server that is created.
     serverId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -865,7 +887,7 @@ data CreateServerResponse = CreateServerResponse'
 --
 -- 'httpStatus', 'createServerResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'createServerResponse_serverId' - The service-assigned ID of the server that is created.
+-- 'serverId', 'createServerResponse_serverId' - The service-assigned identifier of the server that is created.
 newCreateServerResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -882,7 +904,7 @@ newCreateServerResponse pHttpStatus_ pServerId_ =
 createServerResponse_httpStatus :: Lens.Lens' CreateServerResponse Prelude.Int
 createServerResponse_httpStatus = Lens.lens (\CreateServerResponse' {httpStatus} -> httpStatus) (\s@CreateServerResponse' {} a -> s {httpStatus = a} :: CreateServerResponse)
 
--- | The service-assigned ID of the server that is created.
+-- | The service-assigned identifier of the server that is created.
 createServerResponse_serverId :: Lens.Lens' CreateServerResponse Prelude.Text
 createServerResponse_serverId = Lens.lens (\CreateServerResponse' {serverId} -> serverId) (\s@CreateServerResponse' {} a -> s {serverId = a} :: CreateServerResponse)
 

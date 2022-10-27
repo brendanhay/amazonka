@@ -22,7 +22,9 @@
 --
 -- Creates the connector, which captures the parameters for an outbound
 -- connection for the AS2 protocol. The connector is required for sending
--- files from a customer\'s non Amazon Web Services server.
+-- files to an externally hosted AS2 server. For more details about
+-- connectors, see
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector Create AS2 connectors>.
 module Amazonka.Transfer.CreateConnector
   ( -- * Creating a Request
     CreateConnector (..),
@@ -167,7 +169,8 @@ instance Core.AWSRequest CreateConnector where
   type
     AWSResponse CreateConnector =
       CreateConnectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

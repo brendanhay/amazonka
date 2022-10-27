@@ -32,18 +32,18 @@ data DescribedHostKey = DescribedHostKey'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A unique identifier for the host key.
     hostKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The encryption algorithm used for the host key. The @Type@ is one of the
-    -- following values:
+    -- | The encryption algorithm that is used for the host key. The @Type@
+    -- parameter is specified by using one of the following values:
     --
-    -- -   ssh-rsa
+    -- -   @ssh-rsa@
     --
-    -- -   ssh-ed25519
+    -- -   @ssh-ed25519@
     --
-    -- -   ecdsa-sha2-nistp256
+    -- -   @ecdsa-sha2-nistp256@
     --
-    -- -   ecdsa-sha2-nistp384
+    -- -   @ecdsa-sha2-nistp384@
     --
-    -- -   ecdsa-sha2-nistp521
+    -- -   @ecdsa-sha2-nistp521@
     type' :: Prelude.Maybe Prelude.Text,
     -- | The text description for this host key.
     description :: Prelude.Maybe Prelude.Text,
@@ -69,18 +69,18 @@ data DescribedHostKey = DescribedHostKey'
 --
 -- 'hostKeyId', 'describedHostKey_hostKeyId' - A unique identifier for the host key.
 --
--- 'type'', 'describedHostKey_type' - The encryption algorithm used for the host key. The @Type@ is one of the
--- following values:
+-- 'type'', 'describedHostKey_type' - The encryption algorithm that is used for the host key. The @Type@
+-- parameter is specified by using one of the following values:
 --
--- -   ssh-rsa
+-- -   @ssh-rsa@
 --
--- -   ssh-ed25519
+-- -   @ssh-ed25519@
 --
--- -   ecdsa-sha2-nistp256
+-- -   @ecdsa-sha2-nistp256@
 --
--- -   ecdsa-sha2-nistp384
+-- -   @ecdsa-sha2-nistp384@
 --
--- -   ecdsa-sha2-nistp521
+-- -   @ecdsa-sha2-nistp521@
 --
 -- 'description', 'describedHostKey_description' - The text description for this host key.
 --
@@ -113,18 +113,18 @@ describedHostKey_tags = Lens.lens (\DescribedHostKey' {tags} -> tags) (\s@Descri
 describedHostKey_hostKeyId :: Lens.Lens' DescribedHostKey (Prelude.Maybe Prelude.Text)
 describedHostKey_hostKeyId = Lens.lens (\DescribedHostKey' {hostKeyId} -> hostKeyId) (\s@DescribedHostKey' {} a -> s {hostKeyId = a} :: DescribedHostKey)
 
--- | The encryption algorithm used for the host key. The @Type@ is one of the
--- following values:
+-- | The encryption algorithm that is used for the host key. The @Type@
+-- parameter is specified by using one of the following values:
 --
--- -   ssh-rsa
+-- -   @ssh-rsa@
 --
--- -   ssh-ed25519
+-- -   @ssh-ed25519@
 --
--- -   ecdsa-sha2-nistp256
+-- -   @ecdsa-sha2-nistp256@
 --
--- -   ecdsa-sha2-nistp384
+-- -   @ecdsa-sha2-nistp384@
 --
--- -   ecdsa-sha2-nistp521
+-- -   @ecdsa-sha2-nistp521@
 describedHostKey_type :: Lens.Lens' DescribedHostKey (Prelude.Maybe Prelude.Text)
 describedHostKey_type = Lens.lens (\DescribedHostKey' {type'} -> type') (\s@DescribedHostKey' {} a -> s {type' = a} :: DescribedHostKey)
 

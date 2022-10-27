@@ -354,7 +354,8 @@ updateAccess_externalId = Lens.lens (\UpdateAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest UpdateAccess where
   type AWSResponse UpdateAccess = UpdateAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -428,11 +429,11 @@ instance Core.ToQuery UpdateAccess where
 data UpdateAccessResponse = UpdateAccessResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The ID of the server that the user is attached to.
+    -- | The identifier of the server that the user is attached to.
     serverId :: Prelude.Text,
-    -- | The external ID of the group whose users have access to your Amazon S3
-    -- or Amazon EFS resources over the enabled protocols using Amazon Web
-    -- ServicesTransfer Family.
+    -- | The external identifier of the group whose users have access to your
+    -- Amazon S3 or Amazon EFS resources over the enabled protocols using
+    -- Amazon Web ServicesTransfer Family.
     externalId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -447,11 +448,11 @@ data UpdateAccessResponse = UpdateAccessResponse'
 --
 -- 'httpStatus', 'updateAccessResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'updateAccessResponse_serverId' - The ID of the server that the user is attached to.
+-- 'serverId', 'updateAccessResponse_serverId' - The identifier of the server that the user is attached to.
 --
--- 'externalId', 'updateAccessResponse_externalId' - The external ID of the group whose users have access to your Amazon S3
--- or Amazon EFS resources over the enabled protocols using Amazon Web
--- ServicesTransfer Family.
+-- 'externalId', 'updateAccessResponse_externalId' - The external identifier of the group whose users have access to your
+-- Amazon S3 or Amazon EFS resources over the enabled protocols using
+-- Amazon Web ServicesTransfer Family.
 newUpdateAccessResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -474,13 +475,13 @@ newUpdateAccessResponse
 updateAccessResponse_httpStatus :: Lens.Lens' UpdateAccessResponse Prelude.Int
 updateAccessResponse_httpStatus = Lens.lens (\UpdateAccessResponse' {httpStatus} -> httpStatus) (\s@UpdateAccessResponse' {} a -> s {httpStatus = a} :: UpdateAccessResponse)
 
--- | The ID of the server that the user is attached to.
+-- | The identifier of the server that the user is attached to.
 updateAccessResponse_serverId :: Lens.Lens' UpdateAccessResponse Prelude.Text
 updateAccessResponse_serverId = Lens.lens (\UpdateAccessResponse' {serverId} -> serverId) (\s@UpdateAccessResponse' {} a -> s {serverId = a} :: UpdateAccessResponse)
 
--- | The external ID of the group whose users have access to your Amazon S3
--- or Amazon EFS resources over the enabled protocols using Amazon Web
--- ServicesTransfer Family.
+-- | The external identifier of the group whose users have access to your
+-- Amazon S3 or Amazon EFS resources over the enabled protocols using
+-- Amazon Web ServicesTransfer Family.
 updateAccessResponse_externalId :: Lens.Lens' UpdateAccessResponse Prelude.Text
 updateAccessResponse_externalId = Lens.lens (\UpdateAccessResponse' {externalId} -> externalId) (\s@UpdateAccessResponse' {} a -> s {externalId = a} :: UpdateAccessResponse)
 

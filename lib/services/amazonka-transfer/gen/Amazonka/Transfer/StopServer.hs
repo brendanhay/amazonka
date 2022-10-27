@@ -84,7 +84,8 @@ stopServer_serverId = Lens.lens (\StopServer' {serverId} -> serverId) (\s@StopSe
 
 instance Core.AWSRequest StopServer where
   type AWSResponse StopServer = StopServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StopServerResponse'
 
 instance Prelude.Hashable StopServer where

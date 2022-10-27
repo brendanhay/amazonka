@@ -26,6 +26,11 @@ import qualified Amazonka.Prelude as Prelude
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- for a workflow to execute on partial upload. A partial upload occurs
+-- when a file is open when the session disconnects.
+--
 -- /See:/ 'newWorkflowDetail' smart constructor.
 data WorkflowDetail = WorkflowDetail'
   { -- | A unique identifier for the workflow.

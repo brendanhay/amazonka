@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a host key to the server specified by the @ServerId@ parameter.
+-- Adds a host key to the server that\'s specified by the @ServerId@
+-- parameter.
 module Amazonka.Transfer.ImportHostKey
   ( -- * Creating a Request
     ImportHostKey (..),
@@ -54,9 +55,9 @@ import Amazonka.Transfer.Types
 data ImportHostKey = ImportHostKey'
   { -- | Key-value pairs that can be used to group and search for host keys.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Enter a text description to identify this host key.
+    -- | The text description that identifies this host key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Provide the ID of the server that contains the host key that you are
+    -- | The identifier of the server that contains the host key that you are
     -- importing.
     serverId :: Prelude.Text,
     -- | The public key portion of an SSH key pair.
@@ -76,9 +77,9 @@ data ImportHostKey = ImportHostKey'
 --
 -- 'tags', 'importHostKey_tags' - Key-value pairs that can be used to group and search for host keys.
 --
--- 'description', 'importHostKey_description' - Enter a text description to identify this host key.
+-- 'description', 'importHostKey_description' - The text description that identifies this host key.
 --
--- 'serverId', 'importHostKey_serverId' - Provide the ID of the server that contains the host key that you are
+-- 'serverId', 'importHostKey_serverId' - The identifier of the server that contains the host key that you are
 -- importing.
 --
 -- 'hostKeyBody', 'importHostKey_hostKeyBody' - The public key portion of an SSH key pair.
@@ -102,11 +103,11 @@ newImportHostKey pServerId_ pHostKeyBody_ =
 importHostKey_tags :: Lens.Lens' ImportHostKey (Prelude.Maybe (Prelude.NonEmpty Tag))
 importHostKey_tags = Lens.lens (\ImportHostKey' {tags} -> tags) (\s@ImportHostKey' {} a -> s {tags = a} :: ImportHostKey) Prelude.. Lens.mapping Lens.coerced
 
--- | Enter a text description to identify this host key.
+-- | The text description that identifies this host key.
 importHostKey_description :: Lens.Lens' ImportHostKey (Prelude.Maybe Prelude.Text)
 importHostKey_description = Lens.lens (\ImportHostKey' {description} -> description) (\s@ImportHostKey' {} a -> s {description = a} :: ImportHostKey)
 
--- | Provide the ID of the server that contains the host key that you are
+-- | The identifier of the server that contains the host key that you are
 -- importing.
 importHostKey_serverId :: Lens.Lens' ImportHostKey Prelude.Text
 importHostKey_serverId = Lens.lens (\ImportHostKey' {serverId} -> serverId) (\s@ImportHostKey' {} a -> s {serverId = a} :: ImportHostKey)
@@ -121,7 +122,8 @@ instance Core.AWSRequest ImportHostKey where
   type
     AWSResponse ImportHostKey =
       ImportHostKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,9 +183,9 @@ instance Core.ToQuery ImportHostKey where
 data ImportHostKeyResponse = ImportHostKeyResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Returns the server ID that contains the imported key.
+    -- | Returns the server identifier that contains the imported key.
     serverId :: Prelude.Text,
-    -- | Returns the host key ID for the imported key.
+    -- | Returns the host key identifier for the imported key.
     hostKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -198,9 +200,9 @@ data ImportHostKeyResponse = ImportHostKeyResponse'
 --
 -- 'httpStatus', 'importHostKeyResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'importHostKeyResponse_serverId' - Returns the server ID that contains the imported key.
+-- 'serverId', 'importHostKeyResponse_serverId' - Returns the server identifier that contains the imported key.
 --
--- 'hostKeyId', 'importHostKeyResponse_hostKeyId' - Returns the host key ID for the imported key.
+-- 'hostKeyId', 'importHostKeyResponse_hostKeyId' - Returns the host key identifier for the imported key.
 newImportHostKeyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -223,11 +225,11 @@ newImportHostKeyResponse
 importHostKeyResponse_httpStatus :: Lens.Lens' ImportHostKeyResponse Prelude.Int
 importHostKeyResponse_httpStatus = Lens.lens (\ImportHostKeyResponse' {httpStatus} -> httpStatus) (\s@ImportHostKeyResponse' {} a -> s {httpStatus = a} :: ImportHostKeyResponse)
 
--- | Returns the server ID that contains the imported key.
+-- | Returns the server identifier that contains the imported key.
 importHostKeyResponse_serverId :: Lens.Lens' ImportHostKeyResponse Prelude.Text
 importHostKeyResponse_serverId = Lens.lens (\ImportHostKeyResponse' {serverId} -> serverId) (\s@ImportHostKeyResponse' {} a -> s {serverId = a} :: ImportHostKeyResponse)
 
--- | Returns the host key ID for the imported key.
+-- | Returns the host key identifier for the imported key.
 importHostKeyResponse_hostKeyId :: Lens.Lens' ImportHostKeyResponse Prelude.Text
 importHostKeyResponse_hostKeyId = Lens.lens (\ImportHostKeyResponse' {hostKeyId} -> hostKeyId) (\s@ImportHostKeyResponse' {} a -> s {hostKeyId = a} :: ImportHostKeyResponse)
 

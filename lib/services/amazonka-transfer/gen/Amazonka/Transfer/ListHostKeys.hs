@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of host keys for the server specified by the @ServerId@
--- paramter.
+-- Returns a list of host keys for the server that\'s specified by the
+-- @ServerId@ parameter.
 module Amazonka.Transfer.ListHostKeys
   ( -- * Creating a Request
     ListHostKeys (..),
@@ -59,7 +59,7 @@ data ListHostKeys = ListHostKeys'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of host keys to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Provide the ID of the server that contains the host keys that you want
+    -- | The identifier of the server that contains the host keys that you want
     -- to view.
     serverId :: Prelude.Text
   }
@@ -79,7 +79,7 @@ data ListHostKeys = ListHostKeys'
 --
 -- 'maxResults', 'listHostKeys_maxResults' - The maximum number of host keys to return.
 --
--- 'serverId', 'listHostKeys_serverId' - Provide the ID of the server that contains the host keys that you want
+-- 'serverId', 'listHostKeys_serverId' - The identifier of the server that contains the host keys that you want
 -- to view.
 newListHostKeys ::
   -- | 'serverId'
@@ -102,14 +102,15 @@ listHostKeys_nextToken = Lens.lens (\ListHostKeys' {nextToken} -> nextToken) (\s
 listHostKeys_maxResults :: Lens.Lens' ListHostKeys (Prelude.Maybe Prelude.Natural)
 listHostKeys_maxResults = Lens.lens (\ListHostKeys' {maxResults} -> maxResults) (\s@ListHostKeys' {} a -> s {maxResults = a} :: ListHostKeys)
 
--- | Provide the ID of the server that contains the host keys that you want
+-- | The identifier of the server that contains the host keys that you want
 -- to view.
 listHostKeys_serverId :: Lens.Lens' ListHostKeys Prelude.Text
 listHostKeys_serverId = Lens.lens (\ListHostKeys' {serverId} -> serverId) (\s@ListHostKeys' {} a -> s {serverId = a} :: ListHostKeys)
 
 instance Core.AWSRequest ListHostKeys where
   type AWSResponse ListHostKeys = ListHostKeysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,7 +171,7 @@ data ListHostKeysResponse = ListHostKeysResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Returns the server ID that contains the listed host keys.
+    -- | Returns the server identifier that contains the listed host keys.
     serverId :: Prelude.Text,
     -- | Returns an array, where each item contains the details of a host key.
     hostKeys :: [ListedHostKey]
@@ -190,7 +191,7 @@ data ListHostKeysResponse = ListHostKeysResponse'
 --
 -- 'httpStatus', 'listHostKeysResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'listHostKeysResponse_serverId' - Returns the server ID that contains the listed host keys.
+-- 'serverId', 'listHostKeysResponse_serverId' - Returns the server identifier that contains the listed host keys.
 --
 -- 'hostKeys', 'listHostKeysResponse_hostKeys' - Returns an array, where each item contains the details of a host key.
 newListHostKeysResponse ::
@@ -216,7 +217,7 @@ listHostKeysResponse_nextToken = Lens.lens (\ListHostKeysResponse' {nextToken} -
 listHostKeysResponse_httpStatus :: Lens.Lens' ListHostKeysResponse Prelude.Int
 listHostKeysResponse_httpStatus = Lens.lens (\ListHostKeysResponse' {httpStatus} -> httpStatus) (\s@ListHostKeysResponse' {} a -> s {httpStatus = a} :: ListHostKeysResponse)
 
--- | Returns the server ID that contains the listed host keys.
+-- | Returns the server identifier that contains the listed host keys.
 listHostKeysResponse_serverId :: Lens.Lens' ListHostKeysResponse Prelude.Text
 listHostKeysResponse_serverId = Lens.lens (\ListHostKeysResponse' {serverId} -> serverId) (\s@ListHostKeysResponse' {} a -> s {serverId = a} :: ListHostKeysResponse)
 

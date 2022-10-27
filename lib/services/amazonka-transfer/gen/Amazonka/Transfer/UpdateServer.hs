@@ -208,12 +208,19 @@ data UpdateServer = UpdateServer'
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
+    -- In additon to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- for a workflow to execute on partial upload. A partial upload occurs
+    -- when a file is open when the session disconnects.
+    --
     -- To remove an associated workflow from a server, you can provide an empty
     -- @OnUpload@ object, as in the following example.
     --
     -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
     workflowDetails :: Prelude.Maybe WorkflowDetails,
-    -- | The RSA, ECDSA, or ED25519 private key to use for your server.
+    -- | The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+    -- server. You can add multiple host keys, in case you want to rotate keys,
+    -- or have a set of active keys that use different algorithms.
     --
     -- Use the following command to generate an RSA 2048 bit key with no
     -- passphrase:
@@ -242,7 +249,7 @@ data UpdateServer = UpdateServer'
     -- Accidentally changing a server\'s host key can be disruptive.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
     hostKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A system-assigned unique identifier for a server instance that the user
@@ -403,12 +410,19 @@ data UpdateServer = UpdateServer'
 -- 'workflowDetails', 'updateServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- for a workflow to execute on partial upload. A partial upload occurs
+-- when a file is open when the session disconnects.
+--
 -- To remove an associated workflow from a server, you can provide an empty
 -- @OnUpload@ object, as in the following example.
 --
 -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
 --
--- 'hostKey', 'updateServer_hostKey' - The RSA, ECDSA, or ED25519 private key to use for your server.
+-- 'hostKey', 'updateServer_hostKey' - The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+-- server. You can add multiple host keys, in case you want to rotate keys,
+-- or have a set of active keys that use different algorithms.
 --
 -- Use the following command to generate an RSA 2048 bit key with no
 -- passphrase:
@@ -437,7 +451,7 @@ data UpdateServer = UpdateServer'
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 --
 -- 'serverId', 'updateServer_serverId' - A system-assigned unique identifier for a server instance that the user
@@ -628,6 +642,11 @@ updateServer_postAuthenticationLoginBanner = Lens.lens (\UpdateServer' {postAuth
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- for a workflow to execute on partial upload. A partial upload occurs
+-- when a file is open when the session disconnects.
+--
 -- To remove an associated workflow from a server, you can provide an empty
 -- @OnUpload@ object, as in the following example.
 --
@@ -635,7 +654,9 @@ updateServer_postAuthenticationLoginBanner = Lens.lens (\UpdateServer' {postAuth
 updateServer_workflowDetails :: Lens.Lens' UpdateServer (Prelude.Maybe WorkflowDetails)
 updateServer_workflowDetails = Lens.lens (\UpdateServer' {workflowDetails} -> workflowDetails) (\s@UpdateServer' {} a -> s {workflowDetails = a} :: UpdateServer)
 
--- | The RSA, ECDSA, or ED25519 private key to use for your server.
+-- | The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled
+-- server. You can add multiple host keys, in case you want to rotate keys,
+-- or have a set of active keys that use different algorithms.
 --
 -- Use the following command to generate an RSA 2048 bit key with no
 -- passphrase:
@@ -664,7 +685,7 @@ updateServer_workflowDetails = Lens.lens (\UpdateServer' {workflowDetails} -> wo
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 updateServer_hostKey :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_hostKey = Lens.lens (\UpdateServer' {hostKey} -> hostKey) (\s@UpdateServer' {} a -> s {hostKey = a} :: UpdateServer) Prelude.. Lens.mapping Core._Sensitive
@@ -676,7 +697,8 @@ updateServer_serverId = Lens.lens (\UpdateServer' {serverId} -> serverId) (\s@Up
 
 instance Core.AWSRequest UpdateServer where
   type AWSResponse UpdateServer = UpdateServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

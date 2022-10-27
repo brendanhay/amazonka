@@ -134,7 +134,8 @@ instance Core.AWSRequest ListAgreements where
   type
     AWSResponse ListAgreements =
       ListAgreementsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -52,7 +52,7 @@ data DescribeAgreement = DescribeAgreement'
   { -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
     agreementId :: Prelude.Text,
-    -- | The server ID that\'s associated with the agreement.
+    -- | The server identifier that\'s associated with the agreement.
     serverId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data DescribeAgreement = DescribeAgreement'
 -- 'agreementId', 'describeAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
 --
--- 'serverId', 'describeAgreement_serverId' - The server ID that\'s associated with the agreement.
+-- 'serverId', 'describeAgreement_serverId' - The server identifier that\'s associated with the agreement.
 newDescribeAgreement ::
   -- | 'agreementId'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newDescribeAgreement pAgreementId_ pServerId_ =
 describeAgreement_agreementId :: Lens.Lens' DescribeAgreement Prelude.Text
 describeAgreement_agreementId = Lens.lens (\DescribeAgreement' {agreementId} -> agreementId) (\s@DescribeAgreement' {} a -> s {agreementId = a} :: DescribeAgreement)
 
--- | The server ID that\'s associated with the agreement.
+-- | The server identifier that\'s associated with the agreement.
 describeAgreement_serverId :: Lens.Lens' DescribeAgreement Prelude.Text
 describeAgreement_serverId = Lens.lens (\DescribeAgreement' {serverId} -> serverId) (\s@DescribeAgreement' {} a -> s {serverId = a} :: DescribeAgreement)
 
@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeAgreement where
   type
     AWSResponse DescribeAgreement =
       DescribeAgreementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

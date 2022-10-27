@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Begins an outbound file transfer. You specify the @ConnectorId@ and the
--- file paths for where to send the files.
+-- Begins an outbound file transfer to a remote AS2 server. You specify the
+-- @ConnectorId@ and the file paths for where to send the files.
 module Amazonka.Transfer.StartFileTransfer
   ( -- * Creating a Request
     StartFileTransfer (..),
@@ -95,7 +95,8 @@ instance Core.AWSRequest StartFileTransfer where
   type
     AWSResponse StartFileTransfer =
       StartFileTransferResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

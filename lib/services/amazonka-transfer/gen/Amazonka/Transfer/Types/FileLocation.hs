@@ -32,7 +32,8 @@ data FileLocation = FileLocation'
   { -- | Specifies the S3 details for the file being used, such as bucket, ETag,
     -- and so forth.
     s3FileLocation :: Prelude.Maybe S3FileLocation,
-    -- | Specifies the Amazon EFS ID and the path for the file being used.
+    -- | Specifies the Amazon EFS identifier and the path for the file being
+    -- used.
     efsFileLocation :: Prelude.Maybe EfsFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +49,8 @@ data FileLocation = FileLocation'
 -- 's3FileLocation', 'fileLocation_s3FileLocation' - Specifies the S3 details for the file being used, such as bucket, ETag,
 -- and so forth.
 --
--- 'efsFileLocation', 'fileLocation_efsFileLocation' - Specifies the Amazon EFS ID and the path for the file being used.
+-- 'efsFileLocation', 'fileLocation_efsFileLocation' - Specifies the Amazon EFS identifier and the path for the file being
+-- used.
 newFileLocation ::
   FileLocation
 newFileLocation =
@@ -62,7 +64,8 @@ newFileLocation =
 fileLocation_s3FileLocation :: Lens.Lens' FileLocation (Prelude.Maybe S3FileLocation)
 fileLocation_s3FileLocation = Lens.lens (\FileLocation' {s3FileLocation} -> s3FileLocation) (\s@FileLocation' {} a -> s {s3FileLocation = a} :: FileLocation)
 
--- | Specifies the Amazon EFS ID and the path for the file being used.
+-- | Specifies the Amazon EFS identifier and the path for the file being
+-- used.
 fileLocation_efsFileLocation :: Lens.Lens' FileLocation (Prelude.Maybe EfsFileLocation)
 fileLocation_efsFileLocation = Lens.lens (\FileLocation' {efsFileLocation} -> efsFileLocation) (\s@FileLocation' {} a -> s {efsFileLocation = a} :: FileLocation)
 

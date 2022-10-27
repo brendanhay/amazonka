@@ -155,7 +155,8 @@ getClip_clipFragmentSelector = Lens.lens (\GetClip' {clipFragmentSelector} -> cl
 
 instance Core.AWSRequest GetClip where
   type AWSResponse GetClip = GetClipResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

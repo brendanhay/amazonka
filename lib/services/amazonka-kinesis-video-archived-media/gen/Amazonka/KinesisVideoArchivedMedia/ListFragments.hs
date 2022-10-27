@@ -195,7 +195,8 @@ instance Core.AWSRequest ListFragments where
   type
     AWSResponse ListFragments =
       ListFragmentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

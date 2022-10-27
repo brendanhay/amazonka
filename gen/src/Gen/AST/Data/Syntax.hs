@@ -360,18 +360,6 @@ notationE' withLensIso = \case
       TMaybe x -> var "Lens._Just" : lensIso x
       _other -> []
 
-serviceInstD ::
-  HasMetadata a Identity =>
-  a ->
-  Ref ->
-  Decl
-serviceInstD m a =
-  instD
-    "Core.AWSService"
-    (identifier a)
-    [ funArgsD "service" ["_proxy"] (var (m ^. serviceConfig))
-    ]
-
 requestD ::
   HasMetadata a Identity =>
   Config ->
@@ -386,6 +374,7 @@ requestD c m h (a, as) (b, bs) =
     (identifier a)
     $ Just
       [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
+        funArgsD "service" ["_"] (var (m ^. serviceConfig)),
         funArgsD "request" ["srv"] (requestF c m h a as),
         funD "response" (responseE (m ^. protocol) b bs)
       ]

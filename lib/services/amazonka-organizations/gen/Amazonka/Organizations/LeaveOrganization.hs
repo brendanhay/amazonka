@@ -111,7 +111,8 @@ instance Core.AWSRequest LeaveOrganization where
   type
     AWSResponse LeaveOrganization =
       LeaveOrganizationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull LeaveOrganizationResponse'
 

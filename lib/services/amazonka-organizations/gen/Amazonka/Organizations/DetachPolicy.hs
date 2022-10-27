@@ -165,7 +165,8 @@ detachPolicy_targetId = Lens.lens (\DetachPolicy' {targetId} -> targetId) (\s@De
 
 instance Core.AWSRequest DetachPolicy where
   type AWSResponse DetachPolicy = DetachPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DetachPolicyResponse'
 
 instance Prelude.Hashable DetachPolicy where

@@ -104,7 +104,8 @@ instance Core.AWSRequest EnableAWSServiceAccess where
   type
     AWSResponse EnableAWSServiceAccess =
       EnableAWSServiceAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       EnableAWSServiceAccessResponse'

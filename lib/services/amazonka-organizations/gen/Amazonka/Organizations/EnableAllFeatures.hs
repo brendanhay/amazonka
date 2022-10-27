@@ -94,7 +94,8 @@ instance Core.AWSRequest EnableAllFeatures where
   type
     AWSResponse EnableAllFeatures =
       EnableAllFeaturesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -59,7 +59,8 @@ instance Core.AWSRequest DeleteOrganization where
   type
     AWSResponse DeleteOrganization =
       DeleteOrganizationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteOrganizationResponse'
 

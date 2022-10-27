@@ -89,7 +89,8 @@ putUsers_users = Lens.lens (\PutUsers' {users} -> users) (\s@PutUsers' {} a -> s
 
 instance Core.AWSRequest PutUsers where
   type AWSResponse PutUsers = PutUsersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutUsersResponse'
 
 instance Prelude.Hashable PutUsers where

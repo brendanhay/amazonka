@@ -101,7 +101,8 @@ instance Core.AWSRequest StopExecution where
   type
     AWSResponse StopExecution =
       StopExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

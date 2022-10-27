@@ -149,7 +149,8 @@ instance Core.AWSRequest ListStateMachines where
   type
     AWSResponse ListStateMachines =
       ListStateMachinesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

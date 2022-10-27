@@ -428,6 +428,8 @@ defaultService =
       Core._serviceEndpointPrefix = "states",
       Core._serviceSigningName = "states",
       Core._serviceVersion = "2016-11-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

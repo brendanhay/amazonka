@@ -76,7 +76,8 @@ startFlow_flowArn = Lens.lens (\StartFlow' {flowArn} -> flowArn) (\s@StartFlow' 
 
 instance Core.AWSRequest StartFlow where
   type AWSResponse StartFlow = StartFlowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -145,7 +145,8 @@ instance Core.AWSRequest ListOfferings where
   type
     AWSResponse ListOfferings =
       ListOfferingsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

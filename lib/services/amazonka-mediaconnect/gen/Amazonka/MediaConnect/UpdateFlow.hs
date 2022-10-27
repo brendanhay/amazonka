@@ -97,7 +97,8 @@ updateFlow_flowArn = Lens.lens (\UpdateFlow' {flowArn} -> flowArn) (\s@UpdateFlo
 
 instance Core.AWSRequest UpdateFlow where
   type AWSResponse UpdateFlow = UpdateFlowResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

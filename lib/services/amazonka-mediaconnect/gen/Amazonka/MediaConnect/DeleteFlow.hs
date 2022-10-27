@@ -76,7 +76,8 @@ deleteFlow_flowArn = Lens.lens (\DeleteFlow' {flowArn} -> flowArn) (\s@DeleteFlo
 
 instance Core.AWSRequest DeleteFlow where
   type AWSResponse DeleteFlow = DeleteFlowResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

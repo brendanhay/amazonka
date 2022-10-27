@@ -96,7 +96,8 @@ instance Core.AWSRequest RemoveFlowOutput where
   type
     AWSResponse RemoveFlowOutput =
       RemoveFlowOutputResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

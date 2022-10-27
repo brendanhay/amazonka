@@ -583,7 +583,8 @@ instance Core.AWSRequest GetFederationToken where
   type
     AWSResponse GetFederationToken =
       GetFederationTokenResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetFederationTokenResult"

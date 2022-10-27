@@ -866,7 +866,8 @@ assumeRole_roleSessionName = Lens.lens (\AssumeRole' {roleSessionName} -> roleSe
 
 instance Core.AWSRequest AssumeRole where
   type AWSResponse AssumeRole = AssumeRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AssumeRoleResult"

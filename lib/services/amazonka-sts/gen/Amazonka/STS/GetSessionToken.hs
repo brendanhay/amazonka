@@ -241,7 +241,8 @@ instance Core.AWSRequest GetSessionToken where
   type
     AWSResponse GetSessionToken =
       GetSessionTokenResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSessionTokenResult"

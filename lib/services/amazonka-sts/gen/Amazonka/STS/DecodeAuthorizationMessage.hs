@@ -116,7 +116,8 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
   type
     AWSResponse DecodeAuthorizationMessage =
       DecodeAuthorizationMessageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DecodeAuthorizationMessageResult"

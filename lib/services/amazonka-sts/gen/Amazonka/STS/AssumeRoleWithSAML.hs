@@ -521,7 +521,8 @@ instance Core.AWSRequest AssumeRoleWithSAML where
   type
     AWSResponse AssumeRoleWithSAML =
       AssumeRoleWithSAMLResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AssumeRoleWithSAMLResult"

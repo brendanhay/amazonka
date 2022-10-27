@@ -315,7 +315,8 @@ instance Core.AWSRequest CreateConfigurationTemplate where
   type
     AWSResponse CreateConfigurationTemplate =
       ConfigurationSettingsDescription
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationTemplateResult"

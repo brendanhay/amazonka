@@ -147,7 +147,8 @@ instance Core.AWSRequest ListPlatformVersions where
   type
     AWSResponse ListPlatformVersions =
       ListPlatformVersionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPlatformVersionsResult"

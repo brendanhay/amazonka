@@ -156,7 +156,8 @@ instance Core.AWSRequest RequestEnvironmentInfo where
   type
     AWSResponse RequestEnvironmentInfo =
       RequestEnvironmentInfoResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RequestEnvironmentInfoResponse'

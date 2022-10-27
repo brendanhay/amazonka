@@ -78,7 +78,8 @@ instance Core.AWSRequest DeletePlatformVersion where
   type
     AWSResponse DeletePlatformVersion =
       DeletePlatformVersionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeletePlatformVersionResult"

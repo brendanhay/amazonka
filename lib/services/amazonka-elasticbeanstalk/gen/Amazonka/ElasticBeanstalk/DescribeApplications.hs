@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeApplications where
   type
     AWSResponse DescribeApplications =
       DescribeApplicationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeApplicationsResult"

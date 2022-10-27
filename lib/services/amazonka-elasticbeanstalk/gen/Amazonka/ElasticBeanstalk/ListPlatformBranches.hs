@@ -213,7 +213,8 @@ instance Core.AWSRequest ListPlatformBranches where
   type
     AWSResponse ListPlatformBranches =
       ListPlatformBranchesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPlatformBranchesResult"

@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
   type
     AWSResponse DescribeEnvironmentHealth =
       DescribeEnvironmentHealthResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentHealthResult"

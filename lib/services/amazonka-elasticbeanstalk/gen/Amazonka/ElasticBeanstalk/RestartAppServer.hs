@@ -111,7 +111,8 @@ instance Core.AWSRequest RestartAppServer where
   type
     AWSResponse RestartAppServer =
       RestartAppServerResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RestartAppServerResponse'
 

@@ -227,7 +227,8 @@ instance Core.AWSRequest DescribeEnvironments where
   type
     AWSResponse DescribeEnvironments =
       EnvironmentDescriptionsMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentsResult"

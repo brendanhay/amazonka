@@ -80,7 +80,8 @@ instance Core.AWSRequest CheckDNSAvailability where
   type
     AWSResponse CheckDNSAvailability =
       CheckDNSAvailabilityResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CheckDNSAvailabilityResult"

@@ -77,7 +77,8 @@ rejectSkill_skillId = Lens.lens (\RejectSkill' {skillId} -> skillId) (\s@RejectS
 
 instance Core.AWSRequest RejectSkill where
   type AWSResponse RejectSkill = RejectSkillResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

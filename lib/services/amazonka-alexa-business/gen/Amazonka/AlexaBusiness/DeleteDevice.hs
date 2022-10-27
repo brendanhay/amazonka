@@ -74,7 +74,8 @@ deleteDevice_deviceArn = Lens.lens (\DeleteDevice' {deviceArn} -> deviceArn) (\s
 
 instance Core.AWSRequest DeleteDevice where
   type AWSResponse DeleteDevice = DeleteDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

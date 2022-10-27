@@ -72,7 +72,8 @@ deleteRoom_roomArn = Lens.lens (\DeleteRoom' {roomArn} -> roomArn) (\s@DeleteRoo
 
 instance Core.AWSRequest DeleteRoom where
   type AWSResponse DeleteRoom = DeleteRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

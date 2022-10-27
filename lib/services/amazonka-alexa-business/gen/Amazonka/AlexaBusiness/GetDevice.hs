@@ -73,7 +73,8 @@ getDevice_deviceArn = Lens.lens (\GetDevice' {deviceArn} -> deviceArn) (\s@GetDe
 
 instance Core.AWSRequest GetDevice where
   type AWSResponse GetDevice = GetDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

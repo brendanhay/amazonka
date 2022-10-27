@@ -155,7 +155,8 @@ instance Core.AWSRequest SearchSkillGroups where
   type
     AWSResponse SearchSkillGroups =
       SearchSkillGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

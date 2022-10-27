@@ -89,7 +89,8 @@ instance Core.AWSRequest RevokeInvitation where
   type
     AWSResponse RevokeInvitation =
       RevokeInvitationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

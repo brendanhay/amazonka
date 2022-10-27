@@ -80,7 +80,8 @@ instance Core.AWSRequest PutConferencePreference where
   type
     AWSResponse PutConferencePreference =
       PutConferencePreferenceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

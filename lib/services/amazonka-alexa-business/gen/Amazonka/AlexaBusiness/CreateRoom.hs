@@ -130,7 +130,8 @@ createRoom_roomName = Lens.lens (\CreateRoom' {roomName} -> roomName) (\s@Create
 
 instance Core.AWSRequest CreateRoom where
   type AWSResponse CreateRoom = CreateRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

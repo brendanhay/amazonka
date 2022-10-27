@@ -125,7 +125,8 @@ instance Core.AWSRequest ListSmartHomeAppliances where
   type
     AWSResponse ListSmartHomeAppliances =
       ListSmartHomeAppliancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

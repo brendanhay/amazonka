@@ -80,7 +80,8 @@ instance Core.AWSRequest GetConferenceProvider where
   type
     AWSResponse GetConferenceProvider =
       GetConferenceProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

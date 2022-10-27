@@ -76,7 +76,8 @@ approveSkill_skillId = Lens.lens (\ApproveSkill' {skillId} -> skillId) (\s@Appro
 
 instance Core.AWSRequest ApproveSkill where
   type AWSResponse ApproveSkill = ApproveSkillResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

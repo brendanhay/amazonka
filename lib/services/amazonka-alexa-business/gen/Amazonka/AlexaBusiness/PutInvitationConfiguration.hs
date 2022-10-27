@@ -106,7 +106,8 @@ instance Core.AWSRequest PutInvitationConfiguration where
   type
     AWSResponse PutInvitationConfiguration =
       PutInvitationConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

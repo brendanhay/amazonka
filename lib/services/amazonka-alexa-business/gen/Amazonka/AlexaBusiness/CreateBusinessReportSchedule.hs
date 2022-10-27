@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
   type
     AWSResponse CreateBusinessReportSchedule =
       CreateBusinessReportScheduleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -115,7 +115,8 @@ instance Core.AWSRequest StartDeviceSync where
   type
     AWSResponse StartDeviceSync =
       StartDeviceSyncResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

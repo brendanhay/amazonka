@@ -153,7 +153,8 @@ instance Core.AWSPager ListSkills where
 
 instance Core.AWSRequest ListSkills where
   type AWSResponse ListSkills = ListSkillsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

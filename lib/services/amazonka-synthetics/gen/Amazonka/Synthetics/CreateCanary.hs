@@ -364,7 +364,8 @@ createCanary_runtimeVersion = Lens.lens (\CreateCanary' {runtimeVersion} -> runt
 
 instance Core.AWSRequest CreateCanary where
   type AWSResponse CreateCanary = CreateCanaryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

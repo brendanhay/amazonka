@@ -126,7 +126,8 @@ deleteCanary_name = Lens.lens (\DeleteCanary' {name} -> name) (\s@DeleteCanary' 
 
 instance Core.AWSRequest DeleteCanary where
   type AWSResponse DeleteCanary = DeleteCanaryResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

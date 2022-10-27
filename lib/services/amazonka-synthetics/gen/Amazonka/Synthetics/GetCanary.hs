@@ -77,7 +77,8 @@ getCanary_name = Lens.lens (\GetCanary' {name} -> name) (\s@GetCanary' {} a -> s
 
 instance Core.AWSRequest GetCanary where
   type AWSResponse GetCanary = GetCanaryResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

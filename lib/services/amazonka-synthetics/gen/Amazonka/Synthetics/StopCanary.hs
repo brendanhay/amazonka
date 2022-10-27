@@ -85,7 +85,8 @@ stopCanary_name = Lens.lens (\StopCanary' {name} -> name) (\s@StopCanary' {} a -
 
 instance Core.AWSRequest StopCanary where
   type AWSResponse StopCanary = StopCanaryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

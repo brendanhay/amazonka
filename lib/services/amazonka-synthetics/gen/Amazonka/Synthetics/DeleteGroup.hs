@@ -83,7 +83,8 @@ deleteGroup_groupIdentifier = Lens.lens (\DeleteGroup' {groupIdentifier} -> grou
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

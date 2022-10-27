@@ -82,7 +82,8 @@ instance Core.AWSRequest GetEventIntegration where
   type
     AWSResponse GetEventIntegration =
       GetEventIntegrationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -154,7 +154,8 @@ instance Core.AWSRequest CreateDataIntegration where
   type
     AWSResponse CreateDataIntegration =
       CreateDataIntegrationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -102,7 +102,8 @@ updateHost_hostArn = Lens.lens (\UpdateHost' {hostArn} -> hostArn) (\s@UpdateHos
 
 instance Core.AWSRequest UpdateHost where
   type AWSResponse UpdateHost = UpdateHostResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

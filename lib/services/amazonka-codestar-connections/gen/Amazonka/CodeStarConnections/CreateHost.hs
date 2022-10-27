@@ -153,7 +153,8 @@ createHost_providerEndpoint = Lens.lens (\CreateHost' {providerEndpoint} -> prov
 
 instance Core.AWSRequest CreateHost where
   type AWSResponse CreateHost = CreateHostResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

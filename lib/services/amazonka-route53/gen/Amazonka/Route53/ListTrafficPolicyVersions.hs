@@ -152,7 +152,8 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
   type
     AWSResponse ListTrafficPolicyVersions =
       ListTrafficPolicyVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

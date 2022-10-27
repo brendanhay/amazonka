@@ -152,7 +152,8 @@ instance Core.AWSRequest UpdateTrafficPolicyInstance where
   type
     AWSResponse UpdateTrafficPolicyInstance =
       UpdateTrafficPolicyInstanceResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

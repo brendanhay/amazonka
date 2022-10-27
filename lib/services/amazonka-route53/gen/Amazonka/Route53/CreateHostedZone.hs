@@ -291,7 +291,8 @@ instance Core.AWSRequest CreateHostedZone where
   type
     AWSResponse CreateHostedZone =
       CreateHostedZoneResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -77,7 +77,8 @@ getDNSSEC_hostedZoneId = Lens.lens (\GetDNSSEC' {hostedZoneId} -> hostedZoneId) 
 
 instance Core.AWSRequest GetDNSSEC where
   type AWSResponse GetDNSSEC = GetDNSSECResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

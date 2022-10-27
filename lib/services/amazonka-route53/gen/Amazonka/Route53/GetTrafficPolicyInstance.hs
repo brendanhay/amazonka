@@ -91,7 +91,8 @@ instance Core.AWSRequest GetTrafficPolicyInstance where
   type
     AWSResponse GetTrafficPolicyInstance =
       GetTrafficPolicyInstanceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

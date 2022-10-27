@@ -259,7 +259,8 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
   type
     AWSResponse CreateQueryLoggingConfig =
       CreateQueryLoggingConfigResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

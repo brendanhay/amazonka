@@ -80,7 +80,8 @@ instance Core.AWSRequest EnableHostedZoneDNSSEC where
   type
     AWSResponse EnableHostedZoneDNSSEC =
       EnableHostedZoneDNSSECResponse
-  request = Request.post defaultService
+  service _ = defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->

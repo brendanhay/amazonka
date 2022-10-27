@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateTrafficPolicy where
   type
     AWSResponse CreateTrafficPolicy =
       CreateTrafficPolicyResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

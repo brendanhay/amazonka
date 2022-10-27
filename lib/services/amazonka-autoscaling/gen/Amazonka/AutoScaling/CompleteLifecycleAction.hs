@@ -168,7 +168,8 @@ instance Core.AWSRequest CompleteLifecycleAction where
   type
     AWSResponse CompleteLifecycleAction =
       CompleteLifecycleActionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CompleteLifecycleActionResult"

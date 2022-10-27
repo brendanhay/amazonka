@@ -92,7 +92,8 @@ deletePolicy_policyName = Lens.lens (\DeletePolicy' {policyName} -> policyName) 
 
 instance Core.AWSRequest DeletePolicy where
   type AWSResponse DeletePolicy = DeletePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeletePolicyResponse'
 
 instance Prelude.Hashable DeletePolicy where

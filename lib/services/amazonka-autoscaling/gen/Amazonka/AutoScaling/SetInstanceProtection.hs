@@ -115,7 +115,8 @@ instance Core.AWSRequest SetInstanceProtection where
   type
     AWSResponse SetInstanceProtection =
       SetInstanceProtectionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetInstanceProtectionResult"

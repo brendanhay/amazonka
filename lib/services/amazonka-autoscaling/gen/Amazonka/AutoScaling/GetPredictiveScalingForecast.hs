@@ -160,7 +160,8 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
   type
     AWSResponse GetPredictiveScalingForecast =
       GetPredictiveScalingForecastResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPredictiveScalingForecastResult"

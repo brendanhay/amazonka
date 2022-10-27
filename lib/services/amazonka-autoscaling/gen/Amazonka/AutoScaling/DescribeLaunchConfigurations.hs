@@ -138,7 +138,8 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
   type
     AWSResponse DescribeLaunchConfigurations =
       DescribeLaunchConfigurationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLaunchConfigurationsResult"

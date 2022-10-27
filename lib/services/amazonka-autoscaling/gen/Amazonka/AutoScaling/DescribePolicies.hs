@@ -166,7 +166,8 @@ instance Core.AWSRequest DescribePolicies where
   type
     AWSResponse DescribePolicies =
       DescribePoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePoliciesResult"

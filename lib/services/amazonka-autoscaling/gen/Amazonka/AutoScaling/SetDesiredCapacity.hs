@@ -121,7 +121,8 @@ instance Core.AWSRequest SetDesiredCapacity where
   type
     AWSResponse SetDesiredCapacity =
       SetDesiredCapacityResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetDesiredCapacityResponse'
 

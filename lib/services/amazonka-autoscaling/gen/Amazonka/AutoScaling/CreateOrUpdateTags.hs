@@ -79,7 +79,8 @@ instance Core.AWSRequest CreateOrUpdateTags where
   type
     AWSResponse CreateOrUpdateTags =
       CreateOrUpdateTagsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
 

@@ -192,7 +192,8 @@ instance Core.AWSRequest StartInstanceRefresh where
   type
     AWSResponse StartInstanceRefresh =
       StartInstanceRefreshResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartInstanceRefreshResult"

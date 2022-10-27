@@ -161,7 +161,8 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
   type
     AWSResponse DescribeAutoScalingGroups =
       DescribeAutoScalingGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAutoScalingGroupsResult"

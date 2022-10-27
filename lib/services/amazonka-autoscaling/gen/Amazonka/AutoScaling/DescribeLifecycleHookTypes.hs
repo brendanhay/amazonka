@@ -68,7 +68,8 @@ instance Core.AWSRequest DescribeLifecycleHookTypes where
   type
     AWSResponse DescribeLifecycleHookTypes =
       DescribeLifecycleHookTypesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLifecycleHookTypesResult"

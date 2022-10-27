@@ -604,7 +604,8 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
   type
     AWSResponse UpdateAutoScalingGroup =
       UpdateAutoScalingGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateAutoScalingGroupResponse'

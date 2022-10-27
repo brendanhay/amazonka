@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
   type
     AWSResponse DescribeAutoScalingInstances =
       DescribeAutoScalingInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAutoScalingInstancesResult"

@@ -179,7 +179,8 @@ instance Core.AWSRequest DescribeScalingActivities where
   type
     AWSResponse DescribeScalingActivities =
       DescribeScalingActivitiesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScalingActivitiesResult"

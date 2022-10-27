@@ -185,7 +185,8 @@ instance Core.AWSRequest GetResourceShareInvitations where
   type
     AWSResponse GetResourceShareInvitations =
       GetResourceShareInvitationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

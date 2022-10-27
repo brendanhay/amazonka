@@ -152,7 +152,8 @@ instance Core.AWSRequest ListPermissionVersions where
   type
     AWSResponse ListPermissionVersions =
       ListPermissionVersionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

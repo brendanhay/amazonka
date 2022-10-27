@@ -256,7 +256,8 @@ instance Core.AWSRequest GetResourceShares where
   type
     AWSResponse GetResourceShares =
       GetResourceSharesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

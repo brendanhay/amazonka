@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteResourceShare where
   type
     AWSResponse DeleteResourceShare =
       DeleteResourceShareResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

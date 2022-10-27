@@ -178,7 +178,8 @@ instance Core.AWSRequest UpdateFirewallDescription where
   type
     AWSResponse UpdateFirewallDescription =
       UpdateFirewallDescriptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

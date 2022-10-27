@@ -258,7 +258,8 @@ instance Core.AWSRequest CreateFirewall where
   type
     AWSResponse CreateFirewall =
       CreateFirewallResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

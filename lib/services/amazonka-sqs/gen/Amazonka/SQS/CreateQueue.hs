@@ -728,7 +728,8 @@ createQueue_queueName = Lens.lens (\CreateQueue' {queueName} -> queueName) (\s@C
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateQueueResult"

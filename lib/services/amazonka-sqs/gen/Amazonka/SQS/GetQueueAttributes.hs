@@ -525,7 +525,8 @@ instance Core.AWSRequest GetQueueAttributes where
   type
     AWSResponse GetQueueAttributes =
       GetQueueAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetQueueAttributesResult"

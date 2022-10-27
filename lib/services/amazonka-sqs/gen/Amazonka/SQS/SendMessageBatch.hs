@@ -130,7 +130,8 @@ instance Core.AWSRequest SendMessageBatch where
   type
     AWSResponse SendMessageBatch =
       SendMessageBatchResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendMessageBatchResult"

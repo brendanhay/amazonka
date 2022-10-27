@@ -152,7 +152,8 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
   type
     AWSResponse ListDeadLetterSourceQueues =
       ListDeadLetterSourceQueuesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDeadLetterSourceQueuesResult"

@@ -600,7 +600,8 @@ instance Core.AWSRequest ReceiveMessage where
   type
     AWSResponse ReceiveMessage =
       ReceiveMessageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ReceiveMessageResult"

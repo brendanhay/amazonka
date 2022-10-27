@@ -100,7 +100,8 @@ instance Core.AWSRequest UntagDeliveryStream where
   type
     AWSResponse UntagDeliveryStream =
       UntagDeliveryStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -144,7 +144,8 @@ instance Core.AWSRequest ListDeliveryStreams where
   type
     AWSResponse ListDeliveryStreams =
       ListDeliveryStreamsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

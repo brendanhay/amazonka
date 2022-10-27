@@ -131,7 +131,8 @@ putRecord_record = Lens.lens (\PutRecord' {record} -> record) (\s@PutRecord' {} 
 
 instance Core.AWSRequest PutRecord where
   type AWSResponse PutRecord = PutRecordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

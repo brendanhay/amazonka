@@ -23,9 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newTag' smart constructor.
+-- | A key-value pair that adds as a metadata to a resource used by Amazon
+-- Translate.
+--
+-- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { key :: Prelude.Text,
+  { -- | The initial part of a key-value pair that forms a tag associated with a
+    -- given resource.
+    key :: Prelude.Text,
+    -- | The second part of a key-value pair that forms a tag associated with a
+    -- given resource.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -38,9 +45,11 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - Undocumented member.
+-- 'key', 'tag_key' - The initial part of a key-value pair that forms a tag associated with a
+-- given resource.
 --
--- 'value', 'tag_value' - Undocumented member.
+-- 'value', 'tag_value' - The second part of a key-value pair that forms a tag associated with a
+-- given resource.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -50,11 +59,13 @@ newTag ::
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
--- | Undocumented member.
+-- | The initial part of a key-value pair that forms a tag associated with a
+-- given resource.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | Undocumented member.
+-- | The second part of a key-value pair that forms a tag associated with a
+-- given resource.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

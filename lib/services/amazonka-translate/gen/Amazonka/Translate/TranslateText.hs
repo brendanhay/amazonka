@@ -22,7 +22,7 @@
 --
 -- Translates input text from the source language to the target language.
 -- For a list of available languages and language codes, see
--- what-is-languages.
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 module Amazonka.Translate.TranslateText
   ( -- * Creating a Request
     TranslateText (..),
@@ -72,7 +72,8 @@ data TranslateText = TranslateText'
     text :: Prelude.Text,
     -- | The language code for the language of the source text. The language must
     -- be a language supported by Amazon Translate. For a list of language
-    -- codes, see what-is-languages.
+    -- codes, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
     --
     -- To have Amazon Translate determine the source language of your text, you
     -- can specify @auto@ in the @SourceLanguageCode@ field. If you specify
@@ -112,7 +113,8 @@ data TranslateText = TranslateText'
 --
 -- 'sourceLanguageCode', 'translateText_sourceLanguageCode' - The language code for the language of the source text. The language must
 -- be a language supported by Amazon Translate. For a list of language
--- codes, see what-is-languages.
+-- codes, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- To have Amazon Translate determine the source language of your text, you
 -- can specify @auto@ in the @SourceLanguageCode@ field. If you specify
@@ -166,7 +168,8 @@ translateText_text = Lens.lens (\TranslateText' {text} -> text) (\s@TranslateTex
 
 -- | The language code for the language of the source text. The language must
 -- be a language supported by Amazon Translate. For a list of language
--- codes, see what-is-languages.
+-- codes, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- To have Amazon Translate determine the source language of your text, you
 -- can specify @auto@ in the @SourceLanguageCode@ field. If you specify
@@ -189,7 +192,8 @@ instance Core.AWSRequest TranslateText where
   type
     AWSResponse TranslateText =
       TranslateTextResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

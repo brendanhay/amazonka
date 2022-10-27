@@ -63,7 +63,11 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
-  { tags :: Prelude.Maybe [Tag],
+  { -- | Tags to be associated with this resource. A tag is a key-value pair that
+    -- adds metadata to a resource. Each tag key for the resource must be
+    -- unique. For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
+    tags :: Prelude.Maybe [Tag],
     -- | The description of the custom terminology being imported.
     description :: Prelude.Maybe Prelude.Text,
     -- | The encryption key for the custom terminology being imported.
@@ -88,7 +92,10 @@ data ImportTerminology = ImportTerminology'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importTerminology_tags' - Undocumented member.
+-- 'tags', 'importTerminology_tags' - Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 --
 -- 'description', 'importTerminology_description' - The description of the custom terminology being imported.
 --
@@ -123,7 +130,10 @@ newImportTerminology
         terminologyData = pTerminologyData_
       }
 
--- | Undocumented member.
+-- | Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 importTerminology_tags :: Lens.Lens' ImportTerminology (Prelude.Maybe [Tag])
 importTerminology_tags = Lens.lens (\ImportTerminology' {tags} -> tags) (\s@ImportTerminology' {} a -> s {tags = a} :: ImportTerminology) Prelude.. Lens.mapping Lens.coerced
 
@@ -154,7 +164,8 @@ instance Core.AWSRequest ImportTerminology where
   type
     AWSResponse ImportTerminology =
       ImportTerminologyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

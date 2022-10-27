@@ -11,8 +11,8 @@
 --
 -- Derived from API version @2017-07-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Provides translation between one source language and another of the same
--- set of languages.
+-- Provides language translation for input text in the source language to
+-- the specified target language.
 module Amazonka.Translate
   ( -- * Service Configuration
     defaultService,

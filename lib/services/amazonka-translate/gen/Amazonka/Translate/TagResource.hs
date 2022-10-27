@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Associates a specific tag with a resource. A tag is a key-value pair
+-- that adds as a metadata to a resource. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 module Amazonka.Translate.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -48,7 +50,12 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { resourceArn :: Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the given Amazon Translate resource to
+    -- which you want to associate the tags.
+    resourceArn :: Prelude.Text,
+    -- | Tags being associated with a specific Amazon Translate resource. There
+    -- can be a maximum of 50 tags (both existing and pending) associated with
+    -- a specific resource.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,9 +68,12 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - Undocumented member.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the given Amazon Translate resource to
+-- which you want to associate the tags.
 --
--- 'tags', 'tagResource_tags' - Undocumented member.
+-- 'tags', 'tagResource_tags' - Tags being associated with a specific Amazon Translate resource. There
+-- can be a maximum of 50 tags (both existing and pending) associated with
+-- a specific resource.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -74,17 +84,21 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the given Amazon Translate resource to
+-- which you want to associate the tags.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Undocumented member.
+-- | Tags being associated with a specific Amazon Translate resource. There
+-- can be a maximum of 50 tags (both existing and pending) associated with
+-- a specific resource.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

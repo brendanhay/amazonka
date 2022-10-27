@@ -252,6 +252,8 @@ defaultService =
       Core._serviceEndpointPrefix = "translate",
       Core._serviceSigningName = "translate",
       Core._serviceVersion = "2017-07-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -328,7 +330,7 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | Prism for TooManyTagsException' errors.
+-- | You have added too many tags to this resource. The maximum is 50 tags.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
@@ -366,7 +368,8 @@ _ResourceNotFoundException =
 
 -- | Amazon Translate does not support translation from the language of the
 -- source text into the requested target language. For more information,
--- see how-to-error-msg.
+-- see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html Error messages>.
 _UnsupportedLanguagePairException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedLanguagePairException =
   Core._MatchServiceError

@@ -96,7 +96,8 @@ deleteStudio_studioId = Lens.lens (\DeleteStudio' {studioId} -> studioId) (\s@De
 
 instance Core.AWSRequest DeleteStudio where
   type AWSResponse DeleteStudio = DeleteStudioResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

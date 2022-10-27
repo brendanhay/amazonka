@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteLaunchProfile where
   type
     AWSResponse DeleteLaunchProfile =
       DeleteLaunchProfileResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

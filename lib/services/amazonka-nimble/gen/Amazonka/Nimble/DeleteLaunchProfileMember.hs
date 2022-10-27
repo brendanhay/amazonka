@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteLaunchProfileMember where
   type
     AWSResponse DeleteLaunchProfileMember =
       DeleteLaunchProfileMemberResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

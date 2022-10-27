@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateLaunchProfile where
   type
     AWSResponse CreateLaunchProfile =
       CreateLaunchProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

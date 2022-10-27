@@ -100,7 +100,8 @@ instance Core.AWSRequest GetLaunchProfileDetails where
   type
     AWSResponse GetLaunchProfileDetails =
       GetLaunchProfileDetailsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

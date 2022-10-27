@@ -126,7 +126,8 @@ instance Core.AWSRequest ListStudioMembers where
   type
     AWSResponse ListStudioMembers =
       ListStudioMembersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

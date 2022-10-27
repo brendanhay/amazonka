@@ -197,7 +197,8 @@ createStudio_userRoleArn = Lens.lens (\CreateStudio' {userRoleArn} -> userRoleAr
 
 instance Core.AWSRequest CreateStudio where
   type AWSResponse CreateStudio = CreateStudioResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

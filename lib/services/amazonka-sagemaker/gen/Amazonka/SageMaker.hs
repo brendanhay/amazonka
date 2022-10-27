@@ -1150,6 +1150,12 @@ module Amazonka.SageMaker
     ListImagesResponse (ListImagesResponse'),
     newListImagesResponse,
 
+    -- ** ListInferenceRecommendationsJobSteps (Paginated)
+    ListInferenceRecommendationsJobSteps (ListInferenceRecommendationsJobSteps'),
+    newListInferenceRecommendationsJobSteps,
+    ListInferenceRecommendationsJobStepsResponse (ListInferenceRecommendationsJobStepsResponse'),
+    newListInferenceRecommendationsJobStepsResponse,
+
     -- ** ListInferenceRecommendationsJobs (Paginated)
     ListInferenceRecommendationsJobs (ListInferenceRecommendationsJobs'),
     newListInferenceRecommendationsJobs,
@@ -2103,6 +2109,9 @@ module Amazonka.SageMaker
     -- ** RecommendationJobType
     RecommendationJobType (..),
 
+    -- ** RecommendationStepType
+    RecommendationStepType (..),
+
     -- ** RecordWrapper
     RecordWrapper (..),
 
@@ -2420,6 +2429,10 @@ module Amazonka.SageMaker
     AutoRollbackConfig (AutoRollbackConfig'),
     newAutoRollbackConfig,
 
+    -- ** BatchDataCaptureConfig
+    BatchDataCaptureConfig (BatchDataCaptureConfig'),
+    newBatchDataCaptureConfig,
+
     -- ** BatchDescribeModelPackageError
     BatchDescribeModelPackageError (BatchDescribeModelPackageError'),
     newBatchDescribeModelPackageError,
@@ -2427,6 +2440,10 @@ module Amazonka.SageMaker
     -- ** BatchDescribeModelPackageSummary
     BatchDescribeModelPackageSummary (BatchDescribeModelPackageSummary'),
     newBatchDescribeModelPackageSummary,
+
+    -- ** BatchTransformInput
+    BatchTransformInput (BatchTransformInput'),
+    newBatchTransformInput,
 
     -- ** Bias
     Bias (Bias'),
@@ -2744,6 +2761,10 @@ module Amazonka.SageMaker
     EndpointConfigSummary (EndpointConfigSummary'),
     newEndpointConfigSummary,
 
+    -- ** EndpointInfo
+    EndpointInfo (EndpointInfo'),
+    newEndpointInfo,
+
     -- ** EndpointInput
     EndpointInput (EndpointInput'),
     newEndpointInput,
@@ -2755,6 +2776,10 @@ module Amazonka.SageMaker
     -- ** EndpointOutputConfiguration
     EndpointOutputConfiguration (EndpointOutputConfiguration'),
     newEndpointOutputConfiguration,
+
+    -- ** EndpointPerformance
+    EndpointPerformance (EndpointPerformance'),
+    newEndpointPerformance,
 
     -- ** EndpointSummary
     EndpointSummary (EndpointSummary'),
@@ -2948,6 +2973,10 @@ module Amazonka.SageMaker
     InferenceExecutionConfig (InferenceExecutionConfig'),
     newInferenceExecutionConfig,
 
+    -- ** InferenceMetrics
+    InferenceMetrics (InferenceMetrics'),
+    newInferenceMetrics,
+
     -- ** InferenceRecommendation
     InferenceRecommendation (InferenceRecommendation'),
     newInferenceRecommendation,
@@ -2955,6 +2984,10 @@ module Amazonka.SageMaker
     -- ** InferenceRecommendationsJob
     InferenceRecommendationsJob (InferenceRecommendationsJob'),
     newInferenceRecommendationsJob,
+
+    -- ** InferenceRecommendationsJobStep
+    InferenceRecommendationsJobStep (InferenceRecommendationsJobStep'),
+    newInferenceRecommendationsJobStep,
 
     -- ** InferenceSpecification
     InferenceSpecification (InferenceSpecification'),
@@ -3240,6 +3273,14 @@ module Amazonka.SageMaker
     MonitoringConstraintsResource (MonitoringConstraintsResource'),
     newMonitoringConstraintsResource,
 
+    -- ** MonitoringCsvDatasetFormat
+    MonitoringCsvDatasetFormat (MonitoringCsvDatasetFormat'),
+    newMonitoringCsvDatasetFormat,
+
+    -- ** MonitoringDatasetFormat
+    MonitoringDatasetFormat (MonitoringDatasetFormat'),
+    newMonitoringDatasetFormat,
+
     -- ** MonitoringExecutionSummary
     MonitoringExecutionSummary (MonitoringExecutionSummary'),
     newMonitoringExecutionSummary,
@@ -3260,6 +3301,10 @@ module Amazonka.SageMaker
     MonitoringJobDefinitionSummary (MonitoringJobDefinitionSummary'),
     newMonitoringJobDefinitionSummary,
 
+    -- ** MonitoringJsonDatasetFormat
+    MonitoringJsonDatasetFormat (MonitoringJsonDatasetFormat'),
+    newMonitoringJsonDatasetFormat,
+
     -- ** MonitoringNetworkConfig
     MonitoringNetworkConfig (MonitoringNetworkConfig'),
     newMonitoringNetworkConfig,
@@ -3271,6 +3316,10 @@ module Amazonka.SageMaker
     -- ** MonitoringOutputConfig
     MonitoringOutputConfig (MonitoringOutputConfig'),
     newMonitoringOutputConfig,
+
+    -- ** MonitoringParquetDatasetFormat
+    MonitoringParquetDatasetFormat (MonitoringParquetDatasetFormat'),
+    newMonitoringParquetDatasetFormat,
 
     -- ** MonitoringResources
     MonitoringResources (MonitoringResources'),
@@ -3583,6 +3632,10 @@ module Amazonka.SageMaker
     -- ** RecommendationJobContainerConfig
     RecommendationJobContainerConfig (RecommendationJobContainerConfig'),
     newRecommendationJobContainerConfig,
+
+    -- ** RecommendationJobInferenceBenchmark
+    RecommendationJobInferenceBenchmark (RecommendationJobInferenceBenchmark'),
+    newRecommendationJobInferenceBenchmark,
 
     -- ** RecommendationJobInputConfig
     RecommendationJobInputConfig (RecommendationJobInputConfig'),
@@ -4113,6 +4166,7 @@ import Amazonka.SageMaker.ListHumanTaskUis
 import Amazonka.SageMaker.ListHyperParameterTuningJobs
 import Amazonka.SageMaker.ListImageVersions
 import Amazonka.SageMaker.ListImages
+import Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
 import Amazonka.SageMaker.ListInferenceRecommendationsJobs
 import Amazonka.SageMaker.ListLabelingJobs
 import Amazonka.SageMaker.ListLabelingJobsForWorkteam

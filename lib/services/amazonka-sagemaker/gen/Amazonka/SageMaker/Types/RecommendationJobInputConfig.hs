@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.RecommendationJobInputConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.EndpointInfo
 import Amazonka.SageMaker.Types.EndpointInputConfiguration
 import Amazonka.SageMaker.Types.RecommendationJobContainerConfig
 import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
@@ -70,6 +71,9 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
     -- in the Amazon Web Services Key Management Service (Amazon Web Services
     -- KMS) documentation.
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Existing customer endpoints on which to run an Inference Recommender
+    -- job.
+    endpoints :: Prelude.Maybe [EndpointInfo],
     -- | Specifies the endpoint configuration to use for a job.
     endpointConfigurations :: Prelude.Maybe (Prelude.NonEmpty EndpointInputConfiguration),
     -- | Defines the resource limit of the job.
@@ -130,6 +134,9 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
 -- in the Amazon Web Services Key Management Service (Amazon Web Services
 -- KMS) documentation.
 --
+-- 'endpoints', 'recommendationJobInputConfig_endpoints' - Existing customer endpoints on which to run an Inference Recommender
+-- job.
+--
 -- 'endpointConfigurations', 'recommendationJobInputConfig_endpointConfigurations' - Specifies the endpoint configuration to use for a job.
 --
 -- 'resourceLimit', 'recommendationJobInputConfig_resourceLimit' - Defines the resource limit of the job.
@@ -150,6 +157,7 @@ newRecommendationJobInputConfig
           Prelude.Nothing,
         jobDurationInSeconds = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
+        endpoints = Prelude.Nothing,
         endpointConfigurations = Prelude.Nothing,
         resourceLimit = Prelude.Nothing,
         containerConfig = Prelude.Nothing,
@@ -202,6 +210,11 @@ recommendationJobInputConfig_jobDurationInSeconds = Lens.lens (\RecommendationJo
 recommendationJobInputConfig_volumeKmsKeyId :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe Prelude.Text)
 recommendationJobInputConfig_volumeKmsKeyId = Lens.lens (\RecommendationJobInputConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@RecommendationJobInputConfig' {} a -> s {volumeKmsKeyId = a} :: RecommendationJobInputConfig)
 
+-- | Existing customer endpoints on which to run an Inference Recommender
+-- job.
+recommendationJobInputConfig_endpoints :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe [EndpointInfo])
+recommendationJobInputConfig_endpoints = Lens.lens (\RecommendationJobInputConfig' {endpoints} -> endpoints) (\s@RecommendationJobInputConfig' {} a -> s {endpoints = a} :: RecommendationJobInputConfig) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies the endpoint configuration to use for a job.
 recommendationJobInputConfig_endpointConfigurations :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe (Prelude.NonEmpty EndpointInputConfiguration))
 recommendationJobInputConfig_endpointConfigurations = Lens.lens (\RecommendationJobInputConfig' {endpointConfigurations} -> endpointConfigurations) (\s@RecommendationJobInputConfig' {} a -> s {endpointConfigurations = a} :: RecommendationJobInputConfig) Prelude.. Lens.mapping Lens.coerced
@@ -229,6 +242,7 @@ instance Core.FromJSON RecommendationJobInputConfig where
             Prelude.<$> (x Core..:? "TrafficPattern")
             Prelude.<*> (x Core..:? "JobDurationInSeconds")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "EndpointConfigurations")
             Prelude.<*> (x Core..:? "ResourceLimit")
             Prelude.<*> (x Core..:? "ContainerConfig")
@@ -243,6 +257,7 @@ instance
     _salt `Prelude.hashWithSalt` trafficPattern
       `Prelude.hashWithSalt` jobDurationInSeconds
       `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` resourceLimit
       `Prelude.hashWithSalt` containerConfig
@@ -253,6 +268,7 @@ instance Prelude.NFData RecommendationJobInputConfig where
     Prelude.rnf trafficPattern
       `Prelude.seq` Prelude.rnf jobDurationInSeconds
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf endpoints
       `Prelude.seq` Prelude.rnf endpointConfigurations
       `Prelude.seq` Prelude.rnf resourceLimit
       `Prelude.seq` Prelude.rnf containerConfig
@@ -268,6 +284,7 @@ instance Core.ToJSON RecommendationJobInputConfig where
               Prelude.<$> jobDurationInSeconds,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
+            ("Endpoints" Core..=) Prelude.<$> endpoints,
             ("EndpointConfigurations" Core..=)
               Prelude.<$> endpointConfigurations,
             ("ResourceLimit" Core..=) Prelude.<$> resourceLimit,

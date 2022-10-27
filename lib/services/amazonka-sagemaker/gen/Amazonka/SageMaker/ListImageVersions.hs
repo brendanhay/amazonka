@@ -206,7 +206,8 @@ instance Core.AWSRequest ListImageVersions where
   type
     AWSResponse ListImageVersions =
       ListImageVersionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

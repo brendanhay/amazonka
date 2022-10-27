@@ -78,7 +78,8 @@ instance Core.AWSRequest StopLabelingJob where
   type
     AWSResponse StopLabelingJob =
       StopLabelingJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopLabelingJobResponse'
 

@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteEdgeDeploymentStage where
   type
     AWSResponse DeleteEdgeDeploymentStage =
       DeleteEdgeDeploymentStageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteEdgeDeploymentStageResponse'

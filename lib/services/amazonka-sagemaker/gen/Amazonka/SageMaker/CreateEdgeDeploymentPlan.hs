@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
   type
     AWSResponse CreateEdgeDeploymentPlan =
       CreateEdgeDeploymentPlanResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

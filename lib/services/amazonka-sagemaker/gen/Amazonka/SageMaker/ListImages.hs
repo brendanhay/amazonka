@@ -200,7 +200,8 @@ instance Core.AWSPager ListImages where
 
 instance Core.AWSRequest ListImages where
   type AWSResponse ListImages = ListImagesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

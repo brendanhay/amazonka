@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateContext where
   type
     AWSResponse CreateContext =
       CreateContextResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

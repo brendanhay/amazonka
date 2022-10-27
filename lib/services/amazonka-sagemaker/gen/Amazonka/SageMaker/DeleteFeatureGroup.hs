@@ -88,7 +88,8 @@ instance Core.AWSRequest DeleteFeatureGroup where
   type
     AWSResponse DeleteFeatureGroup =
       DeleteFeatureGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteFeatureGroupResponse'
 

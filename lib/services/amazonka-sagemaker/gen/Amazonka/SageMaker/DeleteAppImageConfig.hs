@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteAppImageConfig where
   type
     AWSResponse DeleteAppImageConfig =
       DeleteAppImageConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAppImageConfigResponse'
 

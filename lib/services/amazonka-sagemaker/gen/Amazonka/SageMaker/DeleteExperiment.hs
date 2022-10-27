@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteExperiment where
   type
     AWSResponse DeleteExperiment =
       DeleteExperimentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

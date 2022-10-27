@@ -169,7 +169,8 @@ instance Core.AWSPager ListModels where
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

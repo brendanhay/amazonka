@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeHumanTaskUi where
   type
     AWSResponse DescribeHumanTaskUi =
       DescribeHumanTaskUiResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

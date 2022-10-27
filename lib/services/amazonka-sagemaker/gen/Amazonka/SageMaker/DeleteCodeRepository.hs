@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteCodeRepository where
   type
     AWSResponse DeleteCodeRepository =
       DeleteCodeRepositoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteCodeRepositoryResponse'
 

@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateExperiment where
   type
     AWSResponse UpdateExperiment =
       UpdateExperimentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -95,7 +95,8 @@ instance Core.AWSRequest RegisterDevices where
   type
     AWSResponse RegisterDevices =
       RegisterDevicesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterDevicesResponse'
 

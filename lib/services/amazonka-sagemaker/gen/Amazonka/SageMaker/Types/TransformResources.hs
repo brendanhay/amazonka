@@ -61,9 +61,9 @@ data TransformResources = TransformResources'
     -- built-in algorithms to transform moderately sized datasets, we recommend
     -- using ml.m4.xlarge or @ml.m5.large@instance types.
     instanceType :: TransformInstanceType,
-    -- | The number of ML compute instances to use in the transform job. For
-    -- distributed transform jobs, specify a value greater than 1. The default
-    -- value is @1@.
+    -- | The number of ML compute instances to use in the transform job. The
+    -- default value is @1@, and the maximum is @100@. For distributed
+    -- transform jobs, specify a value greater than @1@.
     instanceCount :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,9 +108,9 @@ data TransformResources = TransformResources'
 -- built-in algorithms to transform moderately sized datasets, we recommend
 -- using ml.m4.xlarge or @ml.m5.large@instance types.
 --
--- 'instanceCount', 'transformResources_instanceCount' - The number of ML compute instances to use in the transform job. For
--- distributed transform jobs, specify a value greater than 1. The default
--- value is @1@.
+-- 'instanceCount', 'transformResources_instanceCount' - The number of ML compute instances to use in the transform job. The
+-- default value is @1@, and the maximum is @100@. For distributed
+-- transform jobs, specify a value greater than @1@.
 newTransformResources ::
   -- | 'instanceType'
   TransformInstanceType ->
@@ -161,9 +161,9 @@ transformResources_volumeKmsKeyId = Lens.lens (\TransformResources' {volumeKmsKe
 transformResources_instanceType :: Lens.Lens' TransformResources TransformInstanceType
 transformResources_instanceType = Lens.lens (\TransformResources' {instanceType} -> instanceType) (\s@TransformResources' {} a -> s {instanceType = a} :: TransformResources)
 
--- | The number of ML compute instances to use in the transform job. For
--- distributed transform jobs, specify a value greater than 1. The default
--- value is @1@.
+-- | The number of ML compute instances to use in the transform job. The
+-- default value is @1@, and the maximum is @100@. For distributed
+-- transform jobs, specify a value greater than @1@.
 transformResources_instanceCount :: Lens.Lens' TransformResources Prelude.Natural
 transformResources_instanceCount = Lens.lens (\TransformResources' {instanceCount} -> instanceCount) (\s@TransformResources' {} a -> s {instanceCount = a} :: TransformResources)
 

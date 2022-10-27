@@ -90,7 +90,8 @@ instance Core.AWSRequest StartEdgeDeploymentStage where
   type
     AWSResponse StartEdgeDeploymentStage =
       StartEdgeDeploymentStageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StartEdgeDeploymentStageResponse'

@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateFeatureGroup where
   type
     AWSResponse UpdateFeatureGroup =
       UpdateFeatureGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

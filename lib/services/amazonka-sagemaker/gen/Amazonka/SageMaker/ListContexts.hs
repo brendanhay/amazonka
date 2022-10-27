@@ -180,7 +180,8 @@ instance Core.AWSPager ListContexts where
 
 instance Core.AWSRequest ListContexts where
   type AWSResponse ListContexts = ListContextsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

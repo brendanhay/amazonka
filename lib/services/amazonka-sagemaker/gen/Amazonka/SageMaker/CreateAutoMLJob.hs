@@ -228,7 +228,8 @@ instance Core.AWSRequest CreateAutoMLJob where
   type
     AWSResponse CreateAutoMLJob =
       CreateAutoMLJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

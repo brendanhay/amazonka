@@ -31,7 +31,7 @@ import Amazonka.SageMaker.Types.Framework
 -- /See:/ 'newInputConfig' smart constructor.
 data InputConfig = InputConfig'
   { -- | Specifies the framework version to use. This API field is only supported
-    -- for the PyTorch and TensorFlow frameworks.
+    -- for the MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.
     --
     -- For information about framework versions supported for cloud targets and
     -- edge devices, see
@@ -231,7 +231,7 @@ data InputConfig = InputConfig'
 -- for backwards compatibility:
 --
 -- 'frameworkVersion', 'inputConfig_frameworkVersion' - Specifies the framework version to use. This API field is only supported
--- for the PyTorch and TensorFlow frameworks.
+-- for the MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.
 --
 -- For information about framework versions supported for cloud targets and
 -- edge devices, see
@@ -435,7 +435,7 @@ newInputConfig pS3Uri_ pDataInputConfig_ pFramework_ =
     }
 
 -- | Specifies the framework version to use. This API field is only supported
--- for the PyTorch and TensorFlow frameworks.
+-- for the MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.
 --
 -- For information about framework versions supported for cloud targets and
 -- edge devices, see

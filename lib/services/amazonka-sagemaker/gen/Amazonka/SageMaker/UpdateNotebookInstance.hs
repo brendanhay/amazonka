@@ -356,7 +356,8 @@ instance Core.AWSRequest UpdateNotebookInstance where
   type
     AWSResponse UpdateNotebookInstance =
       UpdateNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

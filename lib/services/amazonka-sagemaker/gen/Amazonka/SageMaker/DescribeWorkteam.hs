@@ -79,7 +79,8 @@ instance Core.AWSRequest DescribeWorkteam where
   type
     AWSResponse DescribeWorkteam =
       DescribeWorkteamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateModelPackage where
   type
     AWSResponse UpdateModelPackage =
       UpdateModelPackageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

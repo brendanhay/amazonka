@@ -85,7 +85,8 @@ instance Core.AWSRequest StopNotebookInstance where
   type
     AWSResponse StopNotebookInstance =
       StopNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopNotebookInstanceResponse'
 

@@ -86,7 +86,8 @@ instance Core.AWSRequest CreateEdgeDeploymentStage where
   type
     AWSResponse CreateEdgeDeploymentStage =
       CreateEdgeDeploymentStageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       CreateEdgeDeploymentStageResponse'

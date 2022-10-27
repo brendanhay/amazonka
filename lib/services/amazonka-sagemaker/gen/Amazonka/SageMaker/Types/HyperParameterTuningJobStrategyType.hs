@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
   ( HyperParameterTuningJobStrategyType
       ( ..,
         HyperParameterTuningJobStrategyType_Bayesian,
+        HyperParameterTuningJobStrategyType_Grid,
         HyperParameterTuningJobStrategyType_Hyperband,
         HyperParameterTuningJobStrategyType_Random
       ),
@@ -64,6 +65,9 @@ newtype HyperParameterTuningJobStrategyType = HyperParameterTuningJobStrategyTyp
 pattern HyperParameterTuningJobStrategyType_Bayesian :: HyperParameterTuningJobStrategyType
 pattern HyperParameterTuningJobStrategyType_Bayesian = HyperParameterTuningJobStrategyType' "Bayesian"
 
+pattern HyperParameterTuningJobStrategyType_Grid :: HyperParameterTuningJobStrategyType
+pattern HyperParameterTuningJobStrategyType_Grid = HyperParameterTuningJobStrategyType' "Grid"
+
 pattern HyperParameterTuningJobStrategyType_Hyperband :: HyperParameterTuningJobStrategyType
 pattern HyperParameterTuningJobStrategyType_Hyperband = HyperParameterTuningJobStrategyType' "Hyperband"
 
@@ -72,6 +76,7 @@ pattern HyperParameterTuningJobStrategyType_Random = HyperParameterTuningJobStra
 
 {-# COMPLETE
   HyperParameterTuningJobStrategyType_Bayesian,
+  HyperParameterTuningJobStrategyType_Grid,
   HyperParameterTuningJobStrategyType_Hyperband,
   HyperParameterTuningJobStrategyType_Random,
   HyperParameterTuningJobStrategyType'

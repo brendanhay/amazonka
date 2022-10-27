@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteArtifact where
   type
     AWSResponse DeleteArtifact =
       DeleteArtifactResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

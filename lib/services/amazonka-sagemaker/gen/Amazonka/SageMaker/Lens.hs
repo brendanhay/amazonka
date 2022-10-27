@@ -515,6 +515,7 @@ module Amazonka.SageMaker.Lens
     createTransformJob_experimentConfig,
     createTransformJob_maxPayloadInMB,
     createTransformJob_batchStrategy,
+    createTransformJob_dataCaptureConfig,
     createTransformJob_dataProcessing,
     createTransformJob_transformJobName,
     createTransformJob_modelName,
@@ -1133,6 +1134,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** DescribeInferenceRecommendationsJob
     describeInferenceRecommendationsJob_jobName,
+    describeInferenceRecommendationsJobResponse_endpointPerformances,
     describeInferenceRecommendationsJobResponse_inferenceRecommendations,
     describeInferenceRecommendationsJobResponse_stoppingConditions,
     describeInferenceRecommendationsJobResponse_completionTime,
@@ -1479,6 +1481,7 @@ module Amazonka.SageMaker.Lens
     describeTransformJobResponse_transformEndTime,
     describeTransformJobResponse_maxPayloadInMB,
     describeTransformJobResponse_batchStrategy,
+    describeTransformJobResponse_dataCaptureConfig,
     describeTransformJobResponse_labelingJobArn,
     describeTransformJobResponse_dataProcessing,
     describeTransformJobResponse_transformStartTime,
@@ -1936,6 +1939,16 @@ module Amazonka.SageMaker.Lens
     listImagesResponse_nextToken,
     listImagesResponse_images,
     listImagesResponse_httpStatus,
+
+    -- ** ListInferenceRecommendationsJobSteps
+    listInferenceRecommendationsJobSteps_nextToken,
+    listInferenceRecommendationsJobSteps_status,
+    listInferenceRecommendationsJobSteps_maxResults,
+    listInferenceRecommendationsJobSteps_stepType,
+    listInferenceRecommendationsJobSteps_jobName,
+    listInferenceRecommendationsJobStepsResponse_nextToken,
+    listInferenceRecommendationsJobStepsResponse_steps,
+    listInferenceRecommendationsJobStepsResponse_httpStatus,
 
     -- ** ListInferenceRecommendationsJobs
     listInferenceRecommendationsJobs_sortOrder,
@@ -2930,6 +2943,11 @@ module Amazonka.SageMaker.Lens
     -- ** AutoRollbackConfig
     autoRollbackConfig_alarms,
 
+    -- ** BatchDataCaptureConfig
+    batchDataCaptureConfig_kmsKeyId,
+    batchDataCaptureConfig_generateInferenceId,
+    batchDataCaptureConfig_destinationS3Uri,
+
     -- ** BatchDescribeModelPackageError
     batchDescribeModelPackageError_errorCode,
     batchDescribeModelPackageError_errorResponse,
@@ -2943,6 +2961,19 @@ module Amazonka.SageMaker.Lens
     batchDescribeModelPackageSummary_creationTime,
     batchDescribeModelPackageSummary_inferenceSpecification,
     batchDescribeModelPackageSummary_modelPackageStatus,
+
+    -- ** BatchTransformInput
+    batchTransformInput_probabilityThresholdAttribute,
+    batchTransformInput_s3InputMode,
+    batchTransformInput_s3DataDistributionType,
+    batchTransformInput_probabilityAttribute,
+    batchTransformInput_startTimeOffset,
+    batchTransformInput_featuresAttribute,
+    batchTransformInput_inferenceAttribute,
+    batchTransformInput_endTimeOffset,
+    batchTransformInput_dataCapturedDestinationS3Uri,
+    batchTransformInput_datasetFormat,
+    batchTransformInput_localPath,
 
     -- ** Bias
     bias_preTrainingReport,
@@ -3175,6 +3206,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** DataQualityJobInput
     dataQualityJobInput_endpointInput,
+    dataQualityJobInput_batchTransformInput,
 
     -- ** DataSource
     dataSource_s3DataSource,
@@ -3414,6 +3446,9 @@ module Amazonka.SageMaker.Lens
     endpointConfigSummary_endpointConfigArn,
     endpointConfigSummary_creationTime,
 
+    -- ** EndpointInfo
+    endpointInfo_endpointName,
+
     -- ** EndpointInput
     endpointInput_probabilityThresholdAttribute,
     endpointInput_s3InputMode,
@@ -3436,6 +3471,10 @@ module Amazonka.SageMaker.Lens
     endpointOutputConfiguration_variantName,
     endpointOutputConfiguration_instanceType,
     endpointOutputConfiguration_initialInstanceCount,
+
+    -- ** EndpointPerformance
+    endpointPerformance_metrics,
+    endpointPerformance_endpointInfo,
 
     -- ** EndpointSummary
     endpointSummary_endpointName,
@@ -3763,6 +3802,10 @@ module Amazonka.SageMaker.Lens
     -- ** InferenceExecutionConfig
     inferenceExecutionConfig_mode,
 
+    -- ** InferenceMetrics
+    inferenceMetrics_maxInvocations,
+    inferenceMetrics_modelLatency,
+
     -- ** InferenceRecommendation
     inferenceRecommendation_metrics,
     inferenceRecommendation_endpointConfiguration,
@@ -3779,6 +3822,12 @@ module Amazonka.SageMaker.Lens
     inferenceRecommendationsJob_creationTime,
     inferenceRecommendationsJob_roleArn,
     inferenceRecommendationsJob_lastModifiedTime,
+
+    -- ** InferenceRecommendationsJobStep
+    inferenceRecommendationsJobStep_inferenceBenchmark,
+    inferenceRecommendationsJobStep_stepType,
+    inferenceRecommendationsJobStep_jobName,
+    inferenceRecommendationsJobStep_status,
 
     -- ** InferenceSpecification
     inferenceSpecification_supportedRealtimeInferenceInstanceTypes,
@@ -3960,6 +4009,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** ModelBiasJobInput
     modelBiasJobInput_endpointInput,
+    modelBiasJobInput_batchTransformInput,
     modelBiasJobInput_groundTruthS3Input,
 
     -- ** ModelClientConfig
@@ -3995,6 +4045,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** ModelExplainabilityJobInput
     modelExplainabilityJobInput_endpointInput,
+    modelExplainabilityJobInput_batchTransformInput,
 
     -- ** ModelInput
     modelInput_dataInputConfig,
@@ -4125,6 +4176,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** ModelQualityJobInput
     modelQualityJobInput_endpointInput,
+    modelQualityJobInput_batchTransformInput,
     modelQualityJobInput_groundTruthS3Input,
 
     -- ** ModelStepMetadata
@@ -4156,6 +4208,14 @@ module Amazonka.SageMaker.Lens
     -- ** MonitoringConstraintsResource
     monitoringConstraintsResource_s3Uri,
 
+    -- ** MonitoringCsvDatasetFormat
+    monitoringCsvDatasetFormat_header,
+
+    -- ** MonitoringDatasetFormat
+    monitoringDatasetFormat_parquet,
+    monitoringDatasetFormat_json,
+    monitoringDatasetFormat_csv,
+
     -- ** MonitoringExecutionSummary
     monitoringExecutionSummary_endpointName,
     monitoringExecutionSummary_processingJobArn,
@@ -4173,6 +4233,7 @@ module Amazonka.SageMaker.Lens
 
     -- ** MonitoringInput
     monitoringInput_endpointInput,
+    monitoringInput_batchTransformInput,
 
     -- ** MonitoringJobDefinition
     monitoringJobDefinition_environment,
@@ -4191,6 +4252,9 @@ module Amazonka.SageMaker.Lens
     monitoringJobDefinitionSummary_creationTime,
     monitoringJobDefinitionSummary_endpointName,
 
+    -- ** MonitoringJsonDatasetFormat
+    monitoringJsonDatasetFormat_line,
+
     -- ** MonitoringNetworkConfig
     monitoringNetworkConfig_vpcConfig,
     monitoringNetworkConfig_enableNetworkIsolation,
@@ -4202,6 +4266,8 @@ module Amazonka.SageMaker.Lens
     -- ** MonitoringOutputConfig
     monitoringOutputConfig_kmsKeyId,
     monitoringOutputConfig_monitoringOutputs,
+
+    -- ** MonitoringParquetDatasetFormat
 
     -- ** MonitoringResources
     monitoringResources_clusterConfig,
@@ -4706,10 +4772,17 @@ module Amazonka.SageMaker.Lens
     recommendationJobContainerConfig_payloadConfig,
     recommendationJobContainerConfig_framework,
 
+    -- ** RecommendationJobInferenceBenchmark
+    recommendationJobInferenceBenchmark_metrics,
+    recommendationJobInferenceBenchmark_endpointConfiguration,
+    recommendationJobInferenceBenchmark_failureReason,
+    recommendationJobInferenceBenchmark_modelConfiguration,
+
     -- ** RecommendationJobInputConfig
     recommendationJobInputConfig_trafficPattern,
     recommendationJobInputConfig_jobDurationInSeconds,
     recommendationJobInputConfig_volumeKmsKeyId,
+    recommendationJobInputConfig_endpoints,
     recommendationJobInputConfig_endpointConfigurations,
     recommendationJobInputConfig_resourceLimit,
     recommendationJobInputConfig_containerConfig,
@@ -5441,6 +5514,7 @@ import Amazonka.SageMaker.ListHumanTaskUis
 import Amazonka.SageMaker.ListHyperParameterTuningJobs
 import Amazonka.SageMaker.ListImageVersions
 import Amazonka.SageMaker.ListImages
+import Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
 import Amazonka.SageMaker.ListInferenceRecommendationsJobs
 import Amazonka.SageMaker.ListLabelingJobs
 import Amazonka.SageMaker.ListLabelingJobsForWorkteam
@@ -5540,8 +5614,10 @@ import Amazonka.SageMaker.Types.AutoMLPartialFailureReason
 import Amazonka.SageMaker.Types.AutoMLS3DataSource
 import Amazonka.SageMaker.Types.AutoMLSecurityConfig
 import Amazonka.SageMaker.Types.AutoRollbackConfig
+import Amazonka.SageMaker.Types.BatchDataCaptureConfig
 import Amazonka.SageMaker.Types.BatchDescribeModelPackageError
 import Amazonka.SageMaker.Types.BatchDescribeModelPackageSummary
+import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.Bias
 import Amazonka.SageMaker.Types.BlueGreenUpdatePolicy
 import Amazonka.SageMaker.Types.CacheHitResult
@@ -5621,9 +5697,11 @@ import Amazonka.SageMaker.Types.EdgePackagingJobSummary
 import Amazonka.SageMaker.Types.EdgePresetDeploymentOutput
 import Amazonka.SageMaker.Types.Endpoint
 import Amazonka.SageMaker.Types.EndpointConfigSummary
+import Amazonka.SageMaker.Types.EndpointInfo
 import Amazonka.SageMaker.Types.EndpointInput
 import Amazonka.SageMaker.Types.EndpointInputConfiguration
 import Amazonka.SageMaker.Types.EndpointOutputConfiguration
+import Amazonka.SageMaker.Types.EndpointPerformance
 import Amazonka.SageMaker.Types.EndpointSummary
 import Amazonka.SageMaker.Types.EnvironmentParameter
 import Amazonka.SageMaker.Types.EnvironmentParameterRanges
@@ -5672,8 +5750,10 @@ import Amazonka.SageMaker.Types.Image
 import Amazonka.SageMaker.Types.ImageConfig
 import Amazonka.SageMaker.Types.ImageVersion
 import Amazonka.SageMaker.Types.InferenceExecutionConfig
+import Amazonka.SageMaker.Types.InferenceMetrics
 import Amazonka.SageMaker.Types.InferenceRecommendation
 import Amazonka.SageMaker.Types.InferenceRecommendationsJob
+import Amazonka.SageMaker.Types.InferenceRecommendationsJobStep
 import Amazonka.SageMaker.Types.InferenceSpecification
 import Amazonka.SageMaker.Types.InputConfig
 import Amazonka.SageMaker.Types.InstanceGroup
@@ -5745,14 +5825,18 @@ import Amazonka.SageMaker.Types.MonitoringAppSpecification
 import Amazonka.SageMaker.Types.MonitoringBaselineConfig
 import Amazonka.SageMaker.Types.MonitoringClusterConfig
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
+import Amazonka.SageMaker.Types.MonitoringCsvDatasetFormat
+import Amazonka.SageMaker.Types.MonitoringDatasetFormat
 import Amazonka.SageMaker.Types.MonitoringExecutionSummary
 import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 import Amazonka.SageMaker.Types.MonitoringInput
 import Amazonka.SageMaker.Types.MonitoringJobDefinition
 import Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary
+import Amazonka.SageMaker.Types.MonitoringJsonDatasetFormat
 import Amazonka.SageMaker.Types.MonitoringNetworkConfig
 import Amazonka.SageMaker.Types.MonitoringOutput
 import Amazonka.SageMaker.Types.MonitoringOutputConfig
+import Amazonka.SageMaker.Types.MonitoringParquetDatasetFormat
 import Amazonka.SageMaker.Types.MonitoringResources
 import Amazonka.SageMaker.Types.MonitoringS3Output
 import Amazonka.SageMaker.Types.MonitoringSchedule
@@ -5831,6 +5915,7 @@ import Amazonka.SageMaker.Types.RStudioServerProDomainSettings
 import Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate
 import Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
 import Amazonka.SageMaker.Types.RecommendationJobContainerConfig
+import Amazonka.SageMaker.Types.RecommendationJobInferenceBenchmark
 import Amazonka.SageMaker.Types.RecommendationJobInputConfig
 import Amazonka.SageMaker.Types.RecommendationJobOutputConfig
 import Amazonka.SageMaker.Types.RecommendationJobPayloadConfig

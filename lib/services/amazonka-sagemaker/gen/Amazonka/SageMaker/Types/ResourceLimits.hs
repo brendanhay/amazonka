@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data ResourceLimits = ResourceLimits'
   { -- | The maximum number of training jobs that a hyperparameter tuning job can
     -- launch.
-    maxNumberOfTrainingJobs :: Prelude.Natural,
+    maxNumberOfTrainingJobs :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of concurrent training jobs that a hyperparameter
     -- tuning job can launch.
     maxParallelTrainingJobs :: Prelude.Natural
@@ -51,23 +51,19 @@ data ResourceLimits = ResourceLimits'
 -- 'maxParallelTrainingJobs', 'resourceLimits_maxParallelTrainingJobs' - The maximum number of concurrent training jobs that a hyperparameter
 -- tuning job can launch.
 newResourceLimits ::
-  -- | 'maxNumberOfTrainingJobs'
-  Prelude.Natural ->
   -- | 'maxParallelTrainingJobs'
   Prelude.Natural ->
   ResourceLimits
-newResourceLimits
-  pMaxNumberOfTrainingJobs_
-  pMaxParallelTrainingJobs_ =
-    ResourceLimits'
-      { maxNumberOfTrainingJobs =
-          pMaxNumberOfTrainingJobs_,
-        maxParallelTrainingJobs = pMaxParallelTrainingJobs_
-      }
+newResourceLimits pMaxParallelTrainingJobs_ =
+  ResourceLimits'
+    { maxNumberOfTrainingJobs =
+        Prelude.Nothing,
+      maxParallelTrainingJobs = pMaxParallelTrainingJobs_
+    }
 
 -- | The maximum number of training jobs that a hyperparameter tuning job can
 -- launch.
-resourceLimits_maxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits Prelude.Natural
+resourceLimits_maxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits (Prelude.Maybe Prelude.Natural)
 resourceLimits_maxNumberOfTrainingJobs = Lens.lens (\ResourceLimits' {maxNumberOfTrainingJobs} -> maxNumberOfTrainingJobs) (\s@ResourceLimits' {} a -> s {maxNumberOfTrainingJobs = a} :: ResourceLimits)
 
 -- | The maximum number of concurrent training jobs that a hyperparameter
@@ -81,7 +77,7 @@ instance Core.FromJSON ResourceLimits where
       "ResourceLimits"
       ( \x ->
           ResourceLimits'
-            Prelude.<$> (x Core..: "MaxNumberOfTrainingJobs")
+            Prelude.<$> (x Core..:? "MaxNumberOfTrainingJobs")
             Prelude.<*> (x Core..: "MaxParallelTrainingJobs")
       )
 
@@ -100,10 +96,8 @@ instance Core.ToJSON ResourceLimits where
   toJSON ResourceLimits' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "MaxNumberOfTrainingJobs"
-                  Core..= maxNumberOfTrainingJobs
-              ),
+          [ ("MaxNumberOfTrainingJobs" Core..=)
+              Prelude.<$> maxNumberOfTrainingJobs,
             Prelude.Just
               ( "MaxParallelTrainingJobs"
                   Core..= maxParallelTrainingJobs

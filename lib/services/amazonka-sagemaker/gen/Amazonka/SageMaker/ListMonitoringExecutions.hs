@@ -260,7 +260,8 @@ instance Core.AWSRequest ListMonitoringExecutions where
   type
     AWSResponse ListMonitoringExecutions =
       ListMonitoringExecutionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

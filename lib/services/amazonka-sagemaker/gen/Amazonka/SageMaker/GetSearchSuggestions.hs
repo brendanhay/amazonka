@@ -93,7 +93,8 @@ instance Core.AWSRequest GetSearchSuggestions where
   type
     AWSResponse GetSearchSuggestions =
       GetSearchSuggestionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

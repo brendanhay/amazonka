@@ -25,6 +25,7 @@ module Amazonka.SageMaker.Types.AutoMLMetricExtendedEnum
         AutoMLMetricExtendedEnum_BalancedAccuracy,
         AutoMLMetricExtendedEnum_F1,
         AutoMLMetricExtendedEnum_F1macro,
+        AutoMLMetricExtendedEnum_InferenceLatency,
         AutoMLMetricExtendedEnum_LogLoss,
         AutoMLMetricExtendedEnum_MAE,
         AutoMLMetricExtendedEnum_MSE,
@@ -84,6 +85,9 @@ pattern AutoMLMetricExtendedEnum_F1 = AutoMLMetricExtendedEnum' "F1"
 pattern AutoMLMetricExtendedEnum_F1macro :: AutoMLMetricExtendedEnum
 pattern AutoMLMetricExtendedEnum_F1macro = AutoMLMetricExtendedEnum' "F1macro"
 
+pattern AutoMLMetricExtendedEnum_InferenceLatency :: AutoMLMetricExtendedEnum
+pattern AutoMLMetricExtendedEnum_InferenceLatency = AutoMLMetricExtendedEnum' "InferenceLatency"
+
 pattern AutoMLMetricExtendedEnum_LogLoss :: AutoMLMetricExtendedEnum
 pattern AutoMLMetricExtendedEnum_LogLoss = AutoMLMetricExtendedEnum' "LogLoss"
 
@@ -117,6 +121,7 @@ pattern AutoMLMetricExtendedEnum_RecallMacro = AutoMLMetricExtendedEnum' "Recall
   AutoMLMetricExtendedEnum_BalancedAccuracy,
   AutoMLMetricExtendedEnum_F1,
   AutoMLMetricExtendedEnum_F1macro,
+  AutoMLMetricExtendedEnum_InferenceLatency,
   AutoMLMetricExtendedEnum_LogLoss,
   AutoMLMetricExtendedEnum_MAE,
   AutoMLMetricExtendedEnum_MSE,

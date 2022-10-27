@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.ModelQualityJobInput where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
 import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 
@@ -30,7 +31,9 @@ import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 --
 -- /See:/ 'newModelQualityJobInput' smart constructor.
 data ModelQualityJobInput = ModelQualityJobInput'
-  { endpointInput :: EndpointInput,
+  { endpointInput :: Prelude.Maybe EndpointInput,
+    -- | Input object for the batch transform job.
+    batchTransformInput :: Prelude.Maybe BatchTransformInput,
     -- | The ground truth label provided for the model.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
@@ -46,25 +49,28 @@ data ModelQualityJobInput = ModelQualityJobInput'
 --
 -- 'endpointInput', 'modelQualityJobInput_endpointInput' - Undocumented member.
 --
+-- 'batchTransformInput', 'modelQualityJobInput_batchTransformInput' - Input object for the batch transform job.
+--
 -- 'groundTruthS3Input', 'modelQualityJobInput_groundTruthS3Input' - The ground truth label provided for the model.
 newModelQualityJobInput ::
-  -- | 'endpointInput'
-  EndpointInput ->
   -- | 'groundTruthS3Input'
   MonitoringGroundTruthS3Input ->
   ModelQualityJobInput
-newModelQualityJobInput
-  pEndpointInput_
-  pGroundTruthS3Input_ =
-    ModelQualityJobInput'
-      { endpointInput =
-          pEndpointInput_,
-        groundTruthS3Input = pGroundTruthS3Input_
-      }
+newModelQualityJobInput pGroundTruthS3Input_ =
+  ModelQualityJobInput'
+    { endpointInput =
+        Prelude.Nothing,
+      batchTransformInput = Prelude.Nothing,
+      groundTruthS3Input = pGroundTruthS3Input_
+    }
 
 -- | Undocumented member.
-modelQualityJobInput_endpointInput :: Lens.Lens' ModelQualityJobInput EndpointInput
+modelQualityJobInput_endpointInput :: Lens.Lens' ModelQualityJobInput (Prelude.Maybe EndpointInput)
 modelQualityJobInput_endpointInput = Lens.lens (\ModelQualityJobInput' {endpointInput} -> endpointInput) (\s@ModelQualityJobInput' {} a -> s {endpointInput = a} :: ModelQualityJobInput)
+
+-- | Input object for the batch transform job.
+modelQualityJobInput_batchTransformInput :: Lens.Lens' ModelQualityJobInput (Prelude.Maybe BatchTransformInput)
+modelQualityJobInput_batchTransformInput = Lens.lens (\ModelQualityJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelQualityJobInput' {} a -> s {batchTransformInput = a} :: ModelQualityJobInput)
 
 -- | The ground truth label provided for the model.
 modelQualityJobInput_groundTruthS3Input :: Lens.Lens' ModelQualityJobInput MonitoringGroundTruthS3Input
@@ -76,26 +82,30 @@ instance Core.FromJSON ModelQualityJobInput where
       "ModelQualityJobInput"
       ( \x ->
           ModelQualityJobInput'
-            Prelude.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..:? "EndpointInput")
+            Prelude.<*> (x Core..:? "BatchTransformInput")
             Prelude.<*> (x Core..: "GroundTruthS3Input")
       )
 
 instance Prelude.Hashable ModelQualityJobInput where
   hashWithSalt _salt ModelQualityJobInput' {..} =
     _salt `Prelude.hashWithSalt` endpointInput
+      `Prelude.hashWithSalt` batchTransformInput
       `Prelude.hashWithSalt` groundTruthS3Input
 
 instance Prelude.NFData ModelQualityJobInput where
   rnf ModelQualityJobInput' {..} =
     Prelude.rnf endpointInput
+      `Prelude.seq` Prelude.rnf batchTransformInput
       `Prelude.seq` Prelude.rnf groundTruthS3Input
 
 instance Core.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Core..= endpointInput),
+          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Core..=)
+              Prelude.<$> batchTransformInput,
             Prelude.Just
               ("GroundTruthS3Input" Core..= groundTruthS3Input)
           ]

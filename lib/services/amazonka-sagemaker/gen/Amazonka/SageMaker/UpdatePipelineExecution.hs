@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdatePipelineExecution where
   type
     AWSResponse UpdatePipelineExecution =
       UpdatePipelineExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

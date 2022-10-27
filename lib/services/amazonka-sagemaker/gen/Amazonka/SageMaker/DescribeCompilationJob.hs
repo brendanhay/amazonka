@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribeCompilationJob where
   type
     AWSResponse DescribeCompilationJob =
       DescribeCompilationJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

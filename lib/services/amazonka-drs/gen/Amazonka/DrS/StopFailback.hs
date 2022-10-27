@@ -76,7 +76,8 @@ stopFailback_recoveryInstanceID = Lens.lens (\StopFailback' {recoveryInstanceID}
 
 instance Core.AWSRequest StopFailback where
   type AWSResponse StopFailback = StopFailbackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StopFailbackResponse'
 
 instance Prelude.Hashable StopFailback where

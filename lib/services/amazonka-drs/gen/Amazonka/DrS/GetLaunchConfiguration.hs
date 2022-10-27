@@ -89,7 +89,8 @@ instance Core.AWSRequest GetLaunchConfiguration where
   type
     AWSResponse GetLaunchConfiguration =
       LaunchConfiguration
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

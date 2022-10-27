@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteWirelessGateway where
   type
     AWSResponse DeleteWirelessGateway =
       DeleteWirelessGatewayResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

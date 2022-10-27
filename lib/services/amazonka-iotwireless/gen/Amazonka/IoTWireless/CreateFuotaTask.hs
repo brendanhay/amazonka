@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateFuotaTask where
   type
     AWSResponse CreateFuotaTask =
       CreateFuotaTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,7 +76,8 @@ instance Core.AWSRequest GetMulticastGroupSession where
   type
     AWSResponse GetMulticastGroupSession =
       GetMulticastGroupSessionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

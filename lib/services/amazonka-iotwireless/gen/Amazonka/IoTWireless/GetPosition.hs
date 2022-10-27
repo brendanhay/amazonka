@@ -98,7 +98,8 @@ getPosition_resourceType = Lens.lens (\GetPosition' {resourceType} -> resourceTy
 
 instance Core.AWSRequest GetPosition where
   type AWSResponse GetPosition = GetPositionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

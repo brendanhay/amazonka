@@ -80,7 +80,8 @@ instance Core.AWSRequest GetDeviceProfile where
   type
     AWSResponse GetDeviceProfile =
       GetDeviceProfileResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

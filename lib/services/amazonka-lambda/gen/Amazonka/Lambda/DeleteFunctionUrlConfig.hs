@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteFunctionUrlConfig where
   type
     AWSResponse DeleteFunctionUrlConfig =
       DeleteFunctionUrlConfigResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionUrlConfigResponse'

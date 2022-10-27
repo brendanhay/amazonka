@@ -121,7 +121,8 @@ instance Core.AWSRequest RemoveLayerVersionPermission where
   type
     AWSResponse RemoveLayerVersionPermission =
       RemoveLayerVersionPermissionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveLayerVersionPermissionResponse'

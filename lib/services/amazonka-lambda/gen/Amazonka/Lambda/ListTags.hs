@@ -80,7 +80,8 @@ listTags_resource = Lens.lens (\ListTags' {resource} -> resource) (\s@ListTags' 
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

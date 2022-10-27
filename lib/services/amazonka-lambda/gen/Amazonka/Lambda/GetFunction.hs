@@ -138,7 +138,8 @@ getFunction_functionName = Lens.lens (\GetFunction' {functionName} -> functionNa
 
 instance Core.AWSRequest GetFunction where
   type AWSResponse GetFunction = GetFunctionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

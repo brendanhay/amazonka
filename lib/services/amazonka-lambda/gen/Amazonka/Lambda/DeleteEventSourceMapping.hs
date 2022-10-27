@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteEventSourceMapping where
   type
     AWSResponse DeleteEventSourceMapping =
       EventSourceMappingConfiguration
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

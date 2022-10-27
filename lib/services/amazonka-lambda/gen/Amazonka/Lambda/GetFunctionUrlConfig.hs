@@ -130,7 +130,8 @@ instance Core.AWSRequest GetFunctionUrlConfig where
   type
     AWSResponse GetFunctionUrlConfig =
       GetFunctionUrlConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
   type
     AWSResponse DescribeConnectClientAddIns =
       DescribeConnectClientAddInsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

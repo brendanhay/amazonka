@@ -92,7 +92,8 @@ createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
   type
     AWSResponse DescribeWorkspaceDirectories =
       DescribeWorkspaceDirectoriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

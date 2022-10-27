@@ -537,6 +537,8 @@ defaultService =
       Core._serviceEndpointPrefix = "workspaces",
       Core._serviceSigningName = "workspaces",
       Core._serviceVersion = "2015-04-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

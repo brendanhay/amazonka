@@ -86,7 +86,8 @@ instance Core.AWSRequest RebootWorkspaces where
   type
     AWSResponse RebootWorkspaces =
       RebootWorkspacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

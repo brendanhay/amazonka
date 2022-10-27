@@ -86,7 +86,8 @@ instance Core.AWSRequest RestoreWorkspace where
   type
     AWSResponse RestoreWorkspace =
       RestoreWorkspaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

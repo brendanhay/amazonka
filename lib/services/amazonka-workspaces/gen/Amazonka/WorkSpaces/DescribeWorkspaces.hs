@@ -188,7 +188,8 @@ instance Core.AWSRequest DescribeWorkspaces where
   type
     AWSResponse DescribeWorkspaces =
       DescribeWorkspacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

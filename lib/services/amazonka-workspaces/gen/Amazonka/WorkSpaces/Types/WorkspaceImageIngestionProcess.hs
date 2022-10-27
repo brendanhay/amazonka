@@ -23,7 +23,9 @@ module Amazonka.WorkSpaces.Types.WorkspaceImageIngestionProcess
         WorkspaceImageIngestionProcess_BYOL_GRAPHICS,
         WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO,
         WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN,
+        WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN_BYOP,
         WorkspaceImageIngestionProcess_BYOL_REGULAR,
+        WorkspaceImageIngestionProcess_BYOL_REGULAR_BYOP,
         WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP
       ),
   )
@@ -69,8 +71,14 @@ pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO = WorkspaceImageIngestio
 pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN :: WorkspaceImageIngestionProcess
 pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS_G4DN"
 
+pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN_BYOP :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN_BYOP = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS_G4DN_BYOP"
+
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR :: WorkspaceImageIngestionProcess
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
+
+pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_BYOP :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_BYOP = WorkspaceImageIngestionProcess' "BYOL_REGULAR_BYOP"
 
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP :: WorkspaceImageIngestionProcess
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP = WorkspaceImageIngestionProcess' "BYOL_REGULAR_WSP"
@@ -79,7 +87,9 @@ pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP = WorkspaceImageIngestio
   WorkspaceImageIngestionProcess_BYOL_GRAPHICS,
   WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO,
   WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN,
+  WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN_BYOP,
   WorkspaceImageIngestionProcess_BYOL_REGULAR,
+  WorkspaceImageIngestionProcess_BYOL_REGULAR_BYOP,
   WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP,
   WorkspaceImageIngestionProcess'
   #-}

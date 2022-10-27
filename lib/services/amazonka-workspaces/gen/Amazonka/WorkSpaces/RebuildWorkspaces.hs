@@ -90,7 +90,8 @@ instance Core.AWSRequest RebuildWorkspaces where
   type
     AWSResponse RebuildWorkspaces =
       RebuildWorkspacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

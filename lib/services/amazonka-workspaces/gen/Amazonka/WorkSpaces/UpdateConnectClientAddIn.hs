@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateConnectClientAddIn where
   type
     AWSResponse UpdateConnectClientAddIn =
       UpdateConnectClientAddInResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

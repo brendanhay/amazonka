@@ -21,7 +21,8 @@ module Amazonka.WorkSpaces.Types.RunningMode
   ( RunningMode
       ( ..,
         RunningMode_ALWAYS_ON,
-        RunningMode_AUTO_STOP
+        RunningMode_AUTO_STOP,
+        RunningMode_MANUAL
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern RunningMode_ALWAYS_ON = RunningMode' "ALWAYS_ON"
 pattern RunningMode_AUTO_STOP :: RunningMode
 pattern RunningMode_AUTO_STOP = RunningMode' "AUTO_STOP"
 
+pattern RunningMode_MANUAL :: RunningMode
+pattern RunningMode_MANUAL = RunningMode' "MANUAL"
+
 {-# COMPLETE
   RunningMode_ALWAYS_ON,
   RunningMode_AUTO_STOP,
+  RunningMode_MANUAL,
   RunningMode'
   #-}

@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateWorkspaceImage where
   type
     AWSResponse CreateWorkspaceImage =
       CreateWorkspaceImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,7 +207,7 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
     -- | Specifies whether the image is running on dedicated hardware. When Bring
     -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>
+    -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>.
     requiredTenancy :: Prelude.Maybe WorkspaceImageRequiredTenancy,
     -- | The identifier of the Amazon Web Services account that owns the image.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
@@ -238,7 +239,7 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
 -- 'requiredTenancy', 'createWorkspaceImageResponse_requiredTenancy' - Specifies whether the image is running on dedicated hardware. When Bring
 -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
 -- more information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>.
 --
 -- 'ownerAccountId', 'createWorkspaceImageResponse_ownerAccountId' - The identifier of the Amazon Web Services account that owns the image.
 --
@@ -286,7 +287,7 @@ createWorkspaceImageResponse_description = Lens.lens (\CreateWorkspaceImageRespo
 -- | Specifies whether the image is running on dedicated hardware. When Bring
 -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
 -- more information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>.
 createWorkspaceImageResponse_requiredTenancy :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageRequiredTenancy)
 createWorkspaceImageResponse_requiredTenancy = Lens.lens (\CreateWorkspaceImageResponse' {requiredTenancy} -> requiredTenancy) (\s@CreateWorkspaceImageResponse' {} a -> s {requiredTenancy = a} :: CreateWorkspaceImageResponse)
 

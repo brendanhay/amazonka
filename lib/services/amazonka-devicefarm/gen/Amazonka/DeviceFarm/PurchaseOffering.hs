@@ -109,7 +109,8 @@ instance Core.AWSRequest PurchaseOffering where
   type
     AWSResponse PurchaseOffering =
       PurchaseOfferingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

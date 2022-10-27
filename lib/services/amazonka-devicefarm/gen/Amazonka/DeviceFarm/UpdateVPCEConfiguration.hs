@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateVPCEConfiguration where
   type
     AWSResponse UpdateVPCEConfiguration =
       UpdateVPCEConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

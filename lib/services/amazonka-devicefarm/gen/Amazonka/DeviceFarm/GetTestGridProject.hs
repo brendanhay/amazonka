@@ -80,7 +80,8 @@ instance Core.AWSRequest GetTestGridProject where
   type
     AWSResponse GetTestGridProject =
       GetTestGridProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

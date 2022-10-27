@@ -117,7 +117,8 @@ instance Core.AWSPager ListTests where
 
 instance Core.AWSRequest ListTests where
   type AWSResponse ListTests = ListTestsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -117,7 +117,8 @@ instance Core.AWSPager ListSuites where
 
 instance Core.AWSRequest ListSuites where
   type AWSResponse ListSuites = ListSuitesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

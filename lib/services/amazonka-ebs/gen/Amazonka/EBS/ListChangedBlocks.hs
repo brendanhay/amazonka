@@ -188,7 +188,8 @@ instance Core.AWSRequest ListChangedBlocks where
   type
     AWSResponse ListChangedBlocks =
       ListChangedBlocksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

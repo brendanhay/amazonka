@@ -145,7 +145,8 @@ instance Core.AWSRequest GetSnapshotBlock where
   type
     AWSResponse GetSnapshotBlock =
       GetSnapshotBlockResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

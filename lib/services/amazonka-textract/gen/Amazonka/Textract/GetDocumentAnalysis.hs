@@ -177,7 +177,8 @@ instance Core.AWSRequest GetDocumentAnalysis where
   type
     AWSResponse GetDocumentAnalysis =
       GetDocumentAnalysisResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

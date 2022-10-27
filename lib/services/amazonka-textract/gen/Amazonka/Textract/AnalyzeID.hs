@@ -84,7 +84,8 @@ analyzeID_documentPages = Lens.lens (\AnalyzeID' {documentPages} -> documentPage
 
 instance Core.AWSRequest AnalyzeID where
   type AWSResponse AnalyzeID = AnalyzeIDResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

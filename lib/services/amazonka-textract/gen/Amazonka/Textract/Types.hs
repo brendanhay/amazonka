@@ -292,6 +292,8 @@ defaultService =
       Core._serviceEndpointPrefix = "textract",
       Core._serviceSigningName = "textract",
       Core._serviceVersion = "2018-06-27",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -94,7 +94,8 @@ getFinding_id = Lens.lens (\GetFinding' {id} -> id) (\s@GetFinding' {} a -> s {i
 
 instance Core.AWSRequest GetFinding where
   type AWSResponse GetFinding = GetFindingResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

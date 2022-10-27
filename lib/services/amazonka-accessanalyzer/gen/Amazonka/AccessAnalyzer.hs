@@ -341,6 +341,18 @@ module Amazonka.AccessAnalyzer
     Criterion (Criterion'),
     newCriterion,
 
+    -- ** EbsSnapshotConfiguration
+    EbsSnapshotConfiguration (EbsSnapshotConfiguration'),
+    newEbsSnapshotConfiguration,
+
+    -- ** EcrRepositoryConfiguration
+    EcrRepositoryConfiguration (EcrRepositoryConfiguration'),
+    newEcrRepositoryConfiguration,
+
+    -- ** EfsFileSystemConfiguration
+    EfsFileSystemConfiguration (EfsFileSystemConfiguration'),
+    newEfsFileSystemConfiguration,
+
     -- ** Finding
     Finding (Finding'),
     newFinding,
@@ -425,6 +437,22 @@ module Amazonka.AccessAnalyzer
     Position (Position'),
     newPosition,
 
+    -- ** RdsDbClusterSnapshotAttributeValue
+    RdsDbClusterSnapshotAttributeValue (RdsDbClusterSnapshotAttributeValue'),
+    newRdsDbClusterSnapshotAttributeValue,
+
+    -- ** RdsDbClusterSnapshotConfiguration
+    RdsDbClusterSnapshotConfiguration (RdsDbClusterSnapshotConfiguration'),
+    newRdsDbClusterSnapshotConfiguration,
+
+    -- ** RdsDbSnapshotAttributeValue
+    RdsDbSnapshotAttributeValue (RdsDbSnapshotAttributeValue'),
+    newRdsDbSnapshotAttributeValue,
+
+    -- ** RdsDbSnapshotConfiguration
+    RdsDbSnapshotConfiguration (RdsDbSnapshotConfiguration'),
+    newRdsDbSnapshotConfiguration,
+
     -- ** S3AccessPointConfiguration
     S3AccessPointConfiguration (S3AccessPointConfiguration'),
     newS3AccessPointConfiguration,
@@ -444,6 +472,10 @@ module Amazonka.AccessAnalyzer
     -- ** SecretsManagerSecretConfiguration
     SecretsManagerSecretConfiguration (SecretsManagerSecretConfiguration'),
     newSecretsManagerSecretConfiguration,
+
+    -- ** SnsTopicConfiguration
+    SnsTopicConfiguration (SnsTopicConfiguration'),
+    newSnsTopicConfiguration,
 
     -- ** SortCriteria
     SortCriteria (SortCriteria'),

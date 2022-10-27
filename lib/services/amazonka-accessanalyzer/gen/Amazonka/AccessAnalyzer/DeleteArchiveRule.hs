@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteArchiveRule where
   type
     AWSResponse DeleteArchiveRule =
       DeleteArchiveRuleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteArchiveRuleResponse'
 

@@ -165,6 +165,7 @@ module Amazonka.AccessAnalyzer.Lens
     startPolicyGenerationResponse_jobId,
 
     -- ** StartResourceScan
+    startResourceScan_resourceOwnerAccount,
     startResourceScan_analyzerArn,
     startResourceScan_resourceArn,
 
@@ -290,17 +291,34 @@ module Amazonka.AccessAnalyzer.Lens
     cloudTrailProperties_endTime,
 
     -- ** Configuration
+    configuration_ecrRepository,
     configuration_s3Bucket,
     configuration_iamRole,
+    configuration_snsTopic,
     configuration_kmsKey,
+    configuration_rdsDbSnapshot,
+    configuration_rdsDbClusterSnapshot,
+    configuration_efsFileSystem,
     configuration_sqsQueue,
     configuration_secretsManagerSecret,
+    configuration_ebsSnapshot,
 
     -- ** Criterion
     criterion_neq,
     criterion_exists,
     criterion_contains,
     criterion_eq,
+
+    -- ** EbsSnapshotConfiguration
+    ebsSnapshotConfiguration_kmsKeyId,
+    ebsSnapshotConfiguration_groups,
+    ebsSnapshotConfiguration_userIds,
+
+    -- ** EcrRepositoryConfiguration
+    ecrRepositoryConfiguration_repositoryPolicy,
+
+    -- ** EfsFileSystemConfiguration
+    efsFileSystemConfiguration_fileSystemPolicy,
 
     -- ** Finding
     finding_principal,
@@ -417,6 +435,20 @@ module Amazonka.AccessAnalyzer.Lens
     position_column,
     position_offset,
 
+    -- ** RdsDbClusterSnapshotAttributeValue
+    rdsDbClusterSnapshotAttributeValue_accountIds,
+
+    -- ** RdsDbClusterSnapshotConfiguration
+    rdsDbClusterSnapshotConfiguration_kmsKeyId,
+    rdsDbClusterSnapshotConfiguration_attributes,
+
+    -- ** RdsDbSnapshotAttributeValue
+    rdsDbSnapshotAttributeValue_accountIds,
+
+    -- ** RdsDbSnapshotConfiguration
+    rdsDbSnapshotConfiguration_kmsKeyId,
+    rdsDbSnapshotConfiguration_attributes,
+
     -- ** S3AccessPointConfiguration
     s3AccessPointConfiguration_publicAccessBlock,
     s3AccessPointConfiguration_networkOrigin,
@@ -439,6 +471,9 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** SecretsManagerSecretConfiguration
     secretsManagerSecretConfiguration_secretPolicy,
     secretsManagerSecretConfiguration_kmsKeyId,
+
+    -- ** SnsTopicConfiguration
+    snsTopicConfiguration_topicPolicy,
 
     -- ** SortCriteria
     sortCriteria_orderBy,
@@ -517,6 +552,9 @@ import Amazonka.AccessAnalyzer.Types.CloudTrailDetails
 import Amazonka.AccessAnalyzer.Types.CloudTrailProperties
 import Amazonka.AccessAnalyzer.Types.Configuration
 import Amazonka.AccessAnalyzer.Types.Criterion
+import Amazonka.AccessAnalyzer.Types.EbsSnapshotConfiguration
+import Amazonka.AccessAnalyzer.Types.EcrRepositoryConfiguration
+import Amazonka.AccessAnalyzer.Types.EfsFileSystemConfiguration
 import Amazonka.AccessAnalyzer.Types.Finding
 import Amazonka.AccessAnalyzer.Types.FindingSource
 import Amazonka.AccessAnalyzer.Types.FindingSourceDetail
@@ -538,11 +576,16 @@ import Amazonka.AccessAnalyzer.Types.PathElement
 import Amazonka.AccessAnalyzer.Types.PolicyGeneration
 import Amazonka.AccessAnalyzer.Types.PolicyGenerationDetails
 import Amazonka.AccessAnalyzer.Types.Position
+import Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotAttributeValue
+import Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotConfiguration
+import Amazonka.AccessAnalyzer.Types.RdsDbSnapshotAttributeValue
+import Amazonka.AccessAnalyzer.Types.RdsDbSnapshotConfiguration
 import Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
 import Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
 import Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
 import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
 import Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+import Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration
 import Amazonka.AccessAnalyzer.Types.SortCriteria
 import Amazonka.AccessAnalyzer.Types.Span
 import Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration

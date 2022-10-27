@@ -98,7 +98,8 @@ instance Core.AWSRequest GetArchiveRule where
   type
     AWSResponse GetArchiveRule =
       GetArchiveRuleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

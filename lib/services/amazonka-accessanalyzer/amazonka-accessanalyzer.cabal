@@ -87,6 +87,9 @@ library
     Amazonka.AccessAnalyzer.Types.CloudTrailProperties
     Amazonka.AccessAnalyzer.Types.Configuration
     Amazonka.AccessAnalyzer.Types.Criterion
+    Amazonka.AccessAnalyzer.Types.EbsSnapshotConfiguration
+    Amazonka.AccessAnalyzer.Types.EcrRepositoryConfiguration
+    Amazonka.AccessAnalyzer.Types.EfsFileSystemConfiguration
     Amazonka.AccessAnalyzer.Types.Finding
     Amazonka.AccessAnalyzer.Types.FindingChangeType
     Amazonka.AccessAnalyzer.Types.FindingSource
@@ -118,6 +121,10 @@ library
     Amazonka.AccessAnalyzer.Types.PolicyGenerationDetails
     Amazonka.AccessAnalyzer.Types.PolicyType
     Amazonka.AccessAnalyzer.Types.Position
+    Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotAttributeValue
+    Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotConfiguration
+    Amazonka.AccessAnalyzer.Types.RdsDbSnapshotAttributeValue
+    Amazonka.AccessAnalyzer.Types.RdsDbSnapshotConfiguration
     Amazonka.AccessAnalyzer.Types.ReasonCode
     Amazonka.AccessAnalyzer.Types.ResourceType
     Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
@@ -125,6 +132,7 @@ library
     Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
     Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
     Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+    Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration
     Amazonka.AccessAnalyzer.Types.SortCriteria
     Amazonka.AccessAnalyzer.Types.Span
     Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration

@@ -88,6 +88,8 @@ defaultService =
       Core._serviceEndpointPrefix = "metering.marketplace",
       Core._serviceSigningName = "aws-marketplace",
       Core._serviceVersion = "2016-01-14",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

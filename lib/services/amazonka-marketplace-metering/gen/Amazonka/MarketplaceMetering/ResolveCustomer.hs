@@ -105,7 +105,8 @@ instance Core.AWSRequest ResolveCustomer where
   type
     AWSResponse ResolveCustomer =
       ResolveCustomerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

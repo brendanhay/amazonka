@@ -182,7 +182,8 @@ meterUsage_usageDimension = Lens.lens (\MeterUsage' {usageDimension} -> usageDim
 
 instance Core.AWSRequest MeterUsage where
   type AWSResponse MeterUsage = MeterUsageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

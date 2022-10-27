@@ -242,7 +242,8 @@ instance Core.AWSRequest CopyProjectVersion where
   type
     AWSResponse CopyProjectVersion =
       CopyProjectVersionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

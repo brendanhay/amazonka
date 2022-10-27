@@ -988,6 +988,8 @@ defaultService =
       Core._serviceEndpointPrefix = "rekognition",
       Core._serviceSigningName = "rekognition",
       Core._serviceVersion = "2016-06-27",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

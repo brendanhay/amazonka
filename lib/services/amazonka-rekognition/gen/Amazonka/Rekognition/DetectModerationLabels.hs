@@ -152,7 +152,8 @@ instance Core.AWSRequest DetectModerationLabels where
   type
     AWSResponse DetectModerationLabels =
       DetectModerationLabelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

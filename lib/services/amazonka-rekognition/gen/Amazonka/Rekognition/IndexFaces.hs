@@ -364,7 +364,8 @@ indexFaces_image = Lens.lens (\IndexFaces' {image} -> image) (\s@IndexFaces' {} 
 
 instance Core.AWSRequest IndexFaces where
   type AWSResponse IndexFaces = IndexFacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

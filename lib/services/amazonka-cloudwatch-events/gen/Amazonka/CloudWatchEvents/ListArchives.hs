@@ -124,7 +124,8 @@ listArchives_namePrefix = Lens.lens (\ListArchives' {namePrefix} -> namePrefix) 
 
 instance Core.AWSRequest ListArchives where
   type AWSResponse ListArchives = ListArchivesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

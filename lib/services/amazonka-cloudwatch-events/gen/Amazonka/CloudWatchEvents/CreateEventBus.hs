@@ -126,7 +126,8 @@ instance Core.AWSRequest CreateEventBus where
   type
     AWSResponse CreateEventBus =
       CreateEventBusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

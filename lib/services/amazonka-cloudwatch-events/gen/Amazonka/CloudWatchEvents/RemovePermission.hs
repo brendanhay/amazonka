@@ -104,7 +104,8 @@ instance Core.AWSRequest RemovePermission where
   type
     AWSResponse RemovePermission =
       RemovePermissionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RemovePermissionResponse'
 

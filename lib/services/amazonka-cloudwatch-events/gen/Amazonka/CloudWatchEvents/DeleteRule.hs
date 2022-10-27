@@ -124,7 +124,8 @@ deleteRule_name = Lens.lens (\DeleteRule' {name} -> name) (\s@DeleteRule' {} a -
 
 instance Core.AWSRequest DeleteRule where
   type AWSResponse DeleteRule = DeleteRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteRuleResponse'
 
 instance Prelude.Hashable DeleteRule where

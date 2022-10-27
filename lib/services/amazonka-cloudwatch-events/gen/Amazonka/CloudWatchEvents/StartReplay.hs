@@ -161,7 +161,8 @@ startReplay_destination = Lens.lens (\StartReplay' {destination} -> destination)
 
 instance Core.AWSRequest StartReplay where
   type AWSResponse StartReplay = StartReplayResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

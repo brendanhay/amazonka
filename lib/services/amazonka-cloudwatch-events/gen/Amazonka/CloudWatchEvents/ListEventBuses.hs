@@ -111,7 +111,8 @@ instance Core.AWSRequest ListEventBuses where
   type
     AWSResponse ListEventBuses =
       ListEventBusesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

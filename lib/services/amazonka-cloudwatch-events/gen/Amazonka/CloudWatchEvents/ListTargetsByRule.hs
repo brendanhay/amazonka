@@ -141,7 +141,8 @@ instance Core.AWSRequest ListTargetsByRule where
   type
     AWSResponse ListTargetsByRule =
       ListTargetsByRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

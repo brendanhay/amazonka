@@ -246,7 +246,8 @@ putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTarget
 
 instance Core.AWSRequest PutTargets where
   type AWSResponse PutTargets = PutTargetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ cancelReplay_replayName = Lens.lens (\CancelReplay' {replayName} -> replayName) 
 
 instance Core.AWSRequest CancelReplay where
   type AWSResponse CancelReplay = CancelReplayResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

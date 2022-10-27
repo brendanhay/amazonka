@@ -103,7 +103,8 @@ describeRule_name = Lens.lens (\DescribeRule' {name} -> name) (\s@DescribeRule' 
 
 instance Core.AWSRequest DescribeRule where
   type AWSResponse DescribeRule = DescribeRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

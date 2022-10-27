@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateArchive where
   type
     AWSResponse UpdateArchive =
       UpdateArchiveResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

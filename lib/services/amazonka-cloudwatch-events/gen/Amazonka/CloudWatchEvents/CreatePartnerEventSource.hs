@@ -133,7 +133,8 @@ instance Core.AWSRequest CreatePartnerEventSource where
   type
     AWSResponse CreatePartnerEventSource =
       CreatePartnerEventSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

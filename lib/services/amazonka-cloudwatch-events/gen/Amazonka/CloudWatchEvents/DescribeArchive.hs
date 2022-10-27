@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeArchive where
   type
     AWSResponse DescribeArchive =
       DescribeArchiveResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

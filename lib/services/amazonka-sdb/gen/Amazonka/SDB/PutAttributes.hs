@@ -151,7 +151,8 @@ instance Core.AWSRequest PutAttributes where
   type
     AWSResponse PutAttributes =
       PutAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutAttributesResponse'
 

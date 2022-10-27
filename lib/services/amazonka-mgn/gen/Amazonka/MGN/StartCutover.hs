@@ -90,7 +90,8 @@ startCutover_sourceServerIDs = Lens.lens (\StartCutover' {sourceServerIDs} -> so
 
 instance Core.AWSRequest StartCutover where
   type AWSResponse StartCutover = StartCutoverResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

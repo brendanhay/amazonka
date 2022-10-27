@@ -522,6 +522,8 @@ defaultService =
       Core._serviceEndpointPrefix = "mgn",
       Core._serviceSigningName = "mgn",
       Core._serviceVersion = "2020-02-26",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

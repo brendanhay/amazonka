@@ -90,7 +90,8 @@ startTest_sourceServerIDs = Lens.lens (\StartTest' {sourceServerIDs} -> sourceSe
 
 instance Core.AWSRequest StartTest where
   type AWSResponse StartTest = StartTestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

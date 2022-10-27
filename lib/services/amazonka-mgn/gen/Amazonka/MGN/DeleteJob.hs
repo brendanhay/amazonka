@@ -73,7 +73,8 @@ deleteJob_jobID = Lens.lens (\DeleteJob' {jobID} -> jobID) (\s@DeleteJob' {} a -
 
 instance Core.AWSRequest DeleteJob where
   type AWSResponse DeleteJob = DeleteJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

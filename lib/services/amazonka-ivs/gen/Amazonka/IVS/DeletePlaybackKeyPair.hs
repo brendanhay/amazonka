@@ -80,7 +80,8 @@ instance Core.AWSRequest DeletePlaybackKeyPair where
   type
     AWSResponse DeletePlaybackKeyPair =
       DeletePlaybackKeyPairResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

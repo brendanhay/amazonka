@@ -75,7 +75,8 @@ getChannel_arn = Lens.lens (\GetChannel' {arn} -> arn) (\s@GetChannel' {} a -> s
 
 instance Core.AWSRequest GetChannel where
   type AWSResponse GetChannel = GetChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

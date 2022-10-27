@@ -95,7 +95,8 @@ instance Core.AWSRequest GetStreamSession where
   type
     AWSResponse GetStreamSession =
       GetStreamSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

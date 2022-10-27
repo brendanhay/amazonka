@@ -94,7 +94,8 @@ putMetadata_metadata = Lens.lens (\PutMetadata' {metadata} -> metadata) (\s@PutM
 
 instance Core.AWSRequest PutMetadata where
   type AWSResponse PutMetadata = PutMetadataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutMetadataResponse'
 
 instance Prelude.Hashable PutMetadata where

@@ -137,7 +137,8 @@ instance Core.AWSRequest StartFHIRExportJob where
   type
     AWSResponse StartFHIRExportJob =
       StartFHIRExportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

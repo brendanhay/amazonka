@@ -92,7 +92,8 @@ instance Core.AWSRequest DescribeFHIRImportJob where
   type
     AWSResponse DescribeFHIRImportJob =
       DescribeFHIRImportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -63,7 +63,8 @@ instance Core.AWSRequest GetMasterAccount where
   type
     AWSResponse GetMasterAccount =
       GetMasterAccountResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -300,7 +300,8 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
   type
     AWSResponse CreateCustomDataIdentifier =
       CreateCustomDataIdentifierResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

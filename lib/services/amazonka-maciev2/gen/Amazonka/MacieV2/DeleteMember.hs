@@ -77,7 +77,8 @@ deleteMember_id = Lens.lens (\DeleteMember' {id} -> id) (\s@DeleteMember' {} a -
 
 instance Core.AWSRequest DeleteMember where
   type AWSResponse DeleteMember = DeleteMemberResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

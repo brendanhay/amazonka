@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateMacieSession where
   type
     AWSResponse UpdateMacieSession =
       UpdateMacieSessionResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

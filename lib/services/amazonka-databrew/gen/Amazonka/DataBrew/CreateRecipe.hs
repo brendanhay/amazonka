@@ -116,7 +116,8 @@ createRecipe_steps = Lens.lens (\CreateRecipe' {steps} -> steps) (\s@CreateRecip
 
 instance Core.AWSRequest CreateRecipe where
   type AWSResponse CreateRecipe = CreateRecipeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

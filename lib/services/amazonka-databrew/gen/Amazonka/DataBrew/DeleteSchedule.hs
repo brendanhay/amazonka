@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteSchedule where
   type
     AWSResponse DeleteSchedule =
       DeleteScheduleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

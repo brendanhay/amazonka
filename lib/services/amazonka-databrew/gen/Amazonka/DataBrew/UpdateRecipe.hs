@@ -101,7 +101,8 @@ updateRecipe_name = Lens.lens (\UpdateRecipe' {name} -> name) (\s@UpdateRecipe' 
 
 instance Core.AWSRequest UpdateRecipe where
   type AWSResponse UpdateRecipe = UpdateRecipeResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

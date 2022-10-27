@@ -120,7 +120,8 @@ instance Core.AWSRequest ListSchedules where
   type
     AWSResponse ListSchedules =
       ListSchedulesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

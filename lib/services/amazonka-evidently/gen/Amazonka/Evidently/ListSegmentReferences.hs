@@ -146,7 +146,8 @@ instance Core.AWSRequest ListSegmentReferences where
   type
     AWSResponse ListSegmentReferences =
       ListSegmentReferencesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

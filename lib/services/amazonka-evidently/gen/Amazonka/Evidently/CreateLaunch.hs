@@ -209,7 +209,8 @@ createLaunch_project = Lens.lens (\CreateLaunch' {project} -> project) (\s@Creat
 
 instance Core.AWSRequest CreateLaunch where
   type AWSResponse CreateLaunch = CreateLaunchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

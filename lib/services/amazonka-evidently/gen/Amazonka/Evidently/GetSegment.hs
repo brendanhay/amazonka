@@ -76,7 +76,8 @@ getSegment_segment = Lens.lens (\GetSegment' {segment} -> segment) (\s@GetSegmen
 
 instance Core.AWSRequest GetSegment where
   type AWSResponse GetSegment = GetSegmentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

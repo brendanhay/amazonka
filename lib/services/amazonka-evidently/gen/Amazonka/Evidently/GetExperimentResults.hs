@@ -275,7 +275,8 @@ instance Core.AWSRequest GetExperimentResults where
   type
     AWSResponse GetExperimentResults =
       GetExperimentResultsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

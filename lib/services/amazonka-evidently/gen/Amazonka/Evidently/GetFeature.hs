@@ -91,7 +91,8 @@ getFeature_project = Lens.lens (\GetFeature' {project} -> project) (\s@GetFeatur
 
 instance Core.AWSRequest GetFeature where
   type AWSResponse GetFeature = GetFeatureResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

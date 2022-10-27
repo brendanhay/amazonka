@@ -88,7 +88,8 @@ getLaunch_project = Lens.lens (\GetLaunch' {project} -> project) (\s@GetLaunch' 
 
 instance Core.AWSRequest GetLaunch where
   type AWSResponse GetLaunch = GetLaunchResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

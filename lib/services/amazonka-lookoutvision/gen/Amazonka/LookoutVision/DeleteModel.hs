@@ -146,7 +146,8 @@ deleteModel_modelVersion = Lens.lens (\DeleteModel' {modelVersion} -> modelVersi
 
 instance Core.AWSRequest DeleteModel where
   type AWSResponse DeleteModel = DeleteModelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

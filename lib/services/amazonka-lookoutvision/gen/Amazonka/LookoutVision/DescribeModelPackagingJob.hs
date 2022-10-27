@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeModelPackagingJob where
   type
     AWSResponse DescribeModelPackagingJob =
       DescribeModelPackagingJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -143,7 +143,8 @@ instance Core.AWSRequest DetectAnomalies where
   type
     AWSResponse DetectAnomalies =
       DetectAnomaliesResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

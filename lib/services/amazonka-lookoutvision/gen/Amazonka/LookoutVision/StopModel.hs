@@ -144,7 +144,8 @@ stopModel_modelVersion = Lens.lens (\StopModel' {modelVersion} -> modelVersion) 
 
 instance Core.AWSRequest StopModel where
   type AWSResponse StopModel = StopModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

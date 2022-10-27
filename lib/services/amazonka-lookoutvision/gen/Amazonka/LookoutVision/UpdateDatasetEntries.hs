@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateDatasetEntries where
   type
     AWSResponse UpdateDatasetEntries =
       UpdateDatasetEntriesResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -112,7 +112,8 @@ instance Core.AWSRequest GetLatestConfiguration where
   type
     AWSResponse GetLatestConfiguration =
       GetLatestConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

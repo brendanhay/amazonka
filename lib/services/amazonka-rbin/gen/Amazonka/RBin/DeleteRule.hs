@@ -76,7 +76,8 @@ deleteRule_identifier = Lens.lens (\DeleteRule' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest DeleteRule where
   type AWSResponse DeleteRule = DeleteRuleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

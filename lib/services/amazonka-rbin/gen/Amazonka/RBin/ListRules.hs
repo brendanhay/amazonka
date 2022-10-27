@@ -150,7 +150,8 @@ instance Core.AWSPager ListRules where
 
 instance Core.AWSRequest ListRules where
   type AWSResponse ListRules = ListRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

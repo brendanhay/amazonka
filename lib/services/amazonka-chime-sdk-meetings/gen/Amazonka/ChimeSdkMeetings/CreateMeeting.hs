@@ -346,7 +346,8 @@ instance Core.AWSRequest CreateMeeting where
   type
     AWSResponse CreateMeeting =
       CreateMeetingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

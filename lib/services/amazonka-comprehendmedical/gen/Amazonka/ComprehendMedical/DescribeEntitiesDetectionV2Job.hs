@@ -87,7 +87,8 @@ instance
   type
     AWSResponse DescribeEntitiesDetectionV2Job =
       DescribeEntitiesDetectionV2JobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

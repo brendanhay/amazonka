@@ -86,7 +86,8 @@ instance Core.AWSRequest InferSNOMEDCT where
   type
     AWSResponse InferSNOMEDCT =
       InferSNOMEDCTResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

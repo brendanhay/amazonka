@@ -83,7 +83,8 @@ inferICD10CM_text = Lens.lens (\InferICD10CM' {text} -> text) (\s@InferICD10CM' 
 
 instance Core.AWSRequest InferICD10CM where
   type AWSResponse InferICD10CM = InferICD10CMResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest StopICD10CMInferenceJob where
   type
     AWSResponse StopICD10CMInferenceJob =
       StopICD10CMInferenceJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

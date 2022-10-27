@@ -85,7 +85,8 @@ detectPHI_text = Lens.lens (\DetectPHI' {text} -> text) (\s@DetectPHI' {} a -> s
 
 instance Core.AWSRequest DetectPHI where
   type AWSResponse DetectPHI = DetectPHIResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

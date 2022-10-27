@@ -549,7 +549,8 @@ postContent_inputStream = Lens.lens (\PostContent' {inputStream} -> inputStream)
 
 instance Core.AWSRequest PostContent where
   type AWSResponse PostContent = PostContentResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBody
       ( \s h x ->

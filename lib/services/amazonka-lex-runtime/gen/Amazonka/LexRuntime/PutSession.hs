@@ -329,7 +329,8 @@ putSession_userId = Lens.lens (\PutSession' {userId} -> userId) (\s@PutSession' 
 
 instance Core.AWSRequest PutSession where
   type AWSResponse PutSession = PutSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

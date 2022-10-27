@@ -131,7 +131,8 @@ getSession_userId = Lens.lens (\GetSession' {userId} -> userId) (\s@GetSession' 
 
 instance Core.AWSRequest GetSession where
   type AWSResponse GetSession = GetSessionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

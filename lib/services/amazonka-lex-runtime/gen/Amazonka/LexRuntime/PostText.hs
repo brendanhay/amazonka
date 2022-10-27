@@ -327,7 +327,8 @@ postText_inputText = Lens.lens (\PostText' {inputText} -> inputText) (\s@PostTex
 
 instance Core.AWSRequest PostText where
   type AWSResponse PostText = PostTextResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

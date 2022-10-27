@@ -95,7 +95,8 @@ getComponent_arn = Lens.lens (\GetComponent' {arn} -> arn) (\s@GetComponent' {} 
 
 instance Core.AWSRequest GetComponent where
   type AWSResponse GetComponent = GetComponentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

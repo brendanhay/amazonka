@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
   type
     AWSResponse UpdateConnectivityInfo =
       UpdateConnectivityInfoResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

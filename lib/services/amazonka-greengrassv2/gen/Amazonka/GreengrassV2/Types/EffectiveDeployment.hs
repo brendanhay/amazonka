@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.EffectiveDeployment where
 
 import qualified Amazonka.Core as Core
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
+import Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,6 +36,9 @@ data EffectiveDeployment = EffectiveDeployment'
     iotJobArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IoT job that applies the deployment to target devices.
     iotJobId :: Prelude.Maybe Prelude.Text,
+    -- | The status details that explain why a deployment has an error. This
+    -- response will be null if the deployment is in a success state.
+    statusDetails :: Prelude.Maybe EffectiveDeploymentStatusDetails,
     -- | The description of the deployment job.
     description :: Prelude.Maybe Prelude.Text,
     -- | The reason code for the update, if the job was updated.
@@ -71,6 +75,9 @@ data EffectiveDeployment = EffectiveDeployment'
 -- of the IoT job that applies the deployment to target devices.
 --
 -- 'iotJobId', 'effectiveDeployment_iotJobId' - The ID of the IoT job that applies the deployment to target devices.
+--
+-- 'statusDetails', 'effectiveDeployment_statusDetails' - The status details that explain why a deployment has an error. This
+-- response will be null if the deployment is in a success state.
 --
 -- 'description', 'effectiveDeployment_description' - The description of the deployment job.
 --
@@ -115,6 +122,7 @@ newEffectiveDeployment
     EffectiveDeployment'
       { iotJobArn = Prelude.Nothing,
         iotJobId = Prelude.Nothing,
+        statusDetails = Prelude.Nothing,
         description = Prelude.Nothing,
         reason = Prelude.Nothing,
         deploymentId = pDeploymentId_,
@@ -137,6 +145,11 @@ effectiveDeployment_iotJobArn = Lens.lens (\EffectiveDeployment' {iotJobArn} -> 
 -- | The ID of the IoT job that applies the deployment to target devices.
 effectiveDeployment_iotJobId :: Lens.Lens' EffectiveDeployment (Prelude.Maybe Prelude.Text)
 effectiveDeployment_iotJobId = Lens.lens (\EffectiveDeployment' {iotJobId} -> iotJobId) (\s@EffectiveDeployment' {} a -> s {iotJobId = a} :: EffectiveDeployment)
+
+-- | The status details that explain why a deployment has an error. This
+-- response will be null if the deployment is in a success state.
+effectiveDeployment_statusDetails :: Lens.Lens' EffectiveDeployment (Prelude.Maybe EffectiveDeploymentStatusDetails)
+effectiveDeployment_statusDetails = Lens.lens (\EffectiveDeployment' {statusDetails} -> statusDetails) (\s@EffectiveDeployment' {} a -> s {statusDetails = a} :: EffectiveDeployment)
 
 -- | The description of the deployment job.
 effectiveDeployment_description :: Lens.Lens' EffectiveDeployment (Prelude.Maybe Prelude.Text)
@@ -182,6 +195,7 @@ instance Core.FromJSON EffectiveDeployment where
           EffectiveDeployment'
             Prelude.<$> (x Core..:? "iotJobArn")
             Prelude.<*> (x Core..:? "iotJobId")
+            Prelude.<*> (x Core..:? "statusDetails")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "reason")
             Prelude.<*> (x Core..: "deploymentId")
@@ -196,6 +210,7 @@ instance Prelude.Hashable EffectiveDeployment where
   hashWithSalt _salt EffectiveDeployment' {..} =
     _salt `Prelude.hashWithSalt` iotJobArn
       `Prelude.hashWithSalt` iotJobId
+      `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` deploymentId
@@ -209,6 +224,7 @@ instance Prelude.NFData EffectiveDeployment where
   rnf EffectiveDeployment' {..} =
     Prelude.rnf iotJobArn
       `Prelude.seq` Prelude.rnf iotJobId
+      `Prelude.seq` Prelude.rnf statusDetails
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf deploymentId

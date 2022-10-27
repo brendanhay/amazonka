@@ -128,7 +128,8 @@ instance Core.AWSRequest ListComponents where
   type
     AWSResponse ListComponents =
       ListComponentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

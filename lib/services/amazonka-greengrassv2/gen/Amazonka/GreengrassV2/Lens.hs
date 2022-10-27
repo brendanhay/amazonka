@@ -341,6 +341,7 @@ module Amazonka.GreengrassV2.Lens
     -- ** EffectiveDeployment
     effectiveDeployment_iotJobArn,
     effectiveDeployment_iotJobId,
+    effectiveDeployment_statusDetails,
     effectiveDeployment_description,
     effectiveDeployment_reason,
     effectiveDeployment_deploymentId,
@@ -350,11 +351,18 @@ module Amazonka.GreengrassV2.Lens
     effectiveDeployment_creationTimestamp,
     effectiveDeployment_modifiedTimestamp,
 
+    -- ** EffectiveDeploymentStatusDetails
+    effectiveDeploymentStatusDetails_errorStack,
+    effectiveDeploymentStatusDetails_errorTypes,
+
     -- ** InstalledComponent
     installedComponent_componentVersion,
     installedComponent_componentName,
+    installedComponent_lastReportedTimestamp,
+    installedComponent_lifecycleStatusCodes,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
+    installedComponent_lastInstallationSource,
     installedComponent_lastStatusChangeTimestamp,
     installedComponent_isRoot,
 
@@ -493,6 +501,7 @@ import Amazonka.GreengrassV2.Types.DeploymentPolicies
 import Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry
 import Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
 import Amazonka.GreengrassV2.Types.EffectiveDeployment
+import Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
 import Amazonka.GreengrassV2.Types.InstalledComponent
 import Amazonka.GreengrassV2.Types.IoTJobAbortConfig
 import Amazonka.GreengrassV2.Types.IoTJobAbortCriteria

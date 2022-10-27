@@ -391,6 +391,10 @@ module Amazonka.GreengrassV2
     EffectiveDeployment (EffectiveDeployment'),
     newEffectiveDeployment,
 
+    -- ** EffectiveDeploymentStatusDetails
+    EffectiveDeploymentStatusDetails (EffectiveDeploymentStatusDetails'),
+    newEffectiveDeploymentStatusDetails,
+
     -- ** InstalledComponent
     InstalledComponent (InstalledComponent'),
     newInstalledComponent,

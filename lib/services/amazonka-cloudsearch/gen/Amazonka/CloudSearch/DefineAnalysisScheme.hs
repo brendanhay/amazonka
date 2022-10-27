@@ -97,7 +97,8 @@ instance Core.AWSRequest DefineAnalysisScheme where
   type
     AWSResponse DefineAnalysisScheme =
       DefineAnalysisSchemeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DefineAnalysisSchemeResult"

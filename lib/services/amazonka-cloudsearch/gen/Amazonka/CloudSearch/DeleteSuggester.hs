@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteSuggester where
   type
     AWSResponse DeleteSuggester =
       DeleteSuggesterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteSuggesterResult"

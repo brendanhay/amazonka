@@ -86,7 +86,8 @@ instance Core.AWSRequest DescribeScalingParameters where
   type
     AWSResponse DescribeScalingParameters =
       DescribeScalingParametersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScalingParametersResult"

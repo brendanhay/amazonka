@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeDomains where
   type
     AWSResponse DescribeDomains =
       DescribeDomainsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDomainsResult"

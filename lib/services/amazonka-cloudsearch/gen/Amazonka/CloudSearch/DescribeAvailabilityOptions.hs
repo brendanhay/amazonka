@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
   type
     AWSResponse DescribeAvailabilityOptions =
       DescribeAvailabilityOptionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAvailabilityOptionsResult"

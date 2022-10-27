@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateAvailabilityOptions where
   type
     AWSResponse UpdateAvailabilityOptions =
       UpdateAvailabilityOptionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateAvailabilityOptionsResult"

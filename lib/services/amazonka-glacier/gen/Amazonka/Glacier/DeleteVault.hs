@@ -123,9 +123,10 @@ deleteVault_vaultName = Lens.lens (\DeleteVault' {vaultName} -> vaultName) (\s@D
 
 instance Core.AWSRequest DeleteVault where
   type AWSResponse DeleteVault = DeleteVaultResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response = Response.receiveNull DeleteVaultResponse'
 
 instance Prelude.Hashable DeleteVault where

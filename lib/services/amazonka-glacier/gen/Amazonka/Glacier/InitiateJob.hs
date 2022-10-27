@@ -119,9 +119,10 @@ initiateJob_vaultName = Lens.lens (\InitiateJob' {vaultName} -> vaultName) (\s@I
 
 instance Core.AWSRequest InitiateJob where
   type AWSResponse InitiateJob = InitiateJobResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

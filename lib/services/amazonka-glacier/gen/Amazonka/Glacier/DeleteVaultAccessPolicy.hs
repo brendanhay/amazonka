@@ -110,9 +110,10 @@ instance Core.AWSRequest DeleteVaultAccessPolicy where
   type
     AWSResponse DeleteVaultAccessPolicy =
       DeleteVaultAccessPolicyResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'

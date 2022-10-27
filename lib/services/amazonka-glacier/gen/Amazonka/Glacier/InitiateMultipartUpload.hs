@@ -187,9 +187,10 @@ instance Core.AWSRequest InitiateMultipartUpload where
   type
     AWSResponse InitiateMultipartUpload =
       InitiateMultipartUploadResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

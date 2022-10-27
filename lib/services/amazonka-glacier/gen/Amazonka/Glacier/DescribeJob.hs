@@ -157,9 +157,10 @@ describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' 
 
 instance Core.AWSRequest DescribeJob where
   type AWSResponse DescribeJob = GlacierJobDescription
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

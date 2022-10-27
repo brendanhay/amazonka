@@ -23,11 +23,11 @@
 -- Deletes a member. Deleting a member removes the member and all
 -- associated resources from the network. @DeleteMember@ can only be called
 -- for a specified @MemberId@ if the principal performing the action is
--- associated with the AWS account that owns the member. In all other
--- cases, the @DeleteMember@ action is carried out as the result of an
--- approved proposal to remove a member. If @MemberId@ is the last member
--- in a network specified by the last AWS account, the network is deleted
--- also.
+-- associated with the Amazon Web Services account that owns the member. In
+-- all other cases, the @DeleteMember@ action is carried out as the result
+-- of an approved proposal to remove a member. If @MemberId@ is the last
+-- member in a network specified by the last Amazon Web Services account,
+-- the network is deleted also.
 --
 -- Applies only to Hyperledger Fabric.
 module Amazonka.ManagedBlockChain.DeleteMember
@@ -97,7 +97,8 @@ deleteMember_memberId = Lens.lens (\DeleteMember' {memberId} -> memberId) (\s@De
 
 instance Core.AWSRequest DeleteMember where
   type AWSResponse DeleteMember = DeleteMemberResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

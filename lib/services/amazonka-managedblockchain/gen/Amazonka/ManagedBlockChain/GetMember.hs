@@ -91,7 +91,8 @@ getMember_memberId = Lens.lens (\GetMember' {memberId} -> memberId) (\s@GetMembe
 
 instance Core.AWSRequest GetMember where
   type AWSResponse GetMember = GetMemberResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

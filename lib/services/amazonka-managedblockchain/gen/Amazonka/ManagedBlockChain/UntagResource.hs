@@ -57,7 +57,7 @@ data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     resourceArn :: Prelude.Text,
     -- | The tag keys.
     tagKeys :: [Prelude.Text]
@@ -75,7 +75,7 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The tag keys.
 newUntagResource ::
@@ -91,7 +91,7 @@ newUntagResource pResourceArn_ =
 -- | The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
@@ -103,7 +103,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

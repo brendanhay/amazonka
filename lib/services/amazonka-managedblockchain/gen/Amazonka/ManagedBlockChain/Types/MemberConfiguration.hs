@@ -42,23 +42,25 @@ data MemberConfiguration = MemberConfiguration'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description of the member.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
-    -- Management Service (AWS KMS) to use for encryption at rest in the
-    -- member. This parameter is inherited by any nodes that this member
-    -- creates.
+    -- | The Amazon Resource Name (ARN) of the customer managed key in Key
+    -- Management Service (KMS) to use for encryption at rest in the member.
+    -- This parameter is inherited by any nodes that this member creates. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     --
     -- Use one of the following options to specify this parameter:
     --
-    -- -   __Undefined or empty string__ - The member uses an AWS owned KMS key
-    --     for encryption by default.
+    -- -   __Undefined or empty string__ - By default, use an KMS key that is
+    --     owned and managed by Amazon Web Services on your behalf.
     --
-    -- -   __A valid symmetric customer managed KMS key__ - The member uses the
-    --     specified key for encryption.
+    -- -   __A valid symmetric customer managed KMS key__ - Use the specified
+    --     KMS key in your account that you create, own, and manage.
     --
     --     Amazon Managed Blockchain doesn\'t support asymmetric keys. For more
     --     information, see
     --     <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
-    --     in the /AWS Key Management Service Developer Guide/.
+    --     in the /Key Management Service Developer Guide/.
     --
     --     The following is an example of a KMS key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
@@ -93,23 +95,25 @@ data MemberConfiguration = MemberConfiguration'
 --
 -- 'description', 'memberConfiguration_description' - An optional description of the member.
 --
--- 'kmsKeyArn', 'memberConfiguration_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) to use for encryption at rest in the
--- member. This parameter is inherited by any nodes that this member
--- creates.
+-- 'kmsKeyArn', 'memberConfiguration_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) to use for encryption at rest in the member.
+-- This parameter is inherited by any nodes that this member creates. For
+-- more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- Use one of the following options to specify this parameter:
 --
--- -   __Undefined or empty string__ - The member uses an AWS owned KMS key
---     for encryption by default.
+-- -   __Undefined or empty string__ - By default, use an KMS key that is
+--     owned and managed by Amazon Web Services on your behalf.
 --
--- -   __A valid symmetric customer managed KMS key__ - The member uses the
---     specified key for encryption.
+-- -   __A valid symmetric customer managed KMS key__ - Use the specified
+--     KMS key in your account that you create, own, and manage.
 --
 --     Amazon Managed Blockchain doesn\'t support asymmetric keys. For more
 --     information, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
 --     The following is an example of a KMS key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
@@ -154,23 +158,25 @@ memberConfiguration_tags = Lens.lens (\MemberConfiguration' {tags} -> tags) (\s@
 memberConfiguration_description :: Lens.Lens' MemberConfiguration (Prelude.Maybe Prelude.Text)
 memberConfiguration_description = Lens.lens (\MemberConfiguration' {description} -> description) (\s@MemberConfiguration' {} a -> s {description = a} :: MemberConfiguration)
 
--- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) to use for encryption at rest in the
--- member. This parameter is inherited by any nodes that this member
--- creates.
+-- | The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) to use for encryption at rest in the member.
+-- This parameter is inherited by any nodes that this member creates. For
+-- more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- Use one of the following options to specify this parameter:
 --
--- -   __Undefined or empty string__ - The member uses an AWS owned KMS key
---     for encryption by default.
+-- -   __Undefined or empty string__ - By default, use an KMS key that is
+--     owned and managed by Amazon Web Services on your behalf.
 --
--- -   __A valid symmetric customer managed KMS key__ - The member uses the
---     specified key for encryption.
+-- -   __A valid symmetric customer managed KMS key__ - Use the specified
+--     KMS key in your account that you create, own, and manage.
 --
 --     Amazon Managed Blockchain doesn\'t support asymmetric keys. For more
 --     information, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
 --     The following is an example of a KMS key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@

@@ -31,7 +31,7 @@ data NodeSummary = NodeSummary'
   { -- | The Amazon Resource Name (ARN) of the node. For more information about
     -- ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the node was created.
     creationDate :: Prelude.Maybe Core.POSIX,
@@ -57,7 +57,7 @@ data NodeSummary = NodeSummary'
 -- 'arn', 'nodeSummary_arn' - The Amazon Resource Name (ARN) of the node. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'nodeSummary_creationDate' - The date and time that the node was created.
 --
@@ -83,7 +83,7 @@ newNodeSummary =
 -- | The Amazon Resource Name (ARN) of the node. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 nodeSummary_arn :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
 nodeSummary_arn = Lens.lens (\NodeSummary' {arn} -> arn) (\s@NodeSummary' {} a -> s {arn = a} :: NodeSummary)
 

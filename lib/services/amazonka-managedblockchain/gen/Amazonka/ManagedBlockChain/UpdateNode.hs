@@ -116,7 +116,8 @@ updateNode_nodeId = Lens.lens (\UpdateNode' {nodeId} -> nodeId) (\s@UpdateNode' 
 
 instance Core.AWSRequest UpdateNode where
   type AWSResponse UpdateNode = UpdateNodeResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

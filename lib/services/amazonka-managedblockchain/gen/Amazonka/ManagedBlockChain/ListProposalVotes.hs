@@ -115,7 +115,8 @@ instance Core.AWSRequest ListProposalVotes where
   type
     AWSResponse ListProposalVotes =
       ListProposalVotesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -14,6 +14,13 @@
 module Amazonka.ManagedBlockChain.Lens
   ( -- * Operations
 
+    -- ** CreateAccessor
+    createAccessor_clientRequestToken,
+    createAccessor_accessorType,
+    createAccessorResponse_accessorId,
+    createAccessorResponse_billingToken,
+    createAccessorResponse_httpStatus,
+
     -- ** CreateMember
     createMember_clientRequestToken,
     createMember_invitationId,
@@ -55,6 +62,10 @@ module Amazonka.ManagedBlockChain.Lens
     createProposalResponse_proposalId,
     createProposalResponse_httpStatus,
 
+    -- ** DeleteAccessor
+    deleteAccessor_accessorId,
+    deleteAccessorResponse_httpStatus,
+
     -- ** DeleteMember
     deleteMember_networkId,
     deleteMember_memberId,
@@ -65,6 +76,11 @@ module Amazonka.ManagedBlockChain.Lens
     deleteNode_networkId,
     deleteNode_nodeId,
     deleteNodeResponse_httpStatus,
+
+    -- ** GetAccessor
+    getAccessor_accessorId,
+    getAccessorResponse_accessor,
+    getAccessorResponse_httpStatus,
 
     -- ** GetMember
     getMember_networkId,
@@ -89,6 +105,13 @@ module Amazonka.ManagedBlockChain.Lens
     getProposal_proposalId,
     getProposalResponse_proposal,
     getProposalResponse_httpStatus,
+
+    -- ** ListAccessors
+    listAccessors_nextToken,
+    listAccessors_maxResults,
+    listAccessorsResponse_nextToken,
+    listAccessorsResponse_accessors,
+    listAccessorsResponse_httpStatus,
 
     -- ** ListInvitations
     listInvitations_nextToken,
@@ -185,6 +208,21 @@ module Amazonka.ManagedBlockChain.Lens
     voteOnProposalResponse_httpStatus,
 
     -- * Types
+
+    -- ** Accessor
+    accessor_billingToken,
+    accessor_type,
+    accessor_arn,
+    accessor_creationDate,
+    accessor_status,
+    accessor_id,
+
+    -- ** AccessorSummary
+    accessorSummary_type,
+    accessorSummary_arn,
+    accessorSummary_creationDate,
+    accessorSummary_status,
+    accessorSummary_id,
 
     -- ** ApprovalThresholdPolicy
     approvalThresholdPolicy_proposalDurationInHours,
@@ -390,16 +428,20 @@ module Amazonka.ManagedBlockChain.Lens
   )
 where
 
+import Amazonka.ManagedBlockChain.CreateAccessor
 import Amazonka.ManagedBlockChain.CreateMember
 import Amazonka.ManagedBlockChain.CreateNetwork
 import Amazonka.ManagedBlockChain.CreateNode
 import Amazonka.ManagedBlockChain.CreateProposal
+import Amazonka.ManagedBlockChain.DeleteAccessor
 import Amazonka.ManagedBlockChain.DeleteMember
 import Amazonka.ManagedBlockChain.DeleteNode
+import Amazonka.ManagedBlockChain.GetAccessor
 import Amazonka.ManagedBlockChain.GetMember
 import Amazonka.ManagedBlockChain.GetNetwork
 import Amazonka.ManagedBlockChain.GetNode
 import Amazonka.ManagedBlockChain.GetProposal
+import Amazonka.ManagedBlockChain.ListAccessors
 import Amazonka.ManagedBlockChain.ListInvitations
 import Amazonka.ManagedBlockChain.ListMembers
 import Amazonka.ManagedBlockChain.ListNetworks
@@ -409,6 +451,8 @@ import Amazonka.ManagedBlockChain.ListProposals
 import Amazonka.ManagedBlockChain.ListTagsForResource
 import Amazonka.ManagedBlockChain.RejectInvitation
 import Amazonka.ManagedBlockChain.TagResource
+import Amazonka.ManagedBlockChain.Types.Accessor
+import Amazonka.ManagedBlockChain.Types.AccessorSummary
 import Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
 import Amazonka.ManagedBlockChain.Types.Invitation
 import Amazonka.ManagedBlockChain.Types.InviteAction

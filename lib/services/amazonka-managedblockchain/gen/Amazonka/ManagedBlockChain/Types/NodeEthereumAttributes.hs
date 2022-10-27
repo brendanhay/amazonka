@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeEthereumAttributes' smart constructor.
 data NodeEthereumAttributes = NodeEthereumAttributes'
-  { -- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
+  { -- | The endpoint on which the Ethereum node listens to run Ethereum API
     -- methods over HTTP connections from a client. Use this endpoint in client
     -- code for smart contracts when using an HTTP connection. Connections to
     -- this endpoint are authenticated using
@@ -50,7 +50,7 @@ data NodeEthereumAttributes = NodeEthereumAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpEndpoint', 'nodeEthereumAttributes_httpEndpoint' - The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
+-- 'httpEndpoint', 'nodeEthereumAttributes_httpEndpoint' - The endpoint on which the Ethereum node listens to run Ethereum API
 -- methods over HTTP connections from a client. Use this endpoint in client
 -- code for smart contracts when using an HTTP connection. Connections to
 -- this endpoint are authenticated using
@@ -70,7 +70,7 @@ newNodeEthereumAttributes =
       webSocketEndpoint = Prelude.Nothing
     }
 
--- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
+-- | The endpoint on which the Ethereum node listens to run Ethereum API
 -- methods over HTTP connections from a client. Use this endpoint in client
 -- code for smart contracts when using an HTTP connection. Connections to
 -- this endpoint are authenticated using

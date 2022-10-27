@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a node that your AWS account owns. All data on the node is lost
--- and cannot be recovered.
+-- Deletes a node that your Amazon Web Services account owns. All data on
+-- the node is lost and cannot be recovered.
 --
 -- Applies to Hyperledger Fabric and Ethereum.
 module Amazonka.ManagedBlockChain.DeleteNode
@@ -134,7 +134,8 @@ deleteNode_nodeId = Lens.lens (\DeleteNode' {nodeId} -> nodeId) (\s@DeleteNode' 
 
 instance Core.AWSRequest DeleteNode where
   type AWSResponse DeleteNode = DeleteNodeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

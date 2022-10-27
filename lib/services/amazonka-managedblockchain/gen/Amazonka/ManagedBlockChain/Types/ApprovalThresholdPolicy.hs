@@ -38,7 +38,7 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
     -- If members cast neither the required number of @YES@ votes to approve
     -- the proposal nor the number of @NO@ votes required to reject it before
     -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
-    -- are not carried out.
+    -- aren\'t carried out.
     proposalDurationInHours :: Prelude.Maybe Prelude.Natural,
     -- | The percentage of votes among all members that must be @YES@ for a
     -- proposal to be approved. For example, a @ThresholdPercentage@ value of
@@ -67,7 +67,7 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
 -- If members cast neither the required number of @YES@ votes to approve
 -- the proposal nor the number of @NO@ votes required to reject it before
 -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
--- are not carried out.
+-- aren\'t carried out.
 --
 -- 'thresholdPercentage', 'approvalThresholdPolicy_thresholdPercentage' - The percentage of votes among all members that must be @YES@ for a
 -- proposal to be approved. For example, a @ThresholdPercentage@ value of
@@ -94,7 +94,7 @@ newApprovalThresholdPolicy =
 -- If members cast neither the required number of @YES@ votes to approve
 -- the proposal nor the number of @NO@ votes required to reject it before
 -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
--- are not carried out.
+-- aren\'t carried out.
 approvalThresholdPolicy_proposalDurationInHours :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe Prelude.Natural)
 approvalThresholdPolicy_proposalDurationInHours = Lens.lens (\ApprovalThresholdPolicy' {proposalDurationInHours} -> proposalDurationInHours) (\s@ApprovalThresholdPolicy' {} a -> s {proposalDurationInHours = a} :: ApprovalThresholdPolicy)
 

@@ -49,13 +49,14 @@ data Node = Node'
     -- | The Amazon Resource Name (ARN) of the node. For more information about
     -- ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the node was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The status of the node.
     --
-    -- -   @CREATING@ - The AWS account is in the process of creating a node.
+    -- -   @CREATING@ - The Amazon Web Services account is in the process of
+    --     creating a node.
     --
     -- -   @AVAILABLE@ - The node has been created and can participate in the
     --     network.
@@ -65,8 +66,8 @@ data Node = Node'
     --     this state and tries to recover them. If a node is recoverable, it
     --     returns to @AVAILABLE@. Otherwise, it moves to @FAILED@ status.
     --
-    -- -   @CREATE_FAILED@ - The AWS account attempted to create a node and
-    --     creation failed.
+    -- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+    --     create a node and creation failed.
     --
     -- -   @UPDATING@ - The node is in the process of being updated.
     --
@@ -79,24 +80,28 @@ data Node = Node'
     --
     -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The node is impaired and might not
     --     function as expected because it cannot access the specified customer
-    --     managed key in AWS KMS for encryption at rest. Either the KMS key
-    --     was disabled or deleted, or the grants on the key were revoked.
+    --     managed key in KMS for encryption at rest. Either the KMS key was
+    --     disabled or deleted, or the grants on the key were revoked.
     --
-    --     The effect of disabling or deleting a key, or revoking a grant is
-    --     not immediate. The node resource might take some time to find that
-    --     the key is inaccessible. When a resource is in this state, we
-    --     recommend deleting and recreating the resource.
+    --     The effect of disabling or deleting a key or of revoking a grant
+    --     isn\'t immediate. It might take some time for the node resource to
+    --     discover that the key is inaccessible. When a resource is in this
+    --     state, we recommend deleting and recreating the resource.
     status :: Prelude.Maybe NodeStatus,
     -- | The Availability Zone in which the node exists. Required for Ethereum
     -- nodes.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the node.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
-    -- Management Service (AWS KMS) that the node uses for encryption at rest.
-    -- If the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses
-    -- an AWS owned KMS key for encryption. The node inherits this parameter
-    -- from the member that it belongs to.
+    -- | The Amazon Resource Name (ARN) of the customer managed key in Key
+    -- Management Service (KMS) that the node uses for encryption at rest. If
+    -- the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses an
+    -- Amazon Web Services owned KMS key for encryption. The node inherits this
+    -- parameter from the member that it belongs to.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     --
     -- Applies only to Hyperledger Fabric.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
@@ -141,13 +146,14 @@ data Node = Node'
 -- 'arn', 'node_arn' - The Amazon Resource Name (ARN) of the node. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'node_creationDate' - The date and time that the node was created.
 --
 -- 'status', 'node_status' - The status of the node.
 --
--- -   @CREATING@ - The AWS account is in the process of creating a node.
+-- -   @CREATING@ - The Amazon Web Services account is in the process of
+--     creating a node.
 --
 -- -   @AVAILABLE@ - The node has been created and can participate in the
 --     network.
@@ -157,8 +163,8 @@ data Node = Node'
 --     this state and tries to recover them. If a node is recoverable, it
 --     returns to @AVAILABLE@. Otherwise, it moves to @FAILED@ status.
 --
--- -   @CREATE_FAILED@ - The AWS account attempted to create a node and
---     creation failed.
+-- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+--     create a node and creation failed.
 --
 -- -   @UPDATING@ - The node is in the process of being updated.
 --
@@ -171,24 +177,28 @@ data Node = Node'
 --
 -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The node is impaired and might not
 --     function as expected because it cannot access the specified customer
---     managed key in AWS KMS for encryption at rest. Either the KMS key
---     was disabled or deleted, or the grants on the key were revoked.
+--     managed key in KMS for encryption at rest. Either the KMS key was
+--     disabled or deleted, or the grants on the key were revoked.
 --
---     The effect of disabling or deleting a key, or revoking a grant is
---     not immediate. The node resource might take some time to find that
---     the key is inaccessible. When a resource is in this state, we
---     recommend deleting and recreating the resource.
+--     The effect of disabling or deleting a key or of revoking a grant
+--     isn\'t immediate. It might take some time for the node resource to
+--     discover that the key is inaccessible. When a resource is in this
+--     state, we recommend deleting and recreating the resource.
 --
 -- 'availabilityZone', 'node_availabilityZone' - The Availability Zone in which the node exists. Required for Ethereum
 -- nodes.
 --
 -- 'id', 'node_id' - The unique identifier of the node.
 --
--- 'kmsKeyArn', 'node_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) that the node uses for encryption at rest.
--- If the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses
--- an AWS owned KMS key for encryption. The node inherits this parameter
--- from the member that it belongs to.
+-- 'kmsKeyArn', 'node_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) that the node uses for encryption at rest. If
+-- the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses an
+-- Amazon Web Services owned KMS key for encryption. The node inherits this
+-- parameter from the member that it belongs to.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- Applies only to Hyperledger Fabric.
 --
@@ -246,7 +256,7 @@ node_frameworkAttributes = Lens.lens (\Node' {frameworkAttributes} -> frameworkA
 -- | The Amazon Resource Name (ARN) of the node. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 node_arn :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_arn = Lens.lens (\Node' {arn} -> arn) (\s@Node' {} a -> s {arn = a} :: Node)
 
@@ -256,7 +266,8 @@ node_creationDate = Lens.lens (\Node' {creationDate} -> creationDate) (\s@Node' 
 
 -- | The status of the node.
 --
--- -   @CREATING@ - The AWS account is in the process of creating a node.
+-- -   @CREATING@ - The Amazon Web Services account is in the process of
+--     creating a node.
 --
 -- -   @AVAILABLE@ - The node has been created and can participate in the
 --     network.
@@ -266,8 +277,8 @@ node_creationDate = Lens.lens (\Node' {creationDate} -> creationDate) (\s@Node' 
 --     this state and tries to recover them. If a node is recoverable, it
 --     returns to @AVAILABLE@. Otherwise, it moves to @FAILED@ status.
 --
--- -   @CREATE_FAILED@ - The AWS account attempted to create a node and
---     creation failed.
+-- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+--     create a node and creation failed.
 --
 -- -   @UPDATING@ - The node is in the process of being updated.
 --
@@ -280,13 +291,13 @@ node_creationDate = Lens.lens (\Node' {creationDate} -> creationDate) (\s@Node' 
 --
 -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The node is impaired and might not
 --     function as expected because it cannot access the specified customer
---     managed key in AWS KMS for encryption at rest. Either the KMS key
---     was disabled or deleted, or the grants on the key were revoked.
+--     managed key in KMS for encryption at rest. Either the KMS key was
+--     disabled or deleted, or the grants on the key were revoked.
 --
---     The effect of disabling or deleting a key, or revoking a grant is
---     not immediate. The node resource might take some time to find that
---     the key is inaccessible. When a resource is in this state, we
---     recommend deleting and recreating the resource.
+--     The effect of disabling or deleting a key or of revoking a grant
+--     isn\'t immediate. It might take some time for the node resource to
+--     discover that the key is inaccessible. When a resource is in this
+--     state, we recommend deleting and recreating the resource.
 node_status :: Lens.Lens' Node (Prelude.Maybe NodeStatus)
 node_status = Lens.lens (\Node' {status} -> status) (\s@Node' {} a -> s {status = a} :: Node)
 
@@ -299,11 +310,15 @@ node_availabilityZone = Lens.lens (\Node' {availabilityZone} -> availabilityZone
 node_id :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_id = Lens.lens (\Node' {id} -> id) (\s@Node' {} a -> s {id = a} :: Node)
 
--- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) that the node uses for encryption at rest.
--- If the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses
--- an AWS owned KMS key for encryption. The node inherits this parameter
--- from the member that it belongs to.
+-- | The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) that the node uses for encryption at rest. If
+-- the value of this parameter is @\"AWS Owned KMS Key\"@, the node uses an
+-- Amazon Web Services owned KMS key for encryption. The node inherits this
+-- parameter from the member that it belongs to.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- Applies only to Hyperledger Fabric.
 node_kmsKeyArn :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)

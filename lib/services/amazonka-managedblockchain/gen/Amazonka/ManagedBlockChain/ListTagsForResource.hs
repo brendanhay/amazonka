@@ -58,7 +58,7 @@ data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) of the resource. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data ListTagsForResource = ListTagsForResource'
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -85,7 +85,7 @@ newListTagsForResource pResourceArn_ =
 -- | The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -93,7 +93,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

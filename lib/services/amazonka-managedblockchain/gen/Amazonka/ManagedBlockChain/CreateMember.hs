@@ -57,7 +57,7 @@ data CreateMember = CreateMember'
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
-    -- you use an AWS SDK or the AWS CLI.
+    -- you use an Amazon Web Services SDK or the CLI.
     clientRequestToken :: Prelude.Text,
     -- | The unique identifier of the invitation that is sent to the member to
     -- join the network.
@@ -81,7 +81,7 @@ data CreateMember = CreateMember'
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 --
 -- 'invitationId', 'createMember_invitationId' - The unique identifier of the invitation that is sent to the member to
 -- join the network.
@@ -116,7 +116,7 @@ newCreateMember
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 createMember_clientRequestToken :: Lens.Lens' CreateMember Prelude.Text
 createMember_clientRequestToken = Lens.lens (\CreateMember' {clientRequestToken} -> clientRequestToken) (\s@CreateMember' {} a -> s {clientRequestToken = a} :: CreateMember)
 
@@ -135,7 +135,8 @@ createMember_memberConfiguration = Lens.lens (\CreateMember' {memberConfiguratio
 
 instance Core.AWSRequest CreateMember where
   type AWSResponse CreateMember = CreateMemberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

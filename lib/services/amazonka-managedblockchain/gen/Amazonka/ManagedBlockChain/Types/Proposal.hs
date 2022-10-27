@@ -47,7 +47,7 @@ data Proposal = Proposal'
     -- | The Amazon Resource Name (ARN) of the proposal. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal was created.
     creationDate :: Prelude.Maybe Core.POSIX,
@@ -61,14 +61,14 @@ data Proposal = Proposal'
     --
     -- -   @REJECTED@ - The proposal was rejected with insufficient @YES@ votes
     --     among members according to the @VotingPolicy@ specified for the
-    --     @Network@. The specified @ProposalActions@ are not carried out.
+    --     @Network@. The specified @ProposalActions@ aren\'t carried out.
     --
-    -- -   @EXPIRED@ - Members did not cast the number of votes required to
+    -- -   @EXPIRED@ - Members didn\'t cast the number of votes required to
     --     determine the proposal outcome before the proposal expired. The
-    --     specified @ProposalActions@ are not carried out.
+    --     specified @ProposalActions@ aren\'t carried out.
     --
     -- -   @ACTION_FAILED@ - One or more of the specified @ProposalActions@ in
-    --     a proposal that was approved could not be completed because of an
+    --     a proposal that was approved couldn\'t be completed because of an
     --     error. The @ACTION_FAILED@ status occurs even if only one
     --     ProposalAction fails and other actions are successful.
     status :: Prelude.Maybe ProposalStatus,
@@ -88,9 +88,9 @@ data Proposal = Proposal'
     networkId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal expires. This is the @CreationDate@
     -- plus the @ProposalDurationInHours@ that is specified in the
-    -- @ProposalThresholdPolicy@. After this date and time, if members have not
+    -- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
     -- cast enough votes to determine the outcome according to the voting
-    -- policy, the proposal is @EXPIRED@ and @Actions@ are not carried out.
+    -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
     expirationDate :: Prelude.Maybe Core.POSIX,
     -- | The actions to perform on the network if the proposal is @APPROVED@.
     actions :: Prelude.Maybe ProposalActions
@@ -121,7 +121,7 @@ data Proposal = Proposal'
 -- 'arn', 'proposal_arn' - The Amazon Resource Name (ARN) of the proposal. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'proposal_creationDate' - The date and time that the proposal was created.
 --
@@ -135,14 +135,14 @@ data Proposal = Proposal'
 --
 -- -   @REJECTED@ - The proposal was rejected with insufficient @YES@ votes
 --     among members according to the @VotingPolicy@ specified for the
---     @Network@. The specified @ProposalActions@ are not carried out.
+--     @Network@. The specified @ProposalActions@ aren\'t carried out.
 --
--- -   @EXPIRED@ - Members did not cast the number of votes required to
+-- -   @EXPIRED@ - Members didn\'t cast the number of votes required to
 --     determine the proposal outcome before the proposal expired. The
---     specified @ProposalActions@ are not carried out.
+--     specified @ProposalActions@ aren\'t carried out.
 --
 -- -   @ACTION_FAILED@ - One or more of the specified @ProposalActions@ in
---     a proposal that was approved could not be completed because of an
+--     a proposal that was approved couldn\'t be completed because of an
 --     error. The @ACTION_FAILED@ status occurs even if only one
 --     ProposalAction fails and other actions are successful.
 --
@@ -162,9 +162,9 @@ data Proposal = Proposal'
 --
 -- 'expirationDate', 'proposal_expirationDate' - The date and time that the proposal expires. This is the @CreationDate@
 -- plus the @ProposalDurationInHours@ that is specified in the
--- @ProposalThresholdPolicy@. After this date and time, if members have not
+-- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
 -- cast enough votes to determine the outcome according to the voting
--- policy, the proposal is @EXPIRED@ and @Actions@ are not carried out.
+-- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
 --
 -- 'actions', 'proposal_actions' - The actions to perform on the network if the proposal is @APPROVED@.
 newProposal ::
@@ -209,7 +209,7 @@ proposal_yesVoteCount = Lens.lens (\Proposal' {yesVoteCount} -> yesVoteCount) (\
 -- | The Amazon Resource Name (ARN) of the proposal. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 proposal_arn :: Lens.Lens' Proposal (Prelude.Maybe Prelude.Text)
 proposal_arn = Lens.lens (\Proposal' {arn} -> arn) (\s@Proposal' {} a -> s {arn = a} :: Proposal)
 
@@ -227,14 +227,14 @@ proposal_creationDate = Lens.lens (\Proposal' {creationDate} -> creationDate) (\
 --
 -- -   @REJECTED@ - The proposal was rejected with insufficient @YES@ votes
 --     among members according to the @VotingPolicy@ specified for the
---     @Network@. The specified @ProposalActions@ are not carried out.
+--     @Network@. The specified @ProposalActions@ aren\'t carried out.
 --
--- -   @EXPIRED@ - Members did not cast the number of votes required to
+-- -   @EXPIRED@ - Members didn\'t cast the number of votes required to
 --     determine the proposal outcome before the proposal expired. The
---     specified @ProposalActions@ are not carried out.
+--     specified @ProposalActions@ aren\'t carried out.
 --
 -- -   @ACTION_FAILED@ - One or more of the specified @ProposalActions@ in
---     a proposal that was approved could not be completed because of an
+--     a proposal that was approved couldn\'t be completed because of an
 --     error. The @ACTION_FAILED@ status occurs even if only one
 --     ProposalAction fails and other actions are successful.
 proposal_status :: Lens.Lens' Proposal (Prelude.Maybe ProposalStatus)
@@ -268,9 +268,9 @@ proposal_networkId = Lens.lens (\Proposal' {networkId} -> networkId) (\s@Proposa
 
 -- | The date and time that the proposal expires. This is the @CreationDate@
 -- plus the @ProposalDurationInHours@ that is specified in the
--- @ProposalThresholdPolicy@. After this date and time, if members have not
+-- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
 -- cast enough votes to determine the outcome according to the voting
--- policy, the proposal is @EXPIRED@ and @Actions@ are not carried out.
+-- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
 proposal_expirationDate :: Lens.Lens' Proposal (Prelude.Maybe Prelude.UTCTime)
 proposal_expirationDate = Lens.lens (\Proposal' {expirationDate} -> expirationDate) (\s@Proposal' {} a -> s {expirationDate = a} :: Proposal) Prelude.. Lens.mapping Core._Time
 

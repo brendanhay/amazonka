@@ -44,17 +44,21 @@ library
 
   exposed-modules:
     Amazonka.ManagedBlockChain
+    Amazonka.ManagedBlockChain.CreateAccessor
     Amazonka.ManagedBlockChain.CreateMember
     Amazonka.ManagedBlockChain.CreateNetwork
     Amazonka.ManagedBlockChain.CreateNode
     Amazonka.ManagedBlockChain.CreateProposal
+    Amazonka.ManagedBlockChain.DeleteAccessor
     Amazonka.ManagedBlockChain.DeleteMember
     Amazonka.ManagedBlockChain.DeleteNode
+    Amazonka.ManagedBlockChain.GetAccessor
     Amazonka.ManagedBlockChain.GetMember
     Amazonka.ManagedBlockChain.GetNetwork
     Amazonka.ManagedBlockChain.GetNode
     Amazonka.ManagedBlockChain.GetProposal
     Amazonka.ManagedBlockChain.Lens
+    Amazonka.ManagedBlockChain.ListAccessors
     Amazonka.ManagedBlockChain.ListInvitations
     Amazonka.ManagedBlockChain.ListMembers
     Amazonka.ManagedBlockChain.ListNetworks
@@ -65,6 +69,10 @@ library
     Amazonka.ManagedBlockChain.RejectInvitation
     Amazonka.ManagedBlockChain.TagResource
     Amazonka.ManagedBlockChain.Types
+    Amazonka.ManagedBlockChain.Types.Accessor
+    Amazonka.ManagedBlockChain.Types.AccessorStatus
+    Amazonka.ManagedBlockChain.Types.AccessorSummary
+    Amazonka.ManagedBlockChain.Types.AccessorType
     Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
     Amazonka.ManagedBlockChain.Types.Edition
     Amazonka.ManagedBlockChain.Types.Framework

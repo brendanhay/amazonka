@@ -64,7 +64,7 @@ data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     resourceArn :: Prelude.Text,
     -- | The tags to assign to the specified resource. Tag values can be empty,
     -- for example, @\"MyTagKey\" : \"\"@. You can specify multiple key-value
@@ -85,7 +85,7 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'tags', 'tagResource_tags' - The tags to assign to the specified resource. Tag values can be empty,
 -- for example, @\"MyTagKey\" : \"\"@. You can specify multiple key-value
@@ -104,7 +104,7 @@ newTagResource pResourceArn_ =
 -- | The Amazon Resource Name (ARN) of the resource. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
@@ -117,7 +117,8 @@ tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} 
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

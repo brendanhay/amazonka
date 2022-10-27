@@ -77,11 +77,11 @@ data CreateNetwork = CreateNetwork'
     frameworkConfiguration :: Prelude.Maybe NetworkFrameworkConfiguration,
     -- | An optional description for the network.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the operation. An idempotent operation completes no more
-    -- than one time. This identifier is required only if you make a service
+    -- | This is a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the operation. An idempotent operation completes no
+    -- more than once. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
-    -- you use an AWS SDK or the AWS CLI.
+    -- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
     clientRequestToken :: Prelude.Text,
     -- | The name of the network.
     name :: Prelude.Text,
@@ -123,11 +123,11 @@ data CreateNetwork = CreateNetwork'
 --
 -- 'description', 'createNetwork_description' - An optional description for the network.
 --
--- 'clientRequestToken', 'createNetwork_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the operation. An idempotent operation completes no more
--- than one time. This identifier is required only if you make a service
+-- 'clientRequestToken', 'createNetwork_clientRequestToken' - This is a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the operation. An idempotent operation completes no
+-- more than once. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
 --
 -- 'name', 'createNetwork_name' - The name of the network.
 --
@@ -196,11 +196,11 @@ createNetwork_frameworkConfiguration = Lens.lens (\CreateNetwork' {frameworkConf
 createNetwork_description :: Lens.Lens' CreateNetwork (Prelude.Maybe Prelude.Text)
 createNetwork_description = Lens.lens (\CreateNetwork' {description} -> description) (\s@CreateNetwork' {} a -> s {description = a} :: CreateNetwork)
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the operation. An idempotent operation completes no more
--- than one time. This identifier is required only if you make a service
+-- | This is a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the operation. An idempotent operation completes no
+-- more than once. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
 createNetwork_clientRequestToken :: Lens.Lens' CreateNetwork Prelude.Text
 createNetwork_clientRequestToken = Lens.lens (\CreateNetwork' {clientRequestToken} -> clientRequestToken) (\s@CreateNetwork' {} a -> s {clientRequestToken = a} :: CreateNetwork)
 
@@ -229,7 +229,8 @@ instance Core.AWSRequest CreateNetwork where
   type
     AWSResponse CreateNetwork =
       CreateNetworkResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

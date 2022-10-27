@@ -78,13 +78,14 @@ data CreateProposal = CreateProposal'
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
-    -- you use an AWS SDK or the AWS CLI.
+    -- you use an Amazon Web Services SDK or the CLI.
     clientRequestToken :: Prelude.Text,
     -- | The unique identifier of the network for which the proposal is made.
     networkId :: Prelude.Text,
     -- | The unique identifier of the member that is creating the proposal. This
     -- identifier is especially useful for identifying the member making the
-    -- proposal when multiple members exist in a single AWS account.
+    -- proposal when multiple members exist in a single Amazon Web Services
+    -- account.
     memberId :: Prelude.Text,
     -- | The type of actions proposed, such as inviting a member or removing a
     -- member. The types of @Actions@ in a proposal are mutually exclusive. For
@@ -123,13 +124,14 @@ data CreateProposal = CreateProposal'
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 --
 -- 'networkId', 'createProposal_networkId' - The unique identifier of the network for which the proposal is made.
 --
 -- 'memberId', 'createProposal_memberId' - The unique identifier of the member that is creating the proposal. This
 -- identifier is especially useful for identifying the member making the
--- proposal when multiple members exist in a single AWS account.
+-- proposal when multiple members exist in a single Amazon Web Services
+-- account.
 --
 -- 'actions', 'createProposal_actions' - The type of actions proposed, such as inviting a member or removing a
 -- member. The types of @Actions@ in a proposal are mutually exclusive. For
@@ -184,7 +186,7 @@ createProposal_description = Lens.lens (\CreateProposal' {description} -> descri
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 createProposal_clientRequestToken :: Lens.Lens' CreateProposal Prelude.Text
 createProposal_clientRequestToken = Lens.lens (\CreateProposal' {clientRequestToken} -> clientRequestToken) (\s@CreateProposal' {} a -> s {clientRequestToken = a} :: CreateProposal)
 
@@ -194,7 +196,8 @@ createProposal_networkId = Lens.lens (\CreateProposal' {networkId} -> networkId)
 
 -- | The unique identifier of the member that is creating the proposal. This
 -- identifier is especially useful for identifying the member making the
--- proposal when multiple members exist in a single AWS account.
+-- proposal when multiple members exist in a single Amazon Web Services
+-- account.
 createProposal_memberId :: Lens.Lens' CreateProposal Prelude.Text
 createProposal_memberId = Lens.lens (\CreateProposal' {memberId} -> memberId) (\s@CreateProposal' {} a -> s {memberId = a} :: CreateProposal)
 
@@ -209,7 +212,8 @@ instance Core.AWSRequest CreateProposal where
   type
     AWSResponse CreateProposal =
       CreateProposalResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

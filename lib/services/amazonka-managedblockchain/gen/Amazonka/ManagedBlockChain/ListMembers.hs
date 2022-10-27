@@ -67,8 +67,9 @@ data ListMembers = ListMembers'
     -- | The maximum number of members to return in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An optional Boolean value. If provided, the request is limited either to
-    -- members that the current AWS account owns (@true@) or that other AWS
-    -- accounts own (@false@). If omitted, all members are listed.
+    -- members that the current Amazon Web Services account owns (@true@) or
+    -- that other Amazon Web Services accountsn own (@false@). If omitted, all
+    -- members are listed.
     isOwned :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the network for which to list members.
     networkId :: Prelude.Text
@@ -93,8 +94,9 @@ data ListMembers = ListMembers'
 -- 'maxResults', 'listMembers_maxResults' - The maximum number of members to return in the request.
 --
 -- 'isOwned', 'listMembers_isOwned' - An optional Boolean value. If provided, the request is limited either to
--- members that the current AWS account owns (@true@) or that other AWS
--- accounts own (@false@). If omitted, all members are listed.
+-- members that the current Amazon Web Services account owns (@true@) or
+-- that other Amazon Web Services accountsn own (@false@). If omitted, all
+-- members are listed.
 --
 -- 'networkId', 'listMembers_networkId' - The unique identifier of the network for which to list members.
 newListMembers ::
@@ -129,8 +131,9 @@ listMembers_maxResults :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Natural)
 listMembers_maxResults = Lens.lens (\ListMembers' {maxResults} -> maxResults) (\s@ListMembers' {} a -> s {maxResults = a} :: ListMembers)
 
 -- | An optional Boolean value. If provided, the request is limited either to
--- members that the current AWS account owns (@true@) or that other AWS
--- accounts own (@false@). If omitted, all members are listed.
+-- members that the current Amazon Web Services account owns (@true@) or
+-- that other Amazon Web Services accountsn own (@false@). If omitted, all
+-- members are listed.
 listMembers_isOwned :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Bool)
 listMembers_isOwned = Lens.lens (\ListMembers' {isOwned} -> isOwned) (\s@ListMembers' {} a -> s {isOwned = a} :: ListMembers)
 
@@ -140,7 +143,8 @@ listMembers_networkId = Lens.lens (\ListMembers' {networkId} -> networkId) (\s@L
 
 instance Core.AWSRequest ListMembers where
   type AWSResponse ListMembers = ListMembersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

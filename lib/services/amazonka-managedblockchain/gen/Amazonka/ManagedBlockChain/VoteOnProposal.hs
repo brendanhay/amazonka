@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Casts a vote for a specified @ProposalId@ on behalf of a member. The
--- member to vote as, specified by @VoterMemberId@, must be in the same AWS
--- account as the principal that calls the action.
+-- member to vote as, specified by @VoterMemberId@, must be in the same
+-- Amazon Web Services account as the principal that calls the action.
 --
 -- Applies only to Hyperledger Fabric.
 module Amazonka.ManagedBlockChain.VoteOnProposal
@@ -122,7 +122,8 @@ instance Core.AWSRequest VoteOnProposal where
   type
     AWSResponse VoteOnProposal =
       VoteOnProposalResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

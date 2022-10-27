@@ -22,7 +22,7 @@
 -- frameworks, some API actions or data types may only apply in the context
 -- of one framework and not the other. For example, actions related to
 -- Hyperledger Fabric network members such as @CreateMember@ and
--- @DeleteMember@ do not apply to Ethereum.
+-- @DeleteMember@ don\'t apply to Ethereum.
 --
 -- The description for each action indicates the framework or frameworks to
 -- which it applies. Data types and properties that apply only in the
@@ -70,6 +70,12 @@ module Amazonka.ManagedBlockChain
     -- * Operations
     -- $operations
 
+    -- ** CreateAccessor
+    CreateAccessor (CreateAccessor'),
+    newCreateAccessor,
+    CreateAccessorResponse (CreateAccessorResponse'),
+    newCreateAccessorResponse,
+
     -- ** CreateMember
     CreateMember (CreateMember'),
     newCreateMember,
@@ -94,6 +100,12 @@ module Amazonka.ManagedBlockChain
     CreateProposalResponse (CreateProposalResponse'),
     newCreateProposalResponse,
 
+    -- ** DeleteAccessor
+    DeleteAccessor (DeleteAccessor'),
+    newDeleteAccessor,
+    DeleteAccessorResponse (DeleteAccessorResponse'),
+    newDeleteAccessorResponse,
+
     -- ** DeleteMember
     DeleteMember (DeleteMember'),
     newDeleteMember,
@@ -105,6 +117,12 @@ module Amazonka.ManagedBlockChain
     newDeleteNode,
     DeleteNodeResponse (DeleteNodeResponse'),
     newDeleteNodeResponse,
+
+    -- ** GetAccessor
+    GetAccessor (GetAccessor'),
+    newGetAccessor,
+    GetAccessorResponse (GetAccessorResponse'),
+    newGetAccessorResponse,
 
     -- ** GetMember
     GetMember (GetMember'),
@@ -129,6 +147,12 @@ module Amazonka.ManagedBlockChain
     newGetProposal,
     GetProposalResponse (GetProposalResponse'),
     newGetProposalResponse,
+
+    -- ** ListAccessors (Paginated)
+    ListAccessors (ListAccessors'),
+    newListAccessors,
+    ListAccessorsResponse (ListAccessorsResponse'),
+    newListAccessorsResponse,
 
     -- ** ListInvitations
     ListInvitations (ListInvitations'),
@@ -210,6 +234,12 @@ module Amazonka.ManagedBlockChain
 
     -- * Types
 
+    -- ** AccessorStatus
+    AccessorStatus (..),
+
+    -- ** AccessorType
+    AccessorType (..),
+
     -- ** Edition
     Edition (..),
 
@@ -239,6 +269,14 @@ module Amazonka.ManagedBlockChain
 
     -- ** VoteValue
     VoteValue (..),
+
+    -- ** Accessor
+    Accessor (Accessor'),
+    newAccessor,
+
+    -- ** AccessorSummary
+    AccessorSummary (AccessorSummary'),
+    newAccessorSummary,
 
     -- ** ApprovalThresholdPolicy
     ApprovalThresholdPolicy (ApprovalThresholdPolicy'),
@@ -382,17 +420,21 @@ module Amazonka.ManagedBlockChain
   )
 where
 
+import Amazonka.ManagedBlockChain.CreateAccessor
 import Amazonka.ManagedBlockChain.CreateMember
 import Amazonka.ManagedBlockChain.CreateNetwork
 import Amazonka.ManagedBlockChain.CreateNode
 import Amazonka.ManagedBlockChain.CreateProposal
+import Amazonka.ManagedBlockChain.DeleteAccessor
 import Amazonka.ManagedBlockChain.DeleteMember
 import Amazonka.ManagedBlockChain.DeleteNode
+import Amazonka.ManagedBlockChain.GetAccessor
 import Amazonka.ManagedBlockChain.GetMember
 import Amazonka.ManagedBlockChain.GetNetwork
 import Amazonka.ManagedBlockChain.GetNode
 import Amazonka.ManagedBlockChain.GetProposal
 import Amazonka.ManagedBlockChain.Lens
+import Amazonka.ManagedBlockChain.ListAccessors
 import Amazonka.ManagedBlockChain.ListInvitations
 import Amazonka.ManagedBlockChain.ListMembers
 import Amazonka.ManagedBlockChain.ListNetworks

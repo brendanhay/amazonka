@@ -167,7 +167,8 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
   type
     AWSResponse DescribeOptedOutNumbers =
       DescribeOptedOutNumbersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

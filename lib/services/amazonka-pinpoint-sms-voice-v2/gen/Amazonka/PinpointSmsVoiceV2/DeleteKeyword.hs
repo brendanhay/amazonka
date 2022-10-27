@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteKeyword where
   type
     AWSResponse DeleteKeyword =
       DeleteKeywordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

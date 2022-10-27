@@ -95,7 +95,8 @@ deletePool_poolId = Lens.lens (\DeletePool' {poolId} -> poolId) (\s@DeletePool' 
 
 instance Core.AWSRequest DeletePool where
   type AWSResponse DeletePool = DeletePoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

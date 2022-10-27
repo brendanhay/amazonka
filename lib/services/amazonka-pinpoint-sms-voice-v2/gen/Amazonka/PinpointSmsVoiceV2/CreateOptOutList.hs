@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateOptOutList where
   type
     AWSResponse CreateOptOutList =
       CreateOptOutListResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

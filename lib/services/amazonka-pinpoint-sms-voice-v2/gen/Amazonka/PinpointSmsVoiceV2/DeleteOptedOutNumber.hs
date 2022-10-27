@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteOptedOutNumber where
   type
     AWSResponse DeleteOptedOutNumber =
       DeleteOptedOutNumberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

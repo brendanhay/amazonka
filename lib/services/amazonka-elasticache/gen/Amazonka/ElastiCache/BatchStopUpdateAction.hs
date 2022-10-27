@@ -102,7 +102,8 @@ instance Core.AWSRequest BatchStopUpdateAction where
   type
     AWSResponse BatchStopUpdateAction =
       UpdateActionResultsMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchStopUpdateActionResult"

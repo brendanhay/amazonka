@@ -154,7 +154,8 @@ instance Core.AWSRequest CreateGlobalReplicationGroup where
   type
     AWSResponse CreateGlobalReplicationGroup =
       CreateGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateGlobalReplicationGroupResult"

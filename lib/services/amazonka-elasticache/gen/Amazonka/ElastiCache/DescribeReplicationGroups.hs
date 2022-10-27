@@ -168,7 +168,8 @@ instance Core.AWSRequest DescribeReplicationGroups where
   type
     AWSResponse DescribeReplicationGroups =
       DescribeReplicationGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReplicationGroupsResult"

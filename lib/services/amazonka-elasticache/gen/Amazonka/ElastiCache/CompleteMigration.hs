@@ -95,7 +95,8 @@ instance Core.AWSRequest CompleteMigration where
   type
     AWSResponse CompleteMigration =
       CompleteMigrationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CompleteMigrationResult"

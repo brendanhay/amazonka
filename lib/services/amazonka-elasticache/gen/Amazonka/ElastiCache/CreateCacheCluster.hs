@@ -1076,7 +1076,8 @@ instance Core.AWSRequest CreateCacheCluster where
   type
     AWSResponse CreateCacheCluster =
       CreateCacheClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheClusterResult"

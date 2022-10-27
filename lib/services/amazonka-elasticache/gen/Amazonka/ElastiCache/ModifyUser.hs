@@ -124,7 +124,8 @@ modifyUser_userId = Lens.lens (\ModifyUser' {userId} -> userId) (\s@ModifyUser' 
 
 instance Core.AWSRequest ModifyUser where
   type AWSResponse ModifyUser = User
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUserResult"

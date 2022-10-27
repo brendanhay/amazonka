@@ -172,7 +172,8 @@ instance Core.AWSRequest DescribeCacheParameters where
   type
     AWSResponse DescribeCacheParameters =
       DescribeCacheParametersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheParametersResult"

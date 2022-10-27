@@ -240,7 +240,8 @@ copySnapshot_targetSnapshotName = Lens.lens (\CopySnapshot' {targetSnapshotName}
 
 instance Core.AWSRequest CopySnapshot where
   type AWSResponse CopySnapshot = CopySnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopySnapshotResult"

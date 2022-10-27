@@ -657,7 +657,8 @@ instance Core.AWSRequest ModifyReplicationGroup where
   type
     AWSResponse ModifyReplicationGroup =
       ModifyReplicationGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyReplicationGroupResult"

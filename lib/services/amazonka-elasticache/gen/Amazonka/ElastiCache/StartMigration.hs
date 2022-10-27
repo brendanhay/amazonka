@@ -93,7 +93,8 @@ instance Core.AWSRequest StartMigration where
   type
     AWSResponse StartMigration =
       StartMigrationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartMigrationResult"

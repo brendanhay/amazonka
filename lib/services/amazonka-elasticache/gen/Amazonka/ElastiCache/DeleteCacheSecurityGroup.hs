@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteCacheSecurityGroup where
   type
     AWSResponse DeleteCacheSecurityGroup =
       DeleteCacheSecurityGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'

@@ -155,7 +155,8 @@ testFailover_nodeGroupId = Lens.lens (\TestFailover' {nodeGroupId} -> nodeGroupI
 
 instance Core.AWSRequest TestFailover where
   type AWSResponse TestFailover = TestFailoverResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestFailoverResult"

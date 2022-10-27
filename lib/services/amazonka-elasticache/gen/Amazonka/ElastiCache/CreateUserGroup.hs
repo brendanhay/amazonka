@@ -120,7 +120,8 @@ createUserGroup_engine = Lens.lens (\CreateUserGroup' {engine} -> engine) (\s@Cr
 
 instance Core.AWSRequest CreateUserGroup where
   type AWSResponse CreateUserGroup = UserGroup
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUserGroupResult"

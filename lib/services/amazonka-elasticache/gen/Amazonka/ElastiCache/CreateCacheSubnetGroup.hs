@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
   type
     AWSResponse CreateCacheSubnetGroup =
       CreateCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheSubnetGroupResult"

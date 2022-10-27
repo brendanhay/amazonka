@@ -139,7 +139,8 @@ putRumEvents_userDetails = Lens.lens (\PutRumEvents' {userDetails} -> userDetail
 
 instance Core.AWSRequest PutRumEvents where
   type AWSResponse PutRumEvents = PutRumEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

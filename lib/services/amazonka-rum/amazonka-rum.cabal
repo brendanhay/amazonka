@@ -44,22 +44,34 @@ library
 
   exposed-modules:
     Amazonka.Rum
+    Amazonka.Rum.BatchCreateRumMetricDefinitions
+    Amazonka.Rum.BatchDeleteRumMetricDefinitions
+    Amazonka.Rum.BatchGetRumMetricDefinitions
     Amazonka.Rum.CreateAppMonitor
     Amazonka.Rum.DeleteAppMonitor
+    Amazonka.Rum.DeleteRumMetricsDestination
     Amazonka.Rum.GetAppMonitor
     Amazonka.Rum.GetAppMonitorData
     Amazonka.Rum.Lens
     Amazonka.Rum.ListAppMonitors
+    Amazonka.Rum.ListRumMetricsDestinations
     Amazonka.Rum.ListTagsForResource
     Amazonka.Rum.PutRumEvents
+    Amazonka.Rum.PutRumMetricsDestination
     Amazonka.Rum.TagResource
     Amazonka.Rum.Types
     Amazonka.Rum.Types.AppMonitor
     Amazonka.Rum.Types.AppMonitorConfiguration
     Amazonka.Rum.Types.AppMonitorDetails
     Amazonka.Rum.Types.AppMonitorSummary
+    Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError
+    Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError
     Amazonka.Rum.Types.CwLog
     Amazonka.Rum.Types.DataStorage
+    Amazonka.Rum.Types.MetricDefinition
+    Amazonka.Rum.Types.MetricDefinitionRequest
+    Amazonka.Rum.Types.MetricDestination
+    Amazonka.Rum.Types.MetricDestinationSummary
     Amazonka.Rum.Types.QueryFilter
     Amazonka.Rum.Types.RumEvent
     Amazonka.Rum.Types.StateEnum
@@ -68,6 +80,7 @@ library
     Amazonka.Rum.Types.UserDetails
     Amazonka.Rum.UntagResource
     Amazonka.Rum.UpdateAppMonitor
+    Amazonka.Rum.UpdateRumMetricDefinition
     Amazonka.Rum.Waiters
 
   build-depends:

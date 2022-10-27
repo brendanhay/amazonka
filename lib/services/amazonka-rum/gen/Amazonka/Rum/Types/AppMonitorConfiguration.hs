@@ -29,20 +29,22 @@ import Amazonka.Rum.Types.Telemetry
 --
 -- /See:/ 'newAppMonitorConfiguration' smart constructor.
 data AppMonitorConfiguration = AppMonitorConfiguration'
-  { -- | A list of pages in the CloudWatch RUM console that are to be displayed
-    -- with a \"favorite\" icon.
+  { -- | A list of pages in your application that are to be displayed with a
+    -- \"favorite\" icon in the CloudWatch RUM console.
     favoritePages :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of the guest IAM role that is attached to the Amazon Cognito
     -- identity pool that is used to authorize the sending of data to RUM.
     guestRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the percentage of user sessions to use for RUM data
-    -- collection. Choosing a higher percentage gives you more data but also
-    -- incurs more costs.
+    -- | Specifies the portion of user sessions to use for RUM data collection.
+    -- Choosing a higher portion gives you more data but also incurs more
+    -- costs.
     --
-    -- The number you specify is the percentage of user sessions that will be
-    -- used.
+    -- The range for this value is 0 to 1 inclusive. Setting this to 1 means
+    -- that 100% of user sessions are sampled, and setting it to 0.1 means that
+    -- 10% of user sessions are sampled.
     --
-    -- If you omit this parameter, the default of 10 is used.
+    -- If you omit this parameter, the default of 0.1 is used, and 10% of
+    -- sessions will be sampled.
     sessionSampleRate :: Prelude.Maybe Prelude.Double,
     -- | If you set this to @true@, RUM enables X-Ray tracing for the user
     -- sessions that RUM samples. RUM adds an X-Ray trace header to allowed
@@ -96,20 +98,22 @@ data AppMonitorConfiguration = AppMonitorConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'favoritePages', 'appMonitorConfiguration_favoritePages' - A list of pages in the CloudWatch RUM console that are to be displayed
--- with a \"favorite\" icon.
+-- 'favoritePages', 'appMonitorConfiguration_favoritePages' - A list of pages in your application that are to be displayed with a
+-- \"favorite\" icon in the CloudWatch RUM console.
 --
 -- 'guestRoleArn', 'appMonitorConfiguration_guestRoleArn' - The ARN of the guest IAM role that is attached to the Amazon Cognito
 -- identity pool that is used to authorize the sending of data to RUM.
 --
--- 'sessionSampleRate', 'appMonitorConfiguration_sessionSampleRate' - Specifies the percentage of user sessions to use for RUM data
--- collection. Choosing a higher percentage gives you more data but also
--- incurs more costs.
+-- 'sessionSampleRate', 'appMonitorConfiguration_sessionSampleRate' - Specifies the portion of user sessions to use for RUM data collection.
+-- Choosing a higher portion gives you more data but also incurs more
+-- costs.
 --
--- The number you specify is the percentage of user sessions that will be
--- used.
+-- The range for this value is 0 to 1 inclusive. Setting this to 1 means
+-- that 100% of user sessions are sampled, and setting it to 0.1 means that
+-- 10% of user sessions are sampled.
 --
--- If you omit this parameter, the default of 10 is used.
+-- If you omit this parameter, the default of 0.1 is used, and 10% of
+-- sessions will be sampled.
 --
 -- 'enableXRay', 'appMonitorConfiguration_enableXRay' - If you set this to @true@, RUM enables X-Ray tracing for the user
 -- sessions that RUM samples. RUM adds an X-Ray trace header to allowed
@@ -167,8 +171,8 @@ newAppMonitorConfiguration =
       telemetries = Prelude.Nothing
     }
 
--- | A list of pages in the CloudWatch RUM console that are to be displayed
--- with a \"favorite\" icon.
+-- | A list of pages in your application that are to be displayed with a
+-- \"favorite\" icon in the CloudWatch RUM console.
 appMonitorConfiguration_favoritePages :: Lens.Lens' AppMonitorConfiguration (Prelude.Maybe [Prelude.Text])
 appMonitorConfiguration_favoritePages = Lens.lens (\AppMonitorConfiguration' {favoritePages} -> favoritePages) (\s@AppMonitorConfiguration' {} a -> s {favoritePages = a} :: AppMonitorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -177,14 +181,16 @@ appMonitorConfiguration_favoritePages = Lens.lens (\AppMonitorConfiguration' {fa
 appMonitorConfiguration_guestRoleArn :: Lens.Lens' AppMonitorConfiguration (Prelude.Maybe Prelude.Text)
 appMonitorConfiguration_guestRoleArn = Lens.lens (\AppMonitorConfiguration' {guestRoleArn} -> guestRoleArn) (\s@AppMonitorConfiguration' {} a -> s {guestRoleArn = a} :: AppMonitorConfiguration)
 
--- | Specifies the percentage of user sessions to use for RUM data
--- collection. Choosing a higher percentage gives you more data but also
--- incurs more costs.
+-- | Specifies the portion of user sessions to use for RUM data collection.
+-- Choosing a higher portion gives you more data but also incurs more
+-- costs.
 --
--- The number you specify is the percentage of user sessions that will be
--- used.
+-- The range for this value is 0 to 1 inclusive. Setting this to 1 means
+-- that 100% of user sessions are sampled, and setting it to 0.1 means that
+-- 10% of user sessions are sampled.
 --
--- If you omit this parameter, the default of 10 is used.
+-- If you omit this parameter, the default of 0.1 is used, and 10% of
+-- sessions will be sampled.
 appMonitorConfiguration_sessionSampleRate :: Lens.Lens' AppMonitorConfiguration (Prelude.Maybe Prelude.Double)
 appMonitorConfiguration_sessionSampleRate = Lens.lens (\AppMonitorConfiguration' {sessionSampleRate} -> sessionSampleRate) (\s@AppMonitorConfiguration' {} a -> s {sessionSampleRate = a} :: AppMonitorConfiguration)
 

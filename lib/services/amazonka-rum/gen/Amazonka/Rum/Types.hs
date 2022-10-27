@@ -25,6 +25,9 @@ module Amazonka.Rum.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * MetricDestination
+    MetricDestination (..),
+
     -- * StateEnum
     StateEnum (..),
 
@@ -73,6 +76,20 @@ module Amazonka.Rum.Types
     appMonitorSummary_id,
     appMonitorSummary_lastModified,
 
+    -- * BatchCreateRumMetricDefinitionsError
+    BatchCreateRumMetricDefinitionsError (..),
+    newBatchCreateRumMetricDefinitionsError,
+    batchCreateRumMetricDefinitionsError_errorCode,
+    batchCreateRumMetricDefinitionsError_errorMessage,
+    batchCreateRumMetricDefinitionsError_metricDefinition,
+
+    -- * BatchDeleteRumMetricDefinitionsError
+    BatchDeleteRumMetricDefinitionsError (..),
+    newBatchDeleteRumMetricDefinitionsError,
+    batchDeleteRumMetricDefinitionsError_errorCode,
+    batchDeleteRumMetricDefinitionsError_errorMessage,
+    batchDeleteRumMetricDefinitionsError_metricDefinitionId,
+
     -- * CwLog
     CwLog (..),
     newCwLog,
@@ -83,6 +100,32 @@ module Amazonka.Rum.Types
     DataStorage (..),
     newDataStorage,
     dataStorage_cwLog,
+
+    -- * MetricDefinition
+    MetricDefinition (..),
+    newMetricDefinition,
+    metricDefinition_valueKey,
+    metricDefinition_unitLabel,
+    metricDefinition_eventPattern,
+    metricDefinition_dimensionKeys,
+    metricDefinition_metricDefinitionId,
+    metricDefinition_name,
+
+    -- * MetricDefinitionRequest
+    MetricDefinitionRequest (..),
+    newMetricDefinitionRequest,
+    metricDefinitionRequest_valueKey,
+    metricDefinitionRequest_unitLabel,
+    metricDefinitionRequest_eventPattern,
+    metricDefinitionRequest_dimensionKeys,
+    metricDefinitionRequest_name,
+
+    -- * MetricDestinationSummary
+    MetricDestinationSummary (..),
+    newMetricDestinationSummary,
+    metricDestinationSummary_destination,
+    metricDestinationSummary_iamRoleArn,
+    metricDestinationSummary_destinationArn,
 
     -- * QueryFilter
     QueryFilter (..),
@@ -120,8 +163,14 @@ import Amazonka.Rum.Types.AppMonitor
 import Amazonka.Rum.Types.AppMonitorConfiguration
 import Amazonka.Rum.Types.AppMonitorDetails
 import Amazonka.Rum.Types.AppMonitorSummary
+import Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError
+import Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError
 import Amazonka.Rum.Types.CwLog
 import Amazonka.Rum.Types.DataStorage
+import Amazonka.Rum.Types.MetricDefinition
+import Amazonka.Rum.Types.MetricDefinitionRequest
+import Amazonka.Rum.Types.MetricDestination
+import Amazonka.Rum.Types.MetricDestinationSummary
 import Amazonka.Rum.Types.QueryFilter
 import Amazonka.Rum.Types.RumEvent
 import Amazonka.Rum.Types.StateEnum
@@ -139,6 +188,8 @@ defaultService =
       Core._serviceEndpointPrefix = "rum",
       Core._serviceSigningName = "rum",
       Core._serviceVersion = "2018-05-10",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteAppMonitor where
   type
     AWSResponse DeleteAppMonitor =
       DeleteAppMonitorResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

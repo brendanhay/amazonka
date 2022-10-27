@@ -160,7 +160,8 @@ instance Core.AWSRequest GetAppMonitorData where
   type
     AWSResponse GetAppMonitorData =
       GetAppMonitorDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

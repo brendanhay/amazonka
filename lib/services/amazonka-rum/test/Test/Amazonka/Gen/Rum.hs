@@ -27,11 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateAppMonitor $
+--         [ requestBatchCreateRumMetricDefinitions $
+--             newBatchCreateRumMetricDefinitions
+--
+--         , requestBatchDeleteRumMetricDefinitions $
+--             newBatchDeleteRumMetricDefinitions
+--
+--         , requestBatchGetRumMetricDefinitions $
+--             newBatchGetRumMetricDefinitions
+--
+--         , requestCreateAppMonitor $
 --             newCreateAppMonitor
 --
 --         , requestDeleteAppMonitor $
 --             newDeleteAppMonitor
+--
+--         , requestDeleteRumMetricsDestination $
+--             newDeleteRumMetricsDestination
 --
 --         , requestGetAppMonitor $
 --             newGetAppMonitor
@@ -42,11 +54,17 @@ import Test.Tasty
 --         , requestListAppMonitors $
 --             newListAppMonitors
 --
+--         , requestListRumMetricsDestinations $
+--             newListRumMetricsDestinations
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestPutRumEvents $
 --             newPutRumEvents
+--
+--         , requestPutRumMetricsDestination $
+--             newPutRumMetricsDestination
 --
 --         , requestTagResource $
 --             newTagResource
@@ -57,14 +75,29 @@ import Test.Tasty
 --         , requestUpdateAppMonitor $
 --             newUpdateAppMonitor
 --
+--         , requestUpdateRumMetricDefinition $
+--             newUpdateRumMetricDefinition
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateAppMonitor $
+--         [ responseBatchCreateRumMetricDefinitions $
+--             newBatchCreateRumMetricDefinitionsResponse
+--
+--         , responseBatchDeleteRumMetricDefinitions $
+--             newBatchDeleteRumMetricDefinitionsResponse
+--
+--         , responseBatchGetRumMetricDefinitions $
+--             newBatchGetRumMetricDefinitionsResponse
+--
+--         , responseCreateAppMonitor $
 --             newCreateAppMonitorResponse
 --
 --         , responseDeleteAppMonitor $
 --             newDeleteAppMonitorResponse
+--
+--         , responseDeleteRumMetricsDestination $
+--             newDeleteRumMetricsDestinationResponse
 --
 --         , responseGetAppMonitor $
 --             newGetAppMonitorResponse
@@ -75,11 +108,17 @@ import Test.Tasty
 --         , responseListAppMonitors $
 --             newListAppMonitorsResponse
 --
+--         , responseListRumMetricsDestinations $
+--             newListRumMetricsDestinationsResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responsePutRumEvents $
 --             newPutRumEventsResponse
+--
+--         , responsePutRumMetricsDestination $
+--             newPutRumMetricsDestinationResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -90,10 +129,31 @@ import Test.Tasty
 --         , responseUpdateAppMonitor $
 --             newUpdateAppMonitorResponse
 --
+--         , responseUpdateRumMetricDefinition $
+--             newUpdateRumMetricDefinitionResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestBatchCreateRumMetricDefinitions :: BatchCreateRumMetricDefinitions -> TestTree
+requestBatchCreateRumMetricDefinitions =
+  req
+    "BatchCreateRumMetricDefinitions"
+    "fixture/BatchCreateRumMetricDefinitions.yaml"
+
+requestBatchDeleteRumMetricDefinitions :: BatchDeleteRumMetricDefinitions -> TestTree
+requestBatchDeleteRumMetricDefinitions =
+  req
+    "BatchDeleteRumMetricDefinitions"
+    "fixture/BatchDeleteRumMetricDefinitions.yaml"
+
+requestBatchGetRumMetricDefinitions :: BatchGetRumMetricDefinitions -> TestTree
+requestBatchGetRumMetricDefinitions =
+  req
+    "BatchGetRumMetricDefinitions"
+    "fixture/BatchGetRumMetricDefinitions.yaml"
 
 requestCreateAppMonitor :: CreateAppMonitor -> TestTree
 requestCreateAppMonitor =
@@ -106,6 +166,12 @@ requestDeleteAppMonitor =
   req
     "DeleteAppMonitor"
     "fixture/DeleteAppMonitor.yaml"
+
+requestDeleteRumMetricsDestination :: DeleteRumMetricsDestination -> TestTree
+requestDeleteRumMetricsDestination =
+  req
+    "DeleteRumMetricsDestination"
+    "fixture/DeleteRumMetricsDestination.yaml"
 
 requestGetAppMonitor :: GetAppMonitor -> TestTree
 requestGetAppMonitor =
@@ -125,6 +191,12 @@ requestListAppMonitors =
     "ListAppMonitors"
     "fixture/ListAppMonitors.yaml"
 
+requestListRumMetricsDestinations :: ListRumMetricsDestinations -> TestTree
+requestListRumMetricsDestinations =
+  req
+    "ListRumMetricsDestinations"
+    "fixture/ListRumMetricsDestinations.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -136,6 +208,12 @@ requestPutRumEvents =
   req
     "PutRumEvents"
     "fixture/PutRumEvents.yaml"
+
+requestPutRumMetricsDestination :: PutRumMetricsDestination -> TestTree
+requestPutRumMetricsDestination =
+  req
+    "PutRumMetricsDestination"
+    "fixture/PutRumMetricsDestination.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -155,7 +233,37 @@ requestUpdateAppMonitor =
     "UpdateAppMonitor"
     "fixture/UpdateAppMonitor.yaml"
 
+requestUpdateRumMetricDefinition :: UpdateRumMetricDefinition -> TestTree
+requestUpdateRumMetricDefinition =
+  req
+    "UpdateRumMetricDefinition"
+    "fixture/UpdateRumMetricDefinition.yaml"
+
 -- Responses
+
+responseBatchCreateRumMetricDefinitions :: BatchCreateRumMetricDefinitionsResponse -> TestTree
+responseBatchCreateRumMetricDefinitions =
+  res
+    "BatchCreateRumMetricDefinitionsResponse"
+    "fixture/BatchCreateRumMetricDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateRumMetricDefinitions)
+
+responseBatchDeleteRumMetricDefinitions :: BatchDeleteRumMetricDefinitionsResponse -> TestTree
+responseBatchDeleteRumMetricDefinitions =
+  res
+    "BatchDeleteRumMetricDefinitionsResponse"
+    "fixture/BatchDeleteRumMetricDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteRumMetricDefinitions)
+
+responseBatchGetRumMetricDefinitions :: BatchGetRumMetricDefinitionsResponse -> TestTree
+responseBatchGetRumMetricDefinitions =
+  res
+    "BatchGetRumMetricDefinitionsResponse"
+    "fixture/BatchGetRumMetricDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetRumMetricDefinitions)
 
 responseCreateAppMonitor :: CreateAppMonitorResponse -> TestTree
 responseCreateAppMonitor =
@@ -172,6 +280,14 @@ responseDeleteAppMonitor =
     "fixture/DeleteAppMonitorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAppMonitor)
+
+responseDeleteRumMetricsDestination :: DeleteRumMetricsDestinationResponse -> TestTree
+responseDeleteRumMetricsDestination =
+  res
+    "DeleteRumMetricsDestinationResponse"
+    "fixture/DeleteRumMetricsDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRumMetricsDestination)
 
 responseGetAppMonitor :: GetAppMonitorResponse -> TestTree
 responseGetAppMonitor =
@@ -197,6 +313,14 @@ responseListAppMonitors =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAppMonitors)
 
+responseListRumMetricsDestinations :: ListRumMetricsDestinationsResponse -> TestTree
+responseListRumMetricsDestinations =
+  res
+    "ListRumMetricsDestinationsResponse"
+    "fixture/ListRumMetricsDestinationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRumMetricsDestinations)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -212,6 +336,14 @@ responsePutRumEvents =
     "fixture/PutRumEventsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutRumEvents)
+
+responsePutRumMetricsDestination :: PutRumMetricsDestinationResponse -> TestTree
+responsePutRumMetricsDestination =
+  res
+    "PutRumMetricsDestinationResponse"
+    "fixture/PutRumMetricsDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRumMetricsDestination)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -236,3 +368,11 @@ responseUpdateAppMonitor =
     "fixture/UpdateAppMonitorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAppMonitor)
+
+responseUpdateRumMetricDefinition :: UpdateRumMetricDefinitionResponse -> TestTree
+responseUpdateRumMetricDefinition =
+  res
+    "UpdateRumMetricDefinitionResponse"
+    "fixture/UpdateRumMetricDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRumMetricDefinition)

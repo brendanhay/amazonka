@@ -94,7 +94,8 @@ instance Core.AWSRequest DetachTypedLink where
   type
     AWSResponse DetachTypedLink =
       DetachTypedLinkResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull DetachTypedLinkResponse'
 

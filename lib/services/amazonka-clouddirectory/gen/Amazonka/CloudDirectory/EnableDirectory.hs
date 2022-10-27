@@ -78,7 +78,8 @@ instance Core.AWSRequest EnableDirectory where
   type
     AWSResponse EnableDirectory =
       EnableDirectoryResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

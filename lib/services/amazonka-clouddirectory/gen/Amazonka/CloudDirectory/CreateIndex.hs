@@ -127,7 +127,8 @@ createIndex_isUnique = Lens.lens (\CreateIndex' {isUnique} -> isUnique) (\s@Crea
 
 instance Core.AWSRequest CreateIndex where
   type AWSResponse CreateIndex = CreateIndexResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -95,7 +95,8 @@ deleteObject_objectReference = Lens.lens (\DeleteObject' {objectReference} -> ob
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

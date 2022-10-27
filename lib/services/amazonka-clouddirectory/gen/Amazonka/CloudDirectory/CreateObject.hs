@@ -134,7 +134,8 @@ createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFa
 
 instance Core.AWSRequest CreateObject where
   type AWSResponse CreateObject = CreateObjectResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

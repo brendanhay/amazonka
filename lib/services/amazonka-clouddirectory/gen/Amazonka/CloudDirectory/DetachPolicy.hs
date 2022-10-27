@@ -109,7 +109,8 @@ detachPolicy_objectReference = Lens.lens (\DetachPolicy' {objectReference} -> ob
 
 instance Core.AWSRequest DetachPolicy where
   type AWSResponse DetachPolicy = DetachPolicyResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

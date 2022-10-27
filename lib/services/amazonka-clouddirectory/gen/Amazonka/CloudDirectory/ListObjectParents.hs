@@ -152,7 +152,8 @@ instance Core.AWSRequest ListObjectParents where
   type
     AWSResponse ListObjectParents =
       ListObjectParentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

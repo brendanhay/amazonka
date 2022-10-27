@@ -94,7 +94,8 @@ instance Core.AWSRequest CreateTypedLinkFacet where
   type
     AWSResponse CreateTypedLinkFacet =
       CreateTypedLinkFacetResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateWorldTemplate where
   type
     AWSResponse UpdateWorldTemplate =
       UpdateWorldTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeSimulationJobBatch where
   type
     AWSResponse DescribeSimulationJobBatch =
       DescribeSimulationJobBatchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

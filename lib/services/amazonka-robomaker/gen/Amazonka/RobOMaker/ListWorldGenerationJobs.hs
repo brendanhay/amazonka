@@ -161,7 +161,8 @@ instance Core.AWSRequest ListWorldGenerationJobs where
   type
     AWSResponse ListWorldGenerationJobs =
       ListWorldGenerationJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

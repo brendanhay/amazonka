@@ -137,7 +137,8 @@ instance Core.AWSRequest DescribeServiceUpdates where
   type
     AWSResponse DescribeServiceUpdates =
       DescribeServiceUpdatesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

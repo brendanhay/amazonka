@@ -161,7 +161,8 @@ instance Core.AWSRequest QueryWhatIfForecast where
   type
     AWSResponse QueryWhatIfForecast =
       QueryWhatIfForecastResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

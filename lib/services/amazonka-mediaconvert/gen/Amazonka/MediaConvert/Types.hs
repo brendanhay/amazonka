@@ -1843,6 +1843,7 @@ module Amazonka.MediaConvert.Types
     h264Settings_syntax,
     h264Settings_numberReferenceFrames,
     h264Settings_temporalAdaptiveQuantization,
+    h264Settings_hrdBufferFinalFillPercentage,
     h264Settings_hrdBufferInitialFillPercentage,
     h264Settings_gopClosedCadence,
     h264Settings_slowPal,
@@ -1896,6 +1897,7 @@ module Amazonka.MediaConvert.Types
     h265Settings_alternateTransferFunctionSei,
     h265Settings_numberReferenceFrames,
     h265Settings_temporalAdaptiveQuantization,
+    h265Settings_hrdBufferFinalFillPercentage,
     h265Settings_hrdBufferInitialFillPercentage,
     h265Settings_gopClosedCadence,
     h265Settings_slowPal,
@@ -2401,6 +2403,7 @@ module Amazonka.MediaConvert.Types
     mpeg2Settings_codecProfile,
     mpeg2Settings_syntax,
     mpeg2Settings_temporalAdaptiveQuantization,
+    mpeg2Settings_hrdBufferFinalFillPercentage,
     mpeg2Settings_hrdBufferInitialFillPercentage,
     mpeg2Settings_gopClosedCadence,
     mpeg2Settings_slowPal,
@@ -3561,6 +3564,8 @@ defaultService =
       Core._serviceEndpointPrefix = "mediaconvert",
       Core._serviceSigningName = "mediaconvert",
       Core._serviceVersion = "2017-08-29",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

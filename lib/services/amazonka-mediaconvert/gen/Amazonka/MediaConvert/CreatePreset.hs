@@ -124,7 +124,8 @@ createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' 
 
 instance Core.AWSRequest CreatePreset where
   type AWSResponse CreatePreset = CreatePresetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

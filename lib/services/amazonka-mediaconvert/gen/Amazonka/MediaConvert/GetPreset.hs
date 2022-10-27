@@ -74,7 +74,8 @@ getPreset_name = Lens.lens (\GetPreset' {name} -> name) (\s@GetPreset' {} a -> s
 
 instance Core.AWSRequest GetPreset where
   type AWSResponse GetPreset = GetPresetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

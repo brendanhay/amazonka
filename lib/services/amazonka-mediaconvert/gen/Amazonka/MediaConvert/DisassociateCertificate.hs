@@ -81,7 +81,8 @@ instance Core.AWSRequest DisassociateCertificate where
   type
     AWSResponse DisassociateCertificate =
       DisassociateCertificateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

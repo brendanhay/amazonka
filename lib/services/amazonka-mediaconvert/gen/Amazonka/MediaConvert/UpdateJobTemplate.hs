@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateJobTemplate where
   type
     AWSResponse UpdateJobTemplate =
       UpdateJobTemplateResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

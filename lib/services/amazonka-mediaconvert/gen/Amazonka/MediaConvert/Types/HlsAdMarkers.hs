@@ -29,6 +29,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
+-- | Ad marker for Apple HLS manifest.
 newtype HlsAdMarkers = HlsAdMarkers'
   { fromHlsAdMarkers ::
       Core.Text

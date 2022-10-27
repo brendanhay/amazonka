@@ -170,6 +170,11 @@ data Mpeg2Settings = Mpeg2Settings'
     -- temporal quantization, adjust the strength of the filter with the
     -- setting Adaptive quantization (adaptiveQuantization).
     temporalAdaptiveQuantization :: Prelude.Maybe Mpeg2TemporalAdaptiveQuantization,
+    -- | If your downstream systems have strict buffer requirements: Specify the
+    -- minimum percentage of the HRD buffer that\'s available at the end of
+    -- each encoded video segment. For the best video quality: Set to 0 or
+    -- leave blank to automatically determine the final buffer fill percentage.
+    hrdBufferFinalFillPercentage :: Prelude.Maybe Prelude.Natural,
     -- | Percentage of the buffer that should initially be filled (HRD buffer
     -- model).
     hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
@@ -424,6 +429,11 @@ data Mpeg2Settings = Mpeg2Settings'
 -- temporal quantization, adjust the strength of the filter with the
 -- setting Adaptive quantization (adaptiveQuantization).
 --
+-- 'hrdBufferFinalFillPercentage', 'mpeg2Settings_hrdBufferFinalFillPercentage' - If your downstream systems have strict buffer requirements: Specify the
+-- minimum percentage of the HRD buffer that\'s available at the end of
+-- each encoded video segment. For the best video quality: Set to 0 or
+-- leave blank to automatically determine the final buffer fill percentage.
+--
 -- 'hrdBufferInitialFillPercentage', 'mpeg2Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 --
@@ -564,6 +574,7 @@ newMpeg2Settings =
       codecProfile = Prelude.Nothing,
       syntax = Prelude.Nothing,
       temporalAdaptiveQuantization = Prelude.Nothing,
+      hrdBufferFinalFillPercentage = Prelude.Nothing,
       hrdBufferInitialFillPercentage = Prelude.Nothing,
       gopClosedCadence = Prelude.Nothing,
       slowPal = Prelude.Nothing,
@@ -739,6 +750,13 @@ mpeg2Settings_syntax = Lens.lens (\Mpeg2Settings' {syntax} -> syntax) (\s@Mpeg2S
 mpeg2Settings_temporalAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2TemporalAdaptiveQuantization)
 mpeg2Settings_temporalAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {temporalAdaptiveQuantization} -> temporalAdaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {temporalAdaptiveQuantization = a} :: Mpeg2Settings)
 
+-- | If your downstream systems have strict buffer requirements: Specify the
+-- minimum percentage of the HRD buffer that\'s available at the end of
+-- each encoded video segment. For the best video quality: Set to 0 or
+-- leave blank to automatically determine the final buffer fill percentage.
+mpeg2Settings_hrdBufferFinalFillPercentage :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_hrdBufferFinalFillPercentage = Lens.lens (\Mpeg2Settings' {hrdBufferFinalFillPercentage} -> hrdBufferFinalFillPercentage) (\s@Mpeg2Settings' {} a -> s {hrdBufferFinalFillPercentage = a} :: Mpeg2Settings)
+
 -- | Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 mpeg2Settings_hrdBufferInitialFillPercentage :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
@@ -912,6 +930,7 @@ instance Core.FromJSON Mpeg2Settings where
             Prelude.<*> (x Core..:? "codecProfile")
             Prelude.<*> (x Core..:? "syntax")
             Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Core..:? "hrdBufferFinalFillPercentage")
             Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
             Prelude.<*> (x Core..:? "gopClosedCadence")
             Prelude.<*> (x Core..:? "slowPal")
@@ -948,6 +967,7 @@ instance Prelude.Hashable Mpeg2Settings where
       `Prelude.hashWithSalt` codecProfile
       `Prelude.hashWithSalt` syntax
       `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` hrdBufferFinalFillPercentage
       `Prelude.hashWithSalt` hrdBufferInitialFillPercentage
       `Prelude.hashWithSalt` gopClosedCadence
       `Prelude.hashWithSalt` slowPal
@@ -985,11 +1005,14 @@ instance Prelude.NFData Mpeg2Settings where
       `Prelude.seq` Prelude.rnf
         temporalAdaptiveQuantization
       `Prelude.seq` Prelude.rnf
+        hrdBufferFinalFillPercentage
+      `Prelude.seq` Prelude.rnf
         hrdBufferInitialFillPercentage
       `Prelude.seq` Prelude.rnf gopClosedCadence
       `Prelude.seq` Prelude.rnf slowPal
       `Prelude.seq` Prelude.rnf interlaceMode
-      `Prelude.seq` Prelude.rnf parDenominator
+      `Prelude.seq` Prelude.rnf
+        parDenominator
       `Prelude.seq` Prelude.rnf softness
       `Prelude.seq` Prelude.rnf
         rateControlMode
@@ -1038,6 +1061,8 @@ instance Core.ToJSON Mpeg2Settings where
             ("syntax" Core..=) Prelude.<$> syntax,
             ("temporalAdaptiveQuantization" Core..=)
               Prelude.<$> temporalAdaptiveQuantization,
+            ("hrdBufferFinalFillPercentage" Core..=)
+              Prelude.<$> hrdBufferFinalFillPercentage,
             ("hrdBufferInitialFillPercentage" Core..=)
               Prelude.<$> hrdBufferInitialFillPercentage,
             ("gopClosedCadence" Core..=)

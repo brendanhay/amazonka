@@ -73,7 +73,8 @@ deleteQueue_name = Lens.lens (\DeleteQueue' {name} -> name) (\s@DeleteQueue' {} 
 
 instance Core.AWSRequest DeleteQueue where
   type AWSResponse DeleteQueue = DeleteQueueResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

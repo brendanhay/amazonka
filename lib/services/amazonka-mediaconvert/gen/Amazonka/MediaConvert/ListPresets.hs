@@ -160,7 +160,8 @@ instance Core.AWSPager ListPresets where
 
 instance Core.AWSRequest ListPresets where
   type AWSResponse ListPresets = ListPresetsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

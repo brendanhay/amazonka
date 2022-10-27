@@ -89,7 +89,8 @@ associateApi_apiId = Lens.lens (\AssociateApi' {apiId} -> apiId) (\s@AssociateAp
 
 instance Core.AWSRequest AssociateApi where
   type AWSResponse AssociateApi = AssociateApiResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

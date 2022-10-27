@@ -143,7 +143,8 @@ instance Core.AWSRequest ListResolversByFunction where
   type
     AWSResponse ListResolversByFunction =
       ListResolversByFunctionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

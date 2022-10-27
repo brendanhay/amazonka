@@ -88,7 +88,8 @@ instance Core.AWSRequest GetDataSource where
   type
     AWSResponse GetDataSource =
       GetDataSourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

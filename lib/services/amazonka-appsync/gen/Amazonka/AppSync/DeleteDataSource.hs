@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteDataSource where
   type
     AWSResponse DeleteDataSource =
       DeleteDataSourceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

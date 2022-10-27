@@ -101,7 +101,8 @@ getType_format = Lens.lens (\GetType' {format} -> format) (\s@GetType' {} a -> s
 
 instance Core.AWSRequest GetType where
   type AWSResponse GetType = GetTypeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

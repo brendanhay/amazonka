@@ -280,7 +280,8 @@ instance Core.AWSRequest CreateApiCache where
   type
     AWSResponse CreateApiCache =
       CreateApiCacheResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

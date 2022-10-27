@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteMediaCapturePipeline where
   type
     AWSResponse DeleteMediaCapturePipeline =
       DeleteMediaCapturePipelineResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteMediaCapturePipelineResponse'

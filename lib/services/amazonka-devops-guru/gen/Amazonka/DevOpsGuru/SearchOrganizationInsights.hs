@@ -187,7 +187,8 @@ instance Core.AWSRequest SearchOrganizationInsights where
   type
     AWSResponse SearchOrganizationInsights =
       SearchOrganizationInsightsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

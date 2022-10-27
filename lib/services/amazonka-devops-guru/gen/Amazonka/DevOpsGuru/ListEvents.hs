@@ -137,7 +137,8 @@ instance Core.AWSPager ListEvents where
 
 instance Core.AWSRequest ListEvents where
   type AWSResponse ListEvents = ListEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

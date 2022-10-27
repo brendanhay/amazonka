@@ -173,6 +173,7 @@ module Amazonka.DevOpsGuru.Types
     CloudFormationHealth (..),
     newCloudFormationHealth,
     cloudFormationHealth_insight,
+    cloudFormationHealth_analyzedResourceCount,
     cloudFormationHealth_stackName,
 
     -- * CloudWatchMetricsDataSummary
@@ -335,6 +336,8 @@ module Amazonka.DevOpsGuru.Types
     MonitoredResourceIdentifier (..),
     newMonitoredResourceIdentifier,
     monitoredResourceIdentifier_type,
+    monitoredResourceIdentifier_resourceCollection,
+    monitoredResourceIdentifier_lastUpdated,
     monitoredResourceIdentifier_resourcePermission,
     monitoredResourceIdentifier_monitoredResourceName,
 
@@ -653,6 +656,7 @@ module Amazonka.DevOpsGuru.Types
     ServiceHealth (..),
     newServiceHealth,
     serviceHealth_insight,
+    serviceHealth_analyzedResourceCount,
     serviceHealth_serviceName,
 
     -- * ServiceInsightHealth
@@ -710,6 +714,7 @@ module Amazonka.DevOpsGuru.Types
     newTagHealth,
     tagHealth_insight,
     tagHealth_tagValue,
+    tagHealth_analyzedResourceCount,
     tagHealth_appBoundaryKey,
 
     -- * TimestampMetricValuePair
@@ -869,6 +874,8 @@ defaultService =
       Core._serviceEndpointPrefix = "devops-guru",
       Core._serviceSigningName = "devops-guru",
       Core._serviceVersion = "2020-12-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

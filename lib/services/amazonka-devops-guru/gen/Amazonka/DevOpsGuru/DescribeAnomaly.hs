@@ -90,7 +90,8 @@ instance Core.AWSRequest DescribeAnomaly where
   type
     AWSResponse DescribeAnomaly =
       DescribeAnomalyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

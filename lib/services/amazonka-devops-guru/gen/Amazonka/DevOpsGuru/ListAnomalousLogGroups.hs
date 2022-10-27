@@ -134,7 +134,8 @@ instance Core.AWSRequest ListAnomalousLogGroups where
   type
     AWSResponse ListAnomalousLogGroups =
       ListAnomalousLogGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

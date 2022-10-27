@@ -75,7 +75,8 @@ putFeedback_insightFeedback = Lens.lens (\PutFeedback' {insightFeedback} -> insi
 
 instance Core.AWSRequest PutFeedback where
   type AWSResponse PutFeedback = PutFeedbackResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

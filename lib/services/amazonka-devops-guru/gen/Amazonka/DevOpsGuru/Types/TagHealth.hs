@@ -43,6 +43,9 @@ data TagHealth = TagHealth'
     -- /values/ are case-sensitive. You can specify a maximum of 256 characters
     -- for a tag value.
     tagValue :: Prelude.Maybe Prelude.Text,
+    -- | Number of resources that DevOps Guru is monitoring in your account that
+    -- are specified by an Amazon Web Services tag.
+    analyzedResourceCount :: Prelude.Maybe Prelude.Integer,
     -- | An Amazon Web Services tag /key/ that is used to identify the Amazon Web
     -- Services resources that DevOps Guru analyzes. All Amazon Web Services
     -- resources in your account and Region tagged with this /key/ make up your
@@ -84,6 +87,9 @@ data TagHealth = TagHealth'
 -- /values/ are case-sensitive. You can specify a maximum of 256 characters
 -- for a tag value.
 --
+-- 'analyzedResourceCount', 'tagHealth_analyzedResourceCount' - Number of resources that DevOps Guru is monitoring in your account that
+-- are specified by an Amazon Web Services tag.
+--
 -- 'appBoundaryKey', 'tagHealth_appBoundaryKey' - An Amazon Web Services tag /key/ that is used to identify the Amazon Web
 -- Services resources that DevOps Guru analyzes. All Amazon Web Services
 -- resources in your account and Region tagged with this /key/ make up your
@@ -105,6 +111,7 @@ newTagHealth =
   TagHealth'
     { insight = Prelude.Nothing,
       tagValue = Prelude.Nothing,
+      analyzedResourceCount = Prelude.Nothing,
       appBoundaryKey = Prelude.Nothing
     }
 
@@ -125,6 +132,11 @@ tagHealth_insight = Lens.lens (\TagHealth' {insight} -> insight) (\s@TagHealth' 
 -- for a tag value.
 tagHealth_tagValue :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
 tagHealth_tagValue = Lens.lens (\TagHealth' {tagValue} -> tagValue) (\s@TagHealth' {} a -> s {tagValue = a} :: TagHealth)
+
+-- | Number of resources that DevOps Guru is monitoring in your account that
+-- are specified by an Amazon Web Services tag.
+tagHealth_analyzedResourceCount :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Integer)
+tagHealth_analyzedResourceCount = Lens.lens (\TagHealth' {analyzedResourceCount} -> analyzedResourceCount) (\s@TagHealth' {} a -> s {analyzedResourceCount = a} :: TagHealth)
 
 -- | An Amazon Web Services tag /key/ that is used to identify the Amazon Web
 -- Services resources that DevOps Guru analyzes. All Amazon Web Services
@@ -152,6 +164,7 @@ instance Core.FromJSON TagHealth where
           TagHealth'
             Prelude.<$> (x Core..:? "Insight")
             Prelude.<*> (x Core..:? "TagValue")
+            Prelude.<*> (x Core..:? "AnalyzedResourceCount")
             Prelude.<*> (x Core..:? "AppBoundaryKey")
       )
 
@@ -159,10 +172,12 @@ instance Prelude.Hashable TagHealth where
   hashWithSalt _salt TagHealth' {..} =
     _salt `Prelude.hashWithSalt` insight
       `Prelude.hashWithSalt` tagValue
+      `Prelude.hashWithSalt` analyzedResourceCount
       `Prelude.hashWithSalt` appBoundaryKey
 
 instance Prelude.NFData TagHealth where
   rnf TagHealth' {..} =
     Prelude.rnf insight
       `Prelude.seq` Prelude.rnf tagValue
+      `Prelude.seq` Prelude.rnf analyzedResourceCount
       `Prelude.seq` Prelude.rnf appBoundaryKey

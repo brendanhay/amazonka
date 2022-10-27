@@ -517,6 +517,8 @@ defaultService =
       Core._serviceEndpointPrefix = "api.ecr",
       Core._serviceSigningName = "ecr",
       Core._serviceVersion = "2015-09-21",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -155,7 +155,8 @@ putImage_imageManifest = Lens.lens (\PutImage' {imageManifest} -> imageManifest)
 
 instance Core.AWSRequest PutImage where
   type AWSResponse PutImage = PutImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

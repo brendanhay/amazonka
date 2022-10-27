@@ -113,7 +113,8 @@ instance Core.AWSRequest PutLifecyclePolicy where
   type
     AWSResponse PutLifecyclePolicy =
       PutLifecyclePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

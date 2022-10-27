@@ -93,7 +93,8 @@ instance Core.AWSRequest PutRegistryPolicy where
   type
     AWSResponse PutRegistryPolicy =
       PutRegistryPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

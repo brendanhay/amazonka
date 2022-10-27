@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateRepository where
   type
     AWSResponse CreateRepository =
       CreateRepositoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

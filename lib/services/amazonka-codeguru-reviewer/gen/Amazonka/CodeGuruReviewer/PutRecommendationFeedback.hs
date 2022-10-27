@@ -117,7 +117,8 @@ instance Core.AWSRequest PutRecommendationFeedback where
   type
     AWSResponse PutRecommendationFeedback =
       PutRecommendationFeedbackResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -62,6 +62,8 @@ defaultService =
       Core._serviceEndpointPrefix = "portal.sso",
       Core._serviceSigningName = "awsssoportal",
       Core._serviceVersion = "2019-06-10",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

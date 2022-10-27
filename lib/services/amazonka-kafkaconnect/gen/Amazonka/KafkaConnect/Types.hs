@@ -457,6 +457,8 @@ defaultService =
       Core._serviceEndpointPrefix = "kafkaconnect",
       Core._serviceSigningName = "kafkaconnect",
       Core._serviceVersion = "2021-09-14",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

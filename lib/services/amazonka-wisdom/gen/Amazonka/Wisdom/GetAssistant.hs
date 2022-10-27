@@ -78,7 +78,8 @@ getAssistant_assistantId = Lens.lens (\GetAssistant' {assistantId} -> assistantI
 
 instance Core.AWSRequest GetAssistant where
   type AWSResponse GetAssistant = GetAssistantResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

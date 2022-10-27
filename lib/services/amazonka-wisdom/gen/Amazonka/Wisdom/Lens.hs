@@ -170,18 +170,6 @@ module Amazonka.Wisdom.Lens
     notifyRecommendationsReceivedResponse_errors,
     notifyRecommendationsReceivedResponse_httpStatus,
 
-    -- ** PutFeedback
-    putFeedback_assistantId,
-    putFeedback_feedback,
-    putFeedback_targetId,
-    putFeedback_targetType,
-    putFeedbackResponse_httpStatus,
-    putFeedbackResponse_assistantArn,
-    putFeedbackResponse_assistantId,
-    putFeedbackResponse_feedback,
-    putFeedbackResponse_targetId,
-    putFeedbackResponse_targetType,
-
     -- ** QueryAssistant
     queryAssistant_nextToken,
     queryAssistant_maxResults,
@@ -344,9 +332,6 @@ module Amazonka.Wisdom.Lens
     documentText_highlights,
     documentText_text,
 
-    -- ** FeedbackData
-    feedbackData_relevance,
-
     -- ** Filter
     filter_field,
     filter_operator,
@@ -463,7 +448,6 @@ import Amazonka.Wisdom.ListContents
 import Amazonka.Wisdom.ListKnowledgeBases
 import Amazonka.Wisdom.ListTagsForResource
 import Amazonka.Wisdom.NotifyRecommendationsReceived
-import Amazonka.Wisdom.PutFeedback
 import Amazonka.Wisdom.QueryAssistant
 import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
 import Amazonka.Wisdom.SearchContent
@@ -482,7 +466,6 @@ import Amazonka.Wisdom.Types.ContentReference
 import Amazonka.Wisdom.Types.ContentSummary
 import Amazonka.Wisdom.Types.Document
 import Amazonka.Wisdom.Types.DocumentText
-import Amazonka.Wisdom.Types.FeedbackData
 import Amazonka.Wisdom.Types.Filter
 import Amazonka.Wisdom.Types.Highlight
 import Amazonka.Wisdom.Types.KnowledgeBaseAssociationData

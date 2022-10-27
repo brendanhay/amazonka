@@ -58,14 +58,8 @@ module Amazonka.Wisdom.Types
     -- * RecommendationType
     RecommendationType (..),
 
-    -- * Relevance
-    Relevance (..),
-
     -- * RelevanceLevel
     RelevanceLevel (..),
-
-    -- * TargetType
-    TargetType (..),
 
     -- * AppIntegrationsConfiguration
     AppIntegrationsConfiguration (..),
@@ -182,11 +176,6 @@ module Amazonka.Wisdom.Types
     newDocumentText,
     documentText_highlights,
     documentText_text,
-
-    -- * FeedbackData
-    FeedbackData (..),
-    newFeedbackData,
-    feedbackData_relevance,
 
     -- * Filter
     Filter (..),
@@ -336,7 +325,6 @@ import Amazonka.Wisdom.Types.ContentStatus
 import Amazonka.Wisdom.Types.ContentSummary
 import Amazonka.Wisdom.Types.Document
 import Amazonka.Wisdom.Types.DocumentText
-import Amazonka.Wisdom.Types.FeedbackData
 import Amazonka.Wisdom.Types.Filter
 import Amazonka.Wisdom.Types.FilterField
 import Amazonka.Wisdom.Types.FilterOperator
@@ -354,7 +342,6 @@ import Amazonka.Wisdom.Types.RecommendationTrigger
 import Amazonka.Wisdom.Types.RecommendationTriggerData
 import Amazonka.Wisdom.Types.RecommendationTriggerType
 import Amazonka.Wisdom.Types.RecommendationType
-import Amazonka.Wisdom.Types.Relevance
 import Amazonka.Wisdom.Types.RelevanceLevel
 import Amazonka.Wisdom.Types.RenderingConfiguration
 import Amazonka.Wisdom.Types.ResultData
@@ -363,7 +350,6 @@ import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
 import Amazonka.Wisdom.Types.SessionData
 import Amazonka.Wisdom.Types.SessionSummary
 import Amazonka.Wisdom.Types.SourceConfiguration
-import Amazonka.Wisdom.Types.TargetType
 
 -- | API version @2020-10-19@ of the Amazon Connect Wisdom Service SDK configuration.
 defaultService :: Core.Service
@@ -374,6 +360,8 @@ defaultService =
       Core._serviceEndpointPrefix = "wisdom",
       Core._serviceSigningName = "wisdom",
       Core._serviceVersion = "2020-10-19",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

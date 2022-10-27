@@ -95,7 +95,8 @@ getContent_knowledgeBaseId = Lens.lens (\GetContent' {knowledgeBaseId} -> knowle
 
 instance Core.AWSRequest GetContent where
   type AWSResponse GetContent = GetContentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

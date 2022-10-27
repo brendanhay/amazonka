@@ -141,7 +141,8 @@ instance Core.AWSRequest SearchContent where
   type
     AWSResponse SearchContent =
       SearchContentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

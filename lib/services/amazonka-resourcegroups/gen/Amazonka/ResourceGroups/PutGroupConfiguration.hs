@@ -125,7 +125,8 @@ instance Core.AWSRequest PutGroupConfiguration where
   type
     AWSResponse PutGroupConfiguration =
       PutGroupConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

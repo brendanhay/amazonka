@@ -153,7 +153,8 @@ createAlert_action = Lens.lens (\CreateAlert' {action} -> action) (\s@CreateAler
 
 instance Core.AWSRequest CreateAlert where
   type AWSResponse CreateAlert = CreateAlertResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

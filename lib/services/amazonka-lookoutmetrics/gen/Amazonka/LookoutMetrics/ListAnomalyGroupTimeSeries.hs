@@ -134,7 +134,8 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
   type
     AWSResponse ListAnomalyGroupTimeSeries =
       ListAnomalyGroupTimeSeriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

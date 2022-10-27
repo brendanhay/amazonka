@@ -92,7 +92,8 @@ putFeedback_anomalyGroupTimeSeriesFeedback = Lens.lens (\PutFeedback' {anomalyGr
 
 instance Core.AWSRequest PutFeedback where
   type AWSResponse PutFeedback = PutFeedbackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -94,7 +94,8 @@ instance Core.AWSRequest GetMinuteUsage where
   type
     AWSResponse GetMinuteUsage =
       GetMinuteUsageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

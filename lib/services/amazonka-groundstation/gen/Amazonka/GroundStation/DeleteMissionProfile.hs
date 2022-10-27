@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteMissionProfile where
   type
     AWSResponse DeleteMissionProfile =
       MissionProfileIdResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

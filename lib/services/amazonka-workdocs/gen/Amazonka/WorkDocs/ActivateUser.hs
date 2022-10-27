@@ -92,7 +92,8 @@ activateUser_userId = Lens.lens (\ActivateUser' {userId} -> userId) (\s@Activate
 
 instance Core.AWSRequest ActivateUser where
   type AWSResponse ActivateUser = ActivateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

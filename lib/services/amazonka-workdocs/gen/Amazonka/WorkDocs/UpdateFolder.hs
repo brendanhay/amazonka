@@ -120,7 +120,8 @@ updateFolder_folderId = Lens.lens (\UpdateFolder' {folderId} -> folderId) (\s@Up
 
 instance Core.AWSRequest UpdateFolder where
   type AWSResponse UpdateFolder = UpdateFolderResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response = Response.receiveNull UpdateFolderResponse'
 
 instance Prelude.Hashable UpdateFolder where

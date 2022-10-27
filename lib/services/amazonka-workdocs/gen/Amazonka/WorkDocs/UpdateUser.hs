@@ -165,7 +165,8 @@ updateUser_userId = Lens.lens (\UpdateUser' {userId} -> userId) (\s@UpdateUser' 
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

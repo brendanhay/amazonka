@@ -114,7 +114,8 @@ instance Core.AWSRequest RemoveResourcePermission where
   type
     AWSResponse RemoveResourcePermission =
       RemoveResourcePermissionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveResourcePermissionResponse'

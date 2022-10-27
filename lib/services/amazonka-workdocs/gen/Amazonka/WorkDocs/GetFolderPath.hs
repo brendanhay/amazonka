@@ -131,7 +131,8 @@ instance Core.AWSRequest GetFolderPath where
   type
     AWSResponse GetFolderPath =
       GetFolderPathResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

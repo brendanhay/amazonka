@@ -228,7 +228,8 @@ instance Core.AWSRequest DescribeActivities where
   type
     AWSResponse DescribeActivities =
       DescribeActivitiesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

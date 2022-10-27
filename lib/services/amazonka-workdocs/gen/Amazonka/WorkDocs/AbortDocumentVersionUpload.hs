@@ -106,7 +106,8 @@ instance Core.AWSRequest AbortDocumentVersionUpload where
   type
     AWSResponse AbortDocumentVersionUpload =
       AbortDocumentVersionUploadResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       AbortDocumentVersionUploadResponse'

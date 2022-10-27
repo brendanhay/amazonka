@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteComment where
   type
     AWSResponse DeleteComment =
       DeleteCommentResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCommentResponse'
 

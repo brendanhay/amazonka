@@ -101,7 +101,8 @@ createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLa
 
 instance Core.AWSRequest CreateLabels where
   type AWSResponse CreateLabels = CreateLabelsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

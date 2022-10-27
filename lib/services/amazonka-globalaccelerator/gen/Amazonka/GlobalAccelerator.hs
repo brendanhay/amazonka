@@ -139,6 +139,9 @@ module Amazonka.GlobalAccelerator
     -- ** InvalidPortRangeException
     _InvalidPortRangeException,
 
+    -- ** TransactionInProgressException
+    _TransactionInProgressException,
+
     -- * Waiters
     -- $waiters
 
@@ -150,6 +153,12 @@ module Amazonka.GlobalAccelerator
     newAddCustomRoutingEndpoints,
     AddCustomRoutingEndpointsResponse (AddCustomRoutingEndpointsResponse'),
     newAddCustomRoutingEndpointsResponse,
+
+    -- ** AddEndpoints
+    AddEndpoints (AddEndpoints'),
+    newAddEndpoints,
+    AddEndpointsResponse (AddEndpointsResponse'),
+    newAddEndpointsResponse,
 
     -- ** AdvertiseByoipCidr
     AdvertiseByoipCidr (AdvertiseByoipCidr'),
@@ -367,6 +376,12 @@ module Amazonka.GlobalAccelerator
     RemoveCustomRoutingEndpointsResponse (RemoveCustomRoutingEndpointsResponse'),
     newRemoveCustomRoutingEndpointsResponse,
 
+    -- ** RemoveEndpoints
+    RemoveEndpoints (RemoveEndpoints'),
+    newRemoveEndpoints,
+    RemoveEndpointsResponse (RemoveEndpointsResponse'),
+    newRemoveEndpointsResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -534,6 +549,10 @@ module Amazonka.GlobalAccelerator
     EndpointGroup (EndpointGroup'),
     newEndpointGroup,
 
+    -- ** EndpointIdentifier
+    EndpointIdentifier (EndpointIdentifier'),
+    newEndpointIdentifier,
+
     -- ** IpSet
     IpSet (IpSet'),
     newIpSet,
@@ -565,6 +584,7 @@ module Amazonka.GlobalAccelerator
 where
 
 import Amazonka.GlobalAccelerator.AddCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.AddEndpoints
 import Amazonka.GlobalAccelerator.AdvertiseByoipCidr
 import Amazonka.GlobalAccelerator.AllowCustomRoutingTraffic
 import Amazonka.GlobalAccelerator.CreateAccelerator
@@ -602,6 +622,7 @@ import Amazonka.GlobalAccelerator.ListListeners
 import Amazonka.GlobalAccelerator.ListTagsForResource
 import Amazonka.GlobalAccelerator.ProvisionByoipCidr
 import Amazonka.GlobalAccelerator.RemoveCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.RemoveEndpoints
 import Amazonka.GlobalAccelerator.TagResource
 import Amazonka.GlobalAccelerator.Types
 import Amazonka.GlobalAccelerator.UntagResource

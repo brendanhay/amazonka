@@ -21,6 +21,13 @@ module Amazonka.GlobalAccelerator.Lens
     addCustomRoutingEndpointsResponse_endpointGroupArn,
     addCustomRoutingEndpointsResponse_httpStatus,
 
+    -- ** AddEndpoints
+    addEndpoints_endpointConfigurations,
+    addEndpoints_endpointGroupArn,
+    addEndpointsResponse_endpointDescriptions,
+    addEndpointsResponse_endpointGroupArn,
+    addEndpointsResponse_httpStatus,
+
     -- ** AdvertiseByoipCidr
     advertiseByoipCidr_cidr,
     advertiseByoipCidrResponse_byoipCidr,
@@ -248,6 +255,10 @@ module Amazonka.GlobalAccelerator.Lens
     removeCustomRoutingEndpoints_endpointIds,
     removeCustomRoutingEndpoints_endpointGroupArn,
 
+    -- ** RemoveEndpoints
+    removeEndpoints_endpointIdentifiers,
+    removeEndpoints_endpointGroupArn,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -435,6 +446,10 @@ module Amazonka.GlobalAccelerator.Lens
     endpointGroup_healthCheckPort,
     endpointGroup_endpointGroupArn,
 
+    -- ** EndpointIdentifier
+    endpointIdentifier_clientIPPreservationEnabled,
+    endpointIdentifier_endpointId,
+
     -- ** IpSet
     ipSet_ipFamily,
     ipSet_ipAddressFamily,
@@ -473,6 +488,7 @@ module Amazonka.GlobalAccelerator.Lens
 where
 
 import Amazonka.GlobalAccelerator.AddCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.AddEndpoints
 import Amazonka.GlobalAccelerator.AdvertiseByoipCidr
 import Amazonka.GlobalAccelerator.AllowCustomRoutingTraffic
 import Amazonka.GlobalAccelerator.CreateAccelerator
@@ -509,6 +525,7 @@ import Amazonka.GlobalAccelerator.ListListeners
 import Amazonka.GlobalAccelerator.ListTagsForResource
 import Amazonka.GlobalAccelerator.ProvisionByoipCidr
 import Amazonka.GlobalAccelerator.RemoveCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.RemoveEndpoints
 import Amazonka.GlobalAccelerator.TagResource
 import Amazonka.GlobalAccelerator.Types.Accelerator
 import Amazonka.GlobalAccelerator.Types.AcceleratorAttributes
@@ -528,6 +545,7 @@ import Amazonka.GlobalAccelerator.Types.DestinationPortMapping
 import Amazonka.GlobalAccelerator.Types.EndpointConfiguration
 import Amazonka.GlobalAccelerator.Types.EndpointDescription
 import Amazonka.GlobalAccelerator.Types.EndpointGroup
+import Amazonka.GlobalAccelerator.Types.EndpointIdentifier
 import Amazonka.GlobalAccelerator.Types.IpSet
 import Amazonka.GlobalAccelerator.Types.Listener
 import Amazonka.GlobalAccelerator.Types.PortMapping

@@ -239,7 +239,8 @@ instance Core.AWSRequest UpdateEndpointGroup where
   type
     AWSResponse UpdateEndpointGroup =
       UpdateEndpointGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

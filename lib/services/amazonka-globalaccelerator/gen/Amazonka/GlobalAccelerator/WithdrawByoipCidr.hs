@@ -86,7 +86,8 @@ instance Core.AWSRequest WithdrawByoipCidr where
   type
     AWSResponse WithdrawByoipCidr =
       WithdrawByoipCidrResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

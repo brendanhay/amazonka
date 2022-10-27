@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteListener where
   type
     AWSResponse DeleteListener =
       DeleteListenerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteListenerResponse'
 

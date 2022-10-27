@@ -63,11 +63,11 @@ data Accelerator = Accelerator'
     -- .dualstack.awsglobalaccelerator.com. For example:
     -- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
     --
-    -- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+    -- Note: Global Accelerator also assigns a default DNS name, @DnsName@, to
     -- your accelerator that points just to the static IPv4 addresses.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS addressing in Global Accelerator>
     -- in the /Global Accelerator Developer Guide/.
     dualStackDnsName :: Prelude.Maybe Prelude.Text,
     -- | A history of changes that you make to an accelerator in Global
@@ -82,12 +82,12 @@ data Accelerator = Accelerator'
     -- a1234567890abcdef.awsglobalaccelerator.com.
     --
     -- If you have a dual-stack accelerator, you also have a second DNS name,
-    -- DualStackDnsName, that points to both the A record and the AAAA record
-    -- for all four static addresses for the accelerator (two IPv4 addresses
-    -- and two IPv6 addresses).
+    -- @DualStackDnsName@, that points to both the A record and the AAAA record
+    -- for all four static addresses for the accelerator: two IPv4 addresses
+    -- and two IPv6 addresses.
     --
     -- For more information about the default DNS name, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
     -- in the /Global Accelerator Developer Guide/.
     dnsName :: Prelude.Maybe Prelude.Text,
     -- | The IP address type that an accelerator supports. For a standard
@@ -133,11 +133,11 @@ data Accelerator = Accelerator'
 -- .dualstack.awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
 --
--- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+-- Note: Global Accelerator also assigns a default DNS name, @DnsName@, to
 -- your accelerator that points just to the static IPv4 addresses.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 --
 -- 'events', 'accelerator_events' - A history of changes that you make to an accelerator in Global
@@ -152,12 +152,12 @@ data Accelerator = Accelerator'
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
 -- If you have a dual-stack accelerator, you also have a second DNS name,
--- DualStackDnsName, that points to both the A record and the AAAA record
--- for all four static addresses for the accelerator (two IPv4 addresses
--- and two IPv6 addresses).
+-- @DualStackDnsName@, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator: two IPv4 addresses
+-- and two IPv6 addresses.
 --
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 --
 -- 'ipAddressType', 'accelerator_ipAddressType' - The IP address type that an accelerator supports. For a standard
@@ -222,11 +222,11 @@ accelerator_lastModifiedTime = Lens.lens (\Accelerator' {lastModifiedTime} -> la
 -- .dualstack.awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
 --
--- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+-- Note: Global Accelerator also assigns a default DNS name, @DnsName@, to
 -- your accelerator that points just to the static IPv4 addresses.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 accelerator_dualStackDnsName :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
 accelerator_dualStackDnsName = Lens.lens (\Accelerator' {dualStackDnsName} -> dualStackDnsName) (\s@Accelerator' {} a -> s {dualStackDnsName = a} :: Accelerator)
@@ -245,12 +245,12 @@ accelerator_events = Lens.lens (\Accelerator' {events} -> events) (\s@Accelerato
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
 -- If you have a dual-stack accelerator, you also have a second DNS name,
--- DualStackDnsName, that points to both the A record and the AAAA record
--- for all four static addresses for the accelerator (two IPv4 addresses
--- and two IPv6 addresses).
+-- @DualStackDnsName@, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator: two IPv4 addresses
+-- and two IPv6 addresses.
 --
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 accelerator_dnsName :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
 accelerator_dnsName = Lens.lens (\Accelerator' {dnsName} -> dnsName) (\s@Accelerator' {} a -> s {dnsName = a} :: Accelerator)

@@ -6,6 +6,7 @@ haskell_library(
     srcs = [
         "gen/Amazonka/GlobalAccelerator.hs",
         "gen/Amazonka/GlobalAccelerator/AddCustomRoutingEndpoints.hs",
+        "gen/Amazonka/GlobalAccelerator/AddEndpoints.hs",
         "gen/Amazonka/GlobalAccelerator/AdvertiseByoipCidr.hs",
         "gen/Amazonka/GlobalAccelerator/AllowCustomRoutingTraffic.hs",
         "gen/Amazonka/GlobalAccelerator/CreateAccelerator.hs",
@@ -43,6 +44,7 @@ haskell_library(
         "gen/Amazonka/GlobalAccelerator/ListTagsForResource.hs",
         "gen/Amazonka/GlobalAccelerator/ProvisionByoipCidr.hs",
         "gen/Amazonka/GlobalAccelerator/RemoveCustomRoutingEndpoints.hs",
+        "gen/Amazonka/GlobalAccelerator/RemoveEndpoints.hs",
         "gen/Amazonka/GlobalAccelerator/TagResource.hs",
         "gen/Amazonka/GlobalAccelerator/Types.hs",
         "gen/Amazonka/GlobalAccelerator/Types/Accelerator.hs",
@@ -69,6 +71,7 @@ haskell_library(
         "gen/Amazonka/GlobalAccelerator/Types/EndpointConfiguration.hs",
         "gen/Amazonka/GlobalAccelerator/Types/EndpointDescription.hs",
         "gen/Amazonka/GlobalAccelerator/Types/EndpointGroup.hs",
+        "gen/Amazonka/GlobalAccelerator/Types/EndpointIdentifier.hs",
         "gen/Amazonka/GlobalAccelerator/Types/HealthCheckProtocol.hs",
         "gen/Amazonka/GlobalAccelerator/Types/HealthState.hs",
         "gen/Amazonka/GlobalAccelerator/Types/IpAddressFamily.hs",

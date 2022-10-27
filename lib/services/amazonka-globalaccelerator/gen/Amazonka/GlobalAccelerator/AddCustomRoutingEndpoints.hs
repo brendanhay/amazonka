@@ -114,7 +114,8 @@ instance Core.AWSRequest AddCustomRoutingEndpoints where
   type
     AWSResponse AddCustomRoutingEndpoints =
       AddCustomRoutingEndpointsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

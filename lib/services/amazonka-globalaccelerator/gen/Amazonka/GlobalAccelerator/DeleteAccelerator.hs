@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteAccelerator where
   type
     AWSResponse DeleteAccelerator =
       DeleteAcceleratorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAcceleratorResponse'
 

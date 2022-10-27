@@ -92,7 +92,8 @@ instance Core.AWSRequest RemoveCustomRoutingEndpoints where
   type
     AWSResponse RemoveCustomRoutingEndpoints =
       RemoveCustomRoutingEndpointsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveCustomRoutingEndpointsResponse'

@@ -35,6 +35,7 @@ module Amazonka.GlobalAccelerator.Types
     _InternalServiceErrorException,
     _IncorrectCidrStateException,
     _InvalidPortRangeException,
+    _TransactionInProgressException,
 
     -- * AcceleratorStatus
     AcceleratorStatus (..),
@@ -216,6 +217,12 @@ module Amazonka.GlobalAccelerator.Types
     endpointGroup_healthCheckPort,
     endpointGroup_endpointGroupArn,
 
+    -- * EndpointIdentifier
+    EndpointIdentifier (..),
+    newEndpointIdentifier,
+    endpointIdentifier_clientIPPreservationEnabled,
+    endpointIdentifier_endpointId,
+
     -- * IpSet
     IpSet (..),
     newIpSet,
@@ -292,6 +299,7 @@ import Amazonka.GlobalAccelerator.Types.DestinationPortMapping
 import Amazonka.GlobalAccelerator.Types.EndpointConfiguration
 import Amazonka.GlobalAccelerator.Types.EndpointDescription
 import Amazonka.GlobalAccelerator.Types.EndpointGroup
+import Amazonka.GlobalAccelerator.Types.EndpointIdentifier
 import Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
 import Amazonka.GlobalAccelerator.Types.HealthState
 import Amazonka.GlobalAccelerator.Types.IpAddressFamily
@@ -318,6 +326,8 @@ defaultService =
       Core._serviceEndpointPrefix = "globalaccelerator",
       Core._serviceSigningName = "globalaccelerator",
       Core._serviceVersion = "2018-08-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -512,3 +522,11 @@ _InvalidPortRangeException =
   Core._MatchServiceError
     defaultService
     "InvalidPortRangeException"
+
+-- | There\'s already a transaction in progress. Another transaction can\'t
+-- be processed.
+_TransactionInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionInProgressException"

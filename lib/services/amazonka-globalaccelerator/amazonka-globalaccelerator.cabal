@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.GlobalAccelerator
     Amazonka.GlobalAccelerator.AddCustomRoutingEndpoints
+    Amazonka.GlobalAccelerator.AddEndpoints
     Amazonka.GlobalAccelerator.AdvertiseByoipCidr
     Amazonka.GlobalAccelerator.AllowCustomRoutingTraffic
     Amazonka.GlobalAccelerator.CreateAccelerator
@@ -82,6 +83,7 @@ library
     Amazonka.GlobalAccelerator.ListTagsForResource
     Amazonka.GlobalAccelerator.ProvisionByoipCidr
     Amazonka.GlobalAccelerator.RemoveCustomRoutingEndpoints
+    Amazonka.GlobalAccelerator.RemoveEndpoints
     Amazonka.GlobalAccelerator.TagResource
     Amazonka.GlobalAccelerator.Types
     Amazonka.GlobalAccelerator.Types.Accelerator
@@ -108,6 +110,7 @@ library
     Amazonka.GlobalAccelerator.Types.EndpointConfiguration
     Amazonka.GlobalAccelerator.Types.EndpointDescription
     Amazonka.GlobalAccelerator.Types.EndpointGroup
+    Amazonka.GlobalAccelerator.Types.EndpointIdentifier
     Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
     Amazonka.GlobalAccelerator.Types.HealthState
     Amazonka.GlobalAccelerator.Types.IpAddressFamily

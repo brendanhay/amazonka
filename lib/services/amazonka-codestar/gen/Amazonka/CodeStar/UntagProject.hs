@@ -83,7 +83,8 @@ untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' 
 
 instance Core.AWSRequest UntagProject where
   type AWSResponse UntagProject = UntagProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

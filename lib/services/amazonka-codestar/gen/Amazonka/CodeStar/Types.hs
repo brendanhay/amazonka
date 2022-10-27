@@ -143,6 +143,8 @@ defaultService =
       Core._serviceEndpointPrefix = "codestar",
       Core._serviceSigningName = "codestar",
       Core._serviceVersion = "2017-04-19",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

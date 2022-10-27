@@ -84,7 +84,8 @@ tagProject_tags = Lens.lens (\TagProject' {tags} -> tags) (\s@TagProject' {} a -
 
 instance Core.AWSRequest TagProject where
   type AWSResponse TagProject = TagProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteApplication where
   type
     AWSResponse DeleteApplication =
       DeleteApplicationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

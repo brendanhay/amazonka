@@ -102,7 +102,8 @@ syncResource_resource = Lens.lens (\SyncResource' {resource} -> resource) (\s@Sy
 
 instance Core.AWSRequest SyncResource where
   type AWSResponse SyncResource = SyncResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

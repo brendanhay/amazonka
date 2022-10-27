@@ -100,7 +100,8 @@ instance Core.AWSRequest DisassociateAttributeGroup where
   type
     AWSResponse DisassociateAttributeGroup =
       DisassociateAttributeGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

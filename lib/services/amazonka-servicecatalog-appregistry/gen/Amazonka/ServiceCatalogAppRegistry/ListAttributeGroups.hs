@@ -119,7 +119,8 @@ instance Core.AWSRequest ListAttributeGroups where
   type
     AWSResponse ListAttributeGroups =
       ListAttributeGroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

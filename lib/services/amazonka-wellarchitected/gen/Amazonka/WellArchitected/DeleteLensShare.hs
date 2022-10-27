@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteLensShare where
   type
     AWSResponse DeleteLensShare =
       DeleteLensShareResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteLensShareResponse'
 

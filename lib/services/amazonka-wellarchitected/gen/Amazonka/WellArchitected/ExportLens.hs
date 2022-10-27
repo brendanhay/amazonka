@@ -101,7 +101,8 @@ exportLens_lensAlias = Lens.lens (\ExportLens' {lensAlias} -> lensAlias) (\s@Exp
 
 instance Core.AWSRequest ExportLens where
   type AWSResponse ExportLens = ExportLensResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -120,7 +120,8 @@ instance Core.AWSRequest ListLensShares where
   type
     AWSResponse ListLensShares =
       ListLensSharesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

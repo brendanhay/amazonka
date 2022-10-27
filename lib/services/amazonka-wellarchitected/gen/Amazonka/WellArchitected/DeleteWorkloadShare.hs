@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteWorkloadShare where
   type
     AWSResponse DeleteWorkloadShare =
       DeleteWorkloadShareResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteWorkloadShareResponse'
 

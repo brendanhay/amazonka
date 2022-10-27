@@ -90,7 +90,8 @@ getMilestone_milestoneNumber = Lens.lens (\GetMilestone' {milestoneNumber} -> mi
 
 instance Core.AWSRequest GetMilestone where
   type AWSResponse GetMilestone = GetMilestoneResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

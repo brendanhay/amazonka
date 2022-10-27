@@ -93,7 +93,8 @@ instance Core.AWSRequest DisassociateLenses where
   type
     AWSResponse DisassociateLenses =
       DisassociateLensesResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull DisassociateLensesResponse'
 

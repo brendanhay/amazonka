@@ -109,7 +109,8 @@ instance Core.AWSRequest UpgradeLensReview where
   type
     AWSResponse UpgradeLensReview =
       UpgradeLensReviewResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpgradeLensReviewResponse'
 

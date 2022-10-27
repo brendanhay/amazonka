@@ -76,7 +76,8 @@ getWorkload_workloadId = Lens.lens (\GetWorkload' {workloadId} -> workloadId) (\
 
 instance Core.AWSRequest GetWorkload where
   type AWSResponse GetWorkload = GetWorkloadResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

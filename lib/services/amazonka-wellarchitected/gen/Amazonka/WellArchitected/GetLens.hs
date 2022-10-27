@@ -86,7 +86,8 @@ getLens_lensAlias = Lens.lens (\GetLens' {lensAlias} -> lensAlias) (\s@GetLens' 
 
 instance Core.AWSRequest GetLens where
   type AWSResponse GetLens = GetLensResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

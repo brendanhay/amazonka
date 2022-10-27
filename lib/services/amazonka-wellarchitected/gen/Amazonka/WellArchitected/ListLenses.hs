@@ -115,7 +115,8 @@ listLenses_lensStatus = Lens.lens (\ListLenses' {lensStatus} -> lensStatus) (\s@
 
 instance Core.AWSRequest ListLenses where
   type AWSResponse ListLenses = ListLensesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

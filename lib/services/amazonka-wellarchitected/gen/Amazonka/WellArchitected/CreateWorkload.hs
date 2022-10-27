@@ -226,7 +226,8 @@ instance Core.AWSRequest CreateWorkload where
   type
     AWSResponse CreateWorkload =
       CreateWorkloadResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

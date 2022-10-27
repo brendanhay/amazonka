@@ -113,7 +113,8 @@ getAnswer_questionId = Lens.lens (\GetAnswer' {questionId} -> questionId) (\s@Ge
 
 instance Core.AWSRequest GetAnswer where
   type AWSResponse GetAnswer = GetAnswerResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

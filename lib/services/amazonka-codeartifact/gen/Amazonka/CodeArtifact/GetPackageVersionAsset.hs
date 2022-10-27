@@ -226,7 +226,8 @@ instance Core.AWSRequest GetPackageVersionAsset where
   type
     AWSResponse GetPackageVersionAsset =
       GetPackageVersionAssetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

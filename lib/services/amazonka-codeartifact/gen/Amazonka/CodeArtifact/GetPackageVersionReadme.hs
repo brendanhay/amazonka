@@ -203,7 +203,8 @@ instance Core.AWSRequest GetPackageVersionReadme where
   type
     AWSResponse GetPackageVersionReadme =
       GetPackageVersionReadmeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

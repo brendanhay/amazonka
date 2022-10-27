@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeRepository where
   type
     AWSResponse DescribeRepository =
       DescribeRepositoryResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

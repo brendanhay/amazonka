@@ -256,7 +256,8 @@ instance Core.AWSPager ListPackages where
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

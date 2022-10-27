@@ -313,6 +313,8 @@ defaultService =
       Core._serviceEndpointPrefix = "query.timestream",
       Core._serviceSigningName = "timestream",
       Core._serviceVersion = "2018-11-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

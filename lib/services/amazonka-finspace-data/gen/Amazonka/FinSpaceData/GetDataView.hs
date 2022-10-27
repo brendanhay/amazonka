@@ -103,7 +103,8 @@ getDataView_datasetId = Lens.lens (\GetDataView' {datasetId} -> datasetId) (\s@G
 
 instance Core.AWSRequest GetDataView where
   type AWSResponse GetDataView = GetDataViewResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

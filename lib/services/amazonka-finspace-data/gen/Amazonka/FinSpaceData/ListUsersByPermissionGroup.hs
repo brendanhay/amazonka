@@ -105,7 +105,8 @@ instance Core.AWSRequest ListUsersByPermissionGroup where
   type
     AWSResponse ListUsersByPermissionGroup =
       ListUsersByPermissionGroupResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

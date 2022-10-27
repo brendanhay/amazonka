@@ -128,7 +128,8 @@ instance Core.AWSRequest ListChangesets where
   type
     AWSResponse ListChangesets =
       ListChangesetsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -95,7 +95,8 @@ deleteUser_authenticationType = Lens.lens (\DeleteUser' {authenticationType} -> 
 
 instance Core.AWSRequest DeleteUser where
   type AWSResponse DeleteUser = DeleteUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

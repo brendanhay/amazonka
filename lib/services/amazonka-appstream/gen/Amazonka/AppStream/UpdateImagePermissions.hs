@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateImagePermissions where
   type
     AWSResponse UpdateImagePermissions =
       UpdateImagePermissionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

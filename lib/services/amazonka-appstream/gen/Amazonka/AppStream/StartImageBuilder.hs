@@ -93,7 +93,8 @@ instance Core.AWSRequest StartImageBuilder where
   type
     AWSResponse StartImageBuilder =
       StartImageBuilderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

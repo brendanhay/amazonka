@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateAppBlock where
   type
     AWSResponse CreateAppBlock =
       CreateAppBlockResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

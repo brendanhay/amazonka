@@ -123,7 +123,8 @@ copyImage_destinationRegion = Lens.lens (\CopyImage' {destinationRegion} -> dest
 
 instance Core.AWSRequest CopyImage where
   type AWSResponse CopyImage = CopyImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

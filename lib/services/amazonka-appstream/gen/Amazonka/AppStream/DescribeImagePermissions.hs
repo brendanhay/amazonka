@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeImagePermissions where
   type
     AWSResponse DescribeImagePermissions =
       DescribeImagePermissionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

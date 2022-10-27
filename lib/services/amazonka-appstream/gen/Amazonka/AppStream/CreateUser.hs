@@ -154,7 +154,8 @@ createUser_authenticationType = Lens.lens (\CreateUser' {authenticationType} -> 
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

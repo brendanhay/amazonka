@@ -106,7 +106,8 @@ enableUser_authenticationType = Lens.lens (\EnableUser' {authenticationType} -> 
 
 instance Core.AWSRequest EnableUser where
   type AWSResponse EnableUser = EnableUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

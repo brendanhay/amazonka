@@ -76,7 +76,8 @@ deleteStack_name = Lens.lens (\DeleteStack' {name} -> name) (\s@DeleteStack' {} 
 
 instance Core.AWSRequest DeleteStack where
   type AWSResponse DeleteStack = DeleteStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

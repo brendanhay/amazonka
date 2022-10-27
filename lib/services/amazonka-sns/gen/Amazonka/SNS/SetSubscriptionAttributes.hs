@@ -217,7 +217,8 @@ instance Core.AWSRequest SetSubscriptionAttributes where
   type
     AWSResponse SetSubscriptionAttributes =
       SetSubscriptionAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SetSubscriptionAttributesResponse'

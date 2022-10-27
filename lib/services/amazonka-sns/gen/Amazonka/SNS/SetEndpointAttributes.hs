@@ -135,7 +135,8 @@ instance Core.AWSRequest SetEndpointAttributes where
   type
     AWSResponse SetEndpointAttributes =
       SetEndpointAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetEndpointAttributesResponse'
 

@@ -98,7 +98,8 @@ instance Core.AWSRequest GetSMSAttributes where
   type
     AWSResponse GetSMSAttributes =
       GetSMSAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSMSAttributesResult"

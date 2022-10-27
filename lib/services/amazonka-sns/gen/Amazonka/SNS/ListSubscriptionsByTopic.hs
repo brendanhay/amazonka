@@ -123,7 +123,8 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
   type
     AWSResponse ListSubscriptionsByTopic =
       ListSubscriptionsByTopicResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSubscriptionsByTopicResult"

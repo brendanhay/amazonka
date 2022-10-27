@@ -127,7 +127,8 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
   type
     AWSResponse ListSMSSandboxPhoneNumbers =
       ListSMSSandboxPhoneNumbersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSMSSandboxPhoneNumbersResult"

@@ -80,7 +80,8 @@ instance Core.AWSRequest GetTopicAttributes where
   type
     AWSResponse GetTopicAttributes =
       GetTopicAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTopicAttributesResult"

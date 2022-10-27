@@ -483,7 +483,8 @@ publish_message = Lens.lens (\Publish' {message} -> message) (\s@Publish' {} a -
 
 instance Core.AWSRequest Publish where
   type AWSResponse Publish = PublishResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishResult"

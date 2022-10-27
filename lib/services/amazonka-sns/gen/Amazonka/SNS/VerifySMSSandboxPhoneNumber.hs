@@ -108,7 +108,8 @@ instance Core.AWSRequest VerifySMSSandboxPhoneNumber where
   type
     AWSResponse VerifySMSSandboxPhoneNumber =
       VerifySMSSandboxPhoneNumberResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "VerifySMSSandboxPhoneNumberResult"

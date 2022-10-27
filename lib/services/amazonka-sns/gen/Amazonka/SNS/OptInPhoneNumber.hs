@@ -81,7 +81,8 @@ instance Core.AWSRequest OptInPhoneNumber where
   type
     AWSResponse OptInPhoneNumber =
       OptInPhoneNumberResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "OptInPhoneNumberResult"

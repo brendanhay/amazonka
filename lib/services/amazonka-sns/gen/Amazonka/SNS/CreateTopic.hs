@@ -310,7 +310,8 @@ createTopic_name = Lens.lens (\CreateTopic' {name} -> name) (\s@CreateTopic' {} 
 
 instance Core.AWSRequest CreateTopic where
   type AWSResponse CreateTopic = CreateTopicResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateTopicResult"

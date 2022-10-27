@@ -87,7 +87,8 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
   type
     AWSResponse CheckIfPhoneNumberIsOptedOut =
       CheckIfPhoneNumberIsOptedOutResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CheckIfPhoneNumberIsOptedOutResult"

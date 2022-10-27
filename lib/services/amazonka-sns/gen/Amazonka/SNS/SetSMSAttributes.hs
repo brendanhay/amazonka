@@ -317,7 +317,8 @@ instance Core.AWSRequest SetSMSAttributes where
   type
     AWSResponse SetSMSAttributes =
       SetSMSAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSMSAttributesResult"

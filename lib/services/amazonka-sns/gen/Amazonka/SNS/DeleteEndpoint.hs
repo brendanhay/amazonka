@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteEndpoint where
   type
     AWSResponse DeleteEndpoint =
       DeleteEndpointResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteEndpointResponse'
 

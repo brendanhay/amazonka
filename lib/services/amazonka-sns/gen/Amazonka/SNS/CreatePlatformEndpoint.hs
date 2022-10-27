@@ -155,7 +155,8 @@ instance Core.AWSRequest CreatePlatformEndpoint where
   type
     AWSResponse CreatePlatformEndpoint =
       CreatePlatformEndpointResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreatePlatformEndpointResult"

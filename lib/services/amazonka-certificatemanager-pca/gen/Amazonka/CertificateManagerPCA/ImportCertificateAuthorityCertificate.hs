@@ -251,7 +251,8 @@ instance
     AWSResponse
       ImportCertificateAuthorityCertificate =
       ImportCertificateAuthorityCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       ImportCertificateAuthorityCertificateResponse'

@@ -41,8 +41,7 @@ data OcspConfiguration = OcspConfiguration'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html Customizing Online Certificate Status Protocol (OCSP)>
-    -- in the /Certificate Manager Private Certificate Authority (PCA) User
-    -- Guide/.
+    -- in the /Private Certificate Authority (PCA) User Guide/.
     ocspCustomCname :: Prelude.Maybe Prelude.Text,
     -- | Flag enabling use of the Online Certificate Status Protocol (OCSP) for
     -- validating certificate revocation status.
@@ -68,8 +67,7 @@ data OcspConfiguration = OcspConfiguration'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html Customizing Online Certificate Status Protocol (OCSP)>
--- in the /Certificate Manager Private Certificate Authority (PCA) User
--- Guide/.
+-- in the /Private Certificate Authority (PCA) User Guide/.
 --
 -- 'enabled', 'ocspConfiguration_enabled' - Flag enabling use of the Online Certificate Status Protocol (OCSP) for
 -- validating certificate revocation status.
@@ -94,8 +92,7 @@ newOcspConfiguration pEnabled_ =
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html Customizing Online Certificate Status Protocol (OCSP)>
--- in the /Certificate Manager Private Certificate Authority (PCA) User
--- Guide/.
+-- in the /Private Certificate Authority (PCA) User Guide/.
 ocspConfiguration_ocspCustomCname :: Lens.Lens' OcspConfiguration (Prelude.Maybe Prelude.Text)
 ocspConfiguration_ocspCustomCname = Lens.lens (\OcspConfiguration' {ocspCustomCname} -> ocspCustomCname) (\s@OcspConfiguration' {} a -> s {ocspCustomCname = a} :: OcspConfiguration)
 

@@ -140,7 +140,8 @@ putPolicy_policy = Lens.lens (\PutPolicy' {policy} -> policy) (\s@PutPolicy' {} 
 
 instance Core.AWSRequest PutPolicy where
   type AWSResponse PutPolicy = PutPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutPolicyResponse'
 
 instance Prelude.Hashable PutPolicy where

@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.CertificateAuthority where
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityUsageMode
 import Amazonka.CertificateManagerPCA.Types.FailureReason
 import Amazonka.CertificateManagerPCA.Types.KeyStorageSecurityStandard
 import Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
@@ -59,6 +60,13 @@ data CertificateAuthority = CertificateAuthority'
     -- message \"A certificate authority cannot be created in this region with
     -- the specified security standard.\"
     keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
+    -- | Specifies whether the CA issues general-purpose certificates that
+    -- typically require a revocation mechanism, or short-lived certificates
+    -- that may optionally omit revocation because they expire quickly.
+    -- Short-lived certificate validity is limited to seven days.
+    --
+    -- The default value is GENERAL_PURPOSE.
+    usageMode :: Prelude.Maybe CertificateAuthorityUsageMode,
     -- | Date and time at which your private CA was last updated.
     lastStateChangeAt :: Prelude.Maybe Core.POSIX,
     -- | Serial number of your private CA.
@@ -114,6 +122,13 @@ data CertificateAuthority = CertificateAuthority'
 -- message \"A certificate authority cannot be created in this region with
 -- the specified security standard.\"
 --
+-- 'usageMode', 'certificateAuthority_usageMode' - Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
+--
 -- 'lastStateChangeAt', 'certificateAuthority_lastStateChangeAt' - Date and time at which your private CA was last updated.
 --
 -- 'serial', 'certificateAuthority_serial' - Serial number of your private CA.
@@ -149,6 +164,7 @@ newCertificateAuthority =
   CertificateAuthority'
     { type' = Prelude.Nothing,
       keyStorageSecurityStandard = Prelude.Nothing,
+      usageMode = Prelude.Nothing,
       lastStateChangeAt = Prelude.Nothing,
       serial = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -180,6 +196,15 @@ certificateAuthority_type = Lens.lens (\CertificateAuthority' {type'} -> type') 
 -- the specified security standard.\"
 certificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
 certificateAuthority_keyStorageSecurityStandard = Lens.lens (\CertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CertificateAuthority)
+
+-- | Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
+certificateAuthority_usageMode :: Lens.Lens' CertificateAuthority (Prelude.Maybe CertificateAuthorityUsageMode)
+certificateAuthority_usageMode = Lens.lens (\CertificateAuthority' {usageMode} -> usageMode) (\s@CertificateAuthority' {} a -> s {usageMode = a} :: CertificateAuthority)
 
 -- | Date and time at which your private CA was last updated.
 certificateAuthority_lastStateChangeAt :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
@@ -243,6 +268,7 @@ instance Core.FromJSON CertificateAuthority where
           CertificateAuthority'
             Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "KeyStorageSecurityStandard")
+            Prelude.<*> (x Core..:? "UsageMode")
             Prelude.<*> (x Core..:? "LastStateChangeAt")
             Prelude.<*> (x Core..:? "Serial")
             Prelude.<*> (x Core..:? "Arn")
@@ -261,6 +287,7 @@ instance Prelude.Hashable CertificateAuthority where
   hashWithSalt _salt CertificateAuthority' {..} =
     _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` keyStorageSecurityStandard
+      `Prelude.hashWithSalt` usageMode
       `Prelude.hashWithSalt` lastStateChangeAt
       `Prelude.hashWithSalt` serial
       `Prelude.hashWithSalt` arn
@@ -278,6 +305,7 @@ instance Prelude.NFData CertificateAuthority where
   rnf CertificateAuthority' {..} =
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
+      `Prelude.seq` Prelude.rnf usageMode
       `Prelude.seq` Prelude.rnf lastStateChangeAt
       `Prelude.seq` Prelude.rnf serial
       `Prelude.seq` Prelude.rnf arn

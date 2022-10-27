@@ -55,6 +55,9 @@ module Amazonka.CertificateManagerPCA.Types
     -- * CertificateAuthorityType
     CertificateAuthorityType (..),
 
+    -- * CertificateAuthorityUsageMode
+    CertificateAuthorityUsageMode (..),
+
     -- * ExtendedKeyUsageType
     ExtendedKeyUsageType (..),
 
@@ -127,6 +130,7 @@ module Amazonka.CertificateManagerPCA.Types
     newCertificateAuthority,
     certificateAuthority_type,
     certificateAuthority_keyStorageSecurityStandard,
+    certificateAuthority_usageMode,
     certificateAuthority_lastStateChangeAt,
     certificateAuthority_serial,
     certificateAuthority_arn,
@@ -293,6 +297,7 @@ import Amazonka.CertificateManagerPCA.Types.CertificateAuthority
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityUsageMode
 import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
 import Amazonka.CertificateManagerPCA.Types.CsrExtensions
 import Amazonka.CertificateManagerPCA.Types.CustomAttribute
@@ -336,6 +341,8 @@ defaultService =
       Core._serviceEndpointPrefix = "acm-pca",
       Core._serviceSigningName = "acm-pca",
       Core._serviceVersion = "2017-08-22",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

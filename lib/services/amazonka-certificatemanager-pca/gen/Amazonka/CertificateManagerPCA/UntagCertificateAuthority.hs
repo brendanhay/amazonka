@@ -110,7 +110,8 @@ instance Core.AWSRequest UntagCertificateAuthority where
   type
     AWSResponse UntagCertificateAuthority =
       UntagCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UntagCertificateAuthorityResponse'

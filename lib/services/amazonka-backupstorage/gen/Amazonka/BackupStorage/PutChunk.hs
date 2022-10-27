@@ -157,7 +157,8 @@ putChunk_data = Lens.lens (\PutChunk' {data'} -> data') (\s@PutChunk' {} a -> s 
 
 instance Core.AWSRequest PutChunk where
   type AWSResponse PutChunk = PutChunkResponse
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

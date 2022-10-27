@@ -144,7 +144,8 @@ listObjects_storageJobId = Lens.lens (\ListObjects' {storageJobId} -> storageJob
 
 instance Core.AWSRequest ListObjects where
   type AWSResponse ListObjects = ListObjectsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

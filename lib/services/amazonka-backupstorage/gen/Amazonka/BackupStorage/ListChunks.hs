@@ -110,7 +110,8 @@ listChunks_objectToken = Lens.lens (\ListChunks' {objectToken} -> objectToken) (
 
 instance Core.AWSRequest ListChunks where
   type AWSResponse ListChunks = ListChunksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

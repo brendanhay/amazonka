@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteMedicalVocabulary where
   type
     AWSResponse DeleteMedicalVocabulary =
       DeleteMedicalVocabularyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteMedicalVocabularyResponse'

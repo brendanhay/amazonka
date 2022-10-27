@@ -147,7 +147,8 @@ instance Core.AWSRequest ListVocabularies where
   type
     AWSResponse ListVocabularies =
       ListVocabulariesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

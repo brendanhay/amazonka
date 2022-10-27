@@ -441,7 +441,8 @@ instance Core.AWSRequest ModifyDBCluster where
   type
     AWSResponse ModifyDBCluster =
       ModifyDBClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterResult"

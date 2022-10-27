@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateDBSubnetGroup where
   type
     AWSResponse CreateDBSubnetGroup =
       CreateDBSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBSubnetGroupResult"

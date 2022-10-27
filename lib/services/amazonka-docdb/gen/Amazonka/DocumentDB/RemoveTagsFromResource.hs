@@ -91,7 +91,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
   type
     AWSResponse RemoveTagsFromResource =
       RemoveTagsFromResourceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveTagsFromResourceResponse'

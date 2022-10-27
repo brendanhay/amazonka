@@ -93,7 +93,8 @@ instance Core.AWSRequest AddTagsToResource where
   type
     AWSResponse AddTagsToResource =
       AddTagsToResourceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddTagsToResourceResponse'
 

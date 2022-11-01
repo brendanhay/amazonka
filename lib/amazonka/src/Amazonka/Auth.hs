@@ -64,7 +64,7 @@ import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySess
 import Amazonka.Auth.SSO (fromSSO)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity, fromWebIdentityEnv)
 import Amazonka.EC2.Metadata
-import Amazonka.Env (Env, EnvNoAuth, Env' (..))
+import Amazonka.Env (Env, Env' (..), EnvNoAuth)
 import Amazonka.Lens (catching_)
 import Amazonka.Prelude
 import Amazonka.Types

@@ -36,10 +36,12 @@ module Amazonka.Types
     Abbrev,
     Service (..),
     serviceSigner,
+    serviceS3AddressingStyle,
     serviceEndpoint,
     serviceTimeout,
     serviceCheck,
     serviceRetry,
+    S3AddressingStyle (..),
 
     -- * Requests
     AWSRequest (..),
@@ -147,10 +149,10 @@ import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
+import Data.Time (defaultTimeLocale, formatTime, parseTimeM)
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)
-import Data.Time (defaultTimeLocale, parseTimeM, formatTime)
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -447,6 +449,10 @@ data Service = Service
     _serviceSigner :: Signer,
     _serviceSigningName :: ByteString,
     _serviceVersion :: ByteString,
+    -- | Only service bindings using the s3vhost request plugin
+    -- (configured in the generator) will care about this field. It is
+    -- ignored otherwise.
+    _serviceS3AddressingStyle :: S3AddressingStyle,
     _serviceEndpointPrefix :: ByteString,
     _serviceEndpoint :: (Region -> Endpoint),
     _serviceTimeout :: (Maybe Seconds),
@@ -456,8 +462,36 @@ data Service = Service
   }
   deriving stock (Generic)
 
+-- | When to rewrite S3 requests into /virtual-hosted style/.
+--
+-- Requests to S3 can be rewritten to access buckets by setting the
+-- @Host:@ header, which allows you to point a @CNAME@ record at an
+-- Amazon S3 Bucket.
+--
+-- Non-S3 object stores usually do not support this, which is usually
+-- the only time you'll need to change this.
+--
+-- /See:/ [Virtual hosting of buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html)
+-- in the Amazon S3 User Guide.
+--
+-- /See:/ [Changing the Addressing Style](https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/s3.html#changing-the-addressing-style)
+-- for the corresponding option in Boto 3.
+data S3AddressingStyle
+  = -- | Rewrite S3 request paths only if they can be expressed
+    -- as a DNS label. This is the default.
+    S3AddressingStyleAuto
+  | -- | Do not ever rewrite S3 request paths.
+    S3AddressingStylePath
+  | -- | Force virtual hosted style rewrites without checking the
+    -- bucket name.
+    S3AddressingStyleVirtual
+  deriving stock (Eq, Show, Generic)
+
 serviceSigner :: Lens' Service Signer
 serviceSigner = Lens.lens _serviceSigner (\s a -> s {_serviceSigner = a})
+
+serviceS3AddressingStyle :: Lens' Service S3AddressingStyle
+serviceS3AddressingStyle = Lens.lens _serviceS3AddressingStyle (\s a -> s {_serviceS3AddressingStyle = a})
 
 serviceEndpoint :: Setter' Service Endpoint
 serviceEndpoint = Lens.sets (\f s -> s {_serviceEndpoint = \r -> f (_serviceEndpoint s r)})
@@ -525,7 +559,12 @@ class AWSRequest a where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: *
 
-  request :: a -> Request a
+  -- | The AWS service where requests of this type are sent. Overrides
+  -- in an Amazonka @Env@ are applied during before assembly into a
+  -- 'Request'.
+  service :: Proxy a -> Service
+
+  request :: Service -> a -> Request a
   response ::
     MonadResource m =>
     Logger ->
@@ -825,15 +864,16 @@ instance Hashable Seconds where
   hashWithSalt salt = hashWithSalt salt . toRational . toSeconds
 
 instance FromText Seconds where
-  fromText t = maybe (Left err) (Right . Seconds)
-    $ parseTimeM False defaultTimeLocale diffTimeFormatString str
-   where
-    str = Text.unpack t
-    err =
-      "Seconds value failed to parse as expected format ("
-        <> diffTimeFormatString
-        <> "): "
-        <> str
+  fromText t =
+    maybe (Left err) (Right . Seconds) $
+      parseTimeM False defaultTimeLocale diffTimeFormatString str
+    where
+      str = Text.unpack t
+      err =
+        "Seconds value failed to parse as expected format ("
+          <> diffTimeFormatString
+          <> "): "
+          <> str
 
 instance ToText Seconds where
   toText =
@@ -846,7 +886,6 @@ instance ToText Seconds where
 -- number of seconds, %Es omits the decimal point unless padding is specified."
 --
 -- We also use 'defaultTimeLocale', which means @0.1@ and not @0,1@.
---
 diffTimeFormatString :: String
 diffTimeFormatString = "%Es"
 

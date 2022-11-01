@@ -19,7 +19,7 @@ where
 
 import Amazonka.Data.Body (isStreaming)
 import Amazonka.Env
-import Amazonka.Lens (to, (%~), (^.), (^?), _Just)
+import Amazonka.Lens (to, (^.), (^?), _Just)
 import Amazonka.Logger
 import Amazonka.Prelude
 import Amazonka.Types
@@ -154,10 +154,11 @@ httpRequest env@Env {..} x =
     proxy :: Request a -> Proxy a
     proxy _ = Proxy
 
-configureRequest :: AWSRequest a => Env' withAuth -> a -> Request a
+configureRequest :: forall a withAuth. (AWSRequest a) => Env' withAuth -> a -> Request a
 configureRequest env x =
   let overrides = envOverride env
-   in request x & requestService %~ appEndo (getDual overrides)
+      srv = appEndo (getDual overrides) $ service (Proxy :: Proxy a)
+   in request srv x
 
 retryStream :: Request a -> Retry.RetryPolicy
 retryStream x =

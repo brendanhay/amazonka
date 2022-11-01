@@ -31,7 +31,9 @@ newtype Decrypted a = Decrypted
 instance AWSRequest (Decrypt S3.GetObject) where
   type AWSResponse (Decrypt S3.GetObject) = Decrypted S3.GetObjectResponse
 
-  request (Decrypt x) = coerce (request x)
+  service _ = service (Proxy :: Proxy S3.GetObject)
+
+  request srv (Decrypt x) = coerce (request srv x)
 
   response l s p r =
     Except.runExceptT $ do

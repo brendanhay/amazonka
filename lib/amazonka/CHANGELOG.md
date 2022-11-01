@@ -105,6 +105,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka-core`: Allow customisation of S3 addressing styles like Boto 3 can (thanks @basvandijk, @ivb-supercede)
+[\#832](https://github.com/brendanhay/amazonka/pull/832)
 - `amazonka-core`: Correctly split error-codes-in-headers at the first colon
 [\#830](https://github.com/brendanhay/amazonka/pull/830)
 - `amazonka-core`: Correctly double-url-encode request paths when computing V4 signatures

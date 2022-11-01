@@ -220,11 +220,11 @@ prodData m s st = (,fields) <$> mk
       -- Instance declarations which are generated from the Inst data type
       let insts =
             concat
-              [ shapeInsts (m ^. protocol) (s ^. relMode) []
-              -- Handle the two oddballs that switch from Derive to
-              -- Inst halfway through generation.
-              , [ IsNFData [] | DNFData <- derives ]
-              , [ IsHashable [] | DHashable <- derives]
+              [ shapeInsts (m ^. protocol) (s ^. relMode) [],
+                -- Handle the two oddballs that switch from Derive to
+                -- Inst halfway through generation.
+                [IsNFData [] | DNFData <- derives],
+                [IsHashable [] | DHashable <- derives]
               ]
       instInsts <- for insts $ \inst ->
         pp None $ instD (instToQualifiedText inst) n Nothing

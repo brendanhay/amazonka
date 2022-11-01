@@ -58,8 +58,10 @@ envelope = _encEnvelope
 instance AWSRequest a => AWSRequest (Encrypted a) where
   type AWSResponse (Encrypted a) = AWSResponse a
 
-  request (Encrypted x xs l e) =
-    coerce (request x)
+  service _ = service (Proxy :: Proxy a)
+
+  request srv (Encrypted x xs l e) =
+    coerce (request srv x)
       & requestBody %~ f
       & requestHeaders <>~ hs
     where

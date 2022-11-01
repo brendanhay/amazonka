@@ -216,6 +216,7 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
           field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . Lens.to str),
           field (unqual "Core._serviceSigningName") (m ^. signingName . Lens.to str),
           field (unqual "Core._serviceVersion") (m ^. apiVersion . Lens.to str),
+          field (unqual "Core._serviceS3AddressingStyle") (var "Core.S3AddressingStyleAuto"),
           field (unqual "Core._serviceEndpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
           field (unqual "Core._serviceTimeout") (Exts.app justE (Exts.intE 70)),
           field (unqual "Core._serviceCheck") (var "Core.statusSuccess"),
@@ -374,7 +375,8 @@ requestD c m h (a, as) (b, bs) =
     (identifier a)
     $ Just
       [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funD "request" (requestF c m h a as),
+        funArgsD "service" ["_"] (var (m ^. serviceConfig)),
+        funArgsD "request" ["srv"] (requestF c m h a as),
         funD "response" (responseE (m ^. protocol) b bs)
       ]
 
@@ -813,7 +815,7 @@ requestF c meta h r is =
       HashMap.lookup (identifier r) (c ^. operationPlugins)
         <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
 
-    e = Exts.app v (var n)
+    e = Exts.app v (var "srv")
 
     v =
       var
@@ -838,7 +840,6 @@ requestF c meta h r is =
 
     m = h ^. method
     p = meta ^. protocol
-    n = meta ^. serviceConfig
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.

@@ -148,7 +148,8 @@ updatePolicy_policyId = Lens.lens (\UpdatePolicy' {policyId} -> policyId) (\s@Up
 
 instance Core.AWSRequest UpdatePolicy where
   type AWSResponse UpdatePolicy = UpdatePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

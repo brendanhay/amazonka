@@ -237,7 +237,8 @@ instance Core.AWSRequest CreateResolver where
   type
     AWSResponse CreateResolver =
       CreateResolverResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

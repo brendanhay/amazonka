@@ -149,7 +149,8 @@ instance Core.AWSRequest DeleteAnalysis where
   type
     AWSResponse DeleteAnalysis =
       DeleteAnalysisResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

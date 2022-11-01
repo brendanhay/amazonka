@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateCustomEntityType where
   type
     AWSResponse CreateCustomEntityType =
       CreateCustomEntityTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

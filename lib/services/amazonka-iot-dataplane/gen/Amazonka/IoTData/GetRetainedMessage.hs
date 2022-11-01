@@ -94,7 +94,8 @@ instance Core.AWSRequest GetRetainedMessage where
   type
     AWSResponse GetRetainedMessage =
       GetRetainedMessageResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

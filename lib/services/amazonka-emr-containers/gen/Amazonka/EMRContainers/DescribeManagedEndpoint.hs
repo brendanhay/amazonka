@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeManagedEndpoint where
   type
     AWSResponse DescribeManagedEndpoint =
       DescribeManagedEndpointResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -113,7 +113,8 @@ instance
     AWSResponse
       UpdateConfigurationSetEventDestination =
       UpdateConfigurationSetEventDestinationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

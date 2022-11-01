@@ -161,7 +161,8 @@ instance Core.AWSPager ListOrders where
 
 instance Core.AWSRequest ListOrders where
   type AWSResponse ListOrders = ListOrdersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

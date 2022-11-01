@@ -104,7 +104,8 @@ getPolicy_policyArn = Lens.lens (\GetPolicy' {policyArn} -> policyArn) (\s@GetPo
 
 instance Core.AWSRequest GetPolicy where
   type AWSResponse GetPolicy = GetPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPolicyResult"

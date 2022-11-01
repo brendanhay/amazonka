@@ -158,7 +158,8 @@ instance Core.AWSRequest UploadSSHPublicKey where
   type
     AWSResponse UploadSSHPublicKey =
       UploadSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UploadSSHPublicKeyResult"

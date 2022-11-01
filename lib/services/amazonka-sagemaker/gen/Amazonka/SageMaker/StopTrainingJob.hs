@@ -83,7 +83,8 @@ instance Core.AWSRequest StopTrainingJob where
   type
     AWSResponse StopTrainingJob =
       StopTrainingJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopTrainingJobResponse'
 

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.DeviceJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Panorama.Types.JobType
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job that runs on a device.
@@ -34,7 +35,9 @@ data DeviceJob = DeviceJob'
     -- | The name of the target device
     deviceName :: Prelude.Maybe Prelude.Text,
     -- | The job\'s ID.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The job\'s type.
+    jobType :: Prelude.Maybe JobType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +56,8 @@ data DeviceJob = DeviceJob'
 -- 'deviceName', 'deviceJob_deviceName' - The name of the target device
 --
 -- 'jobId', 'deviceJob_jobId' - The job\'s ID.
+--
+-- 'jobType', 'deviceJob_jobType' - The job\'s type.
 newDeviceJob ::
   DeviceJob
 newDeviceJob =
@@ -60,7 +65,8 @@ newDeviceJob =
     { createdTime = Prelude.Nothing,
       deviceId = Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobId = Prelude.Nothing,
+      jobType = Prelude.Nothing
     }
 
 -- | When the job was created.
@@ -79,6 +85,10 @@ deviceJob_deviceName = Lens.lens (\DeviceJob' {deviceName} -> deviceName) (\s@De
 deviceJob_jobId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
 deviceJob_jobId = Lens.lens (\DeviceJob' {jobId} -> jobId) (\s@DeviceJob' {} a -> s {jobId = a} :: DeviceJob)
 
+-- | The job\'s type.
+deviceJob_jobType :: Lens.Lens' DeviceJob (Prelude.Maybe JobType)
+deviceJob_jobType = Lens.lens (\DeviceJob' {jobType} -> jobType) (\s@DeviceJob' {} a -> s {jobType = a} :: DeviceJob)
+
 instance Core.FromJSON DeviceJob where
   parseJSON =
     Core.withObject
@@ -89,6 +99,7 @@ instance Core.FromJSON DeviceJob where
             Prelude.<*> (x Core..:? "DeviceId")
             Prelude.<*> (x Core..:? "DeviceName")
             Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "JobType")
       )
 
 instance Prelude.Hashable DeviceJob where
@@ -97,6 +108,7 @@ instance Prelude.Hashable DeviceJob where
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobType
 
 instance Prelude.NFData DeviceJob where
   rnf DeviceJob' {..} =
@@ -104,3 +116,4 @@ instance Prelude.NFData DeviceJob where
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobType

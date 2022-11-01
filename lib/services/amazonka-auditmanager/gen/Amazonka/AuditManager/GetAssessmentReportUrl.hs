@@ -94,7 +94,8 @@ instance Core.AWSRequest GetAssessmentReportUrl where
   type
     AWSResponse GetAssessmentReportUrl =
       GetAssessmentReportUrlResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

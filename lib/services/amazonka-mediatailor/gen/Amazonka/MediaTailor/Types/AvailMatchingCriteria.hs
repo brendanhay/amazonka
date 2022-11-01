@@ -28,27 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 -- the criteria defined by the dynamic variables. This gives you granular
 -- control over which ad break to place the prefetched ads into.
 --
--- As an example, let\'s say that you set DynamicVariable to scte.event_id
--- and Operator to EQUALS, and your playback configuration has an ADS URL
--- of
--- https:\/\/my.ads.server.com\/path?&podId=[scte.avail_num]&event=[scte.event_id]&duration=[session.avail_duration_secs].
+-- As an example, let\'s say that you set @DynamicVariable@ to
+-- @scte.event_id@ and @Operator@ to @EQUALS@, and your playback
+-- configuration has an ADS URL of
+-- @https:\/\/my.ads.server.com\/path?&podId=[scte.avail_num]&event=[scte.event_id]&duration=[session.avail_duration_secs]@.
 -- And the prefetch request to the ADS contains these values
--- https:\/\/my.ads.server.com\/path?&podId=3&event=my-awesome-event&duration=30.
+-- @https:\/\/my.ads.server.com\/path?&podId=3&event=my-awesome-event&duration=30@.
 -- MediaTailor will only insert the prefetched ads into the ad break if has
--- a SCTE marker with an event id of my-awesome-event, since it must match
--- the event id that MediaTailor uses to query the ADS.
+-- a SCTE marker with an event id of @my-awesome-event@, since it must
+-- match the event id that MediaTailor uses to query the ADS.
 --
--- You can specify up to five AvailMatchingCriteria. If you specify
--- multiple AvailMatchingCriteria, MediaTailor combines them to match using
--- a logical AND. You can model logical OR combinations by creating
--- multiple prefetch schedules.
+-- You can specify up to five @AvailMatchingCriteria@. If you specify
+-- multiple @AvailMatchingCriteria@, MediaTailor combines them to match
+-- using a logical @AND@. You can model logical @OR@ combinations by
+-- creating multiple prefetch schedules.
 --
 -- /See:/ 'newAvailMatchingCriteria' smart constructor.
 data AvailMatchingCriteria = AvailMatchingCriteria'
-  { -- | For the DynamicVariable specified in AvailMatchingCriteria, the Operator
-    -- that is used for the comparison.
-    operator :: Operator,
-    -- | The dynamic variable(s) that MediaTailor should use as avail matching
+  { -- | The dynamic variable(s) that MediaTailor should use as avail matching
     -- criteria. MediaTailor only places the prefetched ads into the avail if
     -- the avail matches the criteria defined by the dynamic variable. For
     -- information about dynamic variables, see
@@ -56,7 +53,10 @@ data AvailMatchingCriteria = AvailMatchingCriteria'
     -- in the /MediaTailor User Guide/.
     --
     -- You can include up to 100 dynamic variables.
-    dynamicVariable :: Prelude.Text
+    dynamicVariable :: Prelude.Text,
+    -- | For the @DynamicVariable@ specified in @AvailMatchingCriteria@, the
+    -- Operator that is used for the comparison.
+    operator :: Operator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,9 +68,6 @@ data AvailMatchingCriteria = AvailMatchingCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operator', 'availMatchingCriteria_operator' - For the DynamicVariable specified in AvailMatchingCriteria, the Operator
--- that is used for the comparison.
---
 -- 'dynamicVariable', 'availMatchingCriteria_dynamicVariable' - The dynamic variable(s) that MediaTailor should use as avail matching
 -- criteria. MediaTailor only places the prefetched ads into the avail if
 -- the avail matches the criteria defined by the dynamic variable. For
@@ -79,22 +76,21 @@ data AvailMatchingCriteria = AvailMatchingCriteria'
 -- in the /MediaTailor User Guide/.
 --
 -- You can include up to 100 dynamic variables.
+--
+-- 'operator', 'availMatchingCriteria_operator' - For the @DynamicVariable@ specified in @AvailMatchingCriteria@, the
+-- Operator that is used for the comparison.
 newAvailMatchingCriteria ::
-  -- | 'operator'
-  Operator ->
   -- | 'dynamicVariable'
   Prelude.Text ->
+  -- | 'operator'
+  Operator ->
   AvailMatchingCriteria
-newAvailMatchingCriteria pOperator_ pDynamicVariable_ =
+newAvailMatchingCriteria pDynamicVariable_ pOperator_ =
   AvailMatchingCriteria'
-    { operator = pOperator_,
-      dynamicVariable = pDynamicVariable_
+    { dynamicVariable =
+        pDynamicVariable_,
+      operator = pOperator_
     }
-
--- | For the DynamicVariable specified in AvailMatchingCriteria, the Operator
--- that is used for the comparison.
-availMatchingCriteria_operator :: Lens.Lens' AvailMatchingCriteria Operator
-availMatchingCriteria_operator = Lens.lens (\AvailMatchingCriteria' {operator} -> operator) (\s@AvailMatchingCriteria' {} a -> s {operator = a} :: AvailMatchingCriteria)
 
 -- | The dynamic variable(s) that MediaTailor should use as avail matching
 -- criteria. MediaTailor only places the prefetched ads into the avail if
@@ -107,32 +103,37 @@ availMatchingCriteria_operator = Lens.lens (\AvailMatchingCriteria' {operator} -
 availMatchingCriteria_dynamicVariable :: Lens.Lens' AvailMatchingCriteria Prelude.Text
 availMatchingCriteria_dynamicVariable = Lens.lens (\AvailMatchingCriteria' {dynamicVariable} -> dynamicVariable) (\s@AvailMatchingCriteria' {} a -> s {dynamicVariable = a} :: AvailMatchingCriteria)
 
+-- | For the @DynamicVariable@ specified in @AvailMatchingCriteria@, the
+-- Operator that is used for the comparison.
+availMatchingCriteria_operator :: Lens.Lens' AvailMatchingCriteria Operator
+availMatchingCriteria_operator = Lens.lens (\AvailMatchingCriteria' {operator} -> operator) (\s@AvailMatchingCriteria' {} a -> s {operator = a} :: AvailMatchingCriteria)
+
 instance Core.FromJSON AvailMatchingCriteria where
   parseJSON =
     Core.withObject
       "AvailMatchingCriteria"
       ( \x ->
           AvailMatchingCriteria'
-            Prelude.<$> (x Core..: "Operator")
-            Prelude.<*> (x Core..: "DynamicVariable")
+            Prelude.<$> (x Core..: "DynamicVariable")
+            Prelude.<*> (x Core..: "Operator")
       )
 
 instance Prelude.Hashable AvailMatchingCriteria where
   hashWithSalt _salt AvailMatchingCriteria' {..} =
-    _salt `Prelude.hashWithSalt` operator
-      `Prelude.hashWithSalt` dynamicVariable
+    _salt `Prelude.hashWithSalt` dynamicVariable
+      `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData AvailMatchingCriteria where
   rnf AvailMatchingCriteria' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf dynamicVariable
+    Prelude.rnf dynamicVariable
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON AvailMatchingCriteria where
   toJSON AvailMatchingCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Operator" Core..= operator),
-            Prelude.Just
-              ("DynamicVariable" Core..= dynamicVariable)
+          [ Prelude.Just
+              ("DynamicVariable" Core..= dynamicVariable),
+            Prelude.Just ("Operator" Core..= operator)
           ]
       )

@@ -128,7 +128,8 @@ createImage_roleArn = Lens.lens (\CreateImage' {roleArn} -> roleArn) (\s@CreateI
 
 instance Core.AWSRequest CreateImage where
   type AWSResponse CreateImage = CreateImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

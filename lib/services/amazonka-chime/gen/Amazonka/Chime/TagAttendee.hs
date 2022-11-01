@@ -97,7 +97,8 @@ tagAttendee_tags = Lens.lens (\TagAttendee' {tags} -> tags) (\s@TagAttendee' {} 
 
 instance Core.AWSRequest TagAttendee where
   type AWSResponse TagAttendee = TagAttendeeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull TagAttendeeResponse'
 
 instance Prelude.Hashable TagAttendee where

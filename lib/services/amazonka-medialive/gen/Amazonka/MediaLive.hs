@@ -1146,6 +1146,9 @@ module Amazonka.MediaLive
     -- ** Scte35DeviceRestrictions
     Scte35DeviceRestrictions (..),
 
+    -- ** Scte35InputMode
+    Scte35InputMode (..),
+
     -- ** Scte35NoRegionalBlackoutFlag
     Scte35NoRegionalBlackoutFlag (..),
 
@@ -1460,6 +1463,10 @@ module Amazonka.MediaLive
     -- ** EncoderSettings
     EncoderSettings (EncoderSettings'),
     newEncoderSettings,
+
+    -- ** Esam
+    Esam (Esam'),
+    newEsam,
 
     -- ** FailoverCondition
     FailoverCondition (FailoverCondition'),
@@ -2004,6 +2011,10 @@ module Amazonka.MediaLive
     -- ** Scte35DescriptorSettings
     Scte35DescriptorSettings (Scte35DescriptorSettings'),
     newScte35DescriptorSettings,
+
+    -- ** Scte35InputScheduleActionSettings
+    Scte35InputScheduleActionSettings (Scte35InputScheduleActionSettings'),
+    newScte35InputScheduleActionSettings,
 
     -- ** Scte35ReturnToNetworkScheduleActionSettings
     Scte35ReturnToNetworkScheduleActionSettings (Scte35ReturnToNetworkScheduleActionSettings'),

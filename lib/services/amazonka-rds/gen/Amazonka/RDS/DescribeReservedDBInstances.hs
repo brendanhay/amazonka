@@ -276,7 +276,8 @@ instance Core.AWSRequest DescribeReservedDBInstances where
   type
     AWSResponse DescribeReservedDBInstances =
       DescribeReservedDBInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedDBInstancesResult"

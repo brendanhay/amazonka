@@ -113,7 +113,8 @@ instance Core.AWSRequest GetTemplateStep where
   type
     AWSResponse GetTemplateStep =
       GetTemplateStepResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

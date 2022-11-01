@@ -208,7 +208,8 @@ instance Core.AWSRequest ListAppImageConfigs where
   type
     AWSResponse ListAppImageConfigs =
       ListAppImageConfigsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -150,7 +150,8 @@ instance Core.AWSRequest ListTestGridSessions where
   type
     AWSResponse ListTestGridSessions =
       ListTestGridSessionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

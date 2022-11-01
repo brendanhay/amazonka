@@ -111,7 +111,8 @@ instance Core.AWSRequest EnableVpcClassicLink where
   type
     AWSResponse EnableVpcClassicLink =
       EnableVpcClassicLinkResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

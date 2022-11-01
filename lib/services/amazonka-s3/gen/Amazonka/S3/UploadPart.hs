@@ -563,9 +563,9 @@ uploadPart_body = Lens.lens (\UploadPart' {body} -> body) (\s@UploadPart' {} a -
 
 instance Core.AWSRequest UploadPart where
   type AWSResponse UploadPart = UploadPartResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putBody defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

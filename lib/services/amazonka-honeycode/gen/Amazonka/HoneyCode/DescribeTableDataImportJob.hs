@@ -141,7 +141,8 @@ instance Core.AWSRequest DescribeTableDataImportJob where
   type
     AWSResponse DescribeTableDataImportJob =
       DescribeTableDataImportJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

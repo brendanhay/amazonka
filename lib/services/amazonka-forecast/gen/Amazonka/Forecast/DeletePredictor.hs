@@ -76,7 +76,8 @@ instance Core.AWSRequest DeletePredictor where
   type
     AWSResponse DeletePredictor =
       DeletePredictorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeletePredictorResponse'
 

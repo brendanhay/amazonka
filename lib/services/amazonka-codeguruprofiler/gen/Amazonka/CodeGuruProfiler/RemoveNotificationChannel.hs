@@ -98,7 +98,8 @@ instance Core.AWSRequest RemoveNotificationChannel where
   type
     AWSResponse RemoveNotificationChannel =
       RemoveNotificationChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -280,7 +280,8 @@ createDomainName_domainName = Lens.lens (\CreateDomainName' {domainName} -> doma
 
 instance Core.AWSRequest CreateDomainName where
   type AWSResponse CreateDomainName = DomainName
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateUserPoolDomain where
   type
     AWSResponse CreateUserPoolDomain =
       CreateUserPoolDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

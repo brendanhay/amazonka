@@ -74,7 +74,8 @@ deleteAlert_alertArn = Lens.lens (\DeleteAlert' {alertArn} -> alertArn) (\s@Dele
 
 instance Core.AWSRequest DeleteAlert where
   type AWSResponse DeleteAlert = DeleteAlertResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

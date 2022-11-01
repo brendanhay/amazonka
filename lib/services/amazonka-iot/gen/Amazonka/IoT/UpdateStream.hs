@@ -118,7 +118,8 @@ updateStream_streamId = Lens.lens (\UpdateStream' {streamId} -> streamId) (\s@Up
 
 instance Core.AWSRequest UpdateStream where
   type AWSResponse UpdateStream = UpdateStreamResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

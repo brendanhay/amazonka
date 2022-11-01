@@ -81,7 +81,8 @@ instance Core.AWSRequest GetEmailChannel where
   type
     AWSResponse GetEmailChannel =
       GetEmailChannelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

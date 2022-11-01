@@ -96,7 +96,8 @@ getScene_workspaceId = Lens.lens (\GetScene' {workspaceId} -> workspaceId) (\s@G
 
 instance Core.AWSRequest GetScene where
   type AWSResponse GetScene = GetSceneResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

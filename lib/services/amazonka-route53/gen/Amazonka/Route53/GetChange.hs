@@ -90,7 +90,8 @@ getChange_id = Lens.lens (\GetChange' {id} -> id) (\s@GetChange' {} a -> s {id =
 
 instance Core.AWSRequest GetChange where
   type AWSResponse GetChange = GetChangeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

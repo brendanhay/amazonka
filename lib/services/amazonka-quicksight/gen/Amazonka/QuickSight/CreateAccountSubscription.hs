@@ -409,7 +409,8 @@ instance Core.AWSRequest CreateAccountSubscription where
   type
     AWSResponse CreateAccountSubscription =
       CreateAccountSubscriptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

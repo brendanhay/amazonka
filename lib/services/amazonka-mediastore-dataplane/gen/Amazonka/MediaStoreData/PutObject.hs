@@ -253,7 +253,8 @@ putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

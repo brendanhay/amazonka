@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteExplainability where
   type
     AWSResponse DeleteExplainability =
       DeleteExplainabilityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteExplainabilityResponse'
 

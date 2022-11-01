@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteVoiceConnectorGroup where
   type
     AWSResponse DeleteVoiceConnectorGroup =
       DeleteVoiceConnectorGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteVoiceConnectorGroupResponse'

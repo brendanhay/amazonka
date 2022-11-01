@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteLanguageModel where
   type
     AWSResponse DeleteLanguageModel =
       DeleteLanguageModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLanguageModelResponse'
 

@@ -88,7 +88,8 @@ instance Core.AWSRequest GetSubscriptionDefinition where
   type
     AWSResponse GetSubscriptionDefinition =
       GetSubscriptionDefinitionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,7 +76,8 @@ getTest_arn = Lens.lens (\GetTest' {arn} -> arn) (\s@GetTest' {} a -> s {arn = a
 
 instance Core.AWSRequest GetTest where
   type AWSResponse GetTest = GetTestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

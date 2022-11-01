@@ -82,7 +82,8 @@ deleteModel_apiId = Lens.lens (\DeleteModel' {apiId} -> apiId) (\s@DeleteModel' 
 
 instance Core.AWSRequest DeleteModel where
   type AWSResponse DeleteModel = DeleteModelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteModelResponse'
 
 instance Prelude.Hashable DeleteModel where

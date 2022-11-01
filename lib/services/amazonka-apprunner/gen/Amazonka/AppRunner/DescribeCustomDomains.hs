@@ -133,7 +133,8 @@ instance Core.AWSRequest DescribeCustomDomains where
   type
     AWSResponse DescribeCustomDomains =
       DescribeCustomDomainsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

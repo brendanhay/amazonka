@@ -105,7 +105,8 @@ instance Core.AWSRequest ConfigureLogs where
   type
     AWSResponse ConfigureLogs =
       ConfigureLogsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

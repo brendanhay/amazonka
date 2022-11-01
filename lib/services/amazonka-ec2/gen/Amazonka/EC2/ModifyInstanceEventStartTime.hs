@@ -126,7 +126,8 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
   type
     AWSResponse ModifyInstanceEventStartTime =
       ModifyInstanceEventStartTimeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

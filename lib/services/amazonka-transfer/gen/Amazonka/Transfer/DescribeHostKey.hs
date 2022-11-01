@@ -50,10 +50,10 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDescribeHostKey' smart constructor.
 data DescribeHostKey = DescribeHostKey'
-  { -- | Provide the ID of the server that contains the host key that you want
+  { -- | The identifier of the server that contains the host key that you want
     -- described.
     serverId :: Prelude.Text,
-    -- | Provide the ID of the host key that you want described.
+    -- | The identifier of the host key that you want described.
     hostKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,10 +66,10 @@ data DescribeHostKey = DescribeHostKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverId', 'describeHostKey_serverId' - Provide the ID of the server that contains the host key that you want
+-- 'serverId', 'describeHostKey_serverId' - The identifier of the server that contains the host key that you want
 -- described.
 --
--- 'hostKeyId', 'describeHostKey_hostKeyId' - Provide the ID of the host key that you want described.
+-- 'hostKeyId', 'describeHostKey_hostKeyId' - The identifier of the host key that you want described.
 newDescribeHostKey ::
   -- | 'serverId'
   Prelude.Text ->
@@ -82,12 +82,12 @@ newDescribeHostKey pServerId_ pHostKeyId_ =
       hostKeyId = pHostKeyId_
     }
 
--- | Provide the ID of the server that contains the host key that you want
+-- | The identifier of the server that contains the host key that you want
 -- described.
 describeHostKey_serverId :: Lens.Lens' DescribeHostKey Prelude.Text
 describeHostKey_serverId = Lens.lens (\DescribeHostKey' {serverId} -> serverId) (\s@DescribeHostKey' {} a -> s {serverId = a} :: DescribeHostKey)
 
--- | Provide the ID of the host key that you want described.
+-- | The identifier of the host key that you want described.
 describeHostKey_hostKeyId :: Lens.Lens' DescribeHostKey Prelude.Text
 describeHostKey_hostKeyId = Lens.lens (\DescribeHostKey' {hostKeyId} -> hostKeyId) (\s@DescribeHostKey' {} a -> s {hostKeyId = a} :: DescribeHostKey)
 
@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeHostKey where
   type
     AWSResponse DescribeHostKey =
       DescribeHostKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

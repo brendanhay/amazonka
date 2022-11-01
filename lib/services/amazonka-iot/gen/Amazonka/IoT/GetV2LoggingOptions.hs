@@ -67,7 +67,8 @@ instance Core.AWSRequest GetV2LoggingOptions where
   type
     AWSResponse GetV2LoggingOptions =
       GetV2LoggingOptionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateQuickConnectName where
   type
     AWSResponse UpdateQuickConnectName =
       UpdateQuickConnectNameResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQuickConnectNameResponse'

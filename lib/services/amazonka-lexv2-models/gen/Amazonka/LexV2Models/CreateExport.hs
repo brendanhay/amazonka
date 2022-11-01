@@ -122,7 +122,8 @@ createExport_fileFormat = Lens.lens (\CreateExport' {fileFormat} -> fileFormat) 
 
 instance Core.AWSRequest CreateExport where
   type AWSResponse CreateExport = CreateExportResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

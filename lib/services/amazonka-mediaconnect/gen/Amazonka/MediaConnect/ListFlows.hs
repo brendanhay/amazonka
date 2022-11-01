@@ -141,7 +141,8 @@ instance Core.AWSPager ListFlows where
 
 instance Core.AWSRequest ListFlows where
   type AWSResponse ListFlows = ListFlowsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

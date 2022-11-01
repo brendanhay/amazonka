@@ -75,7 +75,8 @@ deleteAction_actionName = Lens.lens (\DeleteAction' {actionName} -> actionName) 
 
 instance Core.AWSRequest DeleteAction where
   type AWSResponse DeleteAction = DeleteActionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -152,7 +152,8 @@ describeSlot_intentId = Lens.lens (\DescribeSlot' {intentId} -> intentId) (\s@De
 
 instance Core.AWSRequest DescribeSlot where
   type AWSResponse DescribeSlot = DescribeSlotResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

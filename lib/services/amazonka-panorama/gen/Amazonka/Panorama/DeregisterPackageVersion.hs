@@ -126,7 +126,8 @@ instance Core.AWSRequest DeregisterPackageVersion where
   type
     AWSResponse DeregisterPackageVersion =
       DeregisterPackageVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

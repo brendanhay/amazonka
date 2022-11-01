@@ -46,6 +46,8 @@ defaultService =
       Core._serviceEndpointPrefix = "ec2-instance-connect",
       Core._serviceSigningName = "ec2-instance-connect",
       Core._serviceVersion = "2018-04-02",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

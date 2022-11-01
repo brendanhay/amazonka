@@ -89,7 +89,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveNull UntagResourceResponse'
 

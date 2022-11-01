@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteCoreDevice where
   type
     AWSResponse DeleteCoreDevice =
       DeleteCoreDeviceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCoreDeviceResponse'
 

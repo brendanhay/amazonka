@@ -147,7 +147,8 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
   type
     AWSResponse DescribeInstanceRefreshes =
       DescribeInstanceRefreshesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeInstanceRefreshesResult"

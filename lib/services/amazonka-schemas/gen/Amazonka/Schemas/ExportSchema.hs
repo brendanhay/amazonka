@@ -114,7 +114,8 @@ exportSchema_type = Lens.lens (\ExportSchema' {type'} -> type') (\s@ExportSchema
 
 instance Core.AWSRequest ExportSchema where
   type AWSResponse ExportSchema = ExportSchemaResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

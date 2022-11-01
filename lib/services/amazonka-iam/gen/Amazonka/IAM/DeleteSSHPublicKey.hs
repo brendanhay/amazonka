@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteSSHPublicKey where
   type
     AWSResponse DeleteSSHPublicKey =
       DeleteSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteSSHPublicKeyResponse'
 

@@ -26,6 +26,7 @@ import Amazonka.DirectoryService.Types.DirectorySize
 import Amazonka.DirectoryService.Types.DirectoryStage
 import Amazonka.DirectoryService.Types.DirectoryType
 import Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription
+import Amazonka.DirectoryService.Types.OSVersion
 import Amazonka.DirectoryService.Types.OwnerDirectoryDescription
 import Amazonka.DirectoryService.Types.RadiusSettings
 import Amazonka.DirectoryService.Types.RadiusStatus
@@ -73,6 +74,8 @@ data DirectoryDescription = DirectoryDescription'
     -- information about a directory. This member is only present if the
     -- directory is a Simple AD or Managed Microsoft AD directory.
     vpcSettings :: Prelude.Maybe DirectoryVpcSettingsDescription,
+    -- | The operating system (OS) version of the directory.
+    osVersion :: Prelude.Maybe OSVersion,
     -- | Describes the Managed Microsoft AD directory in the directory owner
     -- account.
     ownerDirectoryDescription :: Prelude.Maybe OwnerDirectoryDescription,
@@ -157,6 +160,8 @@ data DirectoryDescription = DirectoryDescription'
 -- information about a directory. This member is only present if the
 -- directory is a Simple AD or Managed Microsoft AD directory.
 --
+-- 'osVersion', 'directoryDescription_osVersion' - The operating system (OS) version of the directory.
+--
 -- 'ownerDirectoryDescription', 'directoryDescription_ownerDirectoryDescription' - Describes the Managed Microsoft AD directory in the directory owner
 -- account.
 --
@@ -211,6 +216,7 @@ newDirectoryDescription =
       shareMethod = Prelude.Nothing,
       size = Prelude.Nothing,
       vpcSettings = Prelude.Nothing,
+      osVersion = Prelude.Nothing,
       ownerDirectoryDescription = Prelude.Nothing,
       edition = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -283,6 +289,10 @@ directoryDescription_size = Lens.lens (\DirectoryDescription' {size} -> size) (\
 -- directory is a Simple AD or Managed Microsoft AD directory.
 directoryDescription_vpcSettings :: Lens.Lens' DirectoryDescription (Prelude.Maybe DirectoryVpcSettingsDescription)
 directoryDescription_vpcSettings = Lens.lens (\DirectoryDescription' {vpcSettings} -> vpcSettings) (\s@DirectoryDescription' {} a -> s {vpcSettings = a} :: DirectoryDescription)
+
+-- | The operating system (OS) version of the directory.
+directoryDescription_osVersion :: Lens.Lens' DirectoryDescription (Prelude.Maybe OSVersion)
+directoryDescription_osVersion = Lens.lens (\DirectoryDescription' {osVersion} -> osVersion) (\s@DirectoryDescription' {} a -> s {osVersion = a} :: DirectoryDescription)
 
 -- | Describes the Managed Microsoft AD directory in the directory owner
 -- account.
@@ -367,6 +377,7 @@ instance Core.FromJSON DirectoryDescription where
             Prelude.<*> (x Core..:? "ShareMethod")
             Prelude.<*> (x Core..:? "Size")
             Prelude.<*> (x Core..:? "VpcSettings")
+            Prelude.<*> (x Core..:? "OsVersion")
             Prelude.<*> (x Core..:? "OwnerDirectoryDescription")
             Prelude.<*> (x Core..:? "Edition")
             Prelude.<*> (x Core..:? "Description")
@@ -396,6 +407,7 @@ instance Prelude.Hashable DirectoryDescription where
       `Prelude.hashWithSalt` shareMethod
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` osVersion
       `Prelude.hashWithSalt` ownerDirectoryDescription
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` description
@@ -424,6 +436,7 @@ instance Prelude.NFData DirectoryDescription where
       `Prelude.seq` Prelude.rnf shareMethod
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf vpcSettings
+      `Prelude.seq` Prelude.rnf osVersion
       `Prelude.seq` Prelude.rnf ownerDirectoryDescription
       `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf description
@@ -433,10 +446,12 @@ instance Prelude.NFData DirectoryDescription where
       `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf
         desiredNumberOfDomainControllers
-      `Prelude.seq` Prelude.rnf connectSettings
+      `Prelude.seq` Prelude.rnf
+        connectSettings
       `Prelude.seq` Prelude.rnf stageReason
       `Prelude.seq` Prelude.rnf
         stageLastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf dnsIpAddrs
+      `Prelude.seq` Prelude.rnf
+        dnsIpAddrs
       `Prelude.seq` Prelude.rnf
         shortName

@@ -117,7 +117,8 @@ instance Core.AWSRequest ListRegistries where
   type
     AWSResponse ListRegistries =
       ListRegistriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

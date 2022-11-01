@@ -71,7 +71,8 @@ deleteRoom_identifier = Lens.lens (\DeleteRoom' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest DeleteRoom where
   type AWSResponse DeleteRoom = DeleteRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteRoomResponse'
 
 instance Prelude.Hashable DeleteRoom where

@@ -153,7 +153,8 @@ createQueue_name = Lens.lens (\CreateQueue' {name} -> name) (\s@CreateQueue' {} 
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

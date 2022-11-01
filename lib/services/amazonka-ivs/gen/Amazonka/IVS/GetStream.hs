@@ -75,7 +75,8 @@ getStream_channelArn = Lens.lens (\GetStream' {channelArn} -> channelArn) (\s@Ge
 
 instance Core.AWSRequest GetStream where
   type AWSResponse GetStream = GetStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

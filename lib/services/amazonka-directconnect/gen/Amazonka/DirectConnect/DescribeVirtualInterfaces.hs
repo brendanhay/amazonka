@@ -96,7 +96,8 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
   type
     AWSResponse DescribeVirtualInterfaces =
       DescribeVirtualInterfacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

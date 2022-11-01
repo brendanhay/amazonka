@@ -88,7 +88,8 @@ forgetDevice_deviceKey = Lens.lens (\ForgetDevice' {deviceKey} -> deviceKey) (\s
 
 instance Core.AWSRequest ForgetDevice where
   type AWSResponse ForgetDevice = ForgetDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull ForgetDeviceResponse'
 
 instance Prelude.Hashable ForgetDevice where

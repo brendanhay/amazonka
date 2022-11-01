@@ -141,7 +141,8 @@ instance Core.AWSRequest GetServiceSetting where
   type
     AWSResponse GetServiceSetting =
       GetServiceSettingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

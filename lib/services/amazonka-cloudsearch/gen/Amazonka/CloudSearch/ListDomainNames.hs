@@ -61,7 +61,8 @@ instance Core.AWSRequest ListDomainNames where
   type
     AWSResponse ListDomainNames =
       ListDomainNamesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDomainNamesResult"

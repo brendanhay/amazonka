@@ -178,7 +178,8 @@ refreshCache_fileShareARN = Lens.lens (\RefreshCache' {fileShareARN} -> fileShar
 
 instance Core.AWSRequest RefreshCache where
   type AWSResponse RefreshCache = RefreshCacheResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

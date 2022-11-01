@@ -127,7 +127,8 @@ instance Core.AWSRequest ListFunctions where
   type
     AWSResponse ListFunctions =
       ListFunctionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

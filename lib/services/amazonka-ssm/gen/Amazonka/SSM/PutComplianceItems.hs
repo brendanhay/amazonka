@@ -252,7 +252,8 @@ instance Core.AWSRequest PutComplianceItems where
   type
     AWSResponse PutComplianceItems =
       PutComplianceItemsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

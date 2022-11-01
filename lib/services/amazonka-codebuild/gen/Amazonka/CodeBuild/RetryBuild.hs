@@ -97,7 +97,8 @@ retryBuild_id = Lens.lens (\RetryBuild' {id} -> id) (\s@RetryBuild' {} a -> s {i
 
 instance Core.AWSRequest RetryBuild where
   type AWSResponse RetryBuild = RetryBuildResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

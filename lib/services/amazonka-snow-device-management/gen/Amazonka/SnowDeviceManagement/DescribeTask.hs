@@ -83,7 +83,8 @@ describeTask_taskId = Lens.lens (\DescribeTask' {taskId} -> taskId) (\s@Describe
 
 instance Core.AWSRequest DescribeTask where
   type AWSResponse DescribeTask = DescribeTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

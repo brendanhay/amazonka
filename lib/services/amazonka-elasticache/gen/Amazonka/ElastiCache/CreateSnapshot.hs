@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateSnapshot where
   type
     AWSResponse CreateSnapshot =
       CreateSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateSnapshotResult"

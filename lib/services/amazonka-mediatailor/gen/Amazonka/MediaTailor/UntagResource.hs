@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from the specified playback configuration resource. You can
--- specify one or more tags to remove.
+-- The resource to untag.
 module Amazonka.MediaTailor.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -46,11 +45,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) for the playback configuration. You can
-    -- get this from the response to any playback configuration request.
+  { -- | The Amazon Resource Name (ARN) of the resource to untag.
     resourceArn :: Prelude.Text,
-    -- | A comma-separated list of the tag keys to remove from the playback
-    -- configuration.
+    -- | The tag keys associated with the resource.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,11 +60,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to untag.
 --
--- 'tagKeys', 'untagResource_tagKeys' - A comma-separated list of the tag keys to remove from the playback
--- configuration.
+-- 'tagKeys', 'untagResource_tagKeys' - The tag keys associated with the resource.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -78,13 +73,11 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- | The Amazon Resource Name (ARN) of the resource to untag.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | A comma-separated list of the tag keys to remove from the playback
--- configuration.
+-- | The tag keys associated with the resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
@@ -92,7 +85,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull UntagResourceResponse'
 

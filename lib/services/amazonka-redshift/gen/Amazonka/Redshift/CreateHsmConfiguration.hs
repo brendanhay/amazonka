@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateHsmConfiguration where
   type
     AWSResponse CreateHsmConfiguration =
       CreateHsmConfigurationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateHsmConfigurationResult"

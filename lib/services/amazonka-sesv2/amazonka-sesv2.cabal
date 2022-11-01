@@ -73,6 +73,7 @@ library
     Amazonka.SESV2.GetContactList
     Amazonka.SESV2.GetCustomVerificationEmailTemplate
     Amazonka.SESV2.GetDedicatedIp
+    Amazonka.SESV2.GetDedicatedIpPool
     Amazonka.SESV2.GetDedicatedIps
     Amazonka.SESV2.GetDeliverabilityDashboardOptions
     Amazonka.SESV2.GetDeliverabilityTestReport
@@ -140,6 +141,7 @@ library
     Amazonka.SESV2.Types.DailyVolume
     Amazonka.SESV2.Types.DataFormat
     Amazonka.SESV2.Types.DedicatedIp
+    Amazonka.SESV2.Types.DedicatedIpPool
     Amazonka.SESV2.Types.DeliverabilityDashboardAccountStatus
     Amazonka.SESV2.Types.DeliverabilityTestReport
     Amazonka.SESV2.Types.DeliverabilityTestStatus
@@ -187,6 +189,7 @@ library
     Amazonka.SESV2.Types.ReputationOptions
     Amazonka.SESV2.Types.ReviewDetails
     Amazonka.SESV2.Types.ReviewStatus
+    Amazonka.SESV2.Types.ScalingMode
     Amazonka.SESV2.Types.SendingOptions
     Amazonka.SESV2.Types.SendQuota
     Amazonka.SESV2.Types.SnsDestination
@@ -206,6 +209,7 @@ library
     Amazonka.SESV2.Types.TopicFilter
     Amazonka.SESV2.Types.TopicPreference
     Amazonka.SESV2.Types.TrackingOptions
+    Amazonka.SESV2.Types.VerificationStatus
     Amazonka.SESV2.Types.VolumeStatistics
     Amazonka.SESV2.Types.WarmupStatus
     Amazonka.SESV2.UntagResource

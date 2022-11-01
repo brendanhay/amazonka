@@ -64,9 +64,8 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
     -- the end of the previous results that returned the @nextToken@ value.
     -- This value is @null@ when there are no more results to return.
     --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the job definition to describe.
     jobDefinitionName :: Prelude.Maybe Prelude.Text,
@@ -103,9 +102,8 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 --
 -- 'jobDefinitionName', 'describeJobDefinitions_jobDefinitionName' - The name of the job definition to describe.
 --
@@ -142,9 +140,8 @@ newDescribeJobDefinitions =
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 describeJobDefinitions_nextToken :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
 describeJobDefinitions_nextToken = Lens.lens (\DescribeJobDefinitions' {nextToken} -> nextToken) (\s@DescribeJobDefinitions' {} a -> s {nextToken = a} :: DescribeJobDefinitions)
 
@@ -200,7 +197,8 @@ instance Core.AWSRequest DescribeJobDefinitions where
   type
     AWSResponse DescribeJobDefinitions =
       DescribeJobDefinitionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

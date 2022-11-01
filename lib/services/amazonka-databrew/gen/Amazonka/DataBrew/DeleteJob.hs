@@ -74,7 +74,8 @@ deleteJob_name = Lens.lens (\DeleteJob' {name} -> name) (\s@DeleteJob' {} a -> s
 
 instance Core.AWSRequest DeleteJob where
   type AWSResponse DeleteJob = DeleteJobResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -230,7 +230,8 @@ instance Core.AWSRequest CreateResolverRule where
   type
     AWSResponse CreateResolverRule =
       CreateResolverRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

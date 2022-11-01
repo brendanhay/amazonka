@@ -139,7 +139,8 @@ instance Core.AWSPager ListNetworks where
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -143,7 +143,8 @@ updateTable_tableInput = Lens.lens (\UpdateTable' {tableInput} -> tableInput) (\
 
 instance Core.AWSRequest UpdateTable where
   type AWSResponse UpdateTable = UpdateTableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

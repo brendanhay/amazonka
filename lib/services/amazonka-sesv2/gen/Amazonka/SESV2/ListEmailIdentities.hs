@@ -118,7 +118,8 @@ instance Core.AWSRequest ListEmailIdentities where
   type
     AWSResponse ListEmailIdentities =
       ListEmailIdentitiesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

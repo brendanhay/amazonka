@@ -95,7 +95,8 @@ instance Core.AWSRequest GetDeploymentStatus where
   type
     AWSResponse GetDeploymentStatus =
       GetDeploymentStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

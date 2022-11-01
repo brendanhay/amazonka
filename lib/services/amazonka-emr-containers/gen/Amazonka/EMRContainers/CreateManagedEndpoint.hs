@@ -186,7 +186,8 @@ instance Core.AWSRequest CreateManagedEndpoint where
   type
     AWSResponse CreateManagedEndpoint =
       CreateManagedEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

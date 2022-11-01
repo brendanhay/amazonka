@@ -193,7 +193,8 @@ instance Core.AWSRequest TestInvokeMethod where
   type
     AWSResponse TestInvokeMethod =
       TestInvokeMethodResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

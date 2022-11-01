@@ -78,7 +78,8 @@ instance Core.AWSRequest GetTrustAnchor where
   type
     AWSResponse GetTrustAnchor =
       TrustAnchorDetailResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -107,7 +107,8 @@ instance
   type
     AWSResponse AddClientIDToOpenIDConnectProvider =
       AddClientIDToOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       AddClientIDToOpenIDConnectProviderResponse'

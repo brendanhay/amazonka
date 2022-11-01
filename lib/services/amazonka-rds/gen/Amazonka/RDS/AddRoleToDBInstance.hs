@@ -118,7 +118,8 @@ instance Core.AWSRequest AddRoleToDBInstance where
   type
     AWSResponse AddRoleToDBInstance =
       AddRoleToDBInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddRoleToDBInstanceResponse'
 

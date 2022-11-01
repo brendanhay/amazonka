@@ -45,10 +45,10 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDeleteHostKey' smart constructor.
 data DeleteHostKey = DeleteHostKey'
-  { -- | Provide the ID of the server that contains the host key that you are
+  { -- | The identifier of the server that contains the host key that you are
     -- deleting.
     serverId :: Prelude.Text,
-    -- | The ID of the host key that you are deleting.
+    -- | The identifier of the host key that you are deleting.
     hostKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,10 +61,10 @@ data DeleteHostKey = DeleteHostKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverId', 'deleteHostKey_serverId' - Provide the ID of the server that contains the host key that you are
+-- 'serverId', 'deleteHostKey_serverId' - The identifier of the server that contains the host key that you are
 -- deleting.
 --
--- 'hostKeyId', 'deleteHostKey_hostKeyId' - The ID of the host key that you are deleting.
+-- 'hostKeyId', 'deleteHostKey_hostKeyId' - The identifier of the host key that you are deleting.
 newDeleteHostKey ::
   -- | 'serverId'
   Prelude.Text ->
@@ -77,12 +77,12 @@ newDeleteHostKey pServerId_ pHostKeyId_ =
       hostKeyId = pHostKeyId_
     }
 
--- | Provide the ID of the server that contains the host key that you are
+-- | The identifier of the server that contains the host key that you are
 -- deleting.
 deleteHostKey_serverId :: Lens.Lens' DeleteHostKey Prelude.Text
 deleteHostKey_serverId = Lens.lens (\DeleteHostKey' {serverId} -> serverId) (\s@DeleteHostKey' {} a -> s {serverId = a} :: DeleteHostKey)
 
--- | The ID of the host key that you are deleting.
+-- | The identifier of the host key that you are deleting.
 deleteHostKey_hostKeyId :: Lens.Lens' DeleteHostKey Prelude.Text
 deleteHostKey_hostKeyId = Lens.lens (\DeleteHostKey' {hostKeyId} -> hostKeyId) (\s@DeleteHostKey' {} a -> s {hostKeyId = a} :: DeleteHostKey)
 
@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteHostKey where
   type
     AWSResponse DeleteHostKey =
       DeleteHostKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteHostKeyResponse'
 

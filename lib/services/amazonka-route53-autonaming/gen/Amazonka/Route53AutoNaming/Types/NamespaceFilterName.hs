@@ -20,6 +20,8 @@
 module Amazonka.Route53AutoNaming.Types.NamespaceFilterName
   ( NamespaceFilterName
       ( ..,
+        NamespaceFilterName_HTTP_NAME,
+        NamespaceFilterName_NAME,
         NamespaceFilterName_TYPE
       ),
   )
@@ -56,10 +58,18 @@ newtype NamespaceFilterName = NamespaceFilterName'
       Core.ToXML
     )
 
+pattern NamespaceFilterName_HTTP_NAME :: NamespaceFilterName
+pattern NamespaceFilterName_HTTP_NAME = NamespaceFilterName' "HTTP_NAME"
+
+pattern NamespaceFilterName_NAME :: NamespaceFilterName
+pattern NamespaceFilterName_NAME = NamespaceFilterName' "NAME"
+
 pattern NamespaceFilterName_TYPE :: NamespaceFilterName
 pattern NamespaceFilterName_TYPE = NamespaceFilterName' "TYPE"
 
 {-# COMPLETE
+  NamespaceFilterName_HTTP_NAME,
+  NamespaceFilterName_NAME,
   NamespaceFilterName_TYPE,
   NamespaceFilterName'
   #-}

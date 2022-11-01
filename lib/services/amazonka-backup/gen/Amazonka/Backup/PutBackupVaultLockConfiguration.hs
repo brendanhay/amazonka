@@ -267,7 +267,8 @@ instance
   type
     AWSResponse PutBackupVaultLockConfiguration =
       PutBackupVaultLockConfigurationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       PutBackupVaultLockConfigurationResponse'

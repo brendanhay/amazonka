@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateAlarmModel where
   type
     AWSResponse CreateAlarmModel =
       CreateAlarmModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

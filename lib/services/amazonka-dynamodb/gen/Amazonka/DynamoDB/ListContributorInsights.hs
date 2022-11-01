@@ -100,7 +100,8 @@ instance Core.AWSRequest ListContributorInsights where
   type
     AWSResponse ListContributorInsights =
       ListContributorInsightsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

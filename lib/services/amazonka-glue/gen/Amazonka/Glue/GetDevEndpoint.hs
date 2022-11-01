@@ -82,7 +82,8 @@ instance Core.AWSRequest GetDevEndpoint where
   type
     AWSResponse GetDevEndpoint =
       GetDevEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

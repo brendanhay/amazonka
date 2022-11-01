@@ -22,6 +22,7 @@ module Amazonka.ResilienceHub.Types.ConfigRecommendationOptimizationType
       ( ..,
         ConfigRecommendationOptimizationType_BestAZRecovery,
         ConfigRecommendationOptimizationType_BestAttainable,
+        ConfigRecommendationOptimizationType_BestRegionRecovery,
         ConfigRecommendationOptimizationType_LeastChange,
         ConfigRecommendationOptimizationType_LeastCost,
         ConfigRecommendationOptimizationType_LeastErrors
@@ -66,6 +67,9 @@ pattern ConfigRecommendationOptimizationType_BestAZRecovery = ConfigRecommendati
 pattern ConfigRecommendationOptimizationType_BestAttainable :: ConfigRecommendationOptimizationType
 pattern ConfigRecommendationOptimizationType_BestAttainable = ConfigRecommendationOptimizationType' "BestAttainable"
 
+pattern ConfigRecommendationOptimizationType_BestRegionRecovery :: ConfigRecommendationOptimizationType
+pattern ConfigRecommendationOptimizationType_BestRegionRecovery = ConfigRecommendationOptimizationType' "BestRegionRecovery"
+
 pattern ConfigRecommendationOptimizationType_LeastChange :: ConfigRecommendationOptimizationType
 pattern ConfigRecommendationOptimizationType_LeastChange = ConfigRecommendationOptimizationType' "LeastChange"
 
@@ -78,6 +82,7 @@ pattern ConfigRecommendationOptimizationType_LeastErrors = ConfigRecommendationO
 {-# COMPLETE
   ConfigRecommendationOptimizationType_BestAZRecovery,
   ConfigRecommendationOptimizationType_BestAttainable,
+  ConfigRecommendationOptimizationType_BestRegionRecovery,
   ConfigRecommendationOptimizationType_LeastChange,
   ConfigRecommendationOptimizationType_LeastCost,
   ConfigRecommendationOptimizationType_LeastErrors,

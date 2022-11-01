@@ -151,7 +151,8 @@ instance Core.AWSRequest PutResolverRulePolicy where
   type
     AWSResponse PutResolverRulePolicy =
       PutResolverRulePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

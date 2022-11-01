@@ -62,7 +62,8 @@ instance Core.AWSRequest GetContainerAPIMetadata where
   type
     AWSResponse GetContainerAPIMetadata =
       GetContainerAPIMetadataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

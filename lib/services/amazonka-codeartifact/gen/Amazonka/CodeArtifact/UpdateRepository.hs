@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateRepository where
   type
     AWSResponse UpdateRepository =
       UpdateRepositoryResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -81,7 +81,8 @@ instance Core.AWSRequest GetVoiceConnectorOrigination where
   type
     AWSResponse GetVoiceConnectorOrigination =
       GetVoiceConnectorOriginationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -66,6 +66,7 @@ haskell_library(
         "gen/Amazonka/GreengrassV2/Types/DisassociateClientDeviceFromCoreDeviceErrorEntry.hs",
         "gen/Amazonka/GreengrassV2/Types/EffectiveDeployment.hs",
         "gen/Amazonka/GreengrassV2/Types/EffectiveDeploymentExecutionStatus.hs",
+        "gen/Amazonka/GreengrassV2/Types/EffectiveDeploymentStatusDetails.hs",
         "gen/Amazonka/GreengrassV2/Types/InstalledComponent.hs",
         "gen/Amazonka/GreengrassV2/Types/InstalledComponentLifecycleState.hs",
         "gen/Amazonka/GreengrassV2/Types/InstalledComponentTopologyFilter.hs",

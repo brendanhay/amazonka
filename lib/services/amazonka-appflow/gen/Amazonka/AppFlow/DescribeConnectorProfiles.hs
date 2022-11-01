@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeConnectorProfiles where
   type
     AWSResponse DescribeConnectorProfiles =
       DescribeConnectorProfilesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

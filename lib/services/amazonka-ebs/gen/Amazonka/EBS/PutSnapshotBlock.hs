@@ -241,7 +241,8 @@ instance Core.AWSRequest PutSnapshotBlock where
   type
     AWSResponse PutSnapshotBlock =
       PutSnapshotBlockResponse
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

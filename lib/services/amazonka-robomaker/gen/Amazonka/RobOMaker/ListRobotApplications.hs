@@ -175,7 +175,8 @@ instance Core.AWSRequest ListRobotApplications where
   type
     AWSResponse ListRobotApplications =
       ListRobotApplicationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

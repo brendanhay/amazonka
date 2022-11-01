@@ -141,7 +141,8 @@ instance Core.AWSPager ListInsights where
 
 instance Core.AWSRequest ListInsights where
   type AWSResponse ListInsights = ListInsightsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -120,7 +120,8 @@ createModel_eventTypeName = Lens.lens (\CreateModel' {eventTypeName} -> eventTyp
 
 instance Core.AWSRequest CreateModel where
   type AWSResponse CreateModel = CreateModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest GetJobTemplate where
   type
     AWSResponse GetJobTemplate =
       GetJobTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

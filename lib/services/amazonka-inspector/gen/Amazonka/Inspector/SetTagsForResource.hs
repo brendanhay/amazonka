@@ -89,7 +89,8 @@ instance Core.AWSRequest SetTagsForResource where
   type
     AWSResponse SetTagsForResource =
       SetTagsForResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetTagsForResourceResponse'
 

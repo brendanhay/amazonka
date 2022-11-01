@@ -235,7 +235,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
   type
     AWSResponse DescribeScalingPolicies =
       DescribeScalingPoliciesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

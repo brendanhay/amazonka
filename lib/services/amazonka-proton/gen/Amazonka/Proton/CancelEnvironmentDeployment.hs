@@ -95,7 +95,8 @@ instance Core.AWSRequest CancelEnvironmentDeployment where
   type
     AWSResponse CancelEnvironmentDeployment =
       CancelEnvironmentDeploymentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -79,7 +79,8 @@ readJob_id = Lens.lens (\ReadJob' {id} -> id) (\s@ReadJob' {} a -> s {id = a} ::
 
 instance Core.AWSRequest ReadJob where
   type AWSResponse ReadJob = ReadJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

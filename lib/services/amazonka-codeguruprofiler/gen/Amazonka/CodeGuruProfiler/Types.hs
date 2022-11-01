@@ -232,6 +232,8 @@ defaultService =
       Core._serviceEndpointPrefix = "codeguru-profiler",
       Core._serviceSigningName = "codeguru-profiler",
       Core._serviceVersion = "2019-07-18",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

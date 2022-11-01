@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateAttributeGroup where
   type
     AWSResponse UpdateAttributeGroup =
       UpdateAttributeGroupResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

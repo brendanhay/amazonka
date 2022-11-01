@@ -130,7 +130,8 @@ instance Core.AWSRequest PutRuleGroupsNamespace where
   type
     AWSResponse PutRuleGroupsNamespace =
       PutRuleGroupsNamespaceResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

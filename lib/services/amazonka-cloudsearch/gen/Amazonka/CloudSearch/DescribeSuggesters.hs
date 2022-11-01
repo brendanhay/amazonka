@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeSuggesters where
   type
     AWSResponse DescribeSuggesters =
       DescribeSuggestersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSuggestersResult"

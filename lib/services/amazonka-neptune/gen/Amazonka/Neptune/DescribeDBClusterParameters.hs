@@ -199,7 +199,8 @@ instance Core.AWSRequest DescribeDBClusterParameters where
   type
     AWSResponse DescribeDBClusterParameters =
       DescribeDBClusterParametersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterParametersResult"

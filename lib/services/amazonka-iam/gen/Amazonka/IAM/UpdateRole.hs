@@ -141,7 +141,8 @@ updateRole_roleName = Lens.lens (\UpdateRole' {roleName} -> roleName) (\s@Update
 
 instance Core.AWSRequest UpdateRole where
   type AWSResponse UpdateRole = UpdateRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateRoleResult"

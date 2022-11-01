@@ -93,7 +93,8 @@ deleteFacet_name = Lens.lens (\DeleteFacet' {name} -> name) (\s@DeleteFacet' {} 
 
 instance Core.AWSRequest DeleteFacet where
   type AWSResponse DeleteFacet = DeleteFacetResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

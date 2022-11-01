@@ -216,7 +216,8 @@ instance Core.AWSRequest PromoteReadReplica where
   type
     AWSResponse PromoteReadReplica =
       PromoteReadReplicaResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PromoteReadReplicaResult"

@@ -261,7 +261,8 @@ instance Core.AWSRequest UpdateLocationHdfs where
   type
     AWSResponse UpdateLocationHdfs =
       UpdateLocationHdfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

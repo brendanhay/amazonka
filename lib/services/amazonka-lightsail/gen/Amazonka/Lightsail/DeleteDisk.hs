@@ -98,7 +98,8 @@ deleteDisk_diskName = Lens.lens (\DeleteDisk' {diskName} -> diskName) (\s@Delete
 
 instance Core.AWSRequest DeleteDisk where
   type AWSResponse DeleteDisk = DeleteDiskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

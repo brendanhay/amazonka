@@ -208,7 +208,8 @@ instance Core.AWSRequest DescribeDBLogFiles where
   type
     AWSResponse DescribeDBLogFiles =
       DescribeDBLogFilesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBLogFilesResult"

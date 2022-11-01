@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeExportTasks where
   type
     AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

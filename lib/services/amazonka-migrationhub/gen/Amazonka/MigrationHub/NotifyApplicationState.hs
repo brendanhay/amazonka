@@ -120,7 +120,8 @@ instance Core.AWSRequest NotifyApplicationState where
   type
     AWSResponse NotifyApplicationState =
       NotifyApplicationStateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

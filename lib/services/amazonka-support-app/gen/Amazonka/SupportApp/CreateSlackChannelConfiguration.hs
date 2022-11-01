@@ -94,9 +94,28 @@ data CreateSlackChannelConfiguration = CreateSlackChannelConfiguration'
     -- | The case severity for a support case that you want to receive
     -- notifications.
     --
-    -- >  <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code> for at least one of the following parameters:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, the following parameters must be null or <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, they default to <code>false</code>.</p> </note>
+    -- If you specify @high@ or @all@, you must specify @true@ for at least one
+    -- of the following parameters:
+    --
+    -- -   @notifyOnAddCorrespondenceToCase@
+    --
+    -- -   @notifyOnCreateOrReopenCase@
+    --
+    -- -   @notifyOnResolveCase@
+    --
+    -- If you specify @none@, the following parameters must be null or @false@:
+    --
+    -- -   @notifyOnAddCorrespondenceToCase@
+    --
+    -- -   @notifyOnCreateOrReopenCase@
+    --
+    -- -   @notifyOnResolveCase@
+    --
+    -- If you don\'t specify these parameters in your request, they default to
+    -- @false@.
     notifyOnCaseSeverity :: NotificationSeverityLevel,
-    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -131,9 +150,28 @@ data CreateSlackChannelConfiguration = CreateSlackChannelConfiguration'
 -- 'notifyOnCaseSeverity', 'createSlackChannelConfiguration_notifyOnCaseSeverity' - The case severity for a support case that you want to receive
 -- notifications.
 --
--- >  <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code> for at least one of the following parameters:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, the following parameters must be null or <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, they default to <code>false</code>.</p> </note>
+-- If you specify @high@ or @all@, you must specify @true@ for at least one
+-- of the following parameters:
 --
--- 'teamId', 'createSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you specify @none@, the following parameters must be null or @false@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you don\'t specify these parameters in your request, they default to
+-- @false@.
+--
+-- 'teamId', 'createSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 newCreateSlackChannelConfiguration ::
   -- | 'channelId'
   Prelude.Text ->
@@ -198,11 +236,30 @@ createSlackChannelConfiguration_channelRoleArn = Lens.lens (\CreateSlackChannelC
 -- | The case severity for a support case that you want to receive
 -- notifications.
 --
--- >  <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code> for at least one of the following parameters:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, the following parameters must be null or <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, they default to <code>false</code>.</p> </note>
+-- If you specify @high@ or @all@, you must specify @true@ for at least one
+-- of the following parameters:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you specify @none@, the following parameters must be null or @false@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you don\'t specify these parameters in your request, they default to
+-- @false@.
 createSlackChannelConfiguration_notifyOnCaseSeverity :: Lens.Lens' CreateSlackChannelConfiguration NotificationSeverityLevel
 createSlackChannelConfiguration_notifyOnCaseSeverity = Lens.lens (\CreateSlackChannelConfiguration' {notifyOnCaseSeverity} -> notifyOnCaseSeverity) (\s@CreateSlackChannelConfiguration' {} a -> s {notifyOnCaseSeverity = a} :: CreateSlackChannelConfiguration)
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 createSlackChannelConfiguration_teamId :: Lens.Lens' CreateSlackChannelConfiguration Prelude.Text
 createSlackChannelConfiguration_teamId = Lens.lens (\CreateSlackChannelConfiguration' {teamId} -> teamId) (\s@CreateSlackChannelConfiguration' {} a -> s {teamId = a} :: CreateSlackChannelConfiguration)
 
@@ -213,7 +270,8 @@ instance
   type
     AWSResponse CreateSlackChannelConfiguration =
       CreateSlackChannelConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

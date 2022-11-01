@@ -194,7 +194,8 @@ instance Core.AWSRequest ConfigureAgent where
   type
     AWSResponse ConfigureAgent =
       ConfigureAgentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

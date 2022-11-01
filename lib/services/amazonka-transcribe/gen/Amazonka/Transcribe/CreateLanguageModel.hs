@@ -268,7 +268,8 @@ instance Core.AWSRequest CreateLanguageModel where
   type
     AWSResponse CreateLanguageModel =
       CreateLanguageModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

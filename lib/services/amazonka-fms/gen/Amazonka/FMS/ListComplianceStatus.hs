@@ -159,7 +159,8 @@ instance Core.AWSRequest ListComplianceStatus where
   type
     AWSResponse ListComplianceStatus =
       ListComplianceStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

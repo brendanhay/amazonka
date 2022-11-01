@@ -87,7 +87,8 @@ resolveAlias_aliasId = Lens.lens (\ResolveAlias' {aliasId} -> aliasId) (\s@Resol
 
 instance Core.AWSRequest ResolveAlias where
   type AWSResponse ResolveAlias = ResolveAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

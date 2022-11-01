@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
   type
     AWSResponse DescribeStackResourceDrifts =
       DescribeStackResourceDriftsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackResourceDriftsResult"

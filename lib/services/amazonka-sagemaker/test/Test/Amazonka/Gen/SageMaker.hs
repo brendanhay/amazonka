@@ -561,6 +561,9 @@ import Test.Tasty
 --         , requestListImages $
 --             newListImages
 --
+--         , requestListInferenceRecommendationsJobSteps $
+--             newListInferenceRecommendationsJobSteps
+--
 --         , requestListInferenceRecommendationsJobs $
 --             newListInferenceRecommendationsJobs
 --
@@ -1352,6 +1355,9 @@ import Test.Tasty
 --
 --         , responseListImages $
 --             newListImagesResponse
+--
+--         , responseListInferenceRecommendationsJobSteps $
+--             newListInferenceRecommendationsJobStepsResponse
 --
 --         , responseListInferenceRecommendationsJobs $
 --             newListInferenceRecommendationsJobsResponse
@@ -2680,6 +2686,12 @@ requestListImages =
   req
     "ListImages"
     "fixture/ListImages.yaml"
+
+requestListInferenceRecommendationsJobSteps :: ListInferenceRecommendationsJobSteps -> TestTree
+requestListInferenceRecommendationsJobSteps =
+  req
+    "ListInferenceRecommendationsJobSteps"
+    "fixture/ListInferenceRecommendationsJobSteps.yaml"
 
 requestListInferenceRecommendationsJobs :: ListInferenceRecommendationsJobs -> TestTree
 requestListInferenceRecommendationsJobs =
@@ -4616,6 +4628,14 @@ responseListImages =
     "fixture/ListImagesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListImages)
+
+responseListInferenceRecommendationsJobSteps :: ListInferenceRecommendationsJobStepsResponse -> TestTree
+responseListInferenceRecommendationsJobSteps =
+  res
+    "ListInferenceRecommendationsJobStepsResponse"
+    "fixture/ListInferenceRecommendationsJobStepsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceRecommendationsJobSteps)
 
 responseListInferenceRecommendationsJobs :: ListInferenceRecommendationsJobsResponse -> TestTree
 responseListInferenceRecommendationsJobs =

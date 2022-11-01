@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
   type
     AWSResponse DeleteIAMPolicyAssignment =
       DeleteIAMPolicyAssignmentResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

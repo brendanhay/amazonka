@@ -112,7 +112,8 @@ instance Core.AWSRequest DeregisterGameServer where
   type
     AWSResponse DeregisterGameServer =
       DeregisterGameServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterGameServerResponse'
 

@@ -118,7 +118,8 @@ instance Core.AWSRequest PutDataProtectionPolicy where
   type
     AWSResponse PutDataProtectionPolicy =
       PutDataProtectionPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutDataProtectionPolicyResponse'

@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAddCustomRoutingEndpoints $
 --             newAddCustomRoutingEndpoints
 --
+--         , requestAddEndpoints $
+--             newAddEndpoints
+--
 --         , requestAdvertiseByoipCidr $
 --             newAdvertiseByoipCidr
 --
@@ -138,6 +141,9 @@ import Test.Tasty
 --         , requestRemoveCustomRoutingEndpoints $
 --             newRemoveCustomRoutingEndpoints
 --
+--         , requestRemoveEndpoints $
+--             newRemoveEndpoints
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -173,6 +179,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseAddCustomRoutingEndpoints $
 --             newAddCustomRoutingEndpointsResponse
+--
+--         , responseAddEndpoints $
+--             newAddEndpointsResponse
 --
 --         , responseAdvertiseByoipCidr $
 --             newAdvertiseByoipCidrResponse
@@ -282,6 +291,9 @@ import Test.Tasty
 --         , responseRemoveCustomRoutingEndpoints $
 --             newRemoveCustomRoutingEndpointsResponse
 --
+--         , responseRemoveEndpoints $
+--             newRemoveEndpointsResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -322,6 +334,12 @@ requestAddCustomRoutingEndpoints =
   req
     "AddCustomRoutingEndpoints"
     "fixture/AddCustomRoutingEndpoints.yaml"
+
+requestAddEndpoints :: AddEndpoints -> TestTree
+requestAddEndpoints =
+  req
+    "AddEndpoints"
+    "fixture/AddEndpoints.yaml"
 
 requestAdvertiseByoipCidr :: AdvertiseByoipCidr -> TestTree
 requestAdvertiseByoipCidr =
@@ -539,6 +557,12 @@ requestRemoveCustomRoutingEndpoints =
     "RemoveCustomRoutingEndpoints"
     "fixture/RemoveCustomRoutingEndpoints.yaml"
 
+requestRemoveEndpoints :: RemoveEndpoints -> TestTree
+requestRemoveEndpoints =
+  req
+    "RemoveEndpoints"
+    "fixture/RemoveEndpoints.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -608,6 +632,14 @@ responseAddCustomRoutingEndpoints =
     "fixture/AddCustomRoutingEndpointsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddCustomRoutingEndpoints)
+
+responseAddEndpoints :: AddEndpointsResponse -> TestTree
+responseAddEndpoints =
+  res
+    "AddEndpointsResponse"
+    "fixture/AddEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddEndpoints)
 
 responseAdvertiseByoipCidr :: AdvertiseByoipCidrResponse -> TestTree
 responseAdvertiseByoipCidr =
@@ -896,6 +928,14 @@ responseRemoveCustomRoutingEndpoints =
     "fixture/RemoveCustomRoutingEndpointsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveCustomRoutingEndpoints)
+
+responseRemoveEndpoints :: RemoveEndpointsResponse -> TestTree
+responseRemoveEndpoints =
+  res
+    "RemoveEndpointsResponse"
+    "fixture/RemoveEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveEndpoints)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

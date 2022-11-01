@@ -151,7 +151,8 @@ startSession_target = Lens.lens (\StartSession' {target} -> target) (\s@StartSes
 
 instance Core.AWSRequest StartSession where
   type AWSResponse StartSession = StartSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

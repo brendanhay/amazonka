@@ -255,7 +255,8 @@ instance Core.AWSRequest CreateListener where
   type
     AWSResponse CreateListener =
       CreateListenerResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateListenerResult"

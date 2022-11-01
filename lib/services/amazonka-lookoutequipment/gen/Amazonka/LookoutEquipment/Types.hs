@@ -386,6 +386,8 @@ defaultService =
       Core._serviceEndpointPrefix = "lookoutequipment",
       Core._serviceSigningName = "lookoutequipment",
       Core._serviceVersion = "2020-12-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

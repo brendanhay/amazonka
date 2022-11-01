@@ -90,6 +90,9 @@ module Amazonka.DirectoryService
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
+    -- ** DirectoryInDesiredStateException
+    _DirectoryInDesiredStateException,
+
     -- ** InvalidClientAuthStatusException
     _InvalidClientAuthStatusException,
 
@@ -282,7 +285,7 @@ module Amazonka.DirectoryService
     DescribeCertificateResponse (DescribeCertificateResponse'),
     newDescribeCertificateResponse,
 
-    -- ** DescribeClientAuthenticationSettings
+    -- ** DescribeClientAuthenticationSettings (Paginated)
     DescribeClientAuthenticationSettings (DescribeClientAuthenticationSettings'),
     newDescribeClientAuthenticationSettings,
     DescribeClientAuthenticationSettingsResponse (DescribeClientAuthenticationSettingsResponse'),
@@ -312,13 +315,13 @@ module Amazonka.DirectoryService
     DescribeEventTopicsResponse (DescribeEventTopicsResponse'),
     newDescribeEventTopicsResponse,
 
-    -- ** DescribeLDAPSSettings
+    -- ** DescribeLDAPSSettings (Paginated)
     DescribeLDAPSSettings (DescribeLDAPSSettings'),
     newDescribeLDAPSSettings,
     DescribeLDAPSSettingsResponse (DescribeLDAPSSettingsResponse'),
     newDescribeLDAPSSettingsResponse,
 
-    -- ** DescribeRegions
+    -- ** DescribeRegions (Paginated)
     DescribeRegions (DescribeRegions'),
     newDescribeRegions,
     DescribeRegionsResponse (DescribeRegionsResponse'),
@@ -347,6 +350,12 @@ module Amazonka.DirectoryService
     newDescribeTrusts,
     DescribeTrustsResponse (DescribeTrustsResponse'),
     newDescribeTrustsResponse,
+
+    -- ** DescribeUpdateDirectory (Paginated)
+    DescribeUpdateDirectory (DescribeUpdateDirectory'),
+    newDescribeUpdateDirectory,
+    DescribeUpdateDirectoryResponse (DescribeUpdateDirectoryResponse'),
+    newDescribeUpdateDirectoryResponse,
 
     -- ** DisableClientAuthentication
     DisableClientAuthentication (DisableClientAuthentication'),
@@ -408,7 +417,7 @@ module Amazonka.DirectoryService
     GetSnapshotLimitsResponse (GetSnapshotLimitsResponse'),
     newGetSnapshotLimitsResponse,
 
-    -- ** ListCertificates
+    -- ** ListCertificates (Paginated)
     ListCertificates (ListCertificates'),
     newListCertificates,
     ListCertificatesResponse (ListCertificatesResponse'),
@@ -510,6 +519,12 @@ module Amazonka.DirectoryService
     UpdateConditionalForwarderResponse (UpdateConditionalForwarderResponse'),
     newUpdateConditionalForwarderResponse,
 
+    -- ** UpdateDirectorySetup
+    UpdateDirectorySetup (UpdateDirectorySetup'),
+    newUpdateDirectorySetup,
+    UpdateDirectorySetupResponse (UpdateDirectorySetupResponse'),
+    newUpdateDirectorySetupResponse,
+
     -- ** UpdateNumberOfDomainControllers
     UpdateNumberOfDomainControllers (UpdateNumberOfDomainControllers'),
     newUpdateNumberOfDomainControllers,
@@ -581,6 +596,9 @@ module Amazonka.DirectoryService
     -- ** LDAPSType
     LDAPSType (..),
 
+    -- ** OSVersion
+    OSVersion (..),
+
     -- ** RadiusAuthenticationProtocol
     RadiusAuthenticationProtocol (..),
 
@@ -625,6 +643,12 @@ module Amazonka.DirectoryService
 
     -- ** TrustType
     TrustType (..),
+
+    -- ** UpdateStatus
+    UpdateStatus (..),
+
+    -- ** UpdateType
+    UpdateType (..),
 
     -- ** Attribute
     Attribute (Attribute'),
@@ -702,6 +726,10 @@ module Amazonka.DirectoryService
     LogSubscription (LogSubscription'),
     newLogSubscription,
 
+    -- ** OSUpdateSettings
+    OSUpdateSettings (OSUpdateSettings'),
+    newOSUpdateSettings,
+
     -- ** OwnerDirectoryDescription
     OwnerDirectoryDescription (OwnerDirectoryDescription'),
     newOwnerDirectoryDescription,
@@ -757,6 +785,14 @@ module Amazonka.DirectoryService
     -- ** UnshareTarget
     UnshareTarget (UnshareTarget'),
     newUnshareTarget,
+
+    -- ** UpdateInfoEntry
+    UpdateInfoEntry (UpdateInfoEntry'),
+    newUpdateInfoEntry,
+
+    -- ** UpdateValue
+    UpdateValue (UpdateValue'),
+    newUpdateValue,
   )
 where
 
@@ -793,6 +829,7 @@ import Amazonka.DirectoryService.DescribeSettings
 import Amazonka.DirectoryService.DescribeSharedDirectories
 import Amazonka.DirectoryService.DescribeSnapshots
 import Amazonka.DirectoryService.DescribeTrusts
+import Amazonka.DirectoryService.DescribeUpdateDirectory
 import Amazonka.DirectoryService.DisableClientAuthentication
 import Amazonka.DirectoryService.DisableLDAPS
 import Amazonka.DirectoryService.DisableRadius
@@ -822,6 +859,7 @@ import Amazonka.DirectoryService.StartSchemaExtension
 import Amazonka.DirectoryService.Types
 import Amazonka.DirectoryService.UnshareDirectory
 import Amazonka.DirectoryService.UpdateConditionalForwarder
+import Amazonka.DirectoryService.UpdateDirectorySetup
 import Amazonka.DirectoryService.UpdateNumberOfDomainControllers
 import Amazonka.DirectoryService.UpdateRadius
 import Amazonka.DirectoryService.UpdateSettings

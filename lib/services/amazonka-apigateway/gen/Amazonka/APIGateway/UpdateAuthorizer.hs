@@ -113,7 +113,8 @@ updateAuthorizer_authorizerId = Lens.lens (\UpdateAuthorizer' {authorizerId} -> 
 
 instance Core.AWSRequest UpdateAuthorizer where
   type AWSResponse UpdateAuthorizer = Authorizer
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -266,9 +266,10 @@ getJobOutput_jobId = Lens.lens (\GetJobOutput' {jobId} -> jobId) (\s@GetJobOutpu
 
 instance Core.AWSRequest GetJobOutput where
   type AWSResponse GetJobOutput = GetJobOutputResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

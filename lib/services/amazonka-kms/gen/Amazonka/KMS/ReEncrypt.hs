@@ -573,7 +573,8 @@ reEncrypt_destinationKeyId = Lens.lens (\ReEncrypt' {destinationKeyId} -> destin
 
 instance Core.AWSRequest ReEncrypt where
   type AWSResponse ReEncrypt = ReEncryptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

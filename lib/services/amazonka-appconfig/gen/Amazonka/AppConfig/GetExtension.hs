@@ -95,7 +95,8 @@ getExtension_extensionIdentifier = Lens.lens (\GetExtension' {extensionIdentifie
 
 instance Core.AWSRequest GetExtension where
   type AWSResponse GetExtension = Extension
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -102,7 +102,8 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
   type
     AWSResponse ModifyAuthenticationProfile =
       ModifyAuthenticationProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyAuthenticationProfileResult"

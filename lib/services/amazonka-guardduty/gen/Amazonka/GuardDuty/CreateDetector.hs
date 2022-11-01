@@ -42,6 +42,7 @@ module Amazonka.GuardDuty.CreateDetector
     newCreateDetectorResponse,
 
     -- * Response Lenses
+    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_detectorId,
     createDetectorResponse_httpStatus,
   )
@@ -123,12 +124,14 @@ instance Core.AWSRequest CreateDetector where
   type
     AWSResponse CreateDetector =
       CreateDetectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorResponse'
-            Prelude.<$> (x Core..?> "detectorId")
+            Prelude.<$> (x Core..?> "unprocessedDataSources")
+            Prelude.<*> (x Core..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,7 +183,10 @@ instance Core.ToQuery CreateDetector where
 
 -- | /See:/ 'newCreateDetectorResponse' smart constructor.
 data CreateDetectorResponse = CreateDetectorResponse'
-  { -- | The unique ID of the created detector.
+  { -- | Specifies the data sources that couldn\'t be enabled when GuardDuty was
+    -- enabled for the first time.
+    unprocessedDataSources :: Prelude.Maybe UnprocessedDataSourcesResult,
+    -- | The unique ID of the created detector.
     detectorId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -195,6 +201,9 @@ data CreateDetectorResponse = CreateDetectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'unprocessedDataSources', 'createDetectorResponse_unprocessedDataSources' - Specifies the data sources that couldn\'t be enabled when GuardDuty was
+-- enabled for the first time.
+--
 -- 'detectorId', 'createDetectorResponse_detectorId' - The unique ID of the created detector.
 --
 -- 'httpStatus', 'createDetectorResponse_httpStatus' - The response's http status code.
@@ -204,10 +213,16 @@ newCreateDetectorResponse ::
   CreateDetectorResponse
 newCreateDetectorResponse pHttpStatus_ =
   CreateDetectorResponse'
-    { detectorId =
+    { unprocessedDataSources =
         Prelude.Nothing,
+      detectorId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Specifies the data sources that couldn\'t be enabled when GuardDuty was
+-- enabled for the first time.
+createDetectorResponse_unprocessedDataSources :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe UnprocessedDataSourcesResult)
+createDetectorResponse_unprocessedDataSources = Lens.lens (\CreateDetectorResponse' {unprocessedDataSources} -> unprocessedDataSources) (\s@CreateDetectorResponse' {} a -> s {unprocessedDataSources = a} :: CreateDetectorResponse)
 
 -- | The unique ID of the created detector.
 createDetectorResponse_detectorId :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe Prelude.Text)
@@ -219,5 +234,6 @@ createDetectorResponse_httpStatus = Lens.lens (\CreateDetectorResponse' {httpSta
 
 instance Prelude.NFData CreateDetectorResponse where
   rnf CreateDetectorResponse' {..} =
-    Prelude.rnf detectorId
+    Prelude.rnf unprocessedDataSources
+      `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf httpStatus

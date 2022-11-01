@@ -22,6 +22,7 @@ module Amazonka.RDS.Types.ExportTask where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.ExportSourceType
 
 -- | Contains the details of a snapshot export to Amazon S3.
 --
@@ -58,6 +59,8 @@ data ExportTask = ExportTask'
     totalExtractedDataInGB :: Prelude.Maybe Prelude.Int,
     -- | The progress status of the export task.
     status :: Prelude.Maybe Prelude.Text,
+    -- | The type of source for the export.
+    sourceType :: Prelude.Maybe ExportSourceType,
     -- | A warning about the snapshot export task.
     warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that the snapshot was created.
@@ -120,6 +123,8 @@ data ExportTask = ExportTask'
 --
 -- 'status', 'exportTask_status' - The progress status of the export task.
 --
+-- 'sourceType', 'exportTask_sourceType' - The type of source for the export.
+--
 -- 'warningMessage', 'exportTask_warningMessage' - A warning about the snapshot export task.
 --
 -- 'snapshotTime', 'exportTask_snapshotTime' - The time that the snapshot was created.
@@ -153,6 +158,7 @@ newExportTask =
       sourceArn = Prelude.Nothing,
       totalExtractedDataInGB = Prelude.Nothing,
       status = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
       warningMessage = Prelude.Nothing,
       snapshotTime = Prelude.Nothing,
       exportTaskIdentifier = Prelude.Nothing,
@@ -205,6 +211,10 @@ exportTask_totalExtractedDataInGB = Lens.lens (\ExportTask' {totalExtractedDataI
 exportTask_status :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_status = Lens.lens (\ExportTask' {status} -> status) (\s@ExportTask' {} a -> s {status = a} :: ExportTask)
 
+-- | The type of source for the export.
+exportTask_sourceType :: Lens.Lens' ExportTask (Prelude.Maybe ExportSourceType)
+exportTask_sourceType = Lens.lens (\ExportTask' {sourceType} -> sourceType) (\s@ExportTask' {} a -> s {sourceType = a} :: ExportTask)
+
 -- | A warning about the snapshot export task.
 exportTask_warningMessage :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_warningMessage = Lens.lens (\ExportTask' {warningMessage} -> warningMessage) (\s@ExportTask' {} a -> s {warningMessage = a} :: ExportTask)
@@ -256,6 +266,7 @@ instance Core.FromXML ExportTask where
       Prelude.<*> (x Core..@? "SourceArn")
       Prelude.<*> (x Core..@? "TotalExtractedDataInGB")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "SourceType")
       Prelude.<*> (x Core..@? "WarningMessage")
       Prelude.<*> (x Core..@? "SnapshotTime")
       Prelude.<*> (x Core..@? "ExportTaskIdentifier")
@@ -274,6 +285,7 @@ instance Prelude.Hashable ExportTask where
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` totalExtractedDataInGB
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` warningMessage
       `Prelude.hashWithSalt` snapshotTime
       `Prelude.hashWithSalt` exportTaskIdentifier
@@ -292,6 +304,7 @@ instance Prelude.NFData ExportTask where
       `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf totalExtractedDataInGB
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf warningMessage
       `Prelude.seq` Prelude.rnf snapshotTime
       `Prelude.seq` Prelude.rnf exportTaskIdentifier

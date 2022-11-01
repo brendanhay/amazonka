@@ -104,7 +104,8 @@ instance Core.AWSRequest RejectCertificateTransfer where
   type
     AWSResponse RejectCertificateTransfer =
       RejectCertificateTransferResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull
       RejectCertificateTransferResponse'

@@ -117,7 +117,8 @@ instance Core.AWSRequest ListBootstrapActions where
   type
     AWSResponse ListBootstrapActions =
       ListBootstrapActionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

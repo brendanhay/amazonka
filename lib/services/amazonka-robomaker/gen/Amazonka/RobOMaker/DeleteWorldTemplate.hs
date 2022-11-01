@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteWorldTemplate where
   type
     AWSResponse DeleteWorldTemplate =
       DeleteWorldTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

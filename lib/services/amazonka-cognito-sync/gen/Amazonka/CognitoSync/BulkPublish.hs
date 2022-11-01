@@ -91,7 +91,8 @@ bulkPublish_identityPoolId = Lens.lens (\BulkPublish' {identityPoolId} -> identi
 
 instance Core.AWSRequest BulkPublish where
   type AWSResponse BulkPublish = BulkPublishResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

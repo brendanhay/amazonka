@@ -117,7 +117,8 @@ instance Core.AWSRequest GetDataEndpoint where
   type
     AWSResponse GetDataEndpoint =
       GetDataEndpointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

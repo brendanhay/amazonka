@@ -133,7 +133,8 @@ instance Core.AWSRequest AssociateAssets where
   type
     AWSResponse AssociateAssets =
       AssociateAssetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateAssetsResponse'
 

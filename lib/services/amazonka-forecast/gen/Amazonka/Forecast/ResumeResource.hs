@@ -73,7 +73,8 @@ instance Core.AWSRequest ResumeResource where
   type
     AWSResponse ResumeResource =
       ResumeResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ResumeResourceResponse'
 

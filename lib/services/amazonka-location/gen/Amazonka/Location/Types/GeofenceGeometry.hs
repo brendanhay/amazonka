@@ -36,19 +36,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGeofenceGeometry' smart constructor.
 data GeofenceGeometry = GeofenceGeometry'
-  { -- | An array of 1 or more linear rings. A linear ring is an array of 4 or
-    -- more vertices, where the first and last vertex are the same to form a
-    -- closed boundary. Each vertex is a 2-dimensional point of the form:
-    -- @[longitude, latitude]@.
+  { -- | A polygon is a list of linear rings which are each made up of a list of
+    -- vertices.
     --
-    -- The first linear ring is an outer ring, describing the polygon\'s
-    -- boundary. Subsequent linear rings may be inner or outer rings to
-    -- describe holes and islands. Outer rings must list their vertices in
-    -- counter-clockwise order around the ring\'s center, where the left side
-    -- is the polygon\'s exterior. Inner rings must list their vertices in
-    -- clockwise order, where the left side is the polygon\'s interior.
+    -- Each vertex is a 2-dimensional point of the form:
+    -- @[longitude, latitude]@. This is represented as an array of doubles of
+    -- length 2 (so @[double, double]@).
     --
-    -- A geofence polygon can consist of between 4 and 1,000 vertices.
+    -- An array of 4 or more vertices, where the first and last vertex are the
+    -- same (to form a closed boundary), is called a linear ring. The linear
+    -- ring vertices must be listed in counter-clockwise order around the
+    -- ring’s interior. The linear ring is represented as an array of vertices,
+    -- or an array of arrays of doubles (@[[double, double], ...]@).
+    --
+    -- A geofence consists of a single linear ring. To allow for future
+    -- expansion, the Polygon parameter takes an array of linear rings, which
+    -- is represented as an array of arrays of arrays of doubles
+    -- (@[[[double, double], ...], ...]@).
+    --
+    -- A linear ring for use in geofences can consist of between 4 and 1,000
+    -- vertices.
     polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double)))),
     -- | A circle on the earth, as defined by a center point and a radius.
     circle :: Prelude.Maybe (Core.Sensitive Circle)
@@ -63,19 +70,26 @@ data GeofenceGeometry = GeofenceGeometry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'polygon', 'geofenceGeometry_polygon' - An array of 1 or more linear rings. A linear ring is an array of 4 or
--- more vertices, where the first and last vertex are the same to form a
--- closed boundary. Each vertex is a 2-dimensional point of the form:
--- @[longitude, latitude]@.
+-- 'polygon', 'geofenceGeometry_polygon' - A polygon is a list of linear rings which are each made up of a list of
+-- vertices.
 --
--- The first linear ring is an outer ring, describing the polygon\'s
--- boundary. Subsequent linear rings may be inner or outer rings to
--- describe holes and islands. Outer rings must list their vertices in
--- counter-clockwise order around the ring\'s center, where the left side
--- is the polygon\'s exterior. Inner rings must list their vertices in
--- clockwise order, where the left side is the polygon\'s interior.
+-- Each vertex is a 2-dimensional point of the form:
+-- @[longitude, latitude]@. This is represented as an array of doubles of
+-- length 2 (so @[double, double]@).
 --
--- A geofence polygon can consist of between 4 and 1,000 vertices.
+-- An array of 4 or more vertices, where the first and last vertex are the
+-- same (to form a closed boundary), is called a linear ring. The linear
+-- ring vertices must be listed in counter-clockwise order around the
+-- ring’s interior. The linear ring is represented as an array of vertices,
+-- or an array of arrays of doubles (@[[double, double], ...]@).
+--
+-- A geofence consists of a single linear ring. To allow for future
+-- expansion, the Polygon parameter takes an array of linear rings, which
+-- is represented as an array of arrays of arrays of doubles
+-- (@[[[double, double], ...], ...]@).
+--
+-- A linear ring for use in geofences can consist of between 4 and 1,000
+-- vertices.
 --
 -- 'circle', 'geofenceGeometry_circle' - A circle on the earth, as defined by a center point and a radius.
 newGeofenceGeometry ::
@@ -86,19 +100,26 @@ newGeofenceGeometry =
       circle = Prelude.Nothing
     }
 
--- | An array of 1 or more linear rings. A linear ring is an array of 4 or
--- more vertices, where the first and last vertex are the same to form a
--- closed boundary. Each vertex is a 2-dimensional point of the form:
--- @[longitude, latitude]@.
+-- | A polygon is a list of linear rings which are each made up of a list of
+-- vertices.
 --
--- The first linear ring is an outer ring, describing the polygon\'s
--- boundary. Subsequent linear rings may be inner or outer rings to
--- describe holes and islands. Outer rings must list their vertices in
--- counter-clockwise order around the ring\'s center, where the left side
--- is the polygon\'s exterior. Inner rings must list their vertices in
--- clockwise order, where the left side is the polygon\'s interior.
+-- Each vertex is a 2-dimensional point of the form:
+-- @[longitude, latitude]@. This is represented as an array of doubles of
+-- length 2 (so @[double, double]@).
 --
--- A geofence polygon can consist of between 4 and 1,000 vertices.
+-- An array of 4 or more vertices, where the first and last vertex are the
+-- same (to form a closed boundary), is called a linear ring. The linear
+-- ring vertices must be listed in counter-clockwise order around the
+-- ring’s interior. The linear ring is represented as an array of vertices,
+-- or an array of arrays of doubles (@[[double, double], ...]@).
+--
+-- A geofence consists of a single linear ring. To allow for future
+-- expansion, the Polygon parameter takes an array of linear rings, which
+-- is represented as an array of arrays of arrays of doubles
+-- (@[[[double, double], ...], ...]@).
+--
+-- A linear ring for use in geofences can consist of between 4 and 1,000
+-- vertices.
 geofenceGeometry_polygon :: Lens.Lens' GeofenceGeometry (Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double))))
 geofenceGeometry_polygon = Lens.lens (\GeofenceGeometry' {polygon} -> polygon) (\s@GeofenceGeometry' {} a -> s {polygon = a} :: GeofenceGeometry) Prelude.. Lens.mapping Lens.coerced
 

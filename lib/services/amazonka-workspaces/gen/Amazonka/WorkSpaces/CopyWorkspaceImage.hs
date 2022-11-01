@@ -143,7 +143,8 @@ instance Core.AWSRequest CopyWorkspaceImage where
   type
     AWSResponse CopyWorkspaceImage =
       CopyWorkspaceImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

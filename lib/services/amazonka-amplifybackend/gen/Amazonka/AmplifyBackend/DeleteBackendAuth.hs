@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteBackendAuth where
   type
     AWSResponse DeleteBackendAuth =
       DeleteBackendAuthResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

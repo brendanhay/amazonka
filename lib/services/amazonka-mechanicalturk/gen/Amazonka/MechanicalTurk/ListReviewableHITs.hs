@@ -140,7 +140,8 @@ instance Core.AWSRequest ListReviewableHITs where
   type
     AWSResponse ListReviewableHITs =
       ListReviewableHITsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

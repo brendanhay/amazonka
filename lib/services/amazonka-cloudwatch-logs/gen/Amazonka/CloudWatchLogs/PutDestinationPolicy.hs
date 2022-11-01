@@ -145,7 +145,8 @@ instance Core.AWSRequest PutDestinationPolicy where
   type
     AWSResponse PutDestinationPolicy =
       PutDestinationPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutDestinationPolicyResponse'
 

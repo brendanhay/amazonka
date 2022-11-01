@@ -182,7 +182,8 @@ updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} 
 
 instance Core.AWSRequest UpdateAlias where
   type AWSResponse UpdateAlias = AliasConfiguration
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

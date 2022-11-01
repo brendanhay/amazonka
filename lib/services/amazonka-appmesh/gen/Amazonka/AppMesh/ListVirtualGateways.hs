@@ -172,7 +172,8 @@ instance Core.AWSRequest ListVirtualGateways where
   type
     AWSResponse ListVirtualGateways =
       ListVirtualGatewaysResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

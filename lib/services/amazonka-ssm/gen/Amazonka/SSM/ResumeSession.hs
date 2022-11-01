@@ -85,7 +85,8 @@ instance Core.AWSRequest ResumeSession where
   type
     AWSResponse ResumeSession =
       ResumeSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

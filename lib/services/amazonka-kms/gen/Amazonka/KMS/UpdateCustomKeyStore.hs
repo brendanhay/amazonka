@@ -225,7 +225,8 @@ instance Core.AWSRequest UpdateCustomKeyStore where
   type
     AWSResponse UpdateCustomKeyStore =
       UpdateCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

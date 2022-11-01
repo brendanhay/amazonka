@@ -88,7 +88,8 @@ instance Core.AWSRequest GetFunctionDefinition where
   type
     AWSResponse GetFunctionDefinition =
       GetFunctionDefinitionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

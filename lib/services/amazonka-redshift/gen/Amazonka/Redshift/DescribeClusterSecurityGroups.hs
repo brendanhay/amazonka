@@ -257,7 +257,8 @@ instance
   type
     AWSResponse DescribeClusterSecurityGroups =
       DescribeClusterSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterSecurityGroupsResult"

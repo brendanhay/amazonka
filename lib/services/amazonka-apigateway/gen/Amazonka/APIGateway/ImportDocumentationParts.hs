@@ -131,7 +131,8 @@ instance Core.AWSRequest ImportDocumentationParts where
   type
     AWSResponse ImportDocumentationParts =
       ImportDocumentationPartsResponse
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -87,7 +87,7 @@ data DataResource = DataResource'
     --
     -- -   @AWS::DynamoDB::Table@
     --
-    -- The following resource types are also availble through /advanced/ event
+    -- The following resource types are also available through /advanced/ event
     -- selectors. Basic event selector resource types are valid in advanced
     -- event selectors, but advanced event selector resource types are not
     -- valid in basic event selectors. For more information, see
@@ -169,7 +169,7 @@ data DataResource = DataResource'
 --
 -- -   @AWS::DynamoDB::Table@
 --
--- The following resource types are also availble through /advanced/ event
+-- The following resource types are also available through /advanced/ event
 -- selectors. Basic event selector resource types are valid in advanced
 -- event selectors, but advanced event selector resource types are not
 -- valid in basic event selectors. For more information, see
@@ -247,7 +247,7 @@ newDataResource =
 --
 -- -   @AWS::DynamoDB::Table@
 --
--- The following resource types are also availble through /advanced/ event
+-- The following resource types are also available through /advanced/ event
 -- selectors. Basic event selector resource types are valid in advanced
 -- event selectors, but advanced event selector resource types are not
 -- valid in basic event selectors. For more information, see

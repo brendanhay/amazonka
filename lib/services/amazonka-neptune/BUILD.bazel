@@ -116,6 +116,8 @@ haskell_library(
         "gen/Amazonka/Neptune/Types/PendingModifiedValues.hs",
         "gen/Amazonka/Neptune/Types/Range.hs",
         "gen/Amazonka/Neptune/Types/ResourcePendingMaintenanceActions.hs",
+        "gen/Amazonka/Neptune/Types/ServerlessV2ScalingConfiguration.hs",
+        "gen/Amazonka/Neptune/Types/ServerlessV2ScalingConfigurationInfo.hs",
         "gen/Amazonka/Neptune/Types/SourceType.hs",
         "gen/Amazonka/Neptune/Types/Subnet.hs",
         "gen/Amazonka/Neptune/Types/Tag.hs",

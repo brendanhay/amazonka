@@ -99,7 +99,8 @@ enable_resourceTypes = Lens.lens (\Enable' {resourceTypes} -> resourceTypes) (\s
 
 instance Core.AWSRequest Enable where
   type AWSResponse Enable = EnableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

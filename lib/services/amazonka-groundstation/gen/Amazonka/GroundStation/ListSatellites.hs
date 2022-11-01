@@ -116,7 +116,8 @@ instance Core.AWSRequest ListSatellites where
   type
     AWSResponse ListSatellites =
       ListSatellitesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

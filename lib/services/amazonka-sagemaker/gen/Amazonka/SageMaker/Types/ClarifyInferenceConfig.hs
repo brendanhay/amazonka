@@ -101,7 +101,7 @@ data ClarifyInferenceConfig = ClarifyInferenceConfig'
     -- container input in JSON Lines format. For example, if
     -- @FeaturesAttribute@ is the JMESPath expression @\'myfeatures\'@, it
     -- extracts a list of features @[1,2,3]@ from request data
-    -- @\'{\"myfeatures\":[1,2,3}\'@.
+    -- @\'{\"myfeatures\":[1,2,3]}\'@.
     featuresAttribute :: Prelude.Maybe Prelude.Text,
     -- | The maximum payload size (MB) allowed of a request from the explainer to
     -- the model container. Defaults to @6@ MB.
@@ -206,7 +206,7 @@ data ClarifyInferenceConfig = ClarifyInferenceConfig'
 -- container input in JSON Lines format. For example, if
 -- @FeaturesAttribute@ is the JMESPath expression @\'myfeatures\'@, it
 -- extracts a list of features @[1,2,3]@ from request data
--- @\'{\"myfeatures\":[1,2,3}\'@.
+-- @\'{\"myfeatures\":[1,2,3]}\'@.
 --
 -- 'maxPayloadInMB', 'clarifyInferenceConfig_maxPayloadInMB' - The maximum payload size (MB) allowed of a request from the explainer to
 -- the model container. Defaults to @6@ MB.
@@ -331,7 +331,7 @@ clarifyInferenceConfig_featureTypes = Lens.lens (\ClarifyInferenceConfig' {featu
 -- container input in JSON Lines format. For example, if
 -- @FeaturesAttribute@ is the JMESPath expression @\'myfeatures\'@, it
 -- extracts a list of features @[1,2,3]@ from request data
--- @\'{\"myfeatures\":[1,2,3}\'@.
+-- @\'{\"myfeatures\":[1,2,3]}\'@.
 clarifyInferenceConfig_featuresAttribute :: Lens.Lens' ClarifyInferenceConfig (Prelude.Maybe Prelude.Text)
 clarifyInferenceConfig_featuresAttribute = Lens.lens (\ClarifyInferenceConfig' {featuresAttribute} -> featuresAttribute) (\s@ClarifyInferenceConfig' {} a -> s {featuresAttribute = a} :: ClarifyInferenceConfig)
 

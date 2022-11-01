@@ -166,7 +166,8 @@ instance Core.AWSRequest PutIntegration where
   type
     AWSResponse PutIntegration =
       PutIntegrationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

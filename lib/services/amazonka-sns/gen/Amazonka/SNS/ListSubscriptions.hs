@@ -107,7 +107,8 @@ instance Core.AWSRequest ListSubscriptions where
   type
     AWSResponse ListSubscriptions =
       ListSubscriptionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSubscriptionsResult"

@@ -85,7 +85,8 @@ deleteType_typeName = Lens.lens (\DeleteType' {typeName} -> typeName) (\s@Delete
 
 instance Core.AWSRequest DeleteType where
   type AWSResponse DeleteType = DeleteTypeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

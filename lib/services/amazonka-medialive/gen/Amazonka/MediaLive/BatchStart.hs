@@ -88,7 +88,8 @@ batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\
 
 instance Core.AWSRequest BatchStart' where
   type AWSResponse BatchStart' = BatchStartResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

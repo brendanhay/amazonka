@@ -172,7 +172,8 @@ updateStream_currentVersion = Lens.lens (\UpdateStream' {currentVersion} -> curr
 
 instance Core.AWSRequest UpdateStream where
   type AWSResponse UpdateStream = UpdateStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -99,7 +99,8 @@ getPipeline_name = Lens.lens (\GetPipeline' {name} -> name) (\s@GetPipeline' {} 
 
 instance Core.AWSRequest GetPipeline where
   type AWSResponse GetPipeline = GetPipelineResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

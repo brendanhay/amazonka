@@ -69,7 +69,8 @@ newGetAccount = GetAccount'
 
 instance Core.AWSRequest GetAccount where
   type AWSResponse GetAccount = GetAccountResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

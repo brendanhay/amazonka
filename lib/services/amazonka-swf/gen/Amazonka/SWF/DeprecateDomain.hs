@@ -101,7 +101,8 @@ instance Core.AWSRequest DeprecateDomain where
   type
     AWSResponse DeprecateDomain =
       DeprecateDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeprecateDomainResponse'
 

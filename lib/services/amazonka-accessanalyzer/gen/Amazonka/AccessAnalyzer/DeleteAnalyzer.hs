@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteAnalyzer where
   type
     AWSResponse DeleteAnalyzer =
       DeleteAnalyzerResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAnalyzerResponse'
 

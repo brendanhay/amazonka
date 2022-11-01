@@ -190,7 +190,8 @@ createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@Create
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"

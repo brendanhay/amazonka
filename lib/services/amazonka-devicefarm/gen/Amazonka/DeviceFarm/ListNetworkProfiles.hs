@@ -136,7 +136,8 @@ instance Core.AWSRequest ListNetworkProfiles where
   type
     AWSResponse ListNetworkProfiles =
       ListNetworkProfilesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

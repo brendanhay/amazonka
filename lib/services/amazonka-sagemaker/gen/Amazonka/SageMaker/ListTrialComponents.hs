@@ -218,7 +218,8 @@ instance Core.AWSRequest ListTrialComponents where
   type
     AWSResponse ListTrialComponents =
       ListTrialComponentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

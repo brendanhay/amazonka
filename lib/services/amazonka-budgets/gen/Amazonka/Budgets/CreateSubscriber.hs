@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateSubscriber where
   type
     AWSResponse CreateSubscriber =
       CreateSubscriberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

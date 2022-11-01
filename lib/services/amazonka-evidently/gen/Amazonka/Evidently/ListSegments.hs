@@ -114,7 +114,8 @@ instance Core.AWSPager ListSegments where
 
 instance Core.AWSRequest ListSegments where
   type AWSResponse ListSegments = ListSegmentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

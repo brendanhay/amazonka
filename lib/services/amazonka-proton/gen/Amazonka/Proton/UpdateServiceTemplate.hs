@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateServiceTemplate where
   type
     AWSResponse UpdateServiceTemplate =
       UpdateServiceTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

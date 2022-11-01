@@ -91,7 +91,8 @@ disableLDAPS_type = Lens.lens (\DisableLDAPS' {type'} -> type') (\s@DisableLDAPS
 
 instance Core.AWSRequest DisableLDAPS where
   type AWSResponse DisableLDAPS = DisableLDAPSResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

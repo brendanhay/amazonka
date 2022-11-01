@@ -182,7 +182,8 @@ instance Core.AWSRequest StartFaceDetection where
   type
     AWSResponse StartFaceDetection =
       StartFaceDetectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

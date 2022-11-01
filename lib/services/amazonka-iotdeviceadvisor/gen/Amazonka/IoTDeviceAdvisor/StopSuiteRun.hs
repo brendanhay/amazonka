@@ -93,7 +93,8 @@ stopSuiteRun_suiteRunId = Lens.lens (\StopSuiteRun' {suiteRunId} -> suiteRunId) 
 
 instance Core.AWSRequest StopSuiteRun where
   type AWSResponse StopSuiteRun = StopSuiteRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

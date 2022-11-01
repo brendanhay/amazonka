@@ -114,7 +114,8 @@ describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

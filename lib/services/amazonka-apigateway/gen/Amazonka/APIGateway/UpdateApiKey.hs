@@ -100,7 +100,8 @@ updateApiKey_apiKey = Lens.lens (\UpdateApiKey' {apiKey} -> apiKey) (\s@UpdateAp
 
 instance Core.AWSRequest UpdateApiKey where
   type AWSResponse UpdateApiKey = ApiKey
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

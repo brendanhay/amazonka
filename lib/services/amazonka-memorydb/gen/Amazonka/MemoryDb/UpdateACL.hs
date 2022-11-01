@@ -97,7 +97,8 @@ updateACL_aCLName = Lens.lens (\UpdateACL' {aCLName} -> aCLName) (\s@UpdateACL' 
 
 instance Core.AWSRequest UpdateACL where
   type AWSResponse UpdateACL = UpdateACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

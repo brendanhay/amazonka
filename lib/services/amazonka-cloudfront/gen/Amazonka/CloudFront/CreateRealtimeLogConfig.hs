@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateRealtimeLogConfig where
   type
     AWSResponse CreateRealtimeLogConfig =
       CreateRealtimeLogConfigResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

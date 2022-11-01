@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists summary information about the namespaces that were created by the
--- current account.
+-- current Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53AutoNaming.ListNamespaces
@@ -170,7 +170,8 @@ instance Core.AWSRequest ListNamespaces where
   type
     AWSResponse ListNamespaces =
       ListNamespacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

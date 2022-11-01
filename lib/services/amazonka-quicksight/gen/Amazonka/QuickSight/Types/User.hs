@@ -46,9 +46,10 @@ data User = User'
     active :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s email address.
     email :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s user name. In the output, the value for @UserName@ is @N\/A@
-    -- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
-    -- user is deleted.
+    -- | The user\'s user name. This value is required if you are registering a
+    -- user that will be managed in Amazon QuickSight. In the output, the value
+    -- for @UserName@ is @N\/A@ when the value for @IdentityType@ is @IAM@ and
+    -- the corresponding IAM user is deleted.
     userName :: Prelude.Maybe Prelude.Text,
     -- | The URL of the external login provider.
     externalLoginFederationProviderUrl :: Prelude.Maybe Prelude.Text,
@@ -103,9 +104,10 @@ data User = User'
 --
 -- 'email', 'user_email' - The user\'s email address.
 --
--- 'userName', 'user_userName' - The user\'s user name. In the output, the value for @UserName@ is @N\/A@
--- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
--- user is deleted.
+-- 'userName', 'user_userName' - The user\'s user name. This value is required if you are registering a
+-- user that will be managed in Amazon QuickSight. In the output, the value
+-- for @UserName@ is @N\/A@ when the value for @IdentityType@ is @IAM@ and
+-- the corresponding IAM user is deleted.
 --
 -- 'externalLoginFederationProviderUrl', 'user_externalLoginFederationProviderUrl' - The URL of the external login provider.
 --
@@ -174,9 +176,10 @@ user_active = Lens.lens (\User' {active} -> active) (\s@User' {} a -> s {active 
 user_email :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_email = Lens.lens (\User' {email} -> email) (\s@User' {} a -> s {email = a} :: User)
 
--- | The user\'s user name. In the output, the value for @UserName@ is @N\/A@
--- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
--- user is deleted.
+-- | The user\'s user name. This value is required if you are registering a
+-- user that will be managed in Amazon QuickSight. In the output, the value
+-- for @UserName@ is @N\/A@ when the value for @IdentityType@ is @IAM@ and
+-- the corresponding IAM user is deleted.
 user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
 

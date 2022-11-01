@@ -131,7 +131,8 @@ listAnswers_lensAlias = Lens.lens (\ListAnswers' {lensAlias} -> lensAlias) (\s@L
 
 instance Core.AWSRequest ListAnswers where
   type AWSResponse ListAnswers = ListAnswersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

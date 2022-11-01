@@ -99,7 +99,8 @@ deleteMethod_httpMethod = Lens.lens (\DeleteMethod' {httpMethod} -> httpMethod) 
 
 instance Core.AWSRequest DeleteMethod where
   type AWSResponse DeleteMethod = DeleteMethodResponse'
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMethodResponse''
 

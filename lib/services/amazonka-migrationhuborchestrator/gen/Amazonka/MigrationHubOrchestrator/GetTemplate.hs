@@ -80,7 +80,8 @@ getTemplate_id = Lens.lens (\GetTemplate' {id} -> id) (\s@GetTemplate' {} a -> s
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

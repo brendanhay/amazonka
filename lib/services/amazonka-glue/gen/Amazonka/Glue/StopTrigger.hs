@@ -74,7 +74,8 @@ stopTrigger_name = Lens.lens (\StopTrigger' {name} -> name) (\s@StopTrigger' {} 
 
 instance Core.AWSRequest StopTrigger where
   type AWSResponse StopTrigger = StopTriggerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

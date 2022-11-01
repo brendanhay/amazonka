@@ -73,7 +73,8 @@ deleteServer_serverId = Lens.lens (\DeleteServer' {serverId} -> serverId) (\s@De
 
 instance Core.AWSRequest DeleteServer where
   type AWSResponse DeleteServer = DeleteServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteServerResponse'
 
 instance Prelude.Hashable DeleteServer where

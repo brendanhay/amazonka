@@ -159,7 +159,8 @@ instance Core.AWSRequest ListFlowDefinitions where
   type
     AWSResponse ListFlowDefinitions =
       ListFlowDefinitionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

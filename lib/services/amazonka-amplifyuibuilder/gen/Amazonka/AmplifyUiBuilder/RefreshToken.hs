@@ -90,7 +90,8 @@ refreshToken_refreshTokenBody = Lens.lens (\RefreshToken' {refreshTokenBody} -> 
 
 instance Core.AWSRequest RefreshToken where
   type AWSResponse RefreshToken = RefreshTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -94,7 +94,8 @@ rebootNode_nodeId = Lens.lens (\RebootNode' {nodeId} -> nodeId) (\s@RebootNode' 
 
 instance Core.AWSRequest RebootNode where
   type AWSResponse RebootNode = RebootNodeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

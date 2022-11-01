@@ -43,9 +43,12 @@ data Portal = Portal'
     -- | The endpoint URL of the web portal that users access in order to start
     -- streaming sessions.
     portalEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the user access logging settings that is associated with the
+    -- web portal.
+    userAccessLoggingSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the browser settings that is associated with this web portal.
     browserSettingsArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the trust store that is associated with the web portal.
+    -- | The ARN of the user settings that is associated with the web portal.
     userSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the web portal.
     portalStatus :: Prelude.Maybe PortalStatus,
@@ -79,9 +82,12 @@ data Portal = Portal'
 -- 'portalEndpoint', 'portal_portalEndpoint' - The endpoint URL of the web portal that users access in order to start
 -- streaming sessions.
 --
+-- 'userAccessLoggingSettingsArn', 'portal_userAccessLoggingSettingsArn' - The ARN of the user access logging settings that is associated with the
+-- web portal.
+--
 -- 'browserSettingsArn', 'portal_browserSettingsArn' - The ARN of the browser settings that is associated with this web portal.
 --
--- 'userSettingsArn', 'portal_userSettingsArn' - The ARN of the trust store that is associated with the web portal.
+-- 'userSettingsArn', 'portal_userSettingsArn' - The ARN of the user settings that is associated with the web portal.
 --
 -- 'portalStatus', 'portal_portalStatus' - The status of the web portal.
 --
@@ -100,6 +106,7 @@ newPortal =
       statusReason = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       portalEndpoint = Prelude.Nothing,
+      userAccessLoggingSettingsArn = Prelude.Nothing,
       browserSettingsArn = Prelude.Nothing,
       userSettingsArn = Prelude.Nothing,
       portalStatus = Prelude.Nothing,
@@ -133,11 +140,16 @@ portal_creationDate = Lens.lens (\Portal' {creationDate} -> creationDate) (\s@Po
 portal_portalEndpoint :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
 portal_portalEndpoint = Lens.lens (\Portal' {portalEndpoint} -> portalEndpoint) (\s@Portal' {} a -> s {portalEndpoint = a} :: Portal)
 
+-- | The ARN of the user access logging settings that is associated with the
+-- web portal.
+portal_userAccessLoggingSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
+portal_userAccessLoggingSettingsArn = Lens.lens (\Portal' {userAccessLoggingSettingsArn} -> userAccessLoggingSettingsArn) (\s@Portal' {} a -> s {userAccessLoggingSettingsArn = a} :: Portal)
+
 -- | The ARN of the browser settings that is associated with this web portal.
 portal_browserSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
 portal_browserSettingsArn = Lens.lens (\Portal' {browserSettingsArn} -> browserSettingsArn) (\s@Portal' {} a -> s {browserSettingsArn = a} :: Portal)
 
--- | The ARN of the trust store that is associated with the web portal.
+-- | The ARN of the user settings that is associated with the web portal.
 portal_userSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
 portal_userSettingsArn = Lens.lens (\Portal' {userSettingsArn} -> userSettingsArn) (\s@Portal' {} a -> s {userSettingsArn = a} :: Portal)
 
@@ -169,6 +181,7 @@ instance Core.FromJSON Portal where
             Prelude.<*> (x Core..:? "statusReason")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "portalEndpoint")
+            Prelude.<*> (x Core..:? "userAccessLoggingSettingsArn")
             Prelude.<*> (x Core..:? "browserSettingsArn")
             Prelude.<*> (x Core..:? "userSettingsArn")
             Prelude.<*> (x Core..:? "portalStatus")
@@ -185,6 +198,7 @@ instance Prelude.Hashable Portal where
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` portalEndpoint
+      `Prelude.hashWithSalt` userAccessLoggingSettingsArn
       `Prelude.hashWithSalt` browserSettingsArn
       `Prelude.hashWithSalt` userSettingsArn
       `Prelude.hashWithSalt` portalStatus
@@ -200,6 +214,7 @@ instance Prelude.NFData Portal where
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf portalEndpoint
+      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
       `Prelude.seq` Prelude.rnf browserSettingsArn
       `Prelude.seq` Prelude.rnf userSettingsArn
       `Prelude.seq` Prelude.rnf portalStatus

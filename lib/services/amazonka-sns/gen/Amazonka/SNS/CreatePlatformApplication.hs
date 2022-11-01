@@ -151,7 +151,8 @@ instance Core.AWSRequest CreatePlatformApplication where
   type
     AWSResponse CreatePlatformApplication =
       CreatePlatformApplicationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreatePlatformApplicationResult"

@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
   type
     AWSResponse DescribeCacheParameterGroups =
       DescribeCacheParameterGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheParameterGroupsResult"

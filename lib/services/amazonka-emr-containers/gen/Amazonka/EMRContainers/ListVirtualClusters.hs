@@ -170,7 +170,8 @@ instance Core.AWSRequest ListVirtualClusters where
   type
     AWSResponse ListVirtualClusters =
       ListVirtualClustersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

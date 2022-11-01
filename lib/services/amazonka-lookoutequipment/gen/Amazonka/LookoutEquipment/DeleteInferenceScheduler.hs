@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteInferenceScheduler where
   type
     AWSResponse DeleteInferenceScheduler =
       DeleteInferenceSchedulerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteInferenceSchedulerResponse'

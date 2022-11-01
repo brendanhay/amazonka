@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeDocumentClassifier where
   type
     AWSResponse DescribeDocumentClassifier =
       DescribeDocumentClassifierResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

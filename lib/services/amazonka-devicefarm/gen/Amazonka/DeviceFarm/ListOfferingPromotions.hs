@@ -114,7 +114,8 @@ instance Core.AWSRequest ListOfferingPromotions where
   type
     AWSResponse ListOfferingPromotions =
       ListOfferingPromotionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

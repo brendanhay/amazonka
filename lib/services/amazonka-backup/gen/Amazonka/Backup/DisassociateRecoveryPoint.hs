@@ -99,7 +99,8 @@ instance Core.AWSRequest DisassociateRecoveryPoint where
   type
     AWSResponse DisassociateRecoveryPoint =
       DisassociateRecoveryPointResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateRecoveryPointResponse'

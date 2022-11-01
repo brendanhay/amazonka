@@ -120,7 +120,8 @@ instance Core.AWSPager ExportThemes where
 
 instance Core.AWSRequest ExportThemes where
   type AWSResponse ExportThemes = ExportThemesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

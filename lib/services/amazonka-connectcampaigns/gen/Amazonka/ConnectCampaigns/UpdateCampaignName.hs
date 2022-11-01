@@ -84,7 +84,8 @@ instance Core.AWSRequest UpdateCampaignName where
   type
     AWSResponse UpdateCampaignName =
       UpdateCampaignNameResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateCampaignNameResponse'
 

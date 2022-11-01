@@ -59,12 +59,12 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
     -- a1234567890abcdef.awsglobalaccelerator.com.
     --
     -- If you have a dual-stack accelerator, you also have a second DNS name,
-    -- DualStackDnsName, that points to both the A record and the AAAA record
-    -- for all four static addresses for the accelerator (two IPv4 addresses
-    -- and two IPv6 addresses).
+    -- @DualStackDnsName@, that points to both the A record and the AAAA record
+    -- for all four static addresses for the accelerator: two IPv4 addresses
+    -- and two IPv6 addresses.
     --
     -- For more information about the default DNS name, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
     -- in the /Global Accelerator Developer Guide/.
     dnsName :: Prelude.Maybe Prelude.Text,
     -- | The IP address type that an accelerator supports. For a custom routing
@@ -110,12 +110,12 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
 -- If you have a dual-stack accelerator, you also have a second DNS name,
--- DualStackDnsName, that points to both the A record and the AAAA record
--- for all four static addresses for the accelerator (two IPv4 addresses
--- and two IPv6 addresses).
+-- @DualStackDnsName@, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator: two IPv4 addresses
+-- and two IPv6 addresses.
 --
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 --
 -- 'ipAddressType', 'customRoutingAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
@@ -178,12 +178,12 @@ customRoutingAccelerator_lastModifiedTime = Lens.lens (\CustomRoutingAccelerator
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
 -- If you have a dual-stack accelerator, you also have a second DNS name,
--- DualStackDnsName, that points to both the A record and the AAAA record
--- for all four static addresses for the accelerator (two IPv4 addresses
--- and two IPv6 addresses).
+-- @DualStackDnsName@, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator: two IPv4 addresses
+-- and two IPv6 addresses.
 --
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS addressing in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
 customRoutingAccelerator_dnsName :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
 customRoutingAccelerator_dnsName = Lens.lens (\CustomRoutingAccelerator' {dnsName} -> dnsName) (\s@CustomRoutingAccelerator' {} a -> s {dnsName = a} :: CustomRoutingAccelerator)

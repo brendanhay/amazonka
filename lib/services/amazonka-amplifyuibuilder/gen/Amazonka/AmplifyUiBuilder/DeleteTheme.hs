@@ -97,7 +97,8 @@ deleteTheme_id = Lens.lens (\DeleteTheme' {id} -> id) (\s@DeleteTheme' {} a -> s
 
 instance Core.AWSRequest DeleteTheme where
   type AWSResponse DeleteTheme = DeleteThemeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteThemeResponse'
 
 instance Prelude.Hashable DeleteTheme where

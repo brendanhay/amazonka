@@ -146,7 +146,8 @@ instance Core.AWSRequest ListStackResources where
   type
     AWSResponse ListStackResources =
       ListStackResourcesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStackResourcesResult"

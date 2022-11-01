@@ -27,6 +27,15 @@
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html Set Up Phone Numbers for Your Contact Center>
 -- in the /Amazon Connect Administrator Guide/.
 --
+-- The phone number @Arn@ value that is returned from each of the items in
+-- the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList PhoneNumberSummaryList>
+-- cannot be used to tag phone number resources. It will fail with a
+-- @ResourceNotFoundException@. Instead, use the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html ListPhoneNumbersV2>
+-- API. It returns the new phone number ARN that can be used to tag phone
+-- number resources.
+--
 -- This operation returns paginated results.
 module Amazonka.Connect.ListPhoneNumbers
   ( -- * Creating a Request
@@ -161,7 +170,8 @@ instance Core.AWSRequest ListPhoneNumbers where
   type
     AWSResponse ListPhoneNumbers =
       ListPhoneNumbersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

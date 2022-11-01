@@ -107,7 +107,8 @@ listThesauri_indexId = Lens.lens (\ListThesauri' {indexId} -> indexId) (\s@ListT
 
 instance Core.AWSRequest ListThesauri where
   type AWSResponse ListThesauri = ListThesauriResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

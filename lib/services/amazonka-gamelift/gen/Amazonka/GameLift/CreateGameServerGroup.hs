@@ -501,7 +501,8 @@ instance Core.AWSRequest CreateGameServerGroup where
   type
     AWSResponse CreateGameServerGroup =
       CreateGameServerGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

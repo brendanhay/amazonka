@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- lists all the live sources in a source location.
+-- Lists the live sources contained in a source location. A source
+-- represents a piece of content.
 --
 -- This operation returns paginated results.
 module Amazonka.MediaTailor.ListLiveSources
@@ -53,13 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLiveSources' smart constructor.
 data ListLiveSources = ListLiveSources'
-  { -- | Pagination token from the GET list request. Use the token to fetch the
-    -- next page of results.
+  { -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return. The maximum number of
-    -- results is 100.
+    -- | The maximum number of live sources that you want MediaTailor to return
+    -- in response to the current request. If there are more than @MaxResults@
+    -- live sources, use the value of @NextToken@ in the response to get the
+    -- next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier for the source location you are working on.
+    -- | The name of the source location associated with this Live Sources list.
     sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,13 +75,15 @@ data ListLiveSources = ListLiveSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLiveSources_nextToken' - Pagination token from the GET list request. Use the token to fetch the
+-- 'nextToken', 'listLiveSources_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+--
+-- 'maxResults', 'listLiveSources_maxResults' - The maximum number of live sources that you want MediaTailor to return
+-- in response to the current request. If there are more than @MaxResults@
+-- live sources, use the value of @NextToken@ in the response to get the
 -- next page of results.
 --
--- 'maxResults', 'listLiveSources_maxResults' - Upper bound on number of records to return. The maximum number of
--- results is 100.
---
--- 'sourceLocationName', 'listLiveSources_sourceLocationName' - The identifier for the source location you are working on.
+-- 'sourceLocationName', 'listLiveSources_sourceLocationName' - The name of the source location associated with this Live Sources list.
 newListLiveSources ::
   -- | 'sourceLocationName'
   Prelude.Text ->
@@ -90,17 +95,19 @@ newListLiveSources pSourceLocationName_ =
       sourceLocationName = pSourceLocationName_
     }
 
--- | Pagination token from the GET list request. Use the token to fetch the
--- next page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listLiveSources_nextToken :: Lens.Lens' ListLiveSources (Prelude.Maybe Prelude.Text)
 listLiveSources_nextToken = Lens.lens (\ListLiveSources' {nextToken} -> nextToken) (\s@ListLiveSources' {} a -> s {nextToken = a} :: ListLiveSources)
 
--- | Upper bound on number of records to return. The maximum number of
--- results is 100.
+-- | The maximum number of live sources that you want MediaTailor to return
+-- in response to the current request. If there are more than @MaxResults@
+-- live sources, use the value of @NextToken@ in the response to get the
+-- next page of results.
 listLiveSources_maxResults :: Lens.Lens' ListLiveSources (Prelude.Maybe Prelude.Natural)
 listLiveSources_maxResults = Lens.lens (\ListLiveSources' {maxResults} -> maxResults) (\s@ListLiveSources' {} a -> s {maxResults = a} :: ListLiveSources)
 
--- | The identifier for the source location you are working on.
+-- | The name of the source location associated with this Live Sources list.
 listLiveSources_sourceLocationName :: Lens.Lens' ListLiveSources Prelude.Text
 listLiveSources_sourceLocationName = Lens.lens (\ListLiveSources' {sourceLocationName} -> sourceLocationName) (\s@ListLiveSources' {} a -> s {sourceLocationName = a} :: ListLiveSources)
 
@@ -129,7 +136,8 @@ instance Core.AWSRequest ListLiveSources where
   type
     AWSResponse ListLiveSources =
       ListLiveSourcesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,8 +189,8 @@ instance Core.ToQuery ListLiveSources where
 data ListLiveSourcesResponse = ListLiveSourcesResponse'
   { -- | Lists the live sources.
     items :: Prelude.Maybe [LiveSource],
-    -- | Pagination token from the list request. Use the token to fetch the next
-    -- page of results.
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -199,8 +207,8 @@ data ListLiveSourcesResponse = ListLiveSourcesResponse'
 --
 -- 'items', 'listLiveSourcesResponse_items' - Lists the live sources.
 --
--- 'nextToken', 'listLiveSourcesResponse_nextToken' - Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- 'nextToken', 'listLiveSourcesResponse_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'httpStatus', 'listLiveSourcesResponse_httpStatus' - The response's http status code.
 newListLiveSourcesResponse ::
@@ -218,8 +226,8 @@ newListLiveSourcesResponse pHttpStatus_ =
 listLiveSourcesResponse_items :: Lens.Lens' ListLiveSourcesResponse (Prelude.Maybe [LiveSource])
 listLiveSourcesResponse_items = Lens.lens (\ListLiveSourcesResponse' {items} -> items) (\s@ListLiveSourcesResponse' {} a -> s {items = a} :: ListLiveSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Pagination token from the list request. Use the token to fetch the next
--- page of results.
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 listLiveSourcesResponse_nextToken :: Lens.Lens' ListLiveSourcesResponse (Prelude.Maybe Prelude.Text)
 listLiveSourcesResponse_nextToken = Lens.lens (\ListLiveSourcesResponse' {nextToken} -> nextToken) (\s@ListLiveSourcesResponse' {} a -> s {nextToken = a} :: ListLiveSourcesResponse)
 

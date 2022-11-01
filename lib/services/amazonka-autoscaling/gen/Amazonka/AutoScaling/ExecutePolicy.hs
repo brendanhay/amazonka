@@ -173,7 +173,8 @@ instance Core.AWSRequest ExecutePolicy where
   type
     AWSResponse ExecutePolicy =
       ExecutePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ExecutePolicyResponse'
 

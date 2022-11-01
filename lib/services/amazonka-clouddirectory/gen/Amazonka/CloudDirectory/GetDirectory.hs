@@ -75,7 +75,8 @@ getDirectory_directoryArn = Lens.lens (\GetDirectory' {directoryArn} -> director
 
 instance Core.AWSRequest GetDirectory where
   type AWSResponse GetDirectory = GetDirectoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

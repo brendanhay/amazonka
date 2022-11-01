@@ -83,7 +83,8 @@ describeBot_botId = Lens.lens (\DescribeBot' {botId} -> botId) (\s@DescribeBot' 
 
 instance Core.AWSRequest DescribeBot where
   type AWSResponse DescribeBot = DescribeBotResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

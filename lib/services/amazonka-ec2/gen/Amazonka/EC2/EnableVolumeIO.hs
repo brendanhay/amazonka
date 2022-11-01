@@ -95,7 +95,8 @@ instance Core.AWSRequest EnableVolumeIO where
   type
     AWSResponse EnableVolumeIO =
       EnableVolumeIOResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull EnableVolumeIOResponse'
 

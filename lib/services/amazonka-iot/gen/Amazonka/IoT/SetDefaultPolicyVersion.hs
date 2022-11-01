@@ -98,7 +98,8 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
   type
     AWSResponse SetDefaultPolicyVersion =
       SetDefaultPolicyVersionResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull
       SetDefaultPolicyVersionResponse'

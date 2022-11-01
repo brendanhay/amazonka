@@ -158,6 +158,8 @@ defaultService =
       Core._serviceEndpointPrefix = "datapipeline",
       Core._serviceSigningName = "datapipeline",
       Core._serviceVersion = "2012-10-29",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

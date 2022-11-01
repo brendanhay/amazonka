@@ -86,7 +86,8 @@ instance Core.AWSRequest DescribeLoadBasedAutoScaling where
   type
     AWSResponse DescribeLoadBasedAutoScaling =
       DescribeLoadBasedAutoScalingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

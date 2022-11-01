@@ -181,7 +181,8 @@ instance Core.AWSRequest PutAccountDetails where
   type
     AWSResponse PutAccountDetails =
       PutAccountDetailsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

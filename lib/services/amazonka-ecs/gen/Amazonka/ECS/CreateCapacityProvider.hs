@@ -201,7 +201,8 @@ instance Core.AWSRequest CreateCapacityProvider where
   type
     AWSResponse CreateCapacityProvider =
       CreateCapacityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

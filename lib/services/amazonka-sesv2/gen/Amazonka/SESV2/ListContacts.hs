@@ -132,7 +132,8 @@ listContacts_contactListName = Lens.lens (\ListContacts' {contactListName} -> co
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

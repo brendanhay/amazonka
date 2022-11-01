@@ -232,7 +232,8 @@ instance Core.AWSRequest DisassociateResourceShare where
   type
     AWSResponse DisassociateResourceShare =
       DisassociateResourceShareResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

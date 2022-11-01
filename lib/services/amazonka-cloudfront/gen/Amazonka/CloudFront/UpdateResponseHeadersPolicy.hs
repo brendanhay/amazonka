@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateResponseHeadersPolicy where
   type
     AWSResponse UpdateResponseHeadersPolicy =
       UpdateResponseHeadersPolicyResponse
-  request = Request.putXML defaultService
+  service _ = defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->

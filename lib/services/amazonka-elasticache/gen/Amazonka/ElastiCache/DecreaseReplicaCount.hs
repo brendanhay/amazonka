@@ -190,7 +190,8 @@ instance Core.AWSRequest DecreaseReplicaCount where
   type
     AWSResponse DecreaseReplicaCount =
       DecreaseReplicaCountResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DecreaseReplicaCountResult"

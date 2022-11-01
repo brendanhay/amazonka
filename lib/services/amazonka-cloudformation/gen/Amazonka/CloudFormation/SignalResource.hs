@@ -144,7 +144,8 @@ instance Core.AWSRequest SignalResource where
   type
     AWSResponse SignalResource =
       SignalResourceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SignalResourceResponse'
 

@@ -210,6 +210,8 @@ defaultService =
         "application-autoscaling",
       Core._serviceSigningName = "application-autoscaling",
       Core._serviceVersion = "2016-02-06",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -176,7 +176,8 @@ instance Core.AWSRequest GetDocumentationParts where
   type
     AWSResponse GetDocumentationParts =
       GetDocumentationPartsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

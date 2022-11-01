@@ -123,7 +123,8 @@ instance Core.AWSPager DescribeJobs where
 
 instance Core.AWSRequest DescribeJobs where
   type AWSResponse DescribeJobs = DescribeJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

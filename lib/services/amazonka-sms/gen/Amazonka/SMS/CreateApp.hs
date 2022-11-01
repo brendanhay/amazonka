@@ -134,7 +134,8 @@ createApp_serverGroups = Lens.lens (\CreateApp' {serverGroups} -> serverGroups) 
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

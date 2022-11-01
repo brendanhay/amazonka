@@ -108,7 +108,8 @@ instance Core.AWSPager GetDomains where
 
 instance Core.AWSRequest GetDomains where
   type AWSResponse GetDomains = GetDomainsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

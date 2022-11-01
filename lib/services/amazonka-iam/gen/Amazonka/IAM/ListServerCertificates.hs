@@ -205,7 +205,8 @@ instance Core.AWSRequest ListServerCertificates where
   type
     AWSResponse ListServerCertificates =
       ListServerCertificatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListServerCertificatesResult"

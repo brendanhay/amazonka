@@ -103,7 +103,8 @@ modifyUserGroup_userGroupId = Lens.lens (\ModifyUserGroup' {userGroupId} -> user
 
 instance Core.AWSRequest ModifyUserGroup where
   type AWSResponse ModifyUserGroup = UserGroup
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUserGroupResult"

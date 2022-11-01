@@ -161,7 +161,8 @@ createPreset_container = Lens.lens (\CreatePreset' {container} -> container) (\s
 
 instance Core.AWSRequest CreatePreset where
   type AWSResponse CreatePreset = CreatePresetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

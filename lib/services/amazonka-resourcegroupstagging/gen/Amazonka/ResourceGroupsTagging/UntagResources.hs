@@ -136,7 +136,8 @@ instance Core.AWSRequest UntagResources where
   type
     AWSResponse UntagResources =
       UntagResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

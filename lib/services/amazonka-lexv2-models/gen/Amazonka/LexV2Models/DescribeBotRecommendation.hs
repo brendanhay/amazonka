@@ -141,7 +141,8 @@ instance Core.AWSRequest DescribeBotRecommendation where
   type
     AWSResponse DescribeBotRecommendation =
       DescribeBotRecommendationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

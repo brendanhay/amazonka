@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteLaunchConfiguration where
   type
     AWSResponse DeleteLaunchConfiguration =
       DeleteLaunchConfigurationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteLaunchConfigurationResponse'

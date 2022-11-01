@@ -123,7 +123,8 @@ getExport_exportType = Lens.lens (\GetExport' {exportType} -> exportType) (\s@Ge
 
 instance Core.AWSRequest GetExport where
   type AWSResponse GetExport = GetExportResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

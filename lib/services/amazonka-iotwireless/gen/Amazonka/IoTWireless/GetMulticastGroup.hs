@@ -82,7 +82,8 @@ instance Core.AWSRequest GetMulticastGroup where
   type
     AWSResponse GetMulticastGroup =
       GetMulticastGroupResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

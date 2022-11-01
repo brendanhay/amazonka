@@ -138,7 +138,8 @@ instance Core.AWSRequest PutAccountSettingDefault where
   type
     AWSResponse PutAccountSettingDefault =
       PutAccountSettingDefaultResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -90,7 +90,8 @@ startLaunch_project = Lens.lens (\StartLaunch' {project} -> project) (\s@StartLa
 
 instance Core.AWSRequest StartLaunch where
   type AWSResponse StartLaunch = StartLaunchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -436,6 +436,8 @@ defaultService =
       Core._serviceEndpointPrefix = "monitoring",
       Core._serviceSigningName = "monitoring",
       Core._serviceVersion = "2010-08-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteThingShadow where
   type
     AWSResponse DeleteThingShadow =
       DeleteThingShadowResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveBytes
       ( \s h x ->

@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteRecordingConfiguration where
   type
     AWSResponse DeleteRecordingConfiguration =
       DeleteRecordingConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteRecordingConfigurationResponse'

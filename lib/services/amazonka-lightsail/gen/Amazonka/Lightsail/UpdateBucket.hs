@@ -162,7 +162,8 @@ updateBucket_bucketName = Lens.lens (\UpdateBucket' {bucketName} -> bucketName) 
 
 instance Core.AWSRequest UpdateBucket where
   type AWSResponse UpdateBucket = UpdateBucketResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

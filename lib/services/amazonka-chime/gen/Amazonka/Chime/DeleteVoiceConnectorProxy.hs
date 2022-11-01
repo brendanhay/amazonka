@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteVoiceConnectorProxy where
   type
     AWSResponse DeleteVoiceConnectorProxy =
       DeleteVoiceConnectorProxyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteVoiceConnectorProxyResponse'

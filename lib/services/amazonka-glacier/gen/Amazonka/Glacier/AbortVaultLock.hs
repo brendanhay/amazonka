@@ -121,9 +121,10 @@ instance Core.AWSRequest AbortVaultLock where
   type
     AWSResponse AbortVaultLock =
       AbortVaultLockResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull AbortVaultLockResponse'
 

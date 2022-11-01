@@ -25,7 +25,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about a user account for a Amazon Connect instance.
+-- | Contains information about a user account for an Amazon Connect
+-- instance.
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'

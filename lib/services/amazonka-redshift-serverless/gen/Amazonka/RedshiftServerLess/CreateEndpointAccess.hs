@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateEndpointAccess where
   type
     AWSResponse CreateEndpointAccess =
       CreateEndpointAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

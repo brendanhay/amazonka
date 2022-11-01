@@ -88,7 +88,8 @@ instance Core.AWSRequest StartMulticastGroupSession where
   type
     AWSResponse StartMulticastGroupSession =
       StartMulticastGroupSessionResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

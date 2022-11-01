@@ -89,7 +89,8 @@ instance Core.AWSRequest ListDetectorModels where
   type
     AWSResponse ListDetectorModels =
       ListDetectorModelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

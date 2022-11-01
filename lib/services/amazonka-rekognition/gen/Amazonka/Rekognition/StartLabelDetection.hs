@@ -192,7 +192,8 @@ instance Core.AWSRequest StartLabelDetection where
   type
     AWSResponse StartLabelDetection =
       StartLabelDetectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

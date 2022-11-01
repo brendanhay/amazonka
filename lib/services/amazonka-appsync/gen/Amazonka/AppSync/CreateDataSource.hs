@@ -205,7 +205,8 @@ instance Core.AWSRequest CreateDataSource where
   type
     AWSResponse CreateDataSource =
       CreateDataSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

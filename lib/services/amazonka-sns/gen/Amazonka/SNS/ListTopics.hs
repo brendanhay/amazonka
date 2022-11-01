@@ -100,7 +100,8 @@ instance Core.AWSPager ListTopics where
 
 instance Core.AWSRequest ListTopics where
   type AWSResponse ListTopics = ListTopicsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTopicsResult"

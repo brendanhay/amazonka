@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdatePipeline where
   type
     AWSResponse UpdatePipeline =
       UpdatePipelineResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdatePipelineResponse'
 

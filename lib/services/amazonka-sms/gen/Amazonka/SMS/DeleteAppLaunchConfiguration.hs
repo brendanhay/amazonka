@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteAppLaunchConfiguration where
   type
     AWSResponse DeleteAppLaunchConfiguration =
       DeleteAppLaunchConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

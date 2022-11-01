@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific live source in a specific source location.
+-- The live source to delete.
 module Amazonka.MediaTailor.DeleteLiveSource
   ( -- * Creating a Request
     DeleteLiveSource (..),
     newDeleteLiveSource,
 
     -- * Request Lenses
-    deleteLiveSource_sourceLocationName,
     deleteLiveSource_liveSourceName,
+    deleteLiveSource_sourceLocationName,
 
     -- * Destructuring the Response
     DeleteLiveSourceResponse (..),
@@ -48,10 +48,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLiveSource' smart constructor.
 data DeleteLiveSource = DeleteLiveSource'
-  { -- | The identifier for the source location you are working on.
-    sourceLocationName :: Prelude.Text,
-    -- | The identifier for the live source you are working on.
-    liveSourceName :: Prelude.Text
+  { -- | The name of the live source.
+    liveSourceName :: Prelude.Text,
+    -- | The name of the source location associated with this Live Source.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,37 +63,38 @@ data DeleteLiveSource = DeleteLiveSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'deleteLiveSource_sourceLocationName' - The identifier for the source location you are working on.
+-- 'liveSourceName', 'deleteLiveSource_liveSourceName' - The name of the live source.
 --
--- 'liveSourceName', 'deleteLiveSource_liveSourceName' - The identifier for the live source you are working on.
+-- 'sourceLocationName', 'deleteLiveSource_sourceLocationName' - The name of the source location associated with this Live Source.
 newDeleteLiveSource ::
-  -- | 'sourceLocationName'
-  Prelude.Text ->
   -- | 'liveSourceName'
+  Prelude.Text ->
+  -- | 'sourceLocationName'
   Prelude.Text ->
   DeleteLiveSource
 newDeleteLiveSource
-  pSourceLocationName_
-  pLiveSourceName_ =
+  pLiveSourceName_
+  pSourceLocationName_ =
     DeleteLiveSource'
-      { sourceLocationName =
-          pSourceLocationName_,
-        liveSourceName = pLiveSourceName_
+      { liveSourceName =
+          pLiveSourceName_,
+        sourceLocationName = pSourceLocationName_
       }
 
--- | The identifier for the source location you are working on.
-deleteLiveSource_sourceLocationName :: Lens.Lens' DeleteLiveSource Prelude.Text
-deleteLiveSource_sourceLocationName = Lens.lens (\DeleteLiveSource' {sourceLocationName} -> sourceLocationName) (\s@DeleteLiveSource' {} a -> s {sourceLocationName = a} :: DeleteLiveSource)
-
--- | The identifier for the live source you are working on.
+-- | The name of the live source.
 deleteLiveSource_liveSourceName :: Lens.Lens' DeleteLiveSource Prelude.Text
 deleteLiveSource_liveSourceName = Lens.lens (\DeleteLiveSource' {liveSourceName} -> liveSourceName) (\s@DeleteLiveSource' {} a -> s {liveSourceName = a} :: DeleteLiveSource)
+
+-- | The name of the source location associated with this Live Source.
+deleteLiveSource_sourceLocationName :: Lens.Lens' DeleteLiveSource Prelude.Text
+deleteLiveSource_sourceLocationName = Lens.lens (\DeleteLiveSource' {sourceLocationName} -> sourceLocationName) (\s@DeleteLiveSource' {} a -> s {sourceLocationName = a} :: DeleteLiveSource)
 
 instance Core.AWSRequest DeleteLiveSource where
   type
     AWSResponse DeleteLiveSource =
       DeleteLiveSourceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -103,13 +104,13 @@ instance Core.AWSRequest DeleteLiveSource where
 
 instance Prelude.Hashable DeleteLiveSource where
   hashWithSalt _salt DeleteLiveSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` liveSourceName
+    _salt `Prelude.hashWithSalt` liveSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData DeleteLiveSource where
   rnf DeleteLiveSource' {..} =
-    Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf liveSourceName
+    Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders DeleteLiveSource where
   toHeaders =

@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateBatchSegmentJob where
   type
     AWSResponse CreateBatchSegmentJob =
       CreateBatchSegmentJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

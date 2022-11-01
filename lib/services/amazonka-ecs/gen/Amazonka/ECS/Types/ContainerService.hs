@@ -153,9 +153,7 @@ data ContainerService = ContainerService'
     -- service to the task. If no value is specified, the tags aren\'t
     -- propagated.
     propagateTags :: Prelude.Maybe PropagateTags,
-    -- | The deployment controller type the service is using. When using the
-    -- DescribeServices API, this field is omitted if the service uses the
-    -- @ECS@ deployment controller type.
+    -- | The deployment controller type the service is using.
     deploymentController :: Prelude.Maybe DeploymentController,
     -- | The event stream for your service. A maximum of 100 of the latest events
     -- are displayed.
@@ -320,9 +318,7 @@ data ContainerService = ContainerService'
 -- service to the task. If no value is specified, the tags aren\'t
 -- propagated.
 --
--- 'deploymentController', 'containerService_deploymentController' - The deployment controller type the service is using. When using the
--- DescribeServices API, this field is omitted if the service uses the
--- @ECS@ deployment controller type.
+-- 'deploymentController', 'containerService_deploymentController' - The deployment controller type the service is using.
 --
 -- 'events', 'containerService_events' - The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
@@ -551,9 +547,7 @@ containerService_taskSets = Lens.lens (\ContainerService' {taskSets} -> taskSets
 containerService_propagateTags :: Lens.Lens' ContainerService (Prelude.Maybe PropagateTags)
 containerService_propagateTags = Lens.lens (\ContainerService' {propagateTags} -> propagateTags) (\s@ContainerService' {} a -> s {propagateTags = a} :: ContainerService)
 
--- | The deployment controller type the service is using. When using the
--- DescribeServices API, this field is omitted if the service uses the
--- @ECS@ deployment controller type.
+-- | The deployment controller type the service is using.
 containerService_deploymentController :: Lens.Lens' ContainerService (Prelude.Maybe DeploymentController)
 containerService_deploymentController = Lens.lens (\ContainerService' {deploymentController} -> deploymentController) (\s@ContainerService' {} a -> s {deploymentController = a} :: ContainerService)
 

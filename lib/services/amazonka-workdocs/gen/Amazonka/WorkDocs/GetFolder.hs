@@ -101,7 +101,8 @@ getFolder_folderId = Lens.lens (\GetFolder' {folderId} -> folderId) (\s@GetFolde
 
 instance Core.AWSRequest GetFolder where
   type AWSResponse GetFolder = GetFolderResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

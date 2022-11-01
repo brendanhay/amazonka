@@ -106,7 +106,8 @@ instance Core.AWSRequest AdminForgetDevice where
   type
     AWSResponse AdminForgetDevice =
       AdminForgetDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AdminForgetDeviceResponse'
 

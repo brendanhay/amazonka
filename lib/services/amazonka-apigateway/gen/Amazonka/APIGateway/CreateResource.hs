@@ -106,7 +106,8 @@ createResource_pathPart = Lens.lens (\CreateResource' {pathPart} -> pathPart) (\
 
 instance Core.AWSRequest CreateResource where
   type AWSResponse CreateResource = Resource
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

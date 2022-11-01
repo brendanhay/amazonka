@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing an Batch array job.
+-- | An object that represents an Batch array job.
 --
 -- /See:/ 'newArrayProperties' smart constructor.
 data ArrayProperties = ArrayProperties'

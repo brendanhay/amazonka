@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeChannelMembership where
   type
     AWSResponse DescribeChannelMembership =
       DescribeChannelMembershipResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

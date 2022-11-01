@@ -182,7 +182,8 @@ updateRule_identifier = Lens.lens (\UpdateRule' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest UpdateRule where
   type AWSResponse UpdateRule = UpdateRuleResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

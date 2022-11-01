@@ -51,7 +51,7 @@ data Network = Network'
     -- | The Amazon Resource Name (ARN) of the network. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the network was created.
     creationDate :: Prelude.Maybe Core.POSIX,
@@ -98,7 +98,7 @@ data Network = Network'
 -- 'arn', 'network_arn' - The Amazon Resource Name (ARN) of the network. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'network_creationDate' - The date and time that the network was created.
 --
@@ -159,7 +159,7 @@ network_vpcEndpointServiceName = Lens.lens (\Network' {vpcEndpointServiceName} -
 -- | The Amazon Resource Name (ARN) of the network. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 network_arn :: Lens.Lens' Network (Prelude.Maybe Prelude.Text)
 network_arn = Lens.lens (\Network' {arn} -> arn) (\s@Network' {} a -> s {arn = a} :: Network)
 

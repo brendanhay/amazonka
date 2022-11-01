@@ -108,7 +108,8 @@ instance
   type
     AWSResponse DeleteHostedConfigurationVersion =
       DeleteHostedConfigurationVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteHostedConfigurationVersionResponse'

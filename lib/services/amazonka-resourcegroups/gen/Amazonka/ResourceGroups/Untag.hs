@@ -97,7 +97,8 @@ untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} 
 
 instance Core.AWSRequest Untag where
   type AWSResponse Untag = UntagResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -160,7 +160,8 @@ createDomain_domain = Lens.lens (\CreateDomain' {domain} -> domain) (\s@CreateDo
 
 instance Core.AWSRequest CreateDomain where
   type AWSResponse CreateDomain = CreateDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

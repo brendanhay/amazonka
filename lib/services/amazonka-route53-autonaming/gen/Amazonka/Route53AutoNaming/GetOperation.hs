@@ -79,7 +79,8 @@ getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationI
 
 instance Core.AWSRequest GetOperation where
   type AWSResponse GetOperation = GetOperationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

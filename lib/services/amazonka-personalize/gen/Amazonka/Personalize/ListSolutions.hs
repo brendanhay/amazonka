@@ -127,7 +127,8 @@ instance Core.AWSRequest ListSolutions where
   type
     AWSResponse ListSolutions =
       ListSolutionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

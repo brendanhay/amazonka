@@ -142,7 +142,8 @@ listProblems_startTime = Lens.lens (\ListProblems' {startTime} -> startTime) (\s
 
 instance Core.AWSRequest ListProblems where
   type AWSResponse ListProblems = ListProblemsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -179,7 +179,8 @@ createTrust_trustDirection = Lens.lens (\CreateTrust' {trustDirection} -> trustD
 
 instance Core.AWSRequest CreateTrust where
   type AWSResponse CreateTrust = CreateTrustResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

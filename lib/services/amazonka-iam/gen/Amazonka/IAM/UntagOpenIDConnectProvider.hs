@@ -111,7 +111,8 @@ instance Core.AWSRequest UntagOpenIDConnectProvider where
   type
     AWSResponse UntagOpenIDConnectProvider =
       UntagOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UntagOpenIDConnectProviderResponse'

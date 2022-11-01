@@ -244,6 +244,12 @@ module Amazonka.SESV2
     GetDedicatedIpResponse (GetDedicatedIpResponse'),
     newGetDedicatedIpResponse,
 
+    -- ** GetDedicatedIpPool
+    GetDedicatedIpPool (GetDedicatedIpPool'),
+    newGetDedicatedIpPool,
+    GetDedicatedIpPoolResponse (GetDedicatedIpPoolResponse'),
+    newGetDedicatedIpPoolResponse,
+
     -- ** GetDedicatedIps
     GetDedicatedIps (GetDedicatedIps'),
     newGetDedicatedIps,
@@ -612,6 +618,9 @@ module Amazonka.SESV2
     -- ** ReviewStatus
     ReviewStatus (..),
 
+    -- ** ScalingMode
+    ScalingMode (..),
+
     -- ** SubscriptionStatus
     SubscriptionStatus (..),
 
@@ -623,6 +632,9 @@ module Amazonka.SESV2
 
     -- ** TlsPolicy
     TlsPolicy (..),
+
+    -- ** VerificationStatus
+    VerificationStatus (..),
 
     -- ** WarmupStatus
     WarmupStatus (..),
@@ -686,6 +698,10 @@ module Amazonka.SESV2
     -- ** DedicatedIp
     DedicatedIp (DedicatedIp'),
     newDedicatedIp,
+
+    -- ** DedicatedIpPool
+    DedicatedIpPool (DedicatedIpPool'),
+    newDedicatedIpPool,
 
     -- ** DeliverabilityTestReport
     DeliverabilityTestReport (DeliverabilityTestReport'),
@@ -918,6 +934,7 @@ import Amazonka.SESV2.GetContact
 import Amazonka.SESV2.GetContactList
 import Amazonka.SESV2.GetCustomVerificationEmailTemplate
 import Amazonka.SESV2.GetDedicatedIp
+import Amazonka.SESV2.GetDedicatedIpPool
 import Amazonka.SESV2.GetDedicatedIps
 import Amazonka.SESV2.GetDeliverabilityDashboardOptions
 import Amazonka.SESV2.GetDeliverabilityTestReport

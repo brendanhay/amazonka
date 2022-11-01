@@ -102,7 +102,8 @@ instance Core.AWSRequest GetSAMLProvider where
   type
     AWSResponse GetSAMLProvider =
       GetSAMLProviderResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSAMLProviderResult"

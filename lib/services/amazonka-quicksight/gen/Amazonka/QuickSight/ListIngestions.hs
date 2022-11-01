@@ -139,7 +139,8 @@ instance Core.AWSRequest ListIngestions where
   type
     AWSResponse ListIngestions =
       ListIngestionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

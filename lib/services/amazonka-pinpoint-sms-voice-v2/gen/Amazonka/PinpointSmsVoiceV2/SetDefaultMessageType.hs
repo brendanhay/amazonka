@@ -112,7 +112,8 @@ instance Core.AWSRequest SetDefaultMessageType where
   type
     AWSResponse SetDefaultMessageType =
       SetDefaultMessageTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

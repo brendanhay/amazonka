@@ -111,7 +111,8 @@ instance Core.AWSRequest AssociateEncryptionConfig where
   type
     AWSResponse AssociateEncryptionConfig =
       AssociateEncryptionConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

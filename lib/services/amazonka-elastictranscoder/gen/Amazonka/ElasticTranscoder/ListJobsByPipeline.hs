@@ -142,7 +142,8 @@ instance Core.AWSRequest ListJobsByPipeline where
   type
     AWSResponse ListJobsByPipeline =
       ListJobsByPipelineResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

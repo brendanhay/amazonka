@@ -23,19 +23,23 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides statistics for the specified @ImportID@.
+-- | Provides statistics for the specified @ImportID@. CloudTrail does not
+-- update import statistics in real-time. Returned values for parameters
+-- such as @EventsCompleted@ may be lower than the actual value, because
+-- CloudTrail updates statistics incrementally over the course of the
+-- import.
 --
 -- /See:/ 'newImportStatistics' smart constructor.
 data ImportStatistics = ImportStatistics'
   { -- | The number of failed entries.
     failedEntries :: Prelude.Maybe Prelude.Integer,
-    -- | The number of trail events imported.
+    -- | The number of trail events imported into the event data store.
     eventsCompleted :: Prelude.Maybe Prelude.Integer,
     -- | The number of S3 prefixes found for the import.
     prefixesFound :: Prelude.Maybe Prelude.Integer,
     -- | The number of S3 prefixes that completed import.
     prefixesCompleted :: Prelude.Maybe Prelude.Integer,
-    -- | The number of files that completed import.
+    -- | The number of log files that completed import.
     filesCompleted :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +54,13 @@ data ImportStatistics = ImportStatistics'
 --
 -- 'failedEntries', 'importStatistics_failedEntries' - The number of failed entries.
 --
--- 'eventsCompleted', 'importStatistics_eventsCompleted' - The number of trail events imported.
+-- 'eventsCompleted', 'importStatistics_eventsCompleted' - The number of trail events imported into the event data store.
 --
 -- 'prefixesFound', 'importStatistics_prefixesFound' - The number of S3 prefixes found for the import.
 --
 -- 'prefixesCompleted', 'importStatistics_prefixesCompleted' - The number of S3 prefixes that completed import.
 --
--- 'filesCompleted', 'importStatistics_filesCompleted' - The number of files that completed import.
+-- 'filesCompleted', 'importStatistics_filesCompleted' - The number of log files that completed import.
 newImportStatistics ::
   ImportStatistics
 newImportStatistics =
@@ -72,7 +76,7 @@ newImportStatistics =
 importStatistics_failedEntries :: Lens.Lens' ImportStatistics (Prelude.Maybe Prelude.Integer)
 importStatistics_failedEntries = Lens.lens (\ImportStatistics' {failedEntries} -> failedEntries) (\s@ImportStatistics' {} a -> s {failedEntries = a} :: ImportStatistics)
 
--- | The number of trail events imported.
+-- | The number of trail events imported into the event data store.
 importStatistics_eventsCompleted :: Lens.Lens' ImportStatistics (Prelude.Maybe Prelude.Integer)
 importStatistics_eventsCompleted = Lens.lens (\ImportStatistics' {eventsCompleted} -> eventsCompleted) (\s@ImportStatistics' {} a -> s {eventsCompleted = a} :: ImportStatistics)
 
@@ -84,7 +88,7 @@ importStatistics_prefixesFound = Lens.lens (\ImportStatistics' {prefixesFound} -
 importStatistics_prefixesCompleted :: Lens.Lens' ImportStatistics (Prelude.Maybe Prelude.Integer)
 importStatistics_prefixesCompleted = Lens.lens (\ImportStatistics' {prefixesCompleted} -> prefixesCompleted) (\s@ImportStatistics' {} a -> s {prefixesCompleted = a} :: ImportStatistics)
 
--- | The number of files that completed import.
+-- | The number of log files that completed import.
 importStatistics_filesCompleted :: Lens.Lens' ImportStatistics (Prelude.Maybe Prelude.Integer)
 importStatistics_filesCompleted = Lens.lens (\ImportStatistics' {filesCompleted} -> filesCompleted) (\s@ImportStatistics' {} a -> s {filesCompleted = a} :: ImportStatistics)
 

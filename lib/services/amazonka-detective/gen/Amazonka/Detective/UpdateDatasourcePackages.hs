@@ -90,7 +90,8 @@ instance Core.AWSRequest UpdateDatasourcePackages where
   type
     AWSResponse UpdateDatasourcePackages =
       UpdateDatasourcePackagesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateDatasourcePackagesResponse'

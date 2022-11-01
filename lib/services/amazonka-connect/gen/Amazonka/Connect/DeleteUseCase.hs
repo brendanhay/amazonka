@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteUseCase where
   type
     AWSResponse DeleteUseCase =
       DeleteUseCaseResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteUseCaseResponse'
 

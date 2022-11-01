@@ -75,7 +75,8 @@ getControl_controlId = Lens.lens (\GetControl' {controlId} -> controlId) (\s@Get
 
 instance Core.AWSRequest GetControl where
   type AWSResponse GetControl = GetControlResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

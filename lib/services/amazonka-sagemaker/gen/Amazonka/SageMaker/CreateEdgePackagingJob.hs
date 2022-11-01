@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateEdgePackagingJob where
   type
     AWSResponse CreateEdgePackagingJob =
       CreateEdgePackagingJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       CreateEdgePackagingJobResponse'

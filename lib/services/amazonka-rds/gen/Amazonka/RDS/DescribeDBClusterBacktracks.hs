@@ -300,7 +300,8 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
     AWSResponse DescribeDBClusterBacktracks =
       DescribeDBClusterBacktracksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterBacktracksResult"

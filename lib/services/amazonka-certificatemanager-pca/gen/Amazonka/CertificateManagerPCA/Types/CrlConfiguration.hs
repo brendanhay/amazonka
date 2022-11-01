@@ -98,8 +98,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html Planning a certificate revocation list (CRL)>
--- in the /Certificate Manager Private Certificate Authority (PCA) User
--- Guide/
+-- in the /Private Certificate Authority (PCA) User Guide/
 --
 -- /See:/ 'newCrlConfiguration' smart constructor.
 data CrlConfiguration = CrlConfiguration'

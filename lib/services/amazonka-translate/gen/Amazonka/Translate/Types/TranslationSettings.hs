@@ -25,11 +25,12 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Formality
 import Amazonka.Translate.Types.Profanity
 
--- | Settings that configure the translation output.
+-- | Optional settings that configure the translation output. Use these
+-- settings for real time translations and asynchronous translation jobs.
 --
 -- /See:/ 'newTranslationSettings' smart constructor.
 data TranslationSettings = TranslationSettings'
-  { -- | You can optionally specify the desired level of formality for real-time
+  { -- | You can optionally specify the desired level of formality for
     -- translations to supported target languages. The formality setting
     -- controls the level of formal language usage (also known as
     -- <https://en.wikipedia.org/wiki/Register_(sociolinguistics) register>) in
@@ -38,12 +39,12 @@ data TranslationSettings = TranslationSettings'
     -- doesn\'t support formality, the translation will ignore the formality
     -- setting.
     --
-    -- Note that asynchronous translation jobs don\'t support formality. If you
-    -- provide a value for formality, the @StartTextTranslationJob@ API throws
-    -- an exception (InvalidRequestException).
+    -- If you specify multiple target languages for the job, translate ignores
+    -- the formality setting for any unsupported target language.
     --
-    -- For target languages that support formality, see
-    -- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+    -- For a list of target languages that support formality, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+    -- in the Amazon Translate Developer Guide.
     formality :: Prelude.Maybe Formality,
     -- | Enable the profanity setting if you want Amazon Translate to mask
     -- profane words and phrases in your translation output.
@@ -54,7 +55,13 @@ data TranslationSettings = TranslationSettings'
     --
     -- Amazon Translate doesn\'t detect profanity in all of its supported
     -- languages. For languages that support profanity detection, see
-    -- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+    -- in the Amazon Translate Developer Guide.
+    --
+    -- If you specify multiple target languages for the job, all the target
+    -- languages must support profanity masking. If any of the target languages
+    -- don\'t support profanity masking, the translation job won\'t mask
+    -- profanity for any target language.
     profanity :: Prelude.Maybe Profanity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +74,7 @@ data TranslationSettings = TranslationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'formality', 'translationSettings_formality' - You can optionally specify the desired level of formality for real-time
+-- 'formality', 'translationSettings_formality' - You can optionally specify the desired level of formality for
 -- translations to supported target languages. The formality setting
 -- controls the level of formal language usage (also known as
 -- <https://en.wikipedia.org/wiki/Register_(sociolinguistics) register>) in
@@ -76,12 +83,12 @@ data TranslationSettings = TranslationSettings'
 -- doesn\'t support formality, the translation will ignore the formality
 -- setting.
 --
--- Note that asynchronous translation jobs don\'t support formality. If you
--- provide a value for formality, the @StartTextTranslationJob@ API throws
--- an exception (InvalidRequestException).
+-- If you specify multiple target languages for the job, translate ignores
+-- the formality setting for any unsupported target language.
 --
--- For target languages that support formality, see
--- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+-- For a list of target languages that support formality, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+-- in the Amazon Translate Developer Guide.
 --
 -- 'profanity', 'translationSettings_profanity' - Enable the profanity setting if you want Amazon Translate to mask
 -- profane words and phrases in your translation output.
@@ -92,7 +99,13 @@ data TranslationSettings = TranslationSettings'
 --
 -- Amazon Translate doesn\'t detect profanity in all of its supported
 -- languages. For languages that support profanity detection, see
--- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+-- in the Amazon Translate Developer Guide.
+--
+-- If you specify multiple target languages for the job, all the target
+-- languages must support profanity masking. If any of the target languages
+-- don\'t support profanity masking, the translation job won\'t mask
+-- profanity for any target language.
 newTranslationSettings ::
   TranslationSettings
 newTranslationSettings =
@@ -101,7 +114,7 @@ newTranslationSettings =
       profanity = Prelude.Nothing
     }
 
--- | You can optionally specify the desired level of formality for real-time
+-- | You can optionally specify the desired level of formality for
 -- translations to supported target languages. The formality setting
 -- controls the level of formal language usage (also known as
 -- <https://en.wikipedia.org/wiki/Register_(sociolinguistics) register>) in
@@ -110,12 +123,12 @@ newTranslationSettings =
 -- doesn\'t support formality, the translation will ignore the formality
 -- setting.
 --
--- Note that asynchronous translation jobs don\'t support formality. If you
--- provide a value for formality, the @StartTextTranslationJob@ API throws
--- an exception (InvalidRequestException).
+-- If you specify multiple target languages for the job, translate ignores
+-- the formality setting for any unsupported target language.
 --
--- For target languages that support formality, see
--- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+-- For a list of target languages that support formality, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+-- in the Amazon Translate Developer Guide.
 translationSettings_formality :: Lens.Lens' TranslationSettings (Prelude.Maybe Formality)
 translationSettings_formality = Lens.lens (\TranslationSettings' {formality} -> formality) (\s@TranslationSettings' {} a -> s {formality = a} :: TranslationSettings)
 
@@ -128,7 +141,13 @@ translationSettings_formality = Lens.lens (\TranslationSettings' {formality} -> 
 --
 -- Amazon Translate doesn\'t detect profanity in all of its supported
 -- languages. For languages that support profanity detection, see
--- <https://docs.aws.amazon.com/translate/latest/dg/what-is.html Supported Languages and Language Codes in the Amazon Translate Developer Guide>.
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+-- in the Amazon Translate Developer Guide.
+--
+-- If you specify multiple target languages for the job, all the target
+-- languages must support profanity masking. If any of the target languages
+-- don\'t support profanity masking, the translation job won\'t mask
+-- profanity for any target language.
 translationSettings_profanity :: Lens.Lens' TranslationSettings (Prelude.Maybe Profanity)
 translationSettings_profanity = Lens.lens (\TranslationSettings' {profanity} -> profanity) (\s@TranslationSettings' {} a -> s {profanity = a} :: TranslationSettings)
 

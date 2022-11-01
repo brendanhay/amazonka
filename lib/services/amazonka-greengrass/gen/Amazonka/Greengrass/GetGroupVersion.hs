@@ -110,7 +110,8 @@ instance Core.AWSRequest GetGroupVersion where
   type
     AWSResponse GetGroupVersion =
       GetGroupVersionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

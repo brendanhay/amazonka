@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateDeviceFleet where
   type
     AWSResponse UpdateDeviceFleet =
       UpdateDeviceFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDeviceFleetResponse'
 

@@ -23,13 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a job timeout configuration.
+-- | An object that represents a job timeout configuration.
 --
 -- /See:/ 'newJobTimeout' smart constructor.
 data JobTimeout = JobTimeout'
-  { -- | The time duration in seconds (measured from the job attempt\'s
-    -- @startedAt@ timestamp) after which Batch terminates your jobs if they
-    -- have not finished. The minimum value for the timeout is 60 seconds.
+  { -- | The job timeout time (in seconds) that\'s measured from the job
+    -- attempt\'s @startedAt@ timestamp. After this time passes, Batch
+    -- terminates your jobs if they aren\'t finished. The minimum value for the
+    -- timeout is 60 seconds.
     attemptDurationSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +43,10 @@ data JobTimeout = JobTimeout'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attemptDurationSeconds', 'jobTimeout_attemptDurationSeconds' - The time duration in seconds (measured from the job attempt\'s
--- @startedAt@ timestamp) after which Batch terminates your jobs if they
--- have not finished. The minimum value for the timeout is 60 seconds.
+-- 'attemptDurationSeconds', 'jobTimeout_attemptDurationSeconds' - The job timeout time (in seconds) that\'s measured from the job
+-- attempt\'s @startedAt@ timestamp. After this time passes, Batch
+-- terminates your jobs if they aren\'t finished. The minimum value for the
+-- timeout is 60 seconds.
 newJobTimeout ::
   JobTimeout
 newJobTimeout =
@@ -53,9 +55,10 @@ newJobTimeout =
         Prelude.Nothing
     }
 
--- | The time duration in seconds (measured from the job attempt\'s
--- @startedAt@ timestamp) after which Batch terminates your jobs if they
--- have not finished. The minimum value for the timeout is 60 seconds.
+-- | The job timeout time (in seconds) that\'s measured from the job
+-- attempt\'s @startedAt@ timestamp. After this time passes, Batch
+-- terminates your jobs if they aren\'t finished. The minimum value for the
+-- timeout is 60 seconds.
 jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Prelude.Maybe Prelude.Int)
 jobTimeout_attemptDurationSeconds = Lens.lens (\JobTimeout' {attemptDurationSeconds} -> attemptDurationSeconds) (\s@JobTimeout' {} a -> s {attemptDurationSeconds = a} :: JobTimeout)
 

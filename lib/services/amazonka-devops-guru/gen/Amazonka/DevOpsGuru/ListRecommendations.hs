@@ -139,7 +139,8 @@ instance Core.AWSRequest ListRecommendations where
   type
     AWSResponse ListRecommendations =
       ListRecommendationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -93,6 +93,9 @@ import Test.Tasty
 --         , requestCreateTaskTemplate $
 --             newCreateTaskTemplate
 --
+--         , requestCreateTrafficDistributionGroup $
+--             newCreateTrafficDistributionGroup
+--
 --         , requestCreateUseCase $
 --             newCreateUseCase
 --
@@ -128,6 +131,9 @@ import Test.Tasty
 --
 --         , requestDeleteTaskTemplate $
 --             newDeleteTaskTemplate
+--
+--         , requestDeleteTrafficDistributionGroup $
+--             newDeleteTrafficDistributionGroup
 --
 --         , requestDeleteUseCase $
 --             newDeleteUseCase
@@ -179,6 +185,9 @@ import Test.Tasty
 --
 --         , requestDescribeSecurityProfile $
 --             newDescribeSecurityProfile
+--
+--         , requestDescribeTrafficDistributionGroup $
+--             newDescribeTrafficDistributionGroup
 --
 --         , requestDescribeUser $
 --             newDescribeUser
@@ -236,6 +245,9 @@ import Test.Tasty
 --
 --         , requestGetTaskTemplate $
 --             newGetTaskTemplate
+--
+--         , requestGetTrafficDistribution $
+--             newGetTrafficDistribution
 --
 --         , requestListAgentStatuses $
 --             newListAgentStatuses
@@ -318,6 +330,9 @@ import Test.Tasty
 --         , requestListTaskTemplates $
 --             newListTaskTemplates
 --
+--         , requestListTrafficDistributionGroups $
+--             newListTrafficDistributionGroups
+--
 --         , requestListUseCases $
 --             newListUseCases
 --
@@ -332,6 +347,9 @@ import Test.Tasty
 --
 --         , requestReleasePhoneNumber $
 --             newReleasePhoneNumber
+--
+--         , requestReplicateInstance $
+--             newReplicateInstance
 --
 --         , requestResumeContactRecording $
 --             newResumeContactRecording
@@ -468,6 +486,9 @@ import Test.Tasty
 --         , requestUpdateTaskTemplate $
 --             newUpdateTaskTemplate
 --
+--         , requestUpdateTrafficDistribution $
+--             newUpdateTrafficDistribution
+--
 --         , requestUpdateUserHierarchy $
 --             newUpdateUserHierarchy
 --
@@ -558,6 +579,9 @@ import Test.Tasty
 --         , responseCreateTaskTemplate $
 --             newCreateTaskTemplateResponse
 --
+--         , responseCreateTrafficDistributionGroup $
+--             newCreateTrafficDistributionGroupResponse
+--
 --         , responseCreateUseCase $
 --             newCreateUseCaseResponse
 --
@@ -593,6 +617,9 @@ import Test.Tasty
 --
 --         , responseDeleteTaskTemplate $
 --             newDeleteTaskTemplateResponse
+--
+--         , responseDeleteTrafficDistributionGroup $
+--             newDeleteTrafficDistributionGroupResponse
 --
 --         , responseDeleteUseCase $
 --             newDeleteUseCaseResponse
@@ -644,6 +671,9 @@ import Test.Tasty
 --
 --         , responseDescribeSecurityProfile $
 --             newDescribeSecurityProfileResponse
+--
+--         , responseDescribeTrafficDistributionGroup $
+--             newDescribeTrafficDistributionGroupResponse
 --
 --         , responseDescribeUser $
 --             newDescribeUserResponse
@@ -701,6 +731,9 @@ import Test.Tasty
 --
 --         , responseGetTaskTemplate $
 --             newGetTaskTemplateResponse
+--
+--         , responseGetTrafficDistribution $
+--             newGetTrafficDistributionResponse
 --
 --         , responseListAgentStatuses $
 --             newListAgentStatusesResponse
@@ -783,6 +816,9 @@ import Test.Tasty
 --         , responseListTaskTemplates $
 --             newListTaskTemplatesResponse
 --
+--         , responseListTrafficDistributionGroups $
+--             newListTrafficDistributionGroupsResponse
+--
 --         , responseListUseCases $
 --             newListUseCasesResponse
 --
@@ -797,6 +833,9 @@ import Test.Tasty
 --
 --         , responseReleasePhoneNumber $
 --             newReleasePhoneNumberResponse
+--
+--         , responseReplicateInstance $
+--             newReplicateInstanceResponse
 --
 --         , responseResumeContactRecording $
 --             newResumeContactRecordingResponse
@@ -932,6 +971,9 @@ import Test.Tasty
 --
 --         , responseUpdateTaskTemplate $
 --             newUpdateTaskTemplateResponse
+--
+--         , responseUpdateTrafficDistribution $
+--             newUpdateTrafficDistributionResponse
 --
 --         , responseUpdateUserHierarchy $
 --             newUpdateUserHierarchyResponse
@@ -1091,6 +1133,12 @@ requestCreateTaskTemplate =
     "CreateTaskTemplate"
     "fixture/CreateTaskTemplate.yaml"
 
+requestCreateTrafficDistributionGroup :: CreateTrafficDistributionGroup -> TestTree
+requestCreateTrafficDistributionGroup =
+  req
+    "CreateTrafficDistributionGroup"
+    "fixture/CreateTrafficDistributionGroup.yaml"
+
 requestCreateUseCase :: CreateUseCase -> TestTree
 requestCreateUseCase =
   req
@@ -1162,6 +1210,12 @@ requestDeleteTaskTemplate =
   req
     "DeleteTaskTemplate"
     "fixture/DeleteTaskTemplate.yaml"
+
+requestDeleteTrafficDistributionGroup :: DeleteTrafficDistributionGroup -> TestTree
+requestDeleteTrafficDistributionGroup =
+  req
+    "DeleteTrafficDistributionGroup"
+    "fixture/DeleteTrafficDistributionGroup.yaml"
 
 requestDeleteUseCase :: DeleteUseCase -> TestTree
 requestDeleteUseCase =
@@ -1264,6 +1318,12 @@ requestDescribeSecurityProfile =
   req
     "DescribeSecurityProfile"
     "fixture/DescribeSecurityProfile.yaml"
+
+requestDescribeTrafficDistributionGroup :: DescribeTrafficDistributionGroup -> TestTree
+requestDescribeTrafficDistributionGroup =
+  req
+    "DescribeTrafficDistributionGroup"
+    "fixture/DescribeTrafficDistributionGroup.yaml"
 
 requestDescribeUser :: DescribeUser -> TestTree
 requestDescribeUser =
@@ -1378,6 +1438,12 @@ requestGetTaskTemplate =
   req
     "GetTaskTemplate"
     "fixture/GetTaskTemplate.yaml"
+
+requestGetTrafficDistribution :: GetTrafficDistribution -> TestTree
+requestGetTrafficDistribution =
+  req
+    "GetTrafficDistribution"
+    "fixture/GetTrafficDistribution.yaml"
 
 requestListAgentStatuses :: ListAgentStatuses -> TestTree
 requestListAgentStatuses =
@@ -1541,6 +1607,12 @@ requestListTaskTemplates =
     "ListTaskTemplates"
     "fixture/ListTaskTemplates.yaml"
 
+requestListTrafficDistributionGroups :: ListTrafficDistributionGroups -> TestTree
+requestListTrafficDistributionGroups =
+  req
+    "ListTrafficDistributionGroups"
+    "fixture/ListTrafficDistributionGroups.yaml"
+
 requestListUseCases :: ListUseCases -> TestTree
 requestListUseCases =
   req
@@ -1570,6 +1642,12 @@ requestReleasePhoneNumber =
   req
     "ReleasePhoneNumber"
     "fixture/ReleasePhoneNumber.yaml"
+
+requestReplicateInstance :: ReplicateInstance -> TestTree
+requestReplicateInstance =
+  req
+    "ReplicateInstance"
+    "fixture/ReplicateInstance.yaml"
 
 requestResumeContactRecording :: ResumeContactRecording -> TestTree
 requestResumeContactRecording =
@@ -1841,6 +1919,12 @@ requestUpdateTaskTemplate =
     "UpdateTaskTemplate"
     "fixture/UpdateTaskTemplate.yaml"
 
+requestUpdateTrafficDistribution :: UpdateTrafficDistribution -> TestTree
+requestUpdateTrafficDistribution =
+  req
+    "UpdateTrafficDistribution"
+    "fixture/UpdateTrafficDistribution.yaml"
+
 requestUpdateUserHierarchy :: UpdateUserHierarchy -> TestTree
 requestUpdateUserHierarchy =
   req
@@ -2061,6 +2145,14 @@ responseCreateTaskTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTaskTemplate)
 
+responseCreateTrafficDistributionGroup :: CreateTrafficDistributionGroupResponse -> TestTree
+responseCreateTrafficDistributionGroup =
+  res
+    "CreateTrafficDistributionGroupResponse"
+    "fixture/CreateTrafficDistributionGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficDistributionGroup)
+
 responseCreateUseCase :: CreateUseCaseResponse -> TestTree
 responseCreateUseCase =
   res
@@ -2156,6 +2248,14 @@ responseDeleteTaskTemplate =
     "fixture/DeleteTaskTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTaskTemplate)
+
+responseDeleteTrafficDistributionGroup :: DeleteTrafficDistributionGroupResponse -> TestTree
+responseDeleteTrafficDistributionGroup =
+  res
+    "DeleteTrafficDistributionGroupResponse"
+    "fixture/DeleteTrafficDistributionGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficDistributionGroup)
 
 responseDeleteUseCase :: DeleteUseCaseResponse -> TestTree
 responseDeleteUseCase =
@@ -2292,6 +2392,14 @@ responseDescribeSecurityProfile =
     "fixture/DescribeSecurityProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSecurityProfile)
+
+responseDescribeTrafficDistributionGroup :: DescribeTrafficDistributionGroupResponse -> TestTree
+responseDescribeTrafficDistributionGroup =
+  res
+    "DescribeTrafficDistributionGroupResponse"
+    "fixture/DescribeTrafficDistributionGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrafficDistributionGroup)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -2444,6 +2552,14 @@ responseGetTaskTemplate =
     "fixture/GetTaskTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTaskTemplate)
+
+responseGetTrafficDistribution :: GetTrafficDistributionResponse -> TestTree
+responseGetTrafficDistribution =
+  res
+    "GetTrafficDistributionResponse"
+    "fixture/GetTrafficDistributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTrafficDistribution)
 
 responseListAgentStatuses :: ListAgentStatusesResponse -> TestTree
 responseListAgentStatuses =
@@ -2661,6 +2777,14 @@ responseListTaskTemplates =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTaskTemplates)
 
+responseListTrafficDistributionGroups :: ListTrafficDistributionGroupsResponse -> TestTree
+responseListTrafficDistributionGroups =
+  res
+    "ListTrafficDistributionGroupsResponse"
+    "fixture/ListTrafficDistributionGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficDistributionGroups)
+
 responseListUseCases :: ListUseCasesResponse -> TestTree
 responseListUseCases =
   res
@@ -2700,6 +2824,14 @@ responseReleasePhoneNumber =
     "fixture/ReleasePhoneNumberResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ReleasePhoneNumber)
+
+responseReplicateInstance :: ReplicateInstanceResponse -> TestTree
+responseReplicateInstance =
+  res
+    "ReplicateInstanceResponse"
+    "fixture/ReplicateInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReplicateInstance)
 
 responseResumeContactRecording :: ResumeContactRecordingResponse -> TestTree
 responseResumeContactRecording =
@@ -3060,6 +3192,14 @@ responseUpdateTaskTemplate =
     "fixture/UpdateTaskTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateTaskTemplate)
+
+responseUpdateTrafficDistribution :: UpdateTrafficDistributionResponse -> TestTree
+responseUpdateTrafficDistribution =
+  res
+    "UpdateTrafficDistributionResponse"
+    "fixture/UpdateTrafficDistributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrafficDistribution)
 
 responseUpdateUserHierarchy :: UpdateUserHierarchyResponse -> TestTree
 responseUpdateUserHierarchy =

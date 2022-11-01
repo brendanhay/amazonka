@@ -106,7 +106,8 @@ instance Core.AWSRequest ResolveAppVersionResources where
   type
     AWSResponse ResolveAppVersionResources =
       ResolveAppVersionResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

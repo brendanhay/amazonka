@@ -74,7 +74,8 @@ instance Core.AWSRequest DeleteLogGroup where
   type
     AWSResponse DeleteLogGroup =
       DeleteLogGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLogGroupResponse'
 

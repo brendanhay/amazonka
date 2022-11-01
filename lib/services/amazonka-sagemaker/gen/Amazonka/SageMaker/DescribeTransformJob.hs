@@ -43,6 +43,7 @@ module Amazonka.SageMaker.DescribeTransformJob
     describeTransformJobResponse_transformEndTime,
     describeTransformJobResponse_maxPayloadInMB,
     describeTransformJobResponse_batchStrategy,
+    describeTransformJobResponse_dataCaptureConfig,
     describeTransformJobResponse_labelingJobArn,
     describeTransformJobResponse_dataProcessing,
     describeTransformJobResponse_transformStartTime,
@@ -99,7 +100,8 @@ instance Core.AWSRequest DescribeTransformJob where
   type
     AWSResponse DescribeTransformJob =
       DescribeTransformJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +115,7 @@ instance Core.AWSRequest DescribeTransformJob where
             Prelude.<*> (x Core..?> "TransformEndTime")
             Prelude.<*> (x Core..?> "MaxPayloadInMB")
             Prelude.<*> (x Core..?> "BatchStrategy")
+            Prelude.<*> (x Core..?> "DataCaptureConfig")
             Prelude.<*> (x Core..?> "LabelingJobArn")
             Prelude.<*> (x Core..?> "DataProcessing")
             Prelude.<*> (x Core..?> "TransformStartTime")
@@ -196,6 +199,8 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     -- To enable the batch strategy, you must set @SplitType@ to @Line@,
     -- @RecordIO@, or @TFRecord@.
     batchStrategy :: Prelude.Maybe BatchStrategy,
+    -- | Configuration to control how SageMaker captures inference data.
+    dataCaptureConfig :: Prelude.Maybe BatchDataCaptureConfig,
     -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
     -- labeling job that created the transform or training job.
     labelingJobArn :: Prelude.Maybe Prelude.Text,
@@ -269,6 +274,8 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
 -- To enable the batch strategy, you must set @SplitType@ to @Line@,
 -- @RecordIO@, or @TFRecord@.
 --
+-- 'dataCaptureConfig', 'describeTransformJobResponse_dataCaptureConfig' - Configuration to control how SageMaker captures inference data.
+--
 -- 'labelingJobArn', 'describeTransformJobResponse_labelingJobArn' - The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
 -- labeling job that created the transform or training job.
 --
@@ -339,6 +346,7 @@ newDescribeTransformJobResponse
         transformEndTime = Prelude.Nothing,
         maxPayloadInMB = Prelude.Nothing,
         batchStrategy = Prelude.Nothing,
+        dataCaptureConfig = Prelude.Nothing,
         labelingJobArn = Prelude.Nothing,
         dataProcessing = Prelude.Nothing,
         transformStartTime = Prelude.Nothing,
@@ -401,6 +409,10 @@ describeTransformJobResponse_maxPayloadInMB = Lens.lens (\DescribeTransformJobRe
 -- @RecordIO@, or @TFRecord@.
 describeTransformJobResponse_batchStrategy :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe BatchStrategy)
 describeTransformJobResponse_batchStrategy = Lens.lens (\DescribeTransformJobResponse' {batchStrategy} -> batchStrategy) (\s@DescribeTransformJobResponse' {} a -> s {batchStrategy = a} :: DescribeTransformJobResponse)
+
+-- | Configuration to control how SageMaker captures inference data.
+describeTransformJobResponse_dataCaptureConfig :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe BatchDataCaptureConfig)
+describeTransformJobResponse_dataCaptureConfig = Lens.lens (\DescribeTransformJobResponse' {dataCaptureConfig} -> dataCaptureConfig) (\s@DescribeTransformJobResponse' {} a -> s {dataCaptureConfig = a} :: DescribeTransformJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
 -- labeling job that created the transform or training job.
@@ -470,6 +482,7 @@ instance Prelude.NFData DescribeTransformJobResponse where
       `Prelude.seq` Prelude.rnf transformEndTime
       `Prelude.seq` Prelude.rnf maxPayloadInMB
       `Prelude.seq` Prelude.rnf batchStrategy
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf labelingJobArn
       `Prelude.seq` Prelude.rnf dataProcessing
       `Prelude.seq` Prelude.rnf transformStartTime
@@ -480,5 +493,6 @@ instance Prelude.NFData DescribeTransformJobResponse where
       `Prelude.seq` Prelude.rnf transformJobStatus
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf transformInput
-      `Prelude.seq` Prelude.rnf transformResources
+      `Prelude.seq` Prelude.rnf
+        transformResources
       `Prelude.seq` Prelude.rnf creationTime

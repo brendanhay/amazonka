@@ -73,7 +73,8 @@ instance Core.AWSRequest StopBackupJob where
   type
     AWSResponse StopBackupJob =
       StopBackupJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopBackupJobResponse'
 

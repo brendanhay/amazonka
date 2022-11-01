@@ -84,7 +84,8 @@ updateDevice_deviceArn = Lens.lens (\UpdateDevice' {deviceArn} -> deviceArn) (\s
 
 instance Core.AWSRequest UpdateDevice where
   type AWSResponse UpdateDevice = UpdateDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

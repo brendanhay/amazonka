@@ -358,6 +358,8 @@ defaultService =
       Core._serviceEndpointPrefix = "workmail",
       Core._serviceSigningName = "workmail",
       Core._serviceVersion = "2017-10-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

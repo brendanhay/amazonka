@@ -35,6 +35,13 @@ module Amazonka.WorkSpacesWeb.Lens
     associateTrustStoreResponse_portalArn,
     associateTrustStoreResponse_trustStoreArn,
 
+    -- ** AssociateUserAccessLoggingSettings
+    associateUserAccessLoggingSettings_portalArn,
+    associateUserAccessLoggingSettings_userAccessLoggingSettingsArn,
+    associateUserAccessLoggingSettingsResponse_httpStatus,
+    associateUserAccessLoggingSettingsResponse_portalArn,
+    associateUserAccessLoggingSettingsResponse_userAccessLoggingSettingsArn,
+
     -- ** AssociateUserSettings
     associateUserSettings_portalArn,
     associateUserSettings_userSettingsArn,
@@ -86,6 +93,13 @@ module Amazonka.WorkSpacesWeb.Lens
     createTrustStoreResponse_httpStatus,
     createTrustStoreResponse_trustStoreArn,
 
+    -- ** CreateUserAccessLoggingSettings
+    createUserAccessLoggingSettings_tags,
+    createUserAccessLoggingSettings_clientToken,
+    createUserAccessLoggingSettings_kinesisStreamArn,
+    createUserAccessLoggingSettingsResponse_httpStatus,
+    createUserAccessLoggingSettingsResponse_userAccessLoggingSettingsArn,
+
     -- ** CreateUserSettings
     createUserSettings_tags,
     createUserSettings_idleDisconnectTimeoutInMinutes,
@@ -119,6 +133,10 @@ module Amazonka.WorkSpacesWeb.Lens
     deleteTrustStore_trustStoreArn,
     deleteTrustStoreResponse_httpStatus,
 
+    -- ** DeleteUserAccessLoggingSettings
+    deleteUserAccessLoggingSettings_userAccessLoggingSettingsArn,
+    deleteUserAccessLoggingSettingsResponse_httpStatus,
+
     -- ** DeleteUserSettings
     deleteUserSettings_userSettingsArn,
     deleteUserSettingsResponse_httpStatus,
@@ -134,6 +152,10 @@ module Amazonka.WorkSpacesWeb.Lens
     -- ** DisassociateTrustStore
     disassociateTrustStore_portalArn,
     disassociateTrustStoreResponse_httpStatus,
+
+    -- ** DisassociateUserAccessLoggingSettings
+    disassociateUserAccessLoggingSettings_portalArn,
+    disassociateUserAccessLoggingSettingsResponse_httpStatus,
 
     -- ** DisassociateUserSettings
     disassociateUserSettings_portalArn,
@@ -176,6 +198,11 @@ module Amazonka.WorkSpacesWeb.Lens
     getTrustStoreCertificateResponse_trustStoreArn,
     getTrustStoreCertificateResponse_certificate,
     getTrustStoreCertificateResponse_httpStatus,
+
+    -- ** GetUserAccessLoggingSettings
+    getUserAccessLoggingSettings_userAccessLoggingSettingsArn,
+    getUserAccessLoggingSettingsResponse_userAccessLoggingSettings,
+    getUserAccessLoggingSettingsResponse_httpStatus,
 
     -- ** GetUserSettings
     getUserSettings_userSettingsArn,
@@ -231,6 +258,13 @@ module Amazonka.WorkSpacesWeb.Lens
     listTrustStoresResponse_nextToken,
     listTrustStoresResponse_trustStores,
     listTrustStoresResponse_httpStatus,
+
+    -- ** ListUserAccessLoggingSettings
+    listUserAccessLoggingSettings_nextToken,
+    listUserAccessLoggingSettings_maxResults,
+    listUserAccessLoggingSettingsResponse_nextToken,
+    listUserAccessLoggingSettingsResponse_userAccessLoggingSettings,
+    listUserAccessLoggingSettingsResponse_httpStatus,
 
     -- ** ListUserSettings
     listUserSettings_nextToken,
@@ -288,6 +322,13 @@ module Amazonka.WorkSpacesWeb.Lens
     updateTrustStore_trustStoreArn,
     updateTrustStoreResponse_httpStatus,
     updateTrustStoreResponse_trustStoreArn,
+
+    -- ** UpdateUserAccessLoggingSettings
+    updateUserAccessLoggingSettings_clientToken,
+    updateUserAccessLoggingSettings_kinesisStreamArn,
+    updateUserAccessLoggingSettings_userAccessLoggingSettingsArn,
+    updateUserAccessLoggingSettingsResponse_httpStatus,
+    updateUserAccessLoggingSettingsResponse_userAccessLoggingSettings,
 
     -- ** UpdateUserSettings
     updateUserSettings_printAllowed,
@@ -356,6 +397,7 @@ module Amazonka.WorkSpacesWeb.Lens
     portal_statusReason,
     portal_creationDate,
     portal_portalEndpoint,
+    portal_userAccessLoggingSettingsArn,
     portal_browserSettingsArn,
     portal_userSettingsArn,
     portal_portalStatus,
@@ -369,6 +411,7 @@ module Amazonka.WorkSpacesWeb.Lens
     portalSummary_displayName,
     portalSummary_creationDate,
     portalSummary_portalEndpoint,
+    portalSummary_userAccessLoggingSettingsArn,
     portalSummary_browserSettingsArn,
     portalSummary_userSettingsArn,
     portalSummary_portalStatus,
@@ -386,6 +429,15 @@ module Amazonka.WorkSpacesWeb.Lens
 
     -- ** TrustStoreSummary
     trustStoreSummary_trustStoreArn,
+
+    -- ** UserAccessLoggingSettings
+    userAccessLoggingSettings_associatedPortalArns,
+    userAccessLoggingSettings_kinesisStreamArn,
+    userAccessLoggingSettings_userAccessLoggingSettingsArn,
+
+    -- ** UserAccessLoggingSettingsSummary
+    userAccessLoggingSettingsSummary_kinesisStreamArn,
+    userAccessLoggingSettingsSummary_userAccessLoggingSettingsArn,
 
     -- ** UserSettings
     userSettings_printAllowed,
@@ -413,22 +465,26 @@ where
 import Amazonka.WorkSpacesWeb.AssociateBrowserSettings
 import Amazonka.WorkSpacesWeb.AssociateNetworkSettings
 import Amazonka.WorkSpacesWeb.AssociateTrustStore
+import Amazonka.WorkSpacesWeb.AssociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.AssociateUserSettings
 import Amazonka.WorkSpacesWeb.CreateBrowserSettings
 import Amazonka.WorkSpacesWeb.CreateIdentityProvider
 import Amazonka.WorkSpacesWeb.CreateNetworkSettings
 import Amazonka.WorkSpacesWeb.CreatePortal
 import Amazonka.WorkSpacesWeb.CreateTrustStore
+import Amazonka.WorkSpacesWeb.CreateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.CreateUserSettings
 import Amazonka.WorkSpacesWeb.DeleteBrowserSettings
 import Amazonka.WorkSpacesWeb.DeleteIdentityProvider
 import Amazonka.WorkSpacesWeb.DeleteNetworkSettings
 import Amazonka.WorkSpacesWeb.DeletePortal
 import Amazonka.WorkSpacesWeb.DeleteTrustStore
+import Amazonka.WorkSpacesWeb.DeleteUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DeleteUserSettings
 import Amazonka.WorkSpacesWeb.DisassociateBrowserSettings
 import Amazonka.WorkSpacesWeb.DisassociateNetworkSettings
 import Amazonka.WorkSpacesWeb.DisassociateTrustStore
+import Amazonka.WorkSpacesWeb.DisassociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DisassociateUserSettings
 import Amazonka.WorkSpacesWeb.GetBrowserSettings
 import Amazonka.WorkSpacesWeb.GetIdentityProvider
@@ -437,6 +493,7 @@ import Amazonka.WorkSpacesWeb.GetPortal
 import Amazonka.WorkSpacesWeb.GetPortalServiceProviderMetadata
 import Amazonka.WorkSpacesWeb.GetTrustStore
 import Amazonka.WorkSpacesWeb.GetTrustStoreCertificate
+import Amazonka.WorkSpacesWeb.GetUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.GetUserSettings
 import Amazonka.WorkSpacesWeb.ListBrowserSettings
 import Amazonka.WorkSpacesWeb.ListIdentityProviders
@@ -445,6 +502,7 @@ import Amazonka.WorkSpacesWeb.ListPortals
 import Amazonka.WorkSpacesWeb.ListTagsForResource
 import Amazonka.WorkSpacesWeb.ListTrustStoreCertificates
 import Amazonka.WorkSpacesWeb.ListTrustStores
+import Amazonka.WorkSpacesWeb.ListUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.ListUserSettings
 import Amazonka.WorkSpacesWeb.TagResource
 import Amazonka.WorkSpacesWeb.Types.BrowserSettings
@@ -460,6 +518,8 @@ import Amazonka.WorkSpacesWeb.Types.PortalSummary
 import Amazonka.WorkSpacesWeb.Types.Tag
 import Amazonka.WorkSpacesWeb.Types.TrustStore
 import Amazonka.WorkSpacesWeb.Types.TrustStoreSummary
+import Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettings
+import Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettingsSummary
 import Amazonka.WorkSpacesWeb.Types.UserSettings
 import Amazonka.WorkSpacesWeb.Types.UserSettingsSummary
 import Amazonka.WorkSpacesWeb.UntagResource
@@ -468,4 +528,5 @@ import Amazonka.WorkSpacesWeb.UpdateIdentityProvider
 import Amazonka.WorkSpacesWeb.UpdateNetworkSettings
 import Amazonka.WorkSpacesWeb.UpdatePortal
 import Amazonka.WorkSpacesWeb.UpdateTrustStore
+import Amazonka.WorkSpacesWeb.UpdateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.UpdateUserSettings

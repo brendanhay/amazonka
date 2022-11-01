@@ -76,7 +76,8 @@ instance Core.AWSRequest CancelWorldExportJob where
   type
     AWSResponse CancelWorldExportJob =
       CancelWorldExportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

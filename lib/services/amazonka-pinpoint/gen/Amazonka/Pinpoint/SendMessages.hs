@@ -91,7 +91,8 @@ sendMessages_messageRequest = Lens.lens (\SendMessages' {messageRequest} -> mess
 
 instance Core.AWSRequest SendMessages where
   type AWSResponse SendMessages = SendMessagesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

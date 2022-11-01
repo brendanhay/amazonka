@@ -146,7 +146,8 @@ createSchema_content = Lens.lens (\CreateSchema' {content} -> content) (\s@Creat
 
 instance Core.AWSRequest CreateSchema where
   type AWSResponse CreateSchema = CreateSchemaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

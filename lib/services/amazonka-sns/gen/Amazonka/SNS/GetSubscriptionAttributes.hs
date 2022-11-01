@@ -82,7 +82,8 @@ instance Core.AWSRequest GetSubscriptionAttributes where
   type
     AWSResponse GetSubscriptionAttributes =
       GetSubscriptionAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSubscriptionAttributesResult"

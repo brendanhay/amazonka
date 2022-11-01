@@ -102,7 +102,8 @@ getDetectors_detectorId = Lens.lens (\GetDetectors' {detectorId} -> detectorId) 
 
 instance Core.AWSRequest GetDetectors where
   type AWSResponse GetDetectors = GetDetectorsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

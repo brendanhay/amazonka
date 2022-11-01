@@ -91,7 +91,8 @@ instance Core.AWSRequest UpdateSubscriptionDefinition where
   type
     AWSResponse UpdateSubscriptionDefinition =
       UpdateSubscriptionDefinitionResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

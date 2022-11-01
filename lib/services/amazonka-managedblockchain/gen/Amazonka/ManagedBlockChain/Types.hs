@@ -28,6 +28,12 @@ module Amazonka.ManagedBlockChain.Types
     _InternalServiceErrorException,
     _InvalidRequestException,
 
+    -- * AccessorStatus
+    AccessorStatus (..),
+
+    -- * AccessorType
+    AccessorType (..),
+
     -- * Edition
     Edition (..),
 
@@ -57,6 +63,25 @@ module Amazonka.ManagedBlockChain.Types
 
     -- * VoteValue
     VoteValue (..),
+
+    -- * Accessor
+    Accessor (..),
+    newAccessor,
+    accessor_billingToken,
+    accessor_type,
+    accessor_arn,
+    accessor_creationDate,
+    accessor_status,
+    accessor_id,
+
+    -- * AccessorSummary
+    AccessorSummary (..),
+    newAccessorSummary,
+    accessorSummary_type,
+    accessorSummary_arn,
+    accessorSummary_creationDate,
+    accessorSummary_status,
+    accessorSummary_id,
 
     -- * ApprovalThresholdPolicy
     ApprovalThresholdPolicy (..),
@@ -334,6 +359,10 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.Accessor
+import Amazonka.ManagedBlockChain.Types.AccessorStatus
+import Amazonka.ManagedBlockChain.Types.AccessorSummary
+import Amazonka.ManagedBlockChain.Types.AccessorType
 import Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
 import Amazonka.ManagedBlockChain.Types.Edition
 import Amazonka.ManagedBlockChain.Types.Framework
@@ -392,6 +421,8 @@ defaultService =
       Core._serviceEndpointPrefix = "managedblockchain",
       Core._serviceSigningName = "managedblockchain",
       Core._serviceVersion = "2018-09-24",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -462,7 +493,7 @@ _ResourceAlreadyExistsException =
     "ResourceAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
--- | The requested resource exists but is not in a status that can complete
+-- | The requested resource exists but isn\'t in a status that can complete
 -- the operation.
 _ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotReadyException =
@@ -479,7 +510,7 @@ _IllegalActionException =
     "IllegalActionException"
     Prelude.. Core.hasStatus 400
 
--- | You do not have sufficient access to perform this action.
+-- | You don\'t have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -495,8 +526,8 @@ _TooManyTagsException =
     "TooManyTagsException"
     Prelude.. Core.hasStatus 400
 
--- | A requested resource does not exist. It may have been deleted or
--- referenced inaccurately.
+-- | A requested resource doesn\'t exist. It may have been deleted or
+-- referenced incorrectly.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -514,11 +545,10 @@ _ResourceLimitExceededException =
     "ResourceLimitExceededException"
     Prelude.. Core.hasStatus 429
 
--- | The request or operation could not be performed because a service is
+-- | The request or operation couldn\'t be performed because a service is
 -- throttling requests. The most common source of throttling errors is
--- launching EC2 instances such that your service limit for EC2 instances
--- is exceeded. Request a limit increase or delete unused resources if
--- possible.
+-- creating resources that exceed your service limit for this resource
+-- type. Request a limit increase or delete unused resources if possible.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError

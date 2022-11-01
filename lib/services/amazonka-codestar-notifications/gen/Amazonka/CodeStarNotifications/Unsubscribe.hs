@@ -92,7 +92,8 @@ unsubscribe_targetAddress = Lens.lens (\Unsubscribe' {targetAddress} -> targetAd
 
 instance Core.AWSRequest Unsubscribe where
   type AWSResponse Unsubscribe = UnsubscribeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

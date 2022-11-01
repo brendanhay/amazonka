@@ -41,6 +41,9 @@ data FunctionConfiguration = FunctionConfiguration'
     execArgs :: Prelude.Maybe Prelude.Text,
     -- | The environment configuration of the function.
     environment :: Prelude.Maybe FunctionConfigurationEnvironment,
+    -- | The Lambda runtime supported by Greengrass which is to be used instead
+    -- of the one specified in the Lambda function.
+    functionRuntimeOverride :: Prelude.Maybe Prelude.Text,
     -- | The name of the function executable.
     executable :: Prelude.Maybe Prelude.Text,
     -- | True if the function is pinned. Pinned means the function is long-lived
@@ -72,6 +75,9 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'environment', 'functionConfiguration_environment' - The environment configuration of the function.
 --
+-- 'functionRuntimeOverride', 'functionConfiguration_functionRuntimeOverride' - The Lambda runtime supported by Greengrass which is to be used instead
+-- of the one specified in the Lambda function.
+--
 -- 'executable', 'functionConfiguration_executable' - The name of the function executable.
 --
 -- 'pinned', 'functionConfiguration_pinned' - True if the function is pinned. Pinned means the function is long-lived
@@ -87,6 +93,7 @@ newFunctionConfiguration =
       memorySize = Prelude.Nothing,
       execArgs = Prelude.Nothing,
       environment = Prelude.Nothing,
+      functionRuntimeOverride = Prelude.Nothing,
       executable = Prelude.Nothing,
       pinned = Prelude.Nothing,
       encodingType = Prelude.Nothing
@@ -112,6 +119,11 @@ functionConfiguration_execArgs = Lens.lens (\FunctionConfiguration' {execArgs} -
 functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe FunctionConfigurationEnvironment)
 functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
 
+-- | The Lambda runtime supported by Greengrass which is to be used instead
+-- of the one specified in the Lambda function.
+functionConfiguration_functionRuntimeOverride :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_functionRuntimeOverride = Lens.lens (\FunctionConfiguration' {functionRuntimeOverride} -> functionRuntimeOverride) (\s@FunctionConfiguration' {} a -> s {functionRuntimeOverride = a} :: FunctionConfiguration)
+
 -- | The name of the function executable.
 functionConfiguration_executable :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_executable = Lens.lens (\FunctionConfiguration' {executable} -> executable) (\s@FunctionConfiguration' {} a -> s {executable = a} :: FunctionConfiguration)
@@ -136,6 +148,7 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "MemorySize")
             Prelude.<*> (x Core..:? "ExecArgs")
             Prelude.<*> (x Core..:? "Environment")
+            Prelude.<*> (x Core..:? "FunctionRuntimeOverride")
             Prelude.<*> (x Core..:? "Executable")
             Prelude.<*> (x Core..:? "Pinned")
             Prelude.<*> (x Core..:? "EncodingType")
@@ -147,6 +160,7 @@ instance Prelude.Hashable FunctionConfiguration where
       `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` execArgs
       `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` functionRuntimeOverride
       `Prelude.hashWithSalt` executable
       `Prelude.hashWithSalt` pinned
       `Prelude.hashWithSalt` encodingType
@@ -157,6 +171,7 @@ instance Prelude.NFData FunctionConfiguration where
       `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf execArgs
       `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf functionRuntimeOverride
       `Prelude.seq` Prelude.rnf executable
       `Prelude.seq` Prelude.rnf pinned
       `Prelude.seq` Prelude.rnf encodingType
@@ -169,6 +184,8 @@ instance Core.ToJSON FunctionConfiguration where
             ("MemorySize" Core..=) Prelude.<$> memorySize,
             ("ExecArgs" Core..=) Prelude.<$> execArgs,
             ("Environment" Core..=) Prelude.<$> environment,
+            ("FunctionRuntimeOverride" Core..=)
+              Prelude.<$> functionRuntimeOverride,
             ("Executable" Core..=) Prelude.<$> executable,
             ("Pinned" Core..=) Prelude.<$> pinned,
             ("EncodingType" Core..=) Prelude.<$> encodingType

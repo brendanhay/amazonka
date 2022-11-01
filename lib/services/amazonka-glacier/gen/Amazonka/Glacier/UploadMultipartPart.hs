@@ -216,9 +216,10 @@ instance Core.AWSRequest UploadMultipartPart where
   type
     AWSResponse UploadMultipartPart =
       UploadMultipartPartResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putBody defaultService
+      Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

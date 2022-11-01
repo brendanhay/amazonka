@@ -131,7 +131,8 @@ instance Core.AWSPager GetWorkUnits where
 
 instance Core.AWSRequest GetWorkUnits where
   type AWSResponse GetWorkUnits = GetWorkUnitsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

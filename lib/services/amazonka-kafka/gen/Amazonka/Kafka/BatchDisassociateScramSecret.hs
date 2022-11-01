@@ -93,7 +93,8 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
   type
     AWSResponse BatchDisassociateScramSecret =
       BatchDisassociateScramSecretResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

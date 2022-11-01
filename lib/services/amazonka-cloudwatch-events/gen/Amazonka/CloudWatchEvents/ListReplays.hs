@@ -124,7 +124,8 @@ listReplays_namePrefix = Lens.lens (\ListReplays' {namePrefix} -> namePrefix) (\
 
 instance Core.AWSRequest ListReplays where
   type AWSResponse ListReplays = ListReplaysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

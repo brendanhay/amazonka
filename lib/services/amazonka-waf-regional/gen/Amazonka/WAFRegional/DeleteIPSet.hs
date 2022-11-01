@@ -115,7 +115,8 @@ deleteIPSet_changeToken = Lens.lens (\DeleteIPSet' {changeToken} -> changeToken)
 
 instance Core.AWSRequest DeleteIPSet where
   type AWSResponse DeleteIPSet = DeleteIPSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

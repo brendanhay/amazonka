@@ -99,7 +99,8 @@ listSipRules_sipMediaApplicationId = Lens.lens (\ListSipRules' {sipMediaApplicat
 
 instance Core.AWSRequest ListSipRules where
   type AWSResponse ListSipRules = ListSipRulesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateApplication where
   type
     AWSResponse CreateApplication =
       ApplicationDescriptionMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateApplicationResult"

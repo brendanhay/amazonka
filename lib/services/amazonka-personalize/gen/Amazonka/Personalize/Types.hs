@@ -684,6 +684,8 @@ defaultService =
       Core._serviceEndpointPrefix = "personalize",
       Core._serviceSigningName = "personalize",
       Core._serviceVersion = "2018-05-22",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -177,7 +177,8 @@ instance Core.AWSRequest DetectCustomLabels where
   type
     AWSResponse DetectCustomLabels =
       DetectCustomLabelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

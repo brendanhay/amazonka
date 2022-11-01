@@ -88,7 +88,8 @@ instance Core.AWSRequest DeleteEndpointAccess where
   type
     AWSResponse DeleteEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteEndpointAccessResult"

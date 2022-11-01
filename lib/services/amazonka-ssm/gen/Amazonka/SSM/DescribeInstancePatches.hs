@@ -199,7 +199,8 @@ instance Core.AWSRequest DescribeInstancePatches where
   type
     AWSResponse DescribeInstancePatches =
       DescribeInstancePatchesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

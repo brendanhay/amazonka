@@ -20,9 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the specified user.
+-- Deactivates a user and revokes all access tokens for the user. A
+-- deactivated user can\'t sign in, but still appears in the responses to
+-- @GetUser@ and @ListUsers@ API requests.
 --
--- Calling this action requires developer credentials.
+-- You must make this API request with Amazon Web Services credentials that
+-- have @cognito-idp:AdminDisableUser@ permissions.
 module Amazonka.CognitoIdentityProvider.AdminDisableUser
   ( -- * Creating a Request
     AdminDisableUser (..),
@@ -94,7 +97,8 @@ instance Core.AWSRequest AdminDisableUser where
   type
     AWSResponse AdminDisableUser =
       AdminDisableUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

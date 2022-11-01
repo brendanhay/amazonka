@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateConnectAttachment where
   type
     AWSResponse CreateConnectAttachment =
       CreateConnectAttachmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

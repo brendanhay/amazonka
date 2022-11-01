@@ -146,7 +146,8 @@ updateSchema_schemaId = Lens.lens (\UpdateSchema' {schemaId} -> schemaId) (\s@Up
 
 instance Core.AWSRequest UpdateSchema where
   type AWSResponse UpdateSchema = UpdateSchemaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

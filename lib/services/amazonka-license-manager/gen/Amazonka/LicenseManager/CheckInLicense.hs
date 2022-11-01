@@ -89,7 +89,8 @@ instance Core.AWSRequest CheckInLicense where
   type
     AWSResponse CheckInLicense =
       CheckInLicenseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

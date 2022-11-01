@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteRolePolicy where
   type
     AWSResponse DeleteRolePolicy =
       DeleteRolePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteRolePolicyResponse'
 

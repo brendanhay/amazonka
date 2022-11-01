@@ -41,6 +41,7 @@ module Amazonka.Neptune.RestoreDBClusterToPointInTime
     -- * Request Lenses
     restoreDBClusterToPointInTime_tags,
     restoreDBClusterToPointInTime_port,
+    restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
     restoreDBClusterToPointInTime_optionGroupName,
@@ -82,6 +83,7 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Default: The same port as the original DB cluster.
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A list of VPC security groups that the new DB cluster belongs to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The DB subnet group name to use for the new DB cluster.
@@ -213,6 +215,8 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- Default: The same port as the original DB cluster.
 --
+-- 'serverlessV2ScalingConfiguration', 'restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'vpcSecurityGroupIds', 'restoreDBClusterToPointInTime_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
 --
 -- 'dbSubnetGroupName', 'restoreDBClusterToPointInTime_dbSubnetGroupName' - The DB subnet group name to use for the new DB cluster.
@@ -337,6 +341,8 @@ newRestoreDBClusterToPointInTime
       { tags =
           Prelude.Nothing,
         port = Prelude.Nothing,
+        serverlessV2ScalingConfiguration =
+          Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
@@ -367,6 +373,10 @@ restoreDBClusterToPointInTime_tags = Lens.lens (\RestoreDBClusterToPointInTime' 
 -- Default: The same port as the original DB cluster.
 restoreDBClusterToPointInTime_port :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Int)
 restoreDBClusterToPointInTime_port = Lens.lens (\RestoreDBClusterToPointInTime' {port} -> port) (\s@RestoreDBClusterToPointInTime' {} a -> s {port = a} :: RestoreDBClusterToPointInTime)
+
+-- | Undocumented member.
+restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe ServerlessV2ScalingConfiguration)
+restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterToPointInTime' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterToPointInTime' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterToPointInTime)
 
 -- | A list of VPC security groups that the new DB cluster belongs to.
 restoreDBClusterToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
@@ -513,7 +523,8 @@ instance
   type
     AWSResponse RestoreDBClusterToPointInTime =
       RestoreDBClusterToPointInTimeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterToPointInTimeResult"
@@ -530,6 +541,7 @@ instance
   hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` optionGroupName
@@ -548,6 +560,7 @@ instance Prelude.NFData RestoreDBClusterToPointInTime where
   rnf RestoreDBClusterToPointInTime' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
       `Prelude.seq` Prelude.rnf optionGroupName
@@ -581,6 +594,8 @@ instance Core.ToQuery RestoreDBClusterToPointInTime where
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
+        "ServerlessV2ScalingConfiguration"
+          Core.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"

@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateApiMapping where
   type
     AWSResponse UpdateApiMapping =
       UpdateApiMappingResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

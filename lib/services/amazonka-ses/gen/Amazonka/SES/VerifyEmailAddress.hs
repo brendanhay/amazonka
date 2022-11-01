@@ -78,7 +78,8 @@ instance Core.AWSRequest VerifyEmailAddress where
   type
     AWSResponse VerifyEmailAddress =
       VerifyEmailAddressResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull VerifyEmailAddressResponse'
 

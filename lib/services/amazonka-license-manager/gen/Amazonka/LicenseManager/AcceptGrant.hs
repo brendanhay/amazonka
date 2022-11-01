@@ -77,7 +77,8 @@ acceptGrant_grantArn = Lens.lens (\AcceptGrant' {grantArn} -> grantArn) (\s@Acce
 
 instance Core.AWSRequest AcceptGrant where
   type AWSResponse AcceptGrant = AcceptGrantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

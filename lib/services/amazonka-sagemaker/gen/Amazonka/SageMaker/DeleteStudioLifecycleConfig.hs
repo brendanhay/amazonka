@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteStudioLifecycleConfig where
   type
     AWSResponse DeleteStudioLifecycleConfig =
       DeleteStudioLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteStudioLifecycleConfigResponse'

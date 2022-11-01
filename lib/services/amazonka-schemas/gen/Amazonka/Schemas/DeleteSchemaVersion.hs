@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteSchemaVersion where
   type
     AWSResponse DeleteSchemaVersion =
       DeleteSchemaVersionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSchemaVersionResponse'
 

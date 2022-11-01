@@ -243,6 +243,8 @@ defaultService =
       Core._serviceEndpointPrefix = "kinesis",
       Core._serviceSigningName = "kinesis",
       Core._serviceVersion = "2013-12-02",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

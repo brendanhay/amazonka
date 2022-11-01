@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateFirewallPolicy where
   type
     AWSResponse CreateFirewallPolicy =
       CreateFirewallPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

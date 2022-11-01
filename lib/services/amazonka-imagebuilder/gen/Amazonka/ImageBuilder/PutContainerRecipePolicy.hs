@@ -106,7 +106,8 @@ instance Core.AWSRequest PutContainerRecipePolicy where
   type
     AWSResponse PutContainerRecipePolicy =
       PutContainerRecipePolicyResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

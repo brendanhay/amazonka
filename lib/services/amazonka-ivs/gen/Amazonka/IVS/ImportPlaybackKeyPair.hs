@@ -119,7 +119,8 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
   type
     AWSResponse ImportPlaybackKeyPair =
       ImportPlaybackKeyPairResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -97,7 +97,8 @@ instance Core.AWSRequest DeregisterTargets where
   type
     AWSResponse DeregisterTargets =
       DeregisterTargetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterTargetsResult"

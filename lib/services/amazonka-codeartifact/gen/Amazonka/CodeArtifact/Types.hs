@@ -275,6 +275,8 @@ defaultService =
       Core._serviceEndpointPrefix = "codeartifact",
       Core._serviceSigningName = "codeartifact",
       Core._serviceVersion = "2018-09-22",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

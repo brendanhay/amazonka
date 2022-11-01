@@ -110,9 +110,9 @@ instance Core.AWSRequest DeletePublicAccessBlock where
   type
     AWSResponse DeletePublicAccessBlock =
       DeletePublicAccessBlockResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeletePublicAccessBlockResponse'

@@ -112,7 +112,8 @@ updateUsage_keyId = Lens.lens (\UpdateUsage' {keyId} -> keyId) (\s@UpdateUsage' 
 
 instance Core.AWSRequest UpdateUsage where
   type AWSResponse UpdateUsage = Usage
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

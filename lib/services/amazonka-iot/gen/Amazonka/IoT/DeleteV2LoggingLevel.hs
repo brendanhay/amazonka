@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteV2LoggingLevel where
   type
     AWSResponse DeleteV2LoggingLevel =
       DeleteV2LoggingLevelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteV2LoggingLevelResponse'
 

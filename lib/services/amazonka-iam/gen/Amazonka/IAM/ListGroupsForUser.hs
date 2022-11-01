@@ -175,7 +175,8 @@ instance Core.AWSRequest ListGroupsForUser where
   type
     AWSResponse ListGroupsForUser =
       ListGroupsForUserResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListGroupsForUserResult"

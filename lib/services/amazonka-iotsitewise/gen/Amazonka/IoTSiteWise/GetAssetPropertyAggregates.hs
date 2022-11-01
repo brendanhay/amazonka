@@ -259,7 +259,8 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
   type
     AWSResponse GetAssetPropertyAggregates =
       GetAssetPropertyAggregatesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

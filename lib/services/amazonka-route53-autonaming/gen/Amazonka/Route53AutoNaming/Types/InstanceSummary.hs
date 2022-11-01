@@ -57,22 +57,22 @@ data InstanceSummary = InstanceSummary'
     --     status is @HEALTHY@.
     --
     -- [AWS_INSTANCE_CNAME]
-    --     For a @CNAME@ record, the domain name that Route 53 returns in
+    --     For a @CNAME@ record, the domain name that Route 53 returns in
     --     response to DNS queries (for example, @example.com@).
     --
     -- [AWS_INSTANCE_IPV4]
-    --     For an @A@ record, the IPv4 address that Route 53 returns in
+    --     For an @A@ record, the IPv4 address that Route 53 returns in
     --     response to DNS queries (for example, @192.0.2.44@).
     --
     -- [AWS_INSTANCE_IPV6]
-    --     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+    --     For an @AAAA@ record, the IPv6 address that Route 53 returns in
     --     response to DNS queries (for example,
     --     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
     --
     -- [AWS_INSTANCE_PORT]
-    --     For an @SRV@ record, the value that Route 53 returns for the port.
+    --     For an @SRV@ record, the value that Route 53 returns for the port.
     --     In addition, if the service includes @HealthCheckConfig@, the port
-    --     on the endpoint that Route 53 sends requests to.
+    --     on the endpoint that Route 53 sends requests to.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -114,22 +114,22 @@ data InstanceSummary = InstanceSummary'
 --     status is @HEALTHY@.
 --
 -- [AWS_INSTANCE_CNAME]
---     For a @CNAME@ record, the domain name that Route 53 returns in
+--     For a @CNAME@ record, the domain name that Route 53 returns in
 --     response to DNS queries (for example, @example.com@).
 --
 -- [AWS_INSTANCE_IPV4]
---     For an @A@ record, the IPv4 address that Route 53 returns in
+--     For an @A@ record, the IPv4 address that Route 53 returns in
 --     response to DNS queries (for example, @192.0.2.44@).
 --
 -- [AWS_INSTANCE_IPV6]
---     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+--     For an @AAAA@ record, the IPv6 address that Route 53 returns in
 --     response to DNS queries (for example,
 --     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 -- [AWS_INSTANCE_PORT]
---     For an @SRV@ record, the value that Route 53 returns for the port.
+--     For an @SRV@ record, the value that Route 53 returns for the port.
 --     In addition, if the service includes @HealthCheckConfig@, the port
---     on the endpoint that Route 53 sends requests to.
+--     on the endpoint that Route 53 sends requests to.
 newInstanceSummary ::
   InstanceSummary
 newInstanceSummary =
@@ -169,22 +169,22 @@ instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummar
 --     status is @HEALTHY@.
 --
 -- [AWS_INSTANCE_CNAME]
---     For a @CNAME@ record, the domain name that Route 53 returns in
+--     For a @CNAME@ record, the domain name that Route 53 returns in
 --     response to DNS queries (for example, @example.com@).
 --
 -- [AWS_INSTANCE_IPV4]
---     For an @A@ record, the IPv4 address that Route 53 returns in
+--     For an @A@ record, the IPv4 address that Route 53 returns in
 --     response to DNS queries (for example, @192.0.2.44@).
 --
 -- [AWS_INSTANCE_IPV6]
---     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+--     For an @AAAA@ record, the IPv6 address that Route 53 returns in
 --     response to DNS queries (for example,
 --     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
 --
 -- [AWS_INSTANCE_PORT]
---     For an @SRV@ record, the value that Route 53 returns for the port.
+--     For an @SRV@ record, the value that Route 53 returns for the port.
 --     In addition, if the service includes @HealthCheckConfig@, the port
---     on the endpoint that Route 53 sends requests to.
+--     on the endpoint that Route 53 sends requests to.
 instanceSummary_attributes :: Lens.Lens' InstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Prelude.. Lens.mapping Lens.coerced
 

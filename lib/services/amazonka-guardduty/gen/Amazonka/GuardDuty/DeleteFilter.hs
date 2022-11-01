@@ -88,7 +88,8 @@ deleteFilter_filterName = Lens.lens (\DeleteFilter' {filterName} -> filterName) 
 
 instance Core.AWSRequest DeleteFilter where
   type AWSResponse DeleteFilter = DeleteFilterResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -98,7 +98,8 @@ getLFTag_tagKey = Lens.lens (\GetLFTag' {tagKey} -> tagKey) (\s@GetLFTag' {} a -
 
 instance Core.AWSRequest GetLFTag where
   type AWSResponse GetLFTag = GetLFTagResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

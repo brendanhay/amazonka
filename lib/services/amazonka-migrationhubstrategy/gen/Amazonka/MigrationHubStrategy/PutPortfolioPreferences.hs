@@ -97,7 +97,8 @@ instance Core.AWSRequest PutPortfolioPreferences where
   type
     AWSResponse PutPortfolioPreferences =
       PutPortfolioPreferencesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

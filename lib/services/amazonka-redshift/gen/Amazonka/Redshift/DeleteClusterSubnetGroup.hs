@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteClusterSubnetGroup where
   type
     AWSResponse DeleteClusterSubnetGroup =
       DeleteClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteClusterSubnetGroupResponse'

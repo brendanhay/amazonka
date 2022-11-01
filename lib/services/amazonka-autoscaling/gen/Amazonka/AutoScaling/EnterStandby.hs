@@ -118,7 +118,8 @@ enterStandby_shouldDecrementDesiredCapacity = Lens.lens (\EnterStandby' {shouldD
 
 instance Core.AWSRequest EnterStandby where
   type AWSResponse EnterStandby = EnterStandbyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EnterStandbyResult"

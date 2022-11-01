@@ -38,8 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
 -- and
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html Setting up a certificate revocation method>
--- in the /Certificate Manager Private Certificate Authority (PCA) User
--- Guide/.
+-- in the /Private Certificate Authority (PCA) User Guide/.
 --
 -- /See:/ 'newRevocationConfiguration' smart constructor.
 data RevocationConfiguration = RevocationConfiguration'

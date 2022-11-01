@@ -177,7 +177,8 @@ publishType_typeName = Lens.lens (\PublishType' {typeName} -> typeName) (\s@Publ
 
 instance Core.AWSRequest PublishType where
   type AWSResponse PublishType = PublishTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishTypeResult"

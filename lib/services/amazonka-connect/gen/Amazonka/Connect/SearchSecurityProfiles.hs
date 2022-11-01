@@ -65,6 +65,8 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The search criteria to be used to return security profiles.
+    --
+    -- The currently supported value for @FieldName@: @name@
     searchCriteria :: Prelude.Maybe SecurityProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe SecurityProfilesSearchFilter,
@@ -89,6 +91,8 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
 -- results.
 --
 -- 'searchCriteria', 'searchSecurityProfiles_searchCriteria' - The search criteria to be used to return security profiles.
+--
+-- The currently supported value for @FieldName@: @name@
 --
 -- 'searchFilter', 'searchSecurityProfiles_searchFilter' - Filters to be applied to search results.
 --
@@ -117,6 +121,8 @@ searchSecurityProfiles_nextToken :: Lens.Lens' SearchSecurityProfiles (Prelude.M
 searchSecurityProfiles_nextToken = Lens.lens (\SearchSecurityProfiles' {nextToken} -> nextToken) (\s@SearchSecurityProfiles' {} a -> s {nextToken = a} :: SearchSecurityProfiles)
 
 -- | The search criteria to be used to return security profiles.
+--
+-- The currently supported value for @FieldName@: @name@
 searchSecurityProfiles_searchCriteria :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe SecurityProfileSearchCriteria)
 searchSecurityProfiles_searchCriteria = Lens.lens (\SearchSecurityProfiles' {searchCriteria} -> searchCriteria) (\s@SearchSecurityProfiles' {} a -> s {searchCriteria = a} :: SearchSecurityProfiles)
 
@@ -159,7 +165,8 @@ instance Core.AWSRequest SearchSecurityProfiles where
   type
     AWSResponse SearchSecurityProfiles =
       SearchSecurityProfilesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

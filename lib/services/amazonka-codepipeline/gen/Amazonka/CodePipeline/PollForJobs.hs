@@ -119,7 +119,8 @@ pollForJobs_actionTypeId = Lens.lens (\PollForJobs' {actionTypeId} -> actionType
 
 instance Core.AWSRequest PollForJobs where
   type AWSResponse PollForJobs = PollForJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -157,7 +157,8 @@ instance Core.AWSRequest DescribeIpamPools where
   type
     AWSResponse DescribeIpamPools =
       DescribeIpamPoolsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

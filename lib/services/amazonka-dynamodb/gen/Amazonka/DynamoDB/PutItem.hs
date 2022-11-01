@@ -555,7 +555,8 @@ putItem_item = Lens.lens (\PutItem' {item} -> item) (\s@PutItem' {} a -> s {item
 
 instance Core.AWSRequest PutItem where
   type AWSResponse PutItem = PutItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

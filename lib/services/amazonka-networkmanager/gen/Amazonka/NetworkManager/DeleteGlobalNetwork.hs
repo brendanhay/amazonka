@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteGlobalNetwork where
   type
     AWSResponse DeleteGlobalNetwork =
       DeleteGlobalNetworkResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

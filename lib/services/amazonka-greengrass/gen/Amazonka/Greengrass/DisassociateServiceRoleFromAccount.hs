@@ -66,7 +66,8 @@ instance
   type
     AWSResponse DisassociateServiceRoleFromAccount =
       DisassociateServiceRoleFromAccountResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

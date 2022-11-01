@@ -132,7 +132,8 @@ instance Core.AWSRequest PutPermissionPolicy where
   type
     AWSResponse PutPermissionPolicy =
       PutPermissionPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

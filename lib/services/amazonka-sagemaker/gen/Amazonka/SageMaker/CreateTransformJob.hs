@@ -63,6 +63,7 @@ module Amazonka.SageMaker.CreateTransformJob
     createTransformJob_experimentConfig,
     createTransformJob_maxPayloadInMB,
     createTransformJob_batchStrategy,
+    createTransformJob_dataCaptureConfig,
     createTransformJob_dataProcessing,
     createTransformJob_transformJobName,
     createTransformJob_modelName,
@@ -143,6 +144,8 @@ data CreateTransformJob = CreateTransformJob'
     -- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and
     -- @SplitType@ to @Line@.
     batchStrategy :: Prelude.Maybe BatchStrategy,
+    -- | Configuration to control how SageMaker captures inference data.
+    dataCaptureConfig :: Prelude.Maybe BatchDataCaptureConfig,
     -- | The data structure used to specify the data to be used for inference in
     -- a batch transform job and to associate the data that is relevant to the
     -- prediction results in the output. The input filter provided allows you
@@ -232,6 +235,8 @@ data CreateTransformJob = CreateTransformJob'
 -- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and
 -- @SplitType@ to @Line@.
 --
+-- 'dataCaptureConfig', 'createTransformJob_dataCaptureConfig' - Configuration to control how SageMaker captures inference data.
+--
 -- 'dataProcessing', 'createTransformJob_dataProcessing' - The data structure used to specify the data to be used for inference in
 -- a batch transform job and to associate the data that is relevant to the
 -- prediction results in the output. The input filter provided allows you
@@ -280,6 +285,7 @@ newCreateTransformJob
         experimentConfig = Prelude.Nothing,
         maxPayloadInMB = Prelude.Nothing,
         batchStrategy = Prelude.Nothing,
+        dataCaptureConfig = Prelude.Nothing,
         dataProcessing = Prelude.Nothing,
         transformJobName = pTransformJobName_,
         modelName = pModelName_,
@@ -357,6 +363,10 @@ createTransformJob_maxPayloadInMB = Lens.lens (\CreateTransformJob' {maxPayloadI
 createTransformJob_batchStrategy :: Lens.Lens' CreateTransformJob (Prelude.Maybe BatchStrategy)
 createTransformJob_batchStrategy = Lens.lens (\CreateTransformJob' {batchStrategy} -> batchStrategy) (\s@CreateTransformJob' {} a -> s {batchStrategy = a} :: CreateTransformJob)
 
+-- | Configuration to control how SageMaker captures inference data.
+createTransformJob_dataCaptureConfig :: Lens.Lens' CreateTransformJob (Prelude.Maybe BatchDataCaptureConfig)
+createTransformJob_dataCaptureConfig = Lens.lens (\CreateTransformJob' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateTransformJob' {} a -> s {dataCaptureConfig = a} :: CreateTransformJob)
+
 -- | The data structure used to specify the data to be used for inference in
 -- a batch transform job and to associate the data that is relevant to the
 -- prediction results in the output. The input filter provided allows you
@@ -396,7 +406,8 @@ instance Core.AWSRequest CreateTransformJob where
   type
     AWSResponse CreateTransformJob =
       CreateTransformJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -414,6 +425,7 @@ instance Prelude.Hashable CreateTransformJob where
       `Prelude.hashWithSalt` experimentConfig
       `Prelude.hashWithSalt` maxPayloadInMB
       `Prelude.hashWithSalt` batchStrategy
+      `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` dataProcessing
       `Prelude.hashWithSalt` transformJobName
       `Prelude.hashWithSalt` modelName
@@ -430,6 +442,7 @@ instance Prelude.NFData CreateTransformJob where
       `Prelude.seq` Prelude.rnf experimentConfig
       `Prelude.seq` Prelude.rnf maxPayloadInMB
       `Prelude.seq` Prelude.rnf batchStrategy
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf dataProcessing
       `Prelude.seq` Prelude.rnf transformJobName
       `Prelude.seq` Prelude.rnf modelName
@@ -467,6 +480,8 @@ instance Core.ToJSON CreateTransformJob where
             ("MaxPayloadInMB" Core..=)
               Prelude.<$> maxPayloadInMB,
             ("BatchStrategy" Core..=) Prelude.<$> batchStrategy,
+            ("DataCaptureConfig" Core..=)
+              Prelude.<$> dataCaptureConfig,
             ("DataProcessing" Core..=)
               Prelude.<$> dataProcessing,
             Prelude.Just

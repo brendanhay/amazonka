@@ -104,7 +104,8 @@ updateMember_memberId = Lens.lens (\UpdateMember' {memberId} -> memberId) (\s@Up
 
 instance Core.AWSRequest UpdateMember where
   type AWSResponse UpdateMember = UpdateMemberResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

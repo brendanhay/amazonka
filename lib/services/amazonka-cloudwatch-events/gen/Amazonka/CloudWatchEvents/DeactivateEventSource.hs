@@ -81,7 +81,8 @@ instance Core.AWSRequest DeactivateEventSource where
   type
     AWSResponse DeactivateEventSource =
       DeactivateEventSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeactivateEventSourceResponse'
 

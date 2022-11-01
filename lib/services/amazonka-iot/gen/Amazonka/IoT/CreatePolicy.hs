@@ -142,7 +142,8 @@ createPolicy_policyDocument = Lens.lens (\CreatePolicy' {policyDocument} -> poli
 
 instance Core.AWSRequest CreatePolicy where
   type AWSResponse CreatePolicy = CreatePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

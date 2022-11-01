@@ -41,6 +41,9 @@ data FieldInputConfig = FieldInputConfig'
     minValue :: Prelude.Maybe Prelude.Double,
     -- | Specifies a read only field.
     readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether to render the field as an array. This property is
+    -- ignored if the @dataSourceType@ for the form is a Data Store.
+    isArray :: Prelude.Maybe Prelude.Bool,
     -- | The stepping increment for a numeric value in a field.
     step :: Prelude.Maybe Prelude.Double,
     -- | The default country code for a phone number.
@@ -81,6 +84,9 @@ data FieldInputConfig = FieldInputConfig'
 --
 -- 'readOnly', 'fieldInputConfig_readOnly' - Specifies a read only field.
 --
+-- 'isArray', 'fieldInputConfig_isArray' - Specifies whether to render the field as an array. This property is
+-- ignored if the @dataSourceType@ for the form is a Data Store.
+--
 -- 'step', 'fieldInputConfig_step' - The stepping increment for a numeric value in a field.
 --
 -- 'defaultCountryCode', 'fieldInputConfig_defaultCountryCode' - The default country code for a phone number.
@@ -109,6 +115,7 @@ newFieldInputConfig pType_ =
       defaultValue = Prelude.Nothing,
       minValue = Prelude.Nothing,
       readOnly = Prelude.Nothing,
+      isArray = Prelude.Nothing,
       step = Prelude.Nothing,
       defaultCountryCode = Prelude.Nothing,
       defaultChecked = Prelude.Nothing,
@@ -142,6 +149,11 @@ fieldInputConfig_minValue = Lens.lens (\FieldInputConfig' {minValue} -> minValue
 -- | Specifies a read only field.
 fieldInputConfig_readOnly :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
 fieldInputConfig_readOnly = Lens.lens (\FieldInputConfig' {readOnly} -> readOnly) (\s@FieldInputConfig' {} a -> s {readOnly = a} :: FieldInputConfig)
+
+-- | Specifies whether to render the field as an array. This property is
+-- ignored if the @dataSourceType@ for the form is a Data Store.
+fieldInputConfig_isArray :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
+fieldInputConfig_isArray = Lens.lens (\FieldInputConfig' {isArray} -> isArray) (\s@FieldInputConfig' {} a -> s {isArray = a} :: FieldInputConfig)
 
 -- | The stepping increment for a numeric value in a field.
 fieldInputConfig_step :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
@@ -188,6 +200,7 @@ instance Core.FromJSON FieldInputConfig where
             Prelude.<*> (x Core..:? "defaultValue")
             Prelude.<*> (x Core..:? "minValue")
             Prelude.<*> (x Core..:? "readOnly")
+            Prelude.<*> (x Core..:? "isArray")
             Prelude.<*> (x Core..:? "step")
             Prelude.<*> (x Core..:? "defaultCountryCode")
             Prelude.<*> (x Core..:? "defaultChecked")
@@ -206,6 +219,7 @@ instance Prelude.Hashable FieldInputConfig where
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` minValue
       `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` isArray
       `Prelude.hashWithSalt` step
       `Prelude.hashWithSalt` defaultCountryCode
       `Prelude.hashWithSalt` defaultChecked
@@ -223,6 +237,7 @@ instance Prelude.NFData FieldInputConfig where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf minValue
       `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf isArray
       `Prelude.seq` Prelude.rnf step
       `Prelude.seq` Prelude.rnf defaultCountryCode
       `Prelude.seq` Prelude.rnf defaultChecked
@@ -243,6 +258,7 @@ instance Core.ToJSON FieldInputConfig where
             ("defaultValue" Core..=) Prelude.<$> defaultValue,
             ("minValue" Core..=) Prelude.<$> minValue,
             ("readOnly" Core..=) Prelude.<$> readOnly,
+            ("isArray" Core..=) Prelude.<$> isArray,
             ("step" Core..=) Prelude.<$> step,
             ("defaultCountryCode" Core..=)
               Prelude.<$> defaultCountryCode,

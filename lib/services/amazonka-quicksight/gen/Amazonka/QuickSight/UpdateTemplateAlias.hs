@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateTemplateAlias where
   type
     AWSResponse UpdateTemplateAlias =
       UpdateTemplateAliasResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -119,7 +119,8 @@ getIntegration_httpMethod = Lens.lens (\GetIntegration' {httpMethod} -> httpMeth
 
 instance Core.AWSRequest GetIntegration where
   type AWSResponse GetIntegration = Integration
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

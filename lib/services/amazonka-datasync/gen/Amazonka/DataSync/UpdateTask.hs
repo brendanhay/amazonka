@@ -176,7 +176,8 @@ updateTask_taskArn = Lens.lens (\UpdateTask' {taskArn} -> taskArn) (\s@UpdateTas
 
 instance Core.AWSRequest UpdateTask where
   type AWSResponse UpdateTask = UpdateTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

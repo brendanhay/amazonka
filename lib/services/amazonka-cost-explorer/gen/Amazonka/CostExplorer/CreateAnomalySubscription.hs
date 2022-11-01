@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateAnomalySubscription where
   type
     AWSResponse CreateAnomalySubscription =
       CreateAnomalySubscriptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

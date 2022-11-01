@@ -142,6 +142,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudhsmv2",
       Core._serviceSigningName = "cloudhsm",
       Core._serviceVersion = "2017-04-28",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

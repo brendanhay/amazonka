@@ -411,7 +411,8 @@ subscribe_protocol = Lens.lens (\Subscribe' {protocol} -> protocol) (\s@Subscrib
 
 instance Core.AWSRequest Subscribe where
   type AWSResponse Subscribe = SubscribeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SubscribeResult"

@@ -75,7 +75,8 @@ getGateway_gatewayArn = Lens.lens (\GetGateway' {gatewayArn} -> gatewayArn) (\s@
 
 instance Core.AWSRequest GetGateway where
   type AWSResponse GetGateway = GetGatewayResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

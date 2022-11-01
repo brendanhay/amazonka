@@ -107,7 +107,8 @@ instance Core.AWSRequest AuthorizeEndpointAccess where
   type
     AWSResponse AuthorizeEndpointAccess =
       EndpointAuthorization
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AuthorizeEndpointAccessResult"

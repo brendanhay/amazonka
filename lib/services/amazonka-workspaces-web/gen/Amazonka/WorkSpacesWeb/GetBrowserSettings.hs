@@ -80,7 +80,8 @@ instance Core.AWSRequest GetBrowserSettings where
   type
     AWSResponse GetBrowserSettings =
       GetBrowserSettingsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

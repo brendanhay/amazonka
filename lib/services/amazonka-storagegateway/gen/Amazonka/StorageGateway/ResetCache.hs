@@ -87,7 +87,8 @@ resetCache_gatewayARN = Lens.lens (\ResetCache' {gatewayARN} -> gatewayARN) (\s@
 
 instance Core.AWSRequest ResetCache where
   type AWSResponse ResetCache = ResetCacheResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

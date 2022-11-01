@@ -120,7 +120,8 @@ listMembers_graphArn = Lens.lens (\ListMembers' {graphArn} -> graphArn) (\s@List
 
 instance Core.AWSRequest ListMembers where
   type AWSResponse ListMembers = ListMembersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

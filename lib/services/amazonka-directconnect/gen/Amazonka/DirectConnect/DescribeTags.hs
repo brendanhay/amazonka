@@ -74,7 +74,8 @@ describeTags_resourceArns = Lens.lens (\DescribeTags' {resourceArns} -> resource
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

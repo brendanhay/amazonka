@@ -145,7 +145,8 @@ instance Core.AWSRequest ListRateBasedRules where
   type
     AWSResponse ListRateBasedRules =
       ListRateBasedRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

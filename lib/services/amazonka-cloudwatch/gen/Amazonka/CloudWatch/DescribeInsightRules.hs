@@ -97,7 +97,8 @@ instance Core.AWSRequest DescribeInsightRules where
   type
     AWSResponse DescribeInsightRules =
       DescribeInsightRulesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeInsightRulesResult"

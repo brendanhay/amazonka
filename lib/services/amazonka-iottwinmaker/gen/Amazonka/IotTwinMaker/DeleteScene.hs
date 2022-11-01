@@ -88,7 +88,8 @@ deleteScene_workspaceId = Lens.lens (\DeleteScene' {workspaceId} -> workspaceId)
 
 instance Core.AWSRequest DeleteScene where
   type AWSResponse DeleteScene = DeleteSceneResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

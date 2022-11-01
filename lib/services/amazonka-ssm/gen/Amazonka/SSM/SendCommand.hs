@@ -475,7 +475,8 @@ sendCommand_documentName = Lens.lens (\SendCommand' {documentName} -> documentNa
 
 instance Core.AWSRequest SendCommand where
   type AWSResponse SendCommand = SendCommandResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

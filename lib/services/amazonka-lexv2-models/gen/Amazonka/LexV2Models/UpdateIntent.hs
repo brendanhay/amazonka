@@ -301,7 +301,8 @@ updateIntent_localeId = Lens.lens (\UpdateIntent' {localeId} -> localeId) (\s@Up
 
 instance Core.AWSRequest UpdateIntent where
   type AWSResponse UpdateIntent = UpdateIntentResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

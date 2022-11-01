@@ -106,9 +106,9 @@ instance Core.AWSRequest DeleteBucketCors where
   type
     AWSResponse DeleteBucketCors =
       DeleteBucketCorsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull DeleteBucketCorsResponse'
 

@@ -125,7 +125,8 @@ instance Core.AWSPager GetKeyPairs where
 
 instance Core.AWSRequest GetKeyPairs where
   type AWSResponse GetKeyPairs = GetKeyPairsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

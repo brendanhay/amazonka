@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateRegexMatchSet where
   type
     AWSResponse UpdateRegexMatchSet =
       UpdateRegexMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

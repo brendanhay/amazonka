@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
   type
     AWSResponse CreateLoadBalancerPolicy =
       CreateLoadBalancerPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateLoadBalancerPolicyResult"

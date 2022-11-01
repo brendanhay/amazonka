@@ -181,7 +181,8 @@ instance Core.AWSRequest AssociateSubnets where
   type
     AWSResponse AssociateSubnets =
       AssociateSubnetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

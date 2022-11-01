@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteAnomalyMonitor where
   type
     AWSResponse DeleteAnomalyMonitor =
       DeleteAnomalyMonitorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

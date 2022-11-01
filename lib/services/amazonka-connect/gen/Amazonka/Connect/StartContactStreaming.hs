@@ -64,7 +64,9 @@ data StartContactStreaming = StartContactStreaming'
     -- | The streaming configuration, such as the Amazon SNS streaming endpoint.
     chatStreamingConfiguration :: ChatStreamingConfiguration,
     -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,7 +88,9 @@ data StartContactStreaming = StartContactStreaming'
 -- 'chatStreamingConfiguration', 'startContactStreaming_chatStreamingConfiguration' - The streaming configuration, such as the Amazon SNS streaming endpoint.
 --
 -- 'clientToken', 'startContactStreaming_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 newStartContactStreaming ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -125,7 +129,9 @@ startContactStreaming_chatStreamingConfiguration :: Lens.Lens' StartContactStrea
 startContactStreaming_chatStreamingConfiguration = Lens.lens (\StartContactStreaming' {chatStreamingConfiguration} -> chatStreamingConfiguration) (\s@StartContactStreaming' {} a -> s {chatStreamingConfiguration = a} :: StartContactStreaming)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startContactStreaming_clientToken :: Lens.Lens' StartContactStreaming Prelude.Text
 startContactStreaming_clientToken = Lens.lens (\StartContactStreaming' {clientToken} -> clientToken) (\s@StartContactStreaming' {} a -> s {clientToken = a} :: StartContactStreaming)
 
@@ -133,7 +139,8 @@ instance Core.AWSRequest StartContactStreaming where
   type
     AWSResponse StartContactStreaming =
       StartContactStreamingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

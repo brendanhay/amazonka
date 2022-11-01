@@ -177,7 +177,8 @@ instance Core.AWSRequest DeleteRuleGroup where
   type
     AWSResponse DeleteRuleGroup =
       DeleteRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

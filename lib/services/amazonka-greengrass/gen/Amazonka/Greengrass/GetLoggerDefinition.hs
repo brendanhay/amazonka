@@ -87,7 +87,8 @@ instance Core.AWSRequest GetLoggerDefinition where
   type
     AWSResponse GetLoggerDefinition =
       GetLoggerDefinitionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

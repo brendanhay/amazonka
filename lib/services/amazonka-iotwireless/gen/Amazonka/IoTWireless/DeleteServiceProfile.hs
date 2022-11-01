@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteServiceProfile where
   type
     AWSResponse DeleteServiceProfile =
       DeleteServiceProfileResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

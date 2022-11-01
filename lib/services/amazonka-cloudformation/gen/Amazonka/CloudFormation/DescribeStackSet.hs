@@ -134,7 +134,8 @@ instance Core.AWSRequest DescribeStackSet where
   type
     AWSResponse DescribeStackSet =
       DescribeStackSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackSetResult"

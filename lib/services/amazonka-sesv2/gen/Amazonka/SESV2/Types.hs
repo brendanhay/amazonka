@@ -84,6 +84,9 @@ module Amazonka.SESV2.Types
     -- * ReviewStatus
     ReviewStatus (..),
 
+    -- * ScalingMode
+    ScalingMode (..),
+
     -- * SubscriptionStatus
     SubscriptionStatus (..),
 
@@ -95,6 +98,9 @@ module Amazonka.SESV2.Types
 
     -- * TlsPolicy
     TlsPolicy (..),
+
+    -- * VerificationStatus
+    VerificationStatus (..),
 
     -- * WarmupStatus
     WarmupStatus (..),
@@ -203,6 +209,12 @@ module Amazonka.SESV2.Types
     dedicatedIp_ip,
     dedicatedIp_warmupStatus,
     dedicatedIp_warmupPercentage,
+
+    -- * DedicatedIpPool
+    DedicatedIpPool (..),
+    newDedicatedIpPool,
+    dedicatedIpPool_poolName,
+    dedicatedIpPool_scalingMode,
 
     -- * DeliverabilityTestReport
     DeliverabilityTestReport (..),
@@ -332,6 +344,7 @@ module Amazonka.SESV2.Types
     identityInfo_sendingEnabled,
     identityInfo_identityName,
     identityInfo_identityType,
+    identityInfo_verificationStatus,
 
     -- * ImportDataSource
     ImportDataSource (..),
@@ -352,6 +365,8 @@ module Amazonka.SESV2.Types
     importJobSummary_createdTimestamp,
     importJobSummary_jobId,
     importJobSummary_importDestination,
+    importJobSummary_failedRecordsCount,
+    importJobSummary_processedRecordsCount,
 
     -- * InboxPlacementTrackingOption
     InboxPlacementTrackingOption (..),
@@ -574,6 +589,7 @@ import Amazonka.SESV2.Types.CustomVerificationEmailTemplateMetadata
 import Amazonka.SESV2.Types.DailyVolume
 import Amazonka.SESV2.Types.DataFormat
 import Amazonka.SESV2.Types.DedicatedIp
+import Amazonka.SESV2.Types.DedicatedIpPool
 import Amazonka.SESV2.Types.DeliverabilityDashboardAccountStatus
 import Amazonka.SESV2.Types.DeliverabilityTestReport
 import Amazonka.SESV2.Types.DeliverabilityTestStatus
@@ -621,6 +637,7 @@ import Amazonka.SESV2.Types.ReplacementTemplate
 import Amazonka.SESV2.Types.ReputationOptions
 import Amazonka.SESV2.Types.ReviewDetails
 import Amazonka.SESV2.Types.ReviewStatus
+import Amazonka.SESV2.Types.ScalingMode
 import Amazonka.SESV2.Types.SendQuota
 import Amazonka.SESV2.Types.SendingOptions
 import Amazonka.SESV2.Types.SnsDestination
@@ -640,6 +657,7 @@ import Amazonka.SESV2.Types.Topic
 import Amazonka.SESV2.Types.TopicFilter
 import Amazonka.SESV2.Types.TopicPreference
 import Amazonka.SESV2.Types.TrackingOptions
+import Amazonka.SESV2.Types.VerificationStatus
 import Amazonka.SESV2.Types.VolumeStatistics
 import Amazonka.SESV2.Types.WarmupStatus
 import qualified Amazonka.Sign.V4 as Sign
@@ -653,6 +671,8 @@ defaultService =
       Core._serviceEndpointPrefix = "email",
       Core._serviceSigningName = "ses",
       Core._serviceVersion = "2019-09-27",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

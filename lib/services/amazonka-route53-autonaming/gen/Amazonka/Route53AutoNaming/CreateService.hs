@@ -24,7 +24,7 @@
 -- following entities:
 --
 -- -   For public and private DNS namespaces, one of the following
---     combinations of DNS records in Amazon Route 53:
+--     combinations of DNS records in Amazon Route 53:
 --
 --     -   @A@
 --
@@ -90,7 +90,7 @@ data CreateService = CreateService'
     -- using the @DiscoverInstances@ API operation. No DNS records is
     -- registered for the service instances. The only valid value is @HTTP@.
     type' :: Prelude.Maybe ServiceTypeOption,
-    -- | A complex type that contains information about the Amazon Route 53
+    -- | A complex type that contains information about the Amazon Route 53
     -- records that you want Cloud Map to create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfig,
     -- | A complex type that contains information about an optional custom health
@@ -114,9 +114,9 @@ data CreateService = CreateService'
     -- in the @DnsConfig@ object.
     namespaceId :: Prelude.Maybe Prelude.Text,
     -- | /Public DNS and HTTP namespaces only./ A complex type that contains
-    -- settings for an optional Route 53 health check. If you specify settings
+    -- settings for an optional Route 53 health check. If you specify settings
     -- for a health check, Cloud Map associates the health check with all the
-    -- Route 53 DNS records that you specify in @DnsConfig@.
+    -- Route 53 DNS records that you specify in @DnsConfig@.
     --
     -- If you specify a health check configuration, you can specify either
     -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
@@ -125,6 +125,9 @@ data CreateService = CreateService'
     -- <http://aws.amazon.com/cloud-map/pricing/ Cloud Map Pricing>.
     healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
     -- | The name that you want to assign to the service.
+    --
+    -- Do not include sensitive information in the name if the namespace is
+    -- discoverable by public DNS queries.
     --
     -- If you want Cloud Map to create an @SRV@ record when you register an
     -- instance and you\'re using a system that requires a specific @SRV@
@@ -167,7 +170,7 @@ data CreateService = CreateService'
 -- using the @DiscoverInstances@ API operation. No DNS records is
 -- registered for the service instances. The only valid value is @HTTP@.
 --
--- 'dnsConfig', 'createService_dnsConfig' - A complex type that contains information about the Amazon Route 53
+-- 'dnsConfig', 'createService_dnsConfig' - A complex type that contains information about the Amazon Route 53
 -- records that you want Cloud Map to create when you register an instance.
 --
 -- 'healthCheckCustomConfig', 'createService_healthCheckCustomConfig' - A complex type that contains information about an optional custom health
@@ -191,9 +194,9 @@ data CreateService = CreateService'
 -- in the @DnsConfig@ object.
 --
 -- 'healthCheckConfig', 'createService_healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional Route 53 health check. If you specify settings
+-- settings for an optional Route 53 health check. If you specify settings
 -- for a health check, Cloud Map associates the health check with all the
--- Route 53 DNS records that you specify in @DnsConfig@.
+-- Route 53 DNS records that you specify in @DnsConfig@.
 --
 -- If you specify a health check configuration, you can specify either
 -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
@@ -202,6 +205,9 @@ data CreateService = CreateService'
 -- <http://aws.amazon.com/cloud-map/pricing/ Cloud Map Pricing>.
 --
 -- 'name', 'createService_name' - The name that you want to assign to the service.
+--
+-- Do not include sensitive information in the name if the namespace is
+-- discoverable by public DNS queries.
 --
 -- If you want Cloud Map to create an @SRV@ record when you register an
 -- instance and you\'re using a system that requires a specific @SRV@
@@ -253,7 +259,7 @@ createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateServic
 createService_type :: Lens.Lens' CreateService (Prelude.Maybe ServiceTypeOption)
 createService_type = Lens.lens (\CreateService' {type'} -> type') (\s@CreateService' {} a -> s {type' = a} :: CreateService)
 
--- | A complex type that contains information about the Amazon Route 53
+-- | A complex type that contains information about the Amazon Route 53
 -- records that you want Cloud Map to create when you register an instance.
 createService_dnsConfig :: Lens.Lens' CreateService (Prelude.Maybe DnsConfig)
 createService_dnsConfig = Lens.lens (\CreateService' {dnsConfig} -> dnsConfig) (\s@CreateService' {} a -> s {dnsConfig = a} :: CreateService)
@@ -287,9 +293,9 @@ createService_namespaceId :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Tex
 createService_namespaceId = Lens.lens (\CreateService' {namespaceId} -> namespaceId) (\s@CreateService' {} a -> s {namespaceId = a} :: CreateService)
 
 -- | /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional Route 53 health check. If you specify settings
+-- settings for an optional Route 53 health check. If you specify settings
 -- for a health check, Cloud Map associates the health check with all the
--- Route 53 DNS records that you specify in @DnsConfig@.
+-- Route 53 DNS records that you specify in @DnsConfig@.
 --
 -- If you specify a health check configuration, you can specify either
 -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
@@ -300,6 +306,9 @@ createService_healthCheckConfig :: Lens.Lens' CreateService (Prelude.Maybe Healt
 createService_healthCheckConfig = Lens.lens (\CreateService' {healthCheckConfig} -> healthCheckConfig) (\s@CreateService' {} a -> s {healthCheckConfig = a} :: CreateService)
 
 -- | The name that you want to assign to the service.
+--
+-- Do not include sensitive information in the name if the namespace is
+-- discoverable by public DNS queries.
 --
 -- If you want Cloud Map to create an @SRV@ record when you register an
 -- instance and you\'re using a system that requires a specific @SRV@
@@ -329,7 +338,8 @@ instance Core.AWSRequest CreateService where
   type
     AWSResponse CreateService =
       CreateServiceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

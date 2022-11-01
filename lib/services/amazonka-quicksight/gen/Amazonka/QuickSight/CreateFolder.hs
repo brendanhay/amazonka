@@ -162,7 +162,8 @@ createFolder_folderId = Lens.lens (\CreateFolder' {folderId} -> folderId) (\s@Cr
 
 instance Core.AWSRequest CreateFolder where
   type AWSResponse CreateFolder = CreateFolderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

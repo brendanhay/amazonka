@@ -150,7 +150,8 @@ instance Core.AWSPager SearchRooms where
 
 instance Core.AWSRequest SearchRooms where
   type AWSResponse SearchRooms = SearchRoomsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

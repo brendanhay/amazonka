@@ -108,7 +108,8 @@ instance Core.AWSRequest StartGeneratedCodeJob where
   type
     AWSResponse StartGeneratedCodeJob =
       StartGeneratedCodeJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

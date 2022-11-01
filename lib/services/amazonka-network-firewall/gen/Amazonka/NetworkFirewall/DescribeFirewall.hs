@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeFirewall where
   type
     AWSResponse DescribeFirewall =
       DescribeFirewallResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

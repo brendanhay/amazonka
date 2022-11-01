@@ -99,7 +99,8 @@ createBot_accountId = Lens.lens (\CreateBot' {accountId} -> accountId) (\s@Creat
 
 instance Core.AWSRequest CreateBot where
   type AWSResponse CreateBot = CreateBotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

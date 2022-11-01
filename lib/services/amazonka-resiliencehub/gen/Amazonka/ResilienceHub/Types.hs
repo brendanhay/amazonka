@@ -185,6 +185,7 @@ module Amazonka.ResilienceHub.Types
     newAppSummary,
     appSummary_resiliencyScore,
     appSummary_complianceStatus,
+    appSummary_status,
     appSummary_description,
     appSummary_assessmentSchedule,
     appSummary_appArn,
@@ -462,6 +463,8 @@ defaultService =
       Core._serviceEndpointPrefix = "resiliencehub",
       Core._serviceSigningName = "resiliencehub",
       Core._serviceVersion = "2020-04-30",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

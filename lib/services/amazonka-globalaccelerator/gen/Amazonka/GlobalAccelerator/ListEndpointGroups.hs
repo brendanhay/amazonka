@@ -130,7 +130,8 @@ instance Core.AWSRequest ListEndpointGroups where
   type
     AWSResponse ListEndpointGroups =
       ListEndpointGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

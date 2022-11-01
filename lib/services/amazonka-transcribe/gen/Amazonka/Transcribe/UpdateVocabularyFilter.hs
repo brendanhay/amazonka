@@ -172,7 +172,8 @@ instance Core.AWSRequest UpdateVocabularyFilter where
   type
     AWSResponse UpdateVocabularyFilter =
       UpdateVocabularyFilterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

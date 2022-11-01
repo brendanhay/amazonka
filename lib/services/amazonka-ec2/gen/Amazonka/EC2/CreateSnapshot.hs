@@ -230,7 +230,8 @@ createSnapshot_volumeId = Lens.lens (\CreateSnapshot' {volumeId} -> volumeId) (\
 
 instance Core.AWSRequest CreateSnapshot where
   type AWSResponse CreateSnapshot = Snapshot
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 

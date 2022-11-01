@@ -39,8 +39,7 @@ data DomainDeliverabilityTrackingOption = DomainDeliverabilityTrackingOption'
     -- | An object that contains information about the inbox placement data
     -- settings for the domain.
     inboxPlacementTrackingOption :: Prelude.Maybe InboxPlacementTrackingOption,
-    -- | The date, in Unix time format, when you enabled the Deliverability
-    -- dashboard for the domain.
+    -- | The date when you enabled the Deliverability dashboard for the domain.
     subscriptionStartDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +59,7 @@ data DomainDeliverabilityTrackingOption = DomainDeliverabilityTrackingOption'
 -- 'inboxPlacementTrackingOption', 'domainDeliverabilityTrackingOption_inboxPlacementTrackingOption' - An object that contains information about the inbox placement data
 -- settings for the domain.
 --
--- 'subscriptionStartDate', 'domainDeliverabilityTrackingOption_subscriptionStartDate' - The date, in Unix time format, when you enabled the Deliverability
--- dashboard for the domain.
+-- 'subscriptionStartDate', 'domainDeliverabilityTrackingOption_subscriptionStartDate' - The date when you enabled the Deliverability dashboard for the domain.
 newDomainDeliverabilityTrackingOption ::
   DomainDeliverabilityTrackingOption
 newDomainDeliverabilityTrackingOption =
@@ -84,8 +82,7 @@ domainDeliverabilityTrackingOption_domain = Lens.lens (\DomainDeliverabilityTrac
 domainDeliverabilityTrackingOption_inboxPlacementTrackingOption :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe InboxPlacementTrackingOption)
 domainDeliverabilityTrackingOption_inboxPlacementTrackingOption = Lens.lens (\DomainDeliverabilityTrackingOption' {inboxPlacementTrackingOption} -> inboxPlacementTrackingOption) (\s@DomainDeliverabilityTrackingOption' {} a -> s {inboxPlacementTrackingOption = a} :: DomainDeliverabilityTrackingOption)
 
--- | The date, in Unix time format, when you enabled the Deliverability
--- dashboard for the domain.
+-- | The date when you enabled the Deliverability dashboard for the domain.
 domainDeliverabilityTrackingOption_subscriptionStartDate :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe Prelude.UTCTime)
 domainDeliverabilityTrackingOption_subscriptionStartDate = Lens.lens (\DomainDeliverabilityTrackingOption' {subscriptionStartDate} -> subscriptionStartDate) (\s@DomainDeliverabilityTrackingOption' {} a -> s {subscriptionStartDate = a} :: DomainDeliverabilityTrackingOption) Prelude.. Lens.mapping Core._Time
 

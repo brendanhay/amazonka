@@ -179,7 +179,8 @@ instance Core.AWSRequest ListPolicyVersions where
   type
     AWSResponse ListPolicyVersions =
       ListPolicyVersionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPolicyVersionsResult"

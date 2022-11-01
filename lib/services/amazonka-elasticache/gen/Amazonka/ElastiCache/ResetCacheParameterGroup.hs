@@ -127,7 +127,8 @@ instance Core.AWSRequest ResetCacheParameterGroup where
   type
     AWSResponse ResetCacheParameterGroup =
       CacheParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetCacheParameterGroupResult"

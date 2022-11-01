@@ -104,7 +104,8 @@ deleteEvent_eventTypeName = Lens.lens (\DeleteEvent' {eventTypeName} -> eventTyp
 
 instance Core.AWSRequest DeleteEvent where
   type AWSResponse DeleteEvent = DeleteEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

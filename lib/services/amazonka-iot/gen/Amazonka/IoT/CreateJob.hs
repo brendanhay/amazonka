@@ -345,7 +345,8 @@ createJob_targets = Lens.lens (\CreateJob' {targets} -> targets) (\s@CreateJob' 
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

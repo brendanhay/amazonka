@@ -191,7 +191,8 @@ instance Core.AWSRequest ListRestoreJobs where
   type
     AWSResponse ListRestoreJobs =
       ListRestoreJobsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

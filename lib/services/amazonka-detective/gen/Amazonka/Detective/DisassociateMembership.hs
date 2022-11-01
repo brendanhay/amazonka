@@ -89,7 +89,8 @@ instance Core.AWSRequest DisassociateMembership where
   type
     AWSResponse DisassociateMembership =
       DisassociateMembershipResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateMembershipResponse'

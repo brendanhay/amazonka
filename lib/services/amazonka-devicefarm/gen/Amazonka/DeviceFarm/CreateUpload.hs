@@ -332,7 +332,8 @@ createUpload_type = Lens.lens (\CreateUpload' {type'} -> type') (\s@CreateUpload
 
 instance Core.AWSRequest CreateUpload where
   type AWSResponse CreateUpload = CreateUploadResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -84,7 +84,8 @@ instance Core.AWSRequest AcceptSharedDirectory where
   type
     AWSResponse AcceptSharedDirectory =
       AcceptSharedDirectoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

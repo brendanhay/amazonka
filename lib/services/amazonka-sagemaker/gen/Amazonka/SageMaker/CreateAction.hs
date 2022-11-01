@@ -157,7 +157,8 @@ createAction_actionType = Lens.lens (\CreateAction' {actionType} -> actionType) 
 
 instance Core.AWSRequest CreateAction where
   type AWSResponse CreateAction = CreateActionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

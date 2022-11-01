@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the networks in which the current AWS account
--- participates.
+-- Returns information about the networks in which the current Amazon Web
+-- Services account participates.
 --
 -- Applies to Hyperledger Fabric and Ethereum.
 module Amazonka.ManagedBlockChain.ListNetworks
@@ -131,7 +131,8 @@ listNetworks_framework = Lens.lens (\ListNetworks' {framework} -> framework) (\s
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

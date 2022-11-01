@@ -86,7 +86,8 @@ listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

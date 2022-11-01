@@ -273,7 +273,8 @@ instance Core.AWSRequest CreateApplicationVersion where
   type
     AWSResponse CreateApplicationVersion =
       ApplicationVersionDescriptionMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateApplicationVersionResult"

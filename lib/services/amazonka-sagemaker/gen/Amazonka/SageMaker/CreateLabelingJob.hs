@@ -596,7 +596,8 @@ instance Core.AWSRequest CreateLabelingJob where
   type
     AWSResponse CreateLabelingJob =
       CreateLabelingJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

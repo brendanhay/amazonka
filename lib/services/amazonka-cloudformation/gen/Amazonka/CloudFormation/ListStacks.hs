@@ -126,7 +126,8 @@ instance Core.AWSPager ListStacks where
 
 instance Core.AWSRequest ListStacks where
   type AWSResponse ListStacks = ListStacksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStacksResult"

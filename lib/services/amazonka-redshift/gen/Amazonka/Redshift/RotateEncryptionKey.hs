@@ -94,7 +94,8 @@ instance Core.AWSRequest RotateEncryptionKey where
   type
     AWSResponse RotateEncryptionKey =
       RotateEncryptionKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RotateEncryptionKeyResult"

@@ -105,7 +105,8 @@ getTags_resourceArn = Lens.lens (\GetTags' {resourceArn} -> resourceArn) (\s@Get
 
 instance Core.AWSRequest GetTags where
   type AWSResponse GetTags = GetTagsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

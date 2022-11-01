@@ -222,7 +222,8 @@ instance
   type
     AWSResponse AssociateResourceSharePermission =
       AssociateResourceSharePermissionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

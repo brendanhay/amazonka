@@ -72,7 +72,8 @@ terminateApp_appId = Lens.lens (\TerminateApp' {appId} -> appId) (\s@TerminateAp
 
 instance Core.AWSRequest TerminateApp where
   type AWSResponse TerminateApp = TerminateAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

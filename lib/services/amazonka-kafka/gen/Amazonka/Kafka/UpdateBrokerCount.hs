@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateBrokerCount where
   type
     AWSResponse UpdateBrokerCount =
       UpdateBrokerCountResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

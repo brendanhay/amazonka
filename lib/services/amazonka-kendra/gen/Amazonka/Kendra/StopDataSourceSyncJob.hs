@@ -91,7 +91,8 @@ instance Core.AWSRequest StopDataSourceSyncJob where
   type
     AWSResponse StopDataSourceSyncJob =
       StopDataSourceSyncJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopDataSourceSyncJobResponse'
 

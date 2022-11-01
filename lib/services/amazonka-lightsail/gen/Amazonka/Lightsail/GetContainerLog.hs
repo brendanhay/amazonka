@@ -280,7 +280,8 @@ instance Core.AWSRequest GetContainerLog where
   type
     AWSResponse GetContainerLog =
       GetContainerLogResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

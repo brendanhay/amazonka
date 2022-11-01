@@ -77,7 +77,8 @@ deleteMap_mapName = Lens.lens (\DeleteMap' {mapName} -> mapName) (\s@DeleteMap' 
 
 instance Core.AWSRequest DeleteMap where
   type AWSResponse DeleteMap = DeleteMapResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

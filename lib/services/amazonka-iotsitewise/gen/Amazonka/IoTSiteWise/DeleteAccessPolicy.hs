@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteAccessPolicy where
   type
     AWSResponse DeleteAccessPolicy =
       DeleteAccessPolicyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

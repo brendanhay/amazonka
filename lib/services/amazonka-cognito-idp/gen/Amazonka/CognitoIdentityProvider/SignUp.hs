@@ -299,7 +299,8 @@ signUp_password = Lens.lens (\SignUp' {password} -> password) (\s@SignUp' {} a -
 
 instance Core.AWSRequest SignUp where
   type AWSResponse SignUp = SignUpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

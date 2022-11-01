@@ -322,7 +322,8 @@ putSlotType_name = Lens.lens (\PutSlotType' {name} -> name) (\s@PutSlotType' {} 
 
 instance Core.AWSRequest PutSlotType where
   type AWSResponse PutSlotType = PutSlotTypeResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

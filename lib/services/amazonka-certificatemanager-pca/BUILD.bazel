@@ -40,6 +40,7 @@ haskell_library(
         "gen/Amazonka/CertificateManagerPCA/Types/CertificateAuthorityConfiguration.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CertificateAuthorityStatus.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CertificateAuthorityType.hs",
+        "gen/Amazonka/CertificateManagerPCA/Types/CertificateAuthorityUsageMode.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CrlConfiguration.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CsrExtensions.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CustomAttribute.hs",

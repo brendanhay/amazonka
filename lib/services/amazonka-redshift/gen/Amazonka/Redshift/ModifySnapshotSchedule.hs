@@ -102,7 +102,8 @@ instance Core.AWSRequest ModifySnapshotSchedule where
   type
     AWSResponse ModifySnapshotSchedule =
       SnapshotSchedule
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifySnapshotScheduleResult"

@@ -334,7 +334,8 @@ instance Core.AWSRequest GetUsageForecast where
   type
     AWSResponse GetUsageForecast =
       GetUsageForecastResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

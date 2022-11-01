@@ -89,7 +89,8 @@ instance Core.AWSRequest GenerateTemplate where
   type
     AWSResponse GenerateTemplate =
       GenerateTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

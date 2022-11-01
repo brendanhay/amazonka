@@ -83,7 +83,8 @@ instance Core.AWSRequest GetDistributionConfig where
   type
     AWSResponse GetDistributionConfig =
       GetDistributionConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

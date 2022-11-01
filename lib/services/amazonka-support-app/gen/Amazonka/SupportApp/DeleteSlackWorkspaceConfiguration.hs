@@ -48,7 +48,8 @@ import Amazonka.SupportApp.Types
 
 -- | /See:/ 'newDeleteSlackWorkspaceConfiguration' smart constructor.
 data DeleteSlackWorkspaceConfiguration = DeleteSlackWorkspaceConfiguration'
-  { -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+  { -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +62,8 @@ data DeleteSlackWorkspaceConfiguration = DeleteSlackWorkspaceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'teamId', 'deleteSlackWorkspaceConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- 'teamId', 'deleteSlackWorkspaceConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 newDeleteSlackWorkspaceConfiguration ::
   -- | 'teamId'
   Prelude.Text ->
@@ -72,7 +74,8 @@ newDeleteSlackWorkspaceConfiguration pTeamId_ =
         pTeamId_
     }
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 deleteSlackWorkspaceConfiguration_teamId :: Lens.Lens' DeleteSlackWorkspaceConfiguration Prelude.Text
 deleteSlackWorkspaceConfiguration_teamId = Lens.lens (\DeleteSlackWorkspaceConfiguration' {teamId} -> teamId) (\s@DeleteSlackWorkspaceConfiguration' {} a -> s {teamId = a} :: DeleteSlackWorkspaceConfiguration)
 
@@ -83,7 +86,8 @@ instance
   type
     AWSResponse DeleteSlackWorkspaceConfiguration =
       DeleteSlackWorkspaceConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -104,7 +104,8 @@ instance Core.AWSRequest GetStageDeployment where
   type
     AWSResponse GetStageDeployment =
       GetStageDeploymentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

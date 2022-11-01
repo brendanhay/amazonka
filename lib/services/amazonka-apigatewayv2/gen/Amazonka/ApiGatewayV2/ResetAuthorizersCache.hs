@@ -94,7 +94,8 @@ instance Core.AWSRequest ResetAuthorizersCache where
   type
     AWSResponse ResetAuthorizersCache =
       ResetAuthorizersCacheResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull ResetAuthorizersCacheResponse'
 

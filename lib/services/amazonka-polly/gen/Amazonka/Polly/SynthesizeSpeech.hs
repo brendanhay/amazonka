@@ -329,7 +329,8 @@ instance Core.AWSRequest SynthesizeSpeech where
   type
     AWSResponse SynthesizeSpeech =
       SynthesizeSpeechResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

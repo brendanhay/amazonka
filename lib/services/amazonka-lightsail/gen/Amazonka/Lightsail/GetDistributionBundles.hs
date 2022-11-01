@@ -65,7 +65,8 @@ instance Core.AWSRequest GetDistributionBundles where
   type
     AWSResponse GetDistributionBundles =
       GetDistributionBundlesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

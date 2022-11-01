@@ -83,7 +83,8 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
   type
     AWSResponse GetModelPackageGroupPolicy =
       GetModelPackageGroupPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

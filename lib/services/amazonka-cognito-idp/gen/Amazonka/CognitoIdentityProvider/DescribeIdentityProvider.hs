@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeIdentityProvider where
   type
     AWSResponse DescribeIdentityProvider =
       DescribeIdentityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,7 +148,7 @@ instance Core.ToQuery DescribeIdentityProvider where
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The IdP that was deleted.
+    -- | The identity provider details.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -162,7 +163,7 @@ data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
 --
 -- 'httpStatus', 'describeIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'describeIdentityProviderResponse_identityProvider' - The IdP that was deleted.
+-- 'identityProvider', 'describeIdentityProviderResponse_identityProvider' - The identity provider details.
 newDescribeIdentityProviderResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -182,7 +183,7 @@ newDescribeIdentityProviderResponse
 describeIdentityProviderResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderResponse Prelude.Int
 describeIdentityProviderResponse_httpStatus = Lens.lens (\DescribeIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityProviderResponse' {} a -> s {httpStatus = a} :: DescribeIdentityProviderResponse)
 
--- | The IdP that was deleted.
+-- | The identity provider details.
 describeIdentityProviderResponse_identityProvider :: Lens.Lens' DescribeIdentityProviderResponse IdentityProviderType
 describeIdentityProviderResponse_identityProvider = Lens.lens (\DescribeIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@DescribeIdentityProviderResponse' {} a -> s {identityProvider = a} :: DescribeIdentityProviderResponse)
 

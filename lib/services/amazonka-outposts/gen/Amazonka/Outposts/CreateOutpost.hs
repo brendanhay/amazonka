@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateOutpost where
   type
     AWSResponse CreateOutpost =
       CreateOutpostResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

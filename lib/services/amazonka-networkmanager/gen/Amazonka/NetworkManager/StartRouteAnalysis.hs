@@ -132,7 +132,8 @@ instance Core.AWSRequest StartRouteAnalysis where
   type
     AWSResponse StartRouteAnalysis =
       StartRouteAnalysisResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

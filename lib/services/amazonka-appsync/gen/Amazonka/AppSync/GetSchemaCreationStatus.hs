@@ -78,7 +78,8 @@ instance Core.AWSRequest GetSchemaCreationStatus where
   type
     AWSResponse GetSchemaCreationStatus =
       GetSchemaCreationStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

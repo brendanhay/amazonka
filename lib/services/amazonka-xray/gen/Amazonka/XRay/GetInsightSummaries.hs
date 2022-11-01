@@ -152,7 +152,8 @@ instance Core.AWSRequest GetInsightSummaries where
   type
     AWSResponse GetInsightSummaries =
       GetInsightSummariesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

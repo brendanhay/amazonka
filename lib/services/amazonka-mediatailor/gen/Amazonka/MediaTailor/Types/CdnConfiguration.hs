@@ -32,14 +32,14 @@ data CdnConfiguration = CdnConfiguration'
     -- default, AWS Elemental MediaTailor uses Amazon CloudFront with default
     -- cache settings as its CDN for ad segments. To set up an alternate CDN,
     -- create a rule in your CDN for the origin
-    -- ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule\'s name
-    -- in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a
+    -- ads.mediatailor./\<region>/.amazonaws.com. Then specify the rule\'s name
+    -- in this @AdSegmentUrlPrefix@. When AWS Elemental MediaTailor serves a
     -- manifest, it reports your CDN as the source for ad segments.
     adSegmentUrlPrefix :: Prelude.Maybe Prelude.Text,
     -- | A content delivery network (CDN) to cache content segments, so that
     -- content requests don’t always have to go to the origin server. First,
     -- create a rule in your CDN for the content segment origin server. Then
-    -- specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS
+    -- specify the rule\'s name in this @ContentSegmentUrlPrefix@. When AWS
     -- Elemental MediaTailor serves a manifest, it reports your CDN as the
     -- source for content segments.
     contentSegmentUrlPrefix :: Prelude.Maybe Prelude.Text
@@ -58,14 +58,14 @@ data CdnConfiguration = CdnConfiguration'
 -- default, AWS Elemental MediaTailor uses Amazon CloudFront with default
 -- cache settings as its CDN for ad segments. To set up an alternate CDN,
 -- create a rule in your CDN for the origin
--- ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule\'s name
--- in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a
+-- ads.mediatailor./\<region>/.amazonaws.com. Then specify the rule\'s name
+-- in this @AdSegmentUrlPrefix@. When AWS Elemental MediaTailor serves a
 -- manifest, it reports your CDN as the source for ad segments.
 --
 -- 'contentSegmentUrlPrefix', 'cdnConfiguration_contentSegmentUrlPrefix' - A content delivery network (CDN) to cache content segments, so that
 -- content requests don’t always have to go to the origin server. First,
 -- create a rule in your CDN for the content segment origin server. Then
--- specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS
+-- specify the rule\'s name in this @ContentSegmentUrlPrefix@. When AWS
 -- Elemental MediaTailor serves a manifest, it reports your CDN as the
 -- source for content segments.
 newCdnConfiguration ::
@@ -81,8 +81,8 @@ newCdnConfiguration =
 -- default, AWS Elemental MediaTailor uses Amazon CloudFront with default
 -- cache settings as its CDN for ad segments. To set up an alternate CDN,
 -- create a rule in your CDN for the origin
--- ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule\'s name
--- in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a
+-- ads.mediatailor./\<region>/.amazonaws.com. Then specify the rule\'s name
+-- in this @AdSegmentUrlPrefix@. When AWS Elemental MediaTailor serves a
 -- manifest, it reports your CDN as the source for ad segments.
 cdnConfiguration_adSegmentUrlPrefix :: Lens.Lens' CdnConfiguration (Prelude.Maybe Prelude.Text)
 cdnConfiguration_adSegmentUrlPrefix = Lens.lens (\CdnConfiguration' {adSegmentUrlPrefix} -> adSegmentUrlPrefix) (\s@CdnConfiguration' {} a -> s {adSegmentUrlPrefix = a} :: CdnConfiguration)
@@ -90,7 +90,7 @@ cdnConfiguration_adSegmentUrlPrefix = Lens.lens (\CdnConfiguration' {adSegmentUr
 -- | A content delivery network (CDN) to cache content segments, so that
 -- content requests don’t always have to go to the origin server. First,
 -- create a rule in your CDN for the content segment origin server. Then
--- specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS
+-- specify the rule\'s name in this @ContentSegmentUrlPrefix@. When AWS
 -- Elemental MediaTailor serves a manifest, it reports your CDN as the
 -- source for content segments.
 cdnConfiguration_contentSegmentUrlPrefix :: Lens.Lens' CdnConfiguration (Prelude.Maybe Prelude.Text)

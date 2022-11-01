@@ -43,6 +43,7 @@ module Amazonka.RDS.CancelExportTask
     exportTask_sourceArn,
     exportTask_totalExtractedDataInGB,
     exportTask_status,
+    exportTask_sourceType,
     exportTask_warningMessage,
     exportTask_snapshotTime,
     exportTask_exportTaskIdentifier,
@@ -93,7 +94,8 @@ cancelExportTask_exportTaskIdentifier = Lens.lens (\CancelExportTask' {exportTas
 
 instance Core.AWSRequest CancelExportTask where
   type AWSResponse CancelExportTask = ExportTask
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CancelExportTaskResult"

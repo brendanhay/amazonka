@@ -104,7 +104,8 @@ listGraphs_maxResults = Lens.lens (\ListGraphs' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListGraphs where
   type AWSResponse ListGraphs = ListGraphsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

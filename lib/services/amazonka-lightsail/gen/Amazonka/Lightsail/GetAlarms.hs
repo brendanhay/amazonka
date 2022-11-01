@@ -132,7 +132,8 @@ getAlarms_monitoredResourceName = Lens.lens (\GetAlarms' {monitoredResourceName}
 
 instance Core.AWSRequest GetAlarms where
   type AWSResponse GetAlarms = GetAlarmsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

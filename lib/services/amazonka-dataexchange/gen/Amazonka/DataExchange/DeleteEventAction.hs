@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteEventAction where
   type
     AWSResponse DeleteEventAction =
       DeleteEventActionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteEventActionResponse'
 

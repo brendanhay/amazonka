@@ -74,7 +74,8 @@ instance Core.AWSRequest DeleteSipRule where
   type
     AWSResponse DeleteSipRule =
       DeleteSipRuleResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSipRuleResponse'
 

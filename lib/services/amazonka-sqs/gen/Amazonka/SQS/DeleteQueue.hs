@@ -96,7 +96,8 @@ deleteQueue_queueUrl = Lens.lens (\DeleteQueue' {queueUrl} -> queueUrl) (\s@Dele
 
 instance Core.AWSRequest DeleteQueue where
   type AWSResponse DeleteQueue = DeleteQueueResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteQueueResponse'
 
 instance Prelude.Hashable DeleteQueue where

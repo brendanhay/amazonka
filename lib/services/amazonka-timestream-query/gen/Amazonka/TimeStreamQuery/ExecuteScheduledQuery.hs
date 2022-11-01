@@ -103,7 +103,8 @@ instance Core.AWSRequest ExecuteScheduledQuery where
   type
     AWSResponse ExecuteScheduledQuery =
       ExecuteScheduledQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ExecuteScheduledQueryResponse'
 

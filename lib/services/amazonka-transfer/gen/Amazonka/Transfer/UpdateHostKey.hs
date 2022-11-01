@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the description for the host key specified by the specified by
--- the @ServerId@ and @HostKeyId@ parameters.
+-- Updates the description for the host key that\'s specified by the
+-- @ServerId@ and @HostKeyId@ parameters.
 module Amazonka.Transfer.UpdateHostKey
   ( -- * Creating a Request
     UpdateHostKey (..),
@@ -52,12 +52,12 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newUpdateHostKey' smart constructor.
 data UpdateHostKey = UpdateHostKey'
-  { -- | Provide the ID of the server that contains the host key that you are
+  { -- | The identifier of the server that contains the host key that you are
     -- updating.
     serverId :: Prelude.Text,
-    -- | Provide the ID of the host key that you are updating.
+    -- | The identifier of the host key that you are updating.
     hostKeyId :: Prelude.Text,
-    -- | Provide an updated description for the host key.
+    -- | An updated description for the host key.
     description :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,12 +70,12 @@ data UpdateHostKey = UpdateHostKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverId', 'updateHostKey_serverId' - Provide the ID of the server that contains the host key that you are
+-- 'serverId', 'updateHostKey_serverId' - The identifier of the server that contains the host key that you are
 -- updating.
 --
--- 'hostKeyId', 'updateHostKey_hostKeyId' - Provide the ID of the host key that you are updating.
+-- 'hostKeyId', 'updateHostKey_hostKeyId' - The identifier of the host key that you are updating.
 --
--- 'description', 'updateHostKey_description' - Provide an updated description for the host key.
+-- 'description', 'updateHostKey_description' - An updated description for the host key.
 newUpdateHostKey ::
   -- | 'serverId'
   Prelude.Text ->
@@ -91,16 +91,16 @@ newUpdateHostKey pServerId_ pHostKeyId_ pDescription_ =
       description = pDescription_
     }
 
--- | Provide the ID of the server that contains the host key that you are
+-- | The identifier of the server that contains the host key that you are
 -- updating.
 updateHostKey_serverId :: Lens.Lens' UpdateHostKey Prelude.Text
 updateHostKey_serverId = Lens.lens (\UpdateHostKey' {serverId} -> serverId) (\s@UpdateHostKey' {} a -> s {serverId = a} :: UpdateHostKey)
 
--- | Provide the ID of the host key that you are updating.
+-- | The identifier of the host key that you are updating.
 updateHostKey_hostKeyId :: Lens.Lens' UpdateHostKey Prelude.Text
 updateHostKey_hostKeyId = Lens.lens (\UpdateHostKey' {hostKeyId} -> hostKeyId) (\s@UpdateHostKey' {} a -> s {hostKeyId = a} :: UpdateHostKey)
 
--- | Provide an updated description for the host key.
+-- | An updated description for the host key.
 updateHostKey_description :: Lens.Lens' UpdateHostKey Prelude.Text
 updateHostKey_description = Lens.lens (\UpdateHostKey' {description} -> description) (\s@UpdateHostKey' {} a -> s {description = a} :: UpdateHostKey)
 
@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateHostKey where
   type
     AWSResponse UpdateHostKey =
       UpdateHostKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,9 +166,10 @@ instance Core.ToQuery UpdateHostKey where
 data UpdateHostKeyResponse = UpdateHostKeyResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Returns the server ID for the server that contains the updated host key.
+    -- | Returns the server identifier for the server that contains the updated
+    -- host key.
     serverId :: Prelude.Text,
-    -- | Returns the host key ID for the updated host key.
+    -- | Returns the host key identifier for the updated host key.
     hostKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -182,9 +184,10 @@ data UpdateHostKeyResponse = UpdateHostKeyResponse'
 --
 -- 'httpStatus', 'updateHostKeyResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'updateHostKeyResponse_serverId' - Returns the server ID for the server that contains the updated host key.
+-- 'serverId', 'updateHostKeyResponse_serverId' - Returns the server identifier for the server that contains the updated
+-- host key.
 --
--- 'hostKeyId', 'updateHostKeyResponse_hostKeyId' - Returns the host key ID for the updated host key.
+-- 'hostKeyId', 'updateHostKeyResponse_hostKeyId' - Returns the host key identifier for the updated host key.
 newUpdateHostKeyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -207,11 +210,12 @@ newUpdateHostKeyResponse
 updateHostKeyResponse_httpStatus :: Lens.Lens' UpdateHostKeyResponse Prelude.Int
 updateHostKeyResponse_httpStatus = Lens.lens (\UpdateHostKeyResponse' {httpStatus} -> httpStatus) (\s@UpdateHostKeyResponse' {} a -> s {httpStatus = a} :: UpdateHostKeyResponse)
 
--- | Returns the server ID for the server that contains the updated host key.
+-- | Returns the server identifier for the server that contains the updated
+-- host key.
 updateHostKeyResponse_serverId :: Lens.Lens' UpdateHostKeyResponse Prelude.Text
 updateHostKeyResponse_serverId = Lens.lens (\UpdateHostKeyResponse' {serverId} -> serverId) (\s@UpdateHostKeyResponse' {} a -> s {serverId = a} :: UpdateHostKeyResponse)
 
--- | Returns the host key ID for the updated host key.
+-- | Returns the host key identifier for the updated host key.
 updateHostKeyResponse_hostKeyId :: Lens.Lens' UpdateHostKeyResponse Prelude.Text
 updateHostKeyResponse_hostKeyId = Lens.lens (\UpdateHostKeyResponse' {hostKeyId} -> hostKeyId) (\s@UpdateHostKeyResponse' {} a -> s {hostKeyId = a} :: UpdateHostKeyResponse)
 

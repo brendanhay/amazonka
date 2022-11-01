@@ -156,7 +156,8 @@ instance Core.AWSRequest CreateSamplingRule where
   type
     AWSResponse CreateSamplingRule =
       CreateSamplingRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -133,7 +133,8 @@ instance
   type
     AWSResponse RemoveRoleFromInstanceProfile =
       RemoveRoleFromInstanceProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveRoleFromInstanceProfileResponse'

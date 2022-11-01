@@ -234,7 +234,8 @@ instance Core.AWSRequest DescribeCases where
   type
     AWSResponse DescribeCases =
       DescribeCasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

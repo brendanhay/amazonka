@@ -86,7 +86,8 @@ addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull AddTagsResponse'
 
 instance Prelude.Hashable AddTags where

@@ -167,7 +167,8 @@ updateUser_userName = Lens.lens (\UpdateUser' {userName} -> userName) (\s@Update
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UpdateUserResponse'
 
 instance Prelude.Hashable UpdateUser where

@@ -101,7 +101,8 @@ instance Core.AWSRequest GenerateMobileSdkReleaseUrl where
   type
     AWSResponse GenerateMobileSdkReleaseUrl =
       GenerateMobileSdkReleaseUrlResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteCacheParameterGroup where
   type
     AWSResponse DeleteCacheParameterGroup =
       DeleteCacheParameterGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheParameterGroupResponse'

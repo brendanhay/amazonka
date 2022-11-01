@@ -92,7 +92,8 @@ listActions_maxResults = Lens.lens (\ListActions' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListActions where
   type AWSResponse ListActions = ListActionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

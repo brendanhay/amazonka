@@ -94,7 +94,8 @@ exitStandby_autoScalingGroupName = Lens.lens (\ExitStandby' {autoScalingGroupNam
 
 instance Core.AWSRequest ExitStandby where
   type AWSResponse ExitStandby = ExitStandbyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ExitStandbyResult"

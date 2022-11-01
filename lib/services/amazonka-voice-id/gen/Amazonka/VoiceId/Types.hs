@@ -334,6 +334,8 @@ defaultService =
       Core._serviceEndpointPrefix = "voiceid",
       Core._serviceSigningName = "voiceid",
       Core._serviceVersion = "2021-09-27",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -73,7 +73,8 @@ instance Core.AWSRequest StopMeetingTranscription where
   type
     AWSResponse StopMeetingTranscription =
       StopMeetingTranscriptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopMeetingTranscriptionResponse'

@@ -174,7 +174,8 @@ instance Core.AWSRequest ModifyScheduledAction where
   type
     AWSResponse ModifyScheduledAction =
       ScheduledAction
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyScheduledActionResult"

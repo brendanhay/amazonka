@@ -84,7 +84,8 @@ instance Core.AWSRequest BatchEnableAlarm where
   type
     AWSResponse BatchEnableAlarm =
       BatchEnableAlarmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

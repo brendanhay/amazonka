@@ -209,6 +209,8 @@ defaultService =
       Core._serviceEndpointPrefix = "ram",
       Core._serviceSigningName = "ram",
       Core._serviceVersion = "2018-01-04",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

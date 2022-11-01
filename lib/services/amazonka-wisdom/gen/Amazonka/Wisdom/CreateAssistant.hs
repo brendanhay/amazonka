@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateAssistant where
   type
     AWSResponse CreateAssistant =
       CreateAssistantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

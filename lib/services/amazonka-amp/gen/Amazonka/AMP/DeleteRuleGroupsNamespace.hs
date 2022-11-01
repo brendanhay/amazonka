@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteRuleGroupsNamespace where
   type
     AWSResponse DeleteRuleGroupsNamespace =
       DeleteRuleGroupsNamespaceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteRuleGroupsNamespaceResponse'

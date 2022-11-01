@@ -75,7 +75,8 @@ getStaticIp_staticIpName = Lens.lens (\GetStaticIp' {staticIpName} -> staticIpNa
 
 instance Core.AWSRequest GetStaticIp where
   type AWSResponse GetStaticIp = GetStaticIpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

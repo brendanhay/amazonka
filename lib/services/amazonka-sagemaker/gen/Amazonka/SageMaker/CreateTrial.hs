@@ -141,7 +141,8 @@ createTrial_experimentName = Lens.lens (\CreateTrial' {experimentName} -> experi
 
 instance Core.AWSRequest CreateTrial where
   type AWSResponse CreateTrial = CreateTrialResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -114,7 +114,8 @@ instance Core.AWSRequest PutRepositoryCatalogData where
   type
     AWSResponse PutRepositoryCatalogData =
       PutRepositoryCatalogDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

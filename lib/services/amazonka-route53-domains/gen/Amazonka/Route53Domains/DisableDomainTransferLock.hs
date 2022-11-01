@@ -88,7 +88,8 @@ instance Core.AWSRequest DisableDomainTransferLock where
   type
     AWSResponse DisableDomainTransferLock =
       DisableDomainTransferLockResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

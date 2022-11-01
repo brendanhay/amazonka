@@ -107,7 +107,8 @@ instance Core.AWSPager ListEulas where
 
 instance Core.AWSRequest ListEulas where
   type AWSResponse ListEulas = ListEulasResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

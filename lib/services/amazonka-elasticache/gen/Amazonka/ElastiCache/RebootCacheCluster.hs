@@ -116,7 +116,8 @@ instance Core.AWSRequest RebootCacheCluster where
   type
     AWSResponse RebootCacheCluster =
       RebootCacheClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootCacheClusterResult"

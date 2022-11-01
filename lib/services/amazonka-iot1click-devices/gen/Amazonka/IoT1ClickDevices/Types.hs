@@ -81,6 +81,8 @@ defaultService =
       Core._serviceEndpointPrefix = "devices.iot1click",
       Core._serviceSigningName = "iot1click",
       Core._serviceVersion = "2018-05-14",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

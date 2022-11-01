@@ -220,7 +220,8 @@ instance Core.AWSRequest BacktrackDBCluster where
   type
     AWSResponse BacktrackDBCluster =
       DBClusterBacktrack
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BacktrackDBClusterResult"

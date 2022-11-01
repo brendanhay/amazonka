@@ -84,7 +84,8 @@ cancelQuery_queryId = Lens.lens (\CancelQuery' {queryId} -> queryId) (\s@CancelQ
 
 instance Core.AWSRequest CancelQuery where
   type AWSResponse CancelQuery = CancelQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

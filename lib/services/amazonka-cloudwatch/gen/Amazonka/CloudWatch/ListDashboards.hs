@@ -128,7 +128,8 @@ instance Core.AWSRequest ListDashboards where
   type
     AWSResponse ListDashboards =
       ListDashboardsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDashboardsResult"

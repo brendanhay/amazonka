@@ -148,7 +148,8 @@ instance Core.AWSRequest ListUsageLimits where
   type
     AWSResponse ListUsageLimits =
       ListUsageLimitsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

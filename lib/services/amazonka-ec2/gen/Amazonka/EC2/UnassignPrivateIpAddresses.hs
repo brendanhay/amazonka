@@ -105,7 +105,8 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
   type
     AWSResponse UnassignPrivateIpAddresses =
       UnassignPrivateIpAddressesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UnassignPrivateIpAddressesResponse'

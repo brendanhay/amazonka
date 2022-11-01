@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateDocument where
   type
     AWSResponse UpdateDocument =
       UpdateDocumentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

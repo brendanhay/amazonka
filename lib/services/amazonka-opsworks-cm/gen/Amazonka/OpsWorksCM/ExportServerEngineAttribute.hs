@@ -177,7 +177,8 @@ instance Core.AWSRequest ExportServerEngineAttribute where
   type
     AWSResponse ExportServerEngineAttribute =
       ExportServerEngineAttributeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

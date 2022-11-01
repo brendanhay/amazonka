@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Wisdom.Types.Relevance
+-- Module      : Amazonka.Rum.Types.MetricDestination
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Wisdom.Types.Relevance
-  ( Relevance
+module Amazonka.Rum.Types.MetricDestination
+  ( MetricDestination
       ( ..,
-        Relevance_HELPFUL,
-        Relevance_NOT_HELPFUL
+        MetricDestination_CloudWatch,
+        MetricDestination_Evidently
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Relevance = Relevance'
-  { fromRelevance ::
+newtype MetricDestination = MetricDestination'
+  { fromMetricDestination ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype Relevance = Relevance'
       Core.ToXML
     )
 
-pattern Relevance_HELPFUL :: Relevance
-pattern Relevance_HELPFUL = Relevance' "HELPFUL"
+pattern MetricDestination_CloudWatch :: MetricDestination
+pattern MetricDestination_CloudWatch = MetricDestination' "CloudWatch"
 
-pattern Relevance_NOT_HELPFUL :: Relevance
-pattern Relevance_NOT_HELPFUL = Relevance' "NOT_HELPFUL"
+pattern MetricDestination_Evidently :: MetricDestination
+pattern MetricDestination_Evidently = MetricDestination' "Evidently"
 
 {-# COMPLETE
-  Relevance_HELPFUL,
-  Relevance_NOT_HELPFUL,
-  Relevance'
+  MetricDestination_CloudWatch,
+  MetricDestination_Evidently,
+  MetricDestination'
   #-}

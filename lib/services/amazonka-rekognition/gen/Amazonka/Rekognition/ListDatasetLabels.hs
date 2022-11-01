@@ -145,7 +145,8 @@ instance Core.AWSRequest ListDatasetLabels where
   type
     AWSResponse ListDatasetLabels =
       ListDatasetLabelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

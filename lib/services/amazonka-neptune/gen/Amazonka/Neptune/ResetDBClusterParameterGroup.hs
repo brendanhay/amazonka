@@ -126,7 +126,8 @@ instance Core.AWSRequest ResetDBClusterParameterGroup where
   type
     AWSResponse ResetDBClusterParameterGroup =
       DBClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetDBClusterParameterGroupResult"

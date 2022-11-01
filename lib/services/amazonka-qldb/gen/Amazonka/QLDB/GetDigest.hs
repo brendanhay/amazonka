@@ -76,7 +76,8 @@ getDigest_name = Lens.lens (\GetDigest' {name} -> name) (\s@GetDigest' {} a -> s
 
 instance Core.AWSRequest GetDigest where
   type AWSResponse GetDigest = GetDigestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

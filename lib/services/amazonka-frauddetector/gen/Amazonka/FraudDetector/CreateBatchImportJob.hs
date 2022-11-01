@@ -64,8 +64,13 @@ data CreateBatchImportJob = CreateBatchImportJob'
     -- | The name of the event type.
     eventTypeName :: Prelude.Text,
     -- | The ARN of the IAM role created for Amazon S3 bucket that holds your
-    -- data file. The IAM role must have read and write permissions to both
-    -- input and output S3 buckets.
+    -- data file.
+    --
+    -- The IAM role must have read permissions to your input S3 bucket and
+    -- write permissions to your output S3 bucket. For more information about
+    -- bucket permissions, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html User policy examples>
+    -- in the /Amazon S3 User Guide/.
     iamRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,8 +95,13 @@ data CreateBatchImportJob = CreateBatchImportJob'
 -- 'eventTypeName', 'createBatchImportJob_eventTypeName' - The name of the event type.
 --
 -- 'iamRoleArn', 'createBatchImportJob_iamRoleArn' - The ARN of the IAM role created for Amazon S3 bucket that holds your
--- data file. The IAM role must have read and write permissions to both
--- input and output S3 buckets.
+-- data file.
+--
+-- The IAM role must have read permissions to your input S3 bucket and
+-- write permissions to your output S3 bucket. For more information about
+-- bucket permissions, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html User policy examples>
+-- in the /Amazon S3 User Guide/.
 newCreateBatchImportJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -141,8 +151,13 @@ createBatchImportJob_eventTypeName :: Lens.Lens' CreateBatchImportJob Prelude.Te
 createBatchImportJob_eventTypeName = Lens.lens (\CreateBatchImportJob' {eventTypeName} -> eventTypeName) (\s@CreateBatchImportJob' {} a -> s {eventTypeName = a} :: CreateBatchImportJob)
 
 -- | The ARN of the IAM role created for Amazon S3 bucket that holds your
--- data file. The IAM role must have read and write permissions to both
--- input and output S3 buckets.
+-- data file.
+--
+-- The IAM role must have read permissions to your input S3 bucket and
+-- write permissions to your output S3 bucket. For more information about
+-- bucket permissions, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html User policy examples>
+-- in the /Amazon S3 User Guide/.
 createBatchImportJob_iamRoleArn :: Lens.Lens' CreateBatchImportJob Prelude.Text
 createBatchImportJob_iamRoleArn = Lens.lens (\CreateBatchImportJob' {iamRoleArn} -> iamRoleArn) (\s@CreateBatchImportJob' {} a -> s {iamRoleArn = a} :: CreateBatchImportJob)
 
@@ -150,7 +165,8 @@ instance Core.AWSRequest CreateBatchImportJob where
   type
     AWSResponse CreateBatchImportJob =
       CreateBatchImportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -167,7 +167,8 @@ instance Core.AWSRequest ListBuildBatchesForProject where
   type
     AWSResponse ListBuildBatchesForProject =
       ListBuildBatchesForProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

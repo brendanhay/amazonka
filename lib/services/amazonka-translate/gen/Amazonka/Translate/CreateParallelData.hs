@@ -58,7 +58,11 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newCreateParallelData' smart constructor.
 data CreateParallelData = CreateParallelData'
-  { tags :: Prelude.Maybe [Tag],
+  { -- | Tags to be associated with this resource. A tag is a key-value pair that
+    -- adds metadata to a resource. Each tag key for the resource must be
+    -- unique. For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
+    tags :: Prelude.Maybe [Tag],
     -- | A custom description for the parallel data resource in Amazon Translate.
     description :: Prelude.Maybe Prelude.Text,
     encryptionKey :: Prelude.Maybe EncryptionKey,
@@ -81,7 +85,10 @@ data CreateParallelData = CreateParallelData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createParallelData_tags' - Undocumented member.
+-- 'tags', 'createParallelData_tags' - Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 --
 -- 'description', 'createParallelData_description' - A custom description for the parallel data resource in Amazon Translate.
 --
@@ -115,7 +122,10 @@ newCreateParallelData
         clientToken = pClientToken_
       }
 
--- | Undocumented member.
+-- | Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 createParallelData_tags :: Lens.Lens' CreateParallelData (Prelude.Maybe [Tag])
 createParallelData_tags = Lens.lens (\CreateParallelData' {tags} -> tags) (\s@CreateParallelData' {} a -> s {tags = a} :: CreateParallelData) Prelude.. Lens.mapping Lens.coerced
 
@@ -145,7 +155,8 @@ instance Core.AWSRequest CreateParallelData where
   type
     AWSResponse CreateParallelData =
       CreateParallelDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

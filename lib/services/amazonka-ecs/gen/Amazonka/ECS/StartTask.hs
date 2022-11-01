@@ -380,7 +380,8 @@ startTask_taskDefinition = Lens.lens (\StartTask' {taskDefinition} -> taskDefini
 
 instance Core.AWSRequest StartTask where
   type AWSResponse StartTask = StartTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

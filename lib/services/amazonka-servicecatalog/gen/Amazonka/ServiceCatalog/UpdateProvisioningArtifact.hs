@@ -204,7 +204,8 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
   type
     AWSResponse UpdateProvisioningArtifact =
       UpdateProvisioningArtifactResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

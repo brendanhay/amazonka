@@ -152,7 +152,8 @@ exportApi_apiId = Lens.lens (\ExportApi' {apiId} -> apiId) (\s@ExportApi' {} a -
 
 instance Core.AWSRequest ExportApi where
   type AWSResponse ExportApi = ExportApiResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

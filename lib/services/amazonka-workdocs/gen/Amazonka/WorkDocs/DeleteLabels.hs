@@ -109,7 +109,8 @@ deleteLabels_resourceId = Lens.lens (\DeleteLabels' {resourceId} -> resourceId) 
 
 instance Core.AWSRequest DeleteLabels where
   type AWSResponse DeleteLabels = DeleteLabelsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

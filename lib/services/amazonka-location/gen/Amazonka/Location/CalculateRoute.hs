@@ -462,7 +462,8 @@ instance Core.AWSRequest CalculateRoute where
   type
     AWSResponse CalculateRoute =
       CalculateRouteResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

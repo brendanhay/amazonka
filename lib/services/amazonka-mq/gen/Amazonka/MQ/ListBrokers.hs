@@ -114,7 +114,8 @@ instance Core.AWSPager ListBrokers where
 
 instance Core.AWSRequest ListBrokers where
   type AWSResponse ListBrokers = ListBrokersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

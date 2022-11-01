@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a specific live source in a specific source location.
+-- Updates a live source\'s configuration.
 module Amazonka.MediaTailor.UpdateLiveSource
   ( -- * Creating a Request
     UpdateLiveSource (..),
     newUpdateLiveSource,
 
     -- * Request Lenses
-    updateLiveSource_sourceLocationName,
-    updateLiveSource_liveSourceName,
     updateLiveSource_httpPackageConfigurations,
+    updateLiveSource_liveSourceName,
+    updateLiveSource_sourceLocationName,
 
     -- * Destructuring the Response
     UpdateLiveSourceResponse (..),
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLiveSource' smart constructor.
 data UpdateLiveSource = UpdateLiveSource'
-  { -- | The identifier for the source location you are working on.
-    sourceLocationName :: Prelude.Text,
-    -- | The identifier for the live source you are working on.
-    liveSourceName :: Prelude.Text,
-    -- | A list of HTTP package configurations for the live source on this
+  { -- | A list of HTTP package configurations for the live source on this
     -- account.
-    httpPackageConfigurations :: [HttpPackageConfiguration]
+    httpPackageConfigurations :: [HttpPackageConfiguration],
+    -- | The name of the live source.
+    liveSourceName :: Prelude.Text,
+    -- | The name of the source location associated with this Live Source.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,46 +74,47 @@ data UpdateLiveSource = UpdateLiveSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'updateLiveSource_sourceLocationName' - The identifier for the source location you are working on.
---
--- 'liveSourceName', 'updateLiveSource_liveSourceName' - The identifier for the live source you are working on.
---
 -- 'httpPackageConfigurations', 'updateLiveSource_httpPackageConfigurations' - A list of HTTP package configurations for the live source on this
 -- account.
+--
+-- 'liveSourceName', 'updateLiveSource_liveSourceName' - The name of the live source.
+--
+-- 'sourceLocationName', 'updateLiveSource_sourceLocationName' - The name of the source location associated with this Live Source.
 newUpdateLiveSource ::
-  -- | 'sourceLocationName'
-  Prelude.Text ->
   -- | 'liveSourceName'
+  Prelude.Text ->
+  -- | 'sourceLocationName'
   Prelude.Text ->
   UpdateLiveSource
 newUpdateLiveSource
-  pSourceLocationName_
-  pLiveSourceName_ =
+  pLiveSourceName_
+  pSourceLocationName_ =
     UpdateLiveSource'
-      { sourceLocationName =
-          pSourceLocationName_,
+      { httpPackageConfigurations =
+          Prelude.mempty,
         liveSourceName = pLiveSourceName_,
-        httpPackageConfigurations = Prelude.mempty
+        sourceLocationName = pSourceLocationName_
       }
-
--- | The identifier for the source location you are working on.
-updateLiveSource_sourceLocationName :: Lens.Lens' UpdateLiveSource Prelude.Text
-updateLiveSource_sourceLocationName = Lens.lens (\UpdateLiveSource' {sourceLocationName} -> sourceLocationName) (\s@UpdateLiveSource' {} a -> s {sourceLocationName = a} :: UpdateLiveSource)
-
--- | The identifier for the live source you are working on.
-updateLiveSource_liveSourceName :: Lens.Lens' UpdateLiveSource Prelude.Text
-updateLiveSource_liveSourceName = Lens.lens (\UpdateLiveSource' {liveSourceName} -> liveSourceName) (\s@UpdateLiveSource' {} a -> s {liveSourceName = a} :: UpdateLiveSource)
 
 -- | A list of HTTP package configurations for the live source on this
 -- account.
 updateLiveSource_httpPackageConfigurations :: Lens.Lens' UpdateLiveSource [HttpPackageConfiguration]
 updateLiveSource_httpPackageConfigurations = Lens.lens (\UpdateLiveSource' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@UpdateLiveSource' {} a -> s {httpPackageConfigurations = a} :: UpdateLiveSource) Prelude.. Lens.coerced
 
+-- | The name of the live source.
+updateLiveSource_liveSourceName :: Lens.Lens' UpdateLiveSource Prelude.Text
+updateLiveSource_liveSourceName = Lens.lens (\UpdateLiveSource' {liveSourceName} -> liveSourceName) (\s@UpdateLiveSource' {} a -> s {liveSourceName = a} :: UpdateLiveSource)
+
+-- | The name of the source location associated with this Live Source.
+updateLiveSource_sourceLocationName :: Lens.Lens' UpdateLiveSource Prelude.Text
+updateLiveSource_sourceLocationName = Lens.lens (\UpdateLiveSource' {sourceLocationName} -> sourceLocationName) (\s@UpdateLiveSource' {} a -> s {sourceLocationName = a} :: UpdateLiveSource)
+
 instance Core.AWSRequest UpdateLiveSource where
   type
     AWSResponse UpdateLiveSource =
       UpdateLiveSourceResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,15 +133,16 @@ instance Core.AWSRequest UpdateLiveSource where
 
 instance Prelude.Hashable UpdateLiveSource where
   hashWithSalt _salt UpdateLiveSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` liveSourceName
+    _salt
       `Prelude.hashWithSalt` httpPackageConfigurations
+      `Prelude.hashWithSalt` liveSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData UpdateLiveSource where
   rnf UpdateLiveSource' {..} =
-    Prelude.rnf sourceLocationName
+    Prelude.rnf httpPackageConfigurations
       `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders UpdateLiveSource where
   toHeaders =
@@ -178,19 +180,23 @@ instance Core.ToQuery UpdateLiveSource where
 
 -- | /See:/ 'newUpdateLiveSourceResponse' smart constructor.
 data UpdateLiveSourceResponse = UpdateLiveSourceResponse'
-  { -- | The tags assigned to the live source.
+  { -- | The tags to assign to the live source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the live source.
     liveSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the live source.
+    -- | The Amazon Resource Name (ARN) associated with this live source.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that indicates when the live source was modified.
+    -- | The timestamp that indicates when the live source was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates when the live source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location associated with the VOD source.
+    -- | The name of the source location associated with the live source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configurations.
+    -- | A list of HTTP package configurations for the live source on this
+    -- account.
     httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,19 +211,23 @@ data UpdateLiveSourceResponse = UpdateLiveSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateLiveSourceResponse_tags' - The tags assigned to the live source.
+-- 'tags', 'updateLiveSourceResponse_tags' - The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'liveSourceName', 'updateLiveSourceResponse_liveSourceName' - The name of the live source.
 --
--- 'arn', 'updateLiveSourceResponse_arn' - The ARN of the live source.
+-- 'arn', 'updateLiveSourceResponse_arn' - The Amazon Resource Name (ARN) associated with this live source.
 --
--- 'lastModifiedTime', 'updateLiveSourceResponse_lastModifiedTime' - The timestamp that indicates when the live source was modified.
+-- 'lastModifiedTime', 'updateLiveSourceResponse_lastModifiedTime' - The timestamp that indicates when the live source was last modified.
 --
 -- 'creationTime', 'updateLiveSourceResponse_creationTime' - The timestamp that indicates when the live source was created.
 --
--- 'sourceLocationName', 'updateLiveSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+-- 'sourceLocationName', 'updateLiveSourceResponse_sourceLocationName' - The name of the source location associated with the live source.
 --
--- 'httpPackageConfigurations', 'updateLiveSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
+-- 'httpPackageConfigurations', 'updateLiveSourceResponse_httpPackageConfigurations' - A list of HTTP package configurations for the live source on this
+-- account.
 --
 -- 'httpStatus', 'updateLiveSourceResponse_httpStatus' - The response's http status code.
 newUpdateLiveSourceResponse ::
@@ -236,7 +246,10 @@ newUpdateLiveSourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the live source.
+-- | The tags to assign to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 updateLiveSourceResponse_tags :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateLiveSourceResponse_tags = Lens.lens (\UpdateLiveSourceResponse' {tags} -> tags) (\s@UpdateLiveSourceResponse' {} a -> s {tags = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -244,11 +257,11 @@ updateLiveSourceResponse_tags = Lens.lens (\UpdateLiveSourceResponse' {tags} -> 
 updateLiveSourceResponse_liveSourceName :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 updateLiveSourceResponse_liveSourceName = Lens.lens (\UpdateLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@UpdateLiveSourceResponse' {} a -> s {liveSourceName = a} :: UpdateLiveSourceResponse)
 
--- | The ARN of the live source.
+-- | The Amazon Resource Name (ARN) associated with this live source.
 updateLiveSourceResponse_arn :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 updateLiveSourceResponse_arn = Lens.lens (\UpdateLiveSourceResponse' {arn} -> arn) (\s@UpdateLiveSourceResponse' {} a -> s {arn = a} :: UpdateLiveSourceResponse)
 
--- | The timestamp that indicates when the live source was modified.
+-- | The timestamp that indicates when the live source was last modified.
 updateLiveSourceResponse_lastModifiedTime :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
 updateLiveSourceResponse_lastModifiedTime = Lens.lens (\UpdateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
 
@@ -256,11 +269,12 @@ updateLiveSourceResponse_lastModifiedTime = Lens.lens (\UpdateLiveSourceResponse
 updateLiveSourceResponse_creationTime :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
 updateLiveSourceResponse_creationTime = Lens.lens (\UpdateLiveSourceResponse' {creationTime} -> creationTime) (\s@UpdateLiveSourceResponse' {} a -> s {creationTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the source location associated with the VOD source.
+-- | The name of the source location associated with the live source.
 updateLiveSourceResponse_sourceLocationName :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.Text)
 updateLiveSourceResponse_sourceLocationName = Lens.lens (\UpdateLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateLiveSourceResponse' {} a -> s {sourceLocationName = a} :: UpdateLiveSourceResponse)
 
--- | The HTTP package configurations.
+-- | A list of HTTP package configurations for the live source on this
+-- account.
 updateLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
 updateLiveSourceResponse_httpPackageConfigurations = Lens.lens (\UpdateLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@UpdateLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 

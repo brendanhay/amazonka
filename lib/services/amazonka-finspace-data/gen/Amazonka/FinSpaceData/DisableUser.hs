@@ -88,7 +88,8 @@ disableUser_userId = Lens.lens (\DisableUser' {userId} -> userId) (\s@DisableUse
 
 instance Core.AWSRequest DisableUser where
   type AWSResponse DisableUser = DisableUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

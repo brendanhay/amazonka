@@ -32,10 +32,10 @@ data PrefetchRetrieval = PrefetchRetrieval'
   { -- | The dynamic variables to use for substitution during prefetch requests
     -- to the ad decision server (ADS).
     --
-    -- You intially configure
+    -- You initially configure
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html dynamic variables>
     -- for the ADS URL when you set up your playback configuration. When you
-    -- specify DynamicVariables for prefetch retrieval, MediaTailor includes
+    -- specify @DynamicVariables@ for prefetch retrieval, MediaTailor includes
     -- the dynamic variables in the request to the ADS.
     dynamicVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time when prefetch retrievals can start for this break. Ad
@@ -60,10 +60,10 @@ data PrefetchRetrieval = PrefetchRetrieval'
 -- 'dynamicVariables', 'prefetchRetrieval_dynamicVariables' - The dynamic variables to use for substitution during prefetch requests
 -- to the ad decision server (ADS).
 --
--- You intially configure
+-- You initially configure
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html dynamic variables>
 -- for the ADS URL when you set up your playback configuration. When you
--- specify DynamicVariables for prefetch retrieval, MediaTailor includes
+-- specify @DynamicVariables@ for prefetch retrieval, MediaTailor includes
 -- the dynamic variables in the request to the ADS.
 --
 -- 'startTime', 'prefetchRetrieval_startTime' - The time when prefetch retrievals can start for this break. Ad
@@ -88,10 +88,10 @@ newPrefetchRetrieval pEndTime_ =
 -- | The dynamic variables to use for substitution during prefetch requests
 -- to the ad decision server (ADS).
 --
--- You intially configure
+-- You initially configure
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html dynamic variables>
 -- for the ADS URL when you set up your playback configuration. When you
--- specify DynamicVariables for prefetch retrieval, MediaTailor includes
+-- specify @DynamicVariables@ for prefetch retrieval, MediaTailor includes
 -- the dynamic variables in the request to the ADS.
 prefetchRetrieval_dynamicVariables :: Lens.Lens' PrefetchRetrieval (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 prefetchRetrieval_dynamicVariables = Lens.lens (\PrefetchRetrieval' {dynamicVariables} -> dynamicVariables) (\s@PrefetchRetrieval' {} a -> s {dynamicVariables = a} :: PrefetchRetrieval) Prelude.. Lens.mapping Lens.coerced

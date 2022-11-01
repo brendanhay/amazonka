@@ -114,7 +114,8 @@ instance Core.AWSPager ListHapgs where
 
 instance Core.AWSRequest ListHapgs where
   type AWSResponse ListHapgs = ListHapgsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

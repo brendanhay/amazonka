@@ -269,7 +269,8 @@ updateBranch_branchName = Lens.lens (\UpdateBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest UpdateBranch where
   type AWSResponse UpdateBranch = UpdateBranchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

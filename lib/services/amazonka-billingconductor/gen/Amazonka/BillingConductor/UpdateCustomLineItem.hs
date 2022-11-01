@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateCustomLineItem where
   type
     AWSResponse UpdateCustomLineItem =
       UpdateCustomLineItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

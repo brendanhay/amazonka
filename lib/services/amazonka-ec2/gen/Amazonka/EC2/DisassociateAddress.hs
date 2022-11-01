@@ -116,7 +116,8 @@ instance Core.AWSRequest DisassociateAddress where
   type
     AWSResponse DisassociateAddress =
       DisassociateAddressResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DisassociateAddressResponse'
 

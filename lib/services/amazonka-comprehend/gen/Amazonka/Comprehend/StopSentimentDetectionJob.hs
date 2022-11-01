@@ -90,7 +90,8 @@ instance Core.AWSRequest StopSentimentDetectionJob where
   type
     AWSResponse StopSentimentDetectionJob =
       StopSentimentDetectionJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

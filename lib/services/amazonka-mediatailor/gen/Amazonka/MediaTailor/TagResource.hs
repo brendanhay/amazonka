@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to the specified playback configuration resource. You can
--- specify one or more tags to add.
+-- The resource to tag. Tags are key-value pairs that you can associate
+-- with Amazon resources to help with organization, access control, and
+-- cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 module Amazonka.MediaTailor.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -46,10 +48,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) for the playback configuration. You can
-    -- get this from the response to any playback configuration request.
+  { -- | The Amazon Resource Name (ARN) associated with the resource.
     resourceArn :: Prelude.Text,
-    -- | A comma-separated list of tag key:value pairs.
+    -- | The tags to assign to the resource. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,10 +66,12 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) associated with the resource.
 --
--- 'tags', 'tagResource_tags' - A comma-separated list of tag key:value pairs.
+-- 'tags', 'tagResource_tags' - The tags to assign to the resource. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -76,18 +82,21 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) for the playback configuration. You can
--- get this from the response to any playback configuration request.
+-- | The Amazon Resource Name (ARN) associated with the resource.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | A comma-separated list of tag key:value pairs.
+-- | The tags to assign to the resource. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull TagResourceResponse'
 
 instance Prelude.Hashable TagResource where

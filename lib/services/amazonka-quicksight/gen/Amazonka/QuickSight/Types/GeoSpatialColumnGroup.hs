@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.GeoSpatialCountryCode
 --
 -- /See:/ 'newGeoSpatialColumnGroup' smart constructor.
 data GeoSpatialColumnGroup = GeoSpatialColumnGroup'
-  { -- | A display name for the hierarchy.
+  { -- | Country code.
+    countryCode :: Prelude.Maybe GeoSpatialCountryCode,
+    -- | A display name for the hierarchy.
     name :: Prelude.Text,
-    -- | Country code.
-    countryCode :: GeoSpatialCountryCode,
     -- | Columns in this hierarchy.
     columns :: Prelude.NonEmpty Prelude.Text
   }
@@ -45,36 +45,32 @@ data GeoSpatialColumnGroup = GeoSpatialColumnGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'geoSpatialColumnGroup_name' - A display name for the hierarchy.
---
 -- 'countryCode', 'geoSpatialColumnGroup_countryCode' - Country code.
+--
+-- 'name', 'geoSpatialColumnGroup_name' - A display name for the hierarchy.
 --
 -- 'columns', 'geoSpatialColumnGroup_columns' - Columns in this hierarchy.
 newGeoSpatialColumnGroup ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'countryCode'
-  GeoSpatialCountryCode ->
   -- | 'columns'
   Prelude.NonEmpty Prelude.Text ->
   GeoSpatialColumnGroup
-newGeoSpatialColumnGroup
-  pName_
-  pCountryCode_
-  pColumns_ =
-    GeoSpatialColumnGroup'
-      { name = pName_,
-        countryCode = pCountryCode_,
-        columns = Lens.coerced Lens.# pColumns_
-      }
+newGeoSpatialColumnGroup pName_ pColumns_ =
+  GeoSpatialColumnGroup'
+    { countryCode =
+        Prelude.Nothing,
+      name = pName_,
+      columns = Lens.coerced Lens.# pColumns_
+    }
+
+-- | Country code.
+geoSpatialColumnGroup_countryCode :: Lens.Lens' GeoSpatialColumnGroup (Prelude.Maybe GeoSpatialCountryCode)
+geoSpatialColumnGroup_countryCode = Lens.lens (\GeoSpatialColumnGroup' {countryCode} -> countryCode) (\s@GeoSpatialColumnGroup' {} a -> s {countryCode = a} :: GeoSpatialColumnGroup)
 
 -- | A display name for the hierarchy.
 geoSpatialColumnGroup_name :: Lens.Lens' GeoSpatialColumnGroup Prelude.Text
 geoSpatialColumnGroup_name = Lens.lens (\GeoSpatialColumnGroup' {name} -> name) (\s@GeoSpatialColumnGroup' {} a -> s {name = a} :: GeoSpatialColumnGroup)
-
--- | Country code.
-geoSpatialColumnGroup_countryCode :: Lens.Lens' GeoSpatialColumnGroup GeoSpatialCountryCode
-geoSpatialColumnGroup_countryCode = Lens.lens (\GeoSpatialColumnGroup' {countryCode} -> countryCode) (\s@GeoSpatialColumnGroup' {} a -> s {countryCode = a} :: GeoSpatialColumnGroup)
 
 -- | Columns in this hierarchy.
 geoSpatialColumnGroup_columns :: Lens.Lens' GeoSpatialColumnGroup (Prelude.NonEmpty Prelude.Text)
@@ -86,29 +82,29 @@ instance Core.FromJSON GeoSpatialColumnGroup where
       "GeoSpatialColumnGroup"
       ( \x ->
           GeoSpatialColumnGroup'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "CountryCode")
+            Prelude.<$> (x Core..:? "CountryCode")
+            Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Columns")
       )
 
 instance Prelude.Hashable GeoSpatialColumnGroup where
   hashWithSalt _salt GeoSpatialColumnGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` countryCode
+    _salt `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` columns
 
 instance Prelude.NFData GeoSpatialColumnGroup where
   rnf GeoSpatialColumnGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf countryCode
+    Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf columns
 
 instance Core.ToJSON GeoSpatialColumnGroup where
   toJSON GeoSpatialColumnGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("CountryCode" Core..= countryCode),
+          [ ("CountryCode" Core..=) Prelude.<$> countryCode,
+            Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Columns" Core..= columns)
           ]
       )

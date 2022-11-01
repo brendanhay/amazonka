@@ -24,34 +24,32 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a set of conditions to be met, and an action to take (@RETRY@
--- or @EXIT@) if all conditions are met.
+-- | Specifies an array of up to 5 conditions to be met, and an action to
+-- take (@RETRY@ or @EXIT@) if all conditions are met. If none of the
+-- @EvaluateOnExit@ conditions in a @RetryStrategy@ match, then the job is
+-- retried.
 --
 -- /See:/ 'newEvaluateOnExit' smart constructor.
 data EvaluateOnExit = EvaluateOnExit'
   { -- | Contains a glob pattern to match against the @Reason@ returned for a
-    -- job. The pattern can be up to 512 characters in length. It can contain
+    -- job. The pattern can contain up to 512 characters. It can contain
     -- letters, numbers, periods (.), colons (:), and white space (including
     -- spaces and tabs). It can optionally end with an asterisk (*) so that
     -- only the start of the string needs to be an exact match.
-    --
-    -- The string can be between 1 and 512 characters in length.
     onReason :: Prelude.Maybe Prelude.Text,
     -- | Contains a glob pattern to match against the decimal representation of
     -- the @ExitCode@ returned for a job. The pattern can be up to 512
-    -- characters in length. It can contain only numbers, and can optionally
-    -- end with an asterisk (*) so that only the start of the string needs to
-    -- be an exact match.
+    -- characters long. It can contain only numbers, and can end with an
+    -- asterisk (*) so that only the start of the string needs to be an exact
+    -- match.
     --
-    -- The string can be between 1 and 512 characters in length.
+    -- The string can contain up to 512 characters.
     onExitCode :: Prelude.Maybe Prelude.Text,
     -- | Contains a glob pattern to match against the @StatusReason@ returned for
-    -- a job. The pattern can be up to 512 characters in length. It can contain
-    -- letters, numbers, periods (.), colons (:), and white space (including
+    -- a job. The pattern can contain up to 512 characters. It can contain
+    -- letters, numbers, periods (.), colons (:), and white spaces (including
     -- spaces or tabs). It can optionally end with an asterisk (*) so that only
     -- the start of the string needs to be an exact match.
-    --
-    -- The string can be between 1 and 512 characters in length.
     onStatusReason :: Prelude.Maybe Prelude.Text,
     -- | Specifies the action to take if all of the specified conditions
     -- (@onStatusReason@, @onReason@, and @onExitCode@) are met. The values
@@ -69,28 +67,24 @@ data EvaluateOnExit = EvaluateOnExit'
 -- for backwards compatibility:
 --
 -- 'onReason', 'evaluateOnExit_onReason' - Contains a glob pattern to match against the @Reason@ returned for a
--- job. The pattern can be up to 512 characters in length. It can contain
+-- job. The pattern can contain up to 512 characters. It can contain
 -- letters, numbers, periods (.), colons (:), and white space (including
 -- spaces and tabs). It can optionally end with an asterisk (*) so that
 -- only the start of the string needs to be an exact match.
 --
--- The string can be between 1 and 512 characters in length.
---
 -- 'onExitCode', 'evaluateOnExit_onExitCode' - Contains a glob pattern to match against the decimal representation of
 -- the @ExitCode@ returned for a job. The pattern can be up to 512
--- characters in length. It can contain only numbers, and can optionally
--- end with an asterisk (*) so that only the start of the string needs to
--- be an exact match.
+-- characters long. It can contain only numbers, and can end with an
+-- asterisk (*) so that only the start of the string needs to be an exact
+-- match.
 --
--- The string can be between 1 and 512 characters in length.
+-- The string can contain up to 512 characters.
 --
 -- 'onStatusReason', 'evaluateOnExit_onStatusReason' - Contains a glob pattern to match against the @StatusReason@ returned for
--- a job. The pattern can be up to 512 characters in length. It can contain
--- letters, numbers, periods (.), colons (:), and white space (including
+-- a job. The pattern can contain up to 512 characters. It can contain
+-- letters, numbers, periods (.), colons (:), and white spaces (including
 -- spaces or tabs). It can optionally end with an asterisk (*) so that only
 -- the start of the string needs to be an exact match.
---
--- The string can be between 1 and 512 characters in length.
 --
 -- 'action', 'evaluateOnExit_action' - Specifies the action to take if all of the specified conditions
 -- (@onStatusReason@, @onReason@, and @onExitCode@) are met. The values
@@ -108,32 +102,28 @@ newEvaluateOnExit pAction_ =
     }
 
 -- | Contains a glob pattern to match against the @Reason@ returned for a
--- job. The pattern can be up to 512 characters in length. It can contain
+-- job. The pattern can contain up to 512 characters. It can contain
 -- letters, numbers, periods (.), colons (:), and white space (including
 -- spaces and tabs). It can optionally end with an asterisk (*) so that
 -- only the start of the string needs to be an exact match.
---
--- The string can be between 1 and 512 characters in length.
 evaluateOnExit_onReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
 evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\s@EvaluateOnExit' {} a -> s {onReason = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the decimal representation of
 -- the @ExitCode@ returned for a job. The pattern can be up to 512
--- characters in length. It can contain only numbers, and can optionally
--- end with an asterisk (*) so that only the start of the string needs to
--- be an exact match.
+-- characters long. It can contain only numbers, and can end with an
+-- asterisk (*) so that only the start of the string needs to be an exact
+-- match.
 --
--- The string can be between 1 and 512 characters in length.
+-- The string can contain up to 512 characters.
 evaluateOnExit_onExitCode :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
 evaluateOnExit_onExitCode = Lens.lens (\EvaluateOnExit' {onExitCode} -> onExitCode) (\s@EvaluateOnExit' {} a -> s {onExitCode = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the @StatusReason@ returned for
--- a job. The pattern can be up to 512 characters in length. It can contain
--- letters, numbers, periods (.), colons (:), and white space (including
+-- a job. The pattern can contain up to 512 characters. It can contain
+-- letters, numbers, periods (.), colons (:), and white spaces (including
 -- spaces or tabs). It can optionally end with an asterisk (*) so that only
 -- the start of the string needs to be an exact match.
---
--- The string can be between 1 and 512 characters in length.
 evaluateOnExit_onStatusReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
 evaluateOnExit_onStatusReason = Lens.lens (\EvaluateOnExit' {onStatusReason} -> onStatusReason) (\s@EvaluateOnExit' {} a -> s {onStatusReason = a} :: EvaluateOnExit)
 

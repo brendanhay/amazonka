@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { -- | The time at which the last message in a channel was sent.
+  { -- | The time at which the last persistent message in a channel was sent.
     lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the channel.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -52,7 +52,7 @@ data ChannelSummary = ChannelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last message in a channel was sent.
+-- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last persistent message in a channel was sent.
 --
 -- 'name', 'channelSummary_name' - The name of the channel.
 --
@@ -76,7 +76,7 @@ newChannelSummary =
       mode = Prelude.Nothing
     }
 
--- | The time at which the last message in a channel was sent.
+-- | The time at which the last persistent message in a channel was sent.
 channelSummary_lastMessageTimestamp :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_lastMessageTimestamp = Lens.lens (\ChannelSummary' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@ChannelSummary' {} a -> s {lastMessageTimestamp = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
 

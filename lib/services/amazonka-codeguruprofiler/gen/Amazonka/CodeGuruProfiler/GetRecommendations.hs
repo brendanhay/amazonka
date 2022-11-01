@@ -215,7 +215,8 @@ instance Core.AWSRequest GetRecommendations where
   type
     AWSResponse GetRecommendations =
       GetRecommendationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

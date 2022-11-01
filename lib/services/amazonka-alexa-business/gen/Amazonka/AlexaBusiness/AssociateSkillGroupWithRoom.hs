@@ -88,7 +88,8 @@ instance Core.AWSRequest AssociateSkillGroupWithRoom where
   type
     AWSResponse AssociateSkillGroupWithRoom =
       AssociateSkillGroupWithRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

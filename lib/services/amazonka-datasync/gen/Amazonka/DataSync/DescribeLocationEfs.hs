@@ -89,7 +89,8 @@ instance Core.AWSRequest DescribeLocationEfs where
   type
     AWSResponse DescribeLocationEfs =
       DescribeLocationEfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

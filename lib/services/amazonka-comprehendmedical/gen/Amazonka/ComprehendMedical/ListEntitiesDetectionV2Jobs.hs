@@ -108,7 +108,8 @@ instance Core.AWSRequest ListEntitiesDetectionV2Jobs where
   type
     AWSResponse ListEntitiesDetectionV2Jobs =
       ListEntitiesDetectionV2JobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

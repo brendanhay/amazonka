@@ -123,7 +123,8 @@ instance Core.AWSRequest EnableStageTransition where
   type
     AWSResponse EnableStageTransition =
       EnableStageTransitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull EnableStageTransitionResponse'
 

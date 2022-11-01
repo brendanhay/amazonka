@@ -76,7 +76,8 @@ enableCrl_crlId = Lens.lens (\EnableCrl' {crlId} -> crlId) (\s@EnableCrl' {} a -
 
 instance Core.AWSRequest EnableCrl where
   type AWSResponse EnableCrl = CrlDetailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

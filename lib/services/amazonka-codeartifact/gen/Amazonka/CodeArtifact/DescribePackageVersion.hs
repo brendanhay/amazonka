@@ -188,7 +188,8 @@ instance Core.AWSRequest DescribePackageVersion where
   type
     AWSResponse DescribePackageVersion =
       DescribePackageVersionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

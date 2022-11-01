@@ -541,12 +541,14 @@ module Amazonka.QuickSight.Types
     dataSource_lastUpdatedTime,
     dataSource_vpcConnectionProperties,
     dataSource_sslProperties,
+    dataSource_secretArn,
     dataSource_alternateDataSourceParameters,
     dataSource_errorInfo,
 
     -- * DataSourceCredentials
     DataSourceCredentials (..),
     newDataSourceCredentials,
+    dataSourceCredentials_secretArn,
     dataSourceCredentials_credentialPair,
     dataSourceCredentials_copySourceArn,
 
@@ -659,8 +661,8 @@ module Amazonka.QuickSight.Types
     -- * GeoSpatialColumnGroup
     GeoSpatialColumnGroup (..),
     newGeoSpatialColumnGroup,
-    geoSpatialColumnGroup_name,
     geoSpatialColumnGroup_countryCode,
+    geoSpatialColumnGroup_name,
     geoSpatialColumnGroup_columns,
 
     -- * Group
@@ -1491,6 +1493,8 @@ defaultService =
       Core._serviceEndpointPrefix = "quicksight",
       Core._serviceSigningName = "quicksight",
       Core._serviceVersion = "2018-04-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

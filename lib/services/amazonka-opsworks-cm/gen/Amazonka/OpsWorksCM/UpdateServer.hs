@@ -121,7 +121,8 @@ updateServer_serverName = Lens.lens (\UpdateServer' {serverName} -> serverName) 
 
 instance Core.AWSRequest UpdateServer where
   type AWSResponse UpdateServer = UpdateServerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

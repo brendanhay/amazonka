@@ -282,7 +282,8 @@ updateApi_apiId = Lens.lens (\UpdateApi' {apiId} -> apiId) (\s@UpdateApi' {} a -
 
 instance Core.AWSRequest UpdateApi where
   type AWSResponse UpdateApi = UpdateApiResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

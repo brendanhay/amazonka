@@ -270,7 +270,8 @@ instance Core.AWSRequest CreateActivation where
   type
     AWSResponse CreateActivation =
       CreateActivationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

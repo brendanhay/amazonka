@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateDeploymentConfig where
   type
     AWSResponse CreateDeploymentConfig =
       CreateDeploymentConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

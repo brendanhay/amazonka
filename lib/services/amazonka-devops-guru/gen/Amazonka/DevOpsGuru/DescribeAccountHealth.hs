@@ -34,6 +34,7 @@ module Amazonka.DevOpsGuru.DescribeAccountHealth
     newDescribeAccountHealthResponse,
 
     -- * Response Lenses
+    describeAccountHealthResponse_analyzedResourceCount,
     describeAccountHealthResponse_httpStatus,
     describeAccountHealthResponse_openReactiveInsights,
     describeAccountHealthResponse_openProactiveInsights,
@@ -67,12 +68,14 @@ instance Core.AWSRequest DescribeAccountHealth where
   type
     AWSResponse DescribeAccountHealth =
       DescribeAccountHealthResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountHealthResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "AnalyzedResourceCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OpenReactiveInsights")
             Prelude.<*> (x Core..:> "OpenProactiveInsights")
             Prelude.<*> (x Core..:> "MetricsAnalyzed")
@@ -105,7 +108,10 @@ instance Core.ToQuery DescribeAccountHealth where
 
 -- | /See:/ 'newDescribeAccountHealthResponse' smart constructor.
 data DescribeAccountHealthResponse = DescribeAccountHealthResponse'
-  { -- | The response's http status code.
+  { -- | Number of resources that DevOps Guru is monitoring in your Amazon Web
+    -- Services account.
+    analyzedResourceCount :: Prelude.Maybe Prelude.Integer,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An integer that specifies the number of open reactive insights in your
     -- Amazon Web Services account.
@@ -129,6 +135,9 @@ data DescribeAccountHealthResponse = DescribeAccountHealthResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyzedResourceCount', 'describeAccountHealthResponse_analyzedResourceCount' - Number of resources that DevOps Guru is monitoring in your Amazon Web
+-- Services account.
 --
 -- 'httpStatus', 'describeAccountHealthResponse_httpStatus' - The response's http status code.
 --
@@ -162,8 +171,9 @@ newDescribeAccountHealthResponse
   pMetricsAnalyzed_
   pResourceHours_ =
     DescribeAccountHealthResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { analyzedResourceCount =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         openReactiveInsights =
           pOpenReactiveInsights_,
         openProactiveInsights =
@@ -171,6 +181,11 @@ newDescribeAccountHealthResponse
         metricsAnalyzed = pMetricsAnalyzed_,
         resourceHours = pResourceHours_
       }
+
+-- | Number of resources that DevOps Guru is monitoring in your Amazon Web
+-- Services account.
+describeAccountHealthResponse_analyzedResourceCount :: Lens.Lens' DescribeAccountHealthResponse (Prelude.Maybe Prelude.Integer)
+describeAccountHealthResponse_analyzedResourceCount = Lens.lens (\DescribeAccountHealthResponse' {analyzedResourceCount} -> analyzedResourceCount) (\s@DescribeAccountHealthResponse' {} a -> s {analyzedResourceCount = a} :: DescribeAccountHealthResponse)
 
 -- | The response's http status code.
 describeAccountHealthResponse_httpStatus :: Lens.Lens' DescribeAccountHealthResponse Prelude.Int
@@ -198,7 +213,8 @@ describeAccountHealthResponse_resourceHours = Lens.lens (\DescribeAccountHealthR
 
 instance Prelude.NFData DescribeAccountHealthResponse where
   rnf DescribeAccountHealthResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf analyzedResourceCount
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf openReactiveInsights
       `Prelude.seq` Prelude.rnf openProactiveInsights
       `Prelude.seq` Prelude.rnf metricsAnalyzed

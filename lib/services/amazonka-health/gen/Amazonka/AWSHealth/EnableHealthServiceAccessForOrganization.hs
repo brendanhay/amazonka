@@ -87,7 +87,8 @@ instance
     AWSResponse
       EnableHealthServiceAccessForOrganization =
       EnableHealthServiceAccessForOrganizationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       EnableHealthServiceAccessForOrganizationResponse'

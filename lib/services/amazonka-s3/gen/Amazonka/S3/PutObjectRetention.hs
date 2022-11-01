@@ -256,9 +256,9 @@ instance Core.AWSRequest PutObjectRetention where
   type
     AWSResponse PutObjectRetention =
       PutObjectRetentionResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

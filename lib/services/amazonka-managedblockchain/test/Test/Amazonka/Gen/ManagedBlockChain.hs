@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateMember $
+--         [ requestCreateAccessor $
+--             newCreateAccessor
+--
+--         , requestCreateMember $
 --             newCreateMember
 --
 --         , requestCreateNetwork $
@@ -39,11 +42,17 @@ import Test.Tasty
 --         , requestCreateProposal $
 --             newCreateProposal
 --
+--         , requestDeleteAccessor $
+--             newDeleteAccessor
+--
 --         , requestDeleteMember $
 --             newDeleteMember
 --
 --         , requestDeleteNode $
 --             newDeleteNode
+--
+--         , requestGetAccessor $
+--             newGetAccessor
 --
 --         , requestGetMember $
 --             newGetMember
@@ -56,6 +65,9 @@ import Test.Tasty
 --
 --         , requestGetProposal $
 --             newGetProposal
+--
+--         , requestListAccessors $
+--             newListAccessors
 --
 --         , requestListInvitations $
 --             newListInvitations
@@ -99,7 +111,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateMember $
+--         [ responseCreateAccessor $
+--             newCreateAccessorResponse
+--
+--         , responseCreateMember $
 --             newCreateMemberResponse
 --
 --         , responseCreateNetwork $
@@ -111,11 +126,17 @@ import Test.Tasty
 --         , responseCreateProposal $
 --             newCreateProposalResponse
 --
+--         , responseDeleteAccessor $
+--             newDeleteAccessorResponse
+--
 --         , responseDeleteMember $
 --             newDeleteMemberResponse
 --
 --         , responseDeleteNode $
 --             newDeleteNodeResponse
+--
+--         , responseGetAccessor $
+--             newGetAccessorResponse
 --
 --         , responseGetMember $
 --             newGetMemberResponse
@@ -128,6 +149,9 @@ import Test.Tasty
 --
 --         , responseGetProposal $
 --             newGetProposalResponse
+--
+--         , responseListAccessors $
+--             newListAccessorsResponse
 --
 --         , responseListInvitations $
 --             newListInvitationsResponse
@@ -173,6 +197,12 @@ import Test.Tasty
 
 -- Requests
 
+requestCreateAccessor :: CreateAccessor -> TestTree
+requestCreateAccessor =
+  req
+    "CreateAccessor"
+    "fixture/CreateAccessor.yaml"
+
 requestCreateMember :: CreateMember -> TestTree
 requestCreateMember =
   req
@@ -197,6 +227,12 @@ requestCreateProposal =
     "CreateProposal"
     "fixture/CreateProposal.yaml"
 
+requestDeleteAccessor :: DeleteAccessor -> TestTree
+requestDeleteAccessor =
+  req
+    "DeleteAccessor"
+    "fixture/DeleteAccessor.yaml"
+
 requestDeleteMember :: DeleteMember -> TestTree
 requestDeleteMember =
   req
@@ -208,6 +244,12 @@ requestDeleteNode =
   req
     "DeleteNode"
     "fixture/DeleteNode.yaml"
+
+requestGetAccessor :: GetAccessor -> TestTree
+requestGetAccessor =
+  req
+    "GetAccessor"
+    "fixture/GetAccessor.yaml"
 
 requestGetMember :: GetMember -> TestTree
 requestGetMember =
@@ -232,6 +274,12 @@ requestGetProposal =
   req
     "GetProposal"
     "fixture/GetProposal.yaml"
+
+requestListAccessors :: ListAccessors -> TestTree
+requestListAccessors =
+  req
+    "ListAccessors"
+    "fixture/ListAccessors.yaml"
 
 requestListInvitations :: ListInvitations -> TestTree
 requestListInvitations =
@@ -313,6 +361,14 @@ requestVoteOnProposal =
 
 -- Responses
 
+responseCreateAccessor :: CreateAccessorResponse -> TestTree
+responseCreateAccessor =
+  res
+    "CreateAccessorResponse"
+    "fixture/CreateAccessorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessor)
+
 responseCreateMember :: CreateMemberResponse -> TestTree
 responseCreateMember =
   res
@@ -345,6 +401,14 @@ responseCreateProposal =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProposal)
 
+responseDeleteAccessor :: DeleteAccessorResponse -> TestTree
+responseDeleteAccessor =
+  res
+    "DeleteAccessorResponse"
+    "fixture/DeleteAccessorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessor)
+
 responseDeleteMember :: DeleteMemberResponse -> TestTree
 responseDeleteMember =
   res
@@ -360,6 +424,14 @@ responseDeleteNode =
     "fixture/DeleteNodeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteNode)
+
+responseGetAccessor :: GetAccessorResponse -> TestTree
+responseGetAccessor =
+  res
+    "GetAccessorResponse"
+    "fixture/GetAccessorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccessor)
 
 responseGetMember :: GetMemberResponse -> TestTree
 responseGetMember =
@@ -392,6 +464,14 @@ responseGetProposal =
     "fixture/GetProposalResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProposal)
+
+responseListAccessors :: ListAccessorsResponse -> TestTree
+responseListAccessors =
+  res
+    "ListAccessorsResponse"
+    "fixture/ListAccessorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccessors)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
 responseListInvitations =

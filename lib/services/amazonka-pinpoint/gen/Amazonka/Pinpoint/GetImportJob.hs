@@ -93,7 +93,8 @@ getImportJob_jobId = Lens.lens (\GetImportJob' {jobId} -> jobId) (\s@GetImportJo
 
 instance Core.AWSRequest GetImportJob where
   type AWSResponse GetImportJob = GetImportJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

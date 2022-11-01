@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteFunction where
   type
     AWSResponse DeleteFunction =
       DeleteFunctionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFunctionResponse'
 

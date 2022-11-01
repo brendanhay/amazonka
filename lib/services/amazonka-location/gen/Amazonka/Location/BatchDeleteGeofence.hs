@@ -94,7 +94,8 @@ instance Core.AWSRequest BatchDeleteGeofence where
   type
     AWSResponse BatchDeleteGeofence =
       BatchDeleteGeofenceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

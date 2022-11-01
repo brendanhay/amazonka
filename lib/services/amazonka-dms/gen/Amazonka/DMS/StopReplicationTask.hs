@@ -82,7 +82,8 @@ instance Core.AWSRequest StopReplicationTask where
   type
     AWSResponse StopReplicationTask =
       StopReplicationTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

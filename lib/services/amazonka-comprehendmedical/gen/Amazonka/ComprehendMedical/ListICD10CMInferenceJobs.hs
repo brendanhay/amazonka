@@ -108,7 +108,8 @@ instance Core.AWSRequest ListICD10CMInferenceJobs where
   type
     AWSResponse ListICD10CMInferenceJobs =
       ListICD10CMInferenceJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

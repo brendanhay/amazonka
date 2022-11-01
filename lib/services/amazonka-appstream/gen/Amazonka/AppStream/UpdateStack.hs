@@ -227,7 +227,8 @@ updateStack_name = Lens.lens (\UpdateStack' {name} -> name) (\s@UpdateStack' {} 
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

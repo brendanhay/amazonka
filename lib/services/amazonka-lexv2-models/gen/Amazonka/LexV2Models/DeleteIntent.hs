@@ -124,7 +124,8 @@ deleteIntent_localeId = Lens.lens (\DeleteIntent' {localeId} -> localeId) (\s@De
 
 instance Core.AWSRequest DeleteIntent where
   type AWSResponse DeleteIntent = DeleteIntentResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteIntentResponse'
 
 instance Prelude.Hashable DeleteIntent where

@@ -80,7 +80,8 @@ instance Core.AWSRequest GetSiteToSiteVpnAttachment where
   type
     AWSResponse GetSiteToSiteVpnAttachment =
       GetSiteToSiteVpnAttachmentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

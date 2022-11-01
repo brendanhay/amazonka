@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribeAutomationExecutions where
   type
     AWSResponse DescribeAutomationExecutions =
       DescribeAutomationExecutionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

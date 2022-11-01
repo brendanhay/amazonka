@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteWorkspaceBundle where
   type
     AWSResponse DeleteWorkspaceBundle =
       DeleteWorkspaceBundleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

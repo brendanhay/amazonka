@@ -117,7 +117,8 @@ createFleet_signalCatalogArn = Lens.lens (\CreateFleet' {signalCatalogArn} -> si
 
 instance Core.AWSRequest CreateFleet where
   type AWSResponse CreateFleet = CreateFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

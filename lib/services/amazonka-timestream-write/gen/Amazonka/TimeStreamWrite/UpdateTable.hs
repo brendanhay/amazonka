@@ -123,7 +123,8 @@ updateTable_tableName = Lens.lens (\UpdateTable' {tableName} -> tableName) (\s@U
 
 instance Core.AWSRequest UpdateTable where
   type AWSResponse UpdateTable = UpdateTableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

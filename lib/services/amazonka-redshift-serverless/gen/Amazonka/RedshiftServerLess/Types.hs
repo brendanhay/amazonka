@@ -222,6 +222,8 @@ defaultService =
       Core._serviceEndpointPrefix = "redshift-serverless",
       Core._serviceSigningName = "redshift-serverless",
       Core._serviceVersion = "2021-04-21",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

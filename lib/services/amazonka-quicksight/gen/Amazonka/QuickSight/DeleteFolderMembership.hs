@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteFolderMembership where
   type
     AWSResponse DeleteFolderMembership =
       DeleteFolderMembershipResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

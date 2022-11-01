@@ -20,9 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the prefetch schedule for a specific playback
--- configuration. If you call GetPrefetchSchedule on an expired prefetch
--- schedule, MediaTailor returns an HTTP 404 status code.
+-- Retrieves a prefetch schedule for a playback configuration. A prefetch
+-- schedule allows you to tell MediaTailor to fetch and prepare certain ads
+-- before an ad break happens. For more information about ad prefetching,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html Using ad prefetching>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.GetPrefetchSchedule
   ( -- * Creating a Request
     GetPrefetchSchedule (..),
@@ -56,9 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPrefetchSchedule' smart constructor.
 data GetPrefetchSchedule = GetPrefetchSchedule'
-  { -- | The identifier for the playback configuration.
+  { -- | The name of the prefetch schedule. The name must be unique among all
+    -- prefetch schedules that are associated with the specified playback
+    -- configuration.
     name :: Prelude.Text,
-    -- | The name of the playback configuration.
+    -- | Returns information about the prefetch schedule for a specific playback
+    -- configuration. If you call @GetPrefetchSchedule@ on an expired prefetch
+    -- schedule, MediaTailor returns an HTTP 404 status code.
     playbackConfigurationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,9 +78,13 @@ data GetPrefetchSchedule = GetPrefetchSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getPrefetchSchedule_name' - The identifier for the playback configuration.
+-- 'name', 'getPrefetchSchedule_name' - The name of the prefetch schedule. The name must be unique among all
+-- prefetch schedules that are associated with the specified playback
+-- configuration.
 --
--- 'playbackConfigurationName', 'getPrefetchSchedule_playbackConfigurationName' - The name of the playback configuration.
+-- 'playbackConfigurationName', 'getPrefetchSchedule_playbackConfigurationName' - Returns information about the prefetch schedule for a specific playback
+-- configuration. If you call @GetPrefetchSchedule@ on an expired prefetch
+-- schedule, MediaTailor returns an HTTP 404 status code.
 newGetPrefetchSchedule ::
   -- | 'name'
   Prelude.Text ->
@@ -89,11 +100,15 @@ newGetPrefetchSchedule
           pPlaybackConfigurationName_
       }
 
--- | The identifier for the playback configuration.
+-- | The name of the prefetch schedule. The name must be unique among all
+-- prefetch schedules that are associated with the specified playback
+-- configuration.
 getPrefetchSchedule_name :: Lens.Lens' GetPrefetchSchedule Prelude.Text
 getPrefetchSchedule_name = Lens.lens (\GetPrefetchSchedule' {name} -> name) (\s@GetPrefetchSchedule' {} a -> s {name = a} :: GetPrefetchSchedule)
 
--- | The name of the playback configuration.
+-- | Returns information about the prefetch schedule for a specific playback
+-- configuration. If you call @GetPrefetchSchedule@ on an expired prefetch
+-- schedule, MediaTailor returns an HTTP 404 status code.
 getPrefetchSchedule_playbackConfigurationName :: Lens.Lens' GetPrefetchSchedule Prelude.Text
 getPrefetchSchedule_playbackConfigurationName = Lens.lens (\GetPrefetchSchedule' {playbackConfigurationName} -> playbackConfigurationName) (\s@GetPrefetchSchedule' {} a -> s {playbackConfigurationName = a} :: GetPrefetchSchedule)
 
@@ -101,7 +116,8 @@ instance Core.AWSRequest GetPrefetchSchedule where
   type
     AWSResponse GetPrefetchSchedule =
       GetPrefetchScheduleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

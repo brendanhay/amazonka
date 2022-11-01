@@ -148,7 +148,8 @@ instance Core.AWSRequest CreatePackagingConfiguration where
   type
     AWSResponse CreatePackagingConfiguration =
       CreatePackagingConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

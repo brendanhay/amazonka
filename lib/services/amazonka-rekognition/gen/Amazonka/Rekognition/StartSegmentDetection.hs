@@ -186,7 +186,8 @@ instance Core.AWSRequest StartSegmentDetection where
   type
     AWSResponse StartSegmentDetection =
       StartSegmentDetectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -144,7 +144,8 @@ instance Core.AWSPager GetBots where
 
 instance Core.AWSRequest GetBots where
   type AWSResponse GetBots = GetBotsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

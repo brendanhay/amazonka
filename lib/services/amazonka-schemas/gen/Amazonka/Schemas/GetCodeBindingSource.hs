@@ -117,7 +117,8 @@ instance Core.AWSRequest GetCodeBindingSource where
   type
     AWSResponse GetCodeBindingSource =
       GetCodeBindingSourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

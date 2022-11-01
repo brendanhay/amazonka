@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Removes a specific tag associated with an Amazon Translate resource. For
+-- more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 module Amazonka.Translate.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -48,7 +50,12 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resourceArn :: Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the given Amazon Translate resource
+    -- from which you want to remove the tags.
+    resourceArn :: Prelude.Text,
+    -- | The initial part of a key-value pair that forms a tag being removed from
+    -- a given resource. Keys must be unique and cannot be duplicated for a
+    -- particular resource.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,9 +68,12 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - Undocumented member.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the given Amazon Translate resource
+-- from which you want to remove the tags.
 --
--- 'tagKeys', 'untagResource_tagKeys' - Undocumented member.
+-- 'tagKeys', 'untagResource_tagKeys' - The initial part of a key-value pair that forms a tag being removed from
+-- a given resource. Keys must be unique and cannot be duplicated for a
+-- particular resource.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -74,11 +84,14 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the given Amazon Translate resource
+-- from which you want to remove the tags.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | Undocumented member.
+-- | The initial part of a key-value pair that forms a tag being removed from
+-- a given resource. Keys must be unique and cannot be duplicated for a
+-- particular resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
@@ -86,7 +99,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

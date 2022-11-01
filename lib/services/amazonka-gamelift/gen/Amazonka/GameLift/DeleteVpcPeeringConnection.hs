@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
   type
     AWSResponse DeleteVpcPeeringConnection =
       DeleteVpcPeeringConnectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

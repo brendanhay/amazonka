@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeFindings where
   type
     AWSResponse DescribeFindings =
       DescribeFindingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

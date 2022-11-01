@@ -85,7 +85,8 @@ instance Core.AWSRequest StopCompilationJob where
   type
     AWSResponse StopCompilationJob =
       StopCompilationJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopCompilationJobResponse'
 

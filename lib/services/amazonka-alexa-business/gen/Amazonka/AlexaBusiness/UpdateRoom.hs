@@ -114,7 +114,8 @@ updateRoom_roomName = Lens.lens (\UpdateRoom' {roomName} -> roomName) (\s@Update
 
 instance Core.AWSRequest UpdateRoom where
   type AWSResponse UpdateRoom = UpdateRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

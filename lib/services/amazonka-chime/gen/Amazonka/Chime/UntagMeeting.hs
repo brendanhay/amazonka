@@ -85,7 +85,8 @@ untagMeeting_tagKeys = Lens.lens (\UntagMeeting' {tagKeys} -> tagKeys) (\s@Untag
 
 instance Core.AWSRequest UntagMeeting where
   type AWSResponse UntagMeeting = UntagMeetingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UntagMeetingResponse'
 
 instance Prelude.Hashable UntagMeeting where

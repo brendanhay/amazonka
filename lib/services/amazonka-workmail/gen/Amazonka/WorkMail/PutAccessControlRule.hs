@@ -215,7 +215,8 @@ instance Core.AWSRequest PutAccessControlRule where
   type
     AWSResponse PutAccessControlRule =
       PutAccessControlRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

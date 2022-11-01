@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteAssessmentReport where
   type
     AWSResponse DeleteAssessmentReport =
       DeleteAssessmentReportResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

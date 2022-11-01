@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeParameters where
   type
     AWSResponse DescribeParameters =
       DescribeParametersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

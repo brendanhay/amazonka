@@ -93,7 +93,8 @@ getLayout_layoutId = Lens.lens (\GetLayout' {layoutId} -> layoutId) (\s@GetLayou
 
 instance Core.AWSRequest GetLayout where
   type AWSResponse GetLayout = GetLayoutResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -101,7 +101,8 @@ predict_predictEndpoint = Lens.lens (\Predict' {predictEndpoint} -> predictEndpo
 
 instance Core.AWSRequest Predict where
   type AWSResponse Predict = PredictResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

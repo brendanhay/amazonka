@@ -317,7 +317,8 @@ instance Core.AWSRequest CreateStreamProcessor where
   type
     AWSResponse CreateStreamProcessor =
       CreateStreamProcessorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

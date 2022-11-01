@@ -235,7 +235,8 @@ instance Core.AWSRequest SetTopicAttributes where
   type
     AWSResponse SetTopicAttributes =
       SetTopicAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetTopicAttributesResponse'
 

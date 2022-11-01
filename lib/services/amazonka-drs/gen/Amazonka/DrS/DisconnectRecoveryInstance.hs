@@ -88,7 +88,8 @@ instance Core.AWSRequest DisconnectRecoveryInstance where
   type
     AWSResponse DisconnectRecoveryInstance =
       DisconnectRecoveryInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisconnectRecoveryInstanceResponse'

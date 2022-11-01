@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteTimeSeries where
   type
     AWSResponse DeleteTimeSeries =
       DeleteTimeSeriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteTimeSeriesResponse'
 

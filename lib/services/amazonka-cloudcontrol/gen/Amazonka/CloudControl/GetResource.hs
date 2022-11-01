@@ -200,7 +200,8 @@ getResource_identifier = Lens.lens (\GetResource' {identifier} -> identifier) (\
 
 instance Core.AWSRequest GetResource where
   type AWSResponse GetResource = GetResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

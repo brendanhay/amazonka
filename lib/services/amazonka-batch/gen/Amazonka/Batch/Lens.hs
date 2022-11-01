@@ -23,6 +23,7 @@ module Amazonka.Batch.Lens
     createComputeEnvironment_tags,
     createComputeEnvironment_state,
     createComputeEnvironment_serviceRole,
+    createComputeEnvironment_eksConfiguration,
     createComputeEnvironment_computeResources,
     createComputeEnvironment_unmanagedvCpus,
     createComputeEnvironment_computeEnvironmentName,
@@ -135,6 +136,7 @@ module Amazonka.Batch.Lens
     registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
     registerJobDefinition_schedulingPriority,
+    registerJobDefinition_eksProperties,
     registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
@@ -146,6 +148,7 @@ module Amazonka.Batch.Lens
     -- ** SubmitJob
     submitJob_tags,
     submitJob_timeout,
+    submitJob_eksPropertiesOverride,
     submitJob_dependsOn,
     submitJob_shareIdentifier,
     submitJob_schedulingPriorityOverride,
@@ -236,11 +239,14 @@ module Amazonka.Batch.Lens
     computeEnvironmentDetail_tags,
     computeEnvironmentDetail_type,
     computeEnvironmentDetail_ecsClusterArn,
+    computeEnvironmentDetail_containerOrchestrationType,
     computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_state,
+    computeEnvironmentDetail_uuid,
     computeEnvironmentDetail_status,
     computeEnvironmentDetail_serviceRole,
     computeEnvironmentDetail_updatePolicy,
+    computeEnvironmentDetail_eksConfiguration,
     computeEnvironmentDetail_computeResources,
     computeEnvironmentDetail_unmanagedvCpus,
     computeEnvironmentDetail_computeEnvironmentName,
@@ -368,7 +374,120 @@ module Amazonka.Batch.Lens
 
     -- ** Ec2Configuration
     ec2Configuration_imageIdOverride,
+    ec2Configuration_imageKubernetesVersion,
     ec2Configuration_imageType,
+
+    -- ** EksAttemptContainerDetail
+    eksAttemptContainerDetail_reason,
+    eksAttemptContainerDetail_exitCode,
+
+    -- ** EksAttemptDetail
+    eksAttemptDetail_containers,
+    eksAttemptDetail_statusReason,
+    eksAttemptDetail_podName,
+    eksAttemptDetail_startedAt,
+    eksAttemptDetail_nodeName,
+    eksAttemptDetail_stoppedAt,
+
+    -- ** EksConfiguration
+    eksConfiguration_eksClusterArn,
+    eksConfiguration_kubernetesNamespace,
+
+    -- ** EksContainer
+    eksContainer_name,
+    eksContainer_command,
+    eksContainer_imagePullPolicy,
+    eksContainer_securityContext,
+    eksContainer_resources,
+    eksContainer_args,
+    eksContainer_env,
+    eksContainer_volumeMounts,
+    eksContainer_image,
+
+    -- ** EksContainerDetail
+    eksContainerDetail_name,
+    eksContainerDetail_command,
+    eksContainerDetail_imagePullPolicy,
+    eksContainerDetail_securityContext,
+    eksContainerDetail_reason,
+    eksContainerDetail_exitCode,
+    eksContainerDetail_resources,
+    eksContainerDetail_args,
+    eksContainerDetail_env,
+    eksContainerDetail_image,
+    eksContainerDetail_volumeMounts,
+
+    -- ** EksContainerEnvironmentVariable
+    eksContainerEnvironmentVariable_value,
+    eksContainerEnvironmentVariable_name,
+
+    -- ** EksContainerOverride
+    eksContainerOverride_command,
+    eksContainerOverride_resources,
+    eksContainerOverride_args,
+    eksContainerOverride_env,
+    eksContainerOverride_image,
+
+    -- ** EksContainerResourceRequirements
+    eksContainerResourceRequirements_limits,
+    eksContainerResourceRequirements_requests,
+
+    -- ** EksContainerSecurityContext
+    eksContainerSecurityContext_readOnlyRootFilesystem,
+    eksContainerSecurityContext_runAsUser,
+    eksContainerSecurityContext_runAsGroup,
+    eksContainerSecurityContext_runAsNonRoot,
+    eksContainerSecurityContext_privileged,
+
+    -- ** EksContainerVolumeMount
+    eksContainerVolumeMount_name,
+    eksContainerVolumeMount_readOnly,
+    eksContainerVolumeMount_mountPath,
+
+    -- ** EksEmptyDir
+    eksEmptyDir_sizeLimit,
+    eksEmptyDir_medium,
+
+    -- ** EksHostPath
+    eksHostPath_path,
+
+    -- ** EksPodProperties
+    eksPodProperties_containers,
+    eksPodProperties_serviceAccountName,
+    eksPodProperties_volumes,
+    eksPodProperties_dnsPolicy,
+    eksPodProperties_hostNetwork,
+
+    -- ** EksPodPropertiesDetail
+    eksPodPropertiesDetail_containers,
+    eksPodPropertiesDetail_serviceAccountName,
+    eksPodPropertiesDetail_podName,
+    eksPodPropertiesDetail_volumes,
+    eksPodPropertiesDetail_nodeName,
+    eksPodPropertiesDetail_dnsPolicy,
+    eksPodPropertiesDetail_hostNetwork,
+
+    -- ** EksPodPropertiesOverride
+    eksPodPropertiesOverride_containers,
+
+    -- ** EksProperties
+    eksProperties_podProperties,
+
+    -- ** EksPropertiesDetail
+    eksPropertiesDetail_podProperties,
+
+    -- ** EksPropertiesOverride
+    eksPropertiesOverride_podProperties,
+
+    -- ** EksSecret
+    eksSecret_optional,
+    eksSecret_secretName,
+
+    -- ** EksVolume
+    eksVolume_hostPath,
+    eksVolume_emptyDir,
+    eksVolume_secret,
+    eksVolume_name,
 
     -- ** EvaluateOnExit
     evaluateOnExit_onReason,
@@ -393,10 +512,12 @@ module Amazonka.Batch.Lens
     jobDefinition_containerProperties,
     jobDefinition_retryStrategy,
     jobDefinition_platformCapabilities,
+    jobDefinition_containerOrchestrationType,
     jobDefinition_status,
     jobDefinition_propagateTags,
     jobDefinition_nodeProperties,
     jobDefinition_schedulingPriority,
+    jobDefinition_eksProperties,
     jobDefinition_parameters,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
@@ -412,6 +533,7 @@ module Amazonka.Batch.Lens
     jobDetail_timeout,
     jobDetail_dependsOn,
     jobDetail_shareIdentifier,
+    jobDetail_eksAttempts,
     jobDetail_retryStrategy,
     jobDetail_platformCapabilities,
     jobDetail_arrayProperties,
@@ -426,6 +548,7 @@ module Amazonka.Batch.Lens
     jobDetail_stoppedAt,
     jobDetail_jobArn,
     jobDetail_createdAt,
+    jobDetail_eksProperties,
     jobDetail_parameters,
     jobDetail_jobName,
     jobDetail_jobId,
@@ -609,6 +732,26 @@ import Amazonka.Batch.Types.Device
 import Amazonka.Batch.Types.EFSAuthorizationConfig
 import Amazonka.Batch.Types.EFSVolumeConfiguration
 import Amazonka.Batch.Types.Ec2Configuration
+import Amazonka.Batch.Types.EksAttemptContainerDetail
+import Amazonka.Batch.Types.EksAttemptDetail
+import Amazonka.Batch.Types.EksConfiguration
+import Amazonka.Batch.Types.EksContainer
+import Amazonka.Batch.Types.EksContainerDetail
+import Amazonka.Batch.Types.EksContainerEnvironmentVariable
+import Amazonka.Batch.Types.EksContainerOverride
+import Amazonka.Batch.Types.EksContainerResourceRequirements
+import Amazonka.Batch.Types.EksContainerSecurityContext
+import Amazonka.Batch.Types.EksContainerVolumeMount
+import Amazonka.Batch.Types.EksEmptyDir
+import Amazonka.Batch.Types.EksHostPath
+import Amazonka.Batch.Types.EksPodProperties
+import Amazonka.Batch.Types.EksPodPropertiesDetail
+import Amazonka.Batch.Types.EksPodPropertiesOverride
+import Amazonka.Batch.Types.EksProperties
+import Amazonka.Batch.Types.EksPropertiesDetail
+import Amazonka.Batch.Types.EksPropertiesOverride
+import Amazonka.Batch.Types.EksSecret
+import Amazonka.Batch.Types.EksVolume
 import Amazonka.Batch.Types.EvaluateOnExit
 import Amazonka.Batch.Types.FairsharePolicy
 import Amazonka.Batch.Types.FargatePlatformConfiguration

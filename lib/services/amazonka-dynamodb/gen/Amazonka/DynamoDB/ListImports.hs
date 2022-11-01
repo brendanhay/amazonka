@@ -105,7 +105,8 @@ listImports_pageSize = Lens.lens (\ListImports' {pageSize} -> pageSize) (\s@List
 
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

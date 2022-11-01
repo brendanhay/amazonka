@@ -234,7 +234,8 @@ updateLedger_name = Lens.lens (\UpdateLedger' {name} -> name) (\s@UpdateLedger' 
 
 instance Core.AWSRequest UpdateLedger where
   type AWSResponse UpdateLedger = UpdateLedgerResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

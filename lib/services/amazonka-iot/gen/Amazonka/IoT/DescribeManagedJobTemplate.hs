@@ -99,7 +99,8 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
   type
     AWSResponse DescribeManagedJobTemplate =
       DescribeManagedJobTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

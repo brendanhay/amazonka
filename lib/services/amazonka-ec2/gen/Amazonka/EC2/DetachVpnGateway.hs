@@ -116,7 +116,8 @@ instance Core.AWSRequest DetachVpnGateway where
   type
     AWSResponse DetachVpnGateway =
       DetachVpnGatewayResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DetachVpnGatewayResponse'
 

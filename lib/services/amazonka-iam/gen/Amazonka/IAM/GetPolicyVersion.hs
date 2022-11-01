@@ -146,7 +146,8 @@ instance Core.AWSRequest GetPolicyVersion where
   type
     AWSResponse GetPolicyVersion =
       GetPolicyVersionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPolicyVersionResult"

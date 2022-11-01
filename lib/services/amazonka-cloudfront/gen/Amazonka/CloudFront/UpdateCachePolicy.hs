@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateCachePolicy where
   type
     AWSResponse UpdateCachePolicy =
       UpdateCachePolicyResponse
-  request = Request.putXML defaultService
+  service _ = defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->

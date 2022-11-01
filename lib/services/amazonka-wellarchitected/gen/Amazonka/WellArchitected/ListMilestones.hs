@@ -100,7 +100,8 @@ instance Core.AWSRequest ListMilestones where
   type
     AWSResponse ListMilestones =
       ListMilestonesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

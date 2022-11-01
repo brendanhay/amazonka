@@ -82,7 +82,8 @@ deleteLabel_name = Lens.lens (\DeleteLabel' {name} -> name) (\s@DeleteLabel' {} 
 
 instance Core.AWSRequest DeleteLabel where
   type AWSResponse DeleteLabel = DeleteLabelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

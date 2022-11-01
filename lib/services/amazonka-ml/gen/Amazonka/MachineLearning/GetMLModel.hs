@@ -122,7 +122,8 @@ getMLModel_mLModelId = Lens.lens (\GetMLModel' {mLModelId} -> mLModelId) (\s@Get
 
 instance Core.AWSRequest GetMLModel where
   type AWSResponse GetMLModel = GetMLModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

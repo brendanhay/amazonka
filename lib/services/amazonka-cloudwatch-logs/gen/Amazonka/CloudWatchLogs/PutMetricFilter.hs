@@ -139,7 +139,8 @@ instance Core.AWSRequest PutMetricFilter where
   type
     AWSResponse PutMetricFilter =
       PutMetricFilterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutMetricFilterResponse'
 

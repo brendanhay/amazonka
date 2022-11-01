@@ -190,7 +190,8 @@ instance Core.AWSRequest ChangeResourceRecordSets where
   type
     AWSResponse ChangeResourceRecordSets =
       ChangeResourceRecordSetsResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

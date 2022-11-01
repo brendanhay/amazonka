@@ -105,7 +105,8 @@ instance Core.AWSRequest GetObjectInformation where
   type
     AWSResponse GetObjectInformation =
       GetObjectInformationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

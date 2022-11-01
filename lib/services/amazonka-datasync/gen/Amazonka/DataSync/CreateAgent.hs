@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Activates an DataSync agent that you have deployed on your host. The
--- activation process associates your agent with your account. In the
--- activation process, you specify information such as the Amazon Web
--- Services Region that you want to activate the agent in. You activate the
--- agent in the Amazon Web Services Region where your target locations (in
--- Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon
--- Web Services Region.
+-- Activates an DataSync agent that you have deployed in your storage
+-- environment. The activation process associates your agent with your
+-- account. In the activation process, you specify information such as the
+-- Amazon Web Services Region that you want to activate the agent in. You
+-- activate the agent in the Amazon Web Services Region where your target
+-- locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in
+-- this Amazon Web Services Region.
 --
 -- You can activate the agent in a VPC (virtual private cloud) or provide
 -- the agent access to a VPC endpoint so you can run tasks without going
@@ -250,7 +250,8 @@ createAgent_activationKey = Lens.lens (\CreateAgent' {activationKey} -> activati
 
 instance Core.AWSRequest CreateAgent where
   type AWSResponse CreateAgent = CreateAgentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateApplicationVersion where
   type
     AWSResponse UpdateApplicationVersion =
       ApplicationVersionDescriptionMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationVersionResult"

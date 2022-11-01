@@ -183,7 +183,8 @@ instance Core.AWSRequest CreateMedicalVocabulary where
   type
     AWSResponse CreateMedicalVocabulary =
       CreateMedicalVocabularyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

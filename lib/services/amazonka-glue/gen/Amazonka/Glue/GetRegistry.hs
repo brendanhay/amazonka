@@ -83,7 +83,8 @@ getRegistry_registryId = Lens.lens (\GetRegistry' {registryId} -> registryId) (\
 
 instance Core.AWSRequest GetRegistry where
   type AWSResponse GetRegistry = GetRegistryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

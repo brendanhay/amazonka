@@ -835,7 +835,8 @@ instance Core.AWSRequest ModifyCluster where
   type
     AWSResponse ModifyCluster =
       ModifyClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterResult"

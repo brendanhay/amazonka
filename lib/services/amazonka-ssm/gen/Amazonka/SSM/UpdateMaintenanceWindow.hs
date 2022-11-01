@@ -292,7 +292,8 @@ instance Core.AWSRequest UpdateMaintenanceWindow where
   type
     AWSResponse UpdateMaintenanceWindow =
       UpdateMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

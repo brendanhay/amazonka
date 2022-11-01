@@ -62,7 +62,8 @@ instance Core.AWSRequest ResetAllResourceLogLevels where
   type
     AWSResponse ResetAllResourceLogLevels =
       ResetAllResourceLogLevelsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

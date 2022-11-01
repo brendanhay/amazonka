@@ -36,8 +36,7 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
     fromEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | A unique string that identifies the predictive inbox placement test.
     reportId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the predictive inbox placement test was created,
-    -- in Unix time format.
+    -- | The date and time when the predictive inbox placement test was created.
     createDate :: Prelude.Maybe Core.POSIX,
     -- | The status of the predictive inbox placement test. If the status is
     -- @IN_PROGRESS@, then the predictive inbox placement test is currently
@@ -67,8 +66,7 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
 --
 -- 'reportId', 'deliverabilityTestReport_reportId' - A unique string that identifies the predictive inbox placement test.
 --
--- 'createDate', 'deliverabilityTestReport_createDate' - The date and time when the predictive inbox placement test was created,
--- in Unix time format.
+-- 'createDate', 'deliverabilityTestReport_createDate' - The date and time when the predictive inbox placement test was created.
 --
 -- 'deliverabilityTestStatus', 'deliverabilityTestReport_deliverabilityTestStatus' - The status of the predictive inbox placement test. If the status is
 -- @IN_PROGRESS@, then the predictive inbox placement test is currently
@@ -105,8 +103,7 @@ deliverabilityTestReport_fromEmailAddress = Lens.lens (\DeliverabilityTestReport
 deliverabilityTestReport_reportId :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
 deliverabilityTestReport_reportId = Lens.lens (\DeliverabilityTestReport' {reportId} -> reportId) (\s@DeliverabilityTestReport' {} a -> s {reportId = a} :: DeliverabilityTestReport)
 
--- | The date and time when the predictive inbox placement test was created,
--- in Unix time format.
+-- | The date and time when the predictive inbox placement test was created.
 deliverabilityTestReport_createDate :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.UTCTime)
 deliverabilityTestReport_createDate = Lens.lens (\DeliverabilityTestReport' {createDate} -> createDate) (\s@DeliverabilityTestReport' {} a -> s {createDate = a} :: DeliverabilityTestReport) Prelude.. Lens.mapping Core._Time
 

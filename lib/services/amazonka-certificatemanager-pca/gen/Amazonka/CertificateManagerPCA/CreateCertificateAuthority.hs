@@ -51,6 +51,7 @@ module Amazonka.CertificateManagerPCA.CreateCertificateAuthority
     -- * Request Lenses
     createCertificateAuthority_tags,
     createCertificateAuthority_keyStorageSecurityStandard,
+    createCertificateAuthority_usageMode,
     createCertificateAuthority_idempotencyToken,
     createCertificateAuthority_revocationConfiguration,
     createCertificateAuthority_certificateAuthorityConfiguration,
@@ -98,6 +99,13 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- @InvalidArgsException@ with the message, \"A certificate authority
     -- cannot be created in this region with the specified security standard.\"
     keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
+    -- | Specifies whether the CA issues general-purpose certificates that
+    -- typically require a revocation mechanism, or short-lived certificates
+    -- that may optionally omit revocation because they expire quickly.
+    -- Short-lived certificate validity is limited to seven days.
+    --
+    -- The default value is GENERAL_PURPOSE.
+    usageMode :: Prelude.Maybe CertificateAuthorityUsageMode,
     -- | Custom string that can be used to distinguish between calls to the
     -- __CreateCertificateAuthority__ action. Idempotency tokens for
     -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
@@ -155,6 +163,13 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"
 --
+-- 'usageMode', 'createCertificateAuthority_usageMode' - Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
+--
 -- 'idempotencyToken', 'createCertificateAuthority_idempotencyToken' - Custom string that can be used to distinguish between calls to the
 -- __CreateCertificateAuthority__ action. Idempotency tokens for
 -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
@@ -189,6 +204,7 @@ newCreateCertificateAuthority
     CreateCertificateAuthority'
       { tags = Prelude.Nothing,
         keyStorageSecurityStandard = Prelude.Nothing,
+        usageMode = Prelude.Nothing,
         idempotencyToken = Prelude.Nothing,
         revocationConfiguration = Prelude.Nothing,
         certificateAuthorityConfiguration =
@@ -223,6 +239,15 @@ createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags}
 -- cannot be created in this region with the specified security standard.\"
 createCertificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
 createCertificateAuthority_keyStorageSecurityStandard = Lens.lens (\CreateCertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CreateCertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CreateCertificateAuthority)
+
+-- | Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
+createCertificateAuthority_usageMode :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe CertificateAuthorityUsageMode)
+createCertificateAuthority_usageMode = Lens.lens (\CreateCertificateAuthority' {usageMode} -> usageMode) (\s@CreateCertificateAuthority' {} a -> s {usageMode = a} :: CreateCertificateAuthority)
 
 -- | Custom string that can be used to distinguish between calls to the
 -- __CreateCertificateAuthority__ action. Idempotency tokens for
@@ -259,7 +284,8 @@ instance Core.AWSRequest CreateCertificateAuthority where
   type
     AWSResponse CreateCertificateAuthority =
       CreateCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -272,6 +298,7 @@ instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` keyStorageSecurityStandard
+      `Prelude.hashWithSalt` usageMode
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` revocationConfiguration
       `Prelude.hashWithSalt` certificateAuthorityConfiguration
@@ -281,6 +308,7 @@ instance Prelude.NFData CreateCertificateAuthority where
   rnf CreateCertificateAuthority' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
+      `Prelude.seq` Prelude.rnf usageMode
       `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf revocationConfiguration
       `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
@@ -308,6 +336,7 @@ instance Core.ToJSON CreateCertificateAuthority where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("KeyStorageSecurityStandard" Core..=)
               Prelude.<$> keyStorageSecurityStandard,
+            ("UsageMode" Core..=) Prelude.<$> usageMode,
             ("IdempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
             ("RevocationConfiguration" Core..=)

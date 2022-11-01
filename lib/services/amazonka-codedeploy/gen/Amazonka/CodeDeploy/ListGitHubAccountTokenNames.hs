@@ -108,7 +108,8 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
   type
     AWSResponse ListGitHubAccountTokenNames =
       ListGitHubAccountTokenNamesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

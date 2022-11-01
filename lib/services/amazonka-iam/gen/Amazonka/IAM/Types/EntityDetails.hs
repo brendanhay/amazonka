@@ -40,7 +40,7 @@ data EntityDetails = EntityDetails'
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     lastAuthenticated :: Prelude.Maybe Core.ISO8601,
     -- | The @EntityInfo@ object that contains details about the entity (user or
     -- role).
@@ -63,7 +63,7 @@ data EntityDetails = EntityDetails'
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
 -- 'entityInfo', 'entityDetails_entityInfo' - The @EntityInfo@ object that contains details about the entity (user or
 -- role).
@@ -84,7 +84,7 @@ newEntityDetails pEntityInfo_ =
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 entityDetails_lastAuthenticated :: Lens.Lens' EntityDetails (Prelude.Maybe Prelude.UTCTime)
 entityDetails_lastAuthenticated = Lens.lens (\EntityDetails' {lastAuthenticated} -> lastAuthenticated) (\s@EntityDetails' {} a -> s {lastAuthenticated = a} :: EntityDetails) Prelude.. Lens.mapping Core._Time
 

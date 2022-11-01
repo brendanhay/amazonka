@@ -413,7 +413,8 @@ updateTrail_name = Lens.lens (\UpdateTrail' {name} -> name) (\s@UpdateTrail' {} 
 
 instance Core.AWSRequest UpdateTrail where
   type AWSResponse UpdateTrail = UpdateTrailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

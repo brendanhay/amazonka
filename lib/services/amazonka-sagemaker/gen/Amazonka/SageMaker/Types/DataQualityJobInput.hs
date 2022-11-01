@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.DataQualityJobInput where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
 
 -- | The input for the data quality monitoring job. Currently endpoints are
@@ -29,7 +30,9 @@ import Amazonka.SageMaker.Types.EndpointInput
 --
 -- /See:/ 'newDataQualityJobInput' smart constructor.
 data DataQualityJobInput = DataQualityJobInput'
-  { endpointInput :: EndpointInput
+  { endpointInput :: Prelude.Maybe EndpointInput,
+    -- | Input object for the batch transform job.
+    batchTransformInput :: Prelude.Maybe BatchTransformInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,19 +45,24 @@ data DataQualityJobInput = DataQualityJobInput'
 -- for backwards compatibility:
 --
 -- 'endpointInput', 'dataQualityJobInput_endpointInput' - Undocumented member.
+--
+-- 'batchTransformInput', 'dataQualityJobInput_batchTransformInput' - Input object for the batch transform job.
 newDataQualityJobInput ::
-  -- | 'endpointInput'
-  EndpointInput ->
   DataQualityJobInput
-newDataQualityJobInput pEndpointInput_ =
+newDataQualityJobInput =
   DataQualityJobInput'
     { endpointInput =
-        pEndpointInput_
+        Prelude.Nothing,
+      batchTransformInput = Prelude.Nothing
     }
 
 -- | Undocumented member.
-dataQualityJobInput_endpointInput :: Lens.Lens' DataQualityJobInput EndpointInput
+dataQualityJobInput_endpointInput :: Lens.Lens' DataQualityJobInput (Prelude.Maybe EndpointInput)
 dataQualityJobInput_endpointInput = Lens.lens (\DataQualityJobInput' {endpointInput} -> endpointInput) (\s@DataQualityJobInput' {} a -> s {endpointInput = a} :: DataQualityJobInput)
+
+-- | Input object for the batch transform job.
+dataQualityJobInput_batchTransformInput :: Lens.Lens' DataQualityJobInput (Prelude.Maybe BatchTransformInput)
+dataQualityJobInput_batchTransformInput = Lens.lens (\DataQualityJobInput' {batchTransformInput} -> batchTransformInput) (\s@DataQualityJobInput' {} a -> s {batchTransformInput = a} :: DataQualityJobInput)
 
 instance Core.FromJSON DataQualityJobInput where
   parseJSON =
@@ -62,22 +70,26 @@ instance Core.FromJSON DataQualityJobInput where
       "DataQualityJobInput"
       ( \x ->
           DataQualityJobInput'
-            Prelude.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..:? "EndpointInput")
+            Prelude.<*> (x Core..:? "BatchTransformInput")
       )
 
 instance Prelude.Hashable DataQualityJobInput where
   hashWithSalt _salt DataQualityJobInput' {..} =
     _salt `Prelude.hashWithSalt` endpointInput
+      `Prelude.hashWithSalt` batchTransformInput
 
 instance Prelude.NFData DataQualityJobInput where
   rnf DataQualityJobInput' {..} =
     Prelude.rnf endpointInput
+      `Prelude.seq` Prelude.rnf batchTransformInput
 
 instance Core.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Core..= endpointInput)
+          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Core..=)
+              Prelude.<$> batchTransformInput
           ]
       )

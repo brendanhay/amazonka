@@ -88,7 +88,8 @@ instance Core.AWSRequest DeleteLogStream where
   type
     AWSResponse DeleteLogStream =
       DeleteLogStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLogStreamResponse'
 

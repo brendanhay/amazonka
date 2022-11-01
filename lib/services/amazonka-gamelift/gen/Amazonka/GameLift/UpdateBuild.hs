@@ -120,7 +120,8 @@ updateBuild_buildId = Lens.lens (\UpdateBuild' {buildId} -> buildId) (\s@UpdateB
 
 instance Core.AWSRequest UpdateBuild where
   type AWSResponse UpdateBuild = UpdateBuildResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

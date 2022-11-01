@@ -189,7 +189,8 @@ instance Core.AWSRequest UpdateByteMatchSet where
   type
     AWSResponse UpdateByteMatchSet =
       UpdateByteMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeAccountLimits where
   type
     AWSResponse DescribeAccountLimits =
       DescribeAccountLimitsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAccountLimitsResult"

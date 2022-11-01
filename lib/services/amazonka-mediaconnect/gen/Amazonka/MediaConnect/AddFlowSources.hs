@@ -92,7 +92,8 @@ instance Core.AWSRequest AddFlowSources where
   type
     AWSResponse AddFlowSources =
       AddFlowSourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

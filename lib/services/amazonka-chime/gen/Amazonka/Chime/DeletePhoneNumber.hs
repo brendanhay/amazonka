@@ -78,7 +78,8 @@ instance Core.AWSRequest DeletePhoneNumber where
   type
     AWSResponse DeletePhoneNumber =
       DeletePhoneNumberResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePhoneNumberResponse'
 

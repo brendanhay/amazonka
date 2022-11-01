@@ -96,7 +96,8 @@ getBotAlias_botName = Lens.lens (\GetBotAlias' {botName} -> botName) (\s@GetBotA
 
 instance Core.AWSRequest GetBotAlias where
   type AWSResponse GetBotAlias = GetBotAliasResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

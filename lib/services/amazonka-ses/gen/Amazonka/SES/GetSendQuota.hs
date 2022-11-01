@@ -63,7 +63,8 @@ newGetSendQuota = GetSendQuota'
 
 instance Core.AWSRequest GetSendQuota where
   type AWSResponse GetSendQuota = GetSendQuotaResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSendQuotaResult"

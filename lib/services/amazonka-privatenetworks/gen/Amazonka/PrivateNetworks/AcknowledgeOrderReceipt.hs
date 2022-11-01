@@ -77,7 +77,8 @@ instance Core.AWSRequest AcknowledgeOrderReceipt where
   type
     AWSResponse AcknowledgeOrderReceipt =
       AcknowledgeOrderReceiptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

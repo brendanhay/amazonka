@@ -173,7 +173,8 @@ instance Core.AWSRequest DescribeAffectedEntities where
   type
     AWSResponse DescribeAffectedEntities =
       DescribeAffectedEntitiesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

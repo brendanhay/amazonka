@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateQuickConnect where
   type
     AWSResponse CreateQuickConnect =
       CreateQuickConnectResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

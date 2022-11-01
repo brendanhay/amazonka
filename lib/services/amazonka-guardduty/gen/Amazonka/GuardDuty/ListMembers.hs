@@ -62,7 +62,10 @@ data ListMembers = ListMembers'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to only return associated members or to return all
     -- members (including members who haven\'t been invited yet or have been
-    -- disassociated).
+    -- disassociated). Member accounts must have been previously associated
+    -- with the GuardDuty administrator account using
+    -- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html Create Members>
+    -- .
     onlyAssociated :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 50. The maximum value is 50.
@@ -87,7 +90,10 @@ data ListMembers = ListMembers'
 --
 -- 'onlyAssociated', 'listMembers_onlyAssociated' - Specifies whether to only return associated members or to return all
 -- members (including members who haven\'t been invited yet or have been
--- disassociated).
+-- disassociated). Member accounts must have been previously associated
+-- with the GuardDuty administrator account using
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html Create Members>
+-- .
 --
 -- 'maxResults', 'listMembers_maxResults' - You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 50. The maximum value is 50.
@@ -114,7 +120,10 @@ listMembers_nextToken = Lens.lens (\ListMembers' {nextToken} -> nextToken) (\s@L
 
 -- | Specifies whether to only return associated members or to return all
 -- members (including members who haven\'t been invited yet or have been
--- disassociated).
+-- disassociated). Member accounts must have been previously associated
+-- with the GuardDuty administrator account using
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html Create Members>
+-- .
 listMembers_onlyAssociated :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Text)
 listMembers_onlyAssociated = Lens.lens (\ListMembers' {onlyAssociated} -> onlyAssociated) (\s@ListMembers' {} a -> s {onlyAssociated = a} :: ListMembers)
 
@@ -148,7 +157,8 @@ instance Core.AWSPager ListMembers where
 
 instance Core.AWSRequest ListMembers where
   type AWSResponse ListMembers = ListMembersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

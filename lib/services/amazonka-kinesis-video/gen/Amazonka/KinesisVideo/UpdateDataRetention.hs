@@ -164,7 +164,8 @@ instance Core.AWSRequest UpdateDataRetention where
   type
     AWSResponse UpdateDataRetention =
       UpdateDataRetentionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

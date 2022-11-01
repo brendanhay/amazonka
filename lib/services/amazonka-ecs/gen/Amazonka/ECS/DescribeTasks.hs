@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeTasks where
   type
     AWSResponse DescribeTasks =
       DescribeTasksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

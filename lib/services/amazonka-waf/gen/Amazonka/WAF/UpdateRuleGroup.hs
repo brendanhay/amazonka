@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateRuleGroup where
   type
     AWSResponse UpdateRuleGroup =
       UpdateRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

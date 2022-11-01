@@ -43,6 +43,7 @@ module Amazonka.Batch.SubmitJob
     -- * Request Lenses
     submitJob_tags,
     submitJob_timeout,
+    submitJob_eksPropertiesOverride,
     submitJob_dependsOn,
     submitJob_shareIdentifier,
     submitJob_schedulingPriorityOverride,
@@ -95,6 +96,10 @@ data SubmitJob = SubmitJob'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     timeout :: Prelude.Maybe JobTimeout,
+    -- | An object that can only be specified for jobs that are run on Amazon EKS
+    -- resources with various properties that override defaults for the job
+    -- definition.
+    eksPropertiesOverride :: Prelude.Maybe EksPropertiesOverride,
     -- | A list of dependencies for the job. A job can depend upon a maximum of
     -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
     -- specifying a job ID for array jobs so that each child array job
@@ -103,14 +108,14 @@ data SubmitJob = SubmitJob'
     -- each index child of this job must wait for the corresponding index child
     -- of each dependency to complete before it can begin.
     dependsOn :: Prelude.Maybe [JobDependency],
-    -- | The share identifier for the job. If the job queue does not have a
+    -- | The share identifier for the job. If the job queue doesn\'t have a
     -- scheduling policy, then this parameter must not be specified. If the job
     -- queue has a scheduling policy, then this parameter must be specified.
     shareIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The scheduling priority for the job. This will only affect jobs in job
+    -- | The scheduling priority for the job. This only affects jobs in job
     -- queues with a fair share policy. Jobs with a higher scheduling priority
-    -- will be scheduled before jobs with a lower scheduling priority. This
-    -- will override any scheduling priority in the job definition.
+    -- are scheduled before jobs with a lower scheduling priority. This
+    -- overrides any scheduling priority in the job definition.
     --
     -- The minimum supported value is 0 and the maximum supported value is
     -- 9999.
@@ -140,13 +145,13 @@ data SubmitJob = SubmitJob'
     -- When specified, this overrides the tag propagation setting in the job
     -- definition.
     propagateTags :: Prelude.Maybe Prelude.Bool,
-    -- | A list of container overrides in the JSON format that specify the name
-    -- of a container in the specified job definition and the overrides it
-    -- receives. You can override the default command for a container, which is
-    -- specified in the job definition or the Docker image, with a @command@
-    -- override. You can also override existing environment variables on a
-    -- container or add new environment variables to it with an @environment@
-    -- override.
+    -- | An object with various properties that override the defaults for the job
+    -- definition that specify the name of a container in the specified job
+    -- definition and the overrides it should receive. You can override the
+    -- default command for a container, which is specified in the job
+    -- definition or the Docker image, with a @command@ override. You can also
+    -- override existing environment variables on a container or add new
+    -- environment variables to it with an @environment@ override.
     containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | Additional parameters passed to the job that replace parameter
     -- substitution placeholders that are set in the job definition. Parameters
@@ -193,6 +198,10 @@ data SubmitJob = SubmitJob'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
+-- 'eksPropertiesOverride', 'submitJob_eksPropertiesOverride' - An object that can only be specified for jobs that are run on Amazon EKS
+-- resources with various properties that override defaults for the job
+-- definition.
+--
 -- 'dependsOn', 'submitJob_dependsOn' - A list of dependencies for the job. A job can depend upon a maximum of
 -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
 -- specifying a job ID for array jobs so that each child array job
@@ -201,14 +210,14 @@ data SubmitJob = SubmitJob'
 -- each index child of this job must wait for the corresponding index child
 -- of each dependency to complete before it can begin.
 --
--- 'shareIdentifier', 'submitJob_shareIdentifier' - The share identifier for the job. If the job queue does not have a
+-- 'shareIdentifier', 'submitJob_shareIdentifier' - The share identifier for the job. If the job queue doesn\'t have a
 -- scheduling policy, then this parameter must not be specified. If the job
 -- queue has a scheduling policy, then this parameter must be specified.
 --
--- 'schedulingPriorityOverride', 'submitJob_schedulingPriorityOverride' - The scheduling priority for the job. This will only affect jobs in job
+-- 'schedulingPriorityOverride', 'submitJob_schedulingPriorityOverride' - The scheduling priority for the job. This only affects jobs in job
 -- queues with a fair share policy. Jobs with a higher scheduling priority
--- will be scheduled before jobs with a lower scheduling priority. This
--- will override any scheduling priority in the job definition.
+-- are scheduled before jobs with a lower scheduling priority. This
+-- overrides any scheduling priority in the job definition.
 --
 -- The minimum supported value is 0 and the maximum supported value is
 -- 9999.
@@ -238,13 +247,13 @@ data SubmitJob = SubmitJob'
 -- When specified, this overrides the tag propagation setting in the job
 -- definition.
 --
--- 'containerOverrides', 'submitJob_containerOverrides' - A list of container overrides in the JSON format that specify the name
--- of a container in the specified job definition and the overrides it
--- receives. You can override the default command for a container, which is
--- specified in the job definition or the Docker image, with a @command@
--- override. You can also override existing environment variables on a
--- container or add new environment variables to it with an @environment@
--- override.
+-- 'containerOverrides', 'submitJob_containerOverrides' - An object with various properties that override the defaults for the job
+-- definition that specify the name of a container in the specified job
+-- definition and the overrides it should receive. You can override the
+-- default command for a container, which is specified in the job
+-- definition or the Docker image, with a @command@ override. You can also
+-- override existing environment variables on a container or add new
+-- environment variables to it with an @environment@ override.
 --
 -- 'parameters', 'submitJob_parameters' - Additional parameters passed to the job that replace parameter
 -- substitution placeholders that are set in the job definition. Parameters
@@ -275,6 +284,7 @@ newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
   SubmitJob'
     { tags = Prelude.Nothing,
       timeout = Prelude.Nothing,
+      eksPropertiesOverride = Prelude.Nothing,
       dependsOn = Prelude.Nothing,
       shareIdentifier = Prelude.Nothing,
       schedulingPriorityOverride = Prelude.Nothing,
@@ -309,6 +319,12 @@ submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s
 submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
 submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
 
+-- | An object that can only be specified for jobs that are run on Amazon EKS
+-- resources with various properties that override defaults for the job
+-- definition.
+submitJob_eksPropertiesOverride :: Lens.Lens' SubmitJob (Prelude.Maybe EksPropertiesOverride)
+submitJob_eksPropertiesOverride = Lens.lens (\SubmitJob' {eksPropertiesOverride} -> eksPropertiesOverride) (\s@SubmitJob' {} a -> s {eksPropertiesOverride = a} :: SubmitJob)
+
 -- | A list of dependencies for the job. A job can depend upon a maximum of
 -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
 -- specifying a job ID for array jobs so that each child array job
@@ -319,16 +335,16 @@ submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' 
 submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
 submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The share identifier for the job. If the job queue does not have a
+-- | The share identifier for the job. If the job queue doesn\'t have a
 -- scheduling policy, then this parameter must not be specified. If the job
 -- queue has a scheduling policy, then this parameter must be specified.
 submitJob_shareIdentifier :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Text)
 submitJob_shareIdentifier = Lens.lens (\SubmitJob' {shareIdentifier} -> shareIdentifier) (\s@SubmitJob' {} a -> s {shareIdentifier = a} :: SubmitJob)
 
--- | The scheduling priority for the job. This will only affect jobs in job
+-- | The scheduling priority for the job. This only affects jobs in job
 -- queues with a fair share policy. Jobs with a higher scheduling priority
--- will be scheduled before jobs with a lower scheduling priority. This
--- will override any scheduling priority in the job definition.
+-- are scheduled before jobs with a lower scheduling priority. This
+-- overrides any scheduling priority in the job definition.
 --
 -- The minimum supported value is 0 and the maximum supported value is
 -- 9999.
@@ -368,13 +384,13 @@ submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayPro
 submitJob_propagateTags :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Bool)
 submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTags) (\s@SubmitJob' {} a -> s {propagateTags = a} :: SubmitJob)
 
--- | A list of container overrides in the JSON format that specify the name
--- of a container in the specified job definition and the overrides it
--- receives. You can override the default command for a container, which is
--- specified in the job definition or the Docker image, with a @command@
--- override. You can also override existing environment variables on a
--- container or add new environment variables to it with an @environment@
--- override.
+-- | An object with various properties that override the defaults for the job
+-- definition that specify the name of a container in the specified job
+-- definition and the overrides it should receive. You can override the
+-- default command for a container, which is specified in the job
+-- definition or the Docker image, with a @command@ override. You can also
+-- override existing environment variables on a container or add new
+-- environment variables to it with an @environment@ override.
 submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
 submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
 
@@ -406,7 +422,8 @@ submitJob_jobDefinition = Lens.lens (\SubmitJob' {jobDefinition} -> jobDefinitio
 
 instance Core.AWSRequest SubmitJob where
   type AWSResponse SubmitJob = SubmitJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -421,6 +438,7 @@ instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` eksPropertiesOverride
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` shareIdentifier
       `Prelude.hashWithSalt` schedulingPriorityOverride
@@ -438,6 +456,7 @@ instance Prelude.NFData SubmitJob where
   rnf SubmitJob' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf eksPropertiesOverride
       `Prelude.seq` Prelude.rnf dependsOn
       `Prelude.seq` Prelude.rnf shareIdentifier
       `Prelude.seq` Prelude.rnf schedulingPriorityOverride
@@ -468,6 +487,8 @@ instance Core.ToJSON SubmitJob where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("timeout" Core..=) Prelude.<$> timeout,
+            ("eksPropertiesOverride" Core..=)
+              Prelude.<$> eksPropertiesOverride,
             ("dependsOn" Core..=) Prelude.<$> dependsOn,
             ("shareIdentifier" Core..=)
               Prelude.<$> shareIdentifier,

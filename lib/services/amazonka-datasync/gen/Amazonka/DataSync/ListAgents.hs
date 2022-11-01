@@ -123,7 +123,8 @@ instance Core.AWSPager ListAgents where
 
 instance Core.AWSRequest ListAgents where
   type AWSResponse ListAgents = ListAgentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

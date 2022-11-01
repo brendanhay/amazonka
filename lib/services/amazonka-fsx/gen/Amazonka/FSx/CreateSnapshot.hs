@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateSnapshot where
   type
     AWSResponse CreateSnapshot =
       CreateSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

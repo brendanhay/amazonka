@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeVirtualRouter where
   type
     AWSResponse DescribeVirtualRouter =
       DescribeVirtualRouterResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

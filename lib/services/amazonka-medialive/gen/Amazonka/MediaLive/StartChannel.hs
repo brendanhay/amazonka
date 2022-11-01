@@ -94,7 +94,8 @@ startChannel_channelId = Lens.lens (\StartChannel' {channelId} -> channelId) (\s
 
 instance Core.AWSRequest StartChannel where
   type AWSResponse StartChannel = StartChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

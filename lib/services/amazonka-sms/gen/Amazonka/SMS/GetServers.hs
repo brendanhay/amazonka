@@ -128,7 +128,8 @@ instance Core.AWSPager GetServers where
 
 instance Core.AWSRequest GetServers where
   type AWSResponse GetServers = GetServersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest GetCoreNetwork where
   type
     AWSResponse GetCoreNetwork =
       GetCoreNetworkResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

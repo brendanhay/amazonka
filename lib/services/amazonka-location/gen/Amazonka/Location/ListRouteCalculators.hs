@@ -124,7 +124,8 @@ instance Core.AWSRequest ListRouteCalculators where
   type
     AWSResponse ListRouteCalculators =
       ListRouteCalculatorsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

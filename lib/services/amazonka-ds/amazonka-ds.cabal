@@ -77,6 +77,7 @@ library
     Amazonka.DirectoryService.DescribeSharedDirectories
     Amazonka.DirectoryService.DescribeSnapshots
     Amazonka.DirectoryService.DescribeTrusts
+    Amazonka.DirectoryService.DescribeUpdateDirectory
     Amazonka.DirectoryService.DisableClientAuthentication
     Amazonka.DirectoryService.DisableLDAPS
     Amazonka.DirectoryService.DisableRadius
@@ -136,6 +137,8 @@ library
     Amazonka.DirectoryService.Types.LDAPSStatus
     Amazonka.DirectoryService.Types.LDAPSType
     Amazonka.DirectoryService.Types.LogSubscription
+    Amazonka.DirectoryService.Types.OSUpdateSettings
+    Amazonka.DirectoryService.Types.OSVersion
     Amazonka.DirectoryService.Types.OwnerDirectoryDescription
     Amazonka.DirectoryService.Types.RadiusAuthenticationProtocol
     Amazonka.DirectoryService.Types.RadiusSettings
@@ -165,8 +168,13 @@ library
     Amazonka.DirectoryService.Types.TrustState
     Amazonka.DirectoryService.Types.TrustType
     Amazonka.DirectoryService.Types.UnshareTarget
+    Amazonka.DirectoryService.Types.UpdateInfoEntry
+    Amazonka.DirectoryService.Types.UpdateStatus
+    Amazonka.DirectoryService.Types.UpdateType
+    Amazonka.DirectoryService.Types.UpdateValue
     Amazonka.DirectoryService.UnshareDirectory
     Amazonka.DirectoryService.UpdateConditionalForwarder
+    Amazonka.DirectoryService.UpdateDirectorySetup
     Amazonka.DirectoryService.UpdateNumberOfDomainControllers
     Amazonka.DirectoryService.UpdateRadius
     Amazonka.DirectoryService.UpdateSettings

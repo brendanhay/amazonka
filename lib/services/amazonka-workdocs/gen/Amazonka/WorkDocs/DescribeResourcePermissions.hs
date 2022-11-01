@@ -151,7 +151,8 @@ instance Core.AWSRequest DescribeResourcePermissions where
   type
     AWSResponse DescribeResourcePermissions =
       DescribeResourcePermissionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -199,7 +199,8 @@ instance Core.AWSRequest CreateLocationEfs where
   type
     AWSResponse CreateLocationEfs =
       CreateLocationEfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

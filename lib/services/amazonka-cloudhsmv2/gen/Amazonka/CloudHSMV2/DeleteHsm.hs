@@ -119,7 +119,8 @@ deleteHsm_clusterId = Lens.lens (\DeleteHsm' {clusterId} -> clusterId) (\s@Delet
 
 instance Core.AWSRequest DeleteHsm where
   type AWSResponse DeleteHsm = DeleteHsmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

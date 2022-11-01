@@ -95,7 +95,8 @@ instance Core.AWSRequest GetUserEndpoints where
   type
     AWSResponse GetUserEndpoints =
       GetUserEndpointsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

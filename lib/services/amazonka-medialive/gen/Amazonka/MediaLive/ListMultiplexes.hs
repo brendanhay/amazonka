@@ -114,7 +114,8 @@ instance Core.AWSRequest ListMultiplexes where
   type
     AWSResponse ListMultiplexes =
       ListMultiplexesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

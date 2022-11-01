@@ -92,7 +92,8 @@ deleteLaunch_project = Lens.lens (\DeleteLaunch' {project} -> project) (\s@Delet
 
 instance Core.AWSRequest DeleteLaunch where
   type AWSResponse DeleteLaunch = DeleteLaunchResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

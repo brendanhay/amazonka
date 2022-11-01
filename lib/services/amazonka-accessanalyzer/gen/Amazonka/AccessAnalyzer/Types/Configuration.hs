@@ -19,10 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AccessAnalyzer.Types.Configuration where
 
+import Amazonka.AccessAnalyzer.Types.EbsSnapshotConfiguration
+import Amazonka.AccessAnalyzer.Types.EcrRepositoryConfiguration
+import Amazonka.AccessAnalyzer.Types.EfsFileSystemConfiguration
 import Amazonka.AccessAnalyzer.Types.IamRoleConfiguration
 import Amazonka.AccessAnalyzer.Types.KmsKeyConfiguration
+import Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotConfiguration
+import Amazonka.AccessAnalyzer.Types.RdsDbSnapshotConfiguration
 import Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
 import Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+import Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration
 import Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -34,16 +40,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
-  { -- | The access control configuration is for an Amazon S3 Bucket.
+  { -- | The access control configuration is for an Amazon ECR repository.
+    ecrRepository :: Prelude.Maybe EcrRepositoryConfiguration,
+    -- | The access control configuration is for an Amazon S3 Bucket.
     s3Bucket :: Prelude.Maybe S3BucketConfiguration,
     -- | The access control configuration is for an IAM role.
     iamRole :: Prelude.Maybe IamRoleConfiguration,
+    -- | The access control configuration is for an Amazon SNS topic
+    snsTopic :: Prelude.Maybe SnsTopicConfiguration,
     -- | The access control configuration is for a KMS key.
     kmsKey :: Prelude.Maybe KmsKeyConfiguration,
+    -- | The access control configuration is for an Amazon RDS DB snapshot.
+    rdsDbSnapshot :: Prelude.Maybe RdsDbSnapshotConfiguration,
+    -- | The access control configuration is for an Amazon RDS DB cluster
+    -- snapshot.
+    rdsDbClusterSnapshot :: Prelude.Maybe RdsDbClusterSnapshotConfiguration,
+    -- | The access control configuration is for an Amazon EFS file system.
+    efsFileSystem :: Prelude.Maybe EfsFileSystemConfiguration,
     -- | The access control configuration is for an Amazon SQS queue.
     sqsQueue :: Prelude.Maybe SqsQueueConfiguration,
     -- | The access control configuration is for a Secrets Manager secret.
-    secretsManagerSecret :: Prelude.Maybe SecretsManagerSecretConfiguration
+    secretsManagerSecret :: Prelude.Maybe SecretsManagerSecretConfiguration,
+    -- | The access control configuration is for an Amazon EBS volume snapshot.
+    ebsSnapshot :: Prelude.Maybe EbsSnapshotConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,25 +74,48 @@ data Configuration = Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ecrRepository', 'configuration_ecrRepository' - The access control configuration is for an Amazon ECR repository.
+--
 -- 's3Bucket', 'configuration_s3Bucket' - The access control configuration is for an Amazon S3 Bucket.
 --
 -- 'iamRole', 'configuration_iamRole' - The access control configuration is for an IAM role.
 --
+-- 'snsTopic', 'configuration_snsTopic' - The access control configuration is for an Amazon SNS topic
+--
 -- 'kmsKey', 'configuration_kmsKey' - The access control configuration is for a KMS key.
+--
+-- 'rdsDbSnapshot', 'configuration_rdsDbSnapshot' - The access control configuration is for an Amazon RDS DB snapshot.
+--
+-- 'rdsDbClusterSnapshot', 'configuration_rdsDbClusterSnapshot' - The access control configuration is for an Amazon RDS DB cluster
+-- snapshot.
+--
+-- 'efsFileSystem', 'configuration_efsFileSystem' - The access control configuration is for an Amazon EFS file system.
 --
 -- 'sqsQueue', 'configuration_sqsQueue' - The access control configuration is for an Amazon SQS queue.
 --
 -- 'secretsManagerSecret', 'configuration_secretsManagerSecret' - The access control configuration is for a Secrets Manager secret.
+--
+-- 'ebsSnapshot', 'configuration_ebsSnapshot' - The access control configuration is for an Amazon EBS volume snapshot.
 newConfiguration ::
   Configuration
 newConfiguration =
   Configuration'
-    { s3Bucket = Prelude.Nothing,
+    { ecrRepository = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
       iamRole = Prelude.Nothing,
+      snsTopic = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
+      rdsDbSnapshot = Prelude.Nothing,
+      rdsDbClusterSnapshot = Prelude.Nothing,
+      efsFileSystem = Prelude.Nothing,
       sqsQueue = Prelude.Nothing,
-      secretsManagerSecret = Prelude.Nothing
+      secretsManagerSecret = Prelude.Nothing,
+      ebsSnapshot = Prelude.Nothing
     }
+
+-- | The access control configuration is for an Amazon ECR repository.
+configuration_ecrRepository :: Lens.Lens' Configuration (Prelude.Maybe EcrRepositoryConfiguration)
+configuration_ecrRepository = Lens.lens (\Configuration' {ecrRepository} -> ecrRepository) (\s@Configuration' {} a -> s {ecrRepository = a} :: Configuration)
 
 -- | The access control configuration is for an Amazon S3 Bucket.
 configuration_s3Bucket :: Lens.Lens' Configuration (Prelude.Maybe S3BucketConfiguration)
@@ -83,9 +125,26 @@ configuration_s3Bucket = Lens.lens (\Configuration' {s3Bucket} -> s3Bucket) (\s@
 configuration_iamRole :: Lens.Lens' Configuration (Prelude.Maybe IamRoleConfiguration)
 configuration_iamRole = Lens.lens (\Configuration' {iamRole} -> iamRole) (\s@Configuration' {} a -> s {iamRole = a} :: Configuration)
 
+-- | The access control configuration is for an Amazon SNS topic
+configuration_snsTopic :: Lens.Lens' Configuration (Prelude.Maybe SnsTopicConfiguration)
+configuration_snsTopic = Lens.lens (\Configuration' {snsTopic} -> snsTopic) (\s@Configuration' {} a -> s {snsTopic = a} :: Configuration)
+
 -- | The access control configuration is for a KMS key.
 configuration_kmsKey :: Lens.Lens' Configuration (Prelude.Maybe KmsKeyConfiguration)
 configuration_kmsKey = Lens.lens (\Configuration' {kmsKey} -> kmsKey) (\s@Configuration' {} a -> s {kmsKey = a} :: Configuration)
+
+-- | The access control configuration is for an Amazon RDS DB snapshot.
+configuration_rdsDbSnapshot :: Lens.Lens' Configuration (Prelude.Maybe RdsDbSnapshotConfiguration)
+configuration_rdsDbSnapshot = Lens.lens (\Configuration' {rdsDbSnapshot} -> rdsDbSnapshot) (\s@Configuration' {} a -> s {rdsDbSnapshot = a} :: Configuration)
+
+-- | The access control configuration is for an Amazon RDS DB cluster
+-- snapshot.
+configuration_rdsDbClusterSnapshot :: Lens.Lens' Configuration (Prelude.Maybe RdsDbClusterSnapshotConfiguration)
+configuration_rdsDbClusterSnapshot = Lens.lens (\Configuration' {rdsDbClusterSnapshot} -> rdsDbClusterSnapshot) (\s@Configuration' {} a -> s {rdsDbClusterSnapshot = a} :: Configuration)
+
+-- | The access control configuration is for an Amazon EFS file system.
+configuration_efsFileSystem :: Lens.Lens' Configuration (Prelude.Maybe EfsFileSystemConfiguration)
+configuration_efsFileSystem = Lens.lens (\Configuration' {efsFileSystem} -> efsFileSystem) (\s@Configuration' {} a -> s {efsFileSystem = a} :: Configuration)
 
 -- | The access control configuration is for an Amazon SQS queue.
 configuration_sqsQueue :: Lens.Lens' Configuration (Prelude.Maybe SqsQueueConfiguration)
@@ -95,44 +154,73 @@ configuration_sqsQueue = Lens.lens (\Configuration' {sqsQueue} -> sqsQueue) (\s@
 configuration_secretsManagerSecret :: Lens.Lens' Configuration (Prelude.Maybe SecretsManagerSecretConfiguration)
 configuration_secretsManagerSecret = Lens.lens (\Configuration' {secretsManagerSecret} -> secretsManagerSecret) (\s@Configuration' {} a -> s {secretsManagerSecret = a} :: Configuration)
 
+-- | The access control configuration is for an Amazon EBS volume snapshot.
+configuration_ebsSnapshot :: Lens.Lens' Configuration (Prelude.Maybe EbsSnapshotConfiguration)
+configuration_ebsSnapshot = Lens.lens (\Configuration' {ebsSnapshot} -> ebsSnapshot) (\s@Configuration' {} a -> s {ebsSnapshot = a} :: Configuration)
+
 instance Core.FromJSON Configuration where
   parseJSON =
     Core.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "s3Bucket")
+            Prelude.<$> (x Core..:? "ecrRepository")
+            Prelude.<*> (x Core..:? "s3Bucket")
             Prelude.<*> (x Core..:? "iamRole")
+            Prelude.<*> (x Core..:? "snsTopic")
             Prelude.<*> (x Core..:? "kmsKey")
+            Prelude.<*> (x Core..:? "rdsDbSnapshot")
+            Prelude.<*> (x Core..:? "rdsDbClusterSnapshot")
+            Prelude.<*> (x Core..:? "efsFileSystem")
             Prelude.<*> (x Core..:? "sqsQueue")
             Prelude.<*> (x Core..:? "secretsManagerSecret")
+            Prelude.<*> (x Core..:? "ebsSnapshot")
       )
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` ecrRepository
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` snsTopic
       `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` rdsDbSnapshot
+      `Prelude.hashWithSalt` rdsDbClusterSnapshot
+      `Prelude.hashWithSalt` efsFileSystem
       `Prelude.hashWithSalt` sqsQueue
       `Prelude.hashWithSalt` secretsManagerSecret
+      `Prelude.hashWithSalt` ebsSnapshot
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf s3Bucket
+    Prelude.rnf ecrRepository
+      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf snsTopic
       `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf rdsDbSnapshot
+      `Prelude.seq` Prelude.rnf rdsDbClusterSnapshot
+      `Prelude.seq` Prelude.rnf efsFileSystem
       `Prelude.seq` Prelude.rnf sqsQueue
       `Prelude.seq` Prelude.rnf secretsManagerSecret
+      `Prelude.seq` Prelude.rnf ebsSnapshot
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
+          [ ("ecrRepository" Core..=) Prelude.<$> ecrRepository,
+            ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
             ("iamRole" Core..=) Prelude.<$> iamRole,
+            ("snsTopic" Core..=) Prelude.<$> snsTopic,
             ("kmsKey" Core..=) Prelude.<$> kmsKey,
+            ("rdsDbSnapshot" Core..=) Prelude.<$> rdsDbSnapshot,
+            ("rdsDbClusterSnapshot" Core..=)
+              Prelude.<$> rdsDbClusterSnapshot,
+            ("efsFileSystem" Core..=) Prelude.<$> efsFileSystem,
             ("sqsQueue" Core..=) Prelude.<$> sqsQueue,
             ("secretsManagerSecret" Core..=)
-              Prelude.<$> secretsManagerSecret
+              Prelude.<$> secretsManagerSecret,
+            ("ebsSnapshot" Core..=) Prelude.<$> ebsSnapshot
           ]
       )

@@ -180,7 +180,8 @@ createDeployment_restApiId = Lens.lens (\CreateDeployment' {restApiId} -> restAp
 
 instance Core.AWSRequest CreateDeployment where
   type AWSResponse CreateDeployment = Deployment
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

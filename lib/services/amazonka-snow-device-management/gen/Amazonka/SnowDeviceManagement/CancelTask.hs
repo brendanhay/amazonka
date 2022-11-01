@@ -83,7 +83,8 @@ cancelTask_taskId = Lens.lens (\CancelTask' {taskId} -> taskId) (\s@CancelTask' 
 
 instance Core.AWSRequest CancelTask where
   type AWSResponse CancelTask = CancelTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -181,7 +181,8 @@ instance Core.AWSRequest DescribeScheduledActions where
   type
     AWSResponse DescribeScheduledActions =
       DescribeScheduledActionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScheduledActionsResult"

@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteMeeting where
   type
     AWSResponse DeleteMeeting =
       DeleteMeetingResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMeetingResponse'
 

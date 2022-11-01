@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteConformancePack where
   type
     AWSResponse DeleteConformancePack =
       DeleteConformancePackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteConformancePackResponse'
 

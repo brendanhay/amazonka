@@ -133,7 +133,8 @@ searchGroups_filters = Lens.lens (\SearchGroups' {filters} -> filters) (\s@Searc
 
 instance Core.AWSRequest SearchGroups where
   type AWSResponse SearchGroups = SearchGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

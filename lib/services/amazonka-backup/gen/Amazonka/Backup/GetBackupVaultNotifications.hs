@@ -92,7 +92,8 @@ instance Core.AWSRequest GetBackupVaultNotifications where
   type
     AWSResponse GetBackupVaultNotifications =
       GetBackupVaultNotificationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

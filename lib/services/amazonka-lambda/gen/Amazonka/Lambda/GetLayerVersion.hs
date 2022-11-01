@@ -100,7 +100,8 @@ instance Core.AWSRequest GetLayerVersion where
   type
     AWSResponse GetLayerVersion =
       GetLayerVersionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

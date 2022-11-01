@@ -126,7 +126,8 @@ instance Core.AWSRequest StartHumanLoop where
   type
     AWSResponse StartHumanLoop =
       StartHumanLoopResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

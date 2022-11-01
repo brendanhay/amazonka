@@ -76,7 +76,8 @@ instance Core.AWSRequest DescribeAttackStatistics where
   type
     AWSResponse DescribeAttackStatistics =
       DescribeAttackStatisticsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -89,7 +89,8 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
   type
     AWSResponse ReleaseFileSystemNfsV3Locks =
       ReleaseFileSystemNfsV3LocksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

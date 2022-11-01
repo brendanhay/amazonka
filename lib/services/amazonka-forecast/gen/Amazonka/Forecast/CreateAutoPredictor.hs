@@ -453,7 +453,8 @@ instance Core.AWSRequest CreateAutoPredictor where
   type
     AWSResponse CreateAutoPredictor =
       CreateAutoPredictorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

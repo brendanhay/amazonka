@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeAccountOverview where
   type
     AWSResponse DescribeAccountOverview =
       DescribeAccountOverviewResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

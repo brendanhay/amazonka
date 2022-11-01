@@ -370,7 +370,8 @@ encrypt_plaintext = Lens.lens (\Encrypt' {plaintext} -> plaintext) (\s@Encrypt' 
 
 instance Core.AWSRequest Encrypt where
   type AWSResponse Encrypt = EncryptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

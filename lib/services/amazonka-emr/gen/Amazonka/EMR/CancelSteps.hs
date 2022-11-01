@@ -116,7 +116,8 @@ cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelS
 
 instance Core.AWSRequest CancelSteps where
   type AWSResponse CancelSteps = CancelStepsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

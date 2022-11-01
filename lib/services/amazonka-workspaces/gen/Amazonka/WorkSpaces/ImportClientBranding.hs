@@ -168,7 +168,8 @@ instance Core.AWSRequest ImportClientBranding where
   type
     AWSResponse ImportClientBranding =
       ImportClientBrandingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

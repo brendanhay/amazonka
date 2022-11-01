@@ -185,7 +185,8 @@ createPool_messageType = Lens.lens (\CreatePool' {messageType} -> messageType) (
 
 instance Core.AWSRequest CreatePool where
   type AWSResponse CreatePool = CreatePoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

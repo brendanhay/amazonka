@@ -122,7 +122,8 @@ instance Core.AWSRequest BatchEvaluateGeofences where
   type
     AWSResponse BatchEvaluateGeofences =
       BatchEvaluateGeofencesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

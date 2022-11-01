@@ -146,7 +146,8 @@ instance Core.AWSPager Select where
 
 instance Core.AWSRequest Select where
   type AWSResponse Select = SelectResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SelectResult"

@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteExtension where
   type
     AWSResponse DeleteExtension =
       DeleteExtensionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteExtensionResponse'
 

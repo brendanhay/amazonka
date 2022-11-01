@@ -109,7 +109,8 @@ instance Core.AWSRequest RunPipelineActivity where
   type
     AWSResponse RunPipelineActivity =
       RunPipelineActivityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateConnectorDefinition where
   type
     AWSResponse CreateConnectorDefinition =
       CreateConnectorDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

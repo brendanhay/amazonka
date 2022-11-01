@@ -190,7 +190,8 @@ instance Core.AWSRequest ListFeatureGroups where
   type
     AWSResponse ListFeatureGroups =
       ListFeatureGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

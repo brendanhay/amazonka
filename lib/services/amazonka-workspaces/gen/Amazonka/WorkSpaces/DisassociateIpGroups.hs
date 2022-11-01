@@ -89,7 +89,8 @@ instance Core.AWSRequest DisassociateIpGroups where
   type
     AWSResponse DisassociateIpGroups =
       DisassociateIpGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -24,15 +24,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The retry strategy associated with a job. For more information, see
+-- | The retry strategy that\'s associated with a job. For more information,
+-- see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html Automated job retries>
 -- in the /Batch User Guide/.
 --
 -- /See:/ 'newRetryStrategy' smart constructor.
 data RetryStrategy = RetryStrategy'
-  { -- | Array of up to 5 objects that specify conditions under which the job
-    -- should be retried or failed. If this parameter is specified, then the
-    -- @attempts@ parameter must also be specified.
+  { -- | Array of up to 5 objects that specify the conditions where jobs are
+    -- retried or failed. If this parameter is specified, then the @attempts@
+    -- parameter must also be specified. If none of the listed conditions
+    -- match, then the job is retried.
     evaluateOnExit :: Prelude.Maybe [EvaluateOnExit],
     -- | The number of times to move a job to the @RUNNABLE@ status. You can
     -- specify between 1 and 10 attempts. If the value of @attempts@ is greater
@@ -50,9 +52,10 @@ data RetryStrategy = RetryStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluateOnExit', 'retryStrategy_evaluateOnExit' - Array of up to 5 objects that specify conditions under which the job
--- should be retried or failed. If this parameter is specified, then the
--- @attempts@ parameter must also be specified.
+-- 'evaluateOnExit', 'retryStrategy_evaluateOnExit' - Array of up to 5 objects that specify the conditions where jobs are
+-- retried or failed. If this parameter is specified, then the @attempts@
+-- parameter must also be specified. If none of the listed conditions
+-- match, then the job is retried.
 --
 -- 'attempts', 'retryStrategy_attempts' - The number of times to move a job to the @RUNNABLE@ status. You can
 -- specify between 1 and 10 attempts. If the value of @attempts@ is greater
@@ -66,9 +69,10 @@ newRetryStrategy =
       attempts = Prelude.Nothing
     }
 
--- | Array of up to 5 objects that specify conditions under which the job
--- should be retried or failed. If this parameter is specified, then the
--- @attempts@ parameter must also be specified.
+-- | Array of up to 5 objects that specify the conditions where jobs are
+-- retried or failed. If this parameter is specified, then the @attempts@
+-- parameter must also be specified. If none of the listed conditions
+-- match, then the job is retried.
 retryStrategy_evaluateOnExit :: Lens.Lens' RetryStrategy (Prelude.Maybe [EvaluateOnExit])
 retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> evaluateOnExit) (\s@RetryStrategy' {} a -> s {evaluateOnExit = a} :: RetryStrategy) Prelude.. Lens.mapping Lens.coerced
 

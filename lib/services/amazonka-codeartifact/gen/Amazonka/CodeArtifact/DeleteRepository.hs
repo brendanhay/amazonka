@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteRepository where
   type
     AWSResponse DeleteRepository =
       DeleteRepositoryResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

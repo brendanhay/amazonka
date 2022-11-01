@@ -31,7 +31,7 @@ import Amazonka.SageMaker.Types.ClarifyShapConfig
 data ClarifyExplainerConfig = ClarifyExplainerConfig'
   { -- | A JMESPath boolean expression used to filter which records to explain.
     -- Explanations are activated by default. See
-    -- <https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
     -- for additional information.
     enableExplanations :: Prelude.Maybe Prelude.Text,
     -- | The inference configuration parameter for the model container.
@@ -51,7 +51,7 @@ data ClarifyExplainerConfig = ClarifyExplainerConfig'
 --
 -- 'enableExplanations', 'clarifyExplainerConfig_enableExplanations' - A JMESPath boolean expression used to filter which records to explain.
 -- Explanations are activated by default. See
--- <https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
 -- for additional information.
 --
 -- 'inferenceConfig', 'clarifyExplainerConfig_inferenceConfig' - The inference configuration parameter for the model container.
@@ -71,7 +71,7 @@ newClarifyExplainerConfig pShapConfig_ =
 
 -- | A JMESPath boolean expression used to filter which records to explain.
 -- Explanations are activated by default. See
--- <https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
 -- for additional information.
 clarifyExplainerConfig_enableExplanations :: Lens.Lens' ClarifyExplainerConfig (Prelude.Maybe Prelude.Text)
 clarifyExplainerConfig_enableExplanations = Lens.lens (\ClarifyExplainerConfig' {enableExplanations} -> enableExplanations) (\s@ClarifyExplainerConfig' {} a -> s {enableExplanations = a} :: ClarifyExplainerConfig)

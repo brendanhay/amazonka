@@ -94,7 +94,8 @@ instance Core.AWSRequest AdvertiseByoipCidr where
   type
     AWSResponse AdvertiseByoipCidr =
       AdvertiseByoipCidrResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

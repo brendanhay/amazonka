@@ -178,7 +178,8 @@ instance Core.AWSRequest GetShippingLabel where
   type
     AWSResponse GetShippingLabel =
       GetShippingLabelResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetShippingLabelResult"

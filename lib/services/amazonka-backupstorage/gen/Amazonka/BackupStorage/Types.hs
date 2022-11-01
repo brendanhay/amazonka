@@ -73,6 +73,8 @@ defaultService =
       Core._serviceEndpointPrefix = "backupstorage",
       Core._serviceSigningName = "backup-storage",
       Core._serviceVersion = "2018-04-10",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

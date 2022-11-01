@@ -155,7 +155,8 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
   type
     AWSResponse AssumeDecoratedRoleWithSAML =
       AssumeDecoratedRoleWithSAMLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

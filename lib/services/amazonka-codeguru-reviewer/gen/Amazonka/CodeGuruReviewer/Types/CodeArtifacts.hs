@@ -37,7 +37,7 @@ data CodeArtifacts = CodeArtifacts'
   { -- | The S3 object key for a build artifacts .zip file that contains .jar or
     -- .class files. This is required for a code review with security analysis.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis>
+    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html Create code reviews with GitHub Actions>
     -- in the /Amazon CodeGuru Reviewer User Guide/.
     buildArtifactsObjectKey :: Prelude.Maybe Prelude.Text,
     -- | The S3 object key for a source code .zip file. This is required for all
@@ -57,7 +57,7 @@ data CodeArtifacts = CodeArtifacts'
 -- 'buildArtifactsObjectKey', 'codeArtifacts_buildArtifactsObjectKey' - The S3 object key for a build artifacts .zip file that contains .jar or
 -- .class files. This is required for a code review with security analysis.
 -- For more information, see
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis>
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html Create code reviews with GitHub Actions>
 -- in the /Amazon CodeGuru Reviewer User Guide/.
 --
 -- 'sourceCodeArtifactsObjectKey', 'codeArtifacts_sourceCodeArtifactsObjectKey' - The S3 object key for a source code .zip file. This is required for all
@@ -77,7 +77,7 @@ newCodeArtifacts pSourceCodeArtifactsObjectKey_ =
 -- | The S3 object key for a build artifacts .zip file that contains .jar or
 -- .class files. This is required for a code review with security analysis.
 -- For more information, see
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis>
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html Create code reviews with GitHub Actions>
 -- in the /Amazon CodeGuru Reviewer User Guide/.
 codeArtifacts_buildArtifactsObjectKey :: Lens.Lens' CodeArtifacts (Prelude.Maybe Prelude.Text)
 codeArtifacts_buildArtifactsObjectKey = Lens.lens (\CodeArtifacts' {buildArtifactsObjectKey} -> buildArtifactsObjectKey) (\s@CodeArtifacts' {} a -> s {buildArtifactsObjectKey = a} :: CodeArtifacts)

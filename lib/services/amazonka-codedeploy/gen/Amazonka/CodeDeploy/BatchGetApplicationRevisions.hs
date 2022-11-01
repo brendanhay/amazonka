@@ -104,7 +104,8 @@ instance Core.AWSRequest BatchGetApplicationRevisions where
   type
     AWSResponse BatchGetApplicationRevisions =
       BatchGetApplicationRevisionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

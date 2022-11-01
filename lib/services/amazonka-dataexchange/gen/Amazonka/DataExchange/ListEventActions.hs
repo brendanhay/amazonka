@@ -125,7 +125,8 @@ instance Core.AWSRequest ListEventActions where
   type
     AWSResponse ListEventActions =
       ListEventActionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

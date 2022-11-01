@@ -28,20 +28,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLiveSource' smart constructor.
 data LiveSource = LiveSource'
-  { -- | The tags assigned to the live source.
+  { -- | The tags assigned to the live source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp that indicates when the live source was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates when the live source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location.
-    sourceLocationName :: Prelude.Text,
-    -- | The name that\'s used to refer to a live source.
-    liveSourceName :: Prelude.Text,
+    -- | The ARN for the live source.
+    arn :: Prelude.Text,
     -- | The HTTP package configurations for the live source.
     httpPackageConfigurations :: [HttpPackageConfiguration],
-    -- | The ARN for the live source.
-    arn :: Prelude.Text
+    -- | The name that\'s used to refer to a live source.
+    liveSourceName :: Prelude.Text,
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,42 +56,48 @@ data LiveSource = LiveSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'liveSource_tags' - The tags assigned to the live source.
+-- 'tags', 'liveSource_tags' - The tags assigned to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'lastModifiedTime', 'liveSource_lastModifiedTime' - The timestamp that indicates when the live source was last modified.
 --
 -- 'creationTime', 'liveSource_creationTime' - The timestamp that indicates when the live source was created.
 --
--- 'sourceLocationName', 'liveSource_sourceLocationName' - The name of the source location.
---
--- 'liveSourceName', 'liveSource_liveSourceName' - The name that\'s used to refer to a live source.
+-- 'arn', 'liveSource_arn' - The ARN for the live source.
 --
 -- 'httpPackageConfigurations', 'liveSource_httpPackageConfigurations' - The HTTP package configurations for the live source.
 --
--- 'arn', 'liveSource_arn' - The ARN for the live source.
+-- 'liveSourceName', 'liveSource_liveSourceName' - The name that\'s used to refer to a live source.
+--
+-- 'sourceLocationName', 'liveSource_sourceLocationName' - The name of the source location.
 newLiveSource ::
-  -- | 'sourceLocationName'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'liveSourceName'
   Prelude.Text ->
-  -- | 'arn'
+  -- | 'sourceLocationName'
   Prelude.Text ->
   LiveSource
 newLiveSource
-  pSourceLocationName_
+  pArn_
   pLiveSourceName_
-  pArn_ =
+  pSourceLocationName_ =
     LiveSource'
       { tags = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         creationTime = Prelude.Nothing,
-        sourceLocationName = pSourceLocationName_,
-        liveSourceName = pLiveSourceName_,
+        arn = pArn_,
         httpPackageConfigurations = Prelude.mempty,
-        arn = pArn_
+        liveSourceName = pLiveSourceName_,
+        sourceLocationName = pSourceLocationName_
       }
 
--- | The tags assigned to the live source.
+-- | The tags assigned to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 liveSource_tags :: Lens.Lens' LiveSource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 liveSource_tags = Lens.lens (\LiveSource' {tags} -> tags) (\s@LiveSource' {} a -> s {tags = a} :: LiveSource) Prelude.. Lens.mapping Lens.coerced
 
@@ -100,21 +109,21 @@ liveSource_lastModifiedTime = Lens.lens (\LiveSource' {lastModifiedTime} -> last
 liveSource_creationTime :: Lens.Lens' LiveSource (Prelude.Maybe Prelude.UTCTime)
 liveSource_creationTime = Lens.lens (\LiveSource' {creationTime} -> creationTime) (\s@LiveSource' {} a -> s {creationTime = a} :: LiveSource) Prelude.. Lens.mapping Core._Time
 
--- | The name of the source location.
-liveSource_sourceLocationName :: Lens.Lens' LiveSource Prelude.Text
-liveSource_sourceLocationName = Lens.lens (\LiveSource' {sourceLocationName} -> sourceLocationName) (\s@LiveSource' {} a -> s {sourceLocationName = a} :: LiveSource)
-
--- | The name that\'s used to refer to a live source.
-liveSource_liveSourceName :: Lens.Lens' LiveSource Prelude.Text
-liveSource_liveSourceName = Lens.lens (\LiveSource' {liveSourceName} -> liveSourceName) (\s@LiveSource' {} a -> s {liveSourceName = a} :: LiveSource)
+-- | The ARN for the live source.
+liveSource_arn :: Lens.Lens' LiveSource Prelude.Text
+liveSource_arn = Lens.lens (\LiveSource' {arn} -> arn) (\s@LiveSource' {} a -> s {arn = a} :: LiveSource)
 
 -- | The HTTP package configurations for the live source.
 liveSource_httpPackageConfigurations :: Lens.Lens' LiveSource [HttpPackageConfiguration]
 liveSource_httpPackageConfigurations = Lens.lens (\LiveSource' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@LiveSource' {} a -> s {httpPackageConfigurations = a} :: LiveSource) Prelude.. Lens.coerced
 
--- | The ARN for the live source.
-liveSource_arn :: Lens.Lens' LiveSource Prelude.Text
-liveSource_arn = Lens.lens (\LiveSource' {arn} -> arn) (\s@LiveSource' {} a -> s {arn = a} :: LiveSource)
+-- | The name that\'s used to refer to a live source.
+liveSource_liveSourceName :: Lens.Lens' LiveSource Prelude.Text
+liveSource_liveSourceName = Lens.lens (\LiveSource' {liveSourceName} -> liveSourceName) (\s@LiveSource' {} a -> s {liveSourceName = a} :: LiveSource)
+
+-- | The name of the source location.
+liveSource_sourceLocationName :: Lens.Lens' LiveSource Prelude.Text
+liveSource_sourceLocationName = Lens.lens (\LiveSource' {sourceLocationName} -> sourceLocationName) (\s@LiveSource' {} a -> s {sourceLocationName = a} :: LiveSource)
 
 instance Core.FromJSON LiveSource where
   parseJSON =
@@ -125,12 +134,12 @@ instance Core.FromJSON LiveSource where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "SourceLocationName")
-            Prelude.<*> (x Core..: "LiveSourceName")
+            Prelude.<*> (x Core..: "Arn")
             Prelude.<*> ( x Core..:? "HttpPackageConfigurations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<*> (x Core..: "LiveSourceName")
+            Prelude.<*> (x Core..: "SourceLocationName")
       )
 
 instance Prelude.Hashable LiveSource where
@@ -138,17 +147,17 @@ instance Prelude.Hashable LiveSource where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` liveSourceName
-      `Prelude.hashWithSalt` httpPackageConfigurations
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` httpPackageConfigurations
+      `Prelude.hashWithSalt` liveSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData LiveSource where
   rnf LiveSource' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName

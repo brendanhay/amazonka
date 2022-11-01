@@ -119,7 +119,8 @@ instance Core.AWSPager ListMaps where
 
 instance Core.AWSRequest ListMaps where
   type AWSResponse ListMaps = ListMapsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

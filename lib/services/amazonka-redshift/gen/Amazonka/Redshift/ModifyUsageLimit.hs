@@ -110,7 +110,8 @@ modifyUsageLimit_usageLimitId = Lens.lens (\ModifyUsageLimit' {usageLimitId} -> 
 
 instance Core.AWSRequest ModifyUsageLimit where
   type AWSResponse ModifyUsageLimit = UsageLimit
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUsageLimitResult"

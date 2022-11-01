@@ -117,9 +117,10 @@ instance Core.AWSRequest SetVaultAccessPolicy where
   type
     AWSResponse SetVaultAccessPolicy =
       SetVaultAccessPolicyResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putJSON defaultService
+      Prelude.. Request.putJSON srv
   response =
     Response.receiveNull SetVaultAccessPolicyResponse'
 

@@ -27,9 +27,12 @@
 -- @backend.example.com@. You can discover instances that were registered
 -- with a public DNS namespace by using either a @DiscoverInstances@
 -- request or using DNS. For the current quota on the number of namespaces
--- that you can create using the same account, see
+-- that you can create using the same Amazon Web Services account, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
 -- in the /Cloud Map Developer Guide/.
+--
+-- The @CreatePublicDnsNamespace@ API operation is not supported in the
+-- Amazon Web Services GovCloud (US) Regions.
 module Amazonka.Route53AutoNaming.CreatePublicDnsNamespace
   ( -- * Creating a Request
     CreatePublicDnsNamespace (..),
@@ -75,6 +78,9 @@ data CreatePublicDnsNamespace = CreatePublicDnsNamespace'
     -- (for example, a date\/timestamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace.
+    --
+    -- Do not include sensitive information in the name. The name is publicly
+    -- available using DNS queries.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,6 +107,9 @@ data CreatePublicDnsNamespace = CreatePublicDnsNamespace'
 -- (for example, a date\/timestamp).
 --
 -- 'name', 'createPublicDnsNamespace_name' - The name that you want to assign to this namespace.
+--
+-- Do not include sensitive information in the name. The name is publicly
+-- available using DNS queries.
 newCreatePublicDnsNamespace ::
   -- | 'name'
   Prelude.Text ->
@@ -136,6 +145,9 @@ createPublicDnsNamespace_creatorRequestId :: Lens.Lens' CreatePublicDnsNamespace
 createPublicDnsNamespace_creatorRequestId = Lens.lens (\CreatePublicDnsNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreatePublicDnsNamespace' {} a -> s {creatorRequestId = a} :: CreatePublicDnsNamespace)
 
 -- | The name that you want to assign to this namespace.
+--
+-- Do not include sensitive information in the name. The name is publicly
+-- available using DNS queries.
 createPublicDnsNamespace_name :: Lens.Lens' CreatePublicDnsNamespace Prelude.Text
 createPublicDnsNamespace_name = Lens.lens (\CreatePublicDnsNamespace' {name} -> name) (\s@CreatePublicDnsNamespace' {} a -> s {name = a} :: CreatePublicDnsNamespace)
 
@@ -143,7 +155,8 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
   type
     AWSResponse CreatePublicDnsNamespace =
       CreatePublicDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

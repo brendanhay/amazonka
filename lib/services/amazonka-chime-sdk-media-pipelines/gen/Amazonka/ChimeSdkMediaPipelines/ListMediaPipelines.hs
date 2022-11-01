@@ -91,7 +91,8 @@ instance Core.AWSRequest ListMediaPipelines where
   type
     AWSResponse ListMediaPipelines =
       ListMediaPipelinesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

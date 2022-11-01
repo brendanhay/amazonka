@@ -486,7 +486,8 @@ instance Core.AWSRequest GetDistributionMetricData where
   type
     AWSResponse GetDistributionMetricData =
       GetDistributionMetricDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

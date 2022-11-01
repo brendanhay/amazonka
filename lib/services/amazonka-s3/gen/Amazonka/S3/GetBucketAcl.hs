@@ -110,9 +110,9 @@ getBucketAcl_bucket = Lens.lens (\GetBucketAcl' {bucket} -> bucket) (\s@GetBucke
 
 instance Core.AWSRequest GetBucketAcl where
   type AWSResponse GetBucketAcl = GetBucketAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

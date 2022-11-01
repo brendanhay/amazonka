@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateInstanceSnapshot where
   type
     AWSResponse CreateInstanceSnapshot =
       CreateInstanceSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

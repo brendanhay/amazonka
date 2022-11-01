@@ -79,7 +79,8 @@ createToken_appId = Lens.lens (\CreateToken' {appId} -> appId) (\s@CreateToken' 
 
 instance Core.AWSRequest CreateToken where
   type AWSResponse CreateToken = CreateTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

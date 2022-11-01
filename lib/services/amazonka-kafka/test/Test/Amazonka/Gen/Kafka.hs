@@ -132,6 +132,9 @@ import Test.Tasty
 --         , requestUpdateSecurity $
 --             newUpdateSecurity
 --
+--         , requestUpdateStorage $
+--             newUpdateStorage
+--
 --           ]
 
 --     , testGroup "response"
@@ -239,6 +242,9 @@ import Test.Tasty
 --
 --         , responseUpdateSecurity $
 --             newUpdateSecurityResponse
+--
+--         , responseUpdateStorage $
+--             newUpdateStorageResponse
 --
 --           ]
 --     ]
@@ -454,6 +460,12 @@ requestUpdateSecurity =
   req
     "UpdateSecurity"
     "fixture/UpdateSecurity.yaml"
+
+requestUpdateStorage :: UpdateStorage -> TestTree
+requestUpdateStorage =
+  req
+    "UpdateStorage"
+    "fixture/UpdateStorage.yaml"
 
 -- Responses
 
@@ -736,3 +748,11 @@ responseUpdateSecurity =
     "fixture/UpdateSecurityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateSecurity)
+
+responseUpdateStorage :: UpdateStorageResponse -> TestTree
+responseUpdateStorage =
+  res
+    "UpdateStorageResponse"
+    "fixture/UpdateStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStorage)

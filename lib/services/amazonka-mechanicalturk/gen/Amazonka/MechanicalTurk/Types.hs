@@ -284,6 +284,8 @@ defaultService =
       Core._serviceEndpointPrefix = "mturk-requester",
       Core._serviceSigningName = "mturk-requester",
       Core._serviceVersion = "2017-01-17",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

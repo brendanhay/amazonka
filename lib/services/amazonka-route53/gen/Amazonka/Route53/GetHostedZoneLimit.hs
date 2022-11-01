@@ -119,7 +119,8 @@ instance Core.AWSRequest GetHostedZoneLimit where
   type
     AWSResponse GetHostedZoneLimit =
       GetHostedZoneLimitResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

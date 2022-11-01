@@ -17,6 +17,7 @@ module Amazonka.CertificateManagerPCA.Lens
     -- ** CreateCertificateAuthority
     createCertificateAuthority_tags,
     createCertificateAuthority_keyStorageSecurityStandard,
+    createCertificateAuthority_usageMode,
     createCertificateAuthority_idempotencyToken,
     createCertificateAuthority_revocationConfiguration,
     createCertificateAuthority_certificateAuthorityConfiguration,
@@ -187,6 +188,7 @@ module Amazonka.CertificateManagerPCA.Lens
     -- ** CertificateAuthority
     certificateAuthority_type,
     certificateAuthority_keyStorageSecurityStandard,
+    certificateAuthority_usageMode,
     certificateAuthority_lastStateChangeAt,
     certificateAuthority_serial,
     certificateAuthority_arn,

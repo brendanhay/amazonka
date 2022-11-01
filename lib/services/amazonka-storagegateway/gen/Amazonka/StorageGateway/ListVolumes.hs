@@ -143,7 +143,8 @@ instance Core.AWSPager ListVolumes where
 
 instance Core.AWSRequest ListVolumes where
   type AWSResponse ListVolumes = ListVolumesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

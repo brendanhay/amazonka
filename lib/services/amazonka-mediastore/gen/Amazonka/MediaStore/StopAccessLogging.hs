@@ -79,7 +79,8 @@ instance Core.AWSRequest StopAccessLogging where
   type
     AWSResponse StopAccessLogging =
       StopAccessLoggingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

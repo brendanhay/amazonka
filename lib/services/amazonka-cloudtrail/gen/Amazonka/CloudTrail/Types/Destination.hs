@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | The type of service. For service-linked channels, the value is
-    -- @AWS_SERVICE@.
+  { -- | The type of destination for events arriving from a channel. For
+    -- service-linked channels, the value is @AWS_SERVICE@.
     type' :: DestinationType,
-    -- | The location of the service. For service-linked channels, this is the
-    -- name of the Amazon Web Services service.
+    -- | For service-linked channels, the value is the name of the Amazon Web
+    -- Services service.
     location :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'destination_type' - The type of service. For service-linked channels, the value is
--- @AWS_SERVICE@.
+-- 'type'', 'destination_type' - The type of destination for events arriving from a channel. For
+-- service-linked channels, the value is @AWS_SERVICE@.
 --
--- 'location', 'destination_location' - The location of the service. For service-linked channels, this is the
--- name of the Amazon Web Services service.
+-- 'location', 'destination_location' - For service-linked channels, the value is the name of the Amazon Web
+-- Services service.
 newDestination ::
   -- | 'type''
   DestinationType ->
@@ -59,13 +59,13 @@ newDestination ::
 newDestination pType_ pLocation_ =
   Destination' {type' = pType_, location = pLocation_}
 
--- | The type of service. For service-linked channels, the value is
--- @AWS_SERVICE@.
+-- | The type of destination for events arriving from a channel. For
+-- service-linked channels, the value is @AWS_SERVICE@.
 destination_type :: Lens.Lens' Destination DestinationType
 destination_type = Lens.lens (\Destination' {type'} -> type') (\s@Destination' {} a -> s {type' = a} :: Destination)
 
--- | The location of the service. For service-linked channels, this is the
--- name of the Amazon Web Services service.
+-- | For service-linked channels, the value is the name of the Amazon Web
+-- Services service.
 destination_location :: Lens.Lens' Destination Prelude.Text
 destination_location = Lens.lens (\Destination' {location} -> location) (\s@Destination' {} a -> s {location = a} :: Destination)
 

@@ -88,7 +88,8 @@ instance Core.AWSRequest ModifyInstanceGroups where
   type
     AWSResponse ModifyInstanceGroups =
       ModifyInstanceGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ModifyInstanceGroupsResponse'
 

@@ -111,7 +111,8 @@ cloneBackend_targetEnvironmentName = Lens.lens (\CloneBackend' {targetEnvironmen
 
 instance Core.AWSRequest CloneBackend where
   type AWSResponse CloneBackend = CloneBackendResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

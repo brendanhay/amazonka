@@ -138,7 +138,8 @@ instance Core.AWSRequest DescribeListeners where
   type
     AWSResponse DescribeListeners =
       DescribeListenersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeListenersResult"

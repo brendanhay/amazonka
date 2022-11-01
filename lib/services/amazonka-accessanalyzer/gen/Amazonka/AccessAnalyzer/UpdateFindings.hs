@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateFindings where
   type
     AWSResponse UpdateFindings =
       UpdateFindingsResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateFindingsResponse'
 

@@ -99,7 +99,8 @@ listAlarms_alarmModelName = Lens.lens (\ListAlarms' {alarmModelName} -> alarmMod
 
 instance Core.AWSRequest ListAlarms where
   type AWSResponse ListAlarms = ListAlarmsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

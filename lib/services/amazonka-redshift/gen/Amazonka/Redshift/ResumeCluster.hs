@@ -83,7 +83,8 @@ instance Core.AWSRequest ResumeCluster where
   type
     AWSResponse ResumeCluster =
       ResumeClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResumeClusterResult"

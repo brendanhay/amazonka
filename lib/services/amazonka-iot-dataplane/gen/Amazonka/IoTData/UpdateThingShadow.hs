@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateThingShadow where
   type
     AWSResponse UpdateThingShadow =
       UpdateThingShadowResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->

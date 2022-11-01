@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteMulticastGroup where
   type
     AWSResponse DeleteMulticastGroup =
       DeleteMulticastGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

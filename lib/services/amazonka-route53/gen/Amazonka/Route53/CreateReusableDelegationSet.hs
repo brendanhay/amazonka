@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateReusableDelegationSet where
   type
     AWSResponse CreateReusableDelegationSet =
       CreateReusableDelegationSetResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

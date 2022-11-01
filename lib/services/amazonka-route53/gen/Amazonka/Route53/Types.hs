@@ -534,6 +534,8 @@ defaultService =
       Core._serviceEndpointPrefix = "route53",
       Core._serviceSigningName = "route53",
       Core._serviceVersion = "2013-04-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

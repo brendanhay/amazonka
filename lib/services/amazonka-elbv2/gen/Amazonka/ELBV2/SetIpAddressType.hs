@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the type of IP addresses used by the subnets of the specified
--- Application Load Balancer or Network Load Balancer.
+-- Sets the type of IP addresses used by the subnets of the specified load
+-- balancer.
 module Amazonka.ELBV2.SetIpAddressType
   ( -- * Creating a Request
     SetIpAddressType (..),
@@ -99,7 +99,8 @@ instance Core.AWSRequest SetIpAddressType where
   type
     AWSResponse SetIpAddressType =
       SetIpAddressTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIpAddressTypeResult"

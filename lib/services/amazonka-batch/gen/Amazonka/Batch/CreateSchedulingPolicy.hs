@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateSchedulingPolicy where
   type
     AWSResponse CreateSchedulingPolicy =
       CreateSchedulingPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,7 +198,7 @@ data CreateSchedulingPolicyResponse = CreateSchedulingPolicyResponse'
     -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
     -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
     -- example,
-    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -217,7 +218,7 @@ data CreateSchedulingPolicyResponse = CreateSchedulingPolicyResponse'
 -- 'arn', 'createSchedulingPolicyResponse_arn' - The Amazon Resource Name (ARN) of the scheduling policy. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 newCreateSchedulingPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -248,7 +249,7 @@ createSchedulingPolicyResponse_name = Lens.lens (\CreateSchedulingPolicyResponse
 -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 createSchedulingPolicyResponse_arn :: Lens.Lens' CreateSchedulingPolicyResponse Prelude.Text
 createSchedulingPolicyResponse_arn = Lens.lens (\CreateSchedulingPolicyResponse' {arn} -> arn) (\s@CreateSchedulingPolicyResponse' {} a -> s {arn = a} :: CreateSchedulingPolicyResponse)
 

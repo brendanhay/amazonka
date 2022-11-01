@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeQuickConnect where
   type
     AWSResponse DescribeQuickConnect =
       DescribeQuickConnectResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

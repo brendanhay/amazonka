@@ -134,7 +134,8 @@ instance Core.AWSRequest AttachTypedLink where
   type
     AWSResponse AttachTypedLink =
       AttachTypedLinkResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

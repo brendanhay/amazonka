@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the profile for the AS2 process. The agreement is between the
--- partner and the AS2 process.
+-- Creates the local or partner profile to use for AS2 transfers.
 module Amazonka.Transfer.CreateProfile
   ( -- * Creating a Request
     CreateProfile (..),
@@ -64,9 +63,14 @@ data CreateProfile = CreateProfile'
     -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
     -- operation. This ID cannot include spaces.
     as2Id :: Prelude.Text,
-    -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
-    -- type profiles. If not supplied in the request, the command lists all
-    -- types of profiles.
+    -- | Determines the type of profile to create:
+    --
+    -- -   Specify @LOCAL@ to create a local profile. A local profile
+    --     represents the AS2-enabled Transfer Family server organization or
+    --     party.
+    --
+    -- -   Specify @PARTNER@ to create a partner profile. A partner profile
+    --     represents a remote organization, external to Transfer Family.
     profileType :: ProfileType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,9 +95,14 @@ data CreateProfile = CreateProfile'
 -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
 -- operation. This ID cannot include spaces.
 --
--- 'profileType', 'createProfile_profileType' - Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
--- type profiles. If not supplied in the request, the command lists all
--- types of profiles.
+-- 'profileType', 'createProfile_profileType' - Determines the type of profile to create:
+--
+-- -   Specify @LOCAL@ to create a local profile. A local profile
+--     represents the AS2-enabled Transfer Family server organization or
+--     party.
+--
+-- -   Specify @PARTNER@ to create a partner profile. A partner profile
+--     represents a remote organization, external to Transfer Family.
 newCreateProfile ::
   -- | 'as2Id'
   Prelude.Text ->
@@ -126,9 +135,14 @@ createProfile_certificateIds = Lens.lens (\CreateProfile' {certificateIds} -> ce
 createProfile_as2Id :: Lens.Lens' CreateProfile Prelude.Text
 createProfile_as2Id = Lens.lens (\CreateProfile' {as2Id} -> as2Id) (\s@CreateProfile' {} a -> s {as2Id = a} :: CreateProfile)
 
--- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
--- type profiles. If not supplied in the request, the command lists all
--- types of profiles.
+-- | Determines the type of profile to create:
+--
+-- -   Specify @LOCAL@ to create a local profile. A local profile
+--     represents the AS2-enabled Transfer Family server organization or
+--     party.
+--
+-- -   Specify @PARTNER@ to create a partner profile. A partner profile
+--     represents a remote organization, external to Transfer Family.
 createProfile_profileType :: Lens.Lens' CreateProfile ProfileType
 createProfile_profileType = Lens.lens (\CreateProfile' {profileType} -> profileType) (\s@CreateProfile' {} a -> s {profileType = a} :: CreateProfile)
 
@@ -136,7 +150,8 @@ instance Core.AWSRequest CreateProfile where
   type
     AWSResponse CreateProfile =
       CreateProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

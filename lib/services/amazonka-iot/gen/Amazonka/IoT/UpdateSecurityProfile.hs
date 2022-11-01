@@ -240,7 +240,8 @@ instance Core.AWSRequest UpdateSecurityProfile where
   type
     AWSResponse UpdateSecurityProfile =
       UpdateSecurityProfileResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

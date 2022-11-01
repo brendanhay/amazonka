@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeNamespace where
   type
     AWSResponse DescribeNamespace =
       DescribeNamespaceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

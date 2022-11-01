@@ -317,7 +317,8 @@ getItem_key = Lens.lens (\GetItem' {key} -> key) (\s@GetItem' {} a -> s {key = a
 
 instance Core.AWSRequest GetItem where
   type AWSResponse GetItem = GetItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -107,7 +107,8 @@ instance Core.AWSRequest RemoveFromGlobalCluster where
   type
     AWSResponse RemoveFromGlobalCluster =
       RemoveFromGlobalClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveFromGlobalClusterResult"

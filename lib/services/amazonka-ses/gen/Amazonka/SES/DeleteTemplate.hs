@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteTemplate where
   type
     AWSResponse DeleteTemplate =
       DeleteTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteTemplateResult"

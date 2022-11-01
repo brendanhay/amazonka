@@ -113,7 +113,8 @@ instance Core.AWSRequest CreatePublicIpv4Pool where
   type
     AWSResponse CreatePublicIpv4Pool =
       CreatePublicIpv4PoolResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

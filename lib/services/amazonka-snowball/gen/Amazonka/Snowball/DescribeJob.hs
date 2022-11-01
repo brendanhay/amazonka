@@ -80,7 +80,8 @@ describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' 
 
 instance Core.AWSRequest DescribeJob where
   type AWSResponse DescribeJob = DescribeJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

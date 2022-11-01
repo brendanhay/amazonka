@@ -130,7 +130,8 @@ instance Core.AWSRequest AddThingToThingGroup where
   type
     AWSResponse AddThingToThingGroup =
       AddThingToThingGroupResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

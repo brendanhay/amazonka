@@ -184,7 +184,8 @@ instance Core.AWSRequest DescribeFileSystems where
   type
     AWSResponse DescribeFileSystems =
       DescribeFileSystemsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

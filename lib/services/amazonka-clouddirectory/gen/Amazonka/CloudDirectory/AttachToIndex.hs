@@ -109,7 +109,8 @@ instance Core.AWSRequest AttachToIndex where
   type
     AWSResponse AttachToIndex =
       AttachToIndexResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

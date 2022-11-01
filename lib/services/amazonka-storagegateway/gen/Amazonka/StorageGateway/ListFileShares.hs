@@ -142,7 +142,8 @@ instance Core.AWSRequest ListFileShares where
   type
     AWSResponse ListFileShares =
       ListFileSharesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

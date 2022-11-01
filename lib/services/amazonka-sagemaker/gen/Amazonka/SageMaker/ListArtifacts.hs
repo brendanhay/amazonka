@@ -185,7 +185,8 @@ instance Core.AWSRequest ListArtifacts where
   type
     AWSResponse ListArtifacts =
       ListArtifactsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

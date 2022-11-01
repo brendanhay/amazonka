@@ -103,7 +103,8 @@ instance Core.AWSRequest UnassignIpv6Addresses where
   type
     AWSResponse UnassignIpv6Addresses =
       UnassignIpv6AddressesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

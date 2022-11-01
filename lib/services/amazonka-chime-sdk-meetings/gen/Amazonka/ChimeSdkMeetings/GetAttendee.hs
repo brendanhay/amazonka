@@ -92,7 +92,8 @@ getAttendee_attendeeId = Lens.lens (\GetAttendee' {attendeeId} -> attendeeId) (\
 
 instance Core.AWSRequest GetAttendee where
   type AWSResponse GetAttendee = GetAttendeeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

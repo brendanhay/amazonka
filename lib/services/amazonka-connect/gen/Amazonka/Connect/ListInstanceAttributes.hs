@@ -137,7 +137,8 @@ instance Core.AWSRequest ListInstanceAttributes where
   type
     AWSResponse ListInstanceAttributes =
       ListInstanceAttributesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteFleetMetric where
   type
     AWSResponse DeleteFleetMetric =
       DeleteFleetMetricResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFleetMetricResponse'
 

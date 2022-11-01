@@ -59,7 +59,8 @@ newPing = Ping'
 
 instance Core.AWSRequest Ping where
   type AWSResponse Ping = PingResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

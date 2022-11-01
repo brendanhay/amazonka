@@ -328,7 +328,8 @@ instance Core.AWSPager ListUploads where
 
 instance Core.AWSRequest ListUploads where
   type AWSResponse ListUploads = ListUploadsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -374,7 +374,8 @@ copySnapshot_sourceSnapshotId = Lens.lens (\CopySnapshot' {sourceSnapshotId} -> 
 
 instance Core.AWSRequest CopySnapshot where
   type AWSResponse CopySnapshot = CopySnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -83,7 +83,8 @@ instance Core.AWSRequest DescribeFileSystemPolicy where
   type
     AWSResponse DescribeFileSystemPolicy =
       FileSystemPolicyDescription
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

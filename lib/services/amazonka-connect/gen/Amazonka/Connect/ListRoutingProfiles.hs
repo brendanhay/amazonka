@@ -143,7 +143,8 @@ instance Core.AWSRequest ListRoutingProfiles where
   type
     AWSResponse ListRoutingProfiles =
       ListRoutingProfilesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

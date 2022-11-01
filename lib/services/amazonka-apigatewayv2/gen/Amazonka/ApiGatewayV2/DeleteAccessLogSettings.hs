@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteAccessLogSettings where
   type
     AWSResponse DeleteAccessLogSettings =
       DeleteAccessLogSettingsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteAccessLogSettingsResponse'

@@ -74,7 +74,8 @@ getEula_eulaId = Lens.lens (\GetEula' {eulaId} -> eulaId) (\s@GetEula' {} a -> s
 
 instance Core.AWSRequest GetEula where
   type AWSResponse GetEula = GetEulaResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

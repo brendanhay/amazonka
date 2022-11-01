@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteHumanLoop where
   type
     AWSResponse DeleteHumanLoop =
       DeleteHumanLoopResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

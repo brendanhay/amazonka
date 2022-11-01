@@ -93,7 +93,8 @@ deleteGroup_group = Lens.lens (\DeleteGroup' {group'} -> group') (\s@DeleteGroup
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

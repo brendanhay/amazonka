@@ -81,7 +81,8 @@ instance Core.AWSRequest GetWirelessGatewayTask where
   type
     AWSResponse GetWirelessGatewayTask =
       GetWirelessGatewayTaskResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

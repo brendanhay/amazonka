@@ -153,6 +153,8 @@ defaultService =
       Core._serviceEndpointPrefix = "sqs",
       Core._serviceSigningName = "sqs",
       Core._serviceVersion = "2012-11-05",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -94,7 +94,8 @@ instance
   type
     AWSResponse DeletePendingAggregationRequest =
       DeletePendingAggregationRequestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePendingAggregationRequestResponse'

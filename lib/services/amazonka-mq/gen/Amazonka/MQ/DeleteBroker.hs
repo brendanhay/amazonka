@@ -75,7 +75,8 @@ deleteBroker_brokerId = Lens.lens (\DeleteBroker' {brokerId} -> brokerId) (\s@De
 
 instance Core.AWSRequest DeleteBroker where
   type AWSResponse DeleteBroker = DeleteBrokerResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

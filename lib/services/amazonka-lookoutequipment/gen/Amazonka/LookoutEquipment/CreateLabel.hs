@@ -202,7 +202,8 @@ createLabel_clientToken = Lens.lens (\CreateLabel' {clientToken} -> clientToken)
 
 instance Core.AWSRequest CreateLabel where
   type AWSResponse CreateLabel = CreateLabelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

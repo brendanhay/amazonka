@@ -93,7 +93,8 @@ instance Core.AWSRequest PutJobFailureResult where
   type
     AWSResponse PutJobFailureResult =
       PutJobFailureResultResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutJobFailureResultResponse'
 

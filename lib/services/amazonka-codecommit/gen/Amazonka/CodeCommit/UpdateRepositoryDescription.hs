@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateRepositoryDescription where
   type
     AWSResponse UpdateRepositoryDescription =
       UpdateRepositoryDescriptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRepositoryDescriptionResponse'

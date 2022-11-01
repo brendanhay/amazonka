@@ -214,7 +214,8 @@ instance Core.AWSRequest ListResourceTags where
   type
     AWSResponse ListResourceTags =
       ListResourceTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

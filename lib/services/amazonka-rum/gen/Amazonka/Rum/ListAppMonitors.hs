@@ -55,8 +55,9 @@ data ListAppMonitors = ListAppMonitors'
   { -- | Use the token returned by the previous operation to request the next
     -- page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in one operation.
-    maxResults :: Prelude.Maybe Prelude.Int
+    -- | The maximum number of results to return in one operation. The default is
+    -- 50. The maximum that you can specify is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,7 +72,8 @@ data ListAppMonitors = ListAppMonitors'
 -- 'nextToken', 'listAppMonitors_nextToken' - Use the token returned by the previous operation to request the next
 -- page of results.
 --
--- 'maxResults', 'listAppMonitors_maxResults' - The maximum number of results to return in one operation.
+-- 'maxResults', 'listAppMonitors_maxResults' - The maximum number of results to return in one operation. The default is
+-- 50. The maximum that you can specify is 100.
 newListAppMonitors ::
   ListAppMonitors
 newListAppMonitors =
@@ -85,8 +87,9 @@ newListAppMonitors =
 listAppMonitors_nextToken :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Text)
 listAppMonitors_nextToken = Lens.lens (\ListAppMonitors' {nextToken} -> nextToken) (\s@ListAppMonitors' {} a -> s {nextToken = a} :: ListAppMonitors)
 
--- | The maximum number of results to return in one operation.
-listAppMonitors_maxResults :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Int)
+-- | The maximum number of results to return in one operation. The default is
+-- 50. The maximum that you can specify is 100.
+listAppMonitors_maxResults :: Lens.Lens' ListAppMonitors (Prelude.Maybe Prelude.Natural)
 listAppMonitors_maxResults = Lens.lens (\ListAppMonitors' {maxResults} -> maxResults) (\s@ListAppMonitors' {} a -> s {maxResults = a} :: ListAppMonitors)
 
 instance Core.AWSPager ListAppMonitors where
@@ -115,7 +118,8 @@ instance Core.AWSRequest ListAppMonitors where
   type
     AWSResponse ListAppMonitors =
       ListAppMonitorsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

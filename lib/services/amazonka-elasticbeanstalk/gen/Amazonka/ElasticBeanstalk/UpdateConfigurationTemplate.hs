@@ -174,7 +174,8 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
   type
     AWSResponse UpdateConfigurationTemplate =
       ConfigurationSettingsDescription
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateConfigurationTemplateResult"

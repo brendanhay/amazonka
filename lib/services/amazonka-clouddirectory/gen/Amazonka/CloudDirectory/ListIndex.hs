@@ -158,7 +158,8 @@ instance Core.AWSPager ListIndex where
 
 instance Core.AWSRequest ListIndex where
   type AWSResponse ListIndex = ListIndexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

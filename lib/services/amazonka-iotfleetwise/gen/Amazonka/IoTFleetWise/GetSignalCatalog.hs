@@ -82,7 +82,8 @@ instance Core.AWSRequest GetSignalCatalog where
   type
     AWSResponse GetSignalCatalog =
       GetSignalCatalogResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

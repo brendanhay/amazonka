@@ -198,7 +198,8 @@ deleteWebACL_lockToken = Lens.lens (\DeleteWebACL' {lockToken} -> lockToken) (\s
 
 instance Core.AWSRequest DeleteWebACL where
   type AWSResponse DeleteWebACL = DeleteWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

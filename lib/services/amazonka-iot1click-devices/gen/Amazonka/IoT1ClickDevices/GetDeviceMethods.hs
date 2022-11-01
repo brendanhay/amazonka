@@ -78,7 +78,8 @@ instance Core.AWSRequest GetDeviceMethods where
   type
     AWSResponse GetDeviceMethods =
       GetDeviceMethodsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

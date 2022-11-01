@@ -78,7 +78,8 @@ getWebhook_webhookId = Lens.lens (\GetWebhook' {webhookId} -> webhookId) (\s@Get
 
 instance Core.AWSRequest GetWebhook where
   type AWSResponse GetWebhook = GetWebhookResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

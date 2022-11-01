@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteMonitoringSchedule where
   type
     AWSResponse DeleteMonitoringSchedule =
       DeleteMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteMonitoringScheduleResponse'

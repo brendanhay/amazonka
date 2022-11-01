@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteFunctionConcurrency where
   type
     AWSResponse DeleteFunctionConcurrency =
       DeleteFunctionConcurrencyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionConcurrencyResponse'

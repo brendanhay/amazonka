@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an IAM policy for the channel.
+-- Creates an IAM policy for the channel. IAM policies are used to control
+-- access to your channel.
 module Amazonka.MediaTailor.PutChannelPolicy
   ( -- * Creating a Request
     PutChannelPolicy (..),
@@ -48,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutChannelPolicy' smart constructor.
 data PutChannelPolicy = PutChannelPolicy'
-  { -- | The identifier for the channel you are working on.
+  { -- | The channel name associated with this Channel Policy.
     channelName :: Prelude.Text,
     -- | Adds an IAM role that determines the permissions of your channel.
     policy :: Prelude.Text
@@ -63,7 +64,7 @@ data PutChannelPolicy = PutChannelPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'putChannelPolicy_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'putChannelPolicy_channelName' - The channel name associated with this Channel Policy.
 --
 -- 'policy', 'putChannelPolicy_policy' - Adds an IAM role that determines the permissions of your channel.
 newPutChannelPolicy ::
@@ -78,7 +79,7 @@ newPutChannelPolicy pChannelName_ pPolicy_ =
       policy = pPolicy_
     }
 
--- | The identifier for the channel you are working on.
+-- | The channel name associated with this Channel Policy.
 putChannelPolicy_channelName :: Lens.Lens' PutChannelPolicy Prelude.Text
 putChannelPolicy_channelName = Lens.lens (\PutChannelPolicy' {channelName} -> channelName) (\s@PutChannelPolicy' {} a -> s {channelName = a} :: PutChannelPolicy)
 
@@ -90,7 +91,8 @@ instance Core.AWSRequest PutChannelPolicy where
   type
     AWSResponse PutChannelPolicy =
       PutChannelPolicyResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

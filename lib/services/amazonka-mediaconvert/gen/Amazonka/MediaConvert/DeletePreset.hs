@@ -73,7 +73,8 @@ deletePreset_name = Lens.lens (\DeletePreset' {name} -> name) (\s@DeletePreset' 
 
 instance Core.AWSRequest DeletePreset where
   type AWSResponse DeletePreset = DeletePresetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -150,7 +150,8 @@ instance Core.AWSRequest ListAccountAliases where
   type
     AWSResponse ListAccountAliases =
       ListAccountAliasesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAccountAliasesResult"

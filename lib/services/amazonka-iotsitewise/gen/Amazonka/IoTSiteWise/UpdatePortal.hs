@@ -202,7 +202,8 @@ updatePortal_roleArn = Lens.lens (\UpdatePortal' {roleArn} -> roleArn) (\s@Updat
 
 instance Core.AWSRequest UpdatePortal where
   type AWSResponse UpdatePortal = UpdatePortalResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

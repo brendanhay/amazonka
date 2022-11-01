@@ -85,7 +85,8 @@ instance Core.AWSRequest DisableGateway where
   type
     AWSResponse DisableGateway =
       DisableGatewayResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

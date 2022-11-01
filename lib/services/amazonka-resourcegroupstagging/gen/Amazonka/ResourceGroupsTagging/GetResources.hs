@@ -485,7 +485,8 @@ instance Core.AWSPager GetResources where
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

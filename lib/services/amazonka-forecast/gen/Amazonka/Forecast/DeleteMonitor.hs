@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteMonitor where
   type
     AWSResponse DeleteMonitor =
       DeleteMonitorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteMonitorResponse'
 

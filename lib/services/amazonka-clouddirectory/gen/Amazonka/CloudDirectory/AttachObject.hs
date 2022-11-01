@@ -125,7 +125,8 @@ attachObject_linkName = Lens.lens (\AttachObject' {linkName} -> linkName) (\s@At
 
 instance Core.AWSRequest AttachObject where
   type AWSResponse AttachObject = AttachObjectResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

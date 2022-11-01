@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the properties of a node that\'s associated with
--- a multi-node parallel job.
+-- | An object that represents the properties of a node that\'s associated
+-- with a multi-node parallel job.
 --
 -- /See:/ 'newNodePropertiesSummary' smart constructor.
 data NodePropertiesSummary = NodePropertiesSummary'
@@ -35,7 +35,7 @@ data NodePropertiesSummary = NodePropertiesSummary'
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
     nodeIndex :: Prelude.Maybe Prelude.Int,
-    -- | The number of nodes associated with a multi-node parallel job.
+    -- | The number of nodes that are associated with a multi-node parallel job.
     numNodes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,7 +55,7 @@ data NodePropertiesSummary = NodePropertiesSummary'
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
 --
--- 'numNodes', 'nodePropertiesSummary_numNodes' - The number of nodes associated with a multi-node parallel job.
+-- 'numNodes', 'nodePropertiesSummary_numNodes' - The number of nodes that are associated with a multi-node parallel job.
 newNodePropertiesSummary ::
   NodePropertiesSummary
 newNodePropertiesSummary =
@@ -77,7 +77,7 @@ nodePropertiesSummary_isMainNode = Lens.lens (\NodePropertiesSummary' {isMainNod
 nodePropertiesSummary_nodeIndex :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
 nodePropertiesSummary_nodeIndex = Lens.lens (\NodePropertiesSummary' {nodeIndex} -> nodeIndex) (\s@NodePropertiesSummary' {} a -> s {nodeIndex = a} :: NodePropertiesSummary)
 
--- | The number of nodes associated with a multi-node parallel job.
+-- | The number of nodes that are associated with a multi-node parallel job.
 nodePropertiesSummary_numNodes :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
 nodePropertiesSummary_numNodes = Lens.lens (\NodePropertiesSummary' {numNodes} -> numNodes) (\s@NodePropertiesSummary' {} a -> s {numNodes = a} :: NodePropertiesSummary)
 

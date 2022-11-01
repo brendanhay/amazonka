@@ -148,7 +148,8 @@ instance Core.AWSRequest ListWorkteams where
   type
     AWSResponse ListWorkteams =
       ListWorkteamsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

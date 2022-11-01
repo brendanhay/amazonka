@@ -83,7 +83,8 @@ instance Core.AWSRequest GetKnowledgeBase where
   type
     AWSResponse GetKnowledgeBase =
       GetKnowledgeBaseResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

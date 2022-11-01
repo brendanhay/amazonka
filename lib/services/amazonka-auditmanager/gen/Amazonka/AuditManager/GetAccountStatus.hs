@@ -61,7 +61,8 @@ instance Core.AWSRequest GetAccountStatus where
   type
     AWSResponse GetAccountStatus =
       GetAccountStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

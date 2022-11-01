@@ -73,7 +73,8 @@ startJob_jobId = Lens.lens (\StartJob' {jobId} -> jobId) (\s@StartJob' {} a -> s
 
 instance Core.AWSRequest StartJob where
   type AWSResponse StartJob = StartJobResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

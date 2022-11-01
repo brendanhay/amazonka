@@ -130,7 +130,8 @@ instance Core.AWSRequest GetReadinessCheckStatus where
   type
     AWSResponse GetReadinessCheckStatus =
       GetReadinessCheckStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

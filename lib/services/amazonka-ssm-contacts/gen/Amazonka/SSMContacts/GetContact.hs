@@ -79,7 +79,8 @@ getContact_contactId = Lens.lens (\GetContact' {contactId} -> contactId) (\s@Get
 
 instance Core.AWSRequest GetContact where
   type AWSResponse GetContact = GetContactResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

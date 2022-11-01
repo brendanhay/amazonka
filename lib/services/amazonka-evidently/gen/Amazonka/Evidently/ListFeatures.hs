@@ -123,7 +123,8 @@ instance Core.AWSPager ListFeatures where
 
 instance Core.AWSRequest ListFeatures where
   type AWSResponse ListFeatures = ListFeaturesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

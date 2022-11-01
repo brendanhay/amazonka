@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteAttendee where
   type
     AWSResponse DeleteAttendee =
       DeleteAttendeeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAttendeeResponse'
 

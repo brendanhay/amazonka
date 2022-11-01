@@ -811,9 +811,9 @@ instance Core.AWSRequest CreateMultipartUpload where
   type
     AWSResponse CreateMultipartUpload =
       CreateMultipartUploadResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.post defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -132,7 +132,8 @@ instance Core.AWSRequest ListDocumentClassifiers where
   type
     AWSResponse ListDocumentClassifiers =
       ListDocumentClassifiersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteSecurityGroup where
   type
     AWSResponse DeleteSecurityGroup =
       DeleteSecurityGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteSecurityGroupResponse'
 

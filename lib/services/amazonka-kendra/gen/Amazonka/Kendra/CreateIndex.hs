@@ -281,7 +281,8 @@ createIndex_roleArn = Lens.lens (\CreateIndex' {roleArn} -> roleArn) (\s@CreateI
 
 instance Core.AWSRequest CreateIndex where
   type AWSResponse CreateIndex = CreateIndexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

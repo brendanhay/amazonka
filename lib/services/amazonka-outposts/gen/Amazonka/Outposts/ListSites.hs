@@ -123,7 +123,8 @@ listSites_operatingAddressStateOrRegionFilter = Lens.lens (\ListSites' {operatin
 
 instance Core.AWSRequest ListSites where
   type AWSResponse ListSites = ListSitesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

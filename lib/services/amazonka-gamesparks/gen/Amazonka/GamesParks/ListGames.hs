@@ -128,7 +128,8 @@ instance Core.AWSPager ListGames where
 
 instance Core.AWSRequest ListGames where
   type AWSResponse ListGames = ListGamesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

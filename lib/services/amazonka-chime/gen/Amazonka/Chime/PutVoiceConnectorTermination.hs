@@ -98,7 +98,8 @@ instance Core.AWSRequest PutVoiceConnectorTermination where
   type
     AWSResponse PutVoiceConnectorTermination =
       PutVoiceConnectorTerminationResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

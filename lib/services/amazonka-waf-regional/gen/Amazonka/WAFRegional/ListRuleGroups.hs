@@ -121,7 +121,8 @@ instance Core.AWSRequest ListRuleGroups where
   type
     AWSResponse ListRuleGroups =
       ListRuleGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

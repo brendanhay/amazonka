@@ -98,7 +98,8 @@ instance Core.AWSRequest GetThreatIntelSet where
   type
     AWSResponse GetThreatIntelSet =
       GetThreatIntelSetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

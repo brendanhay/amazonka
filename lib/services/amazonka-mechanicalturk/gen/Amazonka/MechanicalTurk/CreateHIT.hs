@@ -450,7 +450,8 @@ createHIT_description = Lens.lens (\CreateHIT' {description} -> description) (\s
 
 instance Core.AWSRequest CreateHIT where
   type AWSResponse CreateHIT = CreateHITResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

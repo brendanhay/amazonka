@@ -122,7 +122,8 @@ enableKey_keyId = Lens.lens (\EnableKey' {keyId} -> keyId) (\s@EnableKey' {} a -
 
 instance Core.AWSRequest EnableKey where
   type AWSResponse EnableKey = EnableKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull EnableKeyResponse'
 
 instance Prelude.Hashable EnableKey where

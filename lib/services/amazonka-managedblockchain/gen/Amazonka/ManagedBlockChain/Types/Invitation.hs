@@ -25,7 +25,8 @@ import Amazonka.ManagedBlockChain.Types.InvitationStatus
 import Amazonka.ManagedBlockChain.Types.NetworkSummary
 import qualified Amazonka.Prelude as Prelude
 
--- | An invitation to an AWS account to create a member and join the network.
+-- | An invitation to an Amazon Web Services account to create a member and
+-- join the network.
 --
 -- Applies only to Hyperledger Fabric.
 --
@@ -34,17 +35,17 @@ data Invitation = Invitation'
   { -- | The Amazon Resource Name (ARN) of the invitation. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the invitation was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The status of the invitation:
     --
-    -- -   @PENDING@ - The invitee has not created a member to join the
-    --     network, and the invitation has not yet expired.
+    -- -   @PENDING@ - The invitee hasn\'t created a member to join the
+    --     network, and the invitation hasn\'t yet expired.
     --
     -- -   @ACCEPTING@ - The invitee has begun creating a member, and creation
-    --     has not yet completed.
+    --     hasn\'t yet completed.
     --
     -- -   @ACCEPTED@ - The invitee created a member and joined the network
     --     using the @InvitationID@.
@@ -77,17 +78,17 @@ data Invitation = Invitation'
 -- 'arn', 'invitation_arn' - The Amazon Resource Name (ARN) of the invitation. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'invitation_creationDate' - The date and time that the invitation was created.
 --
 -- 'status', 'invitation_status' - The status of the invitation:
 --
--- -   @PENDING@ - The invitee has not created a member to join the
---     network, and the invitation has not yet expired.
+-- -   @PENDING@ - The invitee hasn\'t created a member to join the
+--     network, and the invitation hasn\'t yet expired.
 --
 -- -   @ACCEPTING@ - The invitee has begun creating a member, and creation
---     has not yet completed.
+--     hasn\'t yet completed.
 --
 -- -   @ACCEPTED@ - The invitee created a member and joined the network
 --     using the @InvitationID@.
@@ -121,7 +122,7 @@ newInvitation =
 -- | The Amazon Resource Name (ARN) of the invitation. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 invitation_arn :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_arn = Lens.lens (\Invitation' {arn} -> arn) (\s@Invitation' {} a -> s {arn = a} :: Invitation)
 
@@ -131,11 +132,11 @@ invitation_creationDate = Lens.lens (\Invitation' {creationDate} -> creationDate
 
 -- | The status of the invitation:
 --
--- -   @PENDING@ - The invitee has not created a member to join the
---     network, and the invitation has not yet expired.
+-- -   @PENDING@ - The invitee hasn\'t created a member to join the
+--     network, and the invitation hasn\'t yet expired.
 --
 -- -   @ACCEPTING@ - The invitee has begun creating a member, and creation
---     has not yet completed.
+--     hasn\'t yet completed.
 --
 -- -   @ACCEPTED@ - The invitee created a member and joined the network
 --     using the @InvitationID@.

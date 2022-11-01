@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteLoadBalancerPolicy where
   type
     AWSResponse DeleteLoadBalancerPolicy =
       DeleteLoadBalancerPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteLoadBalancerPolicyResult"

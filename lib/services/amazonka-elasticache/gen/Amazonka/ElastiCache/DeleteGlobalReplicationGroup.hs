@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteGlobalReplicationGroup where
   type
     AWSResponse DeleteGlobalReplicationGroup =
       DeleteGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteGlobalReplicationGroupResult"

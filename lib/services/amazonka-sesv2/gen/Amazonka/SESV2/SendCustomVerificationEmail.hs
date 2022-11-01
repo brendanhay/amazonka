@@ -28,7 +28,7 @@
 -- To use this operation, you must first create a custom verification email
 -- template. For more information about creating and using custom
 -- verification email templates, see
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html Using Custom Verification Email Templates>
+-- <https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom Using custom verification email templates>
 -- in the /Amazon SES Developer Guide/.
 --
 -- You can execute this operation no more than once per second.
@@ -121,7 +121,8 @@ instance Core.AWSRequest SendCustomVerificationEmail where
   type
     AWSResponse SendCustomVerificationEmail =
       SendCustomVerificationEmailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

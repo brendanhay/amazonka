@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateExperimentTemplate where
   type
     AWSResponse CreateExperimentTemplate =
       CreateExperimentTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

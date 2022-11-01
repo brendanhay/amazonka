@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateCustomMetric where
   type
     AWSResponse CreateCustomMetric =
       CreateCustomMetricResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

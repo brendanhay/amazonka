@@ -39,8 +39,8 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     iam :: Prelude.Maybe EFSAuthorizationConfigIAM,
     -- | The Amazon EFS access point ID to use. If an access point is specified,
     -- the root directory value specified in the @EFSVolumeConfiguration@ must
-    -- either be omitted or set to @\/@ which will enforce the path set on the
-    -- EFS access point. If an access point is used, transit encryption must be
+    -- either be omitted or set to @\/@ which enforces the path set on the EFS
+    -- access point. If an access point is used, transit encryption must be
     -- enabled in the @EFSVolumeConfiguration@. For more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
     -- in the /Amazon Elastic File System User Guide/.
@@ -67,8 +67,8 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
 --
 -- 'accessPointId', 'eFSAuthorizationConfig_accessPointId' - The Amazon EFS access point ID to use. If an access point is specified,
 -- the root directory value specified in the @EFSVolumeConfiguration@ must
--- either be omitted or set to @\/@ which will enforce the path set on the
--- EFS access point. If an access point is used, transit encryption must be
+-- either be omitted or set to @\/@ which enforces the path set on the EFS
+-- access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.
@@ -93,8 +93,8 @@ eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (
 
 -- | The Amazon EFS access point ID to use. If an access point is specified,
 -- the root directory value specified in the @EFSVolumeConfiguration@ must
--- either be omitted or set to @\/@ which will enforce the path set on the
--- EFS access point. If an access point is used, transit encryption must be
+-- either be omitted or set to @\/@ which enforces the path set on the EFS
+-- access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.

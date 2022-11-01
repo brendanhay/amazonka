@@ -263,7 +263,8 @@ instance Core.AWSRequest CreateEventSubscription where
   type
     AWSResponse CreateEventSubscription =
       CreateEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateEventSubscriptionResult"

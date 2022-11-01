@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteGroupPolicy where
   type
     AWSResponse DeleteGroupPolicy =
       DeleteGroupPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteGroupPolicyResponse'
 

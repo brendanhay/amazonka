@@ -395,7 +395,8 @@ decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob
 
 instance Core.AWSRequest Decrypt where
   type AWSResponse Decrypt = DecryptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

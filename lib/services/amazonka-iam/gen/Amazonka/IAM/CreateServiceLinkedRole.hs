@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateServiceLinkedRole where
   type
     AWSResponse CreateServiceLinkedRole =
       CreateServiceLinkedRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateServiceLinkedRoleResult"

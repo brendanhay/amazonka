@@ -110,7 +110,8 @@ instance Core.AWSRequest ListExtensions where
   type
     AWSResponse ListExtensions =
       ListExtensionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

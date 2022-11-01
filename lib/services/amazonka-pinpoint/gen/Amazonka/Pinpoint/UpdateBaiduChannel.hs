@@ -97,7 +97,8 @@ instance Core.AWSRequest UpdateBaiduChannel where
   type
     AWSResponse UpdateBaiduChannel =
       UpdateBaiduChannelResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

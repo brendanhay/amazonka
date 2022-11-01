@@ -202,10 +202,11 @@ instance Core.AWSRequest PutBucketPolicy where
   type
     AWSResponse PutBucketPolicy =
       PutBucketPolicyResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.putBody defaultService
+      Prelude.. Request.putBody srv
   response =
     Response.receiveNull PutBucketPolicyResponse'
 

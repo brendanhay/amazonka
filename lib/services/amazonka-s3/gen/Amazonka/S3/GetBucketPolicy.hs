@@ -117,9 +117,9 @@ instance Core.AWSRequest GetBucketPolicy where
   type
     AWSResponse GetBucketPolicy =
       GetBucketPolicyResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

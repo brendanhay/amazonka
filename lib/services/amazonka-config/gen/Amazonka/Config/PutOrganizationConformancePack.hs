@@ -27,18 +27,18 @@
 -- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
 -- in the Config Developer Guide.
 --
--- Only a master account and a delegated administrator can call this API.
--- When calling this API with a delegated administrator, you must ensure
--- Organizations @ListDelegatedAdministrator@ permissions are added. An
--- organization can have up to 3 delegated administrators.
+-- Only a management account and a delegated administrator can call this
+-- API. When calling this API with a delegated administrator, you must
+-- ensure Organizations @ListDelegatedAdministrator@ permissions are added.
+-- An organization can have up to 3 delegated administrators.
 --
 -- This API enables organization service access for
 -- @config-multiaccountsetup.amazonaws.com@ through the
 -- @EnableAWSServiceAccess@ action and creates a service-linked role
--- @AWSServiceRoleForConfigMultiAccountSetup@ in the master or delegated
--- administrator account of your organization. The service-linked role is
--- created only when the role does not exist in the caller account. To use
--- this API with delegated administrator, register a delegated
+-- @AWSServiceRoleForConfigMultiAccountSetup@ in the management or
+-- delegated administrator account of your organization. The service-linked
+-- role is created only when the role does not exist in the caller account.
+-- To use this API with delegated administrator, register a delegated
 -- administrator by calling Amazon Web Services Organization
 -- @register-delegate-admin@ for @config-multiaccountsetup.amazonaws.com@.
 --
@@ -213,7 +213,8 @@ instance
   type
     AWSResponse PutOrganizationConformancePack =
       PutOrganizationConformancePackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

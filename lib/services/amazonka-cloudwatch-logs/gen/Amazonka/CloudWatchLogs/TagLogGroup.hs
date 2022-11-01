@@ -98,7 +98,8 @@ tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} 
 
 instance Core.AWSRequest TagLogGroup where
   type AWSResponse TagLogGroup = TagLogGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull TagLogGroupResponse'
 
 instance Prelude.Hashable TagLogGroup where

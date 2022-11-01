@@ -106,7 +106,8 @@ batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@Ba
 
 instance Core.AWSRequest BatchRead where
   type AWSResponse BatchRead = BatchReadResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

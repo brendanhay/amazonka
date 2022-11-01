@@ -99,7 +99,8 @@ instance
   type
     AWSResponse CreateLaunchConfigurationTemplate =
       LaunchConfigurationTemplate
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

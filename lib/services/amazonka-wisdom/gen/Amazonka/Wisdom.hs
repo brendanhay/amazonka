@@ -183,12 +183,6 @@ module Amazonka.Wisdom
     NotifyRecommendationsReceivedResponse (NotifyRecommendationsReceivedResponse'),
     newNotifyRecommendationsReceivedResponse,
 
-    -- ** PutFeedback
-    PutFeedback (PutFeedback'),
-    newPutFeedback,
-    PutFeedbackResponse (PutFeedbackResponse'),
-    newPutFeedbackResponse,
-
     -- ** QueryAssistant (Paginated)
     QueryAssistant (QueryAssistant'),
     newQueryAssistant,
@@ -278,14 +272,8 @@ module Amazonka.Wisdom
     -- ** RecommendationType
     RecommendationType (..),
 
-    -- ** Relevance
-    Relevance (..),
-
     -- ** RelevanceLevel
     RelevanceLevel (..),
-
-    -- ** TargetType
-    TargetType (..),
 
     -- ** AppIntegrationsConfiguration
     AppIntegrationsConfiguration (AppIntegrationsConfiguration'),
@@ -334,10 +322,6 @@ module Amazonka.Wisdom
     -- ** DocumentText
     DocumentText (DocumentText'),
     newDocumentText,
-
-    -- ** FeedbackData
-    FeedbackData (FeedbackData'),
-    newFeedbackData,
 
     -- ** Filter
     Filter (Filter'),
@@ -432,7 +416,6 @@ import Amazonka.Wisdom.ListContents
 import Amazonka.Wisdom.ListKnowledgeBases
 import Amazonka.Wisdom.ListTagsForResource
 import Amazonka.Wisdom.NotifyRecommendationsReceived
-import Amazonka.Wisdom.PutFeedback
 import Amazonka.Wisdom.QueryAssistant
 import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
 import Amazonka.Wisdom.SearchContent

@@ -134,7 +134,8 @@ updateSite_siteId = Lens.lens (\UpdateSite' {siteId} -> siteId) (\s@UpdateSite' 
 
 instance Core.AWSRequest UpdateSite where
   type AWSResponse UpdateSite = UpdateSiteResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all CloudTrail channels.
+-- Lists the channels in the current account, and their source names.
+-- Amazon Web Services services create service-linked channels get
+-- information about CloudTrail events on your behalf. For more information
+-- about service-linked channels, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html Viewing service-linked channels for CloudTrail by using the CLI>.
 module Amazonka.CloudTrail.ListChannels
   ( -- * Creating a Request
     ListChannels (..),
@@ -50,7 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | A token you can use to get the next page of results.
+  { -- | The token to use to get the next page of results after a previous API
+    -- call. This token must be passed in with the same parameters that were
+    -- specified in the original call. For example, if the original call
+    -- specified an AttributeKey of \'Username\' with a value of \'root\', the
+    -- call with NextToken should include those same parameters.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of CloudTrail channels to display on a single page.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -65,7 +73,11 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannels_nextToken' - A token you can use to get the next page of results.
+-- 'nextToken', 'listChannels_nextToken' - The token to use to get the next page of results after a previous API
+-- call. This token must be passed in with the same parameters that were
+-- specified in the original call. For example, if the original call
+-- specified an AttributeKey of \'Username\' with a value of \'root\', the
+-- call with NextToken should include those same parameters.
 --
 -- 'maxResults', 'listChannels_maxResults' - The maximum number of CloudTrail channels to display on a single page.
 newListChannels ::
@@ -76,7 +88,11 @@ newListChannels =
       maxResults = Prelude.Nothing
     }
 
--- | A token you can use to get the next page of results.
+-- | The token to use to get the next page of results after a previous API
+-- call. This token must be passed in with the same parameters that were
+-- specified in the original call. For example, if the original call
+-- specified an AttributeKey of \'Username\' with a value of \'root\', the
+-- call with NextToken should include those same parameters.
 listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
@@ -86,7 +102,8 @@ listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,9 +155,10 @@ instance Core.ToQuery ListChannels where
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { -- | A token used to get the next page of results.
+  { -- | The token to use to get the next page of results after a previous API
+    -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of CloudTrail channels.
+    -- | The list of channels in the account.
     channels :: Prelude.Maybe [Channel],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -155,9 +173,10 @@ data ListChannelsResponse = ListChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannelsResponse_nextToken' - A token used to get the next page of results.
+-- 'nextToken', 'listChannelsResponse_nextToken' - The token to use to get the next page of results after a previous API
+-- call.
 --
--- 'channels', 'listChannelsResponse_channels' - The list of CloudTrail channels.
+-- 'channels', 'listChannelsResponse_channels' - The list of channels in the account.
 --
 -- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
 newListChannelsResponse ::
@@ -171,11 +190,12 @@ newListChannelsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token used to get the next page of results.
+-- | The token to use to get the next page of results after a previous API
+-- call.
 listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
 listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse)
 
--- | The list of CloudTrail channels.
+-- | The list of channels in the account.
 listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
 listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -20,15 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a job to run on one or more devices.
+-- Creates a job to run on one or more devices. A job can update a
+-- device\'s software or reboot it.
 module Amazonka.Panorama.CreateJobForDevices
   ( -- * Creating a Request
     CreateJobForDevices (..),
     newCreateJobForDevices,
 
     -- * Request Lenses
-    createJobForDevices_deviceIds,
     createJobForDevices_deviceJobConfig,
+    createJobForDevices_deviceIds,
     createJobForDevices_jobType,
 
     -- * Destructuring the Response
@@ -50,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateJobForDevices' smart constructor.
 data CreateJobForDevices = CreateJobForDevices'
-  { -- | IDs of target devices.
+  { -- | Configuration settings for a software update job.
+    deviceJobConfig :: Prelude.Maybe DeviceJobConfig,
+    -- | IDs of target devices.
     deviceIds :: Prelude.NonEmpty Prelude.Text,
-    -- | Configuration settings for the job.
-    deviceJobConfig :: DeviceJobConfig,
     -- | The type of job to run.
     jobType :: JobType
   }
@@ -67,37 +68,32 @@ data CreateJobForDevices = CreateJobForDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceIds', 'createJobForDevices_deviceIds' - IDs of target devices.
+-- 'deviceJobConfig', 'createJobForDevices_deviceJobConfig' - Configuration settings for a software update job.
 --
--- 'deviceJobConfig', 'createJobForDevices_deviceJobConfig' - Configuration settings for the job.
+-- 'deviceIds', 'createJobForDevices_deviceIds' - IDs of target devices.
 --
 -- 'jobType', 'createJobForDevices_jobType' - The type of job to run.
 newCreateJobForDevices ::
   -- | 'deviceIds'
   Prelude.NonEmpty Prelude.Text ->
-  -- | 'deviceJobConfig'
-  DeviceJobConfig ->
   -- | 'jobType'
   JobType ->
   CreateJobForDevices
-newCreateJobForDevices
-  pDeviceIds_
-  pDeviceJobConfig_
-  pJobType_ =
-    CreateJobForDevices'
-      { deviceIds =
-          Lens.coerced Lens.# pDeviceIds_,
-        deviceJobConfig = pDeviceJobConfig_,
-        jobType = pJobType_
-      }
+newCreateJobForDevices pDeviceIds_ pJobType_ =
+  CreateJobForDevices'
+    { deviceJobConfig =
+        Prelude.Nothing,
+      deviceIds = Lens.coerced Lens.# pDeviceIds_,
+      jobType = pJobType_
+    }
+
+-- | Configuration settings for a software update job.
+createJobForDevices_deviceJobConfig :: Lens.Lens' CreateJobForDevices (Prelude.Maybe DeviceJobConfig)
+createJobForDevices_deviceJobConfig = Lens.lens (\CreateJobForDevices' {deviceJobConfig} -> deviceJobConfig) (\s@CreateJobForDevices' {} a -> s {deviceJobConfig = a} :: CreateJobForDevices)
 
 -- | IDs of target devices.
 createJobForDevices_deviceIds :: Lens.Lens' CreateJobForDevices (Prelude.NonEmpty Prelude.Text)
 createJobForDevices_deviceIds = Lens.lens (\CreateJobForDevices' {deviceIds} -> deviceIds) (\s@CreateJobForDevices' {} a -> s {deviceIds = a} :: CreateJobForDevices) Prelude.. Lens.coerced
-
--- | Configuration settings for the job.
-createJobForDevices_deviceJobConfig :: Lens.Lens' CreateJobForDevices DeviceJobConfig
-createJobForDevices_deviceJobConfig = Lens.lens (\CreateJobForDevices' {deviceJobConfig} -> deviceJobConfig) (\s@CreateJobForDevices' {} a -> s {deviceJobConfig = a} :: CreateJobForDevices)
 
 -- | The type of job to run.
 createJobForDevices_jobType :: Lens.Lens' CreateJobForDevices JobType
@@ -107,7 +103,8 @@ instance Core.AWSRequest CreateJobForDevices where
   type
     AWSResponse CreateJobForDevices =
       CreateJobForDevicesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,14 +115,14 @@ instance Core.AWSRequest CreateJobForDevices where
 
 instance Prelude.Hashable CreateJobForDevices where
   hashWithSalt _salt CreateJobForDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceIds
-      `Prelude.hashWithSalt` deviceJobConfig
+    _salt `Prelude.hashWithSalt` deviceJobConfig
+      `Prelude.hashWithSalt` deviceIds
       `Prelude.hashWithSalt` jobType
 
 instance Prelude.NFData CreateJobForDevices where
   rnf CreateJobForDevices' {..} =
-    Prelude.rnf deviceIds
-      `Prelude.seq` Prelude.rnf deviceJobConfig
+    Prelude.rnf deviceJobConfig
+      `Prelude.seq` Prelude.rnf deviceIds
       `Prelude.seq` Prelude.rnf jobType
 
 instance Core.ToHeaders CreateJobForDevices where
@@ -143,9 +140,9 @@ instance Core.ToJSON CreateJobForDevices where
   toJSON CreateJobForDevices' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceIds" Core..= deviceIds),
-            Prelude.Just
-              ("DeviceJobConfig" Core..= deviceJobConfig),
+          [ ("DeviceJobConfig" Core..=)
+              Prelude.<$> deviceJobConfig,
+            Prelude.Just ("DeviceIds" Core..= deviceIds),
             Prelude.Just ("JobType" Core..= jobType)
           ]
       )

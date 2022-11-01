@@ -127,7 +127,8 @@ importLens_clientRequestToken = Lens.lens (\ImportLens' {clientRequestToken} -> 
 
 instance Core.AWSRequest ImportLens where
   type AWSResponse ImportLens = ImportLensResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

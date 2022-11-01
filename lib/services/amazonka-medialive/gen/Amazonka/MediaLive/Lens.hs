@@ -763,6 +763,7 @@ module Amazonka.MediaLive.Lens
 
     -- ** AvailSettings
     availSettings_scte35TimeSignalApos,
+    availSettings_esam,
     availSettings_scte35SpliceInsert,
 
     -- ** BatchFailedResultModel
@@ -1007,6 +1008,14 @@ module Amazonka.MediaLive.Lens
     encoderSettings_audioDescriptions,
     encoderSettings_outputGroups,
     encoderSettings_timecodeConfig,
+
+    -- ** Esam
+    esam_username,
+    esam_passwordParam,
+    esam_zoneIdentity,
+    esam_adAvailOffset,
+    esam_acquisitionPointId,
+    esam_poisEndpoint,
 
     -- ** FailoverCondition
     failoverCondition_failoverConditionSettings,
@@ -1872,6 +1881,7 @@ module Amazonka.MediaLive.Lens
     scheduleActionSettings_inputPrepareSettings,
     scheduleActionSettings_staticImageActivateSettings,
     scheduleActionSettings_inputSwitchSettings,
+    scheduleActionSettings_scte35InputSettings,
     scheduleActionSettings_hlsId3SegmentTaggingSettings,
     scheduleActionSettings_motionGraphicsImageDeactivateSettings,
     scheduleActionSettings_scte35SpliceInsertSettings,
@@ -1909,6 +1919,10 @@ module Amazonka.MediaLive.Lens
 
     -- ** Scte35DescriptorSettings
     scte35DescriptorSettings_segmentationDescriptorScte35DescriptorSettings,
+
+    -- ** Scte35InputScheduleActionSettings
+    scte35InputScheduleActionSettings_inputAttachmentNameReference,
+    scte35InputScheduleActionSettings_mode,
 
     -- ** Scte35ReturnToNetworkScheduleActionSettings
     scte35ReturnToNetworkScheduleActionSettings_spliceEventId,
@@ -2183,6 +2197,7 @@ import Amazonka.MediaLive.Types.EmbeddedDestinationSettings
 import Amazonka.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
 import Amazonka.MediaLive.Types.EmbeddedSourceSettings
 import Amazonka.MediaLive.Types.EncoderSettings
+import Amazonka.MediaLive.Types.Esam
 import Amazonka.MediaLive.Types.FailoverCondition
 import Amazonka.MediaLive.Types.FailoverConditionSettings
 import Amazonka.MediaLive.Types.FeatureActivations
@@ -2319,6 +2334,7 @@ import Amazonka.MediaLive.Types.Scte27SourceSettings
 import Amazonka.MediaLive.Types.Scte35DeliveryRestrictions
 import Amazonka.MediaLive.Types.Scte35Descriptor
 import Amazonka.MediaLive.Types.Scte35DescriptorSettings
+import Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35SegmentationDescriptor
 import Amazonka.MediaLive.Types.Scte35SpliceInsert

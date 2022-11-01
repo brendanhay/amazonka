@@ -85,7 +85,8 @@ instance Core.AWSRequest UpdateConfiguration where
   type
     AWSResponse UpdateConfiguration =
       UpdateConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -86,7 +86,8 @@ startReplication_sourceServerID = Lens.lens (\StartReplication' {sourceServerID}
 
 instance Core.AWSRequest StartReplication where
   type AWSResponse StartReplication = SourceServer
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

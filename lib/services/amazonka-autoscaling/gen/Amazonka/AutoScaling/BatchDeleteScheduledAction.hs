@@ -94,7 +94,8 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
   type
     AWSResponse BatchDeleteScheduledAction =
       BatchDeleteScheduledActionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDeleteScheduledActionResult"

@@ -256,7 +256,8 @@ instance Core.AWSRequest ListPoliciesForTarget where
   type
     AWSResponse ListPoliciesForTarget =
       ListPoliciesForTargetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -390,7 +390,8 @@ instance Core.AWSRequest CreateClassificationJob where
   type
     AWSResponse CreateClassificationJob =
       CreateClassificationJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

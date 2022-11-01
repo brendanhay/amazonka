@@ -100,7 +100,8 @@ updateRoom_roomId = Lens.lens (\UpdateRoom' {roomId} -> roomId) (\s@UpdateRoom' 
 
 instance Core.AWSRequest UpdateRoom where
   type AWSResponse UpdateRoom = UpdateRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

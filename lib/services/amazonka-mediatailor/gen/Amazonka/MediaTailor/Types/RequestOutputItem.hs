@@ -34,10 +34,10 @@ data RequestOutputItem = RequestOutputItem'
     -- | DASH manifest configuration parameters.
     dashPlaylistSettings :: Prelude.Maybe DashPlaylistSettings,
     -- | The name of the manifest for the channel. The name appears in the
-    -- PlaybackUrl.
+    -- @PlaybackUrl@.
     manifestName :: Prelude.Text,
-    -- | A string used to match which HttpPackageConfiguration is used for each
-    -- VodSource.
+    -- | A string used to match which @HttpPackageConfiguration@ is used for each
+    -- @VodSource@.
     sourceGroup :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,10 +55,10 @@ data RequestOutputItem = RequestOutputItem'
 -- 'dashPlaylistSettings', 'requestOutputItem_dashPlaylistSettings' - DASH manifest configuration parameters.
 --
 -- 'manifestName', 'requestOutputItem_manifestName' - The name of the manifest for the channel. The name appears in the
--- PlaybackUrl.
+-- @PlaybackUrl@.
 --
--- 'sourceGroup', 'requestOutputItem_sourceGroup' - A string used to match which HttpPackageConfiguration is used for each
--- VodSource.
+-- 'sourceGroup', 'requestOutputItem_sourceGroup' - A string used to match which @HttpPackageConfiguration@ is used for each
+-- @VodSource@.
 newRequestOutputItem ::
   -- | 'manifestName'
   Prelude.Text ->
@@ -83,12 +83,12 @@ requestOutputItem_dashPlaylistSettings :: Lens.Lens' RequestOutputItem (Prelude.
 requestOutputItem_dashPlaylistSettings = Lens.lens (\RequestOutputItem' {dashPlaylistSettings} -> dashPlaylistSettings) (\s@RequestOutputItem' {} a -> s {dashPlaylistSettings = a} :: RequestOutputItem)
 
 -- | The name of the manifest for the channel. The name appears in the
--- PlaybackUrl.
+-- @PlaybackUrl@.
 requestOutputItem_manifestName :: Lens.Lens' RequestOutputItem Prelude.Text
 requestOutputItem_manifestName = Lens.lens (\RequestOutputItem' {manifestName} -> manifestName) (\s@RequestOutputItem' {} a -> s {manifestName = a} :: RequestOutputItem)
 
--- | A string used to match which HttpPackageConfiguration is used for each
--- VodSource.
+-- | A string used to match which @HttpPackageConfiguration@ is used for each
+-- @VodSource@.
 requestOutputItem_sourceGroup :: Lens.Lens' RequestOutputItem Prelude.Text
 requestOutputItem_sourceGroup = Lens.lens (\RequestOutputItem' {sourceGroup} -> sourceGroup) (\s@RequestOutputItem' {} a -> s {sourceGroup = a} :: RequestOutputItem)
 

@@ -82,7 +82,8 @@ inferRxNorm_text = Lens.lens (\InferRxNorm' {text} -> text) (\s@InferRxNorm' {} 
 
 instance Core.AWSRequest InferRxNorm where
   type AWSResponse InferRxNorm = InferRxNormResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteAnalysisScheme where
   type
     AWSResponse DeleteAnalysisScheme =
       DeleteAnalysisSchemeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAnalysisSchemeResult"

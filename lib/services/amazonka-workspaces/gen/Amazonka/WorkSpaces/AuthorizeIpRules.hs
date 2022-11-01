@@ -91,7 +91,8 @@ instance Core.AWSRequest AuthorizeIpRules where
   type
     AWSResponse AuthorizeIpRules =
       AuthorizeIpRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

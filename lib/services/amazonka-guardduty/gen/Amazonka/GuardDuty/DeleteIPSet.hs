@@ -89,7 +89,8 @@ deleteIPSet_ipSetId = Lens.lens (\DeleteIPSet' {ipSetId} -> ipSetId) (\s@DeleteI
 
 instance Core.AWSRequest DeleteIPSet where
   type AWSResponse DeleteIPSet = DeleteIPSetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

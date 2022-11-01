@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a dataset. This operation doesn\'t support datasets that include
--- uploaded files as a source.
+-- uploaded files as a source. Partial updates are not supported by this
+-- operation.
 module Amazonka.QuickSight.UpdateDataSet
   ( -- * Creating a Request
     UpdateDataSet (..),
@@ -222,7 +223,8 @@ instance Core.AWSRequest UpdateDataSet where
   type
     AWSResponse UpdateDataSet =
       UpdateDataSetResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

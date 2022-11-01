@@ -99,7 +99,8 @@ listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

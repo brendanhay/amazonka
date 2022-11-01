@@ -129,7 +129,8 @@ deleteRoute_routeTableId = Lens.lens (\DeleteRoute' {routeTableId} -> routeTable
 
 instance Core.AWSRequest DeleteRoute where
   type AWSResponse DeleteRoute = DeleteRouteResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteRouteResponse'
 
 instance Prelude.Hashable DeleteRoute where

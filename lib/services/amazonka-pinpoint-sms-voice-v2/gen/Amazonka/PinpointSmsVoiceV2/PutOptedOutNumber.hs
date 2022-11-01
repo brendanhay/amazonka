@@ -101,7 +101,8 @@ instance Core.AWSRequest PutOptedOutNumber where
   type
     AWSResponse PutOptedOutNumber =
       PutOptedOutNumberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

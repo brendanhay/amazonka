@@ -93,7 +93,8 @@ getEndpoint_endpointId = Lens.lens (\GetEndpoint' {endpointId} -> endpointId) (\
 
 instance Core.AWSRequest GetEndpoint where
   type AWSResponse GetEndpoint = GetEndpointResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

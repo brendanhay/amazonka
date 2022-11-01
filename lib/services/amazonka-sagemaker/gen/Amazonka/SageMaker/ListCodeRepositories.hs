@@ -202,7 +202,8 @@ instance Core.AWSRequest ListCodeRepositories where
   type
     AWSResponse ListCodeRepositories =
       ListCodeRepositoriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

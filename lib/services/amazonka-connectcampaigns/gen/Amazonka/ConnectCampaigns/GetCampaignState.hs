@@ -78,7 +78,8 @@ instance Core.AWSRequest GetCampaignState where
   type
     AWSResponse GetCampaignState =
       GetCampaignStateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -108,7 +108,8 @@ instance Core.AWSRequest RegisterApplicationRevision where
   type
     AWSResponse RegisterApplicationRevision =
       RegisterApplicationRevisionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RegisterApplicationRevisionResponse'

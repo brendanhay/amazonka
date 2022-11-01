@@ -142,7 +142,8 @@ updateFlow_tasks = Lens.lens (\UpdateFlow' {tasks} -> tasks) (\s@UpdateFlow' {} 
 
 instance Core.AWSRequest UpdateFlow where
   type AWSResponse UpdateFlow = UpdateFlowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

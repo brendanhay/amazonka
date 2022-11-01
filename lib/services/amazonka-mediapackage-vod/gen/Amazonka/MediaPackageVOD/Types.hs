@@ -36,6 +36,12 @@ module Amazonka.MediaPackageVOD.Types
     -- * PeriodTriggersElement
     PeriodTriggersElement (..),
 
+    -- * PresetSpeke20Audio
+    PresetSpeke20Audio (..),
+
+    -- * PresetSpeke20Video
+    PresetSpeke20Video (..),
+
     -- * Profile
     Profile (..),
 
@@ -117,6 +123,12 @@ module Amazonka.MediaPackageVOD.Types
     egressEndpoint_status,
     egressEndpoint_packagingConfigurationId,
 
+    -- * EncryptionContractConfiguration
+    EncryptionContractConfiguration (..),
+    newEncryptionContractConfiguration,
+    encryptionContractConfiguration_presetSpeke20Audio,
+    encryptionContractConfiguration_presetSpeke20Video,
+
     -- * HlsEncryption
     HlsEncryption (..),
     newHlsEncryption,
@@ -186,6 +198,7 @@ module Amazonka.MediaPackageVOD.Types
     -- * SpekeKeyProvider
     SpekeKeyProvider (..),
     newSpekeKeyProvider,
+    spekeKeyProvider_encryptionContractConfiguration,
     spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
     spekeKeyProvider_roleArn,
@@ -211,6 +224,7 @@ import Amazonka.MediaPackageVOD.Types.DashManifest
 import Amazonka.MediaPackageVOD.Types.DashPackage
 import Amazonka.MediaPackageVOD.Types.EgressAccessLogs
 import Amazonka.MediaPackageVOD.Types.EgressEndpoint
+import Amazonka.MediaPackageVOD.Types.EncryptionContractConfiguration
 import Amazonka.MediaPackageVOD.Types.EncryptionMethod
 import Amazonka.MediaPackageVOD.Types.HlsEncryption
 import Amazonka.MediaPackageVOD.Types.HlsManifest
@@ -222,6 +236,8 @@ import Amazonka.MediaPackageVOD.Types.MssPackage
 import Amazonka.MediaPackageVOD.Types.PackagingConfiguration
 import Amazonka.MediaPackageVOD.Types.PackagingGroup
 import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
+import Amazonka.MediaPackageVOD.Types.PresetSpeke20Audio
+import Amazonka.MediaPackageVOD.Types.PresetSpeke20Video
 import Amazonka.MediaPackageVOD.Types.Profile
 import Amazonka.MediaPackageVOD.Types.ScteMarkersSource
 import Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
@@ -241,6 +257,8 @@ defaultService =
       Core._serviceEndpointPrefix = "mediapackage-vod",
       Core._serviceSigningName = "mediapackage-vod",
       Core._serviceVersion = "2018-11-07",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

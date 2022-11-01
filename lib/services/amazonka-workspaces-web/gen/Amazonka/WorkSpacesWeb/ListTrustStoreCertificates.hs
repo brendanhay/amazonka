@@ -105,7 +105,8 @@ instance Core.AWSRequest ListTrustStoreCertificates where
   type
     AWSResponse ListTrustStoreCertificates =
       ListTrustStoreCertificatesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

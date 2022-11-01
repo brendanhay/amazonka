@@ -24,6 +24,7 @@ module Amazonka.DevOpsGuru.Lens
     deleteInsightResponse_httpStatus,
 
     -- ** DescribeAccountHealth
+    describeAccountHealthResponse_analyzedResourceCount,
     describeAccountHealthResponse_httpStatus,
     describeAccountHealthResponse_openReactiveInsights,
     describeAccountHealthResponse_openProactiveInsights,
@@ -162,8 +163,8 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** ListMonitoredResources
     listMonitoredResources_nextToken,
-    listMonitoredResources_maxResults,
     listMonitoredResources_filters,
+    listMonitoredResources_maxResults,
     listMonitoredResourcesResponse_nextToken,
     listMonitoredResourcesResponse_httpStatus,
     listMonitoredResourcesResponse_monitoredResourceIdentifiers,
@@ -295,6 +296,7 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** CloudFormationHealth
     cloudFormationHealth_insight,
+    cloudFormationHealth_analyzedResourceCount,
     cloudFormationHealth_stackName,
 
     -- ** CloudWatchMetricsDataSummary
@@ -409,6 +411,8 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** MonitoredResourceIdentifier
     monitoredResourceIdentifier_type,
+    monitoredResourceIdentifier_resourceCollection,
+    monitoredResourceIdentifier_lastUpdated,
     monitoredResourceIdentifier_resourcePermission,
     monitoredResourceIdentifier_monitoredResourceName,
 
@@ -653,6 +657,7 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** ServiceHealth
     serviceHealth_insight,
+    serviceHealth_analyzedResourceCount,
     serviceHealth_serviceName,
 
     -- ** ServiceInsightHealth
@@ -692,6 +697,7 @@ module Amazonka.DevOpsGuru.Lens
     -- ** TagHealth
     tagHealth_insight,
     tagHealth_tagValue,
+    tagHealth_analyzedResourceCount,
     tagHealth_appBoundaryKey,
 
     -- ** TimestampMetricValuePair

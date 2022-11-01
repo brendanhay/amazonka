@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateSecurityProfile where
   type
     AWSResponse UpdateSecurityProfile =
       UpdateSecurityProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateSecurityProfileResponse'
 

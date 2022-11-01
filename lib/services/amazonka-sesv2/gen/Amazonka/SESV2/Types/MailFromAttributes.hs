@@ -48,9 +48,9 @@ data MailFromAttributes = MailFromAttributes'
     --     Amazon SES from determining the status of the MAIL FROM domain.
     mailFromDomainStatus :: MailFromDomainStatus,
     -- | The action to take if the required MX record can\'t be found when you
-    -- send an email. When you set this value to @UseDefaultValue@, the mail is
-    -- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
-    -- value to @RejectMessage@, the Amazon SES API v2 returns a
+    -- send an email. When you set this value to @USE_DEFAULT_VALUE@, the mail
+    -- is sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+    -- value to @REJECT_MESSAGE@, the Amazon SES API v2 returns a
     -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
     -- email.
     --
@@ -87,9 +87,9 @@ data MailFromAttributes = MailFromAttributes'
 --     Amazon SES from determining the status of the MAIL FROM domain.
 --
 -- 'behaviorOnMxFailure', 'mailFromAttributes_behaviorOnMxFailure' - The action to take if the required MX record can\'t be found when you
--- send an email. When you set this value to @UseDefaultValue@, the mail is
--- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
--- value to @RejectMessage@, the Amazon SES API v2 returns a
+-- send an email. When you set this value to @USE_DEFAULT_VALUE@, the mail
+-- is sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+-- value to @REJECT_MESSAGE@, the Amazon SES API v2 returns a
 -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
 -- email.
 --
@@ -137,9 +137,9 @@ mailFromAttributes_mailFromDomainStatus :: Lens.Lens' MailFromAttributes MailFro
 mailFromAttributes_mailFromDomainStatus = Lens.lens (\MailFromAttributes' {mailFromDomainStatus} -> mailFromDomainStatus) (\s@MailFromAttributes' {} a -> s {mailFromDomainStatus = a} :: MailFromAttributes)
 
 -- | The action to take if the required MX record can\'t be found when you
--- send an email. When you set this value to @UseDefaultValue@, the mail is
--- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
--- value to @RejectMessage@, the Amazon SES API v2 returns a
+-- send an email. When you set this value to @USE_DEFAULT_VALUE@, the mail
+-- is sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+-- value to @REJECT_MESSAGE@, the Amazon SES API v2 returns a
 -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
 -- email.
 --

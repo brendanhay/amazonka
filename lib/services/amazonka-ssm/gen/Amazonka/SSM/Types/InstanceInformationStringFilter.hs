@@ -27,16 +27,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceInformationStringFilter' smart constructor.
 data InstanceInformationStringFilter = InstanceInformationStringFilter'
-  { -- | The filter key name to describe your managed nodes. For example:
+  { -- | The filter key name to describe your managed nodes.
     --
-    -- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
-    -- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
-    -- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
+    -- Valid filter key values: ActivationIds | AgentVersion |
+    -- AssociationStatus | IamRole | InstanceIds | PingStatus | PlatformTypes |
+    -- ResourceType | SourceIds | SourceTypes | \"tag-key\" | \"tag:@{keyname}@
     --
-    -- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
-    -- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
-    -- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
-    -- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
+    -- -   Valid values for the @AssociationStatus@ filter key: Success |
+    --     Pending | Failed
+    --
+    -- -   Valid values for the @PingStatus@ filter key: Online |
+    --     ConnectionLost | Inactive (deprecated)
+    --
+    -- -   Valid values for the @PlatformType@ filter key: Windows | Linux |
+    --     MacOS
+    --
+    -- -   Valid values for the @ResourceType@ filter key: EC2Instance |
+    --     ManagedInstance
+    --
+    -- -   Valid values for the @SourceType@ filter key: AWS::EC2::Instance |
+    --     AWS::SSM::ManagedInstance | AWS::IoT::Thing
+    --
+    -- -   Valid tag examples: @Key=tag-key,Values=Purpose@ |
+    --     @Key=tag:Purpose,Values=Test@.
     key :: Prelude.Text,
     -- | The filter values.
     values :: Prelude.NonEmpty Prelude.Text
@@ -51,16 +64,29 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'instanceInformationStringFilter_key' - The filter key name to describe your managed nodes. For example:
+-- 'key', 'instanceInformationStringFilter_key' - The filter key name to describe your managed nodes.
 --
--- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
--- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
--- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
+-- Valid filter key values: ActivationIds | AgentVersion |
+-- AssociationStatus | IamRole | InstanceIds | PingStatus | PlatformTypes |
+-- ResourceType | SourceIds | SourceTypes | \"tag-key\" | \"tag:@{keyname}@
 --
--- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
--- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
--- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
--- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
+-- -   Valid values for the @AssociationStatus@ filter key: Success |
+--     Pending | Failed
+--
+-- -   Valid values for the @PingStatus@ filter key: Online |
+--     ConnectionLost | Inactive (deprecated)
+--
+-- -   Valid values for the @PlatformType@ filter key: Windows | Linux |
+--     MacOS
+--
+-- -   Valid values for the @ResourceType@ filter key: EC2Instance |
+--     ManagedInstance
+--
+-- -   Valid values for the @SourceType@ filter key: AWS::EC2::Instance |
+--     AWS::SSM::ManagedInstance | AWS::IoT::Thing
+--
+-- -   Valid tag examples: @Key=tag-key,Values=Purpose@ |
+--     @Key=tag:Purpose,Values=Test@.
 --
 -- 'values', 'instanceInformationStringFilter_values' - The filter values.
 newInstanceInformationStringFilter ::
@@ -75,16 +101,29 @@ newInstanceInformationStringFilter pKey_ pValues_ =
       values = Lens.coerced Lens.# pValues_
     }
 
--- | The filter key name to describe your managed nodes. For example:
+-- | The filter key name to describe your managed nodes.
 --
--- \"InstanceIds\" | \"AgentVersion\" | \"PingStatus\" | \"PlatformTypes\"
--- | \"ActivationIds\" | \"IamRole\" | \"ResourceType\" |
--- \"AssociationStatus\" | \"tag-key\" | \"tag:@{keyname}@
+-- Valid filter key values: ActivationIds | AgentVersion |
+-- AssociationStatus | IamRole | InstanceIds | PingStatus | PlatformTypes |
+-- ResourceType | SourceIds | SourceTypes | \"tag-key\" | \"tag:@{keyname}@
 --
--- @Tag Key@ isn\'t a valid filter. You must specify either @tag-key@ or
--- @tag:{keyname}@ and a string. Here are some valid examples: @tag-key@,
--- @tag:123@, @tag:al!@, @tag:Windows@. Here are some /invalid/ examples:
--- @tag-keys@, @Tag Key@, @tag:@, @tagKey@, @abc:keyname@.
+-- -   Valid values for the @AssociationStatus@ filter key: Success |
+--     Pending | Failed
+--
+-- -   Valid values for the @PingStatus@ filter key: Online |
+--     ConnectionLost | Inactive (deprecated)
+--
+-- -   Valid values for the @PlatformType@ filter key: Windows | Linux |
+--     MacOS
+--
+-- -   Valid values for the @ResourceType@ filter key: EC2Instance |
+--     ManagedInstance
+--
+-- -   Valid values for the @SourceType@ filter key: AWS::EC2::Instance |
+--     AWS::SSM::ManagedInstance | AWS::IoT::Thing
+--
+-- -   Valid tag examples: @Key=tag-key,Values=Purpose@ |
+--     @Key=tag:Purpose,Values=Test@.
 instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Prelude.Text
 instanceInformationStringFilter_key = Lens.lens (\InstanceInformationStringFilter' {key} -> key) (\s@InstanceInformationStringFilter' {} a -> s {key = a} :: InstanceInformationStringFilter)
 

@@ -305,6 +305,9 @@ module Amazonka.AppFlow
     -- ** SalesforceConnectorOperator
     SalesforceConnectorOperator (..),
 
+    -- ** SalesforceDataTransferApi
+    SalesforceDataTransferApi (..),
+
     -- ** ScheduleFrequencyType
     ScheduleFrequencyType (..),
 

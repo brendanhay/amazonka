@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteDeploymentStrategy where
   type
     AWSResponse DeleteDeploymentStrategy =
       DeleteDeploymentStrategyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteDeploymentStrategyResponse'

@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateStreamMode where
   type
     AWSResponse UpdateStreamMode =
       UpdateStreamModeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateStreamModeResponse'
 

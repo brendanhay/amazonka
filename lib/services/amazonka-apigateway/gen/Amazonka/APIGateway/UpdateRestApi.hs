@@ -103,7 +103,8 @@ updateRestApi_restApiId = Lens.lens (\UpdateRestApi' {restApiId} -> restApiId) (
 
 instance Core.AWSRequest UpdateRestApi where
   type AWSResponse UpdateRestApi = RestApi
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

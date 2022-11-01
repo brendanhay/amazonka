@@ -197,7 +197,8 @@ instance Core.AWSRequest ListViolationEvents where
   type
     AWSResponse ListViolationEvents =
       ListViolationEventsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

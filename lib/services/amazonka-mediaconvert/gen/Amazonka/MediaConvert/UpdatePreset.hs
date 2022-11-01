@@ -107,7 +107,8 @@ updatePreset_name = Lens.lens (\UpdatePreset' {name} -> name) (\s@UpdatePreset' 
 
 instance Core.AWSRequest UpdatePreset where
   type AWSResponse UpdatePreset = UpdatePresetResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

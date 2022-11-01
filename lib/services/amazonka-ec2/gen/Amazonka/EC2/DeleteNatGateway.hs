@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteNatGateway where
   type
     AWSResponse DeleteNatGateway =
       DeleteNatGatewayResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

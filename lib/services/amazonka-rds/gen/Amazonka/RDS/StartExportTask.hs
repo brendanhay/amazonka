@@ -50,6 +50,7 @@ module Amazonka.RDS.StartExportTask
     exportTask_sourceArn,
     exportTask_totalExtractedDataInGB,
     exportTask_status,
+    exportTask_sourceType,
     exportTask_warningMessage,
     exportTask_snapshotTime,
     exportTask_exportTaskIdentifier,
@@ -292,7 +293,8 @@ startExportTask_kmsKeyId = Lens.lens (\StartExportTask' {kmsKeyId} -> kmsKeyId) 
 
 instance Core.AWSRequest StartExportTask where
   type AWSResponse StartExportTask = ExportTask
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartExportTaskResult"

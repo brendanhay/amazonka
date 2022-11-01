@@ -73,6 +73,8 @@ defaultService =
         "featurestore-runtime.sagemaker",
       Core._serviceSigningName = "sagemaker",
       Core._serviceVersion = "2020-07-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -107,7 +107,8 @@ listAlerts_maxResults = Lens.lens (\ListAlerts' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListAlerts where
   type AWSResponse ListAlerts = ListAlertsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

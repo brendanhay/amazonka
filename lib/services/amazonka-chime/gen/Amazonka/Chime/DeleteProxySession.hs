@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteProxySession where
   type
     AWSResponse DeleteProxySession =
       DeleteProxySessionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteProxySessionResponse'
 

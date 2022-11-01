@@ -107,7 +107,8 @@ instance Core.AWSRequest DisconnectPlayer where
   type
     AWSResponse DisconnectPlayer =
       DisconnectPlayerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

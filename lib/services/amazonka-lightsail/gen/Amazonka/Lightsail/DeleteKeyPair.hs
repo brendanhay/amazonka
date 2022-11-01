@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteKeyPair where
   type
     AWSResponse DeleteKeyPair =
       DeleteKeyPairResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

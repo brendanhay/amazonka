@@ -192,7 +192,8 @@ createWebACL_changeToken = Lens.lens (\CreateWebACL' {changeToken} -> changeToke
 
 instance Core.AWSRequest CreateWebACL where
   type AWSResponse CreateWebACL = CreateWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

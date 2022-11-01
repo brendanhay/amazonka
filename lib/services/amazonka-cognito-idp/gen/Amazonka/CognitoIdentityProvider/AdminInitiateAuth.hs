@@ -494,7 +494,8 @@ instance Core.AWSRequest AdminInitiateAuth where
   type
     AWSResponse AdminInitiateAuth =
       AdminInitiateAuthResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

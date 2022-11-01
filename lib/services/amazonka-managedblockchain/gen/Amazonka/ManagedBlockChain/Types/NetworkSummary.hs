@@ -34,7 +34,7 @@ data NetworkSummary = NetworkSummary'
     -- | The Amazon Resource Name (ARN) of the network. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the network was created.
     creationDate :: Prelude.Maybe Core.POSIX,
@@ -64,7 +64,7 @@ data NetworkSummary = NetworkSummary'
 -- 'arn', 'networkSummary_arn' - The Amazon Resource Name (ARN) of the network. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'networkSummary_creationDate' - The date and time that the network was created.
 --
@@ -98,7 +98,7 @@ networkSummary_name = Lens.lens (\NetworkSummary' {name} -> name) (\s@NetworkSum
 -- | The Amazon Resource Name (ARN) of the network. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 networkSummary_arn :: Lens.Lens' NetworkSummary (Prelude.Maybe Prelude.Text)
 networkSummary_arn = Lens.lens (\NetworkSummary' {arn} -> arn) (\s@NetworkSummary' {} a -> s {arn = a} :: NetworkSummary)
 

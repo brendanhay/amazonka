@@ -92,7 +92,8 @@ getChunk_chunkToken = Lens.lens (\GetChunk' {chunkToken} -> chunkToken) (\s@GetC
 
 instance Core.AWSRequest GetChunk where
   type AWSResponse GetChunk = GetChunkResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->

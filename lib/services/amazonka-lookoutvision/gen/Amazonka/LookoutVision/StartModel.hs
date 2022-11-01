@@ -191,7 +191,8 @@ startModel_minInferenceUnits = Lens.lens (\StartModel' {minInferenceUnits} -> mi
 
 instance Core.AWSRequest StartModel where
   type AWSResponse StartModel = StartModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

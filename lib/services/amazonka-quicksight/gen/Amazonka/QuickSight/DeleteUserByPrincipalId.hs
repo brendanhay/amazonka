@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteUserByPrincipalId where
   type
     AWSResponse DeleteUserByPrincipalId =
       DeleteUserByPrincipalIdResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

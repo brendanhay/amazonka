@@ -94,7 +94,8 @@ instance Core.AWSRequest DeletePartnerEventSource where
   type
     AWSResponse DeletePartnerEventSource =
       DeletePartnerEventSourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePartnerEventSourceResponse'

@@ -187,7 +187,8 @@ updateBot_idleSessionTTLInSeconds = Lens.lens (\UpdateBot' {idleSessionTTLInSeco
 
 instance Core.AWSRequest UpdateBot where
   type AWSResponse UpdateBot = UpdateBotResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

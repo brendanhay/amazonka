@@ -130,7 +130,8 @@ instance Core.AWSRequest DeactivateType where
   type
     AWSResponse DeactivateType =
       DeactivateTypeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeactivateTypeResult"

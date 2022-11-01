@@ -77,7 +77,8 @@ getLexicon_name = Lens.lens (\GetLexicon' {name} -> name) (\s@GetLexicon' {} a -
 
 instance Core.AWSRequest GetLexicon where
   type AWSResponse GetLexicon = GetLexiconResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -85,7 +85,8 @@ deleteSchema_schemaName = Lens.lens (\DeleteSchema' {schemaName} -> schemaName) 
 
 instance Core.AWSRequest DeleteSchema where
   type AWSResponse DeleteSchema = DeleteSchemaResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteSchemaResponse'
 
 instance Prelude.Hashable DeleteSchema where

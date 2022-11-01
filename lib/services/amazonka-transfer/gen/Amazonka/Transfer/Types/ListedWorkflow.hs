@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the ID, text description, and Amazon Resource Name (ARN) for
--- the workflow.
+-- | Contains the identifier, text description, and Amazon Resource Name
+-- (ARN) for the workflow.
 --
 -- /See:/ 'newListedWorkflow' smart constructor.
 data ListedWorkflow = ListedWorkflow'

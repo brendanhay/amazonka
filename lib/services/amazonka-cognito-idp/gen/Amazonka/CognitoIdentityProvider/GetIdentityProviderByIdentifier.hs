@@ -97,7 +97,8 @@ instance
   type
     AWSResponse GetIdentityProviderByIdentifier =
       GetIdentityProviderByIdentifierResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,7 +163,7 @@ instance Core.ToQuery GetIdentityProviderByIdentifier where
 data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The IdP object.
+    -- | The identity provider details.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -177,7 +178,7 @@ data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierRe
 --
 -- 'httpStatus', 'getIdentityProviderByIdentifierResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'getIdentityProviderByIdentifierResponse_identityProvider' - The IdP object.
+-- 'identityProvider', 'getIdentityProviderByIdentifierResponse_identityProvider' - The identity provider details.
 newGetIdentityProviderByIdentifierResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,7 +199,7 @@ newGetIdentityProviderByIdentifierResponse
 getIdentityProviderByIdentifierResponse_httpStatus :: Lens.Lens' GetIdentityProviderByIdentifierResponse Prelude.Int
 getIdentityProviderByIdentifierResponse_httpStatus = Lens.lens (\GetIdentityProviderByIdentifierResponse' {httpStatus} -> httpStatus) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {httpStatus = a} :: GetIdentityProviderByIdentifierResponse)
 
--- | The IdP object.
+-- | The identity provider details.
 getIdentityProviderByIdentifierResponse_identityProvider :: Lens.Lens' GetIdentityProviderByIdentifierResponse IdentityProviderType
 getIdentityProviderByIdentifierResponse_identityProvider = Lens.lens (\GetIdentityProviderByIdentifierResponse' {identityProvider} -> identityProvider) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {identityProvider = a} :: GetIdentityProviderByIdentifierResponse)
 

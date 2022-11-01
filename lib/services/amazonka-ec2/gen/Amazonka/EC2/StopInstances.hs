@@ -197,7 +197,8 @@ instance Core.AWSRequest StopInstances where
   type
     AWSResponse StopInstances =
       StopInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -166,7 +166,8 @@ instance Core.AWSRequest GetOpsSummary where
   type
     AWSResponse GetOpsSummary =
       GetOpsSummaryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

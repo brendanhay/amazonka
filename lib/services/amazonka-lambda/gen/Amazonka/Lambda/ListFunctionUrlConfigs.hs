@@ -168,7 +168,8 @@ instance Core.AWSRequest ListFunctionUrlConfigs where
   type
     AWSResponse ListFunctionUrlConfigs =
       ListFunctionUrlConfigsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

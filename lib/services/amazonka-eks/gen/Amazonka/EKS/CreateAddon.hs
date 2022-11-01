@@ -262,7 +262,8 @@ createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@C
 
 instance Core.AWSRequest CreateAddon where
   type AWSResponse CreateAddon = CreateAddonResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

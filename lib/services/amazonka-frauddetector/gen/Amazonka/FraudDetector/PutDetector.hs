@@ -108,7 +108,8 @@ putDetector_eventTypeName = Lens.lens (\PutDetector' {eventTypeName} -> eventTyp
 
 instance Core.AWSRequest PutDetector where
   type AWSResponse PutDetector = PutDetectorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

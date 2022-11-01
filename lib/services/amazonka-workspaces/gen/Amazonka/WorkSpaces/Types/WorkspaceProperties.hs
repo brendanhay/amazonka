@@ -35,6 +35,11 @@ data WorkspaceProperties = WorkspaceProperties'
     userVolumeSizeGib :: Prelude.Maybe Prelude.Int,
     -- | The running mode. For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode>.
+    --
+    -- The @MANUAL@ value is only supported by Amazon WorkSpaces Core. Contact
+    -- your account team to be allow-listed to use this value. For more
+    -- information, see
+    -- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
     runningMode :: Prelude.Maybe RunningMode,
     -- | The compute type. For more information, see
     -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
@@ -63,6 +68,11 @@ data WorkspaceProperties = WorkspaceProperties'
 --
 -- 'runningMode', 'workspaceProperties_runningMode' - The running mode. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode>.
+--
+-- The @MANUAL@ value is only supported by Amazon WorkSpaces Core. Contact
+-- your account team to be allow-listed to use this value. For more
+-- information, see
+-- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 --
 -- 'computeTypeName', 'workspaceProperties_computeTypeName' - The compute type. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
@@ -94,6 +104,11 @@ workspaceProperties_userVolumeSizeGib = Lens.lens (\WorkspaceProperties' {userVo
 
 -- | The running mode. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode>.
+--
+-- The @MANUAL@ value is only supported by Amazon WorkSpaces Core. Contact
+-- your account team to be allow-listed to use this value. For more
+-- information, see
+-- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 workspaceProperties_runningMode :: Lens.Lens' WorkspaceProperties (Prelude.Maybe RunningMode)
 workspaceProperties_runningMode = Lens.lens (\WorkspaceProperties' {runningMode} -> runningMode) (\s@WorkspaceProperties' {} a -> s {runningMode = a} :: WorkspaceProperties)
 

@@ -104,7 +104,8 @@ instance Core.AWSRequest CancelUpdateStack where
   type
     AWSResponse CancelUpdateStack =
       CancelUpdateStackResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CancelUpdateStackResponse'
 

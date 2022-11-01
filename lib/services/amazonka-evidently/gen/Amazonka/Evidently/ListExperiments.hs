@@ -141,7 +141,8 @@ instance Core.AWSRequest ListExperiments where
   type
     AWSResponse ListExperiments =
       ListExperimentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

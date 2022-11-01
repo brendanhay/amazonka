@@ -144,7 +144,8 @@ instance Core.AWSRequest DescribeSenderIds where
   type
     AWSResponse DescribeSenderIds =
       DescribeSenderIdsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

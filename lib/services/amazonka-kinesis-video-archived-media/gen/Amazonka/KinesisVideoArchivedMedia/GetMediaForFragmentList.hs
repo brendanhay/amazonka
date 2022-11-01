@@ -142,7 +142,8 @@ instance Core.AWSRequest GetMediaForFragmentList where
   type
     AWSResponse GetMediaForFragmentList =
       GetMediaForFragmentListResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

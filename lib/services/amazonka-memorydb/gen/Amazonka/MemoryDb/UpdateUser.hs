@@ -100,7 +100,8 @@ updateUser_userName = Lens.lens (\UpdateUser' {userName} -> userName) (\s@Update
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

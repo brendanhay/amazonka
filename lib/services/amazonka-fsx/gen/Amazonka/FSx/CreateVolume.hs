@@ -130,7 +130,8 @@ createVolume_name = Lens.lens (\CreateVolume' {name} -> name) (\s@CreateVolume' 
 
 instance Core.AWSRequest CreateVolume where
   type AWSResponse CreateVolume = CreateVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

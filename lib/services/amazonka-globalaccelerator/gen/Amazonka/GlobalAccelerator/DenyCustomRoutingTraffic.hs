@@ -186,7 +186,8 @@ instance Core.AWSRequest DenyCustomRoutingTraffic where
   type
     AWSResponse DenyCustomRoutingTraffic =
       DenyCustomRoutingTrafficResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DenyCustomRoutingTrafficResponse'

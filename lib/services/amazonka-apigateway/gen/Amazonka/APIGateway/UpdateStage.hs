@@ -119,7 +119,8 @@ updateStage_stageName = Lens.lens (\UpdateStage' {stageName} -> stageName) (\s@U
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = Stage
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

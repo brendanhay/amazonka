@@ -98,7 +98,8 @@ getEnvironment_environmentId = Lens.lens (\GetEnvironment' {environmentId} -> en
 
 instance Core.AWSRequest GetEnvironment where
   type AWSResponse GetEnvironment = Environment
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

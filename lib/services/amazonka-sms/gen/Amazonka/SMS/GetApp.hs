@@ -74,7 +74,8 @@ getApp_appId = Lens.lens (\GetApp' {appId} -> appId) (\s@GetApp' {} a -> s {appI
 
 instance Core.AWSRequest GetApp where
   type AWSResponse GetApp = GetAppResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -103,7 +103,8 @@ instance Core.AWSRequest AttachSecurityProfile where
   type
     AWSResponse AttachSecurityProfile =
       AttachSecurityProfileResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

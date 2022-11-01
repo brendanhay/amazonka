@@ -130,6 +130,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cognito-sync",
       Core._serviceSigningName = "cognito-sync",
       Core._serviceVersion = "2014-06-30",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

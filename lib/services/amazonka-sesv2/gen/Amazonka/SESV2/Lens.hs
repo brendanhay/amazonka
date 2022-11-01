@@ -56,6 +56,7 @@ module Amazonka.SESV2.Lens
 
     -- ** CreateDedicatedIpPool
     createDedicatedIpPool_tags,
+    createDedicatedIpPool_scalingMode,
     createDedicatedIpPool_poolName,
     createDedicatedIpPoolResponse_httpStatus,
 
@@ -207,6 +208,11 @@ module Amazonka.SESV2.Lens
     getDedicatedIpResponse_dedicatedIp,
     getDedicatedIpResponse_httpStatus,
 
+    -- ** GetDedicatedIpPool
+    getDedicatedIpPool_poolName,
+    getDedicatedIpPoolResponse_dedicatedIpPool,
+    getDedicatedIpPoolResponse_httpStatus,
+
     -- ** GetDedicatedIps
     getDedicatedIps_nextToken,
     getDedicatedIps_pageSize,
@@ -255,6 +261,7 @@ module Amazonka.SESV2.Lens
     getEmailIdentityResponse_policies,
     getEmailIdentityResponse_dkimAttributes,
     getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_verificationStatus,
     getEmailIdentityResponse_httpStatus,
 
     -- ** GetEmailIdentityPolicies
@@ -640,6 +647,10 @@ module Amazonka.SESV2.Lens
     dedicatedIp_warmupStatus,
     dedicatedIp_warmupPercentage,
 
+    -- ** DedicatedIpPool
+    dedicatedIpPool_poolName,
+    dedicatedIpPool_scalingMode,
+
     -- ** DeliverabilityTestReport
     deliverabilityTestReport_reportName,
     deliverabilityTestReport_fromEmailAddress,
@@ -738,6 +749,7 @@ module Amazonka.SESV2.Lens
     identityInfo_sendingEnabled,
     identityInfo_identityName,
     identityInfo_identityType,
+    identityInfo_verificationStatus,
 
     -- ** ImportDataSource
     importDataSource_s3Url,
@@ -752,6 +764,8 @@ module Amazonka.SESV2.Lens
     importJobSummary_createdTimestamp,
     importJobSummary_jobId,
     importJobSummary_importDestination,
+    importJobSummary_failedRecordsCount,
+    importJobSummary_processedRecordsCount,
 
     -- ** InboxPlacementTrackingOption
     inboxPlacementTrackingOption_trackedIsps,
@@ -916,6 +930,7 @@ import Amazonka.SESV2.GetContact
 import Amazonka.SESV2.GetContactList
 import Amazonka.SESV2.GetCustomVerificationEmailTemplate
 import Amazonka.SESV2.GetDedicatedIp
+import Amazonka.SESV2.GetDedicatedIpPool
 import Amazonka.SESV2.GetDedicatedIps
 import Amazonka.SESV2.GetDeliverabilityDashboardOptions
 import Amazonka.SESV2.GetDeliverabilityTestReport
@@ -976,6 +991,7 @@ import Amazonka.SESV2.Types.Content
 import Amazonka.SESV2.Types.CustomVerificationEmailTemplateMetadata
 import Amazonka.SESV2.Types.DailyVolume
 import Amazonka.SESV2.Types.DedicatedIp
+import Amazonka.SESV2.Types.DedicatedIpPool
 import Amazonka.SESV2.Types.DeliverabilityTestReport
 import Amazonka.SESV2.Types.DeliveryOptions
 import Amazonka.SESV2.Types.Destination

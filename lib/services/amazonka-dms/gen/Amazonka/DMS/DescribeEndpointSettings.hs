@@ -116,7 +116,8 @@ instance Core.AWSRequest DescribeEndpointSettings where
   type
     AWSResponse DescribeEndpointSettings =
       DescribeEndpointSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

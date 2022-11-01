@@ -100,7 +100,8 @@ instance Core.AWSRequest ContinueDeployment where
   type
     AWSResponse ContinueDeployment =
       ContinueDeploymentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ContinueDeploymentResponse'
 

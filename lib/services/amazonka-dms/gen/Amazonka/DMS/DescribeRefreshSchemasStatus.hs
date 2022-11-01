@@ -85,7 +85,8 @@ instance Core.AWSRequest DescribeRefreshSchemasStatus where
   type
     AWSResponse DescribeRefreshSchemasStatus =
       DescribeRefreshSchemasStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

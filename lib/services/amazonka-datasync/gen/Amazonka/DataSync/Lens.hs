@@ -105,6 +105,7 @@ module Amazonka.DataSync.Lens
     -- ** CreateLocationObjectStorage
     createLocationObjectStorage_tags,
     createLocationObjectStorage_serverProtocol,
+    createLocationObjectStorage_serverCertificate,
     createLocationObjectStorage_serverPort,
     createLocationObjectStorage_accessKey,
     createLocationObjectStorage_secretKey,
@@ -250,6 +251,7 @@ module Amazonka.DataSync.Lens
     -- ** DescribeLocationObjectStorage
     describeLocationObjectStorage_locationArn,
     describeLocationObjectStorageResponse_serverProtocol,
+    describeLocationObjectStorageResponse_serverCertificate,
     describeLocationObjectStorageResponse_locationArn,
     describeLocationObjectStorageResponse_serverPort,
     describeLocationObjectStorageResponse_accessKey,
@@ -309,6 +311,7 @@ module Amazonka.DataSync.Lens
     describeTaskExecutionResponse_includes,
     describeTaskExecutionResponse_result,
     describeTaskExecutionResponse_estimatedBytesToTransfer,
+    describeTaskExecutionResponse_bytesCompressed,
     describeTaskExecutionResponse_bytesTransferred,
     describeTaskExecutionResponse_taskExecutionArn,
     describeTaskExecutionResponse_bytesWritten,
@@ -402,6 +405,7 @@ module Amazonka.DataSync.Lens
 
     -- ** UpdateLocationObjectStorage
     updateLocationObjectStorage_serverProtocol,
+    updateLocationObjectStorage_serverCertificate,
     updateLocationObjectStorage_serverPort,
     updateLocationObjectStorage_accessKey,
     updateLocationObjectStorage_secretKey,

@@ -96,7 +96,8 @@ instance Core.AWSRequest DescribeDevice where
   type
     AWSResponse DescribeDevice =
       DescribeDeviceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

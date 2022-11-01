@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateDeviceFleet where
   type
     AWSResponse CreateDeviceFleet =
       CreateDeviceFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateDeviceFleetResponse'
 

@@ -168,7 +168,8 @@ instance Core.AWSRequest RecordHandlerProgress where
   type
     AWSResponse RecordHandlerProgress =
       RecordHandlerProgressResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RecordHandlerProgressResult"

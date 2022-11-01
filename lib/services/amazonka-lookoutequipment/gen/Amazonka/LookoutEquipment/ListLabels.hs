@@ -144,7 +144,8 @@ listLabels_labelGroupName = Lens.lens (\ListLabels' {labelGroupName} -> labelGro
 
 instance Core.AWSRequest ListLabels where
   type AWSResponse ListLabels = ListLabelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

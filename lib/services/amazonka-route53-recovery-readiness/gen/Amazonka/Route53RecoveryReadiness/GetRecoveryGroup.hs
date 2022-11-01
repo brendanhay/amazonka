@@ -84,7 +84,8 @@ instance Core.AWSRequest GetRecoveryGroup where
   type
     AWSResponse GetRecoveryGroup =
       GetRecoveryGroupResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

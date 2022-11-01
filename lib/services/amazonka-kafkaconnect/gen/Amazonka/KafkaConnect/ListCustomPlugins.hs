@@ -118,7 +118,8 @@ instance Core.AWSRequest ListCustomPlugins where
   type
     AWSResponse ListCustomPlugins =
       ListCustomPluginsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

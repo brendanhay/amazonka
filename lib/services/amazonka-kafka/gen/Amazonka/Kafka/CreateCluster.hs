@@ -29,6 +29,7 @@ module Amazonka.Kafka.CreateCluster
     -- * Request Lenses
     createCluster_tags,
     createCluster_openMonitoring,
+    createCluster_storageMode,
     createCluster_encryptionInfo,
     createCluster_clientAuthentication,
     createCluster_loggingInfo,
@@ -64,6 +65,8 @@ data CreateCluster = CreateCluster'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The settings for open monitoring.
     openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | Includes all client authentication related information.
@@ -98,6 +101,8 @@ data CreateCluster = CreateCluster'
 -- 'tags', 'createCluster_tags' - Create tags when creating the cluster.
 --
 -- 'openMonitoring', 'createCluster_openMonitoring' - The settings for open monitoring.
+--
+-- 'storageMode', 'createCluster_storageMode' - This controls storage mode for supported storage tiers.
 --
 -- 'encryptionInfo', 'createCluster_encryptionInfo' - Includes all encryption-related information.
 --
@@ -137,6 +142,7 @@ newCreateCluster
     CreateCluster'
       { tags = Prelude.Nothing,
         openMonitoring = Prelude.Nothing,
+        storageMode = Prelude.Nothing,
         encryptionInfo = Prelude.Nothing,
         clientAuthentication = Prelude.Nothing,
         loggingInfo = Prelude.Nothing,
@@ -155,6 +161,10 @@ createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluste
 -- | The settings for open monitoring.
 createCluster_openMonitoring :: Lens.Lens' CreateCluster (Prelude.Maybe OpenMonitoringInfo)
 createCluster_openMonitoring = Lens.lens (\CreateCluster' {openMonitoring} -> openMonitoring) (\s@CreateCluster' {} a -> s {openMonitoring = a} :: CreateCluster)
+
+-- | This controls storage mode for supported storage tiers.
+createCluster_storageMode :: Lens.Lens' CreateCluster (Prelude.Maybe StorageMode)
+createCluster_storageMode = Lens.lens (\CreateCluster' {storageMode} -> storageMode) (\s@CreateCluster' {} a -> s {storageMode = a} :: CreateCluster)
 
 -- | Includes all encryption-related information.
 createCluster_encryptionInfo :: Lens.Lens' CreateCluster (Prelude.Maybe EncryptionInfo)
@@ -199,7 +209,8 @@ instance Core.AWSRequest CreateCluster where
   type
     AWSResponse CreateCluster =
       CreateClusterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -214,6 +225,7 @@ instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` loggingInfo
@@ -228,6 +240,7 @@ instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf loggingInfo
@@ -256,6 +269,7 @@ instance Core.ToJSON CreateCluster where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("openMonitoring" Core..=)
               Prelude.<$> openMonitoring,
+            ("storageMode" Core..=) Prelude.<$> storageMode,
             ("encryptionInfo" Core..=)
               Prelude.<$> encryptionInfo,
             ("clientAuthentication" Core..=)

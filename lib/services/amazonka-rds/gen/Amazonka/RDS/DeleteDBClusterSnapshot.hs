@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteDBClusterSnapshot where
   type
     AWSResponse DeleteDBClusterSnapshot =
       DeleteDBClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBClusterSnapshotResult"

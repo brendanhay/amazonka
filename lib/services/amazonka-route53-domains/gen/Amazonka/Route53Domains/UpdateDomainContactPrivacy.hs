@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
   type
     AWSResponse UpdateDomainContactPrivacy =
       UpdateDomainContactPrivacyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

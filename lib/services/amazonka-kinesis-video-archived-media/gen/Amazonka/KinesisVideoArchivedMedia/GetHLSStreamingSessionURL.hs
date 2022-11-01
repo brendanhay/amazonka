@@ -757,7 +757,8 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
   type
     AWSResponse GetHLSStreamingSessionURL =
       GetHLSStreamingSessionURLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

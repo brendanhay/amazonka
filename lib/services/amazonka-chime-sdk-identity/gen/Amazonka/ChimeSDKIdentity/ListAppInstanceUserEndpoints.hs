@@ -106,7 +106,8 @@ instance Core.AWSRequest ListAppInstanceUserEndpoints where
   type
     AWSResponse ListAppInstanceUserEndpoints =
       ListAppInstanceUserEndpointsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

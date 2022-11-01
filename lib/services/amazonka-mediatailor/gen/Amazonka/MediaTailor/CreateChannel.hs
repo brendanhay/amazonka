@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a channel.
+-- Creates a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.CreateChannel
   ( -- * Creating a Request
     CreateChannel (..),
@@ -62,25 +64,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { -- | The tags to assign to the channel.
+  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The slate used to fill gaps between programs in the schedule. You must
-    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
-    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
-    -- PlaybackMode.
+    -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+    -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+    -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
     -- | The tier of the channel.
     tier :: Prelude.Maybe Tier,
-    -- | The identifier for the channel you are working on.
+    -- | The name of the channel.
     channelName :: Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: [RequestOutputItem],
     -- | The type of playback mode to use for this channel.
     --
-    -- LINEAR - The programs in the schedule play once back-to-back in the
+    -- @LINEAR@ - The programs in the schedule play once back-to-back in the
     -- schedule.
     --
-    -- LOOP - The programs in the schedule play back-to-back in an endless
+    -- @LOOP@ - The programs in the schedule play back-to-back in an endless
     -- loop. When the last program in the schedule stops playing, playback
     -- loops back to the first program in the schedule.
     playbackMode :: PlaybackMode
@@ -95,25 +100,28 @@ data CreateChannel = CreateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createChannel_tags' - The tags to assign to the channel.
+-- 'tags', 'createChannel_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'fillerSlate', 'createChannel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 --
 -- 'tier', 'createChannel_tier' - The tier of the channel.
 --
--- 'channelName', 'createChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'createChannel_channelName' - The name of the channel.
 --
 -- 'outputs', 'createChannel_outputs' - The channel\'s output properties.
 --
 -- 'playbackMode', 'createChannel_playbackMode' - The type of playback mode to use for this channel.
 --
--- LINEAR - The programs in the schedule play once back-to-back in the
+-- @LINEAR@ - The programs in the schedule play once back-to-back in the
 -- schedule.
 --
--- LOOP - The programs in the schedule play back-to-back in an endless
+-- @LOOP@ - The programs in the schedule play back-to-back in an endless
 -- loop. When the last program in the schedule stops playing, playback
 -- loops back to the first program in the schedule.
 newCreateChannel ::
@@ -132,14 +140,17 @@ newCreateChannel pChannelName_ pPlaybackMode_ =
       playbackMode = pPlaybackMode_
     }
 
--- | The tags to assign to the channel.
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses the LINEAR PlaybackMode.
--- MediaTailor doesn\'t support filler slate for channels using the LOOP
--- PlaybackMode.
+-- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
+-- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
+-- @PlaybackMode@.
 createChannel_fillerSlate :: Lens.Lens' CreateChannel (Prelude.Maybe SlateSource)
 createChannel_fillerSlate = Lens.lens (\CreateChannel' {fillerSlate} -> fillerSlate) (\s@CreateChannel' {} a -> s {fillerSlate = a} :: CreateChannel)
 
@@ -147,7 +158,7 @@ createChannel_fillerSlate = Lens.lens (\CreateChannel' {fillerSlate} -> fillerSl
 createChannel_tier :: Lens.Lens' CreateChannel (Prelude.Maybe Tier)
 createChannel_tier = Lens.lens (\CreateChannel' {tier} -> tier) (\s@CreateChannel' {} a -> s {tier = a} :: CreateChannel)
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 createChannel_channelName :: Lens.Lens' CreateChannel Prelude.Text
 createChannel_channelName = Lens.lens (\CreateChannel' {channelName} -> channelName) (\s@CreateChannel' {} a -> s {channelName = a} :: CreateChannel)
 
@@ -157,10 +168,10 @@ createChannel_outputs = Lens.lens (\CreateChannel' {outputs} -> outputs) (\s@Cre
 
 -- | The type of playback mode to use for this channel.
 --
--- LINEAR - The programs in the schedule play once back-to-back in the
+-- @LINEAR@ - The programs in the schedule play once back-to-back in the
 -- schedule.
 --
--- LOOP - The programs in the schedule play back-to-back in an endless
+-- @LOOP@ - The programs in the schedule play back-to-back in an endless
 -- loop. When the last program in the schedule stops playing, playback
 -- loops back to the first program in the schedule.
 createChannel_playbackMode :: Lens.Lens' CreateChannel PlaybackMode
@@ -170,7 +181,8 @@ instance Core.AWSRequest CreateChannel where
   type
     AWSResponse CreateChannel =
       CreateChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,24 +251,27 @@ instance Core.ToQuery CreateChannel where
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { -- | The tags assigned to the channel.
+  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the channel.
+    -- | The name to assign to the channel.
     channelName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the slate used to fill gaps between programs
     -- in the schedule.
     fillerSlate :: Prelude.Maybe SlateSource,
-    -- | The ARN of the channel.
+    -- | The Amazon Resource Name (ARN) to assign to the channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The channel\'s tier.
+    -- | The tier of the channel.
     tier :: Prelude.Maybe Prelude.Text,
-    -- | The channel\'s output properties.
+    -- | The output properties to assign to the channel.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The channel\'s playback mode.
+    -- | The playback mode to assign to the channel.
     playbackMode :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the channel is in a running state or not.
     channelState :: Prelude.Maybe ChannelState,
@@ -273,24 +288,27 @@ data CreateChannelResponse = CreateChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createChannelResponse_tags' - The tags assigned to the channel.
+-- 'tags', 'createChannelResponse_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
--- 'channelName', 'createChannelResponse_channelName' - The name of the channel.
+-- 'channelName', 'createChannelResponse_channelName' - The name to assign to the channel.
 --
 -- 'fillerSlate', 'createChannelResponse_fillerSlate' - Contains information about the slate used to fill gaps between programs
 -- in the schedule.
 --
--- 'arn', 'createChannelResponse_arn' - The ARN of the channel.
+-- 'arn', 'createChannelResponse_arn' - The Amazon Resource Name (ARN) to assign to the channel.
 --
 -- 'lastModifiedTime', 'createChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
--- 'tier', 'createChannelResponse_tier' - The channel\'s tier.
+-- 'tier', 'createChannelResponse_tier' - The tier of the channel.
 --
--- 'outputs', 'createChannelResponse_outputs' - The channel\'s output properties.
+-- 'outputs', 'createChannelResponse_outputs' - The output properties to assign to the channel.
 --
 -- 'creationTime', 'createChannelResponse_creationTime' - The timestamp of when the channel was created.
 --
--- 'playbackMode', 'createChannelResponse_playbackMode' - The channel\'s playback mode.
+-- 'playbackMode', 'createChannelResponse_playbackMode' - The playback mode to assign to the channel.
 --
 -- 'channelState', 'createChannelResponse_channelState' - Indicates whether the channel is in a running state or not.
 --
@@ -314,11 +332,14 @@ newCreateChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the channel.
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 createChannelResponse_tags :: Lens.Lens' CreateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createChannelResponse_tags = Lens.lens (\CreateChannelResponse' {tags} -> tags) (\s@CreateChannelResponse' {} a -> s {tags = a} :: CreateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the channel.
+-- | The name to assign to the channel.
 createChannelResponse_channelName :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_channelName = Lens.lens (\CreateChannelResponse' {channelName} -> channelName) (\s@CreateChannelResponse' {} a -> s {channelName = a} :: CreateChannelResponse)
 
@@ -327,7 +348,7 @@ createChannelResponse_channelName = Lens.lens (\CreateChannelResponse' {channelN
 createChannelResponse_fillerSlate :: Lens.Lens' CreateChannelResponse (Prelude.Maybe SlateSource)
 createChannelResponse_fillerSlate = Lens.lens (\CreateChannelResponse' {fillerSlate} -> fillerSlate) (\s@CreateChannelResponse' {} a -> s {fillerSlate = a} :: CreateChannelResponse)
 
--- | The ARN of the channel.
+-- | The Amazon Resource Name (ARN) to assign to the channel.
 createChannelResponse_arn :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s@CreateChannelResponse' {} a -> s {arn = a} :: CreateChannelResponse)
 
@@ -335,11 +356,11 @@ createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s
 createChannelResponse_lastModifiedTime :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 createChannelResponse_lastModifiedTime = Lens.lens (\CreateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateChannelResponse' {} a -> s {lastModifiedTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The channel\'s tier.
+-- | The tier of the channel.
 createChannelResponse_tier :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_tier = Lens.lens (\CreateChannelResponse' {tier} -> tier) (\s@CreateChannelResponse' {} a -> s {tier = a} :: CreateChannelResponse)
 
--- | The channel\'s output properties.
+-- | The output properties to assign to the channel.
 createChannelResponse_outputs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe [ResponseOutputItem])
 createChannelResponse_outputs = Lens.lens (\CreateChannelResponse' {outputs} -> outputs) (\s@CreateChannelResponse' {} a -> s {outputs = a} :: CreateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -347,7 +368,7 @@ createChannelResponse_outputs = Lens.lens (\CreateChannelResponse' {outputs} -> 
 createChannelResponse_creationTime :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 createChannelResponse_creationTime = Lens.lens (\CreateChannelResponse' {creationTime} -> creationTime) (\s@CreateChannelResponse' {} a -> s {creationTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The channel\'s playback mode.
+-- | The playback mode to assign to the channel.
 createChannelResponse_playbackMode :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_playbackMode = Lens.lens (\CreateChannelResponse' {playbackMode} -> playbackMode) (\s@CreateChannelResponse' {} a -> s {playbackMode = a} :: CreateChannelResponse)
 

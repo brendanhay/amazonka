@@ -124,7 +124,8 @@ instance Core.AWSRequest ModifyClusterSnapshot where
   type
     AWSResponse ModifyClusterSnapshot =
       ModifyClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterSnapshotResult"

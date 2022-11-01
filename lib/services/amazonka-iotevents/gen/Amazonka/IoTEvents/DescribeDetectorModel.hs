@@ -91,7 +91,8 @@ instance Core.AWSRequest DescribeDetectorModel where
   type
     AWSResponse DescribeDetectorModel =
       DescribeDetectorModelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

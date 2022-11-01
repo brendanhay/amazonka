@@ -140,7 +140,8 @@ instance Core.AWSRequest GetUserPolicy where
   type
     AWSResponse GetUserPolicy =
       GetUserPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetUserPolicyResult"

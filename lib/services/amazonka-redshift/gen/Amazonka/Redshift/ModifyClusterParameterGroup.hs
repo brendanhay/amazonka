@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
   type
     AWSResponse ModifyClusterParameterGroup =
       ClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterParameterGroupResult"

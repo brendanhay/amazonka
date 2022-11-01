@@ -109,7 +109,8 @@ instance Core.AWSRequest CreateAccessKey where
   type
     AWSResponse CreateAccessKey =
       CreateAccessKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateAccessKeyResult"

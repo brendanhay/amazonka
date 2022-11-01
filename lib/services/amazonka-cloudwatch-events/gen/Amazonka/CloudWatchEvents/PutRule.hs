@@ -240,7 +240,8 @@ putRule_name = Lens.lens (\PutRule' {name} -> name) (\s@PutRule' {} a -> s {name
 
 instance Core.AWSRequest PutRule where
   type AWSResponse PutRule = PutRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

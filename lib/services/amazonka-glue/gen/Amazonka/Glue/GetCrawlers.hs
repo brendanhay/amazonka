@@ -107,7 +107,8 @@ instance Core.AWSPager GetCrawlers where
 
 instance Core.AWSRequest GetCrawlers where
   type AWSResponse GetCrawlers = GetCrawlersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

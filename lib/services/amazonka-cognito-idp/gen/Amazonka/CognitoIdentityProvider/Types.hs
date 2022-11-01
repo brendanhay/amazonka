@@ -95,6 +95,9 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * DefaultEmailOptionType
     DefaultEmailOptionType (..),
 
+    -- * DeletionProtectionType
+    DeletionProtectionType (..),
+
     -- * DeliveryMediumType
     DeliveryMediumType (..),
 
@@ -680,6 +683,7 @@ module Amazonka.CognitoIdentityProvider.Types
     userPoolType_accountRecoverySetting,
     userPoolType_userAttributeUpdateSettings,
     userPoolType_userPoolTags,
+    userPoolType_deletionProtection,
     userPoolType_emailVerificationMessage,
     userPoolType_smsAuthenticationMessage,
     userPoolType_emailConfigurationFailure,
@@ -747,6 +751,7 @@ import Amazonka.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
 import Amazonka.CognitoIdentityProvider.Types.DefaultEmailOptionType
+import Amazonka.CognitoIdentityProvider.Types.DeletionProtectionType
 import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
 import Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType
 import Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType
@@ -833,6 +838,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cognito-idp",
       Core._serviceSigningName = "cognito-idp",
       Core._serviceVersion = "2016-04-18",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

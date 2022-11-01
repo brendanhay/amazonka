@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the playback configuration for the specified name.
+-- Retrieves a playback configuration. For information about MediaTailor
+-- configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 module Amazonka.MediaTailor.GetPlaybackConfiguration
   ( -- * Creating a Request
     GetPlaybackConfiguration (..),
@@ -95,7 +97,8 @@ instance Core.AWSRequest GetPlaybackConfiguration where
   type
     AWSResponse GetPlaybackConfiguration =
       GetPlaybackConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,7 +155,11 @@ instance Core.ToQuery GetPlaybackConfiguration where
 
 -- | /See:/ 'newGetPlaybackConfigurationResponse' smart constructor.
 data GetPlaybackConfigurationResponse = GetPlaybackConfigurationResponse'
-  { -- | The tags assigned to the playback configuration.
+  { -- | The tags assigned to the playback configuration. Tags are key-value
+    -- pairs that you can associate with Amazon resources to help with
+    -- organization, access control, and cost tracking. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier for the playback configuration.
     name :: Prelude.Maybe Prelude.Text,
@@ -237,7 +244,11 @@ data GetPlaybackConfigurationResponse = GetPlaybackConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getPlaybackConfigurationResponse_tags' - The tags assigned to the playback configuration.
+-- 'tags', 'getPlaybackConfigurationResponse_tags' - The tags assigned to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'name', 'getPlaybackConfigurationResponse_name' - The identifier for the playback configuration.
 --
@@ -343,7 +354,11 @@ newGetPlaybackConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the playback configuration.
+-- | The tags assigned to the playback configuration. Tags are key-value
+-- pairs that you can associate with Amazon resources to help with
+-- organization, access control, and cost tracking. For more information,
+-- see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 getPlaybackConfigurationResponse_tags :: Lens.Lens' GetPlaybackConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getPlaybackConfigurationResponse_tags = Lens.lens (\GetPlaybackConfigurationResponse' {tags} -> tags) (\s@GetPlaybackConfigurationResponse' {} a -> s {tags = a} :: GetPlaybackConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 

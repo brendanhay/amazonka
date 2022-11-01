@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateThesaurus where
   type
     AWSResponse UpdateThesaurus =
       UpdateThesaurusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateThesaurusResponse'
 

@@ -165,7 +165,8 @@ instance Core.AWSRequest AssignIpv6Addresses where
   type
     AWSResponse AssignIpv6Addresses =
       AssignIpv6AddressesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -199,7 +199,8 @@ instance Core.AWSRequest DescribeEvents where
   type
     AWSResponse DescribeEvents =
       DescribeEventsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

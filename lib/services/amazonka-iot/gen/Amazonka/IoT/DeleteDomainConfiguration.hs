@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteDomainConfiguration where
   type
     AWSResponse DeleteDomainConfiguration =
       DeleteDomainConfigurationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

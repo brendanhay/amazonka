@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateOutpost where
   type
     AWSResponse UpdateOutpost =
       UpdateOutpostResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

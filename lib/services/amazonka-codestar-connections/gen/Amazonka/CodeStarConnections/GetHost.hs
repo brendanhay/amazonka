@@ -79,7 +79,8 @@ getHost_hostArn = Lens.lens (\GetHost' {hostArn} -> hostArn) (\s@GetHost' {} a -
 
 instance Core.AWSRequest GetHost where
   type AWSResponse GetHost = GetHostResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

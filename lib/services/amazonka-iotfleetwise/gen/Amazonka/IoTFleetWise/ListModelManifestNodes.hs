@@ -147,7 +147,8 @@ instance Core.AWSRequest ListModelManifestNodes where
   type
     AWSResponse ListModelManifestNodes =
       ListModelManifestNodesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

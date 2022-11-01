@@ -81,7 +81,8 @@ pauseCluster_clusterIdentifier = Lens.lens (\PauseCluster' {clusterIdentifier} -
 
 instance Core.AWSRequest PauseCluster where
   type AWSResponse PauseCluster = PauseClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PauseClusterResult"

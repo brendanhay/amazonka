@@ -81,7 +81,8 @@ deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) 
 
 instance Core.AWSRequest DeleteDomain where
   type AWSResponse DeleteDomain = DeleteDomainResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDomainResult"

@@ -117,7 +117,8 @@ instance Core.AWSRequest AssociateSoftwareToken where
   type
     AWSResponse AssociateSoftwareToken =
       AssociateSoftwareTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

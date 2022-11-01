@@ -138,7 +138,8 @@ updateModel_apiId = Lens.lens (\UpdateModel' {apiId} -> apiId) (\s@UpdateModel' 
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = UpdateModelResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

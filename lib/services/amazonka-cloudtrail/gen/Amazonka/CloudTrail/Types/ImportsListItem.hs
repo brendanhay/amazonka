@@ -37,7 +37,7 @@ data ImportsListItem = ImportsListItem'
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import.
     importStatus :: Prelude.Maybe ImportStatus,
-    -- | The destination event data store.
+    -- | The ARN of the destination event data store.
     destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,7 +58,7 @@ data ImportsListItem = ImportsListItem'
 --
 -- 'importStatus', 'importsListItem_importStatus' - The status of the import.
 --
--- 'destinations', 'importsListItem_destinations' - The destination event data store.
+-- 'destinations', 'importsListItem_destinations' - The ARN of the destination event data store.
 newImportsListItem ::
   ImportsListItem
 newImportsListItem =
@@ -87,7 +87,7 @@ importsListItem_importId = Lens.lens (\ImportsListItem' {importId} -> importId) 
 importsListItem_importStatus :: Lens.Lens' ImportsListItem (Prelude.Maybe ImportStatus)
 importsListItem_importStatus = Lens.lens (\ImportsListItem' {importStatus} -> importStatus) (\s@ImportsListItem' {} a -> s {importStatus = a} :: ImportsListItem)
 
--- | The destination event data store.
+-- | The ARN of the destination event data store.
 importsListItem_destinations :: Lens.Lens' ImportsListItem (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 importsListItem_destinations = Lens.lens (\ImportsListItem' {destinations} -> destinations) (\s@ImportsListItem' {} a -> s {destinations = a} :: ImportsListItem) Prelude.. Lens.mapping Lens.coerced
 

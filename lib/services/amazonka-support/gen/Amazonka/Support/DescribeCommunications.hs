@@ -181,7 +181,8 @@ instance Core.AWSRequest DescribeCommunications where
   type
     AWSResponse DescribeCommunications =
       DescribeCommunicationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

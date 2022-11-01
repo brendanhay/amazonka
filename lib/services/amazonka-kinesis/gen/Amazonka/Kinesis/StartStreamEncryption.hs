@@ -171,7 +171,8 @@ instance Core.AWSRequest StartStreamEncryption where
   type
     AWSResponse StartStreamEncryption =
       StartStreamEncryptionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartStreamEncryptionResponse'
 

@@ -107,7 +107,8 @@ instance Core.AWSRequest GetHealthCheckStatus where
   type
     AWSResponse GetHealthCheckStatus =
       GetHealthCheckStatusResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

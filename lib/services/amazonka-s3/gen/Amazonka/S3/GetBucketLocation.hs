@@ -111,7 +111,8 @@ instance Core.AWSRequest GetBucketLocation where
   type
     AWSResponse GetBucketLocation =
       GetBucketLocationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

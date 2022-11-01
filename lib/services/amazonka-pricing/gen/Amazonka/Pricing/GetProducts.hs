@@ -152,7 +152,8 @@ instance Core.AWSPager GetProducts where
 
 instance Core.AWSRequest GetProducts where
   type AWSResponse GetProducts = GetProductsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

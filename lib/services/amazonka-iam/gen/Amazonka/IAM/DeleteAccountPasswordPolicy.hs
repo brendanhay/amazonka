@@ -59,7 +59,8 @@ instance Core.AWSRequest DeleteAccountPasswordPolicy where
   type
     AWSResponse DeleteAccountPasswordPolicy =
       DeleteAccountPasswordPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteAccountPasswordPolicyResponse'

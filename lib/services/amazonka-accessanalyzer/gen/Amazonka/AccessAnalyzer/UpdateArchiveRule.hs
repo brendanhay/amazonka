@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateArchiveRule where
   type
     AWSResponse UpdateArchiveRule =
       UpdateArchiveRuleResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateArchiveRuleResponse'
 

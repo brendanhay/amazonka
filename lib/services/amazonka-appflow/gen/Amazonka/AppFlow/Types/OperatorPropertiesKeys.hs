@@ -24,6 +24,7 @@ module Amazonka.AppFlow.Types.OperatorPropertiesKeys
         OperatorPropertiesKeys_DATA_TYPE,
         OperatorPropertiesKeys_DESTINATION_DATA_TYPE,
         OperatorPropertiesKeys_EXCLUDE_SOURCE_FIELDS_LIST,
+        OperatorPropertiesKeys_INCLUDE_NEW_FIELDS,
         OperatorPropertiesKeys_LOWER_BOUND,
         OperatorPropertiesKeys_MASK_LENGTH,
         OperatorPropertiesKeys_MASK_VALUE,
@@ -82,6 +83,9 @@ pattern OperatorPropertiesKeys_DESTINATION_DATA_TYPE = OperatorPropertiesKeys' "
 pattern OperatorPropertiesKeys_EXCLUDE_SOURCE_FIELDS_LIST :: OperatorPropertiesKeys
 pattern OperatorPropertiesKeys_EXCLUDE_SOURCE_FIELDS_LIST = OperatorPropertiesKeys' "EXCLUDE_SOURCE_FIELDS_LIST"
 
+pattern OperatorPropertiesKeys_INCLUDE_NEW_FIELDS :: OperatorPropertiesKeys
+pattern OperatorPropertiesKeys_INCLUDE_NEW_FIELDS = OperatorPropertiesKeys' "INCLUDE_NEW_FIELDS"
+
 pattern OperatorPropertiesKeys_LOWER_BOUND :: OperatorPropertiesKeys
 pattern OperatorPropertiesKeys_LOWER_BOUND = OperatorPropertiesKeys' "LOWER_BOUND"
 
@@ -120,6 +124,7 @@ pattern OperatorPropertiesKeys_VALUES = OperatorPropertiesKeys' "VALUES"
   OperatorPropertiesKeys_DATA_TYPE,
   OperatorPropertiesKeys_DESTINATION_DATA_TYPE,
   OperatorPropertiesKeys_EXCLUDE_SOURCE_FIELDS_LIST,
+  OperatorPropertiesKeys_INCLUDE_NEW_FIELDS,
   OperatorPropertiesKeys_LOWER_BOUND,
   OperatorPropertiesKeys_MASK_LENGTH,
   OperatorPropertiesKeys_MASK_VALUE,

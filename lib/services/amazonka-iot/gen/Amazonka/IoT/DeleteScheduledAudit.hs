@@ -83,7 +83,8 @@ instance Core.AWSRequest DeleteScheduledAudit where
   type
     AWSResponse DeleteScheduledAudit =
       DeleteScheduledAuditResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

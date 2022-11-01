@@ -125,9 +125,10 @@ instance Core.AWSRequest GetVaultNotifications where
   type
     AWSResponse GetVaultNotifications =
       GetVaultNotificationsResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

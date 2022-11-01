@@ -85,7 +85,8 @@ instance Core.AWSRequest GetDeploymentConfig where
   type
     AWSResponse GetDeploymentConfig =
       GetDeploymentConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

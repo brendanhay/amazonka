@@ -178,9 +178,10 @@ instance Core.AWSRequest UploadArchive where
   type
     AWSResponse UploadArchive =
       ArchiveCreationOutput
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postBody defaultService
+      Prelude.. Request.postBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -97,7 +97,8 @@ disableUser_authenticationType = Lens.lens (\DisableUser' {authenticationType} -
 
 instance Core.AWSRequest DisableUser where
   type AWSResponse DisableUser = DisableUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

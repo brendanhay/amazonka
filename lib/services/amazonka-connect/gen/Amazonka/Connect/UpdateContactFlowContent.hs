@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateContactFlowContent where
   type
     AWSResponse UpdateContactFlowContent =
       UpdateContactFlowContentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateContactFlowContentResponse'

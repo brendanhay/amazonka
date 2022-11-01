@@ -158,7 +158,8 @@ detectFaces_image = Lens.lens (\DetectFaces' {image} -> image) (\s@DetectFaces' 
 
 instance Core.AWSRequest DetectFaces where
   type AWSResponse DetectFaces = DetectFacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

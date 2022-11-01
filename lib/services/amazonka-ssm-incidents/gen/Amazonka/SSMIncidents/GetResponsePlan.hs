@@ -83,7 +83,8 @@ instance Core.AWSRequest GetResponsePlan where
   type
     AWSResponse GetResponsePlan =
       GetResponsePlanResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

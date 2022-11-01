@@ -207,7 +207,8 @@ instance Core.AWSRequest ScheduleKeyDeletion where
   type
     AWSResponse ScheduleKeyDeletion =
       ScheduleKeyDeletionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -318,7 +318,8 @@ createSchema_dataFormat = Lens.lens (\CreateSchema' {dataFormat} -> dataFormat) 
 
 instance Core.AWSRequest CreateSchema where
   type AWSResponse CreateSchema = CreateSchemaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

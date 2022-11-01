@@ -97,7 +97,8 @@ listVersions_maxResults = Lens.lens (\ListVersions' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListVersions where
   type AWSResponse ListVersions = ListVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

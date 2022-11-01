@@ -135,7 +135,8 @@ instance Core.AWSRequest AssociateCustomDomain where
   type
     AWSResponse AssociateCustomDomain =
       AssociateCustomDomainResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

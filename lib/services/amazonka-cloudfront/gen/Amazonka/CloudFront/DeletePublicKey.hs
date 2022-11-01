@@ -88,7 +88,8 @@ instance Core.AWSRequest DeletePublicKey where
   type
     AWSResponse DeletePublicKey =
       DeletePublicKeyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePublicKeyResponse'
 

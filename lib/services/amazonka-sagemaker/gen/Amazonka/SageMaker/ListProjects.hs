@@ -151,7 +151,8 @@ listProjects_creationTimeAfter = Lens.lens (\ListProjects' {creationTimeAfter} -
 
 instance Core.AWSRequest ListProjects where
   type AWSResponse ListProjects = ListProjectsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

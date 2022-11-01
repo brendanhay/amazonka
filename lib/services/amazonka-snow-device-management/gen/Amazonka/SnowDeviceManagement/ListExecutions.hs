@@ -133,7 +133,8 @@ instance Core.AWSRequest ListExecutions where
   type
     AWSResponse ListExecutions =
       ListExecutionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

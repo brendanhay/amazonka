@@ -24,9 +24,9 @@
 -- Config rules and remediation actions from all member accounts in that
 -- organization.
 --
--- Only a master account or a delegated administrator account can delete an
--- organization conformance pack. When calling this API with a delegated
--- administrator, you must ensure Organizations
+-- Only a management account or a delegated administrator account can
+-- delete an organization conformance pack. When calling this API with a
+-- delegated administrator, you must ensure Organizations
 -- @ListDelegatedAdministrator@ permissions are added.
 --
 -- Config sets the state of a conformance pack to DELETE_IN_PROGRESS until
@@ -91,7 +91,8 @@ instance
   type
     AWSResponse DeleteOrganizationConformancePack =
       DeleteOrganizationConformancePackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteOrganizationConformancePackResponse'

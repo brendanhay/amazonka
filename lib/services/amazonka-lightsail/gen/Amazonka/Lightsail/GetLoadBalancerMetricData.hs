@@ -579,7 +579,8 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
   type
     AWSResponse GetLoadBalancerMetricData =
       GetLoadBalancerMetricDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

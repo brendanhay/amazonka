@@ -218,7 +218,8 @@ instance Core.AWSRequest UpdateIncidentRecord where
   type
     AWSResponse UpdateIncidentRecord =
       UpdateIncidentRecordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -279,7 +279,8 @@ invoke_payload = Lens.lens (\Invoke' {payload} -> payload) (\s@Invoke' {} a -> s
 
 instance Core.AWSRequest Invoke where
   type AWSResponse Invoke = InvokeResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->

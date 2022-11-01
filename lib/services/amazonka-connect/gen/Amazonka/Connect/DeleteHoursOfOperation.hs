@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteHoursOfOperation where
   type
     AWSResponse DeleteHoursOfOperation =
       DeleteHoursOfOperationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteHoursOfOperationResponse'

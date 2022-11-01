@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateResourceSet where
   type
     AWSResponse CreateResourceSet =
       CreateResourceSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

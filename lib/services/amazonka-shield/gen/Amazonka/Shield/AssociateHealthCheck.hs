@@ -107,7 +107,8 @@ instance Core.AWSRequest AssociateHealthCheck where
   type
     AWSResponse AssociateHealthCheck =
       AssociateHealthCheckResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -89,7 +89,8 @@ putItems_items = Lens.lens (\PutItems' {items} -> items) (\s@PutItems' {} a -> s
 
 instance Core.AWSRequest PutItems where
   type AWSResponse PutItems = PutItemsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutItemsResponse'
 
 instance Prelude.Hashable PutItems where

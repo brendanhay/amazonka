@@ -170,7 +170,8 @@ instance Core.AWSRequest ListLineageGroups where
   type
     AWSResponse ListLineageGroups =
       ListLineageGroupsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

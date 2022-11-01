@@ -258,7 +258,8 @@ createStack_name = Lens.lens (\CreateStack' {name} -> name) (\s@CreateStack' {} 
 
 instance Core.AWSRequest CreateStack where
   type AWSResponse CreateStack = CreateStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

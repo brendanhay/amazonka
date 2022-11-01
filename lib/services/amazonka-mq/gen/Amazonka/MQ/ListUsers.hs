@@ -106,7 +106,8 @@ listUsers_brokerId = Lens.lens (\ListUsers' {brokerId} -> brokerId) (\s@ListUser
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

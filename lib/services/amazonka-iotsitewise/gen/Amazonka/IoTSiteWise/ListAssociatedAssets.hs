@@ -213,7 +213,8 @@ instance Core.AWSRequest ListAssociatedAssets where
   type
     AWSResponse ListAssociatedAssets =
       ListAssociatedAssetsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

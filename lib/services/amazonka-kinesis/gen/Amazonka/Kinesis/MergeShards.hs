@@ -145,7 +145,8 @@ mergeShards_adjacentShardToMerge = Lens.lens (\MergeShards' {adjacentShardToMerg
 
 instance Core.AWSRequest MergeShards where
   type AWSResponse MergeShards = MergeShardsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull MergeShardsResponse'
 
 instance Prelude.Hashable MergeShards where

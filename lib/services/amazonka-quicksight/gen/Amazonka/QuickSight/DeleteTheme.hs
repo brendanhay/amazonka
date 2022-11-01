@@ -113,7 +113,8 @@ deleteTheme_themeId = Lens.lens (\DeleteTheme' {themeId} -> themeId) (\s@DeleteT
 
 instance Core.AWSRequest DeleteTheme where
   type AWSResponse DeleteTheme = DeleteThemeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

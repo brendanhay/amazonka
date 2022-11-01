@@ -81,7 +81,8 @@ instance Core.AWSRequest GetVPCEConfiguration where
   type
     AWSResponse GetVPCEConfiguration =
       GetVPCEConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

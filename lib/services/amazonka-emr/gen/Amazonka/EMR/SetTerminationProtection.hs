@@ -119,7 +119,8 @@ instance Core.AWSRequest SetTerminationProtection where
   type
     AWSResponse SetTerminationProtection =
       SetTerminationProtectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SetTerminationProtectionResponse'

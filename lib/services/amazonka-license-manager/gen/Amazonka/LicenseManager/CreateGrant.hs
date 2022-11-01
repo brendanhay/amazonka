@@ -150,7 +150,8 @@ createGrant_allowedOperations = Lens.lens (\CreateGrant' {allowedOperations} -> 
 
 instance Core.AWSRequest CreateGrant where
   type AWSResponse CreateGrant = CreateGrantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -94,7 +94,8 @@ instance Core.AWSRequest GetMaintenanceWindow where
   type
     AWSResponse GetMaintenanceWindow =
       GetMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

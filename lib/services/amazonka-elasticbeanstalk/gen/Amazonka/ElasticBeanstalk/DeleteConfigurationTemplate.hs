@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteConfigurationTemplate where
   type
     AWSResponse DeleteConfigurationTemplate =
       DeleteConfigurationTemplateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteConfigurationTemplateResponse'

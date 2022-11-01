@@ -241,6 +241,7 @@ module Amazonka.GreengrassV2.Types
     newEffectiveDeployment,
     effectiveDeployment_iotJobArn,
     effectiveDeployment_iotJobId,
+    effectiveDeployment_statusDetails,
     effectiveDeployment_description,
     effectiveDeployment_reason,
     effectiveDeployment_deploymentId,
@@ -250,13 +251,22 @@ module Amazonka.GreengrassV2.Types
     effectiveDeployment_creationTimestamp,
     effectiveDeployment_modifiedTimestamp,
 
+    -- * EffectiveDeploymentStatusDetails
+    EffectiveDeploymentStatusDetails (..),
+    newEffectiveDeploymentStatusDetails,
+    effectiveDeploymentStatusDetails_errorStack,
+    effectiveDeploymentStatusDetails_errorTypes,
+
     -- * InstalledComponent
     InstalledComponent (..),
     newInstalledComponent,
     installedComponent_componentVersion,
     installedComponent_componentName,
+    installedComponent_lastReportedTimestamp,
+    installedComponent_lifecycleStatusCodes,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
+    installedComponent_lastInstallationSource,
     installedComponent_lastStatusChangeTimestamp,
     installedComponent_isRoot,
 
@@ -408,6 +418,7 @@ import Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry
 import Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
 import Amazonka.GreengrassV2.Types.EffectiveDeployment
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
+import Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
 import Amazonka.GreengrassV2.Types.InstalledComponent
 import Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
 import Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter
@@ -447,6 +458,8 @@ defaultService =
       Core._serviceEndpointPrefix = "greengrass",
       Core._serviceSigningName = "greengrass",
       Core._serviceVersion = "2020-11-30",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

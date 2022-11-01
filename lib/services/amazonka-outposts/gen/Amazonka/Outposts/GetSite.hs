@@ -74,7 +74,8 @@ getSite_siteId = Lens.lens (\GetSite' {siteId} -> siteId) (\s@GetSite' {} a -> s
 
 instance Core.AWSRequest GetSite where
   type AWSResponse GetSite = GetSiteResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

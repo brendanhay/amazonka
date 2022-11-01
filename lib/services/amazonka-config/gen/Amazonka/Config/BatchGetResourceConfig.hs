@@ -93,7 +93,8 @@ instance Core.AWSRequest BatchGetResourceConfig where
   type
     AWSResponse BatchGetResourceConfig =
       BatchGetResourceConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

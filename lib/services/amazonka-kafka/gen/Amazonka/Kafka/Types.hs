@@ -50,6 +50,9 @@ module Amazonka.Kafka.Types
     -- * NodeType
     NodeType (..),
 
+    -- * StorageMode
+    StorageMode (..),
+
     -- * BrokerEBSVolumeInfo
     BrokerEBSVolumeInfo (..),
     newBrokerEBSVolumeInfo,
@@ -125,6 +128,7 @@ module Amazonka.Kafka.Types
     clusterInfo_clusterArn,
     clusterInfo_tags,
     clusterInfo_openMonitoring,
+    clusterInfo_storageMode,
     clusterInfo_encryptionInfo,
     clusterInfo_stateInfo,
     clusterInfo_brokerNodeGroupInfo,
@@ -268,6 +272,7 @@ module Amazonka.Kafka.Types
     newMutableClusterInfo,
     mutableClusterInfo_openMonitoring,
     mutableClusterInfo_connectivityInfo,
+    mutableClusterInfo_storageMode,
     mutableClusterInfo_encryptionInfo,
     mutableClusterInfo_numberOfBrokerNodes,
     mutableClusterInfo_clientAuthentication,
@@ -324,6 +329,7 @@ module Amazonka.Kafka.Types
     Provisioned (..),
     newProvisioned,
     provisioned_openMonitoring,
+    provisioned_storageMode,
     provisioned_encryptionInfo,
     provisioned_clientAuthentication,
     provisioned_zookeeperConnectString,
@@ -338,6 +344,7 @@ module Amazonka.Kafka.Types
     ProvisionedRequest (..),
     newProvisionedRequest,
     provisionedRequest_openMonitoring,
+    provisionedRequest_storageMode,
     provisionedRequest_encryptionInfo,
     provisionedRequest_clientAuthentication,
     provisionedRequest_loggingInfo,
@@ -502,6 +509,7 @@ import Amazonka.Kafka.Types.ServerlessRequest
 import Amazonka.Kafka.Types.ServerlessSasl
 import Amazonka.Kafka.Types.StateInfo
 import Amazonka.Kafka.Types.StorageInfo
+import Amazonka.Kafka.Types.StorageMode
 import Amazonka.Kafka.Types.Tls
 import Amazonka.Kafka.Types.Unauthenticated
 import Amazonka.Kafka.Types.UnprocessedScramSecret
@@ -520,6 +528,8 @@ defaultService =
       Core._serviceEndpointPrefix = "kafka",
       Core._serviceSigningName = "kafka",
       Core._serviceVersion = "2018-11-14",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

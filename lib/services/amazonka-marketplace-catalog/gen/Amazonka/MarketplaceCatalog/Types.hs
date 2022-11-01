@@ -126,6 +126,8 @@ defaultService =
       Core._serviceEndpointPrefix = "catalog.marketplace",
       Core._serviceSigningName = "aws-marketplace",
       Core._serviceVersion = "2018-09-17",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

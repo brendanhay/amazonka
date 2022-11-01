@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteFindingAggregator where
   type
     AWSResponse DeleteFindingAggregator =
       DeleteFindingAggregatorResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -1106,7 +1106,8 @@ search_query = Lens.lens (\Search' {query} -> query) (\s@Search' {} a -> s {quer
 
 instance Core.AWSRequest Search where
   type AWSResponse Search = SearchResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

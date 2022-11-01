@@ -139,7 +139,8 @@ tagRole_tags = Lens.lens (\TagRole' {tags} -> tags) (\s@TagRole' {} a -> s {tags
 
 instance Core.AWSRequest TagRole where
   type AWSResponse TagRole = TagRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull TagRoleResponse'
 
 instance Prelude.Hashable TagRole where

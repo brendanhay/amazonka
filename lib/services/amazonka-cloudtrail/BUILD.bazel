@@ -45,6 +45,7 @@ haskell_library(
         "gen/Amazonka/CloudTrail/Types/AdvancedFieldSelector.hs",
         "gen/Amazonka/CloudTrail/Types/Channel.hs",
         "gen/Amazonka/CloudTrail/Types/DataResource.hs",
+        "gen/Amazonka/CloudTrail/Types/DeliveryStatus.hs",
         "gen/Amazonka/CloudTrail/Types/Destination.hs",
         "gen/Amazonka/CloudTrail/Types/DestinationType.hs",
         "gen/Amazonka/CloudTrail/Types/Event.hs",

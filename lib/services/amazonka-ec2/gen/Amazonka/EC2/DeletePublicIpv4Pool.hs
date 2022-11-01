@@ -101,7 +101,8 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
   type
     AWSResponse DeletePublicIpv4Pool =
       DeletePublicIpv4PoolResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

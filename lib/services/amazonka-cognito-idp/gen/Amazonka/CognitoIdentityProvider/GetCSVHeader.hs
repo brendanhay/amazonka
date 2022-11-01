@@ -83,7 +83,8 @@ getCSVHeader_userPoolId = Lens.lens (\GetCSVHeader' {userPoolId} -> userPoolId) 
 
 instance Core.AWSRequest GetCSVHeader where
   type AWSResponse GetCSVHeader = GetCSVHeaderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

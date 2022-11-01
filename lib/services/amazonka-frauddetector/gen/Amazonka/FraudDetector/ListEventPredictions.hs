@@ -156,7 +156,8 @@ instance Core.AWSRequest ListEventPredictions where
   type
     AWSResponse ListEventPredictions =
       ListEventPredictionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

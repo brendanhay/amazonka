@@ -111,7 +111,8 @@ instance Core.AWSRequest CancelConversionTask where
   type
     AWSResponse CancelConversionTask =
       CancelConversionTaskResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CancelConversionTaskResponse'
 

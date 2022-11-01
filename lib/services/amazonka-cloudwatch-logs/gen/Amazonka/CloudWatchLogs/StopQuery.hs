@@ -80,7 +80,8 @@ stopQuery_queryId = Lens.lens (\StopQuery' {queryId} -> queryId) (\s@StopQuery' 
 
 instance Core.AWSRequest StopQuery where
   type AWSResponse StopQuery = StopQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

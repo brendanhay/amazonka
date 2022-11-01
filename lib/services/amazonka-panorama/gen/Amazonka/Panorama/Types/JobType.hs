@@ -20,7 +20,8 @@
 module Amazonka.Panorama.Types.JobType
   ( JobType
       ( ..,
-        JobType_OTA
+        JobType_OTA,
+        JobType_REBOOT
       ),
   )
 where
@@ -56,7 +57,11 @@ newtype JobType = JobType' {fromJobType :: Core.Text}
 pattern JobType_OTA :: JobType
 pattern JobType_OTA = JobType' "OTA"
 
+pattern JobType_REBOOT :: JobType
+pattern JobType_REBOOT = JobType' "REBOOT"
+
 {-# COMPLETE
   JobType_OTA,
+  JobType_REBOOT,
   JobType'
   #-}

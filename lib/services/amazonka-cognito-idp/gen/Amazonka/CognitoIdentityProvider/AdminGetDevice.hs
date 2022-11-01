@@ -107,7 +107,8 @@ instance Core.AWSRequest AdminGetDevice where
   type
     AWSResponse AdminGetDevice =
       AdminGetDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

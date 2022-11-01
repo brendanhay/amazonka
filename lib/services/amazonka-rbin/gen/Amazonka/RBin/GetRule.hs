@@ -80,7 +80,8 @@ getRule_identifier = Lens.lens (\GetRule' {identifier} -> identifier) (\s@GetRul
 
 instance Core.AWSRequest GetRule where
   type AWSResponse GetRule = GetRuleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -108,7 +108,8 @@ instance Core.AWSRequest DetectStackResourceDrift where
   type
     AWSResponse DetectStackResourceDrift =
       DetectStackResourceDriftResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetectStackResourceDriftResult"

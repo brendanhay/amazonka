@@ -93,7 +93,8 @@ instance Core.AWSRequest DeleteQueryDefinition where
   type
     AWSResponse DeleteQueryDefinition =
       DeleteQueryDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

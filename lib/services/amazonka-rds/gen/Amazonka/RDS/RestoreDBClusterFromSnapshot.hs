@@ -1264,7 +1264,8 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
   type
     AWSResponse RestoreDBClusterFromSnapshot =
       RestoreDBClusterFromSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterFromSnapshotResult"

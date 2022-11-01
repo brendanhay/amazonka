@@ -82,6 +82,12 @@ data CreateCampaign = CreateCampaign'
     compression :: Prelude.Maybe Compression,
     -- | (Optional) A list of vehicle attributes to associate with a campaign.
     --
+    -- Enrich the data with specified vehicle attributes. For example, add
+    -- @make@ and @model@ to the campaign, and Amazon Web Services IoT
+    -- FleetWise will associate the data with those attributes as dimensions in
+    -- Amazon Timestream. You can then query the data against @make@ and
+    -- @model@.
+    --
     -- Default: An empty array
     dataExtraDimensions :: Prelude.Maybe [Prelude.Text],
     -- | (Optional) The time the campaign expires, in seconds since epoch
@@ -157,6 +163,12 @@ data CreateCampaign = CreateCampaign'
 -- Default: @SNAPPY@
 --
 -- 'dataExtraDimensions', 'createCampaign_dataExtraDimensions' - (Optional) A list of vehicle attributes to associate with a campaign.
+--
+-- Enrich the data with specified vehicle attributes. For example, add
+-- @make@ and @model@ to the campaign, and Amazon Web Services IoT
+-- FleetWise will associate the data with those attributes as dimensions in
+-- Amazon Timestream. You can then query the data against @make@ and
+-- @model@.
 --
 -- Default: An empty array
 --
@@ -259,6 +271,12 @@ createCampaign_compression = Lens.lens (\CreateCampaign' {compression} -> compre
 
 -- | (Optional) A list of vehicle attributes to associate with a campaign.
 --
+-- Enrich the data with specified vehicle attributes. For example, add
+-- @make@ and @model@ to the campaign, and Amazon Web Services IoT
+-- FleetWise will associate the data with those attributes as dimensions in
+-- Amazon Timestream. You can then query the data against @make@ and
+-- @model@.
+--
 -- Default: An empty array
 createCampaign_dataExtraDimensions :: Lens.Lens' CreateCampaign (Prelude.Maybe [Prelude.Text])
 createCampaign_dataExtraDimensions = Lens.lens (\CreateCampaign' {dataExtraDimensions} -> dataExtraDimensions) (\s@CreateCampaign' {} a -> s {dataExtraDimensions = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
@@ -344,7 +362,8 @@ instance Core.AWSRequest CreateCampaign where
   type
     AWSResponse CreateCampaign =
       CreateCampaignResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

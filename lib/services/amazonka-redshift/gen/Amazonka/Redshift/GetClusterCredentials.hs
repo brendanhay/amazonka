@@ -362,7 +362,8 @@ instance Core.AWSRequest GetClusterCredentials where
   type
     AWSResponse GetClusterCredentials =
       GetClusterCredentialsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetClusterCredentialsResult"

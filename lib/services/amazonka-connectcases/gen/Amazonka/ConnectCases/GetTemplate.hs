@@ -95,7 +95,8 @@ getTemplate_templateId = Lens.lens (\GetTemplate' {templateId} -> templateId) (\
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

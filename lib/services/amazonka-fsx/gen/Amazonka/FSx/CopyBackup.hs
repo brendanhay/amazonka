@@ -196,7 +196,8 @@ copyBackup_sourceBackupId = Lens.lens (\CopyBackup' {sourceBackupId} -> sourceBa
 
 instance Core.AWSRequest CopyBackup where
   type AWSResponse CopyBackup = CopyBackupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

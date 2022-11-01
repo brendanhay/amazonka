@@ -153,7 +153,8 @@ createDisk_sizeInGb = Lens.lens (\CreateDisk' {sizeInGb} -> sizeInGb) (\s@Create
 
 instance Core.AWSRequest CreateDisk where
   type AWSResponse CreateDisk = CreateDiskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

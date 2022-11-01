@@ -166,7 +166,8 @@ instance Core.AWSRequest ListRecommendationFeedback where
   type
     AWSResponse ListRecommendationFeedback =
       ListRecommendationFeedbackResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -98,7 +98,8 @@ getSnapshot_ownerAccount = Lens.lens (\GetSnapshot' {ownerAccount} -> ownerAccou
 
 instance Core.AWSRequest GetSnapshot where
   type AWSResponse GetSnapshot = GetSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -35,6 +35,7 @@ module Amazonka.SageMaker.DescribeInferenceRecommendationsJob
     newDescribeInferenceRecommendationsJobResponse,
 
     -- * Response Lenses
+    describeInferenceRecommendationsJobResponse_endpointPerformances,
     describeInferenceRecommendationsJobResponse_inferenceRecommendations,
     describeInferenceRecommendationsJobResponse_stoppingConditions,
     describeInferenceRecommendationsJobResponse_completionTime,
@@ -99,12 +100,16 @@ instance
   type
     AWSResponse DescribeInferenceRecommendationsJob =
       DescribeInferenceRecommendationsJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInferenceRecommendationsJobResponse'
-            Prelude.<$> (x Core..?> "InferenceRecommendations")
+            Prelude.<$> ( x Core..?> "EndpointPerformances"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "InferenceRecommendations")
               Prelude.<*> (x Core..?> "StoppingConditions")
               Prelude.<*> (x Core..?> "CompletionTime")
               Prelude.<*> (x Core..?> "FailureReason")
@@ -178,7 +183,10 @@ instance
 
 -- | /See:/ 'newDescribeInferenceRecommendationsJobResponse' smart constructor.
 data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendationsJobResponse'
-  { -- | The recommendations made by Inference Recommender.
+  { -- | The performance results from running an Inference Recommender job on an
+    -- existing endpoint.
+    endpointPerformances :: Prelude.Maybe [EndpointPerformance],
+    -- | The recommendations made by Inference Recommender.
     inferenceRecommendations :: Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation),
     -- | The stopping conditions that you provided when you initiated the job.
     stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
@@ -220,6 +228,9 @@ data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendati
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endpointPerformances', 'describeInferenceRecommendationsJobResponse_endpointPerformances' - The performance results from running an Inference Recommender job on an
+-- existing endpoint.
 --
 -- 'inferenceRecommendations', 'describeInferenceRecommendationsJobResponse_inferenceRecommendations' - The recommendations made by Inference Recommender.
 --
@@ -283,7 +294,9 @@ newDescribeInferenceRecommendationsJobResponse
   pLastModifiedTime_
   pInputConfig_ =
     DescribeInferenceRecommendationsJobResponse'
-      { inferenceRecommendations =
+      { endpointPerformances =
+          Prelude.Nothing,
+        inferenceRecommendations =
           Prelude.Nothing,
         stoppingConditions =
           Prelude.Nothing,
@@ -307,6 +320,11 @@ newDescribeInferenceRecommendationsJobResponse
             Lens.# pLastModifiedTime_,
         inputConfig = pInputConfig_
       }
+
+-- | The performance results from running an Inference Recommender job on an
+-- existing endpoint.
+describeInferenceRecommendationsJobResponse_endpointPerformances :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe [EndpointPerformance])
+describeInferenceRecommendationsJobResponse_endpointPerformances = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {endpointPerformances} -> endpointPerformances) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {endpointPerformances = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The recommendations made by Inference Recommender.
 describeInferenceRecommendationsJobResponse_inferenceRecommendations :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation))
@@ -373,7 +391,8 @@ instance
     DescribeInferenceRecommendationsJobResponse
   where
   rnf DescribeInferenceRecommendationsJobResponse' {..} =
-    Prelude.rnf inferenceRecommendations
+    Prelude.rnf endpointPerformances
+      `Prelude.seq` Prelude.rnf inferenceRecommendations
       `Prelude.seq` Prelude.rnf stoppingConditions
       `Prelude.seq` Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf failureReason

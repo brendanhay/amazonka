@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeEnvironmentResources where
   type
     AWSResponse DescribeEnvironmentResources =
       DescribeEnvironmentResourcesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentResourcesResult"

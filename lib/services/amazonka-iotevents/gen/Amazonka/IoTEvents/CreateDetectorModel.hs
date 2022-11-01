@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateDetectorModel where
   type
     AWSResponse CreateDetectorModel =
       CreateDetectorModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

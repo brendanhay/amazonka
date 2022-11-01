@@ -146,7 +146,8 @@ instance Core.AWSRequest UpdatePipeline where
   type
     AWSResponse UpdatePipeline =
       UpdatePipelineResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information for the specified import.
+-- Returns information about a specific import.
 module Amazonka.CloudTrail.GetImport
   ( -- * Creating a Request
     GetImport (..),
@@ -83,7 +83,8 @@ getImport_importId = Lens.lens (\GetImport' {importId} -> importId) (\s@GetImpor
 
 instance Core.AWSRequest GetImport where
   type AWSResponse GetImport = GetImportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,13 +152,16 @@ data GetImportResponse = GetImportResponse'
     -- imported trail events to only those events logged within a specified
     -- time period.
     startEventTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides statistics for the import.
+    -- | Provides statistics for the import. CloudTrail does not update import
+    -- statistics in real-time. Returned values for parameters such as
+    -- @EventsCompleted@ may be lower than the actual value, because CloudTrail
+    -- updates statistics incrementally over the course of the import.
     importStatistics :: Prelude.Maybe ImportStatistics,
     -- | The ID of the import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import.
     importStatus :: Prelude.Maybe ImportStatus,
-    -- | The destination event data store.
+    -- | The ARN of the destination event data store.
     destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -186,13 +190,16 @@ data GetImportResponse = GetImportResponse'
 -- imported trail events to only those events logged within a specified
 -- time period.
 --
--- 'importStatistics', 'getImportResponse_importStatistics' - Provides statistics for the import.
+-- 'importStatistics', 'getImportResponse_importStatistics' - Provides statistics for the import. CloudTrail does not update import
+-- statistics in real-time. Returned values for parameters such as
+-- @EventsCompleted@ may be lower than the actual value, because CloudTrail
+-- updates statistics incrementally over the course of the import.
 --
 -- 'importId', 'getImportResponse_importId' - The ID of the import.
 --
 -- 'importStatus', 'getImportResponse_importStatus' - The status of the import.
 --
--- 'destinations', 'getImportResponse_destinations' - The destination event data store.
+-- 'destinations', 'getImportResponse_destinations' - The ARN of the destination event data store.
 --
 -- 'httpStatus', 'getImportResponse_httpStatus' - The response's http status code.
 newGetImportResponse ::
@@ -237,7 +244,10 @@ getImportResponse_updatedTimestamp = Lens.lens (\GetImportResponse' {updatedTime
 getImportResponse_startEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
 getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTime} -> startEventTime) (\s@GetImportResponse' {} a -> s {startEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
 
--- | Provides statistics for the import.
+-- | Provides statistics for the import. CloudTrail does not update import
+-- statistics in real-time. Returned values for parameters such as
+-- @EventsCompleted@ may be lower than the actual value, because CloudTrail
+-- updates statistics incrementally over the course of the import.
 getImportResponse_importStatistics :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportStatistics)
 getImportResponse_importStatistics = Lens.lens (\GetImportResponse' {importStatistics} -> importStatistics) (\s@GetImportResponse' {} a -> s {importStatistics = a} :: GetImportResponse)
 
@@ -249,7 +259,7 @@ getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> import
 getImportResponse_importStatus :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportStatus)
 getImportResponse_importStatus = Lens.lens (\GetImportResponse' {importStatus} -> importStatus) (\s@GetImportResponse' {} a -> s {importStatus = a} :: GetImportResponse)
 
--- | The destination event data store.
+-- | The ARN of the destination event data store.
 getImportResponse_destinations :: Lens.Lens' GetImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getImportResponse_destinations = Lens.lens (\GetImportResponse' {destinations} -> destinations) (\s@GetImportResponse' {} a -> s {destinations = a} :: GetImportResponse) Prelude.. Lens.mapping Lens.coerced
 

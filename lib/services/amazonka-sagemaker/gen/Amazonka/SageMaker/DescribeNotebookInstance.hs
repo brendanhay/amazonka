@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeNotebookInstance where
   type
     AWSResponse DescribeNotebookInstance =
       DescribeNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

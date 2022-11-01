@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateThemeAlias where
   type
     AWSResponse UpdateThemeAlias =
       UpdateThemeAliasResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

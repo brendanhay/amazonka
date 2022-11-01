@@ -160,7 +160,8 @@ instance Core.AWSRequest SwapEnvironmentCNAMEs where
   type
     AWSResponse SwapEnvironmentCNAMEs =
       SwapEnvironmentCNAMEsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SwapEnvironmentCNAMEsResponse'
 

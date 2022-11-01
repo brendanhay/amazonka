@@ -107,7 +107,8 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
   type
     AWSResponse PutDraftAppVersionTemplate =
       PutDraftAppVersionTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

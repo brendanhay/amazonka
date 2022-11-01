@@ -143,7 +143,8 @@ instance Core.AWSPager GetIntents where
 
 instance Core.AWSRequest GetIntents where
   type AWSResponse GetIntents = GetIntentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

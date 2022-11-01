@@ -80,7 +80,8 @@ instance Core.AWSRequest GetNetworkProfile where
   type
     AWSResponse GetNetworkProfile =
       GetNetworkProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

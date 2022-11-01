@@ -102,7 +102,8 @@ modifyRule_ruleArn = Lens.lens (\ModifyRule' {ruleArn} -> ruleArn) (\s@ModifyRul
 
 instance Core.AWSRequest ModifyRule where
   type AWSResponse ModifyRule = ModifyRuleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyRuleResult"

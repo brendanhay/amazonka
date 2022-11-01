@@ -143,7 +143,8 @@ instance Core.AWSRequest GetRolePolicy where
   type
     AWSResponse GetRolePolicy =
       GetRolePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetRolePolicyResult"

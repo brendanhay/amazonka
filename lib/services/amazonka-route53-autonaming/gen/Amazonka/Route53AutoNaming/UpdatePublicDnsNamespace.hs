@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdatePublicDnsNamespace where
   type
     AWSResponse UpdatePublicDnsNamespace =
       UpdatePublicDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

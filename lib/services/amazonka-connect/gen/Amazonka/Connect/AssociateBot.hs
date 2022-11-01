@@ -99,7 +99,8 @@ associateBot_instanceId = Lens.lens (\AssociateBot' {instanceId} -> instanceId) 
 
 instance Core.AWSRequest AssociateBot where
   type AWSResponse AssociateBot = AssociateBotResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response = Response.receiveNull AssociateBotResponse'
 
 instance Prelude.Hashable AssociateBot where

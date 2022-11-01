@@ -211,7 +211,8 @@ instance Core.AWSRequest DescribeClusterVersions where
   type
     AWSResponse DescribeClusterVersions =
       DescribeClusterVersionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterVersionsResult"

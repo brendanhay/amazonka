@@ -80,7 +80,8 @@ getSatellite_satelliteId = Lens.lens (\GetSatellite' {satelliteId} -> satelliteI
 
 instance Core.AWSRequest GetSatellite where
   type AWSResponse GetSatellite = GetSatelliteResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -124,7 +124,8 @@ instance Core.AWSRequest AdminDisableProviderForUser where
   type
     AWSResponse AdminDisableProviderForUser =
       AdminDisableProviderForUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

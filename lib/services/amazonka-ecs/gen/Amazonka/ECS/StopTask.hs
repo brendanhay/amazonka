@@ -128,7 +128,8 @@ stopTask_task = Lens.lens (\StopTask' {task} -> task) (\s@StopTask' {} a -> s {t
 
 instance Core.AWSRequest StopTask where
   type AWSResponse StopTask = StopTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

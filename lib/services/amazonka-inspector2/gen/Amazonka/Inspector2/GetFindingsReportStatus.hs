@@ -83,7 +83,8 @@ instance Core.AWSRequest GetFindingsReportStatus where
   type
     AWSResponse GetFindingsReportStatus =
       GetFindingsReportStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

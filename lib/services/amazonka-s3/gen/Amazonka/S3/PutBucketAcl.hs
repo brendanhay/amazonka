@@ -393,9 +393,9 @@ putBucketAcl_bucket = Lens.lens (\PutBucketAcl' {bucket} -> bucket) (\s@PutBucke
 
 instance Core.AWSRequest PutBucketAcl where
   type AWSResponse PutBucketAcl = PutBucketAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response = Response.receiveNull PutBucketAclResponse'
 
 instance Prelude.Hashable PutBucketAcl where

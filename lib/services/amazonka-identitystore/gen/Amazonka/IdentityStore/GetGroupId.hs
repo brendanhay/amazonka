@@ -99,7 +99,8 @@ getGroupId_alternateIdentifier = Lens.lens (\GetGroupId' {alternateIdentifier} -
 
 instance Core.AWSRequest GetGroupId where
   type AWSResponse GetGroupId = GetGroupIdResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

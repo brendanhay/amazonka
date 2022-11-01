@@ -131,7 +131,8 @@ instance Core.AWSRequest PutPipelineDefinition where
   type
     AWSResponse PutPipelineDefinition =
       PutPipelineDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

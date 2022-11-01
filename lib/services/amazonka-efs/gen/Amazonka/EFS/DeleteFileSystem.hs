@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteFileSystem where
   type
     AWSResponse DeleteFileSystem =
       DeleteFileSystemResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFileSystemResponse'
 

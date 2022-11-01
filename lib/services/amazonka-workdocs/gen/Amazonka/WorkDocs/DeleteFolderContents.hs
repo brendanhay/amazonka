@@ -89,7 +89,8 @@ instance Core.AWSRequest DeleteFolderContents where
   type
     AWSResponse DeleteFolderContents =
       DeleteFolderContentsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFolderContentsResponse'
 

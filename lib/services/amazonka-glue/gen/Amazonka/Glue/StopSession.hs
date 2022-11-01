@@ -87,7 +87,8 @@ stopSession_id = Lens.lens (\StopSession' {id} -> id) (\s@StopSession' {} a -> s
 
 instance Core.AWSRequest StopSession where
   type AWSResponse StopSession = StopSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

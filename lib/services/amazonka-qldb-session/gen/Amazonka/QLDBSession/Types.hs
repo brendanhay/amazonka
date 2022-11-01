@@ -161,6 +161,8 @@ defaultService =
       Core._serviceEndpointPrefix = "session.qldb",
       Core._serviceSigningName = "qldb",
       Core._serviceVersion = "2019-07-11",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

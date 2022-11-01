@@ -152,7 +152,8 @@ instance Core.AWSRequest ListAttachments where
   type
     AWSResponse ListAttachments =
       ListAttachmentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

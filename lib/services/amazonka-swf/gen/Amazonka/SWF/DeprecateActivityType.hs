@@ -120,7 +120,8 @@ instance Core.AWSRequest DeprecateActivityType where
   type
     AWSResponse DeprecateActivityType =
       DeprecateActivityTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeprecateActivityTypeResponse'
 

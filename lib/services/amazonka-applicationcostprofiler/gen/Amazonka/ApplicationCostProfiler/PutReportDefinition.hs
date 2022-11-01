@@ -138,7 +138,8 @@ instance Core.AWSRequest PutReportDefinition where
   type
     AWSResponse PutReportDefinition =
       PutReportDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

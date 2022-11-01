@@ -94,7 +94,8 @@ instance Core.AWSRequest AssociateAdminAccount where
   type
     AWSResponse AssociateAdminAccount =
       AssociateAdminAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateAdminAccountResponse'
 

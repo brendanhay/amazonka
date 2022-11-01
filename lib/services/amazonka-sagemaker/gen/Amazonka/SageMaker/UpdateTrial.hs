@@ -90,7 +90,8 @@ updateTrial_trialName = Lens.lens (\UpdateTrial' {trialName} -> trialName) (\s@U
 
 instance Core.AWSRequest UpdateTrial where
   type AWSResponse UpdateTrial = UpdateTrialResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

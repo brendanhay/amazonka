@@ -74,7 +74,8 @@ getJob_id = Lens.lens (\GetJob' {id} -> id) (\s@GetJob' {} a -> s {id = a} :: Ge
 
 instance Core.AWSRequest GetJob where
   type AWSResponse GetJob = GetJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

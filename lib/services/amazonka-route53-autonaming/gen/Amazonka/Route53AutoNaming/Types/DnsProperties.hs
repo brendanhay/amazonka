@@ -24,12 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.SOA
 
--- | A complex type that contains the ID for the Route 53 hosted zone that
+-- | A complex type that contains the ID for the Route 53 hosted zone that
 -- Cloud Map creates when you create a namespace.
 --
 -- /See:/ 'newDnsProperties' smart constructor.
 data DnsProperties = DnsProperties'
-  { -- | The ID for the Route 53 hosted zone that Cloud Map creates when you
+  { -- | The ID for the Route 53 hosted zone that Cloud Map creates when you
     -- create a namespace.
     hostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | Start of Authority (SOA) record for the hosted zone.
@@ -45,7 +45,7 @@ data DnsProperties = DnsProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostedZoneId', 'dnsProperties_hostedZoneId' - The ID for the Route 53 hosted zone that Cloud Map creates when you
+-- 'hostedZoneId', 'dnsProperties_hostedZoneId' - The ID for the Route 53 hosted zone that Cloud Map creates when you
 -- create a namespace.
 --
 -- 'soa', 'dnsProperties_soa' - Start of Authority (SOA) record for the hosted zone.
@@ -57,7 +57,7 @@ newDnsProperties =
       soa = Prelude.Nothing
     }
 
--- | The ID for the Route 53 hosted zone that Cloud Map creates when you
+-- | The ID for the Route 53 hosted zone that Cloud Map creates when you
 -- create a namespace.
 dnsProperties_hostedZoneId :: Lens.Lens' DnsProperties (Prelude.Maybe Prelude.Text)
 dnsProperties_hostedZoneId = Lens.lens (\DnsProperties' {hostedZoneId} -> hostedZoneId) (\s@DnsProperties' {} a -> s {hostedZoneId = a} :: DnsProperties)

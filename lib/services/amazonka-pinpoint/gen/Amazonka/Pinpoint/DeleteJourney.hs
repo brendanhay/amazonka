@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteJourney where
   type
     AWSResponse DeleteJourney =
       DeleteJourneyResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

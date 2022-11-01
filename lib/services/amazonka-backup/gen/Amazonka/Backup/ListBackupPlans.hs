@@ -137,7 +137,8 @@ instance Core.AWSRequest ListBackupPlans where
   type
     AWSResponse ListBackupPlans =
       ListBackupPlansResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

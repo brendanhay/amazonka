@@ -113,7 +113,8 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
   type
     AWSResponse SendDiagnosticInterrupt =
       SendDiagnosticInterruptResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SendDiagnosticInterruptResponse'

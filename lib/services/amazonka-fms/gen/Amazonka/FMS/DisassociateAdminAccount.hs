@@ -60,7 +60,8 @@ instance Core.AWSRequest DisassociateAdminAccount where
   type
     AWSResponse DisassociateAdminAccount =
       DisassociateAdminAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateAdminAccountResponse'

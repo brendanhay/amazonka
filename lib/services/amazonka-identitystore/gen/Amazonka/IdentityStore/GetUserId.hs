@@ -99,7 +99,8 @@ getUserId_alternateIdentifier = Lens.lens (\GetUserId' {alternateIdentifier} -> 
 
 instance Core.AWSRequest GetUserId where
   type AWSResponse GetUserId = GetUserIdResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

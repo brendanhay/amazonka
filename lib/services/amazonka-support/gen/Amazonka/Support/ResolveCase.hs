@@ -90,7 +90,8 @@ resolveCase_caseId = Lens.lens (\ResolveCase' {caseId} -> caseId) (\s@ResolveCas
 
 instance Core.AWSRequest ResolveCase where
   type AWSResponse ResolveCase = ResolveCaseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

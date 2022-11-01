@@ -376,6 +376,8 @@ defaultService =
       Core._serviceEndpointPrefix = "email",
       Core._serviceSigningName = "ses",
       Core._serviceVersion = "2018-07-26",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

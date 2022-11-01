@@ -355,6 +355,8 @@ defaultService =
       Core._serviceEndpointPrefix = "groundstation",
       Core._serviceSigningName = "groundstation",
       Core._serviceVersion = "2019-05-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteForecast where
   type
     AWSResponse DeleteForecast =
       DeleteForecastResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteForecastResponse'
 

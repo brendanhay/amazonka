@@ -97,9 +97,10 @@ instance Core.AWSRequest GetDataRetrievalPolicy where
   type
     AWSResponse GetDataRetrievalPolicy =
       GetDataRetrievalPolicyResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

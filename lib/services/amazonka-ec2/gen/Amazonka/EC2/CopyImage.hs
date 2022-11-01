@@ -321,7 +321,8 @@ copyImage_sourceRegion = Lens.lens (\CopyImage' {sourceRegion} -> sourceRegion) 
 
 instance Core.AWSRequest CopyImage where
   type AWSResponse CopyImage = CopyImageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

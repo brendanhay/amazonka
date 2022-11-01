@@ -118,7 +118,8 @@ updateGroup_namespace = Lens.lens (\UpdateGroup' {namespace} -> namespace) (\s@U
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

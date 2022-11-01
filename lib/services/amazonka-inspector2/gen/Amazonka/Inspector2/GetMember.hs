@@ -78,7 +78,8 @@ getMember_accountId = Lens.lens (\GetMember' {accountId} -> accountId) (\s@GetMe
 
 instance Core.AWSRequest GetMember where
   type AWSResponse GetMember = GetMemberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

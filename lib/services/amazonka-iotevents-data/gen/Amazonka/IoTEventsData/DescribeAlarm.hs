@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeAlarm where
   type
     AWSResponse DescribeAlarm =
       DescribeAlarmResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

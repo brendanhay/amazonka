@@ -24,6 +24,19 @@
 -- change.
 --
 -- Creates a new queue for the specified Amazon Connect instance.
+--
+-- If the number being used in the input is claimed to a traffic
+-- distribution group, and you are calling this API using an instance in
+-- the Amazon Web Services Region where the traffic distribution group was
+-- created, you can use either a full phone number ARN or UUID value for
+-- the @OutboundCallerIdNumberId@ value of the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig OutboundCallerConfig>
+-- request body parameter. However, if the number is claimed to a traffic
+-- distribution group and you are calling this API using an instance in the
+-- alternate Amazon Web Services Region associated with the traffic
+-- distribution group, you must provide a full phone number ARN. If a UUID
+-- is provided in this scenario, you will receive a
+-- @ResourceNotFoundException@.
 module Amazonka.Connect.CreateQueue
   ( -- * Creating a Request
     CreateQueue (..),
@@ -167,7 +180,8 @@ createQueue_hoursOfOperationId = Lens.lens (\CreateQueue' {hoursOfOperationId} -
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

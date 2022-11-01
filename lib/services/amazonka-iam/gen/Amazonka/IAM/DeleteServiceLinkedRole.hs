@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
   type
     AWSResponse DeleteServiceLinkedRole =
       DeleteServiceLinkedRoleResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteServiceLinkedRoleResult"

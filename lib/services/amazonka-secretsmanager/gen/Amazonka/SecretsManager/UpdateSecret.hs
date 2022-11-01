@@ -327,7 +327,8 @@ updateSecret_secretId = Lens.lens (\UpdateSecret' {secretId} -> secretId) (\s@Up
 
 instance Core.AWSRequest UpdateSecret where
   type AWSResponse UpdateSecret = UpdateSecretResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

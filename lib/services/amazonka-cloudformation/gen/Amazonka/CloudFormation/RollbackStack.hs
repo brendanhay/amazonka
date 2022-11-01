@@ -121,7 +121,8 @@ instance Core.AWSRequest RollbackStack where
   type
     AWSResponse RollbackStack =
       RollbackStackResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RollbackStackResult"

@@ -122,7 +122,8 @@ instance Core.AWSRequest ListDeviceInstances where
   type
     AWSResponse ListDeviceInstances =
       ListDeviceInstancesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

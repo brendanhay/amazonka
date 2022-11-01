@@ -86,7 +86,8 @@ deleteBackup_backupId = Lens.lens (\DeleteBackup' {backupId} -> backupId) (\s@De
 
 instance Core.AWSRequest DeleteBackup where
   type AWSResponse DeleteBackup = DeleteBackupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -132,7 +132,8 @@ instance Core.AWSRequest ListServiceQuotas where
   type
     AWSResponse ListServiceQuotas =
       ListServiceQuotasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

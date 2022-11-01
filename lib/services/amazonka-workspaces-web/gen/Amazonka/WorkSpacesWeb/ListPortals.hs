@@ -89,7 +89,8 @@ listPortals_maxResults = Lens.lens (\ListPortals' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListPortals where
   type AWSResponse ListPortals = ListPortalsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

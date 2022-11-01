@@ -133,7 +133,8 @@ instance Core.AWSPager ListFilters where
 
 instance Core.AWSRequest ListFilters where
   type AWSResponse ListFilters = ListFiltersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

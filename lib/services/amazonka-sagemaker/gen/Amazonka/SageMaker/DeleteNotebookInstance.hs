@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteNotebookInstance where
   type
     AWSResponse DeleteNotebookInstance =
       DeleteNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteNotebookInstanceResponse'

@@ -102,7 +102,8 @@ instance Core.AWSRequest RedactRoomMessage where
   type
     AWSResponse RedactRoomMessage =
       RedactRoomMessageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

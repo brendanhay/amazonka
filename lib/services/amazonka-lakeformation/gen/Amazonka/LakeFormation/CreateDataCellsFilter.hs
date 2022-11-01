@@ -80,7 +80,8 @@ instance Core.AWSRequest CreateDataCellsFilter where
   type
     AWSResponse CreateDataCellsFilter =
       CreateDataCellsFilterResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

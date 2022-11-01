@@ -196,7 +196,8 @@ instance Core.AWSRequest DescribeCertificates where
   type
     AWSResponse DescribeCertificates =
       DescribeCertificatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCertificatesResult"

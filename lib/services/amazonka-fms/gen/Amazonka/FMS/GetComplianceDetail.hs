@@ -117,7 +117,8 @@ instance Core.AWSRequest GetComplianceDetail where
   type
     AWSResponse GetComplianceDetail =
       GetComplianceDetailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

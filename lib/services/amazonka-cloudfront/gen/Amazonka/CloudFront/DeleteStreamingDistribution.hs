@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteStreamingDistribution where
   type
     AWSResponse DeleteStreamingDistribution =
       DeleteStreamingDistributionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteStreamingDistributionResponse'

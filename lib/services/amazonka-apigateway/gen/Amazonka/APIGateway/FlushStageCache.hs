@@ -89,7 +89,8 @@ instance Core.AWSRequest FlushStageCache where
   type
     AWSResponse FlushStageCache =
       FlushStageCacheResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull FlushStageCacheResponse'
 

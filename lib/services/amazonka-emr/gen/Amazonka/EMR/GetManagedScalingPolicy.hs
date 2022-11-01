@@ -80,7 +80,8 @@ instance Core.AWSRequest GetManagedScalingPolicy where
   type
     AWSResponse GetManagedScalingPolicy =
       GetManagedScalingPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

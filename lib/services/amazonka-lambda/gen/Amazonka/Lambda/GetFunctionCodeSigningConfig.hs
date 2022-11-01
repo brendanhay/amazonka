@@ -117,7 +117,8 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
   type
     AWSResponse GetFunctionCodeSigningConfig =
       GetFunctionCodeSigningConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

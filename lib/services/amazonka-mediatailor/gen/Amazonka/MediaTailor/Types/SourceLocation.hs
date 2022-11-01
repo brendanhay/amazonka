@@ -27,11 +27,17 @@ import Amazonka.MediaTailor.Types.HttpConfiguration
 import Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
 import qualified Amazonka.Prelude as Prelude
 
--- | This response includes only the \"type\" : \"object\" property.
+-- | A source location is a container for sources. For more information about
+-- source locations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html Working with source locations>
+-- in the /MediaTailor User Guide/.
 --
 -- /See:/ 'newSourceLocation' smart constructor.
 data SourceLocation = SourceLocation'
-  { -- | The tags assigned to the source location.
+  { -- | The tags assigned to the source location. Tags are key-value pairs that
+    -- you can associate with Amazon resources to help with organization,
+    -- access control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The segment delivery configurations for the source location.
     segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
@@ -43,12 +49,12 @@ data SourceLocation = SourceLocation'
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates when the source location was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location.
-    sourceLocationName :: Prelude.Text,
+    -- | The ARN of the SourceLocation.
+    arn :: Prelude.Text,
     -- | The HTTP configuration for the source location.
     httpConfiguration :: HttpConfiguration,
-    -- | The ARN of the SourceLocation.
-    arn :: Prelude.Text
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,7 +66,10 @@ data SourceLocation = SourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'sourceLocation_tags' - The tags assigned to the source location.
+-- 'tags', 'sourceLocation_tags' - The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'segmentDeliveryConfigurations', 'sourceLocation_segmentDeliveryConfigurations' - The segment delivery configurations for the source location.
 --
@@ -72,23 +81,23 @@ data SourceLocation = SourceLocation'
 --
 -- 'creationTime', 'sourceLocation_creationTime' - The timestamp that indicates when the source location was created.
 --
--- 'sourceLocationName', 'sourceLocation_sourceLocationName' - The name of the source location.
+-- 'arn', 'sourceLocation_arn' - The ARN of the SourceLocation.
 --
 -- 'httpConfiguration', 'sourceLocation_httpConfiguration' - The HTTP configuration for the source location.
 --
--- 'arn', 'sourceLocation_arn' - The ARN of the SourceLocation.
+-- 'sourceLocationName', 'sourceLocation_sourceLocationName' - The name of the source location.
 newSourceLocation ::
-  -- | 'sourceLocationName'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'httpConfiguration'
   HttpConfiguration ->
-  -- | 'arn'
+  -- | 'sourceLocationName'
   Prelude.Text ->
   SourceLocation
 newSourceLocation
-  pSourceLocationName_
+  pArn_
   pHttpConfiguration_
-  pArn_ =
+  pSourceLocationName_ =
     SourceLocation'
       { tags = Prelude.Nothing,
         segmentDeliveryConfigurations = Prelude.Nothing,
@@ -97,12 +106,15 @@ newSourceLocation
           Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         creationTime = Prelude.Nothing,
-        sourceLocationName = pSourceLocationName_,
+        arn = pArn_,
         httpConfiguration = pHttpConfiguration_,
-        arn = pArn_
+        sourceLocationName = pSourceLocationName_
       }
 
--- | The tags assigned to the source location.
+-- | The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
 
@@ -126,17 +138,17 @@ sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime}
 sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
 sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
 
--- | The name of the source location.
-sourceLocation_sourceLocationName :: Lens.Lens' SourceLocation Prelude.Text
-sourceLocation_sourceLocationName = Lens.lens (\SourceLocation' {sourceLocationName} -> sourceLocationName) (\s@SourceLocation' {} a -> s {sourceLocationName = a} :: SourceLocation)
+-- | The ARN of the SourceLocation.
+sourceLocation_arn :: Lens.Lens' SourceLocation Prelude.Text
+sourceLocation_arn = Lens.lens (\SourceLocation' {arn} -> arn) (\s@SourceLocation' {} a -> s {arn = a} :: SourceLocation)
 
 -- | The HTTP configuration for the source location.
 sourceLocation_httpConfiguration :: Lens.Lens' SourceLocation HttpConfiguration
 sourceLocation_httpConfiguration = Lens.lens (\SourceLocation' {httpConfiguration} -> httpConfiguration) (\s@SourceLocation' {} a -> s {httpConfiguration = a} :: SourceLocation)
 
--- | The ARN of the SourceLocation.
-sourceLocation_arn :: Lens.Lens' SourceLocation Prelude.Text
-sourceLocation_arn = Lens.lens (\SourceLocation' {arn} -> arn) (\s@SourceLocation' {} a -> s {arn = a} :: SourceLocation)
+-- | The name of the source location.
+sourceLocation_sourceLocationName :: Lens.Lens' SourceLocation Prelude.Text
+sourceLocation_sourceLocationName = Lens.lens (\SourceLocation' {sourceLocationName} -> sourceLocationName) (\s@SourceLocation' {} a -> s {sourceLocationName = a} :: SourceLocation)
 
 instance Core.FromJSON SourceLocation where
   parseJSON =
@@ -152,9 +164,9 @@ instance Core.FromJSON SourceLocation where
             Prelude.<*> (x Core..:? "DefaultSegmentDeliveryConfiguration")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "SourceLocationName")
-            Prelude.<*> (x Core..: "HttpConfiguration")
             Prelude.<*> (x Core..: "Arn")
+            Prelude.<*> (x Core..: "HttpConfiguration")
+            Prelude.<*> (x Core..: "SourceLocationName")
       )
 
 instance Prelude.Hashable SourceLocation where
@@ -165,9 +177,9 @@ instance Prelude.Hashable SourceLocation where
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` httpConfiguration
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` httpConfiguration
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData SourceLocation where
   rnf SourceLocation' {..} =
@@ -177,6 +189,6 @@ instance Prelude.NFData SourceLocation where
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf httpConfiguration
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf sourceLocationName

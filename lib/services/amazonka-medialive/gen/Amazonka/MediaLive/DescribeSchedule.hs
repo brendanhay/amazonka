@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeSchedule where
   type
     AWSResponse DescribeSchedule =
       DescribeScheduleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

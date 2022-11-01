@@ -190,7 +190,8 @@ putBotAlias_botName = Lens.lens (\PutBotAlias' {botName} -> botName) (\s@PutBotA
 
 instance Core.AWSRequest PutBotAlias where
   type AWSResponse PutBotAlias = PutBotAliasResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

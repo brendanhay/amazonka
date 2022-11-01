@@ -107,7 +107,8 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
   type
     AWSResponse ModifyClusterSubnetGroup =
       ModifyClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterSubnetGroupResult"

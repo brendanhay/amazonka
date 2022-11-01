@@ -193,7 +193,8 @@ instance Core.AWSRequest ListHandshakesForAccount where
   type
     AWSResponse ListHandshakesForAccount =
       ListHandshakesForAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

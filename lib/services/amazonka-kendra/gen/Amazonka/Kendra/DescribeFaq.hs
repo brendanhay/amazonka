@@ -97,7 +97,8 @@ describeFaq_indexId = Lens.lens (\DescribeFaq' {indexId} -> indexId) (\s@Describ
 
 instance Core.AWSRequest DescribeFaq where
   type AWSResponse DescribeFaq = DescribeFaqResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

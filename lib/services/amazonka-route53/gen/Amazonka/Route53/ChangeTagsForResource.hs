@@ -150,7 +150,8 @@ instance Core.AWSRequest ChangeTagsForResource where
   type
     AWSResponse ChangeTagsForResource =
       ChangeTagsForResourceResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

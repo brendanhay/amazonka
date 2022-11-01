@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ProfileType
 import Amazonka.Transfer.Types.Tag
 
--- | The details for a local or partner AS2 profile. profile.
+-- | The details for a local or partner AS2 profile.
 --
 -- /See:/ 'newDescribedProfile' smart constructor.
 data DescribedProfile = DescribedProfile'

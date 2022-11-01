@@ -90,7 +90,8 @@ deleteSite_siteId = Lens.lens (\DeleteSite' {siteId} -> siteId) (\s@DeleteSite' 
 
 instance Core.AWSRequest DeleteSite where
   type AWSResponse DeleteSite = DeleteSiteResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

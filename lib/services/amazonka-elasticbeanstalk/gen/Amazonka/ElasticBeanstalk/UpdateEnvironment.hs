@@ -310,7 +310,8 @@ instance Core.AWSRequest UpdateEnvironment where
   type
     AWSResponse UpdateEnvironment =
       EnvironmentDescription
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateEnvironmentResult"

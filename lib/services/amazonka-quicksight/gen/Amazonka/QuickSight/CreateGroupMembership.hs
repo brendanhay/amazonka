@@ -126,7 +126,8 @@ instance Core.AWSRequest CreateGroupMembership where
   type
     AWSResponse CreateGroupMembership =
       CreateGroupMembershipResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

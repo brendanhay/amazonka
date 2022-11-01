@@ -175,6 +175,7 @@ module Amazonka.Greengrass.Types
     functionConfiguration_memorySize,
     functionConfiguration_execArgs,
     functionConfiguration_environment,
+    functionConfiguration_functionRuntimeOverride,
     functionConfiguration_executable,
     functionConfiguration_pinned,
     functionConfiguration_encodingType,
@@ -440,6 +441,8 @@ defaultService =
       Core._serviceEndpointPrefix = "greengrass",
       Core._serviceSigningName = "greengrass",
       Core._serviceVersion = "2017-06-07",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

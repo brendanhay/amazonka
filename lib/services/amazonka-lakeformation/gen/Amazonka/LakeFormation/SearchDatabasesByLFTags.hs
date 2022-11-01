@@ -155,7 +155,8 @@ instance Core.AWSRequest SearchDatabasesByLFTags where
   type
     AWSResponse SearchDatabasesByLFTags =
       SearchDatabasesByLFTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

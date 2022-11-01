@@ -97,6 +97,8 @@ defaultService =
       Core._serviceEndpointPrefix = "macie",
       Core._serviceSigningName = "macie",
       Core._serviceVersion = "2017-12-19",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

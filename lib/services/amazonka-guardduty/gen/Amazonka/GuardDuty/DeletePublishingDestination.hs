@@ -96,7 +96,8 @@ instance Core.AWSRequest DeletePublishingDestination where
   type
     AWSResponse DeletePublishingDestination =
       DeletePublishingDestinationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

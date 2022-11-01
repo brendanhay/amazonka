@@ -150,7 +150,8 @@ instance Core.AWSRequest StopStackSetOperation where
   type
     AWSResponse StopStackSetOperation =
       StopStackSetOperationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopStackSetOperationResult"

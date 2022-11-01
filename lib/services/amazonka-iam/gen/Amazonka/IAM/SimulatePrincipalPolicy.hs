@@ -740,7 +740,8 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
   type
     AWSResponse SimulatePrincipalPolicy =
       SimulatePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SimulatePrincipalPolicyResult"

@@ -105,6 +105,7 @@ library
     Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
     Amazonka.GreengrassV2.Types.EffectiveDeployment
     Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
+    Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
     Amazonka.GreengrassV2.Types.InstalledComponent
     Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
     Amazonka.GreengrassV2.Types.InstalledComponentTopologyFilter

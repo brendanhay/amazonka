@@ -155,7 +155,8 @@ updateRoute_virtualRouterName = Lens.lens (\UpdateRoute' {virtualRouterName} -> 
 
 instance Core.AWSRequest UpdateRoute where
   type AWSResponse UpdateRoute = UpdateRouteResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

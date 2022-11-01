@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateGraphqlApi where
   type
     AWSResponse CreateGraphqlApi =
       CreateGraphqlApiResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

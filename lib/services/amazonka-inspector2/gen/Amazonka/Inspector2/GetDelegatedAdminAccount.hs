@@ -63,7 +63,8 @@ instance Core.AWSRequest GetDelegatedAdminAccount where
   type
     AWSResponse GetDelegatedAdminAccount =
       GetDelegatedAdminAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

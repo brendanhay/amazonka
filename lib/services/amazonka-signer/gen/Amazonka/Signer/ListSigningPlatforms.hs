@@ -157,7 +157,8 @@ instance Core.AWSRequest ListSigningPlatforms where
   type
     AWSResponse ListSigningPlatforms =
       ListSigningPlatformsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ instance Core.AWSRequest GetIntrospectionSchema where
   type
     AWSResponse GetIntrospectionSchema =
       GetIntrospectionSchemaResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

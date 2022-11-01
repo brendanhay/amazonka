@@ -114,7 +114,8 @@ createForm_formToCreate = Lens.lens (\CreateForm' {formToCreate} -> formToCreate
 
 instance Core.AWSRequest CreateForm where
   type AWSResponse CreateForm = CreateFormResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -77,7 +77,8 @@ instance Core.AWSRequest GetAddressBook where
   type
     AWSResponse GetAddressBook =
       GetAddressBookResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

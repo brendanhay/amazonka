@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteCustomActionType where
   type
     AWSResponse DeleteCustomActionType =
       DeleteCustomActionTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCustomActionTypeResponse'

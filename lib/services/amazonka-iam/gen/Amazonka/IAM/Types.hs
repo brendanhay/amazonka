@@ -653,6 +653,8 @@ defaultService =
       Core._serviceEndpointPrefix = "iam",
       Core._serviceSigningName = "iam",
       Core._serviceVersion = "2010-05-08",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

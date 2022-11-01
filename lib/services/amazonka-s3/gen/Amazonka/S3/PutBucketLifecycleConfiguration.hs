@@ -216,10 +216,11 @@ instance
   type
     AWSResponse PutBucketLifecycleConfiguration =
       PutBucketLifecycleConfigurationResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.putXML defaultService
+      Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketLifecycleConfigurationResponse'

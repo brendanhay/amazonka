@@ -74,7 +74,8 @@ getStreamKey_arn = Lens.lens (\GetStreamKey' {arn} -> arn) (\s@GetStreamKey' {} 
 
 instance Core.AWSRequest GetStreamKey where
   type AWSResponse GetStreamKey = GetStreamKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

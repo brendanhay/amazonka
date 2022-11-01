@@ -31,6 +31,7 @@ module Amazonka.GuardDuty.Lens
     createDetector_dataSources,
     createDetector_findingPublishingFrequency,
     createDetector_enable,
+    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_detectorId,
     createDetectorResponse_httpStatus,
 
@@ -614,6 +615,7 @@ module Amazonka.GuardDuty.Lens
 
     -- ** EbsVolumesResult
     ebsVolumesResult_status,
+    ebsVolumesResult_reason,
 
     -- ** EcsClusterDetails
     ecsClusterDetails_tags,
@@ -1060,6 +1062,9 @@ module Amazonka.GuardDuty.Lens
     unprocessedAccount_accountId,
     unprocessedAccount_result,
 
+    -- ** UnprocessedDataSourcesResult
+    unprocessedDataSourcesResult_malwareProtection,
+
     -- ** UsageAccountResult
     usageAccountResult_total,
     usageAccountResult_accountId,
@@ -1271,6 +1276,7 @@ import Amazonka.GuardDuty.Types.ThreatsDetectedItemCount
 import Amazonka.GuardDuty.Types.Total
 import Amazonka.GuardDuty.Types.TriggerDetails
 import Amazonka.GuardDuty.Types.UnprocessedAccount
+import Amazonka.GuardDuty.Types.UnprocessedDataSourcesResult
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageCriteria
 import Amazonka.GuardDuty.Types.UsageDataSourceResult

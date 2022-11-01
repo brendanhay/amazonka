@@ -130,7 +130,8 @@ getAlias_name = Lens.lens (\GetAlias' {name} -> name) (\s@GetAlias' {} a -> s {n
 
 instance Core.AWSRequest GetAlias where
   type AWSResponse GetAlias = AliasConfiguration
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

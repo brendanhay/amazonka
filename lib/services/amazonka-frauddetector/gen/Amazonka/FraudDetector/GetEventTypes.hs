@@ -104,7 +104,8 @@ instance Core.AWSRequest GetEventTypes where
   type
     AWSResponse GetEventTypes =
       GetEventTypesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

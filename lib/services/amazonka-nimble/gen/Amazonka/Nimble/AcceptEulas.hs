@@ -106,7 +106,8 @@ acceptEulas_studioId = Lens.lens (\AcceptEulas' {studioId} -> studioId) (\s@Acce
 
 instance Core.AWSRequest AcceptEulas where
   type AWSResponse AcceptEulas = AcceptEulasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

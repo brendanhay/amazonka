@@ -57,7 +57,7 @@ data Place = Place'
     -- @Apartment@.
     unitType :: Prelude.Maybe Prelude.Text,
     -- | The time zone in which the @Place@ is located. Returned only when using
-    -- Here as the selected partner.
+    -- HERE as the selected partner.
     timeZone :: Prelude.Maybe TimeZone,
     -- | A name for an area or geographical division, such as a province or state
     -- name. For example, @British Columbia@.
@@ -118,7 +118,7 @@ data Place = Place'
 -- @Apartment@.
 --
 -- 'timeZone', 'place_timeZone' - The time zone in which the @Place@ is located. Returned only when using
--- Here as the selected partner.
+-- HERE as the selected partner.
 --
 -- 'region', 'place_region' - A name for an area or geographical division, such as a province or state
 -- name. For example, @British Columbia@.
@@ -204,7 +204,7 @@ place_unitType :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_unitType = Lens.lens (\Place' {unitType} -> unitType) (\s@Place' {} a -> s {unitType = a} :: Place)
 
 -- | The time zone in which the @Place@ is located. Returned only when using
--- Here as the selected partner.
+-- HERE as the selected partner.
 place_timeZone :: Lens.Lens' Place (Prelude.Maybe TimeZone)
 place_timeZone = Lens.lens (\Place' {timeZone} -> timeZone) (\s@Place' {} a -> s {timeZone = a} :: Place)
 

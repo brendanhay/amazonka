@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteFirewallDomainList where
   type
     AWSResponse DeleteFirewallDomainList =
       DeleteFirewallDomainListResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

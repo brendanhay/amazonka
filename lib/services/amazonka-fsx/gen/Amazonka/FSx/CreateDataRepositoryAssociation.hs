@@ -270,7 +270,8 @@ instance
   type
     AWSResponse CreateDataRepositoryAssociation =
       CreateDataRepositoryAssociationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

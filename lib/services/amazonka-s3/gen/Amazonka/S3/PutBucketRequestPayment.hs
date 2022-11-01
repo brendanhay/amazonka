@@ -189,9 +189,9 @@ instance Core.AWSRequest PutBucketRequestPayment where
   type
     AWSResponse PutBucketRequestPayment =
       PutBucketRequestPaymentResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketRequestPaymentResponse'

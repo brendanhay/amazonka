@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteDeploymentConfig where
   type
     AWSResponse DeleteDeploymentConfig =
       DeleteDeploymentConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteDeploymentConfigResponse'

@@ -97,7 +97,8 @@ instance
   type
     AWSResponse ListNetworkAnalyzerConfigurations =
       ListNetworkAnalyzerConfigurationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

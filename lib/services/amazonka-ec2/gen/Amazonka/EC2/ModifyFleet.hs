@@ -173,7 +173,8 @@ modifyFleet_fleetId = Lens.lens (\ModifyFleet' {fleetId} -> fleetId) (\s@ModifyF
 
 instance Core.AWSRequest ModifyFleet where
   type AWSResponse ModifyFleet = ModifyFleetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

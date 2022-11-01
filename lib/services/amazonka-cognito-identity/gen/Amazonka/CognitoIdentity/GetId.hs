@@ -147,7 +147,8 @@ getId_identityPoolId = Lens.lens (\GetId' {identityPoolId} -> identityPoolId) (\
 
 instance Core.AWSRequest GetId where
   type AWSResponse GetId = GetIdResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

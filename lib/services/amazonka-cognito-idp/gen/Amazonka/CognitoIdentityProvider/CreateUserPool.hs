@@ -63,6 +63,7 @@ module Amazonka.CognitoIdentityProvider.CreateUserPool
     createUserPool_schema,
     createUserPool_userAttributeUpdateSettings,
     createUserPool_userPoolTags,
+    createUserPool_deletionProtection,
     createUserPool_emailVerificationMessage,
     createUserPool_smsAuthenticationMessage,
     createUserPool_usernameAttributes,
@@ -159,6 +160,15 @@ data CreateUserPool = CreateUserPool'
     -- that you can use to categorize and manage user pools in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | When active, @DeletionProtection@ prevents accidental deletion of your
+    -- user pool. Before you can delete a user pool that you have protected
+    -- against deletion, you must deactivate this feature.
+    --
+    -- When you try to delete a protected user pool in a @DeleteUserPool@ API
+    -- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+    -- delete a protected user pool, send a new @DeleteUserPool@ request after
+    -- you deactivate deletion protection in an @UpdateUserPool@ API request.
+    deletionProtection :: Prelude.Maybe DeletionProtectionType,
     -- | This parameter is no longer used. See
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationMessage :: Prelude.Maybe Prelude.Text,
@@ -266,6 +276,15 @@ data CreateUserPool = CreateUserPool'
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 --
+-- 'deletionProtection', 'createUserPool_deletionProtection' - When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
+--
 -- 'emailVerificationMessage', 'createUserPool_emailVerificationMessage' - This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
@@ -316,6 +335,7 @@ newCreateUserPool pPoolName_ =
       schema = Prelude.Nothing,
       userAttributeUpdateSettings = Prelude.Nothing,
       userPoolTags = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       emailVerificationMessage = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
       usernameAttributes = Prelude.Nothing,
@@ -424,6 +444,17 @@ createUserPool_userAttributeUpdateSettings = Lens.lens (\CreateUserPool' {userAt
 createUserPool_userPoolTags :: Lens.Lens' CreateUserPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createUserPool_userPoolTags = Lens.lens (\CreateUserPool' {userPoolTags} -> userPoolTags) (\s@CreateUserPool' {} a -> s {userPoolTags = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
 
+-- | When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
+createUserPool_deletionProtection :: Lens.Lens' CreateUserPool (Prelude.Maybe DeletionProtectionType)
+createUserPool_deletionProtection = Lens.lens (\CreateUserPool' {deletionProtection} -> deletionProtection) (\s@CreateUserPool' {} a -> s {deletionProtection = a} :: CreateUserPool)
+
 -- | This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 createUserPool_emailVerificationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
@@ -468,7 +499,8 @@ instance Core.AWSRequest CreateUserPool where
   type
     AWSResponse CreateUserPool =
       CreateUserPoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -495,6 +527,7 @@ instance Prelude.Hashable CreateUserPool where
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` userAttributeUpdateSettings
       `Prelude.hashWithSalt` userPoolTags
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` emailVerificationMessage
       `Prelude.hashWithSalt` smsAuthenticationMessage
       `Prelude.hashWithSalt` usernameAttributes
@@ -520,7 +553,9 @@ instance Prelude.NFData CreateUserPool where
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf userAttributeUpdateSettings
       `Prelude.seq` Prelude.rnf userPoolTags
-      `Prelude.seq` Prelude.rnf emailVerificationMessage
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf
+        emailVerificationMessage
       `Prelude.seq` Prelude.rnf
         smsAuthenticationMessage
       `Prelude.seq` Prelude.rnf usernameAttributes
@@ -576,6 +611,8 @@ instance Core.ToJSON CreateUserPool where
             ("UserAttributeUpdateSettings" Core..=)
               Prelude.<$> userAttributeUpdateSettings,
             ("UserPoolTags" Core..=) Prelude.<$> userPoolTags,
+            ("DeletionProtection" Core..=)
+              Prelude.<$> deletionProtection,
             ("EmailVerificationMessage" Core..=)
               Prelude.<$> emailVerificationMessage,
             ("SmsAuthenticationMessage" Core..=)

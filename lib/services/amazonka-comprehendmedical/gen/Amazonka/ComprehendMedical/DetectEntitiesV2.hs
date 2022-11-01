@@ -98,7 +98,8 @@ instance Core.AWSRequest DetectEntitiesV2 where
   type
     AWSResponse DetectEntitiesV2 =
       DetectEntitiesV2Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

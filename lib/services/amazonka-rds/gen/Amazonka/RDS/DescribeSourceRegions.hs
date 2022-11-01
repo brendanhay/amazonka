@@ -188,7 +188,8 @@ instance Core.AWSRequest DescribeSourceRegions where
   type
     AWSResponse DescribeSourceRegions =
       DescribeSourceRegionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSourceRegionsResult"

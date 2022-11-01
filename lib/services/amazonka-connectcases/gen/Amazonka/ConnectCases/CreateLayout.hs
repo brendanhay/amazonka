@@ -114,7 +114,8 @@ createLayout_name = Lens.lens (\CreateLayout' {name} -> name) (\s@CreateLayout' 
 
 instance Core.AWSRequest CreateLayout where
   type AWSResponse CreateLayout = CreateLayoutResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

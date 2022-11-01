@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeExperience where
   type
     AWSResponse DescribeExperience =
       DescribeExperienceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

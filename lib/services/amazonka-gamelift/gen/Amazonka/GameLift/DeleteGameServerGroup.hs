@@ -163,7 +163,8 @@ instance Core.AWSRequest DeleteGameServerGroup where
   type
     AWSResponse DeleteGameServerGroup =
       DeleteGameServerGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

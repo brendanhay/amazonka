@@ -171,7 +171,8 @@ instance Core.AWSRequest ListActiveViolations where
   type
     AWSResponse ListActiveViolations =
       ListActiveViolationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

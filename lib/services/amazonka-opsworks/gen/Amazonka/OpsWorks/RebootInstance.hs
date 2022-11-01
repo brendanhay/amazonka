@@ -80,7 +80,8 @@ instance Core.AWSRequest RebootInstance where
   type
     AWSResponse RebootInstance =
       RebootInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RebootInstanceResponse'
 

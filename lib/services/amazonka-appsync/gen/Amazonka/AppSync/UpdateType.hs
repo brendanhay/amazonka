@@ -111,7 +111,8 @@ updateType_format = Lens.lens (\UpdateType' {format} -> format) (\s@UpdateType' 
 
 instance Core.AWSRequest UpdateType where
   type AWSResponse UpdateType = UpdateTypeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

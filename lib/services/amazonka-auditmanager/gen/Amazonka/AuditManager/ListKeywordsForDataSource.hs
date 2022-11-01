@@ -105,7 +105,8 @@ instance Core.AWSRequest ListKeywordsForDataSource where
   type
     AWSResponse ListKeywordsForDataSource =
       ListKeywordsForDataSourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

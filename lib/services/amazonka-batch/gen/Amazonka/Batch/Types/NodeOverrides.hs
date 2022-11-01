@@ -24,26 +24,28 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Object representing any node overrides to a job definition that\'s used
--- in a SubmitJob API operation.
+-- | An object that represents any node overrides to a job definition that\'s
+-- used in a SubmitJob API operation.
 --
--- This isn\'t applicable to jobs that are running on Fargate resources and
--- shouldn\'t be provided; use @containerOverrides@ instead.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources. Don\'t provide it for these jobs. Rather, use
+-- @containerOverrides@ instead.
 --
 -- /See:/ 'newNodeOverrides' smart constructor.
 data NodeOverrides = NodeOverrides'
   { -- | The number of nodes to use with a multi-node parallel job. This value
     -- overrides the number of nodes that are specified in the job definition.
-    -- To use this override:
+    -- To use this override, you must meet the following conditions:
     --
     -- -   There must be at least one node range in your job definition that
-    --     has an open upper boundary (such as @:@ or @n:@).
+    --     has an open upper boundary, such as @:@ or @n:@.
     --
-    -- -   The lower boundary of the node range specified in the job definition
-    --     must be fewer than the number of nodes specified in the override.
+    -- -   The lower boundary of the node range that\'s specified in the job
+    --     definition must be fewer than the number of nodes specified in the
+    --     override.
     --
-    -- -   The main node index specified in the job definition must be fewer
-    --     than the number of nodes specified in the override.
+    -- -   The main node index that\'s specified in the job definition must be
+    --     fewer than the number of nodes specified in the override.
     numNodes :: Prelude.Maybe Prelude.Int,
     -- | The node property overrides for the job.
     nodePropertyOverrides :: Prelude.Maybe [NodePropertyOverride]
@@ -60,16 +62,17 @@ data NodeOverrides = NodeOverrides'
 --
 -- 'numNodes', 'nodeOverrides_numNodes' - The number of nodes to use with a multi-node parallel job. This value
 -- overrides the number of nodes that are specified in the job definition.
--- To use this override:
+-- To use this override, you must meet the following conditions:
 --
 -- -   There must be at least one node range in your job definition that
---     has an open upper boundary (such as @:@ or @n:@).
+--     has an open upper boundary, such as @:@ or @n:@.
 --
--- -   The lower boundary of the node range specified in the job definition
---     must be fewer than the number of nodes specified in the override.
+-- -   The lower boundary of the node range that\'s specified in the job
+--     definition must be fewer than the number of nodes specified in the
+--     override.
 --
--- -   The main node index specified in the job definition must be fewer
---     than the number of nodes specified in the override.
+-- -   The main node index that\'s specified in the job definition must be
+--     fewer than the number of nodes specified in the override.
 --
 -- 'nodePropertyOverrides', 'nodeOverrides_nodePropertyOverrides' - The node property overrides for the job.
 newNodeOverrides ::
@@ -82,16 +85,17 @@ newNodeOverrides =
 
 -- | The number of nodes to use with a multi-node parallel job. This value
 -- overrides the number of nodes that are specified in the job definition.
--- To use this override:
+-- To use this override, you must meet the following conditions:
 --
 -- -   There must be at least one node range in your job definition that
---     has an open upper boundary (such as @:@ or @n:@).
+--     has an open upper boundary, such as @:@ or @n:@.
 --
--- -   The lower boundary of the node range specified in the job definition
---     must be fewer than the number of nodes specified in the override.
+-- -   The lower boundary of the node range that\'s specified in the job
+--     definition must be fewer than the number of nodes specified in the
+--     override.
 --
--- -   The main node index specified in the job definition must be fewer
---     than the number of nodes specified in the override.
+-- -   The main node index that\'s specified in the job definition must be
+--     fewer than the number of nodes specified in the override.
 nodeOverrides_numNodes :: Lens.Lens' NodeOverrides (Prelude.Maybe Prelude.Int)
 nodeOverrides_numNodes = Lens.lens (\NodeOverrides' {numNodes} -> numNodes) (\s@NodeOverrides' {} a -> s {numNodes = a} :: NodeOverrides)
 

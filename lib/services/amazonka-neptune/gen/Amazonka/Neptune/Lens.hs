@@ -65,6 +65,7 @@ module Amazonka.Neptune.Lens
     -- ** CreateDBCluster
     createDBCluster_tags,
     createDBCluster_port,
+    createDBCluster_serverlessV2ScalingConfiguration,
     createDBCluster_vpcSecurityGroupIds,
     createDBCluster_preferredBackupWindow,
     createDBCluster_backupRetentionPeriod,
@@ -470,6 +471,7 @@ module Amazonka.Neptune.Lens
     -- ** ModifyDBCluster
     modifyDBCluster_newDBClusterIdentifier,
     modifyDBCluster_port,
+    modifyDBCluster_serverlessV2ScalingConfiguration,
     modifyDBCluster_vpcSecurityGroupIds,
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_backupRetentionPeriod,
@@ -637,6 +639,7 @@ module Amazonka.Neptune.Lens
     -- ** RestoreDBClusterFromSnapshot
     restoreDBClusterFromSnapshot_tags,
     restoreDBClusterFromSnapshot_port,
+    restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration,
     restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
     restoreDBClusterFromSnapshot_copyTagsToSnapshot,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
@@ -658,6 +661,7 @@ module Amazonka.Neptune.Lens
     -- ** RestoreDBClusterToPointInTime
     restoreDBClusterToPointInTime_tags,
     restoreDBClusterToPointInTime_port,
+    restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
     restoreDBClusterToPointInTime_optionGroupName,
@@ -699,6 +703,7 @@ module Amazonka.Neptune.Lens
 
     -- ** DBCluster
     dbCluster_port,
+    dbCluster_serverlessV2ScalingConfiguration,
     dbCluster_cloneGroupId,
     dbCluster_dbClusterArn,
     dbCluster_hostedZoneId,
@@ -1046,6 +1051,14 @@ module Amazonka.Neptune.Lens
     resourcePendingMaintenanceActions_resourceIdentifier,
     resourcePendingMaintenanceActions_pendingMaintenanceActionDetails,
 
+    -- ** ServerlessV2ScalingConfiguration
+    serverlessV2ScalingConfiguration_maxCapacity,
+    serverlessV2ScalingConfiguration_minCapacity,
+
+    -- ** ServerlessV2ScalingConfigurationInfo
+    serverlessV2ScalingConfigurationInfo_maxCapacity,
+    serverlessV2ScalingConfigurationInfo_minCapacity,
+
     -- ** Subnet
     subnet_subnetIdentifier,
     subnet_subnetStatus,
@@ -1189,6 +1202,8 @@ import Amazonka.Neptune.Types.PendingMaintenanceAction
 import Amazonka.Neptune.Types.PendingModifiedValues
 import Amazonka.Neptune.Types.Range
 import Amazonka.Neptune.Types.ResourcePendingMaintenanceActions
+import Amazonka.Neptune.Types.ServerlessV2ScalingConfiguration
+import Amazonka.Neptune.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.Neptune.Types.Subnet
 import Amazonka.Neptune.Types.Tag
 import Amazonka.Neptune.Types.Timezone

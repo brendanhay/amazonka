@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeRoute where
   type
     AWSResponse DescribeRoute =
       DescribeRouteResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

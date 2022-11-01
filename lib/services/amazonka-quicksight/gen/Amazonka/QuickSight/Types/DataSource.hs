@@ -60,6 +60,9 @@ data DataSource = DataSource'
     -- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
     -- connects to your underlying source.
     sslProperties :: Prelude.Maybe SslProperties,
+    -- | The Amazon Resource Name (ARN) of the secret associated with the data
+    -- source in Amazon Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
     -- | A set of alternate data source parameters that you want to share for the
     -- credentials stored with this data source. The credentials are applied in
     -- tandem with the data source parameters when you copy a data source by
@@ -113,6 +116,9 @@ data DataSource = DataSource'
 -- 'sslProperties', 'dataSource_sslProperties' - Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
 -- connects to your underlying source.
 --
+-- 'secretArn', 'dataSource_secretArn' - The Amazon Resource Name (ARN) of the secret associated with the data
+-- source in Amazon Secrets Manager.
+--
 -- 'alternateDataSourceParameters', 'dataSource_alternateDataSourceParameters' - A set of alternate data source parameters that you want to share for the
 -- credentials stored with this data source. The credentials are applied in
 -- tandem with the data source parameters when you copy a data source by
@@ -141,6 +147,7 @@ newDataSource =
       lastUpdatedTime = Prelude.Nothing,
       vpcConnectionProperties = Prelude.Nothing,
       sslProperties = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
       alternateDataSourceParameters = Prelude.Nothing,
       errorInfo = Prelude.Nothing
     }
@@ -192,6 +199,11 @@ dataSource_vpcConnectionProperties = Lens.lens (\DataSource' {vpcConnectionPrope
 dataSource_sslProperties :: Lens.Lens' DataSource (Prelude.Maybe SslProperties)
 dataSource_sslProperties = Lens.lens (\DataSource' {sslProperties} -> sslProperties) (\s@DataSource' {} a -> s {sslProperties = a} :: DataSource)
 
+-- | The Amazon Resource Name (ARN) of the secret associated with the data
+-- source in Amazon Secrets Manager.
+dataSource_secretArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_secretArn = Lens.lens (\DataSource' {secretArn} -> secretArn) (\s@DataSource' {} a -> s {secretArn = a} :: DataSource)
+
 -- | A set of alternate data source parameters that you want to share for the
 -- credentials stored with this data source. The credentials are applied in
 -- tandem with the data source parameters when you copy a data source by
@@ -227,6 +239,7 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "LastUpdatedTime")
             Prelude.<*> (x Core..:? "VpcConnectionProperties")
             Prelude.<*> (x Core..:? "SslProperties")
+            Prelude.<*> (x Core..:? "SecretArn")
             Prelude.<*> (x Core..:? "AlternateDataSourceParameters")
             Prelude.<*> (x Core..:? "ErrorInfo")
       )
@@ -243,6 +256,7 @@ instance Prelude.Hashable DataSource where
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` vpcConnectionProperties
       `Prelude.hashWithSalt` sslProperties
+      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` alternateDataSourceParameters
       `Prelude.hashWithSalt` errorInfo
 
@@ -258,5 +272,6 @@ instance Prelude.NFData DataSource where
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf vpcConnectionProperties
       `Prelude.seq` Prelude.rnf sslProperties
+      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf alternateDataSourceParameters
       `Prelude.seq` Prelude.rnf errorInfo

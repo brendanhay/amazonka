@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteScheduledAction where
   type
     AWSResponse DeleteScheduledAction =
       DeleteScheduledActionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteScheduledActionResponse'
 

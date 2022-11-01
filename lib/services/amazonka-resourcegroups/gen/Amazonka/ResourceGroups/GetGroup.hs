@@ -91,7 +91,8 @@ getGroup_group = Lens.lens (\GetGroup' {group'} -> group') (\s@GetGroup' {} a ->
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

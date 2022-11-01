@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeLocalGateways where
   type
     AWSResponse DescribeLocalGateways =
       DescribeLocalGatewaysResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

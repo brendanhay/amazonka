@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint for an Amazon FSx for OpenZFS file system.
+-- Creates an endpoint for an Amazon FSx for OpenZFS file system that
+-- DataSync can access for a transfer. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html Creating a location for FSx for OpenZFS>.
+--
+-- Request parameters related to @SMB@ aren\'t supported with the
+-- @CreateLocationFsxOpenZfs@ operation.
 module Amazonka.DataSync.CreateLocationFsxOpenZfs
   ( -- * Creating a Request
     CreateLocationFsxOpenZfs (..),
@@ -145,7 +150,8 @@ instance Core.AWSRequest CreateLocationFsxOpenZfs where
   type
     AWSResponse CreateLocationFsxOpenZfs =
       CreateLocationFsxOpenZfsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

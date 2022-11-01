@@ -463,6 +463,9 @@ module Amazonka.CloudTrail
 
     -- * Types
 
+    -- ** DeliveryStatus
+    DeliveryStatus (..),
+
     -- ** DestinationType
     DestinationType (..),
 

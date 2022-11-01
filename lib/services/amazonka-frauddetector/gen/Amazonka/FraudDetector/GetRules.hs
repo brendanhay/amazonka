@@ -127,7 +127,8 @@ getRules_detectorId = Lens.lens (\GetRules' {detectorId} -> detectorId) (\s@GetR
 
 instance Core.AWSRequest GetRules where
   type AWSResponse GetRules = GetRulesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

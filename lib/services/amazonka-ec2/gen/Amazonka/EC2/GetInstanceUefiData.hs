@@ -115,7 +115,8 @@ instance Core.AWSRequest GetInstanceUefiData where
   type
     AWSResponse GetInstanceUefiData =
       GetInstanceUefiDataResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

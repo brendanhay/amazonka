@@ -201,7 +201,8 @@ createHsm_subscriptionType = Lens.lens (\CreateHsm' {subscriptionType} -> subscr
 
 instance Core.AWSRequest CreateHsm where
   type AWSResponse CreateHsm = CreateHsmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

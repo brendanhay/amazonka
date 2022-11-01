@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteReportPlan where
   type
     AWSResponse DeleteReportPlan =
       DeleteReportPlanResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteReportPlanResponse'
 

@@ -42,9 +42,9 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
     -- only includes recipients who opened the message by using an email client
     -- that supports images.
     deleteRate :: Prelude.Maybe Prelude.Double,
-    -- | The last time, in Unix time format, when the email message was delivered
-    -- to any recipient\'s inbox. This value can help you determine how long it
-    -- took for a campaign to deliver an email message.
+    -- | The last time when the email message was delivered to any recipient\'s
+    -- inbox. This value can help you determine how long it took for a campaign
+    -- to deliver an email message.
     lastSeenDateTime :: Prelude.Maybe Core.POSIX,
     -- | The IP addresses that were used to send the email message.
     sendingIps :: Prelude.Maybe [Prelude.Text],
@@ -65,9 +65,9 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
     spamCount :: Prelude.Maybe Prelude.Integer,
     -- | The subject line, or title, of the email message.
     subject :: Prelude.Maybe Prelude.Text,
-    -- | The first time, in Unix time format, when the email message was
-    -- delivered to any recipient\'s inbox. This value can help you determine
-    -- how long it took for a campaign to deliver an email message.
+    -- | The first time when the email message was delivered to any recipient\'s
+    -- inbox. This value can help you determine how long it took for a campaign
+    -- to deliver an email message.
     firstSeenDateTime :: Prelude.Maybe Core.POSIX,
     -- | The percentage of email messages that were opened by recipients. Due to
     -- technical limitations, this value only includes recipients who opened
@@ -96,9 +96,9 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
 -- only includes recipients who opened the message by using an email client
 -- that supports images.
 --
--- 'lastSeenDateTime', 'domainDeliverabilityCampaign_lastSeenDateTime' - The last time, in Unix time format, when the email message was delivered
--- to any recipient\'s inbox. This value can help you determine how long it
--- took for a campaign to deliver an email message.
+-- 'lastSeenDateTime', 'domainDeliverabilityCampaign_lastSeenDateTime' - The last time when the email message was delivered to any recipient\'s
+-- inbox. This value can help you determine how long it took for a campaign
+-- to deliver an email message.
 --
 -- 'sendingIps', 'domainDeliverabilityCampaign_sendingIps' - The IP addresses that were used to send the email message.
 --
@@ -119,9 +119,9 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
 --
 -- 'subject', 'domainDeliverabilityCampaign_subject' - The subject line, or title, of the email message.
 --
--- 'firstSeenDateTime', 'domainDeliverabilityCampaign_firstSeenDateTime' - The first time, in Unix time format, when the email message was
--- delivered to any recipient\'s inbox. This value can help you determine
--- how long it took for a campaign to deliver an email message.
+-- 'firstSeenDateTime', 'domainDeliverabilityCampaign_firstSeenDateTime' - The first time when the email message was delivered to any recipient\'s
+-- inbox. This value can help you determine how long it took for a campaign
+-- to deliver an email message.
 --
 -- 'readRate', 'domainDeliverabilityCampaign_readRate' - The percentage of email messages that were opened by recipients. Due to
 -- technical limitations, this value only includes recipients who opened
@@ -167,9 +167,9 @@ domainDeliverabilityCampaign_fromAddress = Lens.lens (\DomainDeliverabilityCampa
 domainDeliverabilityCampaign_deleteRate :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.Double)
 domainDeliverabilityCampaign_deleteRate = Lens.lens (\DomainDeliverabilityCampaign' {deleteRate} -> deleteRate) (\s@DomainDeliverabilityCampaign' {} a -> s {deleteRate = a} :: DomainDeliverabilityCampaign)
 
--- | The last time, in Unix time format, when the email message was delivered
--- to any recipient\'s inbox. This value can help you determine how long it
--- took for a campaign to deliver an email message.
+-- | The last time when the email message was delivered to any recipient\'s
+-- inbox. This value can help you determine how long it took for a campaign
+-- to deliver an email message.
 domainDeliverabilityCampaign_lastSeenDateTime :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.UTCTime)
 domainDeliverabilityCampaign_lastSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {lastSeenDateTime} -> lastSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {lastSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Core._Time
 
@@ -206,9 +206,9 @@ domainDeliverabilityCampaign_spamCount = Lens.lens (\DomainDeliverabilityCampaig
 domainDeliverabilityCampaign_subject :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.Text)
 domainDeliverabilityCampaign_subject = Lens.lens (\DomainDeliverabilityCampaign' {subject} -> subject) (\s@DomainDeliverabilityCampaign' {} a -> s {subject = a} :: DomainDeliverabilityCampaign)
 
--- | The first time, in Unix time format, when the email message was
--- delivered to any recipient\'s inbox. This value can help you determine
--- how long it took for a campaign to deliver an email message.
+-- | The first time when the email message was delivered to any recipient\'s
+-- inbox. This value can help you determine how long it took for a campaign
+-- to deliver an email message.
 domainDeliverabilityCampaign_firstSeenDateTime :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.UTCTime)
 domainDeliverabilityCampaign_firstSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {firstSeenDateTime} -> firstSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {firstSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Core._Time
 

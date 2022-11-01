@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteKeyGroup where
   type
     AWSResponse DeleteKeyGroup =
       DeleteKeyGroupResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteKeyGroupResponse'
 

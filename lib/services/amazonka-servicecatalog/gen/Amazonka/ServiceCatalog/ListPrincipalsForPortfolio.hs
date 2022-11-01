@@ -156,7 +156,8 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
     AWSResponse ListPrincipalsForPortfolio =
       ListPrincipalsForPortfolioResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

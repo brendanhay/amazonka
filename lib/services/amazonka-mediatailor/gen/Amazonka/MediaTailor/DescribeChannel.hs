@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the properties of a specific channel.
+-- Describes a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.DescribeChannel
   ( -- * Creating a Request
     DescribeChannel (..),
@@ -57,7 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeChannel' smart constructor.
 data DescribeChannel = DescribeChannel'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +72,7 @@ data DescribeChannel = DescribeChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'describeChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'describeChannel_channelName' - The name of the channel.
 newDescribeChannel ::
   -- | 'channelName'
   Prelude.Text ->
@@ -78,7 +80,7 @@ newDescribeChannel ::
 newDescribeChannel pChannelName_ =
   DescribeChannel' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 describeChannel_channelName :: Lens.Lens' DescribeChannel Prelude.Text
 describeChannel_channelName = Lens.lens (\DescribeChannel' {channelName} -> channelName) (\s@DescribeChannel' {} a -> s {channelName = a} :: DescribeChannel)
 
@@ -86,7 +88,8 @@ instance Core.AWSRequest DescribeChannel where
   type
     AWSResponse DescribeChannel =
       DescribeChannelResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,7 +135,10 @@ instance Core.ToQuery DescribeChannel where
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { -- | The tags assigned to the channel.
+  { -- | The tags assigned to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel.
     channelName :: Prelude.Maybe Prelude.Text,
@@ -166,7 +172,10 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeChannelResponse_tags' - The tags assigned to the channel.
+-- 'tags', 'describeChannelResponse_tags' - The tags assigned to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'channelName', 'describeChannelResponse_channelName' - The name of the channel.
 --
@@ -207,7 +216,10 @@ newDescribeChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the channel.
+-- | The tags assigned to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 describeChannelResponse_tags :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> tags) (\s@DescribeChannelResponse' {} a -> s {tags = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens.coerced
 

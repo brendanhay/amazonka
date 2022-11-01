@@ -186,6 +186,8 @@ defaultService =
       Core._serviceEndpointPrefix = "sso",
       Core._serviceSigningName = "sso",
       Core._serviceVersion = "2020-07-20",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

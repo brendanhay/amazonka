@@ -108,7 +108,8 @@ instance Core.AWSRequest CreateKeyPair where
   type
     AWSResponse CreateKeyPair =
       CreateKeyPairResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

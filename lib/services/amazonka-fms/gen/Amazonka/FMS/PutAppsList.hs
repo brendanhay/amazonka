@@ -88,7 +88,8 @@ putAppsList_appsList = Lens.lens (\PutAppsList' {appsList} -> appsList) (\s@PutA
 
 instance Core.AWSRequest PutAppsList where
   type AWSResponse PutAppsList = PutAppsListResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

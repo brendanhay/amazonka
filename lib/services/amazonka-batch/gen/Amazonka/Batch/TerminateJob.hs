@@ -96,7 +96,8 @@ terminateJob_reason = Lens.lens (\TerminateJob' {reason} -> reason) (\s@Terminat
 
 instance Core.AWSRequest TerminateJob where
   type AWSResponse TerminateJob = TerminateJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

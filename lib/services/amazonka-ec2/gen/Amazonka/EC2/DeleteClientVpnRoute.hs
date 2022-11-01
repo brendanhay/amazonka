@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteClientVpnRoute where
   type
     AWSResponse DeleteClientVpnRoute =
       DeleteClientVpnRouteResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

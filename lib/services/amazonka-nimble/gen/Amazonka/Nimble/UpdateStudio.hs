@@ -135,7 +135,8 @@ updateStudio_studioId = Lens.lens (\UpdateStudio' {studioId} -> studioId) (\s@Up
 
 instance Core.AWSRequest UpdateStudio where
   type AWSResponse UpdateStudio = UpdateStudioResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

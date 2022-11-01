@@ -195,7 +195,8 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
   type
     AWSResponse ListLabelingJobsForWorkteam =
       ListLabelingJobsForWorkteamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

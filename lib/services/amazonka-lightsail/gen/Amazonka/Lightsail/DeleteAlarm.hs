@@ -81,7 +81,8 @@ deleteAlarm_alarmName = Lens.lens (\DeleteAlarm' {alarmName} -> alarmName) (\s@D
 
 instance Core.AWSRequest DeleteAlarm where
   type AWSResponse DeleteAlarm = DeleteAlarmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

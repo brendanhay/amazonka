@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribeThesaurus where
   type
     AWSResponse DescribeThesaurus =
       DescribeThesaurusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

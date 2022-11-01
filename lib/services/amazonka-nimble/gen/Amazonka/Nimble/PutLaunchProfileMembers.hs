@@ -138,7 +138,8 @@ instance Core.AWSRequest PutLaunchProfileMembers where
   type
     AWSResponse PutLaunchProfileMembers =
       PutLaunchProfileMembersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

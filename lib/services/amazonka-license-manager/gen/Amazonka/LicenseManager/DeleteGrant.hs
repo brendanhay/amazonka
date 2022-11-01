@@ -101,7 +101,8 @@ deleteGrant_version = Lens.lens (\DeleteGrant' {version} -> version) (\s@DeleteG
 
 instance Core.AWSRequest DeleteGrant where
   type AWSResponse DeleteGrant = DeleteGrantResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

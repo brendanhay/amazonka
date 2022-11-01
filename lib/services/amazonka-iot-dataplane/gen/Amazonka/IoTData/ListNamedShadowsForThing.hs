@@ -106,7 +106,8 @@ instance Core.AWSRequest ListNamedShadowsForThing where
   type
     AWSResponse ListNamedShadowsForThing =
       ListNamedShadowsForThingResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

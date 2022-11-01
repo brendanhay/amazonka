@@ -194,7 +194,8 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
   type
     AWSResponse ListQueryLoggingConfigs =
       ListQueryLoggingConfigsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

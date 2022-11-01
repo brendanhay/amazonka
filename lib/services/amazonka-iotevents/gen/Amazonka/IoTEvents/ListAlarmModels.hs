@@ -89,7 +89,8 @@ instance Core.AWSRequest ListAlarmModels where
   type
     AWSResponse ListAlarmModels =
       ListAlarmModelsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

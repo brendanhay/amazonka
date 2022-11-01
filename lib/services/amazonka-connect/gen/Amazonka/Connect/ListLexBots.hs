@@ -138,7 +138,8 @@ instance Core.AWSPager ListLexBots where
 
 instance Core.AWSRequest ListLexBots where
   type AWSResponse ListLexBots = ListLexBotsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,8 +186,8 @@ instance Core.ToQuery ListLexBots where
 
 -- | /See:/ 'newListLexBotsResponse' smart constructor.
 data ListLexBotsResponse = ListLexBotsResponse'
-  { -- | The names and Regions of the Amazon Lex bots associated with the
-    -- specified instance.
+  { -- | The names and Amazon Web Services Regions of the Amazon Lex bots
+    -- associated with the specified instance.
     lexBots :: Prelude.Maybe [LexBot],
     -- | If there are additional results, this is the token for the next set of
     -- results.
@@ -204,8 +205,8 @@ data ListLexBotsResponse = ListLexBotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexBots', 'listLexBotsResponse_lexBots' - The names and Regions of the Amazon Lex bots associated with the
--- specified instance.
+-- 'lexBots', 'listLexBotsResponse_lexBots' - The names and Amazon Web Services Regions of the Amazon Lex bots
+-- associated with the specified instance.
 --
 -- 'nextToken', 'listLexBotsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
@@ -222,8 +223,8 @@ newListLexBotsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The names and Regions of the Amazon Lex bots associated with the
--- specified instance.
+-- | The names and Amazon Web Services Regions of the Amazon Lex bots
+-- associated with the specified instance.
 listLexBotsResponse_lexBots :: Lens.Lens' ListLexBotsResponse (Prelude.Maybe [LexBot])
 listLexBotsResponse_lexBots = Lens.lens (\ListLexBotsResponse' {lexBots} -> lexBots) (\s@ListLexBotsResponse' {} a -> s {lexBots = a} :: ListLexBotsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -229,7 +229,8 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
   type
     AWSResponse ListAttachedGroupPolicies =
       ListAttachedGroupPoliciesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAttachedGroupPoliciesResult"

@@ -89,7 +89,8 @@ instance Core.AWSRequest CreateStreamingDistribution where
   type
     AWSResponse CreateStreamingDistribution =
       CreateStreamingDistributionResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

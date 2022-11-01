@@ -311,6 +311,8 @@ defaultService =
       Core._serviceEndpointPrefix = "outposts",
       Core._serviceSigningName = "outposts",
       Core._serviceVersion = "2019-12-03",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

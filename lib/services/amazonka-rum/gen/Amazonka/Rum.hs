@@ -53,6 +53,24 @@ module Amazonka.Rum
     -- * Operations
     -- $operations
 
+    -- ** BatchCreateRumMetricDefinitions
+    BatchCreateRumMetricDefinitions (BatchCreateRumMetricDefinitions'),
+    newBatchCreateRumMetricDefinitions,
+    BatchCreateRumMetricDefinitionsResponse (BatchCreateRumMetricDefinitionsResponse'),
+    newBatchCreateRumMetricDefinitionsResponse,
+
+    -- ** BatchDeleteRumMetricDefinitions
+    BatchDeleteRumMetricDefinitions (BatchDeleteRumMetricDefinitions'),
+    newBatchDeleteRumMetricDefinitions,
+    BatchDeleteRumMetricDefinitionsResponse (BatchDeleteRumMetricDefinitionsResponse'),
+    newBatchDeleteRumMetricDefinitionsResponse,
+
+    -- ** BatchGetRumMetricDefinitions (Paginated)
+    BatchGetRumMetricDefinitions (BatchGetRumMetricDefinitions'),
+    newBatchGetRumMetricDefinitions,
+    BatchGetRumMetricDefinitionsResponse (BatchGetRumMetricDefinitionsResponse'),
+    newBatchGetRumMetricDefinitionsResponse,
+
     -- ** CreateAppMonitor
     CreateAppMonitor (CreateAppMonitor'),
     newCreateAppMonitor,
@@ -64,6 +82,12 @@ module Amazonka.Rum
     newDeleteAppMonitor,
     DeleteAppMonitorResponse (DeleteAppMonitorResponse'),
     newDeleteAppMonitorResponse,
+
+    -- ** DeleteRumMetricsDestination
+    DeleteRumMetricsDestination (DeleteRumMetricsDestination'),
+    newDeleteRumMetricsDestination,
+    DeleteRumMetricsDestinationResponse (DeleteRumMetricsDestinationResponse'),
+    newDeleteRumMetricsDestinationResponse,
 
     -- ** GetAppMonitor
     GetAppMonitor (GetAppMonitor'),
@@ -83,6 +107,12 @@ module Amazonka.Rum
     ListAppMonitorsResponse (ListAppMonitorsResponse'),
     newListAppMonitorsResponse,
 
+    -- ** ListRumMetricsDestinations (Paginated)
+    ListRumMetricsDestinations (ListRumMetricsDestinations'),
+    newListRumMetricsDestinations,
+    ListRumMetricsDestinationsResponse (ListRumMetricsDestinationsResponse'),
+    newListRumMetricsDestinationsResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -94,6 +124,12 @@ module Amazonka.Rum
     newPutRumEvents,
     PutRumEventsResponse (PutRumEventsResponse'),
     newPutRumEventsResponse,
+
+    -- ** PutRumMetricsDestination
+    PutRumMetricsDestination (PutRumMetricsDestination'),
+    newPutRumMetricsDestination,
+    PutRumMetricsDestinationResponse (PutRumMetricsDestinationResponse'),
+    newPutRumMetricsDestinationResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -113,7 +149,16 @@ module Amazonka.Rum
     UpdateAppMonitorResponse (UpdateAppMonitorResponse'),
     newUpdateAppMonitorResponse,
 
+    -- ** UpdateRumMetricDefinition
+    UpdateRumMetricDefinition (UpdateRumMetricDefinition'),
+    newUpdateRumMetricDefinition,
+    UpdateRumMetricDefinitionResponse (UpdateRumMetricDefinitionResponse'),
+    newUpdateRumMetricDefinitionResponse,
+
     -- * Types
+
+    -- ** MetricDestination
+    MetricDestination (..),
 
     -- ** StateEnum
     StateEnum (..),
@@ -137,6 +182,14 @@ module Amazonka.Rum
     AppMonitorSummary (AppMonitorSummary'),
     newAppMonitorSummary,
 
+    -- ** BatchCreateRumMetricDefinitionsError
+    BatchCreateRumMetricDefinitionsError (BatchCreateRumMetricDefinitionsError'),
+    newBatchCreateRumMetricDefinitionsError,
+
+    -- ** BatchDeleteRumMetricDefinitionsError
+    BatchDeleteRumMetricDefinitionsError (BatchDeleteRumMetricDefinitionsError'),
+    newBatchDeleteRumMetricDefinitionsError,
+
     -- ** CwLog
     CwLog (CwLog'),
     newCwLog,
@@ -144,6 +197,18 @@ module Amazonka.Rum
     -- ** DataStorage
     DataStorage (DataStorage'),
     newDataStorage,
+
+    -- ** MetricDefinition
+    MetricDefinition (MetricDefinition'),
+    newMetricDefinition,
+
+    -- ** MetricDefinitionRequest
+    MetricDefinitionRequest (MetricDefinitionRequest'),
+    newMetricDefinitionRequest,
+
+    -- ** MetricDestinationSummary
+    MetricDestinationSummary (MetricDestinationSummary'),
+    newMetricDestinationSummary,
 
     -- ** QueryFilter
     QueryFilter (QueryFilter'),
@@ -163,18 +228,25 @@ module Amazonka.Rum
   )
 where
 
+import Amazonka.Rum.BatchCreateRumMetricDefinitions
+import Amazonka.Rum.BatchDeleteRumMetricDefinitions
+import Amazonka.Rum.BatchGetRumMetricDefinitions
 import Amazonka.Rum.CreateAppMonitor
 import Amazonka.Rum.DeleteAppMonitor
+import Amazonka.Rum.DeleteRumMetricsDestination
 import Amazonka.Rum.GetAppMonitor
 import Amazonka.Rum.GetAppMonitorData
 import Amazonka.Rum.Lens
 import Amazonka.Rum.ListAppMonitors
+import Amazonka.Rum.ListRumMetricsDestinations
 import Amazonka.Rum.ListTagsForResource
 import Amazonka.Rum.PutRumEvents
+import Amazonka.Rum.PutRumMetricsDestination
 import Amazonka.Rum.TagResource
 import Amazonka.Rum.Types
 import Amazonka.Rum.UntagResource
 import Amazonka.Rum.UpdateAppMonitor
+import Amazonka.Rum.UpdateRumMetricDefinition
 import Amazonka.Rum.Waiters
 
 -- $errors

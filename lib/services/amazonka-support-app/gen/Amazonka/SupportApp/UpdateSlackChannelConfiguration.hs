@@ -71,7 +71,26 @@ data UpdateSlackChannelConfiguration = UpdateSlackChannelConfiguration'
     -- | The case severity for a support case that you want to receive
     -- notifications.
     --
-    -- >  <p>If you specify <code>high</code> or <code>all</code>, at least one of the following parameters must be <code>true</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, any of the following parameters that you specify in your request must be <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.</p> </note>
+    -- If you specify @high@ or @all@, at least one of the following parameters
+    -- must be @true@:
+    --
+    -- -   @notifyOnAddCorrespondenceToCase@
+    --
+    -- -   @notifyOnCreateOrReopenCase@
+    --
+    -- -   @notifyOnResolveCase@
+    --
+    -- If you specify @none@, any of the following parameters that you specify
+    -- in your request must be @false@:
+    --
+    -- -   @notifyOnAddCorrespondenceToCase@
+    --
+    -- -   @notifyOnCreateOrReopenCase@
+    --
+    -- -   @notifyOnResolveCase@
+    --
+    -- If you don\'t specify these parameters in your request, the Amazon Web
+    -- Services Support App uses the current values by default.
     notifyOnCaseSeverity :: Prelude.Maybe NotificationSeverityLevel,
     -- | The Slack channel name that you want to update.
     channelName :: Prelude.Maybe Prelude.Text,
@@ -86,7 +105,8 @@ data UpdateSlackChannelConfiguration = UpdateSlackChannelConfiguration'
     -- | The channel ID in Slack. This ID identifies a channel within a Slack
     -- workspace.
     channelId :: Prelude.Text,
-    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,7 +127,26 @@ data UpdateSlackChannelConfiguration = UpdateSlackChannelConfiguration'
 -- 'notifyOnCaseSeverity', 'updateSlackChannelConfiguration_notifyOnCaseSeverity' - The case severity for a support case that you want to receive
 -- notifications.
 --
--- >  <p>If you specify <code>high</code> or <code>all</code>, at least one of the following parameters must be <code>true</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, any of the following parameters that you specify in your request must be <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.</p> </note>
+-- If you specify @high@ or @all@, at least one of the following parameters
+-- must be @true@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you specify @none@, any of the following parameters that you specify
+-- in your request must be @false@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you don\'t specify these parameters in your request, the Amazon Web
+-- Services Support App uses the current values by default.
 --
 -- 'channelName', 'updateSlackChannelConfiguration_channelName' - The Slack channel name that you want to update.
 --
@@ -122,7 +161,8 @@ data UpdateSlackChannelConfiguration = UpdateSlackChannelConfiguration'
 -- 'channelId', 'updateSlackChannelConfiguration_channelId' - The channel ID in Slack. This ID identifies a channel within a Slack
 -- workspace.
 --
--- 'teamId', 'updateSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- 'teamId', 'updateSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 newUpdateSlackChannelConfiguration ::
   -- | 'channelId'
   Prelude.Text ->
@@ -156,7 +196,26 @@ updateSlackChannelConfiguration_channelRoleArn = Lens.lens (\UpdateSlackChannelC
 -- | The case severity for a support case that you want to receive
 -- notifications.
 --
--- >  <p>If you specify <code>high</code> or <code>all</code>, at least one of the following parameters must be <code>true</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, any of the following parameters that you specify in your request must be <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.</p> </note>
+-- If you specify @high@ or @all@, at least one of the following parameters
+-- must be @true@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you specify @none@, any of the following parameters that you specify
+-- in your request must be @false@:
+--
+-- -   @notifyOnAddCorrespondenceToCase@
+--
+-- -   @notifyOnCreateOrReopenCase@
+--
+-- -   @notifyOnResolveCase@
+--
+-- If you don\'t specify these parameters in your request, the Amazon Web
+-- Services Support App uses the current values by default.
 updateSlackChannelConfiguration_notifyOnCaseSeverity :: Lens.Lens' UpdateSlackChannelConfiguration (Prelude.Maybe NotificationSeverityLevel)
 updateSlackChannelConfiguration_notifyOnCaseSeverity = Lens.lens (\UpdateSlackChannelConfiguration' {notifyOnCaseSeverity} -> notifyOnCaseSeverity) (\s@UpdateSlackChannelConfiguration' {} a -> s {notifyOnCaseSeverity = a} :: UpdateSlackChannelConfiguration)
 
@@ -183,7 +242,8 @@ updateSlackChannelConfiguration_notifyOnResolveCase = Lens.lens (\UpdateSlackCha
 updateSlackChannelConfiguration_channelId :: Lens.Lens' UpdateSlackChannelConfiguration Prelude.Text
 updateSlackChannelConfiguration_channelId = Lens.lens (\UpdateSlackChannelConfiguration' {channelId} -> channelId) (\s@UpdateSlackChannelConfiguration' {} a -> s {channelId = a} :: UpdateSlackChannelConfiguration)
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 updateSlackChannelConfiguration_teamId :: Lens.Lens' UpdateSlackChannelConfiguration Prelude.Text
 updateSlackChannelConfiguration_teamId = Lens.lens (\UpdateSlackChannelConfiguration' {teamId} -> teamId) (\s@UpdateSlackChannelConfiguration' {} a -> s {teamId = a} :: UpdateSlackChannelConfiguration)
 
@@ -194,7 +254,8 @@ instance
   type
     AWSResponse UpdateSlackChannelConfiguration =
       UpdateSlackChannelConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -295,7 +356,8 @@ data UpdateSlackChannelConfigurationResponse = UpdateSlackChannelConfigurationRe
     -- | The name of the Slack channel that you configure for the Amazon Web
     -- Services Support App.
     channelName :: Prelude.Maybe Prelude.Text,
-    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Maybe Prelude.Text,
     -- | Whether you want to get notified when a support case is created or
     -- reopened.
@@ -332,7 +394,8 @@ data UpdateSlackChannelConfigurationResponse = UpdateSlackChannelConfigurationRe
 -- 'channelName', 'updateSlackChannelConfigurationResponse_channelName' - The name of the Slack channel that you configure for the Amazon Web
 -- Services Support App.
 --
--- 'teamId', 'updateSlackChannelConfigurationResponse_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- 'teamId', 'updateSlackChannelConfigurationResponse_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 --
 -- 'notifyOnCreateOrReopenCase', 'updateSlackChannelConfigurationResponse_notifyOnCreateOrReopenCase' - Whether you want to get notified when a support case is created or
 -- reopened.
@@ -386,7 +449,8 @@ updateSlackChannelConfigurationResponse_notifyOnCaseSeverity = Lens.lens (\Updat
 updateSlackChannelConfigurationResponse_channelName :: Lens.Lens' UpdateSlackChannelConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateSlackChannelConfigurationResponse_channelName = Lens.lens (\UpdateSlackChannelConfigurationResponse' {channelName} -> channelName) (\s@UpdateSlackChannelConfigurationResponse' {} a -> s {channelName = a} :: UpdateSlackChannelConfigurationResponse)
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 updateSlackChannelConfigurationResponse_teamId :: Lens.Lens' UpdateSlackChannelConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateSlackChannelConfigurationResponse_teamId = Lens.lens (\UpdateSlackChannelConfigurationResponse' {teamId} -> teamId) (\s@UpdateSlackChannelConfigurationResponse' {} a -> s {teamId = a} :: UpdateSlackChannelConfigurationResponse)
 

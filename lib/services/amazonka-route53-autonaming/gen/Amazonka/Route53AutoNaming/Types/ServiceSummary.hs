@@ -47,7 +47,7 @@ data ServiceSummary = ServiceSummary'
     -- [DNS]
     --     Reserved.
     type' :: Prelude.Maybe ServiceType,
-    -- | Information about the Route 53 DNS records that you want Cloud Map to
+    -- | Information about the Route 53 DNS records that you want Cloud Map to
     -- create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfig,
     -- | Information about an optional custom health check. A custom health
@@ -112,7 +112,7 @@ data ServiceSummary = ServiceSummary'
 -- [DNS]
 --     Reserved.
 --
--- 'dnsConfig', 'serviceSummary_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
+-- 'dnsConfig', 'serviceSummary_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
 --
 -- 'healthCheckCustomConfig', 'serviceSummary_healthCheckCustomConfig' - Information about an optional custom health check. A custom health
@@ -185,7 +185,7 @@ serviceSummary_name = Lens.lens (\ServiceSummary' {name} -> name) (\s@ServiceSum
 serviceSummary_type :: Lens.Lens' ServiceSummary (Prelude.Maybe ServiceType)
 serviceSummary_type = Lens.lens (\ServiceSummary' {type'} -> type') (\s@ServiceSummary' {} a -> s {type' = a} :: ServiceSummary)
 
--- | Information about the Route 53 DNS records that you want Cloud Map to
+-- | Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
 serviceSummary_dnsConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe DnsConfig)
 serviceSummary_dnsConfig = Lens.lens (\ServiceSummary' {dnsConfig} -> dnsConfig) (\s@ServiceSummary' {} a -> s {dnsConfig = a} :: ServiceSummary)

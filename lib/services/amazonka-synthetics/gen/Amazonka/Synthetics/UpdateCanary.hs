@@ -325,7 +325,8 @@ updateCanary_name = Lens.lens (\UpdateCanary' {name} -> name) (\s@UpdateCanary' 
 
 instance Core.AWSRequest UpdateCanary where
   type AWSResponse UpdateCanary = UpdateCanaryResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

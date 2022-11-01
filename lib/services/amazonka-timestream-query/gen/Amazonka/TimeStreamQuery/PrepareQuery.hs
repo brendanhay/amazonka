@@ -104,7 +104,8 @@ prepareQuery_queryString = Lens.lens (\PrepareQuery' {queryString} -> queryStrin
 
 instance Core.AWSRequest PrepareQuery where
   type AWSResponse PrepareQuery = PrepareQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

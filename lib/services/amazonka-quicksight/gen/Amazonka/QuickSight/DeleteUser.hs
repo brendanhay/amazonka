@@ -109,7 +109,8 @@ deleteUser_namespace = Lens.lens (\DeleteUser' {namespace} -> namespace) (\s@Del
 
 instance Core.AWSRequest DeleteUser where
   type AWSResponse DeleteUser = DeleteUserResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

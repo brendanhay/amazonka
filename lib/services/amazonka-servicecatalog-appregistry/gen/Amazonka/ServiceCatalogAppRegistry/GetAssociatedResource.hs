@@ -106,7 +106,8 @@ instance Core.AWSRequest GetAssociatedResource where
   type
     AWSResponse GetAssociatedResource =
       GetAssociatedResourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

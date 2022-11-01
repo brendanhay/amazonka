@@ -17,9 +17,9 @@ module Amazonka.MediaTailor.Lens
     -- ** ConfigureLogsForPlaybackConfiguration
     configureLogsForPlaybackConfiguration_percentEnabled,
     configureLogsForPlaybackConfiguration_playbackConfigurationName,
-    configureLogsForPlaybackConfigurationResponse_percentEnabled,
     configureLogsForPlaybackConfigurationResponse_playbackConfigurationName,
     configureLogsForPlaybackConfigurationResponse_httpStatus,
+    configureLogsForPlaybackConfigurationResponse_percentEnabled,
 
     -- ** CreateChannel
     createChannel_tags,
@@ -42,9 +42,9 @@ module Amazonka.MediaTailor.Lens
 
     -- ** CreateLiveSource
     createLiveSource_tags,
-    createLiveSource_sourceLocationName,
-    createLiveSource_liveSourceName,
     createLiveSource_httpPackageConfigurations,
+    createLiveSource_liveSourceName,
+    createLiveSource_sourceLocationName,
     createLiveSourceResponse_tags,
     createLiveSourceResponse_liveSourceName,
     createLiveSourceResponse_arn,
@@ -56,10 +56,10 @@ module Amazonka.MediaTailor.Lens
 
     -- ** CreatePrefetchSchedule
     createPrefetchSchedule_streamId,
+    createPrefetchSchedule_consumption,
     createPrefetchSchedule_name,
     createPrefetchSchedule_playbackConfigurationName,
     createPrefetchSchedule_retrieval,
-    createPrefetchSchedule_consumption,
     createPrefetchScheduleResponse_name,
     createPrefetchScheduleResponse_arn,
     createPrefetchScheduleResponse_streamId,
@@ -74,8 +74,8 @@ module Amazonka.MediaTailor.Lens
     createProgram_adBreaks,
     createProgram_channelName,
     createProgram_programName,
-    createProgram_sourceLocationName,
     createProgram_scheduleConfiguration,
+    createProgram_sourceLocationName,
     createProgramResponse_scheduledStartTime,
     createProgramResponse_liveSourceName,
     createProgramResponse_programName,
@@ -92,8 +92,8 @@ module Amazonka.MediaTailor.Lens
     createSourceLocation_segmentDeliveryConfigurations,
     createSourceLocation_accessConfiguration,
     createSourceLocation_defaultSegmentDeliveryConfiguration,
-    createSourceLocation_sourceLocationName,
     createSourceLocation_httpConfiguration,
+    createSourceLocation_sourceLocationName,
     createSourceLocationResponse_tags,
     createSourceLocationResponse_segmentDeliveryConfigurations,
     createSourceLocationResponse_arn,
@@ -107,9 +107,9 @@ module Amazonka.MediaTailor.Lens
 
     -- ** CreateVodSource
     createVodSource_tags,
+    createVodSource_httpPackageConfigurations,
     createVodSource_sourceLocationName,
     createVodSource_vodSourceName,
-    createVodSource_httpPackageConfigurations,
     createVodSourceResponse_tags,
     createVodSourceResponse_vodSourceName,
     createVodSourceResponse_arn,
@@ -128,8 +128,8 @@ module Amazonka.MediaTailor.Lens
     deleteChannelPolicyResponse_httpStatus,
 
     -- ** DeleteLiveSource
-    deleteLiveSource_sourceLocationName,
     deleteLiveSource_liveSourceName,
+    deleteLiveSource_sourceLocationName,
     deleteLiveSourceResponse_httpStatus,
 
     -- ** DeletePlaybackConfiguration
@@ -170,8 +170,8 @@ module Amazonka.MediaTailor.Lens
     describeChannelResponse_httpStatus,
 
     -- ** DescribeLiveSource
-    describeLiveSource_sourceLocationName,
     describeLiveSource_liveSourceName,
+    describeLiveSource_sourceLocationName,
     describeLiveSourceResponse_tags,
     describeLiveSourceResponse_liveSourceName,
     describeLiveSourceResponse_arn,
@@ -334,7 +334,6 @@ module Amazonka.MediaTailor.Lens
 
     -- ** PutPlaybackConfiguration
     putPlaybackConfiguration_tags,
-    putPlaybackConfiguration_name,
     putPlaybackConfiguration_configurationAliases,
     putPlaybackConfiguration_cdnConfiguration,
     putPlaybackConfiguration_bumper,
@@ -347,6 +346,7 @@ module Amazonka.MediaTailor.Lens
     putPlaybackConfiguration_slateAdUrl,
     putPlaybackConfiguration_availSuppression,
     putPlaybackConfiguration_personalizationThresholdSeconds,
+    putPlaybackConfiguration_name,
     putPlaybackConfigurationResponse_tags,
     putPlaybackConfigurationResponse_name,
     putPlaybackConfigurationResponse_configurationAliases,
@@ -401,9 +401,9 @@ module Amazonka.MediaTailor.Lens
     updateChannelResponse_httpStatus,
 
     -- ** UpdateLiveSource
-    updateLiveSource_sourceLocationName,
-    updateLiveSource_liveSourceName,
     updateLiveSource_httpPackageConfigurations,
+    updateLiveSource_liveSourceName,
+    updateLiveSource_sourceLocationName,
     updateLiveSourceResponse_tags,
     updateLiveSourceResponse_liveSourceName,
     updateLiveSourceResponse_arn,
@@ -417,8 +417,8 @@ module Amazonka.MediaTailor.Lens
     updateSourceLocation_segmentDeliveryConfigurations,
     updateSourceLocation_accessConfiguration,
     updateSourceLocation_defaultSegmentDeliveryConfiguration,
-    updateSourceLocation_sourceLocationName,
     updateSourceLocation_httpConfiguration,
+    updateSourceLocation_sourceLocationName,
     updateSourceLocationResponse_tags,
     updateSourceLocationResponse_segmentDeliveryConfigurations,
     updateSourceLocationResponse_arn,
@@ -431,9 +431,9 @@ module Amazonka.MediaTailor.Lens
     updateSourceLocationResponse_httpStatus,
 
     -- ** UpdateVodSource
+    updateVodSource_httpPackageConfigurations,
     updateVodSource_sourceLocationName,
     updateVodSource_vodSourceName,
-    updateVodSource_httpPackageConfigurations,
     updateVodSourceResponse_tags,
     updateVodSourceResponse_vodSourceName,
     updateVodSourceResponse_arn,
@@ -459,15 +459,15 @@ module Amazonka.MediaTailor.Lens
     adMarkerPassthrough_enabled,
 
     -- ** Alert
-    alert_resourceArn,
     alert_alertCode,
+    alert_alertMessage,
     alert_lastModifiedTime,
     alert_relatedResourceArns,
-    alert_alertMessage,
+    alert_resourceArn,
 
     -- ** AvailMatchingCriteria
-    availMatchingCriteria_operator,
     availMatchingCriteria_dynamicVariable,
+    availMatchingCriteria_operator,
 
     -- ** AvailSuppression
     availSuppression_mode,
@@ -486,12 +486,12 @@ module Amazonka.MediaTailor.Lens
     channel_fillerSlate,
     channel_lastModifiedTime,
     channel_creationTime,
-    channel_channelState,
-    channel_channelName,
-    channel_tier,
-    channel_outputs,
     channel_arn,
+    channel_channelName,
+    channel_channelState,
+    channel_outputs,
     channel_playbackMode,
+    channel_tier,
 
     -- ** DashConfiguration
     dashConfiguration_manifestEndpointPrefix,
@@ -522,8 +522,8 @@ module Amazonka.MediaTailor.Lens
 
     -- ** HttpPackageConfiguration
     httpPackageConfiguration_path,
-    httpPackageConfiguration_type,
     httpPackageConfiguration_sourceGroup,
+    httpPackageConfiguration_type,
 
     -- ** LivePreRollConfiguration
     livePreRollConfiguration_adDecisionServerUrl,
@@ -533,10 +533,10 @@ module Amazonka.MediaTailor.Lens
     liveSource_tags,
     liveSource_lastModifiedTime,
     liveSource_creationTime,
-    liveSource_sourceLocationName,
-    liveSource_liveSourceName,
-    liveSource_httpPackageConfigurations,
     liveSource_arn,
+    liveSource_httpPackageConfigurations,
+    liveSource_liveSourceName,
+    liveSource_sourceLocationName,
 
     -- ** LogConfiguration
     logConfiguration_percentEnabled,
@@ -577,11 +577,11 @@ module Amazonka.MediaTailor.Lens
 
     -- ** PrefetchSchedule
     prefetchSchedule_streamId,
-    prefetchSchedule_retrieval,
-    prefetchSchedule_consumption,
     prefetchSchedule_arn,
-    prefetchSchedule_playbackConfigurationName,
+    prefetchSchedule_consumption,
     prefetchSchedule_name,
+    prefetchSchedule_playbackConfigurationName,
+    prefetchSchedule_retrieval,
 
     -- ** RequestOutputItem
     requestOutputItem_hlsPlaylistSettings,
@@ -612,10 +612,10 @@ module Amazonka.MediaTailor.Lens
     scheduleEntry_approximateDurationSeconds,
     scheduleEntry_scheduleEntryType,
     scheduleEntry_scheduleAdBreaks,
-    scheduleEntry_sourceLocationName,
-    scheduleEntry_channelName,
     scheduleEntry_arn,
+    scheduleEntry_channelName,
     scheduleEntry_programName,
+    scheduleEntry_sourceLocationName,
 
     -- ** SecretsManagerAccessTokenConfiguration
     secretsManagerAccessTokenConfiguration_headerName,
@@ -637,9 +637,9 @@ module Amazonka.MediaTailor.Lens
     sourceLocation_defaultSegmentDeliveryConfiguration,
     sourceLocation_lastModifiedTime,
     sourceLocation_creationTime,
-    sourceLocation_sourceLocationName,
-    sourceLocation_httpConfiguration,
     sourceLocation_arn,
+    sourceLocation_httpConfiguration,
+    sourceLocation_sourceLocationName,
 
     -- ** SpliceInsertMessage
     spliceInsertMessage_availsExpected,
@@ -651,17 +651,17 @@ module Amazonka.MediaTailor.Lens
     transition_relativeProgram,
     transition_scheduledStartTimeMillis,
     transition_durationMillis,
-    transition_type,
     transition_relativePosition,
+    transition_type,
 
     -- ** VodSource
     vodSource_tags,
     vodSource_lastModifiedTime,
     vodSource_creationTime,
-    vodSource_vodSourceName,
-    vodSource_sourceLocationName,
-    vodSource_httpPackageConfigurations,
     vodSource_arn,
+    vodSource_httpPackageConfigurations,
+    vodSource_sourceLocationName,
+    vodSource_vodSourceName,
   )
 where
 

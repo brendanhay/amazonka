@@ -155,7 +155,8 @@ instance Core.AWSRequest ExecuteChangeSet where
   type
     AWSResponse ExecuteChangeSet =
       ExecuteChangeSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ExecuteChangeSetResult"

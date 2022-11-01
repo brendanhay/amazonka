@@ -171,7 +171,8 @@ sendApiAsset_revisionId = Lens.lens (\SendApiAsset' {revisionId} -> revisionId) 
 
 instance Core.AWSRequest SendApiAsset where
   type AWSResponse SendApiAsset = SendApiAssetResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->

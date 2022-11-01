@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteCertificate where
   type
     AWSResponse DeleteCertificate =
       DeleteCertificateResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCertificateResponse'
 

@@ -77,7 +77,8 @@ instance Core.AWSRequest StopEntitiesDetectionV2Job where
   type
     AWSResponse StopEntitiesDetectionV2Job =
       StopEntitiesDetectionV2JobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

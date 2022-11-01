@@ -77,7 +77,8 @@ getAnalyzer_analyzerName = Lens.lens (\GetAnalyzer' {analyzerName} -> analyzerNa
 
 instance Core.AWSRequest GetAnalyzer where
   type AWSResponse GetAnalyzer = GetAnalyzerResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

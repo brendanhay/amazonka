@@ -157,9 +157,9 @@ instance
   type
     AWSResponse ListBucketMetricsConfigurations =
       ListBucketMetricsConfigurationsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->

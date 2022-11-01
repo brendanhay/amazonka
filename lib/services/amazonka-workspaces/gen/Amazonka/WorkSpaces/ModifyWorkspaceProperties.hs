@@ -23,6 +23,11 @@
 -- Modifies the specified WorkSpace properties. For important information
 -- about how to modify the size of the root and user volumes, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
+--
+-- The @MANUAL@ running mode value is only supported by Amazon WorkSpaces
+-- Core. Contact your account team to be allow-listed to use this value.
+-- For more information, see
+-- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 module Amazonka.WorkSpaces.ModifyWorkspaceProperties
   ( -- * Creating a Request
     ModifyWorkspaceProperties (..),
@@ -95,7 +100,8 @@ instance Core.AWSRequest ModifyWorkspaceProperties where
   type
     AWSResponse ModifyWorkspaceProperties =
       ModifyWorkspacePropertiesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

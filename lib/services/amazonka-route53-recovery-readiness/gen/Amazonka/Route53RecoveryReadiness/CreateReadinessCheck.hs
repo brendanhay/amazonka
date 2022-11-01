@@ -109,7 +109,8 @@ instance Core.AWSRequest CreateReadinessCheck where
   type
     AWSResponse CreateReadinessCheck =
       CreateReadinessCheckResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

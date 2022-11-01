@@ -126,7 +126,8 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
   type
     AWSResponse BatchModifyClusterSnapshots =
       BatchModifyClusterSnapshotsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchModifyClusterSnapshotsResult"

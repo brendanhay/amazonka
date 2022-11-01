@@ -81,7 +81,8 @@ getDashboard_dashboardName = Lens.lens (\GetDashboard' {dashboardName} -> dashbo
 
 instance Core.AWSRequest GetDashboard where
   type AWSResponse GetDashboard = GetDashboardResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetDashboardResult"

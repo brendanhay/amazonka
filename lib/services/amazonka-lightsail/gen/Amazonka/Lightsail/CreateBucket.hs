@@ -188,7 +188,8 @@ createBucket_bundleId = Lens.lens (\CreateBucket' {bundleId} -> bundleId) (\s@Cr
 
 instance Core.AWSRequest CreateBucket where
   type AWSResponse CreateBucket = CreateBucketResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

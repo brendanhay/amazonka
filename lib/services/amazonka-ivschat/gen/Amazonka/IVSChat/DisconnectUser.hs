@@ -106,7 +106,8 @@ instance Core.AWSRequest DisconnectUser where
   type
     AWSResponse DisconnectUser =
       DisconnectUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -202,7 +202,8 @@ updateStage_apiId = Lens.lens (\UpdateStage' {apiId} -> apiId) (\s@UpdateStage' 
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = UpdateStageResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

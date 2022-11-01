@@ -43,7 +43,13 @@
 -- configurations. For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html Authorize a Slack workspace to enable the Amazon Web Services Support App>.
 --
--- >  <note> <ul> <li> <p>You must have a Business or Enterprise Support plan to use the Amazon Web Services Support App API. </p> </li> <li> <p>For more information about the Amazon Web Services Support App endpoints, see the <a href="https://docs.aws.amazon.com/general/latest/gr/awssupport.html#awssupport_app_region">Amazon Web Services Support App in Slack endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p> </li> </ul> </note>
+-- -   You must have a Business or Enterprise Support plan to use the
+--     Amazon Web Services Support App API.
+--
+-- -   For more information about the Amazon Web Services Support App
+--     endpoints, see the
+--     <https://docs.aws.amazon.com/general/latest/gr/awssupport.html#awssupport_app_region Amazon Web Services Support App in Slack endpoints>
+--     in the /Amazon Web Services General Reference/.
 module Amazonka.SupportApp
   ( -- * Service Configuration
     defaultService,
@@ -123,6 +129,12 @@ module Amazonka.SupportApp
     PutAccountAliasResponse (PutAccountAliasResponse'),
     newPutAccountAliasResponse,
 
+    -- ** RegisterSlackWorkspaceForOrganization
+    RegisterSlackWorkspaceForOrganization (RegisterSlackWorkspaceForOrganization'),
+    newRegisterSlackWorkspaceForOrganization,
+    RegisterSlackWorkspaceForOrganizationResponse (RegisterSlackWorkspaceForOrganizationResponse'),
+    newRegisterSlackWorkspaceForOrganizationResponse,
+
     -- ** UpdateSlackChannelConfiguration
     UpdateSlackChannelConfiguration (UpdateSlackChannelConfiguration'),
     newUpdateSlackChannelConfiguration,
@@ -130,6 +142,9 @@ module Amazonka.SupportApp
     newUpdateSlackChannelConfigurationResponse,
 
     -- * Types
+
+    -- ** AccountType
+    AccountType (..),
 
     -- ** NotificationSeverityLevel
     NotificationSeverityLevel (..),
@@ -153,6 +168,7 @@ import Amazonka.SupportApp.Lens
 import Amazonka.SupportApp.ListSlackChannelConfigurations
 import Amazonka.SupportApp.ListSlackWorkspaceConfigurations
 import Amazonka.SupportApp.PutAccountAlias
+import Amazonka.SupportApp.RegisterSlackWorkspaceForOrganization
 import Amazonka.SupportApp.Types
 import Amazonka.SupportApp.UpdateSlackChannelConfiguration
 import Amazonka.SupportApp.Waiters

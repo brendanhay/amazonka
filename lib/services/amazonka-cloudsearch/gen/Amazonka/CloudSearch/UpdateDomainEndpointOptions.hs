@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
   type
     AWSResponse UpdateDomainEndpointOptions =
       UpdateDomainEndpointOptionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateDomainEndpointOptionsResult"

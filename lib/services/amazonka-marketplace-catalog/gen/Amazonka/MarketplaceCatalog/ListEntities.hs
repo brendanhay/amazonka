@@ -139,7 +139,8 @@ listEntities_entityType = Lens.lens (\ListEntities' {entityType} -> entityType) 
 
 instance Core.AWSRequest ListEntities where
   type AWSResponse ListEntities = ListEntitiesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -89,7 +89,8 @@ listFlows_maxResults = Lens.lens (\ListFlows' {maxResults} -> maxResults) (\s@Li
 
 instance Core.AWSRequest ListFlows where
   type AWSResponse ListFlows = ListFlowsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -30,8 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSendQuota' smart constructor.
 data SendQuota = SendQuota'
   { -- | The maximum number of emails that you can send in the current Amazon Web
-    -- Services Region over a 24-hour period. This value is also called your
-    -- /sending quota/.
+    -- Services Region over a 24-hour period. A value of -1 signifies an
+    -- unlimited quota. (This value is also referred to as your /sending
+    -- quota/.)
     max24HourSend :: Prelude.Maybe Prelude.Double,
     -- | The number of emails sent from your Amazon SES account in the current
     -- Amazon Web Services Region over the past 24 hours.
@@ -52,8 +53,9 @@ data SendQuota = SendQuota'
 -- for backwards compatibility:
 --
 -- 'max24HourSend', 'sendQuota_max24HourSend' - The maximum number of emails that you can send in the current Amazon Web
--- Services Region over a 24-hour period. This value is also called your
--- /sending quota/.
+-- Services Region over a 24-hour period. A value of -1 signifies an
+-- unlimited quota. (This value is also referred to as your /sending
+-- quota/.)
 --
 -- 'sentLast24Hours', 'sendQuota_sentLast24Hours' - The number of emails sent from your Amazon SES account in the current
 -- Amazon Web Services Region over the past 24 hours.
@@ -71,8 +73,9 @@ newSendQuota =
     }
 
 -- | The maximum number of emails that you can send in the current Amazon Web
--- Services Region over a 24-hour period. This value is also called your
--- /sending quota/.
+-- Services Region over a 24-hour period. A value of -1 signifies an
+-- unlimited quota. (This value is also referred to as your /sending
+-- quota/.)
 sendQuota_max24HourSend :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
 sendQuota_max24HourSend = Lens.lens (\SendQuota' {max24HourSend} -> max24HourSend) (\s@SendQuota' {} a -> s {max24HourSend = a} :: SendQuota)
 

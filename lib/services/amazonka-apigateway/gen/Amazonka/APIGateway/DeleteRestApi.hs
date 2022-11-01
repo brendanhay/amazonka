@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteRestApi where
   type
     AWSResponse DeleteRestApi =
       DeleteRestApiResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRestApiResponse'
 

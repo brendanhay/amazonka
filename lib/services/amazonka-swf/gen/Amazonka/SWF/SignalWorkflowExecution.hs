@@ -159,7 +159,8 @@ instance Core.AWSRequest SignalWorkflowExecution where
   type
     AWSResponse SignalWorkflowExecution =
       SignalWorkflowExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SignalWorkflowExecutionResponse'

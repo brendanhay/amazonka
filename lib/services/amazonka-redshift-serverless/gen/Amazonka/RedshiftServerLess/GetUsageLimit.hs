@@ -77,7 +77,8 @@ instance Core.AWSRequest GetUsageLimit where
   type
     AWSResponse GetUsageLimit =
       GetUsageLimitResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

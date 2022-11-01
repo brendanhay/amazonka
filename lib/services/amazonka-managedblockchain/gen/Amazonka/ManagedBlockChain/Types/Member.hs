@@ -45,51 +45,57 @@ data Member = Member'
     -- | The Amazon Resource Name (ARN) of the member. For more information about
     -- ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The status of a member.
     --
-    -- -   @CREATING@ - The AWS account is in the process of creating a member.
+    -- -   @CREATING@ - The Amazon Web Services account is in the process of
+    --     creating a member.
     --
     -- -   @AVAILABLE@ - The member has been created and can participate in the
     --     network.
     --
-    -- -   @CREATE_FAILED@ - The AWS account attempted to create a member and
-    --     creation failed.
+    -- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+    --     create a member and creation failed.
     --
     -- -   @UPDATING@ - The member is in the process of being updated.
     --
     -- -   @DELETING@ - The member and all associated resources are in the
-    --     process of being deleted. Either the AWS account that owns the
-    --     member deleted it, or the member is being deleted as the result of
-    --     an @APPROVED@ @PROPOSAL@ to remove the member.
+    --     process of being deleted. Either the Amazon Web Services account
+    --     that owns the member deleted it, or the member is being deleted as
+    --     the result of an @APPROVED@ @PROPOSAL@ to remove the member.
     --
     -- -   @DELETED@ - The member can no longer participate on the network and
-    --     all associated resources are deleted. Either the AWS account that
-    --     owns the member deleted it, or the member is being deleted as the
-    --     result of an @APPROVED@ @PROPOSAL@ to remove the member.
+    --     all associated resources are deleted. Either the Amazon Web Services
+    --     account that owns the member deleted it, or the member is being
+    --     deleted as the result of an @APPROVED@ @PROPOSAL@ to remove the
+    --     member.
     --
     -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The member is impaired and might not
     --     function as expected because it cannot access the specified customer
-    --     managed key in AWS KMS for encryption at rest. Either the KMS key
-    --     was disabled or deleted, or the grants on the key were revoked.
+    --     managed key in KMS for encryption at rest. Either the KMS key was
+    --     disabled or deleted, or the grants on the key were revoked.
     --
-    --     The effect of disabling or deleting a key, or revoking a grant is
-    --     not immediate. The member resource might take some time to find that
-    --     the key is inaccessible. When a resource is in this state, we
-    --     recommend deleting and recreating the resource.
+    --     The effect of disabling or deleting a key or of revoking a grant
+    --     isn\'t immediate. It might take some time for the member resource to
+    --     discover that the key is inaccessible. When a resource is in this
+    --     state, we recommend deleting and recreating the resource.
     status :: Prelude.Maybe MemberStatus,
     -- | The unique identifier of the member.
     id :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the member.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
-    -- Management Service (AWS KMS) that the member uses for encryption at
-    -- rest. If the value of this parameter is @\"AWS Owned KMS Key\"@, the
-    -- member uses an AWS owned KMS key for encryption. This parameter is
+    -- | The Amazon Resource Name (ARN) of the customer managed key in Key
+    -- Management Service (KMS) that the member uses for encryption at rest. If
+    -- the value of this parameter is @\"AWS Owned KMS Key\"@, the member uses
+    -- an Amazon Web Services owned KMS key for encryption. This parameter is
     -- inherited by the nodes that this member owns.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network to which the member belongs.
     networkId :: Prelude.Maybe Prelude.Text,
@@ -119,51 +125,57 @@ data Member = Member'
 -- 'arn', 'member_arn' - The Amazon Resource Name (ARN) of the member. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'member_creationDate' - The date and time that the member was created.
 --
 -- 'status', 'member_status' - The status of a member.
 --
--- -   @CREATING@ - The AWS account is in the process of creating a member.
+-- -   @CREATING@ - The Amazon Web Services account is in the process of
+--     creating a member.
 --
 -- -   @AVAILABLE@ - The member has been created and can participate in the
 --     network.
 --
--- -   @CREATE_FAILED@ - The AWS account attempted to create a member and
---     creation failed.
+-- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+--     create a member and creation failed.
 --
 -- -   @UPDATING@ - The member is in the process of being updated.
 --
 -- -   @DELETING@ - The member and all associated resources are in the
---     process of being deleted. Either the AWS account that owns the
---     member deleted it, or the member is being deleted as the result of
---     an @APPROVED@ @PROPOSAL@ to remove the member.
+--     process of being deleted. Either the Amazon Web Services account
+--     that owns the member deleted it, or the member is being deleted as
+--     the result of an @APPROVED@ @PROPOSAL@ to remove the member.
 --
 -- -   @DELETED@ - The member can no longer participate on the network and
---     all associated resources are deleted. Either the AWS account that
---     owns the member deleted it, or the member is being deleted as the
---     result of an @APPROVED@ @PROPOSAL@ to remove the member.
+--     all associated resources are deleted. Either the Amazon Web Services
+--     account that owns the member deleted it, or the member is being
+--     deleted as the result of an @APPROVED@ @PROPOSAL@ to remove the
+--     member.
 --
 -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The member is impaired and might not
 --     function as expected because it cannot access the specified customer
---     managed key in AWS KMS for encryption at rest. Either the KMS key
---     was disabled or deleted, or the grants on the key were revoked.
+--     managed key in KMS for encryption at rest. Either the KMS key was
+--     disabled or deleted, or the grants on the key were revoked.
 --
---     The effect of disabling or deleting a key, or revoking a grant is
---     not immediate. The member resource might take some time to find that
---     the key is inaccessible. When a resource is in this state, we
---     recommend deleting and recreating the resource.
+--     The effect of disabling or deleting a key or of revoking a grant
+--     isn\'t immediate. It might take some time for the member resource to
+--     discover that the key is inaccessible. When a resource is in this
+--     state, we recommend deleting and recreating the resource.
 --
 -- 'id', 'member_id' - The unique identifier of the member.
 --
 -- 'description', 'member_description' - An optional description for the member.
 --
--- 'kmsKeyArn', 'member_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) that the member uses for encryption at
--- rest. If the value of this parameter is @\"AWS Owned KMS Key\"@, the
--- member uses an AWS owned KMS key for encryption. This parameter is
+-- 'kmsKeyArn', 'member_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) that the member uses for encryption at rest. If
+-- the value of this parameter is @\"AWS Owned KMS Key\"@, the member uses
+-- an Amazon Web Services owned KMS key for encryption. This parameter is
 -- inherited by the nodes that this member owns.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- 'networkId', 'member_networkId' - The unique identifier of the network to which the member belongs.
 --
@@ -204,7 +216,7 @@ member_frameworkAttributes = Lens.lens (\Member' {frameworkAttributes} -> framew
 -- | The Amazon Resource Name (ARN) of the member. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 member_arn :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_arn = Lens.lens (\Member' {arn} -> arn) (\s@Member' {} a -> s {arn = a} :: Member)
 
@@ -214,35 +226,37 @@ member_creationDate = Lens.lens (\Member' {creationDate} -> creationDate) (\s@Me
 
 -- | The status of a member.
 --
--- -   @CREATING@ - The AWS account is in the process of creating a member.
+-- -   @CREATING@ - The Amazon Web Services account is in the process of
+--     creating a member.
 --
 -- -   @AVAILABLE@ - The member has been created and can participate in the
 --     network.
 --
--- -   @CREATE_FAILED@ - The AWS account attempted to create a member and
---     creation failed.
+-- -   @CREATE_FAILED@ - The Amazon Web Services account attempted to
+--     create a member and creation failed.
 --
 -- -   @UPDATING@ - The member is in the process of being updated.
 --
 -- -   @DELETING@ - The member and all associated resources are in the
---     process of being deleted. Either the AWS account that owns the
---     member deleted it, or the member is being deleted as the result of
---     an @APPROVED@ @PROPOSAL@ to remove the member.
+--     process of being deleted. Either the Amazon Web Services account
+--     that owns the member deleted it, or the member is being deleted as
+--     the result of an @APPROVED@ @PROPOSAL@ to remove the member.
 --
 -- -   @DELETED@ - The member can no longer participate on the network and
---     all associated resources are deleted. Either the AWS account that
---     owns the member deleted it, or the member is being deleted as the
---     result of an @APPROVED@ @PROPOSAL@ to remove the member.
+--     all associated resources are deleted. Either the Amazon Web Services
+--     account that owns the member deleted it, or the member is being
+--     deleted as the result of an @APPROVED@ @PROPOSAL@ to remove the
+--     member.
 --
 -- -   @INACCESSIBLE_ENCRYPTION_KEY@ - The member is impaired and might not
 --     function as expected because it cannot access the specified customer
---     managed key in AWS KMS for encryption at rest. Either the KMS key
---     was disabled or deleted, or the grants on the key were revoked.
+--     managed key in KMS for encryption at rest. Either the KMS key was
+--     disabled or deleted, or the grants on the key were revoked.
 --
---     The effect of disabling or deleting a key, or revoking a grant is
---     not immediate. The member resource might take some time to find that
---     the key is inaccessible. When a resource is in this state, we
---     recommend deleting and recreating the resource.
+--     The effect of disabling or deleting a key or of revoking a grant
+--     isn\'t immediate. It might take some time for the member resource to
+--     discover that the key is inaccessible. When a resource is in this
+--     state, we recommend deleting and recreating the resource.
 member_status :: Lens.Lens' Member (Prelude.Maybe MemberStatus)
 member_status = Lens.lens (\Member' {status} -> status) (\s@Member' {} a -> s {status = a} :: Member)
 
@@ -254,11 +268,15 @@ member_id = Lens.lens (\Member' {id} -> id) (\s@Member' {} a -> s {id = a} :: Me
 member_description :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_description = Lens.lens (\Member' {description} -> description) (\s@Member' {} a -> s {description = a} :: Member)
 
--- | The Amazon Resource Name (ARN) of the customer managed key in AWS Key
--- Management Service (AWS KMS) that the member uses for encryption at
--- rest. If the value of this parameter is @\"AWS Owned KMS Key\"@, the
--- member uses an AWS owned KMS key for encryption. This parameter is
+-- | The Amazon Resource Name (ARN) of the customer managed key in Key
+-- Management Service (KMS) that the member uses for encryption at rest. If
+-- the value of this parameter is @\"AWS Owned KMS Key\"@, the member uses
+-- an Amazon Web Services owned KMS key for encryption. This parameter is
 -- inherited by the nodes that this member owns.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html Encryption at Rest>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 member_kmsKeyArn :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_kmsKeyArn = Lens.lens (\Member' {kmsKeyArn} -> kmsKeyArn) (\s@Member' {} a -> s {kmsKeyArn = a} :: Member)
 

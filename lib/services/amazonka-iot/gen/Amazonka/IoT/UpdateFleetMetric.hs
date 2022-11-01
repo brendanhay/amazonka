@@ -181,7 +181,8 @@ instance Core.AWSRequest UpdateFleetMetric where
   type
     AWSResponse UpdateFleetMetric =
       UpdateFleetMetricResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull UpdateFleetMetricResponse'
 

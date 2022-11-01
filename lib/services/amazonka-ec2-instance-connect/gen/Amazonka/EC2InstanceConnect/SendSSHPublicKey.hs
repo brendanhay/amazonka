@@ -128,7 +128,8 @@ instance Core.AWSRequest SendSSHPublicKey where
   type
     AWSResponse SendSSHPublicKey =
       SendSSHPublicKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

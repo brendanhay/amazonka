@@ -56,6 +56,8 @@ defaultService =
       Core._serviceEndpointPrefix = "api.fleethub.iot",
       Core._serviceSigningName = "iotfleethub",
       Core._serviceVersion = "2020-11-03",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -22,6 +22,8 @@
 --
 -- For the specified directory, lists all the certificates registered for a
 -- secure LDAP or client certificate authentication.
+--
+-- This operation returns paginated results.
 module Amazonka.DirectoryService.ListCertificates
   ( -- * Creating a Request
     ListCertificates (..),
@@ -106,11 +108,34 @@ listCertificates_limit = Lens.lens (\ListCertificates' {limit} -> limit) (\s@Lis
 listCertificates_directoryId :: Lens.Lens' ListCertificates Prelude.Text
 listCertificates_directoryId = Lens.lens (\ListCertificates' {directoryId} -> directoryId) (\s@ListCertificates' {} a -> s {directoryId = a} :: ListCertificates)
 
+instance Core.AWSPager ListCertificates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listCertificatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listCertificatesResponse_certificatesInfo
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listCertificates_nextToken
+          Lens..~ rs
+          Lens.^? listCertificatesResponse_nextToken
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest ListCertificates where
   type
     AWSResponse ListCertificates =
       ListCertificatesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

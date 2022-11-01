@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteChangeSet where
   type
     AWSResponse DeleteChangeSet =
       DeleteChangeSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteChangeSetResult"

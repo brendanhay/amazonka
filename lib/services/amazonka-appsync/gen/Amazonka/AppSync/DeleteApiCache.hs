@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteApiCache where
   type
     AWSResponse DeleteApiCache =
       DeleteApiCacheResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

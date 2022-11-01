@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteQuickConnect where
   type
     AWSResponse DeleteQuickConnect =
       DeleteQuickConnectResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteQuickConnectResponse'
 

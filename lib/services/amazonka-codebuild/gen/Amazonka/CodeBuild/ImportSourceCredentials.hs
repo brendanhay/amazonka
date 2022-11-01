@@ -147,7 +147,8 @@ instance Core.AWSRequest ImportSourceCredentials where
   type
     AWSResponse ImportSourceCredentials =
       ImportSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

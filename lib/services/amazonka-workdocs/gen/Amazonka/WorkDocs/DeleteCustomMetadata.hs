@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteCustomMetadata where
   type
     AWSResponse DeleteCustomMetadata =
       DeleteCustomMetadataResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

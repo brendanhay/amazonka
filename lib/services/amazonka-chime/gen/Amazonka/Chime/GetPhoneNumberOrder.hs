@@ -82,7 +82,8 @@ instance Core.AWSRequest GetPhoneNumberOrder where
   type
     AWSResponse GetPhoneNumberOrder =
       GetPhoneNumberOrderResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

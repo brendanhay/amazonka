@@ -153,7 +153,8 @@ instance Core.AWSRequest DescribeSchemas where
   type
     AWSResponse DescribeSchemas =
       DescribeSchemasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

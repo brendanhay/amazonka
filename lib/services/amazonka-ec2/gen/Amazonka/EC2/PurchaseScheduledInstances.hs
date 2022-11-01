@@ -130,7 +130,8 @@ instance Core.AWSRequest PurchaseScheduledInstances where
   type
     AWSResponse PurchaseScheduledInstances =
       PurchaseScheduledInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

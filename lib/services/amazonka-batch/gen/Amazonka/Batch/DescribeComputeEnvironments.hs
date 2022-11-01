@@ -65,9 +65,8 @@ data DescribeComputeEnvironments = DescribeComputeEnvironments'
     -- from the end of the previous results that returned the @nextToken@
     -- value. This value is @null@ when there are no more results to return.
     --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 100 compute environment names or full Amazon Resource
     -- Name (ARN) entries.
@@ -99,9 +98,8 @@ data DescribeComputeEnvironments = DescribeComputeEnvironments'
 -- from the end of the previous results that returned the @nextToken@
 -- value. This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 --
 -- 'computeEnvironments', 'describeComputeEnvironments_computeEnvironments' - A list of up to 100 compute environment names or full Amazon Resource
 -- Name (ARN) entries.
@@ -131,9 +129,8 @@ newDescribeComputeEnvironments =
 -- from the end of the previous results that returned the @nextToken@
 -- value. This value is @null@ when there are no more results to return.
 --
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
 describeComputeEnvironments_nextToken :: Lens.Lens' DescribeComputeEnvironments (Prelude.Maybe Prelude.Text)
 describeComputeEnvironments_nextToken = Lens.lens (\DescribeComputeEnvironments' {nextToken} -> nextToken) (\s@DescribeComputeEnvironments' {} a -> s {nextToken = a} :: DescribeComputeEnvironments)
 
@@ -180,7 +177,8 @@ instance Core.AWSRequest DescribeComputeEnvironments where
   type
     AWSResponse DescribeComputeEnvironments =
       DescribeComputeEnvironmentsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeAccess where
   type
     AWSResponse DescribeAccess =
       DescribeAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,7 +200,7 @@ data DescribeAccessResponse = DescribeAccessResponse'
     -- | A system-assigned unique identifier for a server that has this access
     -- assigned.
     serverId :: Prelude.Text,
-    -- | The external ID of the server that the access is attached to.
+    -- | The external identifier of the server that the access is attached to.
     access :: DescribedAccess
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -217,7 +218,7 @@ data DescribeAccessResponse = DescribeAccessResponse'
 -- 'serverId', 'describeAccessResponse_serverId' - A system-assigned unique identifier for a server that has this access
 -- assigned.
 --
--- 'access', 'describeAccessResponse_access' - The external ID of the server that the access is attached to.
+-- 'access', 'describeAccessResponse_access' - The external identifier of the server that the access is attached to.
 newDescribeAccessResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -245,7 +246,7 @@ describeAccessResponse_httpStatus = Lens.lens (\DescribeAccessResponse' {httpSta
 describeAccessResponse_serverId :: Lens.Lens' DescribeAccessResponse Prelude.Text
 describeAccessResponse_serverId = Lens.lens (\DescribeAccessResponse' {serverId} -> serverId) (\s@DescribeAccessResponse' {} a -> s {serverId = a} :: DescribeAccessResponse)
 
--- | The external ID of the server that the access is attached to.
+-- | The external identifier of the server that the access is attached to.
 describeAccessResponse_access :: Lens.Lens' DescribeAccessResponse DescribedAccess
 describeAccessResponse_access = Lens.lens (\DescribeAccessResponse' {access} -> access) (\s@DescribeAccessResponse' {} a -> s {access = a} :: DescribeAccessResponse)
 

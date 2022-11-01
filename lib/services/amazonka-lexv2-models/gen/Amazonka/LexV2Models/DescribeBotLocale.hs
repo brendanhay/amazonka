@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeBotLocale where
   type
     AWSResponse DescribeBotLocale =
       DescribeBotLocaleResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

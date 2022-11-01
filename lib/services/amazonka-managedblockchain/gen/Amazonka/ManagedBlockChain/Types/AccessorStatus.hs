@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Wisdom.Types.TargetType
+-- Module      : Amazonka.ManagedBlockChain.Types.AccessorStatus
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Wisdom.Types.TargetType
-  ( TargetType
+module Amazonka.ManagedBlockChain.Types.AccessorStatus
+  ( AccessorStatus
       ( ..,
-        TargetType_RECOMMENDATION,
-        TargetType_RESULT
+        AccessorStatus_AVAILABLE,
+        AccessorStatus_DELETED,
+        AccessorStatus_PENDING_DELETION
       ),
   )
 where
@@ -29,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype TargetType = TargetType'
-  { fromTargetType ::
+newtype AccessorStatus = AccessorStatus'
+  { fromAccessorStatus ::
       Core.Text
   }
   deriving stock
@@ -57,14 +58,18 @@ newtype TargetType = TargetType'
       Core.ToXML
     )
 
-pattern TargetType_RECOMMENDATION :: TargetType
-pattern TargetType_RECOMMENDATION = TargetType' "RECOMMENDATION"
+pattern AccessorStatus_AVAILABLE :: AccessorStatus
+pattern AccessorStatus_AVAILABLE = AccessorStatus' "AVAILABLE"
 
-pattern TargetType_RESULT :: TargetType
-pattern TargetType_RESULT = TargetType' "RESULT"
+pattern AccessorStatus_DELETED :: AccessorStatus
+pattern AccessorStatus_DELETED = AccessorStatus' "DELETED"
+
+pattern AccessorStatus_PENDING_DELETION :: AccessorStatus
+pattern AccessorStatus_PENDING_DELETION = AccessorStatus' "PENDING_DELETION"
 
 {-# COMPLETE
-  TargetType_RECOMMENDATION,
-  TargetType_RESULT,
-  TargetType'
+  AccessorStatus_AVAILABLE,
+  AccessorStatus_DELETED,
+  AccessorStatus_PENDING_DELETION,
+  AccessorStatus'
   #-}

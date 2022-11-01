@@ -177,7 +177,8 @@ instance Core.AWSRequest GetPersonTracking where
   type
     AWSResponse GetPersonTracking =
       GetPersonTrackingResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

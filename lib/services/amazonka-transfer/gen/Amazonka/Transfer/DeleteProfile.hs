@@ -44,7 +44,7 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDeleteProfile' smart constructor.
 data DeleteProfile = DeleteProfile'
-  { -- | The ID of the profile that you are deleting.
+  { -- | The identifier of the profile that you are deleting.
     profileId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +57,7 @@ data DeleteProfile = DeleteProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profileId', 'deleteProfile_profileId' - The ID of the profile that you are deleting.
+-- 'profileId', 'deleteProfile_profileId' - The identifier of the profile that you are deleting.
 newDeleteProfile ::
   -- | 'profileId'
   Prelude.Text ->
@@ -65,7 +65,7 @@ newDeleteProfile ::
 newDeleteProfile pProfileId_ =
   DeleteProfile' {profileId = pProfileId_}
 
--- | The ID of the profile that you are deleting.
+-- | The identifier of the profile that you are deleting.
 deleteProfile_profileId :: Lens.Lens' DeleteProfile Prelude.Text
 deleteProfile_profileId = Lens.lens (\DeleteProfile' {profileId} -> profileId) (\s@DeleteProfile' {} a -> s {profileId = a} :: DeleteProfile)
 
@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteProfile where
   type
     AWSResponse DeleteProfile =
       DeleteProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteProfileResponse'
 

@@ -163,7 +163,8 @@ instance Core.AWSRequest GetInstancesHealthStatus where
   type
     AWSResponse GetInstancesHealthStatus =
       GetInstancesHealthStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

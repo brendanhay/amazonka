@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteSubnetGroup where
   type
     AWSResponse DeleteSubnetGroup =
       DeleteSubnetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

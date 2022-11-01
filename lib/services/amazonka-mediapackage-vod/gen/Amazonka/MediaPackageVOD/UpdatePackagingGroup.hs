@@ -97,7 +97,8 @@ instance Core.AWSRequest UpdatePackagingGroup where
   type
     AWSResponse UpdatePackagingGroup =
       UpdatePackagingGroupResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

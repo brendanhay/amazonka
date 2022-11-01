@@ -433,7 +433,8 @@ instance Core.AWSRequest SendTemplatedEmail where
   type
     AWSResponse SendTemplatedEmail =
       SendTemplatedEmailResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendTemplatedEmailResult"

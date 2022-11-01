@@ -162,7 +162,8 @@ instance Core.AWSPager ListCommands where
 
 instance Core.AWSRequest ListCommands where
   type AWSResponse ListCommands = ListCommandsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -120,7 +120,8 @@ updateAlert_alertArn = Lens.lens (\UpdateAlert' {alertArn} -> alertArn) (\s@Upda
 
 instance Core.AWSRequest UpdateAlert where
   type AWSResponse UpdateAlert = UpdateAlertResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

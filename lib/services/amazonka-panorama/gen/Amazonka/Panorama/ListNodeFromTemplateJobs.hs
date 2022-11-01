@@ -95,7 +95,8 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
   type
     AWSResponse ListNodeFromTemplateJobs =
       ListNodeFromTemplateJobsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

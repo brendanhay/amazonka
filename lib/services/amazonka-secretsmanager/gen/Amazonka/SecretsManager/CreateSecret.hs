@@ -562,7 +562,8 @@ createSecret_name = Lens.lens (\CreateSecret' {name} -> name) (\s@CreateSecret' 
 
 instance Core.AWSRequest CreateSecret where
   type AWSResponse CreateSecret = CreateSecretResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

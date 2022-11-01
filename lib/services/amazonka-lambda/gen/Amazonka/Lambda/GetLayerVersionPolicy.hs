@@ -94,7 +94,8 @@ instance Core.AWSRequest GetLayerVersionPolicy where
   type
     AWSResponse GetLayerVersionPolicy =
       GetLayerVersionPolicyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

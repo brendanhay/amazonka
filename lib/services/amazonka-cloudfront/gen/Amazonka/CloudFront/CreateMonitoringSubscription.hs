@@ -105,7 +105,8 @@ instance Core.AWSRequest CreateMonitoringSubscription where
   type
     AWSResponse CreateMonitoringSubscription =
       CreateMonitoringSubscriptionResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

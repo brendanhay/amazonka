@@ -173,7 +173,8 @@ instance
   type
     AWSResponse DescribeMaintenanceWindowExecutions =
       DescribeMaintenanceWindowExecutionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

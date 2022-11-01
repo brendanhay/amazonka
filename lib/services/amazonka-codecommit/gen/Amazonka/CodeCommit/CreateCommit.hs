@@ -194,7 +194,8 @@ createCommit_branchName = Lens.lens (\CreateCommit' {branchName} -> branchName) 
 
 instance Core.AWSRequest CreateCommit where
   type AWSResponse CreateCommit = CreateCommitResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

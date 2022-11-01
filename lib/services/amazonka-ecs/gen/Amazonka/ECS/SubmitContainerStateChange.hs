@@ -154,7 +154,8 @@ instance Core.AWSRequest SubmitContainerStateChange where
   type
     AWSResponse SubmitContainerStateChange =
       SubmitContainerStateChangeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

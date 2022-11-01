@@ -139,7 +139,8 @@ instance Core.AWSRequest GetFunctionEventInvokeConfig where
   type
     AWSResponse GetFunctionEventInvokeConfig =
       FunctionEventInvokeConfig
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

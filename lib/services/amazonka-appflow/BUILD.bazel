@@ -148,6 +148,7 @@ haskell_library(
         "gen/Amazonka/AppFlow/Types/SalesforceConnectorOperator.hs",
         "gen/Amazonka/AppFlow/Types/SalesforceConnectorProfileCredentials.hs",
         "gen/Amazonka/AppFlow/Types/SalesforceConnectorProfileProperties.hs",
+        "gen/Amazonka/AppFlow/Types/SalesforceDataTransferApi.hs",
         "gen/Amazonka/AppFlow/Types/SalesforceDestinationProperties.hs",
         "gen/Amazonka/AppFlow/Types/SalesforceMetadata.hs",
         "gen/Amazonka/AppFlow/Types/SalesforceSourceProperties.hs",

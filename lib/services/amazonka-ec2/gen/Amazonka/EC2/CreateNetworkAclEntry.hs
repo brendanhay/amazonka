@@ -260,7 +260,8 @@ instance Core.AWSRequest CreateNetworkAclEntry where
   type
     AWSResponse CreateNetworkAclEntry =
       CreateNetworkAclEntryResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateNetworkAclEntryResponse'
 

@@ -30,14 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdBreak' smart constructor.
 data AdBreak = AdBreak'
-  { -- | The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
+  { -- | The SCTE-35 ad insertion type. Accepted value: @SPLICE_INSERT@,
+    -- @TIME_SIGNAL@.
     messageType :: Prelude.Maybe MessageType,
     -- | How long (in milliseconds) after the beginning of the program that an ad
     -- starts. This value must fall within 100ms of a segment boundary,
     -- otherwise the ad break will be skipped.
     offsetMillis :: Prelude.Maybe Prelude.Integer,
-    -- | This defines the SCTE-35 splice_insert() message inserted around the ad.
-    -- For information about using splice_insert(), see the SCTE-35
+    -- | This defines the SCTE-35 @splice_insert()@ message inserted around the
+    -- ad. For information about using @splice_insert()@, see the SCTE-35
     -- specficiaiton, section 9.7.3.1.
     spliceInsertMessage :: Prelude.Maybe SpliceInsertMessage,
     -- | Ad break slate configuration.
@@ -53,14 +54,15 @@ data AdBreak = AdBreak'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'adBreak_messageType' - The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
+-- 'messageType', 'adBreak_messageType' - The SCTE-35 ad insertion type. Accepted value: @SPLICE_INSERT@,
+-- @TIME_SIGNAL@.
 --
 -- 'offsetMillis', 'adBreak_offsetMillis' - How long (in milliseconds) after the beginning of the program that an ad
 -- starts. This value must fall within 100ms of a segment boundary,
 -- otherwise the ad break will be skipped.
 --
--- 'spliceInsertMessage', 'adBreak_spliceInsertMessage' - This defines the SCTE-35 splice_insert() message inserted around the ad.
--- For information about using splice_insert(), see the SCTE-35
+-- 'spliceInsertMessage', 'adBreak_spliceInsertMessage' - This defines the SCTE-35 @splice_insert()@ message inserted around the
+-- ad. For information about using @splice_insert()@, see the SCTE-35
 -- specficiaiton, section 9.7.3.1.
 --
 -- 'slate', 'adBreak_slate' - Ad break slate configuration.
@@ -74,7 +76,8 @@ newAdBreak =
       slate = Prelude.Nothing
     }
 
--- | The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
+-- | The SCTE-35 ad insertion type. Accepted value: @SPLICE_INSERT@,
+-- @TIME_SIGNAL@.
 adBreak_messageType :: Lens.Lens' AdBreak (Prelude.Maybe MessageType)
 adBreak_messageType = Lens.lens (\AdBreak' {messageType} -> messageType) (\s@AdBreak' {} a -> s {messageType = a} :: AdBreak)
 
@@ -84,8 +87,8 @@ adBreak_messageType = Lens.lens (\AdBreak' {messageType} -> messageType) (\s@AdB
 adBreak_offsetMillis :: Lens.Lens' AdBreak (Prelude.Maybe Prelude.Integer)
 adBreak_offsetMillis = Lens.lens (\AdBreak' {offsetMillis} -> offsetMillis) (\s@AdBreak' {} a -> s {offsetMillis = a} :: AdBreak)
 
--- | This defines the SCTE-35 splice_insert() message inserted around the ad.
--- For information about using splice_insert(), see the SCTE-35
+-- | This defines the SCTE-35 @splice_insert()@ message inserted around the
+-- ad. For information about using @splice_insert()@, see the SCTE-35
 -- specficiaiton, section 9.7.3.1.
 adBreak_spliceInsertMessage :: Lens.Lens' AdBreak (Prelude.Maybe SpliceInsertMessage)
 adBreak_spliceInsertMessage = Lens.lens (\AdBreak' {spliceInsertMessage} -> spliceInsertMessage) (\s@AdBreak' {} a -> s {spliceInsertMessage = a} :: AdBreak)

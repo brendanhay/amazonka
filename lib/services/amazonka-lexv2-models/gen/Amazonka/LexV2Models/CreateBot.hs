@@ -204,7 +204,8 @@ createBot_idleSessionTTLInSeconds = Lens.lens (\CreateBot' {idleSessionTTLInSeco
 
 instance Core.AWSRequest CreateBot where
   type AWSResponse CreateBot = CreateBotResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

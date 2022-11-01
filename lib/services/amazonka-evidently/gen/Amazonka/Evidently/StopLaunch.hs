@@ -120,7 +120,8 @@ stopLaunch_project = Lens.lens (\StopLaunch' {project} -> project) (\s@StopLaunc
 
 instance Core.AWSRequest StopLaunch where
   type AWSResponse StopLaunch = StopLaunchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

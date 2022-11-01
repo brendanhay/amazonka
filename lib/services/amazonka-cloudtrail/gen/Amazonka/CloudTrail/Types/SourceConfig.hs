@@ -24,14 +24,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains configuration information about the service-linked channel.
+-- | Contains configuration information about the channel.
 --
 -- /See:/ 'newSourceConfig' smart constructor.
 data SourceConfig = SourceConfig'
-  { -- | Specifies whether the service-linked channel applies to one region or
-    -- all regions.
+  { -- | Specifies whether the channel applies to a single region or to all
+    -- regions.
     applyToAllRegions :: Prelude.Maybe Prelude.Bool,
-    -- | The advanced event selectors configured for the service-linked channel.
+    -- | The advanced event selectors that are configured for the channel.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,10 +44,10 @@ data SourceConfig = SourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applyToAllRegions', 'sourceConfig_applyToAllRegions' - Specifies whether the service-linked channel applies to one region or
--- all regions.
+-- 'applyToAllRegions', 'sourceConfig_applyToAllRegions' - Specifies whether the channel applies to a single region or to all
+-- regions.
 --
--- 'advancedEventSelectors', 'sourceConfig_advancedEventSelectors' - The advanced event selectors configured for the service-linked channel.
+-- 'advancedEventSelectors', 'sourceConfig_advancedEventSelectors' - The advanced event selectors that are configured for the channel.
 newSourceConfig ::
   SourceConfig
 newSourceConfig =
@@ -56,12 +56,12 @@ newSourceConfig =
       advancedEventSelectors = Prelude.Nothing
     }
 
--- | Specifies whether the service-linked channel applies to one region or
--- all regions.
+-- | Specifies whether the channel applies to a single region or to all
+-- regions.
 sourceConfig_applyToAllRegions :: Lens.Lens' SourceConfig (Prelude.Maybe Prelude.Bool)
 sourceConfig_applyToAllRegions = Lens.lens (\SourceConfig' {applyToAllRegions} -> applyToAllRegions) (\s@SourceConfig' {} a -> s {applyToAllRegions = a} :: SourceConfig)
 
--- | The advanced event selectors configured for the service-linked channel.
+-- | The advanced event selectors that are configured for the channel.
 sourceConfig_advancedEventSelectors :: Lens.Lens' SourceConfig (Prelude.Maybe [AdvancedEventSelector])
 sourceConfig_advancedEventSelectors = Lens.lens (\SourceConfig' {advancedEventSelectors} -> advancedEventSelectors) (\s@SourceConfig' {} a -> s {advancedEventSelectors = a} :: SourceConfig) Prelude.. Lens.mapping Lens.coerced
 

@@ -241,7 +241,8 @@ instance Core.AWSRequest ModifyTargetGroup where
   type
     AWSResponse ModifyTargetGroup =
       ModifyTargetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyTargetGroupResult"

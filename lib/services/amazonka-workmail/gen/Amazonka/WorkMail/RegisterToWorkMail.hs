@@ -119,7 +119,8 @@ instance Core.AWSRequest RegisterToWorkMail where
   type
     AWSResponse RegisterToWorkMail =
       RegisterToWorkMailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

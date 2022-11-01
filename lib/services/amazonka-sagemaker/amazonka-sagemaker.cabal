@@ -224,6 +224,7 @@ library
     Amazonka.SageMaker.ListImages
     Amazonka.SageMaker.ListImageVersions
     Amazonka.SageMaker.ListInferenceRecommendationsJobs
+    Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
     Amazonka.SageMaker.ListLabelingJobs
     Amazonka.SageMaker.ListLabelingJobsForWorkteam
     Amazonka.SageMaker.ListLineageGroups
@@ -350,9 +351,11 @@ library
     Amazonka.SageMaker.Types.AutoMLSortOrder
     Amazonka.SageMaker.Types.AutoRollbackConfig
     Amazonka.SageMaker.Types.AwsManagedHumanLoopRequestSource
+    Amazonka.SageMaker.Types.BatchDataCaptureConfig
     Amazonka.SageMaker.Types.BatchDescribeModelPackageError
     Amazonka.SageMaker.Types.BatchDescribeModelPackageSummary
     Amazonka.SageMaker.Types.BatchStrategy
+    Amazonka.SageMaker.Types.BatchTransformInput
     Amazonka.SageMaker.Types.Bias
     Amazonka.SageMaker.Types.BlueGreenUpdatePolicy
     Amazonka.SageMaker.Types.BooleanOperator
@@ -461,9 +464,11 @@ library
     Amazonka.SageMaker.Types.Endpoint
     Amazonka.SageMaker.Types.EndpointConfigSortKey
     Amazonka.SageMaker.Types.EndpointConfigSummary
+    Amazonka.SageMaker.Types.EndpointInfo
     Amazonka.SageMaker.Types.EndpointInput
     Amazonka.SageMaker.Types.EndpointInputConfiguration
     Amazonka.SageMaker.Types.EndpointOutputConfiguration
+    Amazonka.SageMaker.Types.EndpointPerformance
     Amazonka.SageMaker.Types.EndpointSortKey
     Amazonka.SageMaker.Types.EndpointStatus
     Amazonka.SageMaker.Types.EndpointSummary
@@ -541,8 +546,10 @@ library
     Amazonka.SageMaker.Types.ImageVersionStatus
     Amazonka.SageMaker.Types.InferenceExecutionConfig
     Amazonka.SageMaker.Types.InferenceExecutionMode
+    Amazonka.SageMaker.Types.InferenceMetrics
     Amazonka.SageMaker.Types.InferenceRecommendation
     Amazonka.SageMaker.Types.InferenceRecommendationsJob
+    Amazonka.SageMaker.Types.InferenceRecommendationsJobStep
     Amazonka.SageMaker.Types.InferenceSpecification
     Amazonka.SageMaker.Types.InputConfig
     Amazonka.SageMaker.Types.InputMode
@@ -638,6 +645,8 @@ library
     Amazonka.SageMaker.Types.MonitoringBaselineConfig
     Amazonka.SageMaker.Types.MonitoringClusterConfig
     Amazonka.SageMaker.Types.MonitoringConstraintsResource
+    Amazonka.SageMaker.Types.MonitoringCsvDatasetFormat
+    Amazonka.SageMaker.Types.MonitoringDatasetFormat
     Amazonka.SageMaker.Types.MonitoringExecutionSortKey
     Amazonka.SageMaker.Types.MonitoringExecutionSummary
     Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
@@ -645,9 +654,11 @@ library
     Amazonka.SageMaker.Types.MonitoringJobDefinition
     Amazonka.SageMaker.Types.MonitoringJobDefinitionSortKey
     Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary
+    Amazonka.SageMaker.Types.MonitoringJsonDatasetFormat
     Amazonka.SageMaker.Types.MonitoringNetworkConfig
     Amazonka.SageMaker.Types.MonitoringOutput
     Amazonka.SageMaker.Types.MonitoringOutputConfig
+    Amazonka.SageMaker.Types.MonitoringParquetDatasetFormat
     Amazonka.SageMaker.Types.MonitoringProblemType
     Amazonka.SageMaker.Types.MonitoringResources
     Amazonka.SageMaker.Types.MonitoringS3Output
@@ -753,6 +764,7 @@ library
     Amazonka.SageMaker.Types.QueryFilters
     Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
     Amazonka.SageMaker.Types.RecommendationJobContainerConfig
+    Amazonka.SageMaker.Types.RecommendationJobInferenceBenchmark
     Amazonka.SageMaker.Types.RecommendationJobInputConfig
     Amazonka.SageMaker.Types.RecommendationJobOutputConfig
     Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
@@ -761,6 +773,7 @@ library
     Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
     Amazonka.SageMaker.Types.RecommendationJobType
     Amazonka.SageMaker.Types.RecommendationMetrics
+    Amazonka.SageMaker.Types.RecommendationStepType
     Amazonka.SageMaker.Types.RecordWrapper
     Amazonka.SageMaker.Types.RedshiftDatasetDefinition
     Amazonka.SageMaker.Types.RedshiftResultCompressionType

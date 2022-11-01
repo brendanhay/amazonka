@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteResolverQueryLogConfig where
   type
     AWSResponse DeleteResolverQueryLogConfig =
       DeleteResolverQueryLogConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

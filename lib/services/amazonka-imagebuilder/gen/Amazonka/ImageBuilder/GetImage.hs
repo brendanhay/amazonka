@@ -79,7 +79,8 @@ getImage_imageBuildVersionArn = Lens.lens (\GetImage' {imageBuildVersionArn} -> 
 
 instance Core.AWSRequest GetImage where
   type AWSResponse GetImage = GetImageResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -107,7 +107,8 @@ updateModel_modelName = Lens.lens (\UpdateModel' {modelName} -> modelName) (\s@U
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = Model
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -120,7 +120,8 @@ instance Core.AWSPager SearchJobs where
 
 instance Core.AWSRequest SearchJobs where
   type AWSResponse SearchJobs = SearchJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

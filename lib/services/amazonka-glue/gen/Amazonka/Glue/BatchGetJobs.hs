@@ -81,7 +81,8 @@ batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@Ba
 
 instance Core.AWSRequest BatchGetJobs where
   type AWSResponse BatchGetJobs = BatchGetJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

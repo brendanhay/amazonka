@@ -136,7 +136,8 @@ instance Core.AWSPager ListFaces where
 
 instance Core.AWSRequest ListFaces where
   type AWSResponse ListFaces = ListFacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -94,7 +94,8 @@ instance Core.AWSRequest UpdateUserHierarchyStructure where
   type
     AWSResponse UpdateUserHierarchyStructure =
       UpdateUserHierarchyStructureResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserHierarchyStructureResponse'

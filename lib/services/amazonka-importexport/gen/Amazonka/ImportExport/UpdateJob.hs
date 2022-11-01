@@ -130,7 +130,8 @@ updateJob_validateOnly = Lens.lens (\UpdateJob' {validateOnly} -> validateOnly) 
 
 instance Core.AWSRequest UpdateJob where
   type AWSResponse UpdateJob = UpdateJobResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateJobResult"

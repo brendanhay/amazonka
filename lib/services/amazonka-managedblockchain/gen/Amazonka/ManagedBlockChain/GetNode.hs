@@ -110,7 +110,8 @@ getNode_nodeId = Lens.lens (\GetNode' {nodeId} -> nodeId) (\s@GetNode' {} a -> s
 
 instance Core.AWSRequest GetNode where
   type AWSResponse GetNode = GetNodeResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

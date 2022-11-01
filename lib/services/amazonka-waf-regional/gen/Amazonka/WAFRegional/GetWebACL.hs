@@ -87,7 +87,8 @@ getWebACL_webACLId = Lens.lens (\GetWebACL' {webACLId} -> webACLId) (\s@GetWebAC
 
 instance Core.AWSRequest GetWebACL where
   type AWSResponse GetWebACL = GetWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -148,7 +148,8 @@ instance Core.AWSRequest DisableAWSServiceAccess where
   type
     AWSResponse DisableAWSServiceAccess =
       DisableAWSServiceAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisableAWSServiceAccessResponse'

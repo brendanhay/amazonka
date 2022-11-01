@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateScalingParameters where
   type
     AWSResponse UpdateScalingParameters =
       UpdateScalingParametersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateScalingParametersResult"

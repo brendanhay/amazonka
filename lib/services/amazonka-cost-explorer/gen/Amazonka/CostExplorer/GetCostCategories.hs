@@ -257,7 +257,8 @@ instance Core.AWSRequest GetCostCategories where
   type
     AWSResponse GetCostCategories =
       GetCostCategoriesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

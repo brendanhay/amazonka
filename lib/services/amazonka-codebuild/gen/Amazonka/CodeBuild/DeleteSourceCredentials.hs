@@ -78,7 +78,8 @@ instance Core.AWSRequest DeleteSourceCredentials where
   type
     AWSResponse DeleteSourceCredentials =
       DeleteSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

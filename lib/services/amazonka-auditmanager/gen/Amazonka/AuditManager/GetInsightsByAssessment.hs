@@ -80,7 +80,8 @@ instance Core.AWSRequest GetInsightsByAssessment where
   type
     AWSResponse GetInsightsByAssessment =
       GetInsightsByAssessmentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

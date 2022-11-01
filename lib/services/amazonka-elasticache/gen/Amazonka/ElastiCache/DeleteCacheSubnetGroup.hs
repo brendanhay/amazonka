@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteCacheSubnetGroup where
   type
     AWSResponse DeleteCacheSubnetGroup =
       DeleteCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheSubnetGroupResponse'

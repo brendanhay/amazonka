@@ -81,7 +81,8 @@ instance Core.AWSRequest UnassignVolume where
   type
     AWSResponse UnassignVolume =
       UnassignVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnassignVolumeResponse'
 

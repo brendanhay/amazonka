@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribeTypeRegistration where
   type
     AWSResponse DescribeTypeRegistration =
       DescribeTypeRegistrationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTypeRegistrationResult"

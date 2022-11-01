@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists all tags associated with a given Amazon Translate resource. For
+-- more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
 module Amazonka.Translate.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -48,7 +50,9 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { resourceArn :: Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the given Amazon Translate resource
+    -- you are querying.
+    resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,7 +64,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - Undocumented member.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the given Amazon Translate resource
+-- you are querying.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -68,7 +73,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the given Amazon Translate resource
+-- you are querying.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -76,7 +82,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,7 +130,11 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { tags :: Prelude.Maybe [Tag],
+  { -- | Tags associated with the Amazon Translate resource being queried. A tag
+    -- is a key-value pair that adds as a metadata to a resource used by Amazon
+    -- Translate. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,7 +148,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - Undocumented member.
+-- 'tags', 'listTagsForResourceResponse_tags' - Tags associated with the Amazon Translate resource being queried. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Translate. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -151,7 +165,10 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Tags associated with the Amazon Translate resource being queried. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Translate. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

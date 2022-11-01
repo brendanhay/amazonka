@@ -106,7 +106,8 @@ instance Core.AWSRequest AcceptReservedNodeExchange where
   type
     AWSResponse AcceptReservedNodeExchange =
       AcceptReservedNodeExchangeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AcceptReservedNodeExchangeResult"

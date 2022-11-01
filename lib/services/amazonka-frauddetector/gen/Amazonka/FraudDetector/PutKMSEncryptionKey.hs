@@ -49,6 +49,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutKMSEncryptionKey' smart constructor.
 data PutKMSEncryptionKey = PutKMSEncryptionKey'
   { -- | The KMS encryption key ARN.
+    --
+    -- The KMS key must be single-Region key. Amazon Fraud Detector does not
+    -- support multi-Region KMS key.
     kmsEncryptionKeyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,6 +65,9 @@ data PutKMSEncryptionKey = PutKMSEncryptionKey'
 -- for backwards compatibility:
 --
 -- 'kmsEncryptionKeyArn', 'putKMSEncryptionKey_kmsEncryptionKeyArn' - The KMS encryption key ARN.
+--
+-- The KMS key must be single-Region key. Amazon Fraud Detector does not
+-- support multi-Region KMS key.
 newPutKMSEncryptionKey ::
   -- | 'kmsEncryptionKeyArn'
   Prelude.Text ->
@@ -73,6 +79,9 @@ newPutKMSEncryptionKey pKmsEncryptionKeyArn_ =
     }
 
 -- | The KMS encryption key ARN.
+--
+-- The KMS key must be single-Region key. Amazon Fraud Detector does not
+-- support multi-Region KMS key.
 putKMSEncryptionKey_kmsEncryptionKeyArn :: Lens.Lens' PutKMSEncryptionKey Prelude.Text
 putKMSEncryptionKey_kmsEncryptionKeyArn = Lens.lens (\PutKMSEncryptionKey' {kmsEncryptionKeyArn} -> kmsEncryptionKeyArn) (\s@PutKMSEncryptionKey' {} a -> s {kmsEncryptionKeyArn = a} :: PutKMSEncryptionKey)
 
@@ -80,7 +89,8 @@ instance Core.AWSRequest PutKMSEncryptionKey where
   type
     AWSResponse PutKMSEncryptionKey =
       PutKMSEncryptionKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

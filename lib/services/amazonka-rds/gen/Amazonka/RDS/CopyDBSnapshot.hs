@@ -571,7 +571,8 @@ instance Core.AWSRequest CopyDBSnapshot where
   type
     AWSResponse CopyDBSnapshot =
       CopyDBSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyDBSnapshotResult"

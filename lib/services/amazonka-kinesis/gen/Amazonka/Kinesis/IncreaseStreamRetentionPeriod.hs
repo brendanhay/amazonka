@@ -110,7 +110,8 @@ instance
   type
     AWSResponse IncreaseStreamRetentionPeriod =
       IncreaseStreamRetentionPeriodResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       IncreaseStreamRetentionPeriodResponse'

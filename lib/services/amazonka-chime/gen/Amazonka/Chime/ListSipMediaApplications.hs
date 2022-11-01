@@ -92,7 +92,8 @@ instance Core.AWSRequest ListSipMediaApplications where
   type
     AWSResponse ListSipMediaApplications =
       ListSipMediaApplicationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

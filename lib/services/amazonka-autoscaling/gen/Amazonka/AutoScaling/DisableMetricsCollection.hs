@@ -230,7 +230,8 @@ instance Core.AWSRequest DisableMetricsCollection where
   type
     AWSResponse DisableMetricsCollection =
       DisableMetricsCollectionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisableMetricsCollectionResponse'

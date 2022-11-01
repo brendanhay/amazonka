@@ -86,7 +86,8 @@ instance Core.AWSRequest GetFindingAggregator where
   type
     AWSResponse GetFindingAggregator =
       GetFindingAggregatorResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

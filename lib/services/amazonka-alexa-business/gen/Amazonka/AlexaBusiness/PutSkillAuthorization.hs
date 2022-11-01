@@ -107,7 +107,8 @@ instance Core.AWSRequest PutSkillAuthorization where
   type
     AWSResponse PutSkillAuthorization =
       PutSkillAuthorizationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

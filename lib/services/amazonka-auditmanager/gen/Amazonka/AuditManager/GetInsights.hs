@@ -59,7 +59,8 @@ newGetInsights = GetInsights'
 
 instance Core.AWSRequest GetInsights where
   type AWSResponse GetInsights = GetInsightsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

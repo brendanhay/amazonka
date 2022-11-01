@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteGcmChannel where
   type
     AWSResponse DeleteGcmChannel =
       DeleteGcmChannelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

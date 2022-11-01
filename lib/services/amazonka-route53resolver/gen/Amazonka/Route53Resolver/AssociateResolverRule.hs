@@ -115,7 +115,8 @@ instance Core.AWSRequest AssociateResolverRule where
   type
     AWSResponse AssociateResolverRule =
       AssociateResolverRuleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

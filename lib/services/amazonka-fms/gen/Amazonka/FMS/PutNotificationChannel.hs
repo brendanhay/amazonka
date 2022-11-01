@@ -101,7 +101,8 @@ instance Core.AWSRequest PutNotificationChannel where
   type
     AWSResponse PutNotificationChannel =
       PutNotificationChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutNotificationChannelResponse'

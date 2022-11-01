@@ -114,7 +114,8 @@ createOrder_paymentOption = Lens.lens (\CreateOrder' {paymentOption} -> paymentO
 
 instance Core.AWSRequest CreateOrder where
   type AWSResponse CreateOrder = CreateOrderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

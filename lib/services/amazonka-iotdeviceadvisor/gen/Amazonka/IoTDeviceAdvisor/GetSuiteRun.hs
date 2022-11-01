@@ -104,7 +104,8 @@ getSuiteRun_suiteRunId = Lens.lens (\GetSuiteRun' {suiteRunId} -> suiteRunId) (\
 
 instance Core.AWSRequest GetSuiteRun where
   type AWSResponse GetSuiteRun = GetSuiteRunResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -76,7 +76,8 @@ deleteImage_name = Lens.lens (\DeleteImage' {name} -> name) (\s@DeleteImage' {} 
 
 instance Core.AWSRequest DeleteImage where
   type AWSResponse DeleteImage = DeleteImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

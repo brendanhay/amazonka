@@ -101,7 +101,8 @@ getVariables_maxResults = Lens.lens (\GetVariables' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest GetVariables where
   type AWSResponse GetVariables = GetVariablesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

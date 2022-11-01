@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeDeviceFleet where
   type
     AWSResponse DescribeDeviceFleet =
       DescribeDeviceFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeFleets where
   type
     AWSResponse DescribeFleets =
       DescribeFleetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

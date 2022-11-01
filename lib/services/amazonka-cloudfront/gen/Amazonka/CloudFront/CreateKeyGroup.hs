@@ -92,7 +92,8 @@ instance Core.AWSRequest CreateKeyGroup where
   type
     AWSResponse CreateKeyGroup =
       CreateKeyGroupResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -961,10 +961,11 @@ putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.expectHeader
       Prelude.. Request.s3vhost
-      Prelude.. Request.putBody defaultService
+      Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->

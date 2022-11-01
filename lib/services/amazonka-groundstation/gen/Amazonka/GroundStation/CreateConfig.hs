@@ -104,7 +104,8 @@ createConfig_name = Lens.lens (\CreateConfig' {name} -> name) (\s@CreateConfig' 
 
 instance Core.AWSRequest CreateConfig where
   type AWSResponse CreateConfig = ConfigIdResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -164,7 +164,8 @@ instance Core.AWSRequest GetManagedRuleSet where
   type
     AWSResponse GetManagedRuleSet =
       GetManagedRuleSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -122,7 +122,8 @@ addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -116,7 +116,8 @@ updateUpload_arn = Lens.lens (\UpdateUpload' {arn} -> arn) (\s@UpdateUpload' {} 
 
 instance Core.AWSRequest UpdateUpload where
   type AWSResponse UpdateUpload = UpdateUploadResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

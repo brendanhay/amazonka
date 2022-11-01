@@ -100,7 +100,8 @@ resolveRoom_skillId = Lens.lens (\ResolveRoom' {skillId} -> skillId) (\s@Resolve
 
 instance Core.AWSRequest ResolveRoom where
   type AWSResponse ResolveRoom = ResolveRoomResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

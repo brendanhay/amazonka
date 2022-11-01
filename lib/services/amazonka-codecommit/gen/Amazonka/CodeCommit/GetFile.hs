@@ -120,7 +120,8 @@ getFile_filePath = Lens.lens (\GetFile' {filePath} -> filePath) (\s@GetFile' {} 
 
 instance Core.AWSRequest GetFile where
   type AWSResponse GetFile = GetFileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

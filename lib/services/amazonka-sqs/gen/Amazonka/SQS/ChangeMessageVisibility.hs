@@ -170,7 +170,8 @@ instance Core.AWSRequest ChangeMessageVisibility where
   type
     AWSResponse ChangeMessageVisibility =
       ChangeMessageVisibilityResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ChangeMessageVisibilityResponse'

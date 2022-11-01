@@ -119,7 +119,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
   type
     AWSResponse RemoveTagsFromResource =
       TagListMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveTagsFromResourceResult"

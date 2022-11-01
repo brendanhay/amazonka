@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeOrganizationalUnit where
   type
     AWSResponse DescribeOrganizationalUnit =
       DescribeOrganizationalUnitResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

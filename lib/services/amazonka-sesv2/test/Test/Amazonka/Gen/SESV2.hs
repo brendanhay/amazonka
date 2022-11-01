@@ -114,6 +114,9 @@ import Test.Tasty
 --         , requestGetDedicatedIp $
 --             newGetDedicatedIp
 --
+--         , requestGetDedicatedIpPool $
+--             newGetDedicatedIpPool
+--
 --         , requestGetDedicatedIps $
 --             newGetDedicatedIps
 --
@@ -359,6 +362,9 @@ import Test.Tasty
 --
 --         , responseGetDedicatedIp $
 --             newGetDedicatedIpResponse
+--
+--         , responseGetDedicatedIpPool $
+--             newGetDedicatedIpPoolResponse
 --
 --         , responseGetDedicatedIps $
 --             newGetDedicatedIpsResponse
@@ -694,6 +700,12 @@ requestGetDedicatedIp =
   req
     "GetDedicatedIp"
     "fixture/GetDedicatedIp.yaml"
+
+requestGetDedicatedIpPool :: GetDedicatedIpPool -> TestTree
+requestGetDedicatedIpPool =
+  req
+    "GetDedicatedIpPool"
+    "fixture/GetDedicatedIpPool.yaml"
 
 requestGetDedicatedIps :: GetDedicatedIps -> TestTree
 requestGetDedicatedIps =
@@ -1240,6 +1252,14 @@ responseGetDedicatedIp =
     "fixture/GetDedicatedIpResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDedicatedIp)
+
+responseGetDedicatedIpPool :: GetDedicatedIpPoolResponse -> TestTree
+responseGetDedicatedIpPool =
+  res
+    "GetDedicatedIpPoolResponse"
+    "fixture/GetDedicatedIpPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDedicatedIpPool)
 
 responseGetDedicatedIps :: GetDedicatedIpsResponse -> TestTree
 responseGetDedicatedIps =

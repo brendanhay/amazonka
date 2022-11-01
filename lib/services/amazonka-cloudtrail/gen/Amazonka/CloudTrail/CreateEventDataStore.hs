@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateEventDataStore where
   type
     AWSResponse CreateEventDataStore =
       CreateEventDataStoreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

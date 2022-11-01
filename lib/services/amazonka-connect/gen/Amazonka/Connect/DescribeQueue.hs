@@ -97,7 +97,8 @@ instance Core.AWSRequest DescribeQueue where
   type
     AWSResponse DescribeQueue =
       DescribeQueueResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

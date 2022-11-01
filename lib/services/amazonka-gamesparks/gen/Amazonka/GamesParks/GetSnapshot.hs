@@ -99,7 +99,8 @@ getSnapshot_snapshotId = Lens.lens (\GetSnapshot' {snapshotId} -> snapshotId) (\
 
 instance Core.AWSRequest GetSnapshot where
   type AWSResponse GetSnapshot = GetSnapshotResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

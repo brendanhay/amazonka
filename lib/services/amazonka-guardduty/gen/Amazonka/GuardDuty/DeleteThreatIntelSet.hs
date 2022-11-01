@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteThreatIntelSet where
   type
     AWSResponse DeleteThreatIntelSet =
       DeleteThreatIntelSetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

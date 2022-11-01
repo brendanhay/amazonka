@@ -231,7 +231,8 @@ instance Core.AWSRequest PutPermission where
   type
     AWSResponse PutPermission =
       PutPermissionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutPermissionResponse'
 

@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateConnectorProfile where
   type
     AWSResponse CreateConnectorProfile =
       CreateConnectorProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProposalActions' smart constructor.
 data ProposalActions = ProposalActions'
-  { -- | The actions to perform for an @APPROVED@ proposal to invite an AWS
-    -- account to create a member and join the network.
+  { -- | The actions to perform for an @APPROVED@ proposal to invite an Amazon
+    -- Web Services account to create a member and join the network.
     invitations :: Prelude.Maybe [InviteAction],
     -- | The actions to perform for an @APPROVED@ proposal to remove a member
     -- from the network, which deletes the member and all associated member
@@ -49,8 +49,8 @@ data ProposalActions = ProposalActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invitations', 'proposalActions_invitations' - The actions to perform for an @APPROVED@ proposal to invite an AWS
--- account to create a member and join the network.
+-- 'invitations', 'proposalActions_invitations' - The actions to perform for an @APPROVED@ proposal to invite an Amazon
+-- Web Services account to create a member and join the network.
 --
 -- 'removals', 'proposalActions_removals' - The actions to perform for an @APPROVED@ proposal to remove a member
 -- from the network, which deletes the member and all associated member
@@ -63,8 +63,8 @@ newProposalActions =
       removals = Prelude.Nothing
     }
 
--- | The actions to perform for an @APPROVED@ proposal to invite an AWS
--- account to create a member and join the network.
+-- | The actions to perform for an @APPROVED@ proposal to invite an Amazon
+-- Web Services account to create a member and join the network.
 proposalActions_invitations :: Lens.Lens' ProposalActions (Prelude.Maybe [InviteAction])
 proposalActions_invitations = Lens.lens (\ProposalActions' {invitations} -> invitations) (\s@ProposalActions' {} a -> s {invitations = a} :: ProposalActions) Prelude.. Lens.mapping Lens.coerced
 

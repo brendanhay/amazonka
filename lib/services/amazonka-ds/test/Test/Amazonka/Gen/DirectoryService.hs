@@ -126,6 +126,9 @@ import Test.Tasty
 --         , requestDescribeTrusts $
 --             newDescribeTrusts
 --
+--         , requestDescribeUpdateDirectory $
+--             newDescribeUpdateDirectory
+--
 --         , requestDisableClientAuthentication $
 --             newDisableClientAuthentication
 --
@@ -206,6 +209,9 @@ import Test.Tasty
 --
 --         , requestUpdateConditionalForwarder $
 --             newUpdateConditionalForwarder
+--
+--         , requestUpdateDirectorySetup $
+--             newUpdateDirectorySetup
 --
 --         , requestUpdateNumberOfDomainControllers $
 --             newUpdateNumberOfDomainControllers
@@ -324,6 +330,9 @@ import Test.Tasty
 --         , responseDescribeTrusts $
 --             newDescribeTrustsResponse
 --
+--         , responseDescribeUpdateDirectory $
+--             newDescribeUpdateDirectoryResponse
+--
 --         , responseDisableClientAuthentication $
 --             newDisableClientAuthenticationResponse
 --
@@ -404,6 +413,9 @@ import Test.Tasty
 --
 --         , responseUpdateConditionalForwarder $
 --             newUpdateConditionalForwarderResponse
+--
+--         , responseUpdateDirectorySetup $
+--             newUpdateDirectorySetupResponse
 --
 --         , responseUpdateNumberOfDomainControllers $
 --             newUpdateNumberOfDomainControllersResponse
@@ -623,6 +635,12 @@ requestDescribeTrusts =
     "DescribeTrusts"
     "fixture/DescribeTrusts.yaml"
 
+requestDescribeUpdateDirectory :: DescribeUpdateDirectory -> TestTree
+requestDescribeUpdateDirectory =
+  req
+    "DescribeUpdateDirectory"
+    "fixture/DescribeUpdateDirectory.yaml"
+
 requestDisableClientAuthentication :: DisableClientAuthentication -> TestTree
 requestDisableClientAuthentication =
   req
@@ -784,6 +802,12 @@ requestUpdateConditionalForwarder =
   req
     "UpdateConditionalForwarder"
     "fixture/UpdateConditionalForwarder.yaml"
+
+requestUpdateDirectorySetup :: UpdateDirectorySetup -> TestTree
+requestUpdateDirectorySetup =
+  req
+    "UpdateDirectorySetup"
+    "fixture/UpdateDirectorySetup.yaml"
 
 requestUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllers -> TestTree
 requestUpdateNumberOfDomainControllers =
@@ -1081,6 +1105,14 @@ responseDescribeTrusts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTrusts)
 
+responseDescribeUpdateDirectory :: DescribeUpdateDirectoryResponse -> TestTree
+responseDescribeUpdateDirectory =
+  res
+    "DescribeUpdateDirectoryResponse"
+    "fixture/DescribeUpdateDirectoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeUpdateDirectory)
+
 responseDisableClientAuthentication :: DisableClientAuthenticationResponse -> TestTree
 responseDisableClientAuthentication =
   res
@@ -1296,6 +1328,14 @@ responseUpdateConditionalForwarder =
     "fixture/UpdateConditionalForwarderResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConditionalForwarder)
+
+responseUpdateDirectorySetup :: UpdateDirectorySetupResponse -> TestTree
+responseUpdateDirectorySetup =
+  res
+    "UpdateDirectorySetupResponse"
+    "fixture/UpdateDirectorySetupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDirectorySetup)
 
 responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
 responseUpdateNumberOfDomainControllers =

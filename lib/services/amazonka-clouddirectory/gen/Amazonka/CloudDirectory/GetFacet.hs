@@ -91,7 +91,8 @@ getFacet_name = Lens.lens (\GetFacet' {name} -> name) (\s@GetFacet' {} a -> s {n
 
 instance Core.AWSRequest GetFacet where
   type AWSResponse GetFacet = GetFacetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

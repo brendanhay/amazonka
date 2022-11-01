@@ -146,7 +146,8 @@ instance Core.AWSRequest ListEntitlements where
   type
     AWSResponse ListEntitlements =
       ListEntitlementsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

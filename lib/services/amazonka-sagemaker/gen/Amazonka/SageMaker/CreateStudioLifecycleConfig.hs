@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateStudioLifecycleConfig where
   type
     AWSResponse CreateStudioLifecycleConfig =
       CreateStudioLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

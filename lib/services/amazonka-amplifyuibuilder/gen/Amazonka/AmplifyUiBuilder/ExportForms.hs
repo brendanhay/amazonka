@@ -119,7 +119,8 @@ instance Core.AWSPager ExportForms where
 
 instance Core.AWSRequest ExportForms where
   type AWSResponse ExportForms = ExportFormsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

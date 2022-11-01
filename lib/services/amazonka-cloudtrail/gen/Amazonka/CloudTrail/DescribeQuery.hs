@@ -41,6 +41,8 @@ module Amazonka.CloudTrail.DescribeQuery
     describeQueryResponse_queryStatus,
     describeQueryResponse_errorMessage,
     describeQueryResponse_queryId,
+    describeQueryResponse_deliveryStatus,
+    describeQueryResponse_deliveryS3Uri,
     describeQueryResponse_queryString,
     describeQueryResponse_httpStatus,
   )
@@ -100,7 +102,8 @@ instance Core.AWSRequest DescribeQuery where
   type
     AWSResponse DescribeQuery =
       DescribeQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +112,8 @@ instance Core.AWSRequest DescribeQuery where
             Prelude.<*> (x Core..?> "QueryStatus")
             Prelude.<*> (x Core..?> "ErrorMessage")
             Prelude.<*> (x Core..?> "QueryId")
+            Prelude.<*> (x Core..?> "DeliveryStatus")
+            Prelude.<*> (x Core..?> "DeliveryS3Uri")
             Prelude.<*> (x Core..?> "QueryString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -167,6 +172,11 @@ data DescribeQueryResponse = DescribeQueryResponse'
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the query.
     queryId :: Prelude.Maybe Prelude.Text,
+    -- | The delivery status.
+    deliveryStatus :: Prelude.Maybe DeliveryStatus,
+    -- | The URI for the S3 bucket where CloudTrail delivered query results, if
+    -- applicable.
+    deliveryS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The SQL code of a query.
     queryString :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -193,6 +203,11 @@ data DescribeQueryResponse = DescribeQueryResponse'
 --
 -- 'queryId', 'describeQueryResponse_queryId' - The ID of the query.
 --
+-- 'deliveryStatus', 'describeQueryResponse_deliveryStatus' - The delivery status.
+--
+-- 'deliveryS3Uri', 'describeQueryResponse_deliveryS3Uri' - The URI for the S3 bucket where CloudTrail delivered query results, if
+-- applicable.
+--
 -- 'queryString', 'describeQueryResponse_queryString' - The SQL code of a query.
 --
 -- 'httpStatus', 'describeQueryResponse_httpStatus' - The response's http status code.
@@ -207,6 +222,8 @@ newDescribeQueryResponse pHttpStatus_ =
       queryStatus = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       queryId = Prelude.Nothing,
+      deliveryStatus = Prelude.Nothing,
+      deliveryS3Uri = Prelude.Nothing,
       queryString = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -230,6 +247,15 @@ describeQueryResponse_errorMessage = Lens.lens (\DescribeQueryResponse' {errorMe
 describeQueryResponse_queryId :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
 describeQueryResponse_queryId = Lens.lens (\DescribeQueryResponse' {queryId} -> queryId) (\s@DescribeQueryResponse' {} a -> s {queryId = a} :: DescribeQueryResponse)
 
+-- | The delivery status.
+describeQueryResponse_deliveryStatus :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe DeliveryStatus)
+describeQueryResponse_deliveryStatus = Lens.lens (\DescribeQueryResponse' {deliveryStatus} -> deliveryStatus) (\s@DescribeQueryResponse' {} a -> s {deliveryStatus = a} :: DescribeQueryResponse)
+
+-- | The URI for the S3 bucket where CloudTrail delivered query results, if
+-- applicable.
+describeQueryResponse_deliveryS3Uri :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
+describeQueryResponse_deliveryS3Uri = Lens.lens (\DescribeQueryResponse' {deliveryS3Uri} -> deliveryS3Uri) (\s@DescribeQueryResponse' {} a -> s {deliveryS3Uri = a} :: DescribeQueryResponse)
+
 -- | The SQL code of a query.
 describeQueryResponse_queryString :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
 describeQueryResponse_queryString = Lens.lens (\DescribeQueryResponse' {queryString} -> queryString) (\s@DescribeQueryResponse' {} a -> s {queryString = a} :: DescribeQueryResponse)
@@ -244,5 +270,7 @@ instance Prelude.NFData DescribeQueryResponse where
       `Prelude.seq` Prelude.rnf queryStatus
       `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf queryId
+      `Prelude.seq` Prelude.rnf deliveryStatus
+      `Prelude.seq` Prelude.rnf deliveryS3Uri
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf httpStatus

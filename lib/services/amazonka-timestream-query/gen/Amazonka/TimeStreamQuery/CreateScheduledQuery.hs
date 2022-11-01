@@ -282,7 +282,8 @@ instance Core.AWSRequest CreateScheduledQuery where
   type
     AWSResponse CreateScheduledQuery =
       CreateScheduledQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

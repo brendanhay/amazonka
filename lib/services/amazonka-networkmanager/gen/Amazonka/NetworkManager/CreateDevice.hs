@@ -196,7 +196,8 @@ createDevice_globalNetworkId = Lens.lens (\CreateDevice' {globalNetworkId} -> gl
 
 instance Core.AWSRequest CreateDevice where
   type AWSResponse CreateDevice = CreateDeviceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

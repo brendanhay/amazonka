@@ -137,7 +137,8 @@ instance Core.AWSRequest ListConfigurationRevisions where
   type
     AWSResponse ListConfigurationRevisions =
       ListConfigurationRevisionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

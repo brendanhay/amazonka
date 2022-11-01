@@ -153,7 +153,8 @@ updateAnswer_questionId = Lens.lens (\UpdateAnswer' {questionId} -> questionId) 
 
 instance Core.AWSRequest UpdateAnswer where
   type AWSResponse UpdateAnswer = UpdateAnswerResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

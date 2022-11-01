@@ -24,12 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsRecord
 
--- | A complex type that contains information about changes to the Route 53
+-- | A complex type that contains information about changes to the Route 53
 -- DNS records that Cloud Map creates when you register an instance.
 --
 -- /See:/ 'newDnsConfigChange' smart constructor.
 data DnsConfigChange = DnsConfigChange'
-  { -- | An array that contains one @DnsRecord@ object for each Route 53 record
+  { -- | An array that contains one @DnsRecord@ object for each Route 53 record
     -- that you want Cloud Map to create when you register an instance.
     dnsRecords :: [DnsRecord]
   }
@@ -43,14 +43,14 @@ data DnsConfigChange = DnsConfigChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsRecords', 'dnsConfigChange_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 record
+-- 'dnsRecords', 'dnsConfigChange_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 record
 -- that you want Cloud Map to create when you register an instance.
 newDnsConfigChange ::
   DnsConfigChange
 newDnsConfigChange =
   DnsConfigChange' {dnsRecords = Prelude.mempty}
 
--- | An array that contains one @DnsRecord@ object for each Route 53 record
+-- | An array that contains one @DnsRecord@ object for each Route 53 record
 -- that you want Cloud Map to create when you register an instance.
 dnsConfigChange_dnsRecords :: Lens.Lens' DnsConfigChange [DnsRecord]
 dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Lens.coerced

@@ -30,13 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'
-  { -- | Indicates whether the job should have a public IP address. For a job
-    -- that is running on Fargate resources in a private subnet to send
-    -- outbound traffic to the internet (for example, to pull container
-    -- images), the private subnet requires a NAT gateway be attached to route
-    -- requests to the internet. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>.
-    -- The default value is \"DISABLED\".
+  { -- | Indicates whether the job has a public IP address. For a job that\'s
+    -- running on Fargate resources in a private subnet to send outbound
+    -- traffic to the internet (for example, to pull container images), the
+    -- private subnet requires a NAT gateway be attached to route requests to
+    -- the internet. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>
+    -- in the /Amazon Elastic Container Service Developer Guide/. The default
+    -- value is \"@DISABLED@\".
     assignPublicIp :: Prelude.Maybe AssignPublicIp
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,13 +50,14 @@ data NetworkConfiguration = NetworkConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignPublicIp', 'networkConfiguration_assignPublicIp' - Indicates whether the job should have a public IP address. For a job
--- that is running on Fargate resources in a private subnet to send
--- outbound traffic to the internet (for example, to pull container
--- images), the private subnet requires a NAT gateway be attached to route
--- requests to the internet. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>.
--- The default value is \"DISABLED\".
+-- 'assignPublicIp', 'networkConfiguration_assignPublicIp' - Indicates whether the job has a public IP address. For a job that\'s
+-- running on Fargate resources in a private subnet to send outbound
+-- traffic to the internet (for example, to pull container images), the
+-- private subnet requires a NAT gateway be attached to route requests to
+-- the internet. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>
+-- in the /Amazon Elastic Container Service Developer Guide/. The default
+-- value is \"@DISABLED@\".
 newNetworkConfiguration ::
   NetworkConfiguration
 newNetworkConfiguration =
@@ -64,13 +66,14 @@ newNetworkConfiguration =
         Prelude.Nothing
     }
 
--- | Indicates whether the job should have a public IP address. For a job
--- that is running on Fargate resources in a private subnet to send
--- outbound traffic to the internet (for example, to pull container
--- images), the private subnet requires a NAT gateway be attached to route
--- requests to the internet. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>.
--- The default value is \"DISABLED\".
+-- | Indicates whether the job has a public IP address. For a job that\'s
+-- running on Fargate resources in a private subnet to send outbound
+-- traffic to the internet (for example, to pull container images), the
+-- private subnet requires a NAT gateway be attached to route requests to
+-- the internet. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>
+-- in the /Amazon Elastic Container Service Developer Guide/. The default
+-- value is \"@DISABLED@\".
 networkConfiguration_assignPublicIp :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AssignPublicIp)
 networkConfiguration_assignPublicIp = Lens.lens (\NetworkConfiguration' {assignPublicIp} -> assignPublicIp) (\s@NetworkConfiguration' {} a -> s {assignPublicIp = a} :: NetworkConfiguration)
 

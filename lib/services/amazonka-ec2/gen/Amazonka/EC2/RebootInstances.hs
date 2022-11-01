@@ -102,7 +102,8 @@ instance Core.AWSRequest RebootInstances where
   type
     AWSResponse RebootInstances =
       RebootInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RebootInstancesResponse'
 

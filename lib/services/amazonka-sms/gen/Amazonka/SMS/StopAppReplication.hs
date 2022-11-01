@@ -75,7 +75,8 @@ instance Core.AWSRequest StopAppReplication where
   type
     AWSResponse StopAppReplication =
       StopAppReplicationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

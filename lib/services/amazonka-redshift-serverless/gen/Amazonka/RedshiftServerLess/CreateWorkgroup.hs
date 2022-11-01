@@ -179,7 +179,8 @@ instance Core.AWSRequest CreateWorkgroup where
   type
     AWSResponse CreateWorkgroup =
       CreateWorkgroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateQueueStatus where
   type
     AWSResponse UpdateQueueStatus =
       UpdateQueueStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateQueueStatusResponse'
 

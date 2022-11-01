@@ -83,7 +83,8 @@ stopImport_importId = Lens.lens (\StopImport' {importId} -> importId) (\s@StopIm
 
 instance Core.AWSRequest StopImport where
   type AWSResponse StopImport = StopImportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,7 +138,7 @@ instance Core.ToQuery StopImport where
 
 -- | /See:/ 'newStopImportResponse' smart constructor.
 data StopImportResponse = StopImportResponse'
-  { -- | The source S3 bucket.
+  { -- | The source S3 bucket for the import.
     importSource :: Prelude.Maybe ImportSource,
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
@@ -157,7 +158,7 @@ data StopImportResponse = StopImportResponse'
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import.
     importStatus :: Prelude.Maybe ImportStatus,
-    -- | The destination event data store.
+    -- | The ARN of the destination event data store.
     destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -172,7 +173,7 @@ data StopImportResponse = StopImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importSource', 'stopImportResponse_importSource' - The source S3 bucket.
+-- 'importSource', 'stopImportResponse_importSource' - The source S3 bucket for the import.
 --
 -- 'endEventTime', 'stopImportResponse_endEventTime' - Used with @StartEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
@@ -192,7 +193,7 @@ data StopImportResponse = StopImportResponse'
 --
 -- 'importStatus', 'stopImportResponse_importStatus' - The status of the import.
 --
--- 'destinations', 'stopImportResponse_destinations' - The destination event data store.
+-- 'destinations', 'stopImportResponse_destinations' - The ARN of the destination event data store.
 --
 -- 'httpStatus', 'stopImportResponse_httpStatus' - The response's http status code.
 newStopImportResponse ::
@@ -213,7 +214,7 @@ newStopImportResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The source S3 bucket.
+-- | The source S3 bucket for the import.
 stopImportResponse_importSource :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportSource)
 stopImportResponse_importSource = Lens.lens (\StopImportResponse' {importSource} -> importSource) (\s@StopImportResponse' {} a -> s {importSource = a} :: StopImportResponse)
 
@@ -249,7 +250,7 @@ stopImportResponse_importId = Lens.lens (\StopImportResponse' {importId} -> impo
 stopImportResponse_importStatus :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatus)
 stopImportResponse_importStatus = Lens.lens (\StopImportResponse' {importStatus} -> importStatus) (\s@StopImportResponse' {} a -> s {importStatus = a} :: StopImportResponse)
 
--- | The destination event data store.
+-- | The ARN of the destination event data store.
 stopImportResponse_destinations :: Lens.Lens' StopImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 stopImportResponse_destinations = Lens.lens (\StopImportResponse' {destinations} -> destinations) (\s@StopImportResponse' {} a -> s {destinations = a} :: StopImportResponse) Prelude.. Lens.mapping Lens.coerced
 

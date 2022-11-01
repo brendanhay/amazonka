@@ -111,7 +111,8 @@ getSchema_schemaId = Lens.lens (\GetSchema' {schemaId} -> schemaId) (\s@GetSchem
 
 instance Core.AWSRequest GetSchema where
   type AWSResponse GetSchema = GetSchemaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

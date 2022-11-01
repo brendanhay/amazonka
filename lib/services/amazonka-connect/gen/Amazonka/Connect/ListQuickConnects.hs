@@ -153,7 +153,8 @@ instance Core.AWSRequest ListQuickConnects where
   type
     AWSResponse ListQuickConnects =
       ListQuickConnectsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

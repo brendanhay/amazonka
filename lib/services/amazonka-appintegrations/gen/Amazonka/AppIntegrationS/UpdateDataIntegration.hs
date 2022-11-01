@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateDataIntegration where
   type
     AWSResponse UpdateDataIntegration =
       UpdateDataIntegrationResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

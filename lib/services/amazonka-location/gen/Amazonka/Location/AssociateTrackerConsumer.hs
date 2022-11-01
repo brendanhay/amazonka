@@ -120,7 +120,8 @@ instance Core.AWSRequest AssociateTrackerConsumer where
   type
     AWSResponse AssociateTrackerConsumer =
       AssociateTrackerConsumerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -102,7 +102,8 @@ deleteEntity_workspaceId = Lens.lens (\DeleteEntity' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest DeleteEntity where
   type AWSResponse DeleteEntity = DeleteEntityResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

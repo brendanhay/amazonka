@@ -126,7 +126,8 @@ instance
   type
     AWSResponse DeleteVPCAssociationAuthorization =
       DeleteVPCAssociationAuthorizationResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->

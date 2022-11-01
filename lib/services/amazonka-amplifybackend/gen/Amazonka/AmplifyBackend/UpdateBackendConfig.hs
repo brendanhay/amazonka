@@ -95,7 +95,8 @@ instance Core.AWSRequest UpdateBackendConfig where
   type
     AWSResponse UpdateBackendConfig =
       UpdateBackendConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

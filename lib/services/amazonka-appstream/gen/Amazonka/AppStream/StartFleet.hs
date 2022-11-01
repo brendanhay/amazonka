@@ -73,7 +73,8 @@ startFleet_name = Lens.lens (\StartFleet' {name} -> name) (\s@StartFleet' {} a -
 
 instance Core.AWSRequest StartFleet where
   type AWSResponse StartFleet = StartFleetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueueInfo' smart constructor.
 data QueueInfo = QueueInfo'
-  { -- | The identifier of the agent who accepted the contact.
+  { -- | The unique identifier for the queue.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the contact was added to the queue.
     enqueueTimestamp :: Prelude.Maybe Core.POSIX
@@ -42,7 +42,7 @@ data QueueInfo = QueueInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'queueInfo_id' - The identifier of the agent who accepted the contact.
+-- 'id', 'queueInfo_id' - The unique identifier for the queue.
 --
 -- 'enqueueTimestamp', 'queueInfo_enqueueTimestamp' - The timestamp when the contact was added to the queue.
 newQueueInfo ::
@@ -53,7 +53,7 @@ newQueueInfo =
       enqueueTimestamp = Prelude.Nothing
     }
 
--- | The identifier of the agent who accepted the contact.
+-- | The unique identifier for the queue.
 queueInfo_id :: Lens.Lens' QueueInfo (Prelude.Maybe Prelude.Text)
 queueInfo_id = Lens.lens (\QueueInfo' {id} -> id) (\s@QueueInfo' {} a -> s {id = a} :: QueueInfo)
 

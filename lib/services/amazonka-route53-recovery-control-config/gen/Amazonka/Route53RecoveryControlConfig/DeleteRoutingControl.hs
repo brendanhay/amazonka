@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteRoutingControl where
   type
     AWSResponse DeleteRoutingControl =
       DeleteRoutingControlResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -109,7 +109,8 @@ removeTags_tagsList = Lens.lens (\RemoveTags' {tagsList} -> tagsList) (\s@Remove
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

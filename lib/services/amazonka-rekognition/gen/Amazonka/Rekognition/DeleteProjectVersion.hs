@@ -91,7 +91,8 @@ instance Core.AWSRequest DeleteProjectVersion where
   type
     AWSResponse DeleteProjectVersion =
       DeleteProjectVersionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

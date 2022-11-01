@@ -129,7 +129,8 @@ instance Core.AWSPager ListForms where
 
 instance Core.AWSRequest ListForms where
   type AWSResponse ListForms = ListFormsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

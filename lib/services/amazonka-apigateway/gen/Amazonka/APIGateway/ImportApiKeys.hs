@@ -114,7 +114,8 @@ instance Core.AWSRequest ImportApiKeys where
   type
     AWSResponse ImportApiKeys =
       ImportApiKeysResponse
-  request = Request.postBody defaultService
+  service _ = defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -173,7 +173,8 @@ instance Core.AWSRequest PutQueryDefinition where
   type
     AWSResponse PutQueryDefinition =
       PutQueryDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -699,7 +699,8 @@ instance Core.AWSRequest SimulateCustomPolicy where
   type
     AWSResponse SimulateCustomPolicy =
       SimulatePolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SimulateCustomPolicyResult"

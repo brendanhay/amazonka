@@ -117,7 +117,8 @@ deleteVolume_volumeId = Lens.lens (\DeleteVolume' {volumeId} -> volumeId) (\s@De
 
 instance Core.AWSRequest DeleteVolume where
   type AWSResponse DeleteVolume = DeleteVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

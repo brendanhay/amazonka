@@ -169,7 +169,8 @@ createGroup_userPoolId = Lens.lens (\CreateGroup' {userPoolId} -> userPoolId) (\
 
 instance Core.AWSRequest CreateGroup where
   type AWSResponse CreateGroup = CreateGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

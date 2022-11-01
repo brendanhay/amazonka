@@ -159,7 +159,8 @@ instance Core.AWSPager GetInventory where
 
 instance Core.AWSRequest GetInventory where
   type AWSResponse GetInventory = GetInventoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

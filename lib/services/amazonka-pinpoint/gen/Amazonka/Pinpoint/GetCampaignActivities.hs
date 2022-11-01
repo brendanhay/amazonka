@@ -123,7 +123,8 @@ instance Core.AWSRequest GetCampaignActivities where
   type
     AWSResponse GetCampaignActivities =
       GetCampaignActivitiesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

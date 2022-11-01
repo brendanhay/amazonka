@@ -78,7 +78,8 @@ instance Core.AWSRequest DescribeCampaign where
   type
     AWSResponse DescribeCampaign =
       DescribeCampaignResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

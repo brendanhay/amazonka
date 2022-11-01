@@ -104,7 +104,8 @@ instance Core.AWSRequest PutAttributes where
   type
     AWSResponse PutAttributes =
       PutAttributesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

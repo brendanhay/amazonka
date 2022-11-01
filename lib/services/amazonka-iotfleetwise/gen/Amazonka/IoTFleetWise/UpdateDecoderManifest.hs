@@ -182,7 +182,8 @@ instance Core.AWSRequest UpdateDecoderManifest where
   type
     AWSResponse UpdateDecoderManifest =
       UpdateDecoderManifestResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

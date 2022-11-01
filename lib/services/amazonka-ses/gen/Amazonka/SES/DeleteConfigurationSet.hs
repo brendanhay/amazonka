@@ -89,7 +89,8 @@ instance Core.AWSRequest DeleteConfigurationSet where
   type
     AWSResponse DeleteConfigurationSet =
       DeleteConfigurationSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteConfigurationSetResult"

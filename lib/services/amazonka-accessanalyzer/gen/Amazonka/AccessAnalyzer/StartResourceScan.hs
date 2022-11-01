@@ -28,6 +28,7 @@ module Amazonka.AccessAnalyzer.StartResourceScan
     newStartResourceScan,
 
     -- * Request Lenses
+    startResourceScan_resourceOwnerAccount,
     startResourceScan_analyzerArn,
     startResourceScan_resourceArn,
 
@@ -48,7 +49,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newStartResourceScan' smart constructor.
 data StartResourceScan = StartResourceScan'
-  { -- | The
+  { -- | The Amazon Web Services account ID that owns the resource. For most
+    -- Amazon Web Services resources, the owning account is the account in
+    -- which the resource was created.
+    resourceOwnerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
     -- to use to scan the policies applied to the specified resource.
     analyzerArn :: Prelude.Text,
@@ -65,6 +70,10 @@ data StartResourceScan = StartResourceScan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceOwnerAccount', 'startResourceScan_resourceOwnerAccount' - The Amazon Web Services account ID that owns the resource. For most
+-- Amazon Web Services resources, the owning account is the account in
+-- which the resource was created.
+--
 -- 'analyzerArn', 'startResourceScan_analyzerArn' - The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
 -- to use to scan the policies applied to the specified resource.
@@ -78,9 +87,17 @@ newStartResourceScan ::
   StartResourceScan
 newStartResourceScan pAnalyzerArn_ pResourceArn_ =
   StartResourceScan'
-    { analyzerArn = pAnalyzerArn_,
+    { resourceOwnerAccount =
+        Prelude.Nothing,
+      analyzerArn = pAnalyzerArn_,
       resourceArn = pResourceArn_
     }
+
+-- | The Amazon Web Services account ID that owns the resource. For most
+-- Amazon Web Services resources, the owning account is the account in
+-- which the resource was created.
+startResourceScan_resourceOwnerAccount :: Lens.Lens' StartResourceScan (Prelude.Maybe Prelude.Text)
+startResourceScan_resourceOwnerAccount = Lens.lens (\StartResourceScan' {resourceOwnerAccount} -> resourceOwnerAccount) (\s@StartResourceScan' {} a -> s {resourceOwnerAccount = a} :: StartResourceScan)
 
 -- | The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
@@ -96,18 +113,21 @@ instance Core.AWSRequest StartResourceScan where
   type
     AWSResponse StartResourceScan =
       StartResourceScanResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartResourceScanResponse'
 
 instance Prelude.Hashable StartResourceScan where
   hashWithSalt _salt StartResourceScan' {..} =
-    _salt `Prelude.hashWithSalt` analyzerArn
+    _salt `Prelude.hashWithSalt` resourceOwnerAccount
+      `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData StartResourceScan where
   rnf StartResourceScan' {..} =
-    Prelude.rnf analyzerArn
+    Prelude.rnf resourceOwnerAccount
+      `Prelude.seq` Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders StartResourceScan where
@@ -125,7 +145,9 @@ instance Core.ToJSON StartResourceScan where
   toJSON StartResourceScan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("analyzerArn" Core..= analyzerArn),
+          [ ("resourceOwnerAccount" Core..=)
+              Prelude.<$> resourceOwnerAccount,
+            Prelude.Just ("analyzerArn" Core..= analyzerArn),
             Prelude.Just ("resourceArn" Core..= resourceArn)
           ]
       )

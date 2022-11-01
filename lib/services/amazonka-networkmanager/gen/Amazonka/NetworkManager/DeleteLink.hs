@@ -90,7 +90,8 @@ deleteLink_linkId = Lens.lens (\DeleteLink' {linkId} -> linkId) (\s@DeleteLink' 
 
 instance Core.AWSRequest DeleteLink where
   type AWSResponse DeleteLink = DeleteLinkResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

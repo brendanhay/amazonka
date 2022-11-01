@@ -200,7 +200,8 @@ instance Core.AWSRequest GetParametersForImport where
   type
     AWSResponse GetParametersForImport =
       GetParametersForImportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

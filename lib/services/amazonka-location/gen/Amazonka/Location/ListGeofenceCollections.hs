@@ -125,7 +125,8 @@ instance Core.AWSRequest ListGeofenceCollections where
   type
     AWSResponse ListGeofenceCollections =
       ListGeofenceCollectionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

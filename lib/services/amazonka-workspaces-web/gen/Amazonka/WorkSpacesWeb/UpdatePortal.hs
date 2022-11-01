@@ -90,7 +90,8 @@ updatePortal_portalArn = Lens.lens (\UpdatePortal' {portalArn} -> portalArn) (\s
 
 instance Core.AWSRequest UpdatePortal where
   type AWSResponse UpdatePortal = UpdatePortalResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

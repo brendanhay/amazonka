@@ -285,7 +285,8 @@ instance Core.AWSRequest CopyPackageVersions where
   type
     AWSResponse CopyPackageVersions =
       CopyPackageVersionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

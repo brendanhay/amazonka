@@ -23,14 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the details of a multi-node parallel job node.
+-- | An object that represents the details of a multi-node parallel job node.
 --
 -- /See:/ 'newNodeDetails' smart constructor.
 data NodeDetails = NodeDetails'
   { -- | Specifies whether the current node is the main node for a multi-node
     -- parallel job.
     isMainNode :: Prelude.Maybe Prelude.Bool,
-    -- | The node index for the node. Node index numbering begins at zero. This
+    -- | The node index for the node. Node index numbering starts at zero. This
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
     nodeIndex :: Prelude.Maybe Prelude.Int
@@ -48,7 +48,7 @@ data NodeDetails = NodeDetails'
 -- 'isMainNode', 'nodeDetails_isMainNode' - Specifies whether the current node is the main node for a multi-node
 -- parallel job.
 --
--- 'nodeIndex', 'nodeDetails_nodeIndex' - The node index for the node. Node index numbering begins at zero. This
+-- 'nodeIndex', 'nodeDetails_nodeIndex' - The node index for the node. Node index numbering starts at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
 newNodeDetails ::
@@ -64,7 +64,7 @@ newNodeDetails =
 nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Bool)
 nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\s@NodeDetails' {} a -> s {isMainNode = a} :: NodeDetails)
 
--- | The node index for the node. Node index numbering begins at zero. This
+-- | The node index for the node. Node index numbering starts at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
 nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Int)

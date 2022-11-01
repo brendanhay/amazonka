@@ -108,7 +108,8 @@ batchDelete'_inputIds = Lens.lens (\BatchDelete'' {inputIds} -> inputIds) (\s@Ba
 
 instance Core.AWSRequest BatchDelete' where
   type AWSResponse BatchDelete' = BatchDeleteResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

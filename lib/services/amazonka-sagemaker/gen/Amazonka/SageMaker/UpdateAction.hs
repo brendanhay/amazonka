@@ -117,7 +117,8 @@ updateAction_actionName = Lens.lens (\UpdateAction' {actionName} -> actionName) 
 
 instance Core.AWSRequest UpdateAction where
   type AWSResponse UpdateAction = UpdateActionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

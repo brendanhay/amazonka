@@ -356,6 +356,8 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudsearch",
       Core._serviceSigningName = "cloudsearch",
       Core._serviceVersion = "2013-01-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

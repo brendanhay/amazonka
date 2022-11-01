@@ -116,7 +116,8 @@ instance Core.AWSRequest PutUserStatus where
   type
     AWSResponse PutUserStatus =
       PutUserStatusResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

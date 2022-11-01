@@ -84,7 +84,8 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
   type
     AWSResponse GetDefaultPatchBaseline =
       GetDefaultPatchBaselineResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

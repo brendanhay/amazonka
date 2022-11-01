@@ -61,7 +61,8 @@ instance Core.AWSRequest DescribeLoggingOptions where
   type
     AWSResponse DescribeLoggingOptions =
       DescribeLoggingOptionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

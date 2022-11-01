@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeAttachment where
   type
     AWSResponse DescribeAttachment =
       DescribeAttachmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

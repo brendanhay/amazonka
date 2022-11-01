@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all invitations for the current AWS account.
+-- Returns a list of all invitations for the current Amazon Web Services
+-- account.
 --
 -- Applies only to Hyperledger Fabric.
 module Amazonka.ManagedBlockChain.ListInvitations
@@ -90,7 +91,8 @@ instance Core.AWSRequest ListInvitations where
   type
     AWSResponse ListInvitations =
       ListInvitationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

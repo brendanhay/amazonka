@@ -22,13 +22,16 @@ module Amazonka.SageMaker.Types.ModelExplainabilityJobInput where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
 
 -- | Inputs for the model explainability job.
 --
 -- /See:/ 'newModelExplainabilityJobInput' smart constructor.
 data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
-  { endpointInput :: EndpointInput
+  { endpointInput :: Prelude.Maybe EndpointInput,
+    -- | Input object for the batch transform job.
+    batchTransformInput :: Prelude.Maybe BatchTransformInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,19 +44,24 @@ data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
 -- for backwards compatibility:
 --
 -- 'endpointInput', 'modelExplainabilityJobInput_endpointInput' - Undocumented member.
+--
+-- 'batchTransformInput', 'modelExplainabilityJobInput_batchTransformInput' - Input object for the batch transform job.
 newModelExplainabilityJobInput ::
-  -- | 'endpointInput'
-  EndpointInput ->
   ModelExplainabilityJobInput
-newModelExplainabilityJobInput pEndpointInput_ =
+newModelExplainabilityJobInput =
   ModelExplainabilityJobInput'
     { endpointInput =
-        pEndpointInput_
+        Prelude.Nothing,
+      batchTransformInput = Prelude.Nothing
     }
 
 -- | Undocumented member.
-modelExplainabilityJobInput_endpointInput :: Lens.Lens' ModelExplainabilityJobInput EndpointInput
+modelExplainabilityJobInput_endpointInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe EndpointInput)
 modelExplainabilityJobInput_endpointInput = Lens.lens (\ModelExplainabilityJobInput' {endpointInput} -> endpointInput) (\s@ModelExplainabilityJobInput' {} a -> s {endpointInput = a} :: ModelExplainabilityJobInput)
+
+-- | Input object for the batch transform job.
+modelExplainabilityJobInput_batchTransformInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe BatchTransformInput)
+modelExplainabilityJobInput_batchTransformInput = Lens.lens (\ModelExplainabilityJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelExplainabilityJobInput' {} a -> s {batchTransformInput = a} :: ModelExplainabilityJobInput)
 
 instance Core.FromJSON ModelExplainabilityJobInput where
   parseJSON =
@@ -61,22 +69,26 @@ instance Core.FromJSON ModelExplainabilityJobInput where
       "ModelExplainabilityJobInput"
       ( \x ->
           ModelExplainabilityJobInput'
-            Prelude.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..:? "EndpointInput")
+            Prelude.<*> (x Core..:? "BatchTransformInput")
       )
 
 instance Prelude.Hashable ModelExplainabilityJobInput where
   hashWithSalt _salt ModelExplainabilityJobInput' {..} =
     _salt `Prelude.hashWithSalt` endpointInput
+      `Prelude.hashWithSalt` batchTransformInput
 
 instance Prelude.NFData ModelExplainabilityJobInput where
   rnf ModelExplainabilityJobInput' {..} =
     Prelude.rnf endpointInput
+      `Prelude.seq` Prelude.rnf batchTransformInput
 
 instance Core.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Core..= endpointInput)
+          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Core..=)
+              Prelude.<$> batchTransformInput
           ]
       )

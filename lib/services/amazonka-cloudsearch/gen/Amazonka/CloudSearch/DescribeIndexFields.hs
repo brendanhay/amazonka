@@ -117,7 +117,8 @@ instance Core.AWSRequest DescribeIndexFields where
   type
     AWSResponse DescribeIndexFields =
       DescribeIndexFieldsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeIndexFieldsResult"

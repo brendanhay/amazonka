@@ -91,7 +91,8 @@ disableAddOn_resourceName = Lens.lens (\DisableAddOn' {resourceName} -> resource
 
 instance Core.AWSRequest DisableAddOn where
   type AWSResponse DisableAddOn = DisableAddOnResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

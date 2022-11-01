@@ -82,7 +82,8 @@ instance Core.AWSRequest DeleteDeliveryChannel where
   type
     AWSResponse DeleteDeliveryChannel =
       DeleteDeliveryChannelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDeliveryChannelResponse'
 

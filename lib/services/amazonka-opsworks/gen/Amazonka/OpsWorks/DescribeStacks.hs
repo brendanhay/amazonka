@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeStacks where
   type
     AWSResponse DescribeStacks =
       DescribeStacksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

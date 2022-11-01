@@ -151,7 +151,8 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
   type
     AWSResponse GetAssociatedIpv6PoolCidrs =
       GetAssociatedIpv6PoolCidrsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

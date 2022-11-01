@@ -39,6 +39,7 @@ module Amazonka.Neptune.CreateDBCluster
     -- * Request Lenses
     createDBCluster_tags,
     createDBCluster_port,
+    createDBCluster_serverlessV2ScalingConfiguration,
     createDBCluster_vpcSecurityGroupIds,
     createDBCluster_preferredBackupWindow,
     createDBCluster_backupRetentionPeriod,
@@ -90,6 +91,7 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- Default: @8182@
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A list of EC2 VPC security groups to associate with this DB cluster.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The daily time range during which automated backups are created if
@@ -259,6 +261,8 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Default: @8182@
 --
+-- 'serverlessV2ScalingConfiguration', 'createDBCluster_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'vpcSecurityGroupIds', 'createDBCluster_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB cluster.
 --
 -- 'preferredBackupWindow', 'createDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
@@ -419,6 +423,7 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
   CreateDBCluster'
     { tags = Prelude.Nothing,
       port = Prelude.Nothing,
+      serverlessV2ScalingConfiguration = Prelude.Nothing,
       vpcSecurityGroupIds = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
@@ -455,6 +460,10 @@ createDBCluster_tags = Lens.lens (\CreateDBCluster' {tags} -> tags) (\s@CreateDB
 -- Default: @8182@
 createDBCluster_port :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
 createDBCluster_port = Lens.lens (\CreateDBCluster' {port} -> port) (\s@CreateDBCluster' {} a -> s {port = a} :: CreateDBCluster)
+
+-- | Undocumented member.
+createDBCluster_serverlessV2ScalingConfiguration :: Lens.Lens' CreateDBCluster (Prelude.Maybe ServerlessV2ScalingConfiguration)
+createDBCluster_serverlessV2ScalingConfiguration = Lens.lens (\CreateDBCluster' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@CreateDBCluster' {} a -> s {serverlessV2ScalingConfiguration = a} :: CreateDBCluster)
 
 -- | A list of EC2 VPC security groups to associate with this DB cluster.
 createDBCluster_vpcSecurityGroupIds :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
@@ -659,7 +668,8 @@ instance Core.AWSRequest CreateDBCluster where
   type
     AWSResponse CreateDBCluster =
       CreateDBClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterResult"
@@ -673,6 +683,7 @@ instance Prelude.Hashable CreateDBCluster where
   hashWithSalt _salt CreateDBCluster' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
@@ -702,6 +713,7 @@ instance Prelude.NFData CreateDBCluster where
   rnf CreateDBCluster' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
@@ -712,26 +724,31 @@ instance Prelude.NFData CreateDBCluster where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf
         replicationSourceIdentifier
       `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf
         globalClusterIdentifier
-      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf
+        deletionProtection
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf
         dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf
+        preSignedUrl
       `Prelude.seq` Prelude.rnf
         engineVersion
       `Prelude.seq` Prelude.rnf
         dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf
+        engine
 
 instance Core.ToHeaders CreateDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -750,6 +767,8 @@ instance Core.ToQuery CreateDBCluster where
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
+        "ServerlessV2ScalingConfiguration"
+          Core.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"

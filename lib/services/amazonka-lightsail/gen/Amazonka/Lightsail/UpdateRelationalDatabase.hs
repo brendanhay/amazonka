@@ -363,7 +363,8 @@ instance Core.AWSRequest UpdateRelationalDatabase where
   type
     AWSResponse UpdateRelationalDatabase =
       UpdateRelationalDatabaseResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

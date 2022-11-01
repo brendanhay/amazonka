@@ -199,7 +199,8 @@ instance Core.AWSRequest UpdateTracker where
   type
     AWSResponse UpdateTracker =
       UpdateTrackerResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

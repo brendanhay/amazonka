@@ -152,7 +152,8 @@ instance Core.AWSPager ListLFTags where
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

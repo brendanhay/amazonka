@@ -21,11 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices. It also invalidates all refresh tokens
--- that Amazon Cognito has issued to a user. The user\'s current access and
--- ID tokens remain valid until their expiry. By default, access and ID
--- tokens expire one hour after Amazon Cognito issues them. A user can
--- still use a hosted UI cookie to retrieve new tokens for the duration of
--- the cookie validity period of 1 hour.
+-- that Amazon Cognito has issued to a user. A user can still use a hosted
+-- UI cookie to retrieve new tokens for the duration of the 1-hour cookie
+-- validity period.
 module Amazonka.CognitoIdentityProvider.GlobalSignOut
   ( -- * Creating a Request
     GlobalSignOut (..),
@@ -89,7 +87,8 @@ instance Core.AWSRequest GlobalSignOut where
   type
     AWSResponse GlobalSignOut =
       GlobalSignOutResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

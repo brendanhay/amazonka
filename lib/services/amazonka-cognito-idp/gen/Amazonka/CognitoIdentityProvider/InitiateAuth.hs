@@ -456,7 +456,8 @@ initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@In
 
 instance Core.AWSRequest InitiateAuth where
   type AWSResponse InitiateAuth = InitiateAuthResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -21,13 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts a CloudTrail Lake query. The required @QueryStatement@ parameter
--- provides your SQL query, enclosed in single quotation marks.
+-- provides your SQL query, enclosed in single quotation marks. Use the
+-- optional @DeliveryS3Uri@ parameter to deliver the query results to an S3
+-- bucket.
 module Amazonka.CloudTrail.StartQuery
   ( -- * Creating a Request
     StartQuery (..),
     newStartQuery,
 
     -- * Request Lenses
+    startQuery_deliveryS3Uri,
     startQuery_queryStatement,
 
     -- * Destructuring the Response
@@ -49,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartQuery' smart constructor.
 data StartQuery = StartQuery'
-  { -- | The SQL code of your query.
+  { -- | The URI for the S3 bucket where CloudTrail delivers the query results.
+    deliveryS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | The SQL code of your query.
     queryStatement :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,13 +67,22 @@ data StartQuery = StartQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deliveryS3Uri', 'startQuery_deliveryS3Uri' - The URI for the S3 bucket where CloudTrail delivers the query results.
+--
 -- 'queryStatement', 'startQuery_queryStatement' - The SQL code of your query.
 newStartQuery ::
   -- | 'queryStatement'
   Prelude.Text ->
   StartQuery
 newStartQuery pQueryStatement_ =
-  StartQuery' {queryStatement = pQueryStatement_}
+  StartQuery'
+    { deliveryS3Uri = Prelude.Nothing,
+      queryStatement = pQueryStatement_
+    }
+
+-- | The URI for the S3 bucket where CloudTrail delivers the query results.
+startQuery_deliveryS3Uri :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Text)
+startQuery_deliveryS3Uri = Lens.lens (\StartQuery' {deliveryS3Uri} -> deliveryS3Uri) (\s@StartQuery' {} a -> s {deliveryS3Uri = a} :: StartQuery)
 
 -- | The SQL code of your query.
 startQuery_queryStatement :: Lens.Lens' StartQuery Prelude.Text
@@ -76,7 +90,8 @@ startQuery_queryStatement = Lens.lens (\StartQuery' {queryStatement} -> querySta
 
 instance Core.AWSRequest StartQuery where
   type AWSResponse StartQuery = StartQueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,10 +102,13 @@ instance Core.AWSRequest StartQuery where
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =
-    _salt `Prelude.hashWithSalt` queryStatement
+    _salt `Prelude.hashWithSalt` deliveryS3Uri
+      `Prelude.hashWithSalt` queryStatement
 
 instance Prelude.NFData StartQuery where
-  rnf StartQuery' {..} = Prelude.rnf queryStatement
+  rnf StartQuery' {..} =
+    Prelude.rnf deliveryS3Uri
+      `Prelude.seq` Prelude.rnf queryStatement
 
 instance Core.ToHeaders StartQuery where
   toHeaders =
@@ -111,7 +129,8 @@ instance Core.ToJSON StartQuery where
   toJSON StartQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("DeliveryS3Uri" Core..=) Prelude.<$> deliveryS3Uri,
+            Prelude.Just
               ("QueryStatement" Core..= queryStatement)
           ]
       )

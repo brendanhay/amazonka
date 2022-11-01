@@ -163,7 +163,8 @@ instance Core.AWSRequest DescribeReservedNodes where
   type
     AWSResponse DescribeReservedNodes =
       DescribeReservedNodesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedNodesResult"

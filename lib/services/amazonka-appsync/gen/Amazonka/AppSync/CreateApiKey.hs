@@ -107,7 +107,8 @@ createApiKey_apiId = Lens.lens (\CreateApiKey' {apiId} -> apiId) (\s@CreateApiKe
 
 instance Core.AWSRequest CreateApiKey where
   type AWSResponse CreateApiKey = CreateApiKeyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

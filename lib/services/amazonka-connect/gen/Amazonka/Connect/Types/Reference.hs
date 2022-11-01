@@ -34,7 +34,7 @@ data Reference = Reference'
     -- formatted URL that is displayed to an agent in the Contact Control Panel
     -- (CCP).
     value :: Prelude.Text,
-    -- | The type of the reference.
+    -- | The type of the reference. @DATE@ must be of type Epoch timestamp.
     type' :: ReferenceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,7 +51,7 @@ data Reference = Reference'
 -- formatted URL that is displayed to an agent in the Contact Control Panel
 -- (CCP).
 --
--- 'type'', 'reference_type' - The type of the reference.
+-- 'type'', 'reference_type' - The type of the reference. @DATE@ must be of type Epoch timestamp.
 newReference ::
   -- | 'value'
   Prelude.Text ->
@@ -67,7 +67,7 @@ newReference pValue_ pType_ =
 reference_value :: Lens.Lens' Reference Prelude.Text
 reference_value = Lens.lens (\Reference' {value} -> value) (\s@Reference' {} a -> s {value = a} :: Reference)
 
--- | The type of the reference.
+-- | The type of the reference. @DATE@ must be of type Epoch timestamp.
 reference_type :: Lens.Lens' Reference ReferenceType
 reference_type = Lens.lens (\Reference' {type'} -> type') (\s@Reference' {} a -> s {type' = a} :: Reference)
 

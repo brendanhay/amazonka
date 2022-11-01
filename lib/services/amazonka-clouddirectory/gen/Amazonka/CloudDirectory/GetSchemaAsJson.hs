@@ -80,7 +80,8 @@ instance Core.AWSRequest GetSchemaAsJson where
   type
     AWSResponse GetSchemaAsJson =
       GetSchemaAsJsonResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

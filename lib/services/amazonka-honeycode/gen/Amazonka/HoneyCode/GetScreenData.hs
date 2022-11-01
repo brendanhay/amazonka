@@ -173,7 +173,8 @@ instance Core.AWSRequest GetScreenData where
   type
     AWSResponse GetScreenData =
       GetScreenDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

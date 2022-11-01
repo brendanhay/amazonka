@@ -119,7 +119,8 @@ listWebACLs_nextMarker = Lens.lens (\ListWebACLs' {nextMarker} -> nextMarker) (\
 
 instance Core.AWSRequest ListWebACLs where
   type AWSResponse ListWebACLs = ListWebACLsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

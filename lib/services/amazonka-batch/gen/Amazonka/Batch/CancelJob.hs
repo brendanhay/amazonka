@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a job in an Batch job queue. Jobs that are in the @SUBMITTED@,
--- @PENDING@, or @RUNNABLE@ state are canceled. Jobs that have progressed
--- to @STARTING@ or @RUNNING@ aren\'t canceled, but the API operation still
--- succeeds, even if no job is canceled. These jobs must be terminated with
--- the TerminateJob operation.
+-- @PENDING@, or @RUNNABLE@ state are canceled. Jobs that progressed to the
+-- @STARTING@ or @RUNNING@ state aren\'t canceled. However, the API
+-- operation still succeeds, even if no job is canceled. These jobs must be
+-- terminated with the TerminateJob operation.
 module Amazonka.Batch.CancelJob
   ( -- * Creating a Request
     CancelJob (..),
@@ -97,7 +97,8 @@ cancelJob_reason = Lens.lens (\CancelJob' {reason} -> reason) (\s@CancelJob' {} 
 
 instance Core.AWSRequest CancelJob where
   type AWSResponse CancelJob = CancelJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

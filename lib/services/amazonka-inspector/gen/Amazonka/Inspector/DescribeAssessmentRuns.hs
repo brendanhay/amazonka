@@ -82,7 +82,8 @@ instance Core.AWSRequest DescribeAssessmentRuns where
   type
     AWSResponse DescribeAssessmentRuns =
       DescribeAssessmentRunsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

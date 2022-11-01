@@ -116,7 +116,8 @@ instance Core.AWSRequest SetVisibleToAllUsers where
   type
     AWSResponse SetVisibleToAllUsers =
       SetVisibleToAllUsersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetVisibleToAllUsersResponse'
 

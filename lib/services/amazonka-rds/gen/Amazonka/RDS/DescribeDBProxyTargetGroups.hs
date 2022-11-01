@@ -173,7 +173,8 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
   type
     AWSResponse DescribeDBProxyTargetGroups =
       DescribeDBProxyTargetGroupsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBProxyTargetGroupsResult"

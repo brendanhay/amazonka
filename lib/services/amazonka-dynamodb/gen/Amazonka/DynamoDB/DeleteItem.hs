@@ -487,7 +487,8 @@ deleteItem_key = Lens.lens (\DeleteItem' {key} -> key) (\s@DeleteItem' {} a -> s
 
 instance Core.AWSRequest DeleteItem where
   type AWSResponse DeleteItem = DeleteItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

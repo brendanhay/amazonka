@@ -120,7 +120,8 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
   type
     AWSResponse ModifyCacheSubnetGroup =
       ModifyCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCacheSubnetGroupResult"

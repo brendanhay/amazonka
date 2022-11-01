@@ -20,16 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides details about a specific live source in a specific source
--- location.
+-- The live source to describe.
 module Amazonka.MediaTailor.DescribeLiveSource
   ( -- * Creating a Request
     DescribeLiveSource (..),
     newDescribeLiveSource,
 
     -- * Request Lenses
-    describeLiveSource_sourceLocationName,
     describeLiveSource_liveSourceName,
+    describeLiveSource_sourceLocationName,
 
     -- * Destructuring the Response
     DescribeLiveSourceResponse (..),
@@ -56,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLiveSource' smart constructor.
 data DescribeLiveSource = DescribeLiveSource'
-  { -- | The identifier for the source location you are working on.
-    sourceLocationName :: Prelude.Text,
-    -- | The identifier for the live source you are working on.
-    liveSourceName :: Prelude.Text
+  { -- | The name of the live source.
+    liveSourceName :: Prelude.Text,
+    -- | The name of the source location associated with this Live Source.
+    sourceLocationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,37 +70,38 @@ data DescribeLiveSource = DescribeLiveSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceLocationName', 'describeLiveSource_sourceLocationName' - The identifier for the source location you are working on.
+-- 'liveSourceName', 'describeLiveSource_liveSourceName' - The name of the live source.
 --
--- 'liveSourceName', 'describeLiveSource_liveSourceName' - The identifier for the live source you are working on.
+-- 'sourceLocationName', 'describeLiveSource_sourceLocationName' - The name of the source location associated with this Live Source.
 newDescribeLiveSource ::
-  -- | 'sourceLocationName'
-  Prelude.Text ->
   -- | 'liveSourceName'
+  Prelude.Text ->
+  -- | 'sourceLocationName'
   Prelude.Text ->
   DescribeLiveSource
 newDescribeLiveSource
-  pSourceLocationName_
-  pLiveSourceName_ =
+  pLiveSourceName_
+  pSourceLocationName_ =
     DescribeLiveSource'
-      { sourceLocationName =
-          pSourceLocationName_,
-        liveSourceName = pLiveSourceName_
+      { liveSourceName =
+          pLiveSourceName_,
+        sourceLocationName = pSourceLocationName_
       }
 
--- | The identifier for the source location you are working on.
-describeLiveSource_sourceLocationName :: Lens.Lens' DescribeLiveSource Prelude.Text
-describeLiveSource_sourceLocationName = Lens.lens (\DescribeLiveSource' {sourceLocationName} -> sourceLocationName) (\s@DescribeLiveSource' {} a -> s {sourceLocationName = a} :: DescribeLiveSource)
-
--- | The identifier for the live source you are working on.
+-- | The name of the live source.
 describeLiveSource_liveSourceName :: Lens.Lens' DescribeLiveSource Prelude.Text
 describeLiveSource_liveSourceName = Lens.lens (\DescribeLiveSource' {liveSourceName} -> liveSourceName) (\s@DescribeLiveSource' {} a -> s {liveSourceName = a} :: DescribeLiveSource)
+
+-- | The name of the source location associated with this Live Source.
+describeLiveSource_sourceLocationName :: Lens.Lens' DescribeLiveSource Prelude.Text
+describeLiveSource_sourceLocationName = Lens.lens (\DescribeLiveSource' {sourceLocationName} -> sourceLocationName) (\s@DescribeLiveSource' {} a -> s {sourceLocationName = a} :: DescribeLiveSource)
 
 instance Core.AWSRequest DescribeLiveSource where
   type
     AWSResponse DescribeLiveSource =
       DescribeLiveSourceResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,13 +120,13 @@ instance Core.AWSRequest DescribeLiveSource where
 
 instance Prelude.Hashable DescribeLiveSource where
   hashWithSalt _salt DescribeLiveSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
-      `Prelude.hashWithSalt` liveSourceName
+    _salt `Prelude.hashWithSalt` liveSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData DescribeLiveSource where
   rnf DescribeLiveSource' {..} =
-    Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf liveSourceName
+    Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Core.ToHeaders DescribeLiveSource where
   toHeaders =
@@ -153,7 +153,10 @@ instance Core.ToQuery DescribeLiveSource where
 
 -- | /See:/ 'newDescribeLiveSourceResponse' smart constructor.
 data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
-  { -- | The tags assigned to the live source.
+  { -- | The tags assigned to the live source. Tags are key-value pairs that you
+    -- can associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the live source.
     liveSourceName :: Prelude.Maybe Prelude.Text,
@@ -163,7 +166,7 @@ data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates when the live source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location associated with the VOD source.
+    -- | The name of the source location associated with the live source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | The HTTP package configurations.
     httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
@@ -180,7 +183,10 @@ data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeLiveSourceResponse_tags' - The tags assigned to the live source.
+-- 'tags', 'describeLiveSourceResponse_tags' - The tags assigned to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'liveSourceName', 'describeLiveSourceResponse_liveSourceName' - The name of the live source.
 --
@@ -190,7 +196,7 @@ data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
 --
 -- 'creationTime', 'describeLiveSourceResponse_creationTime' - The timestamp that indicates when the live source was created.
 --
--- 'sourceLocationName', 'describeLiveSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+-- 'sourceLocationName', 'describeLiveSourceResponse_sourceLocationName' - The name of the source location associated with the live source.
 --
 -- 'httpPackageConfigurations', 'describeLiveSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
 --
@@ -211,7 +217,10 @@ newDescribeLiveSourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The tags assigned to the live source.
+-- | The tags assigned to the live source. Tags are key-value pairs that you
+-- can associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 describeLiveSourceResponse_tags :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeLiveSourceResponse_tags = Lens.lens (\DescribeLiveSourceResponse' {tags} -> tags) (\s@DescribeLiveSourceResponse' {} a -> s {tags = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -231,7 +240,7 @@ describeLiveSourceResponse_lastModifiedTime = Lens.lens (\DescribeLiveSourceResp
 describeLiveSourceResponse_creationTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
 describeLiveSourceResponse_creationTime = Lens.lens (\DescribeLiveSourceResponse' {creationTime} -> creationTime) (\s@DescribeLiveSourceResponse' {} a -> s {creationTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the source location associated with the VOD source.
+-- | The name of the source location associated with the live source.
 describeLiveSourceResponse_sourceLocationName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
 describeLiveSourceResponse_sourceLocationName = Lens.lens (\DescribeLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@DescribeLiveSourceResponse' {} a -> s {sourceLocationName = a} :: DescribeLiveSourceResponse)
 

@@ -92,7 +92,8 @@ instance Core.AWSRequest GetGeoMatchSet where
   type
     AWSResponse GetGeoMatchSet =
       GetGeoMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

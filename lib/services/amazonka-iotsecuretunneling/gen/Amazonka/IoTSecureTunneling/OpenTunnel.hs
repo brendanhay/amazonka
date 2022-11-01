@@ -113,7 +113,8 @@ openTunnel_timeoutConfig = Lens.lens (\OpenTunnel' {timeoutConfig} -> timeoutCon
 
 instance Core.AWSRequest OpenTunnel where
   type AWSResponse OpenTunnel = OpenTunnelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

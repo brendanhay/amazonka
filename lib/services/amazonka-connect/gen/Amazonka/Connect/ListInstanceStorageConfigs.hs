@@ -152,7 +152,8 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
   type
     AWSResponse ListInstanceStorageConfigs =
       ListInstanceStorageConfigsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

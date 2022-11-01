@@ -95,7 +95,8 @@ getUser_userName = Lens.lens (\GetUser' {userName} -> userName) (\s@GetUser' {} 
 
 instance Core.AWSRequest GetUser where
   type AWSResponse GetUser = GetUserResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetUserResult"

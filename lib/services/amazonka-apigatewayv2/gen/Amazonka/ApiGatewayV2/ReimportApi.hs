@@ -144,7 +144,8 @@ reimportApi_body = Lens.lens (\ReimportApi' {body} -> body) (\s@ReimportApi' {} 
 
 instance Core.AWSRequest ReimportApi where
   type AWSResponse ReimportApi = ReimportApiResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

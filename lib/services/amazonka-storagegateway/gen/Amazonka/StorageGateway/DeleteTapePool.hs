@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteTapePool where
   type
     AWSResponse DeleteTapePool =
       DeleteTapePoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

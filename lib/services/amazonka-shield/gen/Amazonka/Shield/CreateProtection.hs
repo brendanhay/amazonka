@@ -175,7 +175,8 @@ instance Core.AWSRequest CreateProtection where
   type
     AWSResponse CreateProtection =
       CreateProtectionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

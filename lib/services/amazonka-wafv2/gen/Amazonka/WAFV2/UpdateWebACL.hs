@@ -342,7 +342,8 @@ updateWebACL_lockToken = Lens.lens (\UpdateWebACL' {lockToken} -> lockToken) (\s
 
 instance Core.AWSRequest UpdateWebACL where
   type AWSResponse UpdateWebACL = UpdateWebACLResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

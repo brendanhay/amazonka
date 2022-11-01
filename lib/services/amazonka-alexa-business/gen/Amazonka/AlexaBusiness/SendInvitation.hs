@@ -76,7 +76,8 @@ instance Core.AWSRequest SendInvitation where
   type
     AWSResponse SendInvitation =
       SendInvitationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

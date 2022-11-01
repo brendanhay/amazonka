@@ -39,11 +39,10 @@
 --     SageMaker, see
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
 --
---     You must not include any security-sensitive information, such as
---     account access IDs, secrets, and tokens, in the dictionary for
---     configuring hyperparameters. SageMaker rejects the training job
---     request and returns an exception error for detected credentials, if
---     such user input is found.
+--     Do not include any security-sensitive information including account
+--     access IDs, secrets or tokens in any hyperparameter field. If the
+--     use of security-sensitive credentials are detected, SageMaker will
+--     reject your training job request and return an exception error.
 --
 -- -   @InputDataConfig@ - Describes the training dataset and the Amazon
 --     S3, EFS, or FSx location where it is stored.
@@ -207,11 +206,10 @@ data CreateTrainingJob = CreateTrainingJob'
     -- a key-value pair. Each key and value is limited to 256 characters, as
     -- specified by the @Length Constraint@.
     --
-    -- You must not include any security-sensitive information, such as account
-    -- access IDs, secrets, and tokens, in the dictionary for configuring
-    -- hyperparameters. SageMaker rejects the training job request and returns
-    -- an exception error for detected credentials, if such user input is
-    -- found.
+    -- Do not include any security-sensitive information including account
+    -- access IDs, secrets or tokens in any hyperparameter field. If the use of
+    -- security-sensitive credentials are detected, SageMaker will reject your
+    -- training job request and return an exception error.
     hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the training job. The name must be unique within an Amazon
     -- Web Services Region in an Amazon Web Services account.
@@ -356,11 +354,10 @@ data CreateTrainingJob = CreateTrainingJob'
 -- a key-value pair. Each key and value is limited to 256 characters, as
 -- specified by the @Length Constraint@.
 --
--- You must not include any security-sensitive information, such as account
--- access IDs, secrets, and tokens, in the dictionary for configuring
--- hyperparameters. SageMaker rejects the training job request and returns
--- an exception error for detected credentials, if such user input is
--- found.
+-- Do not include any security-sensitive information including account
+-- access IDs, secrets or tokens in any hyperparameter field. If the use of
+-- security-sensitive credentials are detected, SageMaker will reject your
+-- training job request and return an exception error.
 --
 -- 'trainingJobName', 'createTrainingJob_trainingJobName' - The name of the training job. The name must be unique within an Amazon
 -- Web Services Region in an Amazon Web Services account.
@@ -570,11 +567,10 @@ createTrainingJob_inputDataConfig = Lens.lens (\CreateTrainingJob' {inputDataCon
 -- a key-value pair. Each key and value is limited to 256 characters, as
 -- specified by the @Length Constraint@.
 --
--- You must not include any security-sensitive information, such as account
--- access IDs, secrets, and tokens, in the dictionary for configuring
--- hyperparameters. SageMaker rejects the training job request and returns
--- an exception error for detected credentials, if such user input is
--- found.
+-- Do not include any security-sensitive information including account
+-- access IDs, secrets or tokens in any hyperparameter field. If the use of
+-- security-sensitive credentials are detected, SageMaker will reject your
+-- training job request and return an exception error.
 createTrainingJob_hyperParameters :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createTrainingJob_hyperParameters = Lens.lens (\CreateTrainingJob' {hyperParameters} -> hyperParameters) (\s@CreateTrainingJob' {} a -> s {hyperParameters = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -641,7 +637,8 @@ instance Core.AWSRequest CreateTrainingJob where
   type
     AWSResponse CreateTrainingJob =
       CreateTrainingJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -137,7 +137,8 @@ instance Core.AWSRequest GetInstanceAccess where
   type
     AWSResponse GetInstanceAccess =
       GetInstanceAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -134,7 +134,8 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
   type
     AWSResponse ProvisionPublicIpv4PoolCidr =
       ProvisionPublicIpv4PoolCidrResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

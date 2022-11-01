@@ -203,7 +203,8 @@ instance Core.AWSRequest BatchGetFrameMetricData where
   type
     AWSResponse BatchGetFrameMetricData =
       BatchGetFrameMetricDataResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

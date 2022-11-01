@@ -151,7 +151,8 @@ instance Core.AWSRequest ListRecoveryPoints where
   type
     AWSResponse ListRecoveryPoints =
       ListRecoveryPointsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

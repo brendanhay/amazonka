@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteVerifiedEmailAddress where
   type
     AWSResponse DeleteVerifiedEmailAddress =
       DeleteVerifiedEmailAddressResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'

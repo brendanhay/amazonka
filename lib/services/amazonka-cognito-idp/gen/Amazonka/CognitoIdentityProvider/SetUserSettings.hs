@@ -101,7 +101,8 @@ instance Core.AWSRequest SetUserSettings where
   type
     AWSResponse SetUserSettings =
       SetUserSettingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

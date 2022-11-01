@@ -90,7 +90,8 @@ instance Core.AWSRequest DeleteContactFlow where
   type
     AWSResponse DeleteContactFlow =
       DeleteContactFlowResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteContactFlowResponse'
 

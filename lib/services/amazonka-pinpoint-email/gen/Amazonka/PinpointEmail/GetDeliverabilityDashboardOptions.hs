@@ -93,7 +93,8 @@ instance
   type
     AWSResponse GetDeliverabilityDashboardOptions =
       GetDeliverabilityDashboardOptionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

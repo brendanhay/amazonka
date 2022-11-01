@@ -83,7 +83,8 @@ describeMap_mapName = Lens.lens (\DescribeMap' {mapName} -> mapName) (\s@Describ
 
 instance Core.AWSRequest DescribeMap where
   type AWSResponse DescribeMap = DescribeMapResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,7 +148,7 @@ data DescribeMapResponse = DescribeMapResponse'
     -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
     -- resource across all AWS.
     --
-    -- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+    -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
     mapArn :: Prelude.Text,
     -- | The map style selected from an available provider.
     mapName :: Prelude.Text,
@@ -185,7 +186,7 @@ data DescribeMapResponse = DescribeMapResponse'
 -- 'mapArn', 'describeMapResponse_mapArn' - The Amazon Resource Name (ARN) for the map resource. Used to specify a
 -- resource across all AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 --
 -- 'mapName', 'describeMapResponse_mapName' - The map style selected from an available provider.
 --
@@ -265,7 +266,7 @@ describeMapResponse_description = Lens.lens (\DescribeMapResponse' {description}
 -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
 -- resource across all AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 describeMapResponse_mapArn :: Lens.Lens' DescribeMapResponse Prelude.Text
 describeMapResponse_mapArn = Lens.lens (\DescribeMapResponse' {mapArn} -> mapArn) (\s@DescribeMapResponse' {} a -> s {mapArn = a} :: DescribeMapResponse)
 

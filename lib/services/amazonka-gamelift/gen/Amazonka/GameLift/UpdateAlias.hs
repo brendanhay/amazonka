@@ -127,7 +127,8 @@ updateAlias_aliasId = Lens.lens (\UpdateAlias' {aliasId} -> aliasId) (\s@UpdateA
 
 instance Core.AWSRequest UpdateAlias where
   type AWSResponse UpdateAlias = UpdateAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateProtectionGroup where
   type
     AWSResponse CreateProtectionGroup =
       CreateProtectionGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

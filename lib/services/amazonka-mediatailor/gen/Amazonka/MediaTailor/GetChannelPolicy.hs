@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a channel\'s IAM policy.
+-- Returns the channel\'s IAM policy. IAM policies are used to control
+-- access to your channel.
 module Amazonka.MediaTailor.GetChannelPolicy
   ( -- * Creating a Request
     GetChannelPolicy (..),
@@ -48,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetChannelPolicy' smart constructor.
 data GetChannelPolicy = GetChannelPolicy'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel associated with this Channel Policy.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +62,7 @@ data GetChannelPolicy = GetChannelPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'getChannelPolicy_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'getChannelPolicy_channelName' - The name of the channel associated with this Channel Policy.
 newGetChannelPolicy ::
   -- | 'channelName'
   Prelude.Text ->
@@ -69,7 +70,7 @@ newGetChannelPolicy ::
 newGetChannelPolicy pChannelName_ =
   GetChannelPolicy' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel associated with this Channel Policy.
 getChannelPolicy_channelName :: Lens.Lens' GetChannelPolicy Prelude.Text
 getChannelPolicy_channelName = Lens.lens (\GetChannelPolicy' {channelName} -> channelName) (\s@GetChannelPolicy' {} a -> s {channelName = a} :: GetChannelPolicy)
 
@@ -77,7 +78,8 @@ instance Core.AWSRequest GetChannelPolicy where
   type
     AWSResponse GetChannelPolicy =
       GetChannelPolicyResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,7 +116,8 @@ instance Core.ToQuery GetChannelPolicy where
 
 -- | /See:/ 'newGetChannelPolicyResponse' smart constructor.
 data GetChannelPolicyResponse = GetChannelPolicyResponse'
-  { -- | The IAM policy for the channel.
+  { -- | The IAM policy for the channel. IAM policies are used to control access
+    -- to your channel.
     policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -129,7 +132,8 @@ data GetChannelPolicyResponse = GetChannelPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'getChannelPolicyResponse_policy' - The IAM policy for the channel.
+-- 'policy', 'getChannelPolicyResponse_policy' - The IAM policy for the channel. IAM policies are used to control access
+-- to your channel.
 --
 -- 'httpStatus', 'getChannelPolicyResponse_httpStatus' - The response's http status code.
 newGetChannelPolicyResponse ::
@@ -142,7 +146,8 @@ newGetChannelPolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The IAM policy for the channel.
+-- | The IAM policy for the channel. IAM policies are used to control access
+-- to your channel.
 getChannelPolicyResponse_policy :: Lens.Lens' GetChannelPolicyResponse (Prelude.Maybe Prelude.Text)
 getChannelPolicyResponse_policy = Lens.lens (\GetChannelPolicyResponse' {policy} -> policy) (\s@GetChannelPolicyResponse' {} a -> s {policy = a} :: GetChannelPolicyResponse)
 

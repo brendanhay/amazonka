@@ -201,7 +201,8 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
   type
     AWSResponse ListEdgeDeploymentPlans =
       ListEdgeDeploymentPlansResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

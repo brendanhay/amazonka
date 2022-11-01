@@ -137,7 +137,8 @@ instance
   type
     AWSResponse CreatePrivateVirtualInterface =
       VirtualInterface
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

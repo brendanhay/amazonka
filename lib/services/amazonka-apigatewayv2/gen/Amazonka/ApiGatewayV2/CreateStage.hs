@@ -209,7 +209,8 @@ createStage_stageName = Lens.lens (\CreateStage' {stageName} -> stageName) (\s@C
 
 instance Core.AWSRequest CreateStage where
   type AWSResponse CreateStage = CreateStageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

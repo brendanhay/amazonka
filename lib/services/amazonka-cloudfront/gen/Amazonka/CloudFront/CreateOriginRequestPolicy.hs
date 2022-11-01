@@ -108,7 +108,8 @@ instance Core.AWSRequest CreateOriginRequestPolicy where
   type
     AWSResponse CreateOriginRequestPolicy =
       CreateOriginRequestPolicyResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

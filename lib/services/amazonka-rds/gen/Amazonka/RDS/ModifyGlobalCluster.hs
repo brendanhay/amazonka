@@ -263,7 +263,8 @@ instance Core.AWSRequest ModifyGlobalCluster where
   type
     AWSResponse ModifyGlobalCluster =
       ModifyGlobalClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyGlobalClusterResult"

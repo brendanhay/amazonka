@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 data LogConfiguration = LogConfiguration'
   { -- | The percentage of session logs that MediaTailor sends to your Cloudwatch
     -- Logs account. For example, if your playback configuration has 1000
-    -- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600
-    -- of the sessions to CloudWatch Logs. MediaTailor decides at random which
-    -- of the playback configuration sessions to send logs for. If you want to
-    -- view logs for a specific session, you can use the
+    -- sessions and @percentEnabled@ is set to @60@, MediaTailor sends logs for
+    -- 600 of the sessions to CloudWatch Logs. MediaTailor decides at random
+    -- which of the playback configuration sessions to send logs for. If you
+    -- want to view logs for a specific session, you can use the
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode>.
     --
-    -- Valid values: 0 - 100
+    -- Valid values: @0@ - @100@
     percentEnabled :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +50,13 @@ data LogConfiguration = LogConfiguration'
 --
 -- 'percentEnabled', 'logConfiguration_percentEnabled' - The percentage of session logs that MediaTailor sends to your Cloudwatch
 -- Logs account. For example, if your playback configuration has 1000
--- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600
--- of the sessions to CloudWatch Logs. MediaTailor decides at random which
--- of the playback configuration sessions to send logs for. If you want to
--- view logs for a specific session, you can use the
+-- sessions and @percentEnabled@ is set to @60@, MediaTailor sends logs for
+-- 600 of the sessions to CloudWatch Logs. MediaTailor decides at random
+-- which of the playback configuration sessions to send logs for. If you
+-- want to view logs for a specific session, you can use the
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode>.
 --
--- Valid values: 0 - 100
+-- Valid values: @0@ - @100@
 newLogConfiguration ::
   -- | 'percentEnabled'
   Prelude.Int ->
@@ -69,13 +69,13 @@ newLogConfiguration pPercentEnabled_ =
 
 -- | The percentage of session logs that MediaTailor sends to your Cloudwatch
 -- Logs account. For example, if your playback configuration has 1000
--- sessions and percentEnabled is set to 60, MediaTailor sends logs for 600
--- of the sessions to CloudWatch Logs. MediaTailor decides at random which
--- of the playback configuration sessions to send logs for. If you want to
--- view logs for a specific session, you can use the
+-- sessions and @percentEnabled@ is set to @60@, MediaTailor sends logs for
+-- 600 of the sessions to CloudWatch Logs. MediaTailor decides at random
+-- which of the playback configuration sessions to send logs for. If you
+-- want to view logs for a specific session, you can use the
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html debug log mode>.
 --
--- Valid values: 0 - 100
+-- Valid values: @0@ - @100@
 logConfiguration_percentEnabled :: Lens.Lens' LogConfiguration Prelude.Int
 logConfiguration_percentEnabled = Lens.lens (\LogConfiguration' {percentEnabled} -> percentEnabled) (\s@LogConfiguration' {} a -> s {percentEnabled = a} :: LogConfiguration)
 

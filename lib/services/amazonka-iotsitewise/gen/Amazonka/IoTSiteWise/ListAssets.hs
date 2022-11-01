@@ -173,7 +173,8 @@ instance Core.AWSPager ListAssets where
 
 instance Core.AWSRequest ListAssets where
   type AWSResponse ListAssets = ListAssetsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

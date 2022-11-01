@@ -96,7 +96,8 @@ instance Core.AWSRequest GetConfigurationSet where
   type
     AWSResponse GetConfigurationSet =
       GetConfigurationSetResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

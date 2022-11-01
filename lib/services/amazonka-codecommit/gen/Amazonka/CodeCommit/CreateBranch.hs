@@ -105,7 +105,8 @@ createBranch_commitId = Lens.lens (\CreateBranch' {commitId} -> commitId) (\s@Cr
 
 instance Core.AWSRequest CreateBranch where
   type AWSResponse CreateBranch = CreateBranchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull CreateBranchResponse'
 
 instance Prelude.Hashable CreateBranch where

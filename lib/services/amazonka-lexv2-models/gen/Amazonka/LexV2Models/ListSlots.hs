@@ -198,7 +198,8 @@ listSlots_intentId = Lens.lens (\ListSlots' {intentId} -> intentId) (\s@ListSlot
 
 instance Core.AWSRequest ListSlots where
   type AWSResponse ListSlots = ListSlotsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

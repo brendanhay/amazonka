@@ -26,7 +26,7 @@
 -- the tags that are associated with that resource are deleted as well.
 -- Batch resources that support tags are compute environments, jobs, job
 -- definitions, job queues, and scheduling policies. ARNs for child jobs of
--- array and multi-node parallel (MNP) jobs are not supported.
+-- array and multi-node parallel (MNP) jobs aren\'t supported.
 module Amazonka.Batch.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -59,7 +59,7 @@ data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
     -- Batch resources that support tags are compute environments, jobs, job
     -- definitions, job queues, and scheduling policies. ARNs for child jobs of
-    -- array and multi-node parallel (MNP) jobs are not supported.
+    -- array and multi-node parallel (MNP) jobs aren\'t supported.
     resourceArn :: Prelude.Text,
     -- | The tags that you apply to the resource to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
@@ -81,7 +81,7 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that tags are added to.
 -- Batch resources that support tags are compute environments, jobs, job
 -- definitions, job queues, and scheduling policies. ARNs for child jobs of
--- array and multi-node parallel (MNP) jobs are not supported.
+-- array and multi-node parallel (MNP) jobs aren\'t supported.
 --
 -- 'tags', 'tagResource_tags' - The tags that you apply to the resource to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
@@ -101,7 +101,7 @@ newTagResource pResourceArn_ =
 -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
 -- Batch resources that support tags are compute environments, jobs, job
 -- definitions, job queues, and scheduling policies. ARNs for child jobs of
--- array and multi-node parallel (MNP) jobs are not supported.
+-- array and multi-node parallel (MNP) jobs aren\'t supported.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
@@ -115,7 +115,8 @@ tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} 
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

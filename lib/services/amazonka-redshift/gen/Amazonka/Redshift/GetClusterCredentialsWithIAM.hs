@@ -133,7 +133,8 @@ instance Core.AWSRequest GetClusterCredentialsWithIAM where
   type
     AWSResponse GetClusterCredentialsWithIAM =
       GetClusterCredentialsWithIAMResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetClusterCredentialsWithIAMResult"

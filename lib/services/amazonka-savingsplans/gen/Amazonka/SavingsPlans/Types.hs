@@ -215,6 +215,8 @@ defaultService =
       Core._serviceEndpointPrefix = "savingsplans",
       Core._serviceSigningName = "savingsplans",
       Core._serviceVersion = "2019-06-28",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

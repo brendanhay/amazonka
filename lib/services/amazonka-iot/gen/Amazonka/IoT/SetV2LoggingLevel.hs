@@ -91,7 +91,8 @@ instance Core.AWSRequest SetV2LoggingLevel where
   type
     AWSResponse SetV2LoggingLevel =
       SetV2LoggingLevelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
 

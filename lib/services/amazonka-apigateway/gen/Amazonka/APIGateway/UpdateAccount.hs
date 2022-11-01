@@ -81,7 +81,8 @@ updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> 
 
 instance Core.AWSRequest UpdateAccount where
   type AWSResponse UpdateAccount = Account
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

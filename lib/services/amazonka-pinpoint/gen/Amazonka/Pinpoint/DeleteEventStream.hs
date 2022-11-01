@@ -80,7 +80,8 @@ instance Core.AWSRequest DeleteEventStream where
   type
     AWSResponse DeleteEventStream =
       DeleteEventStreamResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

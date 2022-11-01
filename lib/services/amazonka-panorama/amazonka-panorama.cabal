@@ -75,6 +75,7 @@ library
     Amazonka.Panorama.ProvisionDevice
     Amazonka.Panorama.RegisterPackageVersion
     Amazonka.Panorama.RemoveApplicationInstance
+    Amazonka.Panorama.SignalApplicationInstanceNodeInstances
     Amazonka.Panorama.TagResource
     Amazonka.Panorama.Types
     Amazonka.Panorama.Types.AlternateSoftwareMetadata
@@ -82,12 +83,14 @@ library
     Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
     Amazonka.Panorama.Types.ApplicationInstanceStatus
     Amazonka.Panorama.Types.ConnectionType
+    Amazonka.Panorama.Types.DesiredState
     Amazonka.Panorama.Types.Device
     Amazonka.Panorama.Types.DeviceAggregatedStatus
     Amazonka.Panorama.Types.DeviceBrand
     Amazonka.Panorama.Types.DeviceConnectionStatus
     Amazonka.Panorama.Types.DeviceJob
     Amazonka.Panorama.Types.DeviceJobConfig
+    Amazonka.Panorama.Types.DeviceReportedStatus
     Amazonka.Panorama.Types.DeviceStatus
     Amazonka.Panorama.Types.DeviceType
     Amazonka.Panorama.Types.EthernetPayload
@@ -112,6 +115,8 @@ library
     Amazonka.Panorama.Types.NodeInstanceStatus
     Amazonka.Panorama.Types.NodeInterface
     Amazonka.Panorama.Types.NodeOutputPort
+    Amazonka.Panorama.Types.NodeSignal
+    Amazonka.Panorama.Types.NodeSignalValue
     Amazonka.Panorama.Types.NtpPayload
     Amazonka.Panorama.Types.NtpStatus
     Amazonka.Panorama.Types.OTAJobConfig
@@ -128,6 +133,7 @@ library
     Amazonka.Panorama.Types.PackageVersionOutputConfig
     Amazonka.Panorama.Types.PackageVersionStatus
     Amazonka.Panorama.Types.PortType
+    Amazonka.Panorama.Types.ReportedRuntimeContextState
     Amazonka.Panorama.Types.S3Location
     Amazonka.Panorama.Types.SortOrder
     Amazonka.Panorama.Types.StaticIpConnectionInfo

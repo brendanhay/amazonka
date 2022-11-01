@@ -91,7 +91,8 @@ instance Core.AWSRequest CreateAccountAlias where
   type
     AWSResponse CreateAccountAlias =
       CreateAccountAliasResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateAccountAliasResponse'
 

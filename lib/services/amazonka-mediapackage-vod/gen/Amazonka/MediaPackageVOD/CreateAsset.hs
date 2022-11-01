@@ -146,7 +146,8 @@ createAsset_sourceRoleArn = Lens.lens (\CreateAsset' {sourceRoleArn} -> sourceRo
 
 instance Core.AWSRequest CreateAsset where
   type AWSResponse CreateAsset = CreateAssetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

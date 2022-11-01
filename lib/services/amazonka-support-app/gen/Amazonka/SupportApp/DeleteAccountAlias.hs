@@ -63,7 +63,8 @@ instance Core.AWSRequest DeleteAccountAlias where
   type
     AWSResponse DeleteAccountAlias =
       DeleteAccountAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

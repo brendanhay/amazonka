@@ -133,7 +133,8 @@ createTask_targets = Lens.lens (\CreateTask' {targets} -> targets) (\s@CreateTas
 
 instance Core.AWSRequest CreateTask where
   type AWSResponse CreateTask = CreateTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

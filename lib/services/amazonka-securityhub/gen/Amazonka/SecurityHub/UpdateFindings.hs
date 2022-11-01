@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateFindings where
   type
     AWSResponse UpdateFindings =
       UpdateFindingsResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -88,7 +88,8 @@ deleteStage_apiId = Lens.lens (\DeleteStage' {apiId} -> apiId) (\s@DeleteStage' 
 
 instance Core.AWSRequest DeleteStage where
   type AWSResponse DeleteStage = DeleteStageResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteStageResponse'
 
 instance Prelude.Hashable DeleteStage where

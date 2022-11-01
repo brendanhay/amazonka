@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateRegexPatternSet where
   type
     AWSResponse CreateRegexPatternSet =
       CreateRegexPatternSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

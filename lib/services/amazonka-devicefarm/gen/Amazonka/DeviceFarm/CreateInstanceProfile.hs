@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateInstanceProfile where
   type
     AWSResponse CreateInstanceProfile =
       CreateInstanceProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

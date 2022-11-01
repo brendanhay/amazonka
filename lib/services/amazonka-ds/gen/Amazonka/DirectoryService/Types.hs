@@ -35,6 +35,7 @@ module Amazonka.DirectoryService.Types
     _RegionLimitExceededException,
     _DirectoryLimitExceededException,
     _InvalidNextTokenException,
+    _DirectoryInDesiredStateException,
     _InvalidClientAuthStatusException,
     _CertificateLimitExceededException,
     _DomainControllerLimitExceededException,
@@ -93,6 +94,9 @@ module Amazonka.DirectoryService.Types
     -- * LDAPSType
     LDAPSType (..),
 
+    -- * OSVersion
+    OSVersion (..),
+
     -- * RadiusAuthenticationProtocol
     RadiusAuthenticationProtocol (..),
 
@@ -137,6 +141,12 @@ module Amazonka.DirectoryService.Types
 
     -- * TrustType
     TrustType (..),
+
+    -- * UpdateStatus
+    UpdateStatus (..),
+
+    -- * UpdateType
+    UpdateType (..),
 
     -- * Attribute
     Attribute (..),
@@ -224,6 +234,7 @@ module Amazonka.DirectoryService.Types
     directoryDescription_shareMethod,
     directoryDescription_size,
     directoryDescription_vpcSettings,
+    directoryDescription_osVersion,
     directoryDescription_ownerDirectoryDescription,
     directoryDescription_edition,
     directoryDescription_description,
@@ -317,6 +328,11 @@ module Amazonka.DirectoryService.Types
     logSubscription_directoryId,
     logSubscription_subscriptionCreatedDateTime,
     logSubscription_logGroupName,
+
+    -- * OSUpdateSettings
+    OSUpdateSettings (..),
+    newOSUpdateSettings,
+    oSUpdateSettings_oSVersion,
 
     -- * OwnerDirectoryDescription
     OwnerDirectoryDescription (..),
@@ -452,6 +468,23 @@ module Amazonka.DirectoryService.Types
     newUnshareTarget,
     unshareTarget_id,
     unshareTarget_type,
+
+    -- * UpdateInfoEntry
+    UpdateInfoEntry (..),
+    newUpdateInfoEntry,
+    updateInfoEntry_initiatedBy,
+    updateInfoEntry_previousValue,
+    updateInfoEntry_statusReason,
+    updateInfoEntry_status,
+    updateInfoEntry_region,
+    updateInfoEntry_newValue,
+    updateInfoEntry_startTime,
+    updateInfoEntry_lastUpdatedDateTime,
+
+    -- * UpdateValue
+    UpdateValue (..),
+    newUpdateValue,
+    updateValue_oSUpdateSettings,
   )
 where
 
@@ -488,6 +521,8 @@ import Amazonka.DirectoryService.Types.LDAPSSettingInfo
 import Amazonka.DirectoryService.Types.LDAPSStatus
 import Amazonka.DirectoryService.Types.LDAPSType
 import Amazonka.DirectoryService.Types.LogSubscription
+import Amazonka.DirectoryService.Types.OSUpdateSettings
+import Amazonka.DirectoryService.Types.OSVersion
 import Amazonka.DirectoryService.Types.OwnerDirectoryDescription
 import Amazonka.DirectoryService.Types.RadiusAuthenticationProtocol
 import Amazonka.DirectoryService.Types.RadiusSettings
@@ -517,6 +552,10 @@ import Amazonka.DirectoryService.Types.TrustDirection
 import Amazonka.DirectoryService.Types.TrustState
 import Amazonka.DirectoryService.Types.TrustType
 import Amazonka.DirectoryService.Types.UnshareTarget
+import Amazonka.DirectoryService.Types.UpdateInfoEntry
+import Amazonka.DirectoryService.Types.UpdateStatus
+import Amazonka.DirectoryService.Types.UpdateType
+import Amazonka.DirectoryService.Types.UpdateValue
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -531,6 +570,8 @@ defaultService =
       Core._serviceEndpointPrefix = "ds",
       Core._serviceSigningName = "ds",
       Core._serviceVersion = "2015-04-16",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -728,6 +769,13 @@ _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
+
+-- | The directory is already updated to desired update type settings.
+_DirectoryInDesiredStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryInDesiredStateException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryInDesiredStateException"
 
 -- | Client authentication is already enabled.
 _InvalidClientAuthStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

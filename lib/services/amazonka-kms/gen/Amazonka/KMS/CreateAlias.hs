@@ -224,7 +224,8 @@ createAlias_targetKeyId = Lens.lens (\CreateAlias' {targetKeyId} -> targetKeyId)
 
 instance Core.AWSRequest CreateAlias where
   type AWSResponse CreateAlias = CreateAliasResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull CreateAliasResponse'
 
 instance Prelude.Hashable CreateAlias where

@@ -62,7 +62,8 @@ instance Core.AWSRequest GetInvitationsCount where
   type
     AWSResponse GetInvitationsCount =
       GetInvitationsCountResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

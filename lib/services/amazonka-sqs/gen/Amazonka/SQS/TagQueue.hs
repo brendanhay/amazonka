@@ -107,7 +107,8 @@ tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {t
 
 instance Core.AWSRequest TagQueue where
   type AWSResponse TagQueue = TagQueueResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull TagQueueResponse'
 
 instance Prelude.Hashable TagQueue where

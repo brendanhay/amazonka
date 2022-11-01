@@ -98,7 +98,8 @@ instance Core.AWSRequest ListControlDomainInsights where
   type
     AWSResponse ListControlDomainInsights =
       ListControlDomainInsightsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

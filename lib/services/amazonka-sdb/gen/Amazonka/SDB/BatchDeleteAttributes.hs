@@ -92,7 +92,8 @@ instance Core.AWSRequest BatchDeleteAttributes where
   type
     AWSResponse BatchDeleteAttributes =
       BatchDeleteAttributesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull BatchDeleteAttributesResponse'
 

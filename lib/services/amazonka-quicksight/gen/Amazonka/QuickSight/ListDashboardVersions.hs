@@ -144,7 +144,8 @@ instance Core.AWSRequest ListDashboardVersions where
   type
     AWSResponse ListDashboardVersions =
       ListDashboardVersionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

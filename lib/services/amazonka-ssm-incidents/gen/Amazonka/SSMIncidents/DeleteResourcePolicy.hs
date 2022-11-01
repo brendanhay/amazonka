@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteResourcePolicy where
   type
     AWSResponse DeleteResourcePolicy =
       DeleteResourcePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

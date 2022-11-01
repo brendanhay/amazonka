@@ -144,7 +144,8 @@ instance Core.AWSRequest ListRuleGroupsNamespaces where
   type
     AWSResponse ListRuleGroupsNamespaces =
       ListRuleGroupsNamespacesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

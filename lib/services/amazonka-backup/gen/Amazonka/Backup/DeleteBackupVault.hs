@@ -86,7 +86,8 @@ instance Core.AWSRequest DeleteBackupVault where
   type
     AWSResponse DeleteBackupVault =
       DeleteBackupVaultResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBackupVaultResponse'
 

@@ -90,7 +90,8 @@ getRuleGroup_ruleGroupId = Lens.lens (\GetRuleGroup' {ruleGroupId} -> ruleGroupI
 
 instance Core.AWSRequest GetRuleGroup where
   type AWSResponse GetRuleGroup = GetRuleGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

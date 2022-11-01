@@ -78,7 +78,8 @@ stopWorkflow_id = Lens.lens (\StopWorkflow' {id} -> id) (\s@StopWorkflow' {} a -
 
 instance Core.AWSRequest StopWorkflow where
   type AWSResponse StopWorkflow = StopWorkflowResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

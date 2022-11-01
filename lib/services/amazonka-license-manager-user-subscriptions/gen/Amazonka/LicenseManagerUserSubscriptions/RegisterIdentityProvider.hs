@@ -94,7 +94,8 @@ instance Core.AWSRequest RegisterIdentityProvider where
   type
     AWSResponse RegisterIdentityProvider =
       RegisterIdentityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

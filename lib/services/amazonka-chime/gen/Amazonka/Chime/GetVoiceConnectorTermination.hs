@@ -81,7 +81,8 @@ instance Core.AWSRequest GetVoiceConnectorTermination where
   type
     AWSResponse GetVoiceConnectorTermination =
       GetVoiceConnectorTerminationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -81,7 +81,8 @@ instance Core.AWSRequest BatchDescribeSimulationJob where
   type
     AWSResponse BatchDescribeSimulationJob =
       BatchDescribeSimulationJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

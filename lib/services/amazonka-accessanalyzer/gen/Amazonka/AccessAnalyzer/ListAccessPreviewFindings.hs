@@ -155,7 +155,8 @@ instance Core.AWSRequest ListAccessPreviewFindings where
   type
     AWSResponse ListAccessPreviewFindings =
       ListAccessPreviewFindingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

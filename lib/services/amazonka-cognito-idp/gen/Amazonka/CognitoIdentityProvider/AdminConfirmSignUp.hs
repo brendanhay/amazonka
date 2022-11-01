@@ -190,7 +190,8 @@ instance Core.AWSRequest AdminConfirmSignUp where
   type
     AWSResponse AdminConfirmSignUp =
       AdminConfirmSignUpResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

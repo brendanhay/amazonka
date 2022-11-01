@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data AccessDetail = AccessDetail'
   { -- | The number of accounts with authenticated principals (root users, IAM
     -- users, and IAM roles) that attempted to access the service in the
-    -- reporting period.
+    -- tracking period.
     totalAuthenticatedEntities :: Prelude.Maybe Prelude.Int,
     -- | The path of the Organizations entity (root, organizational unit, or
     -- account) from which an authenticated principal last attempted to access
@@ -45,13 +45,13 @@ data AccessDetail = AccessDetail'
     -- This field is null if no principals (IAM users, IAM roles, or root
     -- users) in the reported Organizations entity attempted to access the
     -- service within the
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     entityPath :: Prelude.Maybe Prelude.Text,
     -- | The Region where the last service access attempt occurred.
     --
     -- This field is null if no principals in the reported Organizations entity
     -- attempted to access the service within the
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     region :: Prelude.Maybe Prelude.Text,
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
@@ -60,7 +60,7 @@ data AccessDetail = AccessDetail'
     --
     -- This field is null if no principals in the reported Organizations entity
     -- attempted to access the service within the
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     lastAuthenticatedTime :: Prelude.Maybe Core.ISO8601,
     -- | The name of the service in which access was attempted.
     serviceName :: Prelude.Text,
@@ -88,7 +88,7 @@ data AccessDetail = AccessDetail'
 --
 -- 'totalAuthenticatedEntities', 'accessDetail_totalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM
 -- users, and IAM roles) that attempted to access the service in the
--- reporting period.
+-- tracking period.
 --
 -- 'entityPath', 'accessDetail_entityPath' - The path of the Organizations entity (root, organizational unit, or
 -- account) from which an authenticated principal last attempted to access
@@ -98,13 +98,13 @@ data AccessDetail = AccessDetail'
 -- This field is null if no principals (IAM users, IAM roles, or root
 -- users) in the reported Organizations entity attempted to access the
 -- service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
 -- 'region', 'accessDetail_region' - The Region where the last service access attempt occurred.
 --
 -- This field is null if no principals in the reported Organizations entity
 -- attempted to access the service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
 -- 'lastAuthenticatedTime', 'accessDetail_lastAuthenticatedTime' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
@@ -113,7 +113,7 @@ data AccessDetail = AccessDetail'
 --
 -- This field is null if no principals in the reported Organizations entity
 -- attempted to access the service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
 -- 'serviceName', 'accessDetail_serviceName' - The name of the service in which access was attempted.
 --
@@ -146,7 +146,7 @@ newAccessDetail pServiceName_ pServiceNamespace_ =
 
 -- | The number of accounts with authenticated principals (root users, IAM
 -- users, and IAM roles) that attempted to access the service in the
--- reporting period.
+-- tracking period.
 accessDetail_totalAuthenticatedEntities :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Int)
 accessDetail_totalAuthenticatedEntities = Lens.lens (\AccessDetail' {totalAuthenticatedEntities} -> totalAuthenticatedEntities) (\s@AccessDetail' {} a -> s {totalAuthenticatedEntities = a} :: AccessDetail)
 
@@ -158,7 +158,7 @@ accessDetail_totalAuthenticatedEntities = Lens.lens (\AccessDetail' {totalAuthen
 -- This field is null if no principals (IAM users, IAM roles, or root
 -- users) in the reported Organizations entity attempted to access the
 -- service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 accessDetail_entityPath :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Text)
 accessDetail_entityPath = Lens.lens (\AccessDetail' {entityPath} -> entityPath) (\s@AccessDetail' {} a -> s {entityPath = a} :: AccessDetail)
 
@@ -166,7 +166,7 @@ accessDetail_entityPath = Lens.lens (\AccessDetail' {entityPath} -> entityPath) 
 --
 -- This field is null if no principals in the reported Organizations entity
 -- attempted to access the service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 accessDetail_region :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Text)
 accessDetail_region = Lens.lens (\AccessDetail' {region} -> region) (\s@AccessDetail' {} a -> s {region = a} :: AccessDetail)
 
@@ -177,7 +177,7 @@ accessDetail_region = Lens.lens (\AccessDetail' {region} -> region) (\s@AccessDe
 --
 -- This field is null if no principals in the reported Organizations entity
 -- attempted to access the service within the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 accessDetail_lastAuthenticatedTime :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.UTCTime)
 accessDetail_lastAuthenticatedTime = Lens.lens (\AccessDetail' {lastAuthenticatedTime} -> lastAuthenticatedTime) (\s@AccessDetail' {} a -> s {lastAuthenticatedTime = a} :: AccessDetail) Prelude.. Lens.mapping Core._Time
 

@@ -90,7 +90,8 @@ deleteBuild_buildId = Lens.lens (\DeleteBuild' {buildId} -> buildId) (\s@DeleteB
 
 instance Core.AWSRequest DeleteBuild where
   type AWSResponse DeleteBuild = DeleteBuildResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteBuildResponse'
 
 instance Prelude.Hashable DeleteBuild where

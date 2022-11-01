@@ -96,7 +96,8 @@ getContact_emailAddress = Lens.lens (\GetContact' {emailAddress} -> emailAddress
 
 instance Core.AWSRequest GetContact where
   type AWSResponse GetContact = GetContactResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

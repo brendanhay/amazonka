@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateTrustAnchor where
   type
     AWSResponse UpdateTrustAnchor =
       TrustAnchorDetailResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

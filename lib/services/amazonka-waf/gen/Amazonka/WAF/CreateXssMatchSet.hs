@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateXssMatchSet where
   type
     AWSResponse CreateXssMatchSet =
       CreateXssMatchSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteContainerRecipe where
   type
     AWSResponse DeleteContainerRecipe =
       DeleteContainerRecipeResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

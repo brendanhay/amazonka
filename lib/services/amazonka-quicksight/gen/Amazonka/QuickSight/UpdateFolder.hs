@@ -106,7 +106,8 @@ updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' 
 
 instance Core.AWSRequest UpdateFolder where
   type AWSResponse UpdateFolder = UpdateFolderResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -448,7 +448,8 @@ createIntent_localeId = Lens.lens (\CreateIntent' {localeId} -> localeId) (\s@Cr
 
 instance Core.AWSRequest CreateIntent where
   type AWSResponse CreateIntent = CreateIntentResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

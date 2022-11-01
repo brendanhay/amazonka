@@ -127,7 +127,8 @@ instance Core.AWSRequest ListTaskExecutions where
   type
     AWSResponse ListTaskExecutions =
       ListTaskExecutionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

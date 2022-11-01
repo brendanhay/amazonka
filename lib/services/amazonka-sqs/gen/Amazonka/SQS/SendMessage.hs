@@ -489,7 +489,8 @@ sendMessage_messageBody = Lens.lens (\SendMessage' {messageBody} -> messageBody)
 
 instance Core.AWSRequest SendMessage where
   type AWSResponse SendMessage = SendMessageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendMessageResult"

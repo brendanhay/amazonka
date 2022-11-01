@@ -98,7 +98,8 @@ instance Core.AWSRequest GetPositionConfiguration where
   type
     AWSResponse GetPositionConfiguration =
       GetPositionConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

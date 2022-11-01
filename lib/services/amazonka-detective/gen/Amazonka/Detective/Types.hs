@@ -145,6 +145,8 @@ defaultService =
       Core._serviceEndpointPrefix = "api.detective",
       Core._serviceSigningName = "detective",
       Core._serviceVersion = "2018-10-26",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

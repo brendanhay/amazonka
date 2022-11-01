@@ -332,7 +332,8 @@ instance Core.AWSRequest CreateIdentityProvider where
   type
     AWSResponse CreateIdentityProvider =
       CreateIdentityProviderResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

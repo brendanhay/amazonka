@@ -95,7 +95,8 @@ listHosts_maxResults = Lens.lens (\ListHosts' {maxResults} -> maxResults) (\s@Li
 
 instance Core.AWSRequest ListHosts where
   type AWSResponse ListHosts = ListHostsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the playback configuration for the specified name.
+-- Deletes a playback configuration. For information about MediaTailor
+-- configurations, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor>.
 module Amazonka.MediaTailor.DeletePlaybackConfiguration
   ( -- * Creating a Request
     DeletePlaybackConfiguration (..),
@@ -47,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePlaybackConfiguration' smart constructor.
 data DeletePlaybackConfiguration = DeletePlaybackConfiguration'
-  { -- | The identifier for the playback configuration.
+  { -- | The name of the playback configuration.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +62,7 @@ data DeletePlaybackConfiguration = DeletePlaybackConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deletePlaybackConfiguration_name' - The identifier for the playback configuration.
+-- 'name', 'deletePlaybackConfiguration_name' - The name of the playback configuration.
 newDeletePlaybackConfiguration ::
   -- | 'name'
   Prelude.Text ->
@@ -68,7 +70,7 @@ newDeletePlaybackConfiguration ::
 newDeletePlaybackConfiguration pName_ =
   DeletePlaybackConfiguration' {name = pName_}
 
--- | The identifier for the playback configuration.
+-- | The name of the playback configuration.
 deletePlaybackConfiguration_name :: Lens.Lens' DeletePlaybackConfiguration Prelude.Text
 deletePlaybackConfiguration_name = Lens.lens (\DeletePlaybackConfiguration' {name} -> name) (\s@DeletePlaybackConfiguration' {} a -> s {name = a} :: DeletePlaybackConfiguration)
 
@@ -76,7 +78,8 @@ instance Core.AWSRequest DeletePlaybackConfiguration where
   type
     AWSResponse DeletePlaybackConfiguration =
       DeletePlaybackConfigurationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

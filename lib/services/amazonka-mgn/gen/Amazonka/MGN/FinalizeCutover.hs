@@ -94,7 +94,8 @@ finalizeCutover_sourceServerID = Lens.lens (\FinalizeCutover' {sourceServerID} -
 
 instance Core.AWSRequest FinalizeCutover where
   type AWSResponse FinalizeCutover = SourceServer
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

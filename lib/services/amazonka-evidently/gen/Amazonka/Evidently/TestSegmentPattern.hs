@@ -96,7 +96,8 @@ instance Core.AWSRequest TestSegmentPattern where
   type
     AWSResponse TestSegmentPattern =
       TestSegmentPatternResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

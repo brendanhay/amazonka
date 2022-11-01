@@ -77,7 +77,8 @@ instance Core.AWSRequest GetTrustStore where
   type
     AWSResponse GetTrustStore =
       GetTrustStoreResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

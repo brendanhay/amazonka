@@ -76,7 +76,8 @@ instance Core.AWSRequest DeleteModelBiasJobDefinition where
   type
     AWSResponse DeleteModelBiasJobDefinition =
       DeleteModelBiasJobDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelBiasJobDefinitionResponse'

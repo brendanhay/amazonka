@@ -88,7 +88,8 @@ disable_resourceTypes = Lens.lens (\Disable' {resourceTypes} -> resourceTypes) (
 
 instance Core.AWSRequest Disable where
   type AWSResponse Disable = DisableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

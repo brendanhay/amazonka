@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribeTemplatePermissions where
   type
     AWSResponse DescribeTemplatePermissions =
       DescribeTemplatePermissionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

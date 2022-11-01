@@ -105,7 +105,8 @@ instance Core.AWSRequest WithdrawByoipCidr where
   type
     AWSResponse WithdrawByoipCidr =
       WithdrawByoipCidrResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

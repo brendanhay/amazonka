@@ -97,7 +97,8 @@ instance Core.AWSRequest GetContactMethods where
   type
     AWSResponse GetContactMethods =
       GetContactMethodsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

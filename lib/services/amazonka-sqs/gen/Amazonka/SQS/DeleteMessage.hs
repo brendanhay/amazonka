@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteMessage where
   type
     AWSResponse DeleteMessage =
       DeleteMessageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteMessageResponse'
 

@@ -29,6 +29,7 @@ import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoring
 import Amazonka.Kafka.Types.StateInfo
+import Amazonka.Kafka.Types.StorageMode
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,6 +43,8 @@ data ClusterInfo = ClusterInfo'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Settings for open monitoring using Prometheus.
     openMonitoring :: Prelude.Maybe OpenMonitoring,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     stateInfo :: Prelude.Maybe StateInfo,
@@ -94,6 +97,8 @@ data ClusterInfo = ClusterInfo'
 --
 -- 'openMonitoring', 'clusterInfo_openMonitoring' - Settings for open monitoring using Prometheus.
 --
+-- 'storageMode', 'clusterInfo_storageMode' - This controls storage mode for supported storage tiers.
+--
 -- 'encryptionInfo', 'clusterInfo_encryptionInfo' - Includes all encryption-related information.
 --
 -- 'stateInfo', 'clusterInfo_stateInfo' - Undocumented member.
@@ -137,6 +142,7 @@ newClusterInfo =
     { clusterArn = Prelude.Nothing,
       tags = Prelude.Nothing,
       openMonitoring = Prelude.Nothing,
+      storageMode = Prelude.Nothing,
       encryptionInfo = Prelude.Nothing,
       stateInfo = Prelude.Nothing,
       brokerNodeGroupInfo = Prelude.Nothing,
@@ -165,6 +171,10 @@ clusterInfo_tags = Lens.lens (\ClusterInfo' {tags} -> tags) (\s@ClusterInfo' {} 
 -- | Settings for open monitoring using Prometheus.
 clusterInfo_openMonitoring :: Lens.Lens' ClusterInfo (Prelude.Maybe OpenMonitoring)
 clusterInfo_openMonitoring = Lens.lens (\ClusterInfo' {openMonitoring} -> openMonitoring) (\s@ClusterInfo' {} a -> s {openMonitoring = a} :: ClusterInfo)
+
+-- | This controls storage mode for supported storage tiers.
+clusterInfo_storageMode :: Lens.Lens' ClusterInfo (Prelude.Maybe StorageMode)
+clusterInfo_storageMode = Lens.lens (\ClusterInfo' {storageMode} -> storageMode) (\s@ClusterInfo' {} a -> s {storageMode = a} :: ClusterInfo)
 
 -- | Includes all encryption-related information.
 clusterInfo_encryptionInfo :: Lens.Lens' ClusterInfo (Prelude.Maybe EncryptionInfo)
@@ -242,6 +252,7 @@ instance Core.FromJSON ClusterInfo where
             Prelude.<$> (x Core..:? "clusterArn")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "openMonitoring")
+            Prelude.<*> (x Core..:? "storageMode")
             Prelude.<*> (x Core..:? "encryptionInfo")
             Prelude.<*> (x Core..:? "stateInfo")
             Prelude.<*> (x Core..:? "brokerNodeGroupInfo")
@@ -264,6 +275,7 @@ instance Prelude.Hashable ClusterInfo where
     _salt `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` stateInfo
       `Prelude.hashWithSalt` brokerNodeGroupInfo
@@ -285,6 +297,7 @@ instance Prelude.NFData ClusterInfo where
     Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf stateInfo
       `Prelude.seq` Prelude.rnf brokerNodeGroupInfo

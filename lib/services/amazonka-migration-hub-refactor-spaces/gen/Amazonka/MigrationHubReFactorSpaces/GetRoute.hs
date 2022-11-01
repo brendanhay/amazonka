@@ -121,7 +121,8 @@ getRoute_routeIdentifier = Lens.lens (\GetRoute' {routeIdentifier} -> routeIdent
 
 instance Core.AWSRequest GetRoute where
   type AWSResponse GetRoute = GetRouteResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

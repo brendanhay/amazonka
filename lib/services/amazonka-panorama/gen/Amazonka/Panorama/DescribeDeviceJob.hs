@@ -42,6 +42,7 @@ module Amazonka.Panorama.DescribeDeviceJob
     describeDeviceJobResponse_imageVersion,
     describeDeviceJobResponse_deviceArn,
     describeDeviceJobResponse_deviceType,
+    describeDeviceJobResponse_jobType,
     describeDeviceJobResponse_httpStatus,
   )
 where
@@ -84,7 +85,8 @@ instance Core.AWSRequest DescribeDeviceJob where
   type
     AWSResponse DescribeDeviceJob =
       DescribeDeviceJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +99,7 @@ instance Core.AWSRequest DescribeDeviceJob where
             Prelude.<*> (x Core..?> "ImageVersion")
             Prelude.<*> (x Core..?> "DeviceArn")
             Prelude.<*> (x Core..?> "DeviceType")
+            Prelude.<*> (x Core..?> "JobType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,6 +146,8 @@ data DescribeDeviceJobResponse = DescribeDeviceJobResponse'
     deviceArn :: Prelude.Maybe Prelude.Text,
     -- | The device\'s type.
     deviceType :: Prelude.Maybe DeviceType,
+    -- | The job\'s type.
+    jobType :: Prelude.Maybe JobType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,6 +177,8 @@ data DescribeDeviceJobResponse = DescribeDeviceJobResponse'
 --
 -- 'deviceType', 'describeDeviceJobResponse_deviceType' - The device\'s type.
 --
+-- 'jobType', 'describeDeviceJobResponse_jobType' - The job\'s type.
+--
 -- 'httpStatus', 'describeDeviceJobResponse_httpStatus' - The response's http status code.
 newDescribeDeviceJobResponse ::
   -- | 'httpStatus'
@@ -188,6 +195,7 @@ newDescribeDeviceJobResponse pHttpStatus_ =
       imageVersion = Prelude.Nothing,
       deviceArn = Prelude.Nothing,
       deviceType = Prelude.Nothing,
+      jobType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -223,6 +231,10 @@ describeDeviceJobResponse_deviceArn = Lens.lens (\DescribeDeviceJobResponse' {de
 describeDeviceJobResponse_deviceType :: Lens.Lens' DescribeDeviceJobResponse (Prelude.Maybe DeviceType)
 describeDeviceJobResponse_deviceType = Lens.lens (\DescribeDeviceJobResponse' {deviceType} -> deviceType) (\s@DescribeDeviceJobResponse' {} a -> s {deviceType = a} :: DescribeDeviceJobResponse)
 
+-- | The job\'s type.
+describeDeviceJobResponse_jobType :: Lens.Lens' DescribeDeviceJobResponse (Prelude.Maybe JobType)
+describeDeviceJobResponse_jobType = Lens.lens (\DescribeDeviceJobResponse' {jobType} -> jobType) (\s@DescribeDeviceJobResponse' {} a -> s {jobType = a} :: DescribeDeviceJobResponse)
+
 -- | The response's http status code.
 describeDeviceJobResponse_httpStatus :: Lens.Lens' DescribeDeviceJobResponse Prelude.Int
 describeDeviceJobResponse_httpStatus = Lens.lens (\DescribeDeviceJobResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceJobResponse' {} a -> s {httpStatus = a} :: DescribeDeviceJobResponse)
@@ -237,4 +249,5 @@ instance Prelude.NFData DescribeDeviceJobResponse where
       `Prelude.seq` Prelude.rnf imageVersion
       `Prelude.seq` Prelude.rnf deviceArn
       `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf jobType
       `Prelude.seq` Prelude.rnf httpStatus

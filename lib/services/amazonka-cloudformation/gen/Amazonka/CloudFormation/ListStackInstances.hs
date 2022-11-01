@@ -242,7 +242,8 @@ instance Core.AWSRequest ListStackInstances where
   type
     AWSResponse ListStackInstances =
       ListStackInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStackInstancesResult"

@@ -129,9 +129,10 @@ getVaultLock_vaultName = Lens.lens (\GetVaultLock' {vaultName} -> vaultName) (\s
 
 instance Core.AWSRequest GetVaultLock where
   type AWSResponse GetVaultLock = GetVaultLockResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

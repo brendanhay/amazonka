@@ -116,7 +116,8 @@ instance Core.AWSRequest ListReceiptRuleSets where
   type
     AWSResponse ListReceiptRuleSets =
       ListReceiptRuleSetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListReceiptRuleSetsResult"

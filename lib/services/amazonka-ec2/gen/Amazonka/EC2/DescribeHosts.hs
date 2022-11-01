@@ -221,7 +221,8 @@ instance Core.AWSRequest DescribeHosts where
   type
     AWSResponse DescribeHosts =
       DescribeHostsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

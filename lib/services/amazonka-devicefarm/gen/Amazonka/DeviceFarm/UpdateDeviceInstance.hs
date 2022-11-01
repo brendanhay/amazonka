@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateDeviceInstance where
   type
     AWSResponse UpdateDeviceInstance =
       UpdateDeviceInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

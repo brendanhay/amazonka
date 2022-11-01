@@ -109,7 +109,8 @@ instance Core.AWSRequest CreateActionTarget where
   type
     AWSResponse CreateActionTarget =
       CreateActionTargetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

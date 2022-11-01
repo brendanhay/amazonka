@@ -79,7 +79,8 @@ instance Core.AWSRequest DeclineInvitations where
   type
     AWSResponse DeclineInvitations =
       DeclineInvitationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

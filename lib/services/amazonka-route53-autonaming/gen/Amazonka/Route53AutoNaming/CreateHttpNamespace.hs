@@ -25,7 +25,7 @@
 -- can\'t be discovered using DNS.
 --
 -- For the current quota on the number of namespaces that you can create
--- using the same account, see
+-- using the same Amazon Web Services account, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
 -- in the /Cloud Map Developer Guide/.
 module Amazonka.Route53AutoNaming.CreateHttpNamespace
@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateHttpNamespace where
   type
     AWSResponse CreateHttpNamespace =
       CreateHttpNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

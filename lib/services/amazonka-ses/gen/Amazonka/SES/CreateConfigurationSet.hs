@@ -90,7 +90,8 @@ instance Core.AWSRequest CreateConfigurationSet where
   type
     AWSResponse CreateConfigurationSet =
       CreateConfigurationSetResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationSetResult"

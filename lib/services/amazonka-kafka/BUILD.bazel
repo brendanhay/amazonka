@@ -89,6 +89,7 @@ haskell_library(
         "gen/Amazonka/Kafka/Types/ServerlessSasl.hs",
         "gen/Amazonka/Kafka/Types/StateInfo.hs",
         "gen/Amazonka/Kafka/Types/StorageInfo.hs",
+        "gen/Amazonka/Kafka/Types/StorageMode.hs",
         "gen/Amazonka/Kafka/Types/Tls.hs",
         "gen/Amazonka/Kafka/Types/Unauthenticated.hs",
         "gen/Amazonka/Kafka/Types/UnprocessedScramSecret.hs",
@@ -104,6 +105,7 @@ haskell_library(
         "gen/Amazonka/Kafka/UpdateConnectivity.hs",
         "gen/Amazonka/Kafka/UpdateMonitoring.hs",
         "gen/Amazonka/Kafka/UpdateSecurity.hs",
+        "gen/Amazonka/Kafka/UpdateStorage.hs",
         "gen/Amazonka/Kafka/Waiters.hs",
     ],
     ghcopts = [

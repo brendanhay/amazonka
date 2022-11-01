@@ -117,7 +117,8 @@ instance Core.AWSRequest DisassociateUser where
   type
     AWSResponse DisassociateUser =
       DisassociateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

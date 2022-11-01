@@ -176,7 +176,8 @@ attachVolume_networkInterfaceId = Lens.lens (\AttachVolume' {networkInterfaceId}
 
 instance Core.AWSRequest AttachVolume where
   type AWSResponse AttachVolume = AttachVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

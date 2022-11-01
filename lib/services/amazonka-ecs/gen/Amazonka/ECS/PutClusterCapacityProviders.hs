@@ -213,7 +213,8 @@ instance Core.AWSRequest PutClusterCapacityProviders where
   type
     AWSResponse PutClusterCapacityProviders =
       PutClusterCapacityProvidersResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

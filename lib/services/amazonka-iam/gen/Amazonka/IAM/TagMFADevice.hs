@@ -137,7 +137,8 @@ tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' 
 
 instance Core.AWSRequest TagMFADevice where
   type AWSResponse TagMFADevice = TagMFADeviceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull TagMFADeviceResponse'
 
 instance Prelude.Hashable TagMFADevice where

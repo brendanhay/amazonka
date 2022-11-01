@@ -334,7 +334,8 @@ query_indexId = Lens.lens (\Query' {indexId} -> indexId) (\s@Query' {} a -> s {i
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

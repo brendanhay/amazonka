@@ -225,6 +225,11 @@ data H265Settings = H265Settings'
     -- temporal quantization, adjust the strength of the filter with the
     -- setting Adaptive quantization (adaptiveQuantization).
     temporalAdaptiveQuantization :: Prelude.Maybe H265TemporalAdaptiveQuantization,
+    -- | If your downstream systems have strict buffer requirements: Specify the
+    -- minimum percentage of the HRD buffer that\'s available at the end of
+    -- each encoded video segment. For the best video quality: Set to 0 or
+    -- leave blank to automatically determine the final buffer fill percentage.
+    hrdBufferFinalFillPercentage :: Prelude.Maybe Prelude.Natural,
     -- | Percentage of the buffer that should initially be filled (HRD buffer
     -- model).
     hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
@@ -547,6 +552,11 @@ data H265Settings = H265Settings'
 -- temporal quantization, adjust the strength of the filter with the
 -- setting Adaptive quantization (adaptiveQuantization).
 --
+-- 'hrdBufferFinalFillPercentage', 'h265Settings_hrdBufferFinalFillPercentage' - If your downstream systems have strict buffer requirements: Specify the
+-- minimum percentage of the HRD buffer that\'s available at the end of
+-- each encoded video segment. For the best video quality: Set to 0 or
+-- leave blank to automatically determine the final buffer fill percentage.
+--
 -- 'hrdBufferInitialFillPercentage', 'h265Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 --
@@ -713,6 +723,7 @@ newH265Settings =
       alternateTransferFunctionSei = Prelude.Nothing,
       numberReferenceFrames = Prelude.Nothing,
       temporalAdaptiveQuantization = Prelude.Nothing,
+      hrdBufferFinalFillPercentage = Prelude.Nothing,
       hrdBufferInitialFillPercentage = Prelude.Nothing,
       gopClosedCadence = Prelude.Nothing,
       slowPal = Prelude.Nothing,
@@ -952,6 +963,13 @@ h265Settings_numberReferenceFrames = Lens.lens (\H265Settings' {numberReferenceF
 h265Settings_temporalAdaptiveQuantization :: Lens.Lens' H265Settings (Prelude.Maybe H265TemporalAdaptiveQuantization)
 h265Settings_temporalAdaptiveQuantization = Lens.lens (\H265Settings' {temporalAdaptiveQuantization} -> temporalAdaptiveQuantization) (\s@H265Settings' {} a -> s {temporalAdaptiveQuantization = a} :: H265Settings)
 
+-- | If your downstream systems have strict buffer requirements: Specify the
+-- minimum percentage of the HRD buffer that\'s available at the end of
+-- each encoded video segment. For the best video quality: Set to 0 or
+-- leave blank to automatically determine the final buffer fill percentage.
+h265Settings_hrdBufferFinalFillPercentage :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
+h265Settings_hrdBufferFinalFillPercentage = Lens.lens (\H265Settings' {hrdBufferFinalFillPercentage} -> hrdBufferFinalFillPercentage) (\s@H265Settings' {} a -> s {hrdBufferFinalFillPercentage = a} :: H265Settings)
+
 -- | Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 h265Settings_hrdBufferInitialFillPercentage :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
@@ -1153,6 +1171,7 @@ instance Core.FromJSON H265Settings where
             Prelude.<*> (x Core..:? "alternateTransferFunctionSei")
             Prelude.<*> (x Core..:? "numberReferenceFrames")
             Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Core..:? "hrdBufferFinalFillPercentage")
             Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
             Prelude.<*> (x Core..:? "gopClosedCadence")
             Prelude.<*> (x Core..:? "slowPal")
@@ -1197,6 +1216,7 @@ instance Prelude.Hashable H265Settings where
       `Prelude.hashWithSalt` alternateTransferFunctionSei
       `Prelude.hashWithSalt` numberReferenceFrames
       `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` hrdBufferFinalFillPercentage
       `Prelude.hashWithSalt` hrdBufferInitialFillPercentage
       `Prelude.hashWithSalt` gopClosedCadence
       `Prelude.hashWithSalt` slowPal
@@ -1245,6 +1265,8 @@ instance Prelude.NFData H265Settings where
         numberReferenceFrames
       `Prelude.seq` Prelude.rnf
         temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf
+        hrdBufferFinalFillPercentage
       `Prelude.seq` Prelude.rnf
         hrdBufferInitialFillPercentage
       `Prelude.seq` Prelude.rnf
@@ -1318,6 +1340,8 @@ instance Core.ToJSON H265Settings where
               Prelude.<$> numberReferenceFrames,
             ("temporalAdaptiveQuantization" Core..=)
               Prelude.<$> temporalAdaptiveQuantization,
+            ("hrdBufferFinalFillPercentage" Core..=)
+              Prelude.<$> hrdBufferFinalFillPercentage,
             ("hrdBufferInitialFillPercentage" Core..=)
               Prelude.<$> hrdBufferInitialFillPercentage,
             ("gopClosedCadence" Core..=)

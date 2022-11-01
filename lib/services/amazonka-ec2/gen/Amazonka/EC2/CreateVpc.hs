@@ -341,7 +341,8 @@ createVpc_ipv6CidrBlock = Lens.lens (\CreateVpc' {ipv6CidrBlock} -> ipv6CidrBloc
 
 instance Core.AWSRequest CreateVpc where
   type AWSResponse CreateVpc = CreateVpcResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

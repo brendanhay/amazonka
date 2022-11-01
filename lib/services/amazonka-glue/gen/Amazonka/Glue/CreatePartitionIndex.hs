@@ -124,7 +124,8 @@ instance Core.AWSRequest CreatePartitionIndex where
   type
     AWSResponse CreatePartitionIndex =
       CreatePartitionIndexResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

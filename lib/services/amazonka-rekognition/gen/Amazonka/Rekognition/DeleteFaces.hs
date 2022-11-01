@@ -93,7 +93,8 @@ deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteF
 
 instance Core.AWSRequest DeleteFaces where
   type AWSResponse DeleteFaces = DeleteFacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

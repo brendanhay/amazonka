@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SupportApp.Types.NotificationSeverityLevel
 
--- | The configuration for a Slack channel that you added to an Amazon Web
+-- | The configuration for a Slack channel that you added for your Amazon Web
 -- Services account.
 --
 -- /See:/ 'newSlackChannelConfiguration' smart constructor.
@@ -38,7 +38,7 @@ data SlackChannelConfiguration = SlackChannelConfiguration'
     -- notifications.
     notifyOnCaseSeverity :: Prelude.Maybe NotificationSeverityLevel,
     -- | The name of the Slack channel that you configured with the Amazon Web
-    -- Services Support App.
+    -- Services Support App for your Amazon Web Services account.
     channelName :: Prelude.Maybe Prelude.Text,
     -- | Whether you want to get notified when a support case is created or
     -- reopened.
@@ -51,7 +51,8 @@ data SlackChannelConfiguration = SlackChannelConfiguration'
     -- | The channel ID in Slack. This ID identifies a channel within a Slack
     -- workspace.
     channelId :: Prelude.Text,
-    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +74,7 @@ data SlackChannelConfiguration = SlackChannelConfiguration'
 -- notifications.
 --
 -- 'channelName', 'slackChannelConfiguration_channelName' - The name of the Slack channel that you configured with the Amazon Web
--- Services Support App.
+-- Services Support App for your Amazon Web Services account.
 --
 -- 'notifyOnCreateOrReopenCase', 'slackChannelConfiguration_notifyOnCreateOrReopenCase' - Whether you want to get notified when a support case is created or
 -- reopened.
@@ -86,7 +87,8 @@ data SlackChannelConfiguration = SlackChannelConfiguration'
 -- 'channelId', 'slackChannelConfiguration_channelId' - The channel ID in Slack. This ID identifies a channel within a Slack
 -- workspace.
 --
--- 'teamId', 'slackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- 'teamId', 'slackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 newSlackChannelConfiguration ::
   -- | 'channelId'
   Prelude.Text ->
@@ -120,7 +122,7 @@ slackChannelConfiguration_notifyOnCaseSeverity :: Lens.Lens' SlackChannelConfigu
 slackChannelConfiguration_notifyOnCaseSeverity = Lens.lens (\SlackChannelConfiguration' {notifyOnCaseSeverity} -> notifyOnCaseSeverity) (\s@SlackChannelConfiguration' {} a -> s {notifyOnCaseSeverity = a} :: SlackChannelConfiguration)
 
 -- | The name of the Slack channel that you configured with the Amazon Web
--- Services Support App.
+-- Services Support App for your Amazon Web Services account.
 slackChannelConfiguration_channelName :: Lens.Lens' SlackChannelConfiguration (Prelude.Maybe Prelude.Text)
 slackChannelConfiguration_channelName = Lens.lens (\SlackChannelConfiguration' {channelName} -> channelName) (\s@SlackChannelConfiguration' {} a -> s {channelName = a} :: SlackChannelConfiguration)
 
@@ -143,7 +145,8 @@ slackChannelConfiguration_notifyOnResolveCase = Lens.lens (\SlackChannelConfigur
 slackChannelConfiguration_channelId :: Lens.Lens' SlackChannelConfiguration Prelude.Text
 slackChannelConfiguration_channelId = Lens.lens (\SlackChannelConfiguration' {channelId} -> channelId) (\s@SlackChannelConfiguration' {} a -> s {channelId = a} :: SlackChannelConfiguration)
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 slackChannelConfiguration_teamId :: Lens.Lens' SlackChannelConfiguration Prelude.Text
 slackChannelConfiguration_teamId = Lens.lens (\SlackChannelConfiguration' {teamId} -> teamId) (\s@SlackChannelConfiguration' {} a -> s {teamId = a} :: SlackChannelConfiguration)
 

@@ -131,7 +131,8 @@ updateQueue_name = Lens.lens (\UpdateQueue' {name} -> name) (\s@UpdateQueue' {} 
 
 instance Core.AWSRequest UpdateQueue where
   type AWSResponse UpdateQueue = UpdateQueueResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

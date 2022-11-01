@@ -85,7 +85,8 @@ instance Core.AWSRequest DeleteSuppressedDestination where
   type
     AWSResponse DeleteSuppressedDestination =
       DeleteSuppressedDestinationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

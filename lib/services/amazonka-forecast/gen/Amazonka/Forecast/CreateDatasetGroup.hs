@@ -251,7 +251,8 @@ instance Core.AWSRequest CreateDatasetGroup where
   type
     AWSResponse CreateDatasetGroup =
       CreateDatasetGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

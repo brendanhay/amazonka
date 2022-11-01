@@ -120,9 +120,10 @@ instance Core.AWSRequest AddTagsToVault where
   type
     AWSResponse AddTagsToVault =
       AddTagsToVaultResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveNull AddTagsToVaultResponse'
 

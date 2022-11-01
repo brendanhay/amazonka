@@ -20,9 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an asynchronous batch translation job. Batch translation jobs can
--- be used to translate large volumes of text across multiple documents at
--- once. For more information, see async.
+-- Starts an asynchronous batch translation job. Use batch translation jobs
+-- to translate large volumes of text across multiple documents at once.
+-- For batch translation, the input documents must share the same source
+-- language. You can specify one or more target languages. Batch
+-- translation translates each input document into each of the target
+-- languages. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/async.html Asynchronous batch processing>
 --
 -- Batch translation jobs can be described with the
 -- DescribeTextTranslationJob operation, listed with the
@@ -76,19 +80,28 @@ data StartTextTranslationJob = StartTextTranslationJob'
     --
     -- This parameter accepts only one custom terminology resource.
     --
+    -- If you specify multiple target languages for the job, translate uses the
+    -- designated terminology for each requested target language that has an
+    -- entry for the source term in the terminology file.
+    --
     -- For a list of available custom terminology resources, use the
     -- ListTerminologies operation.
     --
-    -- For more information, see how-custom-terminology.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | Settings to configure your translation output, including the option to
-    -- mask profane words and phrases. @StartTextTranslationJob@ does not
-    -- support the formality setting.
+    -- set the formality level of the output text and the option to mask
+    -- profane words and phrases.
     settings :: Prelude.Maybe TranslationSettings,
     -- | The name of a parallel data resource to add to the translation job. This
     -- resource consists of examples that show how you want segments of text to
-    -- be translated. When you add parallel data to a translation job, you
-    -- create an /Active Custom Translation/ job.
+    -- be translated. If you specify multiple target languages for the job, the
+    -- parallel data file must include translations for all the target
+    -- languages.
+    --
+    -- When you add parallel data to a translation job, you create an /Active
+    -- Custom Translation/ job.
     --
     -- This parameter accepts only one parallel data resource.
     --
@@ -99,7 +112,8 @@ data StartTextTranslationJob = StartTextTranslationJob'
     -- For a list of available parallel data resources, use the
     -- ListParallelData operation.
     --
-    -- For more information, see customizing-translations-parallel-data.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
     parallelDataNames :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the format and location of the input documents for the
     -- translation job.
@@ -108,15 +122,23 @@ data StartTextTranslationJob = StartTextTranslationJob'
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
     -- (IAM) role that grants Amazon Translate read access to your input data.
-    -- For more information, see identity-and-access-management.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html Identity and access management>
+    -- .
     dataAccessRoleArn :: Prelude.Text,
     -- | The language code of the input language. For a list of language codes,
-    -- see what-is-languages.
+    -- see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
     --
     -- Amazon Translate does not automatically detect a source language during
     -- batch translation jobs.
     sourceLanguageCode :: Prelude.Text,
-    -- | The language code of the output language.
+    -- | The target languages of the translation job. Enter up to 10 language
+    -- codes. Each input file is translated into each target language.
+    --
+    -- Each language code is two or five characters long. For a list of
+    -- language codes, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
     targetLanguageCodes :: Prelude.NonEmpty Prelude.Text,
     -- | A unique identifier for the request. This token is generated for you
     -- when using the Amazon Translate SDK.
@@ -140,19 +162,28 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- This parameter accepts only one custom terminology resource.
 --
+-- If you specify multiple target languages for the job, translate uses the
+-- designated terminology for each requested target language that has an
+-- entry for the source term in the terminology file.
+--
 -- For a list of available custom terminology resources, use the
 -- ListTerminologies operation.
 --
--- For more information, see how-custom-terminology.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
 --
 -- 'settings', 'startTextTranslationJob_settings' - Settings to configure your translation output, including the option to
--- mask profane words and phrases. @StartTextTranslationJob@ does not
--- support the formality setting.
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
 --
 -- 'parallelDataNames', 'startTextTranslationJob_parallelDataNames' - The name of a parallel data resource to add to the translation job. This
 -- resource consists of examples that show how you want segments of text to
--- be translated. When you add parallel data to a translation job, you
--- create an /Active Custom Translation/ job.
+-- be translated. If you specify multiple target languages for the job, the
+-- parallel data file must include translations for all the target
+-- languages.
+--
+-- When you add parallel data to a translation job, you create an /Active
+-- Custom Translation/ job.
 --
 -- This parameter accepts only one parallel data resource.
 --
@@ -163,7 +194,8 @@ data StartTextTranslationJob = StartTextTranslationJob'
 -- For a list of available parallel data resources, use the
 -- ListParallelData operation.
 --
--- For more information, see customizing-translations-parallel-data.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
 --
 -- 'inputDataConfig', 'startTextTranslationJob_inputDataConfig' - Specifies the format and location of the input documents for the
 -- translation job.
@@ -172,15 +204,23 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- 'dataAccessRoleArn', 'startTextTranslationJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management
 -- (IAM) role that grants Amazon Translate read access to your input data.
--- For more information, see identity-and-access-management.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html Identity and access management>
+-- .
 --
 -- 'sourceLanguageCode', 'startTextTranslationJob_sourceLanguageCode' - The language code of the input language. For a list of language codes,
--- see what-is-languages.
+-- see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- Amazon Translate does not automatically detect a source language during
 -- batch translation jobs.
 --
--- 'targetLanguageCodes', 'startTextTranslationJob_targetLanguageCodes' - The language code of the output language.
+-- 'targetLanguageCodes', 'startTextTranslationJob_targetLanguageCodes' - The target languages of the translation job. Enter up to 10 language
+-- codes. Each input file is translated into each target language.
+--
+-- Each language code is two or five characters long. For a list of
+-- language codes, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- 'clientToken', 'startTextTranslationJob_clientToken' - A unique identifier for the request. This token is generated for you
 -- when using the Amazon Translate SDK.
@@ -229,23 +269,32 @@ startTextTranslationJob_jobName = Lens.lens (\StartTextTranslationJob' {jobName}
 --
 -- This parameter accepts only one custom terminology resource.
 --
+-- If you specify multiple target languages for the job, translate uses the
+-- designated terminology for each requested target language that has an
+-- entry for the source term in the terminology file.
+--
 -- For a list of available custom terminology resources, use the
 -- ListTerminologies operation.
 --
--- For more information, see how-custom-terminology.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
 startTextTranslationJob_terminologyNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
 startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Settings to configure your translation output, including the option to
--- mask profane words and phrases. @StartTextTranslationJob@ does not
--- support the formality setting.
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
 startTextTranslationJob_settings :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe TranslationSettings)
 startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {settings} -> settings) (\s@StartTextTranslationJob' {} a -> s {settings = a} :: StartTextTranslationJob)
 
 -- | The name of a parallel data resource to add to the translation job. This
 -- resource consists of examples that show how you want segments of text to
--- be translated. When you add parallel data to a translation job, you
--- create an /Active Custom Translation/ job.
+-- be translated. If you specify multiple target languages for the job, the
+-- parallel data file must include translations for all the target
+-- languages.
+--
+-- When you add parallel data to a translation job, you create an /Active
+-- Custom Translation/ job.
 --
 -- This parameter accepts only one parallel data resource.
 --
@@ -256,7 +305,8 @@ startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {setting
 -- For a list of available parallel data resources, use the
 -- ListParallelData operation.
 --
--- For more information, see customizing-translations-parallel-data.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
 startTextTranslationJob_parallelDataNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
 startTextTranslationJob_parallelDataNames = Lens.lens (\StartTextTranslationJob' {parallelDataNames} -> parallelDataNames) (\s@StartTextTranslationJob' {} a -> s {parallelDataNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -271,19 +321,27 @@ startTextTranslationJob_outputDataConfig = Lens.lens (\StartTextTranslationJob' 
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
 -- (IAM) role that grants Amazon Translate read access to your input data.
--- For more information, see identity-and-access-management.
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html Identity and access management>
+-- .
 startTextTranslationJob_dataAccessRoleArn :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_dataAccessRoleArn = Lens.lens (\StartTextTranslationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTextTranslationJob' {} a -> s {dataAccessRoleArn = a} :: StartTextTranslationJob)
 
 -- | The language code of the input language. For a list of language codes,
--- see what-is-languages.
+-- see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- Amazon Translate does not automatically detect a source language during
 -- batch translation jobs.
 startTextTranslationJob_sourceLanguageCode :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_sourceLanguageCode = Lens.lens (\StartTextTranslationJob' {sourceLanguageCode} -> sourceLanguageCode) (\s@StartTextTranslationJob' {} a -> s {sourceLanguageCode = a} :: StartTextTranslationJob)
 
--- | The language code of the output language.
+-- | The target languages of the translation job. Enter up to 10 language
+-- codes. Each input file is translated into each target language.
+--
+-- Each language code is two or five characters long. For a list of
+-- language codes, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 startTextTranslationJob_targetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Prelude.NonEmpty Prelude.Text)
 startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJob' {targetLanguageCodes} -> targetLanguageCodes) (\s@StartTextTranslationJob' {} a -> s {targetLanguageCodes = a} :: StartTextTranslationJob) Prelude.. Lens.coerced
 
@@ -296,7 +354,8 @@ instance Core.AWSRequest StartTextTranslationJob where
   type
     AWSResponse StartTextTranslationJob =
       StartTextTranslationJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

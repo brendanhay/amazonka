@@ -209,7 +209,8 @@ queryLineage_includeEdges = Lens.lens (\QueryLineage' {includeEdges} -> includeE
 
 instance Core.AWSRequest QueryLineage where
   type AWSResponse QueryLineage = QueryLineageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

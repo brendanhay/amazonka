@@ -181,7 +181,8 @@ instance Core.AWSRequest UpdateServerCertificate where
   type
     AWSResponse UpdateServerCertificate =
       UpdateServerCertificateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateServerCertificateResponse'

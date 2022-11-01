@@ -574,7 +574,8 @@ putIntent_name = Lens.lens (\PutIntent' {name} -> name) (\s@PutIntent' {} a -> s
 
 instance Core.AWSRequest PutIntent where
   type AWSResponse PutIntent = PutIntentResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

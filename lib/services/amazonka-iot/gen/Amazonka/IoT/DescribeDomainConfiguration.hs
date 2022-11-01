@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeDomainConfiguration where
   type
     AWSResponse DescribeDomainConfiguration =
       DescribeDomainConfigurationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a specific channel.
+-- Stops a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.StopChannel
   ( -- * Creating a Request
     StopChannel (..),
@@ -47,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopChannel' smart constructor.
 data StopChannel = StopChannel'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +62,7 @@ data StopChannel = StopChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'stopChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'stopChannel_channelName' - The name of the channel.
 newStopChannel ::
   -- | 'channelName'
   Prelude.Text ->
@@ -68,13 +70,14 @@ newStopChannel ::
 newStopChannel pChannelName_ =
   StopChannel' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 stopChannel_channelName :: Lens.Lens' StopChannel Prelude.Text
 stopChannel_channelName = Lens.lens (\StopChannel' {channelName} -> channelName) (\s@StopChannel' {} a -> s {channelName = a} :: StopChannel)
 
 instance Core.AWSRequest StopChannel where
   type AWSResponse StopChannel = StopChannelResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -194,7 +194,8 @@ instance Core.AWSRequest ListInstalledComponents where
   type
     AWSResponse ListInstalledComponents =
       ListInstalledComponentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -246,9 +247,14 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list that summarizes each component on the core device.
     --
-    -- Accuracy of the @lastStatusChangeTimestamp@ response depends on
-    -- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
-    -- and can be inaccurate on earlier versions.
+    -- Greengrass nucleus v2.7.0 or later is required to get an accurate
+    -- @lastStatusChangeTimestamp@ response. This response can be inaccurate in
+    -- earlier Greengrass nucleus versions.
+    --
+    -- Greengrass nucleus v2.8.0 or later is required to get an accurate
+    -- @lastInstallationSource@ and @lastReportedTimestamp@ response. This
+    -- response can be inaccurate or null in earlier Greengrass nucleus
+    -- versions.
     installedComponents :: Prelude.Maybe [InstalledComponent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -268,9 +274,14 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
 --
 -- 'installedComponents', 'listInstalledComponentsResponse_installedComponents' - A list that summarizes each component on the core device.
 --
--- Accuracy of the @lastStatusChangeTimestamp@ response depends on
--- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
--- and can be inaccurate on earlier versions.
+-- Greengrass nucleus v2.7.0 or later is required to get an accurate
+-- @lastStatusChangeTimestamp@ response. This response can be inaccurate in
+-- earlier Greengrass nucleus versions.
+--
+-- Greengrass nucleus v2.8.0 or later is required to get an accurate
+-- @lastInstallationSource@ and @lastReportedTimestamp@ response. This
+-- response can be inaccurate or null in earlier Greengrass nucleus
+-- versions.
 --
 -- 'httpStatus', 'listInstalledComponentsResponse_httpStatus' - The response's http status code.
 newListInstalledComponentsResponse ::
@@ -292,9 +303,14 @@ listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsR
 
 -- | A list that summarizes each component on the core device.
 --
--- Accuracy of the @lastStatusChangeTimestamp@ response depends on
--- Greengrass nucleus v2.7.0. It performs best on Greengrass nucleus v2.7.0
--- and can be inaccurate on earlier versions.
+-- Greengrass nucleus v2.7.0 or later is required to get an accurate
+-- @lastStatusChangeTimestamp@ response. This response can be inaccurate in
+-- earlier Greengrass nucleus versions.
+--
+-- Greengrass nucleus v2.8.0 or later is required to get an accurate
+-- @lastInstallationSource@ and @lastReportedTimestamp@ response. This
+-- response can be inaccurate or null in earlier Greengrass nucleus
+-- versions.
 listInstalledComponentsResponse_installedComponents :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe [InstalledComponent])
 listInstalledComponentsResponse_installedComponents = Lens.lens (\ListInstalledComponentsResponse' {installedComponents} -> installedComponents) (\s@ListInstalledComponentsResponse' {} a -> s {installedComponents = a} :: ListInstalledComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 

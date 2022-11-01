@@ -81,6 +81,7 @@ library
     Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
     Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
     Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+    Amazonka.CertificateManagerPCA.Types.CertificateAuthorityUsageMode
     Amazonka.CertificateManagerPCA.Types.CrlConfiguration
     Amazonka.CertificateManagerPCA.Types.CsrExtensions
     Amazonka.CertificateManagerPCA.Types.CustomAttribute

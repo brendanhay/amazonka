@@ -79,7 +79,8 @@ removeRegion_directoryId = Lens.lens (\RemoveRegion' {directoryId} -> directoryI
 
 instance Core.AWSRequest RemoveRegion where
   type AWSResponse RemoveRegion = RemoveRegionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

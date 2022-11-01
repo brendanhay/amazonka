@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint for an Amazon S3 bucket.
+-- Creates an endpoint for an Amazon S3 bucket that DataSync can access for
+-- a transfer.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli Create an Amazon S3 location>
@@ -190,7 +191,8 @@ instance Core.AWSRequest CreateLocationS3 where
   type
     AWSResponse CreateLocationS3 =
       CreateLocationS3Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

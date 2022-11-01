@@ -173,7 +173,8 @@ instance Core.AWSRequest ListVirtualMFADevices where
   type
     AWSResponse ListVirtualMFADevices =
       ListVirtualMFADevicesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListVirtualMFADevicesResult"

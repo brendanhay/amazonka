@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteLoggerDefinition where
   type
     AWSResponse DeleteLoggerDefinition =
       DeleteLoggerDefinitionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

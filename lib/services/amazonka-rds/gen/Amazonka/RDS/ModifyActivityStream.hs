@@ -111,7 +111,8 @@ instance Core.AWSRequest ModifyActivityStream where
   type
     AWSResponse ModifyActivityStream =
       ModifyActivityStreamResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyActivityStreamResult"

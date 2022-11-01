@@ -93,7 +93,8 @@ instance Core.AWSRequest DeactivateKeySigningKey where
   type
     AWSResponse DeactivateKeySigningKey =
       DeactivateKeySigningKeyResponse
-  request = Request.post defaultService
+  service _ = defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -39,10 +39,10 @@
 -- Multi-node parallel jobs aren\'t supported on Spot Instances.
 --
 -- In an unmanaged compute environment, you can manage your own EC2 compute
--- resources and have a lot of flexibility with how you configure your
--- compute resources. For example, you can use custom AMIs. However, you
--- must verify that each of your AMIs meet the Amazon ECS container
--- instance AMI specification. For more information, see
+-- resources and have flexibility with how you configure your compute
+-- resources. For example, you can use custom AMIs. However, you must
+-- verify that each of your AMIs meet the Amazon ECS container instance AMI
+-- specification. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html container instance AMIs>
 -- in the /Amazon Elastic Container Service Developer Guide/. After you
 -- created your unmanaged compute environment, you can use the
@@ -76,7 +76,7 @@
 -- To use the enhanced updating of compute environments to update AMIs,
 -- follow these rules:
 --
--- -   Either do not set the service role (@serviceRole@) parameter or set
+-- -   Either don\'t set the service role (@serviceRole@) parameter or set
 --     it to the __AWSBatchServiceRole__ service-linked role.
 --
 -- -   Set the allocation strategy (@allocationStrategy@) parameter to
@@ -85,29 +85,28 @@
 -- -   Set the update to latest image version
 --     (@updateToLatestImageVersion@) parameter to @true@.
 --
--- -   Do not specify an AMI ID in @imageId@, @imageIdOverride@ (in
+-- -   Don\'t specify an AMI ID in @imageId@, @imageIdOverride@ (in
 --     <https://docs.aws.amazon.com/batch/latest/APIReference/API_Ec2Configuration.html ec2Configuration>
---     ), or in the launch template (@launchTemplate@). In that case Batch
---     will select the latest Amazon ECS optimized AMI supported by Batch
---     at the time the infrastructure update is initiated. Alternatively
---     you can specify the AMI ID in the @imageId@ or @imageIdOverride@
---     parameters, or the launch template identified by the
---     @LaunchTemplate@ properties. Changing any of these properties will
---     trigger an infrastructure update. If the AMI ID is specified in the
---     launch template, it can not be replaced by specifying an AMI ID in
+--     ), or in the launch template (@launchTemplate@). In that case, Batch
+--     selects the latest Amazon ECS optimized AMI that\'s supported by
+--     Batch at the time the infrastructure update is initiated.
+--     Alternatively, you can specify the AMI ID in the @imageId@ or
+--     @imageIdOverride@ parameters, or the launch template identified by
+--     the @LaunchTemplate@ properties. Changing any of these properties
+--     starts an infrastructure update. If the AMI ID is specified in the
+--     launch template, it can\'t be replaced by specifying an AMI ID in
 --     either the @imageId@ or @imageIdOverride@ parameters. It can only be
 --     replaced by specifying a different launch template, or if the launch
 --     template version is set to @$Default@ or @$Latest@, by setting
---     either a new default version for the launch template (if
---     @$Default@)or by adding a new version to the launch template (if
---     @$Latest@).
+--     either a new default version for the launch template (if @$Default@)
+--     or by adding a new version to the launch template (if @$Latest@).
 --
--- If these rules are followed, any update that triggers an infrastructure
--- update will cause the AMI ID to be re-selected. If the @version@ setting
--- in the launch template (@launchTemplate@) is set to @$Latest@ or
--- @$Default@, the latest or default version of the launch template will be
+-- If these rules are followed, any update that starts an infrastructure
+-- update causes the AMI ID to be re-selected. If the @version@ setting in
+-- the launch template (@launchTemplate@) is set to @$Latest@ or
+-- @$Default@, the latest or default version of the launch template is
 -- evaluated up at the time of the infrastructure update, even if the
--- @launchTemplate@ was not updated.
+-- @launchTemplate@ wasn\'t updated.
 module Amazonka.Batch.CreateComputeEnvironment
   ( -- * Creating a Request
     CreateComputeEnvironment (..),
@@ -117,6 +116,7 @@ module Amazonka.Batch.CreateComputeEnvironment
     createComputeEnvironment_tags,
     createComputeEnvironment_state,
     createComputeEnvironment_serviceRole,
+    createComputeEnvironment_eksConfiguration,
     createComputeEnvironment_computeResources,
     createComputeEnvironment_unmanagedvCpus,
     createComputeEnvironment_computeEnvironmentName,
@@ -186,9 +186,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     --
     -- If your specified role has a path other than @\/@, then you must specify
     -- either the full role ARN (recommended) or prefix the role name with the
-    -- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
-    -- then you would specify @\/foo\/bar@ as the role name. For more
-    -- information, see
+    -- path. For example, if a role with the name @bar@ has a path of
+    -- @\/foo\/@, specify @\/foo\/bar@ as the role name. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
     -- in the /IAM User Guide/.
     --
@@ -199,6 +199,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | The details for the Amazon EKS cluster that supports the compute
+    -- environment.
+    eksConfiguration :: Prelude.Maybe EksConfiguration,
     -- | Details about the compute resources managed by the compute environment.
     -- This parameter is required for managed compute environments. For more
     -- information, see
@@ -213,9 +216,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- This parameter is only supported when the @type@ parameter is set to
     -- @UNMANAGED@.
     unmanagedvCpus :: Prelude.Maybe Prelude.Int,
-    -- | The name for your compute environment. It can be up to 128 letters long.
-    -- It can contain uppercase and lowercase letters, numbers, hyphens (-),
-    -- and underscores (_).
+    -- | The name for your compute environment. It can be up to 128 characters
+    -- long. It can contain uppercase and lowercase letters, numbers, hyphens
+    -- (-), and underscores (_).
     computeEnvironmentName :: Prelude.Text,
     -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
     -- information, see
@@ -275,9 +278,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 --
 -- If your specified role has a path other than @\/@, then you must specify
 -- either the full role ARN (recommended) or prefix the role name with the
--- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
--- then you would specify @\/foo\/bar@ as the role name. For more
--- information, see
+-- path. For example, if a role with the name @bar@ has a path of
+-- @\/foo\/@, specify @\/foo\/bar@ as the role name. For more information,
+-- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
 -- in the /IAM User Guide/.
 --
@@ -287,6 +290,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- @service-role@ path prefix. Because of this, we recommend that you
 -- specify the full ARN of your service role when you create compute
 -- environments.
+--
+-- 'eksConfiguration', 'createComputeEnvironment_eksConfiguration' - The details for the Amazon EKS cluster that supports the compute
+-- environment.
 --
 -- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
 -- This parameter is required for managed compute environments. For more
@@ -302,9 +308,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- This parameter is only supported when the @type@ parameter is set to
 -- @UNMANAGED@.
 --
--- 'computeEnvironmentName', 'createComputeEnvironment_computeEnvironmentName' - The name for your compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- 'computeEnvironmentName', 'createComputeEnvironment_computeEnvironmentName' - The name for your compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 --
 -- 'type'', 'createComputeEnvironment_type' - The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
 -- information, see
@@ -323,6 +329,7 @@ newCreateComputeEnvironment
       { tags = Prelude.Nothing,
         state = Prelude.Nothing,
         serviceRole = Prelude.Nothing,
+        eksConfiguration = Prelude.Nothing,
         computeResources = Prelude.Nothing,
         unmanagedvCpus = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
@@ -375,9 +382,9 @@ createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -
 --
 -- If your specified role has a path other than @\/@, then you must specify
 -- either the full role ARN (recommended) or prefix the role name with the
--- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
--- then you would specify @\/foo\/bar@ as the role name. For more
--- information, see
+-- path. For example, if a role with the name @bar@ has a path of
+-- @\/foo\/@, specify @\/foo\/bar@ as the role name. For more information,
+-- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
 -- in the /IAM User Guide/.
 --
@@ -389,6 +396,11 @@ createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -
 -- environments.
 createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Text)
 createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
+
+-- | The details for the Amazon EKS cluster that supports the compute
+-- environment.
+createComputeEnvironment_eksConfiguration :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe EksConfiguration)
+createComputeEnvironment_eksConfiguration = Lens.lens (\CreateComputeEnvironment' {eksConfiguration} -> eksConfiguration) (\s@CreateComputeEnvironment' {} a -> s {eksConfiguration = a} :: CreateComputeEnvironment)
 
 -- | Details about the compute resources managed by the compute environment.
 -- This parameter is required for managed compute environments. For more
@@ -408,9 +420,9 @@ createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment
 createComputeEnvironment_unmanagedvCpus :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Int)
 createComputeEnvironment_unmanagedvCpus = Lens.lens (\CreateComputeEnvironment' {unmanagedvCpus} -> unmanagedvCpus) (\s@CreateComputeEnvironment' {} a -> s {unmanagedvCpus = a} :: CreateComputeEnvironment)
 
--- | The name for your compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- | The name for your compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 createComputeEnvironment_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironment Prelude.Text
 createComputeEnvironment_computeEnvironmentName = Lens.lens (\CreateComputeEnvironment' {computeEnvironmentName} -> computeEnvironmentName) (\s@CreateComputeEnvironment' {} a -> s {computeEnvironmentName = a} :: CreateComputeEnvironment)
 
@@ -425,7 +437,8 @@ instance Core.AWSRequest CreateComputeEnvironment where
   type
     AWSResponse CreateComputeEnvironment =
       CreateComputeEnvironmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -440,6 +453,7 @@ instance Prelude.Hashable CreateComputeEnvironment where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` eksConfiguration
       `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` unmanagedvCpus
       `Prelude.hashWithSalt` computeEnvironmentName
@@ -450,6 +464,7 @@ instance Prelude.NFData CreateComputeEnvironment where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf eksConfiguration
       `Prelude.seq` Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf unmanagedvCpus
       `Prelude.seq` Prelude.rnf computeEnvironmentName
@@ -473,6 +488,8 @@ instance Core.ToJSON CreateComputeEnvironment where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("state" Core..=) Prelude.<$> state,
             ("serviceRole" Core..=) Prelude.<$> serviceRole,
+            ("eksConfiguration" Core..=)
+              Prelude.<$> eksConfiguration,
             ("computeResources" Core..=)
               Prelude.<$> computeResources,
             ("unmanagedvCpus" Core..=)
@@ -495,9 +512,9 @@ instance Core.ToQuery CreateComputeEnvironment where
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
   { -- | The Amazon Resource Name (ARN) of the compute environment.
     computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the compute environment. It can be up to 128 letters long.
-    -- It can contain uppercase and lowercase letters, numbers, hyphens (-),
-    -- and underscores (_).
+    -- | The name of the compute environment. It can be up to 128 characters
+    -- long. It can contain uppercase and lowercase letters, numbers, hyphens
+    -- (-), and underscores (_).
     computeEnvironmentName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -514,9 +531,9 @@ data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
 --
 -- 'computeEnvironmentArn', 'createComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
 --
--- 'computeEnvironmentName', 'createComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- 'computeEnvironmentName', 'createComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 --
 -- 'httpStatus', 'createComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newCreateComputeEnvironmentResponse ::
@@ -535,9 +552,9 @@ newCreateComputeEnvironmentResponse pHttpStatus_ =
 createComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: CreateComputeEnvironmentResponse)
 
--- | The name of the compute environment. It can be up to 128 letters long.
--- It can contain uppercase and lowercase letters, numbers, hyphens (-),
--- and underscores (_).
+-- | The name of the compute environment. It can be up to 128 characters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 createComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createComputeEnvironmentResponse_computeEnvironmentName = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentName} -> computeEnvironmentName) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentName = a} :: CreateComputeEnvironmentResponse)
 

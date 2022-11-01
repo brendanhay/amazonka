@@ -146,7 +146,8 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
   type
     AWSResponse ModifyPrivateDnsNameOptions =
       ModifyPrivateDnsNameOptionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

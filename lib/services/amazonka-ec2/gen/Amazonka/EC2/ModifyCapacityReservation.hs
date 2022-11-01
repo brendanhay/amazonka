@@ -223,7 +223,8 @@ instance Core.AWSRequest ModifyCapacityReservation where
   type
     AWSResponse ModifyCapacityReservation =
       ModifyCapacityReservationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

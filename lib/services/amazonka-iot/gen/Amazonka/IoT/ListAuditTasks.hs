@@ -174,7 +174,8 @@ instance Core.AWSRequest ListAuditTasks where
   type
     AWSResponse ListAuditTasks =
       ListAuditTasksResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

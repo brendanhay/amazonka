@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteBGPPeer where
   type
     AWSResponse DeleteBGPPeer =
       DeleteBGPPeerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

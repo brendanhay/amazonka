@@ -299,7 +299,8 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
   type
     AWSResponse CreateStorediSCSIVolume =
       CreateStorediSCSIVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

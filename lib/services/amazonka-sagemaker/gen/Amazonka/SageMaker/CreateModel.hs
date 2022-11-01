@@ -236,7 +236,8 @@ createModel_executionRoleArn = Lens.lens (\CreateModel' {executionRoleArn} -> ex
 
 instance Core.AWSRequest CreateModel where
   type AWSResponse CreateModel = CreateModelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

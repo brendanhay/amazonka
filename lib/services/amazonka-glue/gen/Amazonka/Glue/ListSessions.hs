@@ -110,7 +110,8 @@ listSessions_maxResults = Lens.lens (\ListSessions' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListSessions where
   type AWSResponse ListSessions = ListSessionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

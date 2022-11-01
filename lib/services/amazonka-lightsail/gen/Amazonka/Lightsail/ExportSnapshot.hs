@@ -99,7 +99,8 @@ instance Core.AWSRequest ExportSnapshot where
   type
     AWSResponse ExportSnapshot =
       ExportSnapshotResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -102,7 +102,8 @@ getDocument_documentId = Lens.lens (\GetDocument' {documentId} -> documentId) (\
 
 instance Core.AWSRequest GetDocument where
   type AWSResponse GetDocument = GetDocumentResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

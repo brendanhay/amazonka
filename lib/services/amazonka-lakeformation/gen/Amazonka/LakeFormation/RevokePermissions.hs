@@ -139,7 +139,8 @@ instance Core.AWSRequest RevokePermissions where
   type
     AWSResponse RevokePermissions =
       RevokePermissionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

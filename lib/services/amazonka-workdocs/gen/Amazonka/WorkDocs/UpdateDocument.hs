@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateDocument where
   type
     AWSResponse UpdateDocument =
       UpdateDocumentResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull UpdateDocumentResponse'
 

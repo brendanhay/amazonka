@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEbsVolumesResult' smart constructor.
 data EbsVolumesResult = EbsVolumesResult'
   { -- | Describes whether scanning EBS volumes is enabled as a data source.
-    status :: Prelude.Maybe DataSourceStatus
+    status :: Prelude.Maybe DataSourceStatus,
+    -- | Specifies the reason why scanning EBS volumes (Malware Protection) was
+    -- not enabled as a data source.
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,26 +45,41 @@ data EbsVolumesResult = EbsVolumesResult'
 -- for backwards compatibility:
 --
 -- 'status', 'ebsVolumesResult_status' - Describes whether scanning EBS volumes is enabled as a data source.
+--
+-- 'reason', 'ebsVolumesResult_reason' - Specifies the reason why scanning EBS volumes (Malware Protection) was
+-- not enabled as a data source.
 newEbsVolumesResult ::
   EbsVolumesResult
 newEbsVolumesResult =
-  EbsVolumesResult' {status = Prelude.Nothing}
+  EbsVolumesResult'
+    { status = Prelude.Nothing,
+      reason = Prelude.Nothing
+    }
 
 -- | Describes whether scanning EBS volumes is enabled as a data source.
 ebsVolumesResult_status :: Lens.Lens' EbsVolumesResult (Prelude.Maybe DataSourceStatus)
 ebsVolumesResult_status = Lens.lens (\EbsVolumesResult' {status} -> status) (\s@EbsVolumesResult' {} a -> s {status = a} :: EbsVolumesResult)
+
+-- | Specifies the reason why scanning EBS volumes (Malware Protection) was
+-- not enabled as a data source.
+ebsVolumesResult_reason :: Lens.Lens' EbsVolumesResult (Prelude.Maybe Prelude.Text)
+ebsVolumesResult_reason = Lens.lens (\EbsVolumesResult' {reason} -> reason) (\s@EbsVolumesResult' {} a -> s {reason = a} :: EbsVolumesResult)
 
 instance Core.FromJSON EbsVolumesResult where
   parseJSON =
     Core.withObject
       "EbsVolumesResult"
       ( \x ->
-          EbsVolumesResult' Prelude.<$> (x Core..:? "status")
+          EbsVolumesResult'
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "reason")
       )
 
 instance Prelude.Hashable EbsVolumesResult where
   hashWithSalt _salt EbsVolumesResult' {..} =
     _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData EbsVolumesResult where
-  rnf EbsVolumesResult' {..} = Prelude.rnf status
+  rnf EbsVolumesResult' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf reason

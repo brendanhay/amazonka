@@ -204,7 +204,8 @@ instance Core.AWSRequest UpdateProtectionGroup where
   type
     AWSResponse UpdateProtectionGroup =
       UpdateProtectionGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

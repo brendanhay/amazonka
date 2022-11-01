@@ -826,7 +826,8 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
   type
     AWSResponse RestoreFromClusterSnapshot =
       RestoreFromClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreFromClusterSnapshotResult"

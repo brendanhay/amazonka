@@ -120,7 +120,8 @@ instance Core.AWSRequest ExecuteBudgetAction where
   type
     AWSResponse ExecuteBudgetAction =
       ExecuteBudgetActionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

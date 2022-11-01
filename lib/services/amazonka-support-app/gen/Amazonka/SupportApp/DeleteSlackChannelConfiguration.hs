@@ -52,7 +52,8 @@ data DeleteSlackChannelConfiguration = DeleteSlackChannelConfiguration'
   { -- | The channel ID in Slack. This ID identifies a channel within a Slack
     -- workspace.
     channelId :: Prelude.Text,
-    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+    -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+    -- such as @T012ABCDEFG@.
     teamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +69,8 @@ data DeleteSlackChannelConfiguration = DeleteSlackChannelConfiguration'
 -- 'channelId', 'deleteSlackChannelConfiguration_channelId' - The channel ID in Slack. This ID identifies a channel within a Slack
 -- workspace.
 --
--- 'teamId', 'deleteSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- 'teamId', 'deleteSlackChannelConfiguration_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 newDeleteSlackChannelConfiguration ::
   -- | 'channelId'
   Prelude.Text ->
@@ -89,7 +91,8 @@ newDeleteSlackChannelConfiguration
 deleteSlackChannelConfiguration_channelId :: Lens.Lens' DeleteSlackChannelConfiguration Prelude.Text
 deleteSlackChannelConfiguration_channelId = Lens.lens (\DeleteSlackChannelConfiguration' {channelId} -> channelId) (\s@DeleteSlackChannelConfiguration' {} a -> s {channelId = a} :: DeleteSlackChannelConfiguration)
 
--- | The team ID in Slack. This ID uniquely identifies a Slack workspace.
+-- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
+-- such as @T012ABCDEFG@.
 deleteSlackChannelConfiguration_teamId :: Lens.Lens' DeleteSlackChannelConfiguration Prelude.Text
 deleteSlackChannelConfiguration_teamId = Lens.lens (\DeleteSlackChannelConfiguration' {teamId} -> teamId) (\s@DeleteSlackChannelConfiguration' {} a -> s {teamId = a} :: DeleteSlackChannelConfiguration)
 
@@ -100,7 +103,8 @@ instance
   type
     AWSResponse DeleteSlackChannelConfiguration =
       DeleteSlackChannelConfigurationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

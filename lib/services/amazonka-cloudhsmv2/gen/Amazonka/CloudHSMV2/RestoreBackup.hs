@@ -82,7 +82,8 @@ instance Core.AWSRequest RestoreBackup where
   type
     AWSResponse RestoreBackup =
       RestoreBackupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

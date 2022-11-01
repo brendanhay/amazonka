@@ -145,7 +145,8 @@ instance Core.AWSPager ListBots where
 
 instance Core.AWSRequest ListBots where
   type AWSResponse ListBots = ListBotsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,8 +196,8 @@ instance Core.ToQuery ListBots where
 
 -- | /See:/ 'newListBotsResponse' smart constructor.
 data ListBotsResponse = ListBotsResponse'
-  { -- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
-    -- with the specified instance.
+  { -- | The names and Amazon Web Services Regions of the Amazon Lex or Amazon
+    -- Lex V2 bots associated with the specified instance.
     lexBots :: Prelude.Maybe [LexBotConfig],
     -- | If there are additional results, this is the token for the next set of
     -- results.
@@ -214,8 +215,8 @@ data ListBotsResponse = ListBotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexBots', 'listBotsResponse_lexBots' - The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
--- with the specified instance.
+-- 'lexBots', 'listBotsResponse_lexBots' - The names and Amazon Web Services Regions of the Amazon Lex or Amazon
+-- Lex V2 bots associated with the specified instance.
 --
 -- 'nextToken', 'listBotsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
@@ -232,8 +233,8 @@ newListBotsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
--- with the specified instance.
+-- | The names and Amazon Web Services Regions of the Amazon Lex or Amazon
+-- Lex V2 bots associated with the specified instance.
 listBotsResponse_lexBots :: Lens.Lens' ListBotsResponse (Prelude.Maybe [LexBotConfig])
 listBotsResponse_lexBots = Lens.lens (\ListBotsResponse' {lexBots} -> lexBots) (\s@ListBotsResponse' {} a -> s {lexBots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens.coerced
 

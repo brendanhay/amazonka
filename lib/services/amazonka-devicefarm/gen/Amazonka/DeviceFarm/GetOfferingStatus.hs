@@ -122,7 +122,8 @@ instance Core.AWSRequest GetOfferingStatus where
   type
     AWSResponse GetOfferingStatus =
       GetOfferingStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

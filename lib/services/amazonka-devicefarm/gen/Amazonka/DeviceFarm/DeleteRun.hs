@@ -77,7 +77,8 @@ deleteRun_arn = Lens.lens (\DeleteRun' {arn} -> arn) (\s@DeleteRun' {} a -> s {a
 
 instance Core.AWSRequest DeleteRun where
   type AWSResponse DeleteRun = DeleteRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -102,7 +102,8 @@ instance
   type
     AWSResponse DeleteEnvironmentConfiguration =
       DeleteEnvironmentConfigurationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteEnvironmentConfigurationResponse'

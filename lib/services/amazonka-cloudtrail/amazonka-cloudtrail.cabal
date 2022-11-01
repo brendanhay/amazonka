@@ -84,6 +84,7 @@ library
     Amazonka.CloudTrail.Types.AdvancedFieldSelector
     Amazonka.CloudTrail.Types.Channel
     Amazonka.CloudTrail.Types.DataResource
+    Amazonka.CloudTrail.Types.DeliveryStatus
     Amazonka.CloudTrail.Types.Destination
     Amazonka.CloudTrail.Types.DestinationType
     Amazonka.CloudTrail.Types.Event

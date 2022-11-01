@@ -53,7 +53,7 @@ data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource from which to delete
     -- tags. Batch resources that support tags are compute environments, jobs,
     -- job definitions, job queues, and scheduling policies. ARNs for child
-    -- jobs of array and multi-node parallel (MNP) jobs are not supported.
+    -- jobs of array and multi-node parallel (MNP) jobs aren\'t supported.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
     tagKeys :: Prelude.NonEmpty Prelude.Text
@@ -71,7 +71,7 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource from which to delete
 -- tags. Batch resources that support tags are compute environments, jobs,
 -- job definitions, job queues, and scheduling policies. ARNs for child
--- jobs of array and multi-node parallel (MNP) jobs are not supported.
+-- jobs of array and multi-node parallel (MNP) jobs aren\'t supported.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
 newUntagResource ::
@@ -89,7 +89,7 @@ newUntagResource pResourceArn_ pTagKeys_ =
 -- | The Amazon Resource Name (ARN) of the resource from which to delete
 -- tags. Batch resources that support tags are compute environments, jobs,
 -- job definitions, job queues, and scheduling policies. ARNs for child
--- jobs of array and multi-node parallel (MNP) jobs are not supported.
+-- jobs of array and multi-node parallel (MNP) jobs aren\'t supported.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
@@ -101,7 +101,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateQuantumTask where
   type
     AWSResponse CreateQuantumTask =
       CreateQuantumTaskResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

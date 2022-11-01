@@ -126,7 +126,8 @@ instance Core.AWSRequest AttachGroupPolicy where
   type
     AWSResponse AttachGroupPolicy =
       AttachGroupPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachGroupPolicyResponse'
 

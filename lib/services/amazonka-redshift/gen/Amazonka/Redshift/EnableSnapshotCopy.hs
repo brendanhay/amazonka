@@ -187,7 +187,8 @@ instance Core.AWSRequest EnableSnapshotCopy where
   type
     AWSResponse EnableSnapshotCopy =
       EnableSnapshotCopyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EnableSnapshotCopyResult"

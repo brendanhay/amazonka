@@ -76,7 +76,8 @@ getUpload_arn = Lens.lens (\GetUpload' {arn} -> arn) (\s@GetUpload' {} a -> s {a
 
 instance Core.AWSRequest GetUpload where
   type AWSResponse GetUpload = GetUploadResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

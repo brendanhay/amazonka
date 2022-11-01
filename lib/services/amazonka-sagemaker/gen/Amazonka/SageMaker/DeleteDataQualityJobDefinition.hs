@@ -79,7 +79,8 @@ instance
   type
     AWSResponse DeleteDataQualityJobDefinition =
       DeleteDataQualityJobDefinitionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteDataQualityJobDefinitionResponse'

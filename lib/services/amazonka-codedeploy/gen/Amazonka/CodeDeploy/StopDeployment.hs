@@ -99,7 +99,8 @@ instance Core.AWSRequest StopDeployment where
   type
     AWSResponse StopDeployment =
       StopDeploymentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

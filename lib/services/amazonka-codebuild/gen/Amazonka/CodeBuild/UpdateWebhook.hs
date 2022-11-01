@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateWebhook where
   type
     AWSResponse UpdateWebhook =
       UpdateWebhookResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

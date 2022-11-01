@@ -81,11 +81,11 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-  { -- | Optional metadata that you assign to a resource. Tags enable you to
-    -- categorize a resource in different ways, such as by purpose, owner, or
-    -- environment. For example, you might want to tag an association to
-    -- identify the type of resource to which it applies, the environment, or
-    -- the purpose of the association.
+  { -- | Adds or overwrites one or more tags for a State Manager association.
+    -- /Tags/ are metadata that you can assign to your Amazon Web Services
+    -- resources. Tags enable you to categorize your resources in different
+    -- ways, for example, by purpose, owner, or environment. Each tag consists
+    -- of a key and an optional value, both of which you define.
     tags :: Prelude.Maybe [Tag],
     -- | Specify a descriptive name for the association.
     associationName :: Prelude.Maybe Prelude.Text,
@@ -238,11 +238,11 @@ data CreateAssociation = CreateAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAssociation_tags' - Optional metadata that you assign to a resource. Tags enable you to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment. For example, you might want to tag an association to
--- identify the type of resource to which it applies, the environment, or
--- the purpose of the association.
+-- 'tags', 'createAssociation_tags' - Adds or overwrites one or more tags for a State Manager association.
+-- /Tags/ are metadata that you can assign to your Amazon Web Services
+-- resources. Tags enable you to categorize your resources in different
+-- ways, for example, by purpose, owner, or environment. Each tag consists
+-- of a key and an optional value, both of which you define.
 --
 -- 'associationName', 'createAssociation_associationName' - Specify a descriptive name for the association.
 --
@@ -412,11 +412,11 @@ newCreateAssociation pName_ =
       name = pName_
     }
 
--- | Optional metadata that you assign to a resource. Tags enable you to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment. For example, you might want to tag an association to
--- identify the type of resource to which it applies, the environment, or
--- the purpose of the association.
+-- | Adds or overwrites one or more tags for a State Manager association.
+-- /Tags/ are metadata that you can assign to your Amazon Web Services
+-- resources. Tags enable you to categorize your resources in different
+-- ways, for example, by purpose, owner, or environment. Each tag consists
+-- of a key and an optional value, both of which you define.
 createAssociation_tags :: Lens.Lens' CreateAssociation (Prelude.Maybe [Tag])
 createAssociation_tags = Lens.lens (\CreateAssociation' {tags} -> tags) (\s@CreateAssociation' {} a -> s {tags = a} :: CreateAssociation) Prelude.. Lens.mapping Lens.coerced
 
@@ -603,7 +603,8 @@ instance Core.AWSRequest CreateAssociation where
   type
     AWSResponse CreateAssociation =
       CreateAssociationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

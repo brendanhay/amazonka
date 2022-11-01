@@ -119,7 +119,8 @@ instance Core.AWSRequest ListFindingsFilters where
   type
     AWSResponse ListFindingsFilters =
       ListFindingsFiltersResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

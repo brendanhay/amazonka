@@ -118,7 +118,8 @@ instance Core.AWSRequest ListAssociatedFleets where
   type
     AWSResponse ListAssociatedFleets =
       ListAssociatedFleetsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

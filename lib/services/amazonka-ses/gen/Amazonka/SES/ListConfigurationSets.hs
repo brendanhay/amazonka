@@ -135,7 +135,8 @@ instance Core.AWSRequest ListConfigurationSets where
   type
     AWSResponse ListConfigurationSets =
       ListConfigurationSetsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListConfigurationSetsResult"

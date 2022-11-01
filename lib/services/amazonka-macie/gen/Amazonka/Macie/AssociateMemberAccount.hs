@@ -80,7 +80,8 @@ instance Core.AWSRequest AssociateMemberAccount where
   type
     AWSResponse AssociateMemberAccount =
       AssociateMemberAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateMemberAccountResponse'

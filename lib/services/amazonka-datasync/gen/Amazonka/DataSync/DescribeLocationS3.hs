@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeLocationS3 where
   type
     AWSResponse DescribeLocationS3 =
       DescribeLocationS3Response
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

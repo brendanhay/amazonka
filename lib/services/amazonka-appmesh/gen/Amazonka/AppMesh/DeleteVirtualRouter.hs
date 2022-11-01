@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteVirtualRouter where
   type
     AWSResponse DeleteVirtualRouter =
       DeleteVirtualRouterResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

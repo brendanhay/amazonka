@@ -129,7 +129,8 @@ instance Core.AWSRequest AttachUserPolicy where
   type
     AWSResponse AttachUserPolicy =
       AttachUserPolicyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachUserPolicyResponse'
 

@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateDirectoryConfig where
   type
     AWSResponse UpdateDirectoryConfig =
       UpdateDirectoryConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

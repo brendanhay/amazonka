@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateProxySession where
   type
     AWSResponse UpdateProxySession =
       UpdateProxySessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

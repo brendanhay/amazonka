@@ -80,6 +80,8 @@ defaultService =
       Core._serviceEndpointPrefix = "data.jobs.iot",
       Core._serviceSigningName = "iot-jobs-data",
       Core._serviceVersion = "2017-09-29",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

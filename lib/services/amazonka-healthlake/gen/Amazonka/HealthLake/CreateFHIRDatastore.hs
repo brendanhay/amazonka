@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateFHIRDatastore where
   type
     AWSResponse CreateFHIRDatastore =
       CreateFHIRDatastoreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

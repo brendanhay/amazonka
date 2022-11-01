@@ -99,7 +99,8 @@ getUsagePlanKey_keyId = Lens.lens (\GetUsagePlanKey' {keyId} -> keyId) (\s@GetUs
 
 instance Core.AWSRequest GetUsagePlanKey where
   type AWSResponse GetUsagePlanKey = UsagePlanKey
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

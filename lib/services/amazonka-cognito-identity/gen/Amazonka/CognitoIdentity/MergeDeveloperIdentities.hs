@@ -158,7 +158,8 @@ instance Core.AWSRequest MergeDeveloperIdentities where
   type
     AWSResponse MergeDeveloperIdentities =
       MergeDeveloperIdentitiesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -89,7 +89,8 @@ getFunction_functionId = Lens.lens (\GetFunction' {functionId} -> functionId) (\
 
 instance Core.AWSRequest GetFunction where
   type AWSResponse GetFunction = GetFunctionResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

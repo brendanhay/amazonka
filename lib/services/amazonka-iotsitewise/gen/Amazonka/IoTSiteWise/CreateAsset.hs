@@ -138,7 +138,8 @@ createAsset_assetModelId = Lens.lens (\CreateAsset' {assetModelId} -> assetModel
 
 instance Core.AWSRequest CreateAsset where
   type AWSResponse CreateAsset = CreateAssetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

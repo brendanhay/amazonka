@@ -106,7 +106,8 @@ instance Core.AWSRequest UnsubscribeFromEvent where
   type
     AWSResponse UnsubscribeFromEvent =
       UnsubscribeFromEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnsubscribeFromEventResponse'
 

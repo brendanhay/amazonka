@@ -110,7 +110,8 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
   type
     AWSResponse ResetFpgaImageAttribute =
       ResetFpgaImageAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

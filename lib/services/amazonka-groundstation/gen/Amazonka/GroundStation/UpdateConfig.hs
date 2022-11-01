@@ -123,7 +123,8 @@ updateConfig_name = Lens.lens (\UpdateConfig' {name} -> name) (\s@UpdateConfig' 
 
 instance Core.AWSRequest UpdateConfig where
   type AWSResponse UpdateConfig = ConfigIdResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -299,7 +299,8 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
   type
     AWSResponse CreateCachediSCSIVolume =
       CreateCachediSCSIVolumeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

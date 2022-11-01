@@ -22,6 +22,8 @@
 --
 -- Returns information about Neptune global database clusters. This API
 -- supports pagination.
+--
+-- This operation returns paginated results.
 module Amazonka.Neptune.DescribeGlobalClusters
   ( -- * Creating a Request
     DescribeGlobalClusters (..),
@@ -137,11 +139,34 @@ describeGlobalClusters_maxRecords = Lens.lens (\DescribeGlobalClusters' {maxReco
 describeGlobalClusters_globalClusterIdentifier :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Text)
 describeGlobalClusters_globalClusterIdentifier = Lens.lens (\DescribeGlobalClusters' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@DescribeGlobalClusters' {} a -> s {globalClusterIdentifier = a} :: DescribeGlobalClusters)
 
+instance Core.AWSPager DescribeGlobalClusters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeGlobalClustersResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeGlobalClustersResponse_globalClusters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeGlobalClusters_marker
+          Lens..~ rs
+          Lens.^? describeGlobalClustersResponse_marker
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest DescribeGlobalClusters where
   type
     AWSResponse DescribeGlobalClusters =
       DescribeGlobalClustersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeGlobalClustersResult"

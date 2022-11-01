@@ -27,6 +27,7 @@ import Amazonka.Kafka.Types.EncryptionInfo
 import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoringInfo
+import Amazonka.Kafka.Types.StorageMode
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,6 +37,8 @@ import qualified Amazonka.Prelude as Prelude
 data ProvisionedRequest = ProvisionedRequest'
   { -- | The settings for open monitoring.
     openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | Includes all client authentication information.
@@ -67,6 +70,8 @@ data ProvisionedRequest = ProvisionedRequest'
 -- for backwards compatibility:
 --
 -- 'openMonitoring', 'provisionedRequest_openMonitoring' - The settings for open monitoring.
+--
+-- 'storageMode', 'provisionedRequest_storageMode' - This controls storage mode for supported storage tiers.
 --
 -- 'encryptionInfo', 'provisionedRequest_encryptionInfo' - Includes all encryption-related information.
 --
@@ -101,6 +106,7 @@ newProvisionedRequest
     ProvisionedRequest'
       { openMonitoring =
           Prelude.Nothing,
+        storageMode = Prelude.Nothing,
         encryptionInfo = Prelude.Nothing,
         clientAuthentication = Prelude.Nothing,
         loggingInfo = Prelude.Nothing,
@@ -114,6 +120,10 @@ newProvisionedRequest
 -- | The settings for open monitoring.
 provisionedRequest_openMonitoring :: Lens.Lens' ProvisionedRequest (Prelude.Maybe OpenMonitoringInfo)
 provisionedRequest_openMonitoring = Lens.lens (\ProvisionedRequest' {openMonitoring} -> openMonitoring) (\s@ProvisionedRequest' {} a -> s {openMonitoring = a} :: ProvisionedRequest)
+
+-- | This controls storage mode for supported storage tiers.
+provisionedRequest_storageMode :: Lens.Lens' ProvisionedRequest (Prelude.Maybe StorageMode)
+provisionedRequest_storageMode = Lens.lens (\ProvisionedRequest' {storageMode} -> storageMode) (\s@ProvisionedRequest' {} a -> s {storageMode = a} :: ProvisionedRequest)
 
 -- | Includes all encryption-related information.
 provisionedRequest_encryptionInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe EncryptionInfo)
@@ -153,6 +163,7 @@ provisionedRequest_numberOfBrokerNodes = Lens.lens (\ProvisionedRequest' {number
 instance Prelude.Hashable ProvisionedRequest where
   hashWithSalt _salt ProvisionedRequest' {..} =
     _salt `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` loggingInfo
@@ -165,6 +176,7 @@ instance Prelude.Hashable ProvisionedRequest where
 instance Prelude.NFData ProvisionedRequest where
   rnf ProvisionedRequest' {..} =
     Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf loggingInfo
@@ -180,6 +192,7 @@ instance Core.ToJSON ProvisionedRequest where
       ( Prelude.catMaybes
           [ ("openMonitoring" Core..=)
               Prelude.<$> openMonitoring,
+            ("storageMode" Core..=) Prelude.<$> storageMode,
             ("encryptionInfo" Core..=)
               Prelude.<$> encryptionInfo,
             ("clientAuthentication" Core..=)

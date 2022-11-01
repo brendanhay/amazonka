@@ -95,7 +95,8 @@ enableRadius_radiusSettings = Lens.lens (\EnableRadius' {radiusSettings} -> radi
 
 instance Core.AWSRequest EnableRadius where
   type AWSResponse EnableRadius = EnableRadiusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

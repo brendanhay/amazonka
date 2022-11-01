@@ -207,7 +207,8 @@ instance Core.AWSRequest ListStackSetOperations where
   type
     AWSResponse ListStackSetOperations =
       ListStackSetOperationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStackSetOperationsResult"

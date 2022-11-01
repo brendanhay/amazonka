@@ -243,6 +243,8 @@ defaultService =
       Core._serviceEndpointPrefix = "gamesparks",
       Core._serviceSigningName = "gamesparks",
       Core._serviceVersion = "2021-08-17",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

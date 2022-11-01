@@ -92,7 +92,8 @@ deleteScript_scriptId = Lens.lens (\DeleteScript' {scriptId} -> scriptId) (\s@De
 
 instance Core.AWSRequest DeleteScript where
   type AWSResponse DeleteScript = DeleteScriptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteScriptResponse'
 
 instance Prelude.Hashable DeleteScript where

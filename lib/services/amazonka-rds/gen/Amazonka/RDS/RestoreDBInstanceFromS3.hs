@@ -1261,7 +1261,8 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
   type
     AWSResponse RestoreDBInstanceFromS3 =
       RestoreDBInstanceFromS3Response
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromS3Result"

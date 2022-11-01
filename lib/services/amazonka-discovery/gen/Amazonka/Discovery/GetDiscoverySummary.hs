@@ -71,7 +71,8 @@ instance Core.AWSRequest GetDiscoverySummary where
   type
     AWSResponse GetDiscoverySummary =
       GetDiscoverySummaryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

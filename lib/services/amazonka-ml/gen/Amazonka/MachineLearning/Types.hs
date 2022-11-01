@@ -289,6 +289,8 @@ defaultService =
       Core._serviceEndpointPrefix = "machinelearning",
       Core._serviceSigningName = "machinelearning",
       Core._serviceVersion = "2014-12-12",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

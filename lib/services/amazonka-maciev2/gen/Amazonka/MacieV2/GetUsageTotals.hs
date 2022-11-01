@@ -88,7 +88,8 @@ instance Core.AWSRequest GetUsageTotals where
   type
     AWSResponse GetUsageTotals =
       GetUsageTotalsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -846,7 +846,8 @@ cloneStack_serviceRoleArn = Lens.lens (\CloneStack' {serviceRoleArn} -> serviceR
 
 instance Core.AWSRequest CloneStack where
   type AWSResponse CloneStack = CloneStackResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

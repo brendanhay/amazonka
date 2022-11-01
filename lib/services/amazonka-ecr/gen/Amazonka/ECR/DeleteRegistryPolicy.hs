@@ -62,7 +62,8 @@ instance Core.AWSRequest DeleteRegistryPolicy where
   type
     AWSResponse DeleteRegistryPolicy =
       DeleteRegistryPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

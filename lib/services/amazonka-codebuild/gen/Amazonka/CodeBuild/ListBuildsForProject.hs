@@ -179,7 +179,8 @@ instance Core.AWSRequest ListBuildsForProject where
   type
     AWSResponse ListBuildsForProject =
       ListBuildsForProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

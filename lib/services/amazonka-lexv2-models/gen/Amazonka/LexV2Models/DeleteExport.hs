@@ -77,7 +77,8 @@ deleteExport_exportId = Lens.lens (\DeleteExport' {exportId} -> exportId) (\s@De
 
 instance Core.AWSRequest DeleteExport where
   type AWSResponse DeleteExport = DeleteExportResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

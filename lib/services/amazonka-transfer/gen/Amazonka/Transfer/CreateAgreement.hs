@@ -80,7 +80,8 @@ data CreateAgreement = CreateAgreement'
     -- | The landing directory (folder) for files transferred by using the AS2
     -- protocol.
     --
-    -- A @BaseDirectory@ example is @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+    -- A @BaseDirectory@ example is
+    -- /DOC-EXAMPLE-BUCKET/\//home/\//mydirectory/.
     baseDirectory :: Prelude.Text,
     -- | With AS2, you can send files by calling @StartFileTransfer@ and
     -- specifying the file paths in the request parameter, @SendFilePaths@. We
@@ -122,7 +123,8 @@ data CreateAgreement = CreateAgreement'
 -- 'baseDirectory', 'createAgreement_baseDirectory' - The landing directory (folder) for files transferred by using the AS2
 -- protocol.
 --
--- A @BaseDirectory@ example is @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+-- A @BaseDirectory@ example is
+-- /DOC-EXAMPLE-BUCKET/\//home/\//mydirectory/.
 --
 -- 'accessRole', 'createAgreement_accessRole' - With AS2, you can send files by calling @StartFileTransfer@ and
 -- specifying the file paths in the request parameter, @SendFilePaths@. We
@@ -193,7 +195,8 @@ createAgreement_partnerProfileId = Lens.lens (\CreateAgreement' {partnerProfileI
 -- | The landing directory (folder) for files transferred by using the AS2
 -- protocol.
 --
--- A @BaseDirectory@ example is @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+-- A @BaseDirectory@ example is
+-- /DOC-EXAMPLE-BUCKET/\//home/\//mydirectory/.
 createAgreement_baseDirectory :: Lens.Lens' CreateAgreement Prelude.Text
 createAgreement_baseDirectory = Lens.lens (\CreateAgreement' {baseDirectory} -> baseDirectory) (\s@CreateAgreement' {} a -> s {baseDirectory = a} :: CreateAgreement)
 
@@ -215,7 +218,8 @@ instance Core.AWSRequest CreateAgreement where
   type
     AWSResponse CreateAgreement =
       CreateAgreementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -74,7 +74,8 @@ getService_name = Lens.lens (\GetService' {name} -> name) (\s@GetService' {} a -
 
 instance Core.AWSRequest GetService where
   type AWSResponse GetService = GetServiceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

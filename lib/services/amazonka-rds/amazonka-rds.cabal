@@ -243,6 +243,7 @@ library
     Amazonka.RDS.Types.Event
     Amazonka.RDS.Types.EventCategoriesMap
     Amazonka.RDS.Types.EventSubscription
+    Amazonka.RDS.Types.ExportSourceType
     Amazonka.RDS.Types.ExportTask
     Amazonka.RDS.Types.FailoverState
     Amazonka.RDS.Types.FailoverStatus

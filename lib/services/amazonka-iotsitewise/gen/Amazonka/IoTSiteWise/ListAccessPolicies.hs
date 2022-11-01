@@ -193,7 +193,8 @@ instance Core.AWSRequest ListAccessPolicies where
   type
     AWSResponse ListAccessPolicies =
       ListAccessPoliciesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

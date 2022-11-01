@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteStateMachine where
   type
     AWSResponse DeleteStateMachine =
       DeleteStateMachineResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

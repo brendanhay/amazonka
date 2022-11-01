@@ -150,7 +150,8 @@ getMedia_startSelector = Lens.lens (\GetMedia' {startSelector} -> startSelector)
 
 instance Core.AWSRequest GetMedia where
   type AWSResponse GetMedia = GetMediaResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

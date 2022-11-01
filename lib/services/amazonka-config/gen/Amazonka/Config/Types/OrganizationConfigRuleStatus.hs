@@ -38,15 +38,16 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The name that you assign to organization Config rule.
     organizationConfigRuleName :: Prelude.Text,
-    -- | Indicates deployment status of an organization Config rule. When master
-    -- account calls PutOrganizationConfigRule action for the first time,
-    -- Config rule status is created in all the member accounts. When master
-    -- account calls PutOrganizationConfigRule action for the second time,
-    -- Config rule status is updated in all the member accounts. Additionally,
-    -- Config rule status is updated when one or more member accounts join or
-    -- leave an organization. Config rule status is deleted when the master
-    -- account deletes OrganizationConfigRule in all the member accounts and
-    -- disables service access for @config-multiaccountsetup.amazonaws.com@.
+    -- | Indicates deployment status of an organization Config rule. When
+    -- management account calls PutOrganizationConfigRule action for the first
+    -- time, Config rule status is created in all the member accounts. When
+    -- management account calls PutOrganizationConfigRule action for the second
+    -- time, Config rule status is updated in all the member accounts.
+    -- Additionally, Config rule status is updated when one or more member
+    -- accounts join or leave an organization. Config rule status is deleted
+    -- when the management account deletes OrganizationConfigRule in all the
+    -- member accounts and disables service access for
+    -- @config-multiaccountsetup.amazonaws.com@.
     --
     -- Config sets the state of the rule to:
     --
@@ -98,15 +99,16 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
 --
 -- 'organizationConfigRuleName', 'organizationConfigRuleStatus_organizationConfigRuleName' - The name that you assign to organization Config rule.
 --
--- 'organizationRuleStatus', 'organizationConfigRuleStatus_organizationRuleStatus' - Indicates deployment status of an organization Config rule. When master
--- account calls PutOrganizationConfigRule action for the first time,
--- Config rule status is created in all the member accounts. When master
--- account calls PutOrganizationConfigRule action for the second time,
--- Config rule status is updated in all the member accounts. Additionally,
--- Config rule status is updated when one or more member accounts join or
--- leave an organization. Config rule status is deleted when the master
--- account deletes OrganizationConfigRule in all the member accounts and
--- disables service access for @config-multiaccountsetup.amazonaws.com@.
+-- 'organizationRuleStatus', 'organizationConfigRuleStatus_organizationRuleStatus' - Indicates deployment status of an organization Config rule. When
+-- management account calls PutOrganizationConfigRule action for the first
+-- time, Config rule status is created in all the member accounts. When
+-- management account calls PutOrganizationConfigRule action for the second
+-- time, Config rule status is updated in all the member accounts.
+-- Additionally, Config rule status is updated when one or more member
+-- accounts join or leave an organization. Config rule status is deleted
+-- when the management account deletes OrganizationConfigRule in all the
+-- member accounts and disables service access for
+-- @config-multiaccountsetup.amazonaws.com@.
 --
 -- Config sets the state of the rule to:
 --
@@ -174,15 +176,16 @@ organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRule
 organizationConfigRuleStatus_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Prelude.Text
 organizationConfigRuleStatus_organizationConfigRuleName = Lens.lens (\OrganizationConfigRuleStatus' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@OrganizationConfigRuleStatus' {} a -> s {organizationConfigRuleName = a} :: OrganizationConfigRuleStatus)
 
--- | Indicates deployment status of an organization Config rule. When master
--- account calls PutOrganizationConfigRule action for the first time,
--- Config rule status is created in all the member accounts. When master
--- account calls PutOrganizationConfigRule action for the second time,
--- Config rule status is updated in all the member accounts. Additionally,
--- Config rule status is updated when one or more member accounts join or
--- leave an organization. Config rule status is deleted when the master
--- account deletes OrganizationConfigRule in all the member accounts and
--- disables service access for @config-multiaccountsetup.amazonaws.com@.
+-- | Indicates deployment status of an organization Config rule. When
+-- management account calls PutOrganizationConfigRule action for the first
+-- time, Config rule status is created in all the member accounts. When
+-- management account calls PutOrganizationConfigRule action for the second
+-- time, Config rule status is updated in all the member accounts.
+-- Additionally, Config rule status is updated when one or more member
+-- accounts join or leave an organization. Config rule status is deleted
+-- when the management account deletes OrganizationConfigRule in all the
+-- member accounts and disables service access for
+-- @config-multiaccountsetup.amazonaws.com@.
 --
 -- Config sets the state of the rule to:
 --

@@ -80,7 +80,8 @@ describeTags_loadBalancerNames = Lens.lens (\DescribeTags' {loadBalancerNames} -
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTagsResult"

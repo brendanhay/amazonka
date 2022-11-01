@@ -77,7 +77,8 @@ deleteTrial_trialName = Lens.lens (\DeleteTrial' {trialName} -> trialName) (\s@D
 
 instance Core.AWSRequest DeleteTrial where
   type AWSResponse DeleteTrial = DeleteTrialResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

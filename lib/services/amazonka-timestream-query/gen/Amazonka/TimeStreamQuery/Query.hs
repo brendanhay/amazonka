@@ -347,7 +347,8 @@ instance Core.AWSPager Query where
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

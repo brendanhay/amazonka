@@ -128,7 +128,8 @@ describeHsm_hsmArn = Lens.lens (\DescribeHsm' {hsmArn} -> hsmArn) (\s@DescribeHs
 
 instance Core.AWSRequest DescribeHsm where
   type AWSResponse DescribeHsm = DescribeHsmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

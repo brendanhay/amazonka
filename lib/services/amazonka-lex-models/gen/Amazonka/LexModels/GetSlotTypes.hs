@@ -143,7 +143,8 @@ instance Core.AWSPager GetSlotTypes where
 
 instance Core.AWSRequest GetSlotTypes where
   type AWSResponse GetSlotTypes = GetSlotTypesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -108,7 +108,8 @@ describeUser_namespace = Lens.lens (\DescribeUser' {namespace} -> namespace) (\s
 
 instance Core.AWSRequest DescribeUser where
   type AWSResponse DescribeUser = DescribeUserResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

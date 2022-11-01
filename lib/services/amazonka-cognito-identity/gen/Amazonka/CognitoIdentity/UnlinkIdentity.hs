@@ -104,7 +104,8 @@ instance Core.AWSRequest UnlinkIdentity where
   type
     AWSResponse UnlinkIdentity =
       UnlinkIdentityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnlinkIdentityResponse'
 

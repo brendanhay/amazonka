@@ -184,7 +184,8 @@ instance Core.AWSRequest GetNetworkRoutes where
   type
     AWSResponse GetNetworkRoutes =
       GetNetworkRoutesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -98,7 +98,8 @@ instance Core.AWSRequest DeregisterAccount where
   type
     AWSResponse DeregisterAccount =
       DeregisterAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

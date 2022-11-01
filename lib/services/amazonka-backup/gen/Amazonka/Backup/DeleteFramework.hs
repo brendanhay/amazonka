@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteFramework where
   type
     AWSResponse DeleteFramework =
       DeleteFrameworkResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFrameworkResponse'
 

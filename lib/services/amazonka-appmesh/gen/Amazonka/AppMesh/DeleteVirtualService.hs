@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteVirtualService where
   type
     AWSResponse DeleteVirtualService =
       DeleteVirtualServiceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

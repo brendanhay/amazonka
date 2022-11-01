@@ -178,7 +178,8 @@ putObject_inlineChunk = Lens.lens (\PutObject' {inlineChunk} -> inlineChunk) (\s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request = Request.putBody defaultService
+  service _ = defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->

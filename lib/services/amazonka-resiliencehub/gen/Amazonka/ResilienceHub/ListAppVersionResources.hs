@@ -142,7 +142,8 @@ instance Core.AWSRequest ListAppVersionResources where
   type
     AWSResponse ListAppVersionResources =
       ListAppVersionResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

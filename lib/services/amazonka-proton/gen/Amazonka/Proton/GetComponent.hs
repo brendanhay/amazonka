@@ -78,7 +78,8 @@ getComponent_name = Lens.lens (\GetComponent' {name} -> name) (\s@GetComponent' 
 
 instance Core.AWSRequest GetComponent where
   type AWSResponse GetComponent = GetComponentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

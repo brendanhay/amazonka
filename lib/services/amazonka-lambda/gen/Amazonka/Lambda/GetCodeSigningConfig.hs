@@ -80,7 +80,8 @@ instance Core.AWSRequest GetCodeSigningConfig where
   type
     AWSResponse GetCodeSigningConfig =
       GetCodeSigningConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -380,7 +380,8 @@ createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@Create
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -459,7 +460,7 @@ instance Core.ToQuery CreateUser where
 data CreateUserResponse = CreateUserResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The ID of the server that the user is attached to.
+    -- | The identifier of the server that the user is attached to.
     serverId :: Prelude.Text,
     -- | A unique string that identifies a user account associated with a server.
     userName :: Prelude.Text
@@ -476,7 +477,7 @@ data CreateUserResponse = CreateUserResponse'
 --
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'createUserResponse_serverId' - The ID of the server that the user is attached to.
+-- 'serverId', 'createUserResponse_serverId' - The identifier of the server that the user is attached to.
 --
 -- 'userName', 'createUserResponse_userName' - A unique string that identifies a user account associated with a server.
 newCreateUserResponse ::
@@ -501,7 +502,7 @@ newCreateUserResponse
 createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
--- | The ID of the server that the user is attached to.
+-- | The identifier of the server that the user is attached to.
 createUserResponse_serverId :: Lens.Lens' CreateUserResponse Prelude.Text
 createUserResponse_serverId = Lens.lens (\CreateUserResponse' {serverId} -> serverId) (\s@CreateUserResponse' {} a -> s {serverId = a} :: CreateUserResponse)
 

@@ -117,7 +117,8 @@ instance Core.AWSRequest PutNotificationConfiguration where
   type
     AWSResponse PutNotificationConfiguration =
       PutNotificationConfigurationResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutNotificationConfigurationResponse'

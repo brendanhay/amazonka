@@ -89,7 +89,8 @@ instance Core.AWSRequest RemoveAllResourcePermissions where
   type
     AWSResponse RemoveAllResourcePermissions =
       RemoveAllResourcePermissionsResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveAllResourcePermissionsResponse'

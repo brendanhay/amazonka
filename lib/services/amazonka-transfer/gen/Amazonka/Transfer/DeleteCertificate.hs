@@ -45,7 +45,7 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDeleteCertificate' smart constructor.
 data DeleteCertificate = DeleteCertificate'
-  { -- | The ID of the certificate object that you are deleting.
+  { -- | The identifier of the certificate object that you are deleting.
     certificateId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,7 +58,7 @@ data DeleteCertificate = DeleteCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateId', 'deleteCertificate_certificateId' - The ID of the certificate object that you are deleting.
+-- 'certificateId', 'deleteCertificate_certificateId' - The identifier of the certificate object that you are deleting.
 newDeleteCertificate ::
   -- | 'certificateId'
   Prelude.Text ->
@@ -66,7 +66,7 @@ newDeleteCertificate ::
 newDeleteCertificate pCertificateId_ =
   DeleteCertificate' {certificateId = pCertificateId_}
 
--- | The ID of the certificate object that you are deleting.
+-- | The identifier of the certificate object that you are deleting.
 deleteCertificate_certificateId :: Lens.Lens' DeleteCertificate Prelude.Text
 deleteCertificate_certificateId = Lens.lens (\DeleteCertificate' {certificateId} -> certificateId) (\s@DeleteCertificate' {} a -> s {certificateId = a} :: DeleteCertificate)
 
@@ -74,7 +74,8 @@ instance Core.AWSRequest DeleteCertificate where
   type
     AWSResponse DeleteCertificate =
       DeleteCertificateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteCertificateResponse'
 

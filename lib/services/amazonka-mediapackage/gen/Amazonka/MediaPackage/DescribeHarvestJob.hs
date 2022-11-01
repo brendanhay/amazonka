@@ -85,7 +85,8 @@ instance Core.AWSRequest DescribeHarvestJob where
   type
     AWSResponse DescribeHarvestJob =
       DescribeHarvestJobResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

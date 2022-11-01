@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteWorkload where
   type
     AWSResponse DeleteWorkload =
       DeleteWorkloadResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteWorkloadResponse'
 

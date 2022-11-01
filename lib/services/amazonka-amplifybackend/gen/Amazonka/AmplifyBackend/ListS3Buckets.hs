@@ -78,7 +78,8 @@ instance Core.AWSRequest ListS3Buckets where
   type
     AWSResponse ListS3Buckets =
       ListS3BucketsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

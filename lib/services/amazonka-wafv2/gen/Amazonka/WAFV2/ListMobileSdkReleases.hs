@@ -126,7 +126,8 @@ instance Core.AWSRequest ListMobileSdkReleases where
   type
     AWSResponse ListMobileSdkReleases =
       ListMobileSdkReleasesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

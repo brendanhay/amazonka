@@ -79,8 +79,9 @@ data GetMapGlyphs = GetMapGlyphs'
     --
     -- -   VectorHereContrast – @Fira GO Regular@ | @Fira GO Bold@
     --
-    -- -   VectorHereExplore, VectorHereExploreTruck – @Firo GO Italic@ |
-    --     @Fira GO Map@ | @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
+    -- -   VectorHereExplore, VectorHereExploreTruck,
+    --     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
+    --     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
     --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
     fontStack :: Prelude.Text,
     -- | A Unicode range of characters to download glyphs for. Each response will
@@ -128,8 +129,9 @@ data GetMapGlyphs = GetMapGlyphs'
 --
 -- -   VectorHereContrast – @Fira GO Regular@ | @Fira GO Bold@
 --
--- -   VectorHereExplore, VectorHereExploreTruck – @Firo GO Italic@ |
---     @Fira GO Map@ | @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
+-- -   VectorHereExplore, VectorHereExploreTruck,
+--     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
+--     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
 --
 -- 'fontUnicodeRange', 'getMapGlyphs_fontUnicodeRange' - A Unicode range of characters to download glyphs for. Each response will
@@ -183,8 +185,9 @@ newGetMapGlyphs
 --
 -- -   VectorHereContrast – @Fira GO Regular@ | @Fira GO Bold@
 --
--- -   VectorHereExplore, VectorHereExploreTruck – @Firo GO Italic@ |
---     @Fira GO Map@ | @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
+-- -   VectorHereExplore, VectorHereExploreTruck,
+--     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
+--     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
 getMapGlyphs_fontStack :: Lens.Lens' GetMapGlyphs Prelude.Text
 getMapGlyphs_fontStack = Lens.lens (\GetMapGlyphs' {fontStack} -> fontStack) (\s@GetMapGlyphs' {} a -> s {fontStack = a} :: GetMapGlyphs)
@@ -201,7 +204,8 @@ getMapGlyphs_mapName = Lens.lens (\GetMapGlyphs' {mapName} -> mapName) (\s@GetMa
 
 instance Core.AWSRequest GetMapGlyphs where
   type AWSResponse GetMapGlyphs = GetMapGlyphsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

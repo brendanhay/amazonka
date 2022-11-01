@@ -101,7 +101,8 @@ deleteBot_botId = Lens.lens (\DeleteBot' {botId} -> botId) (\s@DeleteBot' {} a -
 
 instance Core.AWSRequest DeleteBot where
   type AWSResponse DeleteBot = DeleteBotResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

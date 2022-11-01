@@ -119,7 +119,8 @@ instance Core.AWSRequest GetDomainStatisticsReport where
   type
     AWSResponse GetDomainStatisticsReport =
       GetDomainStatisticsReportResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

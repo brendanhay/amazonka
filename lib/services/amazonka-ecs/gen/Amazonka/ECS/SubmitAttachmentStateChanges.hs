@@ -94,7 +94,8 @@ instance Core.AWSRequest SubmitAttachmentStateChanges where
   type
     AWSResponse SubmitAttachmentStateChanges =
       SubmitAttachmentStateChangesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -123,7 +123,8 @@ instance Core.AWSRequest GetComponentVersionArtifact where
   type
     AWSResponse GetComponentVersionArtifact =
       GetComponentVersionArtifactResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

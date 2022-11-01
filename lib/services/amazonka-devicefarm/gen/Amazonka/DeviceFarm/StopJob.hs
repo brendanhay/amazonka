@@ -82,7 +82,8 @@ stopJob_arn = Lens.lens (\StopJob' {arn} -> arn) (\s@StopJob' {} a -> s {arn = a
 
 instance Core.AWSRequest StopJob where
   type AWSResponse StopJob = StopJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

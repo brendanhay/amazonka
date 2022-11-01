@@ -161,7 +161,8 @@ instance Core.AWSRequest RunScheduledInstances where
   type
     AWSResponse RunScheduledInstances =
       RunScheduledInstancesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -134,7 +134,8 @@ instance Core.AWSRequest TagInstanceProfile where
   type
     AWSResponse TagInstanceProfile =
       TagInstanceProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull TagInstanceProfileResponse'
 

@@ -110,9 +110,10 @@ instance Core.AWSRequest SetDataRetrievalPolicy where
   type
     AWSResponse SetDataRetrievalPolicy =
       SetDataRetrievalPolicyResponse
-  request =
+  service _ = defaultService
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putJSON defaultService
+      Prelude.. Request.putJSON srv
   response =
     Response.receiveNull
       SetDataRetrievalPolicyResponse'

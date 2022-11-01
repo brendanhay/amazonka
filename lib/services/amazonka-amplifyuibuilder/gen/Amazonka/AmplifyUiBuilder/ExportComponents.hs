@@ -124,7 +124,8 @@ instance Core.AWSRequest ExportComponents where
   type
     AWSResponse ExportComponents =
       ExportComponentsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

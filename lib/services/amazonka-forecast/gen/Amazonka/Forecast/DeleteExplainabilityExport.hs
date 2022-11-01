@@ -77,7 +77,8 @@ instance Core.AWSRequest DeleteExplainabilityExport where
   type
     AWSResponse DeleteExplainabilityExport =
       DeleteExplainabilityExportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteExplainabilityExportResponse'

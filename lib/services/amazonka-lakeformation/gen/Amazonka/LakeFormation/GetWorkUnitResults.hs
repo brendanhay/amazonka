@@ -117,7 +117,8 @@ instance Core.AWSRequest GetWorkUnitResults where
   type
     AWSResponse GetWorkUnitResults =
       GetWorkUnitResultsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->

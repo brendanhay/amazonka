@@ -112,7 +112,8 @@ instance Core.AWSRequest RebuildEnvironment where
   type
     AWSResponse RebuildEnvironment =
       RebuildEnvironmentResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RebuildEnvironmentResponse'
 

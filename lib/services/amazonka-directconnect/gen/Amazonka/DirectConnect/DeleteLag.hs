@@ -94,7 +94,8 @@ deleteLag_lagId = Lens.lens (\DeleteLag' {lagId} -> lagId) (\s@DeleteLag' {} a -
 
 instance Core.AWSRequest DeleteLag where
   type AWSResponse DeleteLag = Lag
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

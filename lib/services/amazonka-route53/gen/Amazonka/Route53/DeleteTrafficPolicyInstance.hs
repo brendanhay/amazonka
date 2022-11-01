@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteTrafficPolicyInstance where
   type
     AWSResponse DeleteTrafficPolicyInstance =
       DeleteTrafficPolicyInstanceResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

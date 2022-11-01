@@ -301,7 +301,8 @@ sendEmail_content = Lens.lens (\SendEmail' {content} -> content) (\s@SendEmail' 
 
 instance Core.AWSRequest SendEmail where
   type AWSResponse SendEmail = SendEmailResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -22,6 +22,9 @@
 --
 -- Provides details about how an DataSync location for an Amazon FSx for
 -- NetApp ONTAP file system is configured.
+--
+-- If your location uses SMB, the @DescribeLocationFsxOntap@ operation
+-- doesn\'t actually return a @Password@.
 module Amazonka.DataSync.DescribeLocationFsxOntap
   ( -- * Creating a Request
     DescribeLocationFsxOntap (..),
@@ -90,7 +93,8 @@ instance Core.AWSRequest DescribeLocationFsxOntap where
   type
     AWSResponse DescribeLocationFsxOntap =
       DescribeLocationFsxOntapResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

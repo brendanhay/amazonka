@@ -37,7 +37,7 @@ data UserData = UserData'
     -- value is an integer: the available number of slots.
     availableSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
     -- | Information about the user for the data that is returned. It contains
-    -- resourceId and ARN of the user.
+    -- the @resourceId@ and ARN of the user.
     user :: Prelude.Maybe UserReference,
     -- | Contains information about the levels of a hierarchy group assigned to a
     -- user.
@@ -54,7 +54,7 @@ data UserData = UserData'
     -- | A map of maximum slots by channel. The key is a channel name. The value
     -- is an integer: the maximum number of slots. This is calculated from
     -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
-    -- of the RoutingProfile assigned to the agent.
+    -- of the @RoutingProfile@ assigned to the agent.
     maxSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
     -- | A list of contact reference information.
     contacts :: Prelude.Maybe [AgentContactReference]
@@ -73,7 +73,7 @@ data UserData = UserData'
 -- value is an integer: the available number of slots.
 --
 -- 'user', 'userData_user' - Information about the user for the data that is returned. It contains
--- resourceId and ARN of the user.
+-- the @resourceId@ and ARN of the user.
 --
 -- 'hierarchyPath', 'userData_hierarchyPath' - Contains information about the levels of a hierarchy group assigned to a
 -- user.
@@ -90,7 +90,7 @@ data UserData = UserData'
 -- 'maxSlotsByChannel', 'userData_maxSlotsByChannel' - A map of maximum slots by channel. The key is a channel name. The value
 -- is an integer: the maximum number of slots. This is calculated from
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
--- of the RoutingProfile assigned to the agent.
+-- of the @RoutingProfile@ assigned to the agent.
 --
 -- 'contacts', 'userData_contacts' - A list of contact reference information.
 newUserData ::
@@ -114,7 +114,7 @@ userData_availableSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.
 userData_availableSlotsByChannel = Lens.lens (\UserData' {availableSlotsByChannel} -> availableSlotsByChannel) (\s@UserData' {} a -> s {availableSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the user for the data that is returned. It contains
--- resourceId and ARN of the user.
+-- the @resourceId@ and ARN of the user.
 userData_user :: Lens.Lens' UserData (Prelude.Maybe UserReference)
 userData_user = Lens.lens (\UserData' {user} -> user) (\s@UserData' {} a -> s {user = a} :: UserData)
 
@@ -141,7 +141,7 @@ userData_activeSlotsByChannel = Lens.lens (\UserData' {activeSlotsByChannel} -> 
 -- | A map of maximum slots by channel. The key is a channel name. The value
 -- is an integer: the maximum number of slots. This is calculated from
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
--- of the RoutingProfile assigned to the agent.
+-- of the @RoutingProfile@ assigned to the agent.
 userData_maxSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
 userData_maxSlotsByChannel = Lens.lens (\UserData' {maxSlotsByChannel} -> maxSlotsByChannel) (\s@UserData' {} a -> s {maxSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 

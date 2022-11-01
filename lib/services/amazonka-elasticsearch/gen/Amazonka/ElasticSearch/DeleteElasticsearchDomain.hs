@@ -88,7 +88,8 @@ instance Core.AWSRequest DeleteElasticsearchDomain where
   type
     AWSResponse DeleteElasticsearchDomain =
       DeleteElasticsearchDomainResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

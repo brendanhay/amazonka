@@ -30,28 +30,36 @@ import Amazonka.Route53AutoNaming.Types.NamespaceFilterName
 --
 -- /See:/ 'newNamespaceFilter' smart constructor.
 data NamespaceFilter = NamespaceFilter'
-  { -- | The operator that you want to use to determine whether @ListNamespaces@
-    -- returns a namespace. Valid values for @condition@ include:
+  { -- | Specify the operator that you want to use to determine whether a
+    -- namespace matches the specified value. Valid values for @Condition@ are
+    -- one of the following.
     --
-    -- [EQ]
-    --     When you specify @EQ@ for the condition, you can choose to list only
-    --     public namespaces or private namespaces, but not both. @EQ@ is the
-    --     default condition and can be omitted.
+    -- -   @EQ@: When you specify @EQ@ for @Condition@, you can specify only
+    --     one value. @EQ@ is supported for @TYPE@, @NAME@, and @HTTP_NAME@.
+    --     @EQ@ is the default condition and can be omitted.
     --
-    -- [IN]
-    --     When you specify @IN@ for the condition, you can choose to list
-    --     public namespaces, private namespaces, or both.
-    --
-    -- [BETWEEN]
-    --     Not applicable
+    -- -   @BEGINS_WITH@: When you specify @BEGINS_WITH@ for @Condition@, you
+    --     can specify only one value. @BEGINS_WITH@ is supported for @TYPE@,
+    --     @NAME@, and @HTTP_NAME@.
     condition :: Prelude.Maybe FilterCondition,
-    -- | Specify @TYPE@.
-    name :: NamespaceFilterName,
-    -- | If you specify @EQ@ for @Condition@, specify either @DNS_PUBLIC@ or
-    -- @DNS_PRIVATE@.
+    -- | Specify the namespaces that you want to get using one of the following.
     --
-    -- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
-    -- @DNS_PRIVATE@, or both.
+    -- -   @TYPE@: Gets the namespaces of the specified type.
+    --
+    -- -   @NAME@: Gets the namespaces with the specified name.
+    --
+    -- -   @HTTP_NAME@: Gets the namespaces with the specified HTTP name.
+    name :: NamespaceFilterName,
+    -- | Specify the values that are applicable to the value that you specify for
+    -- @Name@.
+    --
+    -- -   @TYPE@: Specify @HTTP@, @DNS_PUBLIC@, or @DNS_PRIVATE@.
+    --
+    -- -   @NAME@: Specify the name of the namespace, which is found in
+    --     @Namespace.Name@.
+    --
+    -- -   @HTTP_NAME@: Specify the HTTP name of the namespace, which is found
+    --     in @Namespace.Properties.HttpProperties.HttpName@.
     values :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,28 +72,36 @@ data NamespaceFilter = NamespaceFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'condition', 'namespaceFilter_condition' - The operator that you want to use to determine whether @ListNamespaces@
--- returns a namespace. Valid values for @condition@ include:
+-- 'condition', 'namespaceFilter_condition' - Specify the operator that you want to use to determine whether a
+-- namespace matches the specified value. Valid values for @Condition@ are
+-- one of the following.
 --
--- [EQ]
---     When you specify @EQ@ for the condition, you can choose to list only
---     public namespaces or private namespaces, but not both. @EQ@ is the
---     default condition and can be omitted.
+-- -   @EQ@: When you specify @EQ@ for @Condition@, you can specify only
+--     one value. @EQ@ is supported for @TYPE@, @NAME@, and @HTTP_NAME@.
+--     @EQ@ is the default condition and can be omitted.
 --
--- [IN]
---     When you specify @IN@ for the condition, you can choose to list
---     public namespaces, private namespaces, or both.
+-- -   @BEGINS_WITH@: When you specify @BEGINS_WITH@ for @Condition@, you
+--     can specify only one value. @BEGINS_WITH@ is supported for @TYPE@,
+--     @NAME@, and @HTTP_NAME@.
 --
--- [BETWEEN]
---     Not applicable
+-- 'name', 'namespaceFilter_name' - Specify the namespaces that you want to get using one of the following.
 --
--- 'name', 'namespaceFilter_name' - Specify @TYPE@.
+-- -   @TYPE@: Gets the namespaces of the specified type.
 --
--- 'values', 'namespaceFilter_values' - If you specify @EQ@ for @Condition@, specify either @DNS_PUBLIC@ or
--- @DNS_PRIVATE@.
+-- -   @NAME@: Gets the namespaces with the specified name.
 --
--- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
--- @DNS_PRIVATE@, or both.
+-- -   @HTTP_NAME@: Gets the namespaces with the specified HTTP name.
+--
+-- 'values', 'namespaceFilter_values' - Specify the values that are applicable to the value that you specify for
+-- @Name@.
+--
+-- -   @TYPE@: Specify @HTTP@, @DNS_PUBLIC@, or @DNS_PRIVATE@.
+--
+-- -   @NAME@: Specify the name of the namespace, which is found in
+--     @Namespace.Name@.
+--
+-- -   @HTTP_NAME@: Specify the HTTP name of the namespace, which is found
+--     in @Namespace.Properties.HttpProperties.HttpName@.
 newNamespaceFilter ::
   -- | 'name'
   NamespaceFilterName ->
@@ -97,32 +113,40 @@ newNamespaceFilter pName_ =
       values = Prelude.mempty
     }
 
--- | The operator that you want to use to determine whether @ListNamespaces@
--- returns a namespace. Valid values for @condition@ include:
+-- | Specify the operator that you want to use to determine whether a
+-- namespace matches the specified value. Valid values for @Condition@ are
+-- one of the following.
 --
--- [EQ]
---     When you specify @EQ@ for the condition, you can choose to list only
---     public namespaces or private namespaces, but not both. @EQ@ is the
---     default condition and can be omitted.
+-- -   @EQ@: When you specify @EQ@ for @Condition@, you can specify only
+--     one value. @EQ@ is supported for @TYPE@, @NAME@, and @HTTP_NAME@.
+--     @EQ@ is the default condition and can be omitted.
 --
--- [IN]
---     When you specify @IN@ for the condition, you can choose to list
---     public namespaces, private namespaces, or both.
---
--- [BETWEEN]
---     Not applicable
+-- -   @BEGINS_WITH@: When you specify @BEGINS_WITH@ for @Condition@, you
+--     can specify only one value. @BEGINS_WITH@ is supported for @TYPE@,
+--     @NAME@, and @HTTP_NAME@.
 namespaceFilter_condition :: Lens.Lens' NamespaceFilter (Prelude.Maybe FilterCondition)
 namespaceFilter_condition = Lens.lens (\NamespaceFilter' {condition} -> condition) (\s@NamespaceFilter' {} a -> s {condition = a} :: NamespaceFilter)
 
--- | Specify @TYPE@.
+-- | Specify the namespaces that you want to get using one of the following.
+--
+-- -   @TYPE@: Gets the namespaces of the specified type.
+--
+-- -   @NAME@: Gets the namespaces with the specified name.
+--
+-- -   @HTTP_NAME@: Gets the namespaces with the specified HTTP name.
 namespaceFilter_name :: Lens.Lens' NamespaceFilter NamespaceFilterName
 namespaceFilter_name = Lens.lens (\NamespaceFilter' {name} -> name) (\s@NamespaceFilter' {} a -> s {name = a} :: NamespaceFilter)
 
--- | If you specify @EQ@ for @Condition@, specify either @DNS_PUBLIC@ or
--- @DNS_PRIVATE@.
+-- | Specify the values that are applicable to the value that you specify for
+-- @Name@.
 --
--- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
--- @DNS_PRIVATE@, or both.
+-- -   @TYPE@: Specify @HTTP@, @DNS_PUBLIC@, or @DNS_PRIVATE@.
+--
+-- -   @NAME@: Specify the name of the namespace, which is found in
+--     @Namespace.Name@.
+--
+-- -   @HTTP_NAME@: Specify the HTTP name of the namespace, which is found
+--     in @Namespace.Properties.HttpProperties.HttpName@.
 namespaceFilter_values :: Lens.Lens' NamespaceFilter [Prelude.Text]
 namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Prelude.. Lens.coerced
 

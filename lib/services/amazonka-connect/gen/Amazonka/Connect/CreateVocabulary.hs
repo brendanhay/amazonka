@@ -63,9 +63,12 @@ data CreateVocabulary = CreateVocabulary'
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If a create request is received more than
-    -- once with same client token, subsequent requests return the previous
-    -- response without creating a vocabulary again.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+    -- If a create request is received more than once with same client token,
+    -- subsequent requests return the previous response without creating a
+    -- vocabulary again.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -98,9 +101,12 @@ data CreateVocabulary = CreateVocabulary'
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'clientToken', 'createVocabulary_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If a create request is received more than
--- once with same client token, subsequent requests return the previous
--- response without creating a vocabulary again.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+-- If a create request is received more than once with same client token,
+-- subsequent requests return the previous response without creating a
+-- vocabulary again.
 --
 -- 'instanceId', 'createVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -147,9 +153,12 @@ createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.Has
 createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If a create request is received more than
--- once with same client token, subsequent requests return the previous
--- response without creating a vocabulary again.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+-- If a create request is received more than once with same client token,
+-- subsequent requests return the previous response without creating a
+-- vocabulary again.
 createVocabulary_clientToken :: Lens.Lens' CreateVocabulary (Prelude.Maybe Prelude.Text)
 createVocabulary_clientToken = Lens.lens (\CreateVocabulary' {clientToken} -> clientToken) (\s@CreateVocabulary' {} a -> s {clientToken = a} :: CreateVocabulary)
 
@@ -181,7 +190,8 @@ instance Core.AWSRequest CreateVocabulary where
   type
     AWSResponse CreateVocabulary =
       CreateVocabularyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

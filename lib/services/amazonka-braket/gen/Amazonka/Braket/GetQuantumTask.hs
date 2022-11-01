@@ -88,7 +88,8 @@ instance Core.AWSRequest GetQuantumTask where
   type
     AWSResponse GetQuantumTask =
       GetQuantumTaskResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

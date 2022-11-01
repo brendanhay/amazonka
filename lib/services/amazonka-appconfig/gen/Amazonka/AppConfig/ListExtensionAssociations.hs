@@ -131,7 +131,8 @@ instance Core.AWSRequest ListExtensionAssociations where
   type
     AWSResponse ListExtensionAssociations =
       ListExtensionAssociationsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

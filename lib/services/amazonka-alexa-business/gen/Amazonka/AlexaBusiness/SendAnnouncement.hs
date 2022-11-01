@@ -128,7 +128,8 @@ instance Core.AWSRequest SendAnnouncement where
   type
     AWSResponse SendAnnouncement =
       SendAnnouncementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

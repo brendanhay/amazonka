@@ -95,7 +95,8 @@ instance Core.AWSRequest GetTrustStoreCertificate where
   type
     AWSResponse GetTrustStoreCertificate =
       GetTrustStoreCertificateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -93,7 +93,8 @@ deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' 
 
 instance Core.AWSRequest DeleteUser where
   type AWSResponse DeleteUser = DeleteUserResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -28,6 +28,7 @@ import Amazonka.MediaLive.Types.InputSwitchScheduleActionSettings
 import Amazonka.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings
 import Amazonka.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings
 import Amazonka.MediaLive.Types.PauseStateScheduleActionSettings
+import Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
 import Amazonka.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
@@ -47,6 +48,8 @@ data ScheduleActionSettings = ScheduleActionSettings'
     staticImageActivateSettings :: Prelude.Maybe StaticImageActivateScheduleActionSettings,
     -- | Action to switch the input
     inputSwitchSettings :: Prelude.Maybe InputSwitchScheduleActionSettings,
+    -- | Action to specify scte35 input
+    scte35InputSettings :: Prelude.Maybe Scte35InputScheduleActionSettings,
     -- | Action to insert HLS ID3 segment tagging
     hlsId3SegmentTaggingSettings :: Prelude.Maybe HlsId3SegmentTaggingScheduleActionSettings,
     -- | Action to deactivate a motion graphics image overlay
@@ -82,6 +85,8 @@ data ScheduleActionSettings = ScheduleActionSettings'
 --
 -- 'inputSwitchSettings', 'scheduleActionSettings_inputSwitchSettings' - Action to switch the input
 --
+-- 'scte35InputSettings', 'scheduleActionSettings_scte35InputSettings' - Action to specify scte35 input
+--
 -- 'hlsId3SegmentTaggingSettings', 'scheduleActionSettings_hlsId3SegmentTaggingSettings' - Action to insert HLS ID3 segment tagging
 --
 -- 'motionGraphicsImageDeactivateSettings', 'scheduleActionSettings_motionGraphicsImageDeactivateSettings' - Action to deactivate a motion graphics image overlay
@@ -106,6 +111,7 @@ newScheduleActionSettings =
       inputPrepareSettings = Prelude.Nothing,
       staticImageActivateSettings = Prelude.Nothing,
       inputSwitchSettings = Prelude.Nothing,
+      scte35InputSettings = Prelude.Nothing,
       hlsId3SegmentTaggingSettings = Prelude.Nothing,
       motionGraphicsImageDeactivateSettings =
         Prelude.Nothing,
@@ -133,6 +139,10 @@ scheduleActionSettings_staticImageActivateSettings = Lens.lens (\ScheduleActionS
 -- | Action to switch the input
 scheduleActionSettings_inputSwitchSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe InputSwitchScheduleActionSettings)
 scheduleActionSettings_inputSwitchSettings = Lens.lens (\ScheduleActionSettings' {inputSwitchSettings} -> inputSwitchSettings) (\s@ScheduleActionSettings' {} a -> s {inputSwitchSettings = a} :: ScheduleActionSettings)
+
+-- | Action to specify scte35 input
+scheduleActionSettings_scte35InputSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe Scte35InputScheduleActionSettings)
+scheduleActionSettings_scte35InputSettings = Lens.lens (\ScheduleActionSettings' {scte35InputSettings} -> scte35InputSettings) (\s@ScheduleActionSettings' {} a -> s {scte35InputSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert HLS ID3 segment tagging
 scheduleActionSettings_hlsId3SegmentTaggingSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe HlsId3SegmentTaggingScheduleActionSettings)
@@ -176,6 +186,7 @@ instance Core.FromJSON ScheduleActionSettings where
             Prelude.<*> (x Core..:? "inputPrepareSettings")
             Prelude.<*> (x Core..:? "staticImageActivateSettings")
             Prelude.<*> (x Core..:? "inputSwitchSettings")
+            Prelude.<*> (x Core..:? "scte35InputSettings")
             Prelude.<*> (x Core..:? "hlsId3SegmentTaggingSettings")
             Prelude.<*> (x Core..:? "motionGraphicsImageDeactivateSettings")
             Prelude.<*> (x Core..:? "scte35SpliceInsertSettings")
@@ -193,6 +204,7 @@ instance Prelude.Hashable ScheduleActionSettings where
       `Prelude.hashWithSalt` inputPrepareSettings
       `Prelude.hashWithSalt` staticImageActivateSettings
       `Prelude.hashWithSalt` inputSwitchSettings
+      `Prelude.hashWithSalt` scte35InputSettings
       `Prelude.hashWithSalt` hlsId3SegmentTaggingSettings
       `Prelude.hashWithSalt` motionGraphicsImageDeactivateSettings
       `Prelude.hashWithSalt` scte35SpliceInsertSettings
@@ -208,6 +220,7 @@ instance Prelude.NFData ScheduleActionSettings where
       `Prelude.seq` Prelude.rnf inputPrepareSettings
       `Prelude.seq` Prelude.rnf staticImageActivateSettings
       `Prelude.seq` Prelude.rnf inputSwitchSettings
+      `Prelude.seq` Prelude.rnf scte35InputSettings
       `Prelude.seq` Prelude.rnf hlsId3SegmentTaggingSettings
       `Prelude.seq` Prelude.rnf motionGraphicsImageDeactivateSettings
       `Prelude.seq` Prelude.rnf scte35SpliceInsertSettings
@@ -230,6 +243,8 @@ instance Core.ToJSON ScheduleActionSettings where
               Prelude.<$> staticImageActivateSettings,
             ("inputSwitchSettings" Core..=)
               Prelude.<$> inputSwitchSettings,
+            ("scte35InputSettings" Core..=)
+              Prelude.<$> scte35InputSettings,
             ("hlsId3SegmentTaggingSettings" Core..=)
               Prelude.<$> hlsId3SegmentTaggingSettings,
             ("motionGraphicsImageDeactivateSettings" Core..=)

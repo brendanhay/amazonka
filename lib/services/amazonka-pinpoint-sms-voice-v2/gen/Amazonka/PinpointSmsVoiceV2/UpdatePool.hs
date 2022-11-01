@@ -175,7 +175,8 @@ updatePool_poolId = Lens.lens (\UpdatePool' {poolId} -> poolId) (\s@UpdatePool' 
 
 instance Core.AWSRequest UpdatePool where
   type AWSResponse UpdatePool = UpdatePoolResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

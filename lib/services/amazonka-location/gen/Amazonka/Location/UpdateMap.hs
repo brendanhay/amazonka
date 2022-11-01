@@ -102,7 +102,8 @@ updateMap_mapName = Lens.lens (\UpdateMap' {mapName} -> mapName) (\s@UpdateMap' 
 
 instance Core.AWSRequest UpdateMap where
   type AWSResponse UpdateMap = UpdateMapResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,7 +161,7 @@ data UpdateMapResponse = UpdateMapResponse'
     -- | The Amazon Resource Name (ARN) of the updated map resource. Used to
     -- specify a resource across AWS.
     --
-    -- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+    -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
     mapArn :: Prelude.Text,
     -- | The name of the updated map resource.
     mapName :: Prelude.Text,
@@ -184,7 +185,7 @@ data UpdateMapResponse = UpdateMapResponse'
 -- 'mapArn', 'updateMapResponse_mapArn' - The Amazon Resource Name (ARN) of the updated map resource. Used to
 -- specify a resource across AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 --
 -- 'mapName', 'updateMapResponse_mapName' - The name of the updated map resource.
 --
@@ -220,7 +221,7 @@ updateMapResponse_httpStatus = Lens.lens (\UpdateMapResponse' {httpStatus} -> ht
 -- | The Amazon Resource Name (ARN) of the updated map resource. Used to
 -- specify a resource across AWS.
 --
--- -   Format example: @arn:aws:geo:region:account-id:maps\/ExampleMap@
+-- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 updateMapResponse_mapArn :: Lens.Lens' UpdateMapResponse Prelude.Text
 updateMapResponse_mapArn = Lens.lens (\UpdateMapResponse' {mapArn} -> mapArn) (\s@UpdateMapResponse' {} a -> s {mapArn = a} :: UpdateMapResponse)
 

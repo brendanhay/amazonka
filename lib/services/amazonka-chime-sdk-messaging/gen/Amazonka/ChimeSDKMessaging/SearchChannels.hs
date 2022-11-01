@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows an @AppInstanceUser@ to search the channels that they belong to.
--- The @AppInstanceUser@ can search by membership or external ID. An
--- @AppInstanceAdmin@ can search across all channels within the
--- @AppInstance@.
+-- Allows @ChimeBearer@ to search channels by channel members.
+-- AppInstanceUsers can search across the channels that they belong to.
+-- AppInstanceAdmins can search across all channels.
 module Amazonka.ChimeSDKMessaging.SearchChannels
   ( -- * Creating a Request
     SearchChannels (..),
@@ -116,7 +115,8 @@ instance Core.AWSRequest SearchChannels where
   type
     AWSResponse SearchChannels =
       SearchChannelsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

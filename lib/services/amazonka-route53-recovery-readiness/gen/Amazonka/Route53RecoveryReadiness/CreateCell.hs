@@ -106,7 +106,8 @@ createCell_cellName = Lens.lens (\CreateCell' {cellName} -> cellName) (\s@Create
 
 instance Core.AWSRequest CreateCell where
   type AWSResponse CreateCell = CreateCellResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

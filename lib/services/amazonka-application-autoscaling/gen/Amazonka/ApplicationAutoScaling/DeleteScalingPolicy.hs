@@ -525,7 +525,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
   type
     AWSResponse DeleteScalingPolicy =
       DeleteScalingPolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

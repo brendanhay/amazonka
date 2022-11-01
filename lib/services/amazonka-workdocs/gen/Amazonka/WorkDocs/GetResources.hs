@@ -127,7 +127,8 @@ getResources_collectionType = Lens.lens (\GetResources' {collectionType} -> coll
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

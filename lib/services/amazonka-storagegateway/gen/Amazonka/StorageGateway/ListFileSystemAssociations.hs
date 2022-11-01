@@ -140,7 +140,8 @@ instance Core.AWSRequest ListFileSystemAssociations where
   type
     AWSResponse ListFileSystemAssociations =
       ListFileSystemAssociationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

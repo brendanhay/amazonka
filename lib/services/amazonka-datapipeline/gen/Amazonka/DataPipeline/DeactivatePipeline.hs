@@ -101,7 +101,8 @@ instance Core.AWSRequest DeactivatePipeline where
   type
     AWSResponse DeactivatePipeline =
       DeactivatePipelineResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

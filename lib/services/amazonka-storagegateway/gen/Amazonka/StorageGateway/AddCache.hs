@@ -99,7 +99,8 @@ addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} 
 
 instance Core.AWSRequest AddCache where
   type AWSResponse AddCache = AddCacheResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

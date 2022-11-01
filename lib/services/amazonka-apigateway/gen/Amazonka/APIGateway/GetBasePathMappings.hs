@@ -130,7 +130,8 @@ instance Core.AWSRequest GetBasePathMappings where
   type
     AWSResponse GetBasePathMappings =
       GetBasePathMappingsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteInstance where
   type
     AWSResponse DeleteInstance =
       DeleteInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

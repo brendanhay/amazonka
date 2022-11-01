@@ -116,7 +116,8 @@ instance Core.AWSRequest DescribeStreamConsumer where
   type
     AWSResponse DescribeStreamConsumer =
       DescribeStreamConsumerResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

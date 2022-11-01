@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateS3Resources where
   type
     AWSResponse UpdateS3Resources =
       UpdateS3ResourcesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

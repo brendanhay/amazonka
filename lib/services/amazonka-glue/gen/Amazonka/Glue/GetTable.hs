@@ -135,7 +135,8 @@ getTable_name = Lens.lens (\GetTable' {name} -> name) (\s@GetTable' {} a -> s {n
 
 instance Core.AWSRequest GetTable where
   type AWSResponse GetTable = GetTableResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

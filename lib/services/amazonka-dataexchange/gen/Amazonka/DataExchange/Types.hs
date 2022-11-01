@@ -439,6 +439,8 @@ defaultService =
       Core._serviceEndpointPrefix = "dataexchange",
       Core._serviceSigningName = "dataexchange",
       Core._serviceVersion = "2017-07-25",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

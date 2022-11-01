@@ -33,6 +33,9 @@ data UserPhoneConfig = UserPhoneConfig'
     -- | The phone number for the user\'s desk phone.
     deskPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The After Call Work (ACW) timeout setting, in seconds.
+    --
+    -- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
+    -- returned in milliseconds.
     afterContactWorkTimeLimit :: Prelude.Maybe Prelude.Natural,
     -- | The phone type.
     phoneType :: PhoneType
@@ -52,6 +55,9 @@ data UserPhoneConfig = UserPhoneConfig'
 -- 'deskPhoneNumber', 'userPhoneConfig_deskPhoneNumber' - The phone number for the user\'s desk phone.
 --
 -- 'afterContactWorkTimeLimit', 'userPhoneConfig_afterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
+--
+-- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
+-- returned in milliseconds.
 --
 -- 'phoneType', 'userPhoneConfig_phoneType' - The phone type.
 newUserPhoneConfig ::
@@ -75,6 +81,9 @@ userPhoneConfig_deskPhoneNumber :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Pre
 userPhoneConfig_deskPhoneNumber = Lens.lens (\UserPhoneConfig' {deskPhoneNumber} -> deskPhoneNumber) (\s@UserPhoneConfig' {} a -> s {deskPhoneNumber = a} :: UserPhoneConfig)
 
 -- | The After Call Work (ACW) timeout setting, in seconds.
+--
+-- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
+-- returned in milliseconds.
 userPhoneConfig_afterContactWorkTimeLimit :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Prelude.Natural)
 userPhoneConfig_afterContactWorkTimeLimit = Lens.lens (\UserPhoneConfig' {afterContactWorkTimeLimit} -> afterContactWorkTimeLimit) (\s@UserPhoneConfig' {} a -> s {afterContactWorkTimeLimit = a} :: UserPhoneConfig)
 

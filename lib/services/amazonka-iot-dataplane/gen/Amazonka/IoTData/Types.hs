@@ -53,6 +53,8 @@ defaultService =
       Core._serviceEndpointPrefix = "data-ats.iot",
       Core._serviceSigningName = "iotdata",
       Core._serviceVersion = "2015-05-28",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

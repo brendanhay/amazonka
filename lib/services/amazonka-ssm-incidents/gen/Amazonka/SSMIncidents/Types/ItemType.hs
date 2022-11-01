@@ -27,7 +27,8 @@ module Amazonka.SSMIncidents.Types.ItemType
         ItemType_INVOLVED_RESOURCE,
         ItemType_METRIC,
         ItemType_OTHER,
-        ItemType_PARENT
+        ItemType_PARENT,
+        ItemType_TASK
       ),
   )
 where
@@ -87,6 +88,9 @@ pattern ItemType_OTHER = ItemType' "OTHER"
 pattern ItemType_PARENT :: ItemType
 pattern ItemType_PARENT = ItemType' "PARENT"
 
+pattern ItemType_TASK :: ItemType
+pattern ItemType_TASK = ItemType' "TASK"
+
 {-# COMPLETE
   ItemType_ANALYSIS,
   ItemType_ATTACHMENT,
@@ -96,5 +100,6 @@ pattern ItemType_PARENT = ItemType' "PARENT"
   ItemType_METRIC,
   ItemType_OTHER,
   ItemType_PARENT,
+  ItemType_TASK,
   ItemType'
   #-}

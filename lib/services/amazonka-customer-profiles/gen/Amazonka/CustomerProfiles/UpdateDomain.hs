@@ -204,7 +204,8 @@ updateDomain_domainName = Lens.lens (\UpdateDomain' {domainName} -> domainName) 
 
 instance Core.AWSRequest UpdateDomain where
   type AWSResponse UpdateDomain = UpdateDomainResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

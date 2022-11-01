@@ -99,7 +99,8 @@ instance Core.AWSRequest GetThingShadow where
   type
     AWSResponse GetThingShadow =
       GetThingShadowResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->

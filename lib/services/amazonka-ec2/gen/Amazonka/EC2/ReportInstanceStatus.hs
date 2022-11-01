@@ -226,7 +226,8 @@ instance Core.AWSRequest ReportInstanceStatus where
   type
     AWSResponse ReportInstanceStatus =
       ReportInstanceStatusResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ReportInstanceStatusResponse'
 

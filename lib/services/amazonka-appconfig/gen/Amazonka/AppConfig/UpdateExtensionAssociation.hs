@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateExtensionAssociation where
   type
     AWSResponse UpdateExtensionAssociation =
       ExtensionAssociation
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

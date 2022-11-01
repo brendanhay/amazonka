@@ -77,7 +77,8 @@ getNetwork_networkId = Lens.lens (\GetNetwork' {networkId} -> networkId) (\s@Get
 
 instance Core.AWSRequest GetNetwork where
   type AWSResponse GetNetwork = GetNetworkResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

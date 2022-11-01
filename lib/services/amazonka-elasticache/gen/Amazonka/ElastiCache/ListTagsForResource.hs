@@ -104,7 +104,8 @@ listTagsForResource_resourceName = Lens.lens (\ListTagsForResource' {resourceNam
 
 instance Core.AWSRequest ListTagsForResource where
   type AWSResponse ListTagsForResource = TagListMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTagsForResourceResult"

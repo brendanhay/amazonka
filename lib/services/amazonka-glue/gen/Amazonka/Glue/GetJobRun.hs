@@ -99,7 +99,8 @@ getJobRun_runId = Lens.lens (\GetJobRun' {runId} -> runId) (\s@GetJobRun' {} a -
 
 instance Core.AWSRequest GetJobRun where
   type AWSResponse GetJobRun = GetJobRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

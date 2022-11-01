@@ -134,7 +134,8 @@ instance Core.AWSRequest ModifyCertificates where
   type
     AWSResponse ModifyCertificates =
       ModifyCertificatesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCertificatesResult"

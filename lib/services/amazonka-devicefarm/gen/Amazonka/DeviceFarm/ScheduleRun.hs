@@ -169,7 +169,8 @@ scheduleRun_test = Lens.lens (\ScheduleRun' {test} -> test) (\s@ScheduleRun' {} 
 
 instance Core.AWSRequest ScheduleRun where
   type AWSResponse ScheduleRun = ScheduleRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

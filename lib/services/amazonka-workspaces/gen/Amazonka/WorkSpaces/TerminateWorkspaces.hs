@@ -108,7 +108,8 @@ instance Core.AWSRequest TerminateWorkspaces where
   type
     AWSResponse TerminateWorkspaces =
       TerminateWorkspacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

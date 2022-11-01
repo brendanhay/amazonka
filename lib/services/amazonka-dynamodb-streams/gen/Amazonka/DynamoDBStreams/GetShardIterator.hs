@@ -181,7 +181,8 @@ instance Core.AWSRequest GetShardIterator where
   type
     AWSResponse GetShardIterator =
       GetShardIteratorResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

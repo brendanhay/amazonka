@@ -79,7 +79,8 @@ instance Core.AWSRequest StartMonitoringSchedule where
   type
     AWSResponse StartMonitoringSchedule =
       StartMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StartMonitoringScheduleResponse'

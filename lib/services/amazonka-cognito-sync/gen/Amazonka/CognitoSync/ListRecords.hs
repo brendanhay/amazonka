@@ -176,7 +176,8 @@ listRecords_datasetName = Lens.lens (\ListRecords' {datasetName} -> datasetName)
 
 instance Core.AWSRequest ListRecords where
   type AWSResponse ListRecords = ListRecordsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

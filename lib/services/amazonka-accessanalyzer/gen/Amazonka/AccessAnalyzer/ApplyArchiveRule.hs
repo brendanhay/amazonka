@@ -100,7 +100,8 @@ instance Core.AWSRequest ApplyArchiveRule where
   type
     AWSResponse ApplyArchiveRule =
       ApplyArchiveRuleResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull ApplyArchiveRuleResponse'
 

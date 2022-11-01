@@ -112,7 +112,8 @@ instance Core.AWSPager GetTagKeys where
 
 instance Core.AWSRequest GetTagKeys where
   type AWSResponse GetTagKeys = GetTagKeysResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

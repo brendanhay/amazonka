@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeApplication where
   type
     AWSResponse DescribeApplication =
       DescribeApplicationResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateBackupVault where
   type
     AWSResponse CreateBackupVault =
       CreateBackupVaultResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

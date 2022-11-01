@@ -85,7 +85,8 @@ instance Core.AWSRequest DescribeModelPackageGroup where
   type
     AWSResponse DescribeModelPackageGroup =
       DescribeModelPackageGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

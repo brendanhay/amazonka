@@ -127,7 +127,8 @@ updateTheme_updatedTheme = Lens.lens (\UpdateTheme' {updatedTheme} -> updatedThe
 
 instance Core.AWSRequest UpdateTheme where
   type AWSResponse UpdateTheme = UpdateThemeResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

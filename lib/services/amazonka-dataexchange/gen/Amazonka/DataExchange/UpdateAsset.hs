@@ -138,7 +138,8 @@ updateAsset_revisionId = Lens.lens (\UpdateAsset' {revisionId} -> revisionId) (\
 
 instance Core.AWSRequest UpdateAsset where
   type AWSResponse UpdateAsset = UpdateAssetResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

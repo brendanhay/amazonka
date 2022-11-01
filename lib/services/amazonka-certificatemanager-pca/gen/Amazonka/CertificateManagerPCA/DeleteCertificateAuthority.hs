@@ -135,7 +135,8 @@ instance Core.AWSRequest DeleteCertificateAuthority where
   type
     AWSResponse DeleteCertificateAuthority =
       DeleteCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCertificateAuthorityResponse'

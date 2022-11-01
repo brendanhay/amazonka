@@ -24,6 +24,11 @@
 --
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.
+--
+-- The @MANUAL@ running mode value is only supported by Amazon WorkSpaces
+-- Core. Contact your account team to be allow-listed to use this value.
+-- For more information, see
+-- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 module Amazonka.WorkSpaces.CreateWorkspaces
   ( -- * Creating a Request
     CreateWorkspaces (..),
@@ -84,7 +89,8 @@ instance Core.AWSRequest CreateWorkspaces where
   type
     AWSResponse CreateWorkspaces =
       CreateWorkspacesResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -176,7 +176,8 @@ instance Core.AWSRequest ListTypeRegistrations where
   type
     AWSResponse ListTypeRegistrations =
       ListTypeRegistrationsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTypeRegistrationsResult"

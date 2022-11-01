@@ -92,7 +92,8 @@ deleteTrust_trustId = Lens.lens (\DeleteTrust' {trustId} -> trustId) (\s@DeleteT
 
 instance Core.AWSRequest DeleteTrust where
   type AWSResponse DeleteTrust = DeleteTrustResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

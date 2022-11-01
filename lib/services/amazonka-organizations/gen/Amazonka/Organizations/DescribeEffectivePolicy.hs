@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribeEffectivePolicy where
   type
     AWSResponse DescribeEffectivePolicy =
       DescribeEffectivePolicyResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

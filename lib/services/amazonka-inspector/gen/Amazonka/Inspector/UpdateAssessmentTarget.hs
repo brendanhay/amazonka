@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateAssessmentTarget where
   type
     AWSResponse UpdateAssessmentTarget =
       UpdateAssessmentTargetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateAssessmentTargetResponse'

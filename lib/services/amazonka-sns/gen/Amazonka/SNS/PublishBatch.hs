@@ -119,7 +119,8 @@ publishBatch_publishBatchRequestEntries = Lens.lens (\PublishBatch' {publishBatc
 
 instance Core.AWSRequest PublishBatch where
   type AWSResponse PublishBatch = PublishBatchResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishBatchResult"

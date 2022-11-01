@@ -154,7 +154,8 @@ deleteBucket_bucketName = Lens.lens (\DeleteBucket' {bucketName} -> bucketName) 
 
 instance Core.AWSRequest DeleteBucket where
   type AWSResponse DeleteBucket = DeleteBucketResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

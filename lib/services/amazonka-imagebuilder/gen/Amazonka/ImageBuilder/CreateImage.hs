@@ -179,7 +179,8 @@ createImage_clientToken = Lens.lens (\CreateImage' {clientToken} -> clientToken)
 
 instance Core.AWSRequest CreateImage where
   type AWSResponse CreateImage = CreateImageResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

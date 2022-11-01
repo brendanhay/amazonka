@@ -154,7 +154,8 @@ putKeyword_keywordMessage = Lens.lens (\PutKeyword' {keywordMessage} -> keywordM
 
 instance Core.AWSRequest PutKeyword where
   type AWSResponse PutKeyword = PutKeywordResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

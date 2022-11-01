@@ -195,7 +195,8 @@ instance Core.AWSRequest ResetDBParameterGroup where
   type
     AWSResponse ResetDBParameterGroup =
       DBParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetDBParameterGroupResult"

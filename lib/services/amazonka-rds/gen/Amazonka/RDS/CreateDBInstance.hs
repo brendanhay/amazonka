@@ -3242,7 +3242,8 @@ instance Core.AWSRequest CreateDBInstance where
   type
     AWSResponse CreateDBInstance =
       CreateDBInstanceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBInstanceResult"

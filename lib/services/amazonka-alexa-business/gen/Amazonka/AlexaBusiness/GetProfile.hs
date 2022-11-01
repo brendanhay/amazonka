@@ -73,7 +73,8 @@ getProfile_profileArn = Lens.lens (\GetProfile' {profileArn} -> profileArn) (\s@
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = GetProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -145,7 +145,8 @@ instance Core.AWSRequest UpdateSSHPublicKey where
   type
     AWSResponse UpdateSSHPublicKey =
       UpdateSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UpdateSSHPublicKeyResponse'
 

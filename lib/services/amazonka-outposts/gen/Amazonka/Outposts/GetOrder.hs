@@ -75,7 +75,8 @@ getOrder_orderId = Lens.lens (\GetOrder' {orderId} -> orderId) (\s@GetOrder' {} 
 
 instance Core.AWSRequest GetOrder where
   type AWSResponse GetOrder = GetOrderResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

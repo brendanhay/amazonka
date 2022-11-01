@@ -76,7 +76,8 @@ getProject_arn = Lens.lens (\GetProject' {arn} -> arn) (\s@GetProject' {} a -> s
 
 instance Core.AWSRequest GetProject where
   type AWSResponse GetProject = GetProjectResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

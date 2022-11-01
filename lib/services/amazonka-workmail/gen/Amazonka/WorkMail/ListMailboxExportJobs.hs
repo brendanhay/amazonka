@@ -101,7 +101,8 @@ instance Core.AWSRequest ListMailboxExportJobs where
   type
     AWSResponse ListMailboxExportJobs =
       ListMailboxExportJobsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

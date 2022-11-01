@@ -131,7 +131,8 @@ instance Core.AWSRequest GetEvidenceByEvidenceFolder where
   type
     AWSResponse GetEvidenceByEvidenceFolder =
       GetEvidenceByEvidenceFolderResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Rejects an invitation to join a network. This action can be called by a
--- principal in an AWS account that has received an invitation to create a
--- member and join a network.
+-- principal in an Amazon Web Services account that has received an
+-- invitation to create a member and join a network.
 --
 -- Applies only to Hyperledger Fabric.
 module Amazonka.ManagedBlockChain.RejectInvitation
@@ -80,7 +80,8 @@ instance Core.AWSRequest RejectInvitation where
   type
     AWSResponse RejectInvitation =
       RejectInvitationResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

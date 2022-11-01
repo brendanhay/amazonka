@@ -75,7 +75,8 @@ getKeyPair_keyPairName = Lens.lens (\GetKeyPair' {keyPairName} -> keyPairName) (
 
 instance Core.AWSRequest GetKeyPair where
   type AWSResponse GetKeyPair = GetKeyPairResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -91,7 +91,8 @@ getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\
 
 instance Core.AWSRequest GetFindings where
   type AWSResponse GetFindings = GetFindingsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

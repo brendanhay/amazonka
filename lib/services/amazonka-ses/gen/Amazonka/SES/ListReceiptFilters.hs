@@ -72,7 +72,8 @@ instance Core.AWSRequest ListReceiptFilters where
   type
     AWSResponse ListReceiptFilters =
       ListReceiptFiltersResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListReceiptFiltersResult"

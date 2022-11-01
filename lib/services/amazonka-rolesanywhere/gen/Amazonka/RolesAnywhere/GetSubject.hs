@@ -81,7 +81,8 @@ getSubject_subjectId = Lens.lens (\GetSubject' {subjectId} -> subjectId) (\s@Get
 
 instance Core.AWSRequest GetSubject where
   type AWSResponse GetSubject = GetSubjectResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

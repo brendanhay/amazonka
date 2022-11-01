@@ -105,7 +105,8 @@ instance Core.AWSRequest GetServerCertificate where
   type
     AWSResponse GetServerCertificate =
       GetServerCertificateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetServerCertificateResult"

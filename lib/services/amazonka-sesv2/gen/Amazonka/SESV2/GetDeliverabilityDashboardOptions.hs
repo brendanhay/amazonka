@@ -93,7 +93,8 @@ instance
   type
     AWSResponse GetDeliverabilityDashboardOptions =
       GetDeliverabilityDashboardOptionsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,11 +167,10 @@ data GetDeliverabilityDashboardOptionsResponse = GetDeliverabilityDashboardOptio
     -- email and currently has an active Deliverability dashboard subscription
     -- that isn’t scheduled to expire at the end of the current calendar month.
     activeSubscribedDomains :: Prelude.Maybe [DomainDeliverabilityTrackingOption],
-    -- | The date, in Unix time format, when your current subscription to the
-    -- Deliverability dashboard is scheduled to expire, if your subscription is
-    -- scheduled to expire at the end of the current calendar month. This value
-    -- is null if you have an active subscription that isn’t due to expire at
-    -- the end of the month.
+    -- | The date when your current subscription to the Deliverability dashboard
+    -- is scheduled to expire, if your subscription is scheduled to expire at
+    -- the end of the current calendar month. This value is null if you have an
+    -- active subscription that isn’t due to expire at the end of the month.
     subscriptionExpiryDate :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -200,11 +200,10 @@ data GetDeliverabilityDashboardOptionsResponse = GetDeliverabilityDashboardOptio
 -- email and currently has an active Deliverability dashboard subscription
 -- that isn’t scheduled to expire at the end of the current calendar month.
 --
--- 'subscriptionExpiryDate', 'getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate' - The date, in Unix time format, when your current subscription to the
--- Deliverability dashboard is scheduled to expire, if your subscription is
--- scheduled to expire at the end of the current calendar month. This value
--- is null if you have an active subscription that isn’t due to expire at
--- the end of the month.
+-- 'subscriptionExpiryDate', 'getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate' - The date when your current subscription to the Deliverability dashboard
+-- is scheduled to expire, if your subscription is scheduled to expire at
+-- the end of the current calendar month. This value is null if you have an
+-- active subscription that isn’t due to expire at the end of the month.
 --
 -- 'httpStatus', 'getDeliverabilityDashboardOptionsResponse_httpStatus' - The response's http status code.
 --
@@ -251,11 +250,10 @@ getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains = L
 getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe [DomainDeliverabilityTrackingOption])
 getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {activeSubscribedDomains} -> activeSubscribedDomains) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {activeSubscribedDomains = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The date, in Unix time format, when your current subscription to the
--- Deliverability dashboard is scheduled to expire, if your subscription is
--- scheduled to expire at the end of the current calendar month. This value
--- is null if you have an active subscription that isn’t due to expire at
--- the end of the month.
+-- | The date when your current subscription to the Deliverability dashboard
+-- is scheduled to expire, if your subscription is scheduled to expire at
+-- the end of the current calendar month. This value is null if you have an
+-- active subscription that isn’t due to expire at the end of the month.
 getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe Prelude.UTCTime)
 getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {subscriptionExpiryDate} -> subscriptionExpiryDate) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {subscriptionExpiryDate = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Core._Time
 

@@ -146,7 +146,8 @@ instance Core.AWSRequest GetUsagePlanKeys where
   type
     AWSResponse GetUsagePlanKeys =
       GetUsagePlanKeysResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

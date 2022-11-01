@@ -113,7 +113,8 @@ instance Core.AWSRequest DeregisterImage where
   type
     AWSResponse DeregisterImage =
       DeregisterImageResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeregisterImageResponse'
 

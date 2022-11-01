@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeLifecycleHooks where
   type
     AWSResponse DescribeLifecycleHooks =
       DescribeLifecycleHooksResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLifecycleHooksResult"

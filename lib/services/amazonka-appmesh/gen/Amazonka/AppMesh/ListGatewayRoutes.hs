@@ -183,7 +183,8 @@ instance Core.AWSRequest ListGatewayRoutes where
   type
     AWSResponse ListGatewayRoutes =
       ListGatewayRoutesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

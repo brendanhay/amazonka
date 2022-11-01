@@ -80,7 +80,8 @@ instance Core.AWSRequest DisassociateMemberAccount where
   type
     AWSResponse DisassociateMemberAccount =
       DisassociateMemberAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateMemberAccountResponse'

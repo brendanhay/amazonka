@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdatePrivateDnsNamespace where
   type
     AWSResponse UpdatePrivateDnsNamespace =
       UpdatePrivateDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

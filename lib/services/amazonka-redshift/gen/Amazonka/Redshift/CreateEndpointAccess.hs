@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateEndpointAccess where
   type
     AWSResponse CreateEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateEndpointAccessResult"

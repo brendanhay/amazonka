@@ -89,7 +89,8 @@ deleteToken_appId = Lens.lens (\DeleteToken' {appId} -> appId) (\s@DeleteToken' 
 
 instance Core.AWSRequest DeleteToken where
   type AWSResponse DeleteToken = DeleteTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

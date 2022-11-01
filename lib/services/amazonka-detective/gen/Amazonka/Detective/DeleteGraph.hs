@@ -76,7 +76,8 @@ deleteGraph_graphArn = Lens.lens (\DeleteGraph' {graphArn} -> graphArn) (\s@Dele
 
 instance Core.AWSRequest DeleteGraph where
   type AWSResponse DeleteGraph = DeleteGraphResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteGraphResponse'
 
 instance Prelude.Hashable DeleteGraph where

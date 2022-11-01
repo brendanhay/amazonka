@@ -145,7 +145,8 @@ instance Core.AWSPager ListMeshes where
 
 instance Core.AWSRequest ListMeshes where
   type AWSResponse ListMeshes = ListMeshesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

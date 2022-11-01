@@ -232,7 +232,8 @@ createLag_lagName = Lens.lens (\CreateLag' {lagName} -> lagName) (\s@CreateLag' 
 
 instance Core.AWSRequest CreateLag where
   type AWSResponse CreateLag = Lag
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

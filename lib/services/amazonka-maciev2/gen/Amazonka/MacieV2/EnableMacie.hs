@@ -107,7 +107,8 @@ enableMacie_findingPublishingFrequency = Lens.lens (\EnableMacie' {findingPublis
 
 instance Core.AWSRequest EnableMacie where
   type AWSResponse EnableMacie = EnableMacieResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

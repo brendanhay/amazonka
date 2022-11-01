@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteDataSet where
   type
     AWSResponse DeleteDataSet =
       DeleteDataSetResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

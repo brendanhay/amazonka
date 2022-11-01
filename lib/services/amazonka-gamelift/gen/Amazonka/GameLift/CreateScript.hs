@@ -241,7 +241,8 @@ createScript_version = Lens.lens (\CreateScript' {version} -> version) (\s@Creat
 
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -90,7 +90,8 @@ getEvent_eventTypeName = Lens.lens (\GetEvent' {eventTypeName} -> eventTypeName)
 
 instance Core.AWSRequest GetEvent where
   type AWSResponse GetEvent = GetEventResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -88,7 +88,8 @@ instance Core.AWSRequest ListLocalDisks where
   type
     AWSResponse ListLocalDisks =
       ListLocalDisksResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

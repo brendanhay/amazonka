@@ -74,17 +74,17 @@ module Amazonka.MediaTailor.Types
     -- * Alert
     Alert (..),
     newAlert,
-    alert_resourceArn,
     alert_alertCode,
+    alert_alertMessage,
     alert_lastModifiedTime,
     alert_relatedResourceArns,
-    alert_alertMessage,
+    alert_resourceArn,
 
     -- * AvailMatchingCriteria
     AvailMatchingCriteria (..),
     newAvailMatchingCriteria,
-    availMatchingCriteria_operator,
     availMatchingCriteria_dynamicVariable,
+    availMatchingCriteria_operator,
 
     -- * AvailSuppression
     AvailSuppression (..),
@@ -111,12 +111,12 @@ module Amazonka.MediaTailor.Types
     channel_fillerSlate,
     channel_lastModifiedTime,
     channel_creationTime,
-    channel_channelState,
-    channel_channelName,
-    channel_tier,
-    channel_outputs,
     channel_arn,
+    channel_channelName,
+    channel_channelState,
+    channel_outputs,
     channel_playbackMode,
+    channel_tier,
 
     -- * DashConfiguration
     DashConfiguration (..),
@@ -163,8 +163,8 @@ module Amazonka.MediaTailor.Types
     HttpPackageConfiguration (..),
     newHttpPackageConfiguration,
     httpPackageConfiguration_path,
-    httpPackageConfiguration_type,
     httpPackageConfiguration_sourceGroup,
+    httpPackageConfiguration_type,
 
     -- * LivePreRollConfiguration
     LivePreRollConfiguration (..),
@@ -178,10 +178,10 @@ module Amazonka.MediaTailor.Types
     liveSource_tags,
     liveSource_lastModifiedTime,
     liveSource_creationTime,
-    liveSource_sourceLocationName,
-    liveSource_liveSourceName,
-    liveSource_httpPackageConfigurations,
     liveSource_arn,
+    liveSource_httpPackageConfigurations,
+    liveSource_liveSourceName,
+    liveSource_sourceLocationName,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -234,11 +234,11 @@ module Amazonka.MediaTailor.Types
     PrefetchSchedule (..),
     newPrefetchSchedule,
     prefetchSchedule_streamId,
-    prefetchSchedule_retrieval,
-    prefetchSchedule_consumption,
     prefetchSchedule_arn,
-    prefetchSchedule_playbackConfigurationName,
+    prefetchSchedule_consumption,
     prefetchSchedule_name,
+    prefetchSchedule_playbackConfigurationName,
+    prefetchSchedule_retrieval,
 
     -- * RequestOutputItem
     RequestOutputItem (..),
@@ -279,10 +279,10 @@ module Amazonka.MediaTailor.Types
     scheduleEntry_approximateDurationSeconds,
     scheduleEntry_scheduleEntryType,
     scheduleEntry_scheduleAdBreaks,
-    scheduleEntry_sourceLocationName,
-    scheduleEntry_channelName,
     scheduleEntry_arn,
+    scheduleEntry_channelName,
     scheduleEntry_programName,
+    scheduleEntry_sourceLocationName,
 
     -- * SecretsManagerAccessTokenConfiguration
     SecretsManagerAccessTokenConfiguration (..),
@@ -312,9 +312,9 @@ module Amazonka.MediaTailor.Types
     sourceLocation_defaultSegmentDeliveryConfiguration,
     sourceLocation_lastModifiedTime,
     sourceLocation_creationTime,
-    sourceLocation_sourceLocationName,
-    sourceLocation_httpConfiguration,
     sourceLocation_arn,
+    sourceLocation_httpConfiguration,
+    sourceLocation_sourceLocationName,
 
     -- * SpliceInsertMessage
     SpliceInsertMessage (..),
@@ -330,8 +330,8 @@ module Amazonka.MediaTailor.Types
     transition_relativeProgram,
     transition_scheduledStartTimeMillis,
     transition_durationMillis,
-    transition_type,
     transition_relativePosition,
+    transition_type,
 
     -- * VodSource
     VodSource (..),
@@ -339,10 +339,10 @@ module Amazonka.MediaTailor.Types
     vodSource_tags,
     vodSource_lastModifiedTime,
     vodSource_creationTime,
-    vodSource_vodSourceName,
-    vodSource_sourceLocationName,
-    vodSource_httpPackageConfigurations,
     vodSource_arn,
+    vodSource_httpPackageConfigurations,
+    vodSource_sourceLocationName,
+    vodSource_vodSourceName,
   )
 where
 
@@ -408,6 +408,8 @@ defaultService =
       Core._serviceEndpointPrefix = "api.mediatailor",
       Core._serviceSigningName = "mediatailor",
       Core._serviceVersion = "2018-04-23",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,
@@ -470,7 +472,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Invalid request parameters.
+-- | A request contains unexpected data.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError

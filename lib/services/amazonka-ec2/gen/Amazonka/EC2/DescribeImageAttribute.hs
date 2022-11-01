@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeImageAttribute where
   type
     AWSResponse DescribeImageAttribute =
       DescribeImageAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

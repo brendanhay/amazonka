@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
   type
     AWSResponse UpdateUserIdentityInfo =
       UpdateUserIdentityInfoResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserIdentityInfoResponse'

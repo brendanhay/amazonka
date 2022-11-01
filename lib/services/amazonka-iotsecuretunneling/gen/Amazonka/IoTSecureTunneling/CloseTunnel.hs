@@ -95,7 +95,8 @@ closeTunnel_tunnelId = Lens.lens (\CloseTunnel' {tunnelId} -> tunnelId) (\s@Clos
 
 instance Core.AWSRequest CloseTunnel where
   type AWSResponse CloseTunnel = CloseTunnelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

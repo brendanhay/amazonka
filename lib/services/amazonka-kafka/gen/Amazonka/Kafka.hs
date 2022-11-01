@@ -259,6 +259,12 @@ module Amazonka.Kafka
     UpdateSecurityResponse (UpdateSecurityResponse'),
     newUpdateSecurityResponse,
 
+    -- ** UpdateStorage
+    UpdateStorage (UpdateStorage'),
+    newUpdateStorage,
+    UpdateStorageResponse (UpdateStorageResponse'),
+    newUpdateStorageResponse,
+
     -- * Types
 
     -- ** BrokerAZDistribution
@@ -284,6 +290,9 @@ module Amazonka.Kafka
 
     -- ** NodeType
     NodeType (..),
+
+    -- ** StorageMode
+    StorageMode (..),
 
     -- ** BrokerEBSVolumeInfo
     BrokerEBSVolumeInfo (BrokerEBSVolumeInfo'),
@@ -540,6 +549,7 @@ import Amazonka.Kafka.UpdateConfiguration
 import Amazonka.Kafka.UpdateConnectivity
 import Amazonka.Kafka.UpdateMonitoring
 import Amazonka.Kafka.UpdateSecurity
+import Amazonka.Kafka.UpdateStorage
 import Amazonka.Kafka.Waiters
 
 -- $errors

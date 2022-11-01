@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteBackupSelection where
   type
     AWSResponse DeleteBackupSelection =
       DeleteBackupSelectionResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBackupSelectionResponse'
 

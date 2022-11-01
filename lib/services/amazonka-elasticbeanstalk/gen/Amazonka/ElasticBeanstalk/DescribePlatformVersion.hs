@@ -84,7 +84,8 @@ instance Core.AWSRequest DescribePlatformVersion where
   type
     AWSResponse DescribePlatformVersion =
       DescribePlatformVersionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePlatformVersionResult"

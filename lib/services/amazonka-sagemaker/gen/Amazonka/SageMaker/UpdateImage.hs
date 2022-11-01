@@ -124,7 +124,8 @@ updateImage_imageName = Lens.lens (\UpdateImage' {imageName} -> imageName) (\s@U
 
 instance Core.AWSRequest UpdateImage where
   type AWSResponse UpdateImage = UpdateImageResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

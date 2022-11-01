@@ -164,7 +164,8 @@ createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) 
 
 instance Core.AWSRequest CreateStream where
   type AWSResponse CreateStream = CreateStreamResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull CreateStreamResponse'
 
 instance Prelude.Hashable CreateStream where

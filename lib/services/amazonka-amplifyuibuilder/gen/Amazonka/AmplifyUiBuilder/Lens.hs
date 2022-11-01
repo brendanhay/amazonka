@@ -335,6 +335,7 @@ module Amazonka.AmplifyUiBuilder.Lens
     fieldInputConfig_defaultValue,
     fieldInputConfig_minValue,
     fieldInputConfig_readOnly,
+    fieldInputConfig_isArray,
     fieldInputConfig_step,
     fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultChecked,

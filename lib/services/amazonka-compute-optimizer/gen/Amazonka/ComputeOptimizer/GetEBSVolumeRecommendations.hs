@@ -164,7 +164,8 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
   type
     AWSResponse GetEBSVolumeRecommendations =
       GetEBSVolumeRecommendationsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

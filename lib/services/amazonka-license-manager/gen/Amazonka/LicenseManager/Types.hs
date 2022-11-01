@@ -476,6 +476,8 @@ defaultService =
       Core._serviceEndpointPrefix = "license-manager",
       Core._serviceSigningName = "license-manager",
       Core._serviceVersion = "2018-08-01",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

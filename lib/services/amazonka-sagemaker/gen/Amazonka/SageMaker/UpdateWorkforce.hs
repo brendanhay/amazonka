@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateWorkforce where
   type
     AWSResponse UpdateWorkforce =
       UpdateWorkforceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

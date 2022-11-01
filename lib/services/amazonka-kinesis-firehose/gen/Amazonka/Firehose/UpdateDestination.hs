@@ -228,7 +228,8 @@ instance Core.AWSRequest UpdateDestination where
   type
     AWSResponse UpdateDestination =
       UpdateDestinationResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

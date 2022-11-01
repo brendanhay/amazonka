@@ -27,7 +27,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a phone number that has been claimed to your Amazon
--- Connect instance.
+-- Connect instance or traffic distribution group.
 --
 -- /See:/ 'newClaimedPhoneNumberSummary' smart constructor.
 data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
@@ -42,10 +42,40 @@ data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
     phoneNumberType :: Prelude.Maybe PhoneNumberType,
     -- | The description of the phone number.
     phoneNumberDescription :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
-    -- numbers are claimed to.
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the phone number.
+    --
+    -- -   @CLAIMED@ means the previous
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+    --     or
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+    --     operation succeeded.
+    --
+    -- -   @IN_PROGRESS@ means a
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+    --     or
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+    --     operation is still in progress and has not yet completed. You can
+    --     call
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+    --     at a later time to verify if the previous operation has completed.
+    --
+    -- -   @FAILED@ indicates that the previous
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+    --     or
+    --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+    --     operation has failed. It will include a message indicating the
+    --     failure reason. A common reason for a failure may be that the
+    --     @TargetArn@ value you are claiming or updating a phone number to has
+    --     reached its limit of total claimed numbers. If you received a
+    --     @FAILED@ status from a @ClaimPhoneNumber@ API call, you have one day
+    --     to retry claiming the phone number before the number is released
+    --     back to the inventory for other customers to claim.
+    --
+    -- You will not be billed for the phone number during the 1-day period if
+    -- number claiming fails.
     phoneNumberStatus :: Prelude.Maybe PhoneNumberStatus,
     -- | A unique identifier for the phone number.
     phoneNumberId :: Prelude.Maybe Prelude.Text,
@@ -74,10 +104,40 @@ data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
 --
 -- 'phoneNumberDescription', 'claimedPhoneNumberSummary_phoneNumberDescription' - The description of the phone number.
 --
--- 'targetArn', 'claimedPhoneNumberSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- 'targetArn', 'claimedPhoneNumberSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 --
 -- 'phoneNumberStatus', 'claimedPhoneNumberSummary_phoneNumberStatus' - The status of the phone number.
+--
+-- -   @CLAIMED@ means the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation succeeded.
+--
+-- -   @IN_PROGRESS@ means a
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation is still in progress and has not yet completed. You can
+--     call
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+--     at a later time to verify if the previous operation has completed.
+--
+-- -   @FAILED@ indicates that the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation has failed. It will include a message indicating the
+--     failure reason. A common reason for a failure may be that the
+--     @TargetArn@ value you are claiming or updating a phone number to has
+--     reached its limit of total claimed numbers. If you received a
+--     @FAILED@ status from a @ClaimPhoneNumber@ API call, you have one day
+--     to retry claiming the phone number before the number is released
+--     back to the inventory for other customers to claim.
+--
+-- You will not be billed for the phone number during the 1-day period if
+-- number claiming fails.
 --
 -- 'phoneNumberId', 'claimedPhoneNumberSummary_phoneNumberId' - A unique identifier for the phone number.
 --
@@ -119,12 +179,42 @@ claimedPhoneNumberSummary_phoneNumberType = Lens.lens (\ClaimedPhoneNumberSummar
 claimedPhoneNumberSummary_phoneNumberDescription :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
 claimedPhoneNumberSummary_phoneNumberDescription = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberDescription} -> phoneNumberDescription) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberDescription = a} :: ClaimedPhoneNumberSummary)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances that phone
--- numbers are claimed to.
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 claimedPhoneNumberSummary_targetArn :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
 claimedPhoneNumberSummary_targetArn = Lens.lens (\ClaimedPhoneNumberSummary' {targetArn} -> targetArn) (\s@ClaimedPhoneNumberSummary' {} a -> s {targetArn = a} :: ClaimedPhoneNumberSummary)
 
 -- | The status of the phone number.
+--
+-- -   @CLAIMED@ means the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation succeeded.
+--
+-- -   @IN_PROGRESS@ means a
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation is still in progress and has not yet completed. You can
+--     call
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
+--     at a later time to verify if the previous operation has completed.
+--
+-- -   @FAILED@ indicates that the previous
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html ClaimedPhoneNumber>
+--     or
+--     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html UpdatePhoneNumber>
+--     operation has failed. It will include a message indicating the
+--     failure reason. A common reason for a failure may be that the
+--     @TargetArn@ value you are claiming or updating a phone number to has
+--     reached its limit of total claimed numbers. If you received a
+--     @FAILED@ status from a @ClaimPhoneNumber@ API call, you have one day
+--     to retry claiming the phone number before the number is released
+--     back to the inventory for other customers to claim.
+--
+-- You will not be billed for the phone number during the 1-day period if
+-- number claiming fails.
 claimedPhoneNumberSummary_phoneNumberStatus :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberStatus)
 claimedPhoneNumberSummary_phoneNumberStatus = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberStatus} -> phoneNumberStatus) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberStatus = a} :: ClaimedPhoneNumberSummary)
 

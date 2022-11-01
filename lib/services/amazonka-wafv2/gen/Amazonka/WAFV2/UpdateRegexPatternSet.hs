@@ -222,7 +222,8 @@ instance Core.AWSRequest UpdateRegexPatternSet where
   type
     AWSResponse UpdateRegexPatternSet =
       UpdateRegexPatternSetResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateWorkloadShare where
   type
     AWSResponse UpdateWorkloadShare =
       UpdateWorkloadShareResponse
-  request = Request.patchJSON defaultService
+  service _ = defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

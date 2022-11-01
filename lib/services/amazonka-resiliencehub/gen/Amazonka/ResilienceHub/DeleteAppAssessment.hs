@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteAppAssessment where
   type
     AWSResponse DeleteAppAssessment =
       DeleteAppAssessmentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -162,7 +162,8 @@ instance Core.AWSRequest GetVoiceTemplate where
   type
     AWSResponse GetVoiceTemplate =
       GetVoiceTemplateResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

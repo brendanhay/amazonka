@@ -77,7 +77,8 @@ getApiCache_apiId = Lens.lens (\GetApiCache' {apiId} -> apiId) (\s@GetApiCache' 
 
 instance Core.AWSRequest GetApiCache where
   type AWSResponse GetApiCache = GetApiCacheResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

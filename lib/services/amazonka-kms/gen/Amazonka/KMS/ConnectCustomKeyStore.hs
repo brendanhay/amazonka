@@ -149,7 +149,8 @@ instance Core.AWSRequest ConnectCustomKeyStore where
   type
     AWSResponse ConnectCustomKeyStore =
       ConnectCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

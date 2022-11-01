@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteSigningCertificate where
   type
     AWSResponse DeleteSigningCertificate =
       DeleteSigningCertificateResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteSigningCertificateResponse'

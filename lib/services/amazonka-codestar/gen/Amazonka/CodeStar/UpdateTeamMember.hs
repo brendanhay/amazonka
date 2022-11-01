@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateTeamMember where
   type
     AWSResponse UpdateTeamMember =
       UpdateTeamMemberResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

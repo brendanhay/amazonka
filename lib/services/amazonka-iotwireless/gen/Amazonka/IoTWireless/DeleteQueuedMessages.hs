@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteQueuedMessages where
   type
     AWSResponse DeleteQueuedMessages =
       DeleteQueuedMessagesResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

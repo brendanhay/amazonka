@@ -128,7 +128,8 @@ testAlarm_state = Lens.lens (\TestAlarm' {state} -> state) (\s@TestAlarm' {} a -
 
 instance Core.AWSRequest TestAlarm where
   type AWSResponse TestAlarm = TestAlarmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

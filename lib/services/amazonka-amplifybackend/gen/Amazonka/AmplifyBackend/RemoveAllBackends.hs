@@ -96,7 +96,8 @@ instance Core.AWSRequest RemoveAllBackends where
   type
     AWSResponse RemoveAllBackends =
       RemoveAllBackendsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

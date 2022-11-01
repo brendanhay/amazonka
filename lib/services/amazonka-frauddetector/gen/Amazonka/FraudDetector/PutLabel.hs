@@ -97,7 +97,8 @@ putLabel_name = Lens.lens (\PutLabel' {name} -> name) (\s@PutLabel' {} a -> s {n
 
 instance Core.AWSRequest PutLabel where
   type AWSResponse PutLabel = PutLabelResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

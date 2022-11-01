@@ -188,7 +188,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
   type
     AWSResponse AddLayerVersionPermission =
       AddLayerVersionPermissionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

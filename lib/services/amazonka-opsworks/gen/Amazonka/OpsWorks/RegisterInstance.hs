@@ -165,7 +165,8 @@ instance Core.AWSRequest RegisterInstance where
   type
     AWSResponse RegisterInstance =
       RegisterInstanceResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

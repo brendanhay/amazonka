@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdatePreparedStatement where
   type
     AWSResponse UpdatePreparedStatement =
       UpdatePreparedStatementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

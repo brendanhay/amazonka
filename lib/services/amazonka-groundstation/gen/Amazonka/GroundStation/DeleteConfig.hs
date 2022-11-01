@@ -92,7 +92,8 @@ deleteConfig_configType = Lens.lens (\DeleteConfig' {configType} -> configType) 
 
 instance Core.AWSRequest DeleteConfig where
   type AWSResponse DeleteConfig = ConfigIdResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -75,7 +75,8 @@ getOutpost_outpostId = Lens.lens (\GetOutpost' {outpostId} -> outpostId) (\s@Get
 
 instance Core.AWSRequest GetOutpost where
   type AWSResponse GetOutpost = GetOutpostResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -158,7 +158,8 @@ instance Core.AWSRequest ListNodegroups where
   type
     AWSResponse ListNodegroups =
       ListNodegroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

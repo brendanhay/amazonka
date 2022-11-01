@@ -74,7 +74,8 @@ deletePortal_portalArn = Lens.lens (\DeletePortal' {portalArn} -> portalArn) (\s
 
 instance Core.AWSRequest DeletePortal where
   type AWSResponse DeletePortal = DeletePortalResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

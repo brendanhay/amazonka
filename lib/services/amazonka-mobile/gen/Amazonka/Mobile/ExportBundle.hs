@@ -103,7 +103,8 @@ exportBundle_bundleId = Lens.lens (\ExportBundle' {bundleId} -> bundleId) (\s@Ex
 
 instance Core.AWSRequest ExportBundle where
   type AWSResponse ExportBundle = ExportBundleResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

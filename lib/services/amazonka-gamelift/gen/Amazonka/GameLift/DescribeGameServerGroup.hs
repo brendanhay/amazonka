@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeGameServerGroup where
   type
     AWSResponse DescribeGameServerGroup =
       DescribeGameServerGroupResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

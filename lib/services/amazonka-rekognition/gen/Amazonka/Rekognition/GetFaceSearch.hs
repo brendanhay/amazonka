@@ -168,7 +168,8 @@ instance Core.AWSRequest GetFaceSearch where
   type
     AWSResponse GetFaceSearch =
       GetFaceSearchResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

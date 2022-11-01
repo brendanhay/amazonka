@@ -84,7 +84,8 @@ instance Core.AWSRequest DeleteCallAnalyticsCategory where
   type
     AWSResponse DeleteCallAnalyticsCategory =
       DeleteCallAnalyticsCategoryResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

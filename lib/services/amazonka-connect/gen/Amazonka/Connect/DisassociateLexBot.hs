@@ -55,7 +55,8 @@ data DisassociateLexBot = DisassociateLexBot'
     instanceId :: Prelude.Text,
     -- | The name of the Amazon Lex bot. Maximum character limit of 50.
     botName :: Prelude.Text,
-    -- | The Region in which the Amazon Lex bot has been created.
+    -- | The Amazon Web Services Region in which the Amazon Lex bot has been
+    -- created.
     lexRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +74,8 @@ data DisassociateLexBot = DisassociateLexBot'
 --
 -- 'botName', 'disassociateLexBot_botName' - The name of the Amazon Lex bot. Maximum character limit of 50.
 --
--- 'lexRegion', 'disassociateLexBot_lexRegion' - The Region in which the Amazon Lex bot has been created.
+-- 'lexRegion', 'disassociateLexBot_lexRegion' - The Amazon Web Services Region in which the Amazon Lex bot has been
+-- created.
 newDisassociateLexBot ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -101,7 +103,8 @@ disassociateLexBot_instanceId = Lens.lens (\DisassociateLexBot' {instanceId} -> 
 disassociateLexBot_botName :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_botName = Lens.lens (\DisassociateLexBot' {botName} -> botName) (\s@DisassociateLexBot' {} a -> s {botName = a} :: DisassociateLexBot)
 
--- | The Region in which the Amazon Lex bot has been created.
+-- | The Amazon Web Services Region in which the Amazon Lex bot has been
+-- created.
 disassociateLexBot_lexRegion :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_lexRegion = Lens.lens (\DisassociateLexBot' {lexRegion} -> lexRegion) (\s@DisassociateLexBot' {} a -> s {lexRegion = a} :: DisassociateLexBot)
 
@@ -109,7 +112,8 @@ instance Core.AWSRequest DisassociateLexBot where
   type
     AWSResponse DisassociateLexBot =
       DisassociateLexBotResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DisassociateLexBotResponse'
 

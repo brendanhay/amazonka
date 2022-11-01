@@ -173,7 +173,8 @@ instance Core.AWSPager ListUserTags where
 
 instance Core.AWSRequest ListUserTags where
   type AWSResponse ListUserTags = ListUserTagsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListUserTagsResult"

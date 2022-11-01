@@ -111,7 +111,8 @@ instance Core.AWSRequest ListManagedInsightRules where
   type
     AWSResponse ListManagedInsightRules =
       ListManagedInsightRulesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListManagedInsightRulesResult"

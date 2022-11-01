@@ -88,7 +88,8 @@ instance Core.AWSRequest UpdateCampaignDialerConfig where
   type
     AWSResponse UpdateCampaignDialerConfig =
       UpdateCampaignDialerConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateCampaignDialerConfigResponse'

@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteControlPanel where
   type
     AWSResponse DeleteControlPanel =
       DeleteControlPanelResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

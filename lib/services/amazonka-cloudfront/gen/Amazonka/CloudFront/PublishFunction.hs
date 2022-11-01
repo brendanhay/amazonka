@@ -105,7 +105,8 @@ instance Core.AWSRequest PublishFunction where
   type
     AWSResponse PublishFunction =
       PublishFunctionResponse
-  request = Request.post defaultService
+  service _ = defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->

@@ -23,23 +23,24 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Returns properties of the host key that is specified.
+-- | Returns properties of the host key that\'s specified.
 --
 -- /See:/ 'newListedHostKey' smart constructor.
 data ListedHostKey = ListedHostKey'
-  { hostKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The encryption algorithm used for the host key. The @Type@ is one of the
-    -- following values:
+  { -- | A unique identifier for the host key.
+    hostKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The encryption algorithm that is used for the host key. The @Type@
+    -- parameter is specified by using one of the following values:
     --
-    -- -   ssh-rsa
+    -- -   @ssh-rsa@
     --
-    -- -   ssh-ed25519
+    -- -   @ssh-ed25519@
     --
-    -- -   ecdsa-sha2-nistp256
+    -- -   @ecdsa-sha2-nistp256@
     --
-    -- -   ecdsa-sha2-nistp384
+    -- -   @ecdsa-sha2-nistp384@
     --
-    -- -   ecdsa-sha2-nistp521
+    -- -   @ecdsa-sha2-nistp521@
     type' :: Prelude.Maybe Prelude.Text,
     -- | The current description for the host key. You can change it by calling
     -- the @UpdateHostKey@ operation and providing a new description.
@@ -49,7 +50,7 @@ data ListedHostKey = ListedHostKey'
     fingerprint :: Prelude.Maybe Prelude.Text,
     -- | The date on which the host key was added to the server.
     dateImported :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the unique Amazon Resource Name (ARN) of the host key.
+    -- | The unique Amazon Resource Name (ARN) of the host key.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,20 +63,20 @@ data ListedHostKey = ListedHostKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostKeyId', 'listedHostKey_hostKeyId' -
+-- 'hostKeyId', 'listedHostKey_hostKeyId' - A unique identifier for the host key.
 --
--- 'type'', 'listedHostKey_type' - The encryption algorithm used for the host key. The @Type@ is one of the
--- following values:
+-- 'type'', 'listedHostKey_type' - The encryption algorithm that is used for the host key. The @Type@
+-- parameter is specified by using one of the following values:
 --
--- -   ssh-rsa
+-- -   @ssh-rsa@
 --
--- -   ssh-ed25519
+-- -   @ssh-ed25519@
 --
--- -   ecdsa-sha2-nistp256
+-- -   @ecdsa-sha2-nistp256@
 --
--- -   ecdsa-sha2-nistp384
+-- -   @ecdsa-sha2-nistp384@
 --
--- -   ecdsa-sha2-nistp521
+-- -   @ecdsa-sha2-nistp521@
 --
 -- 'description', 'listedHostKey_description' - The current description for the host key. You can change it by calling
 -- the @UpdateHostKey@ operation and providing a new description.
@@ -85,7 +86,7 @@ data ListedHostKey = ListedHostKey'
 --
 -- 'dateImported', 'listedHostKey_dateImported' - The date on which the host key was added to the server.
 --
--- 'arn', 'listedHostKey_arn' - Specifies the unique Amazon Resource Name (ARN) of the host key.
+-- 'arn', 'listedHostKey_arn' - The unique Amazon Resource Name (ARN) of the host key.
 newListedHostKey ::
   -- | 'arn'
   Prelude.Text ->
@@ -100,22 +101,22 @@ newListedHostKey pArn_ =
       arn = pArn_
     }
 
--- |
+-- | A unique identifier for the host key.
 listedHostKey_hostKeyId :: Lens.Lens' ListedHostKey (Prelude.Maybe Prelude.Text)
 listedHostKey_hostKeyId = Lens.lens (\ListedHostKey' {hostKeyId} -> hostKeyId) (\s@ListedHostKey' {} a -> s {hostKeyId = a} :: ListedHostKey)
 
--- | The encryption algorithm used for the host key. The @Type@ is one of the
--- following values:
+-- | The encryption algorithm that is used for the host key. The @Type@
+-- parameter is specified by using one of the following values:
 --
--- -   ssh-rsa
+-- -   @ssh-rsa@
 --
--- -   ssh-ed25519
+-- -   @ssh-ed25519@
 --
--- -   ecdsa-sha2-nistp256
+-- -   @ecdsa-sha2-nistp256@
 --
--- -   ecdsa-sha2-nistp384
+-- -   @ecdsa-sha2-nistp384@
 --
--- -   ecdsa-sha2-nistp521
+-- -   @ecdsa-sha2-nistp521@
 listedHostKey_type :: Lens.Lens' ListedHostKey (Prelude.Maybe Prelude.Text)
 listedHostKey_type = Lens.lens (\ListedHostKey' {type'} -> type') (\s@ListedHostKey' {} a -> s {type' = a} :: ListedHostKey)
 
@@ -133,7 +134,7 @@ listedHostKey_fingerprint = Lens.lens (\ListedHostKey' {fingerprint} -> fingerpr
 listedHostKey_dateImported :: Lens.Lens' ListedHostKey (Prelude.Maybe Prelude.UTCTime)
 listedHostKey_dateImported = Lens.lens (\ListedHostKey' {dateImported} -> dateImported) (\s@ListedHostKey' {} a -> s {dateImported = a} :: ListedHostKey) Prelude.. Lens.mapping Core._Time
 
--- | Specifies the unique Amazon Resource Name (ARN) of the host key.
+-- | The unique Amazon Resource Name (ARN) of the host key.
 listedHostKey_arn :: Lens.Lens' ListedHostKey Prelude.Text
 listedHostKey_arn = Lens.lens (\ListedHostKey' {arn} -> arn) (\s@ListedHostKey' {} a -> s {arn = a} :: ListedHostKey)
 

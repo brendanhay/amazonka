@@ -38,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 data LoggingInfo = LoggingInfo'
   { -- | (Optional) The S3 bucket subfolder.
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of an S3 bucket where execution logs are stored .
+    -- | The name of an S3 bucket where execution logs are stored.
     s3BucketName :: Prelude.Text,
     -- | The Amazon Web Services Region where the S3 bucket is located.
     s3Region :: Prelude.Text
@@ -55,7 +55,7 @@ data LoggingInfo = LoggingInfo'
 --
 -- 's3KeyPrefix', 'loggingInfo_s3KeyPrefix' - (Optional) The S3 bucket subfolder.
 --
--- 's3BucketName', 'loggingInfo_s3BucketName' - The name of an S3 bucket where execution logs are stored .
+-- 's3BucketName', 'loggingInfo_s3BucketName' - The name of an S3 bucket where execution logs are stored.
 --
 -- 's3Region', 'loggingInfo_s3Region' - The Amazon Web Services Region where the S3 bucket is located.
 newLoggingInfo ::
@@ -75,7 +75,7 @@ newLoggingInfo pS3BucketName_ pS3Region_ =
 loggingInfo_s3KeyPrefix :: Lens.Lens' LoggingInfo (Prelude.Maybe Prelude.Text)
 loggingInfo_s3KeyPrefix = Lens.lens (\LoggingInfo' {s3KeyPrefix} -> s3KeyPrefix) (\s@LoggingInfo' {} a -> s {s3KeyPrefix = a} :: LoggingInfo)
 
--- | The name of an S3 bucket where execution logs are stored .
+-- | The name of an S3 bucket where execution logs are stored.
 loggingInfo_s3BucketName :: Lens.Lens' LoggingInfo Prelude.Text
 loggingInfo_s3BucketName = Lens.lens (\LoggingInfo' {s3BucketName} -> s3BucketName) (\s@LoggingInfo' {} a -> s {s3BucketName = a} :: LoggingInfo)
 

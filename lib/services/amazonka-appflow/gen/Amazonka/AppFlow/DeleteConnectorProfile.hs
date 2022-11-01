@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteConnectorProfile where
   type
     AWSResponse DeleteConnectorProfile =
       DeleteConnectorProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -85,7 +85,8 @@ getAllowList_id = Lens.lens (\GetAllowList' {id} -> id) (\s@GetAllowList' {} a -
 
 instance Core.AWSRequest GetAllowList where
   type AWSResponse GetAllowList = GetAllowListResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -81,7 +81,8 @@ instance Core.AWSRequest DeleteRemoteAccessSession where
   type
     AWSResponse DeleteRemoteAccessSession =
       DeleteRemoteAccessSessionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

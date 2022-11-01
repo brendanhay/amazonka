@@ -188,7 +188,8 @@ instance Core.AWSRequest PutResourceConfig where
   type
     AWSResponse PutResourceConfig =
       PutResourceConfigResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutResourceConfigResponse'
 

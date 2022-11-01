@@ -92,7 +92,8 @@ createHapg_label = Lens.lens (\CreateHapg' {label} -> label) (\s@CreateHapg' {} 
 
 instance Core.AWSRequest CreateHapg where
   type AWSResponse CreateHapg = CreateHapgResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

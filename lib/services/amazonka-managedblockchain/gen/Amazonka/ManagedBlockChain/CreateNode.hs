@@ -75,7 +75,7 @@ data CreateNode = CreateNode'
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
-    -- you use an AWS SDK or the AWS CLI.
+    -- you use an Amazon Web Services SDK or the CLI.
     clientRequestToken :: Prelude.Text,
     -- | The unique identifier of the network for the node.
     --
@@ -121,7 +121,7 @@ data CreateNode = CreateNode'
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 --
 -- 'networkId', 'createNode_networkId' - The unique identifier of the network for the node.
 --
@@ -179,7 +179,7 @@ createNode_memberId = Lens.lens (\CreateNode' {memberId} -> memberId) (\s@Create
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
--- you use an AWS SDK or the AWS CLI.
+-- you use an Amazon Web Services SDK or the CLI.
 createNode_clientRequestToken :: Lens.Lens' CreateNode Prelude.Text
 createNode_clientRequestToken = Lens.lens (\CreateNode' {clientRequestToken} -> clientRequestToken) (\s@CreateNode' {} a -> s {clientRequestToken = a} :: CreateNode)
 
@@ -201,7 +201,8 @@ createNode_nodeConfiguration = Lens.lens (\CreateNode' {nodeConfiguration} -> no
 
 instance Core.AWSRequest CreateNode where
   type AWSResponse CreateNode = CreateNodeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

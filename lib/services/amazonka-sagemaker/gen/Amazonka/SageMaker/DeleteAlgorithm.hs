@@ -73,7 +73,8 @@ instance Core.AWSRequest DeleteAlgorithm where
   type
     AWSResponse DeleteAlgorithm =
       DeleteAlgorithmResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAlgorithmResponse'
 

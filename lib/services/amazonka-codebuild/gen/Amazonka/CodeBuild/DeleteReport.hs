@@ -73,7 +73,8 @@ deleteReport_arn = Lens.lens (\DeleteReport' {arn} -> arn) (\s@DeleteReport' {} 
 
 instance Core.AWSRequest DeleteReport where
   type AWSResponse DeleteReport = DeleteReportResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

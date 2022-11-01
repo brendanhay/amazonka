@@ -112,7 +112,8 @@ instance Core.AWSRequest GetAccessKeyInfo where
   type
     AWSResponse GetAccessKeyInfo =
       GetAccessKeyInfoResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccessKeyInfoResult"

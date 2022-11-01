@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribePools where
   type
     AWSResponse DescribePools =
       DescribePoolsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

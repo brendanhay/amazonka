@@ -93,7 +93,8 @@ instance Core.AWSRequest AssociateApprovedOrigin where
   type
     AWSResponse AssociateApprovedOrigin =
       AssociateApprovedOriginResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       AssociateApprovedOriginResponse'

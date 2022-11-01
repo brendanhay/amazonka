@@ -360,7 +360,8 @@ createAccess_externalId = Lens.lens (\CreateAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest CreateAccess where
   type AWSResponse CreateAccess = CreateAccessResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -434,11 +435,11 @@ instance Core.ToQuery CreateAccess where
 data CreateAccessResponse = CreateAccessResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The ID of the server that the user is attached to.
+    -- | The identifier of the server that the user is attached to.
     serverId :: Prelude.Text,
-    -- | The external ID of the group whose users have access to your Amazon S3
-    -- or Amazon EFS resources over the enabled protocols using Transfer
-    -- Family.
+    -- | The external identifier of the group whose users have access to your
+    -- Amazon S3 or Amazon EFS resources over the enabled protocols using
+    -- Transfer Family.
     externalId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -453,11 +454,11 @@ data CreateAccessResponse = CreateAccessResponse'
 --
 -- 'httpStatus', 'createAccessResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'createAccessResponse_serverId' - The ID of the server that the user is attached to.
+-- 'serverId', 'createAccessResponse_serverId' - The identifier of the server that the user is attached to.
 --
--- 'externalId', 'createAccessResponse_externalId' - The external ID of the group whose users have access to your Amazon S3
--- or Amazon EFS resources over the enabled protocols using Transfer
--- Family.
+-- 'externalId', 'createAccessResponse_externalId' - The external identifier of the group whose users have access to your
+-- Amazon S3 or Amazon EFS resources over the enabled protocols using
+-- Transfer Family.
 newCreateAccessResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -480,13 +481,13 @@ newCreateAccessResponse
 createAccessResponse_httpStatus :: Lens.Lens' CreateAccessResponse Prelude.Int
 createAccessResponse_httpStatus = Lens.lens (\CreateAccessResponse' {httpStatus} -> httpStatus) (\s@CreateAccessResponse' {} a -> s {httpStatus = a} :: CreateAccessResponse)
 
--- | The ID of the server that the user is attached to.
+-- | The identifier of the server that the user is attached to.
 createAccessResponse_serverId :: Lens.Lens' CreateAccessResponse Prelude.Text
 createAccessResponse_serverId = Lens.lens (\CreateAccessResponse' {serverId} -> serverId) (\s@CreateAccessResponse' {} a -> s {serverId = a} :: CreateAccessResponse)
 
--- | The external ID of the group whose users have access to your Amazon S3
--- or Amazon EFS resources over the enabled protocols using Transfer
--- Family.
+-- | The external identifier of the group whose users have access to your
+-- Amazon S3 or Amazon EFS resources over the enabled protocols using
+-- Transfer Family.
 createAccessResponse_externalId :: Lens.Lens' CreateAccessResponse Prelude.Text
 createAccessResponse_externalId = Lens.lens (\CreateAccessResponse' {externalId} -> externalId) (\s@CreateAccessResponse' {} a -> s {externalId = a} :: CreateAccessResponse)
 

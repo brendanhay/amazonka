@@ -205,7 +205,8 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
   type
     AWSResponse SearchAssociatedTranscripts =
       SearchAssociatedTranscriptsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

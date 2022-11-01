@@ -141,7 +141,8 @@ instance Core.AWSRequest SearchSessions where
   type
     AWSResponse SearchSessions =
       SearchSessionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

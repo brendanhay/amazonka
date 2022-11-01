@@ -74,7 +74,8 @@ deleteTopic_topicArn = Lens.lens (\DeleteTopic' {topicArn} -> topicArn) (\s@Dele
 
 instance Core.AWSRequest DeleteTopic where
   type AWSResponse DeleteTopic = DeleteTopicResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteTopicResponse'
 
 instance Prelude.Hashable DeleteTopic where

@@ -100,7 +100,8 @@ instance Core.AWSRequest UpdateTaskExecution where
   type
     AWSResponse UpdateTaskExecution =
       UpdateTaskExecutionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

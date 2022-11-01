@@ -95,7 +95,8 @@ instance Core.AWSRequest UpdateRoleDescription where
   type
     AWSResponse UpdateRoleDescription =
       UpdateRoleDescriptionResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateRoleDescriptionResult"

@@ -91,7 +91,8 @@ getProposal_proposalId = Lens.lens (\GetProposal' {proposalId} -> proposalId) (\
 
 instance Core.AWSRequest GetProposal where
   type AWSResponse GetProposal = GetProposalResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

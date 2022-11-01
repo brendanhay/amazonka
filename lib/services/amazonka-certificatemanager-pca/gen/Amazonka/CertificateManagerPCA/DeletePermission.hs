@@ -149,7 +149,8 @@ instance Core.AWSRequest DeletePermission where
   type
     AWSResponse DeletePermission =
       DeletePermissionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeletePermissionResponse'
 

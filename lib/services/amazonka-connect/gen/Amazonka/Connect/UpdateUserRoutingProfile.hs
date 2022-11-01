@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateUserRoutingProfile where
   type
     AWSResponse UpdateUserRoutingProfile =
       UpdateUserRoutingProfileResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserRoutingProfileResponse'

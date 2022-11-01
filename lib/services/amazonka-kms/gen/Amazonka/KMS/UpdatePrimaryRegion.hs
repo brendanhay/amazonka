@@ -218,7 +218,8 @@ instance Core.AWSRequest UpdatePrimaryRegion where
   type
     AWSResponse UpdatePrimaryRegion =
       UpdatePrimaryRegionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdatePrimaryRegionResponse'
 

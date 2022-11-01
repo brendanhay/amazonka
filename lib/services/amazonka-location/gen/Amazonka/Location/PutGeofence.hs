@@ -126,7 +126,8 @@ putGeofence_geometry = Lens.lens (\PutGeofence' {geometry} -> geometry) (\s@PutG
 
 instance Core.AWSRequest PutGeofence where
   type AWSResponse PutGeofence = PutGeofenceResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

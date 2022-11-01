@@ -59,7 +59,8 @@ newDisableMacie = DisableMacie'
 
 instance Core.AWSRequest DisableMacie where
   type AWSResponse DisableMacie = DisableMacieResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->

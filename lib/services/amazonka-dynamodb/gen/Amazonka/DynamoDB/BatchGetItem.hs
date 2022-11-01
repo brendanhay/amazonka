@@ -358,7 +358,8 @@ batchGetItem_requestItems = Lens.lens (\BatchGetItem' {requestItems} -> requestI
 
 instance Core.AWSRequest BatchGetItem where
   type AWSResponse BatchGetItem = BatchGetItemResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

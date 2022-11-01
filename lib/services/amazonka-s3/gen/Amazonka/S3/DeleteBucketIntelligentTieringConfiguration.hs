@@ -126,9 +126,9 @@ instance
     AWSResponse
       DeleteBucketIntelligentTieringConfiguration =
       DeleteBucketIntelligentTieringConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  service _ = defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketIntelligentTieringConfigurationResponse'

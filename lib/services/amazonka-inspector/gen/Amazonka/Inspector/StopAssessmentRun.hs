@@ -98,7 +98,8 @@ instance Core.AWSRequest StopAssessmentRun where
   type
     AWSResponse StopAssessmentRun =
       StopAssessmentRunResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopAssessmentRunResponse'
 

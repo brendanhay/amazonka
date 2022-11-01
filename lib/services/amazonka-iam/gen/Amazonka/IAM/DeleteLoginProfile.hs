@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the password for the specified IAM user, which terminates the
--- user\'s ability to access Amazon Web Services services through the
--- Amazon Web Services Management Console.
+-- Deletes the password for the specified IAM user, For more information,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html Managing passwords for IAM users>.
 --
 -- You can use the CLI, the Amazon Web Services API, or the __Users__ page
 -- in the IAM console to delete a password for any IAM user. You can use
@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteLoginProfile where
   type
     AWSResponse DeleteLoginProfile =
       DeleteLoginProfileResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteLoginProfileResponse'
 

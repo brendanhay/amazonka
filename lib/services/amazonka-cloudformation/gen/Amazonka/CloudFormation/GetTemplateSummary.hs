@@ -255,7 +255,8 @@ instance Core.AWSRequest GetTemplateSummary where
   type
     AWSResponse GetTemplateSummary =
       GetTemplateSummaryResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateSummaryResult"

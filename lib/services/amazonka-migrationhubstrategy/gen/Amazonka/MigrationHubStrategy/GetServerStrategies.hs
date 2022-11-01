@@ -77,7 +77,8 @@ instance Core.AWSRequest GetServerStrategies where
   type
     AWSResponse GetServerStrategies =
       GetServerStrategiesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

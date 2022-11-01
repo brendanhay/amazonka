@@ -83,7 +83,8 @@ instance Core.AWSRequest GetApprovalRuleTemplate where
   type
     AWSResponse GetApprovalRuleTemplate =
       GetApprovalRuleTemplateResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

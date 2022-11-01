@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteFargateProfile where
   type
     AWSResponse DeleteFargateProfile =
       DeleteFargateProfileResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

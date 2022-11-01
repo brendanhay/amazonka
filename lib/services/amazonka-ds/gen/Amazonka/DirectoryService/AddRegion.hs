@@ -106,7 +106,8 @@ addRegion_vPCSettings = Lens.lens (\AddRegion' {vPCSettings} -> vPCSettings) (\s
 
 instance Core.AWSRequest AddRegion where
   type AWSResponse AddRegion = AddRegionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

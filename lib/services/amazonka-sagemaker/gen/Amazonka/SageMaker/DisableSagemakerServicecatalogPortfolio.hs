@@ -66,7 +66,8 @@ instance
     AWSResponse
       DisableSagemakerServicecatalogPortfolio =
       DisableSagemakerServicecatalogPortfolioResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

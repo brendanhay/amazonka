@@ -170,7 +170,8 @@ instance Core.AWSPager ListSecrets where
 
 instance Core.AWSRequest ListSecrets where
   type AWSResponse ListSecrets = ListSecretsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

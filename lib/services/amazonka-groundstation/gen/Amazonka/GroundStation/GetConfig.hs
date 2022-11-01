@@ -98,7 +98,8 @@ getConfig_configType = Lens.lens (\GetConfig' {configType} -> configType) (\s@Ge
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

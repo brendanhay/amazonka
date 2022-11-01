@@ -120,7 +120,8 @@ instance Core.AWSRequest ListChannelModerators where
   type
     AWSResponse ListChannelModerators =
       ListChannelModeratorsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -97,7 +97,8 @@ instance Core.AWSRequest AssociateTrialComponent where
   type
     AWSResponse AssociateTrialComponent =
       AssociateTrialComponentResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

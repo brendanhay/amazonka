@@ -259,7 +259,8 @@ instance Core.AWSRequest ResendConfirmationCode where
   type
     AWSResponse ResendConfirmationCode =
       ResendConfirmationCodeResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

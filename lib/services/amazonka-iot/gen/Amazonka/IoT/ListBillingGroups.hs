@@ -132,7 +132,8 @@ instance Core.AWSRequest ListBillingGroups where
   type
     AWSResponse ListBillingGroups =
       ListBillingGroupsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

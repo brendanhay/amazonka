@@ -66,6 +66,7 @@ library
     Amazonka.Connect.CreateRoutingProfile
     Amazonka.Connect.CreateSecurityProfile
     Amazonka.Connect.CreateTaskTemplate
+    Amazonka.Connect.CreateTrafficDistributionGroup
     Amazonka.Connect.CreateUseCase
     Amazonka.Connect.CreateUser
     Amazonka.Connect.CreateUserHierarchyGroup
@@ -78,6 +79,7 @@ library
     Amazonka.Connect.DeleteQuickConnect
     Amazonka.Connect.DeleteSecurityProfile
     Amazonka.Connect.DeleteTaskTemplate
+    Amazonka.Connect.DeleteTrafficDistributionGroup
     Amazonka.Connect.DeleteUseCase
     Amazonka.Connect.DeleteUser
     Amazonka.Connect.DeleteUserHierarchyGroup
@@ -95,6 +97,7 @@ library
     Amazonka.Connect.DescribeQuickConnect
     Amazonka.Connect.DescribeRoutingProfile
     Amazonka.Connect.DescribeSecurityProfile
+    Amazonka.Connect.DescribeTrafficDistributionGroup
     Amazonka.Connect.DescribeUser
     Amazonka.Connect.DescribeUserHierarchyGroup
     Amazonka.Connect.DescribeUserHierarchyStructure
@@ -114,6 +117,7 @@ library
     Amazonka.Connect.GetFederationToken
     Amazonka.Connect.GetMetricData
     Amazonka.Connect.GetTaskTemplate
+    Amazonka.Connect.GetTrafficDistribution
     Amazonka.Connect.Lens
     Amazonka.Connect.ListAgentStatuses
     Amazonka.Connect.ListApprovedOrigins
@@ -142,11 +146,13 @@ library
     Amazonka.Connect.ListSecurityProfiles
     Amazonka.Connect.ListTagsForResource
     Amazonka.Connect.ListTaskTemplates
+    Amazonka.Connect.ListTrafficDistributionGroups
     Amazonka.Connect.ListUseCases
     Amazonka.Connect.ListUserHierarchyGroups
     Amazonka.Connect.ListUsers
     Amazonka.Connect.PutUserStatus
     Amazonka.Connect.ReleasePhoneNumber
+    Amazonka.Connect.ReplicateInstance
     Amazonka.Connect.ResumeContactRecording
     Amazonka.Connect.SearchAvailablePhoneNumbers
     Amazonka.Connect.SearchQueues
@@ -204,6 +210,7 @@ library
     Amazonka.Connect.Types.DefaultVocabulary
     Amazonka.Connect.Types.Dimensions
     Amazonka.Connect.Types.DirectoryType
+    Amazonka.Connect.Types.Distribution
     Amazonka.Connect.Types.EmailReference
     Amazonka.Connect.Types.EncryptionConfig
     Amazonka.Connect.Types.EncryptionType
@@ -309,7 +316,11 @@ library
     Amazonka.Connect.Types.TaskTemplateFieldType
     Amazonka.Connect.Types.TaskTemplateMetadata
     Amazonka.Connect.Types.TaskTemplateStatus
+    Amazonka.Connect.Types.TelephonyConfig
     Amazonka.Connect.Types.Threshold
+    Amazonka.Connect.Types.TrafficDistributionGroup
+    Amazonka.Connect.Types.TrafficDistributionGroupStatus
+    Amazonka.Connect.Types.TrafficDistributionGroupSummary
     Amazonka.Connect.Types.TrafficType
     Amazonka.Connect.Types.Unit
     Amazonka.Connect.Types.UrlReference
@@ -360,6 +371,7 @@ library
     Amazonka.Connect.UpdateRoutingProfileQueues
     Amazonka.Connect.UpdateSecurityProfile
     Amazonka.Connect.UpdateTaskTemplate
+    Amazonka.Connect.UpdateTrafficDistribution
     Amazonka.Connect.UpdateUserHierarchy
     Amazonka.Connect.UpdateUserHierarchyGroupName
     Amazonka.Connect.UpdateUserHierarchyStructure

@@ -112,7 +112,8 @@ instance Core.AWSRequest GetImportJobs where
   type
     AWSResponse GetImportJobs =
       GetImportJobsResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

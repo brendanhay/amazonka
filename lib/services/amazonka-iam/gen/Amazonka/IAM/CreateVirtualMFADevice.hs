@@ -200,7 +200,8 @@ instance Core.AWSRequest CreateVirtualMFADevice where
   type
     AWSResponse CreateVirtualMFADevice =
       CreateVirtualMFADeviceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateVirtualMFADeviceResult"

@@ -23,12 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing summary details of a container within a job.
+-- | An object that represents summary details of a container within a job.
 --
 -- /See:/ 'newContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
   { -- | A short (255 max characters) human-readable string to provide additional
-    -- details about a running or stopped container.
+    -- details for a running or stopped container.
     reason :: Prelude.Maybe Prelude.Text,
     -- | The exit code to return upon completion.
     exitCode :: Prelude.Maybe Prelude.Int
@@ -44,7 +44,7 @@ data ContainerSummary = ContainerSummary'
 -- for backwards compatibility:
 --
 -- 'reason', 'containerSummary_reason' - A short (255 max characters) human-readable string to provide additional
--- details about a running or stopped container.
+-- details for a running or stopped container.
 --
 -- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.
 newContainerSummary ::
@@ -56,7 +56,7 @@ newContainerSummary =
     }
 
 -- | A short (255 max characters) human-readable string to provide additional
--- details about a running or stopped container.
+-- details for a running or stopped container.
 containerSummary_reason :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Text)
 containerSummary_reason = Lens.lens (\ContainerSummary' {reason} -> reason) (\s@ContainerSummary' {} a -> s {reason = a} :: ContainerSummary)
 

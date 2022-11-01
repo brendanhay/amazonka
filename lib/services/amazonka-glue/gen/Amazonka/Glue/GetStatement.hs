@@ -99,7 +99,8 @@ getStatement_id = Lens.lens (\GetStatement' {id} -> id) (\s@GetStatement' {} a -
 
 instance Core.AWSRequest GetStatement where
   type AWSResponse GetStatement = GetStatementResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

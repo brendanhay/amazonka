@@ -86,7 +86,7 @@ data UpdateJobQueue = UpdateJobQueue'
     -- but not removed. The format is
     -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
     -- example,
-    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | The name or the Amazon Resource Name (ARN) of the job queue.
     jobQueue :: Prelude.Text
@@ -132,7 +132,7 @@ data UpdateJobQueue = UpdateJobQueue'
 -- but not removed. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 --
 -- 'jobQueue', 'updateJobQueue_jobQueue' - The name or the Amazon Resource Name (ARN) of the job queue.
 newUpdateJobQueue ::
@@ -186,7 +186,7 @@ updateJobQueue_priority = Lens.lens (\UpdateJobQueue' {priority} -> priority) (\
 -- but not removed. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
--- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+-- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 updateJobQueue_schedulingPolicyArn :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Text)
 updateJobQueue_schedulingPolicyArn = Lens.lens (\UpdateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@UpdateJobQueue' {} a -> s {schedulingPolicyArn = a} :: UpdateJobQueue)
 
@@ -198,7 +198,8 @@ instance Core.AWSRequest UpdateJobQueue where
   type
     AWSResponse UpdateJobQueue =
       UpdateJobQueueResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

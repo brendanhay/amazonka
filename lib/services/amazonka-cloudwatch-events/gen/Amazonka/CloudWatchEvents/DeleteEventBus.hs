@@ -75,7 +75,8 @@ instance Core.AWSRequest DeleteEventBus where
   type
     AWSResponse DeleteEventBus =
       DeleteEventBusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEventBusResponse'
 

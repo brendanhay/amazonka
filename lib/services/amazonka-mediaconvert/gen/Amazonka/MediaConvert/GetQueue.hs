@@ -74,7 +74,8 @@ getQueue_name = Lens.lens (\GetQueue' {name} -> name) (\s@GetQueue' {} a -> s {n
 
 instance Core.AWSRequest GetQueue where
   type AWSResponse GetQueue = GetQueueResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

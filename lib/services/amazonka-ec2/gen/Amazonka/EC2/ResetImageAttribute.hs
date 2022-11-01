@@ -111,7 +111,8 @@ instance Core.AWSRequest ResetImageAttribute where
   type
     AWSResponse ResetImageAttribute =
       ResetImageAttributeResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ResetImageAttributeResponse'
 

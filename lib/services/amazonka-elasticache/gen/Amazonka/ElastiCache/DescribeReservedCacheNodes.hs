@@ -572,7 +572,8 @@ instance Core.AWSRequest DescribeReservedCacheNodes where
   type
     AWSResponse DescribeReservedCacheNodes =
       DescribeReservedCacheNodesResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedCacheNodesResult"

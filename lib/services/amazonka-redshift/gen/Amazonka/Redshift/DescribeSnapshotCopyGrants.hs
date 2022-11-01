@@ -228,7 +228,8 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
   type
     AWSResponse DescribeSnapshotCopyGrants =
       DescribeSnapshotCopyGrantsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSnapshotCopyGrantsResult"

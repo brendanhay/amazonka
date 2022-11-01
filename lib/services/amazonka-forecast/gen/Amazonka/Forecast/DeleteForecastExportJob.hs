@@ -79,7 +79,8 @@ instance Core.AWSRequest DeleteForecastExportJob where
   type
     AWSResponse DeleteForecastExportJob =
       DeleteForecastExportJobResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteForecastExportJobResponse'

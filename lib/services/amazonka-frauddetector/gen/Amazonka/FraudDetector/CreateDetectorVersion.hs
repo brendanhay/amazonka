@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateDetectorVersion where
   type
     AWSResponse CreateDetectorVersion =
       CreateDetectorVersionResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -159,7 +159,8 @@ instance Core.AWSRequest SetTaskStatus where
   type
     AWSResponse SetTaskStatus =
       SetTaskStatusResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

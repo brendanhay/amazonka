@@ -97,7 +97,8 @@ instance Core.AWSRequest GetRequestValidator where
   type
     AWSResponse GetRequestValidator =
       RequestValidator
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

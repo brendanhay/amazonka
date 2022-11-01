@@ -141,7 +141,8 @@ instance Core.AWSPager ListRoutes where
 
 instance Core.AWSRequest ListRoutes where
   type AWSResponse ListRoutes = ListRoutesResponse
-  request = Request.get defaultService
+  service _ = defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->

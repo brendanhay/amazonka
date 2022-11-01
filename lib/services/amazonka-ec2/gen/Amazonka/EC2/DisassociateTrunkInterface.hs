@@ -120,7 +120,8 @@ instance Core.AWSRequest DisassociateTrunkInterface where
   type
     AWSResponse DisassociateTrunkInterface =
       DisassociateTrunkInterfaceResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->

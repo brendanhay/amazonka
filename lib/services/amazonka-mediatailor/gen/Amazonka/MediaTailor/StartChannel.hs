@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a specific channel.
+-- Starts a channel. For information about MediaTailor channels, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html Working with channels>
+-- in the /MediaTailor User Guide/.
 module Amazonka.MediaTailor.StartChannel
   ( -- * Creating a Request
     StartChannel (..),
@@ -47,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartChannel' smart constructor.
 data StartChannel = StartChannel'
-  { -- | The identifier for the channel you are working on.
+  { -- | The name of the channel.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +62,7 @@ data StartChannel = StartChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'startChannel_channelName' - The identifier for the channel you are working on.
+-- 'channelName', 'startChannel_channelName' - The name of the channel.
 newStartChannel ::
   -- | 'channelName'
   Prelude.Text ->
@@ -68,13 +70,14 @@ newStartChannel ::
 newStartChannel pChannelName_ =
   StartChannel' {channelName = pChannelName_}
 
--- | The identifier for the channel you are working on.
+-- | The name of the channel.
 startChannel_channelName :: Lens.Lens' StartChannel Prelude.Text
 startChannel_channelName = Lens.lens (\StartChannel' {channelName} -> channelName) (\s@StartChannel' {} a -> s {channelName = a} :: StartChannel)
 
 instance Core.AWSRequest StartChannel where
   type AWSResponse StartChannel = StartChannelResponse
-  request = Request.putJSON defaultService
+  service _ = defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->

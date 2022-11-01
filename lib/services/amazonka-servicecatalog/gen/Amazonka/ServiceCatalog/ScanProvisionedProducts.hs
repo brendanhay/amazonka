@@ -156,7 +156,8 @@ instance Core.AWSRequest ScanProvisionedProducts where
   type
     AWSResponse ScanProvisionedProducts =
       ScanProvisionedProductsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

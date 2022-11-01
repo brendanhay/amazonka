@@ -85,7 +85,8 @@ instance Core.AWSRequest DisableDelegatedAdminAccount where
   type
     AWSResponse DisableDelegatedAdminAccount =
       DisableDelegatedAdminAccountResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

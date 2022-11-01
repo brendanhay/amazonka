@@ -23,15 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An action to invite a specific AWS account to create a member and join
--- the network. The @InviteAction@ is carried out when a @Proposal@ is
--- @APPROVED@.
+-- | An action to invite a specific Amazon Web Services account to create a
+-- member and join the network. The @InviteAction@ is carried out when a
+-- @Proposal@ is @APPROVED@.
 --
 -- Applies only to Hyperledger Fabric.
 --
 -- /See:/ 'newInviteAction' smart constructor.
 data InviteAction = InviteAction'
-  { -- | The AWS account ID to invite.
+  { -- | The Amazon Web Services account ID to invite.
     principal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data InviteAction = InviteAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'inviteAction_principal' - The AWS account ID to invite.
+-- 'principal', 'inviteAction_principal' - The Amazon Web Services account ID to invite.
 newInviteAction ::
   -- | 'principal'
   Prelude.Text ->
@@ -52,7 +52,7 @@ newInviteAction ::
 newInviteAction pPrincipal_ =
   InviteAction' {principal = pPrincipal_}
 
--- | The AWS account ID to invite.
+-- | The Amazon Web Services account ID to invite.
 inviteAction_principal :: Lens.Lens' InviteAction Prelude.Text
 inviteAction_principal = Lens.lens (\InviteAction' {principal} -> principal) (\s@InviteAction' {} a -> s {principal = a} :: InviteAction)
 

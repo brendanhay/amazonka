@@ -95,7 +95,8 @@ instance Core.AWSRequest GetRealtimeLogConfig where
   type
     AWSResponse GetRealtimeLogConfig =
       GetRealtimeLogConfigResponse
-  request = Request.postXML defaultService
+  service _ = defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->

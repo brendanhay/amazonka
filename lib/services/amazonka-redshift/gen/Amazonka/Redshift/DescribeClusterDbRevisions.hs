@@ -180,7 +180,8 @@ instance Core.AWSRequest DescribeClusterDbRevisions where
   type
     AWSResponse DescribeClusterDbRevisions =
       DescribeClusterDbRevisionsResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterDbRevisionsResult"

@@ -934,7 +934,8 @@ instance Core.AWSRequest ModifyCacheCluster where
   type
     AWSResponse ModifyCacheCluster =
       ModifyCacheClusterResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCacheClusterResult"

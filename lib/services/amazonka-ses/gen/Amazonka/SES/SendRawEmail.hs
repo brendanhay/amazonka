@@ -545,7 +545,8 @@ sendRawEmail_rawMessage = Lens.lens (\SendRawEmail' {rawMessage} -> rawMessage) 
 
 instance Core.AWSRequest SendRawEmail where
   type AWSResponse SendRawEmail = SendRawEmailResponse
-  request = Request.postQuery defaultService
+  service _ = defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendRawEmailResult"

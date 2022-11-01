@@ -455,7 +455,8 @@ instance Core.AWSRequest GetPartitions where
   type
     AWSResponse GetPartitions =
       GetPartitionsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

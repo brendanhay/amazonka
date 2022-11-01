@@ -79,7 +79,8 @@ instance Core.AWSRequest GetSnapshotLimits where
   type
     AWSResponse GetSnapshotLimits =
       GetSnapshotLimitsResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

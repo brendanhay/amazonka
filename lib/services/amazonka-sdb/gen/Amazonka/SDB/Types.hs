@@ -98,6 +98,8 @@ defaultService =
       Core._serviceEndpointPrefix = "sdb",
       Core._serviceSigningName = "sdb",
       Core._serviceVersion = "2009-04-15",
+      Core._serviceS3AddressingStyle =
+        Core.S3AddressingStyleAuto,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -110,7 +110,8 @@ instance Core.AWSRequest GetOpenIdToken where
   type
     AWSResponse GetOpenIdToken =
       GetOpenIdTokenResponse
-  request = Request.postJSON defaultService
+  service _ = defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->

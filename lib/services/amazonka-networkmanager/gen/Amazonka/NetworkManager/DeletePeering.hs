@@ -77,7 +77,8 @@ instance Core.AWSRequest DeletePeering where
   type
     AWSResponse DeletePeering =
       DeletePeeringResponse
-  request = Request.delete defaultService
+  service _ = defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -117,6 +117,9 @@ import Test.Tasty
 --         , requestRemoveApplicationInstance $
 --             newRemoveApplicationInstance
 --
+--         , requestSignalApplicationInstanceNodeInstances $
+--             newSignalApplicationInstanceNodeInstances
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -218,6 +221,9 @@ import Test.Tasty
 --
 --         , responseRemoveApplicationInstance $
 --             newRemoveApplicationInstanceResponse
+--
+--         , responseSignalApplicationInstanceNodeInstances $
+--             newSignalApplicationInstanceNodeInstancesResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -412,6 +418,12 @@ requestRemoveApplicationInstance =
   req
     "RemoveApplicationInstance"
     "fixture/RemoveApplicationInstance.yaml"
+
+requestSignalApplicationInstanceNodeInstances :: SignalApplicationInstanceNodeInstances -> TestTree
+requestSignalApplicationInstanceNodeInstances =
+  req
+    "SignalApplicationInstanceNodeInstances"
+    "fixture/SignalApplicationInstanceNodeInstances.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -672,6 +684,14 @@ responseRemoveApplicationInstance =
     "fixture/RemoveApplicationInstanceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveApplicationInstance)
+
+responseSignalApplicationInstanceNodeInstances :: SignalApplicationInstanceNodeInstancesResponse -> TestTree
+responseSignalApplicationInstanceNodeInstances =
+  res
+    "SignalApplicationInstanceNodeInstancesResponse"
+    "fixture/SignalApplicationInstanceNodeInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SignalApplicationInstanceNodeInstances)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

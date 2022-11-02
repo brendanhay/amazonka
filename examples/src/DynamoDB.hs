@@ -6,7 +6,7 @@
 -- | The examples in this module illustrate the use of 'setEndpoint' to allow
 -- for <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html local development>
 -- using DynamoDB. If you plan on developing against remote AWS DynamoDB, then
--- you can omit the 'setEndpoint' and 'reconfigure' steps below.
+-- you can omit the 'setEndpoint' and 'configure' steps below.
 module DynamoDB where
 
 import Amazonka

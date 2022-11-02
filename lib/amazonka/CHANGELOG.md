@@ -102,6 +102,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 - `amazonka`: SSO authentication support (thanks @pbrisbin)
 [\#757](https://github.com/brendanhay/amazonka/pull/757)
+- `amazonka`: Use IMDSv2 for metadata requests on EC2 (thanks @pbrisbin)
+[\#831](https://github.com/brendanhay/amazonka/pull/831)
 
 ### Fixed
 

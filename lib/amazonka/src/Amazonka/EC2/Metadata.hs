@@ -296,7 +296,7 @@ isEC2 :: MonadIO m => Client.Manager -> m Bool
 isEC2 m = liftIO (Exception.catch req err)
   where
     req = do
-      !_ <- request m "http://instance-data/latest"
+      !_ <- get m "http://instance-data/latest"
 
       return True
 
@@ -462,9 +462,6 @@ get m url = liftIO $ do
     strip bs
       | BS8.isSuffixOf "\n" bs = BS8.init bs
       | otherwise = bs
-
-request :: Client.Manager -> Text -> IO ByteString
-request = requestWith id
 
 requestWith ::
   (Client.Request -> Client.Request) ->

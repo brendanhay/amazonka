@@ -452,7 +452,7 @@ get m url = liftIO $ do
     requestToken =
       requestWith
         ( setRequestMethod "PUT"
-            . setRequestHeader "X-aws-ec2-metadata-token-ttl-seconds" ["21600"]
+            . setRequestHeader "X-aws-ec2-metadata-token-ttl-seconds" ["60"]
         )
         m
         (latest <> "api/token")

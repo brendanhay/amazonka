@@ -455,7 +455,7 @@ get m url = liftIO $ do
             . setRequestHeader "X-aws-ec2-metadata-token-ttl-seconds" ["21600"]
         )
         m
-        (latest <> "/api/token")
+        (latest <> "api/token")
 
     addToken token = setRequestHeader "X-aws-ec2-metadata-token" [token]
 

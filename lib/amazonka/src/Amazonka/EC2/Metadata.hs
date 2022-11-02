@@ -452,14 +452,12 @@ get m url = liftIO $ do
     requestToken =
       requestWith
         ( setRequestMethod "PUT"
-            . setRequestHeader (headerPrefix <> "token-ttl-seconds") ["21600"]
+            . setRequestHeader "X-aws-ec2-metadata-token-ttl-seconds" ["21600"]
         )
         m
         (latest <> "/api/token")
 
-    addToken token = setRequestHeader (headerPrefix <> "token") [token]
-
-    headerPrefix = "X-aws-ec2-metadata-"
+    addToken token = setRequestHeader "X-aws-ec2-metadata-token" [token]
 
     strip bs
       | BS8.isSuffixOf "\n" bs = BS8.init bs

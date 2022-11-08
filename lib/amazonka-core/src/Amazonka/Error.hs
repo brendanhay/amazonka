@@ -46,7 +46,7 @@ _MatchServiceError ::
 _MatchServiceError s c = _ServiceError . hasService s . hasCode c
 
 statusSuccess :: Status -> Bool
-statusSuccess (statusCode -> n) = n >= 200 && n < 400
+statusSuccess (statusCode -> n) = n >= 200 && n < 300 || n == 304
 
 _HttpStatus :: AsError a => Getting (First Status) a Status
 _HttpStatus = _Error . f

@@ -76,6 +76,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka`: Update EC2 metadata keys based on [instance metadata categories](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html)
+[\#837](https://github.com/brendanhay/amazonka/pull/837)
 - `amazonka-dynamodb`: Provide a sum type for `WriteRequest`
 [\#799](https://github.com/brendanhay/amazonka/pull/799)
 - `amazonka-sso`: replace `SessionTokenType` with `Core.SessionToken`

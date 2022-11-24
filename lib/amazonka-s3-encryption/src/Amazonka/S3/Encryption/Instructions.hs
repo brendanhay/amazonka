@@ -64,10 +64,8 @@ piExtension = Lens.lens _piExt (\s a -> s {_piExt = a})
 instance AWSRequest PutInstructions where
   type AWSResponse PutInstructions = S3.PutObjectResponse
 
-  service _ = service (Proxy :: Proxy S3.PutObject)
-
-  request srv x =
-    coerce . request srv $
+  request overrides x =
+    coerce . request overrides $
       _piPut x & S3.putObject_key %~ appendExtension (_piExt x)
 
   response s l _ = response s l (Proxy :: Proxy S3.PutObject)
@@ -90,10 +88,8 @@ giExtension = Lens.lens _giExt (\s a -> s {_giExt = a})
 instance AWSRequest GetInstructions where
   type AWSResponse GetInstructions = Instructions
 
-  service _ = service (Proxy :: Proxy S3.GetObject)
-
-  request srv x =
-    coerce . request srv $
+  request overrides x =
+    coerce . request overrides $
       _giGet x & S3.getObject_key %~ appendExtension (_giExt x)
 
   response =
@@ -133,10 +129,8 @@ diExtension = Lens.lens _diExt (\s a -> s {_diExt = a})
 instance AWSRequest DeleteInstructions where
   type AWSResponse DeleteInstructions = S3.DeleteObjectResponse
 
-  service _ = service (Proxy :: Proxy S3.DeleteObject)
-
-  request srv x =
-    coerce . request srv $
+  request overrides x =
+    coerce . request overrides $
       _diDelete x & S3.deleteObject_key %~ appendExtension (_diExt x)
 
   response s l _ = response s l (Proxy :: Proxy S3.DeleteObject)

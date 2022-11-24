@@ -140,7 +140,7 @@ retryConnectionFailure limit n = \case
 
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
-override :: (Service -> Service) -> Env -> Env
+override :: (Service -> Service) -> Env' withAuth -> Env' withAuth
 override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
@@ -148,23 +148,23 @@ override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 --
 -- It's suggested you modify the default service configuration,
 -- such as @Amazonka.DynamoDB.defaultService@.
-configure :: Service -> Env -> Env
+configure :: Service -> Env' withAuth -> Env' withAuth
 configure s = override f
   where
     f x
       | Function.on (==) Service.abbrev s x = s
       | otherwise = x
 
--- | Scope an action within the specific 'Region'.
-within :: Region -> Env -> Env
+-- | Override the 'Region' on an 'Env'.
+within :: Region -> Env' withAuth -> Env' withAuth
 within r env = env {envRegion = r}
 
--- | Scope an action such that any retry logic for the 'Service' is
--- ignored and any requests will at most be sent once.
-once :: Env -> Env
-once = override (serviceRetry . retryAttempts .~ 0)
+-- | Disable any retry logic for an 'Env', so that any requests will
+-- at most be sent once.
+once :: Env' withAuth -> Env' withAuth
+once = override $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
 
--- | Scope an action such that any HTTP response will use this timeout value.
+-- | Override the timeout value for this 'Env'.
 --
 -- Default timeouts are chosen by considering:
 --
@@ -175,5 +175,5 @@ once = override (serviceRetry . retryAttempts .~ 0)
 -- * The 'envManager' timeout if set.
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
-timeout :: Seconds -> Env -> Env
+timeout :: Seconds -> Env' withAuth -> Env' withAuth
 timeout n = override $ \s -> s {Service.timeout = Just n}

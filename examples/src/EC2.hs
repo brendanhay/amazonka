@@ -17,9 +17,9 @@ import Data.Generics.Labels ()
 import System.IO
 
 instanceOverview :: Region -> IO ()
-instanceOverview r = do
+instanceOverview reg = do
   lgr <- newLogger Info stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
 
   let pp x =
         mconcat

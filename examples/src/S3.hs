@@ -7,7 +7,7 @@
 
 module S3 where
 
-import Amazonka
+import Amazonka hiding (length)
 import Amazonka.S3
 import Control.Lens
 import Control.Monad
@@ -28,9 +28,9 @@ getPresignedURL ::
   -- | The source object key.
   ObjectKey ->
   IO ByteString
-getPresignedURL r b k = do
+getPresignedURL reg b k = do
   lgr <- newLogger Trace stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
   ts <- getCurrentTime
   runResourceT $ presignURL env ts 60 (newGetObject b k)
 
@@ -38,9 +38,9 @@ listAll ::
   -- | Region to operate in.
   Region ->
   IO ()
-listAll r = do
+listAll reg = do
   lgr <- newLogger Debug stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
 
   let val :: ToText a => Maybe a -> Text
       val = maybe "Nothing" toText
@@ -69,9 +69,9 @@ getFile ::
   -- | The destination file to save as.
   FilePath ->
   IO ()
-getFile r b k f = do
+getFile reg b k f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
 
   runResourceT $ do
     rs <- send env (newGetObject b k)
@@ -96,9 +96,9 @@ putChunkedFile ::
   -- | The source file to upload.
   FilePath ->
   IO ()
-putChunkedFile r b k c f = do
+putChunkedFile reg b k c f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
 
   runResourceT $ do
     bdy <- chunkedFile c f
@@ -119,9 +119,9 @@ tagBucket ::
   -- | List of K/V pairs to apply as tags.
   [(ObjectKey, Text)] ->
   IO ()
-tagBucket r bkt xs = do
+tagBucket reg bkt xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
 
   let tags = map (uncurry newTag) xs
       kv t = toText (t ^. #key) <> "=" <> (t ^. #value)
@@ -139,9 +139,9 @@ getObjectAttributes ::
   BucketName ->
   ObjectKey ->
   IO GetObjectAttributesResponse
-getObjectAttributes r b k = do
+getObjectAttributes reg b k = do
   lgr <- newLogger Trace stdout
-  env <- newEnv discover <&> set #envLogger lgr . within r
+  env <- newEnv discover <&> set #logger lgr . set #region reg
   let req =
         newGetObjectAttributes b k
           & #objectAttributes

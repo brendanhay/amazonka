@@ -13,6 +13,7 @@ import Amazonka.Auth.Background
 import Amazonka.Auth.Exception
 import Amazonka.Data
 import Amazonka.EC2.Metadata hiding (region)
+import qualified Amazonka.EC2.Metadata as IdentityDocument (IdentityDocument (..))
 import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import qualified Control.Exception as Exception
@@ -79,7 +80,7 @@ fromNamedInstanceProfile name env@Env {manager} =
 
     getRegionFromIdentity =
       Exception.try (identity manager)
-        >>= handleErr (fmap _region) invalidIdentityErr
+        >>= handleErr (fmap IdentityDocument.region) invalidIdentityErr
 
     handleErr f g = \case
       Left e -> Exception.throwIO (RetrievalError e)

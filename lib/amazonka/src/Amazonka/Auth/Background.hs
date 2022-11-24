@@ -33,7 +33,7 @@ import qualified System.Mem.Weak as Weak
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =
   menv >>= \env -> liftIO $
-    case _authExpiration env of
+    case expiration env of
       Nothing -> pure (Auth env)
       Just x -> do
         r <- IORef.newIORef env
@@ -70,7 +70,7 @@ fetchAuthInBackground menv =
             Nothing -> pure ()
             Just r -> do
               IORef.atomicWriteIORef r a
-              maybe (pure ()) (loop ma w p) (_authExpiration a)
+              maybe (pure ()) (loop ma w p) (expiration a)
 
     diff (Time x) y = picoToMicro $ if n > 0 then n else 1
       where

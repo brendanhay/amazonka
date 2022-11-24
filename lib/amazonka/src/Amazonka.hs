@@ -139,7 +139,7 @@ module Amazonka
 where
 
 import Amazonka.Auth
-import Amazonka.Core
+import Amazonka.Core hiding (presign)
 import qualified Amazonka.Crypto as Crypto
 import qualified Amazonka.Data.Body as Body
 import qualified Amazonka.EC2.Metadata as EC2

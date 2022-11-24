@@ -32,9 +32,9 @@ module Amazonka.Env
   )
 where
 
-import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
-import Amazonka.Types
+import Amazonka.Types hiding (timeout)
+import qualified Amazonka.Types as Service (Service (..))
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Text as Text
@@ -152,7 +152,7 @@ configure :: Service -> Env -> Env
 configure s = override f
   where
     f x
-      | Function.on (==) _serviceAbbrev s x = s
+      | Function.on (==) Service.abbrev s x = s
       | otherwise = x
 
 -- | Scope an action within the specific 'Region'.
@@ -176,4 +176,4 @@ once = override (serviceRetry . retryAttempts .~ 0)
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env -> Env
-timeout n = override (serviceTimeout ?~ n)
+timeout n = override $ \s -> s {Service.timeout = Just n}

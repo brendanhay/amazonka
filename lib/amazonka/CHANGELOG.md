@@ -32,6 +32,15 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
   - The `Amazonka.Auth.runCredentialChain` function allows you to build your own custom credential chains.
 
+- Records within the `amazonka-core` and `amazonka` libraries no longer have (inconsistent) leading underscores or prefixes [\#844](https://github.com/brendanhay/amazonka/pull/844). A few other functions were renamed/removed for consistency or to avoid name clashes:
+
+  - `Amazonka.Env.envAuthMaybe` -> `Amazonka.authMaybe` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.configure` -> `Amazonka.Env.configureService` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.override` -> `Amazonka.Env.overrideService` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.within`: removed; it was merely a record update
+
+  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XRecordDotSyntax`.
+
 ### New libraries
 
 - `amazonka-appconfigdata`: The data plane APIs your application uses to retrieve configuration data. [Overview](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/Welcome.html#Welcome_AWS_AppConfig_Data)

@@ -115,7 +115,7 @@ discover =
       fromWebIdentityEnv,
       fromContainerEnv,
       \env -> do
-        onEC2 <- isEC2 $ envManager env
+        onEC2 <- isEC2 $ manager env
         unless onEC2 $ throwM CredentialChainExhausted
         fromDefaultInstanceProfile env
     ]

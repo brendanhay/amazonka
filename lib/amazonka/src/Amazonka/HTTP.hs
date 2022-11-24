@@ -18,7 +18,7 @@ module Amazonka.HTTP
 where
 
 import Amazonka.Data.Body (isStreaming)
-import Amazonka.Env
+import Amazonka.Env hiding (auth)
 import Amazonka.Lens (to, (^?), _Just)
 import Amazonka.Logger
 import Amazonka.Prelude
@@ -52,12 +52,12 @@ retryRequest env x =
     shouldRetry :: Retry.RetryStatus -> Either Error b -> m Bool
     shouldRetry s = \case
       Left r
-        | Just True <- r ^? transportErr -> logger "http_error" s >> return True
-        | Just m <- r ^? serviceErr -> logger m s >> return True
+        | Just True <- r ^? transportErr -> writeLog "http_error" s >> return True
+        | Just m <- r ^? serviceErr -> writeLog m s >> return True
       _other -> return False
       where
         transportErr =
-          _TransportError . to (envRetryCheck env (Retry.rsIterNumber s))
+          _TransportError . to (retryCheck env (Retry.rsIterNumber s))
 
         serviceErr =
           _ServiceError . to serviceRetryCheck . _Just
@@ -66,8 +66,8 @@ retryRequest env x =
           { service = Service {retry = Exponential {check = serviceRetryCheck}}
           } = rq
 
-    logger m s =
-      logDebug (envLogger env)
+    writeLog m s =
+      logDebug (logger env)
         . mconcat
         . List.intersperse " "
         $ [ "[Retry " <> build m <> "]",
@@ -89,7 +89,7 @@ awaitRequest env@Env {..} w@Wait {..} x = do
   let rq = configureRequest env x
       attempt _ = handleResult rq <$> httpRequest env rq
 
-  Retry.retrying policy (check envLogger) attempt <&> \case
+  Retry.retrying policy (check logger) attempt <&> \case
     (AcceptSuccess, _) -> Right AcceptSuccess
     (_, Left e) -> Left e
     (a, _) -> Right a
@@ -98,7 +98,7 @@ awaitRequest env@Env {..} w@Wait {..} x = do
       Retry.limitRetries attempts
         <> Retry.constantDelay (toMicroseconds delay)
 
-    check e n (a, _) = logger e n a >> return (retry a)
+    check e n (a, _) = writeLog e n a >> return (retry a)
       where
         retry AcceptSuccess = False
         retry AcceptFailure = False
@@ -108,7 +108,7 @@ awaitRequest env@Env {..} w@Wait {..} x = do
       first (fromMaybe AcceptRetry . accept w rq)
         . join (,)
 
-    logger l s a =
+    writeLog l s a =
       logDebug l
         . mconcat
         . List.intersperse " "
@@ -134,31 +134,31 @@ httpRequest env@Env {..} x =
     go = do
       time <- liftIO Time.getCurrentTime
 
-      rq <- case envAuthMaybe env of
-        Nothing -> pure $! requestUnsigned x envRegion
+      rq <- case authMaybe env of
+        Nothing -> pure $! requestUnsigned x region
         Just auth -> withAuth auth $ \a -> do
-          let Signed meta rq = requestSign x a envRegion time
-          logTrace envLogger meta -- trace:Signing:Meta
+          let Signed meta rq = requestSign x a region time
+          logTrace logger meta -- trace:Signing:Meta
           pure $! rq
 
-      logDebug envLogger rq -- debug:ClientRequest
-      rs <- Client.Conduit.http rq envManager
+      logDebug logger rq -- debug:ClientRequest
+      rs <- Client.Conduit.http rq manager
 
-      logDebug envLogger rs -- debug:ClientResponse
-      response envLogger (service x) (proxy x) rs
+      logDebug logger rs -- debug:ClientResponse
+      response logger (service x) (proxy x) rs
 
     handlers =
       [ Handler $ err,
         Handler $ err . TransportError
       ]
       where
-        err e = logError envLogger e >> return (Left e)
+        err e = logError logger e >> return (Left e)
 
     proxy :: Request a -> Proxy a
     proxy _ = Proxy
 
 configureRequest :: AWSRequest a => Env' withAuth -> a -> Request a
-configureRequest Env {envOverride = overrides} = request (appEndo (getDual overrides))
+configureRequest Env {override = overrides} = request (appEndo (getDual overrides))
 
 retryStream :: Request a -> Retry.RetryPolicy
 retryStream Request {body} =

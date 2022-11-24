@@ -15,15 +15,14 @@ module Amazonka.Env
     Env' (..),
     Env,
     EnvNoAuth,
-    envAuthMaybe,
+    authMaybe,
     lookupRegion,
 
     -- * Overriding Default Configuration
-    override,
-    configure,
+    overrideService,
+    configureService,
 
-    -- * Scoped Actions
-    within,
+    -- * 'Env' override helpers
     once,
     timeout,
 
@@ -52,12 +51,12 @@ type EnvNoAuth = Env' Proxy
 -- level, to avoid "presigning" requests when we lack auth
 -- information.
 data Env' withAuth = Env
-  { envRegion :: Region,
-    envLogger :: Logger,
-    envRetryCheck :: Int -> Client.HttpException -> Bool,
-    envOverride :: Dual (Endo Service),
-    envManager :: Client.Manager,
-    envAuth :: withAuth Auth
+  { region :: Region,
+    logger :: Logger,
+    retryCheck :: Int -> Client.HttpException -> Bool,
+    override :: Dual (Endo Service),
+    manager :: Client.Manager,
+    auth :: withAuth Auth
   }
   deriving stock (Generic)
 
@@ -67,14 +66,13 @@ data Env' withAuth = Env
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
--- You can override the 'Env' region by using 'envRegion', or the current operation's
--- region by using 'within'.
+-- You can override the 'Env' region by updating its 'region' field.
 --
 -- /Since:/ @1.3.6@ - The default logic for retrying 'HttpException's now uses
 -- 'retryConnectionFailure' to retry specific connection failure conditions up to 3 times.
 -- Previously only service specific errors were automatically retried.
--- This can be reverted to the old behaviour by resetting the 'Env' using
--- 'envRetryCheck' lens to @(\\_ _ -> False)@.
+-- This can be reverted to the old behaviour by resetting the 'Env''s
+-- 'retryCheck' field to @(\\_ _ -> False)@.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
@@ -100,18 +98,18 @@ newEnvNoAuth = do
   mRegion <- lookupRegion
   let env =
         Env
-          { envRegion = fromMaybe NorthVirginia mRegion,
-            envLogger = \_ _ -> pure (),
-            envRetryCheck = retryConnectionFailure 3,
-            envOverride = mempty,
-            envManager = manager,
-            envAuth = Proxy
+          { region = fromMaybe NorthVirginia mRegion,
+            logger = \_ _ -> pure (),
+            retryCheck = retryConnectionFailure 3,
+            override = mempty,
+            manager = manager,
+            auth = Proxy
           }
   pure env
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
-envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
-envAuthMaybe = foldr (const . Just) Nothing . envAuth
+authMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
+authMaybe = foldr (const . Just) Nothing . auth
 
 -- | Look up the region in the @AWS_REGION@ environment variable.
 lookupRegion :: MonadIO m => m (Maybe Region)
@@ -140,29 +138,25 @@ retryConnectionFailure limit n = \case
 
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
-override :: (Service -> Service) -> Env' withAuth -> Env' withAuth
-override f env = env {envOverride = envOverride env <> Dual (Endo f)}
+overrideService :: (Service -> Service) -> Env' withAuth -> Env' withAuth
+overrideService f env = env {override = override env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.
 --
 -- It's suggested you modify the default service configuration,
 -- such as @Amazonka.DynamoDB.defaultService@.
-configure :: Service -> Env' withAuth -> Env' withAuth
-configure s = override f
+configureService :: Service -> Env' withAuth -> Env' withAuth
+configureService s = overrideService f
   where
     f x
       | Function.on (==) Service.abbrev s x = s
       | otherwise = x
 
--- | Override the 'Region' on an 'Env'.
-within :: Region -> Env' withAuth -> Env' withAuth
-within r env = env {envRegion = r}
-
 -- | Disable any retry logic for an 'Env', so that any requests will
 -- at most be sent once.
 once :: Env' withAuth -> Env' withAuth
-once = override $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
+once = overrideService $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
 
 -- | Override the timeout value for this 'Env'.
 --
@@ -172,8 +166,8 @@ once = override $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
 --
 -- * The related 'Service' timeout for the sent request if set. (Usually 70s)
 --
--- * The 'envManager' timeout if set.
+-- * The 'manager' timeout if set.
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env' withAuth -> Env' withAuth
-timeout n = override $ \s -> s {Service.timeout = Just n}
+timeout n = overrideService $ \s -> s {Service.timeout = Just n}

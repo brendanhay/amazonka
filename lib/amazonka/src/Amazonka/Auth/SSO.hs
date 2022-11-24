@@ -48,6 +48,7 @@ data CachedAccessToken = CachedAccessToken
 --
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html>
 fromSSO ::
+  forall m withAuth.
   MonadIO m =>
   FilePath ->
   Region ->
@@ -58,8 +59,8 @@ fromSSO ::
   Env' withAuth ->
   m Env
 fromSSO cachedTokenFile ssoRegion accountId roleName env = do
-  auth <- liftIO $ fetchAuthInBackground getCredentials
-  pure $ env {envAuth = Identity auth}
+  keys <- liftIO $ fetchAuthInBackground getCredentials
+  pure $ env {auth = Identity keys}
   where
     getCredentials = do
       CachedAccessToken {..} <- readCachedAccessToken cachedTokenFile
@@ -67,7 +68,8 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
       -- The Region you SSO through may differ from the Region you intend to
       -- interact with after. The former is handled here, the latter is taken
       -- care of later, in ConfigFile.
-      let ssoEnv = env {envRegion = ssoRegion}
+      let ssoEnv :: Env' withAuth
+          ssoEnv = env {region = ssoRegion}
           getRoleCredentials =
             SSO.newGetRoleCredentials
               roleName

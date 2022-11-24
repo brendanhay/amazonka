@@ -46,8 +46,8 @@ fromAssumedRole roleArn roleSessionName env = do
         let assumeRole = STS.newAssumeRole roleArn roleSessionName
         resp <- runResourceT $ send env assumeRole
         pure $ resp ^. STS.assumeRoleResponse_credentials
-  auth <- liftIO $ fetchAuthInBackground getCredentials
-  pure env {envAuth = Identity auth}
+  keys <- liftIO $ fetchAuthInBackground getCredentials
+  pure env {auth = Identity keys}
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 -- Obtain temporary credentials from @sts:AssumeRoleWithWebIdentity@.
@@ -88,9 +88,9 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
 
   -- As the credentials from STS are temporary, we start a thread that is able
   -- to fetch new ones automatically on expiry.
-  auth <- liftIO $ fetchAuthInBackground getCredentials
+  keys <- liftIO $ fetchAuthInBackground getCredentials
 
-  pure env {envAuth = Identity auth}
+  pure env {auth = Identity keys}
 
 -- | Obtain temporary credentials from
 -- @sts:AssumeRoleWithWebIdentity@, sourcing arguments from standard

@@ -211,27 +211,27 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
     rhs =
       recconstr
         (unqual "Core.Service")
-        [ field (unqual "Core._serviceAbbrev") (str abbrev),
-          field (unqual "Core._serviceSigner") (var sig),
-          field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . Lens.to str),
-          field (unqual "Core._serviceSigningName") (m ^. signingName . Lens.to str),
-          field (unqual "Core._serviceVersion") (m ^. apiVersion . Lens.to str),
-          field (unqual "Core._serviceS3AddressingStyle") (var "Core.S3AddressingStyleAuto"),
-          field (unqual "Core._serviceEndpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
-          field (unqual "Core._serviceTimeout") (Exts.app justE (Exts.intE 70)),
-          field (unqual "Core._serviceCheck") (var "Core.statusSuccess"),
-          field (unqual "Core._serviceError") (var ("Core." <> serviceError m) `Exts.app` str abbrev),
-          field (unqual "Core._serviceRetry") (var "retry")
+        [ field (unqual "Core.abbrev") (str abbrev),
+          field (unqual "Core.signer") (var sig),
+          field (unqual "Core.endpointPrefix") (m ^. endpointPrefix . Lens.to str),
+          field (unqual "Core.signingName") (m ^. signingName . Lens.to str),
+          field (unqual "Core.version") (m ^. apiVersion . Lens.to str),
+          field (unqual "Core.s3AddressingStyle") (var "Core.S3AddressingStyleAuto"),
+          field (unqual "Core.endpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
+          field (unqual "Core.timeout") (Exts.app justE (Exts.intE 70)),
+          field (unqual "Core.check") (var "Core.statusSuccess"),
+          field (unqual "Core.error") (var ("Core." <> serviceError m) `Exts.app` str abbrev),
+          field (unqual "Core.retry") (var "retry")
         ]
 
     try =
       Exts.sfun (ident "retry") [] . unguarded $
         recconstr
           (r ^. delayType . Lens.to (unqual . mappend "Core."))
-          [ field (unqual "Core._retryBase") (r ^. delayBase . Lens.to frac),
-            field (unqual "Core._retryGrowth") (r ^. delayGrowth . Lens.to Exts.intE),
-            field (unqual "Core._retryAttempts") (r ^. retryAttempts . Lens.to Exts.intE),
-            field (unqual "Core._retryCheck") (var "check")
+          [ field (unqual "Core.base") (r ^. delayBase . Lens.to frac),
+            field (unqual "Core.growth") (r ^. delayGrowth . Lens.to Exts.intE),
+            field (unqual "Core.attempts") (r ^. retryAttempts . Lens.to Exts.intE),
+            field (unqual "Core.check") (var "check")
           ]
 
     chk =
@@ -375,8 +375,7 @@ requestD c m h (a, as) (b, bs) =
     (identifier a)
     $ Just
       [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funArgsD "service" ["_"] (var (m ^. serviceConfig)),
-        funArgsD "request" ["srv"] (requestF c m h a as),
+        funArgsD "request" ["overrides"] (requestF c m h a as),
         funD "response" (responseE (m ^. protocol) b bs)
       ]
 
@@ -815,7 +814,7 @@ requestF c meta h r is =
       HashMap.lookup (identifier r) (c ^. operationPlugins)
         <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
 
-    e = Exts.app v (var "srv")
+    e = Exts.app v (Exts.app (var "overrides") (var $ meta ^. serviceConfig))
 
     v =
       var
@@ -868,10 +867,10 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
     rhs =
       recconstr
         (unqual "Core.Wait")
-        [ field (unqual "Core._waitName") (str (memberId n)),
-          field (unqual "Core._waitAttempts") (w ^. waitAttempts . Lens.to Exts.intE),
-          field (unqual "Core._waitDelay") (w ^. waitDelay . Lens.to Exts.intE),
-          field (unqual "Core._waitAcceptors")
+        [ field (unqual "Core.name") (str (memberId n)),
+          field (unqual "Core.attempts") (w ^. waitAttempts . Lens.to Exts.intE),
+          field (unqual "Core.delay") (w ^. waitDelay . Lens.to Exts.intE),
+          field (unqual "Core.acceptors")
             . Exts.listE
             $ map match (w ^. waitAcceptors)
         ]

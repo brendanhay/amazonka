@@ -7,11 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V4.Chunked (tests) where
 
-import Amazonka.Core
-import Amazonka.Lens ((.~))
-import Amazonka.Prelude hiding
-  ( elem,
-  )
+import Amazonka.Core hiding (length)
+import Amazonka.Prelude hiding (elem)
 import Amazonka.Sign.V4
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Conduit.List as Conduit
@@ -65,17 +62,16 @@ testTwoChunksBody =
 
 mkSigned :: [BS8.ByteString] -> Gen (Signed ())
 mkSigned bs = do
-  aReq <- arbitrary
+  aReq <- arbitrary :: Gen (Request ())
   aService <- arbitrary
 
-  let svc =
-        aService
-          & serviceSigner .~ v4
+  let svc = aService {signer = v4}
 
       req =
         aReq
-          & requestBody .~ Chunked (mkBody bs)
-          & requestService .~ svc
+          { body = Chunked (mkBody bs),
+            service = svc
+          }
 
   requestSign req <$> arbitrary <*> arbitrary <*> arbitrary
 

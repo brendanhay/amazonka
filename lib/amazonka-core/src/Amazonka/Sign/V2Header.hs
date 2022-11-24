@@ -26,7 +26,7 @@ import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
 import qualified Amazonka.Data.Query as Query
 import Amazonka.Prelude
-import Amazonka.Types
+import Amazonka.Types hiding (presign, sign)
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
@@ -50,7 +50,7 @@ instance ToLog V2Header where
     buildLines
       [ "[Version 2 Header Metadata] {",
         "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
+        "  endpoint  = " <> build (host metaEndpoint),
         "  signature = " <> build metaSignature,
         "  headers = " <> build headers,
         "  signer = " <> build signer,
@@ -65,33 +65,33 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
   where
     meta = Meta (V2Header t end signature headers signer)
 
-    signer = newSigner headers meth path' _requestQuery
+    signer = newSigner headers' meth path' query
 
     rq =
-      (newClientRequest end _serviceTimeout)
+      (newClientRequest end timeout)
         { Client.method = meth,
           Client.path = path',
-          Client.queryString = toBS _requestQuery,
-          Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _requestBody
+          Client.queryString = toBS query,
+          Client.requestHeaders = headers',
+          Client.requestBody = toRequestBody body
         }
 
-    meth = toBS _requestMethod
-    path' = toBS (escapePath _requestPath)
+    meth = toBS method
+    path' = toBS (escapePath path)
 
-    end@Endpoint {} = _serviceEndpoint r
+    end = endpoint r
 
-    Service {..} = _requestService
+    Service {timeout, endpoint} = service
 
     signature =
       Bytes.encodeBase64
-        . Crypto.hmacSHA1 (toBS _authSecretAccessKey)
+        . Crypto.hmacSHA1 (toBS secretAccessKey)
         $ signer
 
-    headers =
-      hdr HTTP.hDate time
-        . hdr HTTP.hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
-        $ _requestHeaders
+    headers' =
+      headers
+        & hdr HTTP.hAuthorization ("AWS " <> toBS accessKeyId <> ":" <> signature)
+        & hdr HTTP.hDate time
 
     time = toBS (Time t :: RFC822)
 

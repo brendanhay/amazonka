@@ -13,7 +13,6 @@ module Amazonka.Endpoint
 where
 
 import Amazonka.Data.ByteString
-import Amazonka.Lens ((%~), (.~))
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.CaseInsensitive as CI
@@ -31,17 +30,13 @@ setEndpoint ::
   -- | The service configuration to override.
   Service ->
   Service
-setEndpoint s h p = serviceEndpoint %~ addr
-  where
-    addr =
-      (endpointSecure .~ s)
-        . (endpointHost .~ h)
-        . (endpointPort .~ p)
+setEndpoint secure host port s@Service {endpoint} =
+  s {endpoint = \r -> (endpoint r) {secure, host, port}}
 
 -- | Determine the full host address and credential scope
 -- within the specified 'Region'.
 defaultEndpoint :: Service -> Region -> Endpoint
-defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
+defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
   where
     go = \case
       "iam"
@@ -81,20 +76,20 @@ defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
     china = r == Beijing
     govcloud = r == GovCloudEast || r == GovCloudWest
 
-    region h =
+    region host =
       Endpoint
-        { _endpointHost = h,
-          _endpointSecure = True,
-          _endpointPort = 443,
-          _endpointScope = reg
+        { host,
+          secure = True,
+          port = 443,
+          scope = reg
         }
 
-    global h =
+    global host =
       Endpoint
-        { _endpointHost = h,
-          _endpointSecure = True,
-          _endpointPort = 443,
-          _endpointScope = "us-east-1"
+        { host,
+          secure = True,
+          port = 443,
+          scope = "us-east-1"
         }
 
     reg = toBS r

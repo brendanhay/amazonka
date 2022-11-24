@@ -1,7 +1,7 @@
 -- |
 -- Module      : Amazonka.Waiter
 -- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
@@ -57,14 +57,14 @@ instance ToLog Accept where
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
-  { _waitName :: ByteString,
-    _waitAttempts :: Int,
-    _waitDelay :: Seconds,
-    _waitAcceptors :: [Acceptor a]
+  { name :: ByteString,
+    attempts :: Int,
+    delay :: Seconds,
+    acceptors :: [Acceptor a]
   }
 
 accept :: Wait a -> Acceptor a
-accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ _waitAcceptors w
+accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ acceptors w
 
 matchAll :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
 matchAll x a l = match (allOf l (== x)) a
@@ -83,7 +83,7 @@ matchStatus x a _ = \case
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-  Left e | Just c == e ^? _ServiceError . serviceCode -> Just a
+  Left e | Just c == e ^? _ServiceError . to code -> Just a
   _ -> Nothing
 
 match :: (AWSResponse a -> Bool) -> Accept -> Acceptor a

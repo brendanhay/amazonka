@@ -13,8 +13,8 @@ where
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
-import Amazonka.Prelude
-import Amazonka.Types
+import Amazonka.Prelude hiding (error)
+import Amazonka.Types hiding (presign, sign)
 import qualified Data.ByteString.Char8 as BS8
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
@@ -31,7 +31,7 @@ instance ToLog V2 where
     buildLines
       [ "[Version 2 Metadata] {",
         "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
+        "  endpoint  = " <> build (host metaEndpoint),
         "  signature = " <> build metaSignature,
         "}"
       ]
@@ -40,49 +40,47 @@ v2 :: Signer
 v2 = Signer sign (const sign) -- FIXME: revisit v2 presigning.
 
 sign :: Algorithm a
-sign Request {..} AuthEnv {..} r t = Signed meta rq
+sign Request {service = Service {..}, ..} AuthEnv {..} r t = Signed meta rq
   where
     meta = Meta (V2 t end signature)
 
     rq =
-      (newClientRequest end _serviceTimeout)
+      (newClientRequest end timeout)
         { Client.method = meth,
           Client.path = path',
           Client.queryString = toBS authorised,
-          Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _requestBody
+          Client.requestHeaders = headers',
+          Client.requestBody = toRequestBody body
         }
 
-    meth = toBS _requestMethod
-    path' = toBS (escapePath _requestPath)
+    meth = toBS method
+    path' = toBS (escapePath path)
 
-    end@Endpoint {..} = _serviceEndpoint r
-
-    Service {..} = _requestService
+    end@Endpoint {..} = endpoint r
 
     authorised = pair "Signature" (URI.urlEncode True signature) query
 
     signature =
       Bytes.encodeBase64
-        . Crypto.hmacSHA256 (toBS _authSecretAccessKey)
+        . Crypto.hmacSHA256 (toBS secretAccessKey)
         $ BS8.intercalate
           "\n"
           [ meth,
-            _endpointHost,
+            host,
             path',
-            toBS query
+            toBS query'
           ]
 
-    query =
-      pair "Version" _serviceVersion
+    query' =
+      pair "Version" version
         . pair "SignatureVersion" ("2" :: ByteString)
         . pair "SignatureMethod" ("HmacSHA256" :: ByteString)
         . pair "Timestamp" time
-        . pair "AWSAccessKeyId" (toBS _authAccessKeyId)
-        $ _requestQuery <> maybe mempty toQuery token
+        . pair "AWSAccessKeyId" (toBS accessKeyId)
+        $ query <> maybe mempty toQuery token
 
-    token = ("SecurityToken" :: ByteString,) . toBS <$> _authSessionToken
+    token = ("SecurityToken" :: ByteString,) . toBS <$> sessionToken
 
-    headers = hdr HTTP.hDate time _requestHeaders
+    headers' = hdr HTTP.hDate time headers
 
     time = toBS (Time t :: ISO8601)

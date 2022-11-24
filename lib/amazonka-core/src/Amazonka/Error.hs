@@ -16,6 +16,7 @@ import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import Data.Either (fromRight)
 import qualified Data.Text as Text
+import qualified Amazonka.Types as ServiceError (ServiceError(..))
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
@@ -62,27 +63,26 @@ _HttpStatus = _Error . f
       SerializeError (SerializeError' a s b e) ->
         (\x -> SerializeError (SerializeError' a x b e)) <$> g s
       --
-      ServiceError e ->
-        (\x -> ServiceError (e {_serviceErrorStatus = x}))
-          <$> g (_serviceErrorStatus e)
+      ServiceError e@ServiceError'{status} ->
+        (\x -> ServiceError (e {status = x})) <$> g status
 
 hasService ::
   (Applicative f, Choice p) =>
   Service ->
   Optic' p f ServiceError ServiceError
-hasService s = filtered ((_serviceAbbrev s ==) . _serviceErrorAbbrev)
+hasService Service{abbrev} = filtered ((abbrev ==) . ServiceError.abbrev)
 
 hasStatus ::
   (Applicative f, Choice p) =>
   Int ->
   Optic' p f ServiceError ServiceError
-hasStatus n = filtered ((n ==) . fromEnum . _serviceErrorStatus)
+hasStatus n = filtered ((n ==) . fromEnum . ServiceError.status)
 
 hasCode ::
   (Applicative f, Choice p) =>
   ErrorCode ->
   Optic' p f ServiceError ServiceError
-hasCode c = filtered ((c ==) . _serviceErrorCode)
+hasCode c = filtered ((c ==) . ServiceError.code)
 
 serviceError ::
   Abbrev ->

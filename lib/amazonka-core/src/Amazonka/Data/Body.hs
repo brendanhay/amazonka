@@ -424,6 +424,3 @@ instance ToBody Aeson.Value
 instance ToBody XML.Element
 
 instance ToBody QueryString
-
-_Body :: ToBody a => AReview RequestBody a
-_Body = un (to toBody)

@@ -38,8 +38,9 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
   - `Amazonka.Env.configure` -> `Amazonka.Env.configureService` (and its re-export from `Amazonka`)
   - `Amazonka.Env.override` -> `Amazonka.Env.overrideService` (and its re-export from `Amazonka`)
   - `Amazonka.Env.within`: removed; it was merely a record update
+  - `Amazonka.Body._Body`: removed.
 
-  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XRecordDotSyntax`.
+  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XOverloadedRecordDot`.
 
 ### New libraries
 

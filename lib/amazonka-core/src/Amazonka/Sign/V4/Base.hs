@@ -8,9 +8,9 @@
 module Amazonka.Sign.V4.Base where
 
 import qualified Amazonka.Bytes as Bytes
+import Amazonka.Core.Lens.Internal ((<>~), (^.))
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data hiding (Path)
-import Amazonka.Lens ((<>~), (^.))
 import Amazonka.Prelude
 import Amazonka.Request
 import Amazonka.Types
@@ -237,7 +237,7 @@ credential :: AccessKey -> CredentialScope -> Credential
 credential k c = Tag (toBS k <> "/" <> toBS c)
 
 credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
-credentialScope Service{signingName} Endpoint {scope} t =
+credentialScope Service {signingName} Endpoint {scope} t =
   Tag
     [ toBS (Time t :: BasicTime),
       toBS scope,

@@ -10,13 +10,13 @@
 module Amazonka.Data.Body where
 
 import qualified Amazonka.Bytes as Bytes
+import Amazonka.Core.Lens.Internal (AReview, to, un)
 import Amazonka.Crypto (Digest, SHA256)
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data.ByteString
 import Amazonka.Data.Log
 import Amazonka.Data.Query (QueryString)
 import Amazonka.Data.XML (encodeXML)
-import Amazonka.Lens (AReview, to, un)
 import Amazonka.Prelude hiding (length)
 import Control.Monad.Trans.Resource (ResourceT, runResourceT)
 import qualified Data.Aeson as Aeson
@@ -110,13 +110,13 @@ fuseChunks ::
   ChunkedBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
   ChunkedBody
-fuseChunks c@ChunkedBody{body} f = c {body = body .| f}
+fuseChunks c@ChunkedBody {body} f = c {body = body .| f}
 
 fullChunks :: ChunkedBody -> Integer
 fullChunks c = length c `div` fromIntegral (size c)
 
 remainderBytes :: ChunkedBody -> Maybe Integer
-remainderBytes ChunkedBody{length, size} =
+remainderBytes ChunkedBody {length, size} =
   case length `mod` toInteger size of
     0 -> Nothing
     n -> Just n
@@ -332,14 +332,14 @@ isStreaming = \case
 
 toRequestBody :: RequestBody -> Client.RequestBody
 toRequestBody = \case
-  Chunked ChunkedBody{body} -> Client.Conduit.requestBodySourceChunked body
+  Chunked ChunkedBody {body} -> Client.Conduit.requestBodySourceChunked body
   Hashed x -> case x of
     HashedStream _ n f -> Client.Conduit.requestBodySource (fromIntegral n) f
     HashedBytes _ b -> Client.RequestBodyBS b
 
 contentLength :: RequestBody -> Integer
 contentLength = \case
-  Chunked ChunkedBody{length} -> length
+  Chunked ChunkedBody {length} -> length
   Hashed x -> case x of
     HashedStream _ n _ -> n
     HashedBytes _ b -> fromIntegral (BS.length b)

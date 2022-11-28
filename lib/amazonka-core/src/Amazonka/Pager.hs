@@ -13,8 +13,8 @@ module Amazonka.Pager
   )
 where
 
+import Amazonka.Core.Lens.Internal (Getter, to)
 import Amazonka.Data (ToText (..))
-import Amazonka.Lens (Getter, to)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.HashMap.Strict as HashMap

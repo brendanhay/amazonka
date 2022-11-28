@@ -26,9 +26,7 @@ module Amazonka.Waiter
   )
 where
 
-import Amazonka.Data
-import Amazonka.Error (_HttpStatus)
-import Amazonka.Lens
+import Amazonka.Core.Lens.Internal
   ( Fold,
     allOf,
     anyOf,
@@ -36,6 +34,8 @@ import Amazonka.Lens
     (^..),
     (^?),
   )
+import Amazonka.Data
+import Amazonka.Error (_HttpStatus)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.Text as Text

@@ -12,12 +12,12 @@ module Amazonka.Sign.V4
 where
 
 import Amazonka.Bytes
+import Amazonka.Core.Lens.Internal ((<>~))
 import Amazonka.Data.Body
 import Amazonka.Data.ByteString
 import Amazonka.Data.Headers
 import Amazonka.Data.Query
 import Amazonka.Data.Time
-import Amazonka.Lens ((<>~))
 import Amazonka.Prelude
 import Amazonka.Request
 import qualified Amazonka.Sign.V4.Base as Base

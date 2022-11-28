@@ -7,16 +7,16 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Error where
 
+import Amazonka.Core.Lens.Internal (Choice, Getting, Optic', filtered)
 import Amazonka.Data
-import Amazonka.Lens (Choice, Getting, Optic', filtered)
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Amazonka.Types as ServiceError (ServiceError (..))
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import Data.Either (fromRight)
 import qualified Data.Text as Text
-import qualified Amazonka.Types as ServiceError (ServiceError(..))
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
@@ -63,14 +63,14 @@ _HttpStatus = _Error . f
       SerializeError (SerializeError' a s b e) ->
         (\x -> SerializeError (SerializeError' a x b e)) <$> g s
       --
-      ServiceError e@ServiceError'{status} ->
+      ServiceError e@ServiceError' {status} ->
         (\x -> ServiceError (e {status = x})) <$> g status
 
 hasService ::
   (Applicative f, Choice p) =>
   Service ->
   Optic' p f ServiceError ServiceError
-hasService Service{abbrev} = filtered ((abbrev ==) . ServiceError.abbrev)
+hasService Service {abbrev} = filtered ((abbrev ==) . ServiceError.abbrev)
 
 hasStatus ::
   (Applicative f, Choice p) =>

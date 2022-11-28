@@ -108,8 +108,8 @@ module Amazonka.Types
   )
 where
 
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Data
-import qualified Amazonka.Lens as Lens
 import Amazonka.Prelude hiding (error)
 import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)

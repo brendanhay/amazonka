@@ -8,9 +8,9 @@
 module Amazonka.Sign.V4.Chunked where
 
 import qualified Amazonka.Bytes as Bytes
+import Amazonka.Core.Lens.Internal ((^.))
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
-import Amazonka.Lens ((^.))
 import Amazonka.Prelude as Prelude
 import Amazonka.Sign.V4.Base as V4 hiding (algorithm)
 import Amazonka.Types

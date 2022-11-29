@@ -20,12 +20,12 @@
 module Amazonka.KinesisVideo.Types.ImageGenerationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideo.Types.ConfigurationStatus
 import Amazonka.KinesisVideo.Types.Format
 import Amazonka.KinesisVideo.Types.FormatConfigKey
 import Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
 import Amazonka.KinesisVideo.Types.ImageSelectorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains the information required for the KVS images

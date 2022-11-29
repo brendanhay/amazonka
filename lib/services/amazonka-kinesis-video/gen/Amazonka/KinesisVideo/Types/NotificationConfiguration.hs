@@ -20,9 +20,9 @@
 module Amazonka.KinesisVideo.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideo.Types.ConfigurationStatus
 import Amazonka.KinesisVideo.Types.NotificationDestinationConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains the notification information for the KVS

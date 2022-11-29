@@ -20,10 +20,10 @@
 module Amazonka.KinesisVideo.Types.ChannelInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideo.Types.ChannelType
 import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
 import Amazonka.KinesisVideo.Types.StreamStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that encapsulates a signaling channel\'s metadata and

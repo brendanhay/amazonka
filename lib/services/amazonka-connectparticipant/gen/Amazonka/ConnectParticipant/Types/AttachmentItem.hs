@@ -21,7 +21,7 @@ module Amazonka.ConnectParticipant.Types.AttachmentItem where
 
 import Amazonka.ConnectParticipant.Types.ArtifactStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The case-insensitive input to indicate standard MIME type that describes

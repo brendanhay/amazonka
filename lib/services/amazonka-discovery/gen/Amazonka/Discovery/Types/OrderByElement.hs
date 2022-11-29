@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.OrderByElement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.OrderString
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A field and direction for ordered output.

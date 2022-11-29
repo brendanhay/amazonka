@@ -20,9 +20,9 @@
 module Amazonka.Discovery.Types.AgentInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.AgentNetworkInfo
 import Amazonka.Discovery.Types.AgentStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about agents or connectors associated with the user’s Amazon

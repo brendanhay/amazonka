@@ -20,8 +20,8 @@
 module Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.AggregatedLogOddsMetric
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the relative importance of the aggregated variables.

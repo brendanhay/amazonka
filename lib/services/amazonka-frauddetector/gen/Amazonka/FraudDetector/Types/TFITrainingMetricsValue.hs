@@ -20,9 +20,9 @@
 module Amazonka.FraudDetector.Types.TFITrainingMetricsValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.TFIMetricDataPoint
 import Amazonka.FraudDetector.Types.TFIModelPerformance
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Transaction Fraud Insights (TFI) model training metric details.

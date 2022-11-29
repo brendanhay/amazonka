@@ -20,7 +20,7 @@
 module Amazonka.FraudDetector.Types.OFIMetricDataPoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Online Fraud Insights (OFI) model performance metrics data points.

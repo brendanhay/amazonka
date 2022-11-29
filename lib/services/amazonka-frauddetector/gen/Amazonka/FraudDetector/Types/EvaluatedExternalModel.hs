@@ -20,7 +20,7 @@
 module Amazonka.FraudDetector.Types.EvaluatedExternalModel where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the external (Amazon Sagemaker) model evaluated for

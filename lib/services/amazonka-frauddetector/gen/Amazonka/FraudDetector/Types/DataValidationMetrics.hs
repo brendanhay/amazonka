@@ -20,9 +20,9 @@
 module Amazonka.FraudDetector.Types.DataValidationMetrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.FieldValidationMessage
 import Amazonka.FraudDetector.Types.FileValidationMessage
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The model training data validation metrics.

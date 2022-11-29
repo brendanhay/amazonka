@@ -20,8 +20,8 @@
 module Amazonka.FraudDetector.Types.ModelInputConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.ModelInputDataFormat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon SageMaker model input configuration.

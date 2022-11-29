@@ -20,9 +20,9 @@
 module Amazonka.FraudDetector.Types.PredictionExplanations where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
 import Amazonka.FraudDetector.Types.VariableImpactExplanation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The prediction explanations that provide insight into how each event

@@ -20,9 +20,9 @@
 module Amazonka.FraudDetector.Types.EventType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.EventIngestion
 import Amazonka.FraudDetector.Types.IngestedEventStatistics
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event type details.

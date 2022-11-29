@@ -20,10 +20,10 @@
 module Amazonka.FraudDetector.Types.TrainingResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.DataValidationMetrics
 import Amazonka.FraudDetector.Types.TrainingMetrics
 import Amazonka.FraudDetector.Types.VariableImportanceMetrics
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The training result details.

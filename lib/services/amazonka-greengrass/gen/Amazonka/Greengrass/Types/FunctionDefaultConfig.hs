@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.FunctionDefaultConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.FunctionDefaultExecutionConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The default configuration that applies to all Lambda functions in the

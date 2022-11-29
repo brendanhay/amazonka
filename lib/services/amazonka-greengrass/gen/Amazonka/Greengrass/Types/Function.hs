@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.Function where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.FunctionConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Lambda function.

@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.ConnectorDefinitionVersion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.Connector
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the connector definition version, which is a container

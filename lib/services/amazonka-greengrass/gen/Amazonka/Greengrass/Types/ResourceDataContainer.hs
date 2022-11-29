@@ -20,12 +20,12 @@
 module Amazonka.Greengrass.Types.ResourceDataContainer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.LocalDeviceResourceData
 import Amazonka.Greengrass.Types.LocalVolumeResourceData
 import Amazonka.Greengrass.Types.S3MachineLearningModelResourceData
 import Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData
 import Amazonka.Greengrass.Types.SecretsManagerSecretResourceData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for resource data. The container takes only one of the

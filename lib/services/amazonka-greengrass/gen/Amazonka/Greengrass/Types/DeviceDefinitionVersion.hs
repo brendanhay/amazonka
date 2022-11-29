@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.DeviceDefinitionVersion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.Device
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a device definition version.

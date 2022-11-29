@@ -20,10 +20,10 @@
 module Amazonka.Greengrass.Types.GreengrassLogger where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.LoggerComponent
 import Amazonka.Greengrass.Types.LoggerLevel
 import Amazonka.Greengrass.Types.LoggerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a logger

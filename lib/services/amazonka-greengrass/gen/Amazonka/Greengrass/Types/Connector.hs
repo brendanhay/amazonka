@@ -20,7 +20,7 @@
 module Amazonka.Greengrass.Types.Connector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a connector. Connectors run on the Greengrass core and

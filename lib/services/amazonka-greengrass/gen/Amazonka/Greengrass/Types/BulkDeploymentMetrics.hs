@@ -20,7 +20,7 @@
 module Amazonka.Greengrass.Types.BulkDeploymentMetrics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Relevant metrics on input records processed during bulk deployment.

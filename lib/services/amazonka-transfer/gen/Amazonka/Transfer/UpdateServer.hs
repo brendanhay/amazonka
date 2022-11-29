@@ -56,7 +56,7 @@ module Amazonka.Transfer.UpdateServer
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -208,8 +208,8 @@ data UpdateServer = UpdateServer'
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In additon to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- In addition to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
     -- when a file is open when the session disconnects.
     --
@@ -410,8 +410,8 @@ data UpdateServer = UpdateServer'
 -- 'workflowDetails', 'updateServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 --
@@ -642,8 +642,8 @@ updateServer_postAuthenticationLoginBanner = Lens.lens (\UpdateServer' {postAuth
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 --
@@ -697,8 +697,8 @@ updateServer_serverId = Lens.lens (\UpdateServer' {serverId} -> serverId) (\s@Up
 
 instance Core.AWSRequest UpdateServer where
   type AWSResponse UpdateServer = UpdateServerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

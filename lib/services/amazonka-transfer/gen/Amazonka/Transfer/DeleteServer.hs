@@ -38,7 +38,7 @@ module Amazonka.Transfer.DeleteServer
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,8 +73,8 @@ deleteServer_serverId = Lens.lens (\DeleteServer' {serverId} -> serverId) (\s@De
 
 instance Core.AWSRequest DeleteServer where
   type AWSResponse DeleteServer = DeleteServerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteServerResponse'
 
 instance Prelude.Hashable DeleteServer where

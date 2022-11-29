@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.IdentityProviderDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information related to the type of user authentication that is

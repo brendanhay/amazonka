@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.UserDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the user name, server ID, and session ID for a workflow.

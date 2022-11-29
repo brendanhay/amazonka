@@ -44,7 +44,7 @@ module Amazonka.Transfer.StartServer
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +79,8 @@ startServer_serverId = Lens.lens (\StartServer' {serverId} -> serverId) (\s@Star
 
 instance Core.AWSRequest StartServer where
   type AWSResponse StartServer = StartServerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull StartServerResponse'
 
 instance Prelude.Hashable StartServer where

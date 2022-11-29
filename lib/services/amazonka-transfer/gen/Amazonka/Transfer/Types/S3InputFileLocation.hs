@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.S3InputFileLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the customer input S3 file location. If it is used inside

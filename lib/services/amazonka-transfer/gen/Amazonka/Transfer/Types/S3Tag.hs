@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.S3Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the key-value pair that are assigned to a file during the

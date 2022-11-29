@@ -57,7 +57,7 @@ module Amazonka.Transfer.CreateUser
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +96,19 @@ data CreateUser = CreateUser'
     -- | The public portion of the Secure Shell (SSH) key used to authenticate
     -- the user to the server.
     --
+    -- The three standard SSH public key format elements are @\<key type>@,
+    -- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+    -- element.
+    --
     -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+    --
+    -- -   For RSA keys, the key type is @ssh-rsa@.
+    --
+    -- -   For ED25519 keys, the key type is @ssh-ed25519@.
+    --
+    -- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+    --     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+    --     size of the key you generated.
     sshPublicKeyBody :: Prelude.Maybe Prelude.Text,
     -- | Specifies the full POSIX identity, including user ID (@Uid@), group ID
     -- (@Gid@), and any secondary groups IDs (@SecondaryGids@), that controls
@@ -194,7 +206,19 @@ data CreateUser = CreateUser'
 -- 'sshPublicKeyBody', 'createUser_sshPublicKeyBody' - The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
 --
+-- The three standard SSH public key format elements are @\<key type>@,
+-- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+-- element.
+--
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+--
+-- -   For RSA keys, the key type is @ssh-rsa@.
+--
+-- -   For ED25519 keys, the key type is @ssh-ed25519@.
+--
+-- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+--     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+--     size of the key you generated.
 --
 -- 'posixProfile', 'createUser_posixProfile' - Specifies the full POSIX identity, including user ID (@Uid@), group ID
 -- (@Gid@), and any secondary groups IDs (@SecondaryGids@), that controls
@@ -308,7 +332,19 @@ createUser_policy = Lens.lens (\CreateUser' {policy} -> policy) (\s@CreateUser' 
 -- | The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
 --
+-- The three standard SSH public key format elements are @\<key type>@,
+-- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+-- element.
+--
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+--
+-- -   For RSA keys, the key type is @ssh-rsa@.
+--
+-- -   For ED25519 keys, the key type is @ssh-ed25519@.
+--
+-- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+--     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+--     size of the key you generated.
 createUser_sshPublicKeyBody :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_sshPublicKeyBody = Lens.lens (\CreateUser' {sshPublicKeyBody} -> sshPublicKeyBody) (\s@CreateUser' {} a -> s {sshPublicKeyBody = a} :: CreateUser)
 
@@ -380,8 +416,8 @@ createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@Create
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

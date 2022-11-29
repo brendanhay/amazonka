@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.As2ConnectorConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.CompressionEnum
 import Amazonka.Transfer.Types.EncryptionAlg
@@ -35,12 +35,15 @@ import Amazonka.Transfer.Types.SigningAlg
 -- /See:/ 'newAs2ConnectorConfig' smart constructor.
 data As2ConnectorConfig = As2ConnectorConfig'
   { -- | The algorithm that is used to encrypt the file.
+    --
+    -- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+    -- This ensures that no traffic is sent in clear text.
     encryptionAlgorithm :: Prelude.Maybe EncryptionAlg,
     -- | Specifies whether the AS2 file is compressed.
     compression :: Prelude.Maybe CompressionEnum,
     -- | The signing algorithm for the MDN response.
     --
-    -- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+    -- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
     -- is used.
     mdnSigningAlgorithm :: Prelude.Maybe MdnSigningAlg,
     -- | A unique identifier for the AS2 local profile.
@@ -75,11 +78,14 @@ data As2ConnectorConfig = As2ConnectorConfig'
 --
 -- 'encryptionAlgorithm', 'as2ConnectorConfig_encryptionAlgorithm' - The algorithm that is used to encrypt the file.
 --
+-- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+-- This ensures that no traffic is sent in clear text.
+--
 -- 'compression', 'as2ConnectorConfig_compression' - Specifies whether the AS2 file is compressed.
 --
 -- 'mdnSigningAlgorithm', 'as2ConnectorConfig_mdnSigningAlgorithm' - The signing algorithm for the MDN response.
 --
--- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
 -- is used.
 --
 -- 'localProfileId', 'as2ConnectorConfig_localProfileId' - A unique identifier for the AS2 local profile.
@@ -116,6 +122,9 @@ newAs2ConnectorConfig =
     }
 
 -- | The algorithm that is used to encrypt the file.
+--
+-- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+-- This ensures that no traffic is sent in clear text.
 as2ConnectorConfig_encryptionAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe EncryptionAlg)
 as2ConnectorConfig_encryptionAlgorithm = Lens.lens (\As2ConnectorConfig' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@As2ConnectorConfig' {} a -> s {encryptionAlgorithm = a} :: As2ConnectorConfig)
 
@@ -125,7 +134,7 @@ as2ConnectorConfig_compression = Lens.lens (\As2ConnectorConfig' {compression} -
 
 -- | The signing algorithm for the MDN response.
 --
--- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
 -- is used.
 as2ConnectorConfig_mdnSigningAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe MdnSigningAlg)
 as2ConnectorConfig_mdnSigningAlgorithm = Lens.lens (\As2ConnectorConfig' {mdnSigningAlgorithm} -> mdnSigningAlgorithm) (\s@As2ConnectorConfig' {} a -> s {mdnSigningAlgorithm = a} :: As2ConnectorConfig)

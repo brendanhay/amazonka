@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.EksPodPropertiesDetail where
 import Amazonka.Batch.Types.EksContainerDetail
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for the pod.
@@ -50,13 +50,21 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
     -- @hostNetwork@ parameter is not specified, the default is
     -- @ClusterFirstWithHostNet@. @ClusterFirst@ indicates that any DNS query
     -- that does not match the configured cluster domain suffix is forwarded to
-    -- the upstream nameserver inherited from the node. For more information,
-    -- see
+    -- the upstream nameserver inherited from the node. If no value was
+    -- specified for @dnsPolicy@ in the
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html RegisterJobDefinition>
+    -- API operation, then no value will be returned for @dnsPolicy@ by either
+    -- of
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobDefinitions.html DescribeJobDefinitions>
+    -- or
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html DescribeJobs>
+    -- API operations. The pod spec setting will contain either @ClusterFirst@
+    -- or @ClusterFirstWithHostNet@, depending on the value of the
+    -- @hostNetwork@ parameter. For more information, see
     -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
     -- in the /Kubernetes documentation/.
     --
-    -- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
-    -- @None@
+    -- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
     dnsPolicy :: Prelude.Maybe Prelude.Text,
     -- | Indicates if the pod uses the hosts\' network IP address. The default
     -- value is @true@. Setting this to @false@ enables the Kubernetes pod
@@ -100,13 +108,21 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
 -- @hostNetwork@ parameter is not specified, the default is
 -- @ClusterFirstWithHostNet@. @ClusterFirst@ indicates that any DNS query
 -- that does not match the configured cluster domain suffix is forwarded to
--- the upstream nameserver inherited from the node. For more information,
--- see
+-- the upstream nameserver inherited from the node. If no value was
+-- specified for @dnsPolicy@ in the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html RegisterJobDefinition>
+-- API operation, then no value will be returned for @dnsPolicy@ by either
+-- of
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobDefinitions.html DescribeJobDefinitions>
+-- or
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html DescribeJobs>
+-- API operations. The pod spec setting will contain either @ClusterFirst@
+-- or @ClusterFirstWithHostNet@, depending on the value of the
+-- @hostNetwork@ parameter. For more information, see
 -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
 -- in the /Kubernetes documentation/.
 --
--- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
--- @None@
+-- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
 --
 -- 'hostNetwork', 'eksPodPropertiesDetail_hostNetwork' - Indicates if the pod uses the hosts\' network IP address. The default
 -- value is @true@. Setting this to @false@ enables the Kubernetes pod
@@ -162,13 +178,21 @@ eksPodPropertiesDetail_nodeName = Lens.lens (\EksPodPropertiesDetail' {nodeName}
 -- @hostNetwork@ parameter is not specified, the default is
 -- @ClusterFirstWithHostNet@. @ClusterFirst@ indicates that any DNS query
 -- that does not match the configured cluster domain suffix is forwarded to
--- the upstream nameserver inherited from the node. For more information,
--- see
+-- the upstream nameserver inherited from the node. If no value was
+-- specified for @dnsPolicy@ in the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html RegisterJobDefinition>
+-- API operation, then no value will be returned for @dnsPolicy@ by either
+-- of
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobDefinitions.html DescribeJobDefinitions>
+-- or
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html DescribeJobs>
+-- API operations. The pod spec setting will contain either @ClusterFirst@
+-- or @ClusterFirstWithHostNet@, depending on the value of the
+-- @hostNetwork@ parameter. For more information, see
 -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
 -- in the /Kubernetes documentation/.
 --
--- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
--- @None@
+-- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
 eksPodPropertiesDetail_dnsPolicy :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
 eksPodPropertiesDetail_dnsPolicy = Lens.lens (\EksPodPropertiesDetail' {dnsPolicy} -> dnsPolicy) (\s@EksPodPropertiesDetail' {} a -> s {dnsPolicy = a} :: EksPodPropertiesDetail)
 

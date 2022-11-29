@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.AttemptContainerDetail where
 
 import Amazonka.Batch.Types.NetworkInterface
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details of a container that\'s part of a

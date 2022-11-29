@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.EksContainerVolumeMount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The volume mounts for a container for an Amazon EKS job. For more

@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.Ec2Configuration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for

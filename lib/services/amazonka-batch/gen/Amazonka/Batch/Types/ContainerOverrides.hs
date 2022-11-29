@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.ContainerOverrides where
 import Amazonka.Batch.Types.KeyValuePair
 import Amazonka.Batch.Types.ResourceRequirement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The overrides that should be sent to a container.

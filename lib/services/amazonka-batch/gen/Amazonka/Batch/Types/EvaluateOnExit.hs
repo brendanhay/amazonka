@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.EvaluateOnExit where
 
 import Amazonka.Batch.Types.RetryAction
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an array of up to 5 conditions to be met, and an action to

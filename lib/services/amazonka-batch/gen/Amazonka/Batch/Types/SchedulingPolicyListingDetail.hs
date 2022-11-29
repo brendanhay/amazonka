@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.SchedulingPolicyListingDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the details of a scheduling policy that\'s

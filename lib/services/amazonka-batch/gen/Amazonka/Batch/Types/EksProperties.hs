@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.EksProperties where
 
 import Amazonka.Batch.Types.EksPodProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the properties for the Kubernetes resources of a

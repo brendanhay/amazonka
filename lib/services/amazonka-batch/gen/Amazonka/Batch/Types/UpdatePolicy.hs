@@ -20,12 +20,12 @@
 module Amazonka.Batch.Types.UpdatePolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the infrastructure update policy for the compute environment.
 -- For more information about infrastructure updates, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.html Infrastructure updates>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
 -- in the /Batch User Guide/.
 --
 -- /See:/ 'newUpdatePolicy' smart constructor.

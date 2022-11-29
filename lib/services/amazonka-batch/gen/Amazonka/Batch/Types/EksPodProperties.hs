@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.EksPodProperties where
 import Amazonka.Batch.Types.EksContainer
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties for the pod.
@@ -52,8 +52,7 @@ data EksPodProperties = EksPodProperties'
     -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
     -- in the /Kubernetes documentation/.
     --
-    -- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
-    -- @None@
+    -- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
     dnsPolicy :: Prelude.Maybe Prelude.Text,
     -- | Indicates if the pod uses the hosts\' network IP address. The default
     -- value is @true@. Setting this to @false@ enables the Kubernetes pod
@@ -99,8 +98,7 @@ data EksPodProperties = EksPodProperties'
 -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
 -- in the /Kubernetes documentation/.
 --
--- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
--- @None@
+-- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
 --
 -- 'hostNetwork', 'eksPodProperties_hostNetwork' - Indicates if the pod uses the hosts\' network IP address. The default
 -- value is @true@. Setting this to @false@ enables the Kubernetes pod
@@ -151,8 +149,7 @@ eksPodProperties_volumes = Lens.lens (\EksPodProperties' {volumes} -> volumes) (
 -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy Pod\'s DNS policy>
 -- in the /Kubernetes documentation/.
 --
--- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@ |
--- @None@
+-- Valid values: @Default@ | @ClusterFirst@ | @ClusterFirstWithHostNet@
 eksPodProperties_dnsPolicy :: Lens.Lens' EksPodProperties (Prelude.Maybe Prelude.Text)
 eksPodProperties_dnsPolicy = Lens.lens (\EksPodProperties' {dnsPolicy} -> dnsPolicy) (\s@EksPodProperties' {} a -> s {dnsPolicy = a} :: EksPodProperties)
 

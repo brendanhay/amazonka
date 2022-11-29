@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.LinuxParameters where
 import Amazonka.Batch.Types.Device
 import Amazonka.Batch.Types.Tmpfs
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Linux-specific modifications that are applied to the container, such as

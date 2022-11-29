@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.Tmpfs where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container path, mount options, and size of the @tmpfs@ mount.

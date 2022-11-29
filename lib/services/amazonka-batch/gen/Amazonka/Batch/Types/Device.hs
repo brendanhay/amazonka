@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.Device where
 
 import Amazonka.Batch.Types.DeviceCgroupPermission
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a container instance host device.

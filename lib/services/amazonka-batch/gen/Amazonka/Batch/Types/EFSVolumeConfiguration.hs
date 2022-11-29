@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.EFSVolumeConfiguration where
 import Amazonka.Batch.Types.EFSAuthorizationConfig
 import Amazonka.Batch.Types.EFSTransitEncryption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is used when you\'re using an Amazon Elastic File System file

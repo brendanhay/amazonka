@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.NodeOverrides where
 
 import Amazonka.Batch.Types.NodePropertyOverride
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents any node overrides to a job definition that\'s

@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.NodeRangeProperty where
 
 import Amazonka.Batch.Types.ContainerProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the properties of the node range for a

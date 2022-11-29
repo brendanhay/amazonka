@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.Device where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Panorama.Types.DeviceAggregatedStatus
 import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceStatus

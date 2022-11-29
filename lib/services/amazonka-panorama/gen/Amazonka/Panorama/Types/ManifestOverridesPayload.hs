@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.ManifestOverridesPayload where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameter overrides for an application instance. This is a JSON document

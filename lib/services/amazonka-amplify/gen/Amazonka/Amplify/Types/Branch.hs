@@ -21,7 +21,7 @@ module Amazonka.Amplify.Types.Branch where
 
 import Amazonka.Amplify.Types.Stage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The branch for an Amplify app, which maps to a third-party repository

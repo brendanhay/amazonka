@@ -21,7 +21,7 @@ module Amazonka.Amplify.Types.Step where
 
 import Amazonka.Amplify.Types.JobStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an execution step, for an execution job, for an Amplify app.

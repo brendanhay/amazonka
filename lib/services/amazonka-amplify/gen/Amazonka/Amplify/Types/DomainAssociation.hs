@@ -22,7 +22,7 @@ module Amazonka.Amplify.Types.DomainAssociation where
 import Amazonka.Amplify.Types.DomainStatus
 import Amazonka.Amplify.Types.SubDomain
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a domain association that associates a custom domain with an

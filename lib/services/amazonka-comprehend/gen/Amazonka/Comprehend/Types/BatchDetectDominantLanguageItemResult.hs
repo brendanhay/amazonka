@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.BatchDetectDominantLanguageItemResult where
 
 import Amazonka.Comprehend.Types.DominantLanguage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object

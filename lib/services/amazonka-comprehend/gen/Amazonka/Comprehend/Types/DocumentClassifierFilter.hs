@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.DocumentClassifierFilter where
 
 import Amazonka.Comprehend.Types.ModelStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of document classifiers. You

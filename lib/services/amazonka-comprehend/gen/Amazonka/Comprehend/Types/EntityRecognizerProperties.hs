@@ -25,7 +25,7 @@ import Amazonka.Comprehend.Types.LanguageCode
 import Amazonka.Comprehend.Types.ModelStatus
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information about an entity recognizer.

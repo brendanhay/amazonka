@@ -26,7 +26,7 @@ import Amazonka.Comprehend.Types.EntityRecognizerDocuments
 import Amazonka.Comprehend.Types.EntityRecognizerEntityList
 import Amazonka.Comprehend.Types.EntityTypesListItem
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the format and location of the input data.

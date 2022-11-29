@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerMetadata where
 import Amazonka.Comprehend.Types.EntityRecognizerEvaluationMetrics
 import Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an entity recognizer.

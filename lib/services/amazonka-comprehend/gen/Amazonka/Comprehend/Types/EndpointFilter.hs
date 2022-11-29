@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.EndpointFilter where
 
 import Amazonka.Comprehend.Types.EndpointStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter used to determine which endpoints are returned. You can

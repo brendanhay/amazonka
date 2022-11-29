@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.SyntaxToken where
 
 import Amazonka.Comprehend.Types.PartOfSpeechTag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a work in the input text that was recognized and assigned a

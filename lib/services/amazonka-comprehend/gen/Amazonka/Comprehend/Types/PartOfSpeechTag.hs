@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.PartOfSpeechTag where
 
 import Amazonka.Comprehend.Types.PartOfSpeechTagType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the part of speech represented by the token and gives the

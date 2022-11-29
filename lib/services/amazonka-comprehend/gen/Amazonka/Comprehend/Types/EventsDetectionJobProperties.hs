@@ -24,7 +24,7 @@ import Amazonka.Comprehend.Types.JobStatus
 import Amazonka.Comprehend.Types.LanguageCode
 import Amazonka.Comprehend.Types.OutputDataConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an events detection job.

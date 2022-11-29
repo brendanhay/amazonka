@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.AugmentedManifestsListItem where
 import Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
 import Amazonka.Comprehend.Types.Split
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An augmented manifest file that provides training data for your custom

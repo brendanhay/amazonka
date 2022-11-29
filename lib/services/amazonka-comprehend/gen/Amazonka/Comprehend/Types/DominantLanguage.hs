@@ -20,7 +20,7 @@
 module Amazonka.Comprehend.Types.DominantLanguage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the code for the dominant language in the input text and the

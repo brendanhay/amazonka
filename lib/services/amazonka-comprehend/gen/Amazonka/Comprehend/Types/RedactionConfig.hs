@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.RedactionConfig where
 import Amazonka.Comprehend.Types.PiiEntitiesDetectionMaskMode
 import Amazonka.Comprehend.Types.PiiEntityType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration parameters for PII entity redaction.

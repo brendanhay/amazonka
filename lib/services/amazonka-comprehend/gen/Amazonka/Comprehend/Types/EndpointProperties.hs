@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.EndpointProperties where
 
 import Amazonka.Comprehend.Types.EndpointStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies information about the specified endpoint. For information

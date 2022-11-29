@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.TargetedSentimentEntity where
 
 import Amazonka.Comprehend.Types.TargetedSentimentMention
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one of the entities found by targeted sentiment

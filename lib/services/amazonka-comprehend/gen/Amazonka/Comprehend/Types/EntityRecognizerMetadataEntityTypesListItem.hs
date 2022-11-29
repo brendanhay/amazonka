@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem whe
 
 import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Individual item from the list of entity types in the metadata of an

@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.DataCatalogSummary where
 
 import Amazonka.Athena.Types.DataCatalogType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary information for the data catalog, which includes its name

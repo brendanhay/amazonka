@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.WorkGroup where
 import Amazonka.Athena.Types.WorkGroupConfiguration
 import Amazonka.Athena.Types.WorkGroupState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workgroup, which contains a name, description, creation time, state,

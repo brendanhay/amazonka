@@ -19,8 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Athena.Types.QueryExecutionStatistics where
 
+import Amazonka.Athena.Types.ResultReuseInformation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of data scanned during the query execution and the amount of
@@ -34,6 +35,9 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
     -- waiting for resources. Note that if transient errors occur, Athena might
     -- automatically add the query back to the queue.
     queryQueueTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | Contains information about whether previous query results were reused
+    -- for the query.
+    resultReuseInformation :: Prelude.Maybe ResultReuseInformation,
     -- | The number of milliseconds that Athena took to finalize and publish the
     -- query results after the query engine finished running the query.
     serviceProcessingTimeInMillis :: Prelude.Maybe Prelude.Integer,
@@ -72,6 +76,9 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
 -- waiting for resources. Note that if transient errors occur, Athena might
 -- automatically add the query back to the queue.
 --
+-- 'resultReuseInformation', 'queryExecutionStatistics_resultReuseInformation' - Contains information about whether previous query results were reused
+-- for the query.
+--
 -- 'serviceProcessingTimeInMillis', 'queryExecutionStatistics_serviceProcessingTimeInMillis' - The number of milliseconds that Athena took to finalize and publish the
 -- query results after the query engine finished running the query.
 --
@@ -99,6 +106,7 @@ newQueryExecutionStatistics =
     { dataScannedInBytes =
         Prelude.Nothing,
       queryQueueTimeInMillis = Prelude.Nothing,
+      resultReuseInformation = Prelude.Nothing,
       serviceProcessingTimeInMillis = Prelude.Nothing,
       dataManifestLocation = Prelude.Nothing,
       totalExecutionTimeInMillis = Prelude.Nothing,
@@ -115,6 +123,11 @@ queryExecutionStatistics_dataScannedInBytes = Lens.lens (\QueryExecutionStatisti
 -- automatically add the query back to the queue.
 queryExecutionStatistics_queryQueueTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
 queryExecutionStatistics_queryQueueTimeInMillis = Lens.lens (\QueryExecutionStatistics' {queryQueueTimeInMillis} -> queryQueueTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {queryQueueTimeInMillis = a} :: QueryExecutionStatistics)
+
+-- | Contains information about whether previous query results were reused
+-- for the query.
+queryExecutionStatistics_resultReuseInformation :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe ResultReuseInformation)
+queryExecutionStatistics_resultReuseInformation = Lens.lens (\QueryExecutionStatistics' {resultReuseInformation} -> resultReuseInformation) (\s@QueryExecutionStatistics' {} a -> s {resultReuseInformation = a} :: QueryExecutionStatistics)
 
 -- | The number of milliseconds that Athena took to finalize and publish the
 -- query results after the query engine finished running the query.
@@ -155,6 +168,7 @@ instance Core.FromJSON QueryExecutionStatistics where
           QueryExecutionStatistics'
             Prelude.<$> (x Core..:? "DataScannedInBytes")
             Prelude.<*> (x Core..:? "QueryQueueTimeInMillis")
+            Prelude.<*> (x Core..:? "ResultReuseInformation")
             Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
             Prelude.<*> (x Core..:? "DataManifestLocation")
             Prelude.<*> (x Core..:? "TotalExecutionTimeInMillis")
@@ -166,6 +180,7 @@ instance Prelude.Hashable QueryExecutionStatistics where
   hashWithSalt _salt QueryExecutionStatistics' {..} =
     _salt `Prelude.hashWithSalt` dataScannedInBytes
       `Prelude.hashWithSalt` queryQueueTimeInMillis
+      `Prelude.hashWithSalt` resultReuseInformation
       `Prelude.hashWithSalt` serviceProcessingTimeInMillis
       `Prelude.hashWithSalt` dataManifestLocation
       `Prelude.hashWithSalt` totalExecutionTimeInMillis
@@ -176,6 +191,7 @@ instance Prelude.NFData QueryExecutionStatistics where
   rnf QueryExecutionStatistics' {..} =
     Prelude.rnf dataScannedInBytes
       `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
+      `Prelude.seq` Prelude.rnf resultReuseInformation
       `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis
       `Prelude.seq` Prelude.rnf dataManifestLocation
       `Prelude.seq` Prelude.rnf totalExecutionTimeInMillis

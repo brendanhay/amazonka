@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.QueryExecutionStatus where
 import Amazonka.Athena.Types.AthenaError
 import Amazonka.Athena.Types.QueryExecutionState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The completion date, current state, submission time, and state change

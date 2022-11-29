@@ -23,7 +23,7 @@ import Amazonka.Athena.Types.QueryRuntimeStatisticsRows
 import Amazonka.Athena.Types.QueryRuntimeStatisticsTimeline
 import Amazonka.Athena.Types.QueryStage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The query execution timeline, statistics on input and output rows and

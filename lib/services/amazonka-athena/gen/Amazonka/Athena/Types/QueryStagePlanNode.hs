@@ -20,7 +20,7 @@
 module Amazonka.Athena.Types.QueryStagePlanNode where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stage plan information such as name, identifier, sub plans, and remote

@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.EncryptionConfiguration where
 
 import Amazonka.Athena.Types.EncryptionOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption

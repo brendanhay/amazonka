@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.QueryStage where
 
 import Amazonka.Athena.Types.QueryStagePlanNode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stage statistics such as input and output rows and bytes, execution time

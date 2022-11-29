@@ -33,6 +33,7 @@ module Amazonka.Athena.StartQueryExecution
     newStartQueryExecution,
 
     -- * Request Lenses
+    startQueryExecution_resultReuseConfiguration,
     startQueryExecution_clientRequestToken,
     startQueryExecution_workGroup,
     startQueryExecution_resultConfiguration,
@@ -52,14 +53,16 @@ where
 
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartQueryExecution' smart constructor.
 data StartQueryExecution = StartQueryExecution'
-  { -- | A unique case-sensitive string used to ensure the request to create the
+  { -- | Specifies the query result reuse behavior for the query.
+    resultReuseConfiguration :: Prelude.Maybe ResultReuseConfiguration,
+    -- | A unique case-sensitive string used to ensure the request to create the
     -- query is idempotent (executes only once). If another
     -- @StartQueryExecution@ request is received, the same response is returned
     -- and another query is not created. If a parameter has changed, for
@@ -100,6 +103,8 @@ data StartQueryExecution = StartQueryExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resultReuseConfiguration', 'startQueryExecution_resultReuseConfiguration' - Specifies the query result reuse behavior for the query.
+--
 -- 'clientRequestToken', 'startQueryExecution_clientRequestToken' - A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another
 -- @StartQueryExecution@ request is received, the same response is returned
@@ -135,14 +140,19 @@ newStartQueryExecution ::
   StartQueryExecution
 newStartQueryExecution pQueryString_ =
   StartQueryExecution'
-    { clientRequestToken =
+    { resultReuseConfiguration =
         Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       workGroup = Prelude.Nothing,
       resultConfiguration = Prelude.Nothing,
       queryExecutionContext = Prelude.Nothing,
       executionParameters = Prelude.Nothing,
       queryString = pQueryString_
     }
+
+-- | Specifies the query result reuse behavior for the query.
+startQueryExecution_resultReuseConfiguration :: Lens.Lens' StartQueryExecution (Prelude.Maybe ResultReuseConfiguration)
+startQueryExecution_resultReuseConfiguration = Lens.lens (\StartQueryExecution' {resultReuseConfiguration} -> resultReuseConfiguration) (\s@StartQueryExecution' {} a -> s {resultReuseConfiguration = a} :: StartQueryExecution)
 
 -- | A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another
@@ -190,8 +200,8 @@ instance Core.AWSRequest StartQueryExecution where
   type
     AWSResponse StartQueryExecution =
       StartQueryExecutionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,7 +212,9 @@ instance Core.AWSRequest StartQueryExecution where
 
 instance Prelude.Hashable StartQueryExecution where
   hashWithSalt _salt StartQueryExecution' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` resultReuseConfiguration
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` resultConfiguration
       `Prelude.hashWithSalt` queryExecutionContext
@@ -211,7 +223,8 @@ instance Prelude.Hashable StartQueryExecution where
 
 instance Prelude.NFData StartQueryExecution where
   rnf StartQueryExecution' {..} =
-    Prelude.rnf clientRequestToken
+    Prelude.rnf resultReuseConfiguration
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf resultConfiguration
       `Prelude.seq` Prelude.rnf queryExecutionContext
@@ -237,7 +250,9 @@ instance Core.ToJSON StartQueryExecution where
   toJSON StartQueryExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ResultReuseConfiguration" Core..=)
+              Prelude.<$> resultReuseConfiguration,
+            ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("WorkGroup" Core..=) Prelude.<$> workGroup,
             ("ResultConfiguration" Core..=)

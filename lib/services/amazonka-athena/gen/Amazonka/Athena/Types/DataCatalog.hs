@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.DataCatalog where
 
 import Amazonka.Athena.Types.DataCatalogType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a data catalog in an Amazon Web Services

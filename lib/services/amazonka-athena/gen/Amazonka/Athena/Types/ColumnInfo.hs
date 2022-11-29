@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.ColumnInfo where
 
 import Amazonka.Athena.Types.ColumnNullable
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the columns in a query execution result.

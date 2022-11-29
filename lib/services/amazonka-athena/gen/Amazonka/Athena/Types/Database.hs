@@ -20,7 +20,7 @@
 module Amazonka.Athena.Types.Database where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata information for a database in a data catalog.

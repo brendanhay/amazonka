@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.WorkGroupSummary where
 import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.WorkGroupState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary information for the workgroup, which includes its name,

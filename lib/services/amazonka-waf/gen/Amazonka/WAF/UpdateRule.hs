@@ -88,7 +88,7 @@ module Amazonka.WAF.UpdateRule
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,8 +169,8 @@ updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRul
 
 instance Core.AWSRequest UpdateRule where
   type AWSResponse UpdateRule = UpdateRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

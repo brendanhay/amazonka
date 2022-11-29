@@ -20,7 +20,7 @@
 module Amazonka.WAF.Types.GeoMatchConstraint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.GeoMatchConstraintType
 import Amazonka.WAF.Types.GeoMatchConstraintValue

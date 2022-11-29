@@ -20,7 +20,7 @@
 module Amazonka.ElasticInference.Types.KeyValuePair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A throughput entry for an Elastic Inference Accelerator type.

@@ -20,9 +20,9 @@
 module Amazonka.ElasticInference.Types.AcceleratorType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticInference.Types.KeyValuePair
 import Amazonka.ElasticInference.Types.MemoryInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Elastic Inference Accelerator type.

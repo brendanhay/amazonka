@@ -20,8 +20,8 @@
 module Amazonka.ElasticInference.Types.AcceleratorTypeOffering where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticInference.Types.LocationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The offering for an Elastic Inference Accelerator type.

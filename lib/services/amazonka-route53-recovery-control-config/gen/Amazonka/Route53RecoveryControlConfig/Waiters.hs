@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Route53RecoveryControlConfig.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.DescribeCluster
 import Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
@@ -28,10 +29,10 @@ import Amazonka.Route53RecoveryControlConfig.Types
 newRoutingControlDeleted :: Core.Wait DescribeRoutingControl
 newRoutingControlDeleted =
   Core.Wait
-    { Core._waitName = "RoutingControlDeleted",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "RoutingControlDeleted",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 404 Core.AcceptSuccess,
           Core.matchAll
             "PENDING_DELETION"
@@ -50,10 +51,10 @@ newRoutingControlDeleted =
 newClusterCreated :: Core.Wait DescribeCluster
 newClusterCreated =
   Core.Wait
-    { Core._waitName = "ClusterCreated",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ClusterCreated",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DEPLOYED"
             Core.AcceptSuccess
@@ -78,10 +79,10 @@ newClusterCreated =
 newControlPanelCreated :: Core.Wait DescribeControlPanel
 newControlPanelCreated =
   Core.Wait
-    { Core._waitName = "ControlPanelCreated",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ControlPanelCreated",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DEPLOYED"
             Core.AcceptSuccess
@@ -108,10 +109,10 @@ newControlPanelCreated =
 newControlPanelDeleted :: Core.Wait DescribeControlPanel
 newControlPanelDeleted =
   Core.Wait
-    { Core._waitName = "ControlPanelDeleted",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ControlPanelDeleted",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 404 Core.AcceptSuccess,
           Core.matchAll
             "PENDING_DELETION"
@@ -130,10 +131,10 @@ newControlPanelDeleted =
 newClusterDeleted :: Core.Wait DescribeCluster
 newClusterDeleted =
   Core.Wait
-    { Core._waitName = "ClusterDeleted",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ClusterDeleted",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 404 Core.AcceptSuccess,
           Core.matchAll
             "PENDING_DELETION"
@@ -151,10 +152,10 @@ newClusterDeleted =
 newRoutingControlCreated :: Core.Wait DescribeRoutingControl
 newRoutingControlCreated =
   Core.Wait
-    { Core._waitName = "RoutingControlCreated",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "RoutingControlCreated",
+      Core.attempts = 26,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DEPLOYED"
             Core.AcceptSuccess

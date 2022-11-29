@@ -38,6 +38,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Cristiano,
         VoiceId_Daniel,
         VoiceId_Dora,
+        VoiceId_Elin,
         VoiceId_Emma,
         VoiceId_Enrique,
         VoiceId_Ewa,
@@ -46,9 +47,11 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Geraint,
         VoiceId_Giorgio,
         VoiceId_Gwyneth,
+        VoiceId_Hala,
         VoiceId_Hannah,
         VoiceId_Hans,
         VoiceId_Hiujin,
+        VoiceId_Ida,
         VoiceId_Ines,
         VoiceId_Ivy,
         VoiceId_Jacek,
@@ -61,6 +64,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Kendra,
         VoiceId_Kevin,
         VoiceId_Kimberly,
+        VoiceId_Laura,
         VoiceId_Lea,
         VoiceId_Liam,
         VoiceId_Liv,
@@ -78,6 +82,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Mizuki,
         VoiceId_Naja,
         VoiceId_Nicole,
+        VoiceId_Ola,
         VoiceId_Olivia,
         VoiceId_Pedro,
         VoiceId_Penelope,
@@ -87,6 +92,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Russell,
         VoiceId_Salli,
         VoiceId_Seoyeon,
+        VoiceId_Suvi,
         VoiceId_Takumi,
         VoiceId_Tatyana,
         VoiceId_Vicki,
@@ -179,6 +185,9 @@ pattern VoiceId_Daniel = VoiceId' "Daniel"
 pattern VoiceId_Dora :: VoiceId
 pattern VoiceId_Dora = VoiceId' "Dora"
 
+pattern VoiceId_Elin :: VoiceId
+pattern VoiceId_Elin = VoiceId' "Elin"
+
 pattern VoiceId_Emma :: VoiceId
 pattern VoiceId_Emma = VoiceId' "Emma"
 
@@ -203,6 +212,9 @@ pattern VoiceId_Giorgio = VoiceId' "Giorgio"
 pattern VoiceId_Gwyneth :: VoiceId
 pattern VoiceId_Gwyneth = VoiceId' "Gwyneth"
 
+pattern VoiceId_Hala :: VoiceId
+pattern VoiceId_Hala = VoiceId' "Hala"
+
 pattern VoiceId_Hannah :: VoiceId
 pattern VoiceId_Hannah = VoiceId' "Hannah"
 
@@ -211,6 +223,9 @@ pattern VoiceId_Hans = VoiceId' "Hans"
 
 pattern VoiceId_Hiujin :: VoiceId
 pattern VoiceId_Hiujin = VoiceId' "Hiujin"
+
+pattern VoiceId_Ida :: VoiceId
+pattern VoiceId_Ida = VoiceId' "Ida"
 
 pattern VoiceId_Ines :: VoiceId
 pattern VoiceId_Ines = VoiceId' "Ines"
@@ -247,6 +262,9 @@ pattern VoiceId_Kevin = VoiceId' "Kevin"
 
 pattern VoiceId_Kimberly :: VoiceId
 pattern VoiceId_Kimberly = VoiceId' "Kimberly"
+
+pattern VoiceId_Laura :: VoiceId
+pattern VoiceId_Laura = VoiceId' "Laura"
 
 pattern VoiceId_Lea :: VoiceId
 pattern VoiceId_Lea = VoiceId' "Lea"
@@ -299,6 +317,9 @@ pattern VoiceId_Naja = VoiceId' "Naja"
 pattern VoiceId_Nicole :: VoiceId
 pattern VoiceId_Nicole = VoiceId' "Nicole"
 
+pattern VoiceId_Ola :: VoiceId
+pattern VoiceId_Ola = VoiceId' "Ola"
+
 pattern VoiceId_Olivia :: VoiceId
 pattern VoiceId_Olivia = VoiceId' "Olivia"
 
@@ -325,6 +346,9 @@ pattern VoiceId_Salli = VoiceId' "Salli"
 
 pattern VoiceId_Seoyeon :: VoiceId
 pattern VoiceId_Seoyeon = VoiceId' "Seoyeon"
+
+pattern VoiceId_Suvi :: VoiceId
+pattern VoiceId_Suvi = VoiceId' "Suvi"
 
 pattern VoiceId_Takumi :: VoiceId
 pattern VoiceId_Takumi = VoiceId' "Takumi"
@@ -363,6 +387,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Cristiano,
   VoiceId_Daniel,
   VoiceId_Dora,
+  VoiceId_Elin,
   VoiceId_Emma,
   VoiceId_Enrique,
   VoiceId_Ewa,
@@ -371,9 +396,11 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Geraint,
   VoiceId_Giorgio,
   VoiceId_Gwyneth,
+  VoiceId_Hala,
   VoiceId_Hannah,
   VoiceId_Hans,
   VoiceId_Hiujin,
+  VoiceId_Ida,
   VoiceId_Ines,
   VoiceId_Ivy,
   VoiceId_Jacek,
@@ -386,6 +413,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Kendra,
   VoiceId_Kevin,
   VoiceId_Kimberly,
+  VoiceId_Laura,
   VoiceId_Lea,
   VoiceId_Liam,
   VoiceId_Liv,
@@ -403,6 +431,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Mizuki,
   VoiceId_Naja,
   VoiceId_Nicole,
+  VoiceId_Ola,
   VoiceId_Olivia,
   VoiceId_Pedro,
   VoiceId_Penelope,
@@ -412,6 +441,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Russell,
   VoiceId_Salli,
   VoiceId_Seoyeon,
+  VoiceId_Suvi,
   VoiceId_Takumi,
   VoiceId_Tatyana,
   VoiceId_Vicki,

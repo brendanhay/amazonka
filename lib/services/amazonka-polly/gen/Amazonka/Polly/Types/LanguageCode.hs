@@ -20,6 +20,7 @@
 module Amazonka.Polly.Types.LanguageCode
   ( LanguageCode
       ( ..,
+        LanguageCode_Ar_AE,
         LanguageCode_Arb,
         LanguageCode_Ca_ES,
         LanguageCode_Cmn_CN,
@@ -88,6 +89,9 @@ newtype LanguageCode = LanguageCode'
       Core.FromXML,
       Core.ToXML
     )
+
+pattern LanguageCode_Ar_AE :: LanguageCode
+pattern LanguageCode_Ar_AE = LanguageCode' "ar-AE"
 
 pattern LanguageCode_Arb :: LanguageCode
 pattern LanguageCode_Arb = LanguageCode' "arb"
@@ -192,6 +196,7 @@ pattern LanguageCode_Yue_CN :: LanguageCode
 pattern LanguageCode_Yue_CN = LanguageCode' "yue-CN"
 
 {-# COMPLETE
+  LanguageCode_Ar_AE,
   LanguageCode_Arb,
   LanguageCode_Ca_ES,
   LanguageCode_Cmn_CN,

@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.NodeSnapshot where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.NodeGroupConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an individual cache node in a snapshot of a cluster.

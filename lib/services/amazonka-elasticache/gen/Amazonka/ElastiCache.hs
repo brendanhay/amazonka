@@ -667,6 +667,12 @@ module Amazonka.ElastiCache
     -- ** DestinationType
     DestinationType (..),
 
+    -- ** InputAuthenticationType
+    InputAuthenticationType (..),
+
+    -- ** IpDiscovery
+    IpDiscovery (..),
+
     -- ** LogDeliveryConfigurationStatus
     LogDeliveryConfigurationStatus (..),
 
@@ -678,6 +684,9 @@ module Amazonka.ElastiCache
 
     -- ** MultiAZStatus
     MultiAZStatus (..),
+
+    -- ** NetworkType
+    NetworkType (..),
 
     -- ** NodeUpdateInitiatedBy
     NodeUpdateInitiatedBy (..),
@@ -712,6 +721,10 @@ module Amazonka.ElastiCache
     -- ** Authentication
     Authentication (Authentication'),
     newAuthentication,
+
+    -- ** AuthenticationMode
+    AuthenticationMode (AuthenticationMode'),
+    newAuthenticationMode,
 
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),

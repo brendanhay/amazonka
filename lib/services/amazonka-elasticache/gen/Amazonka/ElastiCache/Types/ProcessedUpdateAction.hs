@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.ProcessedUpdateAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.UpdateActionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Update action that has been processed for the corresponding apply\/stop

@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.UpdateActionResultsMessage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.ProcessedUpdateAction
 import Amazonka.ElastiCache.Types.UnprocessedUpdateAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newUpdateActionResultsMessage' smart constructor.

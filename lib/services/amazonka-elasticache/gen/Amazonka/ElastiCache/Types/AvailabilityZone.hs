@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Availability Zone in which the cluster is launched.

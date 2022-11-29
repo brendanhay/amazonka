@@ -20,6 +20,7 @@
 module Amazonka.ElastiCache.Types.UpdateAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.CacheNodeUpdateStatus
 import Amazonka.ElastiCache.Types.NodeGroupUpdateStatus
 import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
@@ -27,7 +28,6 @@ import Amazonka.ElastiCache.Types.ServiceUpdateStatus
 import Amazonka.ElastiCache.Types.ServiceUpdateType
 import Amazonka.ElastiCache.Types.SlaMet
 import Amazonka.ElastiCache.Types.UpdateActionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the service update for a specific replication group

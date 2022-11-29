@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.NodeUpdateInitiatedBy
 import Amazonka.ElastiCache.Types.NodeUpdateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the service update on the node group member

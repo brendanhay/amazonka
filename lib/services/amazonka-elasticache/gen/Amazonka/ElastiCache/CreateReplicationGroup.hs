@@ -80,6 +80,7 @@ module Amazonka.ElastiCache.CreateReplicationGroup
     createReplicationGroup_authToken,
     createReplicationGroup_logDeliveryConfigurations,
     createReplicationGroup_atRestEncryptionEnabled,
+    createReplicationGroup_ipDiscovery,
     createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_cacheNodeType,
     createReplicationGroup_cacheParameterGroupName,
@@ -99,6 +100,7 @@ module Amazonka.ElastiCache.CreateReplicationGroup
     createReplicationGroup_numNodeGroups,
     createReplicationGroup_multiAZEnabled,
     createReplicationGroup_engineVersion,
+    createReplicationGroup_networkType,
     createReplicationGroup_replicationGroupId,
     createReplicationGroup_replicationGroupDescription,
 
@@ -113,8 +115,8 @@ module Amazonka.ElastiCache.CreateReplicationGroup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -235,6 +237,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --
     -- Default: @false@
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The network type you choose when creating a replication group, either
+    -- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
+    -- version 6.2 onward or Memcached engine version 1.6.6 on all instances
+    -- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | An optional parameter that specifies the number of replica nodes in each
     -- node group (shard). Valid values are 0 to 5.
     replicasPerNodeGroup :: Prelude.Maybe Prelude.Int,
@@ -294,17 +301,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
-    --
-    -- -   Memory optimized with data tiering:
-    --
-    --     -   Current generation:
-    --
-    --         __R6gd node types__ (available only for Redis engine version 6.2
-    --         onward).
-    --
-    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
-    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
-    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -497,6 +493,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- delete the existing cluster or replication group and create it anew with
     -- the earlier engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+    -- workloads using Redis engine version 6.2 onward or Memcached engine
+    -- version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    networkType :: Prelude.Maybe NetworkType,
     -- | The replication group identifier. This parameter is stored as a
     -- lowercase string.
     --
@@ -633,6 +634,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- Default: @false@
 --
+-- 'ipDiscovery', 'createReplicationGroup_ipDiscovery' - The network type you choose when creating a replication group, either
+-- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
+-- version 6.2 onward or Memcached engine version 1.6.6 on all instances
+-- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'replicasPerNodeGroup', 'createReplicationGroup_replicasPerNodeGroup' - An optional parameter that specifies the number of replica nodes in each
 -- node group (shard). Valid values are 0 to 5.
 --
@@ -692,17 +698,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -895,6 +890,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- delete the existing cluster or replication group and create it anew with
 -- the earlier engine version.
 --
+-- 'networkType', 'createReplicationGroup_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'replicationGroupId', 'createReplicationGroup_replicationGroupId' - The replication group identifier. This parameter is stored as a
 -- lowercase string.
 --
@@ -931,6 +931,7 @@ newCreateReplicationGroup
         authToken = Prelude.Nothing,
         logDeliveryConfigurations = Prelude.Nothing,
         atRestEncryptionEnabled = Prelude.Nothing,
+        ipDiscovery = Prelude.Nothing,
         replicasPerNodeGroup = Prelude.Nothing,
         cacheNodeType = Prelude.Nothing,
         cacheParameterGroupName = Prelude.Nothing,
@@ -950,6 +951,7 @@ newCreateReplicationGroup
         numNodeGroups = Prelude.Nothing,
         multiAZEnabled = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
+        networkType = Prelude.Nothing,
         replicationGroupId = pReplicationGroupId_,
         replicationGroupDescription =
           pReplicationGroupDescription_
@@ -1093,6 +1095,13 @@ createReplicationGroup_logDeliveryConfigurations = Lens.lens (\CreateReplication
 createReplicationGroup_atRestEncryptionEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
 createReplicationGroup_atRestEncryptionEnabled = Lens.lens (\CreateReplicationGroup' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateReplicationGroup' {} a -> s {atRestEncryptionEnabled = a} :: CreateReplicationGroup)
 
+-- | The network type you choose when creating a replication group, either
+-- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
+-- version 6.2 onward or Memcached engine version 1.6.6 on all instances
+-- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+createReplicationGroup_ipDiscovery :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe IpDiscovery)
+createReplicationGroup_ipDiscovery = Lens.lens (\CreateReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@CreateReplicationGroup' {} a -> s {ipDiscovery = a} :: CreateReplicationGroup)
+
 -- | An optional parameter that specifies the number of replica nodes in each
 -- node group (shard). Valid values are 0 to 5.
 createReplicationGroup_replicasPerNodeGroup :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
@@ -1154,17 +1163,6 @@ createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -1393,6 +1391,13 @@ createReplicationGroup_multiAZEnabled = Lens.lens (\CreateReplicationGroup' {mul
 createReplicationGroup_engineVersion :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_engineVersion = Lens.lens (\CreateReplicationGroup' {engineVersion} -> engineVersion) (\s@CreateReplicationGroup' {} a -> s {engineVersion = a} :: CreateReplicationGroup)
 
+-- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+createReplicationGroup_networkType :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe NetworkType)
+createReplicationGroup_networkType = Lens.lens (\CreateReplicationGroup' {networkType} -> networkType) (\s@CreateReplicationGroup' {} a -> s {networkType = a} :: CreateReplicationGroup)
+
 -- | The replication group identifier. This parameter is stored as a
 -- lowercase string.
 --
@@ -1414,8 +1419,8 @@ instance Core.AWSRequest CreateReplicationGroup where
   type
     AWSResponse CreateReplicationGroup =
       CreateReplicationGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateReplicationGroupResult"
@@ -1441,6 +1446,7 @@ instance Prelude.Hashable CreateReplicationGroup where
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` logDeliveryConfigurations
       `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` replicasPerNodeGroup
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
@@ -1460,6 +1466,7 @@ instance Prelude.Hashable CreateReplicationGroup where
       `Prelude.hashWithSalt` numNodeGroups
       `Prelude.hashWithSalt` multiAZEnabled
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` replicationGroupDescription
 
@@ -1478,6 +1485,7 @@ instance Prelude.NFData CreateReplicationGroup where
       `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf replicasPerNodeGroup
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
@@ -1486,14 +1494,18 @@ instance Prelude.NFData CreateReplicationGroup where
       `Prelude.seq` Prelude.rnf snapshotWindow
       `Prelude.seq` Prelude.rnf
         snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf numCacheClusters
+      `Prelude.seq` Prelude.rnf
+        numCacheClusters
       `Prelude.seq` Prelude.rnf
         cacheSecurityGroupNames
-      `Prelude.seq` Prelude.rnf userGroupIds
+      `Prelude.seq` Prelude.rnf
+        userGroupIds
       `Prelude.seq` Prelude.rnf
         automaticFailoverEnabled
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf
+        kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        engine
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf
@@ -1506,6 +1518,8 @@ instance Prelude.NFData CreateReplicationGroup where
         multiAZEnabled
       `Prelude.seq` Prelude.rnf
         engineVersion
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         replicationGroupId
       `Prelude.seq` Prelude.rnf
@@ -1555,6 +1569,7 @@ instance Core.ToQuery CreateReplicationGroup where
             ),
         "AtRestEncryptionEnabled"
           Core.=: atRestEncryptionEnabled,
+        "IpDiscovery" Core.=: ipDiscovery,
         "ReplicasPerNodeGroup" Core.=: replicasPerNodeGroup,
         "CacheNodeType" Core.=: cacheNodeType,
         "CacheParameterGroupName"
@@ -1592,6 +1607,7 @@ instance Core.ToQuery CreateReplicationGroup where
         "NumNodeGroups" Core.=: numNodeGroups,
         "MultiAZEnabled" Core.=: multiAZEnabled,
         "EngineVersion" Core.=: engineVersion,
+        "NetworkType" Core.=: networkType,
         "ReplicationGroupId" Core.=: replicationGroupId,
         "ReplicationGroupDescription"
           Core.=: replicationGroupDescription

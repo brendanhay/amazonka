@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.CacheEngineVersion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides all of the details about a particular cache engine version.

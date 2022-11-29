@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.NodeGroupMember where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.Endpoint
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single node within a node group (shard).

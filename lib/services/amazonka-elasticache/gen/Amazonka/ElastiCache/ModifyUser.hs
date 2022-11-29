@@ -30,6 +30,7 @@ module Amazonka.ElastiCache.ModifyUser
     modifyUser_accessString,
     modifyUser_passwords,
     modifyUser_appendAccessString,
+    modifyUser_authenticationMode,
     modifyUser_noPasswordRequired,
     modifyUser_userId,
 
@@ -51,8 +52,8 @@ module Amazonka.ElastiCache.ModifyUser
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,6 +66,8 @@ data ModifyUser = ModifyUser'
     passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Adds additional user permissions to the access string.
     appendAccessString :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how to authenticate the user.
+    authenticationMode :: Prelude.Maybe AuthenticationMode,
     -- | Indicates no password is required for the user.
     noPasswordRequired :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user.
@@ -86,6 +89,8 @@ data ModifyUser = ModifyUser'
 --
 -- 'appendAccessString', 'modifyUser_appendAccessString' - Adds additional user permissions to the access string.
 --
+-- 'authenticationMode', 'modifyUser_authenticationMode' - Specifies how to authenticate the user.
+--
 -- 'noPasswordRequired', 'modifyUser_noPasswordRequired' - Indicates no password is required for the user.
 --
 -- 'userId', 'modifyUser_userId' - The ID of the user.
@@ -98,6 +103,7 @@ newModifyUser pUserId_ =
     { accessString = Prelude.Nothing,
       passwords = Prelude.Nothing,
       appendAccessString = Prelude.Nothing,
+      authenticationMode = Prelude.Nothing,
       noPasswordRequired = Prelude.Nothing,
       userId = pUserId_
     }
@@ -114,6 +120,10 @@ modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@Mod
 modifyUser_appendAccessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_appendAccessString = Lens.lens (\ModifyUser' {appendAccessString} -> appendAccessString) (\s@ModifyUser' {} a -> s {appendAccessString = a} :: ModifyUser)
 
+-- | Specifies how to authenticate the user.
+modifyUser_authenticationMode :: Lens.Lens' ModifyUser (Prelude.Maybe AuthenticationMode)
+modifyUser_authenticationMode = Lens.lens (\ModifyUser' {authenticationMode} -> authenticationMode) (\s@ModifyUser' {} a -> s {authenticationMode = a} :: ModifyUser)
+
 -- | Indicates no password is required for the user.
 modifyUser_noPasswordRequired :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Bool)
 modifyUser_noPasswordRequired = Lens.lens (\ModifyUser' {noPasswordRequired} -> noPasswordRequired) (\s@ModifyUser' {} a -> s {noPasswordRequired = a} :: ModifyUser)
@@ -124,8 +134,8 @@ modifyUser_userId = Lens.lens (\ModifyUser' {userId} -> userId) (\s@ModifyUser' 
 
 instance Core.AWSRequest ModifyUser where
   type AWSResponse ModifyUser = User
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyUserResult"
@@ -136,6 +146,7 @@ instance Prelude.Hashable ModifyUser where
     _salt `Prelude.hashWithSalt` accessString
       `Prelude.hashWithSalt` passwords
       `Prelude.hashWithSalt` appendAccessString
+      `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` noPasswordRequired
       `Prelude.hashWithSalt` userId
 
@@ -144,6 +155,7 @@ instance Prelude.NFData ModifyUser where
     Prelude.rnf accessString
       `Prelude.seq` Prelude.rnf passwords
       `Prelude.seq` Prelude.rnf appendAccessString
+      `Prelude.seq` Prelude.rnf authenticationMode
       `Prelude.seq` Prelude.rnf noPasswordRequired
       `Prelude.seq` Prelude.rnf userId
 
@@ -165,6 +177,7 @@ instance Core.ToQuery ModifyUser where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> passwords),
         "AppendAccessString" Core.=: appendAccessString,
+        "AuthenticationMode" Core.=: authenticationMode,
         "NoPasswordRequired" Core.=: noPasswordRequired,
         "UserId" Core.=: userId
       ]

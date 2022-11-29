@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.DestinationDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
 import Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration details of either a CloudWatch Logs destination or Kinesis

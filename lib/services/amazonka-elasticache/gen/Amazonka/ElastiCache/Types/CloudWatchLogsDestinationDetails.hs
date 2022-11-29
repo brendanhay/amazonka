@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of the CloudWatch Logs destination.

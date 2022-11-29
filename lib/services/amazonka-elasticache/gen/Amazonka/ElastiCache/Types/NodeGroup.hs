@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.NodeGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.Endpoint
 import Amazonka.ElastiCache.Types.NodeGroupMember
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a collection of cache nodes in a replication group. One node

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -109,6 +110,12 @@ module Amazonka.ElastiCache.Types
     -- * DestinationType
     DestinationType (..),
 
+    -- * InputAuthenticationType
+    InputAuthenticationType (..),
+
+    -- * IpDiscovery
+    IpDiscovery (..),
+
     -- * LogDeliveryConfigurationStatus
     LogDeliveryConfigurationStatus (..),
 
@@ -120,6 +127,9 @@ module Amazonka.ElastiCache.Types
 
     -- * MultiAZStatus
     MultiAZStatus (..),
+
+    -- * NetworkType
+    NetworkType (..),
 
     -- * NodeUpdateInitiatedBy
     NodeUpdateInitiatedBy (..),
@@ -157,6 +167,12 @@ module Amazonka.ElastiCache.Types
     authentication_type,
     authentication_passwordCount,
 
+    -- * AuthenticationMode
+    AuthenticationMode (..),
+    newAuthenticationMode,
+    authenticationMode_passwords,
+    authenticationMode_type,
+
     -- * AvailabilityZone
     AvailabilityZone (..),
     newAvailabilityZone,
@@ -175,6 +191,7 @@ module Amazonka.ElastiCache.Types
     cacheCluster_logDeliveryConfigurations,
     cacheCluster_cacheClusterCreateTime,
     cacheCluster_atRestEncryptionEnabled,
+    cacheCluster_ipDiscovery,
     cacheCluster_numCacheNodes,
     cacheCluster_notificationConfiguration,
     cacheCluster_cacheNodeType,
@@ -193,6 +210,7 @@ module Amazonka.ElastiCache.Types
     cacheCluster_authTokenLastModifiedDate,
     cacheCluster_replicationGroupId,
     cacheCluster_engineVersion,
+    cacheCluster_networkType,
     cacheCluster_cacheSecurityGroups,
     cacheCluster_configurationEndpoint,
 
@@ -292,6 +310,7 @@ module Amazonka.ElastiCache.Types
     cacheSubnetGroup_arn,
     cacheSubnetGroup_cacheSubnetGroupDescription,
     cacheSubnetGroup_vpcId,
+    cacheSubnetGroup_supportedNetworkTypes,
 
     -- * CloudWatchLogsDestinationDetails
     CloudWatchLogsDestinationDetails (..),
@@ -554,6 +573,7 @@ module Amazonka.ElastiCache.Types
     replicationGroup_snapshottingClusterId,
     replicationGroup_logDeliveryConfigurations,
     replicationGroup_atRestEncryptionEnabled,
+    replicationGroup_ipDiscovery,
     replicationGroup_status,
     replicationGroup_cacheNodeType,
     replicationGroup_description,
@@ -568,6 +588,7 @@ module Amazonka.ElastiCache.Types
     replicationGroup_authTokenLastModifiedDate,
     replicationGroup_replicationGroupId,
     replicationGroup_memberClusters,
+    replicationGroup_networkType,
     replicationGroup_multiAZ,
     replicationGroup_configurationEndpoint,
 
@@ -686,6 +707,7 @@ module Amazonka.ElastiCache.Types
     subnet_subnetOutpost,
     subnet_subnetIdentifier,
     subnet_subnetAvailabilityZone,
+    subnet_supportedNetworkTypes,
 
     -- * SubnetOutpost
     SubnetOutpost (..),
@@ -785,10 +807,12 @@ module Amazonka.ElastiCache.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AZMode
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStrategyType
 import Amazonka.ElastiCache.Types.Authentication
+import Amazonka.ElastiCache.Types.AuthenticationMode
 import Amazonka.ElastiCache.Types.AuthenticationType
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.AvailabilityZone
@@ -820,6 +844,8 @@ import Amazonka.ElastiCache.Types.GlobalNodeGroup
 import Amazonka.ElastiCache.Types.GlobalReplicationGroup
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
+import Amazonka.ElastiCache.Types.InputAuthenticationType
+import Amazonka.ElastiCache.Types.IpDiscovery
 import Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails
 import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
 import Amazonka.ElastiCache.Types.LogDeliveryConfigurationRequest
@@ -827,6 +853,7 @@ import Amazonka.ElastiCache.Types.LogDeliveryConfigurationStatus
 import Amazonka.ElastiCache.Types.LogFormat
 import Amazonka.ElastiCache.Types.LogType
 import Amazonka.ElastiCache.Types.MultiAZStatus
+import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.NodeGroup
 import Amazonka.ElastiCache.Types.NodeGroupConfiguration
 import Amazonka.ElastiCache.Types.NodeGroupMember
@@ -873,7 +900,6 @@ import Amazonka.ElastiCache.Types.User
 import Amazonka.ElastiCache.Types.UserGroup
 import Amazonka.ElastiCache.Types.UserGroupPendingChanges
 import Amazonka.ElastiCache.Types.UserGroupsUpdateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -881,28 +907,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "ElastiCache",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "elasticache",
-      Core._serviceSigningName = "elasticache",
-      Core._serviceVersion = "2015-02-02",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseXMLError "ElastiCache",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ElastiCache",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "elasticache",
+      Core.signingName = "elasticache",
+      Core.version = "2015-02-02",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "ElastiCache",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

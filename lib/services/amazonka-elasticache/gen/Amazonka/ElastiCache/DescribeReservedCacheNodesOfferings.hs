@@ -49,8 +49,8 @@ module Amazonka.ElastiCache.DescribeReservedCacheNodesOfferings
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +89,8 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     --
     --     -   Current generation:
     --
-    --         __M6g node types:__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward)
+    --         __M6g node types__ (available only for Redis engine version
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
     --         @cache.m6g.16xlarge@
@@ -106,7 +106,7 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
     --         __T4g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+    --         5.0.6 onward and Memcached engine version 1.5.16 onward):
     --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
     --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -134,17 +134,6 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
-    --
-    -- -   Memory optimized with data tiering:
-    --
-    --     -   Current generation:
-    --
-    --         __R6gd node types__ (available only for Redis engine version 6.2
-    --         onward).
-    --
-    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
-    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
-    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -248,8 +237,8 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 --
 --     -   Current generation:
 --
---         __M6g node types:__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward)
+--         __M6g node types__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -265,7 +254,7 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
 --         __T4g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -293,17 +282,6 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -416,8 +394,8 @@ describeReservedCacheNodesOfferings_offeringType = Lens.lens (\DescribeReservedC
 --
 --     -   Current generation:
 --
---         __M6g node types:__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward)
+--         __M6g node types__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -433,7 +411,7 @@ describeReservedCacheNodesOfferings_offeringType = Lens.lens (\DescribeReservedC
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
 --         __T4g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -461,17 +439,6 @@ describeReservedCacheNodesOfferings_offeringType = Lens.lens (\DescribeReservedC
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -575,8 +542,8 @@ instance
   type
     AWSResponse DescribeReservedCacheNodesOfferings =
       DescribeReservedCacheNodesOfferingsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeReservedCacheNodesOfferingsResult"

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ElastiCache.Types.AuthenticationType
+-- Module      : Amazonka.ElastiCache.Types.NetworkType
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ElastiCache.Types.AuthenticationType
-  ( AuthenticationType
+module Amazonka.ElastiCache.Types.NetworkType
+  ( NetworkType
       ( ..,
-        AuthenticationType_Iam,
-        AuthenticationType_No_password,
-        AuthenticationType_Password
+        NetworkType_Dual_stack,
+        NetworkType_Ipv4,
+        NetworkType_Ipv6
       ),
   )
 where
@@ -30,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype AuthenticationType = AuthenticationType'
-  { fromAuthenticationType ::
+newtype NetworkType = NetworkType'
+  { fromNetworkType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +58,18 @@ newtype AuthenticationType = AuthenticationType'
       Core.ToXML
     )
 
-pattern AuthenticationType_Iam :: AuthenticationType
-pattern AuthenticationType_Iam = AuthenticationType' "iam"
+pattern NetworkType_Dual_stack :: NetworkType
+pattern NetworkType_Dual_stack = NetworkType' "dual_stack"
 
-pattern AuthenticationType_No_password :: AuthenticationType
-pattern AuthenticationType_No_password = AuthenticationType' "no-password"
+pattern NetworkType_Ipv4 :: NetworkType
+pattern NetworkType_Ipv4 = NetworkType' "ipv4"
 
-pattern AuthenticationType_Password :: AuthenticationType
-pattern AuthenticationType_Password = AuthenticationType' "password"
+pattern NetworkType_Ipv6 :: NetworkType
+pattern NetworkType_Ipv6 = NetworkType' "ipv6"
 
 {-# COMPLETE
-  AuthenticationType_Iam,
-  AuthenticationType_No_password,
-  AuthenticationType_Password,
-  AuthenticationType'
+  NetworkType_Dual_stack,
+  NetworkType_Ipv4,
+  NetworkType_Ipv6,
+  NetworkType'
   #-}

@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.CacheNodeTypeSpecificParameter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificValue
 import Amazonka.ElastiCache.Types.ChangeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A parameter that has a different value for each cache node type it is

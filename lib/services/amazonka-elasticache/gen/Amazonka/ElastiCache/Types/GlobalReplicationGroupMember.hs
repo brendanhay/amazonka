@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.GlobalReplicationGroupMember where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A member of a Global datastore. It contains the Replication Group Id,

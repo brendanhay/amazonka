@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.CacheSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a cluster\'s status within a particular cache security group.

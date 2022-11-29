@@ -20,11 +20,11 @@
 module Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.DestinationDetails
 import Amazonka.ElastiCache.Types.DestinationType
 import Amazonka.ElastiCache.Types.LogFormat
 import Amazonka.ElastiCache.Types.LogType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log delivery configurations being modified

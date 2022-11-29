@@ -44,6 +44,7 @@ module Amazonka.ElastiCache.ModifyReplicationGroup
     modifyReplicationGroup_authToken,
     modifyReplicationGroup_snapshottingClusterId,
     modifyReplicationGroup_logDeliveryConfigurations,
+    modifyReplicationGroup_ipDiscovery,
     modifyReplicationGroup_cacheNodeType,
     modifyReplicationGroup_cacheParameterGroupName,
     modifyReplicationGroup_notificationTopicArn,
@@ -72,8 +73,8 @@ module Amazonka.ElastiCache.ModifyReplicationGroup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,6 +136,11 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     snapshottingClusterId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | The network type you choose when modifying a cluster, either @ipv4@ |
+    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+    -- onward or Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | A valid cache node type that you want to scale this replication group
     -- to.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
@@ -305,6 +311,11 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- 'logDeliveryConfigurations', 'modifyReplicationGroup_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
+-- 'ipDiscovery', 'modifyReplicationGroup_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'cacheNodeType', 'modifyReplicationGroup_cacheNodeType' - A valid cache node type that you want to scale this replication group
 -- to.
 --
@@ -426,6 +437,7 @@ newModifyReplicationGroup pReplicationGroupId_ =
       authToken = Prelude.Nothing,
       snapshottingClusterId = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
       notificationTopicArn = Prelude.Nothing,
@@ -514,6 +526,13 @@ modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGrou
 -- | Specifies the destination, format and type of the logs.
 modifyReplicationGroup_logDeliveryConfigurations :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [LogDeliveryConfigurationRequest])
 modifyReplicationGroup_logDeliveryConfigurations = Lens.lens (\ModifyReplicationGroup' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyReplicationGroup' {} a -> s {logDeliveryConfigurations = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+modifyReplicationGroup_ipDiscovery :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe IpDiscovery)
+modifyReplicationGroup_ipDiscovery = Lens.lens (\ModifyReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@ModifyReplicationGroup' {} a -> s {ipDiscovery = a} :: ModifyReplicationGroup)
 
 -- | A valid cache node type that you want to scale this replication group
 -- to.
@@ -657,8 +676,8 @@ instance Core.AWSRequest ModifyReplicationGroup where
   type
     AWSResponse ModifyReplicationGroup =
       ModifyReplicationGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyReplicationGroupResult"
@@ -680,6 +699,7 @@ instance Prelude.Hashable ModifyReplicationGroup where
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` snapshottingClusterId
       `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` notificationTopicArn
@@ -708,17 +728,21 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf snapshottingClusterId
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
       `Prelude.seq` Prelude.rnf notificationTopicArn
       `Prelude.seq` Prelude.rnf snapshotWindow
       `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf replicationGroupDescription
+      `Prelude.seq` Prelude.rnf
+        replicationGroupDescription
       `Prelude.seq` Prelude.rnf authTokenUpdateStrategy
-      `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf
+        cacheSecurityGroupNames
       `Prelude.seq` Prelude.rnf
         automaticFailoverEnabled
-      `Prelude.seq` Prelude.rnf userGroupIdsToRemove
+      `Prelude.seq` Prelude.rnf
+        userGroupIdsToRemove
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf nodeGroupId
@@ -768,6 +792,7 @@ instance Core.ToQuery ModifyReplicationGroup where
             ( Core.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
+        "IpDiscovery" Core.=: ipDiscovery,
         "CacheNodeType" Core.=: cacheNodeType,
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName,

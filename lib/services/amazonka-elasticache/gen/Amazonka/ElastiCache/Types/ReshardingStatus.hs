@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.ReshardingStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.SlotMigration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of an online resharding operation.

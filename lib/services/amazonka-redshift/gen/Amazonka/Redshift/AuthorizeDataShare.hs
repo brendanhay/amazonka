@@ -47,7 +47,7 @@ module Amazonka.Redshift.AuthorizeDataShare
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -106,8 +106,8 @@ authorizeDataShare_consumerIdentifier = Lens.lens (\AuthorizeDataShare' {consume
 
 instance Core.AWSRequest AuthorizeDataShare where
   type AWSResponse AuthorizeDataShare = DataShare
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "AuthorizeDataShareResult"

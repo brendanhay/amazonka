@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Redshift.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.DescribeClusterSnapshots
 import Amazonka.Redshift.DescribeClusters
@@ -27,10 +28,10 @@ import Amazonka.Redshift.Types
 newClusterAvailable :: Core.Wait DescribeClusters
 newClusterAvailable =
   Core.Wait
-    { Core._waitName = "ClusterAvailable",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ClusterAvailable",
+      Core.attempts = 30,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -65,10 +66,10 @@ newClusterAvailable =
 newClusterRestored :: Core.Wait DescribeClusters
 newClusterRestored =
   Core.Wait
-    { Core._waitName = "ClusterRestored",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ClusterRestored",
+      Core.attempts = 30,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "completed"
             Core.AcceptSuccess
@@ -104,10 +105,10 @@ newClusterRestored =
 newClusterDeleted :: Core.Wait DescribeClusters
 newClusterDeleted =
   Core.Wait
-    { Core._waitName = "ClusterDeleted",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ClusterDeleted",
+      Core.attempts = 30,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchError
             "ClusterNotFound"
             Core.AcceptSuccess,
@@ -144,10 +145,10 @@ newClusterDeleted =
 newSnapshotAvailable :: Core.Wait DescribeClusterSnapshots
 newSnapshotAvailable =
   Core.Wait
-    { Core._waitName = "SnapshotAvailable",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "SnapshotAvailable",
+      Core.attempts = 20,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess

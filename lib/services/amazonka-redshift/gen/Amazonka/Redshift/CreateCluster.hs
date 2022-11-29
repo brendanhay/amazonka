@@ -80,7 +80,7 @@ module Amazonka.Redshift.CreateCluster
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -110,8 +110,10 @@ data CreateCluster = CreateCluster'
     -- | The Elastic IP (EIP) address for the cluster.
     --
     -- Constraints: The cluster must be provisioned in EC2-VPC and
-    -- publicly-accessible through an Internet gateway. For more information
-    -- about provisioning clusters in EC2-VPC, go to
+    -- publicly-accessible through an Internet gateway. Don\'t specify the
+    -- Elastic IP address for a publicly accessible cluster with availability
+    -- zone relocation turned on. For more information about provisioning
+    -- clusters in EC2-VPC, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
     -- in the Amazon Redshift Cluster Management Guide.
     elasticIp :: Prelude.Maybe Prelude.Text,
@@ -395,8 +397,10 @@ data CreateCluster = CreateCluster'
 -- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
--- publicly-accessible through an Internet gateway. For more information
--- about provisioning clusters in EC2-VPC, go to
+-- publicly-accessible through an Internet gateway. Don\'t specify the
+-- Elastic IP address for a publicly accessible cluster with availability
+-- zone relocation turned on. For more information about provisioning
+-- clusters in EC2-VPC, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
 -- in the Amazon Redshift Cluster Management Guide.
 --
@@ -726,8 +730,10 @@ createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroup
 -- | The Elastic IP (EIP) address for the cluster.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
--- publicly-accessible through an Internet gateway. For more information
--- about provisioning clusters in EC2-VPC, go to
+-- publicly-accessible through an Internet gateway. Don\'t specify the
+-- Elastic IP address for a publicly accessible cluster with availability
+-- zone relocation turned on. For more information about provisioning
+-- clusters in EC2-VPC, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
 -- in the Amazon Redshift Cluster Management Guide.
 createCluster_elasticIp :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
@@ -1046,8 +1052,8 @@ instance Core.AWSRequest CreateCluster where
   type
     AWSResponse CreateCluster =
       CreateClusterResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateClusterResult"

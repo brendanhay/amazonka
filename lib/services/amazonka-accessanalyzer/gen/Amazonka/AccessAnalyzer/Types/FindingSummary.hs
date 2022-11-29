@@ -23,7 +23,7 @@ import Amazonka.AccessAnalyzer.Types.FindingSource
 import Amazonka.AccessAnalyzer.Types.FindingStatus
 import Amazonka.AccessAnalyzer.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a finding.

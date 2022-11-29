@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.EbsSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon EBS volume

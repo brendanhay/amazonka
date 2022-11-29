@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.AnalyzedResource where
 import Amazonka.AccessAnalyzer.Types.FindingStatus
 import Amazonka.AccessAnalyzer.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the analyzed resource.

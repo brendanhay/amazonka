@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration where
 import Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration
 import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an Amazon S3 access point or multi-region access

@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.JobError where
 
 import Amazonka.AccessAnalyzer.Types.JobErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details about the policy generation error.

@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @PublicAccessBlock@ configuration to apply to this Amazon S3 bucket.

@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.KmsGrantConfiguration where
 import Amazonka.AccessAnalyzer.Types.KmsGrantConstraints
 import Amazonka.AccessAnalyzer.Types.KmsGrantOperation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A proposed grant configuration for a KMS key. For more information, see

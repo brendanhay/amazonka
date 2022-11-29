@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.InlineArchiveRule where
 
 import Amazonka.AccessAnalyzer.Types.Criterion
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An criterion statement in an archive rule. Each archive rule may have

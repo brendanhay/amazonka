@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.Span where
 
 import Amazonka.AccessAnalyzer.Types.Position
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A span in a policy. The span consists of a start position (inclusive)

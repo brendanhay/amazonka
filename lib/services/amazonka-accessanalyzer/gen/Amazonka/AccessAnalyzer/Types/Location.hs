@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.Location where
 import Amazonka.AccessAnalyzer.Types.PathElement
 import Amazonka.AccessAnalyzer.Types.Span
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A location in a policy that is represented as a path through the JSON

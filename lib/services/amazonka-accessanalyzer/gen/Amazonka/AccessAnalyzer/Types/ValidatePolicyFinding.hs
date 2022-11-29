@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.ValidatePolicyFinding where
 import Amazonka.AccessAnalyzer.Types.Location
 import Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A finding in a policy. Each finding is an actionable recommendation that

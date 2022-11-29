@@ -31,7 +31,7 @@ import Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
 import Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration
 import Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Access control configuration structures for your resource. You specify

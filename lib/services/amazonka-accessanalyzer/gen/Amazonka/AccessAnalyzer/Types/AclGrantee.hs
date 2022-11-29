@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.AclGrantee where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | You specify each grantee as a type-value pair using one of these types.

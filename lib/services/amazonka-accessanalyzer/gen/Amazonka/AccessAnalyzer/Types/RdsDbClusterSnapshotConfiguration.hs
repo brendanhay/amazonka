@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotConfiguration where
 
 import Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotAttributeValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon RDS DB cluster

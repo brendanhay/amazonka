@@ -23,7 +23,7 @@ import Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
 import Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
 import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Proposed access control configuration for an Amazon S3 bucket. You can

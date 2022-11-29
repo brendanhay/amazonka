@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.AccountQuota where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a quota for an Amazon Web Services account, for example the

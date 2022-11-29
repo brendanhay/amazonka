@@ -20,10 +20,10 @@
 module Amazonka.DMS.Types.CollectorResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CollectorHealthCheck
 import Amazonka.DMS.Types.InventoryData
 import Amazonka.DMS.Types.VersionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Fleet Advisor collector.

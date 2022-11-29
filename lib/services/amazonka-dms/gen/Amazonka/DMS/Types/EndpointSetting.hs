@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.EndpointSetting where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.EndpointSettingTypeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Endpoint settings.

@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.PostgreSQLSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.PluginNameValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a PostgreSQL endpoint.

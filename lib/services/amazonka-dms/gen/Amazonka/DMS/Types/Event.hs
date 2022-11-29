@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.Event where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.SourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an identifiable significant activity that affects a

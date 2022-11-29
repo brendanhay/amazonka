@@ -40,6 +40,7 @@ module Amazonka.DMS.ModifyReplicationInstance
     modifyReplicationInstance_preferredMaintenanceWindow,
     modifyReplicationInstance_replicationInstanceClass,
     modifyReplicationInstance_engineVersion,
+    modifyReplicationInstance_networkType,
     modifyReplicationInstance_multiAZ,
     modifyReplicationInstance_replicationInstanceArn,
 
@@ -54,8 +55,8 @@ module Amazonka.DMS.ModifyReplicationInstance
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,6 +128,10 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     -- When modifying a major engine version of an instance, also set
     -- @AllowMajorVersionUpgrade@ to @true@.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The type of IP address protocol used by a replication instance, such as
+    -- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+    -- IPv6 only is not yet supported.
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
@@ -207,6 +212,10 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 -- When modifying a major engine version of an instance, also set
 -- @AllowMajorVersionUpgrade@ to @true@.
 --
+-- 'networkType', 'modifyReplicationInstance_networkType' - The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+--
 -- 'multiAZ', 'modifyReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -228,6 +237,7 @@ newModifyReplicationInstance pReplicationInstanceArn_ =
       preferredMaintenanceWindow = Prelude.Nothing,
       replicationInstanceClass = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
       replicationInstanceArn =
         pReplicationInstanceArn_
@@ -314,6 +324,12 @@ modifyReplicationInstance_replicationInstanceClass = Lens.lens (\ModifyReplicati
 modifyReplicationInstance_engineVersion :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
 modifyReplicationInstance_engineVersion = Lens.lens (\ModifyReplicationInstance' {engineVersion} -> engineVersion) (\s@ModifyReplicationInstance' {} a -> s {engineVersion = a} :: ModifyReplicationInstance)
 
+-- | The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+modifyReplicationInstance_networkType :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
+modifyReplicationInstance_networkType = Lens.lens (\ModifyReplicationInstance' {networkType} -> networkType) (\s@ModifyReplicationInstance' {} a -> s {networkType = a} :: ModifyReplicationInstance)
+
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -328,8 +344,8 @@ instance Core.AWSRequest ModifyReplicationInstance where
   type
     AWSResponse ModifyReplicationInstance =
       ModifyReplicationInstanceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -350,6 +366,7 @@ instance Prelude.Hashable ModifyReplicationInstance where
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` replicationInstanceClass
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` replicationInstanceArn
 
@@ -364,6 +381,7 @@ instance Prelude.NFData ModifyReplicationInstance where
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf replicationInstanceClass
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
@@ -403,6 +421,7 @@ instance Core.ToJSON ModifyReplicationInstance where
             ("ReplicationInstanceClass" Core..=)
               Prelude.<$> replicationInstanceClass,
             ("EngineVersion" Core..=) Prelude.<$> engineVersion,
+            ("NetworkType" Core..=) Prelude.<$> networkType,
             ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             Prelude.Just
               ( "ReplicationInstanceArn"

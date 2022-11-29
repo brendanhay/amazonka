@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.ResourcePendingMaintenanceActions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.PendingMaintenanceAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an DMS resource and any pending actions for it.

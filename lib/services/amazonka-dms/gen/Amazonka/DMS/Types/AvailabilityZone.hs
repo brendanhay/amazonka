@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of an Availability Zone for use during database migration.

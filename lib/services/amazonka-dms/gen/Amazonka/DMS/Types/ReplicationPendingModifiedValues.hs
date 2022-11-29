@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.ReplicationPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the values of pending modifications to a
@@ -42,6 +42,10 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
     replicationInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The engine version number of the replication instance.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The type of IP address protocol used by a replication instance, such as
+    -- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+    -- IPv6 only is not yet supported.
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
@@ -69,6 +73,10 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
 --
 -- 'engineVersion', 'replicationPendingModifiedValues_engineVersion' - The engine version number of the replication instance.
 --
+-- 'networkType', 'replicationPendingModifiedValues_networkType' - The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+--
 -- 'multiAZ', 'replicationPendingModifiedValues_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -81,6 +89,7 @@ newReplicationPendingModifiedValues =
       replicationInstanceClass =
         Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       multiAZ = Prelude.Nothing
     }
 
@@ -102,6 +111,12 @@ replicationPendingModifiedValues_replicationInstanceClass = Lens.lens (\Replicat
 replicationPendingModifiedValues_engineVersion :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Text)
 replicationPendingModifiedValues_engineVersion = Lens.lens (\ReplicationPendingModifiedValues' {engineVersion} -> engineVersion) (\s@ReplicationPendingModifiedValues' {} a -> s {engineVersion = a} :: ReplicationPendingModifiedValues)
 
+-- | The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+replicationPendingModifiedValues_networkType :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Text)
+replicationPendingModifiedValues_networkType = Lens.lens (\ReplicationPendingModifiedValues' {networkType} -> networkType) (\s@ReplicationPendingModifiedValues' {} a -> s {networkType = a} :: ReplicationPendingModifiedValues)
+
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -120,6 +135,7 @@ instance
             Prelude.<$> (x Core..:? "AllocatedStorage")
             Prelude.<*> (x Core..:? "ReplicationInstanceClass")
             Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Core..:? "NetworkType")
             Prelude.<*> (x Core..:? "MultiAZ")
       )
 
@@ -133,6 +149,7 @@ instance
       _salt `Prelude.hashWithSalt` allocatedStorage
         `Prelude.hashWithSalt` replicationInstanceClass
         `Prelude.hashWithSalt` engineVersion
+        `Prelude.hashWithSalt` networkType
         `Prelude.hashWithSalt` multiAZ
 
 instance
@@ -143,4 +160,5 @@ instance
     Prelude.rnf allocatedStorage
       `Prelude.seq` Prelude.rnf replicationInstanceClass
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf multiAZ

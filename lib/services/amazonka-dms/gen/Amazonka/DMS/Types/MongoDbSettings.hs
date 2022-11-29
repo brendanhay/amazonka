@@ -20,10 +20,10 @@
 module Amazonka.DMS.Types.MongoDbSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.AuthMechanismValue
 import Amazonka.DMS.Types.AuthTypeValue
 import Amazonka.DMS.Types.NestingLevelValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a MongoDB endpoint.

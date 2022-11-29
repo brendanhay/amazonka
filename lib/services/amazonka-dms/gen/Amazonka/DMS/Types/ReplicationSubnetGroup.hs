@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.ReplicationSubnetGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.Subnet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a subnet group in response to a request by the
@@ -38,7 +38,12 @@ data ReplicationSubnetGroup = ReplicationSubnetGroup'
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the replication instance subnet group.
-    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text
+    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The IP addressing protocol supported by the subnet group. This is used
+    -- by a replication instance with values such as IPv4 only or Dual-stack
+    -- that supports both IPv4 and IPv6 addressing. IPv6 only is not yet
+    -- supported.
+    supportedNetworkTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,6 +64,11 @@ data ReplicationSubnetGroup = ReplicationSubnetGroup'
 -- 'vpcId', 'replicationSubnetGroup_vpcId' - The ID of the VPC.
 --
 -- 'replicationSubnetGroupIdentifier', 'replicationSubnetGroup_replicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.
+--
+-- 'supportedNetworkTypes', 'replicationSubnetGroup_supportedNetworkTypes' - The IP addressing protocol supported by the subnet group. This is used
+-- by a replication instance with values such as IPv4 only or Dual-stack
+-- that supports both IPv4 and IPv6 addressing. IPv6 only is not yet
+-- supported.
 newReplicationSubnetGroup ::
   ReplicationSubnetGroup
 newReplicationSubnetGroup =
@@ -68,7 +78,8 @@ newReplicationSubnetGroup =
       subnets = Prelude.Nothing,
       replicationSubnetGroupDescription = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      replicationSubnetGroupIdentifier = Prelude.Nothing
+      replicationSubnetGroupIdentifier = Prelude.Nothing,
+      supportedNetworkTypes = Prelude.Nothing
     }
 
 -- | The status of the subnet group.
@@ -91,6 +102,13 @@ replicationSubnetGroup_vpcId = Lens.lens (\ReplicationSubnetGroup' {vpcId} -> vp
 replicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
 replicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\ReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@ReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: ReplicationSubnetGroup)
 
+-- | The IP addressing protocol supported by the subnet group. This is used
+-- by a replication instance with values such as IPv4 only or Dual-stack
+-- that supports both IPv4 and IPv6 addressing. IPv6 only is not yet
+-- supported.
+replicationSubnetGroup_supportedNetworkTypes :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe [Prelude.Text])
+replicationSubnetGroup_supportedNetworkTypes = Lens.lens (\ReplicationSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@ReplicationSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: ReplicationSubnetGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ReplicationSubnetGroup where
   parseJSON =
     Core.withObject
@@ -102,6 +120,9 @@ instance Core.FromJSON ReplicationSubnetGroup where
             Prelude.<*> (x Core..:? "ReplicationSubnetGroupDescription")
             Prelude.<*> (x Core..:? "VpcId")
             Prelude.<*> (x Core..:? "ReplicationSubnetGroupIdentifier")
+            Prelude.<*> ( x Core..:? "SupportedNetworkTypes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable ReplicationSubnetGroup where
@@ -111,6 +132,7 @@ instance Prelude.Hashable ReplicationSubnetGroup where
       `Prelude.hashWithSalt` replicationSubnetGroupDescription
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
+      `Prelude.hashWithSalt` supportedNetworkTypes
 
 instance Prelude.NFData ReplicationSubnetGroup where
   rnf ReplicationSubnetGroup' {..} =
@@ -119,3 +141,4 @@ instance Prelude.NFData ReplicationSubnetGroup where
       `Prelude.seq` Prelude.rnf replicationSubnetGroupDescription
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
+      `Prelude.seq` Prelude.rnf supportedNetworkTypes

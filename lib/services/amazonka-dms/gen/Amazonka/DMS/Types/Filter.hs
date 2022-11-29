@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.Filter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the name and value of a filter object. This filter is used to

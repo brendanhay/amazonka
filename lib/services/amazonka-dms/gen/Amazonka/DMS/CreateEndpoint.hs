@@ -80,8 +80,8 @@ module Amazonka.DMS.CreateEndpoint
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,9 +251,10 @@ data CreateEndpoint = CreateEndpoint'
     -- | The type of engine for the endpoint. Valid values, depending on the
     -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
     -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
-    -- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
-    -- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
-    -- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@,
+    -- @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+    -- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, @\"neptune\"@, and
+    -- @\"babelfish\"@.
     engineName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -429,9 +430,10 @@ data CreateEndpoint = CreateEndpoint'
 -- 'engineName', 'createEndpoint_engineName' - The type of engine for the endpoint. Valid values, depending on the
 -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
 -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
--- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
--- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
--- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@,
+-- @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, @\"neptune\"@, and
+-- @\"babelfish\"@.
 newCreateEndpoint ::
   -- | 'endpointIdentifier'
   Prelude.Text ->
@@ -710,9 +712,10 @@ createEndpoint_endpointType = Lens.lens (\CreateEndpoint' {endpointType} -> endp
 -- | The type of engine for the endpoint. Valid values, depending on the
 -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
 -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
--- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
--- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
--- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@,
+-- @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, @\"neptune\"@, and
+-- @\"babelfish\"@.
 createEndpoint_engineName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_engineName = Lens.lens (\CreateEndpoint' {engineName} -> engineName) (\s@CreateEndpoint' {} a -> s {engineName = a} :: CreateEndpoint)
 
@@ -720,8 +723,8 @@ instance Core.AWSRequest CreateEndpoint where
   type
     AWSResponse CreateEndpoint =
       CreateEndpointResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

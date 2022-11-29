@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.ReplicationTaskAssessmentRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes a premigration assessment run that

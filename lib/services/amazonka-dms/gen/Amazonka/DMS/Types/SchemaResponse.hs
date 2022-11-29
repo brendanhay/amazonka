@@ -20,10 +20,10 @@
 module Amazonka.DMS.Types.SchemaResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.DatabaseShortInfoResponse
 import Amazonka.DMS.Types.SchemaShortInfoResponse
 import Amazonka.DMS.Types.ServerShortInfoResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a schema in a Fleet Advisor collector inventory.

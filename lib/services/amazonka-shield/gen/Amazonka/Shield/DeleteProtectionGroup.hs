@@ -39,7 +39,7 @@ module Amazonka.Shield.DeleteProtectionGroup
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,8 +85,8 @@ instance Core.AWSRequest DeleteProtectionGroup where
   type
     AWSResponse DeleteProtectionGroup =
       DeleteProtectionGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

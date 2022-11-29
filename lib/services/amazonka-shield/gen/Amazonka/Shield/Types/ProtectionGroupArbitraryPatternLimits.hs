@@ -20,7 +20,7 @@
 module Amazonka.Shield.Types.ProtectionGroupArbitraryPatternLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Limits settings on protection groups with arbitrary pattern type.

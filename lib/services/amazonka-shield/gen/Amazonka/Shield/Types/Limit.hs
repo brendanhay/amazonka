@@ -20,7 +20,7 @@
 module Amazonka.Shield.Types.Limit where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how many protections of a given type you can create.

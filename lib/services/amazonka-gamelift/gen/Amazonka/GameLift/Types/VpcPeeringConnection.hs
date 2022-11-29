@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.VpcPeeringConnection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.VpcPeeringConnectionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a peering connection between a VPC on one of your Amazon Web

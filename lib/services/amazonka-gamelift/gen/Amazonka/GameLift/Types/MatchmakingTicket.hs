@@ -20,10 +20,10 @@
 module Amazonka.GameLift.Types.MatchmakingTicket where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.GameSessionConnectionInfo
 import Amazonka.GameLift.Types.MatchmakingConfigurationStatus
 import Amazonka.GameLift.Types.Player
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ticket generated to track the progress of a matchmaking request. Each

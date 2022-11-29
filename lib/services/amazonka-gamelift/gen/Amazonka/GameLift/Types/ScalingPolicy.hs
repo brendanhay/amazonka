@@ -20,6 +20,7 @@
 module Amazonka.GameLift.Types.ScalingPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.ComparisonOperatorType
 import Amazonka.GameLift.Types.LocationUpdateStatus
 import Amazonka.GameLift.Types.MetricName
@@ -27,7 +28,6 @@ import Amazonka.GameLift.Types.PolicyType
 import Amazonka.GameLift.Types.ScalingAdjustmentType
 import Amazonka.GameLift.Types.ScalingStatusType
 import Amazonka.GameLift.Types.TargetConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Rule that controls how a fleet is scaled. Scaling policies are uniquely

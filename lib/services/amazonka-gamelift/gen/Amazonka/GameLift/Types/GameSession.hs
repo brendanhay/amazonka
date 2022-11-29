@@ -20,11 +20,11 @@
 module Amazonka.GameLift.Types.GameSession where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.GameProperty
 import Amazonka.GameLift.Types.GameSessionStatus
 import Amazonka.GameLift.Types.GameSessionStatusReason
 import Amazonka.GameLift.Types.PlayerSessionCreationPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties describing a game session.

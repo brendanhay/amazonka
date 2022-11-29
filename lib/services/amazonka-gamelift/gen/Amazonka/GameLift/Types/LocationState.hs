@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.LocationState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.FleetStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A fleet location and its life-cycle state. A location state object might

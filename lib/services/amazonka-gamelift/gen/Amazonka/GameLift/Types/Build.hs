@@ -20,9 +20,9 @@
 module Amazonka.GameLift.Types.Build where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.BuildStatus
 import Amazonka.GameLift.Types.OperatingSystem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties describing a custom game build.

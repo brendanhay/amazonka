@@ -20,10 +20,10 @@
 module Amazonka.GameLift.Types.MatchmakingConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.BackfillMode
 import Amazonka.GameLift.Types.FlexMatchMode
 import Amazonka.GameLift.Types.GameProperty
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Guidelines for use with FlexMatch to match players into games. All

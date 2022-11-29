@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.Event where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.EventCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Log entry describing an event that involves GameLift resources (such as

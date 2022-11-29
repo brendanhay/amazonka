@@ -20,9 +20,9 @@
 module Amazonka.GameLift.Types.InstanceAccess where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.InstanceCredentials
 import Amazonka.GameLift.Types.OperatingSystem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required to remotely connect to a fleet instance. Access is

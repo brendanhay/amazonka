@@ -20,9 +20,9 @@
 module Amazonka.GameLift.Types.FleetCapacity where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.EC2InstanceCounts
 import Amazonka.GameLift.Types.EC2InstanceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Current resource capacity settings in a specified fleet or location. The

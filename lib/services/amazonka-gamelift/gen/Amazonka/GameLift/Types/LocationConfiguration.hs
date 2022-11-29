@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.LocationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A remote location where a multi-location fleet can deploy EC2 instances

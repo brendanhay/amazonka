@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.GameSessionQueueDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A fleet or alias designated in a game session queue. Queues fulfill

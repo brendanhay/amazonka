@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.PlayerSession where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.PlayerSessionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a player session. Player sessions are created either for a

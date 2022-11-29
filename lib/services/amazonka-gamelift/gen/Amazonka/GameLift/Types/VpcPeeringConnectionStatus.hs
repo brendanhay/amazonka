@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.VpcPeeringConnectionStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents status information for a VPC peering connection. Status is

@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.PriorityConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.PriorityType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom prioritization settings for use by a game session queue when

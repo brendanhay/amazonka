@@ -20,6 +20,7 @@
 module Amazonka.GameLift.Types.FleetAttributes where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.CertificateConfiguration
 import Amazonka.GameLift.Types.EC2InstanceType
 import Amazonka.GameLift.Types.FleetAction
@@ -28,7 +29,6 @@ import Amazonka.GameLift.Types.FleetType
 import Amazonka.GameLift.Types.OperatingSystem
 import Amazonka.GameLift.Types.ProtectionPolicy
 import Amazonka.GameLift.Types.ResourceCreationLimitPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a GameLift fleet of game hosting resources.

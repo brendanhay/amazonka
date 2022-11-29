@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.Player where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.AttributeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a player in matchmaking. When starting a matchmaking request,

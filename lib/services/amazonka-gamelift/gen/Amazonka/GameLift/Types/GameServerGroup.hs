@@ -20,12 +20,12 @@
 module Amazonka.GameLift.Types.GameServerGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.BalancingStrategy
 import Amazonka.GameLift.Types.GameServerGroupAction
 import Amazonka.GameLift.Types.GameServerGroupStatus
 import Amazonka.GameLift.Types.GameServerProtectionPolicy
 import Amazonka.GameLift.Types.InstanceDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __This data type is used with the GameLift FleetIQ and game server

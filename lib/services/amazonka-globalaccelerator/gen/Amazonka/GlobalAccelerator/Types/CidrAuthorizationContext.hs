@@ -20,7 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.CidrAuthorizationContext where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides authorization for Amazon to bring a specific IP address range

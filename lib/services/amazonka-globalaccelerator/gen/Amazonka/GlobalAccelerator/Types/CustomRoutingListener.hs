@@ -20,8 +20,8 @@
 module Amazonka.GlobalAccelerator.Types.CustomRoutingListener where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.PortRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for a listener for a custom routing accelerator.

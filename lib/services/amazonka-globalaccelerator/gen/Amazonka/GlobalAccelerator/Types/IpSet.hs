@@ -20,8 +20,8 @@
 module Amazonka.GlobalAccelerator.Types.IpSet where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.IpAddressFamily
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for the set of IP addresses for an accelerator.

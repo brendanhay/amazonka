@@ -20,8 +20,8 @@
 module Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a custom routing accelerator, sets the port range and protocol for

@@ -20,8 +20,8 @@
 module Amazonka.GlobalAccelerator.Types.EndpointDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.HealthState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for an endpoint. Each endpoint group can include one or

@@ -20,9 +20,9 @@
 module Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription
 import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for the endpoint group for a custom routing accelerator.

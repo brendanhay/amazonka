@@ -20,7 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.PortRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for a range of ports for a listener.

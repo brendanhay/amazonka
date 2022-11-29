@@ -20,10 +20,10 @@
 module Amazonka.GlobalAccelerator.Types.EndpointGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.EndpointDescription
 import Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
 import Amazonka.GlobalAccelerator.Types.PortOverride
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for the endpoint group. An Amazon Web Services Region can

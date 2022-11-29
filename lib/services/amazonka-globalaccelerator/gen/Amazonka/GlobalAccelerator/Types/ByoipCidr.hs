@@ -20,9 +20,9 @@
 module Amazonka.GlobalAccelerator.Types.ByoipCidr where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
 import Amazonka.GlobalAccelerator.Types.ByoipCidrState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an IP address range that is provisioned for use with

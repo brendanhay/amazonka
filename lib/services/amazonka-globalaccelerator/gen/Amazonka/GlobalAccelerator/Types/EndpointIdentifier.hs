@@ -20,7 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.EndpointIdentifier where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for an endpoint. Specifies information about the endpoint

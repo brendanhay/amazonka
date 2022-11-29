@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.Link where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.Bandwidth
 import Amazonka.NetworkManager.Types.LinkState
 import Amazonka.NetworkManager.Types.Tag

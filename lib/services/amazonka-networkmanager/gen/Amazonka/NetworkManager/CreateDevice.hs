@@ -51,7 +51,7 @@ module Amazonka.NetworkManager.CreateDevice
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,8 +196,8 @@ createDevice_globalNetworkId = Lens.lens (\CreateDevice' {globalNetworkId} -> gl
 
 instance Core.AWSRequest CreateDevice where
   type AWSResponse CreateDevice = CreateDeviceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

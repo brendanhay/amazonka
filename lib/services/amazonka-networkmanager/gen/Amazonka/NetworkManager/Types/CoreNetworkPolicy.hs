@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.CoreNetworkPolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.ChangeSetState
 import Amazonka.NetworkManager.Types.CoreNetworkPolicyAlias
 import Amazonka.NetworkManager.Types.CoreNetworkPolicyError

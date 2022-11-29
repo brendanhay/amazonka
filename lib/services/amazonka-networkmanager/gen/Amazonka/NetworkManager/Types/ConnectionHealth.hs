@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.ConnectionHealth where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.ConnectionStatus
 import Amazonka.NetworkManager.Types.ConnectionType
 import qualified Amazonka.Prelude as Prelude

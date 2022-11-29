@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.RealtimeEndpointInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types.RealtimeEndpointStatus
 import qualified Amazonka.Prelude as Prelude
 

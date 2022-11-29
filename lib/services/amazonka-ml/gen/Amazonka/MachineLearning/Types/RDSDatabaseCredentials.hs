@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.RDSDatabaseCredentials where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The database credentials to connect to a database on an RDS DB instance.

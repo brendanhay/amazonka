@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.RDSDataSpec where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types.RDSDatabase
 import Amazonka.MachineLearning.Types.RDSDatabaseCredentials
 import qualified Amazonka.Prelude as Prelude

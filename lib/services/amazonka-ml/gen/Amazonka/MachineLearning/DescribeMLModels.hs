@@ -54,7 +54,7 @@ module Amazonka.MachineLearning.DescribeMLModels
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -368,8 +368,8 @@ instance Core.AWSRequest DescribeMLModels where
   type
     AWSResponse DescribeMLModels =
       DescribeMLModelsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

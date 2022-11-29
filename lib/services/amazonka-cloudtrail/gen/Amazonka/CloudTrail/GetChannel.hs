@@ -24,7 +24,7 @@
 -- services create service-linked channels to get information about
 -- CloudTrail events on your behalf. For more information about
 -- service-linked channels, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html Viewing service-linked channels for CloudTrail by using the CLI.>.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html Viewing service-linked channels for CloudTrail by using the CLI>.
 module Amazonka.CloudTrail.GetChannel
   ( -- * Creating a Request
     GetChannel (..),
@@ -49,7 +49,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,8 +83,8 @@ getChannel_channel = Lens.lens (\GetChannel' {channel} -> channel) (\s@GetChanne
 
 instance Core.AWSRequest GetChannel where
   type AWSResponse GetChannel = GetChannelResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

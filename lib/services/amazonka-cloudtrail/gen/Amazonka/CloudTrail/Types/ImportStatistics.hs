@@ -20,7 +20,7 @@
 module Amazonka.CloudTrail.Types.ImportStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics for the specified @ImportID@. CloudTrail does not

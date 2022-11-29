@@ -50,6 +50,7 @@ library
     Amazonka.CloudTrail.CreateTrail
     Amazonka.CloudTrail.DeleteEventDataStore
     Amazonka.CloudTrail.DeleteTrail
+    Amazonka.CloudTrail.DeregisterOrganizationDelegatedAdmin
     Amazonka.CloudTrail.DescribeQuery
     Amazonka.CloudTrail.DescribeTrails
     Amazonka.CloudTrail.GetChannel
@@ -72,6 +73,7 @@ library
     Amazonka.CloudTrail.LookupEvents
     Amazonka.CloudTrail.PutEventSelectors
     Amazonka.CloudTrail.PutInsightSelectors
+    Amazonka.CloudTrail.RegisterOrganizationDelegatedAdmin
     Amazonka.CloudTrail.RemoveTags
     Amazonka.CloudTrail.RestoreEventDataStore
     Amazonka.CloudTrail.StartImport

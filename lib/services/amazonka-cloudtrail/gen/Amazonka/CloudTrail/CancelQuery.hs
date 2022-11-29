@@ -47,7 +47,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 data CancelQuery = CancelQuery'
   { -- | The ARN (or the ID suffix of the ARN) of an event data store on which
     -- the specified query is running.
-    eventDataStore :: Prelude.Text,
+    eventDataStore :: Prelude.Maybe Prelude.Text,
     -- | The ID of the query that you want to cancel. The @QueryId@ comes from
     -- the response of a @StartQuery@ operation.
     queryId :: Prelude.Text
@@ -77,20 +77,18 @@ data CancelQuery = CancelQuery'
 -- 'queryId', 'cancelQuery_queryId' - The ID of the query that you want to cancel. The @QueryId@ comes from
 -- the response of a @StartQuery@ operation.
 newCancelQuery ::
-  -- | 'eventDataStore'
-  Prelude.Text ->
   -- | 'queryId'
   Prelude.Text ->
   CancelQuery
-newCancelQuery pEventDataStore_ pQueryId_ =
+newCancelQuery pQueryId_ =
   CancelQuery'
-    { eventDataStore = pEventDataStore_,
+    { eventDataStore = Prelude.Nothing,
       queryId = pQueryId_
     }
 
 -- | The ARN (or the ID suffix of the ARN) of an event data store on which
 -- the specified query is running.
-cancelQuery_eventDataStore :: Lens.Lens' CancelQuery Prelude.Text
+cancelQuery_eventDataStore :: Lens.Lens' CancelQuery (Prelude.Maybe Prelude.Text)
 cancelQuery_eventDataStore = Lens.lens (\CancelQuery' {eventDataStore} -> eventDataStore) (\s@CancelQuery' {} a -> s {eventDataStore = a} :: CancelQuery)
 
 -- | The ID of the query that you want to cancel. The @QueryId@ comes from
@@ -100,8 +98,8 @@ cancelQuery_queryId = Lens.lens (\CancelQuery' {queryId} -> queryId) (\s@CancelQ
 
 instance Core.AWSRequest CancelQuery where
   type AWSResponse CancelQuery = CancelQueryResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,8 +138,8 @@ instance Core.ToJSON CancelQuery where
   toJSON CancelQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EventDataStore" Core..= eventDataStore),
+          [ ("EventDataStore" Core..=)
+              Prelude.<$> eventDataStore,
             Prelude.Just ("QueryId" Core..= queryId)
           ]
       )

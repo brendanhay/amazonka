@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.InsightSelector where
 
 import Amazonka.CloudTrail.Types.InsightType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON string that contains a list of insight types that are logged on a

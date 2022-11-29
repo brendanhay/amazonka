@@ -44,11 +44,17 @@ module Amazonka.CloudTrail
     -- * Errors
     -- $errors
 
+    -- ** DelegatedAdminAccountLimitExceededException
+    _DelegatedAdminAccountLimitExceededException,
+
     -- ** InvalidS3PrefixException
     _InvalidS3PrefixException,
 
     -- ** InvalidTokenException
     _InvalidTokenException,
+
+    -- ** CannotDelegateManagementAccountException
+    _CannotDelegateManagementAccountException,
 
     -- ** EventDataStoreTerminationProtectedException
     _EventDataStoreTerminationProtectedException,
@@ -56,11 +62,17 @@ module Amazonka.CloudTrail
     -- ** CloudTrailARNInvalidException
     _CloudTrailARNInvalidException,
 
+    -- ** AccountRegisteredException
+    _AccountRegisteredException,
+
     -- ** OrganizationNotInAllFeaturesModeException
     _OrganizationNotInAllFeaturesModeException,
 
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
+
+    -- ** NoManagementAccountSLRExistsException
+    _NoManagementAccountSLRExistsException,
 
     -- ** ChannelARNInvalidException
     _ChannelARNInvalidException,
@@ -94,6 +106,9 @@ module Amazonka.CloudTrail
 
     -- ** CloudWatchLogsDeliveryUnavailableException
     _CloudWatchLogsDeliveryUnavailableException,
+
+    -- ** NotOrganizationManagementAccountException
+    _NotOrganizationManagementAccountException,
 
     -- ** ResourceTypeNotSupportedException
     _ResourceTypeNotSupportedException,
@@ -137,6 +152,9 @@ module Amazonka.CloudTrail
     -- ** InvalidEventDataStoreStatusException
     _InvalidEventDataStoreStatusException,
 
+    -- ** AccountNotFoundException
+    _AccountNotFoundException,
+
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
@@ -178,6 +196,9 @@ module Amazonka.CloudTrail
 
     -- ** TrailNotProvidedException
     _TrailNotProvidedException,
+
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
 
     -- ** InsufficientS3BucketPolicyException
     _InsufficientS3BucketPolicyException,
@@ -280,6 +301,12 @@ module Amazonka.CloudTrail
     newDeleteTrail,
     DeleteTrailResponse (DeleteTrailResponse'),
     newDeleteTrailResponse,
+
+    -- ** DeregisterOrganizationDelegatedAdmin
+    DeregisterOrganizationDelegatedAdmin (DeregisterOrganizationDelegatedAdmin'),
+    newDeregisterOrganizationDelegatedAdmin,
+    DeregisterOrganizationDelegatedAdminResponse (DeregisterOrganizationDelegatedAdminResponse'),
+    newDeregisterOrganizationDelegatedAdminResponse,
 
     -- ** DescribeQuery
     DescribeQuery (DescribeQuery'),
@@ -406,6 +433,12 @@ module Amazonka.CloudTrail
     newPutInsightSelectors,
     PutInsightSelectorsResponse (PutInsightSelectorsResponse'),
     newPutInsightSelectorsResponse,
+
+    -- ** RegisterOrganizationDelegatedAdmin
+    RegisterOrganizationDelegatedAdmin (RegisterOrganizationDelegatedAdmin'),
+    newRegisterOrganizationDelegatedAdmin,
+    RegisterOrganizationDelegatedAdminResponse (RegisterOrganizationDelegatedAdminResponse'),
+    newRegisterOrganizationDelegatedAdminResponse,
 
     -- ** RemoveTags
     RemoveTags (RemoveTags'),
@@ -601,6 +634,7 @@ import Amazonka.CloudTrail.CreateEventDataStore
 import Amazonka.CloudTrail.CreateTrail
 import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DeregisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
 import Amazonka.CloudTrail.GetChannel
@@ -623,6 +657,7 @@ import Amazonka.CloudTrail.ListTrails
 import Amazonka.CloudTrail.LookupEvents
 import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
+import Amazonka.CloudTrail.RegisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.RemoveTags
 import Amazonka.CloudTrail.RestoreEventDataStore
 import Amazonka.CloudTrail.StartImport

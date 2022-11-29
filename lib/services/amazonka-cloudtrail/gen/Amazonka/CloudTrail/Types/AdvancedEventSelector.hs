@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.AdvancedEventSelector where
 
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Advanced event selectors let you create fine-grained selectors for the

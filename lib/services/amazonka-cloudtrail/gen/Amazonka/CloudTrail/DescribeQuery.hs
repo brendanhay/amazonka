@@ -50,7 +50,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 data DescribeQuery = DescribeQuery'
   { -- | The ARN (or the ID suffix of the ARN) of an event data store on which
     -- the specified query was run.
-    eventDataStore :: Prelude.Text,
+    eventDataStore :: Prelude.Maybe Prelude.Text,
     -- | The query ID.
     queryId :: Prelude.Text
   }
@@ -78,20 +78,18 @@ data DescribeQuery = DescribeQuery'
 --
 -- 'queryId', 'describeQuery_queryId' - The query ID.
 newDescribeQuery ::
-  -- | 'eventDataStore'
-  Prelude.Text ->
   -- | 'queryId'
   Prelude.Text ->
   DescribeQuery
-newDescribeQuery pEventDataStore_ pQueryId_ =
+newDescribeQuery pQueryId_ =
   DescribeQuery'
-    { eventDataStore = pEventDataStore_,
+    { eventDataStore = Prelude.Nothing,
       queryId = pQueryId_
     }
 
 -- | The ARN (or the ID suffix of the ARN) of an event data store on which
 -- the specified query was run.
-describeQuery_eventDataStore :: Lens.Lens' DescribeQuery Prelude.Text
+describeQuery_eventDataStore :: Lens.Lens' DescribeQuery (Prelude.Maybe Prelude.Text)
 describeQuery_eventDataStore = Lens.lens (\DescribeQuery' {eventDataStore} -> eventDataStore) (\s@DescribeQuery' {} a -> s {eventDataStore = a} :: DescribeQuery)
 
 -- | The query ID.
@@ -102,8 +100,8 @@ instance Core.AWSRequest DescribeQuery where
   type
     AWSResponse DescribeQuery =
       DescribeQueryResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,8 +145,8 @@ instance Core.ToJSON DescribeQuery where
   toJSON DescribeQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EventDataStore" Core..= eventDataStore),
+          [ ("EventDataStore" Core..=)
+              Prelude.<$> eventDataStore,
             Prelude.Just ("QueryId" Core..= queryId)
           ]
       )

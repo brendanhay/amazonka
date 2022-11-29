@@ -22,7 +22,7 @@ module Amazonka.CloudTrail.Types.EventDataStore where
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.EventDataStoreStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A storage lake of event data against which you can run complex SQL-based

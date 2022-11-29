@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -17,12 +18,16 @@ module Amazonka.CloudTrail.Types
     defaultService,
 
     -- * Errors
+    _DelegatedAdminAccountLimitExceededException,
     _InvalidS3PrefixException,
     _InvalidTokenException,
+    _CannotDelegateManagementAccountException,
     _EventDataStoreTerminationProtectedException,
     _CloudTrailARNInvalidException,
+    _AccountRegisteredException,
     _OrganizationNotInAllFeaturesModeException,
     _UnsupportedOperationException,
+    _NoManagementAccountSLRExistsException,
     _ChannelARNInvalidException,
     _TagsLimitExceededException,
     _EventDataStoreHasOngoingImportException,
@@ -34,6 +39,7 @@ module Amazonka.CloudTrail.Types
     _InvalidHomeRegionException,
     _InvalidS3BucketNameException,
     _CloudWatchLogsDeliveryUnavailableException,
+    _NotOrganizationManagementAccountException,
     _ResourceTypeNotSupportedException,
     _InsufficientDependencyServiceAccessPermissionException,
     _ResourceNotFoundException,
@@ -48,6 +54,7 @@ module Amazonka.CloudTrail.Types
     _ChannelNotFoundException,
     _CloudTrailInvalidClientTokenIdException,
     _InvalidEventDataStoreStatusException,
+    _AccountNotFoundException,
     _InvalidNextTokenException,
     _ConflictException,
     _InvalidEventDataStoreCategoryException,
@@ -62,6 +69,7 @@ module Amazonka.CloudTrail.Types
     _InvalidQueryStatementException,
     _InactiveQueryException,
     _TrailNotProvidedException,
+    _AccountNotRegisteredException,
     _InsufficientS3BucketPolicyException,
     _InvalidInsightSelectorsException,
     _KmsException,
@@ -353,7 +361,7 @@ import Amazonka.CloudTrail.Types.Tag
 import Amazonka.CloudTrail.Types.Trail
 import Amazonka.CloudTrail.Types.TrailInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -361,28 +369,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "CloudTrail",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "cloudtrail",
-      Core._serviceSigningName = "cloudtrail",
-      Core._serviceVersion = "2013-11-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "CloudTrail",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CloudTrail",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "cloudtrail",
+      Core.signingName = "cloudtrail",
+      Core.version = "2013-11-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "CloudTrail",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -430,6 +435,14 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | This exception is thrown when the maximum number of CloudTrail delegated
+-- administrators is reached.
+_DelegatedAdminAccountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DelegatedAdminAccountLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "DelegatedAdminAccountLimitExceededException"
+
 -- | This exception is thrown when the provided S3 prefix is not valid.
 _InvalidS3PrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidS3PrefixException =
@@ -443,6 +456,14 @@ _InvalidTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidTokenException"
+
+-- | This exception is thrown when the management account of an organization
+-- is registered as the CloudTrail delegated administrator.
+_CannotDelegateManagementAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotDelegateManagementAccountException =
+  Core._MatchServiceError
+    defaultService
+    "CannotDelegateManagementAccountException"
 
 -- | The event data store cannot be deleted because termination protection is
 -- enabled for it.
@@ -462,6 +483,14 @@ _CloudTrailARNInvalidException =
     defaultService
     "CloudTrailARNInvalidException"
 
+-- | This exception is thrown when the account is already registered as the
+-- CloudTrail delegated administrator.
+_AccountRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountRegisteredException =
+  Core._MatchServiceError
+    defaultService
+    "AccountRegisteredException"
+
 -- | This exception is thrown when Organizations is not configured to support
 -- all features. All features must be enabled in Organizations to support
 -- creating an organization trail or event data store.
@@ -477,6 +506,14 @@ _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
     "UnsupportedOperationException"
+
+-- | This exception is thrown when the management account does not have a
+-- service-linked role.
+_NoManagementAccountSLRExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoManagementAccountSLRExistsException =
+  Core._MatchServiceError
+    defaultService
+    "NoManagementAccountSLRExistsException"
 
 -- | This exception is thrown when the specified value of @ChannelARN@ is not
 -- valid.
@@ -561,6 +598,14 @@ _CloudWatchLogsDeliveryUnavailableException =
   Core._MatchServiceError
     defaultService
     "CloudWatchLogsDeliveryUnavailableException"
+
+-- | This exception is thrown when the account making the request is not the
+-- organization\'s management account.
+_NotOrganizationManagementAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotOrganizationManagementAccountException =
+  Core._MatchServiceError
+    defaultService
+    "NotOrganizationManagementAccountException"
 
 -- | This exception is thrown when the specified resource type is not
 -- supported by CloudTrail.
@@ -673,6 +718,14 @@ _InvalidEventDataStoreStatusException =
   Core._MatchServiceError
     defaultService
     "InvalidEventDataStoreStatusException"
+
+-- | This exception is thrown when when the specified account is not found or
+-- not part of an organization.
+_AccountNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "AccountNotFoundException"
 
 -- | A token that is not valid, or a token that was previously used in a
 -- request with different parameters. This exception is thrown if the token
@@ -794,6 +847,14 @@ _TrailNotProvidedException =
     defaultService
     "TrailNotProvidedException"
 
+-- | This exception is thrown when the specified account is not registered as
+-- the CloudTrail delegated administrator.
+_AccountNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountNotRegisteredException =
+  Core._MatchServiceError
+    defaultService
+    "AccountNotRegisteredException"
+
 -- | This exception is thrown when the policy on the S3 bucket is not
 -- sufficient.
 _InsufficientS3BucketPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -813,7 +874,7 @@ _InvalidInsightSelectorsException =
     "InvalidInsightSelectorsException"
 
 -- | This exception is thrown when there is an issue with the specified KMS
--- key and the trail can’t be updated.
+-- key and the trail or event data store can\'t be updated.
 _KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KmsException =
   Core._MatchServiceError

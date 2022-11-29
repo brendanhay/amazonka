@@ -20,7 +20,7 @@
 module Amazonka.CloudTrail.Types.DataResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 buckets, Lambda functions, or Amazon DynamoDB tables that

@@ -20,7 +20,7 @@
 module Amazonka.CloudTrail.Types.TrailInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a CloudTrail trail, including the trail\'s name, home

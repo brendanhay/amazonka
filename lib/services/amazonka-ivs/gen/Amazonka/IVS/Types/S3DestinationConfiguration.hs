@@ -20,7 +20,7 @@
 module Amazonka.IVS.Types.S3DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that describes an S3 location where recorded videos will

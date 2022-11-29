@@ -20,8 +20,8 @@
 module Amazonka.IVS.Types.ThumbnailConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.RecordingMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a configuration of thumbnails for recorded video.

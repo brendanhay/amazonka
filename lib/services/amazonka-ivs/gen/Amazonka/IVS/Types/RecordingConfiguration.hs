@@ -20,10 +20,10 @@
 module Amazonka.IVS.Types.RecordingConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.DestinationConfiguration
 import Amazonka.IVS.Types.RecordingConfigurationState
 import Amazonka.IVS.Types.ThumbnailConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a configuration to record a channel stream.

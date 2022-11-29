@@ -20,7 +20,7 @@
 module Amazonka.IVS.Types.AudioConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a stream’s audio configuration, as set up by the

@@ -20,9 +20,9 @@
 module Amazonka.IVS.Types.Channel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.ChannelLatencyMode
 import Amazonka.IVS.Types.ChannelType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a channel.

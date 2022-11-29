@@ -20,11 +20,11 @@
 module Amazonka.IVS.Types.StreamSession where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.Channel
 import Amazonka.IVS.Types.IngestConfiguration
 import Amazonka.IVS.Types.RecordingConfiguration
 import Amazonka.IVS.Types.StreamEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object that captures the Amazon IVS configuration that the customer

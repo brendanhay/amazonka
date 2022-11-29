@@ -20,9 +20,9 @@
 module Amazonka.IVS.Types.StreamSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.StreamHealth
 import Amazonka.IVS.Types.StreamState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a stream.

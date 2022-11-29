@@ -20,9 +20,9 @@
 module Amazonka.IVS.Types.IngestConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types.AudioConfiguration
 import Amazonka.IVS.Types.VideoConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying the ingest configuration set up by the broadcaster,

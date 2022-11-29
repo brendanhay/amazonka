@@ -51,7 +51,7 @@ where
 
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,8 +200,8 @@ getResource_identifier = Lens.lens (\GetResource' {identifier} -> identifier) (\
 
 instance Core.AWSRequest GetResource where
   type AWSResponse GetResource = GetResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -61,6 +61,7 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_defaultCharacterSet,
     dbEngineVersion_status,
+    dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_databaseInstallationFilesS3BucketName,
     dbEngineVersion_dbEngineVersionDescription,
@@ -80,7 +81,7 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -211,8 +212,8 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
   type
     AWSResponse ModifyCustomDBEngineVersion =
       DBEngineVersion
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyCustomDBEngineVersionResult"

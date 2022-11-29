@@ -36,6 +36,7 @@ module Amazonka.RDS.ModifyDBInstance
     modifyDBInstance_vpcSecurityGroupIds,
     modifyDBInstance_dbParameterGroupName,
     modifyDBInstance_preferredBackupWindow,
+    modifyDBInstance_storageThroughput,
     modifyDBInstance_backupRetentionPeriod,
     modifyDBInstance_dbInstanceClass,
     modifyDBInstance_copyTagsToSnapshot,
@@ -91,7 +92,7 @@ module Amazonka.RDS.ModifyDBInstance
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -191,6 +192,12 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- -   Must be at least 30 minutes
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the DB instance.
+    --
+    -- This setting applies only to the @gp3@ storage type.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The number of days to retain automated backups. Setting this parameter
     -- to a positive number enables backups. Setting this parameter to 0
     -- disables automated backups.
@@ -574,7 +581,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- deleting the instance, creating a read replica for the instance, and
     -- creating a DB snapshot of the instance.
     --
-    -- Valid values: @standard | gp2 | io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
@@ -907,6 +914,12 @@ data ModifyDBInstance = ModifyDBInstance'
 -- -   Must not conflict with the preferred maintenance window
 --
 -- -   Must be at least 30 minutes
+--
+-- 'storageThroughput', 'modifyDBInstance_storageThroughput' - Specifies the storage throughput value for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
 --
 -- 'backupRetentionPeriod', 'modifyDBInstance_backupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter
 -- to a positive number enables backups. Setting this parameter to 0
@@ -1291,7 +1304,7 @@ data ModifyDBInstance = ModifyDBInstance'
 -- deleting the instance, creating a read replica for the instance, and
 -- creating a DB snapshot of the instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -1535,6 +1548,7 @@ newModifyDBInstance pDBInstanceIdentifier_ =
       vpcSecurityGroupIds = Prelude.Nothing,
       dbParameterGroupName = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
       copyTagsToSnapshot = Prelude.Nothing,
@@ -1679,6 +1693,14 @@ modifyDBInstance_dbParameterGroupName = Lens.lens (\ModifyDBInstance' {dbParamet
 -- -   Must be at least 30 minutes
 modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBInstance' {} a -> s {preferredBackupWindow = a} :: ModifyDBInstance)
+
+-- | Specifies the storage throughput value for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+modifyDBInstance_storageThroughput :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_storageThroughput = Lens.lens (\ModifyDBInstance' {storageThroughput} -> storageThroughput) (\s@ModifyDBInstance' {} a -> s {storageThroughput = a} :: ModifyDBInstance)
 
 -- | The number of days to retain automated backups. Setting this parameter
 -- to a positive number enables backups. Setting this parameter to 0
@@ -2107,7 +2129,7 @@ modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAcc
 -- deleting the instance, creating a read replica for the instance, and
 -- creating a DB snapshot of the instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
@@ -2386,8 +2408,8 @@ instance Core.AWSRequest ModifyDBInstance where
   type
     AWSResponse ModifyDBInstance =
       ModifyDBInstanceResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyDBInstanceResult"
@@ -2404,6 +2426,7 @@ instance Prelude.Hashable ModifyDBInstance where
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` copyTagsToSnapshot
@@ -2455,6 +2478,7 @@ instance Prelude.NFData ModifyDBInstance where
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
@@ -2553,6 +2577,7 @@ instance Core.ToQuery ModifyDBInstance where
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "StorageThroughput" Core.=: storageThroughput,
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "DBInstanceClass" Core.=: dbInstanceClass,

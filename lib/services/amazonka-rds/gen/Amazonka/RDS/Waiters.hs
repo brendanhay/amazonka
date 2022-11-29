@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.RDS.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.DescribeDBClusterSnapshots
 import Amazonka.RDS.DescribeDBClusters
@@ -29,10 +30,10 @@ import Amazonka.RDS.Types
 newDBClusterDeleted :: Core.Wait DescribeDBClusters
 newDBClusterDeleted =
   Core.Wait
-    { Core._waitName = "DBClusterDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBClusterDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -101,11 +102,10 @@ newDBClusterDeleted =
 newDBClusterSnapshotDeleted :: Core.Wait DescribeDBClusterSnapshots
 newDBClusterSnapshotDeleted =
   Core.Wait
-    { Core._waitName =
-        "DBClusterSnapshotDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBClusterSnapshotDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -174,11 +174,10 @@ newDBClusterSnapshotDeleted =
 newDBClusterSnapshotAvailable :: Core.Wait DescribeDBClusterSnapshots
 newDBClusterSnapshotAvailable =
   Core.Wait
-    { Core._waitName =
-        "DBClusterSnapshotAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBClusterSnapshotAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -264,10 +263,10 @@ newDBClusterSnapshotAvailable =
 newDBInstanceAvailable :: Core.Wait DescribeDBInstances
 newDBInstanceAvailable =
   Core.Wait
-    { Core._waitName = "DBInstanceAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBInstanceAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -353,10 +352,10 @@ newDBInstanceAvailable =
 newDBSnapshotCompleted :: Core.Wait DescribeDBSnapshots
 newDBSnapshotCompleted =
   Core.Wait
-    { Core._waitName = "DBSnapshotCompleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "DBSnapshotCompleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchError
             "DBSnapshotNotFound"
             Core.AcceptSuccess,
@@ -380,10 +379,10 @@ newDBSnapshotCompleted =
 newDBSnapshotAvailable :: Core.Wait DescribeDBSnapshots
 newDBSnapshotAvailable =
   Core.Wait
-    { Core._waitName = "DBSnapshotAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBSnapshotAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -469,10 +468,10 @@ newDBSnapshotAvailable =
 newDBInstanceDeleted :: Core.Wait DescribeDBInstances
 newDBInstanceDeleted =
   Core.Wait
-    { Core._waitName = "DBInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBInstanceDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -541,10 +540,10 @@ newDBInstanceDeleted =
 newDBClusterAvailable :: Core.Wait DescribeDBClusters
 newDBClusterAvailable =
   Core.Wait
-    { Core._waitName = "DBClusterAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBClusterAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -630,10 +629,10 @@ newDBClusterAvailable =
 newDBSnapshotDeleted :: Core.Wait DescribeDBSnapshots
 newDBSnapshotDeleted =
   Core.Wait
-    { Core._waitName = "DBSnapshotDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBSnapshotDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess

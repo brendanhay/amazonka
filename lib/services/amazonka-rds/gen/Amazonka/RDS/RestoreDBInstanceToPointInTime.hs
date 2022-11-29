@@ -48,6 +48,7 @@ module Amazonka.RDS.RestoreDBInstanceToPointInTime
     restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier,
     restoreDBInstanceToPointInTime_dbParameterGroupName,
     restoreDBInstanceToPointInTime_backupTarget,
+    restoreDBInstanceToPointInTime_storageThroughput,
     restoreDBInstanceToPointInTime_dbInstanceClass,
     restoreDBInstanceToPointInTime_restoreTime,
     restoreDBInstanceToPointInTime_sourceDbiResourceId,
@@ -90,7 +91,7 @@ module Amazonka.RDS.RestoreDBInstanceToPointInTime
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -155,6 +156,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide/.
     backupTarget :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the DB instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The compute and memory capacity of the Amazon RDS DB instance, for
     -- example db.m4.large. Not all DB instance classes are available in all
     -- Amazon Web Services Regions, or for all database engines. For the full
@@ -262,10 +267,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the DB instance.
     --
-    -- Valid values: @standard | gp2 | io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
+    -- If you specify @io1@ or @gp3@, you must also include a value for the
+    -- @Iops@ parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
@@ -503,6 +508,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
 --
+-- 'storageThroughput', 'restoreDBInstanceToPointInTime_storageThroughput' - Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+--
 -- 'dbInstanceClass', 'restoreDBInstanceToPointInTime_dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for
 -- example db.m4.large. Not all DB instance classes are available in all
 -- Amazon Web Services Regions, or for all database engines. For the full
@@ -610,10 +619,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- 'storageType', 'restoreDBInstanceToPointInTime_storageType' - Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -799,6 +808,7 @@ newRestoreDBInstanceToPointInTime
           Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
+        storageThroughput = Prelude.Nothing,
         dbInstanceClass = Prelude.Nothing,
         restoreTime = Prelude.Nothing,
         sourceDbiResourceId = Prelude.Nothing,
@@ -905,6 +915,12 @@ restoreDBInstanceToPointInTime_dbParameterGroupName = Lens.lens (\RestoreDBInsta
 -- in the /Amazon RDS User Guide/.
 restoreDBInstanceToPointInTime_backupTarget :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBInstanceToPointInTime_backupTarget = Lens.lens (\RestoreDBInstanceToPointInTime' {backupTarget} -> backupTarget) (\s@RestoreDBInstanceToPointInTime' {} a -> s {backupTarget = a} :: RestoreDBInstanceToPointInTime)
+
+-- | Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+restoreDBInstanceToPointInTime_storageThroughput :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBInstanceToPointInTime_storageThroughput = Lens.lens (\RestoreDBInstanceToPointInTime' {storageThroughput} -> storageThroughput) (\s@RestoreDBInstanceToPointInTime' {} a -> s {storageThroughput = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The compute and memory capacity of the Amazon RDS DB instance, for
 -- example db.m4.large. Not all DB instance classes are available in all
@@ -1039,10 +1055,10 @@ restoreDBInstanceToPointInTime_publiclyAccessible = Lens.lens (\RestoreDBInstanc
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 restoreDBInstanceToPointInTime_storageType :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
@@ -1254,8 +1270,8 @@ instance
   type
     AWSResponse RestoreDBInstanceToPointInTime =
       RestoreDBInstanceToPointInTimeResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceToPointInTimeResult"
@@ -1279,6 +1295,7 @@ instance
         `Prelude.hashWithSalt` sourceDBInstanceIdentifier
         `Prelude.hashWithSalt` dbParameterGroupName
         `Prelude.hashWithSalt` backupTarget
+        `Prelude.hashWithSalt` storageThroughput
         `Prelude.hashWithSalt` dbInstanceClass
         `Prelude.hashWithSalt` restoreTime
         `Prelude.hashWithSalt` sourceDbiResourceId
@@ -1322,6 +1339,7 @@ instance
       `Prelude.seq` Prelude.rnf sourceDBInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf backupTarget
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf restoreTime
       `Prelude.seq` Prelude.rnf sourceDbiResourceId
@@ -1333,9 +1351,11 @@ instance
       `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf tdeCredentialPassword
+      `Prelude.seq` Prelude.rnf
+        tdeCredentialPassword
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        publiclyAccessible
       `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
@@ -1402,6 +1422,7 @@ instance Core.ToQuery RestoreDBInstanceToPointInTime where
           Core.=: sourceDBInstanceIdentifier,
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "BackupTarget" Core.=: backupTarget,
+        "StorageThroughput" Core.=: storageThroughput,
         "DBInstanceClass" Core.=: dbInstanceClass,
         "RestoreTime" Core.=: restoreTime,
         "SourceDbiResourceId" Core.=: sourceDbiResourceId,

@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.ServerlessV2ScalingConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the scaling configuration of an Aurora Serverless v2 DB

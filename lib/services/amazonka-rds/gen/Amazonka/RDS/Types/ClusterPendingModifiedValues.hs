@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.ClusterPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.PendingCloudwatchLogsExports
 
@@ -30,14 +30,24 @@ import Amazonka.RDS.Types.PendingCloudwatchLogsExports
 --
 -- /See:/ 'newClusterPendingModifiedValues' smart constructor.
 data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
-  { -- | The DBClusterIdentifier value for the DB cluster.
+  { -- | The number of days for which automatic DB snapshots are retained.
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The DBClusterIdentifier value for the DB cluster.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports,
     -- | The master credentials for the DB cluster.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The allocated storage size in gibibytes (GiB) for all database engines
+    -- except Amazon Aurora. For Aurora, @AllocatedStorage@ always returns 1,
+    -- because Aurora DB cluster storage size isn\'t fixed, but instead
+    -- automatically adjusts as needed.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether mapping of Amazon Web Services Identity
     -- and Access Management (IAM) accounts to database accounts is enabled.
     iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Provisioned IOPS (I\/O operations per second) value. This setting is
+    -- only for non-Aurora Multi-AZ DB clusters.
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text
   }
@@ -51,29 +61,46 @@ data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'backupRetentionPeriod', 'clusterPendingModifiedValues_backupRetentionPeriod' - The number of days for which automatic DB snapshots are retained.
+--
 -- 'dbClusterIdentifier', 'clusterPendingModifiedValues_dbClusterIdentifier' - The DBClusterIdentifier value for the DB cluster.
 --
 -- 'pendingCloudwatchLogsExports', 'clusterPendingModifiedValues_pendingCloudwatchLogsExports' - Undocumented member.
 --
 -- 'masterUserPassword', 'clusterPendingModifiedValues_masterUserPassword' - The master credentials for the DB cluster.
 --
+-- 'allocatedStorage', 'clusterPendingModifiedValues_allocatedStorage' - The allocated storage size in gibibytes (GiB) for all database engines
+-- except Amazon Aurora. For Aurora, @AllocatedStorage@ always returns 1,
+-- because Aurora DB cluster storage size isn\'t fixed, but instead
+-- automatically adjusts as needed.
+--
 -- 'iAMDatabaseAuthenticationEnabled', 'clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled' - A value that indicates whether mapping of Amazon Web Services Identity
 -- and Access Management (IAM) accounts to database accounts is enabled.
+--
+-- 'iops', 'clusterPendingModifiedValues_iops' - The Provisioned IOPS (I\/O operations per second) value. This setting is
+-- only for non-Aurora Multi-AZ DB clusters.
 --
 -- 'engineVersion', 'clusterPendingModifiedValues_engineVersion' - The database engine version.
 newClusterPendingModifiedValues ::
   ClusterPendingModifiedValues
 newClusterPendingModifiedValues =
   ClusterPendingModifiedValues'
-    { dbClusterIdentifier =
+    { backupRetentionPeriod =
         Prelude.Nothing,
+      dbClusterIdentifier = Prelude.Nothing,
       pendingCloudwatchLogsExports =
         Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
       iAMDatabaseAuthenticationEnabled =
         Prelude.Nothing,
+      iops = Prelude.Nothing,
       engineVersion = Prelude.Nothing
     }
+
+-- | The number of days for which automatic DB snapshots are retained.
+clusterPendingModifiedValues_backupRetentionPeriod :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
+clusterPendingModifiedValues_backupRetentionPeriod = Lens.lens (\ClusterPendingModifiedValues' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ClusterPendingModifiedValues' {} a -> s {backupRetentionPeriod = a} :: ClusterPendingModifiedValues)
 
 -- | The DBClusterIdentifier value for the DB cluster.
 clusterPendingModifiedValues_dbClusterIdentifier :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -87,10 +114,22 @@ clusterPendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\ClusterP
 clusterPendingModifiedValues_masterUserPassword :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 clusterPendingModifiedValues_masterUserPassword = Lens.lens (\ClusterPendingModifiedValues' {masterUserPassword} -> masterUserPassword) (\s@ClusterPendingModifiedValues' {} a -> s {masterUserPassword = a} :: ClusterPendingModifiedValues)
 
+-- | The allocated storage size in gibibytes (GiB) for all database engines
+-- except Amazon Aurora. For Aurora, @AllocatedStorage@ always returns 1,
+-- because Aurora DB cluster storage size isn\'t fixed, but instead
+-- automatically adjusts as needed.
+clusterPendingModifiedValues_allocatedStorage :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
+clusterPendingModifiedValues_allocatedStorage = Lens.lens (\ClusterPendingModifiedValues' {allocatedStorage} -> allocatedStorage) (\s@ClusterPendingModifiedValues' {} a -> s {allocatedStorage = a} :: ClusterPendingModifiedValues)
+
 -- | A value that indicates whether mapping of Amazon Web Services Identity
 -- and Access Management (IAM) accounts to database accounts is enabled.
 clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
 clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled = Lens.lens (\ClusterPendingModifiedValues' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@ClusterPendingModifiedValues' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: ClusterPendingModifiedValues)
+
+-- | The Provisioned IOPS (I\/O operations per second) value. This setting is
+-- only for non-Aurora Multi-AZ DB clusters.
+clusterPendingModifiedValues_iops :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
+clusterPendingModifiedValues_iops = Lens.lens (\ClusterPendingModifiedValues' {iops} -> iops) (\s@ClusterPendingModifiedValues' {} a -> s {iops = a} :: ClusterPendingModifiedValues)
 
 -- | The database engine version.
 clusterPendingModifiedValues_engineVersion :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -99,10 +138,13 @@ clusterPendingModifiedValues_engineVersion = Lens.lens (\ClusterPendingModifiedV
 instance Core.FromXML ClusterPendingModifiedValues where
   parseXML x =
     ClusterPendingModifiedValues'
-      Prelude.<$> (x Core..@? "DBClusterIdentifier")
+      Prelude.<$> (x Core..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Core..@? "DBClusterIdentifier")
       Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
       Prelude.<*> (x Core..@? "MasterUserPassword")
+      Prelude.<*> (x Core..@? "AllocatedStorage")
       Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Core..@? "Iops")
       Prelude.<*> (x Core..@? "EngineVersion")
 
 instance
@@ -110,16 +152,22 @@ instance
     ClusterPendingModifiedValues
   where
   hashWithSalt _salt ClusterPendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` pendingCloudwatchLogsExports
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData ClusterPendingModifiedValues where
   rnf ClusterPendingModifiedValues' {..} =
-    Prelude.rnf dbClusterIdentifier
+    Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf allocatedStorage
       `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf engineVersion

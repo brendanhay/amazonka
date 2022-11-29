@@ -53,11 +53,14 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
     restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds,
     restoreDBInstanceFromDBSnapshot_dbParameterGroupName,
     restoreDBInstanceFromDBSnapshot_backupTarget,
+    restoreDBInstanceFromDBSnapshot_storageThroughput,
     restoreDBInstanceFromDBSnapshot_dbInstanceClass,
     restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot,
     restoreDBInstanceFromDBSnapshot_domainIAMRoleName,
+    restoreDBInstanceFromDBSnapshot_dbClusterSnapshotIdentifier,
     restoreDBInstanceFromDBSnapshot_dbSubnetGroupName,
     restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade,
+    restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier,
     restoreDBInstanceFromDBSnapshot_domain,
     restoreDBInstanceFromDBSnapshot_optionGroupName,
     restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication,
@@ -79,7 +82,6 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
     restoreDBInstanceFromDBSnapshot_licenseModel,
     restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures,
     restoreDBInstanceFromDBSnapshot_dbInstanceIdentifier,
-    restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier,
 
     -- * Destructuring the Response
     RestoreDBInstanceFromDBSnapshotResponse (..),
@@ -92,7 +94,7 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -141,6 +143,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide/.
     backupTarget :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the DB instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The compute and memory capacity of the Amazon RDS DB instance, for
     -- example db.m4.large. Not all DB instance classes are available in all
     -- Amazon Web Services Regions, or for all database engines. For the full
@@ -169,6 +175,31 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- This setting doesn\'t apply to RDS Custom.
     domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to
+    -- restore from.
+    --
+    -- For more information on Multi-AZ DB clusters, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing Multi-AZ DB cluster
+    --     snapshot.
+    --
+    -- -   Can\'t be specified when @DBSnapshotIdentifier@ is specified.
+    --
+    -- -   Must be specified when @DBSnapshotIdentifier@ isn\'t specified.
+    --
+    -- -   If you are restoring from a shared manual Multi-AZ DB cluster
+    --     snapshot, the @DBClusterSnapshotIdentifier@ must be the ARN of the
+    --     shared snapshot.
+    --
+    -- -   Can\'t be the identifier of an Aurora DB cluster snapshot.
+    --
+    -- -   Can\'t be the identifier of an RDS for PostgreSQL Multi-AZ DB
+    --     cluster snapshot.
+    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The DB subnet group name to use for the new instance.
     --
     -- Constraints: If supplied, must match the name of an existing
@@ -182,6 +213,20 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- If you restore an RDS Custom DB instance, you must disable this
     -- parameter.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier for the DB snapshot to restore from.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing DBSnapshot.
+    --
+    -- -   Can\'t be specified when @DBClusterSnapshotIdentifier@ is specified.
+    --
+    -- -   Must be specified when @DBClusterSnapshotIdentifier@ isn\'t
+    --     specified.
+    --
+    -- -   If you are restoring from a shared manual DB snapshot, the
+    --     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
+    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specify the Active Directory directory ID to restore the DB instance in.
     -- The domain\/ must be created prior to this operation. Currently, you can
     -- create only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
@@ -243,10 +288,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the DB instance.
     --
-    -- Valid values: @standard | gp2 | io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
+    -- If you specify @io1@ or @gp3@, you must also include a value for the
+    -- @Iops@ parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
@@ -335,7 +380,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- The provisioned IOPS value must follow the requirements for your
     -- database engine. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
     -- in the /Amazon RDS User Guide./
     --
     -- Constraints: Must be an integer greater than 1000.
@@ -412,16 +457,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-snapshot-id@
-    dbInstanceIdentifier :: Prelude.Text,
-    -- | The identifier for the DB snapshot to restore from.
-    --
-    -- Constraints:
-    --
-    -- -   Must match the identifier of an existing DBSnapshot.
-    --
-    -- -   If you are restoring from a shared manual DB snapshot, the
-    --     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
-    dbSnapshotIdentifier :: Prelude.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -473,6 +509,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
 --
+-- 'storageThroughput', 'restoreDBInstanceFromDBSnapshot_storageThroughput' - Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+--
 -- 'dbInstanceClass', 'restoreDBInstanceFromDBSnapshot_dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for
 -- example db.m4.large. Not all DB instance classes are available in all
 -- Amazon Web Services Regions, or for all database engines. For the full
@@ -501,6 +541,31 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
+-- 'dbClusterSnapshotIdentifier', 'restoreDBInstanceFromDBSnapshot_dbClusterSnapshotIdentifier' - The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to
+-- restore from.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing Multi-AZ DB cluster
+--     snapshot.
+--
+-- -   Can\'t be specified when @DBSnapshotIdentifier@ is specified.
+--
+-- -   Must be specified when @DBSnapshotIdentifier@ isn\'t specified.
+--
+-- -   If you are restoring from a shared manual Multi-AZ DB cluster
+--     snapshot, the @DBClusterSnapshotIdentifier@ must be the ARN of the
+--     shared snapshot.
+--
+-- -   Can\'t be the identifier of an Aurora DB cluster snapshot.
+--
+-- -   Can\'t be the identifier of an RDS for PostgreSQL Multi-AZ DB
+--     cluster snapshot.
+--
 -- 'dbSubnetGroupName', 'restoreDBInstanceFromDBSnapshot_dbSubnetGroupName' - The DB subnet group name to use for the new instance.
 --
 -- Constraints: If supplied, must match the name of an existing
@@ -513,6 +578,20 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- If you restore an RDS Custom DB instance, you must disable this
 -- parameter.
+--
+-- 'dbSnapshotIdentifier', 'restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier' - The identifier for the DB snapshot to restore from.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBSnapshot.
+--
+-- -   Can\'t be specified when @DBClusterSnapshotIdentifier@ is specified.
+--
+-- -   Must be specified when @DBClusterSnapshotIdentifier@ isn\'t
+--     specified.
+--
+-- -   If you are restoring from a shared manual DB snapshot, the
+--     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
 --
 -- 'domain', 'restoreDBInstanceFromDBSnapshot_domain' - Specify the Active Directory directory ID to restore the DB instance in.
 -- The domain\/ must be created prior to this operation. Currently, you can
@@ -575,10 +654,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'storageType', 'restoreDBInstanceFromDBSnapshot_storageType' - Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -667,7 +746,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- The provisioned IOPS value must follow the requirements for your
 -- database engine. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide./
 --
 -- Constraints: Must be an integer greater than 1000.
@@ -744,24 +823,12 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
---
--- 'dbSnapshotIdentifier', 'restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier' - The identifier for the DB snapshot to restore from.
---
--- Constraints:
---
--- -   Must match the identifier of an existing DBSnapshot.
---
--- -   If you are restoring from a shared manual DB snapshot, the
---     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
 newRestoreDBInstanceFromDBSnapshot ::
   -- | 'dbInstanceIdentifier'
   Prelude.Text ->
-  -- | 'dbSnapshotIdentifier'
-  Prelude.Text ->
   RestoreDBInstanceFromDBSnapshot
 newRestoreDBInstanceFromDBSnapshot
-  pDBInstanceIdentifier_
-  pDBSnapshotIdentifier_ =
+  pDBInstanceIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
       { tags =
           Prelude.Nothing,
@@ -769,11 +836,15 @@ newRestoreDBInstanceFromDBSnapshot
         vpcSecurityGroupIds = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
+        storageThroughput = Prelude.Nothing,
         dbInstanceClass = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
+        dbClusterSnapshotIdentifier =
+          Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
         autoMinorVersionUpgrade = Prelude.Nothing,
+        dbSnapshotIdentifier = Prelude.Nothing,
         domain = Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
         enableIAMDatabaseAuthentication =
@@ -798,9 +869,7 @@ newRestoreDBInstanceFromDBSnapshot
         useDefaultProcessorFeatures =
           Prelude.Nothing,
         dbInstanceIdentifier =
-          pDBInstanceIdentifier_,
-        dbSnapshotIdentifier =
-          pDBSnapshotIdentifier_
+          pDBInstanceIdentifier_
       }
 
 -- | Undocumented member.
@@ -853,6 +922,12 @@ restoreDBInstanceFromDBSnapshot_dbParameterGroupName = Lens.lens (\RestoreDBInst
 restoreDBInstanceFromDBSnapshot_backupTarget :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_backupTarget = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {backupTarget} -> backupTarget) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {backupTarget = a} :: RestoreDBInstanceFromDBSnapshot)
 
+-- | Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+restoreDBInstanceFromDBSnapshot_storageThroughput :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromDBSnapshot_storageThroughput = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {storageThroughput} -> storageThroughput) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {storageThroughput = a} :: RestoreDBInstanceFromDBSnapshot)
+
 -- | The compute and memory capacity of the Amazon RDS DB instance, for
 -- example db.m4.large. Not all DB instance classes are available in all
 -- Amazon Web Services Regions, or for all database engines. For the full
@@ -887,6 +962,33 @@ restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot = Lens.lens (\RestoreDBInstan
 restoreDBInstanceFromDBSnapshot_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {domainIAMRoleName = a} :: RestoreDBInstanceFromDBSnapshot)
 
+-- | The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to
+-- restore from.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing Multi-AZ DB cluster
+--     snapshot.
+--
+-- -   Can\'t be specified when @DBSnapshotIdentifier@ is specified.
+--
+-- -   Must be specified when @DBSnapshotIdentifier@ isn\'t specified.
+--
+-- -   If you are restoring from a shared manual Multi-AZ DB cluster
+--     snapshot, the @DBClusterSnapshotIdentifier@ must be the ARN of the
+--     shared snapshot.
+--
+-- -   Can\'t be the identifier of an Aurora DB cluster snapshot.
+--
+-- -   Can\'t be the identifier of an RDS for PostgreSQL Multi-AZ DB
+--     cluster snapshot.
+restoreDBInstanceFromDBSnapshot_dbClusterSnapshotIdentifier :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_dbClusterSnapshotIdentifier = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbClusterSnapshotIdentifier = a} :: RestoreDBInstanceFromDBSnapshot)
+
 -- | The DB subnet group name to use for the new instance.
 --
 -- Constraints: If supplied, must match the name of an existing
@@ -903,6 +1005,22 @@ restoreDBInstanceFromDBSnapshot_dbSubnetGroupName = Lens.lens (\RestoreDBInstanc
 -- parameter.
 restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | The identifier for the DB snapshot to restore from.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBSnapshot.
+--
+-- -   Can\'t be specified when @DBClusterSnapshotIdentifier@ is specified.
+--
+-- -   Must be specified when @DBClusterSnapshotIdentifier@ isn\'t
+--     specified.
+--
+-- -   If you are restoring from a shared manual DB snapshot, the
+--     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
+restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | Specify the Active Directory directory ID to restore the DB instance in.
 -- The domain\/ must be created prior to this operation. Currently, you can
@@ -977,10 +1095,10 @@ restoreDBInstanceFromDBSnapshot_publiclyAccessible = Lens.lens (\RestoreDBInstan
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 restoreDBInstanceFromDBSnapshot_storageType :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
@@ -1083,7 +1201,7 @@ restoreDBInstanceFromDBSnapshot_customIamInstanceProfile = Lens.lens (\RestoreDB
 --
 -- The provisioned IOPS value must follow the requirements for your
 -- database engine. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide./
 --
 -- Constraints: Must be an integer greater than 1000.
@@ -1177,17 +1295,6 @@ restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures = Lens.lens (\Restor
 restoreDBInstanceFromDBSnapshot_dbInstanceIdentifier :: Lens.Lens' RestoreDBInstanceFromDBSnapshot Prelude.Text
 restoreDBInstanceFromDBSnapshot_dbInstanceIdentifier = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbInstanceIdentifier = a} :: RestoreDBInstanceFromDBSnapshot)
 
--- | The identifier for the DB snapshot to restore from.
---
--- Constraints:
---
--- -   Must match the identifier of an existing DBSnapshot.
---
--- -   If you are restoring from a shared manual DB snapshot, the
---     @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
-restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' RestoreDBInstanceFromDBSnapshot Prelude.Text
-restoreDBInstanceFromDBSnapshot_dbSnapshotIdentifier = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: RestoreDBInstanceFromDBSnapshot)
-
 instance
   Core.AWSRequest
     RestoreDBInstanceFromDBSnapshot
@@ -1195,8 +1302,8 @@ instance
   type
     AWSResponse RestoreDBInstanceFromDBSnapshot =
       RestoreDBInstanceFromDBSnapshotResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromDBSnapshotResult"
@@ -1218,11 +1325,14 @@ instance
         `Prelude.hashWithSalt` vpcSecurityGroupIds
         `Prelude.hashWithSalt` dbParameterGroupName
         `Prelude.hashWithSalt` backupTarget
+        `Prelude.hashWithSalt` storageThroughput
         `Prelude.hashWithSalt` dbInstanceClass
         `Prelude.hashWithSalt` copyTagsToSnapshot
         `Prelude.hashWithSalt` domainIAMRoleName
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
         `Prelude.hashWithSalt` dbSubnetGroupName
         `Prelude.hashWithSalt` autoMinorVersionUpgrade
+        `Prelude.hashWithSalt` dbSnapshotIdentifier
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` optionGroupName
         `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
@@ -1244,7 +1354,6 @@ instance
         `Prelude.hashWithSalt` licenseModel
         `Prelude.hashWithSalt` useDefaultProcessorFeatures
         `Prelude.hashWithSalt` dbInstanceIdentifier
-        `Prelude.hashWithSalt` dbSnapshotIdentifier
 
 instance
   Prelude.NFData
@@ -1256,29 +1365,36 @@ instance
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf backupTarget
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf tdeCredentialPassword
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf processorFeatures
-      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf
+        processorFeatures
+      `Prelude.seq` Prelude.rnf
+        tdeCredentialArn
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf
         deletionProtection
       `Prelude.seq` Prelude.rnf
         customIamInstanceProfile
       `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf
+        dbName
       `Prelude.seq` Prelude.rnf
         networkType
       `Prelude.seq` Prelude.rnf
@@ -1291,8 +1407,6 @@ instance
         useDefaultProcessorFeatures
       `Prelude.seq` Prelude.rnf
         dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf
-        dbSnapshotIdentifier
 
 instance
   Core.ToHeaders
@@ -1323,12 +1437,16 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
             ),
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "BackupTarget" Core.=: backupTarget,
+        "StorageThroughput" Core.=: storageThroughput,
         "DBInstanceClass" Core.=: dbInstanceClass,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "DBClusterSnapshotIdentifier"
+          Core.=: dbClusterSnapshotIdentifier,
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
         "AutoMinorVersionUpgrade"
           Core.=: autoMinorVersionUpgrade,
+        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
         "Domain" Core.=: domain,
         "OptionGroupName" Core.=: optionGroupName,
         "EnableIAMDatabaseAuthentication"
@@ -1362,8 +1480,7 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
         "LicenseModel" Core.=: licenseModel,
         "UseDefaultProcessorFeatures"
           Core.=: useDefaultProcessorFeatures,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newRestoreDBInstanceFromDBSnapshotResponse' smart constructor.

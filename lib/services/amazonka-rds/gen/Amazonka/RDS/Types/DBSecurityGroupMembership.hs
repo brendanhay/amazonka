@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element in the following actions:

@@ -50,7 +50,7 @@ module Amazonka.RDS.DescribeDBInstances
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -65,9 +65,10 @@ data DescribeDBInstances = DescribeDBInstances'
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The user-supplied instance identifier. If this parameter is specified,
-    -- information from only the specific DB instance is returned. This
-    -- parameter isn\'t case-sensitive.
+    -- | The user-supplied instance identifier or the Amazon Resource Name (ARN)
+    -- of the DB instance. If this parameter is specified, information from
+    -- only the specific DB instance is returned. This parameter isn\'t
+    -- case-sensitive.
     --
     -- Constraints:
     --
@@ -122,9 +123,10 @@ data DescribeDBInstances = DescribeDBInstances'
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
 --
--- 'dbInstanceIdentifier', 'describeDBInstances_dbInstanceIdentifier' - The user-supplied instance identifier. If this parameter is specified,
--- information from only the specific DB instance is returned. This
--- parameter isn\'t case-sensitive.
+-- 'dbInstanceIdentifier', 'describeDBInstances_dbInstanceIdentifier' - The user-supplied instance identifier or the Amazon Resource Name (ARN)
+-- of the DB instance. If this parameter is specified, information from
+-- only the specific DB instance is returned. This parameter isn\'t
+-- case-sensitive.
 --
 -- Constraints:
 --
@@ -179,9 +181,10 @@ newDescribeDBInstances =
 describeDBInstances_marker :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
 describeDBInstances_marker = Lens.lens (\DescribeDBInstances' {marker} -> marker) (\s@DescribeDBInstances' {} a -> s {marker = a} :: DescribeDBInstances)
 
--- | The user-supplied instance identifier. If this parameter is specified,
--- information from only the specific DB instance is returned. This
--- parameter isn\'t case-sensitive.
+-- | The user-supplied instance identifier or the Amazon Resource Name (ARN)
+-- of the DB instance. If this parameter is specified, information from
+-- only the specific DB instance is returned. This parameter isn\'t
+-- case-sensitive.
 --
 -- Constraints:
 --
@@ -252,8 +255,8 @@ instance Core.AWSRequest DescribeDBInstances where
   type
     AWSResponse DescribeDBInstances =
       DescribeDBInstancesResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeDBInstancesResult"

@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBSnapshot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ProcessorFeature
 import Amazonka.RDS.Types.Tag
@@ -40,6 +40,8 @@ data DBSnapshot = DBSnapshot'
     originalSnapshotCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | The percentage of the estimated data that has been transferred.
     percentProgress :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the storage throughput for the DB snapshot.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | Provides the master username for the DB snapshot.
     masterUsername :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region that the DB snapshot was created in or
@@ -145,6 +147,8 @@ data DBSnapshot = DBSnapshot'
 --
 -- 'percentProgress', 'dbSnapshot_percentProgress' - The percentage of the estimated data that has been transferred.
 --
+-- 'storageThroughput', 'dbSnapshot_storageThroughput' - Specifies the storage throughput for the DB snapshot.
+--
 -- 'masterUsername', 'dbSnapshot_masterUsername' - Provides the master username for the DB snapshot.
 --
 -- 'sourceRegion', 'dbSnapshot_sourceRegion' - The Amazon Web Services Region that the DB snapshot was created in or
@@ -238,6 +242,7 @@ newDBSnapshot =
     { port = Prelude.Nothing,
       originalSnapshotCreateTime = Prelude.Nothing,
       percentProgress = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       sourceRegion = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
@@ -282,6 +287,10 @@ dbSnapshot_originalSnapshotCreateTime = Lens.lens (\DBSnapshot' {originalSnapsho
 -- | The percentage of the estimated data that has been transferred.
 dbSnapshot_percentProgress :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Int)
 dbSnapshot_percentProgress = Lens.lens (\DBSnapshot' {percentProgress} -> percentProgress) (\s@DBSnapshot' {} a -> s {percentProgress = a} :: DBSnapshot)
+
+-- | Specifies the storage throughput for the DB snapshot.
+dbSnapshot_storageThroughput :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Int)
+dbSnapshot_storageThroughput = Lens.lens (\DBSnapshot' {storageThroughput} -> storageThroughput) (\s@DBSnapshot' {} a -> s {storageThroughput = a} :: DBSnapshot)
 
 -- | Provides the master username for the DB snapshot.
 dbSnapshot_masterUsername :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
@@ -434,6 +443,7 @@ instance Core.FromXML DBSnapshot where
       Prelude.<$> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "OriginalSnapshotCreateTime")
       Prelude.<*> (x Core..@? "PercentProgress")
+      Prelude.<*> (x Core..@? "StorageThroughput")
       Prelude.<*> (x Core..@? "MasterUsername")
       Prelude.<*> (x Core..@? "SourceRegion")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
@@ -474,6 +484,7 @@ instance Prelude.Hashable DBSnapshot where
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` originalSnapshotCreateTime
       `Prelude.hashWithSalt` percentProgress
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` sourceRegion
       `Prelude.hashWithSalt` dbInstanceIdentifier
@@ -509,6 +520,7 @@ instance Prelude.NFData DBSnapshot where
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf originalSnapshotCreateTime
       `Prelude.seq` Prelude.rnf percentProgress
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf sourceRegion
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
@@ -533,7 +545,8 @@ instance Prelude.NFData DBSnapshot where
         allocatedStorage
       `Prelude.seq` Prelude.rnf
         iAMDatabaseAuthenticationEnabled
-      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf
+        vpcId
       `Prelude.seq` Prelude.rnf
         snapshotTarget
       `Prelude.seq` Prelude.rnf

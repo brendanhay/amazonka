@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.RestoreWindow where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Earliest and latest time an instance can be restored to:

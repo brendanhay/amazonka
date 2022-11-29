@@ -47,7 +47,7 @@ module Amazonka.RDS.ModifyDBProxy
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -191,8 +191,8 @@ instance Core.AWSRequest ModifyDBProxy where
   type
     AWSResponse ModifyDBProxy =
       ModifyDBProxyResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyDBProxyResult"

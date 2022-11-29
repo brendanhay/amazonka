@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.Timezone where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@. This data

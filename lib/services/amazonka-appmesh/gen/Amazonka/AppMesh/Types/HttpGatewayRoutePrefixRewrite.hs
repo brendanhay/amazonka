@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRoutePrefixRewrite where
 
 import Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the beginning characters of the route to rewrite.

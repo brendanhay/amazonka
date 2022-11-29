@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.GrpcGatewayRouteMatch where
 import Amazonka.AppMesh.Types.GatewayRouteHostnameMatch
 import Amazonka.AppMesh.Types.GrpcGatewayRouteMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the criteria for determining a request match.

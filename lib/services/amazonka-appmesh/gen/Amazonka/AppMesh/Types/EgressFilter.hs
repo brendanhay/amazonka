@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.EgressFilter where
 
 import Amazonka.AppMesh.Types.EgressFilterType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the egress filter rules for a service mesh.

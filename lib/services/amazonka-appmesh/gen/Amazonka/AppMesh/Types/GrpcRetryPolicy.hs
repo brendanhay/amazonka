@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.Duration
 import Amazonka.AppMesh.Types.GrpcRetryPolicyEvent
 import Amazonka.AppMesh.Types.TcpRetryPolicyEvent
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a retry policy. Specify at least one value for

@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.ResourceMetadata
 import Amazonka.AppMesh.Types.VirtualNodeSpec
 import Amazonka.AppMesh.Types.VirtualNodeStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual node returned by a describe

@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.VirtualRouterStatus where
 
 import Amazonka.AppMesh.Types.VirtualRouterStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the status of a virtual router.

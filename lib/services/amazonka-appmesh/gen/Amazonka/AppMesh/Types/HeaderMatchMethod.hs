@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.HeaderMatchMethod where
 
 import Amazonka.AppMesh.Types.MatchRange
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the method and value to match with the header

@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.VirtualServiceProvider where
 import Amazonka.AppMesh.Types.VirtualNodeServiceProvider
 import Amazonka.AppMesh.Types.VirtualRouterServiceProvider
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the provider for a virtual service.

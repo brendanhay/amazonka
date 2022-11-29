@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.ResourceMetadata
 import Amazonka.AppMesh.Types.VirtualRouterSpec
 import Amazonka.AppMesh.Types.VirtualRouterStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual router returned by a describe

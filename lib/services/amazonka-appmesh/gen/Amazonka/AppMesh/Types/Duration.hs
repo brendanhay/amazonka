@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.Duration where
 
 import Amazonka.AppMesh.Types.DurationUnit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a duration of time.

@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls where
 import Amazonka.AppMesh.Types.VirtualGatewayClientTlsCertificate
 import Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) client

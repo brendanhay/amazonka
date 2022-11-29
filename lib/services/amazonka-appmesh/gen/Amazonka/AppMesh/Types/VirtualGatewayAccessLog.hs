@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayAccessLog where
 
 import Amazonka.AppMesh.Types.VirtualGatewayFileAccessLog
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The access log configuration for a virtual gateway.

@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.ResourceMetadata
 import Amazonka.AppMesh.Types.RouteSpec
 import Amazonka.AppMesh.Types.RouteStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a route returned by a describe operation.

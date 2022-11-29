@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.ResourceMetadata
 import Amazonka.AppMesh.Types.VirtualGatewaySpec
 import Amazonka.AppMesh.Types.VirtualGatewayStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual gateway returned by a describe

@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.ListenerTlsCertificate
 import Amazonka.AppMesh.Types.ListenerTlsMode
 import Amazonka.AppMesh.Types.ListenerTlsValidationContext
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the Transport Layer Security (TLS) properties

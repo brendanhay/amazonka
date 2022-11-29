@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayPortMapping where
 
 import Amazonka.AppMesh.Types.VirtualGatewayPortProtocol
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a port mapping.

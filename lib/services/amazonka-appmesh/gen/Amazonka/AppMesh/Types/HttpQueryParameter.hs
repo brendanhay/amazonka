@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.HttpQueryParameter where
 
 import Amazonka.AppMesh.Types.QueryParameterMatch
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the query parameter in the request.

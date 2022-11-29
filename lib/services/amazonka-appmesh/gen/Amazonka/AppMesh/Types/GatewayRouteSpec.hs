@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.GatewayRouteSpec where
 import Amazonka.AppMesh.Types.GrpcGatewayRoute
 import Amazonka.AppMesh.Types.HttpGatewayRoute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gateway route specification. Specify one

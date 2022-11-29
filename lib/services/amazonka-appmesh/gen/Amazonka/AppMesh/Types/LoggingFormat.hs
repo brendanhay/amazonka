@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.LoggingFormat where
 
 import Amazonka.AppMesh.Types.JsonFormatRef
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the format for the logs.

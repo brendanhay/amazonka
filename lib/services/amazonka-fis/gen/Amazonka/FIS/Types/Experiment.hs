@@ -20,12 +20,12 @@
 module Amazonka.FIS.Types.Experiment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FIS.Types.ExperimentAction
 import Amazonka.FIS.Types.ExperimentLogConfiguration
 import Amazonka.FIS.Types.ExperimentState
 import Amazonka.FIS.Types.ExperimentStopCondition
 import Amazonka.FIS.Types.ExperimentTarget
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an experiment.

@@ -20,8 +20,8 @@
 module Amazonka.FIS.Types.CreateExperimentTemplateTargetInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a target for an experiment. You must specify at least one

@@ -20,7 +20,7 @@
 module Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for experiment logging to Amazon CloudWatch

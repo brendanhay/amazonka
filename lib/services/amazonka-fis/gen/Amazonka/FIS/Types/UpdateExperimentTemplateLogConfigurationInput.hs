@@ -20,9 +20,9 @@
 module Amazonka.FIS.Types.UpdateExperimentTemplateLogConfigurationInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfigurationInput
 import Amazonka.FIS.Types.ExperimentTemplateS3LogConfigurationInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for experiment logging.

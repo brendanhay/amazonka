@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.PolicyToPath where
 
 import Amazonka.CloudDirectory.Types.PolicyAttachment
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used when a regular object exists in a Directory and you want to find

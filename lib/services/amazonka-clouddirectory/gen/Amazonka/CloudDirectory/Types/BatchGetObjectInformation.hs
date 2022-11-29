@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchGetObjectInformation where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves metadata about an object inside a BatchRead operation. For

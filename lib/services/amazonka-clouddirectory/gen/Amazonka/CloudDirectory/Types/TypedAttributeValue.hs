@@ -20,7 +20,7 @@
 module Amazonka.CloudDirectory.Types.TypedAttributeValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data for a typed attribute. You can set one, and only

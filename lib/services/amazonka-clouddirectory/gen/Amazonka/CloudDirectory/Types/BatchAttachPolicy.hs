@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchAttachPolicy where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attaches a policy object to a regular object inside a BatchRead

@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchGetLinkAttributes where
 
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves attributes that are associated with a typed link inside a

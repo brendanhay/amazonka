@@ -49,7 +49,7 @@ where
 
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +134,8 @@ createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFa
 
 instance Core.AWSRequest CreateObject where
   type AWSResponse CreateObject = CreateObjectResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.TypedLinkFacetAttributeUpdate where
 import Amazonka.CloudDirectory.Types.TypedLinkAttributeDefinition
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A typed link facet attribute update.

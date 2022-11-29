@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListIndex where
 import Amazonka.CloudDirectory.Types.ObjectAttributeRange
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists objects attached to the specified index inside a BatchRead

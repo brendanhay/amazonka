@@ -34,7 +34,7 @@ import Amazonka.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
 import Amazonka.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
 import Amazonka.CloudDirectory.Types.BatchLookupPolicyResponse
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ success response operation.

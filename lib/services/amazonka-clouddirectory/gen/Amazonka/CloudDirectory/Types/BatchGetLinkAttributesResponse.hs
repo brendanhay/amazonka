@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchGetLinkAttributesResponse where
 
 import Amazonka.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a GetLinkAttributes response operation.

@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.TypedLinkAttributeRange where
 
 import Amazonka.CloudDirectory.Types.TypedAttributeValueRange
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the range of attributes that are used by a specified filter.

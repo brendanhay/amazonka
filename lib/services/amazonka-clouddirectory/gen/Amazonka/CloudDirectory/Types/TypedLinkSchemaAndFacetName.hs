@@ -20,7 +20,7 @@
 module Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the schema Amazon Resource Name (ARN) and facet name for the

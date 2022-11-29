@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentsResponse where
 
 import Amazonka.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectParents response operation.

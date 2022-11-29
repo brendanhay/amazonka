@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentPathsResponse where
 
 import Amazonka.CloudDirectory.Types.PathToObjectIdentifiers
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectParentPaths response operation.

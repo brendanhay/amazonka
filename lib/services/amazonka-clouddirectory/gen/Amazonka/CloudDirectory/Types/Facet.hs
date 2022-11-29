@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.Facet where
 import Amazonka.CloudDirectory.Types.FacetStyle
 import Amazonka.CloudDirectory.Types.ObjectType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains @Name@, @ARN@, @Attributes@, @ Rules@, and

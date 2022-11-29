@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.AudioFeatures where
 
 import Amazonka.ChimeSdkMeetings.Types.MeetingFeatureStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An optional category of meeting features that contains audio-specific

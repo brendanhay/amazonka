@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.AttendeeCapabilities where
 
 import Amazonka.ChimeSdkMeetings.Types.MediaCapabilities
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media capabilities of an attendee: audio, video, or content.

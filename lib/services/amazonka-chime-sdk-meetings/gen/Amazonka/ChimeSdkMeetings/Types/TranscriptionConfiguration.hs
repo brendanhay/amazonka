@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMeetings.Types.TranscriptionConfiguration where
 import Amazonka.ChimeSdkMeetings.Types.EngineTranscribeMedicalSettings
 import Amazonka.ChimeSdkMeetings.Types.EngineTranscribeSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the current transcription operation. Must contain

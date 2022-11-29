@@ -20,9 +20,9 @@
 module Amazonka.DataBrew.Types.Rule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.Threshold
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single data quality requirement that should be validated in

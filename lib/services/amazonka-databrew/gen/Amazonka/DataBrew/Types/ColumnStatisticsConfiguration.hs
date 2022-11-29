@@ -20,9 +20,9 @@
 module Amazonka.DataBrew.Types.ColumnStatisticsConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.StatisticsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for column evaluations for a profile job.

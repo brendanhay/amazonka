@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.RecipeAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a transformation and associated parameters that are used to

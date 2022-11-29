@@ -20,11 +20,11 @@
 module Amazonka.DataBrew.Types.Output where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.CompressionFormat
 import Amazonka.DataBrew.Types.OutputFormat
 import Amazonka.DataBrew.Types.OutputFormatOptions
 import Amazonka.DataBrew.Types.S3Location
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents options that specify how and where in Amazon S3 DataBrew

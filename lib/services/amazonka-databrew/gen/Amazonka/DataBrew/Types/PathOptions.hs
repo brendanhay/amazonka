@@ -20,10 +20,10 @@
 module Amazonka.DataBrew.Types.PathOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.DatasetParameter
 import Amazonka.DataBrew.Types.FilesLimit
 import Amazonka.DataBrew.Types.FilterExpression
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define how DataBrew selects files for a

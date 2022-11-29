@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.Recipe where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.RecipeStep
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents one or more actions to be performed on a DataBrew dataset.

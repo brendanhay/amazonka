@@ -20,12 +20,12 @@
 module Amazonka.DataBrew.Types.Dataset where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.FormatOptions
 import Amazonka.DataBrew.Types.Input
 import Amazonka.DataBrew.Types.InputFormat
 import Amazonka.DataBrew.Types.PathOptions
 import Amazonka.DataBrew.Types.Source
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a dataset that can be processed by DataBrew.

@@ -20,10 +20,10 @@
 module Amazonka.DataBrew.Types.DatasetParameter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.DatetimeOptions
 import Amazonka.DataBrew.Types.FilterExpression
 import Amazonka.DataBrew.Types.ParameterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a dataset parameter that defines type and conditions for a

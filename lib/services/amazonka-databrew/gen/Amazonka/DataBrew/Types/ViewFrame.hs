@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.ViewFrame where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.AnalyticsMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data being transformed during an action.

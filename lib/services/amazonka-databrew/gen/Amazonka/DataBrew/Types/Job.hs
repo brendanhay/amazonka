@@ -20,6 +20,7 @@
 module Amazonka.DataBrew.Types.Job where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.DataCatalogOutput
 import Amazonka.DataBrew.Types.DatabaseOutput
 import Amazonka.DataBrew.Types.EncryptionMode
@@ -29,7 +30,6 @@ import Amazonka.DataBrew.Types.LogSubscription
 import Amazonka.DataBrew.Types.Output
 import Amazonka.DataBrew.Types.RecipeReference
 import Amazonka.DataBrew.Types.ValidationConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the attributes of a DataBrew job.

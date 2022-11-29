@@ -22,7 +22,7 @@ module Amazonka.CodeStarConnections.Types.Connection where
 import Amazonka.CodeStarConnections.Types.ConnectionStatus
 import Amazonka.CodeStarConnections.Types.ProviderType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that is used to connect third-party source providers with

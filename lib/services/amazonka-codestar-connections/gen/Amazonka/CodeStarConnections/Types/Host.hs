@@ -22,7 +22,7 @@ module Amazonka.CodeStarConnections.Types.Host where
 import Amazonka.CodeStarConnections.Types.ProviderType
 import Amazonka.CodeStarConnections.Types.VpcConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that represents the infrastructure where a third-party

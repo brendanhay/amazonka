@@ -46,7 +46,7 @@ where
 
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +79,8 @@ getHost_hostArn = Lens.lens (\GetHost' {hostArn} -> hostArn) (\s@GetHost' {} a -
 
 instance Core.AWSRequest GetHost where
   type AWSResponse GetHost = GetHostResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

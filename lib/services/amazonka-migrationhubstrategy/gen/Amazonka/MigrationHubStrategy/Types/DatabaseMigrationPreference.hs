@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.DatabaseMigrationPreference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types.Heterogeneous
 import Amazonka.MigrationHubStrategy.Types.Homogeneous
 import Amazonka.MigrationHubStrategy.Types.NoDatabaseMigrationPreference

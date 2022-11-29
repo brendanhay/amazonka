@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.ManagementPreference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types.AwsManagedResources
 import Amazonka.MigrationHubStrategy.Types.NoManagementPreference
 import Amazonka.MigrationHubStrategy.Types.SelfManageResources

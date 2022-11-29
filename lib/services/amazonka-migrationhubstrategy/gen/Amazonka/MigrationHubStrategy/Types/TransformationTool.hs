@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.TransformationTool where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types.TransformationToolName
 import qualified Amazonka.Prelude as Prelude
 

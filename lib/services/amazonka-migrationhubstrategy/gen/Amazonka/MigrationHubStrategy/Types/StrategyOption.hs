@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.StrategyOption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types.Strategy
 import Amazonka.MigrationHubStrategy.Types.TargetDestination
 import Amazonka.MigrationHubStrategy.Types.TransformationToolName

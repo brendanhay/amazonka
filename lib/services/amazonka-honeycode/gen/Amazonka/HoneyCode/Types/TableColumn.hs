@@ -20,8 +20,8 @@
 module Amazonka.HoneyCode.Types.TableColumn where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.Format
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains attributes about a single column in a table

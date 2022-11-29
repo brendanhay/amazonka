@@ -20,7 +20,7 @@
 module Amazonka.HoneyCode.Types.Table where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the properties of a table in a workbook.

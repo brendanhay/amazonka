@@ -20,10 +20,10 @@
 module Amazonka.HoneyCode.Types.TableDataImportJobMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.ImportDataSource
 import Amazonka.HoneyCode.Types.ImportJobSubmitter
 import Amazonka.HoneyCode.Types.ImportOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata associated with the table data import job that was

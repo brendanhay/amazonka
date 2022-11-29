@@ -20,8 +20,8 @@
 module Amazonka.HoneyCode.Types.CreateRowData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.CellInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data needed to create a single row in a table as part of the

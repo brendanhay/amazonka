@@ -20,9 +20,9 @@
 module Amazonka.HoneyCode.Types.UpsertRowData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.CellInput
 import Amazonka.HoneyCode.Types.Filter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data needed to upsert rows in a table as part of a single item in the

@@ -21,7 +21,7 @@ module Amazonka.ConnectCampaigns.Types.CampaignFilters where
 
 import Amazonka.ConnectCampaigns.Types.InstanceIdFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter model by type

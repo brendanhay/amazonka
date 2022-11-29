@@ -21,7 +21,7 @@ module Amazonka.ConnectCampaigns.Types.FailedCampaignStateResponse where
 
 import Amazonka.ConnectCampaigns.Types.GetCampaignStateBatchFailureCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Failed response of campaign state

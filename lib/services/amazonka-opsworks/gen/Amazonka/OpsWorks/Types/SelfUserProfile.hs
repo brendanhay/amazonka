@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.SelfUserProfile where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a user\'s SSH information.

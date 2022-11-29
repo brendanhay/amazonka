@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.Layer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration
 import Amazonka.OpsWorks.Types.LayerAttributesKeys
 import Amazonka.OpsWorks.Types.LayerType

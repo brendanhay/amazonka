@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.Recipes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__,

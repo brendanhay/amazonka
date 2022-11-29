@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.InstanceIdentity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2

@@ -44,7 +44,7 @@ module Amazonka.OpsWorks.DeleteStack
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -79,8 +79,8 @@ deleteStack_stackId = Lens.lens (\DeleteStack' {stackId} -> stackId) (\s@DeleteS
 
 instance Core.AWSRequest DeleteStack where
   type AWSResponse DeleteStack = DeleteStackResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteStackResponse'
 
 instance Prelude.Hashable DeleteStack where

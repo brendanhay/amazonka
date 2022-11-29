@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.Instance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types.Architecture
 import Amazonka.OpsWorks.Types.AutoScalingType
 import Amazonka.OpsWorks.Types.BlockDeviceMapping

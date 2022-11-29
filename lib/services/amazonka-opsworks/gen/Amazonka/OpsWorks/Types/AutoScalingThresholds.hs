@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.AutoScalingThresholds where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a load-based auto scaling upscaling or downscaling threshold

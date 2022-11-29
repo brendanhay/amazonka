@@ -40,8 +40,8 @@ module Amazonka.IVSChat.UntagResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 data UntagResource = UntagResource'
   { -- | The ARN of the resource to be untagged. The ARN must be URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be removed. See
+    -- | Array of tags to be removed. Array of maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
     -- for details, including restrictions that apply to tags and \"Tag naming
     -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -69,7 +70,8 @@ data UntagResource = UntagResource'
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The ARN of the resource to be untagged. The ARN must be URL-encoded.
 --
--- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed. See
+-- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -88,7 +90,8 @@ newUntagResource pResourceArn_ =
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | Array of tags to be removed. See
+-- | Array of tags to be removed. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -100,8 +103,8 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -27,6 +27,7 @@ module Amazonka.IVSChat.UpdateRoom
     newUpdateRoom,
 
     -- * Request Lenses
+    updateRoom_loggingConfigurationIdentifiers,
     updateRoom_name,
     updateRoom_messageReviewHandler,
     updateRoom_maximumMessageRatePerSecond,
@@ -39,6 +40,7 @@ module Amazonka.IVSChat.UpdateRoom
 
     -- * Response Lenses
     updateRoomResponse_tags,
+    updateRoomResponse_loggingConfigurationIdentifiers,
     updateRoomResponse_name,
     updateRoomResponse_messageReviewHandler,
     updateRoomResponse_arn,
@@ -52,15 +54,17 @@ module Amazonka.IVSChat.UpdateRoom
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRoom' smart constructor.
 data UpdateRoom = UpdateRoom'
-  { -- | Room name. The value does not need to be unique.
+  { -- | Array of logging-configuration identifiers attached to the room.
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | Room name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages. Specify an
     -- empty @uri@ string to disassociate a message review handler from the
@@ -86,6 +90,8 @@ data UpdateRoom = UpdateRoom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'loggingConfigurationIdentifiers', 'updateRoom_loggingConfigurationIdentifiers' - Array of logging-configuration identifiers attached to the room.
+--
 -- 'name', 'updateRoom_name' - Room name. The value does not need to be unique.
 --
 -- 'messageReviewHandler', 'updateRoom_messageReviewHandler' - Configuration information for optional review of messages. Specify an
@@ -106,12 +112,18 @@ newUpdateRoom ::
   UpdateRoom
 newUpdateRoom pIdentifier_ =
   UpdateRoom'
-    { name = Prelude.Nothing,
+    { loggingConfigurationIdentifiers =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       maximumMessageRatePerSecond = Prelude.Nothing,
       maximumMessageLength = Prelude.Nothing,
       identifier = pIdentifier_
     }
+
+-- | Array of logging-configuration identifiers attached to the room.
+updateRoom_loggingConfigurationIdentifiers :: Lens.Lens' UpdateRoom (Prelude.Maybe [Prelude.Text])
+updateRoom_loggingConfigurationIdentifiers = Lens.lens (\UpdateRoom' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@UpdateRoom' {} a -> s {loggingConfigurationIdentifiers = a} :: UpdateRoom) Prelude.. Lens.mapping Lens.coerced
 
 -- | Room name. The value does not need to be unique.
 updateRoom_name :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
@@ -140,13 +152,16 @@ updateRoom_identifier = Lens.lens (\UpdateRoom' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest UpdateRoom where
   type AWSResponse UpdateRoom = UpdateRoomResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRoomResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "loggingConfigurationIdentifiers"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "messageReviewHandler")
             Prelude.<*> (x Core..?> "arn")
@@ -160,7 +175,9 @@ instance Core.AWSRequest UpdateRoom where
 
 instance Prelude.Hashable UpdateRoom where
   hashWithSalt _salt UpdateRoom' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` loggingConfigurationIdentifiers
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` messageReviewHandler
       `Prelude.hashWithSalt` maximumMessageRatePerSecond
       `Prelude.hashWithSalt` maximumMessageLength
@@ -168,7 +185,8 @@ instance Prelude.Hashable UpdateRoom where
 
 instance Prelude.NFData UpdateRoom where
   rnf UpdateRoom' {..} =
-    Prelude.rnf name
+    Prelude.rnf loggingConfigurationIdentifiers
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf maximumMessageRatePerSecond
       `Prelude.seq` Prelude.rnf maximumMessageLength
@@ -189,7 +207,9 @@ instance Core.ToJSON UpdateRoom where
   toJSON UpdateRoom' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
+          [ ("loggingConfigurationIdentifiers" Core..=)
+              Prelude.<$> loggingConfigurationIdentifiers,
+            ("name" Core..=) Prelude.<$> name,
             ("messageReviewHandler" Core..=)
               Prelude.<$> messageReviewHandler,
             ("maximumMessageRatePerSecond" Core..=)
@@ -208,9 +228,13 @@ instance Core.ToQuery UpdateRoom where
 
 -- | /See:/ 'newUpdateRoomResponse' smart constructor.
 data UpdateRoomResponse = UpdateRoomResponse'
-  { -- | Tags attached to the resource.
+  { -- | Tags attached to the resource. Array of maps, each of the form
+    -- @string:string (key:value)@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Room name, from the request.
+    -- | Array of logging configurations attached to the room, from the request
+    -- (if specified).
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | Room name, from the request (if specified).
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages.
     messageReviewHandler :: Prelude.Maybe MessageReviewHandler,
@@ -220,9 +244,10 @@ data UpdateRoomResponse = UpdateRoomResponse'
     -- part of the ARN that uniquely identifies the room.
     id :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of messages per second that can be sent to the room (by
-    -- all clients), from the request.
+    -- all clients), from the request (if specified).
     maximumMessageRatePerSecond :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum number of characters in a single message, from the request.
+    -- | Maximum number of characters in a single message, from the request (if
+    -- specified).
     maximumMessageLength :: Prelude.Maybe Prelude.Natural,
     -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
@@ -243,9 +268,13 @@ data UpdateRoomResponse = UpdateRoomResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateRoomResponse_tags' - Tags attached to the resource.
+-- 'tags', 'updateRoomResponse_tags' - Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 --
--- 'name', 'updateRoomResponse_name' - Room name, from the request.
+-- 'loggingConfigurationIdentifiers', 'updateRoomResponse_loggingConfigurationIdentifiers' - Array of logging configurations attached to the room, from the request
+-- (if specified).
+--
+-- 'name', 'updateRoomResponse_name' - Room name, from the request (if specified).
 --
 -- 'messageReviewHandler', 'updateRoomResponse_messageReviewHandler' - Configuration information for optional review of messages.
 --
@@ -255,9 +284,10 @@ data UpdateRoomResponse = UpdateRoomResponse'
 -- part of the ARN that uniquely identifies the room.
 --
 -- 'maximumMessageRatePerSecond', 'updateRoomResponse_maximumMessageRatePerSecond' - Maximum number of messages per second that can be sent to the room (by
--- all clients), from the request.
+-- all clients), from the request (if specified).
 --
--- 'maximumMessageLength', 'updateRoomResponse_maximumMessageLength' - Maximum number of characters in a single message, from the request.
+-- 'maximumMessageLength', 'updateRoomResponse_maximumMessageLength' - Maximum number of characters in a single message, from the request (if
+-- specified).
 --
 -- 'updateTime', 'updateRoomResponse_updateTime' - Time of the room’s last update. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
@@ -273,6 +303,7 @@ newUpdateRoomResponse ::
 newUpdateRoomResponse pHttpStatus_ =
   UpdateRoomResponse'
     { tags = Prelude.Nothing,
+      loggingConfigurationIdentifiers = Prelude.Nothing,
       name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -284,11 +315,17 @@ newUpdateRoomResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Tags attached to the resource.
+-- | Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 updateRoomResponse_tags :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateRoomResponse_tags = Lens.lens (\UpdateRoomResponse' {tags} -> tags) (\s@UpdateRoomResponse' {} a -> s {tags = a} :: UpdateRoomResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Room name, from the request.
+-- | Array of logging configurations attached to the room, from the request
+-- (if specified).
+updateRoomResponse_loggingConfigurationIdentifiers :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe [Prelude.Text])
+updateRoomResponse_loggingConfigurationIdentifiers = Lens.lens (\UpdateRoomResponse' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@UpdateRoomResponse' {} a -> s {loggingConfigurationIdentifiers = a} :: UpdateRoomResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Room name, from the request (if specified).
 updateRoomResponse_name :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe Prelude.Text)
 updateRoomResponse_name = Lens.lens (\UpdateRoomResponse' {name} -> name) (\s@UpdateRoomResponse' {} a -> s {name = a} :: UpdateRoomResponse)
 
@@ -306,11 +343,12 @@ updateRoomResponse_id :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe Prelude.Te
 updateRoomResponse_id = Lens.lens (\UpdateRoomResponse' {id} -> id) (\s@UpdateRoomResponse' {} a -> s {id = a} :: UpdateRoomResponse)
 
 -- | Maximum number of messages per second that can be sent to the room (by
--- all clients), from the request.
+-- all clients), from the request (if specified).
 updateRoomResponse_maximumMessageRatePerSecond :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe Prelude.Natural)
 updateRoomResponse_maximumMessageRatePerSecond = Lens.lens (\UpdateRoomResponse' {maximumMessageRatePerSecond} -> maximumMessageRatePerSecond) (\s@UpdateRoomResponse' {} a -> s {maximumMessageRatePerSecond = a} :: UpdateRoomResponse)
 
--- | Maximum number of characters in a single message, from the request.
+-- | Maximum number of characters in a single message, from the request (if
+-- specified).
 updateRoomResponse_maximumMessageLength :: Lens.Lens' UpdateRoomResponse (Prelude.Maybe Prelude.Natural)
 updateRoomResponse_maximumMessageLength = Lens.lens (\UpdateRoomResponse' {maximumMessageLength} -> maximumMessageLength) (\s@UpdateRoomResponse' {} a -> s {maximumMessageLength = a} :: UpdateRoomResponse)
 
@@ -331,6 +369,7 @@ updateRoomResponse_httpStatus = Lens.lens (\UpdateRoomResponse' {httpStatus} -> 
 instance Prelude.NFData UpdateRoomResponse where
   rnf UpdateRoomResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf arn

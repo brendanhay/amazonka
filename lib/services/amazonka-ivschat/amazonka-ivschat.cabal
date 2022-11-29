@@ -45,22 +45,35 @@ library
   exposed-modules:
     Amazonka.IVSChat
     Amazonka.IVSChat.CreateChatToken
+    Amazonka.IVSChat.CreateLoggingConfiguration
     Amazonka.IVSChat.CreateRoom
+    Amazonka.IVSChat.DeleteLoggingConfiguration
     Amazonka.IVSChat.DeleteMessage
     Amazonka.IVSChat.DeleteRoom
     Amazonka.IVSChat.DisconnectUser
+    Amazonka.IVSChat.GetLoggingConfiguration
     Amazonka.IVSChat.GetRoom
     Amazonka.IVSChat.Lens
+    Amazonka.IVSChat.ListLoggingConfigurations
     Amazonka.IVSChat.ListRooms
     Amazonka.IVSChat.ListTagsForResource
     Amazonka.IVSChat.SendEvent
     Amazonka.IVSChat.TagResource
     Amazonka.IVSChat.Types
     Amazonka.IVSChat.Types.ChatTokenCapability
+    Amazonka.IVSChat.Types.CloudWatchLogsDestinationConfiguration
+    Amazonka.IVSChat.Types.CreateLoggingConfigurationState
+    Amazonka.IVSChat.Types.DestinationConfiguration
     Amazonka.IVSChat.Types.FallbackResult
+    Amazonka.IVSChat.Types.FirehoseDestinationConfiguration
+    Amazonka.IVSChat.Types.LoggingConfigurationState
+    Amazonka.IVSChat.Types.LoggingConfigurationSummary
     Amazonka.IVSChat.Types.MessageReviewHandler
     Amazonka.IVSChat.Types.RoomSummary
+    Amazonka.IVSChat.Types.S3DestinationConfiguration
+    Amazonka.IVSChat.Types.UpdateLoggingConfigurationState
     Amazonka.IVSChat.UntagResource
+    Amazonka.IVSChat.UpdateLoggingConfiguration
     Amazonka.IVSChat.UpdateRoom
     Amazonka.IVSChat.Waiters
 

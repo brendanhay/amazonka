@@ -40,8 +40,8 @@ module Amazonka.IVSChat.TagResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 data TagResource = TagResource'
   { -- | The ARN of the resource to be tagged. The ARN must be URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be added or updated. See
+    -- | Array of tags to be added or updated. Array of maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
     -- for details, including restrictions that apply to tags and \"Tag naming
     -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -69,7 +70,8 @@ data TagResource = TagResource'
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The ARN of the resource to be tagged. The ARN must be URL-encoded.
 --
--- 'tags', 'tagResource_tags' - Array of tags to be added or updated. See
+-- 'tags', 'tagResource_tags' - Array of tags to be added or updated. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -88,7 +90,8 @@ newTagResource pResourceArn_ =
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Array of tags to be added or updated. See
+-- | Array of tags to be added or updated. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
@@ -98,8 +101,8 @@ tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} 
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

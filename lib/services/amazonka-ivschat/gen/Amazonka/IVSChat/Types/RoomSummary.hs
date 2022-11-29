@@ -20,20 +20,23 @@
 module Amazonka.IVSChat.Types.RoomSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types.MessageReviewHandler
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a room.
 --
 -- /See:/ 'newRoomSummary' smart constructor.
 data RoomSummary = RoomSummary'
-  { -- | Tags attached to the resource. See
+  { -- | Tags attached to the resource. Array of maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
     -- for details, including restrictions that apply to tags and \"Tag naming
     -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
     -- what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | List of logging-configuration identifiers attached to the room.
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | Room name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages.
@@ -60,11 +63,14 @@ data RoomSummary = RoomSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'roomSummary_tags' - Tags attached to the resource. See
+-- 'tags', 'roomSummary_tags' - Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
 -- what is documented there.
+--
+-- 'loggingConfigurationIdentifiers', 'roomSummary_loggingConfigurationIdentifiers' - List of logging-configuration identifiers attached to the room.
 --
 -- 'name', 'roomSummary_name' - Room name. The value does not need to be unique.
 --
@@ -85,6 +91,7 @@ newRoomSummary ::
 newRoomSummary =
   RoomSummary'
     { tags = Prelude.Nothing,
+      loggingConfigurationIdentifiers = Prelude.Nothing,
       name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -93,13 +100,18 @@ newRoomSummary =
       createTime = Prelude.Nothing
     }
 
--- | Tags attached to the resource. See
+-- | Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
 -- what is documented there.
 roomSummary_tags :: Lens.Lens' RoomSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 roomSummary_tags = Lens.lens (\RoomSummary' {tags} -> tags) (\s@RoomSummary' {} a -> s {tags = a} :: RoomSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of logging-configuration identifiers attached to the room.
+roomSummary_loggingConfigurationIdentifiers :: Lens.Lens' RoomSummary (Prelude.Maybe [Prelude.Text])
+roomSummary_loggingConfigurationIdentifiers = Lens.lens (\RoomSummary' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@RoomSummary' {} a -> s {loggingConfigurationIdentifiers = a} :: RoomSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Room name. The value does not need to be unique.
 roomSummary_name :: Lens.Lens' RoomSummary (Prelude.Maybe Prelude.Text)
@@ -135,6 +147,9 @@ instance Core.FromJSON RoomSummary where
       ( \x ->
           RoomSummary'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "loggingConfigurationIdentifiers"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "messageReviewHandler")
             Prelude.<*> (x Core..:? "arn")
@@ -146,6 +161,7 @@ instance Core.FromJSON RoomSummary where
 instance Prelude.Hashable RoomSummary where
   hashWithSalt _salt RoomSummary' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loggingConfigurationIdentifiers
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` messageReviewHandler
       `Prelude.hashWithSalt` arn
@@ -156,6 +172,7 @@ instance Prelude.Hashable RoomSummary where
 instance Prelude.NFData RoomSummary where
   rnf RoomSummary' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf arn

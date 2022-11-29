@@ -20,8 +20,8 @@
 module Amazonka.IVSChat.Types.MessageReviewHandler where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types.FallbackResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for optional message review.

@@ -40,8 +40,8 @@ module Amazonka.IVSChat.ListTagsForResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,8 +77,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,7 +117,8 @@ instance Core.ToQuery ListTagsForResource where
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Tags attached to the resource, from the request.
+    -- | Tags attached to the resource. Array of maps, each of the form
+    -- @string:string (key:value)@.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,7 +133,8 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 --
--- 'tags', 'listTagsForResourceResponse_tags' - Tags attached to the resource, from the request.
+-- 'tags', 'listTagsForResourceResponse_tags' - Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -148,7 +150,8 @@ newListTagsForResourceResponse pHttpStatus_ =
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
--- | Tags attached to the resource, from the request.
+-- | Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.coerced
 

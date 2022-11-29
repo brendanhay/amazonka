@@ -9,8 +9,8 @@
 -- Exception for errors involving AWS authentication.
 module Amazonka.Auth.Exception where
 
+import Amazonka.Core.Lens.Internal (exception, prism)
 import Amazonka.Data
-import Amazonka.Lens (exception, prism)
 import Amazonka.Prelude
 import Amazonka.Types
 

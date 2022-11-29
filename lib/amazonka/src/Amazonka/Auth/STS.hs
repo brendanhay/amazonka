@@ -11,8 +11,8 @@ module Amazonka.Auth.STS where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
+import Amazonka.Core.Lens.Internal (throwingM, (^.))
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.Lens (throwingM, (^.))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS

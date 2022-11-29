@@ -17,9 +17,9 @@ module Amazonka.HTTP
   )
 where
 
+import Amazonka.Core.Lens.Internal (to, (^?), _Just)
 import Amazonka.Data.Body (isStreaming)
 import Amazonka.Env hiding (auth)
-import Amazonka.Lens (to, (^?), _Just)
 import Amazonka.Logger
 import Amazonka.Prelude
 import Amazonka.Types

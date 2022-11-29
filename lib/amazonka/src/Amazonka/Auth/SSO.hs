@@ -9,11 +9,11 @@ module Amazonka.Auth.SSO where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
+import Amazonka.Core.Lens.Internal ((^.))
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data.Sensitive
 import Amazonka.Data.Time (Time (..))
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.Lens ((^.))
 import Amazonka.Prelude
 import Amazonka.SSO.GetRoleCredentials as SSO
 import qualified Amazonka.SSO.Types as SSO (RoleCredentials (..))

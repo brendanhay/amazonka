@@ -139,13 +139,13 @@ where
 
 import Amazonka.Auth
 import Amazonka.Core hiding (presign)
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Crypto as Crypto
 import qualified Amazonka.Data.Body as Body
 import qualified Amazonka.EC2.Metadata as EC2
 import qualified Amazonka.Endpoint as Endpoint
 import qualified Amazonka.Env as Env
 import qualified Amazonka.Error as Error
-import qualified Amazonka.Lens as Lens
 import Amazonka.Logger
 import Amazonka.Prelude
 import qualified Amazonka.Presign as Presign

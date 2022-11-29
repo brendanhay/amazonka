@@ -11,9 +11,9 @@
 module Amazonka.Auth.Keys where
 
 import Amazonka.Auth.Exception (_MissingEnvError)
+import Amazonka.Core.Lens.Internal (throwingM)
 import Amazonka.Data
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.Lens (throwingM)
 import Amazonka.Prelude
 import Amazonka.Types
 import Control.Monad.Trans.Maybe (MaybeT (..))

@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.Metric where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.AggregationFunction
 import qualified Amazonka.Prelude as Prelude
 

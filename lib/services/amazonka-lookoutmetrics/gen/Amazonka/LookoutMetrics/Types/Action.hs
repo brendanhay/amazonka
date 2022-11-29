@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.Action where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.LambdaConfiguration
 import Amazonka.LookoutMetrics.Types.SNSConfiguration
 import qualified Amazonka.Prelude as Prelude

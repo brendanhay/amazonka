@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.ItemizedMetricStats where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Aggregated statistics about a measure affected by an anomaly.

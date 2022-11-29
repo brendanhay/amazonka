@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.AnomalyGroupSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a group of anomalous metrics.

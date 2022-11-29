@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.DataQualityMetric where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.DataQualityMetricType
 import qualified Amazonka.Prelude as Prelude
 

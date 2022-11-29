@@ -44,7 +44,7 @@ module Amazonka.LookoutMetrics.GetFeedback
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +116,8 @@ getFeedback_anomalyGroupTimeSeriesFeedback = Lens.lens (\GetFeedback' {anomalyGr
 
 instance Core.AWSRequest GetFeedback where
   type AWSResponse GetFeedback = GetFeedbackResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

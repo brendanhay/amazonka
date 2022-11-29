@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.DetectedFileFormatDescriptor where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.DetectedCsvFormatDescriptor
 import Amazonka.LookoutMetrics.Types.DetectedJsonFormatDescriptor
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.DetectedField where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.AttributeValue
 import Amazonka.LookoutMetrics.Types.Confidence
 import qualified Amazonka.Prelude as Prelude

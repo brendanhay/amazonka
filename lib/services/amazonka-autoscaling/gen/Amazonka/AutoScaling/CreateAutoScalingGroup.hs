@@ -87,7 +87,7 @@ where
 
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +121,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     -- or custom health check. This is useful if your instances do not
     -- immediately pass these health checks after they enter the @InService@
     -- state. For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
     -- Default: @0@ seconds
@@ -207,9 +207,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | An embedded object that specifies a mixed instances policy.
-    --
-    -- For more information, see
+    -- | The mixed instances policy. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
@@ -287,6 +285,11 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     capacityRebalance :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Auto Scaling group. This name must be unique per Region
     -- per account.
+    --
+    -- The name can contain any ASCII character 33 to 126 including most
+    -- punctuation characters, digits, and upper and lowercased letters.
+    --
+    -- You cannot use a colon (:) in the name.
     autoScalingGroupName :: Prelude.Text,
     -- | The minimum size of the group.
     minSize :: Prelude.Int,
@@ -337,7 +340,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 -- or custom health check. This is useful if your instances do not
 -- immediately pass these health checks after they enter the @InService@
 -- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- Default: @0@ seconds
@@ -423,9 +426,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'mixedInstancesPolicy', 'createAutoScalingGroup_mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy.
---
--- For more information, see
+-- 'mixedInstancesPolicy', 'createAutoScalingGroup_mixedInstancesPolicy' - The mixed instances policy. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
@@ -503,6 +504,11 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- 'autoScalingGroupName', 'createAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group. This name must be unique per Region
 -- per account.
+--
+-- The name can contain any ASCII character 33 to 126 including most
+-- punctuation characters, digits, and upper and lowercased letters.
+--
+-- You cannot use a colon (:) in the name.
 --
 -- 'minSize', 'createAutoScalingGroup_minSize' - The minimum size of the group.
 --
@@ -588,7 +594,7 @@ createAutoScalingGroup_availabilityZones = Lens.lens (\CreateAutoScalingGroup' {
 -- or custom health check. This is useful if your instances do not
 -- immediately pass these health checks after they enter the @InService@
 -- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- Default: @0@ seconds
@@ -696,9 +702,7 @@ createAutoScalingGroup_defaultInstanceWarmup = Lens.lens (\CreateAutoScalingGrou
 createAutoScalingGroup_instanceId :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe Prelude.Text)
 createAutoScalingGroup_instanceId = Lens.lens (\CreateAutoScalingGroup' {instanceId} -> instanceId) (\s@CreateAutoScalingGroup' {} a -> s {instanceId = a} :: CreateAutoScalingGroup)
 
--- | An embedded object that specifies a mixed instances policy.
---
--- For more information, see
+-- | The mixed instances policy. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 createAutoScalingGroup_mixedInstancesPolicy :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe MixedInstancesPolicy)
@@ -794,6 +798,11 @@ createAutoScalingGroup_capacityRebalance = Lens.lens (\CreateAutoScalingGroup' {
 
 -- | The name of the Auto Scaling group. This name must be unique per Region
 -- per account.
+--
+-- The name can contain any ASCII character 33 to 126 including most
+-- punctuation characters, digits, and upper and lowercased letters.
+--
+-- You cannot use a colon (:) in the name.
 createAutoScalingGroup_autoScalingGroupName :: Lens.Lens' CreateAutoScalingGroup Prelude.Text
 createAutoScalingGroup_autoScalingGroupName = Lens.lens (\CreateAutoScalingGroup' {autoScalingGroupName} -> autoScalingGroupName) (\s@CreateAutoScalingGroup' {} a -> s {autoScalingGroupName = a} :: CreateAutoScalingGroup)
 
@@ -816,8 +825,8 @@ instance Core.AWSRequest CreateAutoScalingGroup where
   type
     AWSResponse CreateAutoScalingGroup =
       CreateAutoScalingGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull
       CreateAutoScalingGroupResponse'

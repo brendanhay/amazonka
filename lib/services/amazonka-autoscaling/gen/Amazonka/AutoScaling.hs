@@ -677,6 +677,10 @@ module Amazonka.AutoScaling
     MixedInstancesPolicy (MixedInstancesPolicy'),
     newMixedInstancesPolicy,
 
+    -- ** NetworkBandwidthGbpsRequest
+    NetworkBandwidthGbpsRequest (NetworkBandwidthGbpsRequest'),
+    newNetworkBandwidthGbpsRequest,
+
     -- ** NetworkInterfaceCountRequest
     NetworkInterfaceCountRequest (NetworkInterfaceCountRequest'),
     newNetworkInterfaceCountRequest,

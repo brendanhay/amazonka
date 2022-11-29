@@ -24,7 +24,7 @@ import Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails
 import Amazonka.AutoScaling.Types.InstanceRefreshStatus
 import Amazonka.AutoScaling.Types.RefreshPreferences
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance refresh for an Auto Scaling group.

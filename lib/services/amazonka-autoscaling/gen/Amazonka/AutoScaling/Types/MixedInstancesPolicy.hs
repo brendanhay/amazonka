@@ -22,13 +22,15 @@ module Amazonka.AutoScaling.Types.MixedInstancesPolicy where
 import Amazonka.AutoScaling.Types.InstancesDistribution
 import Amazonka.AutoScaling.Types.LaunchTemplate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a mixed instances policy. A mixed instances policy contains
--- the instance types that Amazon EC2 Auto Scaling can launch and other
--- information that Amazon EC2 Auto Scaling can use to launch instances and
--- help optimize your costs. For more information, see
+-- | Use this structure to launch multiple instance types and On-Demand
+-- Instances and Spot Instances within a single Auto Scaling group.
+--
+-- A mixed instances policy contains information that Amazon EC2 Auto
+-- Scaling can use to launch instances and help optimize your costs. For
+-- more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --

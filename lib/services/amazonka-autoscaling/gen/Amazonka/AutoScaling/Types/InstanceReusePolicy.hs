@@ -20,7 +20,7 @@
 module Amazonka.AutoScaling.Types.InstanceReusePolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance reuse policy for a warm pool.

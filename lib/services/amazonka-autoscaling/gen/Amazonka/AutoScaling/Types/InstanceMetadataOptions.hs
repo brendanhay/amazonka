@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.InstanceMetadataOptions where
 import Amazonka.AutoScaling.Types.InstanceMetadataEndpointState
 import Amazonka.AutoScaling.Types.InstanceMetadataHttpTokensState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instances. For more information, see

@@ -126,6 +126,7 @@ haskell_library(
         "gen/Amazonka/AutoScaling/Types/MetricStatistic.hs",
         "gen/Amazonka/AutoScaling/Types/MetricType.hs",
         "gen/Amazonka/AutoScaling/Types/MixedInstancesPolicy.hs",
+        "gen/Amazonka/AutoScaling/Types/NetworkBandwidthGbpsRequest.hs",
         "gen/Amazonka/AutoScaling/Types/NetworkInterfaceCountRequest.hs",
         "gen/Amazonka/AutoScaling/Types/NotificationConfiguration.hs",
         "gen/Amazonka/AutoScaling/Types/PredefinedLoadMetricType.hs",

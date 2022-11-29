@@ -26,7 +26,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies the metrics and target utilization settings for

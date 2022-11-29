@@ -20,7 +20,7 @@
 module Amazonka.AutoScaling.Types.Filter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that is used to return a more specific list of

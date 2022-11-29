@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.AutoScalingInstanceDetails where
 
 import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EC2 instance associated with an Auto Scaling group.

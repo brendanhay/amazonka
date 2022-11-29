@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.TargetTrackingConfiguration where
 import Amazonka.AutoScaling.Types.CustomizedMetricSpecification
 import Amazonka.AutoScaling.Types.PredefinedMetricSpecification
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a target tracking scaling policy configuration to use with

@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.MetricDataQuery where
 
 import Amazonka.AutoScaling.Types.MetricStat
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metric data to return. Also defines whether this call is returning

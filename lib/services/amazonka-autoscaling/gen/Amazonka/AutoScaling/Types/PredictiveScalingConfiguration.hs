@@ -23,7 +23,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
 import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
 import Amazonka.AutoScaling.Types.PredictiveScalingMode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predictive scaling policy configuration to use with Amazon

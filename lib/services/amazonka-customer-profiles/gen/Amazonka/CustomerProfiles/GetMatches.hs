@@ -90,8 +90,8 @@ module Amazonka.CustomerProfiles.GetMatches
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +151,8 @@ getMatches_domainName = Lens.lens (\GetMatches' {domainName} -> domainName) (\s@
 
 instance Core.AWSRequest GetMatches where
   type AWSResponse GetMatches = GetMatchesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.CustomerProfiles.Types.ListDomainItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object in a list that represents a domain.

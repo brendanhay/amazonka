@@ -20,10 +20,10 @@
 module Amazonka.CustomerProfiles.Types.FlowDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.SourceFlowConfig
 import Amazonka.CustomerProfiles.Types.Task
 import Amazonka.CustomerProfiles.Types.TriggerConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configurations that control how Customer Profiles retrieves data

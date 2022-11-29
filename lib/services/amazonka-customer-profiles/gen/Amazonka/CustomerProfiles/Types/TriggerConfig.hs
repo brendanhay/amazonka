@@ -20,9 +20,9 @@
 module Amazonka.CustomerProfiles.Types.TriggerConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.TriggerProperties
 import Amazonka.CustomerProfiles.Types.TriggerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The trigger settings that determine how and when Amazon AppFlow runs the

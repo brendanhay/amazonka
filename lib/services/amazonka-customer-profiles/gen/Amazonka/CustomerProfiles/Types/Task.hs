@@ -20,10 +20,10 @@
 module Amazonka.CustomerProfiles.Types.Task where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConnectorOperator
 import Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
 import Amazonka.CustomerProfiles.Types.TaskType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A class for modeling different type of tasks. Task implementation varies

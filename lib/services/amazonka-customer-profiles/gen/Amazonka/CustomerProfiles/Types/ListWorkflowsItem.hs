@@ -20,9 +20,9 @@
 module Amazonka.CustomerProfiles.Types.ListWorkflowsItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Status
 import Amazonka.CustomerProfiles.Types.WorkflowType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow in list of workflows.

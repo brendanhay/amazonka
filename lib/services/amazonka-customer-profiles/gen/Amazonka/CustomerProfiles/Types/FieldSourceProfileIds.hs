@@ -20,7 +20,7 @@
 module Amazonka.CustomerProfiles.Types.FieldSourceProfileIds where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A duplicate customer profile that is to be merged into a main profile.

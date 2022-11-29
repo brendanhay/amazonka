@@ -20,10 +20,10 @@
 module Amazonka.CustomerProfiles.Types.SourceFlowConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
 import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
 import Amazonka.CustomerProfiles.Types.SourceConnectorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the source connector

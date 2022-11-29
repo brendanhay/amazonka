@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.WorkflowStepItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List containing steps in workflow.

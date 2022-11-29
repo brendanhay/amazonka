@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.ForecastStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The predicted high and low fault count. This is used to determine if a

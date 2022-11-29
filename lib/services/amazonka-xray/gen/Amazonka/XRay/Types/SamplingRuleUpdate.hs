@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.SamplingRuleUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A document specifying changes to a sampling rule\'s configuration.

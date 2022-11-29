@@ -22,6 +22,8 @@
 --
 -- Returns a list of tags that are applied to the specified Amazon Web
 -- Services X-Ray group or sampling rule.
+--
+-- This operation returns paginated results.
 module Amazonka.XRay.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -43,7 +45,7 @@ module Amazonka.XRay.ListTagsForResource
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,12 +95,34 @@ listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> 
 listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceARN = Lens.lens (\ListTagsForResource' {resourceARN} -> resourceARN) (\s@ListTagsForResource' {} a -> s {resourceARN = a} :: ListTagsForResource)
 
+instance Core.AWSPager ListTagsForResource where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_tags
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listTagsForResource_nextToken
+          Lens..~ rs
+          Lens.^? listTagsForResourceResponse_nextToken
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

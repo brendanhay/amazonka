@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.HistogramEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of

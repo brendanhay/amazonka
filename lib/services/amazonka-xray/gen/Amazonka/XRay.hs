@@ -21,14 +21,29 @@ module Amazonka.XRay
     -- * Errors
     -- $errors
 
+    -- ** PolicyCountLimitExceededException
+    _PolicyCountLimitExceededException,
+
     -- ** RuleLimitExceededException
     _RuleLimitExceededException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
 
+    -- ** PolicySizeLimitExceededException
+    _PolicySizeLimitExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InvalidPolicyRevisionIdException
+    _InvalidPolicyRevisionIdException,
+
+    -- ** LockoutPreventionException
+    _LockoutPreventionException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
 
     -- ** ThrottledException
     _ThrottledException,
@@ -65,6 +80,12 @@ module Amazonka.XRay
     newDeleteGroup,
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
+
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
 
     -- ** DeleteSamplingRule
     DeleteSamplingRule (DeleteSamplingRule'),
@@ -156,7 +177,13 @@ module Amazonka.XRay
     GetTraceSummariesResponse (GetTraceSummariesResponse'),
     newGetTraceSummariesResponse,
 
-    -- ** ListTagsForResource
+    -- ** ListResourcePolicies (Paginated)
+    ListResourcePolicies (ListResourcePolicies'),
+    newListResourcePolicies,
+    ListResourcePoliciesResponse (ListResourcePoliciesResponse'),
+    newListResourcePoliciesResponse,
+
+    -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
@@ -167,6 +194,12 @@ module Amazonka.XRay
     newPutEncryptionConfig,
     PutEncryptionConfigResponse (PutEncryptionConfigResponse'),
     newPutEncryptionConfigResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** PutTelemetryRecords
     PutTelemetryRecords (PutTelemetryRecords'),
@@ -344,6 +377,10 @@ module Amazonka.XRay
     ResourceARNDetail (ResourceARNDetail'),
     newResourceARNDetail,
 
+    -- ** ResourcePolicy
+    ResourcePolicy (ResourcePolicy'),
+    newResourcePolicy,
+
     -- ** ResponseTimeRootCause
     ResponseTimeRootCause (ResponseTimeRootCause'),
     newResponseTimeRootCause,
@@ -446,6 +483,7 @@ import Amazonka.XRay.BatchGetTraces
 import Amazonka.XRay.CreateGroup
 import Amazonka.XRay.CreateSamplingRule
 import Amazonka.XRay.DeleteGroup
+import Amazonka.XRay.DeleteResourcePolicy
 import Amazonka.XRay.DeleteSamplingRule
 import Amazonka.XRay.GetEncryptionConfig
 import Amazonka.XRay.GetGroup
@@ -462,8 +500,10 @@ import Amazonka.XRay.GetTimeSeriesServiceStatistics
 import Amazonka.XRay.GetTraceGraph
 import Amazonka.XRay.GetTraceSummaries
 import Amazonka.XRay.Lens
+import Amazonka.XRay.ListResourcePolicies
 import Amazonka.XRay.ListTagsForResource
 import Amazonka.XRay.PutEncryptionConfig
+import Amazonka.XRay.PutResourcePolicy
 import Amazonka.XRay.PutTelemetryRecords
 import Amazonka.XRay.PutTraceSegments
 import Amazonka.XRay.TagResource

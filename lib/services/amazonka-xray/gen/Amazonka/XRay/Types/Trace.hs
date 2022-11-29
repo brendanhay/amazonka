@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.Trace where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.Segment
 
@@ -34,8 +34,9 @@ data Trace = Trace'
     -- | The length of time in seconds between the start time of the root segment
     -- and the end time of the last segment that completed.
     duration :: Prelude.Maybe Prelude.Double,
-    -- | LimitExceeded is set to true when the trace has exceeded one of the
-    -- defined quotas. For more information about quotas, see
+    -- | LimitExceeded is set to true when the trace has exceeded the
+    -- @Trace document size@ limit. For more information about this limit and
+    -- other X-Ray limits and quotas, see
     -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
     limitExceeded :: Prelude.Maybe Prelude.Bool,
     -- | Segment documents for the segments and subsegments that comprise the
@@ -58,8 +59,9 @@ data Trace = Trace'
 -- 'duration', 'trace_duration' - The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
 --
--- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the
--- defined quotas. For more information about quotas, see
+-- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded the
+-- @Trace document size@ limit. For more information about this limit and
+-- other X-Ray limits and quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
 --
 -- 'segments', 'trace_segments' - Segment documents for the segments and subsegments that comprise the
@@ -84,8 +86,9 @@ trace_id = Lens.lens (\Trace' {id} -> id) (\s@Trace' {} a -> s {id = a} :: Trace
 trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
 trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
 
--- | LimitExceeded is set to true when the trace has exceeded one of the
--- defined quotas. For more information about quotas, see
+-- | LimitExceeded is set to true when the trace has exceeded the
+-- @Trace document size@ limit. For more information about this limit and
+-- other X-Ray limits and quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
 trace_limitExceeded :: Lens.Lens' Trace (Prelude.Maybe Prelude.Bool)
 trace_limitExceeded = Lens.lens (\Trace' {limitExceeded} -> limitExceeded) (\s@Trace' {} a -> s {limitExceeded = a} :: Trace)

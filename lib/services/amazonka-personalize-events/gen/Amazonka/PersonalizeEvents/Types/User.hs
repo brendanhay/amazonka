@@ -20,7 +20,7 @@
 module Amazonka.PersonalizeEvents.Types.User where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents user metadata added to a Users dataset using the @PutUsers@
@@ -38,11 +38,11 @@ data User = User'
     -- schema. For categorical string data, to include multiple categories for
     -- a single user, separate each category with a pipe separator (@|@). For
     -- example, @\\\"Member|Frequent shopper\\\"@.
-    properties :: Prelude.Maybe Prelude.Text,
+    properties :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID associated with the user.
     userId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -83,7 +83,7 @@ newUser pUserId_ =
 -- a single user, separate each category with a pipe separator (@|@). For
 -- example, @\\\"Member|Frequent shopper\\\"@.
 user_properties :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_properties = Lens.lens (\User' {properties} -> properties) (\s@User' {} a -> s {properties = a} :: User)
+user_properties = Lens.lens (\User' {properties} -> properties) (\s@User' {} a -> s {properties = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID associated with the user.
 user_userId :: Lens.Lens' User Prelude.Text

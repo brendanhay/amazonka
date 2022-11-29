@@ -51,6 +51,7 @@ library
     Amazonka.PersonalizeEvents.Types
     Amazonka.PersonalizeEvents.Types.Event
     Amazonka.PersonalizeEvents.Types.Item
+    Amazonka.PersonalizeEvents.Types.MetricAttribution
     Amazonka.PersonalizeEvents.Types.User
     Amazonka.PersonalizeEvents.Waiters
 

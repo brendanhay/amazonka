@@ -38,7 +38,7 @@ module Amazonka.PersonalizeEvents.PutUsers
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PersonalizeEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -52,7 +52,7 @@ data PutUsers = PutUsers'
     -- | A list of user data.
     users :: Prelude.NonEmpty User
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutUsers' with all optional fields omitted.
@@ -89,8 +89,8 @@ putUsers_users = Lens.lens (\PutUsers' {users} -> users) (\s@PutUsers' {} a -> s
 
 instance Core.AWSRequest PutUsers where
   type AWSResponse PutUsers = PutUsersResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutUsersResponse'
 
 instance Prelude.Hashable PutUsers where

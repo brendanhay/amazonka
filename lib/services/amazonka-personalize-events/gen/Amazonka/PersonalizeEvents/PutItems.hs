@@ -38,7 +38,7 @@ module Amazonka.PersonalizeEvents.PutItems
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PersonalizeEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -52,7 +52,7 @@ data PutItems = PutItems'
     -- | A list of item data.
     items :: Prelude.NonEmpty Item
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutItems' with all optional fields omitted.
@@ -89,8 +89,8 @@ putItems_items = Lens.lens (\PutItems' {items} -> items) (\s@PutItems' {} a -> s
 
 instance Core.AWSRequest PutItems where
   type AWSResponse PutItems = PutItemsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutItemsResponse'
 
 instance Prelude.Hashable PutItems where

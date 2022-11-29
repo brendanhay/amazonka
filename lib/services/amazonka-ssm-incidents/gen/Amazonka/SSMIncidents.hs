@@ -298,6 +298,10 @@ module Amazonka.SSMIncidents
     EmptyChatChannel (EmptyChatChannel'),
     newEmptyChatChannel,
 
+    -- ** EventReference
+    EventReference (EventReference'),
+    newEventReference,
+
     -- ** EventSummary
     EventSummary (EventSummary'),
     newEventSummary,
@@ -322,6 +326,10 @@ module Amazonka.SSMIncidents
     IncidentTemplate (IncidentTemplate'),
     newIncidentTemplate,
 
+    -- ** Integration
+    Integration (Integration'),
+    newIntegration,
+
     -- ** ItemIdentifier
     ItemIdentifier (ItemIdentifier'),
     newItemIdentifier,
@@ -333,6 +341,18 @@ module Amazonka.SSMIncidents
     -- ** NotificationTargetItem
     NotificationTargetItem (NotificationTargetItem'),
     newNotificationTargetItem,
+
+    -- ** PagerDutyConfiguration
+    PagerDutyConfiguration (PagerDutyConfiguration'),
+    newPagerDutyConfiguration,
+
+    -- ** PagerDutyIncidentConfiguration
+    PagerDutyIncidentConfiguration (PagerDutyIncidentConfiguration'),
+    newPagerDutyIncidentConfiguration,
+
+    -- ** PagerDutyIncidentDetail
+    PagerDutyIncidentDetail (PagerDutyIncidentDetail'),
+    newPagerDutyIncidentDetail,
 
     -- ** RegionInfo
     RegionInfo (RegionInfo'),

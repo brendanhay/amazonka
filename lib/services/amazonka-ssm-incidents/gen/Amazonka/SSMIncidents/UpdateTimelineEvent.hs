@@ -29,6 +29,7 @@ module Amazonka.SSMIncidents.UpdateTimelineEvent
     -- * Request Lenses
     updateTimelineEvent_eventType,
     updateTimelineEvent_clientToken,
+    updateTimelineEvent_eventReferences,
     updateTimelineEvent_eventTime,
     updateTimelineEvent_eventData,
     updateTimelineEvent_eventId,
@@ -44,7 +45,7 @@ module Amazonka.SSMIncidents.UpdateTimelineEvent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,6 +58,19 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
     -- | A token ensuring that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Updates all existing references in a @TimelineEvent@. A reference can be
+    -- an Amazon Web Services resource involved in the incident or in some way
+    -- associated with it. When you specify a reference, you enter the Amazon
+    -- Resource Name (ARN) of the resource. You can also specify a related
+    -- item. As an example, you could specify the ARN of an Amazon DynamoDB
+    -- (DynamoDB) table. The table for this example is the resource. You could
+    -- also specify a Amazon CloudWatch metric for that table. The metric is
+    -- the related item.
+    --
+    -- This update action overrides all existing references. If you want to
+    -- keep existing references, you must specify them in the call. If you
+    -- don\'t, this action removes them and enters only new references.
+    eventReferences :: Prelude.Maybe [EventReference],
     -- | The time that the event occurred.
     eventTime :: Prelude.Maybe Core.POSIX,
     -- | A short description of the event.
@@ -83,6 +97,19 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
 -- 'clientToken', 'updateTimelineEvent_clientToken' - A token ensuring that the operation is called only once with the
 -- specified details.
 --
+-- 'eventReferences', 'updateTimelineEvent_eventReferences' - Updates all existing references in a @TimelineEvent@. A reference can be
+-- an Amazon Web Services resource involved in the incident or in some way
+-- associated with it. When you specify a reference, you enter the Amazon
+-- Resource Name (ARN) of the resource. You can also specify a related
+-- item. As an example, you could specify the ARN of an Amazon DynamoDB
+-- (DynamoDB) table. The table for this example is the resource. You could
+-- also specify a Amazon CloudWatch metric for that table. The metric is
+-- the related item.
+--
+-- This update action overrides all existing references. If you want to
+-- keep existing references, you must specify them in the call. If you
+-- don\'t, this action removes them and enters only new references.
+--
 -- 'eventTime', 'updateTimelineEvent_eventTime' - The time that the event occurred.
 --
 -- 'eventData', 'updateTimelineEvent_eventData' - A short description of the event.
@@ -102,6 +129,7 @@ newUpdateTimelineEvent pEventId_ pIncidentRecordArn_ =
   UpdateTimelineEvent'
     { eventType = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      eventReferences = Prelude.Nothing,
       eventTime = Prelude.Nothing,
       eventData = Prelude.Nothing,
       eventId = pEventId_,
@@ -116,6 +144,21 @@ updateTimelineEvent_eventType = Lens.lens (\UpdateTimelineEvent' {eventType} -> 
 -- specified details.
 updateTimelineEvent_clientToken :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_clientToken = Lens.lens (\UpdateTimelineEvent' {clientToken} -> clientToken) (\s@UpdateTimelineEvent' {} a -> s {clientToken = a} :: UpdateTimelineEvent)
+
+-- | Updates all existing references in a @TimelineEvent@. A reference can be
+-- an Amazon Web Services resource involved in the incident or in some way
+-- associated with it. When you specify a reference, you enter the Amazon
+-- Resource Name (ARN) of the resource. You can also specify a related
+-- item. As an example, you could specify the ARN of an Amazon DynamoDB
+-- (DynamoDB) table. The table for this example is the resource. You could
+-- also specify a Amazon CloudWatch metric for that table. The metric is
+-- the related item.
+--
+-- This update action overrides all existing references. If you want to
+-- keep existing references, you must specify them in the call. If you
+-- don\'t, this action removes them and enters only new references.
+updateTimelineEvent_eventReferences :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe [EventReference])
+updateTimelineEvent_eventReferences = Lens.lens (\UpdateTimelineEvent' {eventReferences} -> eventReferences) (\s@UpdateTimelineEvent' {} a -> s {eventReferences = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time that the event occurred.
 updateTimelineEvent_eventTime :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.UTCTime)
@@ -139,8 +182,8 @@ instance Core.AWSRequest UpdateTimelineEvent where
   type
     AWSResponse UpdateTimelineEvent =
       UpdateTimelineEventResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -152,6 +195,7 @@ instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =
     _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventId
@@ -161,6 +205,7 @@ instance Prelude.NFData UpdateTimelineEvent where
   rnf UpdateTimelineEvent' {..} =
     Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf eventReferences
       `Prelude.seq` Prelude.rnf eventTime
       `Prelude.seq` Prelude.rnf eventData
       `Prelude.seq` Prelude.rnf eventId
@@ -183,6 +228,8 @@ instance Core.ToJSON UpdateTimelineEvent where
       ( Prelude.catMaybes
           [ ("eventType" Core..=) Prelude.<$> eventType,
             ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("eventReferences" Core..=)
+              Prelude.<$> eventReferences,
             ("eventTime" Core..=) Prelude.<$> eventTime,
             ("eventData" Core..=) Prelude.<$> eventData,
             Prelude.Just ("eventId" Core..= eventId),

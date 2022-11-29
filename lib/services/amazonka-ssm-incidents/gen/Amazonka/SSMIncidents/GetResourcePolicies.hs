@@ -45,7 +45,7 @@ module Amazonka.SSMIncidents.GetResourcePolicies
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +55,8 @@ import Amazonka.SSMIncidents.Types
 data GetResourcePolicies = GetResourcePolicies'
   { -- | The pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resource policies to display per page of results.
+    -- | The maximum number of resource policies to display for each page of
+    -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the response plan with the attached
     -- resource policy.
@@ -73,7 +74,8 @@ data GetResourcePolicies = GetResourcePolicies'
 --
 -- 'nextToken', 'getResourcePolicies_nextToken' - The pagination token to continue to the next page of results.
 --
--- 'maxResults', 'getResourcePolicies_maxResults' - The maximum number of resource policies to display per page of results.
+-- 'maxResults', 'getResourcePolicies_maxResults' - The maximum number of resource policies to display for each page of
+-- results.
 --
 -- 'resourceArn', 'getResourcePolicies_resourceArn' - The Amazon Resource Name (ARN) of the response plan with the attached
 -- resource policy.
@@ -92,7 +94,8 @@ newGetResourcePolicies pResourceArn_ =
 getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
 getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
--- | The maximum number of resource policies to display per page of results.
+-- | The maximum number of resource policies to display for each page of
+-- results.
 getResourcePolicies_maxResults :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Natural)
 getResourcePolicies_maxResults = Lens.lens (\GetResourcePolicies' {maxResults} -> maxResults) (\s@GetResourcePolicies' {} a -> s {maxResults = a} :: GetResourcePolicies)
 
@@ -126,8 +129,8 @@ instance Core.AWSRequest GetResourcePolicies where
   type
     AWSResponse GetResourcePolicies =
       GetResourcePoliciesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

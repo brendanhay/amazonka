@@ -41,7 +41,7 @@ module Amazonka.SSMIncidents.UpdateReplicationSet
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -49,7 +49,7 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateReplicationSet' smart constructor.
 data UpdateReplicationSet = UpdateReplicationSet'
-  { -- | A token ensuring that the operation is called only once with the
+  { -- | A token that ensures that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | An action to add or delete a Region.
@@ -67,7 +67,7 @@ data UpdateReplicationSet = UpdateReplicationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateReplicationSet_clientToken' - A token ensuring that the operation is called only once with the
+-- 'clientToken', 'updateReplicationSet_clientToken' - A token that ensures that the operation is called only once with the
 -- specified details.
 --
 -- 'actions', 'updateReplicationSet_actions' - An action to add or delete a Region.
@@ -87,7 +87,7 @@ newUpdateReplicationSet pActions_ pArn_ =
       arn = pArn_
     }
 
--- | A token ensuring that the operation is called only once with the
+-- | A token that ensures that the operation is called only once with the
 -- specified details.
 updateReplicationSet_clientToken :: Lens.Lens' UpdateReplicationSet (Prelude.Maybe Prelude.Text)
 updateReplicationSet_clientToken = Lens.lens (\UpdateReplicationSet' {clientToken} -> clientToken) (\s@UpdateReplicationSet' {} a -> s {clientToken = a} :: UpdateReplicationSet)
@@ -104,8 +104,8 @@ instance Core.AWSRequest UpdateReplicationSet where
   type
     AWSResponse UpdateReplicationSet =
       UpdateReplicationSetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

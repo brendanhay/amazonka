@@ -34,6 +34,7 @@ module Amazonka.SSMIncidents.GetResponsePlan
     newGetResponsePlanResponse,
 
     -- * Response Lenses
+    getResponsePlanResponse_integrations,
     getResponsePlanResponse_chatChannel,
     getResponsePlanResponse_displayName,
     getResponsePlanResponse_engagements,
@@ -46,7 +47,7 @@ module Amazonka.SSMIncidents.GetResponsePlan
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,13 +84,14 @@ instance Core.AWSRequest GetResponsePlan where
   type
     AWSResponse GetResponsePlan =
       GetResponsePlanResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetResponsePlanResponse'
-            Prelude.<$> (x Core..?> "chatChannel")
+            Prelude.<$> (x Core..?> "integrations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "chatChannel")
             Prelude.<*> (x Core..?> "displayName")
             Prelude.<*> (x Core..?> "engagements" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
@@ -126,12 +128,15 @@ instance Core.ToQuery GetResponsePlan where
 
 -- | /See:/ 'newGetResponsePlanResponse' smart constructor.
 data GetResponsePlanResponse = GetResponsePlanResponse'
-  { -- | The Chatbot chat channel used for collaboration during an incident.
+  { -- | Information about third-party services integrated into the Incident
+    -- Manager response plan.
+    integrations :: Prelude.Maybe [Integration],
+    -- | The Chatbot chat channel used for collaboration during an incident.
     chatChannel :: Prelude.Maybe ChatChannel,
     -- | The long format name of the response plan. Can contain spaces.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The contacts and escalation plans that the response plan engages during
-    -- an incident.
+    -- | The Amazon Resource Name (ARN) for the contacts and escalation plans
+    -- that the response plan engages during an incident.
     engagements :: Prelude.Maybe [Prelude.Text],
     -- | The actions that this response plan takes at the beginning of the
     -- incident.
@@ -156,12 +161,15 @@ data GetResponsePlanResponse = GetResponsePlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'integrations', 'getResponsePlanResponse_integrations' - Information about third-party services integrated into the Incident
+-- Manager response plan.
+--
 -- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
 -- 'displayName', 'getResponsePlanResponse_displayName' - The long format name of the response plan. Can contain spaces.
 --
--- 'engagements', 'getResponsePlanResponse_engagements' - The contacts and escalation plans that the response plan engages during
--- an incident.
+-- 'engagements', 'getResponsePlanResponse_engagements' - The Amazon Resource Name (ARN) for the contacts and escalation plans
+-- that the response plan engages during an incident.
 --
 -- 'actions', 'getResponsePlanResponse_actions' - The actions that this response plan takes at the beginning of the
 -- incident.
@@ -190,8 +198,9 @@ newGetResponsePlanResponse
   pIncidentTemplate_
   pName_ =
     GetResponsePlanResponse'
-      { chatChannel =
+      { integrations =
           Prelude.Nothing,
+        chatChannel = Prelude.Nothing,
         displayName = Prelude.Nothing,
         engagements = Prelude.Nothing,
         actions = Prelude.Nothing,
@@ -201,6 +210,11 @@ newGetResponsePlanResponse
         name = pName_
       }
 
+-- | Information about third-party services integrated into the Incident
+-- Manager response plan.
+getResponsePlanResponse_integrations :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe [Integration])
+getResponsePlanResponse_integrations = Lens.lens (\GetResponsePlanResponse' {integrations} -> integrations) (\s@GetResponsePlanResponse' {} a -> s {integrations = a} :: GetResponsePlanResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Chatbot chat channel used for collaboration during an incident.
 getResponsePlanResponse_chatChannel :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe ChatChannel)
 getResponsePlanResponse_chatChannel = Lens.lens (\GetResponsePlanResponse' {chatChannel} -> chatChannel) (\s@GetResponsePlanResponse' {} a -> s {chatChannel = a} :: GetResponsePlanResponse)
@@ -209,8 +223,8 @@ getResponsePlanResponse_chatChannel = Lens.lens (\GetResponsePlanResponse' {chat
 getResponsePlanResponse_displayName :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe Prelude.Text)
 getResponsePlanResponse_displayName = Lens.lens (\GetResponsePlanResponse' {displayName} -> displayName) (\s@GetResponsePlanResponse' {} a -> s {displayName = a} :: GetResponsePlanResponse)
 
--- | The contacts and escalation plans that the response plan engages during
--- an incident.
+-- | The Amazon Resource Name (ARN) for the contacts and escalation plans
+-- that the response plan engages during an incident.
 getResponsePlanResponse_engagements :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe [Prelude.Text])
 getResponsePlanResponse_engagements = Lens.lens (\GetResponsePlanResponse' {engagements} -> engagements) (\s@GetResponsePlanResponse' {} a -> s {engagements = a} :: GetResponsePlanResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -238,7 +252,8 @@ getResponsePlanResponse_name = Lens.lens (\GetResponsePlanResponse' {name} -> na
 
 instance Prelude.NFData GetResponsePlanResponse where
   rnf GetResponsePlanResponse' {..} =
-    Prelude.rnf chatChannel
+    Prelude.rnf integrations
+      `Prelude.seq` Prelude.rnf chatChannel
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf engagements
       `Prelude.seq` Prelude.rnf actions

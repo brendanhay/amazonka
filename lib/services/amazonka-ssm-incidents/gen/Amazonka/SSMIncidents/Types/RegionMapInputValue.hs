@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.RegionMapInputValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The mapping between a Amazon Web Services Region and the key that\'s

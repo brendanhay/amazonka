@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.AutomationExecution where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Systems Manager automation document process to start as the runbook

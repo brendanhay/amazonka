@@ -23,7 +23,7 @@
 -- Adds a resource policy to the specified response plan. The resource
 -- policy is used to share the response plan using Resource Access Manager
 -- (RAM). For more information about cross-account sharing, see
--- <https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html Setting up cross-account functionality>.
+-- <https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html Cross-Region and cross-account incident management>.
 module Amazonka.SSMIncidents.PutResourcePolicy
   ( -- * Creating a Request
     PutResourcePolicy (..),
@@ -44,7 +44,7 @@ module Amazonka.SSMIncidents.PutResourcePolicy
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,8 +54,8 @@ import Amazonka.SSMIncidents.Types
 data PutResourcePolicy = PutResourcePolicy'
   { -- | Details of the resource policy.
     policy :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the response plan you\'re adding the
-    -- resource policy to.
+    -- | The Amazon Resource Name (ARN) of the response plan to add the resource
+    -- policy to.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,8 +70,8 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- 'policy', 'putResourcePolicy_policy' - Details of the resource policy.
 --
--- 'resourceArn', 'putResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the response plan you\'re adding the
--- resource policy to.
+-- 'resourceArn', 'putResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the response plan to add the resource
+-- policy to.
 newPutResourcePolicy ::
   -- | 'policy'
   Prelude.Text ->
@@ -88,8 +88,8 @@ newPutResourcePolicy pPolicy_ pResourceArn_ =
 putResourcePolicy_policy :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_policy = Lens.lens (\PutResourcePolicy' {policy} -> policy) (\s@PutResourcePolicy' {} a -> s {policy = a} :: PutResourcePolicy)
 
--- | The Amazon Resource Name (ARN) of the response plan you\'re adding the
--- resource policy to.
+-- | The Amazon Resource Name (ARN) of the response plan to add the resource
+-- policy to.
 putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
@@ -97,8 +97,8 @@ instance Core.AWSRequest PutResourcePolicy where
   type
     AWSResponse PutResourcePolicy =
       PutResourcePolicyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

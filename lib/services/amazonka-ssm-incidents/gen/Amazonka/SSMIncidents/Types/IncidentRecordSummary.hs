@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.IncidentRecordSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.IncidentRecordSource
 import Amazonka.SSMIncidents.Types.IncidentRecordStatus

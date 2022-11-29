@@ -20,7 +20,7 @@
 module Amazonka.DocumentDB.Types.UpgradeTarget where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The version of the database engine that an instance can be upgraded to.

@@ -20,7 +20,7 @@
 module Amazonka.DocumentDB.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network information for accessing a cluster or instance. Client programs

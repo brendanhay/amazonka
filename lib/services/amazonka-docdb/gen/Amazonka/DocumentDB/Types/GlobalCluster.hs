@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.GlobalCluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.GlobalClusterMember
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data type representing an Amazon DocumentDB global cluster.

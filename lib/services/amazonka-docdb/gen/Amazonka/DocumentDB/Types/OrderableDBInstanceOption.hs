@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.OrderableDBInstanceOption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.AvailabilityZone
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The options that are available for an instance.

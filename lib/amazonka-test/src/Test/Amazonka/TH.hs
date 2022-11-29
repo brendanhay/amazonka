@@ -14,7 +14,7 @@
 module Test.Amazonka.TH where
 
 import Amazonka.Core hiding (error)
-import Amazonka.Lens (view)
+import Amazonka.Core.Lens.Internal (view)
 import Data.Time (Day (..), DiffTime, UTCTime (..))
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax

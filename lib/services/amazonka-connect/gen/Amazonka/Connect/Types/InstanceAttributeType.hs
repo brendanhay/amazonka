@@ -24,6 +24,7 @@ module Amazonka.Connect.Types.InstanceAttributeType
         InstanceAttributeType_CONTACTFLOW_LOGS,
         InstanceAttributeType_CONTACT_LENS,
         InstanceAttributeType_EARLY_MEDIA,
+        InstanceAttributeType_ENHANCED_CONTACT_MONITORING,
         InstanceAttributeType_HIGH_VOLUME_OUTBOUND,
         InstanceAttributeType_INBOUND_CALLS,
         InstanceAttributeType_MULTI_PARTY_CONFERENCE,
@@ -76,6 +77,9 @@ pattern InstanceAttributeType_CONTACT_LENS = InstanceAttributeType' "CONTACT_LEN
 pattern InstanceAttributeType_EARLY_MEDIA :: InstanceAttributeType
 pattern InstanceAttributeType_EARLY_MEDIA = InstanceAttributeType' "EARLY_MEDIA"
 
+pattern InstanceAttributeType_ENHANCED_CONTACT_MONITORING :: InstanceAttributeType
+pattern InstanceAttributeType_ENHANCED_CONTACT_MONITORING = InstanceAttributeType' "ENHANCED_CONTACT_MONITORING"
+
 pattern InstanceAttributeType_HIGH_VOLUME_OUTBOUND :: InstanceAttributeType
 pattern InstanceAttributeType_HIGH_VOLUME_OUTBOUND = InstanceAttributeType' "HIGH_VOLUME_OUTBOUND"
 
@@ -96,6 +100,7 @@ pattern InstanceAttributeType_USE_CUSTOM_TTS_VOICES = InstanceAttributeType' "US
   InstanceAttributeType_CONTACTFLOW_LOGS,
   InstanceAttributeType_CONTACT_LENS,
   InstanceAttributeType_EARLY_MEDIA,
+  InstanceAttributeType_ENHANCED_CONTACT_MONITORING,
   InstanceAttributeType_HIGH_VOLUME_OUTBOUND,
   InstanceAttributeType_INBOUND_CALLS,
   InstanceAttributeType_MULTI_PARTY_CONFERENCE,

@@ -24,7 +24,7 @@ import Amazonka.Connect.Types.Channel
 import Amazonka.Connect.Types.ContactInitiationMethod
 import Amazonka.Connect.Types.QueueInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a contact.

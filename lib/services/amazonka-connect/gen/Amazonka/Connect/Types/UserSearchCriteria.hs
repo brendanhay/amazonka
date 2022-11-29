@@ -22,15 +22,14 @@ module Amazonka.Connect.Types.UserSearchCriteria where
 import Amazonka.Connect.Types.HierarchyGroupCondition
 import Amazonka.Connect.Types.StringCondition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search criteria to be used to return users.
 --
--- The @Username@, @Firstname@, and @Lastname@ fields support \"contains\"
--- queries with a minimum of 2 characters and a maximum of 25 characters.
--- Any queries with character lengths outside of this range result in empty
--- results.
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 --
 -- /See:/ 'newUserSearchCriteria' smart constructor.
 data UserSearchCriteria = UserSearchCriteria'

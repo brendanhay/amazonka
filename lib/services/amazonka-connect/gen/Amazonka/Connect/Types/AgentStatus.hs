@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.AgentStatus where
 import Amazonka.Connect.Types.AgentStatusState
 import Amazonka.Connect.Types.AgentStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an agent status.

@@ -20,7 +20,7 @@
 module Amazonka.Connect.Types.QueueQuickConnectConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a queue for a quick connect. The flow must be

@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.CurrentMetricResult where
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.Dimensions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a set of real-time metrics.

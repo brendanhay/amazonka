@@ -50,7 +50,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +63,8 @@ data ReplicateInstance = ReplicateInstance'
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- instanceId in the ARN of the instance. You can provide the @InstanceId@,
+    -- or the entire ARN.
     instanceId :: Prelude.Text,
     -- | The Amazon Web Services Region where to replicate the Amazon Connect
     -- instance.
@@ -88,7 +89,8 @@ data ReplicateInstance = ReplicateInstance'
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'instanceId', 'replicateInstance_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- instanceId in the ARN of the instance. You can provide the @InstanceId@,
+-- or the entire ARN.
 --
 -- 'replicaRegion', 'replicateInstance_replicaRegion' - The Amazon Web Services Region where to replicate the Amazon Connect
 -- instance.
@@ -122,7 +124,8 @@ replicateInstance_clientToken :: Lens.Lens' ReplicateInstance (Prelude.Maybe Pre
 replicateInstance_clientToken = Lens.lens (\ReplicateInstance' {clientToken} -> clientToken) (\s@ReplicateInstance' {} a -> s {clientToken = a} :: ReplicateInstance)
 
 -- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- instanceId in the ARN of the instance. You can provide the @InstanceId@,
+-- or the entire ARN.
 replicateInstance_instanceId :: Lens.Lens' ReplicateInstance Prelude.Text
 replicateInstance_instanceId = Lens.lens (\ReplicateInstance' {instanceId} -> instanceId) (\s@ReplicateInstance' {} a -> s {instanceId = a} :: ReplicateInstance)
 
@@ -140,8 +143,8 @@ instance Core.AWSRequest ReplicateInstance where
   type
     AWSResponse ReplicateInstance =
       ReplicateInstanceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

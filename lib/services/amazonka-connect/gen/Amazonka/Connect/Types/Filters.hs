@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.Filters where
 
 import Amazonka.Connect.Types.Channel
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the filter to apply when retrieving metrics.

@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.RoutingProfileQueueConfigSummary where
 
 import Amazonka.Connect.Types.Channel
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a routing profile queue.

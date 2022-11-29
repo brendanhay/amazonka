@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.HoursOfOperationConfig where
 import Amazonka.Connect.Types.HoursOfOperationDays
 import Amazonka.Connect.Types.HoursOfOperationTimeSlice
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the hours of operation.

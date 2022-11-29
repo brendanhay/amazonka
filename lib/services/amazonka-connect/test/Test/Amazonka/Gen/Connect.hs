@@ -228,6 +228,9 @@ import Test.Tasty
 --         , requestDisassociateSecurityKey $
 --             newDisassociateSecurityKey
 --
+--         , requestDismissUserContact $
+--             newDismissUserContact
+--
 --         , requestGetContactAttributes $
 --             newGetContactAttributes
 --
@@ -341,6 +344,9 @@ import Test.Tasty
 --
 --         , requestListUsers $
 --             newListUsers
+--
+--         , requestMonitorContact $
+--             newMonitorContact
 --
 --         , requestPutUserStatus $
 --             newPutUserStatus
@@ -714,6 +720,9 @@ import Test.Tasty
 --         , responseDisassociateSecurityKey $
 --             newDisassociateSecurityKeyResponse
 --
+--         , responseDismissUserContact $
+--             newDismissUserContactResponse
+--
 --         , responseGetContactAttributes $
 --             newGetContactAttributesResponse
 --
@@ -827,6 +836,9 @@ import Test.Tasty
 --
 --         , responseListUsers $
 --             newListUsersResponse
+--
+--         , responseMonitorContact $
+--             newMonitorContactResponse
 --
 --         , responsePutUserStatus $
 --             newPutUserStatusResponse
@@ -1403,6 +1415,12 @@ requestDisassociateSecurityKey =
     "DisassociateSecurityKey"
     "fixture/DisassociateSecurityKey.yaml"
 
+requestDismissUserContact :: DismissUserContact -> TestTree
+requestDismissUserContact =
+  req
+    "DismissUserContact"
+    "fixture/DismissUserContact.yaml"
+
 requestGetContactAttributes :: GetContactAttributes -> TestTree
 requestGetContactAttributes =
   req
@@ -1630,6 +1648,12 @@ requestListUsers =
   req
     "ListUsers"
     "fixture/ListUsers.yaml"
+
+requestMonitorContact :: MonitorContact -> TestTree
+requestMonitorContact =
+  req
+    "MonitorContact"
+    "fixture/MonitorContact.yaml"
 
 requestPutUserStatus :: PutUserStatus -> TestTree
 requestPutUserStatus =
@@ -2505,6 +2529,14 @@ responseDisassociateSecurityKey =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateSecurityKey)
 
+responseDismissUserContact :: DismissUserContactResponse -> TestTree
+responseDismissUserContact =
+  res
+    "DismissUserContactResponse"
+    "fixture/DismissUserContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DismissUserContact)
+
 responseGetContactAttributes :: GetContactAttributesResponse -> TestTree
 responseGetContactAttributes =
   res
@@ -2808,6 +2840,14 @@ responseListUsers =
     "fixture/ListUsersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responseMonitorContact :: MonitorContactResponse -> TestTree
+responseMonitorContact =
+  res
+    "MonitorContactResponse"
+    "fixture/MonitorContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy MonitorContact)
 
 responsePutUserStatus :: PutUserStatusResponse -> TestTree
 responsePutUserStatus =

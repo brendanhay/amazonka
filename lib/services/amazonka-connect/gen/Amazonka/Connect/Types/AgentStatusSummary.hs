@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.AgentStatusSummary where
 
 import Amazonka.Connect.Types.AgentStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for an agent status.

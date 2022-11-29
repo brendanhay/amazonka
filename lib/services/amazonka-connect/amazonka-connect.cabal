@@ -111,6 +111,7 @@ library
     Amazonka.Connect.DisassociateQueueQuickConnects
     Amazonka.Connect.DisassociateRoutingProfileQueues
     Amazonka.Connect.DisassociateSecurityKey
+    Amazonka.Connect.DismissUserContact
     Amazonka.Connect.GetContactAttributes
     Amazonka.Connect.GetCurrentMetricData
     Amazonka.Connect.GetCurrentUserData
@@ -150,6 +151,7 @@ library
     Amazonka.Connect.ListUseCases
     Amazonka.Connect.ListUserHierarchyGroups
     Amazonka.Connect.ListUsers
+    Amazonka.Connect.MonitorContact
     Amazonka.Connect.PutUserStatus
     Amazonka.Connect.ReleasePhoneNumber
     Amazonka.Connect.ReplicateInstance
@@ -255,6 +257,7 @@ library
     Amazonka.Connect.Types.LexVersion
     Amazonka.Connect.Types.ListPhoneNumbersSummary
     Amazonka.Connect.Types.MediaConcurrency
+    Amazonka.Connect.Types.MonitorCapability
     Amazonka.Connect.Types.NumberReference
     Amazonka.Connect.Types.OutboundCallerConfig
     Amazonka.Connect.Types.ParticipantDetails

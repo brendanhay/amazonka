@@ -53,7 +53,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,11 +62,16 @@ import qualified Amazonka.Response as Response
 data GetCurrentMetricData = GetCurrentMetricData'
   { -- | The grouping applied to the metrics returned. For example, when grouped
     -- by @QUEUE@, the metrics returned apply to each queue rather than
-    -- aggregated for all queues. If you group by @CHANNEL@, you should include
-    -- a Channels filter. VOICE, CHAT, and TASK channels are supported.
+    -- aggregated for all queues.
     --
-    -- If no @Grouping@ is included in the request, a summary of metrics is
-    -- returned.
+    -- -   If you group by @CHANNEL@, you should include a Channels filter.
+    --     VOICE, CHAT, and TASK channels are supported.
+    --
+    -- -   If you group by @ROUTING_PROFILE@, you must include either a queue
+    --     or routing profile filter.
+    --
+    -- -   If no @Grouping@ is included in the request, a summary of metrics is
+    --     returned.
     groupings :: Prelude.Maybe [Grouping],
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -195,11 +200,16 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --
 -- 'groupings', 'getCurrentMetricData_groupings' - The grouping applied to the metrics returned. For example, when grouped
 -- by @QUEUE@, the metrics returned apply to each queue rather than
--- aggregated for all queues. If you group by @CHANNEL@, you should include
--- a Channels filter. VOICE, CHAT, and TASK channels are supported.
+-- aggregated for all queues.
 --
--- If no @Grouping@ is included in the request, a summary of metrics is
--- returned.
+-- -   If you group by @CHANNEL@, you should include a Channels filter.
+--     VOICE, CHAT, and TASK channels are supported.
+--
+-- -   If you group by @ROUTING_PROFILE@, you must include either a queue
+--     or routing profile filter.
+--
+-- -   If no @Grouping@ is included in the request, a summary of metrics is
+--     returned.
 --
 -- 'nextToken', 'getCurrentMetricData_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -332,11 +342,16 @@ newGetCurrentMetricData pInstanceId_ pFilters_ =
 
 -- | The grouping applied to the metrics returned. For example, when grouped
 -- by @QUEUE@, the metrics returned apply to each queue rather than
--- aggregated for all queues. If you group by @CHANNEL@, you should include
--- a Channels filter. VOICE, CHAT, and TASK channels are supported.
+-- aggregated for all queues.
 --
--- If no @Grouping@ is included in the request, a summary of metrics is
--- returned.
+-- -   If you group by @CHANNEL@, you should include a Channels filter.
+--     VOICE, CHAT, and TASK channels are supported.
+--
+-- -   If you group by @ROUTING_PROFILE@, you must include either a queue
+--     or routing profile filter.
+--
+-- -   If no @Grouping@ is included in the request, a summary of metrics is
+--     returned.
 getCurrentMetricData_groupings :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe [Grouping])
 getCurrentMetricData_groupings = Lens.lens (\GetCurrentMetricData' {groupings} -> groupings) (\s@GetCurrentMetricData' {} a -> s {groupings = a} :: GetCurrentMetricData) Prelude.. Lens.mapping Lens.coerced
 
@@ -468,8 +483,8 @@ instance Core.AWSRequest GetCurrentMetricData where
   type
     AWSResponse GetCurrentMetricData =
       GetCurrentMetricDataResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

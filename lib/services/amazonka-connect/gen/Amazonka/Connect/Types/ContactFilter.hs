@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.ContactFilter where
 
 import Amazonka.Connect.Types.ContactState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters user data based on the contact information that is associated to

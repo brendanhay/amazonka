@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.HierarchyStructure where
 
 import Amazonka.Connect.Types.HierarchyLevel
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hierarchy structure.

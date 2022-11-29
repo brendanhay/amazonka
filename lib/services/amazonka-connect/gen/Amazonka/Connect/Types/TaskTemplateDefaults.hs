@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.TaskTemplateDefaults where
 
 import Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes default values for fields on a template.

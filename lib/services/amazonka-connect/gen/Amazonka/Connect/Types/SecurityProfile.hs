@@ -20,7 +20,7 @@
 module Amazonka.Connect.Types.SecurityProfile where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a security profile.
@@ -30,6 +30,9 @@ data SecurityProfile = SecurityProfile'
   { -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The list of tags that a security profile uses to restrict access to
+    -- resources in Amazon Connect.
+    allowedAccessControlTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) for the secruity profile.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the security profile.
@@ -39,7 +42,10 @@ data SecurityProfile = SecurityProfile'
     -- | The name for the security profile.
     securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The organization resource identifier for the security profile.
-    organizationResourceId :: Prelude.Maybe Prelude.Text
+    organizationResourceId :: Prelude.Maybe Prelude.Text,
+    -- | The list of resources that a security profile applies tag restrictions
+    -- to in Amazon Connect.
+    tagRestrictedResources :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +60,9 @@ data SecurityProfile = SecurityProfile'
 -- 'tags', 'securityProfile_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
+-- 'allowedAccessControlTags', 'securityProfile_allowedAccessControlTags' - The list of tags that a security profile uses to restrict access to
+-- resources in Amazon Connect.
+--
 -- 'arn', 'securityProfile_arn' - The Amazon Resource Name (ARN) for the secruity profile.
 --
 -- 'id', 'securityProfile_id' - The identifier for the security profile.
@@ -63,22 +72,32 @@ data SecurityProfile = SecurityProfile'
 -- 'securityProfileName', 'securityProfile_securityProfileName' - The name for the security profile.
 --
 -- 'organizationResourceId', 'securityProfile_organizationResourceId' - The organization resource identifier for the security profile.
+--
+-- 'tagRestrictedResources', 'securityProfile_tagRestrictedResources' - The list of resources that a security profile applies tag restrictions
+-- to in Amazon Connect.
 newSecurityProfile ::
   SecurityProfile
 newSecurityProfile =
   SecurityProfile'
     { tags = Prelude.Nothing,
+      allowedAccessControlTags = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
       securityProfileName = Prelude.Nothing,
-      organizationResourceId = Prelude.Nothing
+      organizationResourceId = Prelude.Nothing,
+      tagRestrictedResources = Prelude.Nothing
     }
 
 -- | The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 securityProfile_tags :: Lens.Lens' SecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 securityProfile_tags = Lens.lens (\SecurityProfile' {tags} -> tags) (\s@SecurityProfile' {} a -> s {tags = a} :: SecurityProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of tags that a security profile uses to restrict access to
+-- resources in Amazon Connect.
+securityProfile_allowedAccessControlTags :: Lens.Lens' SecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+securityProfile_allowedAccessControlTags = Lens.lens (\SecurityProfile' {allowedAccessControlTags} -> allowedAccessControlTags) (\s@SecurityProfile' {} a -> s {allowedAccessControlTags = a} :: SecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for the secruity profile.
 securityProfile_arn :: Lens.Lens' SecurityProfile (Prelude.Maybe Prelude.Text)
@@ -100,6 +119,11 @@ securityProfile_securityProfileName = Lens.lens (\SecurityProfile' {securityProf
 securityProfile_organizationResourceId :: Lens.Lens' SecurityProfile (Prelude.Maybe Prelude.Text)
 securityProfile_organizationResourceId = Lens.lens (\SecurityProfile' {organizationResourceId} -> organizationResourceId) (\s@SecurityProfile' {} a -> s {organizationResourceId = a} :: SecurityProfile)
 
+-- | The list of resources that a security profile applies tag restrictions
+-- to in Amazon Connect.
+securityProfile_tagRestrictedResources :: Lens.Lens' SecurityProfile (Prelude.Maybe [Prelude.Text])
+securityProfile_tagRestrictedResources = Lens.lens (\SecurityProfile' {tagRestrictedResources} -> tagRestrictedResources) (\s@SecurityProfile' {} a -> s {tagRestrictedResources = a} :: SecurityProfile) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON SecurityProfile where
   parseJSON =
     Core.withObject
@@ -107,27 +131,37 @@ instance Core.FromJSON SecurityProfile where
       ( \x ->
           SecurityProfile'
             Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "AllowedAccessControlTags"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SecurityProfileName")
             Prelude.<*> (x Core..:? "OrganizationResourceId")
+            Prelude.<*> ( x Core..:? "TagRestrictedResources"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable SecurityProfile where
   hashWithSalt _salt SecurityProfile' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` allowedAccessControlTags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` securityProfileName
       `Prelude.hashWithSalt` organizationResourceId
+      `Prelude.hashWithSalt` tagRestrictedResources
 
 instance Prelude.NFData SecurityProfile where
   rnf SecurityProfile' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf allowedAccessControlTags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf securityProfileName
       `Prelude.seq` Prelude.rnf organizationResourceId
+      `Prelude.seq` Prelude.rnf tagRestrictedResources

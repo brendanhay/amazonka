@@ -40,14 +40,17 @@ module Amazonka.Connect.GetFederationToken
     newGetFederationTokenResponse,
 
     -- * Response Lenses
+    getFederationTokenResponse_signInUrl,
+    getFederationTokenResponse_userArn,
     getFederationTokenResponse_credentials,
+    getFederationTokenResponse_userId,
     getFederationTokenResponse_httpStatus,
   )
 where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,13 +89,16 @@ instance Core.AWSRequest GetFederationToken where
   type
     AWSResponse GetFederationToken =
       GetFederationTokenResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetFederationTokenResponse'
-            Prelude.<$> (x Core..?> "Credentials")
+            Prelude.<$> (x Core..?> "SignInUrl")
+            Prelude.<*> (x Core..?> "UserArn")
+            Prelude.<*> (x Core..?> "Credentials")
+            Prelude.<*> (x Core..?> "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,8 +130,14 @@ instance Core.ToQuery GetFederationToken where
 
 -- | /See:/ 'newGetFederationTokenResponse' smart constructor.
 data GetFederationTokenResponse = GetFederationTokenResponse'
-  { -- | The credentials to use for federation.
+  { -- | The URL to sign into the user\'s instance.
+    signInUrl :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the user.
+    userArn :: Prelude.Maybe Prelude.Text,
+    -- | The credentials to use for federation.
     credentials :: Prelude.Maybe Credentials,
+    -- | The identifier for the user.
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,7 +151,13 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'signInUrl', 'getFederationTokenResponse_signInUrl' - The URL to sign into the user\'s instance.
+--
+-- 'userArn', 'getFederationTokenResponse_userArn' - The Amazon Resource Name (ARN) of the user.
+--
 -- 'credentials', 'getFederationTokenResponse_credentials' - The credentials to use for federation.
+--
+-- 'userId', 'getFederationTokenResponse_userId' - The identifier for the user.
 --
 -- 'httpStatus', 'getFederationTokenResponse_httpStatus' - The response's http status code.
 newGetFederationTokenResponse ::
@@ -148,14 +166,29 @@ newGetFederationTokenResponse ::
   GetFederationTokenResponse
 newGetFederationTokenResponse pHttpStatus_ =
   GetFederationTokenResponse'
-    { credentials =
+    { signInUrl =
         Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      credentials = Prelude.Nothing,
+      userId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The URL to sign into the user\'s instance.
+getFederationTokenResponse_signInUrl :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.Text)
+getFederationTokenResponse_signInUrl = Lens.lens (\GetFederationTokenResponse' {signInUrl} -> signInUrl) (\s@GetFederationTokenResponse' {} a -> s {signInUrl = a} :: GetFederationTokenResponse)
+
+-- | The Amazon Resource Name (ARN) of the user.
+getFederationTokenResponse_userArn :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.Text)
+getFederationTokenResponse_userArn = Lens.lens (\GetFederationTokenResponse' {userArn} -> userArn) (\s@GetFederationTokenResponse' {} a -> s {userArn = a} :: GetFederationTokenResponse)
 
 -- | The credentials to use for federation.
 getFederationTokenResponse_credentials :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Credentials)
 getFederationTokenResponse_credentials = Lens.lens (\GetFederationTokenResponse' {credentials} -> credentials) (\s@GetFederationTokenResponse' {} a -> s {credentials = a} :: GetFederationTokenResponse)
+
+-- | The identifier for the user.
+getFederationTokenResponse_userId :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.Text)
+getFederationTokenResponse_userId = Lens.lens (\GetFederationTokenResponse' {userId} -> userId) (\s@GetFederationTokenResponse' {} a -> s {userId = a} :: GetFederationTokenResponse)
 
 -- | The response's http status code.
 getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Prelude.Int
@@ -163,5 +196,8 @@ getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' 
 
 instance Prelude.NFData GetFederationTokenResponse where
   rnf GetFederationTokenResponse' {..} =
-    Prelude.rnf credentials
+    Prelude.rnf signInUrl
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,8 +30,10 @@ module Amazonka.Connect.UpdateSecurityProfile
     newUpdateSecurityProfile,
 
     -- * Request Lenses
+    updateSecurityProfile_allowedAccessControlTags,
     updateSecurityProfile_permissions,
     updateSecurityProfile_description,
+    updateSecurityProfile_tagRestrictedResources,
     updateSecurityProfile_securityProfileId,
     updateSecurityProfile_instanceId,
 
@@ -43,19 +45,25 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSecurityProfile' smart constructor.
 data UpdateSecurityProfile = UpdateSecurityProfile'
-  { -- | The permissions granted to a security profile. For a list of valid
+  { -- | The list of tags that a security profile uses to restrict access to
+    -- resources in Amazon Connect.
+    allowedAccessControlTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The permissions granted to a security profile. For a list of valid
     -- permissions, see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
     -- | The description of the security profile.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The list of resources that a security profile applies tag restrictions
+    -- to in Amazon Connect.
+    tagRestrictedResources :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -72,11 +80,17 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowedAccessControlTags', 'updateSecurityProfile_allowedAccessControlTags' - The list of tags that a security profile uses to restrict access to
+-- resources in Amazon Connect.
+--
 -- 'permissions', 'updateSecurityProfile_permissions' - The permissions granted to a security profile. For a list of valid
 -- permissions, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
 -- 'description', 'updateSecurityProfile_description' - The description of the security profile.
+--
+-- 'tagRestrictedResources', 'updateSecurityProfile_tagRestrictedResources' - The list of resources that a security profile applies tag restrictions
+-- to in Amazon Connect.
 --
 -- 'securityProfileId', 'updateSecurityProfile_securityProfileId' - The identifier for the security profle.
 --
@@ -92,12 +106,19 @@ newUpdateSecurityProfile
   pSecurityProfileId_
   pInstanceId_ =
     UpdateSecurityProfile'
-      { permissions =
+      { allowedAccessControlTags =
           Prelude.Nothing,
+        permissions = Prelude.Nothing,
         description = Prelude.Nothing,
+        tagRestrictedResources = Prelude.Nothing,
         securityProfileId = pSecurityProfileId_,
         instanceId = pInstanceId_
       }
+
+-- | The list of tags that a security profile uses to restrict access to
+-- resources in Amazon Connect.
+updateSecurityProfile_allowedAccessControlTags :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateSecurityProfile_allowedAccessControlTags = Lens.lens (\UpdateSecurityProfile' {allowedAccessControlTags} -> allowedAccessControlTags) (\s@UpdateSecurityProfile' {} a -> s {allowedAccessControlTags = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The permissions granted to a security profile. For a list of valid
 -- permissions, see
@@ -108,6 +129,11 @@ updateSecurityProfile_permissions = Lens.lens (\UpdateSecurityProfile' {permissi
 -- | The description of the security profile.
 updateSecurityProfile_description :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Text)
 updateSecurityProfile_description = Lens.lens (\UpdateSecurityProfile' {description} -> description) (\s@UpdateSecurityProfile' {} a -> s {description = a} :: UpdateSecurityProfile)
+
+-- | The list of resources that a security profile applies tag restrictions
+-- to in Amazon Connect.
+updateSecurityProfile_tagRestrictedResources :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [Prelude.Text])
+updateSecurityProfile_tagRestrictedResources = Lens.lens (\UpdateSecurityProfile' {tagRestrictedResources} -> tagRestrictedResources) (\s@UpdateSecurityProfile' {} a -> s {tagRestrictedResources = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the security profle.
 updateSecurityProfile_securityProfileId :: Lens.Lens' UpdateSecurityProfile Prelude.Text
@@ -122,22 +148,27 @@ instance Core.AWSRequest UpdateSecurityProfile where
   type
     AWSResponse UpdateSecurityProfile =
       UpdateSecurityProfileResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateSecurityProfileResponse'
 
 instance Prelude.Hashable UpdateSecurityProfile where
   hashWithSalt _salt UpdateSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` permissions
+    _salt
+      `Prelude.hashWithSalt` allowedAccessControlTags
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagRestrictedResources
       `Prelude.hashWithSalt` securityProfileId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData UpdateSecurityProfile where
   rnf UpdateSecurityProfile' {..} =
-    Prelude.rnf permissions
+    Prelude.rnf allowedAccessControlTags
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tagRestrictedResources
       `Prelude.seq` Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -156,8 +187,12 @@ instance Core.ToJSON UpdateSecurityProfile where
   toJSON UpdateSecurityProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("AllowedAccessControlTags" Core..=)
+              Prelude.<$> allowedAccessControlTags,
+            ("Permissions" Core..=) Prelude.<$> permissions,
+            ("Description" Core..=) Prelude.<$> description,
+            ("TagRestrictedResources" Core..=)
+              Prelude.<$> tagRestrictedResources
           ]
       )
 

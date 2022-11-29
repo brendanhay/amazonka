@@ -43,7 +43,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +99,8 @@ associateBot_instanceId = Lens.lens (\AssociateBot' {instanceId} -> instanceId) 
 
 instance Core.AWSRequest AssociateBot where
   type AWSResponse AssociateBot = AssociateBotResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response = Response.receiveNull AssociateBotResponse'
 
 instance Prelude.Hashable AssociateBot where

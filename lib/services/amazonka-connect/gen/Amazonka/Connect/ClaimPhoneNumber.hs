@@ -55,7 +55,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,6 +69,9 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+    --
+    -- Pattern:
+    -- @^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$@
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the phone number.
     phoneNumberDescription :: Prelude.Maybe Prelude.Text,
@@ -96,6 +99,9 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+--
+-- Pattern:
+-- @^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$@
 --
 -- 'phoneNumberDescription', 'claimPhoneNumber_phoneNumberDescription' - The description of the phone number.
 --
@@ -128,6 +134,9 @@ claimPhoneNumber_tags = Lens.lens (\ClaimPhoneNumber' {tags} -> tags) (\s@ClaimP
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
+--
+-- Pattern:
+-- @^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$@
 claimPhoneNumber_clientToken :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe Prelude.Text)
 claimPhoneNumber_clientToken = Lens.lens (\ClaimPhoneNumber' {clientToken} -> clientToken) (\s@ClaimPhoneNumber' {} a -> s {clientToken = a} :: ClaimPhoneNumber)
 
@@ -149,8 +158,8 @@ instance Core.AWSRequest ClaimPhoneNumber where
   type
     AWSResponse ClaimPhoneNumber =
       ClaimPhoneNumberResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

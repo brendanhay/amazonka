@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.InvisibleFieldInfo where
 
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A field that is invisible to an agent.

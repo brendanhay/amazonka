@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.Reference where
 
 import Amazonka.Connect.Types.ReferenceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Well-formed data on a contact, used by agents to complete a contact

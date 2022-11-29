@@ -26,7 +26,7 @@ import Amazonka.Connect.Types.HierarchyPathReference
 import Amazonka.Connect.Types.RoutingProfileReference
 import Amazonka.Connect.Types.UserReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data for a user.

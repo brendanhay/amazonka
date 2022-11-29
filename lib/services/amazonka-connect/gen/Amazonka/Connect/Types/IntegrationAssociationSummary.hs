@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.IntegrationAssociationSummary where
 import Amazonka.Connect.Types.IntegrationType
 import Amazonka.Connect.Types.SourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the associated AppIntegrations.

@@ -22,10 +22,14 @@ module Amazonka.Connect.Types.QueueSearchCriteria where
 import Amazonka.Connect.Types.SearchableQueueType
 import Amazonka.Connect.Types.StringCondition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search criteria to be used to return queues.
+--
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 --
 -- /See:/ 'newQueueSearchCriteria' smart constructor.
 data QueueSearchCriteria = QueueSearchCriteria'

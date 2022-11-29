@@ -53,7 +53,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,6 +65,10 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The search criteria to be used to return routing profiles.
+    --
+    -- The @name@ and @description@ fields support \"contains\" queries with a
+    -- minimum of 2 characters and a maximum of 25 characters. Any queries with
+    -- character lengths outside of this range will throw invalid results.
     searchCriteria :: Prelude.Maybe RoutingProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe RoutingProfileSearchFilter,
@@ -89,6 +93,10 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
 -- results.
 --
 -- 'searchCriteria', 'searchRoutingProfiles_searchCriteria' - The search criteria to be used to return routing profiles.
+--
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 --
 -- 'searchFilter', 'searchRoutingProfiles_searchFilter' - Filters to be applied to search results.
 --
@@ -116,6 +124,10 @@ searchRoutingProfiles_nextToken :: Lens.Lens' SearchRoutingProfiles (Prelude.May
 searchRoutingProfiles_nextToken = Lens.lens (\SearchRoutingProfiles' {nextToken} -> nextToken) (\s@SearchRoutingProfiles' {} a -> s {nextToken = a} :: SearchRoutingProfiles)
 
 -- | The search criteria to be used to return routing profiles.
+--
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 searchRoutingProfiles_searchCriteria :: Lens.Lens' SearchRoutingProfiles (Prelude.Maybe RoutingProfileSearchCriteria)
 searchRoutingProfiles_searchCriteria = Lens.lens (\SearchRoutingProfiles' {searchCriteria} -> searchCriteria) (\s@SearchRoutingProfiles' {} a -> s {searchCriteria = a} :: SearchRoutingProfiles)
 
@@ -158,8 +170,8 @@ instance Core.AWSRequest SearchRoutingProfiles where
   type
     AWSResponse SearchRoutingProfiles =
       SearchRoutingProfilesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

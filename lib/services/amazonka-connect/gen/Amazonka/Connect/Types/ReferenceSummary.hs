@@ -26,7 +26,7 @@ import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.StringReference
 import Amazonka.Connect.Types.UrlReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a reference. @ReferenceSummary@

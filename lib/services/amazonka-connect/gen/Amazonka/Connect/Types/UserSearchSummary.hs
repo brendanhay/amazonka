@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.UserSearchSummary where
 import Amazonka.Connect.Types.UserIdentityInfoLite
 import Amazonka.Connect.Types.UserPhoneConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the returned users.

@@ -509,6 +509,12 @@ module Amazonka.Connect
     DisassociateSecurityKeyResponse (DisassociateSecurityKeyResponse'),
     newDisassociateSecurityKeyResponse,
 
+    -- ** DismissUserContact
+    DismissUserContact (DismissUserContact'),
+    newDismissUserContact,
+    DismissUserContactResponse (DismissUserContactResponse'),
+    newDismissUserContactResponse,
+
     -- ** GetContactAttributes
     GetContactAttributes (GetContactAttributes'),
     newGetContactAttributes,
@@ -736,6 +742,12 @@ module Amazonka.Connect
     newListUsers,
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
+
+    -- ** MonitorContact
+    MonitorContact (MonitorContact'),
+    newMonitorContact,
+    MonitorContactResponse (MonitorContactResponse'),
+    newMonitorContactResponse,
 
     -- ** PutUserStatus
     PutUserStatus (PutUserStatus'),
@@ -1140,6 +1152,9 @@ module Amazonka.Connect
 
     -- ** LexVersion
     LexVersion (..),
+
+    -- ** MonitorCapability
+    MonitorCapability (..),
 
     -- ** PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
@@ -1787,6 +1802,7 @@ import Amazonka.Connect.DisassociatePhoneNumberContactFlow
 import Amazonka.Connect.DisassociateQueueQuickConnects
 import Amazonka.Connect.DisassociateRoutingProfileQueues
 import Amazonka.Connect.DisassociateSecurityKey
+import Amazonka.Connect.DismissUserContact
 import Amazonka.Connect.GetContactAttributes
 import Amazonka.Connect.GetCurrentMetricData
 import Amazonka.Connect.GetCurrentUserData
@@ -1826,6 +1842,7 @@ import Amazonka.Connect.ListTrafficDistributionGroups
 import Amazonka.Connect.ListUseCases
 import Amazonka.Connect.ListUserHierarchyGroups
 import Amazonka.Connect.ListUsers
+import Amazonka.Connect.MonitorContact
 import Amazonka.Connect.PutUserStatus
 import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ReplicateInstance

@@ -20,7 +20,7 @@
 module Amazonka.Connect.Types.HoursOfOperationTimeSlice where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The start time or end time for an hours of operation.

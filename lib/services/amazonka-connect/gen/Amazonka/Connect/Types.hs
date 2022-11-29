@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -104,6 +105,9 @@ module Amazonka.Connect.Types
 
     -- * LexVersion
     LexVersion (..),
+
+    -- * MonitorCapability
+    MonitorCapability (..),
 
     -- * PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
@@ -874,11 +878,13 @@ module Amazonka.Connect.Types
     SecurityProfile (..),
     newSecurityProfile,
     securityProfile_tags,
+    securityProfile_allowedAccessControlTags,
     securityProfile_arn,
     securityProfile_id,
     securityProfile_description,
     securityProfile_securityProfileName,
     securityProfile_organizationResourceId,
+    securityProfile_tagRestrictedResources,
 
     -- * SecurityProfileSearchCriteria
     SecurityProfileSearchCriteria (..),
@@ -1229,6 +1235,7 @@ import Amazonka.Connect.Types.LexV2Bot
 import Amazonka.Connect.Types.LexVersion
 import Amazonka.Connect.Types.ListPhoneNumbersSummary
 import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.MonitorCapability
 import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
@@ -1319,7 +1326,7 @@ import Amazonka.Connect.Types.VocabularySummary
 import Amazonka.Connect.Types.VoiceRecordingConfiguration
 import Amazonka.Connect.Types.VoiceRecordingTrack
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1327,27 +1334,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Connect",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "connect",
-      Core._serviceSigningName = "connect",
-      Core._serviceVersion = "2017-08-08",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Connect",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Connect",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "connect",
+      Core.signingName = "connect",
+      Core.version = "2017-08-08",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Connect",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -1453,6 +1458,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The contact with the specified ID is not active or does not exist.
+-- Applies to Voice calls only, not to Chat, Task, or Voice Callback.
 _ContactNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ContactNotFoundException =
   Core._MatchServiceError

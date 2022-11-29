@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.Vocabulary where
 import Amazonka.Connect.Types.VocabularyLanguageCode
 import Amazonka.Connect.Types.VocabularyState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a custom vocabulary.

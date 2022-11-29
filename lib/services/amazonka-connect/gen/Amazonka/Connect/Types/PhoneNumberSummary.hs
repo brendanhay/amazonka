@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.PhoneNumberSummary where
 import Amazonka.Connect.Types.PhoneNumberCountryCode
 import Amazonka.Connect.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a phone number for a contact center.

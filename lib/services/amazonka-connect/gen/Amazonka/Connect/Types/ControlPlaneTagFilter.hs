@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.ControlPlaneTagFilter where
 
 import Amazonka.Connect.Types.TagCondition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that can be used to specify Tag conditions inside the

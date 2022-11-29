@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.UserDataFilters where
 
 import Amazonka.Connect.Types.ContactFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for the user data.

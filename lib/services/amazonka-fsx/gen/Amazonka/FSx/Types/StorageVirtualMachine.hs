@@ -20,6 +20,7 @@
 module Amazonka.FSx.Types.StorageVirtualMachine where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.StorageVirtualMachineLifecycle
 import Amazonka.FSx.Types.StorageVirtualMachineRootVolumeSecurityStyle
@@ -27,7 +28,6 @@ import Amazonka.FSx.Types.StorageVirtualMachineSubtype
 import Amazonka.FSx.Types.SvmActiveDirectoryConfiguration
 import Amazonka.FSx.Types.SvmEndpoints
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM)

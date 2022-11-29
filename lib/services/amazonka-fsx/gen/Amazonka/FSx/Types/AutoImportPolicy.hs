@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.AutoImportPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.EventType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data repository association\'s automatic import policy.

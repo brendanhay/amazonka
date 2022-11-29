@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.CreateOntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration of the ONTAP volume that you are creating.

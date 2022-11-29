@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.UpdateSvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates the Microsoft Active Directory (AD) configuration of an SVM

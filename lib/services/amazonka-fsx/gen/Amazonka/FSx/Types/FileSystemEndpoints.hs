@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.FileSystemEndpoints where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FileSystemEndpoint
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon FSx for NetApp ONTAP file system has the following endpoints

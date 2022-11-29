@@ -20,11 +20,11 @@
 module Amazonka.FSx.Types.OntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FlexCacheEndpointType
 import Amazonka.FSx.Types.OntapVolumeType
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of an Amazon FSx for NetApp ONTAP volume.

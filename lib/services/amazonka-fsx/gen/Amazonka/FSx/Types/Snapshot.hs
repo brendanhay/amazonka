@@ -20,11 +20,11 @@
 module Amazonka.FSx.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.SnapshotLifecycle
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of an Amazon FSx for OpenZFS volume.

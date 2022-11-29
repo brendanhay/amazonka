@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.OpenZFSOriginSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.OpenZFSCopyStrategy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The snapshot configuration to use when creating an OpenZFS volume from a

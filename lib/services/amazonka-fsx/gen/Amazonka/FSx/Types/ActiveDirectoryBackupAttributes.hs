@@ -20,7 +20,7 @@
 module Amazonka.FSx.Types.ActiveDirectoryBackupAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Microsoft Active Directory attributes of the Amazon FSx for Windows

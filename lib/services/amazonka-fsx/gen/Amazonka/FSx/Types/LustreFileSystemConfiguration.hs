@@ -20,13 +20,13 @@
 module Amazonka.FSx.Types.LustreFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DataCompressionType
 import Amazonka.FSx.Types.DataRepositoryConfiguration
 import Amazonka.FSx.Types.DriveCacheType
 import Amazonka.FSx.Types.LustreDeploymentType
 import Amazonka.FSx.Types.LustreLogConfiguration
 import Amazonka.FSx.Types.LustreRootSquashConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the Amazon FSx for Lustre file system.

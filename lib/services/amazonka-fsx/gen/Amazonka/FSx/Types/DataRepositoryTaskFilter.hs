@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.DataRepositoryTaskFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DataRepositoryTaskFilterName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | (Optional) An array of filter objects you can use to filter the response

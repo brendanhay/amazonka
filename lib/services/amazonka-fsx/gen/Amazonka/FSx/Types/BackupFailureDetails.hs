@@ -20,7 +20,7 @@
 module Amazonka.FSx.Types.BackupFailureDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If backup creation fails, this structure contains the details of that

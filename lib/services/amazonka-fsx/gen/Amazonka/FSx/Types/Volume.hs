@@ -20,6 +20,7 @@
 module Amazonka.FSx.Types.Volume where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.OntapVolumeConfiguration
@@ -27,7 +28,6 @@ import Amazonka.FSx.Types.OpenZFSVolumeConfiguration
 import Amazonka.FSx.Types.Tag
 import Amazonka.FSx.Types.VolumeLifecycle
 import Amazonka.FSx.Types.VolumeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS

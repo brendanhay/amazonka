@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.OpenZFSNfsExport where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.OpenZFSClientConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Network File System (NFS) configurations for mounting an Amazon FSx

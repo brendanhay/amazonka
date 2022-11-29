@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.WindowsAuditLogCreateConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.WindowsAccessAuditLogLevel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Windows file access auditing configuration used when creating or

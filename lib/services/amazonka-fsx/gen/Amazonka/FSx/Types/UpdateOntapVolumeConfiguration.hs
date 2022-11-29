@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.UpdateOntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to specify changes to the ONTAP configuration for the volume you

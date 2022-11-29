@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.CompletionReport where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.ReportFormat
 import Amazonka.FSx.Types.ReportScope
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a report detailing the data repository task results of the

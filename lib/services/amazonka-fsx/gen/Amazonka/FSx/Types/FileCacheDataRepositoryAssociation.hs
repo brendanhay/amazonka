@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.FileCacheDataRepositoryAssociation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FileCacheNFSConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a data repository association (DRA) to be created

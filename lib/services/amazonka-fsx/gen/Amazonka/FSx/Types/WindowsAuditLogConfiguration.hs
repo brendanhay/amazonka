@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.WindowsAuditLogConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.WindowsAccessAuditLogLevel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx for Windows File Server uses to audit

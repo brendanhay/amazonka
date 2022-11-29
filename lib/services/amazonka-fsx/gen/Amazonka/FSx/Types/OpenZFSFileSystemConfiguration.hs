@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.OpenZFSFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.OpenZFSDeploymentType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the Amazon FSx for OpenZFS file system.

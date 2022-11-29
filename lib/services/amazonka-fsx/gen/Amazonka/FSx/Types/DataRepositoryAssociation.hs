@@ -20,12 +20,12 @@
 module Amazonka.FSx.Types.DataRepositoryAssociation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DataRepositoryFailureDetails
 import Amazonka.FSx.Types.DataRepositoryLifecycle
 import Amazonka.FSx.Types.NFSDataRepositoryConfiguration
 import Amazonka.FSx.Types.S3DataRepositoryConfiguration
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a data repository association that links an Amazon

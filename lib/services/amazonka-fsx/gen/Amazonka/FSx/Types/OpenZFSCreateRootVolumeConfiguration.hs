@@ -20,10 +20,10 @@
 module Amazonka.FSx.Types.OpenZFSCreateRootVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.OpenZFSDataCompressionType
 import Amazonka.FSx.Types.OpenZFSNfsExport
 import Amazonka.FSx.Types.OpenZFSUserOrGroupQuota
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of an Amazon FSx for OpenZFS root volume.

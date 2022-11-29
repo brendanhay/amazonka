@@ -20,13 +20,13 @@
 module Amazonka.FSx.Types.AdministrativeAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.AdministrativeActionFailureDetails
 import Amazonka.FSx.Types.AdministrativeActionType
 import {-# SOURCE #-} Amazonka.FSx.Types.FileSystem
 import {-# SOURCE #-} Amazonka.FSx.Types.Snapshot
 import Amazonka.FSx.Types.Status
 import {-# SOURCE #-} Amazonka.FSx.Types.Volume
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a specific Amazon FSx administrative action for the current

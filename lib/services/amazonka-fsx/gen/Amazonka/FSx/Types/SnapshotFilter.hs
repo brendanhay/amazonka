@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.SnapshotFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SnapshotFilterName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to restrict the results of @DescribeSnapshots@ calls. You

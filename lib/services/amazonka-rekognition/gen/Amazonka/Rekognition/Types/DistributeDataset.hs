@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.DistributeDataset where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A training dataset or a test dataset used in a dataset distribution

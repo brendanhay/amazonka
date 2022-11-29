@@ -182,11 +182,14 @@ module Amazonka.Rekognition.Lens
 
     -- ** DetectLabels
     detectLabels_maxLabels,
+    detectLabels_features,
+    detectLabels_settings,
     detectLabels_minConfidence,
     detectLabels_image,
     detectLabelsResponse_labelModelVersion,
     detectLabelsResponse_orientationCorrection,
     detectLabelsResponse_labels,
+    detectLabelsResponse_imageProperties,
     detectLabelsResponse_httpStatus,
 
     -- ** DetectModerationLabels
@@ -672,6 +675,32 @@ module Amazonka.Rekognition.Lens
     datasetStats_totalLabels,
     datasetStats_labeledEntries,
 
+    -- ** DetectLabelsImageBackground
+    detectLabelsImageBackground_quality,
+    detectLabelsImageBackground_dominantColors,
+
+    -- ** DetectLabelsImageForeground
+    detectLabelsImageForeground_quality,
+    detectLabelsImageForeground_dominantColors,
+
+    -- ** DetectLabelsImageProperties
+    detectLabelsImageProperties_foreground,
+    detectLabelsImageProperties_quality,
+    detectLabelsImageProperties_background,
+    detectLabelsImageProperties_dominantColors,
+
+    -- ** DetectLabelsImagePropertiesSettings
+    detectLabelsImagePropertiesSettings_maxDominantColors,
+
+    -- ** DetectLabelsImageQuality
+    detectLabelsImageQuality_sharpness,
+    detectLabelsImageQuality_brightness,
+    detectLabelsImageQuality_contrast,
+
+    -- ** DetectLabelsSettings
+    detectLabelsSettings_generalLabels,
+    detectLabelsSettings_imageProperties,
+
     -- ** DetectTextFilters
     detectTextFilters_regionsOfInterest,
     detectTextFilters_wordFilter,
@@ -683,6 +712,15 @@ module Amazonka.Rekognition.Lens
 
     -- ** DistributeDataset
     distributeDataset_arn,
+
+    -- ** DominantColor
+    dominantColor_simplifiedColor,
+    dominantColor_hexCode,
+    dominantColor_pixelPercent,
+    dominantColor_green,
+    dominantColor_cSSColor,
+    dominantColor_blue,
+    dominantColor_red,
 
     -- ** Emotion
     emotion_type,
@@ -751,6 +789,12 @@ module Amazonka.Rekognition.Lens
     gender_confidence,
     gender_value,
 
+    -- ** GeneralLabelsSettings
+    generalLabelsSettings_labelCategoryInclusionFilters,
+    generalLabelsSettings_labelExclusionFilters,
+    generalLabelsSettings_labelInclusionFilters,
+    generalLabelsSettings_labelCategoryExclusionFilters,
+
     -- ** Geometry
     geometry_polygon,
     geometry_boundingBox,
@@ -782,6 +826,7 @@ module Amazonka.Rekognition.Lens
     -- ** Instance
     instance_confidence,
     instance_boundingBox,
+    instance_dominantColors,
 
     -- ** KinesisDataStream
     kinesisDataStream_arn,
@@ -799,8 +844,16 @@ module Amazonka.Rekognition.Lens
     -- ** Label
     label_instances,
     label_name,
+    label_aliases,
     label_confidence,
     label_parents,
+    label_categories,
+
+    -- ** LabelAlias
+    labelAlias_name,
+
+    -- ** LabelCategory
+    labelCategory_name,
 
     -- ** LabelDetection
     labelDetection_label,
@@ -1138,9 +1191,16 @@ import Amazonka.Rekognition.Types.DatasetLabelStats
 import Amazonka.Rekognition.Types.DatasetMetadata
 import Amazonka.Rekognition.Types.DatasetSource
 import Amazonka.Rekognition.Types.DatasetStats
+import Amazonka.Rekognition.Types.DetectLabelsImageBackground
+import Amazonka.Rekognition.Types.DetectLabelsImageForeground
+import Amazonka.Rekognition.Types.DetectLabelsImageProperties
+import Amazonka.Rekognition.Types.DetectLabelsImagePropertiesSettings
+import Amazonka.Rekognition.Types.DetectLabelsImageQuality
+import Amazonka.Rekognition.Types.DetectLabelsSettings
 import Amazonka.Rekognition.Types.DetectTextFilters
 import Amazonka.Rekognition.Types.DetectionFilter
 import Amazonka.Rekognition.Types.DistributeDataset
+import Amazonka.Rekognition.Types.DominantColor
 import Amazonka.Rekognition.Types.Emotion
 import Amazonka.Rekognition.Types.EquipmentDetection
 import Amazonka.Rekognition.Types.EvaluationResult
@@ -1153,6 +1213,7 @@ import Amazonka.Rekognition.Types.FaceMatch
 import Amazonka.Rekognition.Types.FaceRecord
 import Amazonka.Rekognition.Types.FaceSearchSettings
 import Amazonka.Rekognition.Types.Gender
+import Amazonka.Rekognition.Types.GeneralLabelsSettings
 import Amazonka.Rekognition.Types.Geometry
 import Amazonka.Rekognition.Types.GroundTruthManifest
 import Amazonka.Rekognition.Types.HumanLoopActivationOutput
@@ -1166,6 +1227,8 @@ import Amazonka.Rekognition.Types.KinesisVideoStream
 import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 import Amazonka.Rekognition.Types.KnownGender
 import Amazonka.Rekognition.Types.Label
+import Amazonka.Rekognition.Types.LabelAlias
+import Amazonka.Rekognition.Types.LabelCategory
 import Amazonka.Rekognition.Types.LabelDetection
 import Amazonka.Rekognition.Types.Landmark
 import Amazonka.Rekognition.Types.ModerationLabel

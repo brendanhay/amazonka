@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket and folder location where training output is placed.

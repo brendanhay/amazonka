@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.Pose where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Rekognition.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.DescribeProjectVersions
 import Amazonka.Rekognition.Lens
@@ -26,11 +27,11 @@ import Amazonka.Rekognition.Types
 newProjectVersionTrainingCompleted :: Core.Wait DescribeProjectVersions
 newProjectVersionTrainingCompleted =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "ProjectVersionTrainingCompleted",
-      Core._waitAttempts = 360,
-      Core._waitDelay = 120,
-      Core._waitAcceptors =
+      Core.attempts = 360,
+      Core.delay = 120,
+      Core.acceptors =
         [ Core.matchAll
             "TRAINING_COMPLETED"
             Core.AcceptSuccess
@@ -64,10 +65,10 @@ newProjectVersionTrainingCompleted =
 newProjectVersionRunning :: Core.Wait DescribeProjectVersions
 newProjectVersionRunning =
   Core.Wait
-    { Core._waitName = "ProjectVersionRunning",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ProjectVersionRunning",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess

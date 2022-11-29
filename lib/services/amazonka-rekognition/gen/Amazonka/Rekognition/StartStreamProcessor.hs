@@ -49,7 +49,7 @@ module Amazonka.Rekognition.StartStreamProcessor
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -58,8 +58,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartStreamProcessor' smart constructor.
 data StartStreamProcessor = StartStreamProcessor'
   { -- | Specifies the starting point in the Kinesis stream to start processing.
-    -- You can use the producer timestamp or the fragment number. For more
-    -- information, see
+    -- You can use the producer timestamp or the fragment number. If you use
+    -- the producer timestamp, you must put the time in milliseconds. For more
+    -- information about fragment numbers, see
     -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
     --
     -- This is a required parameter for label detection stream processors and
@@ -85,8 +86,9 @@ data StartStreamProcessor = StartStreamProcessor'
 -- for backwards compatibility:
 --
 -- 'startSelector', 'startStreamProcessor_startSelector' - Specifies the starting point in the Kinesis stream to start processing.
--- You can use the producer timestamp or the fragment number. For more
--- information, see
+-- You can use the producer timestamp or the fragment number. If you use
+-- the producer timestamp, you must put the time in milliseconds. For more
+-- information about fragment numbers, see
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
 --
 -- This is a required parameter for label detection stream processors and
@@ -112,8 +114,9 @@ newStartStreamProcessor pName_ =
     }
 
 -- | Specifies the starting point in the Kinesis stream to start processing.
--- You can use the producer timestamp or the fragment number. For more
--- information, see
+-- You can use the producer timestamp or the fragment number. If you use
+-- the producer timestamp, you must put the time in milliseconds. For more
+-- information about fragment numbers, see
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
 --
 -- This is a required parameter for label detection stream processors and
@@ -137,8 +140,8 @@ instance Core.AWSRequest StartStreamProcessor where
   type
     AWSResponse StartStreamProcessor =
       StartStreamProcessorResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

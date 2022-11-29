@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.Eyeglasses where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the face is wearing eye glasses, and the

@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.ProtectiveEquipmentSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for required items of personal protective equipment

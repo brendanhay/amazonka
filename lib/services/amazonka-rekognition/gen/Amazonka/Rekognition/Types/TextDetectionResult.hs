@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.TextDetectionResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.TextDetection
 
@@ -31,7 +31,8 @@ import Amazonka.Rekognition.Types.TextDetection
 -- /See:/ 'newTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
   { -- | The time, in milliseconds from the start of the video, that the text was
-    -- detected.
+    -- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+    -- individual frame where the text first appears.
     timestamp :: Prelude.Maybe Prelude.Integer,
     -- | Details about text detected in a video.
     textDetection :: Prelude.Maybe TextDetection
@@ -47,7 +48,8 @@ data TextDetectionResult = TextDetectionResult'
 -- for backwards compatibility:
 --
 -- 'timestamp', 'textDetectionResult_timestamp' - The time, in milliseconds from the start of the video, that the text was
--- detected.
+-- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+-- individual frame where the text first appears.
 --
 -- 'textDetection', 'textDetectionResult_textDetection' - Details about text detected in a video.
 newTextDetectionResult ::
@@ -59,7 +61,8 @@ newTextDetectionResult =
     }
 
 -- | The time, in milliseconds from the start of the video, that the text was
--- detected.
+-- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+-- individual frame where the text first appears.
 textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Prelude.Maybe Prelude.Integer)
 textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> timestamp) (\s@TextDetectionResult' {} a -> s {timestamp = a} :: TextDetectionResult)
 

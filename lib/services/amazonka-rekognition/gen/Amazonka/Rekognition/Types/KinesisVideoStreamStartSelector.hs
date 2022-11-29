@@ -20,17 +20,20 @@
 module Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the starting point in a Kinesis stream to start processing.
--- You can use the producer timestamp or the fragment number. For more
--- information, see
+-- You can use the producer timestamp or the fragment number. One of either
+-- producer timestamp or fragment number is required. If you use the
+-- producer timestamp, you must put the time in milliseconds. For more
+-- information about fragment numbers, see
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
 --
 -- /See:/ 'newKinesisVideoStreamStartSelector' smart constructor.
 data KinesisVideoStreamStartSelector = KinesisVideoStreamStartSelector'
-  { -- | The timestamp from the producer corresponding to the fragment.
+  { -- | The timestamp from the producer corresponding to the fragment, in
+    -- milliseconds, expressed in unix time format.
     producerTimestamp :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the fragment. This value monotonically
     -- increases based on the ingestion order.
@@ -46,7 +49,8 @@ data KinesisVideoStreamStartSelector = KinesisVideoStreamStartSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'producerTimestamp', 'kinesisVideoStreamStartSelector_producerTimestamp' - The timestamp from the producer corresponding to the fragment.
+-- 'producerTimestamp', 'kinesisVideoStreamStartSelector_producerTimestamp' - The timestamp from the producer corresponding to the fragment, in
+-- milliseconds, expressed in unix time format.
 --
 -- 'fragmentNumber', 'kinesisVideoStreamStartSelector_fragmentNumber' - The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
@@ -59,7 +63,8 @@ newKinesisVideoStreamStartSelector =
       fragmentNumber = Prelude.Nothing
     }
 
--- | The timestamp from the producer corresponding to the fragment.
+-- | The timestamp from the producer corresponding to the fragment, in
+-- milliseconds, expressed in unix time format.
 kinesisVideoStreamStartSelector_producerTimestamp :: Lens.Lens' KinesisVideoStreamStartSelector (Prelude.Maybe Prelude.Natural)
 kinesisVideoStreamStartSelector_producerTimestamp = Lens.lens (\KinesisVideoStreamStartSelector' {producerTimestamp} -> producerTimestamp) (\s@KinesisVideoStreamStartSelector' {} a -> s {producerTimestamp = a} :: KinesisVideoStreamStartSelector)
 

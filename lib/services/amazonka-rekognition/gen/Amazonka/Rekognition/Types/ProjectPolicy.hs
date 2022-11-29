@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.ProjectPolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a project policy in the response from ListProjectPolicies.

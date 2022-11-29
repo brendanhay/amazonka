@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.BlackFrame where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that allows you to control the black frame detection by

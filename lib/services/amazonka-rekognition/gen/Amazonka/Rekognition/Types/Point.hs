@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.Point where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The X and Y coordinates of a point on an image or video frame. The X and

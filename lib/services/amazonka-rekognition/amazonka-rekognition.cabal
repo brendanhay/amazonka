@@ -139,8 +139,16 @@ library
     Amazonka.Rekognition.Types.DatasetStatusMessageCode
     Amazonka.Rekognition.Types.DatasetType
     Amazonka.Rekognition.Types.DetectionFilter
+    Amazonka.Rekognition.Types.DetectLabelsFeatureName
+    Amazonka.Rekognition.Types.DetectLabelsImageBackground
+    Amazonka.Rekognition.Types.DetectLabelsImageForeground
+    Amazonka.Rekognition.Types.DetectLabelsImageProperties
+    Amazonka.Rekognition.Types.DetectLabelsImagePropertiesSettings
+    Amazonka.Rekognition.Types.DetectLabelsImageQuality
+    Amazonka.Rekognition.Types.DetectLabelsSettings
     Amazonka.Rekognition.Types.DetectTextFilters
     Amazonka.Rekognition.Types.DistributeDataset
+    Amazonka.Rekognition.Types.DominantColor
     Amazonka.Rekognition.Types.Emotion
     Amazonka.Rekognition.Types.EmotionName
     Amazonka.Rekognition.Types.EquipmentDetection
@@ -157,6 +165,7 @@ library
     Amazonka.Rekognition.Types.FaceSearchSortBy
     Amazonka.Rekognition.Types.Gender
     Amazonka.Rekognition.Types.GenderType
+    Amazonka.Rekognition.Types.GeneralLabelsSettings
     Amazonka.Rekognition.Types.Geometry
     Amazonka.Rekognition.Types.GroundTruthManifest
     Amazonka.Rekognition.Types.HumanLoopActivationOutput
@@ -171,6 +180,8 @@ library
     Amazonka.Rekognition.Types.KnownGender
     Amazonka.Rekognition.Types.KnownGenderType
     Amazonka.Rekognition.Types.Label
+    Amazonka.Rekognition.Types.LabelAlias
+    Amazonka.Rekognition.Types.LabelCategory
     Amazonka.Rekognition.Types.LabelDetection
     Amazonka.Rekognition.Types.LabelDetectionSortBy
     Amazonka.Rekognition.Types.Landmark

@@ -20,7 +20,7 @@
 module Amazonka.DataPipeline.Types.Field where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The

@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.AccessControlConfigurationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information on an access control configuration that you created

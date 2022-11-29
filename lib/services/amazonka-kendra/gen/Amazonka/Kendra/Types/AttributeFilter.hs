@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.AttributeFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DocumentAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides filtering the query results based on document attributes or

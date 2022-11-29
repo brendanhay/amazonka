@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.CustomDocumentEnrichmentConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.HookConfiguration
 import Amazonka.Kendra.Types.InlineCustomDocumentEnrichmentConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for altering document metadata

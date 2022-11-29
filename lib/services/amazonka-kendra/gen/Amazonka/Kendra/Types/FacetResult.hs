@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.FacetResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import {-# SOURCE #-} Amazonka.Kendra.Types.DocumentAttributeValueCountPair
 import Amazonka.Kendra.Types.DocumentAttributeValueType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The facet values for the documents in the response.

@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.TextWithHighlights where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.Highlight
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides text and information about where to highlight the text.

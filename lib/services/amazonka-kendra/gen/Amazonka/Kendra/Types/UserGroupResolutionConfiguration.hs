@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.UserGroupResolutionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.UserGroupResolutionMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to fetch access levels of groups

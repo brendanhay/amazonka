@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.ClickFeedback where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gathers information about when a particular result was clicked by a

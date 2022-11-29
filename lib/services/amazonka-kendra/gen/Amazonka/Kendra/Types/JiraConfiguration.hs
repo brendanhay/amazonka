@@ -20,10 +20,10 @@
 module Amazonka.Kendra.Types.JiraConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.IssueSubEntity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to Jira as your data

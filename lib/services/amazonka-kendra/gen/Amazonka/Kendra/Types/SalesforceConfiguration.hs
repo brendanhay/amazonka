@@ -20,11 +20,11 @@
 module Amazonka.Kendra.Types.SalesforceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.SalesforceChatterFeedConfiguration
 import Amazonka.Kendra.Types.SalesforceKnowledgeArticleConfiguration
 import Amazonka.Kendra.Types.SalesforceStandardObjectAttachmentConfiguration
 import Amazonka.Kendra.Types.SalesforceStandardObjectConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to Salesforce as your

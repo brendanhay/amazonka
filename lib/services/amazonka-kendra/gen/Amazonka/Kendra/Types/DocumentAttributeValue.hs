@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.DocumentAttributeValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a document attribute. You can only provide one value for a

@@ -39,8 +39,8 @@ module Amazonka.Kendra.DeleteIndex
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,8 +73,8 @@ deleteIndex_id = Lens.lens (\DeleteIndex' {id} -> id) (\s@DeleteIndex' {} a -> s
 
 instance Core.AWSRequest DeleteIndex where
   type AWSResponse DeleteIndex = DeleteIndexResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteIndexResponse'
 
 instance Prelude.Hashable DeleteIndex where

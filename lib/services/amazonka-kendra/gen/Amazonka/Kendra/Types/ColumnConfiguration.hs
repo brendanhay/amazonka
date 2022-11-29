@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.ColumnConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about how Amazon Kendra should use the columns of a

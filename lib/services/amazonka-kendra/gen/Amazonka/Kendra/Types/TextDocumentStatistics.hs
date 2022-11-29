@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.TextDocumentStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about text documents indexed in an index.

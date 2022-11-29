@@ -20,11 +20,11 @@
 module Amazonka.Kendra.Types.ServiceNowConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ServiceNowAuthenticationType
 import Amazonka.Kendra.Types.ServiceNowBuildVersionType
 import Amazonka.Kendra.Types.ServiceNowKnowledgeArticleConfiguration
 import Amazonka.Kendra.Types.ServiceNowServiceCatalogConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to ServiceNow as your

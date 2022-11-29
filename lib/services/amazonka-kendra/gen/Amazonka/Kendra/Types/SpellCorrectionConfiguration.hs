@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.SpellCorrectionConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for suggested query spell

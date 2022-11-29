@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.DataSourceSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceStatus
 import Amazonka.Kendra.Types.DataSourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for an Amazon Kendra data source. Returned in a call

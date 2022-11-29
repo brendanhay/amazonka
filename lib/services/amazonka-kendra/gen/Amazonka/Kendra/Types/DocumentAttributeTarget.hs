@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.DocumentAttributeTarget where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DocumentAttributeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The target document attribute or metadata field you want to alter when

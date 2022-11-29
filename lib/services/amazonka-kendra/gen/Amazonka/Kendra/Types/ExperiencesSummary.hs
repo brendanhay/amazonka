@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.ExperiencesSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ExperienceEndpoint
 import Amazonka.Kendra.Types.ExperienceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for your Amazon Kendra experience. You can create an

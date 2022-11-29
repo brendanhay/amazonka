@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.DataSourceSyncJobMetrics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps a batch delete document request to a specific data source sync job.

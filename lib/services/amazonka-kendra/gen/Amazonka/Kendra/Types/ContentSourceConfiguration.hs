@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.ContentSourceConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for your content sources, such as

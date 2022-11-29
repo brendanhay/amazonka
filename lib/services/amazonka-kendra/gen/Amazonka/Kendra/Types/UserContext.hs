@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.UserContext where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the user context for an Amazon Kendra index.

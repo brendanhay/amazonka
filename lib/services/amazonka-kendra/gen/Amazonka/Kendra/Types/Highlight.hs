@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.Highlight where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.HighlightType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that you can use to highlight a search result so

@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.IndexStatistics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.FaqStatistics
 import Amazonka.Kendra.Types.TextDocumentStatistics
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of documents and the number of

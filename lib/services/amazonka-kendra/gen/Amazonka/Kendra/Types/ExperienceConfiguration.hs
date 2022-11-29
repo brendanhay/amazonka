@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.ExperienceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ContentSourceConfiguration
 import Amazonka.Kendra.Types.UserIdentityConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for your Amazon Kendra

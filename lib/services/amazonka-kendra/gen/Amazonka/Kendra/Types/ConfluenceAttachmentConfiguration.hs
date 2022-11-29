@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.ConfluenceAttachmentConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ConfluenceAttachmentToIndexFieldMapping
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of attachment settings for the Confluence data source.

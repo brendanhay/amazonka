@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.FaqSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.FaqFileFormat
 import Amazonka.Kendra.Types.FaqStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for frequently asked questions and answers included

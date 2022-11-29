@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.DocumentAttributeCondition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ConditionOperator
 import Amazonka.Kendra.Types.DocumentAttributeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The condition used for the target document attribute or metadata field

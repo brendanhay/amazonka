@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.SpellCorrectedQuery where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.Correction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A query with suggested spell corrections.

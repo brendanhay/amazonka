@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.RelevanceFeedback where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.RelevanceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides feedback on how relevant a document is to a search. Your

@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.EC2TagFilter where
 
 import Amazonka.CodeDeploy.Types.EC2TagFilterType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an EC2 tag filter.

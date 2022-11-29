@@ -36,7 +36,7 @@ import Amazonka.CodeDeploy.Types.RevisionLocation
 import Amazonka.CodeDeploy.Types.TagFilter
 import Amazonka.CodeDeploy.Types.TriggerConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment group.

@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.S3Location where
 
 import Amazonka.CodeDeploy.Types.BundleType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in Amazon

@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.Diagnostics where
 
 import Amazonka.CodeDeploy.Types.LifecycleErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Diagnostic information about executable scripts that are part of a

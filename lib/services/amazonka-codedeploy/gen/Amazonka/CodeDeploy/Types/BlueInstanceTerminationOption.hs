@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.BlueInstanceTerminationOption where
 
 import Amazonka.CodeDeploy.Types.InstanceAction
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether instances in the original environment are

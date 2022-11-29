@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.ErrorInformation where
 
 import Amazonka.CodeDeploy.Types.DeployErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment error.

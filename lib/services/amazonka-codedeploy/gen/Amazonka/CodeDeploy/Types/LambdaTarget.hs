@@ -23,7 +23,7 @@ import Amazonka.CodeDeploy.Types.LambdaFunctionInfo
 import Amazonka.CodeDeploy.Types.LifecycleEvent
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target Lambda function during an Lambda

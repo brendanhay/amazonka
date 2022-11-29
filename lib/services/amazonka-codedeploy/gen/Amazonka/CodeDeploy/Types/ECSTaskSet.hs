@@ -22,7 +22,7 @@ module Amazonka.CodeDeploy.Types.ECSTaskSet where
 import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TargetLabel
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a set of Amazon ECS tasks in an CodeDeploy deployment.

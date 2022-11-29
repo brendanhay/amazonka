@@ -20,7 +20,7 @@
 module Amazonka.CodeDeploy.Types.GitHubLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in

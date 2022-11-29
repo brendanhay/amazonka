@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.ApplicationInfo where
 
 import Amazonka.CodeDeploy.Types.ComputePlatform
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application.

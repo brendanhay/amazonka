@@ -23,7 +23,7 @@ import Amazonka.CodeDeploy.Types.LifecycleEvent
 import Amazonka.CodeDeploy.Types.TargetLabel
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A target Amazon EC2 or on-premises instance during a deployment that

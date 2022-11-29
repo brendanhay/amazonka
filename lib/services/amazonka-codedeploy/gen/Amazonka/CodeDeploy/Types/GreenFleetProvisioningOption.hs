@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption where
 
 import Amazonka.CodeDeploy.Types.GreenFleetProvisioningAction
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instances that belong to the replacement

@@ -20,9 +20,9 @@
 module Amazonka.ImageBuilder.Types.ComponentVersion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ComponentType
 import Amazonka.ImageBuilder.Types.Platform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The defining characteristics of a specific version of an Amazon Web

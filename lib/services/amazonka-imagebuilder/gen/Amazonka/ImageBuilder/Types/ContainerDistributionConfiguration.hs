@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.TargetContainerRepository
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container distribution settings for encryption, licensing, and sharing

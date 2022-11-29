@@ -20,12 +20,12 @@
 module Amazonka.ImageBuilder.Types.ImageSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.OutputResources
 import Amazonka.ImageBuilder.Types.Platform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An image summary.

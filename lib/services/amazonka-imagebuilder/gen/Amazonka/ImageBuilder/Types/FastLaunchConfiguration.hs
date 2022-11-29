@@ -20,9 +20,9 @@
 module Amazonka.ImageBuilder.Types.FastLaunchConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
 import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Define and configure faster launching for output Windows AMIs.

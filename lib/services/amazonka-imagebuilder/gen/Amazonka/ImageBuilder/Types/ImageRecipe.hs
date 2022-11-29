@@ -20,12 +20,12 @@
 module Amazonka.ImageBuilder.Types.ImageRecipe where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
 import Amazonka.ImageBuilder.Types.ComponentConfiguration
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
 import Amazonka.ImageBuilder.Types.Platform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An image recipe.

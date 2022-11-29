@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.InstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The instance metadata options that apply to the HTTP requests that

@@ -20,9 +20,9 @@
 module Amazonka.ImageBuilder.Types.OutputResources where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.Ami
 import Amazonka.ImageBuilder.Types.Container
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resources produced by this image.

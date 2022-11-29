@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.ComponentParameterDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a parameter that is used to provide configuration details for

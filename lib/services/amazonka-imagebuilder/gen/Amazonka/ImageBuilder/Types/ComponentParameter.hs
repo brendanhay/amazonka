@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.ComponentParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a key\/value pair that sets the named component parameter.

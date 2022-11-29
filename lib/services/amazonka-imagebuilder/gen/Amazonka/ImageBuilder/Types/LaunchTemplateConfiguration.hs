@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon EC2 launch template to use for a specific account.

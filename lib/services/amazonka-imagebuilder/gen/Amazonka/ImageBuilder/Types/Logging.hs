@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.Logging where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.S3Logs
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Logging configuration defines where Image Builder uploads your logs.

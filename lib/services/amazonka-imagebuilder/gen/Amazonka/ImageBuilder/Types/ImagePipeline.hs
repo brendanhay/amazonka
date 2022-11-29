@@ -20,11 +20,11 @@
 module Amazonka.ImageBuilder.Types.ImagePipeline where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
 import Amazonka.ImageBuilder.Types.PipelineStatus
 import Amazonka.ImageBuilder.Types.Platform
 import Amazonka.ImageBuilder.Types.Schedule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of an image pipeline.

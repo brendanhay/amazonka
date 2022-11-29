@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | In addition to your infrastruction configuration, these settings provide

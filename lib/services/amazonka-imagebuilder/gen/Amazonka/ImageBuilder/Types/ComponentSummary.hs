@@ -20,10 +20,10 @@
 module Amazonka.ImageBuilder.Types.ComponentSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ComponentState
 import Amazonka.ImageBuilder.Types.ComponentType
 import Amazonka.ImageBuilder.Types.Platform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A high-level summary of a component.

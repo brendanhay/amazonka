@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a paginated list of access policies for an identity (an Amazon
--- Web Services SSO user, an Amazon Web Services SSO group, or an IAM user)
--- or an IoT SiteWise Monitor resource (a portal or project).
+-- Retrieves a paginated list of access policies for an identity (an IAM
+-- Identity Center user, an IAM Identity Center group, or an IAM user) or
+-- an IoT SiteWise Monitor resource (a portal or project).
 --
 -- This operation returns paginated results.
 module Amazonka.IoTSiteWise.ListAccessPolicies
@@ -51,8 +51,8 @@ module Amazonka.IoTSiteWise.ListAccessPolicies
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +79,8 @@ data ListAccessPolicies = ListAccessPolicies'
     -- | The ID of the identity. This parameter is required if you specify @USER@
     -- or @GROUP@ for @identityType@.
     identityId :: Prelude.Maybe Prelude.Text,
-    -- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
-    -- SSO group, or IAM user). This parameter is required if you specify
+    -- | The type of identity (IAM Identity Center user, IAM Identity Center
+    -- group, or IAM user). This parameter is required if you specify
     -- @identityId@.
     identityType :: Prelude.Maybe IdentityType
   }
@@ -114,8 +114,8 @@ data ListAccessPolicies = ListAccessPolicies'
 -- 'identityId', 'listAccessPolicies_identityId' - The ID of the identity. This parameter is required if you specify @USER@
 -- or @GROUP@ for @identityType@.
 --
--- 'identityType', 'listAccessPolicies_identityType' - The type of identity (Amazon Web Services SSO user, Amazon Web Services
--- SSO group, or IAM user). This parameter is required if you specify
+-- 'identityType', 'listAccessPolicies_identityType' - The type of identity (IAM Identity Center user, IAM Identity Center
+-- group, or IAM user). This parameter is required if you specify
 -- @identityId@.
 newListAccessPolicies ::
   ListAccessPolicies
@@ -162,8 +162,8 @@ listAccessPolicies_maxResults = Lens.lens (\ListAccessPolicies' {maxResults} -> 
 listAccessPolicies_identityId :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
 listAccessPolicies_identityId = Lens.lens (\ListAccessPolicies' {identityId} -> identityId) (\s@ListAccessPolicies' {} a -> s {identityId = a} :: ListAccessPolicies)
 
--- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
--- SSO group, or IAM user). This parameter is required if you specify
+-- | The type of identity (IAM Identity Center user, IAM Identity Center
+-- group, or IAM user). This parameter is required if you specify
 -- @identityId@.
 listAccessPolicies_identityType :: Lens.Lens' ListAccessPolicies (Prelude.Maybe IdentityType)
 listAccessPolicies_identityType = Lens.lens (\ListAccessPolicies' {identityType} -> identityType) (\s@ListAccessPolicies' {} a -> s {identityType = a} :: ListAccessPolicies)
@@ -193,8 +193,8 @@ instance Core.AWSRequest ListAccessPolicies where
   type
     AWSResponse ListAccessPolicies =
       ListAccessPoliciesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

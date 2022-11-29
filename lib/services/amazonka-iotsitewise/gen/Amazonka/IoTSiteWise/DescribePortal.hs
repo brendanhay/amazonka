@@ -54,8 +54,8 @@ module Amazonka.IoTSiteWise.DescribePortal
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribePortal where
   type
     AWSResponse DescribePortal =
       DescribePortalResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,12 +172,12 @@ data DescribePortalResponse = DescribePortalResponse'
     portalArn :: Prelude.Text,
     -- | The name of the portal.
     portalName :: Prelude.Text,
-    -- | The Amazon Web Services SSO application generated client ID (used with
-    -- Amazon Web Services SSO APIs). IoT SiteWise includes @portalClientId@
-    -- for only portals that use Amazon Web Services SSO to authenticate users.
+    -- | The IAM Identity Center application generated client ID (used with IAM
+    -- Identity Center APIs). IoT SiteWise includes @portalClientId@ for only
+    -- portals that use IAM Identity Center to authenticate users.
     portalClientId :: Prelude.Text,
     -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
-    -- access portals that use Amazon Web Services SSO for authentication. For
+    -- access portals that use IAM Identity Center for authentication. For
     -- portals that use IAM for authentication, you must use the IoT SiteWise
     -- console to get a URL that you can use to access the portal.
     portalStartUrl :: Prelude.Text,
@@ -231,12 +231,12 @@ data DescribePortalResponse = DescribePortalResponse'
 --
 -- 'portalName', 'describePortalResponse_portalName' - The name of the portal.
 --
--- 'portalClientId', 'describePortalResponse_portalClientId' - The Amazon Web Services SSO application generated client ID (used with
--- Amazon Web Services SSO APIs). IoT SiteWise includes @portalClientId@
--- for only portals that use Amazon Web Services SSO to authenticate users.
+-- 'portalClientId', 'describePortalResponse_portalClientId' - The IAM Identity Center application generated client ID (used with IAM
+-- Identity Center APIs). IoT SiteWise includes @portalClientId@ for only
+-- portals that use IAM Identity Center to authenticate users.
 --
 -- 'portalStartUrl', 'describePortalResponse_portalStartUrl' - The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 --
@@ -352,14 +352,14 @@ describePortalResponse_portalArn = Lens.lens (\DescribePortalResponse' {portalAr
 describePortalResponse_portalName :: Lens.Lens' DescribePortalResponse Prelude.Text
 describePortalResponse_portalName = Lens.lens (\DescribePortalResponse' {portalName} -> portalName) (\s@DescribePortalResponse' {} a -> s {portalName = a} :: DescribePortalResponse)
 
--- | The Amazon Web Services SSO application generated client ID (used with
--- Amazon Web Services SSO APIs). IoT SiteWise includes @portalClientId@
--- for only portals that use Amazon Web Services SSO to authenticate users.
+-- | The IAM Identity Center application generated client ID (used with IAM
+-- Identity Center APIs). IoT SiteWise includes @portalClientId@ for only
+-- portals that use IAM Identity Center to authenticate users.
 describePortalResponse_portalClientId :: Lens.Lens' DescribePortalResponse Prelude.Text
 describePortalResponse_portalClientId = Lens.lens (\DescribePortalResponse' {portalClientId} -> portalClientId) (\s@DescribePortalResponse' {} a -> s {portalClientId = a} :: DescribePortalResponse)
 
 -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 describePortalResponse_portalStartUrl :: Lens.Lens' DescribePortalResponse Prelude.Text

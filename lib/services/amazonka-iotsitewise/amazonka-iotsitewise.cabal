@@ -90,7 +90,9 @@ library
     Amazonka.IoTSiteWise.GetInterpolatedAssetPropertyValues
     Amazonka.IoTSiteWise.Lens
     Amazonka.IoTSiteWise.ListAccessPolicies
+    Amazonka.IoTSiteWise.ListAssetModelProperties
     Amazonka.IoTSiteWise.ListAssetModels
+    Amazonka.IoTSiteWise.ListAssetProperties
     Amazonka.IoTSiteWise.ListAssetRelationships
     Amazonka.IoTSiteWise.ListAssets
     Amazonka.IoTSiteWise.ListAssociatedAssets
@@ -123,10 +125,12 @@ library
     Amazonka.IoTSiteWise.Types.AssetModelHierarchyDefinition
     Amazonka.IoTSiteWise.Types.AssetModelProperty
     Amazonka.IoTSiteWise.Types.AssetModelPropertyDefinition
+    Amazonka.IoTSiteWise.Types.AssetModelPropertySummary
     Amazonka.IoTSiteWise.Types.AssetModelState
     Amazonka.IoTSiteWise.Types.AssetModelStatus
     Amazonka.IoTSiteWise.Types.AssetModelSummary
     Amazonka.IoTSiteWise.Types.AssetProperty
+    Amazonka.IoTSiteWise.Types.AssetPropertySummary
     Amazonka.IoTSiteWise.Types.AssetPropertyValue
     Amazonka.IoTSiteWise.Types.AssetRelationshipSummary
     Amazonka.IoTSiteWise.Types.AssetRelationshipType
@@ -198,6 +202,8 @@ library
     Amazonka.IoTSiteWise.Types.JobConfiguration
     Amazonka.IoTSiteWise.Types.JobStatus
     Amazonka.IoTSiteWise.Types.JobSummary
+    Amazonka.IoTSiteWise.Types.ListAssetModelPropertiesFilter
+    Amazonka.IoTSiteWise.Types.ListAssetPropertiesFilter
     Amazonka.IoTSiteWise.Types.ListAssetsFilter
     Amazonka.IoTSiteWise.Types.ListBulkImportJobsFilter
     Amazonka.IoTSiteWise.Types.ListTimeSeriesType

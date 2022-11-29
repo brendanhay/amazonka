@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.PortalStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.MonitorErrorDetails
 import Amazonka.IoTSiteWise.Types.PortalState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the current status of a portal.

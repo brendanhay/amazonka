@@ -27,6 +27,7 @@ module Amazonka.IoTSiteWise.DescribeAsset
     newDescribeAsset,
 
     -- * Request Lenses
+    describeAsset_excludeProperties,
     describeAsset_assetId,
 
     -- * Destructuring the Response
@@ -50,15 +51,17 @@ module Amazonka.IoTSiteWise.DescribeAsset
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAsset' smart constructor.
 data DescribeAsset = DescribeAsset'
-  { -- | The ID of the asset.
+  { -- | Whether or not to exclude asset properties from the response.
+    excludeProperties :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the asset.
     assetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,13 +74,22 @@ data DescribeAsset = DescribeAsset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludeProperties', 'describeAsset_excludeProperties' - Whether or not to exclude asset properties from the response.
+--
 -- 'assetId', 'describeAsset_assetId' - The ID of the asset.
 newDescribeAsset ::
   -- | 'assetId'
   Prelude.Text ->
   DescribeAsset
 newDescribeAsset pAssetId_ =
-  DescribeAsset' {assetId = pAssetId_}
+  DescribeAsset'
+    { excludeProperties = Prelude.Nothing,
+      assetId = pAssetId_
+    }
+
+-- | Whether or not to exclude asset properties from the response.
+describeAsset_excludeProperties :: Lens.Lens' DescribeAsset (Prelude.Maybe Prelude.Bool)
+describeAsset_excludeProperties = Lens.lens (\DescribeAsset' {excludeProperties} -> excludeProperties) (\s@DescribeAsset' {} a -> s {excludeProperties = a} :: DescribeAsset)
 
 -- | The ID of the asset.
 describeAsset_assetId :: Lens.Lens' DescribeAsset Prelude.Text
@@ -87,8 +99,8 @@ instance Core.AWSRequest DescribeAsset where
   type
     AWSResponse DescribeAsset =
       DescribeAssetResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,10 +127,13 @@ instance Core.AWSRequest DescribeAsset where
 
 instance Prelude.Hashable DescribeAsset where
   hashWithSalt _salt DescribeAsset' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` excludeProperties
+      `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData DescribeAsset where
-  rnf DescribeAsset' {..} = Prelude.rnf assetId
+  rnf DescribeAsset' {..} =
+    Prelude.rnf excludeProperties
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToHeaders DescribeAsset where
   toHeaders =
@@ -136,7 +151,9 @@ instance Core.ToPath DescribeAsset where
     Prelude.mconcat ["/assets/", Core.toBS assetId]
 
 instance Core.ToQuery DescribeAsset where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DescribeAsset' {..} =
+    Prelude.mconcat
+      ["excludeProperties" Core.=: excludeProperties]
 
 -- | /See:/ 'newDescribeAssetResponse' smart constructor.
 data DescribeAssetResponse = DescribeAssetResponse'

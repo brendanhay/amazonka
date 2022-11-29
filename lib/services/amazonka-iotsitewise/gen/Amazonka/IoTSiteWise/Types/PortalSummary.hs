@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.PortalSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.PortalStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a portal summary.
@@ -46,7 +46,7 @@ data PortalSummary = PortalSummary'
     -- | The name of the portal.
     name :: Prelude.Text,
     -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
-    -- access portals that use Amazon Web Services SSO for authentication. For
+    -- access portals that use IAM Identity Center for authentication. For
     -- portals that use IAM for authentication, you must use the IoT SiteWise
     -- console to get a URL that you can use to access the portal.
     startUrl :: Prelude.Text,
@@ -80,7 +80,7 @@ data PortalSummary = PortalSummary'
 -- 'name', 'portalSummary_name' - The name of the portal.
 --
 -- 'startUrl', 'portalSummary_startUrl' - The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 --
@@ -137,7 +137,7 @@ portalSummary_name :: Lens.Lens' PortalSummary Prelude.Text
 portalSummary_name = Lens.lens (\PortalSummary' {name} -> name) (\s@PortalSummary' {} a -> s {name = a} :: PortalSummary)
 
 -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 portalSummary_startUrl :: Lens.Lens' PortalSummary Prelude.Text

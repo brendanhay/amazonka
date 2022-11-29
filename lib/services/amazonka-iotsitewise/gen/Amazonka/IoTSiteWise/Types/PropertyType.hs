@@ -20,11 +20,11 @@
 module Amazonka.IoTSiteWise.Types.PropertyType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.Attribute
 import Amazonka.IoTSiteWise.Types.Measurement
 import Amazonka.IoTSiteWise.Types.Metric
 import Amazonka.IoTSiteWise.Types.Transform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a property type, which can be one of @attribute@,

@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.AssetRelationshipSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetHierarchyInfo
 import Amazonka.IoTSiteWise.Types.AssetRelationshipType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about assets that are related to one another.

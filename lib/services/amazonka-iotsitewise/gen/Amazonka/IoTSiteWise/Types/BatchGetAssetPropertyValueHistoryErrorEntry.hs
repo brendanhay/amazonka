@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of the errors (if any) associated with the batch request. Each

@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.AggregatedValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.Aggregates
 import Amazonka.IoTSiteWise.Types.Quality
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains aggregated asset property values (for example, average,

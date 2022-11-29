@@ -20,15 +20,17 @@
 module Amazonka.IoTSiteWise.Types.CompositeModelProperty where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.Property
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a composite model property on an asset.
 --
 -- /See:/ 'newCompositeModelProperty' smart constructor.
 data CompositeModelProperty = CompositeModelProperty'
-  { -- | The name of the property.
+  { -- | The ID of the composite model that contains the property.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the property.
     name :: Prelude.Text,
     -- | The type of the composite model that defines this property.
     type' :: Prelude.Text,
@@ -43,6 +45,8 @@ data CompositeModelProperty = CompositeModelProperty'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'id', 'compositeModelProperty_id' - The ID of the composite model that contains the property.
 --
 -- 'name', 'compositeModelProperty_name' - The name of the property.
 --
@@ -62,10 +66,15 @@ newCompositeModelProperty
   pType_
   pAssetProperty_ =
     CompositeModelProperty'
-      { name = pName_,
+      { id = Prelude.Nothing,
+        name = pName_,
         type' = pType_,
         assetProperty = pAssetProperty_
       }
+
+-- | The ID of the composite model that contains the property.
+compositeModelProperty_id :: Lens.Lens' CompositeModelProperty (Prelude.Maybe Prelude.Text)
+compositeModelProperty_id = Lens.lens (\CompositeModelProperty' {id} -> id) (\s@CompositeModelProperty' {} a -> s {id = a} :: CompositeModelProperty)
 
 -- | The name of the property.
 compositeModelProperty_name :: Lens.Lens' CompositeModelProperty Prelude.Text
@@ -85,19 +94,22 @@ instance Core.FromJSON CompositeModelProperty where
       "CompositeModelProperty"
       ( \x ->
           CompositeModelProperty'
-            Prelude.<$> (x Core..: "name")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "type")
             Prelude.<*> (x Core..: "assetProperty")
       )
 
 instance Prelude.Hashable CompositeModelProperty where
   hashWithSalt _salt CompositeModelProperty' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` assetProperty
 
 instance Prelude.NFData CompositeModelProperty where
   rnf CompositeModelProperty' {..} =
-    Prelude.rnf name
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf assetProperty

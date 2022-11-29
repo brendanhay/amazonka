@@ -162,8 +162,14 @@ import Test.Tasty
 --         , requestListAccessPolicies $
 --             newListAccessPolicies
 --
+--         , requestListAssetModelProperties $
+--             newListAssetModelProperties
+--
 --         , requestListAssetModels $
 --             newListAssetModels
+--
+--         , requestListAssetProperties $
+--             newListAssetProperties
 --
 --         , requestListAssetRelationships $
 --             newListAssetRelationships
@@ -378,8 +384,14 @@ import Test.Tasty
 --         , responseListAccessPolicies $
 --             newListAccessPoliciesResponse
 --
+--         , responseListAssetModelProperties $
+--             newListAssetModelPropertiesResponse
+--
 --         , responseListAssetModels $
 --             newListAssetModelsResponse
+--
+--         , responseListAssetProperties $
+--             newListAssetPropertiesResponse
 --
 --         , responseListAssetRelationships $
 --             newListAssetRelationshipsResponse
@@ -731,11 +743,23 @@ requestListAccessPolicies =
     "ListAccessPolicies"
     "fixture/ListAccessPolicies.yaml"
 
+requestListAssetModelProperties :: ListAssetModelProperties -> TestTree
+requestListAssetModelProperties =
+  req
+    "ListAssetModelProperties"
+    "fixture/ListAssetModelProperties.yaml"
+
 requestListAssetModels :: ListAssetModels -> TestTree
 requestListAssetModels =
   req
     "ListAssetModels"
     "fixture/ListAssetModels.yaml"
+
+requestListAssetProperties :: ListAssetProperties -> TestTree
+requestListAssetProperties =
+  req
+    "ListAssetProperties"
+    "fixture/ListAssetProperties.yaml"
 
 requestListAssetRelationships :: ListAssetRelationships -> TestTree
 requestListAssetRelationships =
@@ -1249,6 +1273,14 @@ responseListAccessPolicies =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAccessPolicies)
 
+responseListAssetModelProperties :: ListAssetModelPropertiesResponse -> TestTree
+responseListAssetModelProperties =
+  res
+    "ListAssetModelPropertiesResponse"
+    "fixture/ListAssetModelPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetModelProperties)
+
 responseListAssetModels :: ListAssetModelsResponse -> TestTree
 responseListAssetModels =
   res
@@ -1256,6 +1288,14 @@ responseListAssetModels =
     "fixture/ListAssetModelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAssetModels)
+
+responseListAssetProperties :: ListAssetPropertiesResponse -> TestTree
+responseListAssetProperties =
+  res
+    "ListAssetPropertiesResponse"
+    "fixture/ListAssetPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetProperties)
 
 responseListAssetRelationships :: ListAssetRelationshipsResponse -> TestTree
 responseListAssetRelationships =

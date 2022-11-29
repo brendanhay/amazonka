@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.AssetModelCompositeModelDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetModelPropertyDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a composite model definition in an asset model. This composite

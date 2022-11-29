@@ -20,10 +20,10 @@
 module Amazonka.IoTSiteWise.Types.Property where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.PropertyDataType
 import Amazonka.IoTSiteWise.Types.PropertyNotification
 import Amazonka.IoTSiteWise.Types.PropertyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains asset property information.

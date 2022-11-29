@@ -20,14 +20,14 @@
 module Amazonka.IoTSiteWise.Types.UserIdentity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for a user identity in an access policy.
 --
 -- /See:/ 'newUserIdentity' smart constructor.
 data UserIdentity = UserIdentity'
-  { -- | The Amazon Web Services SSO ID of the user.
+  { -- | The IAM Identity Center ID of the user.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,14 +40,14 @@ data UserIdentity = UserIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'userIdentity_id' - The Amazon Web Services SSO ID of the user.
+-- 'id', 'userIdentity_id' - The IAM Identity Center ID of the user.
 newUserIdentity ::
   -- | 'id'
   Prelude.Text ->
   UserIdentity
 newUserIdentity pId_ = UserIdentity' {id = pId_}
 
--- | The Amazon Web Services SSO ID of the user.
+-- | The IAM Identity Center ID of the user.
 userIdentity_id :: Lens.Lens' UserIdentity Prelude.Text
 userIdentity_id = Lens.lens (\UserIdentity' {id} -> id) (\s@UserIdentity' {} a -> s {id = a} :: UserIdentity)
 

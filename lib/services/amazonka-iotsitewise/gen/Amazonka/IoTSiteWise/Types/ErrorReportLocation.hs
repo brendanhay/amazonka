@@ -20,7 +20,7 @@
 module Amazonka.IoTSiteWise.Types.ErrorReportLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 destination where errors associated with the job creation

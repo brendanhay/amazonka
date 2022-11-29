@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.Measurement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.MeasurementProcessingConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset measurement property. For more information, see

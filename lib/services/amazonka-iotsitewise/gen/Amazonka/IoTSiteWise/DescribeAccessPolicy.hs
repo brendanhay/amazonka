@@ -47,8 +47,8 @@ module Amazonka.IoTSiteWise.DescribeAccessPolicy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +87,8 @@ instance Core.AWSRequest DescribeAccessPolicy where
   type
     AWSResponse DescribeAccessPolicy =
       DescribeAccessPolicyResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,8 +142,8 @@ data DescribeAccessPolicyResponse = DescribeAccessPolicyResponse'
     --
     -- @arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy\/${AccessPolicyId}@
     accessPolicyArn :: Prelude.Text,
-    -- | The identity (Amazon Web Services SSO user, Amazon Web Services SSO
-    -- group, or IAM user) to which this access policy applies.
+    -- | The identity (IAM Identity Center user, IAM Identity Center group, or
+    -- IAM user) to which this access policy applies.
     accessPolicyIdentity :: Identity,
     -- | The IoT SiteWise Monitor resource (portal or project) to which this
     -- access policy provides access.
@@ -176,8 +176,8 @@ data DescribeAccessPolicyResponse = DescribeAccessPolicyResponse'
 --
 -- @arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy\/${AccessPolicyId}@
 --
--- 'accessPolicyIdentity', 'describeAccessPolicyResponse_accessPolicyIdentity' - The identity (Amazon Web Services SSO user, Amazon Web Services SSO
--- group, or IAM user) to which this access policy applies.
+-- 'accessPolicyIdentity', 'describeAccessPolicyResponse_accessPolicyIdentity' - The identity (IAM Identity Center user, IAM Identity Center group, or
+-- IAM user) to which this access policy applies.
 --
 -- 'accessPolicyResource', 'describeAccessPolicyResponse_accessPolicyResource' - The IoT SiteWise Monitor resource (portal or project) to which this
 -- access policy provides access.
@@ -248,8 +248,8 @@ describeAccessPolicyResponse_accessPolicyId = Lens.lens (\DescribeAccessPolicyRe
 describeAccessPolicyResponse_accessPolicyArn :: Lens.Lens' DescribeAccessPolicyResponse Prelude.Text
 describeAccessPolicyResponse_accessPolicyArn = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyArn} -> accessPolicyArn) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyArn = a} :: DescribeAccessPolicyResponse)
 
--- | The identity (Amazon Web Services SSO user, Amazon Web Services SSO
--- group, or IAM user) to which this access policy applies.
+-- | The identity (IAM Identity Center user, IAM Identity Center group, or
+-- IAM user) to which this access policy applies.
 describeAccessPolicyResponse_accessPolicyIdentity :: Lens.Lens' DescribeAccessPolicyResponse Identity
 describeAccessPolicyResponse_accessPolicyIdentity = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyIdentity} -> accessPolicyIdentity) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyIdentity = a} :: DescribeAccessPolicyResponse)
 

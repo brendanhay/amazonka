@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.AssetModelStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetModelState
 import Amazonka.IoTSiteWise.Types.ErrorDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains current status information for an asset model. For more

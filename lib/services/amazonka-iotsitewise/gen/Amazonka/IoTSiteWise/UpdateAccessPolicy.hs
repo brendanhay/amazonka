@@ -44,8 +44,8 @@ module Amazonka.IoTSiteWise.UpdateAccessPolicy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,8 +58,8 @@ data UpdateAccessPolicy = UpdateAccessPolicy'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the access policy.
     accessPolicyId :: Prelude.Text,
-    -- | The identity for this access policy. Choose an Amazon Web Services SSO
-    -- user, an Amazon Web Services SSO group, or an IAM user.
+    -- | The identity for this access policy. Choose an IAM Identity Center user,
+    -- an IAM Identity Center group, or an IAM user.
     accessPolicyIdentity :: Identity,
     -- | The IoT SiteWise Monitor resource for this access policy. Choose either
     -- a portal or a project.
@@ -84,8 +84,8 @@ data UpdateAccessPolicy = UpdateAccessPolicy'
 --
 -- 'accessPolicyId', 'updateAccessPolicy_accessPolicyId' - The ID of the access policy.
 --
--- 'accessPolicyIdentity', 'updateAccessPolicy_accessPolicyIdentity' - The identity for this access policy. Choose an Amazon Web Services SSO
--- user, an Amazon Web Services SSO group, or an IAM user.
+-- 'accessPolicyIdentity', 'updateAccessPolicy_accessPolicyIdentity' - The identity for this access policy. Choose an IAM Identity Center user,
+-- an IAM Identity Center group, or an IAM user.
 --
 -- 'accessPolicyResource', 'updateAccessPolicy_accessPolicyResource' - The IoT SiteWise Monitor resource for this access policy. Choose either
 -- a portal or a project.
@@ -125,8 +125,8 @@ updateAccessPolicy_clientToken = Lens.lens (\UpdateAccessPolicy' {clientToken} -
 updateAccessPolicy_accessPolicyId :: Lens.Lens' UpdateAccessPolicy Prelude.Text
 updateAccessPolicy_accessPolicyId = Lens.lens (\UpdateAccessPolicy' {accessPolicyId} -> accessPolicyId) (\s@UpdateAccessPolicy' {} a -> s {accessPolicyId = a} :: UpdateAccessPolicy)
 
--- | The identity for this access policy. Choose an Amazon Web Services SSO
--- user, an Amazon Web Services SSO group, or an IAM user.
+-- | The identity for this access policy. Choose an IAM Identity Center user,
+-- an IAM Identity Center group, or an IAM user.
 updateAccessPolicy_accessPolicyIdentity :: Lens.Lens' UpdateAccessPolicy Identity
 updateAccessPolicy_accessPolicyIdentity = Lens.lens (\UpdateAccessPolicy' {accessPolicyIdentity} -> accessPolicyIdentity) (\s@UpdateAccessPolicy' {} a -> s {accessPolicyIdentity = a} :: UpdateAccessPolicy)
 
@@ -144,8 +144,8 @@ instance Core.AWSRequest UpdateAccessPolicy where
   type
     AWSResponse UpdateAccessPolicy =
       UpdateAccessPolicyResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

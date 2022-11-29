@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.Transform where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.ExpressionVariable
 import Amazonka.IoTSiteWise.Types.TransformProcessingConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset transform property. A transform is a one-to-one

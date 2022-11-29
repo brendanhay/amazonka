@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSuccessEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains success information for an entry that is associated with the

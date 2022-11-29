@@ -20,29 +20,29 @@
 module Amazonka.IoTSiteWise.Types.Identity where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.GroupIdentity
 import Amazonka.IoTSiteWise.Types.IAMRoleIdentity
 import Amazonka.IoTSiteWise.Types.IAMUserIdentity
 import Amazonka.IoTSiteWise.Types.UserIdentity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an identity that can access an IoT SiteWise Monitor resource.
 --
--- Currently, you can\'t use Amazon Web Services APIs to retrieve Amazon
--- Web Services SSO identity IDs. You can find the Amazon Web Services SSO
+-- Currently, you can\'t use Amazon Web Services APIs to retrieve IAM
+-- Identity Center identity IDs. You can find the IAM Identity Center
 -- identity IDs in the URL of user and group pages in the
--- <https://console.aws.amazon.com/singlesignon Amazon Web Services SSO console>.
+-- <https://console.aws.amazon.com/singlesignon IAM Identity Center console>.
 --
 -- /See:/ 'newIdentity' smart constructor.
 data Identity = Identity'
   { -- | An IAM role identity.
     iamRole :: Prelude.Maybe IAMRoleIdentity,
-    -- | An Amazon Web Services SSO user identity.
+    -- | An IAM Identity Center user identity.
     user :: Prelude.Maybe UserIdentity,
     -- | An IAM user identity.
     iamUser :: Prelude.Maybe IAMUserIdentity,
-    -- | An Amazon Web Services SSO group identity.
+    -- | An IAM Identity Center group identity.
     group' :: Prelude.Maybe GroupIdentity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,11 +57,11 @@ data Identity = Identity'
 --
 -- 'iamRole', 'identity_iamRole' - An IAM role identity.
 --
--- 'user', 'identity_user' - An Amazon Web Services SSO user identity.
+-- 'user', 'identity_user' - An IAM Identity Center user identity.
 --
 -- 'iamUser', 'identity_iamUser' - An IAM user identity.
 --
--- 'group'', 'identity_group' - An Amazon Web Services SSO group identity.
+-- 'group'', 'identity_group' - An IAM Identity Center group identity.
 newIdentity ::
   Identity
 newIdentity =
@@ -76,7 +76,7 @@ newIdentity =
 identity_iamRole :: Lens.Lens' Identity (Prelude.Maybe IAMRoleIdentity)
 identity_iamRole = Lens.lens (\Identity' {iamRole} -> iamRole) (\s@Identity' {} a -> s {iamRole = a} :: Identity)
 
--- | An Amazon Web Services SSO user identity.
+-- | An IAM Identity Center user identity.
 identity_user :: Lens.Lens' Identity (Prelude.Maybe UserIdentity)
 identity_user = Lens.lens (\Identity' {user} -> user) (\s@Identity' {} a -> s {user = a} :: Identity)
 
@@ -84,7 +84,7 @@ identity_user = Lens.lens (\Identity' {user} -> user) (\s@Identity' {} a -> s {u
 identity_iamUser :: Lens.Lens' Identity (Prelude.Maybe IAMUserIdentity)
 identity_iamUser = Lens.lens (\Identity' {iamUser} -> iamUser) (\s@Identity' {} a -> s {iamUser = a} :: Identity)
 
--- | An Amazon Web Services SSO group identity.
+-- | An IAM Identity Center group identity.
 identity_group :: Lens.Lens' Identity (Prelude.Maybe GroupIdentity)
 identity_group = Lens.lens (\Identity' {group'} -> group') (\s@Identity' {} a -> s {group' = a} :: Identity)
 

@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.AssetCompositeModel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetProperty
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a composite model in an asset. This object
@@ -31,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data AssetCompositeModel = AssetCompositeModel'
   { -- | The description of the composite model.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset composite model.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the composite model.
     name :: Prelude.Text,
     -- | The type of the composite model. For alarm composite models, this type
@@ -51,6 +53,8 @@ data AssetCompositeModel = AssetCompositeModel'
 --
 -- 'description', 'assetCompositeModel_description' - The description of the composite model.
 --
+-- 'id', 'assetCompositeModel_id' - The ID of the asset composite model.
+--
 -- 'name', 'assetCompositeModel_name' - The name of the composite model.
 --
 -- 'type'', 'assetCompositeModel_type' - The type of the composite model. For alarm composite models, this type
@@ -66,6 +70,7 @@ newAssetCompositeModel ::
 newAssetCompositeModel pName_ pType_ =
   AssetCompositeModel'
     { description = Prelude.Nothing,
+      id = Prelude.Nothing,
       name = pName_,
       type' = pType_,
       properties = Prelude.mempty
@@ -74,6 +79,10 @@ newAssetCompositeModel pName_ pType_ =
 -- | The description of the composite model.
 assetCompositeModel_description :: Lens.Lens' AssetCompositeModel (Prelude.Maybe Prelude.Text)
 assetCompositeModel_description = Lens.lens (\AssetCompositeModel' {description} -> description) (\s@AssetCompositeModel' {} a -> s {description = a} :: AssetCompositeModel)
+
+-- | The ID of the asset composite model.
+assetCompositeModel_id :: Lens.Lens' AssetCompositeModel (Prelude.Maybe Prelude.Text)
+assetCompositeModel_id = Lens.lens (\AssetCompositeModel' {id} -> id) (\s@AssetCompositeModel' {} a -> s {id = a} :: AssetCompositeModel)
 
 -- | The name of the composite model.
 assetCompositeModel_name :: Lens.Lens' AssetCompositeModel Prelude.Text
@@ -95,6 +104,7 @@ instance Core.FromJSON AssetCompositeModel where
       ( \x ->
           AssetCompositeModel'
             Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "type")
             Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
@@ -103,6 +113,7 @@ instance Core.FromJSON AssetCompositeModel where
 instance Prelude.Hashable AssetCompositeModel where
   hashWithSalt _salt AssetCompositeModel' {..} =
     _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` properties
@@ -110,6 +121,7 @@ instance Prelude.Hashable AssetCompositeModel where
 instance Prelude.NFData AssetCompositeModel where
   rnf AssetCompositeModel' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf properties

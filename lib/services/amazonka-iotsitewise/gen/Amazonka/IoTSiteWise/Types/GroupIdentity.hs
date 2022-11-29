@@ -20,14 +20,14 @@
 module Amazonka.IoTSiteWise.Types.GroupIdentity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for a group identity in an access policy.
 --
 -- /See:/ 'newGroupIdentity' smart constructor.
 data GroupIdentity = GroupIdentity'
-  { -- | The Amazon Web Services SSO ID of the group.
+  { -- | The IAM Identity Center ID of the group.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,14 +40,14 @@ data GroupIdentity = GroupIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'groupIdentity_id' - The Amazon Web Services SSO ID of the group.
+-- 'id', 'groupIdentity_id' - The IAM Identity Center ID of the group.
 newGroupIdentity ::
   -- | 'id'
   Prelude.Text ->
   GroupIdentity
 newGroupIdentity pId_ = GroupIdentity' {id = pId_}
 
--- | The Amazon Web Services SSO ID of the group.
+-- | The IAM Identity Center ID of the group.
 groupIdentity_id :: Lens.Lens' GroupIdentity Prelude.Text
 groupIdentity_id = Lens.lens (\GroupIdentity' {id} -> id) (\s@GroupIdentity' {} a -> s {id = a} :: GroupIdentity)
 

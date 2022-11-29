@@ -20,7 +20,7 @@
 module Amazonka.Location.Types.SearchForSuggestionsResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a place suggestion resulting from a place suggestion query that

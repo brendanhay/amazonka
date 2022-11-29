@@ -20,7 +20,7 @@
 module Amazonka.Location.Types.Circle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A circle on the earth, as defined by a center point and a radius.

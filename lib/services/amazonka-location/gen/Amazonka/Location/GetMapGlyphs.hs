@@ -43,7 +43,7 @@ module Amazonka.Location.GetMapGlyphs
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,8 +204,8 @@ getMapGlyphs_mapName = Lens.lens (\GetMapGlyphs' {mapName} -> mapName) (\s@GetMa
 
 instance Core.AWSRequest GetMapGlyphs where
   type AWSResponse GetMapGlyphs = GetMapGlyphsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveBytes
       ( \s h x ->

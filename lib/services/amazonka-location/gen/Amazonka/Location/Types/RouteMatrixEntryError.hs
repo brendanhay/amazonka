@@ -20,7 +20,7 @@
 module Amazonka.Location.Types.RouteMatrixEntryError where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types.RouteMatrixErrorCode
 import qualified Amazonka.Prelude as Prelude
 

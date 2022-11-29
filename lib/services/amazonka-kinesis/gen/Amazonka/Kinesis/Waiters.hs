@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,20 +17,20 @@
 module Amazonka.Kinesis.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.DescribeStream
 import Amazonka.Kinesis.Lens
 import Amazonka.Kinesis.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 newStreamExists :: Core.Wait DescribeStream
 newStreamExists =
   Core.Wait
-    { Core._waitName = "StreamExists",
-      Core._waitAttempts = 18,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "StreamExists",
+      Core.attempts = 18,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
@@ -44,10 +45,10 @@ newStreamExists =
 newStreamNotExists :: Core.Wait DescribeStream
 newStreamNotExists =
   Core.Wait
-    { Core._waitName = "StreamNotExists",
-      Core._waitAttempts = 18,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "StreamNotExists",
+      Core.attempts = 18,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess

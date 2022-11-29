@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -204,6 +205,7 @@ module Amazonka.Kinesis.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.ChildShard
 import Amazonka.Kinesis.Types.Consumer
 import Amazonka.Kinesis.Types.ConsumerDescription
@@ -230,7 +232,6 @@ import Amazonka.Kinesis.Types.StreamModeDetails
 import Amazonka.Kinesis.Types.StreamStatus
 import Amazonka.Kinesis.Types.SubscribeToShardEvent
 import Amazonka.Kinesis.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -238,27 +239,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Kinesis",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "kinesis",
-      Core._serviceSigningName = "kinesis",
-      Core._serviceVersion = "2013-12-02",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Kinesis",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Kinesis",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "kinesis",
+      Core.signingName = "kinesis",
+      Core.version = "2013-12-02",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Kinesis",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

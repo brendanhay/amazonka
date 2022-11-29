@@ -20,8 +20,8 @@
 module Amazonka.Kinesis.Types.StartingPosition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.ShardIteratorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The starting position in the data stream from which to start streaming.

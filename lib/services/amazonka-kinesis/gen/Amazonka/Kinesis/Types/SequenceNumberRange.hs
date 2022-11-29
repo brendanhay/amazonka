@@ -20,7 +20,7 @@
 module Amazonka.Kinesis.Types.SequenceNumberRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The range of possible sequence numbers for the shard.

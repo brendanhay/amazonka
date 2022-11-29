@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet where
 
 import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @controlSet@ entity that represents a collection of controls in Audit

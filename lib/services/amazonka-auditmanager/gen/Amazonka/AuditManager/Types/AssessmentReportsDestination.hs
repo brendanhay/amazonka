@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.AssessmentReportsDestination where
 
 import Amazonka.AuditManager.Types.AssessmentReportDestinationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location where Audit Manager saves assessment reports for the given

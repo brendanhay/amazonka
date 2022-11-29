@@ -22,7 +22,7 @@ module Amazonka.AuditManager.Types.Framework where
 import Amazonka.AuditManager.Types.ControlSet
 import Amazonka.AuditManager.Types.FrameworkType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file that\'s used to structure and automate Audit Manager

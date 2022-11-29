@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError where
 
 import Amazonka.AuditManager.Types.CreateDelegationRequest
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for the @BatchCreateDelegationByAssessment@ API. This is

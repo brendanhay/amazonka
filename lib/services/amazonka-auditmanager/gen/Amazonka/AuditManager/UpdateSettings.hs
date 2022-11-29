@@ -31,6 +31,7 @@ module Amazonka.AuditManager.UpdateSettings
     updateSettings_snsTopic,
     updateSettings_kmsKey,
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_evidenceFinderEnabled,
 
     -- * Destructuring the Response
     UpdateSettingsResponse (..),
@@ -44,7 +45,7 @@ where
 
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,24 @@ data UpdateSettings = UpdateSettings'
     -- | The KMS key details.
     kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The default storage destination for assessment reports.
-    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination
+    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+    -- | Specifies whether the evidence finder feature is enabled. Change this
+    -- attribute to enable or disable evidence finder.
+    --
+    -- When you use this attribute to disable evidence finder, Audit Manager
+    -- deletes the event data store that’s used to query your evidence data. As
+    -- a result, you can’t re-enable evidence finder and use the feature again.
+    -- Your only alternative is to
+    -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html deregister>
+    -- and then
+    -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
+    -- Audit Manager.
+    --
+    -- Disabling evidence finder is permanent, so consider this decision
+    -- carefully before you proceed. If you’re using Audit Manager as a
+    -- delegated administrator, keep in mind that this action applies to all
+    -- member accounts in your organization.
+    evidenceFinderEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +97,23 @@ data UpdateSettings = UpdateSettings'
 -- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
 --
 -- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+--
+-- 'evidenceFinderEnabled', 'updateSettings_evidenceFinderEnabled' - Specifies whether the evidence finder feature is enabled. Change this
+-- attribute to enable or disable evidence finder.
+--
+-- When you use this attribute to disable evidence finder, Audit Manager
+-- deletes the event data store that’s used to query your evidence data. As
+-- a result, you can’t re-enable evidence finder and use the feature again.
+-- Your only alternative is to
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html deregister>
+-- and then
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
+-- Audit Manager.
+--
+-- Disabling evidence finder is permanent, so consider this decision
+-- carefully before you proceed. If you’re using Audit Manager as a
+-- delegated administrator, keep in mind that this action applies to all
+-- member accounts in your organization.
 newUpdateSettings ::
   UpdateSettings
 newUpdateSettings =
@@ -88,7 +123,8 @@ newUpdateSettings =
       snsTopic = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
       defaultAssessmentReportsDestination =
-        Prelude.Nothing
+        Prelude.Nothing,
+      evidenceFinderEnabled = Prelude.Nothing
     }
 
 -- | A list of the default audit owners.
@@ -108,12 +144,31 @@ updateSettings_kmsKey = Lens.lens (\UpdateSettings' {kmsKey} -> kmsKey) (\s@Upda
 updateSettings_defaultAssessmentReportsDestination :: Lens.Lens' UpdateSettings (Prelude.Maybe AssessmentReportsDestination)
 updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@UpdateSettings' {} a -> s {defaultAssessmentReportsDestination = a} :: UpdateSettings)
 
+-- | Specifies whether the evidence finder feature is enabled. Change this
+-- attribute to enable or disable evidence finder.
+--
+-- When you use this attribute to disable evidence finder, Audit Manager
+-- deletes the event data store that’s used to query your evidence data. As
+-- a result, you can’t re-enable evidence finder and use the feature again.
+-- Your only alternative is to
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html deregister>
+-- and then
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
+-- Audit Manager.
+--
+-- Disabling evidence finder is permanent, so consider this decision
+-- carefully before you proceed. If you’re using Audit Manager as a
+-- delegated administrator, keep in mind that this action applies to all
+-- member accounts in your organization.
+updateSettings_evidenceFinderEnabled :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Bool)
+updateSettings_evidenceFinderEnabled = Lens.lens (\UpdateSettings' {evidenceFinderEnabled} -> evidenceFinderEnabled) (\s@UpdateSettings' {} a -> s {evidenceFinderEnabled = a} :: UpdateSettings)
+
 instance Core.AWSRequest UpdateSettings where
   type
     AWSResponse UpdateSettings =
       UpdateSettingsResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +183,7 @@ instance Prelude.Hashable UpdateSettings where
       `Prelude.hashWithSalt` snsTopic
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` evidenceFinderEnabled
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
@@ -135,6 +191,7 @@ instance Prelude.NFData UpdateSettings where
       `Prelude.seq` Prelude.rnf snsTopic
       `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
+      `Prelude.seq` Prelude.rnf evidenceFinderEnabled
 
 instance Core.ToHeaders UpdateSettings where
   toHeaders =
@@ -156,7 +213,9 @@ instance Core.ToJSON UpdateSettings where
             ("snsTopic" Core..=) Prelude.<$> snsTopic,
             ("kmsKey" Core..=) Prelude.<$> kmsKey,
             ("defaultAssessmentReportsDestination" Core..=)
-              Prelude.<$> defaultAssessmentReportsDestination
+              Prelude.<$> defaultAssessmentReportsDestination,
+            ("evidenceFinderEnabled" Core..=)
+              Prelude.<$> evidenceFinderEnabled
           ]
       )
 

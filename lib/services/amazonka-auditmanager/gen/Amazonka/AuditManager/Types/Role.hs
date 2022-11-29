@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.Role where
 
 import Amazonka.AuditManager.Types.RoleType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Audit Manager role information of the

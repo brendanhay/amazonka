@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.ControlSet where
 
 import Amazonka.AuditManager.Types.Control
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of controls in Audit Manager.

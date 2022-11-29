@@ -24,7 +24,7 @@ import Amazonka.AuditManager.Types.SourceKeyword
 import Amazonka.AuditManager.Types.SourceSetUpOption
 import Amazonka.AuditManager.Types.SourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The control mapping fields that represent the source for evidence

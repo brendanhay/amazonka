@@ -23,7 +23,7 @@ import Amazonka.AuditManager.Types.AWSAccount
 import Amazonka.AuditManager.Types.AssessmentFramework
 import Amazonka.AuditManager.Types.AssessmentMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity that defines the scope of audit evidence collected by Audit

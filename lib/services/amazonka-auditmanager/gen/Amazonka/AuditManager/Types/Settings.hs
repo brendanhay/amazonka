@@ -20,9 +20,10 @@
 module Amazonka.AuditManager.Types.Settings where
 
 import Amazonka.AuditManager.Types.AssessmentReportsDestination
+import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings object that holds all supported Audit Manager settings.
@@ -37,6 +38,8 @@ data Settings = Settings'
     isAwsOrgEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The KMS key details.
     kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The current evidence finder status and event data store details.
+    evidenceFinderEnablement :: Prelude.Maybe EvidenceFinderEnablement,
     -- | The default storage destination for assessment reports.
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination
   }
@@ -58,6 +61,8 @@ data Settings = Settings'
 --
 -- 'kmsKey', 'settings_kmsKey' - The KMS key details.
 --
+-- 'evidenceFinderEnablement', 'settings_evidenceFinderEnablement' - The current evidence finder status and event data store details.
+--
 -- 'defaultAssessmentReportsDestination', 'settings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
 newSettings ::
   Settings
@@ -67,6 +72,7 @@ newSettings =
       snsTopic = Prelude.Nothing,
       isAwsOrgEnabled = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
+      evidenceFinderEnablement = Prelude.Nothing,
       defaultAssessmentReportsDestination =
         Prelude.Nothing
     }
@@ -87,6 +93,10 @@ settings_isAwsOrgEnabled = Lens.lens (\Settings' {isAwsOrgEnabled} -> isAwsOrgEn
 settings_kmsKey :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
 settings_kmsKey = Lens.lens (\Settings' {kmsKey} -> kmsKey) (\s@Settings' {} a -> s {kmsKey = a} :: Settings)
 
+-- | The current evidence finder status and event data store details.
+settings_evidenceFinderEnablement :: Lens.Lens' Settings (Prelude.Maybe EvidenceFinderEnablement)
+settings_evidenceFinderEnablement = Lens.lens (\Settings' {evidenceFinderEnablement} -> evidenceFinderEnablement) (\s@Settings' {} a -> s {evidenceFinderEnablement = a} :: Settings)
+
 -- | The default storage destination for assessment reports.
 settings_defaultAssessmentReportsDestination :: Lens.Lens' Settings (Prelude.Maybe AssessmentReportsDestination)
 settings_defaultAssessmentReportsDestination = Lens.lens (\Settings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@Settings' {} a -> s {defaultAssessmentReportsDestination = a} :: Settings)
@@ -103,6 +113,7 @@ instance Core.FromJSON Settings where
             Prelude.<*> (x Core..:? "snsTopic")
             Prelude.<*> (x Core..:? "isAwsOrgEnabled")
             Prelude.<*> (x Core..:? "kmsKey")
+            Prelude.<*> (x Core..:? "evidenceFinderEnablement")
             Prelude.<*> (x Core..:? "defaultAssessmentReportsDestination")
       )
 
@@ -112,6 +123,7 @@ instance Prelude.Hashable Settings where
       `Prelude.hashWithSalt` snsTopic
       `Prelude.hashWithSalt` isAwsOrgEnabled
       `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` evidenceFinderEnablement
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
 
 instance Prelude.NFData Settings where
@@ -120,4 +132,5 @@ instance Prelude.NFData Settings where
       `Prelude.seq` Prelude.rnf snsTopic
       `Prelude.seq` Prelude.rnf isAwsOrgEnabled
       `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf evidenceFinderEnablement
       `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination

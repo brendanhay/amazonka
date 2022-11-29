@@ -22,7 +22,7 @@ module Amazonka.AuditManager.Types.ChangeLog where
 import Amazonka.AuditManager.Types.ActionEnum
 import Amazonka.AuditManager.Types.ObjectTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The record of a change within Audit Manager. For example, this could be

@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.EvidenceInsights where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A breakdown of the latest compliance check status for the evidence in

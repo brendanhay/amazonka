@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.AWSService where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Web Service such as Amazon S3 or CloudTrail.

@@ -22,7 +22,7 @@ module Amazonka.AuditManager.Types.Scope where
 import Amazonka.AuditManager.Types.AWSAccount
 import Amazonka.AuditManager.Types.AWSService
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Amazon Web Services accounts and services

@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.URL where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Short for uniform resource locator. A URL is used as a unique identifier

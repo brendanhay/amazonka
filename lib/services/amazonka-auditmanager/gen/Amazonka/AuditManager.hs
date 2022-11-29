@@ -473,6 +473,12 @@ module Amazonka.AuditManager
     -- ** DelegationStatus
     DelegationStatus (..),
 
+    -- ** EvidenceFinderBackfillStatus
+    EvidenceFinderBackfillStatus (..),
+
+    -- ** EvidenceFinderEnablementStatus
+    EvidenceFinderEnablementStatus (..),
+
     -- ** FrameworkType
     FrameworkType (..),
 
@@ -641,6 +647,10 @@ module Amazonka.AuditManager
     -- ** Evidence
     Evidence (Evidence'),
     newEvidence,
+
+    -- ** EvidenceFinderEnablement
+    EvidenceFinderEnablement (EvidenceFinderEnablement'),
+    newEvidenceFinderEnablement,
 
     -- ** EvidenceInsights
     EvidenceInsights (EvidenceInsights'),

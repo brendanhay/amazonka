@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.ManualEvidence where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Evidence that\'s uploaded to Audit Manager manually.

@@ -23,7 +23,7 @@ import Amazonka.AmplifyBackend.Types.DeliveryMethod
 import Amazonka.AmplifyBackend.Types.EmailSettings
 import Amazonka.AmplifyBackend.Types.SmsSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __(DEPRECATED)__ Describes the forgot password policy for authenticating

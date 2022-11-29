@@ -21,7 +21,7 @@ module Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution where
 
 import Amazonka.AmplifyBackend.Types.ResolutionStrategy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the conflict resolution configuration for your data model

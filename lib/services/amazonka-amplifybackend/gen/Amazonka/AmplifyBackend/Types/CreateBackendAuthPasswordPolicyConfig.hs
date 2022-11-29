@@ -21,7 +21,7 @@ module Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig where
 
 import Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The password policy configuration for the backend to your Amplify

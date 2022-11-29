@@ -20,7 +20,7 @@
 module Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes Apple social federation configurations for allowing your app

@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.SocialProviderSettings where
 import Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
 import Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for using the social identity providers for access to your

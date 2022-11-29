@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig where
 import Amazonka.AmplifyBackend.Types.BackendAPIAuthType
 import Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource config for the data model, configured as a part of the

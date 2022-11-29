@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.BackendAPIAuthType where
 import Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
 import Amazonka.AmplifyBackend.Types.Mode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the auth types for your configured data models.

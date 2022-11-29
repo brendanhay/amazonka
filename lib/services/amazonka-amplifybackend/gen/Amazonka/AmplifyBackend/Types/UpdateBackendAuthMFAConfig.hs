@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig where
 import Amazonka.AmplifyBackend.Types.MFAMode
 import Amazonka.AmplifyBackend.Types.Settings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates the multi-factor authentication (MFA) configuration for the

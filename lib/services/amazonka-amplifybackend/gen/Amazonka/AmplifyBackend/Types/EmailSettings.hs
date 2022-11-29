@@ -20,7 +20,7 @@
 module Amazonka.AmplifyBackend.Types.EmailSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the email sent when an app user forgets their

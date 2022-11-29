@@ -24,7 +24,7 @@ import Amazonka.AmplifyBackend.Types.Service
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the resource configuration when updating an authentication

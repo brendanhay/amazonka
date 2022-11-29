@@ -21,7 +21,7 @@ module Amazonka.AmplifyBackend.Types.Settings where
 
 import Amazonka.AmplifyBackend.Types.MfaTypesElement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings of your MFA configuration for the backend of your Amplify

@@ -20,8 +20,8 @@
 module Amazonka.Kafka.Types.OpenMonitoring where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.Prometheus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | JMX and Node monitoring for the MSK cluster.

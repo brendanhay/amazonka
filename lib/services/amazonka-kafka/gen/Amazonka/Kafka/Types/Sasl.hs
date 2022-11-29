@@ -20,9 +20,9 @@
 module Amazonka.Kafka.Types.Sasl where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.Iam
 import Amazonka.Kafka.Types.Scram
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for client authentication using SASL.

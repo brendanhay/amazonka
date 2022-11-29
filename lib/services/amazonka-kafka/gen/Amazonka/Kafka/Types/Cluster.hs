@@ -20,12 +20,12 @@
 module Amazonka.Kafka.Types.Cluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ClusterState
 import Amazonka.Kafka.Types.ClusterType
 import Amazonka.Kafka.Types.Provisioned
 import Amazonka.Kafka.Types.Serverless
 import Amazonka.Kafka.Types.StateInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a cluster.

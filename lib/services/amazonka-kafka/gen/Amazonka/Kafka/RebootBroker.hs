@@ -42,8 +42,8 @@ module Amazonka.Kafka.RebootBroker
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +93,8 @@ rebootBroker_brokerIds = Lens.lens (\RebootBroker' {brokerIds} -> brokerIds) (\s
 
 instance Core.AWSRequest RebootBroker where
   type AWSResponse RebootBroker = RebootBrokerResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

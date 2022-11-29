@@ -20,6 +20,7 @@
 module Amazonka.Kafka.Types.ProvisionedRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ConfigurationInfo
@@ -28,7 +29,6 @@ import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoringInfo
 import Amazonka.Kafka.Types.StorageMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provisioned cluster request.

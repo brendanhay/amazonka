@@ -20,8 +20,8 @@
 module Amazonka.Kafka.Types.StorageInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.EBSStorageInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about storage volumes attached to MSK broker nodes.

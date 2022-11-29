@@ -20,9 +20,9 @@
 module Amazonka.Kafka.Types.Configuration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ConfigurationRevision
 import Amazonka.Kafka.Types.ConfigurationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an MSK Configuration.

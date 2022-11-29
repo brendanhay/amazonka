@@ -20,10 +20,10 @@
 module Amazonka.Kafka.Types.ClusterOperationInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ClusterOperationStep
 import Amazonka.Kafka.Types.ErrorInfo
 import Amazonka.Kafka.Types.MutableClusterInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a cluster operation.

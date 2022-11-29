@@ -20,8 +20,8 @@
 module Amazonka.Kafka.Types.BrokerEBSVolumeInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ProvisionedThroughput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the EBS volume upgrade information. The broker identifier must

@@ -20,10 +20,10 @@
 module Amazonka.Kafka.Types.NodeInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.BrokerNodeInfo
 import Amazonka.Kafka.Types.NodeType
 import Amazonka.Kafka.Types.ZookeeperNodeInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The node information object.

@@ -20,8 +20,8 @@
 module Amazonka.Kafka.Types.EncryptionInTransit where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ClientBroker
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for encrypting data in transit.

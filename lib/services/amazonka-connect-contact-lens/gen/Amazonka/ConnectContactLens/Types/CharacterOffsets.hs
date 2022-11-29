@@ -20,7 +20,7 @@
 module Amazonka.ConnectContactLens.Types.CharacterOffsets where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For characters that were detected as issues, where they occur in the

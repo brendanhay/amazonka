@@ -22,7 +22,7 @@ module Amazonka.ConnectContactLens.Types.Transcript where
 import Amazonka.ConnectContactLens.Types.IssueDetected
 import Amazonka.ConnectContactLens.Types.SentimentValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of messages in the session.

@@ -21,7 +21,7 @@ module Amazonka.ConnectContactLens.Types.CategoryDetails where
 
 import Amazonka.ConnectContactLens.Types.PointOfInterest
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the category rule that was matched.

@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.KubernetesConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.KubernetesAuditLogsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether any Kubernetes data sources are enabled.

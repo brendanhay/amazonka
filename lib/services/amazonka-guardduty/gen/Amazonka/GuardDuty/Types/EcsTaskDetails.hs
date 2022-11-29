@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.EcsTaskDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.Tag
 import Amazonka.GuardDuty.Types.Volume
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the task in an ECS cluster.

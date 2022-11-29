@@ -20,6 +20,7 @@
 module Amazonka.GuardDuty.Types.Resource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.AccessKeyDetails
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.EbsVolumeDetails
@@ -28,7 +29,6 @@ import Amazonka.GuardDuty.Types.EksClusterDetails
 import Amazonka.GuardDuty.Types.InstanceDetails
 import Amazonka.GuardDuty.Types.KubernetesDetails
 import Amazonka.GuardDuty.Types.S3BucketDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Amazon Web Services resource associated

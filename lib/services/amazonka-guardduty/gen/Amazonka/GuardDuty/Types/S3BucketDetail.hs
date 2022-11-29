@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.S3BucketDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DefaultServerSideEncryption
 import Amazonka.GuardDuty.Types.Owner
 import Amazonka.GuardDuty.Types.PublicAccess
 import Amazonka.GuardDuty.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the S3 bucket.

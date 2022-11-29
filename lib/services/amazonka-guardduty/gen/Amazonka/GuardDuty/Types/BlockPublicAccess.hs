@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.BlockPublicAccess where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on how the bucker owner\'s S3 Block Public Access

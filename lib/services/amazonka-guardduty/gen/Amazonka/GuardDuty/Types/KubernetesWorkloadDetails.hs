@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.KubernetesWorkloadDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.Volume
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Kubernetes workload involved in a Kubernetes finding.

@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.PermissionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.AccountLevelPermissions
 import Amazonka.GuardDuty.Types.BucketLevelPermissions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about how permissions are configured for the S3

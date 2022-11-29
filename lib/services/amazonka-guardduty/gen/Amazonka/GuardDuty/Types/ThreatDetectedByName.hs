@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.ThreatDetectedByName where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.ScanThreatName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about identified threats organized by threat name.

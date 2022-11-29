@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.Finding where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.Resource
 import Amazonka.GuardDuty.Types.ServiceInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the finding, which is generated when abnormal

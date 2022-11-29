@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.MemberDataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DataSourceConfigurationsResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on which data sources are enabled for a member

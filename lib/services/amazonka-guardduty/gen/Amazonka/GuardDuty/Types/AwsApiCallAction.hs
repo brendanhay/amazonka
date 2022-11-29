@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.AwsApiCallAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DomainDetails
 import Amazonka.GuardDuty.Types.RemoteAccountDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the API action.

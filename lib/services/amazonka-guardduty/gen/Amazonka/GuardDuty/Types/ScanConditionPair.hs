@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.ScanConditionPair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents key, value pair to be matched against given resource

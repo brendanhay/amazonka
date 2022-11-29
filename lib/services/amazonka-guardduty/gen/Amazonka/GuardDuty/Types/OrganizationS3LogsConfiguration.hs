@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.OrganizationS3LogsConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether S3 data event logs will be automatically enabled for

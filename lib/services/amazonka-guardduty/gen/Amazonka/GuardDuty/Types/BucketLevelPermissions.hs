@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.BucketLevelPermissions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.AccessControlList
 import Amazonka.GuardDuty.Types.BlockPublicAccess
 import Amazonka.GuardDuty.Types.BucketPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the bucket level permissions for the S3

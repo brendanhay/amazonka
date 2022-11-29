@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.DNSLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DataSourceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the status of DNS logs as a data source.

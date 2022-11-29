@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.OrganizationS3LogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current configuration of S3 data event logs as a data source for the

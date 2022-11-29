@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.PublicAccess where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.PermissionConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the public access policies that apply to the S3 bucket.

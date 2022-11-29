@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.KubernetesAuditLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DataSourceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether Kubernetes audit logs are enabled as a data source.

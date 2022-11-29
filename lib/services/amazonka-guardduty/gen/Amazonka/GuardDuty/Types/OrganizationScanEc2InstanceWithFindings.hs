@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.OrganizationScanEc2InstanceWithFindings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.OrganizationEbsVolumes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization-wide EC2 instances with findings scan configuration.

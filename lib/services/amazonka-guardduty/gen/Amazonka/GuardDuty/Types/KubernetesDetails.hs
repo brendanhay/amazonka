@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.KubernetesDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.KubernetesUserDetails
 import Amazonka.GuardDuty.Types.KubernetesWorkloadDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about Kubernetes resources such as a Kubernetes user or workload

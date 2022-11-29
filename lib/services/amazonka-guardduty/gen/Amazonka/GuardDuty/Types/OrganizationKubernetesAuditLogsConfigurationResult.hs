@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current configuration of Kubernetes audit logs as a data source for

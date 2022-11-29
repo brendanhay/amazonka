@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.DestinationProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) of the resource to publish to,

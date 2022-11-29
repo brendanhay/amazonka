@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.EcsClusterDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.EcsTaskDetails
 import Amazonka.GuardDuty.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the details of the ECS Cluster.

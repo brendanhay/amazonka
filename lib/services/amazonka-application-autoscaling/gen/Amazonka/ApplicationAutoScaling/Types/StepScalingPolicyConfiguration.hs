@@ -23,7 +23,7 @@ import Amazonka.ApplicationAutoScaling.Types.AdjustmentType
 import Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
 import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a step scaling policy configuration to use with Application

@@ -23,7 +23,7 @@ import Amazonka.ApplicationAutoScaling.Types.ScalableDimension
 import Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
 import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scheduled action.

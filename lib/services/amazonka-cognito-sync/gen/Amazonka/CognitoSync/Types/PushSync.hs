@@ -20,7 +20,7 @@
 module Amazonka.CognitoSync.Types.PushSync where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options to be applied to the identity pool.

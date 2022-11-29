@@ -20,7 +20,7 @@
 module Amazonka.ResourceGroupsTagging.Types.TagFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of tags (keys and values) that are used to specify the associated

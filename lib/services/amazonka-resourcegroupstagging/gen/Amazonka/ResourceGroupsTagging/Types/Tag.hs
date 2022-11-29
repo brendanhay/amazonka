@@ -20,7 +20,7 @@
 module Amazonka.ResourceGroupsTagging.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that you apply to Amazon Web Services resources to help you

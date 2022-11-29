@@ -20,7 +20,7 @@
 module Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An update to the connector\'s scale-out policy.

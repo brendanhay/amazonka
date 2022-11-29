@@ -20,9 +20,9 @@
 module Amazonka.KafkaConnect.Types.CapacityDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.AutoScalingDescription
 import Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the connector\'s capacity.

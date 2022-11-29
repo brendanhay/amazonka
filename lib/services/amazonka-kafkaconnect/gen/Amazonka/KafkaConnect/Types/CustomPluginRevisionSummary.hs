@@ -20,10 +20,10 @@
 module Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.CustomPluginContentType
 import Amazonka.KafkaConnect.Types.CustomPluginFileDescription
 import Amazonka.KafkaConnect.Types.CustomPluginLocationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the revision of a custom plugin.

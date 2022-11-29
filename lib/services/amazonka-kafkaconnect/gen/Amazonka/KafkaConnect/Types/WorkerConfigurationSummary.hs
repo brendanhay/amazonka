@@ -20,8 +20,8 @@
 module Amazonka.KafkaConnect.Types.WorkerConfigurationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a worker configuration.

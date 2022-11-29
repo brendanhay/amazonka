@@ -20,8 +20,8 @@
 module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The client authentication information used in order to authenticate with

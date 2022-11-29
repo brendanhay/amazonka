@@ -20,8 +20,8 @@
 module Amazonka.KafkaConnect.Types.Plugin where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.CustomPlugin
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A plugin is an AWS resource that contains the code that defines your

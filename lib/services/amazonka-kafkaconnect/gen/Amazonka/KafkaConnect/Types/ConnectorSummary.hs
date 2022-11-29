@@ -20,6 +20,7 @@
 module Amazonka.KafkaConnect.Types.ConnectorSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.CapacityDescription
 import Amazonka.KafkaConnect.Types.ConnectorState
 import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
@@ -28,7 +29,6 @@ import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
 import Amazonka.KafkaConnect.Types.LogDeliveryDescription
 import Amazonka.KafkaConnect.Types.PluginDescription
 import Amazonka.KafkaConnect.Types.WorkerConfigurationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of a connector.

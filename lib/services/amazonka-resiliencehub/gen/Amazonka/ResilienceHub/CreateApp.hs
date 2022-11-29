@@ -57,7 +57,7 @@ module Amazonka.ResilienceHub.CreateApp
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -163,8 +163,8 @@ createApp_name = Lens.lens (\CreateApp' {name} -> name) (\s@CreateApp' {} a -> s
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

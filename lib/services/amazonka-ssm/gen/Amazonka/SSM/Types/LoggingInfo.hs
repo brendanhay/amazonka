@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.LoggingInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Simple Storage Service (Amazon S3) bucket to

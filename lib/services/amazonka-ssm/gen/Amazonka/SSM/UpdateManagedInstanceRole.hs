@@ -43,7 +43,7 @@ module Amazonka.SSM.UpdateManagedInstanceRole
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +53,15 @@ import Amazonka.SSM.Types
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
   { -- | The ID of the managed node where you want to update the role.
     instanceId :: Prelude.Text,
-    -- | The IAM role you want to assign or change.
+    -- | The name of the Identity and Access Management (IAM) role that you want
+    -- to assign to the managed node. This IAM role must provide AssumeRole
+    -- permissions for the Amazon Web Services Systems Manager service
+    -- principal @ssm.amazonaws.com@. For more information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    --
+    -- You can\'t specify an IAM service-linked role for this parameter. You
+    -- must create a unique role.
     iamRole :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +76,15 @@ data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
 --
 -- 'instanceId', 'updateManagedInstanceRole_instanceId' - The ID of the managed node where you want to update the role.
 --
--- 'iamRole', 'updateManagedInstanceRole_iamRole' - The IAM role you want to assign or change.
+-- 'iamRole', 'updateManagedInstanceRole_iamRole' - The name of the Identity and Access Management (IAM) role that you want
+-- to assign to the managed node. This IAM role must provide AssumeRole
+-- permissions for the Amazon Web Services Systems Manager service
+-- principal @ssm.amazonaws.com@. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- You can\'t specify an IAM service-linked role for this parameter. You
+-- must create a unique role.
 newUpdateManagedInstanceRole ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -86,7 +102,15 @@ newUpdateManagedInstanceRole pInstanceId_ pIamRole_ =
 updateManagedInstanceRole_instanceId :: Lens.Lens' UpdateManagedInstanceRole Prelude.Text
 updateManagedInstanceRole_instanceId = Lens.lens (\UpdateManagedInstanceRole' {instanceId} -> instanceId) (\s@UpdateManagedInstanceRole' {} a -> s {instanceId = a} :: UpdateManagedInstanceRole)
 
--- | The IAM role you want to assign or change.
+-- | The name of the Identity and Access Management (IAM) role that you want
+-- to assign to the managed node. This IAM role must provide AssumeRole
+-- permissions for the Amazon Web Services Systems Manager service
+-- principal @ssm.amazonaws.com@. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- You can\'t specify an IAM service-linked role for this parameter. You
+-- must create a unique role.
 updateManagedInstanceRole_iamRole :: Lens.Lens' UpdateManagedInstanceRole Prelude.Text
 updateManagedInstanceRole_iamRole = Lens.lens (\UpdateManagedInstanceRole' {iamRole} -> iamRole) (\s@UpdateManagedInstanceRole' {} a -> s {iamRole = a} :: UpdateManagedInstanceRole)
 
@@ -94,8 +118,8 @@ instance Core.AWSRequest UpdateManagedInstanceRole where
   type
     AWSResponse UpdateManagedInstanceRole =
       UpdateManagedInstanceRoleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

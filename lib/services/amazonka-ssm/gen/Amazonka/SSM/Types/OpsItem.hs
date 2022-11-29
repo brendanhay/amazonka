@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.OpsItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsItemDataValue
 import Amazonka.SSM.Types.OpsItemNotification
@@ -56,6 +56,8 @@ data OpsItem = OpsItem'
     -- (Amazon SNS) topic where notifications are sent when this OpsItem is
     -- edited or changed.
     notifications :: Prelude.Maybe [OpsItemNotification],
+    -- | The OpsItem Amazon Resource Name (ARN).
+    opsItemArn :: Prelude.Maybe Prelude.Text,
     -- | The severity of the OpsItem. Severity options range from 1 to 4.
     severity :: Prelude.Maybe Prelude.Text,
     -- | The date and time the OpsItem was created.
@@ -86,8 +88,23 @@ data OpsItem = OpsItem'
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | The type of OpsItem. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    -- | The type of OpsItem. Systems Manager supports the following types of
+    -- OpsItems:
+    --
+    -- -   @\/aws\/issue@
+    --
+    --     This type of OpsItem is used for default OpsItems created by
+    --     OpsCenter.
+    --
+    -- -   @\/aws\/changerequest@
+    --
+    --     This type of OpsItem is used by Change Manager for reviewing and
+    --     approving or rejecting change requests.
+    --
+    -- -   @\/aws\/insights@
+    --
+    --     This type of OpsItem is used by OpsCenter for aggregating and
+    --     reporting on duplicate OpsItems.
     opsItemType :: Prelude.Maybe Prelude.Text,
     -- | An OpsItem category. Category options include: Availability, Cost,
     -- Performance, Recovery, Security.
@@ -150,6 +167,8 @@ data OpsItem = OpsItem'
 -- (Amazon SNS) topic where notifications are sent when this OpsItem is
 -- edited or changed.
 --
+-- 'opsItemArn', 'opsItem_opsItemArn' - The OpsItem Amazon Resource Name (ARN).
+--
 -- 'severity', 'opsItem_severity' - The severity of the OpsItem. Severity options range from 1 to 4.
 --
 -- 'createdTime', 'opsItem_createdTime' - The date and time the OpsItem was created.
@@ -180,8 +199,23 @@ data OpsItem = OpsItem'
 -- 'priority', 'opsItem_priority' - The importance of this OpsItem in relation to other OpsItems in the
 -- system.
 --
--- 'opsItemType', 'opsItem_opsItemType' - The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- 'opsItemType', 'opsItem_opsItemType' - The type of OpsItem. Systems Manager supports the following types of
+-- OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 --
 -- 'category', 'opsItem_category' - An OpsItem category. Category options include: Availability, Cost,
 -- Performance, Recovery, Security.
@@ -233,6 +267,7 @@ newOpsItem ::
 newOpsItem =
   OpsItem'
     { notifications = Prelude.Nothing,
+      opsItemArn = Prelude.Nothing,
       severity = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       plannedStartTime = Prelude.Nothing,
@@ -260,6 +295,10 @@ newOpsItem =
 -- edited or changed.
 opsItem_notifications :: Lens.Lens' OpsItem (Prelude.Maybe [OpsItemNotification])
 opsItem_notifications = Lens.lens (\OpsItem' {notifications} -> notifications) (\s@OpsItem' {} a -> s {notifications = a} :: OpsItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | The OpsItem Amazon Resource Name (ARN).
+opsItem_opsItemArn :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_opsItemArn = Lens.lens (\OpsItem' {opsItemArn} -> opsItemArn) (\s@OpsItem' {} a -> s {opsItemArn = a} :: OpsItem)
 
 -- | The severity of the OpsItem. Severity options range from 1 to 4.
 opsItem_severity :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
@@ -313,8 +352,23 @@ opsItem_source = Lens.lens (\OpsItem' {source} -> source) (\s@OpsItem' {} a -> s
 opsItem_priority :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Natural)
 opsItem_priority = Lens.lens (\OpsItem' {priority} -> priority) (\s@OpsItem' {} a -> s {priority = a} :: OpsItem)
 
--- | The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- | The type of OpsItem. Systems Manager supports the following types of
+-- OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 opsItem_opsItemType :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
 opsItem_opsItemType = Lens.lens (\OpsItem' {opsItemType} -> opsItemType) (\s@OpsItem' {} a -> s {opsItemType = a} :: OpsItem)
 
@@ -387,6 +441,7 @@ instance Core.FromJSON OpsItem where
       ( \x ->
           OpsItem'
             Prelude.<$> (x Core..:? "Notifications" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "OpsItemArn")
             Prelude.<*> (x Core..:? "Severity")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "PlannedStartTime")
@@ -416,6 +471,7 @@ instance Core.FromJSON OpsItem where
 instance Prelude.Hashable OpsItem where
   hashWithSalt _salt OpsItem' {..} =
     _salt `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` opsItemArn
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` plannedStartTime
@@ -440,6 +496,7 @@ instance Prelude.Hashable OpsItem where
 instance Prelude.NFData OpsItem where
   rnf OpsItem' {..} =
     Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf opsItemArn
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf plannedStartTime
@@ -459,4 +516,5 @@ instance Prelude.NFData OpsItem where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf actualEndTime
-      `Prelude.seq` Prelude.rnf relatedOpsItems
+      `Prelude.seq` Prelude.rnf
+        relatedOpsItems

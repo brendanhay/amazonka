@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.SSM.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.GetCommandInvocation
 import Amazonka.SSM.Lens
@@ -26,10 +27,10 @@ import Amazonka.SSM.Types
 newCommandExecuted :: Core.Wait GetCommandInvocation
 newCommandExecuted =
   Core.Wait
-    { Core._waitName = "CommandExecuted",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "CommandExecuted",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "Pending"
             Core.AcceptRetry

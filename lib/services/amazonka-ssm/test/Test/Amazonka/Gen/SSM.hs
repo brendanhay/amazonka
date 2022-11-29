@@ -96,6 +96,9 @@ import Test.Tasty
 --         , requestDeleteResourceDataSync $
 --             newDeleteResourceDataSync
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
 --         , requestDeregisterManagedInstance $
 --             newDeregisterManagedInstance
 --
@@ -276,6 +279,9 @@ import Test.Tasty
 --         , requestGetPatchBaselineForPatchGroup $
 --             newGetPatchBaselineForPatchGroup
 --
+--         , requestGetResourcePolicies $
+--             newGetResourcePolicies
+--
 --         , requestGetServiceSetting $
 --             newGetServiceSetting
 --
@@ -341,6 +347,9 @@ import Test.Tasty
 --
 --         , requestPutParameter $
 --             newPutParameter
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
 --
 --         , requestRegisterDefaultPatchBaseline $
 --             newRegisterDefaultPatchBaseline
@@ -503,6 +512,9 @@ import Test.Tasty
 --
 --         , responseDeleteResourceDataSync $
 --             newDeleteResourceDataSyncResponse
+--
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
 --
 --         , responseDeregisterManagedInstance $
 --             newDeregisterManagedInstanceResponse
@@ -684,6 +696,9 @@ import Test.Tasty
 --         , responseGetPatchBaselineForPatchGroup $
 --             newGetPatchBaselineForPatchGroupResponse
 --
+--         , responseGetResourcePolicies $
+--             newGetResourcePoliciesResponse
+--
 --         , responseGetServiceSetting $
 --             newGetServiceSettingResponse
 --
@@ -749,6 +764,9 @@ import Test.Tasty
 --
 --         , responsePutParameter $
 --             newPutParameterResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseRegisterDefaultPatchBaseline $
 --             newRegisterDefaultPatchBaselineResponse
@@ -982,6 +1000,12 @@ requestDeleteResourceDataSync =
   req
     "DeleteResourceDataSync"
     "fixture/DeleteResourceDataSync.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
 
 requestDeregisterManagedInstance :: DeregisterManagedInstance -> TestTree
 requestDeregisterManagedInstance =
@@ -1343,6 +1367,12 @@ requestGetPatchBaselineForPatchGroup =
     "GetPatchBaselineForPatchGroup"
     "fixture/GetPatchBaselineForPatchGroup.yaml"
 
+requestGetResourcePolicies :: GetResourcePolicies -> TestTree
+requestGetResourcePolicies =
+  req
+    "GetResourcePolicies"
+    "fixture/GetResourcePolicies.yaml"
+
 requestGetServiceSetting :: GetServiceSetting -> TestTree
 requestGetServiceSetting =
   req
@@ -1474,6 +1504,12 @@ requestPutParameter =
   req
     "PutParameter"
     "fixture/PutParameter.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
 requestRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaseline -> TestTree
 requestRegisterDefaultPatchBaseline =
@@ -1840,6 +1876,14 @@ responseDeleteResourceDataSync =
     "fixture/DeleteResourceDataSyncResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourceDataSync)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseDeregisterManagedInstance :: DeregisterManagedInstanceResponse -> TestTree
 responseDeregisterManagedInstance =
@@ -2321,6 +2365,14 @@ responseGetPatchBaselineForPatchGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetPatchBaselineForPatchGroup)
 
+responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
+responseGetResourcePolicies =
+  res
+    "GetResourcePoliciesResponse"
+    "fixture/GetResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
+
 responseGetServiceSetting :: GetServiceSettingResponse -> TestTree
 responseGetServiceSetting =
   res
@@ -2496,6 +2548,14 @@ responsePutParameter =
     "fixture/PutParameterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutParameter)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaselineResponse -> TestTree
 responseRegisterDefaultPatchBaseline =

@@ -20,6 +20,7 @@
 module Amazonka.SSM.Types.OpsItemFilterKey
   ( OpsItemFilterKey
       ( ..,
+        OpsItemFilterKey_AccountId,
         OpsItemFilterKey_ActualEndTime,
         OpsItemFilterKey_ActualStartTime,
         OpsItemFilterKey_AutomationId,
@@ -81,6 +82,9 @@ newtype OpsItemFilterKey = OpsItemFilterKey'
       Core.FromXML,
       Core.ToXML
     )
+
+pattern OpsItemFilterKey_AccountId :: OpsItemFilterKey
+pattern OpsItemFilterKey_AccountId = OpsItemFilterKey' "AccountId"
 
 pattern OpsItemFilterKey_ActualEndTime :: OpsItemFilterKey
 pattern OpsItemFilterKey_ActualEndTime = OpsItemFilterKey' "ActualEndTime"
@@ -164,6 +168,7 @@ pattern OpsItemFilterKey_Title :: OpsItemFilterKey
 pattern OpsItemFilterKey_Title = OpsItemFilterKey' "Title"
 
 {-# COMPLETE
+  OpsItemFilterKey_AccountId,
   OpsItemFilterKey_ActualEndTime,
   OpsItemFilterKey_ActualStartTime,
   OpsItemFilterKey_AutomationId,

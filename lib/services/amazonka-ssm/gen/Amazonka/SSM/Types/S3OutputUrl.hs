@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.S3OutputUrl where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A URL for the Amazon Web Services Systems Manager (Systems Manager)

@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata that you assign to your Amazon Web Services resources. Tags

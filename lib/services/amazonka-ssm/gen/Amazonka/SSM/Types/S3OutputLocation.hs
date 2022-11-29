@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.S3OutputLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An S3 bucket where you want to store the results of this request.

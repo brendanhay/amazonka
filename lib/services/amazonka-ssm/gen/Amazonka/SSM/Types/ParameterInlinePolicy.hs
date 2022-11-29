@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.ParameterInlinePolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more policies assigned to a parameter.

@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.DocumentRequires where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An SSM document required by the current document.

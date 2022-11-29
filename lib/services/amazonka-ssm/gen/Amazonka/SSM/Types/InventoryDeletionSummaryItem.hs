@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.InventoryDeletionSummaryItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Either a count, remaining count, or a version number in a delete

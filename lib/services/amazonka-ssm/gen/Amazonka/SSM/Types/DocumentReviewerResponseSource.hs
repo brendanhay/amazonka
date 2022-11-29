@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.DocumentReviewerResponseSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentReviewCommentSource
 import Amazonka.SSM.Types.ReviewStatus

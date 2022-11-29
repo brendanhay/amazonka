@@ -20,15 +20,17 @@
 module Amazonka.SSM.Types.TargetLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmConfiguration
 
 -- | The combination of Amazon Web Services Regions and Amazon Web Services
 -- accounts targeted by the current Automation execution.
 --
 -- /See:/ 'newTargetLocation' smart constructor.
 data TargetLocation = TargetLocation'
-  { -- | The Amazon Web Services Regions targeted by the current Automation
+  { targetLocationAlarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | The Amazon Web Services Regions targeted by the current Automation
     -- execution.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of Amazon Web Services Regions and Amazon Web
@@ -55,6 +57,8 @@ data TargetLocation = TargetLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetLocationAlarmConfiguration', 'targetLocation_targetLocationAlarmConfiguration' - Undocumented member.
+--
 -- 'regions', 'targetLocation_regions' - The Amazon Web Services Regions targeted by the current Automation
 -- execution.
 --
@@ -74,12 +78,18 @@ newTargetLocation ::
   TargetLocation
 newTargetLocation =
   TargetLocation'
-    { regions = Prelude.Nothing,
+    { targetLocationAlarmConfiguration =
+        Prelude.Nothing,
+      regions = Prelude.Nothing,
       targetLocationMaxConcurrency = Prelude.Nothing,
       accounts = Prelude.Nothing,
       executionRoleName = Prelude.Nothing,
       targetLocationMaxErrors = Prelude.Nothing
     }
+
+-- | Undocumented member.
+targetLocation_targetLocationAlarmConfiguration :: Lens.Lens' TargetLocation (Prelude.Maybe AlarmConfiguration)
+targetLocation_targetLocationAlarmConfiguration = Lens.lens (\TargetLocation' {targetLocationAlarmConfiguration} -> targetLocationAlarmConfiguration) (\s@TargetLocation' {} a -> s {targetLocationAlarmConfiguration = a} :: TargetLocation)
 
 -- | The Amazon Web Services Regions targeted by the current Automation
 -- execution.
@@ -113,7 +123,8 @@ instance Core.FromJSON TargetLocation where
       "TargetLocation"
       ( \x ->
           TargetLocation'
-            Prelude.<$> (x Core..:? "Regions")
+            Prelude.<$> (x Core..:? "TargetLocationAlarmConfiguration")
+            Prelude.<*> (x Core..:? "Regions")
             Prelude.<*> (x Core..:? "TargetLocationMaxConcurrency")
             Prelude.<*> (x Core..:? "Accounts")
             Prelude.<*> (x Core..:? "ExecutionRoleName")
@@ -122,7 +133,9 @@ instance Core.FromJSON TargetLocation where
 
 instance Prelude.Hashable TargetLocation where
   hashWithSalt _salt TargetLocation' {..} =
-    _salt `Prelude.hashWithSalt` regions
+    _salt
+      `Prelude.hashWithSalt` targetLocationAlarmConfiguration
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` targetLocationMaxConcurrency
       `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` executionRoleName
@@ -130,7 +143,8 @@ instance Prelude.Hashable TargetLocation where
 
 instance Prelude.NFData TargetLocation where
   rnf TargetLocation' {..} =
-    Prelude.rnf regions
+    Prelude.rnf targetLocationAlarmConfiguration
+      `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf targetLocationMaxConcurrency
       `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf executionRoleName
@@ -140,7 +154,9 @@ instance Core.ToJSON TargetLocation where
   toJSON TargetLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Regions" Core..=) Prelude.<$> regions,
+          [ ("TargetLocationAlarmConfiguration" Core..=)
+              Prelude.<$> targetLocationAlarmConfiguration,
+            ("Regions" Core..=) Prelude.<$> regions,
             ("TargetLocationMaxConcurrency" Core..=)
               Prelude.<$> targetLocationMaxConcurrency,
             ("Accounts" Core..=) Prelude.<$> accounts,

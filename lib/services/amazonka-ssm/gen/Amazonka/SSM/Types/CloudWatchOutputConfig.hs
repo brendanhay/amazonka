@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.CloudWatchOutputConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options for sending command output to Amazon CloudWatch

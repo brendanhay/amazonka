@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.AssociationVersionInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AssociationComplianceSeverity
 import Amazonka.SSM.Types.AssociationSyncCompliance

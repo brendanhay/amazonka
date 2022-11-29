@@ -67,6 +67,7 @@ library
     Amazonka.SSM.DeleteParameters
     Amazonka.SSM.DeletePatchBaseline
     Amazonka.SSM.DeleteResourceDataSync
+    Amazonka.SSM.DeleteResourcePolicy
     Amazonka.SSM.DeregisterManagedInstance
     Amazonka.SSM.DeregisterPatchBaselineForPatchGroup
     Amazonka.SSM.DeregisterTargetFromMaintenanceWindow
@@ -127,6 +128,7 @@ library
     Amazonka.SSM.GetParametersByPath
     Amazonka.SSM.GetPatchBaseline
     Amazonka.SSM.GetPatchBaselineForPatchGroup
+    Amazonka.SSM.GetResourcePolicies
     Amazonka.SSM.GetServiceSetting
     Amazonka.SSM.LabelParameterVersion
     Amazonka.SSM.Lens
@@ -150,6 +152,7 @@ library
     Amazonka.SSM.PutComplianceItems
     Amazonka.SSM.PutInventory
     Amazonka.SSM.PutParameter
+    Amazonka.SSM.PutResourcePolicy
     Amazonka.SSM.RegisterDefaultPatchBaseline
     Amazonka.SSM.RegisterPatchBaselineForPatchGroup
     Amazonka.SSM.RegisterTargetWithMaintenanceWindow
@@ -253,6 +256,7 @@ library
     Amazonka.SSM.Types.FailedCreateAssociation
     Amazonka.SSM.Types.FailureDetails
     Amazonka.SSM.Types.Fault
+    Amazonka.SSM.Types.GetResourcePoliciesResponseEntry
     Amazonka.SSM.Types.InstanceAggregatedAssociationOverview
     Amazonka.SSM.Types.InstanceAssociation
     Amazonka.SSM.Types.InstanceAssociationOutputLocation

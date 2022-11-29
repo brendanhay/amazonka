@@ -20,12 +20,12 @@
 module Amazonka.Glacier.Types.GlacierJobDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types.ActionCode
 import Amazonka.Glacier.Types.InventoryRetrievalJobDescription
 import Amazonka.Glacier.Types.OutputLocation
 import Amazonka.Glacier.Types.SelectParameters
 import Amazonka.Glacier.Types.StatusCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the description of an Amazon S3 Glacier job.

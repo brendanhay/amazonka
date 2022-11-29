@@ -20,10 +20,10 @@
 module Amazonka.Glacier.Types.JobParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types.InventoryRetrievalJobInput
 import Amazonka.Glacier.Types.OutputLocation
 import Amazonka.Glacier.Types.SelectParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides options for defining a job.

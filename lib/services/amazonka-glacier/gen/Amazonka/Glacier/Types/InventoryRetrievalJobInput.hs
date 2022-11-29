@@ -20,7 +20,7 @@
 module Amazonka.Glacier.Types.InventoryRetrievalJobInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides options for specifying a range inventory retrieval job.

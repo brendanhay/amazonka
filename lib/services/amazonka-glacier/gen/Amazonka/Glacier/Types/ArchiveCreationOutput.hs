@@ -20,7 +20,7 @@
 module Amazonka.Glacier.Types.ArchiveCreationOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon S3 Glacier response to your request.

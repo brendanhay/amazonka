@@ -84,8 +84,8 @@ module Amazonka.Glacier.DescribeJob
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,10 +157,9 @@ describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' 
 
 instance Core.AWSRequest DescribeJob where
   type AWSResponse DescribeJob = GlacierJobDescription
-  service _ = defaultService
-  request srv =
-    Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get srv
+  request overrides =
+    Request.glacierVersionHeader (Core.version defaultService)
+      Prelude.. Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

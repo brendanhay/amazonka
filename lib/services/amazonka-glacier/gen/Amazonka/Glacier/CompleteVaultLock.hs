@@ -54,8 +54,8 @@ module Amazonka.Glacier.CompleteVaultLock
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,10 +135,9 @@ instance Core.AWSRequest CompleteVaultLock where
   type
     AWSResponse CompleteVaultLock =
       CompleteVaultLockResponse
-  service _ = defaultService
-  request srv =
-    Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON srv
+  request overrides =
+    Request.glacierVersionHeader (Core.version defaultService)
+      Prelude.. Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CompleteVaultLockResponse'
 

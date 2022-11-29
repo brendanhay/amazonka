@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.OrderedPhoneNumber where
 
 import Amazonka.Chime.Types.OrderedPhoneNumberStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A phone number for which an order has been placed.

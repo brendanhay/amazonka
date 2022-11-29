@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.UpdatePhoneNumberRequestItem where
 
 import Amazonka.Chime.Types.PhoneNumberProductType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number ID, product type, or calling name fields to update,

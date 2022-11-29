@@ -22,7 +22,7 @@ module Amazonka.Chime.Types.Invite where
 import Amazonka.Chime.Types.EmailStatus
 import Amazonka.Chime.Types.InviteStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Invitation object returned after emailing users to invite them to join

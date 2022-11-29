@@ -20,7 +20,7 @@
 module Amazonka.Chime.Types.AppInstance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an @AppInstance@, an instance of an Amazon Chime SDK

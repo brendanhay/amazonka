@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.Member where
 
 import Amazonka.Chime.Types.MemberType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The member details, such as email address, name, member ID, and member

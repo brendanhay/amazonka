@@ -20,7 +20,7 @@
 module Amazonka.Chime.Types.Termination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Termination settings enable your SIP hosts to make outbound calls using

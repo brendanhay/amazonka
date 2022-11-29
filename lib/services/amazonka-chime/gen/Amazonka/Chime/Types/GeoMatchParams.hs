@@ -20,7 +20,7 @@
 module Amazonka.Chime.Types.GeoMatchParams where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The country and area code for a proxy phone number in a proxy phone

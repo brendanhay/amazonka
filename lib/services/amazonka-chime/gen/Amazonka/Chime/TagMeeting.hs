@@ -38,7 +38,7 @@ where
 
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,8 +85,8 @@ tagMeeting_tags = Lens.lens (\TagMeeting' {tags} -> tags) (\s@TagMeeting' {} a -
 
 instance Core.AWSRequest TagMeeting where
   type AWSResponse TagMeeting = TagMeetingResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull TagMeetingResponse'
 
 instance Prelude.Hashable TagMeeting where

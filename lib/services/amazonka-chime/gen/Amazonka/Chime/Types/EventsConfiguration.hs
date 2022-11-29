@@ -20,7 +20,7 @@
 module Amazonka.Chime.Types.EventsConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that allows a bot to receive outgoing events. Can be

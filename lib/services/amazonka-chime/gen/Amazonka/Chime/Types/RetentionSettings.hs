@@ -22,7 +22,7 @@ module Amazonka.Chime.Types.RetentionSettings where
 import Amazonka.Chime.Types.ConversationRetentionSettings
 import Amazonka.Chime.Types.RoomRetentionSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retention settings for an Amazon Chime Enterprise account that

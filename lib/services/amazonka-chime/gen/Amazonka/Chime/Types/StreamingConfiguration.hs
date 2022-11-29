@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.StreamingConfiguration where
 
 import Amazonka.Chime.Types.StreamingNotificationTarget
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming configuration associated with an Amazon Chime Voice

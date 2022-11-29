@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.UserSettings where
 
 import Amazonka.Chime.Types.TelephonySettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings associated with an Amazon Chime user, including inbound and

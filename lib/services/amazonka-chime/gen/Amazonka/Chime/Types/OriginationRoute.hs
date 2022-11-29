@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.OriginationRoute where
 
 import Amazonka.Chime.Types.OriginationRouteProtocol
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Origination routes define call distribution properties for your SIP

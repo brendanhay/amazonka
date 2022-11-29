@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.Origination where
 
 import Amazonka.Chime.Types.OriginationRoute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Origination settings enable your SIP hosts to receive inbound calls

@@ -24,7 +24,7 @@ import Amazonka.Chime.Types.AccountType
 import Amazonka.Chime.Types.License
 import Amazonka.Chime.Types.SigninDelegateGroup
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime account details. An AWS account can have multiple

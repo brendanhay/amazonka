@@ -23,7 +23,7 @@ import Amazonka.Chime.Types.AlexaForBusinessMetadata
 import Amazonka.Chime.Types.License
 import Amazonka.Chime.Types.UserType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user ID and user fields to update, used with the BatchUpdateUser

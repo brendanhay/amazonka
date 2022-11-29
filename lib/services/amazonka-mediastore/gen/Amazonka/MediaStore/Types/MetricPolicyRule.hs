@@ -20,7 +20,7 @@
 module Amazonka.MediaStore.Types.MetricPolicyRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A setting that enables metrics at the object level. Each rule contains

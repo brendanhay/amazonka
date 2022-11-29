@@ -20,7 +20,7 @@
 module Amazonka.LookoutVision.Types.TargetPlatform where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutVision.Types.TargetPlatformAccelerator
 import Amazonka.LookoutVision.Types.TargetPlatformArch
 import Amazonka.LookoutVision.Types.TargetPlatformOs

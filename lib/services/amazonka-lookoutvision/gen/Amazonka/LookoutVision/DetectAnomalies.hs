@@ -61,7 +61,7 @@ module Amazonka.LookoutVision.DetectAnomalies
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,8 +143,8 @@ instance Core.AWSRequest DetectAnomalies where
   type
     AWSResponse DetectAnomalies =
       DetectAnomaliesResponse
-  service _ = defaultService
-  request srv = Request.postBody srv
+  request overrides =
+    Request.postBody (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

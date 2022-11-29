@@ -20,7 +20,7 @@
 module Amazonka.LookoutVision.Types.ModelPackagingDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutVision.Types.ModelPackagingConfiguration
 import Amazonka.LookoutVision.Types.ModelPackagingJobStatus
 import Amazonka.LookoutVision.Types.ModelPackagingOutputDetails

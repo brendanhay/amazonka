@@ -26,14 +26,17 @@ module Amazonka.Route53.Types.VPCRegion
         VPCRegion_Ap_northeast_2,
         VPCRegion_Ap_northeast_3,
         VPCRegion_Ap_south_1,
+        VPCRegion_Ap_south_2,
         VPCRegion_Ap_southeast_1,
         VPCRegion_Ap_southeast_2,
         VPCRegion_Ap_southeast_3,
         VPCRegion_Ca_central_1,
         VPCRegion_Cn_north_1,
         VPCRegion_Eu_central_1,
+        VPCRegion_Eu_central_2,
         VPCRegion_Eu_north_1,
         VPCRegion_Eu_south_1,
+        VPCRegion_Eu_south_2,
         VPCRegion_Eu_west_1,
         VPCRegion_Eu_west_2,
         VPCRegion_Eu_west_3,
@@ -103,6 +106,9 @@ pattern VPCRegion_Ap_northeast_3 = VPCRegion' "ap-northeast-3"
 pattern VPCRegion_Ap_south_1 :: VPCRegion
 pattern VPCRegion_Ap_south_1 = VPCRegion' "ap-south-1"
 
+pattern VPCRegion_Ap_south_2 :: VPCRegion
+pattern VPCRegion_Ap_south_2 = VPCRegion' "ap-south-2"
+
 pattern VPCRegion_Ap_southeast_1 :: VPCRegion
 pattern VPCRegion_Ap_southeast_1 = VPCRegion' "ap-southeast-1"
 
@@ -121,11 +127,17 @@ pattern VPCRegion_Cn_north_1 = VPCRegion' "cn-north-1"
 pattern VPCRegion_Eu_central_1 :: VPCRegion
 pattern VPCRegion_Eu_central_1 = VPCRegion' "eu-central-1"
 
+pattern VPCRegion_Eu_central_2 :: VPCRegion
+pattern VPCRegion_Eu_central_2 = VPCRegion' "eu-central-2"
+
 pattern VPCRegion_Eu_north_1 :: VPCRegion
 pattern VPCRegion_Eu_north_1 = VPCRegion' "eu-north-1"
 
 pattern VPCRegion_Eu_south_1 :: VPCRegion
 pattern VPCRegion_Eu_south_1 = VPCRegion' "eu-south-1"
+
+pattern VPCRegion_Eu_south_2 :: VPCRegion
+pattern VPCRegion_Eu_south_2 = VPCRegion' "eu-south-2"
 
 pattern VPCRegion_Eu_west_1 :: VPCRegion
 pattern VPCRegion_Eu_west_1 = VPCRegion' "eu-west-1"
@@ -179,14 +191,17 @@ pattern VPCRegion_Us_west_2 = VPCRegion' "us-west-2"
   VPCRegion_Ap_northeast_2,
   VPCRegion_Ap_northeast_3,
   VPCRegion_Ap_south_1,
+  VPCRegion_Ap_south_2,
   VPCRegion_Ap_southeast_1,
   VPCRegion_Ap_southeast_2,
   VPCRegion_Ap_southeast_3,
   VPCRegion_Ca_central_1,
   VPCRegion_Cn_north_1,
   VPCRegion_Eu_central_1,
+  VPCRegion_Eu_central_2,
   VPCRegion_Eu_north_1,
   VPCRegion_Eu_south_1,
+  VPCRegion_Eu_south_2,
   VPCRegion_Eu_west_1,
   VPCRegion_Eu_west_2,
   VPCRegion_Eu_west_3,

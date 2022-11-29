@@ -20,7 +20,7 @@
 module Amazonka.Route53.Types.ResourceRecordSet where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.AliasTarget
@@ -103,9 +103,6 @@ data ResourceRecordSet = ResourceRecordSet'
     -- resource typically is an Amazon Web Services resource, such as an EC2
     -- instance or an ELB load balancer, and is referred to by an IP address or
     -- a DNS domain name, depending on the record type.
-    --
-    -- Although creating latency and latency alias resource record sets in a
-    -- private hosted zone is allowed, it\'s not supported.
     --
     -- When Amazon Route 53 receives a DNS query for a domain name and type for
     -- which you have created latency resource record sets, Route 53 selects
@@ -577,9 +574,6 @@ data ResourceRecordSet = ResourceRecordSet'
 -- resource typically is an Amazon Web Services resource, such as an EC2
 -- instance or an ELB load balancer, and is referred to by an IP address or
 -- a DNS domain name, depending on the record type.
---
--- Although creating latency and latency alias resource record sets in a
--- private hosted zone is allowed, it\'s not supported.
 --
 -- When Amazon Route 53 receives a DNS query for a domain name and type for
 -- which you have created latency resource record sets, Route 53 selects
@@ -1072,9 +1066,6 @@ resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {traf
 -- resource typically is an Amazon Web Services resource, such as an EC2
 -- instance or an ELB load balancer, and is referred to by an IP address or
 -- a DNS domain name, depending on the record type.
---
--- Although creating latency and latency alias resource record sets in a
--- private hosted zone is allowed, it\'s not supported.
 --
 -- When Amazon Route 53 receives a DNS query for a domain name and type for
 -- which you have created latency resource record sets, Route 53 selects

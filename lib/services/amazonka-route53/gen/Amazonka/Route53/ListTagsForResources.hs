@@ -45,7 +45,7 @@ module Amazonka.Route53.ListTagsForResources
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +114,8 @@ instance Core.AWSRequest ListTagsForResources where
   type
     AWSResponse ListTagsForResources =
       ListTagsForResourcesResponse
-  service _ = defaultService
-  request srv = Request.postXML srv
+  request overrides =
+    Request.postXML (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

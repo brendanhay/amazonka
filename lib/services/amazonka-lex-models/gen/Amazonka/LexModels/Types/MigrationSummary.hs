@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.MigrationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types.Locale
 import Amazonka.LexModels.Types.MigrationStatus
 import Amazonka.LexModels.Types.MigrationStrategy

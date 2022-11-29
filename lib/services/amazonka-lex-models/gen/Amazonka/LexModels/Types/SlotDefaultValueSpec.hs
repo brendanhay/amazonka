@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.SlotDefaultValueSpec where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types.SlotDefaultValue
 import qualified Amazonka.Prelude as Prelude
 

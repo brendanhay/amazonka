@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.CodeHook where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills

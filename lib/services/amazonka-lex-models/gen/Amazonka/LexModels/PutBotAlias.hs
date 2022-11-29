@@ -59,7 +59,7 @@ module Amazonka.LexModels.PutBotAlias
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,8 +190,8 @@ putBotAlias_botName = Lens.lens (\PutBotAlias' {botName} -> botName) (\s@PutBotA
 
 instance Core.AWSRequest PutBotAlias where
   type AWSResponse PutBotAlias = PutBotAliasResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

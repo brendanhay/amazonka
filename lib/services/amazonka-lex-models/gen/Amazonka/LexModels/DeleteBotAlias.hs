@@ -45,7 +45,7 @@ module Amazonka.LexModels.DeleteBotAlias
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,8 +92,8 @@ instance Core.AWSRequest DeleteBotAlias where
   type
     AWSResponse DeleteBotAlias =
       DeleteBotAliasResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBotAliasResponse'
 

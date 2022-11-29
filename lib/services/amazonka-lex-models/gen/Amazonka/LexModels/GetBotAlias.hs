@@ -51,7 +51,7 @@ module Amazonka.LexModels.GetBotAlias
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +96,8 @@ getBotAlias_botName = Lens.lens (\GetBotAlias' {botName} -> botName) (\s@GetBotA
 
 instance Core.AWSRequest GetBotAlias where
   type AWSResponse GetBotAlias = GetBotAliasResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

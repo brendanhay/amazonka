@@ -20,7 +20,7 @@
 module Amazonka.Lambda.Types.AllowedPublishers where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of signing profiles that can sign a code package.

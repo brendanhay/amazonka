@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a code signing configuration. A
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html code signing configuration>
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html code signing configuration>
 -- defines a list of allowed signing profiles and defines the code-signing
 -- validation policy (action to be taken if deployment validation checks
 -- fail).
@@ -46,8 +46,8 @@ module Amazonka.Lambda.CreateCodeSigningConfig
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +107,8 @@ instance Core.AWSRequest CreateCodeSigningConfig where
   type
     AWSResponse CreateCodeSigningConfig =
       CreateCodeSigningConfigResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

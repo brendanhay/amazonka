@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.SourceAccessConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.SourceAccessType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | To secure and define access to your event source, you can specify the
@@ -39,22 +39,23 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
     --     of your secret key used for SASL\/PLAIN authentication of your
     --     Apache Kafka brokers.
     --
-    -- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
-    --     to these subnets to fetch data from your self-managed Apache Kafka
-    --     cluster.
+    -- -   @VPC_SUBNET@ - (Self-managed Apache Kafka) The subnets associated
+    --     with your VPC. Lambda connects to these subnets to fetch data from
+    --     your self-managed Apache Kafka cluster.
     --
-    -- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
-    --     to your self-managed Apache Kafka brokers.
+    -- -   @VPC_SECURITY_GROUP@ - (Self-managed Apache Kafka) The VPC security
+    --     group used to manage access to your self-managed Apache Kafka
+    --     brokers.
     --
-    -- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
-    --     used for SASL SCRAM-256 authentication of your self-managed Apache
-    --     Kafka brokers.
+    -- -   @SASL_SCRAM_256_AUTH@ - (Self-managed Apache Kafka) The Secrets
+    --     Manager ARN of your secret key used for SASL SCRAM-256
+    --     authentication of your self-managed Apache Kafka brokers.
     --
-    -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
-    --     used for SASL SCRAM-512 authentication of your self-managed Apache
-    --     Kafka brokers.
+    -- -   @SASL_SCRAM_512_AUTH@ - (Amazon MSK, Self-managed Apache Kafka) The
+    --     Secrets Manager ARN of your secret key used for SASL SCRAM-512
+    --     authentication of your self-managed Apache Kafka brokers.
     --
-    -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+    -- -   @VIRTUAL_HOST@ - (RabbitMQ) The name of the virtual host in your
     --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
     --     This property cannot be specified in an UpdateEventSourceMapping API
     --     call.
@@ -94,22 +95,23 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
 --     of your secret key used for SASL\/PLAIN authentication of your
 --     Apache Kafka brokers.
 --
--- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
---     to these subnets to fetch data from your self-managed Apache Kafka
---     cluster.
+-- -   @VPC_SUBNET@ - (Self-managed Apache Kafka) The subnets associated
+--     with your VPC. Lambda connects to these subnets to fetch data from
+--     your self-managed Apache Kafka cluster.
 --
--- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
---     to your self-managed Apache Kafka brokers.
+-- -   @VPC_SECURITY_GROUP@ - (Self-managed Apache Kafka) The VPC security
+--     group used to manage access to your self-managed Apache Kafka
+--     brokers.
 --
--- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-256 authentication of your self-managed Apache
---     Kafka brokers.
+-- -   @SASL_SCRAM_256_AUTH@ - (Self-managed Apache Kafka) The Secrets
+--     Manager ARN of your secret key used for SASL SCRAM-256
+--     authentication of your self-managed Apache Kafka brokers.
 --
--- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-512 authentication of your self-managed Apache
---     Kafka brokers.
+-- -   @SASL_SCRAM_512_AUTH@ - (Amazon MSK, Self-managed Apache Kafka) The
+--     Secrets Manager ARN of your secret key used for SASL SCRAM-512
+--     authentication of your self-managed Apache Kafka brokers.
 --
--- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+-- -   @VIRTUAL_HOST@ - (RabbitMQ) The name of the virtual host in your
 --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
 --     This property cannot be specified in an UpdateEventSourceMapping API
 --     call.
@@ -145,22 +147,23 @@ newSourceAccessConfiguration =
 --     of your secret key used for SASL\/PLAIN authentication of your
 --     Apache Kafka brokers.
 --
--- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
---     to these subnets to fetch data from your self-managed Apache Kafka
---     cluster.
+-- -   @VPC_SUBNET@ - (Self-managed Apache Kafka) The subnets associated
+--     with your VPC. Lambda connects to these subnets to fetch data from
+--     your self-managed Apache Kafka cluster.
 --
--- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
---     to your self-managed Apache Kafka brokers.
+-- -   @VPC_SECURITY_GROUP@ - (Self-managed Apache Kafka) The VPC security
+--     group used to manage access to your self-managed Apache Kafka
+--     brokers.
 --
--- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-256 authentication of your self-managed Apache
---     Kafka brokers.
+-- -   @SASL_SCRAM_256_AUTH@ - (Self-managed Apache Kafka) The Secrets
+--     Manager ARN of your secret key used for SASL SCRAM-256
+--     authentication of your self-managed Apache Kafka brokers.
 --
--- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-512 authentication of your self-managed Apache
---     Kafka brokers.
+-- -   @SASL_SCRAM_512_AUTH@ - (Amazon MSK, Self-managed Apache Kafka) The
+--     Secrets Manager ARN of your secret key used for SASL SCRAM-512
+--     authentication of your self-managed Apache Kafka brokers.
 --
--- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+-- -   @VIRTUAL_HOST@ - (RabbitMQ) The name of the virtual host in your
 --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
 --     This property cannot be specified in an UpdateEventSourceMapping API
 --     call.

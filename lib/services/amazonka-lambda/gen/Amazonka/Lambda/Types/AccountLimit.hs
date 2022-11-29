@@ -20,7 +20,7 @@
 module Amazonka.Lambda.Types.AccountLimit where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Limits that are related to concurrency and storage. All file and storage

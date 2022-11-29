@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.SelfManagedEventSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.EndPointType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The self-managed Apache Kafka cluster for your event source.

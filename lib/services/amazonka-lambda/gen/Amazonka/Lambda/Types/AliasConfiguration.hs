@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.AliasConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.AliasRoutingConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration information about a Lambda function

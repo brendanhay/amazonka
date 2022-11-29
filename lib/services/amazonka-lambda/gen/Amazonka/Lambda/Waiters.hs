@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,21 +17,21 @@
 module Amazonka.Lambda.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.GetFunction
 import Amazonka.Lambda.GetFunctionConfiguration
 import Amazonka.Lambda.Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFunctionActive :: Core.Wait GetFunctionConfiguration
 newFunctionActive =
   Core.Wait
-    { Core._waitName = "FunctionActive",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "FunctionActive",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "Active"
             Core.AcceptSuccess
@@ -56,10 +57,10 @@ newFunctionActive =
 newFunctionUpdatedV2 :: Core.Wait GetFunction
 newFunctionUpdatedV2 =
   Core.Wait
-    { Core._waitName = "FunctionUpdatedV2",
-      Core._waitAttempts = 300,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "FunctionUpdatedV2",
+      Core.attempts = 300,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchAll
             "Successful"
             Core.AcceptSuccess
@@ -94,10 +95,10 @@ newFunctionUpdatedV2 =
 newFunctionExists :: Core.Wait GetFunction
 newFunctionExists =
   Core.Wait
-    { Core._waitName = "FunctionExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "FunctionExists",
+      Core.attempts = 20,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "ResourceNotFoundException"
@@ -109,10 +110,10 @@ newFunctionExists =
 newFunctionActiveV2 :: Core.Wait GetFunction
 newFunctionActiveV2 =
   Core.Wait
-    { Core._waitName = "FunctionActiveV2",
-      Core._waitAttempts = 300,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "FunctionActiveV2",
+      Core.attempts = 300,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchAll
             "Active"
             Core.AcceptSuccess
@@ -147,10 +148,10 @@ newFunctionActiveV2 =
 newFunctionUpdated :: Core.Wait GetFunctionConfiguration
 newFunctionUpdated =
   Core.Wait
-    { Core._waitName = "FunctionUpdated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "FunctionUpdated",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "Successful"
             Core.AcceptSuccess

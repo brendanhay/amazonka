@@ -38,8 +38,8 @@ module Amazonka.Lambda.DeleteAlias
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +122,8 @@ deleteAlias_name = Lens.lens (\DeleteAlias' {name} -> name) (\s@DeleteAlias' {} 
 
 instance Core.AWSRequest DeleteAlias where
   type AWSResponse DeleteAlias = DeleteAliasResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteAliasResponse'
 
 instance Prelude.Hashable DeleteAlias where

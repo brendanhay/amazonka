@@ -134,8 +134,8 @@ module Amazonka.Lambda.CreateEventSourceMapping
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,14 +158,22 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     -- | (Streams only) The number of batches to process from each shard
     -- concurrently.
     parallelizationFactor :: Prelude.Maybe Prelude.Natural,
-    -- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
-    -- seconds, that Lambda spends gathering records before invoking the
-    -- function.
+    -- | The maximum amount of time, in seconds, that Lambda spends gathering
+    -- records before invoking the function. You can configure
+    -- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+    -- seconds in increments of seconds.
     --
-    -- Default: 0
+    -- For streams and Amazon SQS event sources, the default batching window is
+    -- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+    -- event sources, the default batching window is 500 ms. Note that because
+    -- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+    -- seconds, you cannot revert back to the 500 ms default batching window
+    -- after you have changed it. To restore the default batching window, you
+    -- must create a new event source mapping.
     --
-    -- Related setting: When you set @BatchSize@ to a value greater than 10,
-    -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+    -- Related setting: For streams and Amazon SQS event sources, when you set
+    -- @BatchSize@ to a value greater than 10, you must set
+    -- @MaximumBatchingWindowInSeconds@ to at least 1.
     maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | When true, the event source mapping is active. When false, Lambda pauses
     -- polling and invocation.
@@ -280,14 +288,22 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 -- 'parallelizationFactor', 'createEventSourceMapping_parallelizationFactor' - (Streams only) The number of batches to process from each shard
 -- concurrently.
 --
--- 'maximumBatchingWindowInSeconds', 'createEventSourceMapping_maximumBatchingWindowInSeconds' - (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
+-- 'maximumBatchingWindowInSeconds', 'createEventSourceMapping_maximumBatchingWindowInSeconds' - The maximum amount of time, in seconds, that Lambda spends gathering
+-- records before invoking the function. You can configure
+-- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+-- seconds in increments of seconds.
 --
--- Default: 0
+-- For streams and Amazon SQS event sources, the default batching window is
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+-- event sources, the default batching window is 500 ms. Note that because
+-- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+-- seconds, you cannot revert back to the 500 ms default batching window
+-- after you have changed it. To restore the default batching window, you
+-- must create a new event source mapping.
 --
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+-- Related setting: For streams and Amazon SQS event sources, when you set
+-- @BatchSize@ to a value greater than 10, you must set
+-- @MaximumBatchingWindowInSeconds@ to at least 1.
 --
 -- 'enabled', 'createEventSourceMapping_enabled' - When true, the event source mapping is active. When false, Lambda pauses
 -- polling and invocation.
@@ -432,14 +448,22 @@ createEventSourceMapping_amazonManagedKafkaEventSourceConfig = Lens.lens (\Creat
 createEventSourceMapping_parallelizationFactor :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_parallelizationFactor = Lens.lens (\CreateEventSourceMapping' {parallelizationFactor} -> parallelizationFactor) (\s@CreateEventSourceMapping' {} a -> s {parallelizationFactor = a} :: CreateEventSourceMapping)
 
--- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
+-- | The maximum amount of time, in seconds, that Lambda spends gathering
+-- records before invoking the function. You can configure
+-- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+-- seconds in increments of seconds.
 --
--- Default: 0
+-- For streams and Amazon SQS event sources, the default batching window is
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+-- event sources, the default batching window is 500 ms. Note that because
+-- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+-- seconds, you cannot revert back to the 500 ms default batching window
+-- after you have changed it. To restore the default batching window, you
+-- must create a new event source mapping.
 --
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+-- Related setting: For streams and Amazon SQS event sources, when you set
+-- @BatchSize@ to a value greater than 10, you must set
+-- @MaximumBatchingWindowInSeconds@ to at least 1.
 createEventSourceMapping_maximumBatchingWindowInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\CreateEventSourceMapping' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@CreateEventSourceMapping' {} a -> s {maximumBatchingWindowInSeconds = a} :: CreateEventSourceMapping)
 
@@ -563,8 +587,8 @@ instance Core.AWSRequest CreateEventSourceMapping where
   type
     AWSResponse CreateEventSourceMapping =
       EventSourceMappingConfiguration
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

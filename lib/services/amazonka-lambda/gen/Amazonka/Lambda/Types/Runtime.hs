@@ -34,6 +34,7 @@ module Amazonka.Lambda.Types.Runtime
         Runtime_Nodejs12_x,
         Runtime_Nodejs14_x,
         Runtime_Nodejs16_x,
+        Runtime_Nodejs18_x,
         Runtime_Nodejs4_3,
         Runtime_Nodejs4_3_edge,
         Runtime_Nodejs6_10,
@@ -121,6 +122,9 @@ pattern Runtime_Nodejs14_x = Runtime' "nodejs14.x"
 pattern Runtime_Nodejs16_x :: Runtime
 pattern Runtime_Nodejs16_x = Runtime' "nodejs16.x"
 
+pattern Runtime_Nodejs18_x :: Runtime
+pattern Runtime_Nodejs18_x = Runtime' "nodejs18.x"
+
 pattern Runtime_Nodejs4_3 :: Runtime
 pattern Runtime_Nodejs4_3 = Runtime' "nodejs4.3"
 
@@ -175,6 +179,7 @@ pattern Runtime_Ruby2_7 = Runtime' "ruby2.7"
   Runtime_Nodejs12_x,
   Runtime_Nodejs14_x,
   Runtime_Nodejs16_x,
+  Runtime_Nodejs18_x,
   Runtime_Nodejs4_3,
   Runtime_Nodejs4_3_edge,
   Runtime_Nodejs6_10,

@@ -20,7 +20,7 @@
 module Amazonka.SWF.Types.WorkflowExecutionTerminatedEventAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.WorkflowExecutionTerminatedCause

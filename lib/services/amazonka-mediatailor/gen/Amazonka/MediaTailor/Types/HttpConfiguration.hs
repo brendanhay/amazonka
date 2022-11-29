@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.HttpConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The HTTP configuration for the source location.

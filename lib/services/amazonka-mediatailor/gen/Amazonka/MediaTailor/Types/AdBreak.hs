@@ -20,10 +20,11 @@
 module Amazonka.MediaTailor.Types.AdBreak where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types.MessageType
 import Amazonka.MediaTailor.Types.SlateSource
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
+import Amazonka.MediaTailor.Types.TimeSignalMessage
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ad break configuration parameters.
@@ -42,7 +43,16 @@ data AdBreak = AdBreak'
     -- specficiaiton, section 9.7.3.1.
     spliceInsertMessage :: Prelude.Maybe SpliceInsertMessage,
     -- | Ad break slate configuration.
-    slate :: Prelude.Maybe SlateSource
+    slate :: Prelude.Maybe SlateSource,
+    -- | Defines the SCTE-35 @time_signal@ message inserted around the ad.
+    --
+    -- Programs on a channel\'s schedule can be configured with one or more ad
+    -- breaks. You can attach a @splice_insert@ SCTE-35 message to the ad
+    -- break. This message provides basic metadata about the ad break.
+    --
+    -- See section 9.7.4 of the 2022 SCTE-35 specification for more
+    -- information.
+    timeSignalMessage :: Prelude.Maybe TimeSignalMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +76,15 @@ data AdBreak = AdBreak'
 -- specficiaiton, section 9.7.3.1.
 --
 -- 'slate', 'adBreak_slate' - Ad break slate configuration.
+--
+-- 'timeSignalMessage', 'adBreak_timeSignalMessage' - Defines the SCTE-35 @time_signal@ message inserted around the ad.
+--
+-- Programs on a channel\'s schedule can be configured with one or more ad
+-- breaks. You can attach a @splice_insert@ SCTE-35 message to the ad
+-- break. This message provides basic metadata about the ad break.
+--
+-- See section 9.7.4 of the 2022 SCTE-35 specification for more
+-- information.
 newAdBreak ::
   AdBreak
 newAdBreak =
@@ -73,7 +92,8 @@ newAdBreak =
     { messageType = Prelude.Nothing,
       offsetMillis = Prelude.Nothing,
       spliceInsertMessage = Prelude.Nothing,
-      slate = Prelude.Nothing
+      slate = Prelude.Nothing,
+      timeSignalMessage = Prelude.Nothing
     }
 
 -- | The SCTE-35 ad insertion type. Accepted value: @SPLICE_INSERT@,
@@ -97,6 +117,17 @@ adBreak_spliceInsertMessage = Lens.lens (\AdBreak' {spliceInsertMessage} -> spli
 adBreak_slate :: Lens.Lens' AdBreak (Prelude.Maybe SlateSource)
 adBreak_slate = Lens.lens (\AdBreak' {slate} -> slate) (\s@AdBreak' {} a -> s {slate = a} :: AdBreak)
 
+-- | Defines the SCTE-35 @time_signal@ message inserted around the ad.
+--
+-- Programs on a channel\'s schedule can be configured with one or more ad
+-- breaks. You can attach a @splice_insert@ SCTE-35 message to the ad
+-- break. This message provides basic metadata about the ad break.
+--
+-- See section 9.7.4 of the 2022 SCTE-35 specification for more
+-- information.
+adBreak_timeSignalMessage :: Lens.Lens' AdBreak (Prelude.Maybe TimeSignalMessage)
+adBreak_timeSignalMessage = Lens.lens (\AdBreak' {timeSignalMessage} -> timeSignalMessage) (\s@AdBreak' {} a -> s {timeSignalMessage = a} :: AdBreak)
+
 instance Core.FromJSON AdBreak where
   parseJSON =
     Core.withObject
@@ -107,6 +138,7 @@ instance Core.FromJSON AdBreak where
             Prelude.<*> (x Core..:? "OffsetMillis")
             Prelude.<*> (x Core..:? "SpliceInsertMessage")
             Prelude.<*> (x Core..:? "Slate")
+            Prelude.<*> (x Core..:? "TimeSignalMessage")
       )
 
 instance Prelude.Hashable AdBreak where
@@ -115,6 +147,7 @@ instance Prelude.Hashable AdBreak where
       `Prelude.hashWithSalt` offsetMillis
       `Prelude.hashWithSalt` spliceInsertMessage
       `Prelude.hashWithSalt` slate
+      `Prelude.hashWithSalt` timeSignalMessage
 
 instance Prelude.NFData AdBreak where
   rnf AdBreak' {..} =
@@ -122,6 +155,7 @@ instance Prelude.NFData AdBreak where
       `Prelude.seq` Prelude.rnf offsetMillis
       `Prelude.seq` Prelude.rnf spliceInsertMessage
       `Prelude.seq` Prelude.rnf slate
+      `Prelude.seq` Prelude.rnf timeSignalMessage
 
 instance Core.ToJSON AdBreak where
   toJSON AdBreak' {..} =
@@ -131,6 +165,8 @@ instance Core.ToJSON AdBreak where
             ("OffsetMillis" Core..=) Prelude.<$> offsetMillis,
             ("SpliceInsertMessage" Core..=)
               Prelude.<$> spliceInsertMessage,
-            ("Slate" Core..=) Prelude.<$> slate
+            ("Slate" Core..=) Prelude.<$> slate,
+            ("TimeSignalMessage" Core..=)
+              Prelude.<$> timeSignalMessage
           ]
       )

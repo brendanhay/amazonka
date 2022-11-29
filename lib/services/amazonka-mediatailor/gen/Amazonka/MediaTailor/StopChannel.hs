@@ -41,7 +41,7 @@ module Amazonka.MediaTailor.StopChannel
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ stopChannel_channelName = Lens.lens (\StopChannel' {channelName} -> channelName)
 
 instance Core.AWSRequest StopChannel where
   type AWSResponse StopChannel = StopChannelResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

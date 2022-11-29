@@ -454,6 +454,7 @@ module Amazonka.MediaTailor.Lens
     adBreak_offsetMillis,
     adBreak_spliceInsertMessage,
     adBreak_slate,
+    adBreak_timeSignalMessage,
 
     -- ** AdMarkerPassthrough
     adMarkerPassthrough_enabled,
@@ -626,6 +627,16 @@ module Amazonka.MediaTailor.Lens
     segmentDeliveryConfiguration_baseUrl,
     segmentDeliveryConfiguration_name,
 
+    -- ** SegmentationDescriptor
+    segmentationDescriptor_subSegmentsExpected,
+    segmentationDescriptor_segmentationTypeId,
+    segmentationDescriptor_segmentationUpidType,
+    segmentationDescriptor_segmentNum,
+    segmentationDescriptor_segmentationUpid,
+    segmentationDescriptor_subSegmentNum,
+    segmentationDescriptor_segmentsExpected,
+    segmentationDescriptor_segmentationEventId,
+
     -- ** SlateSource
     slateSource_vodSourceName,
     slateSource_sourceLocationName,
@@ -646,6 +657,9 @@ module Amazonka.MediaTailor.Lens
     spliceInsertMessage_spliceEventId,
     spliceInsertMessage_availNum,
     spliceInsertMessage_uniqueProgramId,
+
+    -- ** TimeSignalMessage
+    timeSignalMessage_segmentationDescriptors,
 
     -- ** Transition
     transition_relativeProgram,
@@ -734,9 +748,11 @@ import Amazonka.MediaTailor.Types.ScheduleConfiguration
 import Amazonka.MediaTailor.Types.ScheduleEntry
 import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
 import Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.SegmentationDescriptor
 import Amazonka.MediaTailor.Types.SlateSource
 import Amazonka.MediaTailor.Types.SourceLocation
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
+import Amazonka.MediaTailor.Types.TimeSignalMessage
 import Amazonka.MediaTailor.Types.Transition
 import Amazonka.MediaTailor.Types.VodSource
 import Amazonka.MediaTailor.UntagResource

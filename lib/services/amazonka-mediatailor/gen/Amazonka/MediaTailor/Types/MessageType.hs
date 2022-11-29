@@ -20,7 +20,8 @@
 module Amazonka.MediaTailor.Types.MessageType
   ( MessageType
       ( ..,
-        MessageType_SPLICE_INSERT
+        MessageType_SPLICE_INSERT,
+        MessageType_TIME_SIGNAL
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype MessageType = MessageType'
 pattern MessageType_SPLICE_INSERT :: MessageType
 pattern MessageType_SPLICE_INSERT = MessageType' "SPLICE_INSERT"
 
+pattern MessageType_TIME_SIGNAL :: MessageType
+pattern MessageType_TIME_SIGNAL = MessageType' "TIME_SIGNAL"
+
 {-# COMPLETE
   MessageType_SPLICE_INSERT,
+  MessageType_TIME_SIGNAL,
   MessageType'
   #-}

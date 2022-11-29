@@ -123,11 +123,13 @@ library
     Amazonka.MediaTailor.Types.ScheduleEntry
     Amazonka.MediaTailor.Types.ScheduleEntryType
     Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
+    Amazonka.MediaTailor.Types.SegmentationDescriptor
     Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
     Amazonka.MediaTailor.Types.SlateSource
     Amazonka.MediaTailor.Types.SourceLocation
     Amazonka.MediaTailor.Types.SpliceInsertMessage
     Amazonka.MediaTailor.Types.Tier
+    Amazonka.MediaTailor.Types.TimeSignalMessage
     Amazonka.MediaTailor.Types.Transition
     Amazonka.MediaTailor.Types.Type
     Amazonka.MediaTailor.Types.VodSource

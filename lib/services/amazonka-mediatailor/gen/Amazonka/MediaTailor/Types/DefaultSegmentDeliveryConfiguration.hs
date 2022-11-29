@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The optional configuration for a server that serves segments. Use this

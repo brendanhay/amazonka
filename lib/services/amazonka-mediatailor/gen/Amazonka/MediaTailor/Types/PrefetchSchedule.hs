@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.PrefetchSchedule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types.PrefetchConsumption
 import Amazonka.MediaTailor.Types.PrefetchRetrieval
 import qualified Amazonka.Prelude as Prelude

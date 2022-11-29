@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.PrefetchRetrieval where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains settings governing when MediaTailor

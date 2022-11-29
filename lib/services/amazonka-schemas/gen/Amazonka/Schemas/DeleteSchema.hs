@@ -37,7 +37,7 @@ module Amazonka.Schemas.DeleteSchema
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,8 +85,8 @@ deleteSchema_schemaName = Lens.lens (\DeleteSchema' {schemaName} -> schemaName) 
 
 instance Core.AWSRequest DeleteSchema where
   type AWSResponse DeleteSchema = DeleteSchemaResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteSchemaResponse'
 
 instance Prelude.Hashable DeleteSchema where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Schemas.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.DescribeCodeBinding
 import Amazonka.Schemas.Lens
@@ -26,10 +27,10 @@ import Amazonka.Schemas.Types
 newCodeBindingExists :: Core.Wait DescribeCodeBinding
 newCodeBindingExists =
   Core.Wait
-    { Core._waitName = "CodeBindingExists",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "CodeBindingExists",
+      Core.attempts = 30,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_COMPLETE"
             Core.AcceptSuccess

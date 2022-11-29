@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.S3DestinationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If the project stores evaluation events in an Amazon S3 bucket, this

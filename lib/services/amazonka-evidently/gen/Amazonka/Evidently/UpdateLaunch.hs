@@ -50,8 +50,8 @@ module Amazonka.Evidently.UpdateLaunch
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +167,8 @@ updateLaunch_project = Lens.lens (\UpdateLaunch' {project} -> project) (\s@Updat
 
 instance Core.AWSRequest UpdateLaunch where
   type AWSResponse UpdateLaunch = UpdateLaunchResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

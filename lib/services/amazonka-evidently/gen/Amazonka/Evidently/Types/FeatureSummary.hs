@@ -20,10 +20,10 @@
 module Amazonka.Evidently.Types.FeatureSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.EvaluationRule
 import Amazonka.Evidently.Types.FeatureEvaluationStrategy
 import Amazonka.Evidently.Types.FeatureStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about one Evidently feature in your

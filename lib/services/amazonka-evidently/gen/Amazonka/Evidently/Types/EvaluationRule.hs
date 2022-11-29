@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.EvaluationRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the information about an evaluation rule for

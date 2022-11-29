@@ -20,6 +20,7 @@
 module Amazonka.Evidently.Types.Experiment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.ExperimentExecution
 import Amazonka.Evidently.Types.ExperimentSchedule
 import Amazonka.Evidently.Types.ExperimentStatus
@@ -27,7 +28,6 @@ import Amazonka.Evidently.Types.ExperimentType
 import Amazonka.Evidently.Types.MetricGoal
 import Amazonka.Evidently.Types.OnlineAbDefinition
 import Amazonka.Evidently.Types.Treatment
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the configuration details of an experiment.

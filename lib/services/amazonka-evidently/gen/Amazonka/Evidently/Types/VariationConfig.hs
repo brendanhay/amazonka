@@ -20,8 +20,8 @@
 module Amazonka.Evidently.Types.VariationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.VariableValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the name and variation value of one variation of

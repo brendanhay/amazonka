@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.MetricDefinitionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines a metric that you want to use to evaluate the

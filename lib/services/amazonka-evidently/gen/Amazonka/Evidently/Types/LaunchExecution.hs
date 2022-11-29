@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.LaunchExecution where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about the start and end times of the

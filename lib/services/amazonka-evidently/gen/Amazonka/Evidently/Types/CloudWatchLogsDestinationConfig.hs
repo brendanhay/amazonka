@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.CloudWatchLogsDestinationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the CloudWatch Logs log group where the project

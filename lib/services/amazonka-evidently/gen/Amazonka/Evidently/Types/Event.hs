@@ -20,8 +20,8 @@
 module Amazonka.Evidently.Types.Event where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.EventType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the information about one evaluation event or

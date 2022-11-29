@@ -20,8 +20,8 @@
 module Amazonka.Evidently.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.VariableValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure displays the results of one feature evaluation assignment

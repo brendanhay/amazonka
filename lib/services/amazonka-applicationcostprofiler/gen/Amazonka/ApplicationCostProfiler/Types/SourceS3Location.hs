@@ -21,7 +21,7 @@ module Amazonka.ApplicationCostProfiler.Types.SourceS3Location where
 
 import Amazonka.ApplicationCostProfiler.Types.S3BucketRegion
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the Amazon Simple Storage Service (Amazon S3) location where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -239,7 +240,7 @@ module Amazonka.MechanicalTurk.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MechanicalTurk.Types.Assignment
 import Amazonka.MechanicalTurk.Types.AssignmentStatus
 import Amazonka.MechanicalTurk.Types.BonusPayment
@@ -278,29 +279,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "MechanicalTurk",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "mturk-requester",
-      Core._serviceSigningName = "mturk-requester",
-      Core._serviceVersion = "2017-01-17",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "MechanicalTurk",
-      Core._serviceRetry = retry
+    { Core.abbrev = "MechanicalTurk",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "mturk-requester",
+      Core.signingName = "mturk-requester",
+      Core.version = "2017-01-17",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "MechanicalTurk",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

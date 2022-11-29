@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.Locale where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Locale data structure represents a geographical region or location.

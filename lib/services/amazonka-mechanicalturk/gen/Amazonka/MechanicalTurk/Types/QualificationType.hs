@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.QualificationType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MechanicalTurk.Types.QualificationTypeStatus
 import qualified Amazonka.Prelude as Prelude
 

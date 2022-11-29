@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.QualificationRequirement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MechanicalTurk.Types.Comparator
 import Amazonka.MechanicalTurk.Types.HITAccessActions
 import Amazonka.MechanicalTurk.Types.Locale

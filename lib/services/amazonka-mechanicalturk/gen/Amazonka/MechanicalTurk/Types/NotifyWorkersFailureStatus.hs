@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.NotifyWorkersFailureStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MechanicalTurk.Types.NotifyWorkersFailureCode
 import qualified Amazonka.Prelude as Prelude
 

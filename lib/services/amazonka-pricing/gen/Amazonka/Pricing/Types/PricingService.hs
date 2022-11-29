@@ -20,7 +20,7 @@
 module Amazonka.Pricing.Types.PricingService where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata for a service, such as the service code and available

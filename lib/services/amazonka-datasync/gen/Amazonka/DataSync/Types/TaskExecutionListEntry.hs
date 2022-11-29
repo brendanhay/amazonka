@@ -20,8 +20,8 @@
 module Amazonka.DataSync.Types.TaskExecutionListEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.TaskExecutionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of task executions.

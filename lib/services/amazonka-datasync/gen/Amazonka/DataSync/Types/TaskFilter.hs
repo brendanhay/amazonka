@@ -20,9 +20,9 @@
 module Amazonka.DataSync.Types.TaskFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.Operator
 import Amazonka.DataSync.Types.TaskFilterName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | You can use API filters to narrow down the list of resources returned by

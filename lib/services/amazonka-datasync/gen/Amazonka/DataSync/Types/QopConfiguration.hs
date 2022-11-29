@@ -20,9 +20,9 @@
 module Amazonka.DataSync.Types.QopConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.HdfsDataTransferProtection
 import Amazonka.DataSync.Types.HdfsRpcProtection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Quality of Protection (QOP) configuration specifies the Remote

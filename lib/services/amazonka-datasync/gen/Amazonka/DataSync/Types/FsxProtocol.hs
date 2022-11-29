@@ -20,9 +20,9 @@
 module Amazonka.DataSync.Types.FsxProtocol where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.FsxProtocolNfs
 import Amazonka.DataSync.Types.FsxProtocolSmb
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the data transfer protocol that DataSync uses to access your

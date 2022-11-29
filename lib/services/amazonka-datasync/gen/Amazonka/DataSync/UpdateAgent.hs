@@ -40,8 +40,8 @@ module Amazonka.DataSync.UpdateAgent
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +88,8 @@ updateAgent_agentArn = Lens.lens (\UpdateAgent' {agentArn} -> agentArn) (\s@Upda
 
 instance Core.AWSRequest UpdateAgent where
   type AWSResponse UpdateAgent = UpdateAgentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestCreateVpcConnector $
 --             newCreateVpcConnector
 --
+--         , requestCreateVpcIngressConnection $
+--             newCreateVpcIngressConnection
+--
 --         , requestDeleteAutoScalingConfiguration $
 --             newDeleteAutoScalingConfiguration
 --
@@ -60,6 +63,9 @@ import Test.Tasty
 --         , requestDeleteVpcConnector $
 --             newDeleteVpcConnector
 --
+--         , requestDeleteVpcIngressConnection $
+--             newDeleteVpcIngressConnection
+--
 --         , requestDescribeAutoScalingConfiguration $
 --             newDescribeAutoScalingConfiguration
 --
@@ -74,6 +80,9 @@ import Test.Tasty
 --
 --         , requestDescribeVpcConnector $
 --             newDescribeVpcConnector
+--
+--         , requestDescribeVpcIngressConnection $
+--             newDescribeVpcIngressConnection
 --
 --         , requestDisassociateCustomDomain $
 --             newDisassociateCustomDomain
@@ -99,6 +108,9 @@ import Test.Tasty
 --         , requestListVpcConnectors $
 --             newListVpcConnectors
 --
+--         , requestListVpcIngressConnections $
+--             newListVpcIngressConnections
+--
 --         , requestPauseService $
 --             newPauseService
 --
@@ -116,6 +128,9 @@ import Test.Tasty
 --
 --         , requestUpdateService $
 --             newUpdateService
+--
+--         , requestUpdateVpcIngressConnection $
+--             newUpdateVpcIngressConnection
 --
 --           ]
 
@@ -138,6 +153,9 @@ import Test.Tasty
 --         , responseCreateVpcConnector $
 --             newCreateVpcConnectorResponse
 --
+--         , responseCreateVpcIngressConnection $
+--             newCreateVpcIngressConnectionResponse
+--
 --         , responseDeleteAutoScalingConfiguration $
 --             newDeleteAutoScalingConfigurationResponse
 --
@@ -153,6 +171,9 @@ import Test.Tasty
 --         , responseDeleteVpcConnector $
 --             newDeleteVpcConnectorResponse
 --
+--         , responseDeleteVpcIngressConnection $
+--             newDeleteVpcIngressConnectionResponse
+--
 --         , responseDescribeAutoScalingConfiguration $
 --             newDescribeAutoScalingConfigurationResponse
 --
@@ -167,6 +188,9 @@ import Test.Tasty
 --
 --         , responseDescribeVpcConnector $
 --             newDescribeVpcConnectorResponse
+--
+--         , responseDescribeVpcIngressConnection $
+--             newDescribeVpcIngressConnectionResponse
 --
 --         , responseDisassociateCustomDomain $
 --             newDisassociateCustomDomainResponse
@@ -192,6 +216,9 @@ import Test.Tasty
 --         , responseListVpcConnectors $
 --             newListVpcConnectorsResponse
 --
+--         , responseListVpcIngressConnections $
+--             newListVpcIngressConnectionsResponse
+--
 --         , responsePauseService $
 --             newPauseServiceResponse
 --
@@ -209,6 +236,9 @@ import Test.Tasty
 --
 --         , responseUpdateService $
 --             newUpdateServiceResponse
+--
+--         , responseUpdateVpcIngressConnection $
+--             newUpdateVpcIngressConnectionResponse
 --
 --           ]
 --     ]
@@ -251,6 +281,12 @@ requestCreateVpcConnector =
     "CreateVpcConnector"
     "fixture/CreateVpcConnector.yaml"
 
+requestCreateVpcIngressConnection :: CreateVpcIngressConnection -> TestTree
+requestCreateVpcIngressConnection =
+  req
+    "CreateVpcIngressConnection"
+    "fixture/CreateVpcIngressConnection.yaml"
+
 requestDeleteAutoScalingConfiguration :: DeleteAutoScalingConfiguration -> TestTree
 requestDeleteAutoScalingConfiguration =
   req
@@ -281,6 +317,12 @@ requestDeleteVpcConnector =
     "DeleteVpcConnector"
     "fixture/DeleteVpcConnector.yaml"
 
+requestDeleteVpcIngressConnection :: DeleteVpcIngressConnection -> TestTree
+requestDeleteVpcIngressConnection =
+  req
+    "DeleteVpcIngressConnection"
+    "fixture/DeleteVpcIngressConnection.yaml"
+
 requestDescribeAutoScalingConfiguration :: DescribeAutoScalingConfiguration -> TestTree
 requestDescribeAutoScalingConfiguration =
   req
@@ -310,6 +352,12 @@ requestDescribeVpcConnector =
   req
     "DescribeVpcConnector"
     "fixture/DescribeVpcConnector.yaml"
+
+requestDescribeVpcIngressConnection :: DescribeVpcIngressConnection -> TestTree
+requestDescribeVpcIngressConnection =
+  req
+    "DescribeVpcIngressConnection"
+    "fixture/DescribeVpcIngressConnection.yaml"
 
 requestDisassociateCustomDomain :: DisassociateCustomDomain -> TestTree
 requestDisassociateCustomDomain =
@@ -359,6 +407,12 @@ requestListVpcConnectors =
     "ListVpcConnectors"
     "fixture/ListVpcConnectors.yaml"
 
+requestListVpcIngressConnections :: ListVpcIngressConnections -> TestTree
+requestListVpcIngressConnections =
+  req
+    "ListVpcIngressConnections"
+    "fixture/ListVpcIngressConnections.yaml"
+
 requestPauseService :: PauseService -> TestTree
 requestPauseService =
   req
@@ -394,6 +448,12 @@ requestUpdateService =
   req
     "UpdateService"
     "fixture/UpdateService.yaml"
+
+requestUpdateVpcIngressConnection :: UpdateVpcIngressConnection -> TestTree
+requestUpdateVpcIngressConnection =
+  req
+    "UpdateVpcIngressConnection"
+    "fixture/UpdateVpcIngressConnection.yaml"
 
 -- Responses
 
@@ -445,6 +505,14 @@ responseCreateVpcConnector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateVpcConnector)
 
+responseCreateVpcIngressConnection :: CreateVpcIngressConnectionResponse -> TestTree
+responseCreateVpcIngressConnection =
+  res
+    "CreateVpcIngressConnectionResponse"
+    "fixture/CreateVpcIngressConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcIngressConnection)
+
 responseDeleteAutoScalingConfiguration :: DeleteAutoScalingConfigurationResponse -> TestTree
 responseDeleteAutoScalingConfiguration =
   res
@@ -485,6 +553,14 @@ responseDeleteVpcConnector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteVpcConnector)
 
+responseDeleteVpcIngressConnection :: DeleteVpcIngressConnectionResponse -> TestTree
+responseDeleteVpcIngressConnection =
+  res
+    "DeleteVpcIngressConnectionResponse"
+    "fixture/DeleteVpcIngressConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcIngressConnection)
+
 responseDescribeAutoScalingConfiguration :: DescribeAutoScalingConfigurationResponse -> TestTree
 responseDescribeAutoScalingConfiguration =
   res
@@ -524,6 +600,14 @@ responseDescribeVpcConnector =
     "fixture/DescribeVpcConnectorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeVpcConnector)
+
+responseDescribeVpcIngressConnection :: DescribeVpcIngressConnectionResponse -> TestTree
+responseDescribeVpcIngressConnection =
+  res
+    "DescribeVpcIngressConnectionResponse"
+    "fixture/DescribeVpcIngressConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcIngressConnection)
 
 responseDisassociateCustomDomain :: DisassociateCustomDomainResponse -> TestTree
 responseDisassociateCustomDomain =
@@ -589,6 +673,14 @@ responseListVpcConnectors =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVpcConnectors)
 
+responseListVpcIngressConnections :: ListVpcIngressConnectionsResponse -> TestTree
+responseListVpcIngressConnections =
+  res
+    "ListVpcIngressConnectionsResponse"
+    "fixture/ListVpcIngressConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcIngressConnections)
+
 responsePauseService :: PauseServiceResponse -> TestTree
 responsePauseService =
   res
@@ -636,3 +728,11 @@ responseUpdateService =
     "fixture/UpdateServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateService)
+
+responseUpdateVpcIngressConnection :: UpdateVpcIngressConnectionResponse -> TestTree
+responseUpdateVpcIngressConnection =
+  res
+    "UpdateVpcIngressConnectionResponse"
+    "fixture/UpdateVpcIngressConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVpcIngressConnection)

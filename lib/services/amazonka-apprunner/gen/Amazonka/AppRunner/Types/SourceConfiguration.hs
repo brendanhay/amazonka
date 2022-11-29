@@ -23,7 +23,7 @@ import Amazonka.AppRunner.Types.AuthenticationConfiguration
 import Amazonka.AppRunner.Types.CodeRepository
 import Amazonka.AppRunner.Types.ImageRepository
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source deployed to an App Runner service. It can be a code

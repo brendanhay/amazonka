@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.ImageRepository where
 import Amazonka.AppRunner.Types.ImageConfiguration
 import Amazonka.AppRunner.Types.ImageRepositoryType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a source image repository.

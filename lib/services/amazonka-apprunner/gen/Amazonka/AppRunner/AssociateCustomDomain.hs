@@ -50,12 +50,13 @@ module Amazonka.AppRunner.AssociateCustomDomain
     associateCustomDomainResponse_dNSTarget,
     associateCustomDomainResponse_serviceArn,
     associateCustomDomainResponse_customDomain,
+    associateCustomDomainResponse_vpcDNSTargets,
   )
 where
 
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,8 +136,8 @@ instance Core.AWSRequest AssociateCustomDomain where
   type
     AWSResponse AssociateCustomDomain =
       AssociateCustomDomainResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +146,7 @@ instance Core.AWSRequest AssociateCustomDomain where
             Prelude.<*> (x Core..:> "DNSTarget")
             Prelude.<*> (x Core..:> "ServiceArn")
             Prelude.<*> (x Core..:> "CustomDomain")
+            Prelude.<*> (x Core..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable AssociateCustomDomain where
@@ -202,7 +204,9 @@ data AssociateCustomDomainResponse = AssociateCustomDomainResponse'
     -- custom domain name is associated.
     serviceArn :: Prelude.Text,
     -- | A description of the domain name that\'s being associated.
-    customDomain :: CustomDomain
+    customDomain :: CustomDomain,
+    -- | DNS Target records for the custom domains of this Amazon VPC.
+    vpcDNSTargets :: [VpcDNSTarget]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -223,6 +227,8 @@ data AssociateCustomDomainResponse = AssociateCustomDomainResponse'
 -- custom domain name is associated.
 --
 -- 'customDomain', 'associateCustomDomainResponse_customDomain' - A description of the domain name that\'s being associated.
+--
+-- 'vpcDNSTargets', 'associateCustomDomainResponse_vpcDNSTargets' - DNS Target records for the custom domains of this Amazon VPC.
 newAssociateCustomDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -243,7 +249,8 @@ newAssociateCustomDomainResponse
           pHttpStatus_,
         dNSTarget = pDNSTarget_,
         serviceArn = pServiceArn_,
-        customDomain = pCustomDomain_
+        customDomain = pCustomDomain_,
+        vpcDNSTargets = Prelude.mempty
       }
 
 -- | The response's http status code.
@@ -264,9 +271,14 @@ associateCustomDomainResponse_serviceArn = Lens.lens (\AssociateCustomDomainResp
 associateCustomDomainResponse_customDomain :: Lens.Lens' AssociateCustomDomainResponse CustomDomain
 associateCustomDomainResponse_customDomain = Lens.lens (\AssociateCustomDomainResponse' {customDomain} -> customDomain) (\s@AssociateCustomDomainResponse' {} a -> s {customDomain = a} :: AssociateCustomDomainResponse)
 
+-- | DNS Target records for the custom domains of this Amazon VPC.
+associateCustomDomainResponse_vpcDNSTargets :: Lens.Lens' AssociateCustomDomainResponse [VpcDNSTarget]
+associateCustomDomainResponse_vpcDNSTargets = Lens.lens (\AssociateCustomDomainResponse' {vpcDNSTargets} -> vpcDNSTargets) (\s@AssociateCustomDomainResponse' {} a -> s {vpcDNSTargets = a} :: AssociateCustomDomainResponse) Prelude.. Lens.coerced
+
 instance Prelude.NFData AssociateCustomDomainResponse where
   rnf AssociateCustomDomainResponse' {..} =
     Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf dNSTarget
       `Prelude.seq` Prelude.rnf serviceArn
       `Prelude.seq` Prelude.rnf customDomain
+      `Prelude.seq` Prelude.rnf vpcDNSTargets

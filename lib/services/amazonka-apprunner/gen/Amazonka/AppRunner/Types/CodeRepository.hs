@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.CodeRepository where
 import Amazonka.AppRunner.Types.CodeConfiguration
 import Amazonka.AppRunner.Types.SourceCodeVersion
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a source code repository.

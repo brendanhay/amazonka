@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.HealthCheckConfiguration where
 
 import Amazonka.AppRunner.Types.HealthCheckProtocol
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the settings for the health check that App Runner performs to

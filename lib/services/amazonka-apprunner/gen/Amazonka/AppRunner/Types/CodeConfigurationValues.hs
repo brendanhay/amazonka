@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.CodeConfigurationValues where
 
 import Amazonka.AppRunner.Types.Runtime
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the basic configuration needed for building and running an App

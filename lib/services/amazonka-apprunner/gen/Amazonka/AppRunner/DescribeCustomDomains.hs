@@ -42,12 +42,13 @@ module Amazonka.AppRunner.DescribeCustomDomains
     describeCustomDomainsResponse_dNSTarget,
     describeCustomDomainsResponse_serviceArn,
     describeCustomDomainsResponse_customDomains,
+    describeCustomDomainsResponse_vpcDNSTargets,
   )
 where
 
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest DescribeCustomDomains where
   type
     AWSResponse DescribeCustomDomains =
       DescribeCustomDomainsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +145,7 @@ instance Core.AWSRequest DescribeCustomDomains where
             Prelude.<*> (x Core..:> "DNSTarget")
             Prelude.<*> (x Core..:> "ServiceArn")
             Prelude.<*> (x Core..?> "CustomDomains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeCustomDomains where
@@ -205,7 +207,9 @@ data DescribeCustomDomainsResponse = DescribeCustomDomainsResponse'
     -- | A list of descriptions of custom domain names that are associated with
     -- the service. In a paginated request, the request returns up to
     -- @MaxResults@ records per call.
-    customDomains :: [CustomDomain]
+    customDomains :: [CustomDomain],
+    -- | DNS Target records for the custom domains of this Amazon VPC.
+    vpcDNSTargets :: [VpcDNSTarget]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -231,6 +235,8 @@ data DescribeCustomDomainsResponse = DescribeCustomDomainsResponse'
 -- 'customDomains', 'describeCustomDomainsResponse_customDomains' - A list of descriptions of custom domain names that are associated with
 -- the service. In a paginated request, the request returns up to
 -- @MaxResults@ records per call.
+--
+-- 'vpcDNSTargets', 'describeCustomDomainsResponse_vpcDNSTargets' - DNS Target records for the custom domains of this Amazon VPC.
 newDescribeCustomDomainsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -249,7 +255,8 @@ newDescribeCustomDomainsResponse
         httpStatus = pHttpStatus_,
         dNSTarget = pDNSTarget_,
         serviceArn = pServiceArn_,
-        customDomains = Prelude.mempty
+        customDomains = Prelude.mempty,
+        vpcDNSTargets = Prelude.mempty
       }
 
 -- | The token that you can pass in a subsequent request to get the next
@@ -277,6 +284,10 @@ describeCustomDomainsResponse_serviceArn = Lens.lens (\DescribeCustomDomainsResp
 describeCustomDomainsResponse_customDomains :: Lens.Lens' DescribeCustomDomainsResponse [CustomDomain]
 describeCustomDomainsResponse_customDomains = Lens.lens (\DescribeCustomDomainsResponse' {customDomains} -> customDomains) (\s@DescribeCustomDomainsResponse' {} a -> s {customDomains = a} :: DescribeCustomDomainsResponse) Prelude.. Lens.coerced
 
+-- | DNS Target records for the custom domains of this Amazon VPC.
+describeCustomDomainsResponse_vpcDNSTargets :: Lens.Lens' DescribeCustomDomainsResponse [VpcDNSTarget]
+describeCustomDomainsResponse_vpcDNSTargets = Lens.lens (\DescribeCustomDomainsResponse' {vpcDNSTargets} -> vpcDNSTargets) (\s@DescribeCustomDomainsResponse' {} a -> s {vpcDNSTargets = a} :: DescribeCustomDomainsResponse) Prelude.. Lens.coerced
+
 instance Prelude.NFData DescribeCustomDomainsResponse where
   rnf DescribeCustomDomainsResponse' {..} =
     Prelude.rnf nextToken
@@ -284,3 +295,4 @@ instance Prelude.NFData DescribeCustomDomainsResponse where
       `Prelude.seq` Prelude.rnf dNSTarget
       `Prelude.seq` Prelude.rnf serviceArn
       `Prelude.seq` Prelude.rnf customDomains
+      `Prelude.seq` Prelude.rnf vpcDNSTargets

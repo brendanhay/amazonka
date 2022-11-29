@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.EgressConfiguration where
 
 import Amazonka.AppRunner.Types.EgressType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes configuration settings related to outbound network traffic of

@@ -20,8 +20,9 @@
 module Amazonka.AppRunner.Types.NetworkConfiguration where
 
 import Amazonka.AppRunner.Types.EgressConfiguration
+import Amazonka.AppRunner.Types.IngressConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes configuration settings related to network traffic of an App
@@ -30,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'
-  { -- | Network configuration settings for outbound message traffic.
+  { -- | Network configuration settings for inbound message traffic.
+    ingressConfiguration :: Prelude.Maybe IngressConfiguration,
+    -- | Network configuration settings for outbound message traffic.
     egressConfiguration :: Prelude.Maybe EgressConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,14 +46,21 @@ data NetworkConfiguration = NetworkConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ingressConfiguration', 'networkConfiguration_ingressConfiguration' - Network configuration settings for inbound message traffic.
+--
 -- 'egressConfiguration', 'networkConfiguration_egressConfiguration' - Network configuration settings for outbound message traffic.
 newNetworkConfiguration ::
   NetworkConfiguration
 newNetworkConfiguration =
   NetworkConfiguration'
-    { egressConfiguration =
-        Prelude.Nothing
+    { ingressConfiguration =
+        Prelude.Nothing,
+      egressConfiguration = Prelude.Nothing
     }
+
+-- | Network configuration settings for inbound message traffic.
+networkConfiguration_ingressConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe IngressConfiguration)
+networkConfiguration_ingressConfiguration = Lens.lens (\NetworkConfiguration' {ingressConfiguration} -> ingressConfiguration) (\s@NetworkConfiguration' {} a -> s {ingressConfiguration = a} :: NetworkConfiguration)
 
 -- | Network configuration settings for outbound message traffic.
 networkConfiguration_egressConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe EgressConfiguration)
@@ -62,22 +72,27 @@ instance Core.FromJSON NetworkConfiguration where
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Core..:? "EgressConfiguration")
+            Prelude.<$> (x Core..:? "IngressConfiguration")
+            Prelude.<*> (x Core..:? "EgressConfiguration")
       )
 
 instance Prelude.Hashable NetworkConfiguration where
   hashWithSalt _salt NetworkConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` egressConfiguration
+    _salt `Prelude.hashWithSalt` ingressConfiguration
+      `Prelude.hashWithSalt` egressConfiguration
 
 instance Prelude.NFData NetworkConfiguration where
   rnf NetworkConfiguration' {..} =
-    Prelude.rnf egressConfiguration
+    Prelude.rnf ingressConfiguration
+      `Prelude.seq` Prelude.rnf egressConfiguration
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EgressConfiguration" Core..=)
+          [ ("IngressConfiguration" Core..=)
+              Prelude.<$> ingressConfiguration,
+            ("EgressConfiguration" Core..=)
               Prelude.<$> egressConfiguration
           ]
       )

@@ -50,16 +50,19 @@ library
     Amazonka.AppRunner.CreateObservabilityConfiguration
     Amazonka.AppRunner.CreateService
     Amazonka.AppRunner.CreateVpcConnector
+    Amazonka.AppRunner.CreateVpcIngressConnection
     Amazonka.AppRunner.DeleteAutoScalingConfiguration
     Amazonka.AppRunner.DeleteConnection
     Amazonka.AppRunner.DeleteObservabilityConfiguration
     Amazonka.AppRunner.DeleteService
     Amazonka.AppRunner.DeleteVpcConnector
+    Amazonka.AppRunner.DeleteVpcIngressConnection
     Amazonka.AppRunner.DescribeAutoScalingConfiguration
     Amazonka.AppRunner.DescribeCustomDomains
     Amazonka.AppRunner.DescribeObservabilityConfiguration
     Amazonka.AppRunner.DescribeService
     Amazonka.AppRunner.DescribeVpcConnector
+    Amazonka.AppRunner.DescribeVpcIngressConnection
     Amazonka.AppRunner.DisassociateCustomDomain
     Amazonka.AppRunner.Lens
     Amazonka.AppRunner.ListAutoScalingConfigurations
@@ -69,6 +72,7 @@ library
     Amazonka.AppRunner.ListServices
     Amazonka.AppRunner.ListTagsForResource
     Amazonka.AppRunner.ListVpcConnectors
+    Amazonka.AppRunner.ListVpcIngressConnections
     Amazonka.AppRunner.PauseService
     Amazonka.AppRunner.ResumeService
     Amazonka.AppRunner.StartDeployment
@@ -97,7 +101,10 @@ library
     Amazonka.AppRunner.Types.ImageConfiguration
     Amazonka.AppRunner.Types.ImageRepository
     Amazonka.AppRunner.Types.ImageRepositoryType
+    Amazonka.AppRunner.Types.IngressConfiguration
+    Amazonka.AppRunner.Types.IngressVpcConfiguration
     Amazonka.AppRunner.Types.InstanceConfiguration
+    Amazonka.AppRunner.Types.ListVpcIngressConnectionsFilter
     Amazonka.AppRunner.Types.NetworkConfiguration
     Amazonka.AppRunner.Types.ObservabilityConfiguration
     Amazonka.AppRunner.Types.ObservabilityConfigurationStatus
@@ -119,8 +126,13 @@ library
     Amazonka.AppRunner.Types.TracingVendor
     Amazonka.AppRunner.Types.VpcConnector
     Amazonka.AppRunner.Types.VpcConnectorStatus
+    Amazonka.AppRunner.Types.VpcDNSTarget
+    Amazonka.AppRunner.Types.VpcIngressConnection
+    Amazonka.AppRunner.Types.VpcIngressConnectionStatus
+    Amazonka.AppRunner.Types.VpcIngressConnectionSummary
     Amazonka.AppRunner.UntagResource
     Amazonka.AppRunner.UpdateService
+    Amazonka.AppRunner.UpdateVpcIngressConnection
     Amazonka.AppRunner.Waiters
 
   build-depends:

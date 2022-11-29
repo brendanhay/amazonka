@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.ObservabilityConfiguration where
 import Amazonka.AppRunner.Types.ObservabilityConfigurationStatus
 import Amazonka.AppRunner.Types.TraceConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner observability configuration resource. Multiple

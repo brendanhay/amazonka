@@ -28,7 +28,7 @@ import Amazonka.AppRunner.Types.ServiceObservabilityConfiguration
 import Amazonka.AppRunner.Types.ServiceStatus
 import Amazonka.AppRunner.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner service. It can describe a service in any state,
@@ -58,6 +58,9 @@ data Service = Service'
     -- service. It can be either a customer-provided encryption key or an
     -- Amazon Web Services managed key.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | A subdomain URL that App Runner generated for this service. You can use
+    -- this URL to access your service web application.
+    serviceUrl :: Prelude.Maybe Prelude.Text,
     -- | The settings for the health check that App Runner performs to monitor
     -- the health of this service.
     healthCheckConfiguration :: Prelude.Maybe HealthCheckConfiguration,
@@ -68,9 +71,6 @@ data Service = Service'
     serviceId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of this service.
     serviceArn :: Prelude.Text,
-    -- | A subdomain URL that App Runner generated for this service. You can use
-    -- this URL to access your service web application.
-    serviceUrl :: Prelude.Text,
     -- | The time when the App Runner service was created. It\'s in the Unix time
     -- stamp format.
     createdAt :: Core.POSIX,
@@ -124,6 +124,9 @@ data Service = Service'
 -- service. It can be either a customer-provided encryption key or an
 -- Amazon Web Services managed key.
 --
+-- 'serviceUrl', 'service_serviceUrl' - A subdomain URL that App Runner generated for this service. You can use
+-- this URL to access your service web application.
+--
 -- 'healthCheckConfiguration', 'service_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor
 -- the health of this service.
 --
@@ -133,9 +136,6 @@ data Service = Service'
 -- the Amazon Web Services Region.
 --
 -- 'serviceArn', 'service_serviceArn' - The Amazon Resource Name (ARN) of this service.
---
--- 'serviceUrl', 'service_serviceUrl' - A subdomain URL that App Runner generated for this service. You can use
--- this URL to access your service web application.
 --
 -- 'createdAt', 'service_createdAt' - The time when the App Runner service was created. It\'s in the Unix time
 -- stamp format.
@@ -175,8 +175,6 @@ newService ::
   Prelude.Text ->
   -- | 'serviceArn'
   Prelude.Text ->
-  -- | 'serviceUrl'
-  Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
   -- | 'updatedAt'
@@ -196,7 +194,6 @@ newService
   pServiceName_
   pServiceId_
   pServiceArn_
-  pServiceUrl_
   pCreatedAt_
   pUpdatedAt_
   pStatus_
@@ -209,11 +206,11 @@ newService
           Prelude.Nothing,
         deletedAt = Prelude.Nothing,
         encryptionConfiguration = Prelude.Nothing,
+        serviceUrl = Prelude.Nothing,
         healthCheckConfiguration = Prelude.Nothing,
         serviceName = pServiceName_,
         serviceId = pServiceId_,
         serviceArn = pServiceArn_,
-        serviceUrl = pServiceUrl_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         updatedAt = Core._Time Lens.# pUpdatedAt_,
         status = pStatus_,
@@ -240,6 +237,11 @@ service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' 
 service_encryptionConfiguration :: Lens.Lens' Service (Prelude.Maybe EncryptionConfiguration)
 service_encryptionConfiguration = Lens.lens (\Service' {encryptionConfiguration} -> encryptionConfiguration) (\s@Service' {} a -> s {encryptionConfiguration = a} :: Service)
 
+-- | A subdomain URL that App Runner generated for this service. You can use
+-- this URL to access your service web application.
+service_serviceUrl :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
+service_serviceUrl = Lens.lens (\Service' {serviceUrl} -> serviceUrl) (\s@Service' {} a -> s {serviceUrl = a} :: Service)
+
 -- | The settings for the health check that App Runner performs to monitor
 -- the health of this service.
 service_healthCheckConfiguration :: Lens.Lens' Service (Prelude.Maybe HealthCheckConfiguration)
@@ -257,11 +259,6 @@ service_serviceId = Lens.lens (\Service' {serviceId} -> serviceId) (\s@Service' 
 -- | The Amazon Resource Name (ARN) of this service.
 service_serviceArn :: Lens.Lens' Service Prelude.Text
 service_serviceArn = Lens.lens (\Service' {serviceArn} -> serviceArn) (\s@Service' {} a -> s {serviceArn = a} :: Service)
-
--- | A subdomain URL that App Runner generated for this service. You can use
--- this URL to access your service web application.
-service_serviceUrl :: Lens.Lens' Service Prelude.Text
-service_serviceUrl = Lens.lens (\Service' {serviceUrl} -> serviceUrl) (\s@Service' {} a -> s {serviceUrl = a} :: Service)
 
 -- | The time when the App Runner service was created. It\'s in the Unix time
 -- stamp format.
@@ -318,11 +315,11 @@ instance Core.FromJSON Service where
             Prelude.<$> (x Core..:? "ObservabilityConfiguration")
             Prelude.<*> (x Core..:? "DeletedAt")
             Prelude.<*> (x Core..:? "EncryptionConfiguration")
+            Prelude.<*> (x Core..:? "ServiceUrl")
             Prelude.<*> (x Core..:? "HealthCheckConfiguration")
             Prelude.<*> (x Core..: "ServiceName")
             Prelude.<*> (x Core..: "ServiceId")
             Prelude.<*> (x Core..: "ServiceArn")
-            Prelude.<*> (x Core..: "ServiceUrl")
             Prelude.<*> (x Core..: "CreatedAt")
             Prelude.<*> (x Core..: "UpdatedAt")
             Prelude.<*> (x Core..: "Status")
@@ -338,11 +335,11 @@ instance Prelude.Hashable Service where
       `Prelude.hashWithSalt` observabilityConfiguration
       `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` serviceUrl
       `Prelude.hashWithSalt` healthCheckConfiguration
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` serviceArn
-      `Prelude.hashWithSalt` serviceUrl
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` status
@@ -356,11 +353,11 @@ instance Prelude.NFData Service where
     Prelude.rnf observabilityConfiguration
       `Prelude.seq` Prelude.rnf deletedAt
       `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf serviceUrl
       `Prelude.seq` Prelude.rnf healthCheckConfiguration
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceId
       `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf serviceUrl
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf status

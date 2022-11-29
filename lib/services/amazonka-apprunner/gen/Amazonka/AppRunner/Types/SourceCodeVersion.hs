@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.SourceCodeVersion where
 
 import Amazonka.AppRunner.Types.SourceCodeVersionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a version of code that App Runner refers to within a source

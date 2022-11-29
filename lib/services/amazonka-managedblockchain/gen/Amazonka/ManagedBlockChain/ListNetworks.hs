@@ -48,7 +48,7 @@ module Amazonka.ManagedBlockChain.ListNetworks
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +131,8 @@ listNetworks_framework = Lens.lens (\ListNetworks' {framework} -> framework) (\s
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

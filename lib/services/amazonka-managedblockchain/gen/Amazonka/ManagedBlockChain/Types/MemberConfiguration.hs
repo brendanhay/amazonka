@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.MemberConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration
 import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
 import qualified Amazonka.Prelude as Prelude

@@ -31,7 +31,7 @@
 -- @BILLING_TOKEN@. After an accessor is deleted, the status of the
 -- accessor changes from @AVAILABLE@ to @PENDING_DELETION@. An accessor in
 -- the @PENDING_DELETION@ state can’t be used for new WebSocket requests or
--- HTTP requests. However, WebSocket connections that are initiated while
+-- HTTP requests. However, WebSocket connections that were initiated while
 -- the accessor was in the @AVAILABLE@ state remain open until they expire
 -- (up to 2 hours).
 module Amazonka.ManagedBlockChain.DeleteAccessor
@@ -52,7 +52,7 @@ module Amazonka.ManagedBlockChain.DeleteAccessor
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +89,8 @@ instance Core.AWSRequest DeleteAccessor where
   type
     AWSResponse DeleteAccessor =
       DeleteAccessorResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

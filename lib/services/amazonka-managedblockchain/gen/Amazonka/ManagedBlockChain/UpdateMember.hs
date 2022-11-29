@@ -43,7 +43,7 @@ module Amazonka.ManagedBlockChain.UpdateMember
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,8 +104,8 @@ updateMember_memberId = Lens.lens (\UpdateMember' {memberId} -> memberId) (\s@Up
 
 instance Core.AWSRequest UpdateMember where
   type AWSResponse UpdateMember = UpdateMemberResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

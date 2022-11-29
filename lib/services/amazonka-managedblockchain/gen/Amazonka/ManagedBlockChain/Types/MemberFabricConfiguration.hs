@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration properties for Hyperledger Fabric for a member in a

@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.Node where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes
 import Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
 import Amazonka.ManagedBlockChain.Types.NodeStatus

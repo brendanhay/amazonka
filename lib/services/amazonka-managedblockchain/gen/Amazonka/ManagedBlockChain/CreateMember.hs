@@ -45,7 +45,7 @@ module Amazonka.ManagedBlockChain.CreateMember
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +135,8 @@ createMember_memberConfiguration = Lens.lens (\CreateMember' {memberConfiguratio
 
 instance Core.AWSRequest CreateMember where
   type AWSResponse CreateMember = CreateMemberResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

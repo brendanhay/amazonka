@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.NetworkEthereumAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of Ethereum for a network.
@@ -31,6 +31,8 @@ data NetworkEthereumAttributes = NetworkEthereumAttributes'
     -- are as follows:
     --
     -- -   mainnet = @1@
+    --
+    -- -   goerli = @5@
     --
     -- -   rinkeby = @4@
     --
@@ -52,6 +54,8 @@ data NetworkEthereumAttributes = NetworkEthereumAttributes'
 --
 -- -   mainnet = @1@
 --
+-- -   goerli = @5@
+--
 -- -   rinkeby = @4@
 --
 -- -   ropsten = @3@
@@ -67,6 +71,8 @@ newNetworkEthereumAttributes =
 -- are as follows:
 --
 -- -   mainnet = @1@
+--
+-- -   goerli = @5@
 --
 -- -   rinkeby = @4@
 --

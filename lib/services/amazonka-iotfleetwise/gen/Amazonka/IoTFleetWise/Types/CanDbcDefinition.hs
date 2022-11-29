@@ -20,7 +20,7 @@
 module Amazonka.IoTFleetWise.Types.CanDbcDefinition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configurations used to create a decoder manifest.

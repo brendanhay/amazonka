@@ -20,7 +20,7 @@
 module Amazonka.IoTFleetWise.Types.SignalCatalogSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a collection of standardized signals, which can be

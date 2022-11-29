@@ -20,10 +20,10 @@
 module Amazonka.IoTFleetWise.Types.SignalDecoder where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.CanSignal
 import Amazonka.IoTFleetWise.Types.ObdSignal
 import Amazonka.IoTFleetWise.Types.SignalDecoderType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a signal decoder.

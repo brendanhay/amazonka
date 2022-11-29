@@ -20,8 +20,8 @@
 module Amazonka.IoTFleetWise.Types.Actuator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.NodeDataType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A signal that represents a vehicle device such as the engine, heater,

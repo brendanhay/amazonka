@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -393,6 +394,7 @@ module Amazonka.IoTFleetWise.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.Actuator
 import Amazonka.IoTFleetWise.Types.Attribute
 import Amazonka.IoTFleetWise.Types.Branch
@@ -446,7 +448,6 @@ import Amazonka.IoTFleetWise.Types.VehicleAssociationBehavior
 import Amazonka.IoTFleetWise.Types.VehicleState
 import Amazonka.IoTFleetWise.Types.VehicleStatus
 import Amazonka.IoTFleetWise.Types.VehicleSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -454,28 +455,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "IoTFleetWise",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "iotfleetwise",
-      Core._serviceSigningName = "iotfleetwise",
-      Core._serviceVersion = "2021-06-17",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "IoTFleetWise",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IoTFleetWise",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "iotfleetwise",
+      Core.signingName = "iotfleetwise",
+      Core.version = "2021-06-17",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IoTFleetWise",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

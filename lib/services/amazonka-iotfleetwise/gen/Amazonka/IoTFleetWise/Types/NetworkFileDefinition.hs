@@ -20,8 +20,8 @@
 module Amazonka.IoTFleetWise.Types.NetworkFileDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.CanDbcDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifications for defining a vehicle network.

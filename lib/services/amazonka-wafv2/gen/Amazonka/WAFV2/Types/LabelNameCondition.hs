@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.LabelNameCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single label name condition for a Condition in a logging filter.

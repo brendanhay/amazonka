@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.ActionCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ActionValue
 
@@ -29,7 +29,12 @@ import Amazonka.WAFV2.Types.ActionValue
 -- /See:/ 'newActionCondition' smart constructor.
 data ActionCondition = ActionCondition'
   { -- | The action setting that a log record must contain in order to meet the
-    -- condition.
+    -- condition. This is the action that WAF applied to the web request.
+    --
+    -- For rule groups, this is either the configured rule action setting, or
+    -- if you\'ve applied a rule action override to the rule, it\'s the
+    -- override action. The value @EXCLUDED_AS_COUNT@ matches on excluded rules
+    -- and also on rules that have a rule action override of Count.
     action :: ActionValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,7 +48,12 @@ data ActionCondition = ActionCondition'
 -- for backwards compatibility:
 --
 -- 'action', 'actionCondition_action' - The action setting that a log record must contain in order to meet the
--- condition.
+-- condition. This is the action that WAF applied to the web request.
+--
+-- For rule groups, this is either the configured rule action setting, or
+-- if you\'ve applied a rule action override to the rule, it\'s the
+-- override action. The value @EXCLUDED_AS_COUNT@ matches on excluded rules
+-- and also on rules that have a rule action override of Count.
 newActionCondition ::
   -- | 'action'
   ActionValue ->
@@ -52,7 +62,12 @@ newActionCondition pAction_ =
   ActionCondition' {action = pAction_}
 
 -- | The action setting that a log record must contain in order to meet the
--- condition.
+-- condition. This is the action that WAF applied to the web request.
+--
+-- For rule groups, this is either the configured rule action setting, or
+-- if you\'ve applied a rule action override to the rule, it\'s the
+-- override action. The value @EXCLUDED_AS_COUNT@ matches on excluded rules
+-- and also on rules that have a rule action override of Count.
 actionCondition_action :: Lens.Lens' ActionCondition ActionValue
 actionCondition_action = Lens.lens (\ActionCondition' {action} -> action) (\s@ActionCondition' {} a -> s {action = a} :: ActionCondition)
 

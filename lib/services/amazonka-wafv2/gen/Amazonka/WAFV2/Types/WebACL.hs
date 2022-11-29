@@ -20,9 +20,10 @@
 module Amazonka.WAFV2.Types.WebACL where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaConfig
+import Amazonka.WAFV2.Types.ChallengeConfig
 import Amazonka.WAFV2.Types.CustomResponseBody
 import Amazonka.WAFV2.Types.DefaultAction
 import Amazonka.WAFV2.Types.FirewallManagerRuleGroup
@@ -46,6 +47,15 @@ data WebACL = WebACL'
     -- then only Firewall Manager can delete the web ACL or any Firewall
     -- Manager rule groups in the web ACL.
     managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the domains that WAF should accept in a web request token.
+    -- This enables the use of tokens across multiple protected websites. When
+    -- WAF provides a token, it uses the domain of the Amazon Web Services
+    -- resource that the web ACL is protecting. If you don\'t specify a list of
+    -- token domains, WAF accepts tokens only for the domain of the protected
+    -- resource. With a token domain list, WAF accepts the resource\'s host
+    -- domain plus all domains in the token domain list, including their
+    -- prefixed subdomains.
+    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
     -- this, WAF uses its default settings for @CaptchaConfig@.
@@ -108,6 +118,10 @@ data WebACL = WebACL'
     -- fixed at creation, which helps users plan their web ACL WCU usage when
     -- they use a rule group. The WCU limit for web ACLs is 1,500.
     capacity :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies how WAF should handle challenge evaluations for rules that
+    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+    -- this, WAF uses its default settings for @ChallengeConfig@.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | The last set of rules for WAF to process in the web ACL. This is defined
     -- in an Firewall Manager WAF policy and contains only rule group
     -- references. You can\'t alter these. Any rules and rule groups that you
@@ -148,6 +162,15 @@ data WebACL = WebACL'
 -- 'managedByFirewallManager', 'webACL_managedByFirewallManager' - Indicates whether this web ACL is managed by Firewall Manager. If true,
 -- then only Firewall Manager can delete the web ACL or any Firewall
 -- Manager rule groups in the web ACL.
+--
+-- 'tokenDomains', 'webACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
 --
 -- 'captchaConfig', 'webACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -211,6 +234,10 @@ data WebACL = WebACL'
 -- fixed at creation, which helps users plan their web ACL WCU usage when
 -- they use a rule group. The WCU limit for web ACLs is 1,500.
 --
+-- 'challengeConfig', 'webACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
+--
 -- 'postProcessFirewallManagerRuleGroups', 'webACL_postProcessFirewallManagerRuleGroups' - The last set of rules for WAF to process in the web ACL. This is defined
 -- in an Firewall Manager WAF policy and contains only rule group
 -- references. You can\'t alter these. Any rules and rule groups that you
@@ -256,6 +283,7 @@ newWebACL
   pVisibilityConfig_ =
     WebACL'
       { managedByFirewallManager = Prelude.Nothing,
+        tokenDomains = Prelude.Nothing,
         captchaConfig = Prelude.Nothing,
         rules = Prelude.Nothing,
         preProcessFirewallManagerRuleGroups =
@@ -264,6 +292,7 @@ newWebACL
         labelNamespace = Prelude.Nothing,
         customResponseBodies = Prelude.Nothing,
         capacity = Prelude.Nothing,
+        challengeConfig = Prelude.Nothing,
         postProcessFirewallManagerRuleGroups =
           Prelude.Nothing,
         name = pName_,
@@ -278,6 +307,17 @@ newWebACL
 -- Manager rule groups in the web ACL.
 webACL_managedByFirewallManager :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Bool)
 webACL_managedByFirewallManager = Lens.lens (\WebACL' {managedByFirewallManager} -> managedByFirewallManager) (\s@WebACL' {} a -> s {managedByFirewallManager = a} :: WebACL)
+
+-- | Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+webACL_tokenDomains :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+webACL_tokenDomains = Lens.lens (\WebACL' {tokenDomains} -> tokenDomains) (\s@WebACL' {} a -> s {tokenDomains = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -355,6 +395,12 @@ webACL_customResponseBodies = Lens.lens (\WebACL' {customResponseBodies} -> cust
 webACL_capacity :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Natural)
 webACL_capacity = Lens.lens (\WebACL' {capacity} -> capacity) (\s@WebACL' {} a -> s {capacity = a} :: WebACL)
 
+-- | Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
+webACL_challengeConfig :: Lens.Lens' WebACL (Prelude.Maybe ChallengeConfig)
+webACL_challengeConfig = Lens.lens (\WebACL' {challengeConfig} -> challengeConfig) (\s@WebACL' {} a -> s {challengeConfig = a} :: WebACL)
+
 -- | The last set of rules for WAF to process in the web ACL. This is defined
 -- in an Firewall Manager WAF policy and contains only rule group
 -- references. You can\'t alter these. Any rules and rule groups that you
@@ -400,6 +446,7 @@ instance Core.FromJSON WebACL where
       ( \x ->
           WebACL'
             Prelude.<$> (x Core..:? "ManagedByFirewallManager")
+            Prelude.<*> (x Core..:? "TokenDomains")
             Prelude.<*> (x Core..:? "CaptchaConfig")
             Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "PreProcessFirewallManagerRuleGroups"
@@ -411,6 +458,7 @@ instance Core.FromJSON WebACL where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "Capacity")
+            Prelude.<*> (x Core..:? "ChallengeConfig")
             Prelude.<*> ( x Core..:? "PostProcessFirewallManagerRuleGroups"
                             Core..!= Prelude.mempty
                         )
@@ -425,6 +473,7 @@ instance Prelude.Hashable WebACL where
   hashWithSalt _salt WebACL' {..} =
     _salt
       `Prelude.hashWithSalt` managedByFirewallManager
+      `Prelude.hashWithSalt` tokenDomains
       `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` preProcessFirewallManagerRuleGroups
@@ -432,6 +481,7 @@ instance Prelude.Hashable WebACL where
       `Prelude.hashWithSalt` labelNamespace
       `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` postProcessFirewallManagerRuleGroups
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
@@ -442,6 +492,7 @@ instance Prelude.Hashable WebACL where
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
     Prelude.rnf managedByFirewallManager
+      `Prelude.seq` Prelude.rnf tokenDomains
       `Prelude.seq` Prelude.rnf captchaConfig
       `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf preProcessFirewallManagerRuleGroups
@@ -449,6 +500,7 @@ instance Prelude.NFData WebACL where
       `Prelude.seq` Prelude.rnf labelNamespace
       `Prelude.seq` Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf postProcessFirewallManagerRuleGroups
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id

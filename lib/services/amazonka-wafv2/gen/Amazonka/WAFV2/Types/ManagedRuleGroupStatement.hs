@@ -20,10 +20,11 @@
 module Amazonka.WAFV2.Types.ManagedRuleGroupStatement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ExcludedRule
 import Amazonka.WAFV2.Types.ManagedRuleGroupConfig
+import Amazonka.WAFV2.Types.RuleActionOverride
 import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 
 -- | A rule statement used to run the rules that are defined in a managed
@@ -43,31 +44,33 @@ import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 --
 -- /See:/ 'newManagedRuleGroupStatement' smart constructor.
 data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
-  { -- | Additional information that\'s used by a managed rule group. Most
+  { -- | Additional information that\'s used by a managed rule group. Many
     -- managed rule groups don\'t require this.
     --
-    -- Use this for the account takeover prevention managed rule group
-    -- @AWSManagedRulesATPRuleSet@, to provide information about the sign-in
-    -- page of your application.
-    --
-    -- You can provide multiple individual @ManagedRuleGroupConfig@ objects for
-    -- any rule group configuration, for example @UsernameField@ and
-    -- @PasswordField@. The configuration that you provide depends on the needs
-    -- of the managed rule group. For the ATP managed rule group, you provide
-    -- the following individual configuration objects: @LoginPath@,
-    -- @PasswordField@, @PayloadType@ and @UsernameField@.
+    -- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+    -- configure the protection level that you want the Bot Control rule group
+    -- to use.
     managedRuleGroupConfigs :: Prelude.Maybe (Prelude.NonEmpty ManagedRuleGroupConfig),
+    -- | Action settings to use in the place of the rule actions that are
+    -- configured inside the rule group. You specify one override for each rule
+    -- whose action you want to change.
+    --
+    -- You can use overrides for testing, for example you can override all of
+    -- rule actions to @Count@ and then monitor the resulting count metrics to
+    -- understand how the rule group would handle your web traffic. You can
+    -- also permanently override some or all actions, to modify how the rule
+    -- group manages your web traffic.
+    ruleActionOverrides :: Prelude.Maybe (Prelude.NonEmpty RuleActionOverride),
     -- | An optional nested statement that narrows the scope of the web requests
     -- that are evaluated by the managed rule group. Requests are only
     -- evaluated by the rule group if they match the scope-down statement. You
     -- can use any nestable Statement in the scope-down statement, and you can
     -- nest statements at any level, the same as you can for a rule statement.
     scopeDownStatement :: Prelude.Maybe Statement,
-    -- | The rules in the referenced rule group whose actions are set to @Count@.
-    -- When you exclude a rule, WAF evaluates it exactly as it would if the
-    -- rule action setting were @Count@. This is a useful option for testing
-    -- the rules in a rule group without modifying how they handle your web
-    -- traffic.
+    -- | Rules in the referenced rule group whose actions are set to @Count@.
+    --
+    -- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+    -- action setting, including @Count@.
     excludedRules :: Prelude.Maybe [ExcludedRule],
     -- | The version of the managed rule group to use. If you specify this, the
     -- version setting is fixed until you change it. If you don\'t specify
@@ -92,19 +95,22 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedRuleGroupConfigs', 'managedRuleGroupStatement_managedRuleGroupConfigs' - Additional information that\'s used by a managed rule group. Most
+-- 'managedRuleGroupConfigs', 'managedRuleGroupStatement_managedRuleGroupConfigs' - Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
 --
--- Use this for the account takeover prevention managed rule group
--- @AWSManagedRulesATPRuleSet@, to provide information about the sign-in
--- page of your application.
+-- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+-- configure the protection level that you want the Bot Control rule group
+-- to use.
 --
--- You can provide multiple individual @ManagedRuleGroupConfig@ objects for
--- any rule group configuration, for example @UsernameField@ and
--- @PasswordField@. The configuration that you provide depends on the needs
--- of the managed rule group. For the ATP managed rule group, you provide
--- the following individual configuration objects: @LoginPath@,
--- @PasswordField@, @PayloadType@ and @UsernameField@.
+-- 'ruleActionOverrides', 'managedRuleGroupStatement_ruleActionOverrides' - Action settings to use in the place of the rule actions that are
+-- configured inside the rule group. You specify one override for each rule
+-- whose action you want to change.
+--
+-- You can use overrides for testing, for example you can override all of
+-- rule actions to @Count@ and then monitor the resulting count metrics to
+-- understand how the rule group would handle your web traffic. You can
+-- also permanently override some or all actions, to modify how the rule
+-- group manages your web traffic.
 --
 -- 'scopeDownStatement', 'managedRuleGroupStatement_scopeDownStatement' - An optional nested statement that narrows the scope of the web requests
 -- that are evaluated by the managed rule group. Requests are only
@@ -112,11 +118,10 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 -- can use any nestable Statement in the scope-down statement, and you can
 -- nest statements at any level, the same as you can for a rule statement.
 --
--- 'excludedRules', 'managedRuleGroupStatement_excludedRules' - The rules in the referenced rule group whose actions are set to @Count@.
--- When you exclude a rule, WAF evaluates it exactly as it would if the
--- rule action setting were @Count@. This is a useful option for testing
--- the rules in a rule group without modifying how they handle your web
--- traffic.
+-- 'excludedRules', 'managedRuleGroupStatement_excludedRules' - Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 --
 -- 'version', 'managedRuleGroupStatement_version' - The version of the managed rule group to use. If you specify this, the
 -- version setting is fixed until you change it. If you don\'t specify
@@ -139,6 +144,7 @@ newManagedRuleGroupStatement pVendorName_ pName_ =
   ManagedRuleGroupStatement'
     { managedRuleGroupConfigs =
         Prelude.Nothing,
+      ruleActionOverrides = Prelude.Nothing,
       scopeDownStatement = Prelude.Nothing,
       excludedRules = Prelude.Nothing,
       version = Prelude.Nothing,
@@ -146,21 +152,26 @@ newManagedRuleGroupStatement pVendorName_ pName_ =
       name = pName_
     }
 
--- | Additional information that\'s used by a managed rule group. Most
+-- | Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
 --
--- Use this for the account takeover prevention managed rule group
--- @AWSManagedRulesATPRuleSet@, to provide information about the sign-in
--- page of your application.
---
--- You can provide multiple individual @ManagedRuleGroupConfig@ objects for
--- any rule group configuration, for example @UsernameField@ and
--- @PasswordField@. The configuration that you provide depends on the needs
--- of the managed rule group. For the ATP managed rule group, you provide
--- the following individual configuration objects: @LoginPath@,
--- @PasswordField@, @PayloadType@ and @UsernameField@.
+-- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+-- configure the protection level that you want the Bot Control rule group
+-- to use.
 managedRuleGroupStatement_managedRuleGroupConfigs :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe (Prelude.NonEmpty ManagedRuleGroupConfig))
 managedRuleGroupStatement_managedRuleGroupConfigs = Lens.lens (\ManagedRuleGroupStatement' {managedRuleGroupConfigs} -> managedRuleGroupConfigs) (\s@ManagedRuleGroupStatement' {} a -> s {managedRuleGroupConfigs = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | Action settings to use in the place of the rule actions that are
+-- configured inside the rule group. You specify one override for each rule
+-- whose action you want to change.
+--
+-- You can use overrides for testing, for example you can override all of
+-- rule actions to @Count@ and then monitor the resulting count metrics to
+-- understand how the rule group would handle your web traffic. You can
+-- also permanently override some or all actions, to modify how the rule
+-- group manages your web traffic.
+managedRuleGroupStatement_ruleActionOverrides :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe (Prelude.NonEmpty RuleActionOverride))
+managedRuleGroupStatement_ruleActionOverrides = Lens.lens (\ManagedRuleGroupStatement' {ruleActionOverrides} -> ruleActionOverrides) (\s@ManagedRuleGroupStatement' {} a -> s {ruleActionOverrides = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional nested statement that narrows the scope of the web requests
 -- that are evaluated by the managed rule group. Requests are only
@@ -170,11 +181,10 @@ managedRuleGroupStatement_managedRuleGroupConfigs = Lens.lens (\ManagedRuleGroup
 managedRuleGroupStatement_scopeDownStatement :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe Statement)
 managedRuleGroupStatement_scopeDownStatement = Lens.lens (\ManagedRuleGroupStatement' {scopeDownStatement} -> scopeDownStatement) (\s@ManagedRuleGroupStatement' {} a -> s {scopeDownStatement = a} :: ManagedRuleGroupStatement)
 
--- | The rules in the referenced rule group whose actions are set to @Count@.
--- When you exclude a rule, WAF evaluates it exactly as it would if the
--- rule action setting were @Count@. This is a useful option for testing
--- the rules in a rule group without modifying how they handle your web
--- traffic.
+-- | Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 managedRuleGroupStatement_excludedRules :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe [ExcludedRule])
 managedRuleGroupStatement_excludedRules = Lens.lens (\ManagedRuleGroupStatement' {excludedRules} -> excludedRules) (\s@ManagedRuleGroupStatement' {} a -> s {excludedRules = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
 
@@ -203,6 +213,7 @@ instance Core.FromJSON ManagedRuleGroupStatement where
       ( \x ->
           ManagedRuleGroupStatement'
             Prelude.<$> (x Core..:? "ManagedRuleGroupConfigs")
+            Prelude.<*> (x Core..:? "RuleActionOverrides")
             Prelude.<*> (x Core..:? "ScopeDownStatement")
             Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Version")
@@ -214,6 +225,7 @@ instance Prelude.Hashable ManagedRuleGroupStatement where
   hashWithSalt _salt ManagedRuleGroupStatement' {..} =
     _salt
       `Prelude.hashWithSalt` managedRuleGroupConfigs
+      `Prelude.hashWithSalt` ruleActionOverrides
       `Prelude.hashWithSalt` scopeDownStatement
       `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` version
@@ -223,6 +235,7 @@ instance Prelude.Hashable ManagedRuleGroupStatement where
 instance Prelude.NFData ManagedRuleGroupStatement where
   rnf ManagedRuleGroupStatement' {..} =
     Prelude.rnf managedRuleGroupConfigs
+      `Prelude.seq` Prelude.rnf ruleActionOverrides
       `Prelude.seq` Prelude.rnf scopeDownStatement
       `Prelude.seq` Prelude.rnf excludedRules
       `Prelude.seq` Prelude.rnf version
@@ -235,6 +248,8 @@ instance Core.ToJSON ManagedRuleGroupStatement where
       ( Prelude.catMaybes
           [ ("ManagedRuleGroupConfigs" Core..=)
               Prelude.<$> managedRuleGroupConfigs,
+            ("RuleActionOverrides" Core..=)
+              Prelude.<$> ruleActionOverrides,
             ("ScopeDownStatement" Core..=)
               Prelude.<$> scopeDownStatement,
             ("ExcludedRules" Core..=) Prelude.<$> excludedRules,

@@ -20,13 +20,12 @@
 module Amazonka.WAFV2.Types.LabelMatchStatement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.LabelMatchScope
 
--- | A rule statement that defines a string match search against labels that
--- have been added to the web request by rules that have already run in the
--- web ACL.
+-- | A rule statement to match against labels that have been added to the web
+-- request by rules that have already run in the web ACL.
 --
 -- The label match statement provides the label or namespace string to
 -- search for. The label string can represent a part or all of the fully

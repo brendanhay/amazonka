@@ -20,11 +20,12 @@
 module Amazonka.WAFV2.Types.RuleAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.AllowAction
 import Amazonka.WAFV2.Types.BlockAction
 import Amazonka.WAFV2.Types.CaptchaAction
+import Amazonka.WAFV2.Types.ChallengeAction
 import Amazonka.WAFV2.Types.CountAction
 
 -- | The action that WAF should take on a web request when it matches a
@@ -33,7 +34,9 @@ import Amazonka.WAFV2.Types.CountAction
 --
 -- /See:/ 'newRuleAction' smart constructor.
 data RuleAction = RuleAction'
-  { -- | Instructs WAF to allow the web request.
+  { -- | Instructs WAF to run a @Challenge@ check against the web request.
+    challenge :: Prelude.Maybe ChallengeAction,
+    -- | Instructs WAF to allow the web request.
     allow :: Prelude.Maybe AllowAction,
     -- | Instructs WAF to count the web request and then continue evaluating the
     -- request using the remaining rules in the web ACL.
@@ -53,6 +56,8 @@ data RuleAction = RuleAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'challenge', 'ruleAction_challenge' - Instructs WAF to run a @Challenge@ check against the web request.
+--
 -- 'allow', 'ruleAction_allow' - Instructs WAF to allow the web request.
 --
 -- 'count', 'ruleAction_count' - Instructs WAF to count the web request and then continue evaluating the
@@ -65,11 +70,16 @@ newRuleAction ::
   RuleAction
 newRuleAction =
   RuleAction'
-    { allow = Prelude.Nothing,
+    { challenge = Prelude.Nothing,
+      allow = Prelude.Nothing,
       count = Prelude.Nothing,
       captcha = Prelude.Nothing,
       block = Prelude.Nothing
     }
+
+-- | Instructs WAF to run a @Challenge@ check against the web request.
+ruleAction_challenge :: Lens.Lens' RuleAction (Prelude.Maybe ChallengeAction)
+ruleAction_challenge = Lens.lens (\RuleAction' {challenge} -> challenge) (\s@RuleAction' {} a -> s {challenge = a} :: RuleAction)
 
 -- | Instructs WAF to allow the web request.
 ruleAction_allow :: Lens.Lens' RuleAction (Prelude.Maybe AllowAction)
@@ -94,7 +104,8 @@ instance Core.FromJSON RuleAction where
       "RuleAction"
       ( \x ->
           RuleAction'
-            Prelude.<$> (x Core..:? "Allow")
+            Prelude.<$> (x Core..:? "Challenge")
+            Prelude.<*> (x Core..:? "Allow")
             Prelude.<*> (x Core..:? "Count")
             Prelude.<*> (x Core..:? "Captcha")
             Prelude.<*> (x Core..:? "Block")
@@ -102,14 +113,16 @@ instance Core.FromJSON RuleAction where
 
 instance Prelude.Hashable RuleAction where
   hashWithSalt _salt RuleAction' {..} =
-    _salt `Prelude.hashWithSalt` allow
+    _salt `Prelude.hashWithSalt` challenge
+      `Prelude.hashWithSalt` allow
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` captcha
       `Prelude.hashWithSalt` block
 
 instance Prelude.NFData RuleAction where
   rnf RuleAction' {..} =
-    Prelude.rnf allow
+    Prelude.rnf challenge
+      `Prelude.seq` Prelude.rnf allow
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf captcha
       `Prelude.seq` Prelude.rnf block
@@ -118,7 +131,8 @@ instance Core.ToJSON RuleAction where
   toJSON RuleAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Allow" Core..=) Prelude.<$> allow,
+          [ ("Challenge" Core..=) Prelude.<$> challenge,
+            ("Allow" Core..=) Prelude.<$> allow,
             ("Count" Core..=) Prelude.<$> count,
             ("Captcha" Core..=) Prelude.<$> captcha,
             ("Block" Core..=) Prelude.<$> block

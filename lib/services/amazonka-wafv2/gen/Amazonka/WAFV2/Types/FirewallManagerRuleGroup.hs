@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.FirewallManagerRuleGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FirewallManagerStatement
 import Amazonka.WAFV2.Types.OverrideAction
@@ -51,8 +51,9 @@ data FirewallManagerRuleGroup = FirewallManagerRuleGroup'
     --
     -- This option is usually set to none. It does not affect how the rules in
     -- the rule group are evaluated. If you want the rules in the rule group to
-    -- only count matches, do not use this and instead exclude those rules in
-    -- your rule group reference statement settings.
+    -- only count matches, do not use this and instead use the rule action
+    -- override option, with @Count@ action, in your rule group reference
+    -- statement settings.
     overrideAction :: OverrideAction,
     -- | Defines and enables Amazon CloudWatch metrics and web request sample
     -- collection.
@@ -89,8 +90,9 @@ data FirewallManagerRuleGroup = FirewallManagerRuleGroup'
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 --
 -- 'visibilityConfig', 'firewallManagerRuleGroup_visibilityConfig' - Defines and enables Amazon CloudWatch metrics and web request sample
 -- collection.
@@ -148,8 +150,9 @@ firewallManagerRuleGroup_firewallManagerStatement = Lens.lens (\FirewallManagerR
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 firewallManagerRuleGroup_overrideAction :: Lens.Lens' FirewallManagerRuleGroup OverrideAction
 firewallManagerRuleGroup_overrideAction = Lens.lens (\FirewallManagerRuleGroup' {overrideAction} -> overrideAction) (\s@FirewallManagerRuleGroup' {} a -> s {overrideAction = a} :: FirewallManagerRuleGroup)
 

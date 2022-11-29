@@ -39,10 +39,12 @@ module Amazonka.WAFV2.CreateWebACL
 
     -- * Request Lenses
     createWebACL_tags,
+    createWebACL_tokenDomains,
     createWebACL_captchaConfig,
     createWebACL_rules,
     createWebACL_description,
     createWebACL_customResponseBodies,
+    createWebACL_challengeConfig,
     createWebACL_name,
     createWebACL_scope,
     createWebACL_defaultAction,
@@ -59,7 +61,7 @@ module Amazonka.WAFV2.CreateWebACL
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,6 +71,18 @@ import Amazonka.WAFV2.Types
 data CreateWebACL = CreateWebACL'
   { -- | An array of key:value pairs to associate with the resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Specifies the domains that WAF should accept in a web request token.
+    -- This enables the use of tokens across multiple protected websites. When
+    -- WAF provides a token, it uses the domain of the Amazon Web Services
+    -- resource that the web ACL is protecting. If you don\'t specify a list of
+    -- token domains, WAF accepts tokens only for the domain of the protected
+    -- resource. With a token domain list, WAF accepts the resource\'s host
+    -- domain plus all domains in the token domain list, including their
+    -- prefixed subdomains.
+    --
+    -- Example JSON:
+    -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
     -- this, WAF uses its default settings for @CaptchaConfig@.
@@ -96,6 +110,10 @@ data CreateWebACL = CreateWebACL'
     -- in the
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
+    -- | Specifies how WAF should handle challenge evaluations for rules that
+    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+    -- this, WAF uses its default settings for @ChallengeConfig@.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
     name :: Prelude.Text,
@@ -131,6 +149,18 @@ data CreateWebACL = CreateWebACL'
 --
 -- 'tags', 'createWebACL_tags' - An array of key:value pairs to associate with the resource.
 --
+-- 'tokenDomains', 'createWebACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+--
+-- Example JSON:
+-- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+--
 -- 'captchaConfig', 'createWebACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
 -- this, WAF uses its default settings for @CaptchaConfig@.
@@ -157,6 +187,10 @@ data CreateWebACL = CreateWebACL'
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- 'challengeConfig', 'createWebACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
 --
 -- 'name', 'createWebACL_name' - The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -196,10 +230,12 @@ newCreateWebACL
   pVisibilityConfig_ =
     CreateWebACL'
       { tags = Prelude.Nothing,
+        tokenDomains = Prelude.Nothing,
         captchaConfig = Prelude.Nothing,
         rules = Prelude.Nothing,
         description = Prelude.Nothing,
         customResponseBodies = Prelude.Nothing,
+        challengeConfig = Prelude.Nothing,
         name = pName_,
         scope = pScope_,
         defaultAction = pDefaultAction_,
@@ -209,6 +245,20 @@ newCreateWebACL
 -- | An array of key:value pairs to associate with the resource.
 createWebACL_tags :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Tag))
 createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' {} a -> s {tags = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+--
+-- Example JSON:
+-- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+createWebACL_tokenDomains :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createWebACL_tokenDomains = Lens.lens (\CreateWebACL' {tokenDomains} -> tokenDomains) (\s@CreateWebACL' {} a -> s {tokenDomains = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -245,6 +295,12 @@ createWebACL_description = Lens.lens (\CreateWebACL' {description} -> descriptio
 createWebACL_customResponseBodies :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 createWebACL_customResponseBodies = Lens.lens (\CreateWebACL' {customResponseBodies} -> customResponseBodies) (\s@CreateWebACL' {} a -> s {customResponseBodies = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
+createWebACL_challengeConfig :: Lens.Lens' CreateWebACL (Prelude.Maybe ChallengeConfig)
+createWebACL_challengeConfig = Lens.lens (\CreateWebACL' {challengeConfig} -> challengeConfig) (\s@CreateWebACL' {} a -> s {challengeConfig = a} :: CreateWebACL)
+
 -- | The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
 createWebACL_name :: Lens.Lens' CreateWebACL Prelude.Text
@@ -277,8 +333,8 @@ createWebACL_visibilityConfig = Lens.lens (\CreateWebACL' {visibilityConfig} -> 
 
 instance Core.AWSRequest CreateWebACL where
   type AWSResponse CreateWebACL = CreateWebACLResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -290,10 +346,12 @@ instance Core.AWSRequest CreateWebACL where
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tokenDomains
       `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` customResponseBodies
+      `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` defaultAction
@@ -302,10 +360,12 @@ instance Prelude.Hashable CreateWebACL where
 instance Prelude.NFData CreateWebACL where
   rnf CreateWebACL' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tokenDomains
       `Prelude.seq` Prelude.rnf captchaConfig
       `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf customResponseBodies
+      `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf defaultAction
@@ -331,11 +391,14 @@ instance Core.ToJSON CreateWebACL where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("TokenDomains" Core..=) Prelude.<$> tokenDomains,
             ("CaptchaConfig" Core..=) Prelude.<$> captchaConfig,
             ("Rules" Core..=) Prelude.<$> rules,
             ("Description" Core..=) Prelude.<$> description,
             ("CustomResponseBodies" Core..=)
               Prelude.<$> customResponseBodies,
+            ("ChallengeConfig" Core..=)
+              Prelude.<$> challengeConfig,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Scope" Core..= scope),
             Prelude.Just ("DefaultAction" Core..= defaultAction),

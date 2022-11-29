@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.ReleaseSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | High level information for an SDK release.

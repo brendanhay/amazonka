@@ -20,25 +20,19 @@
 module Amazonka.WAFV2.Types.ManagedRuleGroupConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.PasswordField
 import Amazonka.WAFV2.Types.PayloadType
 import Amazonka.WAFV2.Types.UsernameField
 
--- | Additional information that\'s used by a managed rule group. Most
+-- | Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
 --
--- Use this for the account takeover prevention managed rule group
--- @AWSManagedRulesATPRuleSet@, to provide information about the sign-in
--- page of your application.
---
--- You can provide multiple individual @ManagedRuleGroupConfig@ objects for
--- any rule group configuration, for example @UsernameField@ and
--- @PasswordField@. The configuration that you provide depends on the needs
--- of the managed rule group. For the ATP managed rule group, you provide
--- the following individual configuration objects: @LoginPath@,
--- @PasswordField@, @PayloadType@ and @UsernameField@.
+-- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+-- configure the protection level that you want the Bot Control rule group
+-- to use.
 --
 -- For example specifications, see the examples section of CreateWebACL.
 --
@@ -50,6 +44,14 @@ data ManagedRuleGroupConfig = ManagedRuleGroupConfig'
     -- the URL @https:\/\/example.com\/web\/login@, you would provide the path
     -- @\/web\/login@.
     loginPath :: Prelude.Maybe Prelude.Text,
+    -- | Additional configuration for using the Bot Control managed rule group.
+    -- Use this to specify the inspection level that you want to use. For
+    -- information about using the Bot Control managed rule group, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+    -- and
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html WAF Bot Control>
+    -- in the /WAF Developer Guide/.
+    aWSManagedRulesBotControlRuleSet :: Prelude.Maybe AWSManagedRulesBotControlRuleSet,
     -- | The payload type for your login endpoint, either JSON or form encoded.
     payloadType :: Prelude.Maybe PayloadType,
     -- | Details about your login page username field.
@@ -71,6 +73,14 @@ data ManagedRuleGroupConfig = ManagedRuleGroupConfig'
 -- the URL @https:\/\/example.com\/web\/login@, you would provide the path
 -- @\/web\/login@.
 --
+-- 'aWSManagedRulesBotControlRuleSet', 'managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet' - Additional configuration for using the Bot Control managed rule group.
+-- Use this to specify the inspection level that you want to use. For
+-- information about using the Bot Control managed rule group, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+-- and
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html WAF Bot Control>
+-- in the /WAF Developer Guide/.
+--
 -- 'payloadType', 'managedRuleGroupConfig_payloadType' - The payload type for your login endpoint, either JSON or form encoded.
 --
 -- 'usernameField', 'managedRuleGroupConfig_usernameField' - Details about your login page username field.
@@ -81,6 +91,7 @@ newManagedRuleGroupConfig =
     { passwordField =
         Prelude.Nothing,
       loginPath = Prelude.Nothing,
+      aWSManagedRulesBotControlRuleSet = Prelude.Nothing,
       payloadType = Prelude.Nothing,
       usernameField = Prelude.Nothing
     }
@@ -94,6 +105,16 @@ managedRuleGroupConfig_passwordField = Lens.lens (\ManagedRuleGroupConfig' {pass
 -- @\/web\/login@.
 managedRuleGroupConfig_loginPath :: Lens.Lens' ManagedRuleGroupConfig (Prelude.Maybe Prelude.Text)
 managedRuleGroupConfig_loginPath = Lens.lens (\ManagedRuleGroupConfig' {loginPath} -> loginPath) (\s@ManagedRuleGroupConfig' {} a -> s {loginPath = a} :: ManagedRuleGroupConfig)
+
+-- | Additional configuration for using the Bot Control managed rule group.
+-- Use this to specify the inspection level that you want to use. For
+-- information about using the Bot Control managed rule group, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+-- and
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html WAF Bot Control>
+-- in the /WAF Developer Guide/.
+managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet :: Lens.Lens' ManagedRuleGroupConfig (Prelude.Maybe AWSManagedRulesBotControlRuleSet)
+managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet = Lens.lens (\ManagedRuleGroupConfig' {aWSManagedRulesBotControlRuleSet} -> aWSManagedRulesBotControlRuleSet) (\s@ManagedRuleGroupConfig' {} a -> s {aWSManagedRulesBotControlRuleSet = a} :: ManagedRuleGroupConfig)
 
 -- | The payload type for your login endpoint, either JSON or form encoded.
 managedRuleGroupConfig_payloadType :: Lens.Lens' ManagedRuleGroupConfig (Prelude.Maybe PayloadType)
@@ -111,6 +132,7 @@ instance Core.FromJSON ManagedRuleGroupConfig where
           ManagedRuleGroupConfig'
             Prelude.<$> (x Core..:? "PasswordField")
             Prelude.<*> (x Core..:? "LoginPath")
+            Prelude.<*> (x Core..:? "AWSManagedRulesBotControlRuleSet")
             Prelude.<*> (x Core..:? "PayloadType")
             Prelude.<*> (x Core..:? "UsernameField")
       )
@@ -119,6 +141,7 @@ instance Prelude.Hashable ManagedRuleGroupConfig where
   hashWithSalt _salt ManagedRuleGroupConfig' {..} =
     _salt `Prelude.hashWithSalt` passwordField
       `Prelude.hashWithSalt` loginPath
+      `Prelude.hashWithSalt` aWSManagedRulesBotControlRuleSet
       `Prelude.hashWithSalt` payloadType
       `Prelude.hashWithSalt` usernameField
 
@@ -126,6 +149,7 @@ instance Prelude.NFData ManagedRuleGroupConfig where
   rnf ManagedRuleGroupConfig' {..} =
     Prelude.rnf passwordField
       `Prelude.seq` Prelude.rnf loginPath
+      `Prelude.seq` Prelude.rnf aWSManagedRulesBotControlRuleSet
       `Prelude.seq` Prelude.rnf payloadType
       `Prelude.seq` Prelude.rnf usernameField
 
@@ -135,6 +159,8 @@ instance Core.ToJSON ManagedRuleGroupConfig where
       ( Prelude.catMaybes
           [ ("PasswordField" Core..=) Prelude.<$> passwordField,
             ("LoginPath" Core..=) Prelude.<$> loginPath,
+            ("AWSManagedRulesBotControlRuleSet" Core..=)
+              Prelude.<$> aWSManagedRulesBotControlRuleSet,
             ("PayloadType" Core..=) Prelude.<$> payloadType,
             ("UsernameField" Core..=) Prelude.<$> usernameField
           ]

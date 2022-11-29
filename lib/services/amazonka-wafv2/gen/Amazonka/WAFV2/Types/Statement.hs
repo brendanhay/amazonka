@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.Statement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.WAFV2.Types.AndStatement
 import Amazonka.WAFV2.Types.ByteMatchStatement
@@ -134,8 +134,38 @@ data Statement = Statement'
     -- | A logical rule statement used to negate the results of another rule
     -- statement. You provide one Statement within the @NotStatement@.
     notStatement :: Prelude.Maybe NotStatement,
-    -- | A rule statement used to identify web requests based on country of
-    -- origin.
+    -- | A rule statement that labels web requests by country and region and that
+    -- matches against web requests based on country code. A geo match rule
+    -- labels every request that it inspects regardless of whether it finds a
+    -- match.
+    --
+    -- -   To manage requests only by country, you can use this statement by
+    --     itself and specify the countries that you want to match against in
+    --     the @CountryCodes@ array.
+    --
+    -- -   Otherwise, configure your geo match rule with Count action so that
+    --     it only labels requests. Then, add one or more label match rules to
+    --     run after the geo match rule and configure them to match against the
+    --     geographic labels and handle the requests as needed.
+    --
+    -- WAF labels requests using the alpha-2 country and region codes from the
+    -- International Organization for Standardization (ISO) 3166 standard. WAF
+    -- determines the codes using either the IP address in the web request
+    -- origin or, if you specify it, the address in the geo match
+    -- @ForwardedIPConfig@.
+    --
+    -- If you use the web request origin, the label formats are
+    -- @awswaf:clientip:geo:region:\<ISO country code>-\<ISO region code>@ and
+    -- @awswaf:clientip:geo:country:\<ISO country code>@.
+    --
+    -- If you use a forwarded IP address, the label formats are
+    -- @awswaf:forwardedip:geo:region:\<ISO country code>-\<ISO region code>@
+    -- and @awswaf:forwardedip:geo:country:\<ISO country code>@.
+    --
+    -- For additional details, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html Geographic match rule statement>
+    -- in the
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
     geoMatchStatement :: Prelude.Maybe GeoMatchStatement,
     -- | A logical rule statement used to combine other rule statements with OR
     -- logic. You provide more than one Statement within the @OrStatement@.
@@ -161,9 +191,8 @@ data Statement = Statement'
     -- corresponds with ASCII characters. In the WAF console and the developer
     -- guide, this is called a string match statement.
     byteMatchStatement :: Prelude.Maybe ByteMatchStatement,
-    -- | A rule statement that defines a string match search against labels that
-    -- have been added to the web request by rules that have already run in the
-    -- web ACL.
+    -- | A rule statement to match against labels that have been added to the web
+    -- request by rules that have already run in the web ACL.
     --
     -- The label match statement provides the label or namespace string to
     -- search for. The label string can represent a part or all of the fully
@@ -290,8 +319,38 @@ data Statement = Statement'
 -- 'notStatement', 'statement_notStatement' - A logical rule statement used to negate the results of another rule
 -- statement. You provide one Statement within the @NotStatement@.
 --
--- 'geoMatchStatement', 'statement_geoMatchStatement' - A rule statement used to identify web requests based on country of
--- origin.
+-- 'geoMatchStatement', 'statement_geoMatchStatement' - A rule statement that labels web requests by country and region and that
+-- matches against web requests based on country code. A geo match rule
+-- labels every request that it inspects regardless of whether it finds a
+-- match.
+--
+-- -   To manage requests only by country, you can use this statement by
+--     itself and specify the countries that you want to match against in
+--     the @CountryCodes@ array.
+--
+-- -   Otherwise, configure your geo match rule with Count action so that
+--     it only labels requests. Then, add one or more label match rules to
+--     run after the geo match rule and configure them to match against the
+--     geographic labels and handle the requests as needed.
+--
+-- WAF labels requests using the alpha-2 country and region codes from the
+-- International Organization for Standardization (ISO) 3166 standard. WAF
+-- determines the codes using either the IP address in the web request
+-- origin or, if you specify it, the address in the geo match
+-- @ForwardedIPConfig@.
+--
+-- If you use the web request origin, the label formats are
+-- @awswaf:clientip:geo:region:\<ISO country code>-\<ISO region code>@ and
+-- @awswaf:clientip:geo:country:\<ISO country code>@.
+--
+-- If you use a forwarded IP address, the label formats are
+-- @awswaf:forwardedip:geo:region:\<ISO country code>-\<ISO region code>@
+-- and @awswaf:forwardedip:geo:country:\<ISO country code>@.
+--
+-- For additional details, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html Geographic match rule statement>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
 -- 'orStatement', 'statement_orStatement' - A logical rule statement used to combine other rule statements with OR
 -- logic. You provide more than one Statement within the @OrStatement@.
@@ -317,9 +376,8 @@ data Statement = Statement'
 -- corresponds with ASCII characters. In the WAF console and the developer
 -- guide, this is called a string match statement.
 --
--- 'labelMatchStatement', 'statement_labelMatchStatement' - A rule statement that defines a string match search against labels that
--- have been added to the web request by rules that have already run in the
--- web ACL.
+-- 'labelMatchStatement', 'statement_labelMatchStatement' - A rule statement to match against labels that have been added to the web
+-- request by rules that have already run in the web ACL.
 --
 -- The label match statement provides the label or namespace string to
 -- search for. The label string can represent a part or all of the fully
@@ -470,8 +528,38 @@ statement_rateBasedStatement = Lens.lens (\Statement' {rateBasedStatement} -> ra
 statement_notStatement :: Lens.Lens' Statement (Prelude.Maybe NotStatement)
 statement_notStatement = Lens.lens (\Statement' {notStatement} -> notStatement) (\s@Statement' {} a -> s {notStatement = a} :: Statement)
 
--- | A rule statement used to identify web requests based on country of
--- origin.
+-- | A rule statement that labels web requests by country and region and that
+-- matches against web requests based on country code. A geo match rule
+-- labels every request that it inspects regardless of whether it finds a
+-- match.
+--
+-- -   To manage requests only by country, you can use this statement by
+--     itself and specify the countries that you want to match against in
+--     the @CountryCodes@ array.
+--
+-- -   Otherwise, configure your geo match rule with Count action so that
+--     it only labels requests. Then, add one or more label match rules to
+--     run after the geo match rule and configure them to match against the
+--     geographic labels and handle the requests as needed.
+--
+-- WAF labels requests using the alpha-2 country and region codes from the
+-- International Organization for Standardization (ISO) 3166 standard. WAF
+-- determines the codes using either the IP address in the web request
+-- origin or, if you specify it, the address in the geo match
+-- @ForwardedIPConfig@.
+--
+-- If you use the web request origin, the label formats are
+-- @awswaf:clientip:geo:region:\<ISO country code>-\<ISO region code>@ and
+-- @awswaf:clientip:geo:country:\<ISO country code>@.
+--
+-- If you use a forwarded IP address, the label formats are
+-- @awswaf:forwardedip:geo:region:\<ISO country code>-\<ISO region code>@
+-- and @awswaf:forwardedip:geo:country:\<ISO country code>@.
+--
+-- For additional details, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html Geographic match rule statement>
+-- in the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 statement_geoMatchStatement :: Lens.Lens' Statement (Prelude.Maybe GeoMatchStatement)
 statement_geoMatchStatement = Lens.lens (\Statement' {geoMatchStatement} -> geoMatchStatement) (\s@Statement' {} a -> s {geoMatchStatement = a} :: Statement)
 
@@ -505,9 +593,8 @@ statement_sizeConstraintStatement = Lens.lens (\Statement' {sizeConstraintStatem
 statement_byteMatchStatement :: Lens.Lens' Statement (Prelude.Maybe ByteMatchStatement)
 statement_byteMatchStatement = Lens.lens (\Statement' {byteMatchStatement} -> byteMatchStatement) (\s@Statement' {} a -> s {byteMatchStatement = a} :: Statement)
 
--- | A rule statement that defines a string match search against labels that
--- have been added to the web request by rules that have already run in the
--- web ACL.
+-- | A rule statement to match against labels that have been added to the web
+-- request by rules that have already run in the web ACL.
 --
 -- The label match statement provides the label or namespace string to
 -- search for. The label string can represent a part or all of the fully

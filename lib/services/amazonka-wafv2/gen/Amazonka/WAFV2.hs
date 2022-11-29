@@ -467,6 +467,9 @@ module Amazonka.WAFV2
     -- ** IPAddressVersion
     IPAddressVersion (..),
 
+    -- ** InspectionLevel
+    InspectionLevel (..),
+
     -- ** JsonMatchScope
     JsonMatchScope (..),
 
@@ -505,6 +508,10 @@ module Amazonka.WAFV2
 
     -- ** TextTransformationType
     TextTransformationType (..),
+
+    -- ** AWSManagedRulesBotControlRuleSet
+    AWSManagedRulesBotControlRuleSet (AWSManagedRulesBotControlRuleSet'),
+    newAWSManagedRulesBotControlRuleSet,
 
     -- ** ActionCondition
     ActionCondition (ActionCondition'),
@@ -549,6 +556,18 @@ module Amazonka.WAFV2
     -- ** CaptchaResponse
     CaptchaResponse (CaptchaResponse'),
     newCaptchaResponse,
+
+    -- ** ChallengeAction
+    ChallengeAction (ChallengeAction'),
+    newChallengeAction,
+
+    -- ** ChallengeConfig
+    ChallengeConfig (ChallengeConfig'),
+    newChallengeConfig,
+
+    -- ** ChallengeResponse
+    ChallengeResponse (ChallengeResponse'),
+    newChallengeResponse,
 
     -- ** Condition
     Condition (Condition'),
@@ -781,6 +800,10 @@ module Amazonka.WAFV2
     -- ** RuleAction
     RuleAction (RuleAction'),
     newRuleAction,
+
+    -- ** RuleActionOverride
+    RuleActionOverride (RuleActionOverride'),
+    newRuleActionOverride,
 
     -- ** RuleGroup
     RuleGroup (RuleGroup'),

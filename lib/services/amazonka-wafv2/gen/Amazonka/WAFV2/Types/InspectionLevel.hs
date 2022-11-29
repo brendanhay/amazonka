@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.WAFV2.Types.FailureReason
+-- Module      : Amazonka.WAFV2.Types.InspectionLevel
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.WAFV2.Types.FailureReason
-  ( FailureReason
+module Amazonka.WAFV2.Types.InspectionLevel
+  ( InspectionLevel
       ( ..,
-        FailureReason_TOKEN_DOMAIN_MISMATCH,
-        FailureReason_TOKEN_EXPIRED,
-        FailureReason_TOKEN_INVALID,
-        FailureReason_TOKEN_MISSING
+        InspectionLevel_COMMON,
+        InspectionLevel_TARGETED
       ),
   )
 where
@@ -31,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype FailureReason = FailureReason'
-  { fromFailureReason ::
+newtype InspectionLevel = InspectionLevel'
+  { fromInspectionLevel ::
       Core.Text
   }
   deriving stock
@@ -59,22 +57,14 @@ newtype FailureReason = FailureReason'
       Core.ToXML
     )
 
-pattern FailureReason_TOKEN_DOMAIN_MISMATCH :: FailureReason
-pattern FailureReason_TOKEN_DOMAIN_MISMATCH = FailureReason' "TOKEN_DOMAIN_MISMATCH"
+pattern InspectionLevel_COMMON :: InspectionLevel
+pattern InspectionLevel_COMMON = InspectionLevel' "COMMON"
 
-pattern FailureReason_TOKEN_EXPIRED :: FailureReason
-pattern FailureReason_TOKEN_EXPIRED = FailureReason' "TOKEN_EXPIRED"
-
-pattern FailureReason_TOKEN_INVALID :: FailureReason
-pattern FailureReason_TOKEN_INVALID = FailureReason' "TOKEN_INVALID"
-
-pattern FailureReason_TOKEN_MISSING :: FailureReason
-pattern FailureReason_TOKEN_MISSING = FailureReason' "TOKEN_MISSING"
+pattern InspectionLevel_TARGETED :: InspectionLevel
+pattern InspectionLevel_TARGETED = InspectionLevel' "TARGETED"
 
 {-# COMPLETE
-  FailureReason_TOKEN_DOMAIN_MISMATCH,
-  FailureReason_TOKEN_EXPIRED,
-  FailureReason_TOKEN_INVALID,
-  FailureReason_TOKEN_MISSING,
-  FailureReason'
+  InspectionLevel_COMMON,
+  InspectionLevel_TARGETED,
+  InspectionLevel'
   #-}

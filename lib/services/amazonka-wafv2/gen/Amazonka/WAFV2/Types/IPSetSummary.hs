@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.IPSetSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about an IPSet, returned by operations like

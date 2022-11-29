@@ -20,14 +20,14 @@
 module Amazonka.WAFV2.Types.ExcludedRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a single rule in a rule group whose action you want to
--- override to @Count@. When you exclude a rule, WAF evaluates it exactly
--- as it would if the rule action setting were @Count@. This is a useful
--- option for testing the rules in a rule group without modifying how they
--- handle your web traffic.
+-- override to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 --
 -- /See:/ 'newExcludedRule' smart constructor.
 data ExcludedRule = ExcludedRule'

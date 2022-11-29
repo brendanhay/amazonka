@@ -94,6 +94,7 @@ library
     Amazonka.WAFV2.Types.AllowAction
     Amazonka.WAFV2.Types.AllQueryArguments
     Amazonka.WAFV2.Types.AndStatement
+    Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
     Amazonka.WAFV2.Types.BlockAction
     Amazonka.WAFV2.Types.Body
     Amazonka.WAFV2.Types.BodyParsingFallbackBehavior
@@ -101,6 +102,9 @@ library
     Amazonka.WAFV2.Types.CaptchaAction
     Amazonka.WAFV2.Types.CaptchaConfig
     Amazonka.WAFV2.Types.CaptchaResponse
+    Amazonka.WAFV2.Types.ChallengeAction
+    Amazonka.WAFV2.Types.ChallengeConfig
+    Amazonka.WAFV2.Types.ChallengeResponse
     Amazonka.WAFV2.Types.ComparisonOperator
     Amazonka.WAFV2.Types.Condition
     Amazonka.WAFV2.Types.CookieMatchPattern
@@ -129,6 +133,7 @@ library
     Amazonka.WAFV2.Types.HTTPHeader
     Amazonka.WAFV2.Types.HTTPRequest
     Amazonka.WAFV2.Types.ImmunityTimeProperty
+    Amazonka.WAFV2.Types.InspectionLevel
     Amazonka.WAFV2.Types.IPAddressVersion
     Amazonka.WAFV2.Types.IPSet
     Amazonka.WAFV2.Types.IPSetForwardedIPConfig
@@ -177,6 +182,7 @@ library
     Amazonka.WAFV2.Types.ResponseContentType
     Amazonka.WAFV2.Types.Rule
     Amazonka.WAFV2.Types.RuleAction
+    Amazonka.WAFV2.Types.RuleActionOverride
     Amazonka.WAFV2.Types.RuleGroup
     Amazonka.WAFV2.Types.RuleGroupReferenceStatement
     Amazonka.WAFV2.Types.RuleGroupSummary

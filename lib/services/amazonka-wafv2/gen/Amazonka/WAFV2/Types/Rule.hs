@@ -20,9 +20,10 @@
 module Amazonka.WAFV2.Types.Rule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaConfig
+import Amazonka.WAFV2.Types.ChallengeConfig
 import Amazonka.WAFV2.Types.Label
 import Amazonka.WAFV2.Types.OverrideAction
 import Amazonka.WAFV2.Types.RuleAction
@@ -50,8 +51,9 @@ data Rule = Rule'
     --
     -- This option is usually set to none. It does not affect how the rules in
     -- the rule group are evaluated. If you want the rules in the rule group to
-    -- only count matches, do not use this and instead exclude those rules in
-    -- your rule group reference statement settings.
+    -- only count matches, do not use this and instead use the rule action
+    -- override option, with @Count@ action, in your rule group reference
+    -- statement settings.
     overrideAction :: Prelude.Maybe OverrideAction,
     -- | Labels to apply to web requests that match the rule match statement. WAF
     -- applies fully qualified labels to matching web requests. A fully
@@ -93,6 +95,10 @@ data Rule = Rule'
     -- -   If the rule statement references a rule group, use the override
     --     action setting and not this action setting.
     action :: Prelude.Maybe RuleAction,
+    -- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+    -- specify this, WAF uses the challenge configuration that\'s defined for
+    -- the web ACL.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | The name of the rule. You can\'t change the name of a @Rule@ after you
     -- create it.
     name :: Prelude.Text,
@@ -132,8 +138,9 @@ data Rule = Rule'
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 --
 -- 'ruleLabels', 'rule_ruleLabels' - Labels to apply to web requests that match the rule match statement. WAF
 -- applies fully qualified labels to matching web requests. A fully
@@ -175,6 +182,10 @@ data Rule = Rule'
 -- -   If the rule statement references a rule group, use the override
 --     action setting and not this action setting.
 --
+-- 'challengeConfig', 'rule_challengeConfig' - Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+-- specify this, WAF uses the challenge configuration that\'s defined for
+-- the web ACL.
+--
 -- 'name', 'rule_name' - The name of the rule. You can\'t change the name of a @Rule@ after you
 -- create it.
 --
@@ -208,6 +219,7 @@ newRule
         overrideAction = Prelude.Nothing,
         ruleLabels = Prelude.Nothing,
         action = Prelude.Nothing,
+        challengeConfig = Prelude.Nothing,
         name = pName_,
         priority = pPriority_,
         statement = pStatement_,
@@ -230,8 +242,9 @@ rule_captchaConfig = Lens.lens (\Rule' {captchaConfig} -> captchaConfig) (\s@Rul
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 rule_overrideAction :: Lens.Lens' Rule (Prelude.Maybe OverrideAction)
 rule_overrideAction = Lens.lens (\Rule' {overrideAction} -> overrideAction) (\s@Rule' {} a -> s {overrideAction = a} :: Rule)
 
@@ -279,6 +292,12 @@ rule_ruleLabels = Lens.lens (\Rule' {ruleLabels} -> ruleLabels) (\s@Rule' {} a -
 rule_action :: Lens.Lens' Rule (Prelude.Maybe RuleAction)
 rule_action = Lens.lens (\Rule' {action} -> action) (\s@Rule' {} a -> s {action = a} :: Rule)
 
+-- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+-- specify this, WAF uses the challenge configuration that\'s defined for
+-- the web ACL.
+rule_challengeConfig :: Lens.Lens' Rule (Prelude.Maybe ChallengeConfig)
+rule_challengeConfig = Lens.lens (\Rule' {challengeConfig} -> challengeConfig) (\s@Rule' {} a -> s {challengeConfig = a} :: Rule)
+
 -- | The name of the rule. You can\'t change the name of a @Rule@ after you
 -- create it.
 rule_name :: Lens.Lens' Rule Prelude.Text
@@ -311,6 +330,7 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "OverrideAction")
             Prelude.<*> (x Core..:? "RuleLabels" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "ChallengeConfig")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Priority")
             Prelude.<*> (x Core..: "Statement")
@@ -323,6 +343,7 @@ instance Prelude.Hashable Rule where
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` ruleLabels
       `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` statement
@@ -334,6 +355,7 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf overrideAction
       `Prelude.seq` Prelude.rnf ruleLabels
       `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf statement
@@ -348,6 +370,8 @@ instance Core.ToJSON Rule where
               Prelude.<$> overrideAction,
             ("RuleLabels" Core..=) Prelude.<$> ruleLabels,
             ("Action" Core..=) Prelude.<$> action,
+            ("ChallengeConfig" Core..=)
+              Prelude.<$> challengeConfig,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Priority" Core..= priority),
             Prelude.Just ("Statement" Core..= statement),

@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.CaptchaResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FailureReason
 
@@ -29,7 +29,7 @@ import Amazonka.WAFV2.Types.FailureReason
 --
 -- /See:/ 'newCaptchaResponse' smart constructor.
 data CaptchaResponse = CaptchaResponse'
-  { -- | The time that the @CAPTCHA@ puzzle was solved for the supplied token.
+  { -- | The time that the @CAPTCHA@ was last solved for the supplied token.
     solveTimestamp :: Prelude.Maybe Prelude.Integer,
     -- | The HTTP response code indicating the status of the @CAPTCHA@ token in
     -- the web request. If the token is missing, invalid, or expired, this code
@@ -49,7 +49,7 @@ data CaptchaResponse = CaptchaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solveTimestamp', 'captchaResponse_solveTimestamp' - The time that the @CAPTCHA@ puzzle was solved for the supplied token.
+-- 'solveTimestamp', 'captchaResponse_solveTimestamp' - The time that the @CAPTCHA@ was last solved for the supplied token.
 --
 -- 'responseCode', 'captchaResponse_responseCode' - The HTTP response code indicating the status of the @CAPTCHA@ token in
 -- the web request. If the token is missing, invalid, or expired, this code
@@ -66,7 +66,7 @@ newCaptchaResponse =
       failureReason = Prelude.Nothing
     }
 
--- | The time that the @CAPTCHA@ puzzle was solved for the supplied token.
+-- | The time that the @CAPTCHA@ was last solved for the supplied token.
 captchaResponse_solveTimestamp :: Lens.Lens' CaptchaResponse (Prelude.Maybe Prelude.Integer)
 captchaResponse_solveTimestamp = Lens.lens (\CaptchaResponse' {solveTimestamp} -> solveTimestamp) (\s@CaptchaResponse' {} a -> s {solveTimestamp = a} :: CaptchaResponse)
 

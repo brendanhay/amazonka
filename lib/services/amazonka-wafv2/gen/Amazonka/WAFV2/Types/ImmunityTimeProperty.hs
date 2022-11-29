@@ -20,16 +20,19 @@
 module Amazonka.WAFV2.Types.ImmunityTimeProperty where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Determines how long a @CAPTCHA@ token remains valid after the client
--- successfully solves a @CAPTCHA@ puzzle.
+-- | Used for CAPTCHA and challenge token settings. Determines how long a
+-- @CAPTCHA@ or challenge timestamp remains valid after WAF updates it for
+-- a successful @CAPTCHA@ or challenge response.
 --
 -- /See:/ 'newImmunityTimeProperty' smart constructor.
 data ImmunityTimeProperty = ImmunityTimeProperty'
-  { -- | The amount of time, in seconds, that a @CAPTCHA@ token is valid. The
-    -- default setting is 300.
+  { -- | The amount of time, in seconds, that a @CAPTCHA@ or challenge timestamp
+    -- is considered valid by WAF. The default setting is 300.
+    --
+    -- For the Challenge action, the minimum setting is 300.
     immunityTime :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +45,10 @@ data ImmunityTimeProperty = ImmunityTimeProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'immunityTime', 'immunityTimeProperty_immunityTime' - The amount of time, in seconds, that a @CAPTCHA@ token is valid. The
--- default setting is 300.
+-- 'immunityTime', 'immunityTimeProperty_immunityTime' - The amount of time, in seconds, that a @CAPTCHA@ or challenge timestamp
+-- is considered valid by WAF. The default setting is 300.
+--
+-- For the Challenge action, the minimum setting is 300.
 newImmunityTimeProperty ::
   -- | 'immunityTime'
   Prelude.Natural ->
@@ -54,8 +59,10 @@ newImmunityTimeProperty pImmunityTime_ =
         pImmunityTime_
     }
 
--- | The amount of time, in seconds, that a @CAPTCHA@ token is valid. The
--- default setting is 300.
+-- | The amount of time, in seconds, that a @CAPTCHA@ or challenge timestamp
+-- is considered valid by WAF. The default setting is 300.
+--
+-- For the Challenge action, the minimum setting is 300.
 immunityTimeProperty_immunityTime :: Lens.Lens' ImmunityTimeProperty Prelude.Natural
 immunityTimeProperty_immunityTime = Lens.lens (\ImmunityTimeProperty' {immunityTime} -> immunityTime) (\s@ImmunityTimeProperty' {} a -> s {immunityTime = a} :: ImmunityTimeProperty)
 

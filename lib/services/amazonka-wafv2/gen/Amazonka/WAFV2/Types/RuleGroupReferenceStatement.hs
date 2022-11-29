@@ -20,9 +20,10 @@
 module Amazonka.WAFV2.Types.RuleGroupReferenceStatement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ExcludedRule
+import Amazonka.WAFV2.Types.RuleActionOverride
 
 -- | A rule statement used to run the rules that are defined in a RuleGroup.
 -- To use this, create a rule group with your rules, then provide the ARN
@@ -34,11 +35,20 @@ import Amazonka.WAFV2.Types.ExcludedRule
 --
 -- /See:/ 'newRuleGroupReferenceStatement' smart constructor.
 data RuleGroupReferenceStatement = RuleGroupReferenceStatement'
-  { -- | The rules in the referenced rule group whose actions are set to @Count@.
-    -- When you exclude a rule, WAF evaluates it exactly as it would if the
-    -- rule action setting were @Count@. This is a useful option for testing
-    -- the rules in a rule group without modifying how they handle your web
-    -- traffic.
+  { -- | Action settings to use in the place of the rule actions that are
+    -- configured inside the rule group. You specify one override for each rule
+    -- whose action you want to change.
+    --
+    -- You can use overrides for testing, for example you can override all of
+    -- rule actions to @Count@ and then monitor the resulting count metrics to
+    -- understand how the rule group would handle your web traffic. You can
+    -- also permanently override some or all actions, to modify how the rule
+    -- group manages your web traffic.
+    ruleActionOverrides :: Prelude.Maybe (Prelude.NonEmpty RuleActionOverride),
+    -- | Rules in the referenced rule group whose actions are set to @Count@.
+    --
+    -- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+    -- action setting, including @Count@.
     excludedRules :: Prelude.Maybe [ExcludedRule],
     -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Text
@@ -53,11 +63,20 @@ data RuleGroupReferenceStatement = RuleGroupReferenceStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excludedRules', 'ruleGroupReferenceStatement_excludedRules' - The rules in the referenced rule group whose actions are set to @Count@.
--- When you exclude a rule, WAF evaluates it exactly as it would if the
--- rule action setting were @Count@. This is a useful option for testing
--- the rules in a rule group without modifying how they handle your web
--- traffic.
+-- 'ruleActionOverrides', 'ruleGroupReferenceStatement_ruleActionOverrides' - Action settings to use in the place of the rule actions that are
+-- configured inside the rule group. You specify one override for each rule
+-- whose action you want to change.
+--
+-- You can use overrides for testing, for example you can override all of
+-- rule actions to @Count@ and then monitor the resulting count metrics to
+-- understand how the rule group would handle your web traffic. You can
+-- also permanently override some or all actions, to modify how the rule
+-- group manages your web traffic.
+--
+-- 'excludedRules', 'ruleGroupReferenceStatement_excludedRules' - Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 --
 -- 'arn', 'ruleGroupReferenceStatement_arn' - The Amazon Resource Name (ARN) of the entity.
 newRuleGroupReferenceStatement ::
@@ -66,16 +85,28 @@ newRuleGroupReferenceStatement ::
   RuleGroupReferenceStatement
 newRuleGroupReferenceStatement pARN_ =
   RuleGroupReferenceStatement'
-    { excludedRules =
+    { ruleActionOverrides =
         Prelude.Nothing,
+      excludedRules = Prelude.Nothing,
       arn = pARN_
     }
 
--- | The rules in the referenced rule group whose actions are set to @Count@.
--- When you exclude a rule, WAF evaluates it exactly as it would if the
--- rule action setting were @Count@. This is a useful option for testing
--- the rules in a rule group without modifying how they handle your web
--- traffic.
+-- | Action settings to use in the place of the rule actions that are
+-- configured inside the rule group. You specify one override for each rule
+-- whose action you want to change.
+--
+-- You can use overrides for testing, for example you can override all of
+-- rule actions to @Count@ and then monitor the resulting count metrics to
+-- understand how the rule group would handle your web traffic. You can
+-- also permanently override some or all actions, to modify how the rule
+-- group manages your web traffic.
+ruleGroupReferenceStatement_ruleActionOverrides :: Lens.Lens' RuleGroupReferenceStatement (Prelude.Maybe (Prelude.NonEmpty RuleActionOverride))
+ruleGroupReferenceStatement_ruleActionOverrides = Lens.lens (\RuleGroupReferenceStatement' {ruleActionOverrides} -> ruleActionOverrides) (\s@RuleGroupReferenceStatement' {} a -> s {ruleActionOverrides = a} :: RuleGroupReferenceStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | Rules in the referenced rule group whose actions are set to @Count@.
+--
+-- Instead of this option, use @RuleActionOverrides@. It accepts any valid
+-- action setting, including @Count@.
 ruleGroupReferenceStatement_excludedRules :: Lens.Lens' RuleGroupReferenceStatement (Prelude.Maybe [ExcludedRule])
 ruleGroupReferenceStatement_excludedRules = Lens.lens (\RuleGroupReferenceStatement' {excludedRules} -> excludedRules) (\s@RuleGroupReferenceStatement' {} a -> s {excludedRules = a} :: RuleGroupReferenceStatement) Prelude.. Lens.mapping Lens.coerced
 
@@ -89,25 +120,30 @@ instance Core.FromJSON RuleGroupReferenceStatement where
       "RuleGroupReferenceStatement"
       ( \x ->
           RuleGroupReferenceStatement'
-            Prelude.<$> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "RuleActionOverrides")
+            Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "ARN")
       )
 
 instance Prelude.Hashable RuleGroupReferenceStatement where
   hashWithSalt _salt RuleGroupReferenceStatement' {..} =
-    _salt `Prelude.hashWithSalt` excludedRules
+    _salt `Prelude.hashWithSalt` ruleActionOverrides
+      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData RuleGroupReferenceStatement where
   rnf RuleGroupReferenceStatement' {..} =
-    Prelude.rnf excludedRules
+    Prelude.rnf ruleActionOverrides
+      `Prelude.seq` Prelude.rnf excludedRules
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON RuleGroupReferenceStatement where
   toJSON RuleGroupReferenceStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
+          [ ("RuleActionOverrides" Core..=)
+              Prelude.<$> ruleActionOverrides,
+            ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
             Prelude.Just ("ARN" Core..= arn)
           ]
       )

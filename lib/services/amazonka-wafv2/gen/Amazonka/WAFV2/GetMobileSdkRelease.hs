@@ -24,9 +24,8 @@
 -- release notes and tags.
 --
 -- The mobile SDK is not generally available. Customers who have access to
--- the mobile SDK can use it to establish and manage Security Token Service
--- (STS) security tokens for use in HTTP(S) requests from a mobile device
--- to WAF. For more information, see
+-- the mobile SDK can use it to establish and manage WAF tokens for use in
+-- HTTP(S) requests from a mobile device to WAF. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html WAF client application integration>
 -- in the /WAF Developer Guide/.
 module Amazonka.WAFV2.GetMobileSdkRelease
@@ -49,7 +48,7 @@ module Amazonka.WAFV2.GetMobileSdkRelease
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +98,8 @@ instance Core.AWSRequest GetMobileSdkRelease where
   type
     AWSResponse GetMobileSdkRelease =
       GetMobileSdkReleaseResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

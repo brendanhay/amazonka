@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.CustomHTTPHeader where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom header for custom request and response handling. This is used

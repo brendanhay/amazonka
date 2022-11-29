@@ -23,6 +23,7 @@ module Amazonka.WAFV2.Types.ActionValue
         ActionValue_ALLOW,
         ActionValue_BLOCK,
         ActionValue_CAPTCHA,
+        ActionValue_CHALLENGE,
         ActionValue_COUNT,
         ActionValue_EXCLUDED_AS_COUNT
       ),
@@ -69,6 +70,9 @@ pattern ActionValue_BLOCK = ActionValue' "BLOCK"
 pattern ActionValue_CAPTCHA :: ActionValue
 pattern ActionValue_CAPTCHA = ActionValue' "CAPTCHA"
 
+pattern ActionValue_CHALLENGE :: ActionValue
+pattern ActionValue_CHALLENGE = ActionValue' "CHALLENGE"
+
 pattern ActionValue_COUNT :: ActionValue
 pattern ActionValue_COUNT = ActionValue' "COUNT"
 
@@ -79,6 +83,7 @@ pattern ActionValue_EXCLUDED_AS_COUNT = ActionValue' "EXCLUDED_AS_COUNT"
   ActionValue_ALLOW,
   ActionValue_BLOCK,
   ActionValue_CAPTCHA,
+  ActionValue_CHALLENGE,
   ActionValue_COUNT,
   ActionValue_EXCLUDED_AS_COUNT,
   ActionValue'

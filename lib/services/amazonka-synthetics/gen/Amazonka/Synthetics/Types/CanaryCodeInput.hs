@@ -20,7 +20,7 @@
 module Amazonka.Synthetics.Types.CanaryCodeInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to input your script code for the canary. This

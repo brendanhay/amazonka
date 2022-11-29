@@ -65,7 +65,7 @@ module Amazonka.Synthetics.DeleteCanary
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +126,8 @@ deleteCanary_name = Lens.lens (\DeleteCanary' {name} -> name) (\s@DeleteCanary' 
 
 instance Core.AWSRequest DeleteCanary where
   type AWSResponse DeleteCanary = DeleteCanaryResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

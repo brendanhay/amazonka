@@ -20,7 +20,7 @@
 module Amazonka.Synthetics.Types.CanaryScheduleInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies how often a canary is to make runs and the date

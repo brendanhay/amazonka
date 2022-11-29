@@ -20,9 +20,9 @@
 module Amazonka.GamesParks.Types.SectionModification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types.Document
 import Amazonka.GamesParks.Types.Operation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single modification to the configuration section.

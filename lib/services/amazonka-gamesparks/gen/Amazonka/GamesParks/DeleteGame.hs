@@ -39,8 +39,8 @@ module Amazonka.GamesParks.DeleteGame
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,8 +74,8 @@ deleteGame_gameName = Lens.lens (\DeleteGame' {gameName} -> gameName) (\s@Delete
 
 instance Core.AWSRequest DeleteGame where
   type AWSResponse DeleteGame = DeleteGameResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

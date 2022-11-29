@@ -69,7 +69,7 @@ module Amazonka.SNS.Publish
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -483,8 +483,8 @@ publish_message = Lens.lens (\Publish' {message} -> message) (\s@Publish' {} a -
 
 instance Core.AWSRequest Publish where
   type AWSResponse Publish = PublishResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "PublishResult"

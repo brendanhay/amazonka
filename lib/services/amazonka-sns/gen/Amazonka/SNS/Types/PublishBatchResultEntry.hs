@@ -20,7 +20,7 @@
 module Amazonka.SNS.Types.PublishBatchResultEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses data related to a successful message in a batch request for

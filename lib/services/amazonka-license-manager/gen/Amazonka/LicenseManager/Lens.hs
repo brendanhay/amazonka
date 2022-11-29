@@ -352,6 +352,15 @@ module Amazonka.LicenseManager.Lens
     listReceivedGrantsResponse_grants,
     listReceivedGrantsResponse_httpStatus,
 
+    -- ** ListReceivedGrantsForOrganization
+    listReceivedGrantsForOrganization_nextToken,
+    listReceivedGrantsForOrganization_filters,
+    listReceivedGrantsForOrganization_maxResults,
+    listReceivedGrantsForOrganization_licenseArn,
+    listReceivedGrantsForOrganizationResponse_nextToken,
+    listReceivedGrantsForOrganizationResponse_grants,
+    listReceivedGrantsForOrganizationResponse_httpStatus,
+
     -- ** ListReceivedLicenses
     listReceivedLicenses_nextToken,
     listReceivedLicenses_filters,
@@ -360,6 +369,14 @@ module Amazonka.LicenseManager.Lens
     listReceivedLicensesResponse_nextToken,
     listReceivedLicensesResponse_licenses,
     listReceivedLicensesResponse_httpStatus,
+
+    -- ** ListReceivedLicensesForOrganization
+    listReceivedLicensesForOrganization_nextToken,
+    listReceivedLicensesForOrganization_filters,
+    listReceivedLicensesForOrganization_maxResults,
+    listReceivedLicensesForOrganizationResponse_nextToken,
+    listReceivedLicensesForOrganizationResponse_licenses,
+    listReceivedLicensesForOrganizationResponse_httpStatus,
 
     -- ** ListResourceInventory
     listResourceInventory_nextToken,
@@ -725,7 +742,9 @@ import Amazonka.LicenseManager.ListLicenseSpecificationsForResource
 import Amazonka.LicenseManager.ListLicenseVersions
 import Amazonka.LicenseManager.ListLicenses
 import Amazonka.LicenseManager.ListReceivedGrants
+import Amazonka.LicenseManager.ListReceivedGrantsForOrganization
 import Amazonka.LicenseManager.ListReceivedLicenses
+import Amazonka.LicenseManager.ListReceivedLicensesForOrganization
 import Amazonka.LicenseManager.ListResourceInventory
 import Amazonka.LicenseManager.ListTagsForResource
 import Amazonka.LicenseManager.ListTokens

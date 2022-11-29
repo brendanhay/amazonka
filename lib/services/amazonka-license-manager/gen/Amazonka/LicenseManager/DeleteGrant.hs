@@ -44,7 +44,7 @@ module Amazonka.LicenseManager.DeleteGrant
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +101,8 @@ deleteGrant_version = Lens.lens (\DeleteGrant' {version} -> version) (\s@DeleteG
 
 instance Core.AWSRequest DeleteGrant where
   type AWSResponse DeleteGrant = DeleteGrantResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

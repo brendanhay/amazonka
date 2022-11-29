@@ -40,7 +40,7 @@ module Amazonka.Outposts.GetSite
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,8 +74,8 @@ getSite_siteId = Lens.lens (\GetSite' {siteId} -> siteId) (\s@GetSite' {} a -> s
 
 instance Core.AWSRequest GetSite where
   type AWSResponse GetSite = GetSiteResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

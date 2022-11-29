@@ -20,7 +20,7 @@
 module Amazonka.Outposts.Types.CatalogItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types.CatalogItemStatus
 import Amazonka.Outposts.Types.EC2Capacity
 import Amazonka.Outposts.Types.SupportedStorageEnum

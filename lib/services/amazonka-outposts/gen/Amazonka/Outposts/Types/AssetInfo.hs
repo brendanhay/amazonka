@@ -20,7 +20,7 @@
 module Amazonka.Outposts.Types.AssetInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types.AssetLocation
 import Amazonka.Outposts.Types.AssetType
 import Amazonka.Outposts.Types.ComputeAttributes

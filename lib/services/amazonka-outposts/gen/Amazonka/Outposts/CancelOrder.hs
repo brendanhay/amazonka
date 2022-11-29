@@ -39,7 +39,7 @@ module Amazonka.Outposts.CancelOrder
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,8 +74,8 @@ cancelOrder_orderId = Lens.lens (\CancelOrder' {orderId} -> orderId) (\s@CancelO
 
 instance Core.AWSRequest CancelOrder where
   type AWSResponse CancelOrder = CancelOrderResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

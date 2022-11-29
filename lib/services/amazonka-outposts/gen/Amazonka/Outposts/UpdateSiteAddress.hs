@@ -50,7 +50,7 @@ module Amazonka.Outposts.UpdateSiteAddress
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +111,8 @@ instance Core.AWSRequest UpdateSiteAddress where
   type
     AWSResponse UpdateSiteAddress =
       UpdateSiteAddressResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

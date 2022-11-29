@@ -20,7 +20,7 @@
 module Amazonka.Pi.Types.DimensionGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A logical grouping of Performance Insights metrics for a related subject

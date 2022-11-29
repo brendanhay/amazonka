@@ -20,7 +20,7 @@
 module Amazonka.Pi.Types.DimensionKeyDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that includes the requested dimension key values and

@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.Transcript where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides you with the Amazon S3 URI you can use to access your

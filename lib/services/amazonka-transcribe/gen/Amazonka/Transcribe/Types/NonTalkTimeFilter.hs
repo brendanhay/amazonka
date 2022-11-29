@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.NonTalkTimeFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.RelativeTimeRange

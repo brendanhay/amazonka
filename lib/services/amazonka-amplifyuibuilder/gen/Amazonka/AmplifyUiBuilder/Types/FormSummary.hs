@@ -22,7 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormSummary where
 import Amazonka.AmplifyUiBuilder.Types.FormActionType
 import Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the basic information about a form.

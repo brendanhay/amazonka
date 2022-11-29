@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormButton where
 
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for a button UI element that is a part of a

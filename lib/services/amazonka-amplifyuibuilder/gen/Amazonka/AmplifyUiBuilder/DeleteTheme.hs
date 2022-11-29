@@ -39,7 +39,7 @@ where
 
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +97,8 @@ deleteTheme_id = Lens.lens (\DeleteTheme' {id} -> id) (\s@DeleteTheme' {} a -> s
 
 instance Core.AWSRequest DeleteTheme where
   type AWSResponse DeleteTheme = DeleteThemeResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteThemeResponse'
 
 instance Prelude.Hashable DeleteTheme where

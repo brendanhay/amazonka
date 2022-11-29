@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.SectionalElement where
 
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores the configuration information for a visual helper element for a

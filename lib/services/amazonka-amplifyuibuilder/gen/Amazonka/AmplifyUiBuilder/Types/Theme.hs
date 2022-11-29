@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.Theme where
 
 import Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A theme is a collection of style settings that apply globally to the

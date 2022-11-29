@@ -23,7 +23,7 @@ import {-# SOURCE #-} Amazonka.AmplifyUiBuilder.Types.ComponentConditionProperty
 import Amazonka.AmplifyUiBuilder.Types.ComponentPropertyBindingProperties
 import Amazonka.AmplifyUiBuilder.Types.FormBindingElement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for all of a component\'s properties. Use

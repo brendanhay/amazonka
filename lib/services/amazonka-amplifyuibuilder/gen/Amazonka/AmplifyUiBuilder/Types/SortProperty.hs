@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.SortProperty where
 
 import Amazonka.AmplifyUiBuilder.Types.SortDirection
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to sort the data that you bind to a component.

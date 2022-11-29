@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FieldInputConfig where
 
 import Amazonka.AmplifyUiBuilder.Types.ValueMappings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for the default input values to display for

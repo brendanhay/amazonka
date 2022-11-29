@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.UpdateThemeData where
 
 import Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Saves the data binding information for a theme.

@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormStyle where
 
 import Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for the form\'s style.

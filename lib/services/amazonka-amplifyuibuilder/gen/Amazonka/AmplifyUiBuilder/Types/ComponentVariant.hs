@@ -20,7 +20,7 @@
 module Amazonka.AmplifyUiBuilder.Types.ComponentVariant where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the style configuration of a unique variation of a main

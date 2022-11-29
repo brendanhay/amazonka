@@ -26,7 +26,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentEvent
 import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.ComponentVariant
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates and saves all of the information about a component, based on

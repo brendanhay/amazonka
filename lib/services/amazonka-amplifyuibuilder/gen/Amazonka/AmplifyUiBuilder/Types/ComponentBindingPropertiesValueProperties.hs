@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
 
 import Amazonka.AmplifyUiBuilder.Types.Predicate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data binding configuration for a specific property using

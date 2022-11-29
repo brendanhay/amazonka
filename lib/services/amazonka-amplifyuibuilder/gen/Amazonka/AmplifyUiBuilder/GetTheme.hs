@@ -43,7 +43,7 @@ where
 
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +101,8 @@ getTheme_id = Lens.lens (\GetTheme' {id} -> id) (\s@GetTheme' {} a -> s {id = a}
 
 instance Core.AWSRequest GetTheme where
   type AWSResponse GetTheme = GetThemeResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

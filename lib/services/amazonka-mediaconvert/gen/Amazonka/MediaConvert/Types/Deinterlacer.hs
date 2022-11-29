@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Deinterlacer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
 import Amazonka.MediaConvert.Types.DeinterlacerControl
 import Amazonka.MediaConvert.Types.DeinterlacerMode

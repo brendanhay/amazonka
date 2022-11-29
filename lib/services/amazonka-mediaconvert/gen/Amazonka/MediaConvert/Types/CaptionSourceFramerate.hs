@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.CaptionSourceFramerate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless your input captions format is SCC. To have

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Vp9Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Vp9FramerateControl
 import Amazonka.MediaConvert.Types.Vp9FramerateConversionAlgorithm
 import Amazonka.MediaConvert.Types.Vp9ParControl

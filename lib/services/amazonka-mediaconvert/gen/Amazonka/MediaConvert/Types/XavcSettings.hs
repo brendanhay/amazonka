@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.XavcSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
 import Amazonka.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
 import Amazonka.MediaConvert.Types.Xavc4kProfileSettings

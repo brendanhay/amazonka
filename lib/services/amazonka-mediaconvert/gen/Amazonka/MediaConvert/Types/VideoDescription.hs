@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.VideoDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AfdSignaling
 import Amazonka.MediaConvert.Types.AntiAlias
 import Amazonka.MediaConvert.Types.ColorMetadata

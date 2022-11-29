@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.OutputGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AutomatedEncodingSettings
 import Amazonka.MediaConvert.Types.Output
 import Amazonka.MediaConvert.Types.OutputGroupSettings

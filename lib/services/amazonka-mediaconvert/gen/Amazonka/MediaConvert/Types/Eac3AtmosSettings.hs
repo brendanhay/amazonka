@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Eac3AtmosSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Eac3AtmosBitstreamMode
 import Amazonka.MediaConvert.Types.Eac3AtmosCodingMode
 import Amazonka.MediaConvert.Types.Eac3AtmosDialogueIntelligence

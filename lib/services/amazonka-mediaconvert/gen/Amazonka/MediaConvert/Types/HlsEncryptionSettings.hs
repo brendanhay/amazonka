@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.HlsEncryptionSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.HlsEncryptionType
 import Amazonka.MediaConvert.Types.HlsInitializationVectorInManifest
 import Amazonka.MediaConvert.Types.HlsKeyProviderType

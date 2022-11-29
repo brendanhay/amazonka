@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.QueueTransition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Description of the source and destination queues between which the job

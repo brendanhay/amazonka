@@ -46,7 +46,7 @@ module Amazonka.MediaConvert.CreatePreset
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +124,8 @@ createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' 
 
 instance Core.AWSRequest CreatePreset where
   type AWSResponse CreatePreset = CreatePresetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

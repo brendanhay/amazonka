@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Vc3Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Vc3Class
 import Amazonka.MediaConvert.Types.Vc3FramerateControl
 import Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm

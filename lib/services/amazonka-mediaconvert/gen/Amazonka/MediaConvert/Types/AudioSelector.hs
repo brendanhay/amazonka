@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AudioSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AudioDefaultSelection
 import Amazonka.MediaConvert.Types.AudioDurationCorrection
 import Amazonka.MediaConvert.Types.AudioSelectorType

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.HlsGroupSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DestinationSettings
 import Amazonka.MediaConvert.Types.HlsAdMarkers
 import Amazonka.MediaConvert.Types.HlsAdditionalManifest

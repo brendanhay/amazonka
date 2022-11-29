@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.BurninDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.BurnInSubtitleStylePassthrough
 import Amazonka.MediaConvert.Types.BurninSubtitleAlignment
 import Amazonka.MediaConvert.Types.BurninSubtitleApplyFontColor

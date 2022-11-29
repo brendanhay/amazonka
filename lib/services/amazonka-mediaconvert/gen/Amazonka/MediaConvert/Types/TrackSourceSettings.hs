@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.TrackSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to caption sources that are specified by track number.

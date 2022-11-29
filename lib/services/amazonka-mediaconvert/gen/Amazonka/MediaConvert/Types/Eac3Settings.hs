@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Eac3Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Eac3AttenuationControl
 import Amazonka.MediaConvert.Types.Eac3BitstreamMode
 import Amazonka.MediaConvert.Types.Eac3CodingMode
@@ -69,8 +69,14 @@ data Eac3Settings = Eac3Settings'
     -- Control chapter of the Dolby Metadata Guide at
     -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
     dynamicRangeCompressionRf :: Prelude.Maybe Eac3DynamicRangeCompressionRf,
-    -- | Specify the average bitrate in bits per second. Valid bitrates depend on
-    -- the coding mode.
+    -- | Specify the average bitrate in bits per second. The bitrate that you
+    -- specify must be a multiple of 8000 within the allowed minimum and
+    -- maximum values. Leave blank to use the default bitrate for the coding
+    -- mode you select according ETSI TS 102 366. Valid bitrates for coding
+    -- mode 1\/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid
+    -- bitrates for coding mode 2\/0: Default: 192000. Minimum: 96000. Maximum:
+    -- 3024000. Valid bitrates for coding mode 3\/2: Default: 384000. Minimum:
+    -- 192000. Maximum: 3024000.
     bitrate :: Prelude.Maybe Prelude.Natural,
     -- | Specify a value for the following Dolby Digital Plus setting: Left
     -- total\/Right total center mix (Lt\/Rt center). MediaConvert uses this
@@ -188,8 +194,14 @@ data Eac3Settings = Eac3Settings'
 -- Control chapter of the Dolby Metadata Guide at
 -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
 --
--- 'bitrate', 'eac3Settings_bitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
+-- 'bitrate', 'eac3Settings_bitrate' - Specify the average bitrate in bits per second. The bitrate that you
+-- specify must be a multiple of 8000 within the allowed minimum and
+-- maximum values. Leave blank to use the default bitrate for the coding
+-- mode you select according ETSI TS 102 366. Valid bitrates for coding
+-- mode 1\/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid
+-- bitrates for coding mode 2\/0: Default: 192000. Minimum: 96000. Maximum:
+-- 3024000. Valid bitrates for coding mode 3\/2: Default: 384000. Minimum:
+-- 192000. Maximum: 3024000.
 --
 -- 'ltRtCenterMixLevel', 'eac3Settings_ltRtCenterMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left
 -- total\/Right total center mix (Lt\/Rt center). MediaConvert uses this
@@ -334,8 +346,14 @@ eac3Settings_attenuationControl = Lens.lens (\Eac3Settings' {attenuationControl}
 eac3Settings_dynamicRangeCompressionRf :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DynamicRangeCompressionRf)
 eac3Settings_dynamicRangeCompressionRf = Lens.lens (\Eac3Settings' {dynamicRangeCompressionRf} -> dynamicRangeCompressionRf) (\s@Eac3Settings' {} a -> s {dynamicRangeCompressionRf = a} :: Eac3Settings)
 
--- | Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
+-- | Specify the average bitrate in bits per second. The bitrate that you
+-- specify must be a multiple of 8000 within the allowed minimum and
+-- maximum values. Leave blank to use the default bitrate for the coding
+-- mode you select according ETSI TS 102 366. Valid bitrates for coding
+-- mode 1\/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid
+-- bitrates for coding mode 2\/0: Default: 192000. Minimum: 96000. Maximum:
+-- 3024000. Valid bitrates for coding mode 3\/2: Default: 384000. Minimum:
+-- 192000. Maximum: 3024000.
 eac3Settings_bitrate :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Natural)
 eac3Settings_bitrate = Lens.lens (\Eac3Settings' {bitrate} -> bitrate) (\s@Eac3Settings' {} a -> s {bitrate = a} :: Eac3Settings)
 

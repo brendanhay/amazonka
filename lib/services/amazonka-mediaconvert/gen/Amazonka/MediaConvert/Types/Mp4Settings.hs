@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Mp4Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.CmfcAudioDuration
 import Amazonka.MediaConvert.Types.Mp4CslgAtom
 import Amazonka.MediaConvert.Types.Mp4FreeSpaceBox

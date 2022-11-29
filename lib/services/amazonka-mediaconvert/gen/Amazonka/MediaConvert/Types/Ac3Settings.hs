@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Ac3Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Ac3BitstreamMode
 import Amazonka.MediaConvert.Types.Ac3CodingMode
 import Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionLine
@@ -48,8 +48,15 @@ data Ac3Settings = Ac3Settings'
     -- Control chapter of the Dolby Metadata Guide at
     -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
     dynamicRangeCompressionRf :: Prelude.Maybe Ac3DynamicRangeCompressionRf,
-    -- | Specify the average bitrate in bits per second. Valid bitrates depend on
-    -- the coding mode.
+    -- | Specify the average bitrate in bits per second. The bitrate that you
+    -- specify must be a multiple of 8000 within the allowed minimum and
+    -- maximum values. Leave blank to use the default bitrate for the coding
+    -- mode you select according ETSI TS 102 366. Valid bitrates for coding
+    -- mode 1\/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid
+    -- bitrates for coding mode 1\/1: Default: 192000. Minimum: 128000.
+    -- Maximum: 384000. Valid bitrates for coding mode 2\/0: Default: 192000.
+    -- Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3\/2
+    -- with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.
     bitrate :: Prelude.Maybe Prelude.Natural,
     -- | This value is always 48000. It represents the sample rate in Hz.
     sampleRate :: Prelude.Maybe Prelude.Natural,
@@ -112,8 +119,15 @@ data Ac3Settings = Ac3Settings'
 -- Control chapter of the Dolby Metadata Guide at
 -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
 --
--- 'bitrate', 'ac3Settings_bitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
+-- 'bitrate', 'ac3Settings_bitrate' - Specify the average bitrate in bits per second. The bitrate that you
+-- specify must be a multiple of 8000 within the allowed minimum and
+-- maximum values. Leave blank to use the default bitrate for the coding
+-- mode you select according ETSI TS 102 366. Valid bitrates for coding
+-- mode 1\/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid
+-- bitrates for coding mode 1\/1: Default: 192000. Minimum: 128000.
+-- Maximum: 384000. Valid bitrates for coding mode 2\/0: Default: 192000.
+-- Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3\/2
+-- with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.
 --
 -- 'sampleRate', 'ac3Settings_sampleRate' - This value is always 48000. It represents the sample rate in Hz.
 --
@@ -184,8 +198,15 @@ ac3Settings_bitstreamMode = Lens.lens (\Ac3Settings' {bitstreamMode} -> bitstrea
 ac3Settings_dynamicRangeCompressionRf :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3DynamicRangeCompressionRf)
 ac3Settings_dynamicRangeCompressionRf = Lens.lens (\Ac3Settings' {dynamicRangeCompressionRf} -> dynamicRangeCompressionRf) (\s@Ac3Settings' {} a -> s {dynamicRangeCompressionRf = a} :: Ac3Settings)
 
--- | Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
+-- | Specify the average bitrate in bits per second. The bitrate that you
+-- specify must be a multiple of 8000 within the allowed minimum and
+-- maximum values. Leave blank to use the default bitrate for the coding
+-- mode you select according ETSI TS 102 366. Valid bitrates for coding
+-- mode 1\/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid
+-- bitrates for coding mode 1\/1: Default: 192000. Minimum: 128000.
+-- Maximum: 384000. Valid bitrates for coding mode 2\/0: Default: 192000.
+-- Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3\/2
+-- with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.
 ac3Settings_bitrate :: Lens.Lens' Ac3Settings (Prelude.Maybe Prelude.Natural)
 ac3Settings_bitrate = Lens.lens (\Ac3Settings' {bitrate} -> bitrate) (\s@Ac3Settings' {} a -> s {bitrate = a} :: Ac3Settings)
 

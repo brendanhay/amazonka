@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AudioNormalizationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
 import Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging

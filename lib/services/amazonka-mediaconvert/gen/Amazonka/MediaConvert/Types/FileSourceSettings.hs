@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.FileSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.CaptionSourceFramerate
 import Amazonka.MediaConvert.Types.FileSourceConvert608To708
 import Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits

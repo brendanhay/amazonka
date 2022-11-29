@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.EmbeddedSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.EmbeddedConvert608To708
 import Amazonka.MediaConvert.Types.EmbeddedTerminateCaptions
 import qualified Amazonka.Prelude as Prelude

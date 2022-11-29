@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.CaptionSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AncillarySourceSettings
 import Amazonka.MediaConvert.Types.CaptionSourceType
 import Amazonka.MediaConvert.Types.DvbSubSourceSettings

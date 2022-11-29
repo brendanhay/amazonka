@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to

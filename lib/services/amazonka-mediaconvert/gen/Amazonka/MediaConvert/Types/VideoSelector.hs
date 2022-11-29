@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.VideoSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AlphaBehavior
 import Amazonka.MediaConvert.Types.ColorSpace
 import Amazonka.MediaConvert.Types.ColorSpaceUsage
@@ -50,16 +50,18 @@ data VideoSelector = VideoSelector'
     -- stream container.
     pid :: Prelude.Maybe Prelude.Natural,
     -- | If your input video has accurate color space metadata, or if you don\'t
-    -- know about color space, leave this set to the default value Follow
-    -- (FOLLOW). The service will automatically detect your input color space.
-    -- If your input video has metadata indicating the wrong color space,
-    -- specify the accurate color space here. If your input video is HDR 10 and
-    -- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t
-    -- present in your video stream, or if that metadata is present but not
-    -- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct
-    -- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more
-    -- information about MediaConvert HDR jobs, see
-    -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
+    -- know about color space, leave this set to the default value Follow. The
+    -- service will automatically detect your input color space. If your input
+    -- video has metadata indicating the wrong color space, specify the
+    -- accurate color space here. If your input video is HDR 10 and the SMPTE
+    -- ST 2086 Mastering Display Color Volume static metadata isn\'t present in
+    -- your video stream, or if that metadata is present but not accurate,
+    -- choose Force HDR 10 here and specify correct values in the input HDR 10
+    -- metadata settings. For more information about MediaConvert HDR jobs, see
+    -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr. Select P3D65
+    -- (SDR) to set the input color space metadata to the following: * Color
+    -- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
+    -- coefficients: BT.709
     colorSpace :: Prelude.Maybe ColorSpace,
     -- | Use this setting if your input has video and audio durations that don\'t
     -- align, and your output or player has strict alignment requirements.
@@ -151,16 +153,18 @@ data VideoSelector = VideoSelector'
 -- stream container.
 --
 -- 'colorSpace', 'videoSelector_colorSpace' - If your input video has accurate color space metadata, or if you don\'t
--- know about color space, leave this set to the default value Follow
--- (FOLLOW). The service will automatically detect your input color space.
--- If your input video has metadata indicating the wrong color space,
--- specify the accurate color space here. If your input video is HDR 10 and
--- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t
--- present in your video stream, or if that metadata is present but not
--- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct
--- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more
--- information about MediaConvert HDR jobs, see
--- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
+-- know about color space, leave this set to the default value Follow. The
+-- service will automatically detect your input color space. If your input
+-- video has metadata indicating the wrong color space, specify the
+-- accurate color space here. If your input video is HDR 10 and the SMPTE
+-- ST 2086 Mastering Display Color Volume static metadata isn\'t present in
+-- your video stream, or if that metadata is present but not accurate,
+-- choose Force HDR 10 here and specify correct values in the input HDR 10
+-- metadata settings. For more information about MediaConvert HDR jobs, see
+-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr. Select P3D65
+-- (SDR) to set the input color space metadata to the following: * Color
+-- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
+-- coefficients: BT.709
 --
 -- 'padVideo', 'videoSelector_padVideo' - Use this setting if your input has video and audio durations that don\'t
 -- align, and your output or player has strict alignment requirements.
@@ -260,16 +264,18 @@ videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
 videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
 
 -- | If your input video has accurate color space metadata, or if you don\'t
--- know about color space, leave this set to the default value Follow
--- (FOLLOW). The service will automatically detect your input color space.
--- If your input video has metadata indicating the wrong color space,
--- specify the accurate color space here. If your input video is HDR 10 and
--- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t
--- present in your video stream, or if that metadata is present but not
--- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct
--- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more
--- information about MediaConvert HDR jobs, see
--- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
+-- know about color space, leave this set to the default value Follow. The
+-- service will automatically detect your input color space. If your input
+-- video has metadata indicating the wrong color space, specify the
+-- accurate color space here. If your input video is HDR 10 and the SMPTE
+-- ST 2086 Mastering Display Color Volume static metadata isn\'t present in
+-- your video stream, or if that metadata is present but not accurate,
+-- choose Force HDR 10 here and specify correct values in the input HDR 10
+-- metadata settings. For more information about MediaConvert HDR jobs, see
+-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr. Select P3D65
+-- (SDR) to set the input color space metadata to the following: * Color
+-- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
+-- coefficients: BT.709
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 

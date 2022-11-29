@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.M2tsScte35Esam where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for SCTE-35 signals from ESAM. Include this in your job

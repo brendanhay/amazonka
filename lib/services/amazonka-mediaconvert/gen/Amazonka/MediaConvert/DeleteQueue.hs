@@ -39,7 +39,7 @@ module Amazonka.MediaConvert.DeleteQueue
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +73,8 @@ deleteQueue_name = Lens.lens (\DeleteQueue' {name} -> name) (\s@DeleteQueue' {} 
 
 instance Core.AWSRequest DeleteQueue where
   type AWSResponse DeleteQueue = DeleteQueueResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

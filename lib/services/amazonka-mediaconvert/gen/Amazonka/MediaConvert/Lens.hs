@@ -492,6 +492,7 @@ module Amazonka.MediaConvert.Lens
     -- ** ColorCorrector
     colorCorrector_colorSpaceConversion,
     colorCorrector_saturation,
+    colorCorrector_sdrReferenceWhiteLevel,
     colorCorrector_brightness,
     colorCorrector_hue,
     colorCorrector_hdr10Metadata,
@@ -902,6 +903,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** ImageInserter
     imageInserter_insertableImages,
+    imageInserter_sdrReferenceWhiteLevel,
 
     -- ** ImscDestinationSettings
     imscDestinationSettings_stylePassthrough,

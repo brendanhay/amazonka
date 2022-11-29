@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AvcIntraSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AvcIntraClass
 import Amazonka.MediaConvert.Types.AvcIntraFramerateControl
 import Amazonka.MediaConvert.Types.AvcIntraFramerateConversionAlgorithm

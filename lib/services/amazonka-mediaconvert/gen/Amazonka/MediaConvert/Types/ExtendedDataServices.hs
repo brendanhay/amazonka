@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.ExtendedDataServices where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.CopyProtectionAction
 import Amazonka.MediaConvert.Types.VchipAction
 import qualified Amazonka.Prelude as Prelude

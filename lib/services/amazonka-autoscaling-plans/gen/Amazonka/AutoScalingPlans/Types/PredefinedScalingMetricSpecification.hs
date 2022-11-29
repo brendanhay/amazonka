@@ -21,7 +21,7 @@ module Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification wher
 
 import Amazonka.AutoScalingPlans.Types.ScalingMetricType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predefined metric that can be used for dynamic scaling as

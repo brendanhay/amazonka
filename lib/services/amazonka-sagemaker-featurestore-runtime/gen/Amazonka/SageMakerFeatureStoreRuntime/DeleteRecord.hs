@@ -40,7 +40,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,8 +110,8 @@ deleteRecord_eventTime = Lens.lens (\DeleteRecord' {eventTime} -> eventTime) (\s
 
 instance Core.AWSRequest DeleteRecord where
   type AWSResponse DeleteRecord = DeleteRecordResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteRecordResponse'
 
 instance Prelude.Hashable DeleteRecord where

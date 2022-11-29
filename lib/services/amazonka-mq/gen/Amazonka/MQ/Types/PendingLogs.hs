@@ -20,7 +20,7 @@
 module Amazonka.MQ.Types.PendingLogs where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of information about logs to be enabled for the specified

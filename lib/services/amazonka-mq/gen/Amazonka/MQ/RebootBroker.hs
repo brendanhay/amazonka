@@ -39,7 +39,7 @@ module Amazonka.MQ.RebootBroker
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,8 +74,8 @@ rebootBroker_brokerId = Lens.lens (\RebootBroker' {brokerId} -> brokerId) (\s@Re
 
 instance Core.AWSRequest RebootBroker where
   type AWSResponse RebootBroker = RebootBrokerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -30,6 +31,15 @@ module Amazonka.WellArchitected.Types
 
     -- * AnswerReason
     AnswerReason (..),
+
+    -- * CheckFailureReason
+    CheckFailureReason (..),
+
+    -- * CheckProvider
+    CheckProvider (..),
+
+    -- * CheckStatus
+    CheckStatus (..),
 
     -- * ChoiceReason
     ChoiceReason (..),
@@ -73,6 +83,9 @@ module Amazonka.WellArchitected.Types
     -- * ShareStatus
     ShareStatus (..),
 
+    -- * TrustedAdvisorIntegrationStatus
+    TrustedAdvisorIntegrationStatus (..),
+
     -- * WorkloadEnvironment
     WorkloadEnvironment (..),
 
@@ -115,6 +128,38 @@ module Amazonka.WellArchitected.Types
     answerSummary_reason,
     answerSummary_questionTitle,
     answerSummary_pillarId,
+
+    -- * CheckDetail
+    CheckDetail (..),
+    newCheckDetail,
+    checkDetail_name,
+    checkDetail_lensArn,
+    checkDetail_provider,
+    checkDetail_questionId,
+    checkDetail_status,
+    checkDetail_id,
+    checkDetail_description,
+    checkDetail_choiceId,
+    checkDetail_accountId,
+    checkDetail_reason,
+    checkDetail_flaggedResources,
+    checkDetail_pillarId,
+    checkDetail_updatedAt,
+
+    -- * CheckSummary
+    CheckSummary (..),
+    newCheckSummary,
+    checkSummary_name,
+    checkSummary_lensArn,
+    checkSummary_accountSummary,
+    checkSummary_provider,
+    checkSummary_questionId,
+    checkSummary_status,
+    checkSummary_id,
+    checkSummary_description,
+    checkSummary_choiceId,
+    checkSummary_pillarId,
+    checkSummary_updatedAt,
 
     -- * Choice
     Choice (..),
@@ -321,12 +366,14 @@ module Amazonka.WellArchitected.Types
     -- * Workload
     Workload (..),
     newWorkload,
+    workload_discoveryConfig,
     workload_tags,
     workload_accountIds,
     workload_environment,
     workload_riskCounts,
     workload_isReviewOwnerUpdateAcknowledged,
     workload_industry,
+    workload_applications,
     workload_shareInvitationId,
     workload_workloadArn,
     workload_awsRegions,
@@ -344,6 +391,11 @@ module Amazonka.WellArchitected.Types
     workload_reviewRestrictionDate,
     workload_updatedAt,
     workload_workloadId,
+
+    -- * WorkloadDiscoveryConfig
+    WorkloadDiscoveryConfig (..),
+    newWorkloadDiscoveryConfig,
+    workloadDiscoveryConfig_trustedAdvisorIntegrationStatus,
 
     -- * WorkloadShare
     WorkloadShare (..),
@@ -380,7 +432,7 @@ module Amazonka.WellArchitected.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.WellArchitected.Types.AdditionalResourceType
@@ -388,6 +440,11 @@ import Amazonka.WellArchitected.Types.AdditionalResources
 import Amazonka.WellArchitected.Types.Answer
 import Amazonka.WellArchitected.Types.AnswerReason
 import Amazonka.WellArchitected.Types.AnswerSummary
+import Amazonka.WellArchitected.Types.CheckDetail
+import Amazonka.WellArchitected.Types.CheckFailureReason
+import Amazonka.WellArchitected.Types.CheckProvider
+import Amazonka.WellArchitected.Types.CheckStatus
+import Amazonka.WellArchitected.Types.CheckSummary
 import Amazonka.WellArchitected.Types.Choice
 import Amazonka.WellArchitected.Types.ChoiceAnswer
 import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
@@ -424,8 +481,10 @@ import Amazonka.WellArchitected.Types.ShareInvitationAction
 import Amazonka.WellArchitected.Types.ShareInvitationSummary
 import Amazonka.WellArchitected.Types.ShareResourceType
 import Amazonka.WellArchitected.Types.ShareStatus
+import Amazonka.WellArchitected.Types.TrustedAdvisorIntegrationStatus
 import Amazonka.WellArchitected.Types.VersionDifferences
 import Amazonka.WellArchitected.Types.Workload
+import Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
 import Amazonka.WellArchitected.Types.WorkloadEnvironment
 import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 import Amazonka.WellArchitected.Types.WorkloadShare
@@ -436,29 +495,25 @@ import Amazonka.WellArchitected.Types.WorkloadSummary
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "WellArchitected",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "wellarchitected",
-      Core._serviceSigningName = "wellarchitected",
-      Core._serviceVersion = "2020-03-31",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "WellArchitected",
-      Core._serviceRetry = retry
+    { Core.abbrev = "WellArchitected",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "wellarchitected",
+      Core.signingName = "wellarchitected",
+      Core.version = "2020-03-31",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "WellArchitected",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

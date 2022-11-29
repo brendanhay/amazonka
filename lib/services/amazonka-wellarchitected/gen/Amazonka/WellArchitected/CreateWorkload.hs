@@ -23,8 +23,9 @@
 -- Create a new workload.
 --
 -- The owner of a workload can share the workload with other Amazon Web
--- Services accounts and IAM users in the same Amazon Web Services Region.
--- Only the owner of a workload can delete it.
+-- Services accounts, IAM users, an organization, and organizational units
+-- (OUs) in the same Amazon Web Services Region. Only the owner of a
+-- workload can delete it.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html Defining a Workload>
@@ -35,9 +36,11 @@ module Amazonka.WellArchitected.CreateWorkload
     newCreateWorkload,
 
     -- * Request Lenses
+    createWorkload_discoveryConfig,
     createWorkload_tags,
     createWorkload_accountIds,
     createWorkload_industry,
+    createWorkload_applications,
     createWorkload_awsRegions,
     createWorkload_reviewOwner,
     createWorkload_nonAwsRegions,
@@ -63,7 +66,7 @@ module Amazonka.WellArchitected.CreateWorkload
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,10 +76,15 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newCreateWorkload' smart constructor.
 data CreateWorkload = CreateWorkload'
-  { -- | The tags to be associated with the workload.
+  { -- | Well-Architected discovery configuration settings associated to the
+    -- workload.
+    discoveryConfig :: Prelude.Maybe WorkloadDiscoveryConfig,
+    -- | The tags to be associated with the workload.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     accountIds :: Prelude.Maybe [Prelude.Text],
     industry :: Prelude.Maybe Prelude.Text,
+    -- | List of AppRegistry application ARNs associated to the workload.
+    applications :: Prelude.Maybe [Prelude.Text],
     awsRegions :: Prelude.Maybe [Prelude.Text],
     reviewOwner :: Prelude.Maybe Prelude.Text,
     nonAwsRegions :: Prelude.Maybe [Prelude.Text],
@@ -100,11 +108,16 @@ data CreateWorkload = CreateWorkload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'discoveryConfig', 'createWorkload_discoveryConfig' - Well-Architected discovery configuration settings associated to the
+-- workload.
+--
 -- 'tags', 'createWorkload_tags' - The tags to be associated with the workload.
 --
 -- 'accountIds', 'createWorkload_accountIds' - Undocumented member.
 --
 -- 'industry', 'createWorkload_industry' - Undocumented member.
+--
+-- 'applications', 'createWorkload_applications' - List of AppRegistry application ARNs associated to the workload.
 --
 -- 'awsRegions', 'createWorkload_awsRegions' - Undocumented member.
 --
@@ -145,9 +158,11 @@ newCreateWorkload
   pEnvironment_
   pClientRequestToken_ =
     CreateWorkload'
-      { tags = Prelude.Nothing,
+      { discoveryConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         accountIds = Prelude.Nothing,
         industry = Prelude.Nothing,
+        applications = Prelude.Nothing,
         awsRegions = Prelude.Nothing,
         reviewOwner = Prelude.Nothing,
         nonAwsRegions = Prelude.Nothing,
@@ -162,6 +177,11 @@ newCreateWorkload
         clientRequestToken = pClientRequestToken_
       }
 
+-- | Well-Architected discovery configuration settings associated to the
+-- workload.
+createWorkload_discoveryConfig :: Lens.Lens' CreateWorkload (Prelude.Maybe WorkloadDiscoveryConfig)
+createWorkload_discoveryConfig = Lens.lens (\CreateWorkload' {discoveryConfig} -> discoveryConfig) (\s@CreateWorkload' {} a -> s {discoveryConfig = a} :: CreateWorkload)
+
 -- | The tags to be associated with the workload.
 createWorkload_tags :: Lens.Lens' CreateWorkload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createWorkload_tags = Lens.lens (\CreateWorkload' {tags} -> tags) (\s@CreateWorkload' {} a -> s {tags = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
@@ -173,6 +193,10 @@ createWorkload_accountIds = Lens.lens (\CreateWorkload' {accountIds} -> accountI
 -- | Undocumented member.
 createWorkload_industry :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
 createWorkload_industry = Lens.lens (\CreateWorkload' {industry} -> industry) (\s@CreateWorkload' {} a -> s {industry = a} :: CreateWorkload)
+
+-- | List of AppRegistry application ARNs associated to the workload.
+createWorkload_applications :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
+createWorkload_applications = Lens.lens (\CreateWorkload' {applications} -> applications) (\s@CreateWorkload' {} a -> s {applications = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createWorkload_awsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
@@ -226,8 +250,8 @@ instance Core.AWSRequest CreateWorkload where
   type
     AWSResponse CreateWorkload =
       CreateWorkloadResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,9 +263,11 @@ instance Core.AWSRequest CreateWorkload where
 
 instance Prelude.Hashable CreateWorkload where
   hashWithSalt _salt CreateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` discoveryConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` awsRegions
       `Prelude.hashWithSalt` reviewOwner
       `Prelude.hashWithSalt` nonAwsRegions
@@ -257,9 +283,11 @@ instance Prelude.Hashable CreateWorkload where
 
 instance Prelude.NFData CreateWorkload where
   rnf CreateWorkload' {..} =
-    Prelude.rnf tags
+    Prelude.rnf discoveryConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf applications
       `Prelude.seq` Prelude.rnf awsRegions
       `Prelude.seq` Prelude.rnf reviewOwner
       `Prelude.seq` Prelude.rnf nonAwsRegions
@@ -288,9 +316,12 @@ instance Core.ToJSON CreateWorkload where
   toJSON CreateWorkload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("DiscoveryConfig" Core..=)
+              Prelude.<$> discoveryConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("AccountIds" Core..=) Prelude.<$> accountIds,
             ("Industry" Core..=) Prelude.<$> industry,
+            ("Applications" Core..=) Prelude.<$> applications,
             ("AwsRegions" Core..=) Prelude.<$> awsRegions,
             ("ReviewOwner" Core..=) Prelude.<$> reviewOwner,
             ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,

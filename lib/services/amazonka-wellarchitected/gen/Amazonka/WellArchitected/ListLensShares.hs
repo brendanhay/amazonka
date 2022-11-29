@@ -45,7 +45,7 @@ module Amazonka.WellArchitected.ListLensShares
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,8 +54,8 @@ import Amazonka.WellArchitected.Types
 -- | /See:/ 'newListLensShares' smart constructor.
 data ListLensShares = ListLensShares'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID or IAM role with which the lens is
-    -- shared.
+    -- | The Amazon Web Services account ID, IAM role, organization ID, or
+    -- organizational unit (OU) ID with which the lens is shared.
     sharedWithPrefix :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
     -- | The maximum number of results to return for this request.
@@ -74,8 +74,8 @@ data ListLensShares = ListLensShares'
 --
 -- 'nextToken', 'listLensShares_nextToken' - Undocumented member.
 --
--- 'sharedWithPrefix', 'listLensShares_sharedWithPrefix' - The Amazon Web Services account ID or IAM role with which the lens is
--- shared.
+-- 'sharedWithPrefix', 'listLensShares_sharedWithPrefix' - The Amazon Web Services account ID, IAM role, organization ID, or
+-- organizational unit (OU) ID with which the lens is shared.
 --
 -- 'status', 'listLensShares_status' - Undocumented member.
 --
@@ -99,8 +99,8 @@ newListLensShares pLensAlias_ =
 listLensShares_nextToken :: Lens.Lens' ListLensShares (Prelude.Maybe Prelude.Text)
 listLensShares_nextToken = Lens.lens (\ListLensShares' {nextToken} -> nextToken) (\s@ListLensShares' {} a -> s {nextToken = a} :: ListLensShares)
 
--- | The Amazon Web Services account ID or IAM role with which the lens is
--- shared.
+-- | The Amazon Web Services account ID, IAM role, organization ID, or
+-- organizational unit (OU) ID with which the lens is shared.
 listLensShares_sharedWithPrefix :: Lens.Lens' ListLensShares (Prelude.Maybe Prelude.Text)
 listLensShares_sharedWithPrefix = Lens.lens (\ListLensShares' {sharedWithPrefix} -> sharedWithPrefix) (\s@ListLensShares' {} a -> s {sharedWithPrefix = a} :: ListLensShares)
 
@@ -120,8 +120,8 @@ instance Core.AWSRequest ListLensShares where
   type
     AWSResponse ListLensShares =
       ListLensSharesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

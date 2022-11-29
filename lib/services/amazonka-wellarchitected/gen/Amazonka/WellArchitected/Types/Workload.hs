@@ -20,9 +20,10 @@
 module Amazonka.WellArchitected.Types.Workload where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Risk
+import Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
 import Amazonka.WellArchitected.Types.WorkloadEnvironment
 import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 
@@ -30,7 +31,9 @@ import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 --
 -- /See:/ 'newWorkload' smart constructor.
 data Workload = Workload'
-  { -- | The tags associated with the workload.
+  { -- | Discovery configuration associated to the workload.
+    discoveryConfig :: Prelude.Maybe WorkloadDiscoveryConfig,
+    -- | The tags associated with the workload.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     accountIds :: Prelude.Maybe [Prelude.Text],
     environment :: Prelude.Maybe WorkloadEnvironment,
@@ -43,6 +46,8 @@ data Workload = Workload'
     -- added.
     isReviewOwnerUpdateAcknowledged :: Prelude.Maybe Prelude.Bool,
     industry :: Prelude.Maybe Prelude.Text,
+    -- | List of AppRegistry application ARNs associated to the workload.
+    applications :: Prelude.Maybe [Prelude.Text],
     -- | The ID assigned to the share invitation.
     shareInvitationId :: Prelude.Maybe Prelude.Text,
     workloadArn :: Prelude.Maybe Prelude.Text,
@@ -72,6 +77,8 @@ data Workload = Workload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'discoveryConfig', 'workload_discoveryConfig' - Discovery configuration associated to the workload.
+--
 -- 'tags', 'workload_tags' - The tags associated with the workload.
 --
 -- 'accountIds', 'workload_accountIds' - Undocumented member.
@@ -88,6 +95,8 @@ data Workload = Workload'
 -- added.
 --
 -- 'industry', 'workload_industry' - Undocumented member.
+--
+-- 'applications', 'workload_applications' - List of AppRegistry application ARNs associated to the workload.
 --
 -- 'shareInvitationId', 'workload_shareInvitationId' - The ID assigned to the share invitation.
 --
@@ -126,12 +135,14 @@ newWorkload ::
   Workload
 newWorkload =
   Workload'
-    { tags = Prelude.Nothing,
+    { discoveryConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       accountIds = Prelude.Nothing,
       environment = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
       isReviewOwnerUpdateAcknowledged = Prelude.Nothing,
       industry = Prelude.Nothing,
+      applications = Prelude.Nothing,
       shareInvitationId = Prelude.Nothing,
       workloadArn = Prelude.Nothing,
       awsRegions = Prelude.Nothing,
@@ -150,6 +161,10 @@ newWorkload =
       updatedAt = Prelude.Nothing,
       workloadId = Prelude.Nothing
     }
+
+-- | Discovery configuration associated to the workload.
+workload_discoveryConfig :: Lens.Lens' Workload (Prelude.Maybe WorkloadDiscoveryConfig)
+workload_discoveryConfig = Lens.lens (\Workload' {discoveryConfig} -> discoveryConfig) (\s@Workload' {} a -> s {discoveryConfig = a} :: Workload)
 
 -- | The tags associated with the workload.
 workload_tags :: Lens.Lens' Workload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -179,6 +194,10 @@ workload_isReviewOwnerUpdateAcknowledged = Lens.lens (\Workload' {isReviewOwnerU
 -- | Undocumented member.
 workload_industry :: Lens.Lens' Workload (Prelude.Maybe Prelude.Text)
 workload_industry = Lens.lens (\Workload' {industry} -> industry) (\s@Workload' {} a -> s {industry = a} :: Workload)
+
+-- | List of AppRegistry application ARNs associated to the workload.
+workload_applications :: Lens.Lens' Workload (Prelude.Maybe [Prelude.Text])
+workload_applications = Lens.lens (\Workload' {applications} -> applications) (\s@Workload' {} a -> s {applications = a} :: Workload) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID assigned to the share invitation.
 workload_shareInvitationId :: Lens.Lens' Workload (Prelude.Maybe Prelude.Text)
@@ -254,12 +273,14 @@ instance Core.FromJSON Workload where
       "Workload"
       ( \x ->
           Workload'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "DiscoveryConfig")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AccountIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Environment")
             Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "IsReviewOwnerUpdateAcknowledged")
             Prelude.<*> (x Core..:? "Industry")
+            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ShareInvitationId")
             Prelude.<*> (x Core..:? "WorkloadArn")
             Prelude.<*> (x Core..:? "AwsRegions" Core..!= Prelude.mempty)
@@ -283,12 +304,14 @@ instance Core.FromJSON Workload where
 
 instance Prelude.Hashable Workload where
   hashWithSalt _salt Workload' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` discoveryConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` isReviewOwnerUpdateAcknowledged
       `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` shareInvitationId
       `Prelude.hashWithSalt` workloadArn
       `Prelude.hashWithSalt` awsRegions
@@ -309,12 +332,14 @@ instance Prelude.Hashable Workload where
 
 instance Prelude.NFData Workload where
   rnf Workload' {..} =
-    Prelude.rnf tags
+    Prelude.rnf discoveryConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf isReviewOwnerUpdateAcknowledged
       `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf applications
       `Prelude.seq` Prelude.rnf shareInvitationId
       `Prelude.seq` Prelude.rnf workloadArn
       `Prelude.seq` Prelude.rnf awsRegions
@@ -327,9 +352,11 @@ instance Prelude.NFData Workload where
       `Prelude.seq` Prelude.rnf industryType
       `Prelude.seq` Prelude.rnf architecturalDesign
       `Prelude.seq` Prelude.rnf pillarPriorities
-      `Prelude.seq` Prelude.rnf improvementStatus
+      `Prelude.seq` Prelude.rnf
+        improvementStatus
       `Prelude.seq` Prelude.rnf lenses
       `Prelude.seq` Prelude.rnf
         reviewRestrictionDate
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf
+        workloadId

@@ -22,9 +22,10 @@
 --
 -- Create a lens share.
 --
--- The owner of a lens can share it with other Amazon Web Services accounts
--- and IAM users in the same Amazon Web Services Region. Shared access to a
--- lens is not removed until the lens invitation is deleted.
+-- The owner of a lens can share it with other Amazon Web Services
+-- accounts, IAM users, an organization, and organizational units (OUs) in
+-- the same Amazon Web Services Region. Shared access to a lens is not
+-- removed until the lens invitation is deleted.
 --
 -- __Disclaimer__
 --
@@ -55,7 +56,7 @@ module Amazonka.WellArchitected.CreateLensShare
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,8 +117,8 @@ instance Core.AWSRequest CreateLensShare where
   type
     AWSResponse CreateLensShare =
       CreateLensShareResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

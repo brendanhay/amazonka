@@ -43,9 +43,11 @@ module Amazonka.WellArchitected.Lens
     createMilestoneResponse_httpStatus,
 
     -- ** CreateWorkload
+    createWorkload_discoveryConfig,
     createWorkload_tags,
     createWorkload_accountIds,
     createWorkload_industry,
+    createWorkload_applications,
     createWorkload_awsRegions,
     createWorkload_reviewOwner,
     createWorkload_nonAwsRegions,
@@ -183,6 +185,30 @@ module Amazonka.WellArchitected.Lens
     listAnswersResponse_milestoneNumber,
     listAnswersResponse_workloadId,
     listAnswersResponse_httpStatus,
+
+    -- ** ListCheckDetails
+    listCheckDetails_nextToken,
+    listCheckDetails_maxResults,
+    listCheckDetails_workloadId,
+    listCheckDetails_lensArn,
+    listCheckDetails_pillarId,
+    listCheckDetails_questionId,
+    listCheckDetails_choiceId,
+    listCheckDetailsResponse_nextToken,
+    listCheckDetailsResponse_checkDetails,
+    listCheckDetailsResponse_httpStatus,
+
+    -- ** ListCheckSummaries
+    listCheckSummaries_nextToken,
+    listCheckSummaries_maxResults,
+    listCheckSummaries_workloadId,
+    listCheckSummaries_lensArn,
+    listCheckSummaries_pillarId,
+    listCheckSummaries_questionId,
+    listCheckSummaries_choiceId,
+    listCheckSummariesResponse_nextToken,
+    listCheckSummariesResponse_checkSummaries,
+    listCheckSummariesResponse_httpStatus,
 
     -- ** ListLensReviewImprovements
     listLensReviewImprovements_nextToken,
@@ -325,10 +351,12 @@ module Amazonka.WellArchitected.Lens
     updateShareInvitationResponse_httpStatus,
 
     -- ** UpdateWorkload
+    updateWorkload_discoveryConfig,
     updateWorkload_accountIds,
     updateWorkload_environment,
     updateWorkload_isReviewOwnerUpdateAcknowledged,
     updateWorkload_industry,
+    updateWorkload_applications,
     updateWorkload_awsRegions,
     updateWorkload_workloadName,
     updateWorkload_reviewOwner,
@@ -389,6 +417,34 @@ module Amazonka.WellArchitected.Lens
     answerSummary_reason,
     answerSummary_questionTitle,
     answerSummary_pillarId,
+
+    -- ** CheckDetail
+    checkDetail_name,
+    checkDetail_lensArn,
+    checkDetail_provider,
+    checkDetail_questionId,
+    checkDetail_status,
+    checkDetail_id,
+    checkDetail_description,
+    checkDetail_choiceId,
+    checkDetail_accountId,
+    checkDetail_reason,
+    checkDetail_flaggedResources,
+    checkDetail_pillarId,
+    checkDetail_updatedAt,
+
+    -- ** CheckSummary
+    checkSummary_name,
+    checkSummary_lensArn,
+    checkSummary_accountSummary,
+    checkSummary_provider,
+    checkSummary_questionId,
+    checkSummary_status,
+    checkSummary_id,
+    checkSummary_description,
+    checkSummary_choiceId,
+    checkSummary_pillarId,
+    checkSummary_updatedAt,
 
     -- ** Choice
     choice_description,
@@ -547,12 +603,14 @@ module Amazonka.WellArchitected.Lens
     versionDifferences_pillarDifferences,
 
     -- ** Workload
+    workload_discoveryConfig,
     workload_tags,
     workload_accountIds,
     workload_environment,
     workload_riskCounts,
     workload_isReviewOwnerUpdateAcknowledged,
     workload_industry,
+    workload_applications,
     workload_shareInvitationId,
     workload_workloadArn,
     workload_awsRegions,
@@ -570,6 +628,9 @@ module Amazonka.WellArchitected.Lens
     workload_reviewRestrictionDate,
     workload_updatedAt,
     workload_workloadId,
+
+    -- ** WorkloadDiscoveryConfig
+    workloadDiscoveryConfig_trustedAdvisorIntegrationStatus,
 
     -- ** WorkloadShare
     workloadShare_permissionType,
@@ -620,6 +681,8 @@ import Amazonka.WellArchitected.GetMilestone
 import Amazonka.WellArchitected.GetWorkload
 import Amazonka.WellArchitected.ImportLens
 import Amazonka.WellArchitected.ListAnswers
+import Amazonka.WellArchitected.ListCheckDetails
+import Amazonka.WellArchitected.ListCheckSummaries
 import Amazonka.WellArchitected.ListLensReviewImprovements
 import Amazonka.WellArchitected.ListLensReviews
 import Amazonka.WellArchitected.ListLensShares
@@ -634,6 +697,8 @@ import Amazonka.WellArchitected.TagResource
 import Amazonka.WellArchitected.Types.AdditionalResources
 import Amazonka.WellArchitected.Types.Answer
 import Amazonka.WellArchitected.Types.AnswerSummary
+import Amazonka.WellArchitected.Types.CheckDetail
+import Amazonka.WellArchitected.Types.CheckSummary
 import Amazonka.WellArchitected.Types.Choice
 import Amazonka.WellArchitected.Types.ChoiceAnswer
 import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
@@ -658,6 +723,7 @@ import Amazonka.WellArchitected.Types.ShareInvitation
 import Amazonka.WellArchitected.Types.ShareInvitationSummary
 import Amazonka.WellArchitected.Types.VersionDifferences
 import Amazonka.WellArchitected.Types.Workload
+import Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
 import Amazonka.WellArchitected.Types.WorkloadShare
 import Amazonka.WellArchitected.Types.WorkloadShareSummary
 import Amazonka.WellArchitected.Types.WorkloadSummary

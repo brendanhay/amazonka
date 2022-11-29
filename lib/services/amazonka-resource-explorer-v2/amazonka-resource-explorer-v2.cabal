@@ -1,0 +1,112 @@
+cabal-version:      2.2
+name:               amazonka-resource-explorer-v2
+version:            2.0
+synopsis:           Amazon Resource Explorer SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2022-07-28@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.ResourceExplorer2.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.ResourceExplorer2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-resource-explorer-v2
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.ResourceExplorer2
+    Amazonka.ResourceExplorer2.AssociateDefaultView
+    Amazonka.ResourceExplorer2.BatchGetView
+    Amazonka.ResourceExplorer2.CreateIndex
+    Amazonka.ResourceExplorer2.CreateView
+    Amazonka.ResourceExplorer2.DeleteIndex
+    Amazonka.ResourceExplorer2.DeleteView
+    Amazonka.ResourceExplorer2.DisassociateDefaultView
+    Amazonka.ResourceExplorer2.GetDefaultView
+    Amazonka.ResourceExplorer2.GetIndex
+    Amazonka.ResourceExplorer2.GetView
+    Amazonka.ResourceExplorer2.Lens
+    Amazonka.ResourceExplorer2.ListIndexes
+    Amazonka.ResourceExplorer2.ListSupportedResourceTypes
+    Amazonka.ResourceExplorer2.ListTagsForResource
+    Amazonka.ResourceExplorer2.ListViews
+    Amazonka.ResourceExplorer2.Search
+    Amazonka.ResourceExplorer2.TagResource
+    Amazonka.ResourceExplorer2.Types
+    Amazonka.ResourceExplorer2.Types.BatchGetViewError
+    Amazonka.ResourceExplorer2.Types.Document
+    Amazonka.ResourceExplorer2.Types.IncludedProperty
+    Amazonka.ResourceExplorer2.Types.Index
+    Amazonka.ResourceExplorer2.Types.IndexState
+    Amazonka.ResourceExplorer2.Types.IndexType
+    Amazonka.ResourceExplorer2.Types.Resource
+    Amazonka.ResourceExplorer2.Types.ResourceCount
+    Amazonka.ResourceExplorer2.Types.ResourceProperty
+    Amazonka.ResourceExplorer2.Types.SearchFilter
+    Amazonka.ResourceExplorer2.Types.SupportedResourceType
+    Amazonka.ResourceExplorer2.Types.View
+    Amazonka.ResourceExplorer2.UntagResource
+    Amazonka.ResourceExplorer2.UpdateIndexType
+    Amazonka.ResourceExplorer2.UpdateView
+    Amazonka.ResourceExplorer2.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-resource-explorer-v2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.ResourceExplorer2
+    Test.Amazonka.ResourceExplorer2
+    Test.Amazonka.ResourceExplorer2.Internal
+
+  build-depends:
+    , amazonka-core                  >=2.0 && <2.1
+    , amazonka-resource-explorer-v2
+    , amazonka-test                  >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

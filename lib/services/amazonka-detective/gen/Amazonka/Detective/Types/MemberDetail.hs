@@ -20,13 +20,13 @@
 module Amazonka.Detective.Types.MemberDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Detective.Types.DatasourcePackage
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.DatasourcePackageUsageInfo
 import Amazonka.Detective.Types.InvitationType
 import Amazonka.Detective.Types.MemberDisabledReason
 import Amazonka.Detective.Types.MemberStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a member account in a behavior graph.

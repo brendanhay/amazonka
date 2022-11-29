@@ -41,8 +41,8 @@ module Amazonka.Detective.DeleteGraph
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Detective.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,8 +76,8 @@ deleteGraph_graphArn = Lens.lens (\DeleteGraph' {graphArn} -> graphArn) (\s@Dele
 
 instance Core.AWSRequest DeleteGraph where
   type AWSResponse DeleteGraph = DeleteGraphResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteGraphResponse'
 
 instance Prelude.Hashable DeleteGraph where

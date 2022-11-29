@@ -20,7 +20,7 @@
 module Amazonka.ForecastQuery.Types.DataPoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The forecast value for a specific date. Part of the Forecast object.

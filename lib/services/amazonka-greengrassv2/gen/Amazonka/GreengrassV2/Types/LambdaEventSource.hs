@@ -20,8 +20,8 @@
 module Amazonka.GreengrassV2.Types.LambdaEventSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.LambdaEventSourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an event source for an Lambda function. The

@@ -20,9 +20,9 @@
 module Amazonka.GreengrassV2.Types.CloudComponentStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.CloudComponentState
 import Amazonka.GreengrassV2.Types.VendorGuidance
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the status of a component version in the IoT Greengrass

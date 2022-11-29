@@ -20,9 +20,9 @@
 module Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.LambdaContainerParams
 import Amazonka.GreengrassV2.Types.LambdaIsolationMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains parameters for a Linux process that contains an Lambda

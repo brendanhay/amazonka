@@ -20,7 +20,7 @@
 module Amazonka.GreengrassV2.Types.SystemResourceLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about system resource limits that the IoT

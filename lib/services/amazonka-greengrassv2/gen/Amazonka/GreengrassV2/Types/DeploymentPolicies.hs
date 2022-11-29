@@ -20,10 +20,10 @@
 module Amazonka.GreengrassV2.Types.DeploymentPolicies where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicy
 import Amazonka.GreengrassV2.Types.DeploymentConfigurationValidationPolicy
 import Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about policies that define how a deployment updates

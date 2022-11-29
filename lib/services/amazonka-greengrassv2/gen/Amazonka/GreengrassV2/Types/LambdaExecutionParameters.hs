@@ -20,10 +20,10 @@
 module Amazonka.GreengrassV2.Types.LambdaExecutionParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.LambdaEventSource
 import Amazonka.GreengrassV2.Types.LambdaInputPayloadEncodingType
 import Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains parameters for a Lambda function that runs on IoT Greengrass.

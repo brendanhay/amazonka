@@ -45,6 +45,7 @@ module Amazonka.GreengrassV2.GetDeployment
     getDeploymentResponse_targetArn,
     getDeploymentResponse_isLatestForTarget,
     getDeploymentResponse_creationTimestamp,
+    getDeploymentResponse_parentTargetArn,
     getDeploymentResponse_deploymentPolicies,
     getDeploymentResponse_components,
     getDeploymentResponse_revisionId,
@@ -53,8 +54,8 @@ module Amazonka.GreengrassV2.GetDeployment
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,8 +91,8 @@ instance Core.AWSRequest GetDeployment where
   type
     AWSResponse GetDeployment =
       GetDeploymentResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +107,7 @@ instance Core.AWSRequest GetDeployment where
             Prelude.<*> (x Core..?> "targetArn")
             Prelude.<*> (x Core..?> "isLatestForTarget")
             Prelude.<*> (x Core..?> "creationTimestamp")
+            Prelude.<*> (x Core..?> "parentTargetArn")
             Prelude.<*> (x Core..?> "deploymentPolicies")
             Prelude.<*> (x Core..?> "components" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "revisionId")
@@ -164,6 +166,10 @@ data GetDeploymentResponse = GetDeploymentResponse'
     -- | The time at which the deployment was created, expressed in ISO 8601
     -- format.
     creationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The parent deployment\'s target
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- within a subdeployment.
+    parentTargetArn :: Prelude.Maybe Prelude.Text,
     -- | The deployment policies for the deployment. These policies define how
     -- the deployment updates components and handles failure.
     deploymentPolicies :: Prelude.Maybe DeploymentPolicies,
@@ -216,6 +222,10 @@ data GetDeploymentResponse = GetDeploymentResponse'
 -- 'creationTimestamp', 'getDeploymentResponse_creationTimestamp' - The time at which the deployment was created, expressed in ISO 8601
 -- format.
 --
+-- 'parentTargetArn', 'getDeploymentResponse_parentTargetArn' - The parent deployment\'s target
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- within a subdeployment.
+--
 -- 'deploymentPolicies', 'getDeploymentResponse_deploymentPolicies' - The deployment policies for the deployment. These policies define how
 -- the deployment updates components and handles failure.
 --
@@ -243,6 +253,7 @@ newGetDeploymentResponse pHttpStatus_ =
       targetArn = Prelude.Nothing,
       isLatestForTarget = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
+      parentTargetArn = Prelude.Nothing,
       deploymentPolicies = Prelude.Nothing,
       components = Prelude.Nothing,
       revisionId = Prelude.Nothing,
@@ -299,6 +310,12 @@ getDeploymentResponse_isLatestForTarget = Lens.lens (\GetDeploymentResponse' {is
 getDeploymentResponse_creationTimestamp :: Lens.Lens' GetDeploymentResponse (Prelude.Maybe Prelude.UTCTime)
 getDeploymentResponse_creationTimestamp = Lens.lens (\GetDeploymentResponse' {creationTimestamp} -> creationTimestamp) (\s@GetDeploymentResponse' {} a -> s {creationTimestamp = a} :: GetDeploymentResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The parent deployment\'s target
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- within a subdeployment.
+getDeploymentResponse_parentTargetArn :: Lens.Lens' GetDeploymentResponse (Prelude.Maybe Prelude.Text)
+getDeploymentResponse_parentTargetArn = Lens.lens (\GetDeploymentResponse' {parentTargetArn} -> parentTargetArn) (\s@GetDeploymentResponse' {} a -> s {parentTargetArn = a} :: GetDeploymentResponse)
+
 -- | The deployment policies for the deployment. These policies define how
 -- the deployment updates components and handles failure.
 getDeploymentResponse_deploymentPolicies :: Lens.Lens' GetDeploymentResponse (Prelude.Maybe DeploymentPolicies)
@@ -330,6 +347,7 @@ instance Prelude.NFData GetDeploymentResponse where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf isLatestForTarget
       `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf parentTargetArn
       `Prelude.seq` Prelude.rnf deploymentPolicies
       `Prelude.seq` Prelude.rnf components
       `Prelude.seq` Prelude.rnf revisionId

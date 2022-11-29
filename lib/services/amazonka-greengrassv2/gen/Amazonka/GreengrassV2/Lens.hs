@@ -53,6 +53,7 @@ module Amazonka.GreengrassV2.Lens
     createDeployment_clientToken,
     createDeployment_iotJobConfiguration,
     createDeployment_deploymentName,
+    createDeployment_parentTargetArn,
     createDeployment_deploymentPolicies,
     createDeployment_components,
     createDeployment_targetArn,
@@ -130,6 +131,7 @@ module Amazonka.GreengrassV2.Lens
     getDeploymentResponse_targetArn,
     getDeploymentResponse_isLatestForTarget,
     getDeploymentResponse_creationTimestamp,
+    getDeploymentResponse_parentTargetArn,
     getDeploymentResponse_deploymentPolicies,
     getDeploymentResponse_components,
     getDeploymentResponse_revisionId,
@@ -176,6 +178,7 @@ module Amazonka.GreengrassV2.Lens
     -- ** ListDeployments
     listDeployments_nextToken,
     listDeployments_targetArn,
+    listDeployments_parentTargetArn,
     listDeployments_maxResults,
     listDeployments_historyFilter,
     listDeploymentsResponse_nextToken,
@@ -311,6 +314,7 @@ module Amazonka.GreengrassV2.Lens
     deployment_targetArn,
     deployment_isLatestForTarget,
     deployment_creationTimestamp,
+    deployment_parentTargetArn,
     deployment_revisionId,
 
     -- ** DeploymentComponentUpdatePolicy

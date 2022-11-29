@@ -20,7 +20,7 @@
 module Amazonka.SageMakerEdge.Types.Definition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.Checksum
 import Amazonka.SageMakerEdge.Types.ModelState

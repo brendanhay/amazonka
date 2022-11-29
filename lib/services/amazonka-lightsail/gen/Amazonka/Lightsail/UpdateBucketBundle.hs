@@ -25,8 +25,8 @@
 --
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket. You can update a bucket\'s bundle only one
--- time within a monthly AWS billing cycle. To determine if you can update
--- a bucket\'s bundle, use the
+-- time within a monthly Amazon Web Services billing cycle. To determine if
+-- you can update a bucket\'s bundle, use the
 -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html GetBuckets>
 -- action. The @ableToUpdateBundle@ parameter in the response will indicate
 -- whether you can currently update a bucket\'s bundle.
@@ -59,7 +59,7 @@ module Amazonka.Lightsail.UpdateBucketBundle
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +121,8 @@ instance Core.AWSRequest UpdateBucketBundle where
   type
     AWSResponse UpdateBucketBundle =
       UpdateBucketBundleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

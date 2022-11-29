@@ -21,7 +21,7 @@
 -- snapshots (backups) - for a low, predictable monthly price.
 --
 -- You can manage your Lightsail resources using the Lightsail console,
--- Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more
+-- Lightsail API, Command Line Interface (CLI), or SDKs. For more
 -- information about Lightsail concepts and tasks, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli Amazon Lightsail Developer Guide>.
 --
@@ -1027,6 +1027,9 @@ module Amazonka.Lightsail
     -- ** BucketMetricName
     BucketMetricName (..),
 
+    -- ** CertificateDomainValidationStatus
+    CertificateDomainValidationStatus (..),
+
     -- ** CertificateStatus
     CertificateStatus (..),
 
@@ -1071,6 +1074,9 @@ module Amazonka.Lightsail
 
     -- ** DistributionMetricName
     DistributionMetricName (..),
+
+    -- ** DnsRecordCreationStateCode
+    DnsRecordCreationStateCode (..),
 
     -- ** ExportSnapshotRecordSourceType
     ExportSnapshotRecordSourceType (..),
@@ -1126,6 +1132,9 @@ module Amazonka.Lightsail
     -- ** LoadBalancerState
     LoadBalancerState (..),
 
+    -- ** LoadBalancerTlsCertificateDnsRecordCreationStateCode
+    LoadBalancerTlsCertificateDnsRecordCreationStateCode (..),
+
     -- ** LoadBalancerTlsCertificateDomainStatus
     LoadBalancerTlsCertificateDomainStatus (..),
 
@@ -1150,6 +1159,9 @@ module Amazonka.Lightsail
     -- ** MetricUnit
     MetricUnit (..),
 
+    -- ** NameServersUpdateStateCode
+    NameServersUpdateStateCode (..),
+
     -- ** NetworkProtocol
     NetworkProtocol (..),
 
@@ -1170,6 +1182,9 @@ module Amazonka.Lightsail
 
     -- ** PortState
     PortState (..),
+
+    -- ** R53HostedZoneDeletionStateCode
+    R53HostedZoneDeletionStateCode (..),
 
     -- ** RecordState
     RecordState (..),
@@ -1385,6 +1400,10 @@ module Amazonka.Lightsail
     DistributionBundle (DistributionBundle'),
     newDistributionBundle,
 
+    -- ** DnsRecordCreationState
+    DnsRecordCreationState (DnsRecordCreationState'),
+    newDnsRecordCreationState,
+
     -- ** Domain
     Domain (Domain'),
     newDomain,
@@ -1485,6 +1504,10 @@ module Amazonka.Lightsail
     LoadBalancerTlsCertificate (LoadBalancerTlsCertificate'),
     newLoadBalancerTlsCertificate,
 
+    -- ** LoadBalancerTlsCertificateDnsRecordCreationState
+    LoadBalancerTlsCertificateDnsRecordCreationState (LoadBalancerTlsCertificateDnsRecordCreationState'),
+    newLoadBalancerTlsCertificateDnsRecordCreationState,
+
     -- ** LoadBalancerTlsCertificateDomainValidationOption
     LoadBalancerTlsCertificateDomainValidationOption (LoadBalancerTlsCertificateDomainValidationOption'),
     newLoadBalancerTlsCertificateDomainValidationOption,
@@ -1520,6 +1543,10 @@ module Amazonka.Lightsail
     -- ** MonthlyTransfer
     MonthlyTransfer (MonthlyTransfer'),
     newMonthlyTransfer,
+
+    -- ** NameServersUpdateState
+    NameServersUpdateState (NameServersUpdateState'),
+    newNameServersUpdateState,
 
     -- ** Operation
     Operation (Operation'),
@@ -1557,9 +1584,17 @@ module Amazonka.Lightsail
     QueryStringObject (QueryStringObject'),
     newQueryStringObject,
 
+    -- ** R53HostedZoneDeletionState
+    R53HostedZoneDeletionState (R53HostedZoneDeletionState'),
+    newR53HostedZoneDeletionState,
+
     -- ** RegionInfo
     RegionInfo (RegionInfo'),
     newRegionInfo,
+
+    -- ** RegisteredDomainDelegationInfo
+    RegisteredDomainDelegationInfo (RegisteredDomainDelegationInfo'),
+    newRegisteredDomainDelegationInfo,
 
     -- ** RelationalDatabase
     RelationalDatabase (RelationalDatabase'),

@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.MonthlyTransfer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the monthly data transfer in and out of your virtual private

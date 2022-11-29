@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a request to enable or modify the automatic snapshot add-on

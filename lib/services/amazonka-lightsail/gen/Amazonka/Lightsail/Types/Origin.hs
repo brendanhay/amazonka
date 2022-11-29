@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.Origin where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.OriginProtocolPolicyEnum
 import Amazonka.Lightsail.Types.RegionName
 import Amazonka.Lightsail.Types.ResourceType

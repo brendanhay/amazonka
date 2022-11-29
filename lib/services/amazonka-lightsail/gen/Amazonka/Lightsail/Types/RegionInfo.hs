@@ -20,12 +20,12 @@
 module Amazonka.Lightsail.Types.RegionInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.AvailabilityZone
 import Amazonka.Lightsail.Types.RegionName
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the AWS Region.
+-- | Describes the Amazon Web Services Region.
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
@@ -39,7 +39,7 @@ data RegionInfo = RegionInfo'
     availabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The display name (e.g., @Ohio@).
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the AWS Region (e.g.,
+    -- | The description of the Amazon Web Services Region (e.g.,
     -- @This region is recommended to serve users in the eastern United States and eastern Canada@).
     description :: Prelude.Maybe Prelude.Text,
     -- | The continent code (e.g., @NA@, meaning North America).
@@ -65,7 +65,7 @@ data RegionInfo = RegionInfo'
 --
 -- 'displayName', 'regionInfo_displayName' - The display name (e.g., @Ohio@).
 --
--- 'description', 'regionInfo_description' - The description of the AWS Region (e.g.,
+-- 'description', 'regionInfo_description' - The description of the Amazon Web Services Region (e.g.,
 -- @This region is recommended to serve users in the eastern United States and eastern Canada@).
 --
 -- 'continentCode', 'regionInfo_continentCode' - The continent code (e.g., @NA@, meaning North America).
@@ -100,7 +100,7 @@ regionInfo_availabilityZones = Lens.lens (\RegionInfo' {availabilityZones} -> av
 regionInfo_displayName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_displayName = Lens.lens (\RegionInfo' {displayName} -> displayName) (\s@RegionInfo' {} a -> s {displayName = a} :: RegionInfo)
 
--- | The description of the AWS Region (e.g.,
+-- | The description of the Amazon Web Services Region (e.g.,
 -- @This region is recommended to serve users in the eastern United States and eastern Canada@).
 regionInfo_description :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_description = Lens.lens (\RegionInfo' {description} -> description) (\s@RegionInfo' {} a -> s {description = a} :: RegionInfo)

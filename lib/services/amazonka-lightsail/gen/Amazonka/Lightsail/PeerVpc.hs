@@ -37,7 +37,7 @@ module Amazonka.Lightsail.PeerVpc
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -59,8 +59,8 @@ newPeerVpc = PeerVpc'
 
 instance Core.AWSRequest PeerVpc where
   type AWSResponse PeerVpc = PeerVpcResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

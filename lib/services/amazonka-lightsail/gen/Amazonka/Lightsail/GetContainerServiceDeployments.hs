@@ -31,7 +31,7 @@
 -- A set number of deployments are kept before the oldest one is replaced
 -- with the newest one. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/lightsail.html Amazon Lightsail endpoints and quotas>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 module Amazonka.Lightsail.GetContainerServiceDeployments
   ( -- * Creating a Request
     GetContainerServiceDeployments (..),
@@ -51,7 +51,7 @@ module Amazonka.Lightsail.GetContainerServiceDeployments
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +94,8 @@ instance
   type
     AWSResponse GetContainerServiceDeployments =
       GetContainerServiceDeploymentsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

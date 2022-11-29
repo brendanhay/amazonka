@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.ContainerServiceDeployment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.Container
 import Amazonka.Lightsail.Types.ContainerServiceDeploymentState
 import Amazonka.Lightsail.Types.ContainerServiceEndpoint

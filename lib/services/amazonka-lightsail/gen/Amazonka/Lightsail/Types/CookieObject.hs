@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.CookieObject where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.ForwardValues
 import qualified Amazonka.Prelude as Prelude
 

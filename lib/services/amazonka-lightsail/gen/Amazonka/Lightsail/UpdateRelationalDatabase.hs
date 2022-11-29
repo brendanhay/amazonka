@@ -59,7 +59,7 @@ module Amazonka.Lightsail.UpdateRelationalDatabase
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +116,8 @@ data UpdateRelationalDatabase = UpdateRelationalDatabase'
     -- database.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region, occurring on a random day of the
-    -- week.
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week.
     --
     -- Constraints:
     --
@@ -208,8 +208,8 @@ data UpdateRelationalDatabase = UpdateRelationalDatabase'
 -- database.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Constraints:
 --
@@ -319,8 +319,8 @@ updateRelationalDatabase_caCertificateIdentifier = Lens.lens (\UpdateRelationalD
 -- database.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Constraints:
 --
@@ -363,8 +363,8 @@ instance Core.AWSRequest UpdateRelationalDatabase where
   type
     AWSResponse UpdateRelationalDatabase =
       UpdateRelationalDatabaseResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

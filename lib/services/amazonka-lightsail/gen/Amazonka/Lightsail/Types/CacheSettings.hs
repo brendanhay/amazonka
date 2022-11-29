@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.CacheSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.CookieObject
 import Amazonka.Lightsail.Types.HeaderObject
 import Amazonka.Lightsail.Types.QueryStringObject

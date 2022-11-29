@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.Instance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.InstanceHardware
 import Amazonka.Lightsail.Types.InstanceMetadataOptions

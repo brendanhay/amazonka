@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -55,6 +56,9 @@ module Amazonka.Lightsail.Types
     -- * BucketMetricName
     BucketMetricName (..),
 
+    -- * CertificateDomainValidationStatus
+    CertificateDomainValidationStatus (..),
+
     -- * CertificateStatus
     CertificateStatus (..),
 
@@ -99,6 +103,9 @@ module Amazonka.Lightsail.Types
 
     -- * DistributionMetricName
     DistributionMetricName (..),
+
+    -- * DnsRecordCreationStateCode
+    DnsRecordCreationStateCode (..),
 
     -- * ExportSnapshotRecordSourceType
     ExportSnapshotRecordSourceType (..),
@@ -154,6 +161,9 @@ module Amazonka.Lightsail.Types
     -- * LoadBalancerState
     LoadBalancerState (..),
 
+    -- * LoadBalancerTlsCertificateDnsRecordCreationStateCode
+    LoadBalancerTlsCertificateDnsRecordCreationStateCode (..),
+
     -- * LoadBalancerTlsCertificateDomainStatus
     LoadBalancerTlsCertificateDomainStatus (..),
 
@@ -178,6 +188,9 @@ module Amazonka.Lightsail.Types
     -- * MetricUnit
     MetricUnit (..),
 
+    -- * NameServersUpdateStateCode
+    NameServersUpdateStateCode (..),
+
     -- * NetworkProtocol
     NetworkProtocol (..),
 
@@ -198,6 +211,9 @@ module Amazonka.Lightsail.Types
 
     -- * PortState
     PortState (..),
+
+    -- * R53HostedZoneDeletionStateCode
+    R53HostedZoneDeletionStateCode (..),
 
     -- * RecordState
     RecordState (..),
@@ -676,12 +692,19 @@ module Amazonka.Lightsail.Types
     distributionBundle_price,
     distributionBundle_bundleId,
 
+    -- * DnsRecordCreationState
+    DnsRecordCreationState (..),
+    newDnsRecordCreationState,
+    dnsRecordCreationState_message,
+    dnsRecordCreationState_code,
+
     -- * Domain
     Domain (..),
     newDomain,
     domain_tags,
     domain_resourceType,
     domain_name,
+    domain_registeredDomainDelegationInfo,
     domain_arn,
     domain_location,
     domain_domainEntries,
@@ -701,7 +724,9 @@ module Amazonka.Lightsail.Types
     -- * DomainValidationRecord
     DomainValidationRecord (..),
     newDomainValidationRecord,
+    domainValidationRecord_dnsRecordCreationState,
     domainValidationRecord_domainName,
+    domainValidationRecord_validationStatus,
     domainValidationRecord_resourceRecord,
 
     -- * EndpointRequest
@@ -983,6 +1008,12 @@ module Amazonka.Lightsail.Types
     loadBalancerTlsCertificate_failureReason,
     loadBalancerTlsCertificate_issuedAt,
 
+    -- * LoadBalancerTlsCertificateDnsRecordCreationState
+    LoadBalancerTlsCertificateDnsRecordCreationState (..),
+    newLoadBalancerTlsCertificateDnsRecordCreationState,
+    loadBalancerTlsCertificateDnsRecordCreationState_message,
+    loadBalancerTlsCertificateDnsRecordCreationState_code,
+
     -- * LoadBalancerTlsCertificateDomainValidationOption
     LoadBalancerTlsCertificateDomainValidationOption (..),
     newLoadBalancerTlsCertificateDomainValidationOption,
@@ -994,6 +1025,7 @@ module Amazonka.Lightsail.Types
     newLoadBalancerTlsCertificateDomainValidationRecord,
     loadBalancerTlsCertificateDomainValidationRecord_name,
     loadBalancerTlsCertificateDomainValidationRecord_type,
+    loadBalancerTlsCertificateDomainValidationRecord_dnsRecordCreationState,
     loadBalancerTlsCertificateDomainValidationRecord_domainName,
     loadBalancerTlsCertificateDomainValidationRecord_validationStatus,
     loadBalancerTlsCertificateDomainValidationRecord_value,
@@ -1047,6 +1079,12 @@ module Amazonka.Lightsail.Types
     MonthlyTransfer (..),
     newMonthlyTransfer,
     monthlyTransfer_gbPerMonthAllocated,
+
+    -- * NameServersUpdateState
+    NameServersUpdateState (..),
+    newNameServersUpdateState,
+    nameServersUpdateState_message,
+    nameServersUpdateState_code,
 
     -- * Operation
     Operation (..),
@@ -1118,6 +1156,12 @@ module Amazonka.Lightsail.Types
     queryStringObject_queryStringsAllowList,
     queryStringObject_option,
 
+    -- * R53HostedZoneDeletionState
+    R53HostedZoneDeletionState (..),
+    newR53HostedZoneDeletionState,
+    r53HostedZoneDeletionState_message,
+    r53HostedZoneDeletionState_code,
+
     -- * RegionInfo
     RegionInfo (..),
     newRegionInfo,
@@ -1127,6 +1171,12 @@ module Amazonka.Lightsail.Types
     regionInfo_displayName,
     regionInfo_description,
     regionInfo_continentCode,
+
+    -- * RegisteredDomainDelegationInfo
+    RegisteredDomainDelegationInfo (..),
+    newRegisteredDomainDelegationInfo,
+    registeredDomainDelegationInfo_r53HostedZoneDeletionState,
+    registeredDomainDelegationInfo_nameServersUpdateState,
 
     -- * RelationalDatabase
     RelationalDatabase (..),
@@ -1282,7 +1332,7 @@ module Amazonka.Lightsail.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.AccessDirection
 import Amazonka.Lightsail.Types.AccessKey
 import Amazonka.Lightsail.Types.AccessKeyLastUsed
@@ -1314,6 +1364,7 @@ import Amazonka.Lightsail.Types.CacheBehavior
 import Amazonka.Lightsail.Types.CacheBehaviorPerPath
 import Amazonka.Lightsail.Types.CacheSettings
 import Amazonka.Lightsail.Types.Certificate
+import Amazonka.Lightsail.Types.CertificateDomainValidationStatus
 import Amazonka.Lightsail.Types.CertificateStatus
 import Amazonka.Lightsail.Types.CertificateSummary
 import Amazonka.Lightsail.Types.CloudFormationStackRecord
@@ -1354,6 +1405,8 @@ import Amazonka.Lightsail.Types.DiskSnapshotState
 import Amazonka.Lightsail.Types.DiskState
 import Amazonka.Lightsail.Types.DistributionBundle
 import Amazonka.Lightsail.Types.DistributionMetricName
+import Amazonka.Lightsail.Types.DnsRecordCreationState
+import Amazonka.Lightsail.Types.DnsRecordCreationStateCode
 import Amazonka.Lightsail.Types.Domain
 import Amazonka.Lightsail.Types.DomainEntry
 import Amazonka.Lightsail.Types.DomainValidationRecord
@@ -1397,6 +1450,8 @@ import Amazonka.Lightsail.Types.LoadBalancerMetricName
 import Amazonka.Lightsail.Types.LoadBalancerProtocol
 import Amazonka.Lightsail.Types.LoadBalancerState
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificate
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationStateCode
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
@@ -1414,6 +1469,8 @@ import Amazonka.Lightsail.Types.MetricStatistic
 import Amazonka.Lightsail.Types.MetricUnit
 import Amazonka.Lightsail.Types.MonitoredResourceInfo
 import Amazonka.Lightsail.Types.MonthlyTransfer
+import Amazonka.Lightsail.Types.NameServersUpdateState
+import Amazonka.Lightsail.Types.NameServersUpdateStateCode
 import Amazonka.Lightsail.Types.NetworkProtocol
 import Amazonka.Lightsail.Types.Operation
 import Amazonka.Lightsail.Types.OperationStatus
@@ -1430,9 +1487,12 @@ import Amazonka.Lightsail.Types.PortState
 import Amazonka.Lightsail.Types.PrivateRegistryAccess
 import Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
 import Amazonka.Lightsail.Types.QueryStringObject
+import Amazonka.Lightsail.Types.R53HostedZoneDeletionState
+import Amazonka.Lightsail.Types.R53HostedZoneDeletionStateCode
 import Amazonka.Lightsail.Types.RecordState
 import Amazonka.Lightsail.Types.RegionInfo
 import Amazonka.Lightsail.Types.RegionName
+import Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo
 import Amazonka.Lightsail.Types.RelationalDatabase
 import Amazonka.Lightsail.Types.RelationalDatabaseBlueprint
 import Amazonka.Lightsail.Types.RelationalDatabaseBundle
@@ -1462,27 +1522,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Lightsail",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "lightsail",
-      Core._serviceSigningName = "lightsail",
-      Core._serviceVersion = "2016-11-28",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Lightsail",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Lightsail",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "lightsail",
+      Core.signingName = "lightsail",
+      Core.version = "2016-11-28",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Lightsail",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

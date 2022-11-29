@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.ContactMethod where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.ContactMethodStatus
 import Amazonka.Lightsail.Types.ContactProtocol
 import Amazonka.Lightsail.Types.ResourceLocation

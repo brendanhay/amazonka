@@ -51,7 +51,7 @@ module Amazonka.Lightsail.CreateContainerService
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +110,9 @@ data CreateContainerService = CreateContainerService'
     -- typically
     -- @https:\/\/\<ServiceName>.\<RandomGUID>.\<AWSRegion>.cs.amazonlightsail.com@.
     -- If the name of your container service is @container-service-1@, and
-    -- it\'s located in the US East (Ohio) AWS region (@us-east-2@), then the
-    -- domain for your container service will be like the following example:
+    -- it\'s located in the US East (Ohio) Amazon Web Services Region
+    -- (@us-east-2@), then the domain for your container service will be like
+    -- the following example:
     -- @https:\/\/container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com@
     --
     -- The following are the requirements for container service names:
@@ -208,8 +209,9 @@ data CreateContainerService = CreateContainerService'
 -- typically
 -- @https:\/\/\<ServiceName>.\<RandomGUID>.\<AWSRegion>.cs.amazonlightsail.com@.
 -- If the name of your container service is @container-service-1@, and
--- it\'s located in the US East (Ohio) AWS region (@us-east-2@), then the
--- domain for your container service will be like the following example:
+-- it\'s located in the US East (Ohio) Amazon Web Services Region
+-- (@us-east-2@), then the domain for your container service will be like
+-- the following example:
 -- @https:\/\/container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com@
 --
 -- The following are the requirements for container service names:
@@ -324,8 +326,9 @@ createContainerService_privateRegistryAccess = Lens.lens (\CreateContainerServic
 -- typically
 -- @https:\/\/\<ServiceName>.\<RandomGUID>.\<AWSRegion>.cs.amazonlightsail.com@.
 -- If the name of your container service is @container-service-1@, and
--- it\'s located in the US East (Ohio) AWS region (@us-east-2@), then the
--- domain for your container service will be like the following example:
+-- it\'s located in the US East (Ohio) Amazon Web Services Region
+-- (@us-east-2@), then the domain for your container service will be like
+-- the following example:
 -- @https:\/\/container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com@
 --
 -- The following are the requirements for container service names:
@@ -370,8 +373,8 @@ instance Core.AWSRequest CreateContainerService where
   type
     AWSResponse CreateContainerService =
       CreateContainerServiceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.InstancePortInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.AccessDirection
 import Amazonka.Lightsail.Types.NetworkProtocol
 import Amazonka.Lightsail.Types.PortAccessType

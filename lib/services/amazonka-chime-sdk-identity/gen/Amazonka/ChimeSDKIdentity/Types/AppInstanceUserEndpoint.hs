@@ -24,7 +24,7 @@ import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
 import Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
 import Amazonka.ChimeSDKIdentity.Types.EndpointState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An endpoint under an Amazon Chime @AppInstanceUser@ that receives

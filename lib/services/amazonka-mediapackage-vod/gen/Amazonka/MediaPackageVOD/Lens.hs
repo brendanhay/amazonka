@@ -207,6 +207,7 @@ module Amazonka.MediaPackageVOD.Lens
 
     -- ** DashPackage
     dashPackage_segmentTemplateFormat,
+    dashPackage_includeIframeOnlyStream,
     dashPackage_segmentDurationSeconds,
     dashPackage_periodTriggers,
     dashPackage_encryption,

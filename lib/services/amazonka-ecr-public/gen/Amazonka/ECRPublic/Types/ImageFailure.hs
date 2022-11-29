@@ -20,9 +20,9 @@
 module Amazonka.ECRPublic.Types.ImageFailure where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECRPublic.Types.ImageFailureCode
 import Amazonka.ECRPublic.Types.ImageIdentifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image failure.

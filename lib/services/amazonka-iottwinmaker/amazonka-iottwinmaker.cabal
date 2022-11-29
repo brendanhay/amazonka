@@ -53,8 +53,10 @@ library
     Amazonka.IotTwinMaker.DeleteEntity
     Amazonka.IotTwinMaker.DeleteScene
     Amazonka.IotTwinMaker.DeleteWorkspace
+    Amazonka.IotTwinMaker.ExecuteQuery
     Amazonka.IotTwinMaker.GetComponentType
     Amazonka.IotTwinMaker.GetEntity
+    Amazonka.IotTwinMaker.GetPricingPlan
     Amazonka.IotTwinMaker.GetPropertyValue
     Amazonka.IotTwinMaker.GetPropertyValueHistory
     Amazonka.IotTwinMaker.GetScene
@@ -69,6 +71,11 @@ library
     Amazonka.IotTwinMaker.Types
     Amazonka.IotTwinMaker.Types.BatchPutPropertyError
     Amazonka.IotTwinMaker.Types.BatchPutPropertyErrorEntry
+    Amazonka.IotTwinMaker.Types.BundleInformation
+    Amazonka.IotTwinMaker.Types.ColumnDescription
+    Amazonka.IotTwinMaker.Types.ColumnType
+    Amazonka.IotTwinMaker.Types.ComponentPropertyGroupRequest
+    Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse
     Amazonka.IotTwinMaker.Types.ComponentRequest
     Amazonka.IotTwinMaker.Types.ComponentResponse
     Amazonka.IotTwinMaker.Types.ComponentTypeSummary
@@ -83,17 +90,26 @@ library
     Amazonka.IotTwinMaker.Types.ErrorDetails
     Amazonka.IotTwinMaker.Types.FunctionRequest
     Amazonka.IotTwinMaker.Types.FunctionResponse
+    Amazonka.IotTwinMaker.Types.GroupType
     Amazonka.IotTwinMaker.Types.InterpolationParameters
     Amazonka.IotTwinMaker.Types.InterpolationType
     Amazonka.IotTwinMaker.Types.LambdaFunction
     Amazonka.IotTwinMaker.Types.ListComponentTypesFilter
     Amazonka.IotTwinMaker.Types.ListEntitiesFilter
+    Amazonka.IotTwinMaker.Types.Order
+    Amazonka.IotTwinMaker.Types.OrderBy
     Amazonka.IotTwinMaker.Types.OrderByTime
     Amazonka.IotTwinMaker.Types.ParentEntityUpdateRequest
     Amazonka.IotTwinMaker.Types.ParentEntityUpdateType
+    Amazonka.IotTwinMaker.Types.PricingMode
+    Amazonka.IotTwinMaker.Types.PricingPlan
+    Amazonka.IotTwinMaker.Types.PricingTier
     Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest
     Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
     Amazonka.IotTwinMaker.Types.PropertyFilter
+    Amazonka.IotTwinMaker.Types.PropertyGroupRequest
+    Amazonka.IotTwinMaker.Types.PropertyGroupResponse
+    Amazonka.IotTwinMaker.Types.PropertyGroupUpdateType
     Amazonka.IotTwinMaker.Types.PropertyLatestValue
     Amazonka.IotTwinMaker.Types.PropertyRequest
     Amazonka.IotTwinMaker.Types.PropertyResponse
@@ -101,17 +117,22 @@ library
     Amazonka.IotTwinMaker.Types.PropertyValue
     Amazonka.IotTwinMaker.Types.PropertyValueEntry
     Amazonka.IotTwinMaker.Types.PropertyValueHistory
+    Amazonka.IotTwinMaker.Types.QueryResultValue
     Amazonka.IotTwinMaker.Types.Relationship
     Amazonka.IotTwinMaker.Types.RelationshipValue
+    Amazonka.IotTwinMaker.Types.Row
     Amazonka.IotTwinMaker.Types.SceneSummary
     Amazonka.IotTwinMaker.Types.Scope
     Amazonka.IotTwinMaker.Types.State
     Amazonka.IotTwinMaker.Types.Status
+    Amazonka.IotTwinMaker.Types.TabularConditions
     Amazonka.IotTwinMaker.Types.Type
+    Amazonka.IotTwinMaker.Types.UpdateReason
     Amazonka.IotTwinMaker.Types.WorkspaceSummary
     Amazonka.IotTwinMaker.UntagResource
     Amazonka.IotTwinMaker.UpdateComponentType
     Amazonka.IotTwinMaker.UpdateEntity
+    Amazonka.IotTwinMaker.UpdatePricingPlan
     Amazonka.IotTwinMaker.UpdateScene
     Amazonka.IotTwinMaker.UpdateWorkspace
     Amazonka.IotTwinMaker.Waiters

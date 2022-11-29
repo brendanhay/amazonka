@@ -20,9 +20,9 @@
 module Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.DataType
 import Amazonka.IotTwinMaker.Types.DataValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that sets information about a property.

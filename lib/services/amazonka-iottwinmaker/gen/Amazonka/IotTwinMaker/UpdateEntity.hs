@@ -31,8 +31,8 @@ module Amazonka.IotTwinMaker.UpdateEntity
     updateEntity_componentUpdates,
     updateEntity_description,
     updateEntity_parentEntityUpdate,
-    updateEntity_entityId,
     updateEntity_workspaceId,
+    updateEntity_entityId,
 
     -- * Destructuring the Response
     UpdateEntityResponse (..),
@@ -40,14 +40,14 @@ module Amazonka.IotTwinMaker.UpdateEntity
 
     -- * Response Lenses
     updateEntityResponse_httpStatus,
-    updateEntityResponse_state,
     updateEntityResponse_updateDateTime,
+    updateEntityResponse_state,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,10 +63,10 @@ data UpdateEntity = UpdateEntity'
     description :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the update request for a parent entity.
     parentEntityUpdate :: Prelude.Maybe ParentEntityUpdateRequest,
-    -- | The ID of the entity.
-    entityId :: Prelude.Text,
     -- | The ID of the workspace that contains the entity.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The ID of the entity.
+    entityId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,23 +87,23 @@ data UpdateEntity = UpdateEntity'
 --
 -- 'parentEntityUpdate', 'updateEntity_parentEntityUpdate' - An object that describes the update request for a parent entity.
 --
--- 'entityId', 'updateEntity_entityId' - The ID of the entity.
---
 -- 'workspaceId', 'updateEntity_workspaceId' - The ID of the workspace that contains the entity.
+--
+-- 'entityId', 'updateEntity_entityId' - The ID of the entity.
 newUpdateEntity ::
-  -- | 'entityId'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'entityId'
+  Prelude.Text ->
   UpdateEntity
-newUpdateEntity pEntityId_ pWorkspaceId_ =
+newUpdateEntity pWorkspaceId_ pEntityId_ =
   UpdateEntity'
     { entityName = Prelude.Nothing,
       componentUpdates = Prelude.Nothing,
       description = Prelude.Nothing,
       parentEntityUpdate = Prelude.Nothing,
-      entityId = pEntityId_,
-      workspaceId = pWorkspaceId_
+      workspaceId = pWorkspaceId_,
+      entityId = pEntityId_
     }
 
 -- | The name of the entity.
@@ -123,25 +123,25 @@ updateEntity_description = Lens.lens (\UpdateEntity' {description} -> descriptio
 updateEntity_parentEntityUpdate :: Lens.Lens' UpdateEntity (Prelude.Maybe ParentEntityUpdateRequest)
 updateEntity_parentEntityUpdate = Lens.lens (\UpdateEntity' {parentEntityUpdate} -> parentEntityUpdate) (\s@UpdateEntity' {} a -> s {parentEntityUpdate = a} :: UpdateEntity)
 
--- | The ID of the entity.
-updateEntity_entityId :: Lens.Lens' UpdateEntity Prelude.Text
-updateEntity_entityId = Lens.lens (\UpdateEntity' {entityId} -> entityId) (\s@UpdateEntity' {} a -> s {entityId = a} :: UpdateEntity)
-
 -- | The ID of the workspace that contains the entity.
 updateEntity_workspaceId :: Lens.Lens' UpdateEntity Prelude.Text
 updateEntity_workspaceId = Lens.lens (\UpdateEntity' {workspaceId} -> workspaceId) (\s@UpdateEntity' {} a -> s {workspaceId = a} :: UpdateEntity)
 
+-- | The ID of the entity.
+updateEntity_entityId :: Lens.Lens' UpdateEntity Prelude.Text
+updateEntity_entityId = Lens.lens (\UpdateEntity' {entityId} -> entityId) (\s@UpdateEntity' {} a -> s {entityId = a} :: UpdateEntity)
+
 instance Core.AWSRequest UpdateEntity where
   type AWSResponse UpdateEntity = UpdateEntityResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateEntityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "state")
             Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Core..:> "state")
       )
 
 instance Prelude.Hashable UpdateEntity where
@@ -150,8 +150,8 @@ instance Prelude.Hashable UpdateEntity where
       `Prelude.hashWithSalt` componentUpdates
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parentEntityUpdate
-      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData UpdateEntity where
   rnf UpdateEntity' {..} =
@@ -159,8 +159,8 @@ instance Prelude.NFData UpdateEntity where
       `Prelude.seq` Prelude.rnf componentUpdates
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf parentEntityUpdate
-      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders UpdateEntity where
   toHeaders =
@@ -202,10 +202,10 @@ instance Core.ToQuery UpdateEntity where
 data UpdateEntityResponse = UpdateEntityResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The current state of the entity update.
-    state :: State,
     -- | The date and time when the entity was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Core.POSIX,
+    -- | The current state of the entity update.
+    state :: State
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -219,41 +219,41 @@ data UpdateEntityResponse = UpdateEntityResponse'
 --
 -- 'httpStatus', 'updateEntityResponse_httpStatus' - The response's http status code.
 --
--- 'state', 'updateEntityResponse_state' - The current state of the entity update.
---
 -- 'updateDateTime', 'updateEntityResponse_updateDateTime' - The date and time when the entity was last updated.
+--
+-- 'state', 'updateEntityResponse_state' - The current state of the entity update.
 newUpdateEntityResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'state'
-  State ->
   -- | 'updateDateTime'
   Prelude.UTCTime ->
+  -- | 'state'
+  State ->
   UpdateEntityResponse
 newUpdateEntityResponse
   pHttpStatus_
-  pState_
-  pUpdateDateTime_ =
+  pUpdateDateTime_
+  pState_ =
     UpdateEntityResponse'
       { httpStatus = pHttpStatus_,
-        state = pState_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+        updateDateTime = Core._Time Lens.# pUpdateDateTime_,
+        state = pState_
       }
 
 -- | The response's http status code.
 updateEntityResponse_httpStatus :: Lens.Lens' UpdateEntityResponse Prelude.Int
 updateEntityResponse_httpStatus = Lens.lens (\UpdateEntityResponse' {httpStatus} -> httpStatus) (\s@UpdateEntityResponse' {} a -> s {httpStatus = a} :: UpdateEntityResponse)
 
--- | The current state of the entity update.
-updateEntityResponse_state :: Lens.Lens' UpdateEntityResponse State
-updateEntityResponse_state = Lens.lens (\UpdateEntityResponse' {state} -> state) (\s@UpdateEntityResponse' {} a -> s {state = a} :: UpdateEntityResponse)
-
 -- | The date and time when the entity was last updated.
 updateEntityResponse_updateDateTime :: Lens.Lens' UpdateEntityResponse Prelude.UTCTime
 updateEntityResponse_updateDateTime = Lens.lens (\UpdateEntityResponse' {updateDateTime} -> updateDateTime) (\s@UpdateEntityResponse' {} a -> s {updateDateTime = a} :: UpdateEntityResponse) Prelude.. Core._Time
 
+-- | The current state of the entity update.
+updateEntityResponse_state :: Lens.Lens' UpdateEntityResponse State
+updateEntityResponse_state = Lens.lens (\UpdateEntityResponse' {state} -> state) (\s@UpdateEntityResponse' {} a -> s {state = a} :: UpdateEntityResponse)
+
 instance Prelude.NFData UpdateEntityResponse where
   rnf UpdateEntityResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf updateDateTime
+      `Prelude.seq` Prelude.rnf state

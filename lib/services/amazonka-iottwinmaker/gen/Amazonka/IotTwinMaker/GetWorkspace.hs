@@ -36,18 +36,18 @@ module Amazonka.IotTwinMaker.GetWorkspace
     -- * Response Lenses
     getWorkspaceResponse_description,
     getWorkspaceResponse_httpStatus,
-    getWorkspaceResponse_arn,
-    getWorkspaceResponse_creationDateTime,
-    getWorkspaceResponse_role,
-    getWorkspaceResponse_s3Location,
-    getWorkspaceResponse_updateDateTime,
     getWorkspaceResponse_workspaceId,
+    getWorkspaceResponse_arn,
+    getWorkspaceResponse_s3Location,
+    getWorkspaceResponse_role,
+    getWorkspaceResponse_creationDateTime,
+    getWorkspaceResponse_updateDateTime,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,20 +81,20 @@ getWorkspace_workspaceId = Lens.lens (\GetWorkspace' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest GetWorkspace where
   type AWSResponse GetWorkspace = GetWorkspaceResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetWorkspaceResponse'
             Prelude.<$> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "role")
-            Prelude.<*> (x Core..:> "s3Location")
-            Prelude.<*> (x Core..:> "updateDateTime")
             Prelude.<*> (x Core..:> "workspaceId")
+            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Core..:> "s3Location")
+            Prelude.<*> (x Core..:> "role")
+            Prelude.<*> (x Core..:> "creationDateTime")
+            Prelude.<*> (x Core..:> "updateDateTime")
       )
 
 instance Prelude.Hashable GetWorkspace where
@@ -129,19 +129,19 @@ data GetWorkspaceResponse = GetWorkspaceResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The ID of the workspace.
+    workspaceId :: Prelude.Text,
     -- | The ARN of the workspace.
     arn :: Prelude.Text,
-    -- | The date and time when the workspace was created.
-    creationDateTime :: Core.POSIX,
-    -- | The ARN of the execution role associated with the workspace.
-    role' :: Prelude.Text,
     -- | The ARN of the S3 bucket where resources associated with the workspace
     -- are stored.
     s3Location :: Prelude.Text,
+    -- | The ARN of the execution role associated with the workspace.
+    role' :: Prelude.Text,
+    -- | The date and time when the workspace was created.
+    creationDateTime :: Core.POSIX,
     -- | The date and time when the workspace was last updated.
-    updateDateTime :: Core.POSIX,
-    -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+    updateDateTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,53 +157,53 @@ data GetWorkspaceResponse = GetWorkspaceResponse'
 --
 -- 'httpStatus', 'getWorkspaceResponse_httpStatus' - The response's http status code.
 --
+-- 'workspaceId', 'getWorkspaceResponse_workspaceId' - The ID of the workspace.
+--
 -- 'arn', 'getWorkspaceResponse_arn' - The ARN of the workspace.
---
--- 'creationDateTime', 'getWorkspaceResponse_creationDateTime' - The date and time when the workspace was created.
---
--- 'role'', 'getWorkspaceResponse_role' - The ARN of the execution role associated with the workspace.
 --
 -- 's3Location', 'getWorkspaceResponse_s3Location' - The ARN of the S3 bucket where resources associated with the workspace
 -- are stored.
 --
--- 'updateDateTime', 'getWorkspaceResponse_updateDateTime' - The date and time when the workspace was last updated.
+-- 'role'', 'getWorkspaceResponse_role' - The ARN of the execution role associated with the workspace.
 --
--- 'workspaceId', 'getWorkspaceResponse_workspaceId' - The ID of the workspace.
+-- 'creationDateTime', 'getWorkspaceResponse_creationDateTime' - The date and time when the workspace was created.
+--
+-- 'updateDateTime', 'getWorkspaceResponse_updateDateTime' - The date and time when the workspace was last updated.
 newGetWorkspaceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'arn'
+  -- | 'workspaceId'
   Prelude.Text ->
-  -- | 'creationDateTime'
-  Prelude.UTCTime ->
-  -- | 'role''
+  -- | 'arn'
   Prelude.Text ->
   -- | 's3Location'
   Prelude.Text ->
+  -- | 'role''
+  Prelude.Text ->
+  -- | 'creationDateTime'
+  Prelude.UTCTime ->
   -- | 'updateDateTime'
   Prelude.UTCTime ->
-  -- | 'workspaceId'
-  Prelude.Text ->
   GetWorkspaceResponse
 newGetWorkspaceResponse
   pHttpStatus_
+  pWorkspaceId_
   pArn_
-  pCreationDateTime_
-  pRole_
   pS3Location_
-  pUpdateDateTime_
-  pWorkspaceId_ =
+  pRole_
+  pCreationDateTime_
+  pUpdateDateTime_ =
     GetWorkspaceResponse'
       { description =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        workspaceId = pWorkspaceId_,
         arn = pArn_,
+        s3Location = pS3Location_,
+        role' = pRole_,
         creationDateTime =
           Core._Time Lens.# pCreationDateTime_,
-        role' = pRole_,
-        s3Location = pS3Location_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_,
-        workspaceId = pWorkspaceId_
+        updateDateTime = Core._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the workspace.
@@ -214,38 +214,38 @@ getWorkspaceResponse_description = Lens.lens (\GetWorkspaceResponse' {descriptio
 getWorkspaceResponse_httpStatus :: Lens.Lens' GetWorkspaceResponse Prelude.Int
 getWorkspaceResponse_httpStatus = Lens.lens (\GetWorkspaceResponse' {httpStatus} -> httpStatus) (\s@GetWorkspaceResponse' {} a -> s {httpStatus = a} :: GetWorkspaceResponse)
 
+-- | The ID of the workspace.
+getWorkspaceResponse_workspaceId :: Lens.Lens' GetWorkspaceResponse Prelude.Text
+getWorkspaceResponse_workspaceId = Lens.lens (\GetWorkspaceResponse' {workspaceId} -> workspaceId) (\s@GetWorkspaceResponse' {} a -> s {workspaceId = a} :: GetWorkspaceResponse)
+
 -- | The ARN of the workspace.
 getWorkspaceResponse_arn :: Lens.Lens' GetWorkspaceResponse Prelude.Text
 getWorkspaceResponse_arn = Lens.lens (\GetWorkspaceResponse' {arn} -> arn) (\s@GetWorkspaceResponse' {} a -> s {arn = a} :: GetWorkspaceResponse)
-
--- | The date and time when the workspace was created.
-getWorkspaceResponse_creationDateTime :: Lens.Lens' GetWorkspaceResponse Prelude.UTCTime
-getWorkspaceResponse_creationDateTime = Lens.lens (\GetWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@GetWorkspaceResponse' {} a -> s {creationDateTime = a} :: GetWorkspaceResponse) Prelude.. Core._Time
-
--- | The ARN of the execution role associated with the workspace.
-getWorkspaceResponse_role :: Lens.Lens' GetWorkspaceResponse Prelude.Text
-getWorkspaceResponse_role = Lens.lens (\GetWorkspaceResponse' {role'} -> role') (\s@GetWorkspaceResponse' {} a -> s {role' = a} :: GetWorkspaceResponse)
 
 -- | The ARN of the S3 bucket where resources associated with the workspace
 -- are stored.
 getWorkspaceResponse_s3Location :: Lens.Lens' GetWorkspaceResponse Prelude.Text
 getWorkspaceResponse_s3Location = Lens.lens (\GetWorkspaceResponse' {s3Location} -> s3Location) (\s@GetWorkspaceResponse' {} a -> s {s3Location = a} :: GetWorkspaceResponse)
 
+-- | The ARN of the execution role associated with the workspace.
+getWorkspaceResponse_role :: Lens.Lens' GetWorkspaceResponse Prelude.Text
+getWorkspaceResponse_role = Lens.lens (\GetWorkspaceResponse' {role'} -> role') (\s@GetWorkspaceResponse' {} a -> s {role' = a} :: GetWorkspaceResponse)
+
+-- | The date and time when the workspace was created.
+getWorkspaceResponse_creationDateTime :: Lens.Lens' GetWorkspaceResponse Prelude.UTCTime
+getWorkspaceResponse_creationDateTime = Lens.lens (\GetWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@GetWorkspaceResponse' {} a -> s {creationDateTime = a} :: GetWorkspaceResponse) Prelude.. Core._Time
+
 -- | The date and time when the workspace was last updated.
 getWorkspaceResponse_updateDateTime :: Lens.Lens' GetWorkspaceResponse Prelude.UTCTime
 getWorkspaceResponse_updateDateTime = Lens.lens (\GetWorkspaceResponse' {updateDateTime} -> updateDateTime) (\s@GetWorkspaceResponse' {} a -> s {updateDateTime = a} :: GetWorkspaceResponse) Prelude.. Core._Time
-
--- | The ID of the workspace.
-getWorkspaceResponse_workspaceId :: Lens.Lens' GetWorkspaceResponse Prelude.Text
-getWorkspaceResponse_workspaceId = Lens.lens (\GetWorkspaceResponse' {workspaceId} -> workspaceId) (\s@GetWorkspaceResponse' {} a -> s {workspaceId = a} :: GetWorkspaceResponse)
 
 instance Prelude.NFData GetWorkspaceResponse where
   rnf GetWorkspaceResponse' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf updateDateTime
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf updateDateTime

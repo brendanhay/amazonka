@@ -20,9 +20,9 @@
 module Amazonka.IotTwinMaker.Types.PropertyValueEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.EntityPropertyReference
 import Amazonka.IotTwinMaker.Types.PropertyValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies information about time series property values.

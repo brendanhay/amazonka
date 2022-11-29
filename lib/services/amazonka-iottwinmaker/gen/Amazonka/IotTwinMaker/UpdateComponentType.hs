@@ -30,10 +30,11 @@ module Amazonka.IotTwinMaker.UpdateComponentType
     updateComponentType_functions,
     updateComponentType_propertyDefinitions,
     updateComponentType_description,
+    updateComponentType_propertyGroups,
     updateComponentType_isSingleton,
     updateComponentType_extendsFrom,
-    updateComponentType_componentTypeId,
     updateComponentType_workspaceId,
+    updateComponentType_componentTypeId,
 
     -- * Destructuring the Response
     UpdateComponentTypeResponse (..),
@@ -41,16 +42,16 @@ module Amazonka.IotTwinMaker.UpdateComponentType
 
     -- * Response Lenses
     updateComponentTypeResponse_httpStatus,
+    updateComponentTypeResponse_workspaceId,
     updateComponentTypeResponse_arn,
     updateComponentTypeResponse_componentTypeId,
     updateComponentTypeResponse_state,
-    updateComponentTypeResponse_workspaceId,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,15 +66,17 @@ data UpdateComponentType = UpdateComponentType'
     propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
     -- | The description of the component type.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The property groups
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
     -- | A Boolean value that specifies whether an entity can have more than one
     -- component of this type.
     isSingleton :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the component type that this component type extends.
     extendsFrom :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the component type.
-    componentTypeId :: Prelude.Text,
     -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The ID of the component type.
+    componentTypeId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,31 +96,34 @@ data UpdateComponentType = UpdateComponentType'
 --
 -- 'description', 'updateComponentType_description' - The description of the component type.
 --
+-- 'propertyGroups', 'updateComponentType_propertyGroups' - The property groups
+--
 -- 'isSingleton', 'updateComponentType_isSingleton' - A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 --
 -- 'extendsFrom', 'updateComponentType_extendsFrom' - Specifies the component type that this component type extends.
 --
--- 'componentTypeId', 'updateComponentType_componentTypeId' - The ID of the component type.
---
 -- 'workspaceId', 'updateComponentType_workspaceId' - The ID of the workspace that contains the component type.
+--
+-- 'componentTypeId', 'updateComponentType_componentTypeId' - The ID of the component type.
 newUpdateComponentType ::
-  -- | 'componentTypeId'
-  Prelude.Text ->
   -- | 'workspaceId'
+  Prelude.Text ->
+  -- | 'componentTypeId'
   Prelude.Text ->
   UpdateComponentType
 newUpdateComponentType
-  pComponentTypeId_
-  pWorkspaceId_ =
+  pWorkspaceId_
+  pComponentTypeId_ =
     UpdateComponentType'
       { functions = Prelude.Nothing,
         propertyDefinitions = Prelude.Nothing,
         description = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
         isSingleton = Prelude.Nothing,
         extendsFrom = Prelude.Nothing,
-        componentTypeId = pComponentTypeId_,
-        workspaceId = pWorkspaceId_
+        workspaceId = pWorkspaceId_,
+        componentTypeId = pComponentTypeId_
       }
 
 -- | An object that maps strings to the functions in the component type. Each
@@ -134,6 +140,10 @@ updateComponentType_propertyDefinitions = Lens.lens (\UpdateComponentType' {prop
 updateComponentType_description :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Text)
 updateComponentType_description = Lens.lens (\UpdateComponentType' {description} -> description) (\s@UpdateComponentType' {} a -> s {description = a} :: UpdateComponentType)
 
+-- | The property groups
+updateComponentType_propertyGroups :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
+updateComponentType_propertyGroups = Lens.lens (\UpdateComponentType' {propertyGroups} -> propertyGroups) (\s@UpdateComponentType' {} a -> s {propertyGroups = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
+
 -- | A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 updateComponentType_isSingleton :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Bool)
@@ -143,29 +153,29 @@ updateComponentType_isSingleton = Lens.lens (\UpdateComponentType' {isSingleton}
 updateComponentType_extendsFrom :: Lens.Lens' UpdateComponentType (Prelude.Maybe [Prelude.Text])
 updateComponentType_extendsFrom = Lens.lens (\UpdateComponentType' {extendsFrom} -> extendsFrom) (\s@UpdateComponentType' {} a -> s {extendsFrom = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the component type.
-updateComponentType_componentTypeId :: Lens.Lens' UpdateComponentType Prelude.Text
-updateComponentType_componentTypeId = Lens.lens (\UpdateComponentType' {componentTypeId} -> componentTypeId) (\s@UpdateComponentType' {} a -> s {componentTypeId = a} :: UpdateComponentType)
-
 -- | The ID of the workspace that contains the component type.
 updateComponentType_workspaceId :: Lens.Lens' UpdateComponentType Prelude.Text
 updateComponentType_workspaceId = Lens.lens (\UpdateComponentType' {workspaceId} -> workspaceId) (\s@UpdateComponentType' {} a -> s {workspaceId = a} :: UpdateComponentType)
+
+-- | The ID of the component type.
+updateComponentType_componentTypeId :: Lens.Lens' UpdateComponentType Prelude.Text
+updateComponentType_componentTypeId = Lens.lens (\UpdateComponentType' {componentTypeId} -> componentTypeId) (\s@UpdateComponentType' {} a -> s {componentTypeId = a} :: UpdateComponentType)
 
 instance Core.AWSRequest UpdateComponentType where
   type
     AWSResponse UpdateComponentType =
       UpdateComponentTypeResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateComponentTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "workspaceId")
             Prelude.<*> (x Core..:> "arn")
             Prelude.<*> (x Core..:> "componentTypeId")
             Prelude.<*> (x Core..:> "state")
-            Prelude.<*> (x Core..:> "workspaceId")
       )
 
 instance Prelude.Hashable UpdateComponentType where
@@ -173,20 +183,22 @@ instance Prelude.Hashable UpdateComponentType where
     _salt `Prelude.hashWithSalt` functions
       `Prelude.hashWithSalt` propertyDefinitions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` propertyGroups
       `Prelude.hashWithSalt` isSingleton
       `Prelude.hashWithSalt` extendsFrom
-      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData UpdateComponentType where
   rnf UpdateComponentType' {..} =
     Prelude.rnf functions
       `Prelude.seq` Prelude.rnf propertyDefinitions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf isSingleton
       `Prelude.seq` Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Core.ToHeaders UpdateComponentType where
   toHeaders =
@@ -207,6 +219,8 @@ instance Core.ToJSON UpdateComponentType where
             ("propertyDefinitions" Core..=)
               Prelude.<$> propertyDefinitions,
             ("description" Core..=) Prelude.<$> description,
+            ("propertyGroups" Core..=)
+              Prelude.<$> propertyGroups,
             ("isSingleton" Core..=) Prelude.<$> isSingleton,
             ("extendsFrom" Core..=) Prelude.<$> extendsFrom
           ]
@@ -228,14 +242,14 @@ instance Core.ToQuery UpdateComponentType where
 data UpdateComponentTypeResponse = UpdateComponentTypeResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The ID of the workspace that contains the component type.
+    workspaceId :: Prelude.Text,
     -- | The ARN of the component type.
     arn :: Prelude.Text,
     -- | The ID of the component type.
     componentTypeId :: Prelude.Text,
     -- | The current state of the component type.
-    state :: State,
-    -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+    state :: State
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -249,43 +263,47 @@ data UpdateComponentTypeResponse = UpdateComponentTypeResponse'
 --
 -- 'httpStatus', 'updateComponentTypeResponse_httpStatus' - The response's http status code.
 --
+-- 'workspaceId', 'updateComponentTypeResponse_workspaceId' - The ID of the workspace that contains the component type.
+--
 -- 'arn', 'updateComponentTypeResponse_arn' - The ARN of the component type.
 --
 -- 'componentTypeId', 'updateComponentTypeResponse_componentTypeId' - The ID of the component type.
 --
 -- 'state', 'updateComponentTypeResponse_state' - The current state of the component type.
---
--- 'workspaceId', 'updateComponentTypeResponse_workspaceId' - The ID of the workspace that contains the component type.
 newUpdateComponentTypeResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'workspaceId'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'componentTypeId'
   Prelude.Text ->
   -- | 'state'
   State ->
-  -- | 'workspaceId'
-  Prelude.Text ->
   UpdateComponentTypeResponse
 newUpdateComponentTypeResponse
   pHttpStatus_
+  pWorkspaceId_
   pArn_
   pComponentTypeId_
-  pState_
-  pWorkspaceId_ =
+  pState_ =
     UpdateComponentTypeResponse'
       { httpStatus =
           pHttpStatus_,
+        workspaceId = pWorkspaceId_,
         arn = pArn_,
         componentTypeId = pComponentTypeId_,
-        state = pState_,
-        workspaceId = pWorkspaceId_
+        state = pState_
       }
 
 -- | The response's http status code.
 updateComponentTypeResponse_httpStatus :: Lens.Lens' UpdateComponentTypeResponse Prelude.Int
 updateComponentTypeResponse_httpStatus = Lens.lens (\UpdateComponentTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateComponentTypeResponse' {} a -> s {httpStatus = a} :: UpdateComponentTypeResponse)
+
+-- | The ID of the workspace that contains the component type.
+updateComponentTypeResponse_workspaceId :: Lens.Lens' UpdateComponentTypeResponse Prelude.Text
+updateComponentTypeResponse_workspaceId = Lens.lens (\UpdateComponentTypeResponse' {workspaceId} -> workspaceId) (\s@UpdateComponentTypeResponse' {} a -> s {workspaceId = a} :: UpdateComponentTypeResponse)
 
 -- | The ARN of the component type.
 updateComponentTypeResponse_arn :: Lens.Lens' UpdateComponentTypeResponse Prelude.Text
@@ -299,14 +317,10 @@ updateComponentTypeResponse_componentTypeId = Lens.lens (\UpdateComponentTypeRes
 updateComponentTypeResponse_state :: Lens.Lens' UpdateComponentTypeResponse State
 updateComponentTypeResponse_state = Lens.lens (\UpdateComponentTypeResponse' {state} -> state) (\s@UpdateComponentTypeResponse' {} a -> s {state = a} :: UpdateComponentTypeResponse)
 
--- | The ID of the workspace that contains the component type.
-updateComponentTypeResponse_workspaceId :: Lens.Lens' UpdateComponentTypeResponse Prelude.Text
-updateComponentTypeResponse_workspaceId = Lens.lens (\UpdateComponentTypeResponse' {workspaceId} -> workspaceId) (\s@UpdateComponentTypeResponse' {} a -> s {workspaceId = a} :: UpdateComponentTypeResponse)
-
 instance Prelude.NFData UpdateComponentTypeResponse where
   rnf UpdateComponentTypeResponse' {..} =
     Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf workspaceId

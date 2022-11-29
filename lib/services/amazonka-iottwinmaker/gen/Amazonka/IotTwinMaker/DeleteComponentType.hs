@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.DeleteComponentType
     newDeleteComponentType,
 
     -- * Request Lenses
-    deleteComponentType_componentTypeId,
     deleteComponentType_workspaceId,
+    deleteComponentType_componentTypeId,
 
     -- * Destructuring the Response
     DeleteComponentTypeResponse (..),
@@ -41,18 +41,18 @@ module Amazonka.IotTwinMaker.DeleteComponentType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteComponentType' smart constructor.
 data DeleteComponentType = DeleteComponentType'
-  { -- | The ID of the component type to delete.
-    componentTypeId :: Prelude.Text,
-    -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+  { -- | The ID of the workspace that contains the component type.
+    workspaceId :: Prelude.Text,
+    -- | The ID of the component type to delete.
+    componentTypeId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,38 +64,37 @@ data DeleteComponentType = DeleteComponentType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentTypeId', 'deleteComponentType_componentTypeId' - The ID of the component type to delete.
---
 -- 'workspaceId', 'deleteComponentType_workspaceId' - The ID of the workspace that contains the component type.
+--
+-- 'componentTypeId', 'deleteComponentType_componentTypeId' - The ID of the component type to delete.
 newDeleteComponentType ::
-  -- | 'componentTypeId'
-  Prelude.Text ->
   -- | 'workspaceId'
+  Prelude.Text ->
+  -- | 'componentTypeId'
   Prelude.Text ->
   DeleteComponentType
 newDeleteComponentType
-  pComponentTypeId_
-  pWorkspaceId_ =
+  pWorkspaceId_
+  pComponentTypeId_ =
     DeleteComponentType'
-      { componentTypeId =
-          pComponentTypeId_,
-        workspaceId = pWorkspaceId_
+      { workspaceId = pWorkspaceId_,
+        componentTypeId = pComponentTypeId_
       }
-
--- | The ID of the component type to delete.
-deleteComponentType_componentTypeId :: Lens.Lens' DeleteComponentType Prelude.Text
-deleteComponentType_componentTypeId = Lens.lens (\DeleteComponentType' {componentTypeId} -> componentTypeId) (\s@DeleteComponentType' {} a -> s {componentTypeId = a} :: DeleteComponentType)
 
 -- | The ID of the workspace that contains the component type.
 deleteComponentType_workspaceId :: Lens.Lens' DeleteComponentType Prelude.Text
 deleteComponentType_workspaceId = Lens.lens (\DeleteComponentType' {workspaceId} -> workspaceId) (\s@DeleteComponentType' {} a -> s {workspaceId = a} :: DeleteComponentType)
 
+-- | The ID of the component type to delete.
+deleteComponentType_componentTypeId :: Lens.Lens' DeleteComponentType Prelude.Text
+deleteComponentType_componentTypeId = Lens.lens (\DeleteComponentType' {componentTypeId} -> componentTypeId) (\s@DeleteComponentType' {} a -> s {componentTypeId = a} :: DeleteComponentType)
+
 instance Core.AWSRequest DeleteComponentType where
   type
     AWSResponse DeleteComponentType =
       DeleteComponentTypeResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,13 +105,13 @@ instance Core.AWSRequest DeleteComponentType where
 
 instance Prelude.Hashable DeleteComponentType where
   hashWithSalt _salt DeleteComponentType' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeId
-      `Prelude.hashWithSalt` workspaceId
+    _salt `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData DeleteComponentType where
   rnf DeleteComponentType' {..} =
-    Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Core.ToHeaders DeleteComponentType where
   toHeaders =

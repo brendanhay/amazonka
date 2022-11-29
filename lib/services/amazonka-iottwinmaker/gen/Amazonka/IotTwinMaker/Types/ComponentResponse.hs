@@ -20,9 +20,10 @@
 module Amazonka.IotTwinMaker.Types.ComponentResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse
 import Amazonka.IotTwinMaker.Types.PropertyResponse
 import Amazonka.IotTwinMaker.Types.Status
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that returns information about a component type create or
@@ -41,6 +42,8 @@ data ComponentResponse = ComponentResponse'
     status :: Prelude.Maybe Status,
     -- | The description of the component type.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The property groups.
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupResponse),
     -- | The ID of the component type.
     componentTypeId :: Prelude.Maybe Prelude.Text
   }
@@ -65,6 +68,8 @@ data ComponentResponse = ComponentResponse'
 --
 -- 'description', 'componentResponse_description' - The description of the component type.
 --
+-- 'propertyGroups', 'componentResponse_propertyGroups' - The property groups.
+--
 -- 'componentTypeId', 'componentResponse_componentTypeId' - The ID of the component type.
 newComponentResponse ::
   ComponentResponse
@@ -75,6 +80,7 @@ newComponentResponse =
       definedIn = Prelude.Nothing,
       status = Prelude.Nothing,
       description = Prelude.Nothing,
+      propertyGroups = Prelude.Nothing,
       componentTypeId = Prelude.Nothing
     }
 
@@ -99,6 +105,10 @@ componentResponse_status = Lens.lens (\ComponentResponse' {status} -> status) (\
 componentResponse_description :: Lens.Lens' ComponentResponse (Prelude.Maybe Prelude.Text)
 componentResponse_description = Lens.lens (\ComponentResponse' {description} -> description) (\s@ComponentResponse' {} a -> s {description = a} :: ComponentResponse)
 
+-- | The property groups.
+componentResponse_propertyGroups :: Lens.Lens' ComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupResponse))
+componentResponse_propertyGroups = Lens.lens (\ComponentResponse' {propertyGroups} -> propertyGroups) (\s@ComponentResponse' {} a -> s {propertyGroups = a} :: ComponentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the component type.
 componentResponse_componentTypeId :: Lens.Lens' ComponentResponse (Prelude.Maybe Prelude.Text)
 componentResponse_componentTypeId = Lens.lens (\ComponentResponse' {componentTypeId} -> componentTypeId) (\s@ComponentResponse' {} a -> s {componentTypeId = a} :: ComponentResponse)
@@ -114,6 +124,7 @@ instance Core.FromJSON ComponentResponse where
             Prelude.<*> (x Core..:? "definedIn")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "propertyGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "componentTypeId")
       )
 
@@ -124,6 +135,7 @@ instance Prelude.Hashable ComponentResponse where
       `Prelude.hashWithSalt` definedIn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` propertyGroups
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData ComponentResponse where
@@ -133,4 +145,5 @@ instance Prelude.NFData ComponentResponse where
       `Prelude.seq` Prelude.rnf definedIn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf componentTypeId

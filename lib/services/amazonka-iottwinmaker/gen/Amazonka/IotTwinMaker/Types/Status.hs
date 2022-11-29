@@ -20,9 +20,9 @@
 module Amazonka.IotTwinMaker.Types.Status where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.ErrorDetails
 import Amazonka.IotTwinMaker.Types.State
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the status of an entity, component, component

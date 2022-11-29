@@ -29,9 +29,9 @@ module Amazonka.IotTwinMaker.CreateWorkspace
     -- * Request Lenses
     createWorkspace_tags,
     createWorkspace_description,
-    createWorkspace_role,
-    createWorkspace_s3Location,
     createWorkspace_workspaceId,
+    createWorkspace_s3Location,
+    createWorkspace_role,
 
     -- * Destructuring the Response
     CreateWorkspaceResponse (..),
@@ -45,8 +45,8 @@ module Amazonka.IotTwinMaker.CreateWorkspace
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,13 +57,13 @@ data CreateWorkspace = CreateWorkspace'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the workspace.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the execution role associated with the workspace.
-    role' :: Prelude.Text,
+    -- | The ID of the workspace.
+    workspaceId :: Prelude.Text,
     -- | The ARN of the S3 bucket where resources associated with the workspace
     -- are stored.
     s3Location :: Prelude.Text,
-    -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+    -- | The ARN of the execution role associated with the workspace.
+    role' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,27 +79,27 @@ data CreateWorkspace = CreateWorkspace'
 --
 -- 'description', 'createWorkspace_description' - The description of the workspace.
 --
--- 'role'', 'createWorkspace_role' - The ARN of the execution role associated with the workspace.
+-- 'workspaceId', 'createWorkspace_workspaceId' - The ID of the workspace.
 --
 -- 's3Location', 'createWorkspace_s3Location' - The ARN of the S3 bucket where resources associated with the workspace
 -- are stored.
 --
--- 'workspaceId', 'createWorkspace_workspaceId' - The ID of the workspace.
+-- 'role'', 'createWorkspace_role' - The ARN of the execution role associated with the workspace.
 newCreateWorkspace ::
-  -- | 'role''
+  -- | 'workspaceId'
   Prelude.Text ->
   -- | 's3Location'
   Prelude.Text ->
-  -- | 'workspaceId'
+  -- | 'role''
   Prelude.Text ->
   CreateWorkspace
-newCreateWorkspace pRole_ pS3Location_ pWorkspaceId_ =
+newCreateWorkspace pWorkspaceId_ pS3Location_ pRole_ =
   CreateWorkspace'
     { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      role' = pRole_,
+      workspaceId = pWorkspaceId_,
       s3Location = pS3Location_,
-      workspaceId = pWorkspaceId_
+      role' = pRole_
     }
 
 -- | Metadata that you can use to manage the workspace
@@ -110,25 +110,25 @@ createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWo
 createWorkspace_description :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_description = Lens.lens (\CreateWorkspace' {description} -> description) (\s@CreateWorkspace' {} a -> s {description = a} :: CreateWorkspace)
 
--- | The ARN of the execution role associated with the workspace.
-createWorkspace_role :: Lens.Lens' CreateWorkspace Prelude.Text
-createWorkspace_role = Lens.lens (\CreateWorkspace' {role'} -> role') (\s@CreateWorkspace' {} a -> s {role' = a} :: CreateWorkspace)
+-- | The ID of the workspace.
+createWorkspace_workspaceId :: Lens.Lens' CreateWorkspace Prelude.Text
+createWorkspace_workspaceId = Lens.lens (\CreateWorkspace' {workspaceId} -> workspaceId) (\s@CreateWorkspace' {} a -> s {workspaceId = a} :: CreateWorkspace)
 
 -- | The ARN of the S3 bucket where resources associated with the workspace
 -- are stored.
 createWorkspace_s3Location :: Lens.Lens' CreateWorkspace Prelude.Text
 createWorkspace_s3Location = Lens.lens (\CreateWorkspace' {s3Location} -> s3Location) (\s@CreateWorkspace' {} a -> s {s3Location = a} :: CreateWorkspace)
 
--- | The ID of the workspace.
-createWorkspace_workspaceId :: Lens.Lens' CreateWorkspace Prelude.Text
-createWorkspace_workspaceId = Lens.lens (\CreateWorkspace' {workspaceId} -> workspaceId) (\s@CreateWorkspace' {} a -> s {workspaceId = a} :: CreateWorkspace)
+-- | The ARN of the execution role associated with the workspace.
+createWorkspace_role :: Lens.Lens' CreateWorkspace Prelude.Text
+createWorkspace_role = Lens.lens (\CreateWorkspace' {role'} -> role') (\s@CreateWorkspace' {} a -> s {role' = a} :: CreateWorkspace)
 
 instance Core.AWSRequest CreateWorkspace where
   type
     AWSResponse CreateWorkspace =
       CreateWorkspaceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,17 +142,17 @@ instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` role'
-      `Prelude.hashWithSalt` s3Location
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` s3Location
+      `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf s3Location
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf role'
 
 instance Core.ToHeaders CreateWorkspace where
   toHeaders =
@@ -171,8 +171,8 @@ instance Core.ToJSON CreateWorkspace where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("role" Core..= role'),
-            Prelude.Just ("s3Location" Core..= s3Location)
+            Prelude.Just ("s3Location" Core..= s3Location),
+            Prelude.Just ("role" Core..= role')
           ]
       )
 

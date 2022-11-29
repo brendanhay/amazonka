@@ -42,8 +42,8 @@ module Amazonka.IotTwinMaker.ListWorkspaces
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +52,9 @@ import qualified Amazonka.Response as Response
 data ListWorkspaces = ListWorkspaces'
   { -- | The string that specifies the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display.
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +69,9 @@ data ListWorkspaces = ListWorkspaces'
 --
 -- 'nextToken', 'listWorkspaces_nextToken' - The string that specifies the next page of results.
 --
--- 'maxResults', 'listWorkspaces_maxResults' - The maximum number of results to display.
+-- 'maxResults', 'listWorkspaces_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 newListWorkspaces ::
   ListWorkspaces
 newListWorkspaces =
@@ -80,7 +84,9 @@ newListWorkspaces =
 listWorkspaces_nextToken :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Text)
 listWorkspaces_nextToken = Lens.lens (\ListWorkspaces' {nextToken} -> nextToken) (\s@ListWorkspaces' {} a -> s {nextToken = a} :: ListWorkspaces)
 
--- | The maximum number of results to display.
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 listWorkspaces_maxResults :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Natural)
 listWorkspaces_maxResults = Lens.lens (\ListWorkspaces' {maxResults} -> maxResults) (\s@ListWorkspaces' {} a -> s {maxResults = a} :: ListWorkspaces)
 
@@ -88,8 +94,8 @@ instance Core.AWSRequest ListWorkspaces where
   type
     AWSResponse ListWorkspaces =
       ListWorkspacesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

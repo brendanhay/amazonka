@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.BatchPutPropertyValues
     newBatchPutPropertyValues,
 
     -- * Request Lenses
-    batchPutPropertyValues_entries,
     batchPutPropertyValues_workspaceId,
+    batchPutPropertyValues_entries,
 
     -- * Destructuring the Response
     BatchPutPropertyValuesResponse (..),
@@ -41,19 +41,19 @@ module Amazonka.IotTwinMaker.BatchPutPropertyValues
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchPutPropertyValues' smart constructor.
 data BatchPutPropertyValues = BatchPutPropertyValues'
-  { -- | An object that maps strings to the property value entries to set. Each
+  { -- | The ID of the workspace that contains the properties to set.
+    workspaceId :: Prelude.Text,
+    -- | An object that maps strings to the property value entries to set. Each
     -- string in the mapping must be unique to this object.
-    entries :: Prelude.NonEmpty PropertyValueEntry,
-    -- | The ID of the workspace that contains the properties to set.
-    workspaceId :: Prelude.Text
+    entries :: Prelude.NonEmpty PropertyValueEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,38 +65,38 @@ data BatchPutPropertyValues = BatchPutPropertyValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'workspaceId', 'batchPutPropertyValues_workspaceId' - The ID of the workspace that contains the properties to set.
+--
 -- 'entries', 'batchPutPropertyValues_entries' - An object that maps strings to the property value entries to set. Each
 -- string in the mapping must be unique to this object.
---
--- 'workspaceId', 'batchPutPropertyValues_workspaceId' - The ID of the workspace that contains the properties to set.
 newBatchPutPropertyValues ::
-  -- | 'entries'
-  Prelude.NonEmpty PropertyValueEntry ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'entries'
+  Prelude.NonEmpty PropertyValueEntry ->
   BatchPutPropertyValues
-newBatchPutPropertyValues pEntries_ pWorkspaceId_ =
+newBatchPutPropertyValues pWorkspaceId_ pEntries_ =
   BatchPutPropertyValues'
-    { entries =
-        Lens.coerced Lens.# pEntries_,
-      workspaceId = pWorkspaceId_
+    { workspaceId =
+        pWorkspaceId_,
+      entries = Lens.coerced Lens.# pEntries_
     }
+
+-- | The ID of the workspace that contains the properties to set.
+batchPutPropertyValues_workspaceId :: Lens.Lens' BatchPutPropertyValues Prelude.Text
+batchPutPropertyValues_workspaceId = Lens.lens (\BatchPutPropertyValues' {workspaceId} -> workspaceId) (\s@BatchPutPropertyValues' {} a -> s {workspaceId = a} :: BatchPutPropertyValues)
 
 -- | An object that maps strings to the property value entries to set. Each
 -- string in the mapping must be unique to this object.
 batchPutPropertyValues_entries :: Lens.Lens' BatchPutPropertyValues (Prelude.NonEmpty PropertyValueEntry)
 batchPutPropertyValues_entries = Lens.lens (\BatchPutPropertyValues' {entries} -> entries) (\s@BatchPutPropertyValues' {} a -> s {entries = a} :: BatchPutPropertyValues) Prelude.. Lens.coerced
 
--- | The ID of the workspace that contains the properties to set.
-batchPutPropertyValues_workspaceId :: Lens.Lens' BatchPutPropertyValues Prelude.Text
-batchPutPropertyValues_workspaceId = Lens.lens (\BatchPutPropertyValues' {workspaceId} -> workspaceId) (\s@BatchPutPropertyValues' {} a -> s {workspaceId = a} :: BatchPutPropertyValues)
-
 instance Core.AWSRequest BatchPutPropertyValues where
   type
     AWSResponse BatchPutPropertyValues =
       BatchPutPropertyValuesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,13 +107,13 @@ instance Core.AWSRequest BatchPutPropertyValues where
 
 instance Prelude.Hashable BatchPutPropertyValues where
   hashWithSalt _salt BatchPutPropertyValues' {..} =
-    _salt `Prelude.hashWithSalt` entries
-      `Prelude.hashWithSalt` workspaceId
+    _salt `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchPutPropertyValues where
   rnf BatchPutPropertyValues' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders BatchPutPropertyValues where
   toHeaders =

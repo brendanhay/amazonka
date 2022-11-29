@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.DeleteScene
     newDeleteScene,
 
     -- * Request Lenses
-    deleteScene_sceneId,
     deleteScene_workspaceId,
+    deleteScene_sceneId,
 
     -- * Destructuring the Response
     DeleteSceneResponse (..),
@@ -40,18 +40,18 @@ module Amazonka.IotTwinMaker.DeleteScene
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteScene' smart constructor.
 data DeleteScene = DeleteScene'
-  { -- | The ID of the scene to delete.
-    sceneId :: Prelude.Text,
-    -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+  { -- | The ID of the workspace.
+    workspaceId :: Prelude.Text,
+    -- | The ID of the scene to delete.
+    sceneId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,33 +63,33 @@ data DeleteScene = DeleteScene'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sceneId', 'deleteScene_sceneId' - The ID of the scene to delete.
---
 -- 'workspaceId', 'deleteScene_workspaceId' - The ID of the workspace.
+--
+-- 'sceneId', 'deleteScene_sceneId' - The ID of the scene to delete.
 newDeleteScene ::
-  -- | 'sceneId'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'sceneId'
+  Prelude.Text ->
   DeleteScene
-newDeleteScene pSceneId_ pWorkspaceId_ =
+newDeleteScene pWorkspaceId_ pSceneId_ =
   DeleteScene'
-    { sceneId = pSceneId_,
-      workspaceId = pWorkspaceId_
+    { workspaceId = pWorkspaceId_,
+      sceneId = pSceneId_
     }
-
--- | The ID of the scene to delete.
-deleteScene_sceneId :: Lens.Lens' DeleteScene Prelude.Text
-deleteScene_sceneId = Lens.lens (\DeleteScene' {sceneId} -> sceneId) (\s@DeleteScene' {} a -> s {sceneId = a} :: DeleteScene)
 
 -- | The ID of the workspace.
 deleteScene_workspaceId :: Lens.Lens' DeleteScene Prelude.Text
 deleteScene_workspaceId = Lens.lens (\DeleteScene' {workspaceId} -> workspaceId) (\s@DeleteScene' {} a -> s {workspaceId = a} :: DeleteScene)
 
+-- | The ID of the scene to delete.
+deleteScene_sceneId :: Lens.Lens' DeleteScene Prelude.Text
+deleteScene_sceneId = Lens.lens (\DeleteScene' {sceneId} -> sceneId) (\s@DeleteScene' {} a -> s {sceneId = a} :: DeleteScene)
+
 instance Core.AWSRequest DeleteScene where
   type AWSResponse DeleteScene = DeleteSceneResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -99,13 +99,13 @@ instance Core.AWSRequest DeleteScene where
 
 instance Prelude.Hashable DeleteScene where
   hashWithSalt _salt DeleteScene' {..} =
-    _salt `Prelude.hashWithSalt` sceneId
-      `Prelude.hashWithSalt` workspaceId
+    _salt `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData DeleteScene where
   rnf DeleteScene' {..} =
-    Prelude.rnf sceneId
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf sceneId
 
 instance Core.ToHeaders DeleteScene where
   toHeaders =

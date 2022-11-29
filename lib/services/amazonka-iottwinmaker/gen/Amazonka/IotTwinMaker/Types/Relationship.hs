@@ -20,7 +20,7 @@
 module Amazonka.IotTwinMaker.Types.Relationship where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies a relationship with another component type.

@@ -44,8 +44,8 @@ module Amazonka.IotTwinMaker.ListEntities
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,9 @@ data ListEntities = ListEntities'
     --
     -- Only one object is accepted as a valid input.
     filters :: Prelude.Maybe [ListEntitiesFilter],
-    -- | The maximum number of results to display.
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text
@@ -79,7 +81,9 @@ data ListEntities = ListEntities'
 --
 -- Only one object is accepted as a valid input.
 --
--- 'maxResults', 'listEntities_maxResults' - The maximum number of results to display.
+-- 'maxResults', 'listEntities_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 --
 -- 'workspaceId', 'listEntities_workspaceId' - The ID of the workspace.
 newListEntities ::
@@ -104,7 +108,9 @@ listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s
 listEntities_filters :: Lens.Lens' ListEntities (Prelude.Maybe [ListEntitiesFilter])
 listEntities_filters = Lens.lens (\ListEntities' {filters} -> filters) (\s@ListEntities' {} a -> s {filters = a} :: ListEntities) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to display.
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 listEntities_maxResults :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Natural)
 listEntities_maxResults = Lens.lens (\ListEntities' {maxResults} -> maxResults) (\s@ListEntities' {} a -> s {maxResults = a} :: ListEntities)
 
@@ -114,8 +120,8 @@ listEntities_workspaceId = Lens.lens (\ListEntities' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest ListEntities where
   type AWSResponse ListEntities = ListEntitiesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

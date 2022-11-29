@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -22,11 +23,15 @@ module Amazonka.IotTwinMaker.Types
     _TooManyTagsException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _QueryTimeoutException,
     _ConflictException,
     _ConnectorFailureException,
     _ThrottlingException,
     _ValidationException,
     _ConnectorTimeoutException,
+
+    -- * ColumnType
+    ColumnType (..),
 
     -- * ComponentUpdateType
     ComponentUpdateType (..),
@@ -34,14 +39,29 @@ module Amazonka.IotTwinMaker.Types
     -- * ErrorCode
     ErrorCode (..),
 
+    -- * GroupType
+    GroupType (..),
+
     -- * InterpolationType
     InterpolationType (..),
+
+    -- * Order
+    Order (..),
 
     -- * OrderByTime
     OrderByTime (..),
 
     -- * ParentEntityUpdateType
     ParentEntityUpdateType (..),
+
+    -- * PricingMode
+    PricingMode (..),
+
+    -- * PricingTier
+    PricingTier (..),
+
+    -- * PropertyGroupUpdateType
+    PropertyGroupUpdateType (..),
 
     -- * PropertyUpdateType
     PropertyUpdateType (..),
@@ -55,23 +75,53 @@ module Amazonka.IotTwinMaker.Types
     -- * Type
     Type (..),
 
+    -- * UpdateReason
+    UpdateReason (..),
+
     -- * BatchPutPropertyError
     BatchPutPropertyError (..),
     newBatchPutPropertyError,
-    batchPutPropertyError_entry,
     batchPutPropertyError_errorCode,
     batchPutPropertyError_errorMessage,
+    batchPutPropertyError_entry,
 
     -- * BatchPutPropertyErrorEntry
     BatchPutPropertyErrorEntry (..),
     newBatchPutPropertyErrorEntry,
     batchPutPropertyErrorEntry_errors,
 
+    -- * BundleInformation
+    BundleInformation (..),
+    newBundleInformation,
+    bundleInformation_pricingTier,
+    bundleInformation_bundleNames,
+
+    -- * ColumnDescription
+    ColumnDescription (..),
+    newColumnDescription,
+    columnDescription_name,
+    columnDescription_type,
+
+    -- * ComponentPropertyGroupRequest
+    ComponentPropertyGroupRequest (..),
+    newComponentPropertyGroupRequest,
+    componentPropertyGroupRequest_updateType,
+    componentPropertyGroupRequest_propertyNames,
+    componentPropertyGroupRequest_groupType,
+
+    -- * ComponentPropertyGroupResponse
+    ComponentPropertyGroupResponse (..),
+    newComponentPropertyGroupResponse,
+    componentPropertyGroupResponse_groupType,
+    componentPropertyGroupResponse_propertyNames,
+    componentPropertyGroupResponse_isInherited,
+
     -- * ComponentRequest
     ComponentRequest (..),
     newComponentRequest,
     componentRequest_properties,
     componentRequest_description,
+    componentRequest_propertyGroups,
     componentRequest_componentTypeId,
 
     -- * ComponentResponse
@@ -82,6 +132,7 @@ module Amazonka.IotTwinMaker.Types
     componentResponse_definedIn,
     componentResponse_status,
     componentResponse_description,
+    componentResponse_propertyGroups,
     componentResponse_componentTypeId,
 
     -- * ComponentTypeSummary
@@ -99,6 +150,7 @@ module Amazonka.IotTwinMaker.Types
     newComponentUpdateRequest,
     componentUpdateRequest_updateType,
     componentUpdateRequest_propertyUpdates,
+    componentUpdateRequest_propertyGroupUpdates,
     componentUpdateRequest_description,
     componentUpdateRequest_componentTypeId,
 
@@ -144,11 +196,11 @@ module Amazonka.IotTwinMaker.Types
     entitySummary_hasChildEntities,
     entitySummary_parentEntityId,
     entitySummary_description,
-    entitySummary_arn,
-    entitySummary_creationDateTime,
     entitySummary_entityId,
     entitySummary_entityName,
+    entitySummary_arn,
     entitySummary_status,
+    entitySummary_creationDateTime,
     entitySummary_updateDateTime,
 
     -- * ErrorDetails
@@ -197,11 +249,27 @@ module Amazonka.IotTwinMaker.Types
     listEntitiesFilter_externalId,
     listEntitiesFilter_componentTypeId,
 
+    -- * OrderBy
+    OrderBy (..),
+    newOrderBy,
+    orderBy_order,
+    orderBy_propertyName,
+
     -- * ParentEntityUpdateRequest
     ParentEntityUpdateRequest (..),
     newParentEntityUpdateRequest,
     parentEntityUpdateRequest_parentEntityId,
     parentEntityUpdateRequest_updateType,
+
+    -- * PricingPlan
+    PricingPlan (..),
+    newPricingPlan,
+    pricingPlan_bundleInformation,
+    pricingPlan_billableEntityCount,
+    pricingPlan_effectiveDateTime,
+    pricingPlan_pricingMode,
+    pricingPlan_updateDateTime,
+    pricingPlan_updateReason,
 
     -- * PropertyDefinitionRequest
     PropertyDefinitionRequest (..),
@@ -220,13 +288,13 @@ module Amazonka.IotTwinMaker.Types
     propertyDefinitionResponse_configuration,
     propertyDefinitionResponse_defaultValue,
     propertyDefinitionResponse_dataType,
-    propertyDefinitionResponse_isExternalId,
-    propertyDefinitionResponse_isFinal,
-    propertyDefinitionResponse_isImported,
-    propertyDefinitionResponse_isInherited,
-    propertyDefinitionResponse_isRequiredInEntity,
-    propertyDefinitionResponse_isStoredExternally,
     propertyDefinitionResponse_isTimeSeries,
+    propertyDefinitionResponse_isRequiredInEntity,
+    propertyDefinitionResponse_isExternalId,
+    propertyDefinitionResponse_isStoredExternally,
+    propertyDefinitionResponse_isImported,
+    propertyDefinitionResponse_isFinal,
+    propertyDefinitionResponse_isInherited,
 
     -- * PropertyFilter
     PropertyFilter (..),
@@ -234,6 +302,19 @@ module Amazonka.IotTwinMaker.Types
     propertyFilter_operator,
     propertyFilter_propertyName,
     propertyFilter_value,
+
+    -- * PropertyGroupRequest
+    PropertyGroupRequest (..),
+    newPropertyGroupRequest,
+    propertyGroupRequest_propertyNames,
+    propertyGroupRequest_groupType,
+
+    -- * PropertyGroupResponse
+    PropertyGroupResponse (..),
+    newPropertyGroupResponse,
+    propertyGroupResponse_groupType,
+    propertyGroupResponse_propertyNames,
+    propertyGroupResponse_isInherited,
 
     -- * PropertyLatestValue
     PropertyLatestValue (..),
@@ -273,6 +354,10 @@ module Amazonka.IotTwinMaker.Types
     propertyValueHistory_values,
     propertyValueHistory_entityPropertyReference,
 
+    -- * QueryResultValue
+    QueryResultValue (..),
+    newQueryResultValue,
+
     -- * Relationship
     Relationship (..),
     newRelationship,
@@ -285,14 +370,19 @@ module Amazonka.IotTwinMaker.Types
     relationshipValue_targetEntityId,
     relationshipValue_targetComponentName,
 
+    -- * Row
+    Row (..),
+    newRow,
+    row_rowData,
+
     -- * SceneSummary
     SceneSummary (..),
     newSceneSummary,
     sceneSummary_description,
-    sceneSummary_arn,
-    sceneSummary_contentLocation,
-    sceneSummary_creationDateTime,
     sceneSummary_sceneId,
+    sceneSummary_contentLocation,
+    sceneSummary_arn,
+    sceneSummary_creationDateTime,
     sceneSummary_updateDateTime,
 
     -- * Status
@@ -301,20 +391,32 @@ module Amazonka.IotTwinMaker.Types
     status_state,
     status_error,
 
+    -- * TabularConditions
+    TabularConditions (..),
+    newTabularConditions,
+    tabularConditions_propertyFilters,
+    tabularConditions_orderBy,
+
     -- * WorkspaceSummary
     WorkspaceSummary (..),
     newWorkspaceSummary,
     workspaceSummary_description,
+    workspaceSummary_workspaceId,
     workspaceSummary_arn,
     workspaceSummary_creationDateTime,
     workspaceSummary_updateDateTime,
-    workspaceSummary_workspaceId,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.BatchPutPropertyError
 import Amazonka.IotTwinMaker.Types.BatchPutPropertyErrorEntry
+import Amazonka.IotTwinMaker.Types.BundleInformation
+import Amazonka.IotTwinMaker.Types.ColumnDescription
+import Amazonka.IotTwinMaker.Types.ColumnType
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupRequest
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse
 import Amazonka.IotTwinMaker.Types.ComponentRequest
 import Amazonka.IotTwinMaker.Types.ComponentResponse
 import Amazonka.IotTwinMaker.Types.ComponentTypeSummary
@@ -329,17 +431,26 @@ import Amazonka.IotTwinMaker.Types.ErrorCode
 import Amazonka.IotTwinMaker.Types.ErrorDetails
 import Amazonka.IotTwinMaker.Types.FunctionRequest
 import Amazonka.IotTwinMaker.Types.FunctionResponse
+import Amazonka.IotTwinMaker.Types.GroupType
 import Amazonka.IotTwinMaker.Types.InterpolationParameters
 import Amazonka.IotTwinMaker.Types.InterpolationType
 import Amazonka.IotTwinMaker.Types.LambdaFunction
 import Amazonka.IotTwinMaker.Types.ListComponentTypesFilter
 import Amazonka.IotTwinMaker.Types.ListEntitiesFilter
+import Amazonka.IotTwinMaker.Types.Order
+import Amazonka.IotTwinMaker.Types.OrderBy
 import Amazonka.IotTwinMaker.Types.OrderByTime
 import Amazonka.IotTwinMaker.Types.ParentEntityUpdateRequest
 import Amazonka.IotTwinMaker.Types.ParentEntityUpdateType
+import Amazonka.IotTwinMaker.Types.PricingMode
+import Amazonka.IotTwinMaker.Types.PricingPlan
+import Amazonka.IotTwinMaker.Types.PricingTier
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
 import Amazonka.IotTwinMaker.Types.PropertyFilter
+import Amazonka.IotTwinMaker.Types.PropertyGroupRequest
+import Amazonka.IotTwinMaker.Types.PropertyGroupResponse
+import Amazonka.IotTwinMaker.Types.PropertyGroupUpdateType
 import Amazonka.IotTwinMaker.Types.PropertyLatestValue
 import Amazonka.IotTwinMaker.Types.PropertyRequest
 import Amazonka.IotTwinMaker.Types.PropertyResponse
@@ -347,15 +458,18 @@ import Amazonka.IotTwinMaker.Types.PropertyUpdateType
 import Amazonka.IotTwinMaker.Types.PropertyValue
 import Amazonka.IotTwinMaker.Types.PropertyValueEntry
 import Amazonka.IotTwinMaker.Types.PropertyValueHistory
+import Amazonka.IotTwinMaker.Types.QueryResultValue
 import Amazonka.IotTwinMaker.Types.Relationship
 import Amazonka.IotTwinMaker.Types.RelationshipValue
+import Amazonka.IotTwinMaker.Types.Row
 import Amazonka.IotTwinMaker.Types.SceneSummary
 import Amazonka.IotTwinMaker.Types.Scope
 import Amazonka.IotTwinMaker.Types.State
 import Amazonka.IotTwinMaker.Types.Status
+import Amazonka.IotTwinMaker.Types.TabularConditions
 import Amazonka.IotTwinMaker.Types.Type
+import Amazonka.IotTwinMaker.Types.UpdateReason
 import Amazonka.IotTwinMaker.Types.WorkspaceSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -363,28 +477,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "IotTwinMaker",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "iottwinmaker",
-      Core._serviceSigningName = "iottwinmaker",
-      Core._serviceVersion = "2021-11-29",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "IotTwinMaker",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IotTwinMaker",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "iottwinmaker",
+      Core.signingName = "iottwinmaker",
+      Core.version = "2021-11-29",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IotTwinMaker",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -471,6 +582,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The query timeout exception.
+_QueryTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueryTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "QueryTimeoutException"
+    Prelude.. Core.hasStatus 400
 
 -- | A conflict occurred.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

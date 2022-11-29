@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.ReferencePredictorSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.State
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the reference predictor used when retraining or

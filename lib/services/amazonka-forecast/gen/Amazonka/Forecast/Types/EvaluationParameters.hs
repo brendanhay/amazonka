@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.EvaluationParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters that define how to split a dataset into training data and

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.WindowSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The results of evaluating an algorithm. Returned as part of the

@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.TestWindowSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status, start time, and end time of a backtest, as well as a failure

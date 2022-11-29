@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.Filter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.FilterConditionString
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter for choosing a subset of objects. Each filter

@@ -20,10 +20,10 @@
 module Amazonka.Forecast.Types.ParameterRanges where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.CategoricalParameterRange
 import Amazonka.Forecast.Types.ContinuousParameterRange
 import Amazonka.Forecast.Types.IntegerParameterRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the categorical, continuous, and integer hyperparameters, and

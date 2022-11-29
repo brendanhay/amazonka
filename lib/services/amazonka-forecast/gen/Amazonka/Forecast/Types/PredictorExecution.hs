@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.PredictorExecution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.TestWindowSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The algorithm used to perform a backtest and the status of those tests.

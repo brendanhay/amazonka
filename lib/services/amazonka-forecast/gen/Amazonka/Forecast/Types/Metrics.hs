@@ -20,9 +20,9 @@
 module Amazonka.Forecast.Types.Metrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.ErrorMetric
 import Amazonka.Forecast.Types.WeightedQuantileLoss
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides metrics that are used to evaluate the performance of a

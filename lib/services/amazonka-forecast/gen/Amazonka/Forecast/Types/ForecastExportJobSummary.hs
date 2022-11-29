@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.ForecastExportJobSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.DataDestination
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the forecast export job properties used in the

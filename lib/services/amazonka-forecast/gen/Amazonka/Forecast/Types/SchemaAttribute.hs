@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.SchemaAttribute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.AttributeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute of a schema, which defines a dataset field. A schema

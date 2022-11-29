@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.S3Config where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The path to the file(s) in an Amazon Simple Storage Service (Amazon S3)

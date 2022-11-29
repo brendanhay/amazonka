@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.UserMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata of the user.
@@ -36,9 +36,9 @@ data UserMetadata = UserMetadata'
     -- | The surname of the user.
     surname :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe Prelude.Text
+    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserMetadata' with all optional fields omitted.
@@ -86,7 +86,7 @@ userMetadata_surname = Lens.lens (\UserMetadata' {surname} -> surname) (\s@UserM
 
 -- | The email address of the user.
 userMetadata_emailAddress :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata)
+userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON UserMetadata where
   parseJSON =

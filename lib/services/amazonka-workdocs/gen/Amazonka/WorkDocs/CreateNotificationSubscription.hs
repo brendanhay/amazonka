@@ -24,7 +24,7 @@
 -- receives a confirmation message, and must confirm the subscription.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html Subscribe to Notifications>
+-- <https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html Setting up notifications for an IAM user or role>
 -- in the /Amazon WorkDocs Developer Guide/.
 module Amazonka.WorkDocs.CreateNotificationSubscription
   ( -- * Creating a Request
@@ -48,7 +48,7 @@ module Amazonka.WorkDocs.CreateNotificationSubscription
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +134,8 @@ instance
   type
     AWSResponse CreateNotificationSubscription =
       CreateNotificationSubscriptionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

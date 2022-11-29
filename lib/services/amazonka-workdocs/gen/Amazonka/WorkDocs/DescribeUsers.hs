@@ -58,7 +58,7 @@ module Amazonka.WorkDocs.DescribeUsers
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +79,24 @@ data DescribeUsers = DescribeUsers'
     sort :: Prelude.Maybe UserSortType,
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A query to filter users by user name.
+    -- | A query to filter users by user name. Remember the following about the
+    -- @Userids@ and @Query@ parameters:
+    --
+    -- -   If you don\'t use either parameter, the API returns a paginated list
+    --     of all users on the site.
+    --
+    -- -   If you use both parameters, the API ignores the @Query@ parameter.
+    --
+    -- -   The @Userid@ parameter only returns user names that match a
+    --     corresponding user ID.
+    --
+    -- -   The @Query@ parameter runs a \"prefix\" search for users by the
+    --     @GivenName@, @SurName@, or @UserName@ fields included in a
+    --     <https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html CreateUser>
+    --     API call. For example, querying on @Ma@ returns Márcia Oliveira,
+    --     María García, and Mateo Jackson. If you use multiple characters, the
+    --     API only returns data that matches all characters. For example,
+    --     querying on @Ma J@ only returns Mateo Jackson.
     query :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
@@ -113,7 +130,24 @@ data DescribeUsers = DescribeUsers'
 --
 -- 'limit', 'describeUsers_limit' - The maximum number of items to return.
 --
--- 'query', 'describeUsers_query' - A query to filter users by user name.
+-- 'query', 'describeUsers_query' - A query to filter users by user name. Remember the following about the
+-- @Userids@ and @Query@ parameters:
+--
+-- -   If you don\'t use either parameter, the API returns a paginated list
+--     of all users on the site.
+--
+-- -   If you use both parameters, the API ignores the @Query@ parameter.
+--
+-- -   The @Userid@ parameter only returns user names that match a
+--     corresponding user ID.
+--
+-- -   The @Query@ parameter runs a \"prefix\" search for users by the
+--     @GivenName@, @SurName@, or @UserName@ fields included in a
+--     <https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html CreateUser>
+--     API call. For example, querying on @Ma@ returns Márcia Oliveira,
+--     María García, and Mateo Jackson. If you use multiple characters, the
+--     API only returns data that matches all characters. For example,
+--     querying on @Ma J@ only returns Mateo Jackson.
 --
 -- 'organizationId', 'describeUsers_organizationId' - The ID of the organization.
 --
@@ -161,7 +195,24 @@ describeUsers_sort = Lens.lens (\DescribeUsers' {sort} -> sort) (\s@DescribeUser
 describeUsers_limit :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Natural)
 describeUsers_limit = Lens.lens (\DescribeUsers' {limit} -> limit) (\s@DescribeUsers' {} a -> s {limit = a} :: DescribeUsers)
 
--- | A query to filter users by user name.
+-- | A query to filter users by user name. Remember the following about the
+-- @Userids@ and @Query@ parameters:
+--
+-- -   If you don\'t use either parameter, the API returns a paginated list
+--     of all users on the site.
+--
+-- -   If you use both parameters, the API ignores the @Query@ parameter.
+--
+-- -   The @Userid@ parameter only returns user names that match a
+--     corresponding user ID.
+--
+-- -   The @Query@ parameter runs a \"prefix\" search for users by the
+--     @GivenName@, @SurName@, or @UserName@ fields included in a
+--     <https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html CreateUser>
+--     API call. For example, querying on @Ma@ returns Márcia Oliveira,
+--     María García, and Mateo Jackson. If you use multiple characters, the
+--     API only returns data that matches all characters. For example,
+--     querying on @Ma J@ only returns Mateo Jackson.
 describeUsers_query :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_query = Lens.lens (\DescribeUsers' {query} -> query) (\s@DescribeUsers' {} a -> s {query = a} :: DescribeUsers) Prelude.. Lens.mapping Core._Sensitive
 
@@ -204,8 +255,8 @@ instance Core.AWSRequest DescribeUsers where
   type
     AWSResponse DescribeUsers =
       DescribeUsersResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -279,7 +330,7 @@ data DescribeUsersResponse = DescribeUsersResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUsersResponse' with all optional fields omitted.

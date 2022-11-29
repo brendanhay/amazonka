@@ -42,7 +42,7 @@ module Amazonka.WorkDocs.DeleteLabels
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +109,8 @@ deleteLabels_resourceId = Lens.lens (\DeleteLabels' {resourceId} -> resourceId) 
 
 instance Core.AWSRequest DeleteLabels where
   type AWSResponse DeleteLabels = DeleteLabelsResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

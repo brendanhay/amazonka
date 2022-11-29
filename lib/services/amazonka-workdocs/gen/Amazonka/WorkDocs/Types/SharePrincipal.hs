@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.SharePrincipal where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.PrincipalType
 import Amazonka.WorkDocs.Types.RoleType

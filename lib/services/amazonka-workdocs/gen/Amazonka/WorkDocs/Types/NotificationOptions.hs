@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.NotificationOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of options which defines notification preferences of given action.

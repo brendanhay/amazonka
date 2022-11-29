@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.User where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.LocaleType
 import Amazonka.WorkDocs.Types.UserStatusType
@@ -56,13 +56,13 @@ data User = User'
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe Prelude.Text,
+    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the root folder.
     rootFolderId :: Prelude.Maybe Prelude.Text,
     -- | The time when the user was modified.
     modifiedTimestamp :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -172,7 +172,7 @@ user_organizationId = Lens.lens (\User' {organizationId} -> organizationId) (\s@
 
 -- | The email address of the user.
 user_emailAddress :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User)
+user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the root folder.
 user_rootFolderId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)

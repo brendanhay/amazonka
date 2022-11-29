@@ -42,7 +42,7 @@ module Amazonka.WorkDocs.ActivateUser
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ activateUser_userId = Lens.lens (\ActivateUser' {userId} -> userId) (\s@Activate
 
 instance Core.AWSRequest ActivateUser where
   type AWSResponse ActivateUser = ActivateUserResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,7 +138,7 @@ data ActivateUserResponse = ActivateUserResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivateUserResponse' with all optional fields omitted.

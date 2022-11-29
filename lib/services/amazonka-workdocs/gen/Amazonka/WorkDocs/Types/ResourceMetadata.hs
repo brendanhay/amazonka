@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.ResourceMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ResourceType
 import Amazonka.WorkDocs.Types.UserMetadata
@@ -45,7 +45,7 @@ data ResourceMetadata = ResourceMetadata'
     -- for action on document version.
     versionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceMetadata' with all optional fields omitted.

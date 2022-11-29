@@ -20,10 +20,10 @@
 module Amazonka.IoTWireless.Types.LoRaWANUpdateDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
 import Amazonka.IoTWireless.Types.UpdateAbpV1_1
 import Amazonka.IoTWireless.Types.UpdateFPorts
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWAN object for update functions.

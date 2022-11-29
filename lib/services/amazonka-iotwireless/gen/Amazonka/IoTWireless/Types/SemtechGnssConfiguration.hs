@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.SemtechGnssConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.PositionConfigurationFec
 import Amazonka.IoTWireless.Types.PositionConfigurationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Semtech GNSS solver configuration.

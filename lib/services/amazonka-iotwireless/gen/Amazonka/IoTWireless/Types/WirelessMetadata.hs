@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.WirelessMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
 import Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | WirelessMetadata object.

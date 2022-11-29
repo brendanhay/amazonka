@@ -20,11 +20,11 @@
 module Amazonka.IoTWireless.Types.SemtechGnssDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.PositionConfigurationFec
 import Amazonka.IoTWireless.Types.PositionConfigurationStatus
 import Amazonka.IoTWireless.Types.PositionSolverProvider
 import Amazonka.IoTWireless.Types.PositionSolverType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Semtech GNSS solver object.

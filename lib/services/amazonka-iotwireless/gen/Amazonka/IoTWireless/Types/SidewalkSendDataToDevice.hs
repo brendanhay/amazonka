@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.SidewalkSendDataToDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.MessageType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Sidewalk router.

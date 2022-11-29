@@ -20,7 +20,7 @@
 module Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Session keys for ABP v1.1

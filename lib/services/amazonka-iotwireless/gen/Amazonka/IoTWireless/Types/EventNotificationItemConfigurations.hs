@@ -20,12 +20,12 @@
 module Amazonka.IoTWireless.Types.EventNotificationItemConfigurations where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
 import Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
 import Amazonka.IoTWireless.Types.JoinEventConfiguration
 import Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
 import Amazonka.IoTWireless.Types.ProximityEventConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object of all event configurations and the status of the event topics.

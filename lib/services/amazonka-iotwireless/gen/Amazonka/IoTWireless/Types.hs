@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -739,6 +740,7 @@ module Amazonka.IoTWireless.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
 import Amazonka.IoTWireless.Types.Accuracy
@@ -859,7 +861,6 @@ import Amazonka.IoTWireless.Types.WirelessGatewayTaskDefinitionType
 import Amazonka.IoTWireless.Types.WirelessGatewayTaskStatus
 import Amazonka.IoTWireless.Types.WirelessGatewayType
 import Amazonka.IoTWireless.Types.WirelessMetadata
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -867,28 +868,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "IoTWireless",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "api.iotwireless",
-      Core._serviceSigningName = "iotwireless",
-      Core._serviceVersion = "2020-11-22",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "IoTWireless",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IoTWireless",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "api.iotwireless",
+      Core.signingName = "iotwireless",
+      Core.version = "2020-11-22",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IoTWireless",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

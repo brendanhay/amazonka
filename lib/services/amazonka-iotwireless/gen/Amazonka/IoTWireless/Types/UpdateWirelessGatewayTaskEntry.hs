@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | UpdateWirelessGatewayTaskEntry object.

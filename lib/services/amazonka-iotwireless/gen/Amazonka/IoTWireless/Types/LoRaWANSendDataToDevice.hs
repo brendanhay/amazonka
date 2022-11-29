@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.ParticipatingGateways
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWAN router info.

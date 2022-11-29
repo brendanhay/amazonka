@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.FPorts where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.Positioning
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of FPort assigned for different LoRaWAN application packages to use

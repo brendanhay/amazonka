@@ -20,10 +20,10 @@
 module Amazonka.IoTWireless.Types.EventConfigurationItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationItemConfigurations
 import Amazonka.IoTWireless.Types.EventNotificationPartnerType
 import Amazonka.IoTWireless.Types.IdentifierType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Event configuration object for a single resource.

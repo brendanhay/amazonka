@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.WaitTime where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a duration or a date and time that indicates when Amazon

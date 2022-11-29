@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.QuietTime where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the start and end times that define a time range when messages

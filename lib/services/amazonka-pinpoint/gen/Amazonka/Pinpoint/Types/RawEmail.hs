@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.RawEmail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the contents of an email message, represented as a raw MIME

@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.EndpointsResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.EndpointResponse
 import qualified Amazonka.Prelude as Prelude
 

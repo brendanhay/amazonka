@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.EmailTemplateRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content and settings for a message template that can be

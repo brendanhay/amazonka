@@ -40,7 +40,7 @@ module Amazonka.Pinpoint.GetApp
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,8 +78,8 @@ getApp_applicationId = Lens.lens (\GetApp' {applicationId} -> applicationId) (\s
 
 instance Core.AWSRequest GetApp where
   type AWSResponse GetApp = GetAppResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

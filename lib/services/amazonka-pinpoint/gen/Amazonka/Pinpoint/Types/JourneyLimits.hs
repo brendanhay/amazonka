@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.JourneyLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies limits on the messages that a journey can send and the number

@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.VoiceMessage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings for a one-time voice message that\'s sent

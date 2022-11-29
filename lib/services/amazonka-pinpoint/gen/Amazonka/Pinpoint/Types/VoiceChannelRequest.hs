@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.VoiceChannelRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the voice channel for an

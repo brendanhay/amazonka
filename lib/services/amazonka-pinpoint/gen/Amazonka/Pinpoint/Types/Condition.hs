@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.Condition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.Operator
 import Amazonka.Pinpoint.Types.SimpleCondition
 import qualified Amazonka.Prelude as Prelude

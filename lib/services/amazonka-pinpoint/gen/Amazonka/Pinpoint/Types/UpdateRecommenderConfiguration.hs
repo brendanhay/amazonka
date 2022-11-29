@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.UpdateRecommenderConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies Amazon Pinpoint configuration settings for retrieving and

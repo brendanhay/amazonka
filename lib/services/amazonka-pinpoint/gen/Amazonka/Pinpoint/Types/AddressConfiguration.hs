@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.AddressConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.ChannelType
 import qualified Amazonka.Prelude as Prelude
 

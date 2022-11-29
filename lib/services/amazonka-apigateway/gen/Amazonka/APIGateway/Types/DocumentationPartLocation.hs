@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.DocumentationPartLocation where
 
 import Amazonka.APIGateway.Types.DocumentationPartType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the target API entity to which the documentation applies.

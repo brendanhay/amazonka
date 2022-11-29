@@ -46,7 +46,7 @@ where
 
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +107,8 @@ updateModel_modelName = Lens.lens (\UpdateModel' {modelName} -> modelName) (\s@U
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = Model
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

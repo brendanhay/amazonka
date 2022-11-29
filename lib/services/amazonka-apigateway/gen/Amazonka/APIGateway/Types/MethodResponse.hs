@@ -20,7 +20,7 @@
 module Amazonka.APIGateway.Types.MethodResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a method response of a given HTTP status code returned to the

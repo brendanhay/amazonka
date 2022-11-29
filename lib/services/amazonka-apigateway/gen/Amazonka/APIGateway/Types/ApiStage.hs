@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.ApiStage where
 
 import Amazonka.APIGateway.Types.ThrottleSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | API stage name of the associated API stage in a usage plan.

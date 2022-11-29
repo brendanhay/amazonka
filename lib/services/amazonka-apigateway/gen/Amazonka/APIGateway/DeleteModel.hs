@@ -38,7 +38,7 @@ where
 
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +87,8 @@ deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@D
 
 instance Core.AWSRequest DeleteModel where
   type AWSResponse DeleteModel = DeleteModelResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteModelResponse'
 
 instance Prelude.Hashable DeleteModel where

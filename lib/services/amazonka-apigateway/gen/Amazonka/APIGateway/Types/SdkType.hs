@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.SdkType where
 
 import Amazonka.APIGateway.Types.SdkConfigurationProperty
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A type of SDK that API Gateway can generate.

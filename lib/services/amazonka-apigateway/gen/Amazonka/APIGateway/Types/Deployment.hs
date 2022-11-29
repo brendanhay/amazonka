@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.Deployment where
 
 import Amazonka.APIGateway.Types.MethodSnapshot
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An immutable representation of a RestApi resource that can be called by

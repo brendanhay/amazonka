@@ -20,7 +20,7 @@
 module Amazonka.APIGateway.Types.UsagePlanKey where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a usage plan key to identify a plan customer.

@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.Authorizer where
 
 import Amazonka.APIGateway.Types.AuthorizerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an authorization layer for methods. If enabled on a method,

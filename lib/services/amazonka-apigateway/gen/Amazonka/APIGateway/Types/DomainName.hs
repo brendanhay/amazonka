@@ -24,7 +24,7 @@ import Amazonka.APIGateway.Types.EndpointConfiguration
 import Amazonka.APIGateway.Types.MutualTlsAuthentication
 import Amazonka.APIGateway.Types.SecurityPolicy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a custom domain name as a user-friendly host name of an API

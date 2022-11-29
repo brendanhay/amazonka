@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.VpcLink where
 
 import Amazonka.APIGateway.Types.VpcLinkStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An API Gateway VPC link for a RestApi to access resources in an Amazon

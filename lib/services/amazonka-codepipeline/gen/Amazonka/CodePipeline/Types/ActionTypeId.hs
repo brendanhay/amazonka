@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ActionTypeId where
 import Amazonka.CodePipeline.Types.ActionCategory
 import Amazonka.CodePipeline.Types.ActionOwner
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an action type.

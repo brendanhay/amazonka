@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.ThirdPartyJobDetails where
 
 import Amazonka.CodePipeline.Types.ThirdPartyJobData
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a job sent in response to a @GetThirdPartyJobDetails@

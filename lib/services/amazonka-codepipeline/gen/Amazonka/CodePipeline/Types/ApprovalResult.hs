@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.ApprovalResult where
 
 import Amazonka.CodePipeline.Types.ApprovalStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the result of an approval request.

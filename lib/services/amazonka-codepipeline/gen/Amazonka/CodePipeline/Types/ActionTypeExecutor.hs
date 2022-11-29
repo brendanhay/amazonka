@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ActionTypeExecutor where
 import Amazonka.CodePipeline.Types.ExecutorConfiguration
 import Amazonka.CodePipeline.Types.ExecutorType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action engine, or executor, for an action type created for a

@@ -20,7 +20,7 @@
 module Amazonka.CodePipeline.Types.StageContext where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a stage to a job worker.

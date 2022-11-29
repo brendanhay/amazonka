@@ -20,7 +20,7 @@
 module Amazonka.CodePipeline.Types.S3ArtifactLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the S3 bucket that contains a revision.

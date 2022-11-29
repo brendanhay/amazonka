@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.ArtifactDetail where
 
 import Amazonka.CodePipeline.Types.S3Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Artifact details for the action execution, such as the artifact

@@ -20,7 +20,7 @@
 module Amazonka.CodePipeline.Types.SourceRevision where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the version (or revision) of a source artifact that

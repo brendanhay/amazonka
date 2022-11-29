@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ActionExecutionOutput where
 import Amazonka.CodePipeline.Types.ActionExecutionResult
 import Amazonka.CodePipeline.Types.ArtifactDetail
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Output details listed for an action execution, such as the action

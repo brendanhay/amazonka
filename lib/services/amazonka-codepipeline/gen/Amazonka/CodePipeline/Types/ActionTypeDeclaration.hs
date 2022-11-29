@@ -26,7 +26,7 @@ import Amazonka.CodePipeline.Types.ActionTypePermissions
 import Amazonka.CodePipeline.Types.ActionTypeProperty
 import Amazonka.CodePipeline.Types.ActionTypeUrls
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for the action type definition that are provided when the

@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ArtifactLocation where
 import Amazonka.CodePipeline.Types.ArtifactLocationType
 import Amazonka.CodePipeline.Types.S3ArtifactLocation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the location of an artifact.

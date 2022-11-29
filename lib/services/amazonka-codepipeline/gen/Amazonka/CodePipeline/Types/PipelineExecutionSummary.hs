@@ -24,7 +24,7 @@ import Amazonka.CodePipeline.Types.PipelineExecutionStatus
 import Amazonka.CodePipeline.Types.SourceRevision
 import Amazonka.CodePipeline.Types.StopExecutionTrigger
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a pipeline execution.

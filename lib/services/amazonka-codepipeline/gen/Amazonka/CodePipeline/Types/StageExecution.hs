@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.StageExecution where
 
 import Amazonka.CodePipeline.Types.StageExecutionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the run of a stage.

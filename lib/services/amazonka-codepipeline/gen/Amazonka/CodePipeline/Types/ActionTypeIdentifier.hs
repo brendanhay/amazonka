@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.ActionTypeIdentifier where
 
 import Amazonka.CodePipeline.Types.ActionCategory
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the category, owner, provider, and version of the action type.

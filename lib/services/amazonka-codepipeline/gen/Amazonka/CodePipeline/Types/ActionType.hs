@@ -24,7 +24,7 @@ import Amazonka.CodePipeline.Types.ActionTypeId
 import Amazonka.CodePipeline.Types.ActionTypeSettings
 import Amazonka.CodePipeline.Types.ArtifactDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the details of an action type.

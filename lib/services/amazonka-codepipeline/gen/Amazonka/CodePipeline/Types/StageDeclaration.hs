@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.StageDeclaration where
 import Amazonka.CodePipeline.Types.ActionDeclaration
 import Amazonka.CodePipeline.Types.BlockerDeclaration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a stage and its definition.

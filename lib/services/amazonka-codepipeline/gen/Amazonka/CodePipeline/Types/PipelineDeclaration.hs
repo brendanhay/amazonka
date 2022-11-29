@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.PipelineDeclaration where
 import Amazonka.CodePipeline.Types.ArtifactStore
 import Amazonka.CodePipeline.Types.StageDeclaration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the structure of actions and stages to be performed in the

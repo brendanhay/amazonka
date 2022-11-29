@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.PipelineExecution where
 import Amazonka.CodePipeline.Types.ArtifactRevision
 import Amazonka.CodePipeline.Types.PipelineExecutionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an execution of a pipeline.

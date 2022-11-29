@@ -20,7 +20,7 @@
 module Amazonka.RolesAnywhere.Types.ProfileDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the profile after a read or write operation.

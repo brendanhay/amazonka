@@ -46,7 +46,7 @@ module Amazonka.RolesAnywhere.GetSubject
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,8 +81,8 @@ getSubject_subjectId = Lens.lens (\GetSubject' {subjectId} -> subjectId) (\s@Get
 
 instance Core.AWSRequest GetSubject where
   type AWSResponse GetSubject = GetSubjectResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

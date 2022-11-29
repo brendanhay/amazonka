@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.HostEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hostnames and IP address entries that are added to the @\/etc\/hosts@

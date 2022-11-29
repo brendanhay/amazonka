@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.RuntimePlatform where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.CPUArchitecture
 import Amazonka.ECS.Types.OSFamily
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the platform for the Amazon ECS service or task.

@@ -55,8 +55,8 @@ module Amazonka.ECS.StopTask
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +128,8 @@ stopTask_task = Lens.lens (\StopTask' {task} -> task) (\s@StopTask' {} a -> s {t
 
 instance Core.AWSRequest StopTask where
   type AWSResponse StopTask = StopTaskResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,11 +20,11 @@
 module Amazonka.ECS.Types.Container where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.HealthStatus
 import Amazonka.ECS.Types.ManagedAgent
 import Amazonka.ECS.Types.NetworkBinding
 import Amazonka.ECS.Types.NetworkInterface
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A Docker container that\'s part of a task.

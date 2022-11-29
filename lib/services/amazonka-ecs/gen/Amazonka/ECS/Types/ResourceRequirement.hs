@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ResourceRequirement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ResourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The

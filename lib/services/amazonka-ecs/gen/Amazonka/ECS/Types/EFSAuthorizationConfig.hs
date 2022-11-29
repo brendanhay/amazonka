@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.EFSAuthorizationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.EFSAuthorizationConfigIAM
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration details for the Amazon EFS file system.

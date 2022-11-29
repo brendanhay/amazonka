@@ -20,10 +20,10 @@
 module Amazonka.ECS.Types.TaskOverride where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.EphemeralStorage
 import Amazonka.ECS.Types.InferenceAcceleratorOverride
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The overrides that are associated with a task.

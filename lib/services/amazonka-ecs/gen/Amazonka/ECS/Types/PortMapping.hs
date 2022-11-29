@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.PortMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.TransportProtocol
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Port mappings allow containers to access ports on the host container

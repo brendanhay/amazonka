@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.DeploymentConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.DeploymentCircuitBreaker
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional deployment parameters that control how many tasks run during a

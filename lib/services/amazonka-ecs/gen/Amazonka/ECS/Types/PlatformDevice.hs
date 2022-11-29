@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.PlatformDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.PlatformDeviceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The devices that are available on the container instance. The only

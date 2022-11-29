@@ -20,11 +20,11 @@
 module Amazonka.ECS.Types.CapacityProvider where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.AutoScalingGroupProvider
 import Amazonka.ECS.Types.CapacityProviderStatus
 import Amazonka.ECS.Types.CapacityProviderUpdateStatus
 import Amazonka.ECS.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for a capacity provider.

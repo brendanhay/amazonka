@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.VolumeFrom where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a data volume from another container in the same task

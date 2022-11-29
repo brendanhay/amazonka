@@ -20,10 +20,10 @@
 module Amazonka.ECS.Types.LinuxParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.Device
 import Amazonka.ECS.Types.KernelCapabilities
 import Amazonka.ECS.Types.Tmpfs
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Linux-specific options that are applied to the container, such as Linux

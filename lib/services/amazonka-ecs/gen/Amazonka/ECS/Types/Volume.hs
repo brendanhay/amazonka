@@ -20,11 +20,11 @@
 module Amazonka.ECS.Types.Volume where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.DockerVolumeConfiguration
 import Amazonka.ECS.Types.EFSVolumeConfiguration
 import Amazonka.ECS.Types.FSxWindowsFileServerVolumeConfiguration
 import Amazonka.ECS.Types.HostVolumeProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data volume that\'s used in a task definition. For tasks that use the

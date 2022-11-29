@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.Ulimit where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.UlimitName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.

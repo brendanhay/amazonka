@@ -251,6 +251,12 @@ module Amazonka.ECS
     ExecuteCommandResponse (ExecuteCommandResponse'),
     newExecuteCommandResponse,
 
+    -- ** GetTaskProtection
+    GetTaskProtection (GetTaskProtection'),
+    newGetTaskProtection,
+    GetTaskProtectionResponse (GetTaskProtectionResponse'),
+    newGetTaskProtectionResponse,
+
     -- ** ListAccountSettings (Paginated)
     ListAccountSettings (ListAccountSettings'),
     newListAccountSettings,
@@ -430,6 +436,12 @@ module Amazonka.ECS
     newUpdateServicePrimaryTaskSet,
     UpdateServicePrimaryTaskSetResponse (UpdateServicePrimaryTaskSetResponse'),
     newUpdateServicePrimaryTaskSetResponse,
+
+    -- ** UpdateTaskProtection
+    UpdateTaskProtection (UpdateTaskProtection'),
+    newUpdateTaskProtection,
+    UpdateTaskProtectionResponse (UpdateTaskProtectionResponse'),
+    newUpdateTaskProtectionResponse,
 
     -- ** UpdateTaskSet
     UpdateTaskSet (UpdateTaskSet'),
@@ -838,6 +850,10 @@ module Amazonka.ECS
     PortMapping (PortMapping'),
     newPortMapping,
 
+    -- ** ProtectedTask
+    ProtectedTask (ProtectedTask'),
+    newProtectedTask,
+
     -- ** ProxyConfiguration
     ProxyConfiguration (ProxyConfiguration'),
     newProxyConfiguration,
@@ -953,6 +969,7 @@ import Amazonka.ECS.DescribeTaskSets
 import Amazonka.ECS.DescribeTasks
 import Amazonka.ECS.DiscoverPollEndpoint
 import Amazonka.ECS.ExecuteCommand
+import Amazonka.ECS.GetTaskProtection
 import Amazonka.ECS.Lens
 import Amazonka.ECS.ListAccountSettings
 import Amazonka.ECS.ListAttributes
@@ -985,6 +1002,7 @@ import Amazonka.ECS.UpdateContainerAgent
 import Amazonka.ECS.UpdateContainerInstancesState
 import Amazonka.ECS.UpdateService
 import Amazonka.ECS.UpdateServicePrimaryTaskSet
+import Amazonka.ECS.UpdateTaskProtection
 import Amazonka.ECS.UpdateTaskSet
 import Amazonka.ECS.Waiters
 

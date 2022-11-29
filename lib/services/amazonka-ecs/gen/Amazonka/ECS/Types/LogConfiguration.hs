@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.LogConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.LogDriver
 import Amazonka.ECS.Types.Secret
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log configuration for the container. This parameter maps to

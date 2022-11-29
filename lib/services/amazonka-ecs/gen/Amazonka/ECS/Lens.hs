@@ -201,6 +201,13 @@ module Amazonka.ECS.Lens
     executeCommandResponse_interactive,
     executeCommandResponse_httpStatus,
 
+    -- ** GetTaskProtection
+    getTaskProtection_tasks,
+    getTaskProtection_cluster,
+    getTaskProtectionResponse_failures,
+    getTaskProtectionResponse_protectedTasks,
+    getTaskProtectionResponse_httpStatus,
+
     -- ** ListAccountSettings
     listAccountSettings_name,
     listAccountSettings_nextToken,
@@ -497,6 +504,15 @@ module Amazonka.ECS.Lens
     updateServicePrimaryTaskSet_primaryTaskSet,
     updateServicePrimaryTaskSetResponse_taskSet,
     updateServicePrimaryTaskSetResponse_httpStatus,
+
+    -- ** UpdateTaskProtection
+    updateTaskProtection_expiresInMinutes,
+    updateTaskProtection_cluster,
+    updateTaskProtection_tasks,
+    updateTaskProtection_protectionEnabled,
+    updateTaskProtectionResponse_failures,
+    updateTaskProtectionResponse_protectedTasks,
+    updateTaskProtectionResponse_httpStatus,
 
     -- ** UpdateTaskSet
     updateTaskSet_cluster,
@@ -917,6 +933,11 @@ module Amazonka.ECS.Lens
     portMapping_hostPort,
     portMapping_protocol,
 
+    -- ** ProtectedTask
+    protectedTask_taskArn,
+    protectedTask_protectionEnabled,
+    protectedTask_expirationDate,
+
     -- ** ProxyConfiguration
     proxyConfiguration_type,
     proxyConfiguration_properties,
@@ -1130,6 +1151,7 @@ import Amazonka.ECS.DescribeTaskSets
 import Amazonka.ECS.DescribeTasks
 import Amazonka.ECS.DiscoverPollEndpoint
 import Amazonka.ECS.ExecuteCommand
+import Amazonka.ECS.GetTaskProtection
 import Amazonka.ECS.ListAccountSettings
 import Amazonka.ECS.ListAttributes
 import Amazonka.ECS.ListClusters
@@ -1209,6 +1231,7 @@ import Amazonka.ECS.Types.PlacementConstraint
 import Amazonka.ECS.Types.PlacementStrategy
 import Amazonka.ECS.Types.PlatformDevice
 import Amazonka.ECS.Types.PortMapping
+import Amazonka.ECS.Types.ProtectedTask
 import Amazonka.ECS.Types.ProxyConfiguration
 import Amazonka.ECS.Types.RepositoryCredentials
 import Amazonka.ECS.Types.Resource
@@ -1240,4 +1263,5 @@ import Amazonka.ECS.UpdateContainerAgent
 import Amazonka.ECS.UpdateContainerInstancesState
 import Amazonka.ECS.UpdateService
 import Amazonka.ECS.UpdateServicePrimaryTaskSet
+import Amazonka.ECS.UpdateTaskProtection
 import Amazonka.ECS.UpdateTaskSet

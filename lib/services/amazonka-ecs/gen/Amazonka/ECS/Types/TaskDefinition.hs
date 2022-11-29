@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.TaskDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.Attribute
 import Amazonka.ECS.Types.Compatibility
 import Amazonka.ECS.Types.ContainerDefinition
@@ -33,7 +34,6 @@ import Amazonka.ECS.Types.RuntimePlatform
 import Amazonka.ECS.Types.TaskDefinitionPlacementConstraint
 import Amazonka.ECS.Types.TaskDefinitionStatus
 import Amazonka.ECS.Types.Volume
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a task definition which describes the container and

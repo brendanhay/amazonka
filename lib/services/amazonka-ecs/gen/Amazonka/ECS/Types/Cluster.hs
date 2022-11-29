@@ -20,13 +20,13 @@
 module Amazonka.ECS.Types.Cluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.ClusterConfiguration
 import Amazonka.ECS.Types.ClusterSetting
 import Amazonka.ECS.Types.KeyValuePair
 import Amazonka.ECS.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A regional grouping of one or more container instances where you can run

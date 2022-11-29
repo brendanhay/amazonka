@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.ContainerInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.AgentUpdateStatus
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.Attribute
@@ -27,7 +28,6 @@ import Amazonka.ECS.Types.ContainerInstanceHealthStatus
 import Amazonka.ECS.Types.Resource
 import Amazonka.ECS.Types.Tag
 import Amazonka.ECS.Types.VersionInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon EC2 or External instance that\'s running the Amazon ECS agent

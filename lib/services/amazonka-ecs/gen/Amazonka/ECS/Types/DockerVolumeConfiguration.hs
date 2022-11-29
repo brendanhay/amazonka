@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.DockerVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.Scope
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This parameter is specified when you\'re using Docker volumes. Docker

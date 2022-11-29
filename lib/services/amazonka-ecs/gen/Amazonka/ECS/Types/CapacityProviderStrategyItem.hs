@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.CapacityProviderStrategyItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a capacity provider strategy. A capacity provider

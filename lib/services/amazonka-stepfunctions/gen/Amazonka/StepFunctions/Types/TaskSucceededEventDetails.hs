@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.TaskSucceededEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -34,9 +34,9 @@ data TaskSucceededEventDetails = TaskSucceededEventDetails'
     -- response becomes the output of the related task. Length constraints
     -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
+    resourceType :: Prelude.Text,
+    -- | The action of the resource called by a task state.
     resource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -55,9 +55,9 @@ data TaskSucceededEventDetails = TaskSucceededEventDetails'
 -- response becomes the output of the related task. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 --
--- 'resourceType', 'taskSucceededEventDetails_resourceType' - The action of the resource called by a task state.
+-- 'resourceType', 'taskSucceededEventDetails_resourceType' - The service name of the resource in a task state.
 --
--- 'resource', 'taskSucceededEventDetails_resource' - The service name of the resource in a task state.
+-- 'resource', 'taskSucceededEventDetails_resource' - The action of the resource called by a task state.
 newTaskSucceededEventDetails ::
   -- | 'resourceType'
   Prelude.Text ->
@@ -85,11 +85,11 @@ taskSucceededEventDetails_outputDetails = Lens.lens (\TaskSucceededEventDetails'
 taskSucceededEventDetails_output :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe Prelude.Text)
 taskSucceededEventDetails_output = Lens.lens (\TaskSucceededEventDetails' {output} -> output) (\s@TaskSucceededEventDetails' {} a -> s {output = a} :: TaskSucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
--- | The action of the resource called by a task state.
+-- | The service name of the resource in a task state.
 taskSucceededEventDetails_resourceType :: Lens.Lens' TaskSucceededEventDetails Prelude.Text
 taskSucceededEventDetails_resourceType = Lens.lens (\TaskSucceededEventDetails' {resourceType} -> resourceType) (\s@TaskSucceededEventDetails' {} a -> s {resourceType = a} :: TaskSucceededEventDetails)
 
--- | The service name of the resource in a task state.
+-- | The action of the resource called by a task state.
 taskSucceededEventDetails_resource :: Lens.Lens' TaskSucceededEventDetails Prelude.Text
 taskSucceededEventDetails_resource = Lens.lens (\TaskSucceededEventDetails' {resource} -> resource) (\s@TaskSucceededEventDetails' {} a -> s {resource = a} :: TaskSucceededEventDetails)
 

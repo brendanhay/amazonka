@@ -325,6 +325,7 @@ module Amazonka.StepFunctions.Lens
     lambdaFunctionScheduleFailedEventDetails_cause,
 
     -- ** LambdaFunctionScheduledEventDetails
+    lambdaFunctionScheduledEventDetails_taskCredentials,
     lambdaFunctionScheduledEventDetails_inputDetails,
     lambdaFunctionScheduledEventDetails_timeoutInSeconds,
     lambdaFunctionScheduledEventDetails_input,
@@ -377,6 +378,9 @@ module Amazonka.StepFunctions.Lens
     tag_key,
     tag_value,
 
+    -- ** TaskCredentials
+    taskCredentials_roleArn,
+
     -- ** TaskFailedEventDetails
     taskFailedEventDetails_error,
     taskFailedEventDetails_cause,
@@ -384,6 +388,7 @@ module Amazonka.StepFunctions.Lens
     taskFailedEventDetails_resource,
 
     -- ** TaskScheduledEventDetails
+    taskScheduledEventDetails_taskCredentials,
     taskScheduledEventDetails_timeoutInSeconds,
     taskScheduledEventDetails_heartbeatInSeconds,
     taskScheduledEventDetails_resourceType,
@@ -483,6 +488,7 @@ import Amazonka.StepFunctions.Types.StateEnteredEventDetails
 import Amazonka.StepFunctions.Types.StateExitedEventDetails
 import Amazonka.StepFunctions.Types.StateMachineListItem
 import Amazonka.StepFunctions.Types.Tag
+import Amazonka.StepFunctions.Types.TaskCredentials
 import Amazonka.StepFunctions.Types.TaskFailedEventDetails
 import Amazonka.StepFunctions.Types.TaskScheduledEventDetails
 import Amazonka.StepFunctions.Types.TaskStartFailedEventDetails

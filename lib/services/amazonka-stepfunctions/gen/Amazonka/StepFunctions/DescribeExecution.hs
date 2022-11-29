@@ -55,7 +55,7 @@ module Amazonka.StepFunctions.DescribeExecution
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribeExecution where
   type
     AWSResponse DescribeExecution =
       DescribeExecutionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,7 +180,7 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- This field is set only if the execution succeeds. If the execution
     -- fails, this field is null.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The AWS X-Ray trace header that was passed to the execution.
+    -- | The X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -236,7 +236,7 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 -- This field is set only if the execution succeeds. If the execution
 -- fails, this field is null.
 --
--- 'traceHeader', 'describeExecutionResponse_traceHeader' - The AWS X-Ray trace header that was passed to the execution.
+-- 'traceHeader', 'describeExecutionResponse_traceHeader' - The X-Ray trace header that was passed to the execution.
 --
 -- 'httpStatus', 'describeExecutionResponse_httpStatus' - The response's http status code.
 --
@@ -325,7 +325,7 @@ describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input}
 describeExecutionResponse_output :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The AWS X-Ray trace header that was passed to the execution.
+-- | The X-Ray trace header that was passed to the execution.
 describeExecutionResponse_traceHeader :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_traceHeader = Lens.lens (\DescribeExecutionResponse' {traceHeader} -> traceHeader) (\s@DescribeExecutionResponse' {} a -> s {traceHeader = a} :: DescribeExecutionResponse)
 

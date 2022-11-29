@@ -22,11 +22,14 @@
 --
 -- Starts a state machine execution.
 --
--- @StartExecution@ is idempotent. If @StartExecution@ is called with the
--- same name and input as a running execution, the call will succeed and
--- return the same response as the original request. If the execution is
--- closed or if the input is different, it will return a 400
--- @ExecutionAlreadyExists@ error. Names can be reused after 90 days.
+-- @StartExecution@ is idempotent for @STANDARD@ workflows. For a
+-- @STANDARD@ workflow, if @StartExecution@ is called with the same name
+-- and input as a running execution, the call will succeed and return the
+-- same response as the original request. If the execution is closed or if
+-- the input is different, it will return a @400 ExecutionAlreadyExists@
+-- error. Names can be reused after 90 days.
+--
+-- @StartExecution@ is not idempotent for @EXPRESS@ workflows.
 module Amazonka.StepFunctions.StartExecution
   ( -- * Creating a Request
     StartExecution (..),
@@ -50,7 +53,7 @@ module Amazonka.StepFunctions.StartExecution
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,11 +61,11 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newStartExecution' smart constructor.
 data StartExecution = StartExecution'
-  { -- | The name of the execution. This name must be unique for your AWS
-    -- account, region, and state machine for 90 days. For more information,
-    -- see
+  { -- | The name of the execution. This name must be unique for your Amazon Web
+    -- Services account, region, and state machine for 90 days. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions>
-    -- in the /AWS Step Functions Developer Guide/.
+    -- in the /Step Functions Developer Guide/.
     --
     -- A name must /not/ contain:
     --
@@ -90,8 +93,8 @@ data StartExecution = StartExecution'
     -- Length constraints apply to the payload size, and are expressed as bytes
     -- in UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Passes the AWS X-Ray trace header. The trace header can also be passed
-    -- in the request payload.
+    -- | Passes the X-Ray trace header. The trace header can also be passed in
+    -- the request payload.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the state machine to execute.
     stateMachineArn :: Prelude.Text
@@ -106,11 +109,11 @@ data StartExecution = StartExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'startExecution_name' - The name of the execution. This name must be unique for your AWS
--- account, region, and state machine for 90 days. For more information,
--- see
+-- 'name', 'startExecution_name' - The name of the execution. This name must be unique for your Amazon Web
+-- Services account, region, and state machine for 90 days. For more
+-- information, see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions>
--- in the /AWS Step Functions Developer Guide/.
+-- in the /Step Functions Developer Guide/.
 --
 -- A name must /not/ contain:
 --
@@ -138,8 +141,8 @@ data StartExecution = StartExecution'
 -- Length constraints apply to the payload size, and are expressed as bytes
 -- in UTF-8 encoding.
 --
--- 'traceHeader', 'startExecution_traceHeader' - Passes the AWS X-Ray trace header. The trace header can also be passed
--- in the request payload.
+-- 'traceHeader', 'startExecution_traceHeader' - Passes the X-Ray trace header. The trace header can also be passed in
+-- the request payload.
 --
 -- 'stateMachineArn', 'startExecution_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to execute.
 newStartExecution ::
@@ -154,11 +157,11 @@ newStartExecution pStateMachineArn_ =
       stateMachineArn = pStateMachineArn_
     }
 
--- | The name of the execution. This name must be unique for your AWS
--- account, region, and state machine for 90 days. For more information,
--- see
+-- | The name of the execution. This name must be unique for your Amazon Web
+-- Services account, region, and state machine for 90 days. For more
+-- information, see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions>
--- in the /AWS Step Functions Developer Guide/.
+-- in the /Step Functions Developer Guide/.
 --
 -- A name must /not/ contain:
 --
@@ -190,8 +193,8 @@ startExecution_name = Lens.lens (\StartExecution' {name} -> name) (\s@StartExecu
 startExecution_input :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
 startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Core._Sensitive
 
--- | Passes the AWS X-Ray trace header. The trace header can also be passed
--- in the request payload.
+-- | Passes the X-Ray trace header. The trace header can also be passed in
+-- the request payload.
 startExecution_traceHeader :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
 startExecution_traceHeader = Lens.lens (\StartExecution' {traceHeader} -> traceHeader) (\s@StartExecution' {} a -> s {traceHeader = a} :: StartExecution)
 
@@ -203,8 +206,8 @@ instance Core.AWSRequest StartExecution where
   type
     AWSResponse StartExecution =
       StartExecutionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

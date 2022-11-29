@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2016-11-23@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Step Functions
+-- Step Functions
 --
--- AWS Step Functions is a service that lets you coordinate the components
--- of distributed applications and microservices using visual workflows.
+-- Step Functions is a service that lets you coordinate the components of
+-- distributed applications and microservices using visual workflows.
 --
 -- You can use Step Functions to build applications from individual
 -- components, each of which performs a discrete function, or /task/,
@@ -28,10 +28,11 @@
 --
 -- Step Functions manages operations and underlying infrastructure to
 -- ensure your application is available at any scale. You can run tasks on
--- AWS, your own servers, or any system that has access to AWS. You can
--- access and use Step Functions using the console, the AWS SDKs, or an
--- HTTP API. For more information about Step Functions, see the
--- /<https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html AWS Step Functions Developer Guide>/
+-- Amazon Web Services, your own servers, or any system that has access to
+-- Amazon Web Services. You can access and use Step Functions using the
+-- console, the Amazon Web Services SDKs, or an HTTP API. For more
+-- information about Step Functions, see the
+-- /<https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html Step Functions Developer Guide>/
 -- .
 module Amazonka.StepFunctions
   ( -- * Service Configuration
@@ -403,6 +404,10 @@ module Amazonka.StepFunctions
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TaskCredentials
+    TaskCredentials (TaskCredentials'),
+    newTaskCredentials,
 
     -- ** TaskFailedEventDetails
     TaskFailedEventDetails (TaskFailedEventDetails'),

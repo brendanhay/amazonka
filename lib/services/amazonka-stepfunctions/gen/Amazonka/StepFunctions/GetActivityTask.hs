@@ -28,6 +28,8 @@
 -- the request before responding is 60 seconds. If no task is available
 -- within 60 seconds, the poll returns a @taskToken@ with a null string.
 --
+-- This API action isn\'t logged in CloudTrail.
+--
 -- Workers should set their client side socket timeout to at least 65
 -- seconds (5 seconds higher than the maximum time the service may hold the
 -- poll request).
@@ -57,7 +59,7 @@ module Amazonka.StepFunctions.GetActivityTask
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +116,8 @@ instance Core.AWSRequest GetActivityTask where
   type
     AWSResponse GetActivityTask =
       GetActivityTaskResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

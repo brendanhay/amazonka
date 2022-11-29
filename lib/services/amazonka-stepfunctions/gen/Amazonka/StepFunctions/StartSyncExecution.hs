@@ -21,6 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts a Synchronous Express state machine execution.
+-- @StartSyncExecution@ is not available for @STANDARD@ workflows.
+--
+-- @StartSyncExecution@ will return a @200 OK@ response, even if your
+-- execution fails, because the status code in the API response doesn\'t
+-- reflect function errors. Error codes are reserved for errors that
+-- prevent your execution from running, such as permissions errors, limit
+-- errors, or issues with your state machine code and configuration.
+--
+-- This API action isn\'t logged in CloudTrail.
 module Amazonka.StepFunctions.StartSyncExecution
   ( -- * Creating a Request
     StartSyncExecution (..),
@@ -56,7 +65,7 @@ module Amazonka.StepFunctions.StartSyncExecution
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,8 +86,8 @@ data StartSyncExecution = StartSyncExecution'
     -- Length constraints apply to the payload size, and are expressed as bytes
     -- in UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Passes the AWS X-Ray trace header. The trace header can also be passed
-    -- in the request payload.
+    -- | Passes the X-Ray trace header. The trace header can also be passed in
+    -- the request payload.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the state machine to execute.
     stateMachineArn :: Prelude.Text
@@ -106,8 +115,8 @@ data StartSyncExecution = StartSyncExecution'
 -- Length constraints apply to the payload size, and are expressed as bytes
 -- in UTF-8 encoding.
 --
--- 'traceHeader', 'startSyncExecution_traceHeader' - Passes the AWS X-Ray trace header. The trace header can also be passed
--- in the request payload.
+-- 'traceHeader', 'startSyncExecution_traceHeader' - Passes the X-Ray trace header. The trace header can also be passed in
+-- the request payload.
 --
 -- 'stateMachineArn', 'startSyncExecution_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to execute.
 newStartSyncExecution ::
@@ -139,8 +148,8 @@ startSyncExecution_name = Lens.lens (\StartSyncExecution' {name} -> name) (\s@St
 startSyncExecution_input :: Lens.Lens' StartSyncExecution (Prelude.Maybe Prelude.Text)
 startSyncExecution_input = Lens.lens (\StartSyncExecution' {input} -> input) (\s@StartSyncExecution' {} a -> s {input = a} :: StartSyncExecution) Prelude.. Lens.mapping Core._Sensitive
 
--- | Passes the AWS X-Ray trace header. The trace header can also be passed
--- in the request payload.
+-- | Passes the X-Ray trace header. The trace header can also be passed in
+-- the request payload.
 startSyncExecution_traceHeader :: Lens.Lens' StartSyncExecution (Prelude.Maybe Prelude.Text)
 startSyncExecution_traceHeader = Lens.lens (\StartSyncExecution' {traceHeader} -> traceHeader) (\s@StartSyncExecution' {} a -> s {traceHeader = a} :: StartSyncExecution)
 
@@ -152,8 +161,8 @@ instance Core.AWSRequest StartSyncExecution where
   type
     AWSResponse StartSyncExecution =
       StartSyncExecutionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,7 +256,7 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
     error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The AWS X-Ray trace header that was passed to the execution.
+    -- | The X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -295,7 +304,7 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
 --
 -- 'cause', 'startSyncExecutionResponse_cause' - A more detailed explanation of the cause of the failure.
 --
--- 'traceHeader', 'startSyncExecutionResponse_traceHeader' - The AWS X-Ray trace header that was passed to the execution.
+-- 'traceHeader', 'startSyncExecutionResponse_traceHeader' - The X-Ray trace header that was passed to the execution.
 --
 -- 'httpStatus', 'startSyncExecutionResponse_httpStatus' - The response's http status code.
 --
@@ -385,7 +394,7 @@ startSyncExecutionResponse_error = Lens.lens (\StartSyncExecutionResponse' {erro
 startSyncExecutionResponse_cause :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
 startSyncExecutionResponse_cause = Lens.lens (\StartSyncExecutionResponse' {cause} -> cause) (\s@StartSyncExecutionResponse' {} a -> s {cause = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The AWS X-Ray trace header that was passed to the execution.
+-- | The X-Ray trace header that was passed to the execution.
 startSyncExecutionResponse_traceHeader :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
 startSyncExecutionResponse_traceHeader = Lens.lens (\StartSyncExecutionResponse' {traceHeader} -> traceHeader) (\s@StartSyncExecutionResponse' {} a -> s {traceHeader = a} :: StartSyncExecutionResponse)
 

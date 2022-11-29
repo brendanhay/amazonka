@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.TaskTimedOutEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a resource timeout that occurred during an
@@ -32,9 +32,9 @@ data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
     error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
+    resourceType :: Prelude.Text,
+    -- | The action of the resource called by a task state.
     resource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -51,9 +51,9 @@ data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
 --
 -- 'cause', 'taskTimedOutEventDetails_cause' - A more detailed explanation of the cause of the failure.
 --
--- 'resourceType', 'taskTimedOutEventDetails_resourceType' - The action of the resource called by a task state.
+-- 'resourceType', 'taskTimedOutEventDetails_resourceType' - The service name of the resource in a task state.
 --
--- 'resource', 'taskTimedOutEventDetails_resource' - The service name of the resource in a task state.
+-- 'resource', 'taskTimedOutEventDetails_resource' - The action of the resource called by a task state.
 newTaskTimedOutEventDetails ::
   -- | 'resourceType'
   Prelude.Text ->
@@ -76,11 +76,11 @@ taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -
 taskTimedOutEventDetails_cause :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
 taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
--- | The action of the resource called by a task state.
+-- | The service name of the resource in a task state.
 taskTimedOutEventDetails_resourceType :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
 taskTimedOutEventDetails_resourceType = Lens.lens (\TaskTimedOutEventDetails' {resourceType} -> resourceType) (\s@TaskTimedOutEventDetails' {} a -> s {resourceType = a} :: TaskTimedOutEventDetails)
 
--- | The service name of the resource in a task state.
+-- | The action of the resource called by a task state.
 taskTimedOutEventDetails_resource :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
 taskTimedOutEventDetails_resource = Lens.lens (\TaskTimedOutEventDetails' {resource} -> resource) (\s@TaskTimedOutEventDetails' {} a -> s {resource = a} :: TaskTimedOutEventDetails)
 

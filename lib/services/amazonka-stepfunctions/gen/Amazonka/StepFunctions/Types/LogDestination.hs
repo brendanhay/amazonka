@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.LogDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup
 
@@ -30,7 +30,7 @@ import Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup
 data LogDestination = LogDestination'
   { -- | An object describing a CloudWatch log group. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     cloudWatchLogsLogGroup :: Prelude.Maybe CloudWatchLogsLogGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data LogDestination = LogDestination'
 --
 -- 'cloudWatchLogsLogGroup', 'logDestination_cloudWatchLogsLogGroup' - An object describing a CloudWatch log group. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 newLogDestination ::
   LogDestination
 newLogDestination =
@@ -56,7 +56,7 @@ newLogDestination =
 
 -- | An object describing a CloudWatch log group. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 logDestination_cloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Prelude.Maybe CloudWatchLogsLogGroup)
 logDestination_cloudWatchLogsLogGroup = Lens.lens (\LogDestination' {cloudWatchLogsLogGroup} -> cloudWatchLogsLogGroup) (\s@LogDestination' {} a -> s {cloudWatchLogsLogGroup = a} :: LogDestination)
 

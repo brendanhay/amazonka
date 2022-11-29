@@ -20,10 +20,10 @@
 module Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains details about a lambda function that failed during an
+-- | Contains details about a Lambda function that failed during an
 -- execution.
 --
 -- /See:/ 'newLambdaFunctionFailedEventDetails' smart constructor.

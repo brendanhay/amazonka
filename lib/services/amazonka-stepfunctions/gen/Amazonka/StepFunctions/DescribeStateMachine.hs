@@ -51,7 +51,7 @@ module Amazonka.StepFunctions.DescribeStateMachine
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeStateMachine where
   type
     AWSResponse DescribeStateMachine =
       DescribeStateMachineResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,7 +151,7 @@ instance Core.ToQuery DescribeStateMachine where
 data DescribeStateMachineResponse = DescribeStateMachineResponse'
   { -- | The current status of the state machine.
     status :: Prelude.Maybe StateMachineStatus,
-    -- | Selects whether AWS X-Ray tracing is enabled.
+    -- | Selects whether X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
@@ -180,7 +180,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     definition :: Core.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
     -- state machine. (The IAM role maintains security by granting Step
-    -- Functions access to AWS resources.)
+    -- Functions access to Amazon Web Services resources.)
     roleArn :: Prelude.Text,
     -- | The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
     type' :: StateMachineType,
@@ -199,7 +199,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 --
 -- 'status', 'describeStateMachineResponse_status' - The current status of the state machine.
 --
--- 'tracingConfiguration', 'describeStateMachineResponse_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+-- 'tracingConfiguration', 'describeStateMachineResponse_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
 --
 -- 'loggingConfiguration', 'describeStateMachineResponse_loggingConfiguration' - Undocumented member.
 --
@@ -229,7 +229,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 --
 -- 'roleArn', 'describeStateMachineResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role used when creating this
 -- state machine. (The IAM role maintains security by granting Step
--- Functions access to AWS resources.)
+-- Functions access to Amazon Web Services resources.)
 --
 -- 'type'', 'describeStateMachineResponse_type' - The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
 --
@@ -278,7 +278,7 @@ newDescribeStateMachineResponse
 describeStateMachineResponse_status :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe StateMachineStatus)
 describeStateMachineResponse_status = Lens.lens (\DescribeStateMachineResponse' {status} -> status) (\s@DescribeStateMachineResponse' {} a -> s {status = a} :: DescribeStateMachineResponse)
 
--- | Selects whether AWS X-Ray tracing is enabled.
+-- | Selects whether X-Ray tracing is enabled.
 describeStateMachineResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe TracingConfiguration)
 describeStateMachineResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineResponse)
 
@@ -320,7 +320,7 @@ describeStateMachineResponse_definition = Lens.lens (\DescribeStateMachineRespon
 
 -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
 -- state machine. (The IAM role maintains security by granting Step
--- Functions access to AWS resources.)
+-- Functions access to Amazon Web Services resources.)
 describeStateMachineResponse_roleArn :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
 describeStateMachineResponse_roleArn = Lens.lens (\DescribeStateMachineResponse' {roleArn} -> roleArn) (\s@DescribeStateMachineResponse' {} a -> s {roleArn = a} :: DescribeStateMachineResponse)
 

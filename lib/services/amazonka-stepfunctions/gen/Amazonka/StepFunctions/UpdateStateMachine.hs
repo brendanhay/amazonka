@@ -53,7 +53,7 @@ module Amazonka.StepFunctions.UpdateStateMachine
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +63,7 @@ import Amazonka.StepFunctions.Types
 data UpdateStateMachine = UpdateStateMachine'
   { -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Selects whether AWS X-Ray tracing is enabled.
+    -- | Selects whether X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
@@ -86,7 +86,7 @@ data UpdateStateMachine = UpdateStateMachine'
 --
 -- 'roleArn', 'updateStateMachine_roleArn' - The Amazon Resource Name (ARN) of the IAM role of the state machine.
 --
--- 'tracingConfiguration', 'updateStateMachine_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+-- 'tracingConfiguration', 'updateStateMachine_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
 --
 -- 'definition', 'updateStateMachine_definition' - The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
@@ -112,7 +112,7 @@ newUpdateStateMachine pStateMachineArn_ =
 updateStateMachine_roleArn :: Lens.Lens' UpdateStateMachine (Prelude.Maybe Prelude.Text)
 updateStateMachine_roleArn = Lens.lens (\UpdateStateMachine' {roleArn} -> roleArn) (\s@UpdateStateMachine' {} a -> s {roleArn = a} :: UpdateStateMachine)
 
--- | Selects whether AWS X-Ray tracing is enabled.
+-- | Selects whether X-Ray tracing is enabled.
 updateStateMachine_tracingConfiguration :: Lens.Lens' UpdateStateMachine (Prelude.Maybe TracingConfiguration)
 updateStateMachine_tracingConfiguration = Lens.lens (\UpdateStateMachine' {tracingConfiguration} -> tracingConfiguration) (\s@UpdateStateMachine' {} a -> s {tracingConfiguration = a} :: UpdateStateMachine)
 
@@ -134,8 +134,8 @@ instance Core.AWSRequest UpdateStateMachine where
   type
     AWSResponse UpdateStateMachine =
       UpdateStateMachineResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

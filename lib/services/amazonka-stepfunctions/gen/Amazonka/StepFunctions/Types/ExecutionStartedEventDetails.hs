@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.ExecutionStartedEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -28,8 +28,8 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newExecutionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
-  { -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
-    -- Lambda tasks.
+  { -- | The Amazon Resource Name (ARN) of the IAM role used for executing Lambda
+    -- tasks.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Contains details about the input for an execution history event.
     inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
@@ -47,8 +47,8 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'executionStartedEventDetails_roleArn' - The Amazon Resource Name (ARN) of the IAM role used for executing AWS
--- Lambda tasks.
+-- 'roleArn', 'executionStartedEventDetails_roleArn' - The Amazon Resource Name (ARN) of the IAM role used for executing Lambda
+-- tasks.
 --
 -- 'inputDetails', 'executionStartedEventDetails_inputDetails' - Contains details about the input for an execution history event.
 --
@@ -64,8 +64,8 @@ newExecutionStartedEventDetails =
       input = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
--- Lambda tasks.
+-- | The Amazon Resource Name (ARN) of the IAM role used for executing Lambda
+-- tasks.
 executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
 executionStartedEventDetails_roleArn = Lens.lens (\ExecutionStartedEventDetails' {roleArn} -> roleArn) (\s@ExecutionStartedEventDetails' {} a -> s {roleArn = a} :: ExecutionStartedEventDetails)
 

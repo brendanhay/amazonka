@@ -26,7 +26,7 @@
 -- (@Fail@ states), and so on. State machines are specified using a
 -- JSON-based, structured language. For more information, see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>
--- in the AWS Step Functions User Guide.
+-- in the Step Functions User Guide.
 --
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
@@ -65,7 +65,7 @@ module Amazonka.StepFunctions.CreateStateMachine
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +77,7 @@ data CreateStateMachine = CreateStateMachine'
     --
     -- An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/, and
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/, and
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
     --
     -- Tags may only contain Unicode letters, digits, white space, or these
@@ -87,14 +87,14 @@ data CreateStateMachine = CreateStateMachine'
     -- default is @STANDARD@. You cannot update the @type@ of a state machine
     -- once it has been created.
     type' :: Prelude.Maybe StateMachineType,
-    -- | Selects whether AWS X-Ray tracing is enabled.
+    -- | Selects whether X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | Defines what execution history events are logged and where they are
     -- logged.
     --
     -- By default, the @level@ is set to @OFF@. For more information see
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
-    -- in the AWS Step Functions User Guide.
+    -- in the Step Functions User Guide.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The name of the state machine.
     --
@@ -134,7 +134,7 @@ data CreateStateMachine = CreateStateMachine'
 --
 -- An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/, and
+-- in the /Amazon Web Services Billing and Cost Management User Guide/, and
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
 --
 -- Tags may only contain Unicode letters, digits, white space, or these
@@ -144,14 +144,14 @@ data CreateStateMachine = CreateStateMachine'
 -- default is @STANDARD@. You cannot update the @type@ of a state machine
 -- once it has been created.
 --
--- 'tracingConfiguration', 'createStateMachine_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+-- 'tracingConfiguration', 'createStateMachine_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
 --
 -- 'loggingConfiguration', 'createStateMachine_loggingConfiguration' - Defines what execution history events are logged and where they are
 -- logged.
 --
 -- By default, the @level@ is set to @OFF@. For more information see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
--- in the AWS Step Functions User Guide.
+-- in the Step Functions User Guide.
 --
 -- 'name', 'createStateMachine_name' - The name of the state machine.
 --
@@ -198,7 +198,7 @@ newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
 --
 -- An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/, and
+-- in the /Amazon Web Services Billing and Cost Management User Guide/, and
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
 --
 -- Tags may only contain Unicode letters, digits, white space, or these
@@ -212,7 +212,7 @@ createStateMachine_tags = Lens.lens (\CreateStateMachine' {tags} -> tags) (\s@Cr
 createStateMachine_type :: Lens.Lens' CreateStateMachine (Prelude.Maybe StateMachineType)
 createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@CreateStateMachine' {} a -> s {type' = a} :: CreateStateMachine)
 
--- | Selects whether AWS X-Ray tracing is enabled.
+-- | Selects whether X-Ray tracing is enabled.
 createStateMachine_tracingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe TracingConfiguration)
 createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {tracingConfiguration} -> tracingConfiguration) (\s@CreateStateMachine' {} a -> s {tracingConfiguration = a} :: CreateStateMachine)
 
@@ -221,7 +221,7 @@ createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {traci
 --
 -- By default, the @level@ is set to @OFF@. For more information see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
--- in the AWS Step Functions User Guide.
+-- in the Step Functions User Guide.
 createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe LoggingConfiguration)
 createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@CreateStateMachine' {} a -> s {loggingConfiguration = a} :: CreateStateMachine)
 
@@ -258,8 +258,8 @@ instance Core.AWSRequest CreateStateMachine where
   type
     AWSResponse CreateStateMachine =
       CreateStateMachineResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

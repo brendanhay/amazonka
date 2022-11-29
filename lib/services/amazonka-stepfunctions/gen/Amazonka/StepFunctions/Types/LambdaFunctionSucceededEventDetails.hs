@@ -20,18 +20,18 @@
 module Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
--- | Contains details about a lambda function that successfully terminated
+-- | Contains details about a Lambda function that successfully terminated
 -- during an execution.
 --
 -- /See:/ 'newLambdaFunctionSucceededEventDetails' smart constructor.
 data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
   { -- | Contains details about the output of an execution history event.
     outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON data output by the lambda function. Length constraints apply to
+    -- | The JSON data output by the Lambda function. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
@@ -47,7 +47,7 @@ data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
 --
 -- 'outputDetails', 'lambdaFunctionSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
 --
--- 'output', 'lambdaFunctionSucceededEventDetails_output' - The JSON data output by the lambda function. Length constraints apply to
+-- 'output', 'lambdaFunctionSucceededEventDetails_output' - The JSON data output by the Lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 newLambdaFunctionSucceededEventDetails ::
   LambdaFunctionSucceededEventDetails
@@ -62,7 +62,7 @@ newLambdaFunctionSucceededEventDetails =
 lambdaFunctionSucceededEventDetails_outputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 lambdaFunctionSucceededEventDetails_outputDetails = Lens.lens (\LambdaFunctionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {outputDetails = a} :: LambdaFunctionSucceededEventDetails)
 
--- | The JSON data output by the lambda function. Length constraints apply to
+-- | The JSON data output by the Lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 lambdaFunctionSucceededEventDetails_output :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionSucceededEventDetails_output = Lens.lens (\LambdaFunctionSucceededEventDetails' {output} -> output) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {output = a} :: LambdaFunctionSucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive

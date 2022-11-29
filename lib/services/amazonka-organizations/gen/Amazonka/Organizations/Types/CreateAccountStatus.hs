@@ -20,7 +20,7 @@
 module Amazonka.Organizations.Types.CreateAccountStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Organizations.Types.CreateAccountFailureReason
 import Amazonka.Organizations.Types.CreateAccountState
 import qualified Amazonka.Prelude as Prelude

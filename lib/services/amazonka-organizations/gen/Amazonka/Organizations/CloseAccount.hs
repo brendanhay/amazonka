@@ -76,7 +76,7 @@ module Amazonka.Organizations.CloseAccount
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,8 +114,8 @@ closeAccount_accountId = Lens.lens (\CloseAccount' {accountId} -> accountId) (\s
 
 instance Core.AWSRequest CloseAccount where
   type AWSResponse CloseAccount = CloseAccountResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull CloseAccountResponse'
 
 instance Prelude.Hashable CloseAccount where

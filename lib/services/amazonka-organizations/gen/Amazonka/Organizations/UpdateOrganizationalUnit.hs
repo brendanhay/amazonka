@@ -46,7 +46,7 @@ module Amazonka.Organizations.UpdateOrganizationalUnit
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,8 +127,8 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
   type
     AWSResponse UpdateOrganizationalUnit =
       UpdateOrganizationalUnitResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -57,7 +57,7 @@ module Amazonka.Organizations.DetachPolicy
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,8 +165,8 @@ detachPolicy_targetId = Lens.lens (\DetachPolicy' {targetId} -> targetId) (\s@De
 
 instance Core.AWSRequest DetachPolicy where
   type AWSResponse DetachPolicy = DetachPolicyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DetachPolicyResponse'
 
 instance Prelude.Hashable DetachPolicy where

@@ -40,7 +40,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
   - `Amazonka.Env.within`: removed; it was merely a record update
   - `Amazonka.Body._Body`: removed.
 
-  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XOverloadedRecordDot`.
+  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XOverloadedRecordDot`. However, if you prefer explicit lenses, prefixed lenses are available where the records are defined, and are colleced in the `Amazonka.Core.Lens` and `Amazonka.Lens` modules (`Amazonka.Lens` re-exports `Amazonka.Core.Lens`).
 
 ### New libraries
 

@@ -26,6 +26,7 @@ import Control.Lens as Export
     Getting,
     IndexedTraversal',
     Iso',
+    Lens,
     Lens',
     Optic',
     Prism',

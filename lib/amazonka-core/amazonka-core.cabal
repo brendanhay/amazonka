@@ -69,6 +69,7 @@ library
   exposed-modules:
     Amazonka.Bytes
     Amazonka.Core
+    Amazonka.Core.Lens
     Amazonka.Core.Lens.Internal
     Amazonka.Crypto
     Amazonka.Data

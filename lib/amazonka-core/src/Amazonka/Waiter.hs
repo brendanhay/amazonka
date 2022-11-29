@@ -11,6 +11,12 @@ module Amazonka.Waiter
     Accept (..),
     Wait (..),
 
+    -- ** Lenses
+    wait_name,
+    wait_attempts,
+    wait_delay,
+    wait_acceptors,
+
     -- * Acceptors
     accept,
 
@@ -28,6 +34,7 @@ where
 
 import Amazonka.Core.Lens.Internal
   ( Fold,
+    Lens,
     allOf,
     anyOf,
     to,
@@ -62,6 +69,22 @@ data Wait a = Wait
     delay :: Seconds,
     acceptors :: [Acceptor a]
   }
+
+{-# INLINE wait_name #-}
+wait_name :: Lens' (Wait a) ByteString
+wait_name f w@Wait {name} = f name <&> \name' -> w {name = name'}
+
+{-# INLINE wait_attempts #-}
+wait_attempts :: forall a. Lens' (Wait a) Int
+wait_attempts f w@Wait {attempts} = f attempts <&> \attempts' -> (w :: Wait a) {attempts = attempts'}
+
+{-# INLINE wait_delay #-}
+wait_delay :: Lens' (Wait a) Seconds
+wait_delay f w@Wait {delay} = f delay <&> \delay' -> w {delay = delay'}
+
+{-# INLINE wait_acceptors #-}
+wait_acceptors :: Lens (Wait a) (Wait b) [Acceptor a] [Acceptor b]
+wait_acceptors f w@Wait {acceptors} = f acceptors <&> \acceptors' -> w {acceptors = acceptors'}
 
 accept :: Wait a -> Acceptor a
 accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ acceptors w

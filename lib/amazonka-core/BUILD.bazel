@@ -6,6 +6,7 @@ haskell_library(
     srcs = [
         "src/Amazonka/Bytes.hs",
         "src/Amazonka/Core.hs",
+        "src/Amazonka/Core/Lens.hs",
         "src/Amazonka/Core/Lens/Internal.hs",
         "src/Amazonka/Crypto.hs",
         "src/Amazonka/Data.hs",

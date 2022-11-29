@@ -13,10 +13,21 @@ module Amazonka.Types
     SecretKey (..),
     SessionToken (..),
 
+    -- *** Optics
+    _AccessKey,
+    _SecretKey,
+    _SessionToken,
+
     -- ** Environment
     Auth (..),
     withAuth,
     AuthEnv (..),
+
+    -- *** Lenses
+    authEnv_accessKeyId,
+    authEnv_secretAccessKey,
+    authEnv_sessionToken,
+    authEnv_expiration,
 
     -- * Logging
     LogLevel (..),
@@ -28,10 +39,28 @@ module Amazonka.Types
     Signer (..),
     Signed (..),
 
+    -- ** Lenses
+    signed_signedMeta,
+    signed_signedRequest,
+
     -- * Service
     Abbrev,
     Service (..),
     S3AddressingStyle (..),
+
+    -- ** Optics
+    _Abbrev,
+    service_abbrev,
+    service_signer,
+    service_signingName,
+    service_version,
+    service_s3AddressingStyle,
+    service_endpointPrefix,
+    service_endpoint,
+    service_timeout,
+    service_check,
+    service_error,
+    service_retry,
 
     -- * Requests
     AWSRequest (..),
@@ -40,8 +69,22 @@ module Amazonka.Types
     requestPresign,
     requestUnsigned,
 
+    -- ** Lenses
+    request_service,
+    request_method,
+    request_path,
+    request_query,
+    request_headers,
+    request_body,
+
     -- * Retries
     Retry (..),
+
+    -- ** Lenses
+    retry_base,
+    retry_growth,
+    retry_attempts,
+    retry_check,
 
     -- * Errors
     AsError (..),
@@ -53,14 +96,33 @@ module Amazonka.Types
     -- ** Serialize Errors
     SerializeError (..),
 
+    -- *** Lenses
+    serializeError_abbrev,
+    serializeError_status,
+    serializeError_body,
+    serializeError_message,
+
     -- ** Service Errors
     ServiceError (..),
+
+    -- *** Lenses
+    serviceError_abbrev,
+    serviceError_status,
+    serviceError_headers,
+    serviceError_code,
+    serviceError_message,
+    serviceError_requestId,
 
     -- ** Error Types
     ErrorCode (..),
     newErrorCode,
     ErrorMessage (..),
     RequestId (..),
+
+    -- *** Optics
+    _ErrorCode,
+    _ErrorMessage,
+    _RequestId,
 
     -- * Regions
     Region
@@ -94,6 +156,12 @@ module Amazonka.Types
 
     -- * Endpoints
     Endpoint (..),
+
+    -- ** Lenses
+    endpoint_host,
+    endpoint_secure,
+    endpoint_port,
+    endpoint_scope,
 
     -- * HTTP
     ClientRequest,
@@ -150,9 +218,17 @@ newtype Abbrev = Abbrev {fromAbbrev :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
+{-# INLINE _Abbrev #-}
+_Abbrev :: Iso' Abbrev Text
+_Abbrev = Lens.coerced
+
 newtype ErrorCode = ErrorCode Text
   deriving stock (Eq, Ord, Show)
   deriving newtype (ToText, ToLog)
+
+{-# INLINE _ErrorCode #-}
+_ErrorCode :: Iso' ErrorCode Text
+_ErrorCode = Lens.coerced
 
 instance IsString ErrorCode where
   fromString = newErrorCode . fromString
@@ -188,9 +264,17 @@ newtype ErrorMessage = ErrorMessage {fromErrorMessage :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
+{-# INLINE _ErrorMessage #-}
+_ErrorMessage :: Iso' ErrorMessage Text
+_ErrorMessage = Lens.coerced
+
 newtype RequestId = RequestId {fromRequestId :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+
+{-# INLINE _RequestId #-}
+_RequestId :: Iso' RequestId Text
+_RequestId = Lens.coerced
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
@@ -227,6 +311,22 @@ instance ToLog SerializeError where
         "}"
       ]
 
+{-# INLINE serializeError_abbrev #-}
+serializeError_abbrev :: Lens' SerializeError Abbrev
+serializeError_abbrev f e@SerializeError' {abbrev} = f abbrev <&> \abbrev' -> (e :: SerializeError) {abbrev = abbrev'}
+
+{-# INLINE serializeError_status #-}
+serializeError_status :: Lens' SerializeError Status
+serializeError_status f e@SerializeError' {status} = f status <&> \status' -> (e :: SerializeError) {status = status'}
+
+{-# INLINE serializeError_body #-}
+serializeError_body :: Lens' SerializeError (Maybe ByteStringLazy)
+serializeError_body f e@SerializeError' {body} = f body <&> \body' -> (e :: SerializeError) {body = body'}
+
+{-# INLINE serializeError_message #-}
+serializeError_message :: Lens' SerializeError String
+serializeError_message f e@SerializeError' {message} = f message <&> \message' -> (e :: SerializeError) {message = message'}
+
 data ServiceError = ServiceError'
   { abbrev :: Abbrev,
     status :: Status,
@@ -248,6 +348,30 @@ instance ToLog ServiceError where
         "  request-id = " <> build requestId,
         "}"
       ]
+
+{-# INLINE serviceError_abbrev #-}
+serviceError_abbrev :: Lens' ServiceError Abbrev
+serviceError_abbrev f e@ServiceError' {abbrev} = f abbrev <&> \abbrev' -> (e :: ServiceError) {abbrev = abbrev'}
+
+{-# INLINE serviceError_status #-}
+serviceError_status :: Lens' ServiceError Status
+serviceError_status f e@ServiceError' {status} = f status <&> \status' -> (e :: ServiceError) {status = status'}
+
+{-# INLINE serviceError_headers #-}
+serviceError_headers :: Lens' ServiceError [Header]
+serviceError_headers f e@ServiceError' {headers} = f headers <&> \headers' -> (e :: ServiceError) {headers = headers'}
+
+{-# INLINE serviceError_code #-}
+serviceError_code :: Lens' ServiceError ErrorCode
+serviceError_code f e@ServiceError' {code} = f code <&> \code' -> e {code = code'}
+
+{-# INLINE serviceError_message #-}
+serviceError_message :: Lens' ServiceError (Maybe ErrorMessage)
+serviceError_message f e@ServiceError' {message} = f message <&> \message' -> (e :: ServiceError) {message = message'}
+
+{-# INLINE serviceError_requestId #-}
+serviceError_requestId :: Lens' ServiceError (Maybe RequestId)
+serviceError_requestId f e@ServiceError' {requestId} = f requestId <&> \requestId' -> (e :: ServiceError) {requestId = requestId'}
 
 class AsError a where
   -- | A general Amazonka error.
@@ -292,7 +416,23 @@ data Endpoint = Endpoint
     port :: Int,
     scope :: ByteString
   }
-  deriving stock (Eq, Show)
+  deriving stock (Eq, Show, Generic)
+
+{-# INLINE endpoint_host #-}
+endpoint_host :: Lens' Endpoint ByteString
+endpoint_host f e@Endpoint {host} = f host <&> \host' -> e {host = host'}
+
+{-# INLINE endpoint_secure #-}
+endpoint_secure :: Lens' Endpoint Bool
+endpoint_secure f e@Endpoint {secure} = f secure <&> \secure' -> e {secure = secure'}
+
+{-# INLINE endpoint_port #-}
+endpoint_port :: Lens' Endpoint Int
+endpoint_port f e@Endpoint {port} = f port <&> \port' -> e {port = port'}
+
+{-# INLINE endpoint_scope #-}
+endpoint_scope :: Lens' Endpoint ByteString
+endpoint_scope f e@Endpoint {scope} = f scope <&> \scope' -> e {scope = scope'}
 
 data LogLevel
   = -- | Info messages supplied by the user - this level is not emitted by the library.
@@ -337,6 +477,22 @@ data Retry = Exponential
   }
   deriving stock (Generic)
 
+{-# INLINE retry_base #-}
+retry_base :: Lens' Retry Double
+retry_base f r@Exponential {base} = f base <&> \base' -> r {base = base'}
+
+{-# INLINE retry_growth #-}
+retry_growth :: Lens' Retry Int
+retry_growth f r@Exponential {growth} = f growth <&> \growth' -> r {growth = growth'}
+
+{-# INLINE retry_attempts #-}
+retry_attempts :: Lens' Retry Int
+retry_attempts f r@Exponential {attempts} = f attempts <&> \attempts' -> r {attempts = attempts'}
+
+{-# INLINE retry_check #-}
+retry_check :: Lens' Retry (ServiceError -> Maybe Text)
+retry_check f r@Exponential {check} = f check <&> \check' -> (r :: Retry) {check = check'}
+
 -- | Signing algorithm specific metadata.
 data Meta where
   Meta :: ToLog a => a -> Meta
@@ -351,6 +507,14 @@ data Signed a = Signed
   { signedMeta :: Meta,
     signedRequest :: ClientRequest
   }
+
+{-# INLINE signed_signedMeta #-}
+signed_signedMeta :: Lens' (Signed a) Meta
+signed_signedMeta f s@Signed {signedMeta} = f signedMeta <&> \signedMeta' -> s {signedMeta = signedMeta'}
+
+{-# INLINE signed_signedRequest #-}
+signed_signedRequest :: Lens' (Signed a) ClientRequest
+signed_signedRequest f s@Signed {signedRequest} = f signedRequest <&> \signedRequest' -> s {signedRequest = signedRequest'}
 
 type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
 
@@ -377,6 +541,50 @@ data Service = Service
     retry :: Retry
   }
   deriving stock (Generic)
+
+{-# INLINE service_abbrev #-}
+service_abbrev :: Lens' Service Abbrev
+service_abbrev f s@Service {abbrev} = f abbrev <&> \abbrev' -> (s :: Service) {abbrev = abbrev'}
+
+{-# INLINE service_signer #-}
+service_signer :: Lens' Service Signer
+service_signer f s@Service {signer} = f signer <&> \signer' -> (s :: Service) {signer = signer'}
+
+{-# INLINE service_signingName #-}
+service_signingName :: Lens' Service ByteString
+service_signingName f s@Service {signingName} = f signingName <&> \signingName' -> s {signingName = signingName'}
+
+{-# INLINE service_version #-}
+service_version :: Lens' Service ByteString
+service_version f s@Service {version} = f version <&> \version' -> s {version = version'}
+
+{-# INLINE service_s3AddressingStyle #-}
+service_s3AddressingStyle :: Lens' Service S3AddressingStyle
+service_s3AddressingStyle f s@Service {s3AddressingStyle} = f s3AddressingStyle <&> \s3AddressingStyle' -> s {s3AddressingStyle = s3AddressingStyle'}
+
+{-# INLINE service_endpointPrefix #-}
+service_endpointPrefix :: Lens' Service ByteString
+service_endpointPrefix f s@Service {endpointPrefix} = f endpointPrefix <&> \endpointPrefix' -> s {endpointPrefix = endpointPrefix'}
+
+{-# INLINE service_endpoint #-}
+service_endpoint :: Lens' Service (Region -> Endpoint)
+service_endpoint f s@Service {endpoint} = f endpoint <&> \endpoint' -> s {endpoint = endpoint'}
+
+{-# INLINE service_timeout #-}
+service_timeout :: Lens' Service (Maybe Seconds)
+service_timeout f s@Service {timeout} = f timeout <&> \timeout' -> s {timeout = timeout'}
+
+{-# INLINE service_check #-}
+service_check :: Lens' Service (Status -> Bool)
+service_check f s@Service {check} = f check <&> \check' -> (s :: Service) {check = check'}
+
+{-# INLINE service_error #-}
+service_error :: Lens' Service (Status -> [Header] -> ByteStringLazy -> Error)
+service_error f s@Service {error} = f error <&> \error' -> (s :: Service) {error = error'}
+
+{-# INLINE service_retry #-}
+service_retry :: Lens' Service Retry
+service_retry f s@Service {retry} = f retry <&> \retry' -> (s :: Service) {retry = retry'}
 
 -- | When to rewrite S3 requests into /virtual-hosted style/.
 --
@@ -413,6 +621,30 @@ data Request a = Request
     body :: RequestBody
   }
   deriving stock (Generic)
+
+{-# INLINE request_service #-}
+request_service :: Lens' (Request a) Service
+request_service f rq@Request {service} = f service <&> \service' -> rq {service = service'}
+
+{-# INLINE request_method #-}
+request_method :: Lens' (Request a) StdMethod
+request_method f rq@Request {method} = f method <&> \method' -> rq {method = method'}
+
+{-# INLINE request_path #-}
+request_path :: Lens' (Request a) RawPath
+request_path f rq@Request {path} = f path <&> \path' -> rq {path = path'}
+
+{-# INLINE request_query #-}
+request_query :: Lens' (Request a) QueryString
+request_query f rq@Request {query} = f query <&> \query' -> rq {query = query'}
+
+{-# INLINE request_headers #-}
+request_headers :: forall a. Lens' (Request a) [Header]
+request_headers f rq@Request {headers} = f headers <&> \headers' -> (rq :: Request a) {headers = headers'}
+
+{-# INLINE request_body #-}
+request_body :: forall a. Lens' (Request a) RequestBody
+request_body f rq@Request {body} = f body <&> \body' -> (rq :: Request a) {body = body'}
 
 requestSign :: Algorithm a
 requestSign rq@Request {service = Service {signer = Signer {sign}}} = sign rq
@@ -479,6 +711,9 @@ instance ToJSON AccessKey where
 instance FromJSON AccessKey where
   parseJSON = parseJSONText "AccessKey"
 
+_AccessKey :: Iso' AccessKey ByteString
+_AccessKey = Lens.coerced
+
 -- | Secret access key credential.
 --
 -- For example: @wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKE@
@@ -503,6 +738,9 @@ instance ToJSON SecretKey where
 instance FromJSON SecretKey where
   parseJSON = parseJSONText "SecretKey"
 
+_SecretKey :: Iso' SecretKey ByteString
+_SecretKey = Lens.coerced
+
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
 --
@@ -525,6 +763,9 @@ instance ToJSON SessionToken where
 
 instance FromJSON SessionToken where
   parseJSON = parseJSONText "SessionToken"
+
+_SessionToken :: Iso' SessionToken ByteString
+_SessionToken = Lens.coerced
 
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
@@ -563,6 +804,22 @@ instance FromXML AuthEnv where
       <*> x .@? "SessionToken"
       <*> x .@? "Expiration"
 
+{-# INLINE authEnv_accessKeyId #-}
+authEnv_accessKeyId :: Lens' AuthEnv AccessKey
+authEnv_accessKeyId f a@AuthEnv {accessKeyId} = f accessKeyId <&> \accessKeyId' -> a {accessKeyId = accessKeyId'}
+
+{-# INLINE authEnv_secretAccessKey #-}
+authEnv_secretAccessKey :: Lens' AuthEnv (Sensitive SecretKey)
+authEnv_secretAccessKey f a@AuthEnv {secretAccessKey} = f secretAccessKey <&> \secretAccessKey' -> a {secretAccessKey = secretAccessKey'}
+
+{-# INLINE authEnv_sessionToken #-}
+authEnv_sessionToken :: Lens' AuthEnv (Maybe (Sensitive SessionToken))
+authEnv_sessionToken f a@AuthEnv {sessionToken} = f sessionToken <&> \sessionToken' -> a {sessionToken = sessionToken'}
+
+{-# INLINE authEnv_expiration #-}
+authEnv_expiration :: Lens' AuthEnv (Maybe ISO8601)
+authEnv_expiration f a@AuthEnv {expiration} = f expiration <&> \expiration' -> a {expiration = expiration'}
+
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
 data Auth
@@ -594,6 +851,10 @@ newtype Region = Region' {fromRegion :: Text}
       ToByteString,
       ToLog
     )
+
+{-# INLINE _Region #-}
+_Region :: Iso' Region Text
+_Region = Lens.coerced
 
 -- North America
 
@@ -734,6 +995,9 @@ instance FromText Seconds where
 instance ToText Seconds where
   toText =
     Text.pack . formatTime defaultTimeLocale diffTimeFormatString . toSeconds
+
+_Seconds :: Iso' Seconds DiffTime
+_Seconds = Lens.coerced
 
 -- | Format string used in parse/format options
 --

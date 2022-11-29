@@ -10,7 +10,7 @@
 module Amazonka.Data.Body where
 
 import qualified Amazonka.Bytes as Bytes
-import Amazonka.Core.Lens.Internal (AReview, to, un)
+import Amazonka.Core.Lens.Internal (coerced)
 import Amazonka.Crypto (Digest, SHA256)
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data.ByteString
@@ -50,6 +50,10 @@ newtype ResponseBody = ResponseBody
 instance Show ResponseBody where
   show = const "ResponseBody { ConduitM () ByteString (ResourceT IO) () }"
 
+{-# INLINE responseBody_body #-}
+responseBody_body :: Iso' ResponseBody (ConduitM () ByteString (ResourceT IO) ())
+responseBody_body = coerced
+
 fuseStream ::
   ResponseBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
@@ -71,6 +75,9 @@ newtype ChunkSize = ChunkSize Int
 instance ToLog ChunkSize where
   build = build . show
 
+_ChunkSize :: Iso' ChunkSize Int
+_ChunkSize = coerced
+
 -- | The default chunk size of 128 KB. The minimum chunk size accepted by
 -- AWS is 8 KB, unless the entirety of the request is below this threshold.
 --
@@ -89,6 +96,18 @@ data ChunkedBody = ChunkedBody
     length :: Integer,
     body :: ConduitM () ByteString (ResourceT IO) ()
   }
+
+{-# INLINE chunkedBody_size #-}
+chunkedBody_size :: Lens' ChunkedBody ChunkSize
+chunkedBody_size f b@ChunkedBody {size} = f size <&> \size' -> b {size = size'}
+
+{-# INLINE chunkedBody_length #-}
+chunkedBody_length :: Lens' ChunkedBody Integer
+chunkedBody_length f b@ChunkedBody {length} = f length <&> \length' -> b {length = length'}
+
+{-# INLINE chunkedBody_body #-}
+chunkedBody_body :: Lens' ChunkedBody (ConduitM () ByteString (ResourceT IO) ())
+chunkedBody_body f b@ChunkedBody {body} = f body <&> \body' -> (b :: ChunkedBody) {body = body'}
 
 -- Maybe revert to using Source's, and then enforce the chunk size
 -- during conversion from HashedBody -> ChunkedBody

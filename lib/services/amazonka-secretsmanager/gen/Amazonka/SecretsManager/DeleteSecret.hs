@@ -87,7 +87,7 @@ module Amazonka.SecretsManager.DeleteSecret
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +113,7 @@ data DeleteSecret = DeleteSecret'
     -- Use this parameter with caution. This parameter causes the operation to
     -- skip the normal recovery window before the permanent deletion that
     -- Secrets Manager would normally impose with the @RecoveryWindowInDays@
-    -- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+    -- parameter. If you delete a secret with the @ForceDeleteWithoutRecovery@
     -- parameter, then you have no opportunity to recover the secret. You lose
     -- the secret permanently.
     forceDeleteWithoutRecovery :: Prelude.Maybe Prelude.Bool,
@@ -152,7 +152,7 @@ data DeleteSecret = DeleteSecret'
 -- Use this parameter with caution. This parameter causes the operation to
 -- skip the normal recovery window before the permanent deletion that
 -- Secrets Manager would normally impose with the @RecoveryWindowInDays@
--- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+-- parameter. If you delete a secret with the @ForceDeleteWithoutRecovery@
 -- parameter, then you have no opportunity to recover the secret. You lose
 -- the secret permanently.
 --
@@ -193,7 +193,7 @@ deleteSecret_recoveryWindowInDays = Lens.lens (\DeleteSecret' {recoveryWindowInD
 -- Use this parameter with caution. This parameter causes the operation to
 -- skip the normal recovery window before the permanent deletion that
 -- Secrets Manager would normally impose with the @RecoveryWindowInDays@
--- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+-- parameter. If you delete a secret with the @ForceDeleteWithoutRecovery@
 -- parameter, then you have no opportunity to recover the secret. You lose
 -- the secret permanently.
 deleteSecret_forceDeleteWithoutRecovery :: Lens.Lens' DeleteSecret (Prelude.Maybe Prelude.Bool)
@@ -209,8 +209,8 @@ deleteSecret_secretId = Lens.lens (\DeleteSecret' {secretId} -> secretId) (\s@De
 
 instance Core.AWSRequest DeleteSecret where
   type AWSResponse DeleteSecret = DeleteSecretResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

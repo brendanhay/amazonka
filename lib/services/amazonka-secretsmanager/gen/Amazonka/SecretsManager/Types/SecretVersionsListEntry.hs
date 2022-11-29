@@ -20,7 +20,7 @@
 module Amazonka.SecretsManager.Types.SecretVersionsListEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about one version of a secret.

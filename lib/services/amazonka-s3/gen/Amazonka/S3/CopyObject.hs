@@ -271,7 +271,7 @@ module Amazonka.S3.CopyObject
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -1029,9 +1029,9 @@ copyObject_key = Lens.lens (\CopyObject' {key} -> key) (\s@CopyObject' {} a -> s
 
 instance Core.AWSRequest CopyObject where
   type AWSResponse CopyObject = CopyObjectResponse
-  service _ = defaultService
-  request srv =
-    Request.s3vhost Prelude.. Request.put srv
+  request overrides =
+    Request.s3vhost
+      Prelude.. Request.put (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

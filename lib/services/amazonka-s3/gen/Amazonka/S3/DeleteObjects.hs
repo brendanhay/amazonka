@@ -91,7 +91,7 @@ module Amazonka.S3.DeleteObjects
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -302,11 +302,10 @@ instance Core.AWSRequest DeleteObjects where
   type
     AWSResponse DeleteObjects =
       DeleteObjectsResponse
-  service _ = defaultService
-  request srv =
+  request overrides =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.postXML srv
+      Prelude.. Request.postXML (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

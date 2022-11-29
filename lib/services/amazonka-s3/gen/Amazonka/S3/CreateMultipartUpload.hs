@@ -302,7 +302,7 @@ module Amazonka.S3.CreateMultipartUpload
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -811,9 +811,9 @@ instance Core.AWSRequest CreateMultipartUpload where
   type
     AWSResponse CreateMultipartUpload =
       CreateMultipartUploadResponse
-  service _ = defaultService
-  request srv =
-    Request.s3vhost Prelude.. Request.post srv
+  request overrides =
+    Request.s3vhost
+      Prelude.. Request.post (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

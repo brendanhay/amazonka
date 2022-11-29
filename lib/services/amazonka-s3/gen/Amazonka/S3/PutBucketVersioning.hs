@@ -77,7 +77,7 @@ module Amazonka.S3.PutBucketVersioning
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -226,9 +226,9 @@ instance Core.AWSRequest PutBucketVersioning where
   type
     AWSResponse PutBucketVersioning =
       PutBucketVersioningResponse
-  service _ = defaultService
-  request srv =
-    Request.s3vhost Prelude.. Request.putXML srv
+  request overrides =
+    Request.s3vhost
+      Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutBucketVersioningResponse'
 

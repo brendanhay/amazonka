@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.InputStartingPositionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.InputStartingPosition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the point at which the application reads from the streaming

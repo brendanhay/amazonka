@@ -20,6 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties
@@ -27,7 +28,6 @@ import Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.VpcConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the creation parameters for a Kinesis Data Analytics

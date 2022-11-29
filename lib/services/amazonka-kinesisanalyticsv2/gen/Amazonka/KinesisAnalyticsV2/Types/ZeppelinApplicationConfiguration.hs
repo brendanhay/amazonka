@@ -20,11 +20,11 @@
 module Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.CatalogConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a Kinesis Data Analytics Studio notebook.

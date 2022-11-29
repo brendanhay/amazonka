@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.CatalogConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.GlueDataCatalogConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration parameters for the default Amazon Glue database. You

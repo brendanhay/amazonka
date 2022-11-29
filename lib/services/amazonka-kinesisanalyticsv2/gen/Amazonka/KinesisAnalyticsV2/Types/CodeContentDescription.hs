@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.CodeContentDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.S3ApplicationCodeLocationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes details about the code of a Kinesis Data Analytics

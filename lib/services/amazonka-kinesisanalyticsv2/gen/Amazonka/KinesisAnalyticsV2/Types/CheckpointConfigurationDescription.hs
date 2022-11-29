@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes checkpointing parameters for a Flink-based Kinesis Data

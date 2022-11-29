@@ -49,8 +49,8 @@ module Amazonka.KinesisAnalyticsV2.CreateApplication
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,8 +63,8 @@ data CreateApplication = CreateApplication'
     -- user-defined application tags is 50. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
-    -- notebook. To create a Kinesis Data Analytics Studio notebook, use the
+    -- | Use the @STREAMING@ mode to create a Kinesis Data Analytics For Flink
+    -- application. To create a Kinesis Data Analytics Studio notebook, use the
     -- @INTERACTIVE@ mode.
     applicationMode :: Prelude.Maybe ApplicationMode,
     -- | Use this parameter to configure the application.
@@ -76,8 +76,7 @@ data CreateApplication = CreateApplication'
     applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of your application (for example, @sample-app@).
     applicationName :: Prelude.Text,
-    -- | The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
-    -- @FLINK-1_8@, or @FLINK-1_11@).
+    -- | The runtime environment for the application.
     runtimeEnvironment :: RuntimeEnvironment,
     -- | The IAM role used by the application to access Kinesis data streams,
     -- Kinesis Data Firehose delivery streams, Amazon S3 objects, and other
@@ -100,8 +99,8 @@ data CreateApplication = CreateApplication'
 -- user-defined application tags is 50. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
 --
--- 'applicationMode', 'createApplication_applicationMode' - Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
--- notebook. To create a Kinesis Data Analytics Studio notebook, use the
+-- 'applicationMode', 'createApplication_applicationMode' - Use the @STREAMING@ mode to create a Kinesis Data Analytics For Flink
+-- application. To create a Kinesis Data Analytics Studio notebook, use the
 -- @INTERACTIVE@ mode.
 --
 -- 'applicationConfiguration', 'createApplication_applicationConfiguration' - Use this parameter to configure the application.
@@ -113,8 +112,7 @@ data CreateApplication = CreateApplication'
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of your application (for example, @sample-app@).
 --
--- 'runtimeEnvironment', 'createApplication_runtimeEnvironment' - The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
--- @FLINK-1_8@, or @FLINK-1_11@).
+-- 'runtimeEnvironment', 'createApplication_runtimeEnvironment' - The runtime environment for the application.
 --
 -- 'serviceExecutionRole', 'createApplication_serviceExecutionRole' - The IAM role used by the application to access Kinesis data streams,
 -- Kinesis Data Firehose delivery streams, Amazon S3 objects, and other
@@ -150,8 +148,8 @@ newCreateApplication
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.NonEmpty Tag))
 createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
--- notebook. To create a Kinesis Data Analytics Studio notebook, use the
+-- | Use the @STREAMING@ mode to create a Kinesis Data Analytics For Flink
+-- application. To create a Kinesis Data Analytics Studio notebook, use the
 -- @INTERACTIVE@ mode.
 createApplication_applicationMode :: Lens.Lens' CreateApplication (Prelude.Maybe ApplicationMode)
 createApplication_applicationMode = Lens.lens (\CreateApplication' {applicationMode} -> applicationMode) (\s@CreateApplication' {} a -> s {applicationMode = a} :: CreateApplication)
@@ -173,8 +171,7 @@ createApplication_applicationDescription = Lens.lens (\CreateApplication' {appli
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 
--- | The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
--- @FLINK-1_8@, or @FLINK-1_11@).
+-- | The runtime environment for the application.
 createApplication_runtimeEnvironment :: Lens.Lens' CreateApplication RuntimeEnvironment
 createApplication_runtimeEnvironment = Lens.lens (\CreateApplication' {runtimeEnvironment} -> runtimeEnvironment) (\s@CreateApplication' {} a -> s {runtimeEnvironment = a} :: CreateApplication)
 
@@ -188,8 +185,8 @@ instance Core.AWSRequest CreateApplication where
   type
     AWSResponse CreateApplication =
       CreateApplicationResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

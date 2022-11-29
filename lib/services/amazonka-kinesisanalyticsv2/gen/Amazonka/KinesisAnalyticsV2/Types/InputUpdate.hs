@@ -20,12 +20,12 @@
 module Amazonka.KinesisAnalyticsV2.Types.InputUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.InputParallelismUpdate
 import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.InputSchemaUpdate
 import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseInputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInputUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, describes updates to

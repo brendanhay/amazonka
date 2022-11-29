@@ -20,10 +20,10 @@
 module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.InputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.OutputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to the input streams, destination streams, and

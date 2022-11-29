@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.MavenReference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information required to specify a Maven reference. You can use Maven

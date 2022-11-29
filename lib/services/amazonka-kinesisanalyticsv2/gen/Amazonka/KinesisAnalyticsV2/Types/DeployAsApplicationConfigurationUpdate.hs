@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentBaseLocationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates to the configuration information required to deploy an Amazon

@@ -20,10 +20,10 @@
 module Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ArtifactType
 import Amazonka.KinesisAnalyticsV2.Types.MavenReference
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a dependency JAR or a JAR of user-defined functions.

@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates and returns a URL that you can use to connect to an
--- application\'s extension. Currently, the only available extension is the
--- Apache Flink dashboard.
+-- application\'s extension.
 --
 -- The IAM role or user used to call this API defines the permissions to
 -- access the extension. After the presigned URL is created, no additional
@@ -59,8 +58,8 @@ module Amazonka.KinesisAnalyticsV2.CreateApplicationPresignedUrl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +126,8 @@ instance
   type
     AWSResponse CreateApplicationPresignedUrl =
       CreateApplicationPresignedUrlResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

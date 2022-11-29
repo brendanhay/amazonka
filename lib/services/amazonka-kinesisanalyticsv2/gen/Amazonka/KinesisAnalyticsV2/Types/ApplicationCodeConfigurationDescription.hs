@@ -20,9 +20,9 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentDescription
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes code configuration for an application.

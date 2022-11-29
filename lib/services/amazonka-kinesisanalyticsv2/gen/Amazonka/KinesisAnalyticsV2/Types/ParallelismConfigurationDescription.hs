@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes parameters for how a Flink-based Kinesis Data Analytics

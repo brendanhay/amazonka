@@ -20,6 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates
@@ -27,7 +28,6 @@ import Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to an application\'s configuration.

@@ -20,9 +20,9 @@
 module Amazonka.Firehose.Types.Serializer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.OrcSerDe
 import Amazonka.Firehose.Types.ParquetSerDe
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The serializer that you want Kinesis Data Firehose to use to convert

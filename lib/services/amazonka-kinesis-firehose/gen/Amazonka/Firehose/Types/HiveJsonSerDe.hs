@@ -20,7 +20,7 @@
 module Amazonka.Firehose.Types.HiveJsonSerDe where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The native Hive \/ HCatalog JsonSerDe. Used by Kinesis Data Firehose for

@@ -20,13 +20,13 @@
 module Amazonka.Firehose.Types.SplunkDestinationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HECEndpointType
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3DestinationDescription
 import Amazonka.Firehose.Types.SplunkRetryOptions
 import Amazonka.Firehose.Types.SplunkS3BackupMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a destination in Splunk.

@@ -20,10 +20,10 @@
 module Amazonka.Firehose.Types.DataFormatConversionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.InputFormatConfiguration
 import Amazonka.Firehose.Types.OutputFormatConfiguration
 import Amazonka.Firehose.Types.SchemaConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies that you want Kinesis Data Firehose to convert data from the

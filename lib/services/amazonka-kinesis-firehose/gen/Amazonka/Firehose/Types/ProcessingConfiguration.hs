@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.ProcessingConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.Processor
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a data processing configuration.

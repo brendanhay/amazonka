@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.OutputFormatConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.Serializer
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the serializer that you want Kinesis Data Firehose to use to

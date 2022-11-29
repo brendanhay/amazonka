@@ -20,9 +20,9 @@
 module Amazonka.Firehose.Types.Deserializer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.HiveJsonSerDe
 import Amazonka.Firehose.Types.OpenXJsonSerDe
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The deserializer you want Kinesis Data Firehose to use for converting

@@ -20,13 +20,13 @@
 module Amazonka.Firehose.Types.DeliveryStreamDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration
 import Amazonka.Firehose.Types.DeliveryStreamStatus
 import Amazonka.Firehose.Types.DeliveryStreamType
 import Amazonka.Firehose.Types.DestinationDescription
 import Amazonka.Firehose.Types.FailureDescription
 import Amazonka.Firehose.Types.SourceDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a delivery stream.

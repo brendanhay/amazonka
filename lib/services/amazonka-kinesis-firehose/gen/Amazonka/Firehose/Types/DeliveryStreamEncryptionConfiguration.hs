@@ -20,10 +20,10 @@
 module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.DeliveryStreamEncryptionStatus
 import Amazonka.Firehose.Types.FailureDescription
 import Amazonka.Firehose.Types.KeyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the server-side encryption (SSE) status for

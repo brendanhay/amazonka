@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.KeyValuePair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the tags that are associated with an S3

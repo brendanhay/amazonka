@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.AssumedRole where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.SessionContext
 import qualified Amazonka.Prelude as Prelude
 

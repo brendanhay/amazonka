@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.SearchResourcesSortCriteria where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.OrderBy
 import Amazonka.MacieV2.Types.SearchResourcesSortAttributeName
 import qualified Amazonka.Prelude as Prelude

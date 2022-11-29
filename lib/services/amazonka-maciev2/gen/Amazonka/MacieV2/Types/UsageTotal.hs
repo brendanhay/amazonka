@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.UsageTotal where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.Currency
 import Amazonka.MacieV2.Types.UsageType
 import qualified Amazonka.Prelude as Prelude

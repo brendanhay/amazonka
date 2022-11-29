@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.ListJobsSortCriteria where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.ListJobsSortAttributeName
 import Amazonka.MacieV2.Types.OrderBy
 import qualified Amazonka.Prelude as Prelude

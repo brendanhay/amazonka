@@ -48,7 +48,7 @@ module Amazonka.MacieV2.GetAllowList
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,8 +85,8 @@ getAllowList_id = Lens.lens (\GetAllowList' {id} -> id) (\s@GetAllowList' {} a -
 
 instance Core.AWSRequest GetAllowList where
   type AWSResponse GetAllowList = GetAllowListResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -37,7 +37,7 @@ module Amazonka.MacieV2.DisableMacie
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -59,8 +59,8 @@ newDisableMacie = DisableMacie'
 
 instance Core.AWSRequest DisableMacie where
   type AWSResponse DisableMacie = DisableMacieResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

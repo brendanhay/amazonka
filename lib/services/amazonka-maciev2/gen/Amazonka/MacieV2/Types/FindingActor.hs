@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.FindingActor where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.DomainDetails
 import Amazonka.MacieV2.Types.IpAddressDetails
 import Amazonka.MacieV2.Types.UserIdentity

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.ClassificationResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.ClassificationResultStatus
 import Amazonka.MacieV2.Types.CustomDataIdentifiers
 import Amazonka.MacieV2.Types.SensitiveDataItem

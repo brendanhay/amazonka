@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.JobSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.JobStatus
 import Amazonka.MacieV2.Types.JobType
 import Amazonka.MacieV2.Types.LastRunErrorStatus

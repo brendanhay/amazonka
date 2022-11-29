@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.BucketCriteriaAdditionalProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the operator to use in a property-based condition that filters

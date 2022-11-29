@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.S3BucketDefinitionForJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon Web Services account that owns S3 buckets for a

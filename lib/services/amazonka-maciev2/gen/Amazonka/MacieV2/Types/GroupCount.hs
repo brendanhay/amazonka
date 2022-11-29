@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.GroupCount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a group of results for a query that retrieved aggregated

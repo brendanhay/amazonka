@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.ClassificationDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.ClassificationResult
 import Amazonka.MacieV2.Types.OriginType
 import qualified Amazonka.Prelude as Prelude

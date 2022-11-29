@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.BucketPublicAccess where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.BucketPermissionConfiguration
 import Amazonka.MacieV2.Types.EffectivePermission
 import qualified Amazonka.Prelude as Prelude

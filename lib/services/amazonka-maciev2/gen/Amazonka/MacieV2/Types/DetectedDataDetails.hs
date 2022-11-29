@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.DetectedDataDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies 1-10 occurrences of a specific type of sensitive data reported

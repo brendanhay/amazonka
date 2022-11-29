@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.IpAddressDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.IpCity
 import Amazonka.MacieV2.Types.IpCountry
 import Amazonka.MacieV2.Types.IpGeoLocation

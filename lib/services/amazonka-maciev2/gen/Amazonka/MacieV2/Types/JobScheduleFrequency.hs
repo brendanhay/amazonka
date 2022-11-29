@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.JobScheduleFrequency where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.DailySchedule
 import Amazonka.MacieV2.Types.MonthlySchedule
 import Amazonka.MacieV2.Types.WeeklySchedule

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.Finding where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.ClassificationDetails
 import Amazonka.MacieV2.Types.FindingCategory
 import Amazonka.MacieV2.Types.FindingType

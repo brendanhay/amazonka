@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.UserIdentityRoot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Amazon Web Services account and entity

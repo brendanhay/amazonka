@@ -20,11 +20,11 @@
 module Amazonka.HealthLake.Types.DatastoreProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.DatastoreStatus
 import Amazonka.HealthLake.Types.FHIRVersion
 import Amazonka.HealthLake.Types.PreloadDataConfig
 import Amazonka.HealthLake.Types.SseConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Displays the properties of the Data Store, including the ID, Arn, name,

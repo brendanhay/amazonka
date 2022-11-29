@@ -20,8 +20,8 @@
 module Amazonka.HealthLake.Types.PreloadDataConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.PreloadDataType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for the preloaded Data Store. Only data preloaded

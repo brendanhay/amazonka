@@ -20,8 +20,8 @@
 module Amazonka.HealthLake.Types.DatastoreFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.DatastoreStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filters applied to Data Store query.

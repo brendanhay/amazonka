@@ -20,7 +20,7 @@
 module Amazonka.HealthLake.Types.S3Configuration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the S3 bucket for either an import or export job.

@@ -20,9 +20,9 @@
 module Amazonka.HealthLake.Types.ExportJobProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.JobStatus
 import Amazonka.HealthLake.Types.OutputDataConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of a FHIR export job, including the ID, ARN, name, and

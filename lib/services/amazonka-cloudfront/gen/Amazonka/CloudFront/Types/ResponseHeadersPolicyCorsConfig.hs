@@ -24,7 +24,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethods
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for a set of HTTP response headers that are used for

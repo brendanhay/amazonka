@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.Tags where
 
 import Amazonka.CloudFront.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.

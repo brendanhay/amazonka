@@ -23,7 +23,7 @@ import Amazonka.CloudFront.Types.OriginAccessControlOriginTypes
 import Amazonka.CloudFront.Types.OriginAccessControlSigningBehaviors
 import Amazonka.CloudFront.Types.OriginAccessControlSigningProtocols
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront origin access control.

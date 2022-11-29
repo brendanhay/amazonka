@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ContentTypeProfileConfig where
 
 import Amazonka.CloudFront.Types.ContentTypeProfiles
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a field-level encryption content type-profile

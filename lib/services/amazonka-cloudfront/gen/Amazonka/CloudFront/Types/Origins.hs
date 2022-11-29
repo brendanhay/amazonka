@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.Origins where
 
 import Amazonka.CloudFront.Types.Origin
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the origins for this distribution.

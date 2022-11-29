@@ -20,77 +20,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the configuration for a web distribution.
---
--- When you update a distribution, there are more required fields than when
--- you create a distribution. When you update your distribution by using
--- this API action, follow the steps here to get the current configuration
--- and then make your updates, to make sure that you include all of the
--- required fields. To view a summary, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html Required Fields for Create Distribution and Update Distribution>
--- in the /Amazon CloudFront Developer Guide/.
+-- Updates the configuration for a CloudFront distribution.
 --
 -- The update process includes getting the current distribution
--- configuration, updating the XML document that is returned to make your
--- changes, and then submitting an @UpdateDistribution@ request to make the
--- updates.
---
--- For information about updating a distribution using the CloudFront
--- console instead, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html Creating a Distribution>
--- in the /Amazon CloudFront Developer Guide/.
+-- configuration, updating it to make your changes, and then submitting an
+-- @UpdateDistribution@ request to make the updates.
 --
 -- __To update a web distribution using the CloudFront API__
 --
--- 1.  Submit a
---     <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html GetDistributionConfig>
---     request to get the current configuration and an @Etag@ header for
---     the distribution.
+-- 1.  Use @GetDistributionConfig@ to get the current configuration,
+--     including the version identifier (@ETag@).
 --
---     If you update the distribution again, you must get a new @Etag@
---     header.
+-- 2.  Update the distribution configuration that was returned in the
+--     response. Note the following important requirements and
+--     restrictions:
 --
--- 2.  Update the XML document that was returned in the response to your
---     @GetDistributionConfig@ request to include your changes.
+--     -   You must rename the @ETag@ field to @IfMatch@, leaving the value
+--         unchanged. (Set the value of @IfMatch@ to the value of @ETag@,
+--         then remove the @ETag@ field.)
 --
---     When you edit the XML file, be aware of the following:
+--     -   You can’t change the value of @CallerReference@.
 --
---     -   You must strip out the ETag parameter that is returned.
---
---     -   Additional fields are required when you update a distribution.
---         There may be fields included in the XML file for features that
---         you haven\'t configured for your distribution. This is expected
---         and required to successfully update the distribution.
---
---     -   You can\'t change the value of @CallerReference@. If you try to
---         change this value, CloudFront returns an @IllegalUpdate@ error.
---
---     -   The new configuration replaces the existing configuration; the
---         values that you specify in an @UpdateDistribution@ request are
---         not merged into your existing configuration. When you add,
---         delete, or replace values in an element that allows multiple
---         values (for example, @CNAME@), you must specify all of the
---         values that you want to appear in the updated distribution. In
---         addition, you must update the corresponding @Quantity@ element.
---
--- 3.  Submit an @UpdateDistribution@ request to update the configuration
---     for your distribution:
---
---     -   In the request body, include the XML document that you updated
---         in Step 2. The request body must include an XML document with a
---         @DistributionConfig@ element.
---
---     -   Set the value of the HTTP @If-Match@ header to the value of the
---         @ETag@ header that CloudFront returned when you submitted the
---         @GetDistributionConfig@ request in Step 1.
---
--- 4.  Review the response to the @UpdateDistribution@ request to confirm
---     that the configuration was successfully updated.
---
--- 5.  Optional: Submit a
---     <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html GetDistribution>
---     request to confirm that your changes have propagated. When
---     propagation is complete, the value of @Status@ is @Deployed@.
+-- 3.  Submit an @UpdateDistribution@ request, providing the distribution
+--     configuration. The new configuration replaces the existing
+--     configuration. The values that you specify in an
+--     @UpdateDistribution@ request are not merged into your existing
+--     configuration. Make sure to include all fields: the ones that you
+--     modified and also the ones that you didn’t.
 module Amazonka.CloudFront.UpdateDistribution
   ( -- * Creating a Request
     UpdateDistribution (..),
@@ -114,7 +70,7 @@ where
 
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,8 +133,8 @@ instance Core.AWSRequest UpdateDistribution where
   type
     AWSResponse UpdateDistribution =
       UpdateDistributionResponse
-  service _ = defaultService
-  request srv = Request.putXML srv
+  request overrides =
+    Request.putXML (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

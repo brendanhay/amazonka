@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.FieldLevelEncryptionProfileList where
 
 import Amazonka.CloudFront.Types.FieldLevelEncryptionProfileSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of field-level encryption profiles.

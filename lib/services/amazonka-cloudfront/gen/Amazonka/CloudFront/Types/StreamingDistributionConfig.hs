@@ -25,7 +25,7 @@ import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.StreamingLoggingConfig
 import Amazonka.CloudFront.Types.TrustedSigners
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The RTMP distribution\'s configuration information.

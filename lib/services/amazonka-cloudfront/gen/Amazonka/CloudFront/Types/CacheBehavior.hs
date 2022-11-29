@@ -27,7 +27,7 @@ import Amazonka.CloudFront.Types.TrustedKeyGroups
 import Amazonka.CloudFront.Types.TrustedSigners
 import Amazonka.CloudFront.Types.ViewerProtocolPolicy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that describes how CloudFront processes requests.

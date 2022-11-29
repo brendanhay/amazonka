@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.MonitoringSubscription where
 
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A monitoring subscription. This structure contains information about

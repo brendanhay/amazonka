@@ -45,8 +45,10 @@ library
   exposed-modules:
     Amazonka.CloudFront
     Amazonka.CloudFront.AssociateAlias
+    Amazonka.CloudFront.CopyDistribution
     Amazonka.CloudFront.CreateCachePolicy
     Amazonka.CloudFront.CreateCloudFrontOriginAccessIdentity
+    Amazonka.CloudFront.CreateContinuousDeploymentPolicy
     Amazonka.CloudFront.CreateDistribution
     Amazonka.CloudFront.CreateDistributionWithTags
     Amazonka.CloudFront.CreateFieldLevelEncryptionConfig
@@ -64,6 +66,7 @@ library
     Amazonka.CloudFront.CreateStreamingDistributionWithTags
     Amazonka.CloudFront.DeleteCachePolicy
     Amazonka.CloudFront.DeleteCloudFrontOriginAccessIdentity
+    Amazonka.CloudFront.DeleteContinuousDeploymentPolicy
     Amazonka.CloudFront.DeleteDistribution
     Amazonka.CloudFront.DeleteFieldLevelEncryptionConfig
     Amazonka.CloudFront.DeleteFieldLevelEncryptionProfile
@@ -81,6 +84,8 @@ library
     Amazonka.CloudFront.GetCachePolicyConfig
     Amazonka.CloudFront.GetCloudFrontOriginAccessIdentity
     Amazonka.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+    Amazonka.CloudFront.GetContinuousDeploymentPolicy
+    Amazonka.CloudFront.GetContinuousDeploymentPolicyConfig
     Amazonka.CloudFront.GetDistribution
     Amazonka.CloudFront.GetDistributionConfig
     Amazonka.CloudFront.GetFieldLevelEncryption
@@ -107,6 +112,7 @@ library
     Amazonka.CloudFront.ListCachePolicies
     Amazonka.CloudFront.ListCloudFrontOriginAccessIdentities
     Amazonka.CloudFront.ListConflictingAliases
+    Amazonka.CloudFront.ListContinuousDeploymentPolicies
     Amazonka.CloudFront.ListDistributions
     Amazonka.CloudFront.ListDistributionsByCachePolicyId
     Amazonka.CloudFront.ListDistributionsByKeyGroup
@@ -159,6 +165,13 @@ library
     Amazonka.CloudFront.Types.ContentTypeProfile
     Amazonka.CloudFront.Types.ContentTypeProfileConfig
     Amazonka.CloudFront.Types.ContentTypeProfiles
+    Amazonka.CloudFront.Types.ContinuousDeploymentPolicy
+    Amazonka.CloudFront.Types.ContinuousDeploymentPolicyConfig
+    Amazonka.CloudFront.Types.ContinuousDeploymentPolicyList
+    Amazonka.CloudFront.Types.ContinuousDeploymentPolicySummary
+    Amazonka.CloudFront.Types.ContinuousDeploymentPolicyType
+    Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig
+    Amazonka.CloudFront.Types.ContinuousDeploymentSingleWeightConfig
     Amazonka.CloudFront.Types.CookieNames
     Amazonka.CloudFront.Types.CookiePreference
     Amazonka.CloudFront.Types.CustomErrorResponse
@@ -289,9 +302,11 @@ library
     Amazonka.CloudFront.Types.Restrictions
     Amazonka.CloudFront.Types.S3Origin
     Amazonka.CloudFront.Types.S3OriginConfig
+    Amazonka.CloudFront.Types.SessionStickinessConfig
     Amazonka.CloudFront.Types.Signer
     Amazonka.CloudFront.Types.SslProtocol
     Amazonka.CloudFront.Types.SSLSupportMethod
+    Amazonka.CloudFront.Types.StagingDistributionDnsNames
     Amazonka.CloudFront.Types.StatusCodes
     Amazonka.CloudFront.Types.StreamingDistribution
     Amazonka.CloudFront.Types.StreamingDistributionConfig
@@ -303,6 +318,7 @@ library
     Amazonka.CloudFront.Types.TagKeys
     Amazonka.CloudFront.Types.Tags
     Amazonka.CloudFront.Types.TestResult
+    Amazonka.CloudFront.Types.TrafficConfig
     Amazonka.CloudFront.Types.TrustedKeyGroups
     Amazonka.CloudFront.Types.TrustedSigners
     Amazonka.CloudFront.Types.ViewerCertificate
@@ -310,6 +326,7 @@ library
     Amazonka.CloudFront.UntagResource
     Amazonka.CloudFront.UpdateCachePolicy
     Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
+    Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
     Amazonka.CloudFront.UpdateDistribution
     Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
     Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile

@@ -20,7 +20,7 @@
 module Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowHeaders where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP header names that CloudFront includes as values for the

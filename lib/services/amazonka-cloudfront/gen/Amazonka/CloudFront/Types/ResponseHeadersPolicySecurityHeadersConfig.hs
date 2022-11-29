@@ -26,7 +26,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for a set of security-related HTTP response headers.

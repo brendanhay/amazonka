@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -148,6 +149,7 @@ module Amazonka.CloudFront.Types
     _NoSuchResponseHeadersPolicy,
     _TooManyOriginAccessControls,
     _InvalidProtocolSettings,
+    _StagingDistributionInUse,
     _NoSuchCachePolicy,
     _TooManyFieldLevelEncryptionConfigs,
     _TooManyDistributionsAssociatedToCachePolicy,
@@ -170,6 +172,9 @@ module Amazonka.CloudFront.Types
 
     -- * CertificateSource
     CertificateSource (..),
+
+    -- * ContinuousDeploymentPolicyType
+    ContinuousDeploymentPolicyType (..),
 
     -- * EventType
     EventType (..),
@@ -432,6 +437,45 @@ module Amazonka.CloudFront.Types
     newContentTypeProfiles,
     contentTypeProfiles_items,
     contentTypeProfiles_quantity,
+
+    -- * ContinuousDeploymentPolicy
+    ContinuousDeploymentPolicy (..),
+    newContinuousDeploymentPolicy,
+    continuousDeploymentPolicy_id,
+    continuousDeploymentPolicy_lastModifiedTime,
+    continuousDeploymentPolicy_continuousDeploymentPolicyConfig,
+
+    -- * ContinuousDeploymentPolicyConfig
+    ContinuousDeploymentPolicyConfig (..),
+    newContinuousDeploymentPolicyConfig,
+    continuousDeploymentPolicyConfig_trafficConfig,
+    continuousDeploymentPolicyConfig_stagingDistributionDnsNames,
+    continuousDeploymentPolicyConfig_enabled,
+
+    -- * ContinuousDeploymentPolicyList
+    ContinuousDeploymentPolicyList (..),
+    newContinuousDeploymentPolicyList,
+    continuousDeploymentPolicyList_items,
+    continuousDeploymentPolicyList_nextMarker,
+    continuousDeploymentPolicyList_maxItems,
+    continuousDeploymentPolicyList_quantity,
+
+    -- * ContinuousDeploymentPolicySummary
+    ContinuousDeploymentPolicySummary (..),
+    newContinuousDeploymentPolicySummary,
+    continuousDeploymentPolicySummary_continuousDeploymentPolicy,
+
+    -- * ContinuousDeploymentSingleHeaderConfig
+    ContinuousDeploymentSingleHeaderConfig (..),
+    newContinuousDeploymentSingleHeaderConfig,
+    continuousDeploymentSingleHeaderConfig_header,
+    continuousDeploymentSingleHeaderConfig_value,
+
+    -- * ContinuousDeploymentSingleWeightConfig
+    ContinuousDeploymentSingleWeightConfig (..),
+    newContinuousDeploymentSingleWeightConfig,
+    continuousDeploymentSingleWeightConfig_sessionStickinessConfig,
+    continuousDeploymentSingleWeightConfig_weight,
 
     -- * CookieNames
     CookieNames (..),
@@ -859,8 +903,8 @@ module Amazonka.CloudFront.Types
     -- * OriginAccessControlConfig
     OriginAccessControlConfig (..),
     newOriginAccessControlConfig,
-    originAccessControlConfig_name,
     originAccessControlConfig_description,
+    originAccessControlConfig_name,
     originAccessControlConfig_signingProtocol,
     originAccessControlConfig_signingBehavior,
     originAccessControlConfig_originAccessControlOriginType,
@@ -1236,11 +1280,23 @@ module Amazonka.CloudFront.Types
     newS3OriginConfig,
     s3OriginConfig_originAccessIdentity,
 
+    -- * SessionStickinessConfig
+    SessionStickinessConfig (..),
+    newSessionStickinessConfig,
+    sessionStickinessConfig_idleTTL,
+    sessionStickinessConfig_maximumTTL,
+
     -- * Signer
     Signer (..),
     newSigner,
     signer_keyPairIds,
     signer_awsAccountNumber,
+
+    -- * StagingDistributionDnsNames
+    StagingDistributionDnsNames (..),
+    newStagingDistributionDnsNames,
+    stagingDistributionDnsNames_items,
+    stagingDistributionDnsNames_quantity,
 
     -- * StatusCodes
     StatusCodes (..),
@@ -1334,6 +1390,13 @@ module Amazonka.CloudFront.Types
     testResult_functionErrorMessage,
     testResult_functionExecutionLogs,
 
+    -- * TrafficConfig
+    TrafficConfig (..),
+    newTrafficConfig,
+    trafficConfig_singleWeightConfig,
+    trafficConfig_singleHeaderConfig,
+    trafficConfig_type,
+
     -- * TrustedKeyGroups
     TrustedKeyGroups (..),
     newTrustedKeyGroups,
@@ -1390,6 +1453,13 @@ import Amazonka.CloudFront.Types.ConflictingAliasesList
 import Amazonka.CloudFront.Types.ContentTypeProfile
 import Amazonka.CloudFront.Types.ContentTypeProfileConfig
 import Amazonka.CloudFront.Types.ContentTypeProfiles
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicy
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyConfig
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyList
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicySummary
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyType
+import Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig
+import Amazonka.CloudFront.Types.ContinuousDeploymentSingleWeightConfig
 import Amazonka.CloudFront.Types.CookieNames
 import Amazonka.CloudFront.Types.CookiePreference
 import Amazonka.CloudFront.Types.CustomErrorResponse
@@ -1521,8 +1591,10 @@ import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.S3OriginConfig
 import Amazonka.CloudFront.Types.SSLSupportMethod
+import Amazonka.CloudFront.Types.SessionStickinessConfig
 import Amazonka.CloudFront.Types.Signer
 import Amazonka.CloudFront.Types.SslProtocol
+import Amazonka.CloudFront.Types.StagingDistributionDnsNames
 import Amazonka.CloudFront.Types.StatusCodes
 import Amazonka.CloudFront.Types.StreamingDistribution
 import Amazonka.CloudFront.Types.StreamingDistributionConfig
@@ -1534,12 +1606,13 @@ import Amazonka.CloudFront.Types.Tag
 import Amazonka.CloudFront.Types.TagKeys
 import Amazonka.CloudFront.Types.Tags
 import Amazonka.CloudFront.Types.TestResult
+import Amazonka.CloudFront.Types.TrafficConfig
 import Amazonka.CloudFront.Types.TrustedKeyGroups
 import Amazonka.CloudFront.Types.TrustedSigners
 import Amazonka.CloudFront.Types.ViewerCertificate
 import Amazonka.CloudFront.Types.ViewerProtocolPolicy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1547,27 +1620,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "CloudFront",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "cloudfront",
-      Core._serviceSigningName = "cloudfront",
-      Core._serviceVersion = "2020-05-31",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseXMLError "CloudFront",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CloudFront",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "cloudfront",
+      Core.signingName = "cloudfront",
+      Core.version = "2020-05-31",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "CloudFront",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -2799,6 +2870,15 @@ _InvalidProtocolSettings =
     defaultService
     "InvalidProtocolSettings"
     Prelude.. Core.hasStatus 400
+
+-- | A continuous deployment policy for this staging distribution already
+-- exists.
+_StagingDistributionInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StagingDistributionInUse =
+  Core._MatchServiceError
+    defaultService
+    "StagingDistributionInUse"
+    Prelude.. Core.hasStatus 409
 
 -- | The cache policy does not exist.
 _NoSuchCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

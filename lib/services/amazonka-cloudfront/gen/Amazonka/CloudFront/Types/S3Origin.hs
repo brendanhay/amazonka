@@ -20,7 +20,7 @@
 module Amazonka.CloudFront.Types.S3Origin where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the Amazon S3 bucket from

@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.FunctionSummary where
 import Amazonka.CloudFront.Types.FunctionConfig
 import Amazonka.CloudFront.Types.FunctionMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information and metadata about a CloudFront

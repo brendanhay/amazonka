@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig where
 
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subscription configuration for additional CloudWatch metrics.

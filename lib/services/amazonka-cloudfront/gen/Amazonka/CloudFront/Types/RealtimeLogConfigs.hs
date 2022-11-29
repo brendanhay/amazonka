@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.RealtimeLogConfigs where
 
 import Amazonka.CloudFront.Types.RealtimeLogConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of real-time log configurations.

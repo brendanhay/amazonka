@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicyHeadersConfig where
 import Amazonka.CloudFront.Types.Headers
 import Amazonka.CloudFront.Types.OriginRequestPolicyHeaderBehavior
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which

@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.DistributionConfigWithTags where
 import Amazonka.CloudFront.Types.DistributionConfig
 import Amazonka.CloudFront.Types.Tags
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution Configuration and a list of tags to be associated with

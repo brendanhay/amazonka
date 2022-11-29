@@ -24,7 +24,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A response headers policy configuration.

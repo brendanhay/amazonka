@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.AllowedMethods where
 import Amazonka.CloudFront.Types.CachedMethods
 import Amazonka.CloudFront.Types.Method
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls which HTTP methods CloudFront processes and

@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.FieldLevelEncryptionConfig where
 import Amazonka.CloudFront.Types.ContentTypeProfileConfig
 import Amazonka.CloudFront.Types.QueryArgProfileConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes the profile configurations specified

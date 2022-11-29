@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.CachePolicyList where
 
 import Amazonka.CloudFront.Types.CachePolicySummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of cache policies.

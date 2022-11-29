@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -21,17 +22,17 @@ import Amazonka.CloudFront.GetStreamingDistribution
 import Amazonka.CloudFront.Lens
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
 newDistributionDeployed :: Core.Wait GetDistribution
 newDistributionDeployed =
   Core.Wait
-    { Core._waitName = "DistributionDeployed",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "DistributionDeployed",
+      Core.attempts = 35,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "Deployed"
             Core.AcceptSuccess
@@ -47,10 +48,10 @@ newDistributionDeployed =
 newInvalidationCompleted :: Core.Wait GetInvalidation
 newInvalidationCompleted =
   Core.Wait
-    { Core._waitName = "InvalidationCompleted",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "InvalidationCompleted",
+      Core.attempts = 30,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess
@@ -66,11 +67,11 @@ newInvalidationCompleted =
 newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
 newStreamingDistributionDeployed =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "StreamingDistributionDeployed",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+      Core.attempts = 25,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "Deployed"
             Core.AcceptSuccess

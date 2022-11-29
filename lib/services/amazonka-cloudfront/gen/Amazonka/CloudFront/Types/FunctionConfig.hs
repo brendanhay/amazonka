@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.FunctionConfig where
 
 import Amazonka.CloudFront.Types.FunctionRuntime
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information about a CloudFront function.

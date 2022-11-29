@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig where
 import Amazonka.CloudFront.Types.CachePolicyQueryStringBehavior
 import Amazonka.CloudFront.Types.QueryStringNames
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer

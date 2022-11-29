@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.LambdaFunctionAssociation where
 
 import Amazonka.CloudFront.Types.EventType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a Lambda\@Edge function association.

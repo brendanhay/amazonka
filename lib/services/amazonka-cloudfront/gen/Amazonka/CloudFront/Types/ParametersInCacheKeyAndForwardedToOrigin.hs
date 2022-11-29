@@ -23,7 +23,7 @@ import Amazonka.CloudFront.Types.CachePolicyCookiesConfig
 import Amazonka.CloudFront.Types.CachePolicyHeadersConfig
 import Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object determines the values that CloudFront includes in the cache

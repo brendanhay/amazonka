@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.CachePolicyCookiesConfig where
 import Amazonka.CloudFront.Types.CachePolicyCookieBehavior
 import Amazonka.CloudFront.Types.CookieNames
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if

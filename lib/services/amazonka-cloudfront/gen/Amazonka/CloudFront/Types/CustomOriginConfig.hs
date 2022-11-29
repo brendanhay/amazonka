@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.CustomOriginConfig where
 import Amazonka.CloudFront.Types.OriginProtocolPolicy
 import Amazonka.CloudFront.Types.OriginSslProtocols
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom origin. A custom origin is any origin that is /not/ an Amazon

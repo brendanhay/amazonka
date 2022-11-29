@@ -24,7 +24,7 @@ import Amazonka.CloudFront.Types.CustomOriginConfig
 import Amazonka.CloudFront.Types.OriginShield
 import Amazonka.CloudFront.Types.S3OriginConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An origin.

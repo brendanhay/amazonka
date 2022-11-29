@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.OriginGroups where
 
 import Amazonka.CloudFront.Types.OriginGroup
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type for the origin groups specified for a distribution.

@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.QueryArgProfileConfig where
 
 import Amazonka.CloudFront.Types.QueryArgProfiles
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for query argument-profile mapping for field-level

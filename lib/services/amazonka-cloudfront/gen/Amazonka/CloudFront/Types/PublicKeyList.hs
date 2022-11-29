@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.PublicKeyList where
 
 import Amazonka.CloudFront.Types.PublicKeySummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of public keys that you can use with

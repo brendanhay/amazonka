@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.RegistryCredential where
 
 import Amazonka.CodeBuild.Types.CredentialProviderType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about credentials that provide access to a private Docker

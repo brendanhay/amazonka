@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.S3ReportExportConfig where
 
 import Amazonka.CodeBuild.Types.ReportPackagingType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the S3 bucket where the raw data of a report are

@@ -25,7 +25,7 @@ import Amazonka.CodeBuild.Types.ReportStatusType
 import Amazonka.CodeBuild.Types.ReportType
 import Amazonka.CodeBuild.Types.TestReportSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the results from running a series of test cases during

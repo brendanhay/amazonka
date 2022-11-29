@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.EnvironmentPlatform where
 import Amazonka.CodeBuild.Types.EnvironmentLanguage
 import Amazonka.CodeBuild.Types.PlatformType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of Docker images that are related by platform and are managed by

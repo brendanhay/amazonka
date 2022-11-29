@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.EnvironmentVariable where
 
 import Amazonka.CodeBuild.Types.EnvironmentVariableType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an environment variable for a build project or a

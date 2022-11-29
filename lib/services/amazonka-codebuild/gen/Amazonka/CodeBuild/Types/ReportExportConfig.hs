@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.ReportExportConfig where
 import Amazonka.CodeBuild.Types.ReportExportConfigType
 import Amazonka.CodeBuild.Types.S3ReportExportConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location where the run of a report is exported.

@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.ReportFilter where
 
 import Amazonka.CodeBuild.Types.ReportStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to return reports with the status specified by the input

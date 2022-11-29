@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.SourceCredentialsInfo where
 import Amazonka.CodeBuild.Types.AuthType
 import Amazonka.CodeBuild.Types.ServerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the credentials for a GitHub, GitHub Enterprise, or

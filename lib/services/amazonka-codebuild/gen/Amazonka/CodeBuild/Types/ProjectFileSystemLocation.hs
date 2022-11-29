@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.ProjectFileSystemLocation where
 
 import Amazonka.CodeBuild.Types.FileSystemType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a file system created by Amazon Elastic File System

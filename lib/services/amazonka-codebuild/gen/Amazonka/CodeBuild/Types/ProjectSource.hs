@@ -24,7 +24,7 @@ import Amazonka.CodeBuild.Types.GitSubmodulesConfig
 import Amazonka.CodeBuild.Types.SourceAuth
 import Amazonka.CodeBuild.Types.SourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build input source code for the build project.

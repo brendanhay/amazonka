@@ -25,7 +25,7 @@ import Amazonka.CodeBuild.Types.EnvironmentVariable
 import Amazonka.CodeBuild.Types.ImagePullCredentialsType
 import Amazonka.CodeBuild.Types.RegistryCredential
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build environment of the build project.

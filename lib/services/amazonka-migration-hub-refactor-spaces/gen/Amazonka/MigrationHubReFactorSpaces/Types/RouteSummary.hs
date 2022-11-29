@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubReFactorSpaces.Types.RouteSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
 import Amazonka.MigrationHubReFactorSpaces.Types.HttpMethod
 import Amazonka.MigrationHubReFactorSpaces.Types.RouteState

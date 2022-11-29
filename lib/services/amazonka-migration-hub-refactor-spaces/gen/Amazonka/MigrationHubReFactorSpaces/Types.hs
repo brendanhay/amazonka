@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -239,7 +240,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayEndpointType
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxyConfig
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxyInput
@@ -277,29 +278,27 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
+    { Core.abbrev =
         "MigrationHubReFactorSpaces",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "refactor-spaces",
-      Core._serviceSigningName = "refactor-spaces",
-      Core._serviceVersion = "2021-10-26",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "refactor-spaces",
+      Core.signingName = "refactor-spaces",
+      Core.version = "2021-10-26",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error =
         Core.parseJSONError "MigrationHubReFactorSpaces",
-      Core._serviceRetry = retry
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

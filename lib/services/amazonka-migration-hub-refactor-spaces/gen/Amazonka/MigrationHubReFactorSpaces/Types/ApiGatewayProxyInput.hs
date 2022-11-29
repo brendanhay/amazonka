@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxyInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayEndpointType
 import qualified Amazonka.Prelude as Prelude
 

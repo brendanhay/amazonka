@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubReFactorSpaces.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxySummary
 import Amazonka.MigrationHubReFactorSpaces.Types.ApplicationState
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse

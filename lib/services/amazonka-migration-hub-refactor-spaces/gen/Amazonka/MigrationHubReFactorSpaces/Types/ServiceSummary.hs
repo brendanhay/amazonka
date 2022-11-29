@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubReFactorSpaces.Types.ServiceSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
 import Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointSummary
 import Amazonka.MigrationHubReFactorSpaces.Types.ServiceEndpointType

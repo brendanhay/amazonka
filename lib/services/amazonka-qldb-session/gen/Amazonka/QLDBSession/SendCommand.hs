@@ -68,7 +68,7 @@ module Amazonka.QLDBSession.SendCommand
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types
 import qualified Amazonka.Request as Request
@@ -184,8 +184,8 @@ sendCommand_fetchPage = Lens.lens (\SendCommand' {fetchPage} -> fetchPage) (\s@S
 
 instance Core.AWSRequest SendCommand where
   type AWSResponse SendCommand = SendCommandResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

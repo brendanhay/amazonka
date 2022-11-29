@@ -20,7 +20,7 @@
 module Amazonka.M2.Types.DataSetImportTask where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.M2.Types.DataSetImportSummary
 import Amazonka.M2.Types.DataSetTaskLifecycle
 import qualified Amazonka.Prelude as Prelude

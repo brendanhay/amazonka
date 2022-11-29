@@ -20,7 +20,7 @@
 module Amazonka.M2.Types.FileBatchJobIdentifier where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch job identifier in which the batch job to run is identified by

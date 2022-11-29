@@ -20,7 +20,7 @@
 module Amazonka.M2.Types.VsamAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.M2.Types.AlternateKey
 import Amazonka.M2.Types.PrimaryKey
 import qualified Amazonka.Prelude as Prelude

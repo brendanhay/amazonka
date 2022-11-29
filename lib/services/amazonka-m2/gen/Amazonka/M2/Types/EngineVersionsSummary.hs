@@ -20,7 +20,7 @@
 module Amazonka.M2.Types.EngineVersionsSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subset of information about the engine version for a specific

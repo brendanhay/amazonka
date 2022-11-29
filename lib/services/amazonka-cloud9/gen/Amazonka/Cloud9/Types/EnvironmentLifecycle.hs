@@ -21,7 +21,7 @@ module Amazonka.Cloud9.Types.EnvironmentLifecycle where
 
 import Amazonka.Cloud9.Types.EnvironmentLifecycleStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the current creation or deletion lifecycle state of an

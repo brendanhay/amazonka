@@ -40,7 +40,7 @@ module Amazonka.QLDB.DeleteLedger
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -74,8 +74,8 @@ deleteLedger_name = Lens.lens (\DeleteLedger' {name} -> name) (\s@DeleteLedger' 
 
 instance Core.AWSRequest DeleteLedger where
   type AWSResponse DeleteLedger = DeleteLedgerResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteLedgerResponse'
 
 instance Prelude.Hashable DeleteLedger where

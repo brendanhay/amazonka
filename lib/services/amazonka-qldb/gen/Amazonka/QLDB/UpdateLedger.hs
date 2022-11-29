@@ -47,7 +47,7 @@ module Amazonka.QLDB.UpdateLedger
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -234,8 +234,8 @@ updateLedger_name = Lens.lens (\UpdateLedger' {name} -> name) (\s@UpdateLedger' 
 
 instance Core.AWSRequest UpdateLedger where
   type AWSResponse UpdateLedger = UpdateLedgerResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

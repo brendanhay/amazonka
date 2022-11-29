@@ -42,6 +42,22 @@ module Amazonka.EC2.Metadata
 
     -- ** Identity Document
     IdentityDocument (..),
+
+    -- *** Lenses
+    identityDocument_devpayProductCodes,
+    identityDocument_billingProducts,
+    identityDocument_version,
+    identityDocument_privateIp,
+    identityDocument_availabilityZone,
+    identityDocument_region,
+    identityDocument_instanceId,
+    identityDocument_instanceType,
+    identityDocument_accountId,
+    identityDocument_imageId,
+    identityDocument_kernelId,
+    identityDocument_ramdiskId,
+    identityDocument_architecture,
+    identityDocument_pendingTime,
   )
 where
 
@@ -644,6 +660,62 @@ instance ToJSON IdentityDocument where
         "ramdiskId" .= ramdiskId,
         "architecture" .= architecture
       ]
+
+{-# INLINE identityDocument_devpayProductCodes #-}
+identityDocument_devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
+identityDocument_devpayProductCodes f i@IdentityDocument {devpayProductCodes} = f devpayProductCodes <&> \devpayProductCodes' -> i {devpayProductCodes = devpayProductCodes'}
+
+{-# INLINE identityDocument_billingProducts #-}
+identityDocument_billingProducts :: Lens' IdentityDocument (Maybe [Text])
+identityDocument_billingProducts f i@IdentityDocument {billingProducts} = f billingProducts <&> \billingProducts' -> i {billingProducts = billingProducts'}
+
+{-# INLINE identityDocument_version #-}
+identityDocument_version :: Lens' IdentityDocument (Maybe Text)
+identityDocument_version f i@IdentityDocument {version} = f version <&> \version' -> i {version = version'}
+
+{-# INLINE identityDocument_privateIp #-}
+identityDocument_privateIp :: Lens' IdentityDocument (Maybe Text)
+identityDocument_privateIp f i@IdentityDocument {privateIp} = f privateIp <&> \privateIp' -> i {privateIp = privateIp'}
+
+{-# INLINE identityDocument_availabilityZone #-}
+identityDocument_availabilityZone :: Lens' IdentityDocument Text
+identityDocument_availabilityZone f i@IdentityDocument {availabilityZone} = f availabilityZone <&> \availabilityZone' -> i {availabilityZone = availabilityZone'}
+
+{-# INLINE identityDocument_region #-}
+identityDocument_region :: Lens' IdentityDocument Region
+identityDocument_region f i@IdentityDocument {region} = f region <&> \region' -> i {region = region'}
+
+{-# INLINE identityDocument_instanceId #-}
+identityDocument_instanceId :: Lens' IdentityDocument Text
+identityDocument_instanceId f i@IdentityDocument {instanceId} = f instanceId <&> \instanceId' -> i {instanceId = instanceId'}
+
+{-# INLINE identityDocument_instanceType #-}
+identityDocument_instanceType :: Lens' IdentityDocument Text
+identityDocument_instanceType f i@IdentityDocument {instanceType} = f instanceType <&> \instanceType' -> i {instanceType = instanceType'}
+
+{-# INLINE identityDocument_accountId #-}
+identityDocument_accountId :: Lens' IdentityDocument Text
+identityDocument_accountId f i@IdentityDocument {accountId} = f accountId <&> \accountId' -> i {accountId = accountId'}
+
+{-# INLINE identityDocument_imageId #-}
+identityDocument_imageId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_imageId f i@IdentityDocument {imageId} = f imageId <&> \imageId' -> i {imageId = imageId'}
+
+{-# INLINE identityDocument_kernelId #-}
+identityDocument_kernelId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_kernelId f i@IdentityDocument {kernelId} = f kernelId <&> \kernelId' -> i {kernelId = kernelId'}
+
+{-# INLINE identityDocument_ramdiskId #-}
+identityDocument_ramdiskId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_ramdiskId f i@IdentityDocument {ramdiskId} = f ramdiskId <&> \ramdiskId' -> i {ramdiskId = ramdiskId'}
+
+{-# INLINE identityDocument_architecture #-}
+identityDocument_architecture :: Lens' IdentityDocument (Maybe Text)
+identityDocument_architecture f i@IdentityDocument {architecture} = f architecture <&> \architecture' -> i {architecture = architecture'}
+
+{-# INLINE identityDocument_pendingTime #-}
+identityDocument_pendingTime :: Lens' IdentityDocument (Maybe ISO8601)
+identityDocument_pendingTime f i@IdentityDocument {pendingTime} = f pendingTime <&> \pendingTime' -> i {pendingTime = pendingTime'}
 
 -- | Retrieve the instance's identity document, detailing various EC2 metadata.
 --

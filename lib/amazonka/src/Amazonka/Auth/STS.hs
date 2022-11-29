@@ -61,8 +61,11 @@ fromAssumedRole roleArn roleSessionName env = do
 -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
 fromWebIdentity ::
   MonadIO m =>
+  -- | Path to token file
   FilePath ->
+  -- | Role ARN
   Text ->
+  -- | Role Session Name
   Maybe Text ->
   Env' withAuth ->
   m Env

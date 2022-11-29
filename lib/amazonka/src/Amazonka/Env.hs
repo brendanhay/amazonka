@@ -18,6 +18,14 @@ module Amazonka.Env
     authMaybe,
     lookupRegion,
 
+    -- ** Lenses
+    env_region,
+    env_logger,
+    env_retryCheck,
+    env_override,
+    env_manager,
+    env_auth,
+
     -- * Overriding Default Configuration
     overrideService,
     configureService,
@@ -31,6 +39,7 @@ module Amazonka.Env
   )
 where
 
+import Amazonka.Core.Lens.Internal (Lens)
 import Amazonka.Prelude
 import Amazonka.Types hiding (timeout)
 import qualified Amazonka.Types as Service (Service (..))
@@ -59,6 +68,30 @@ data Env' withAuth = Env
     auth :: withAuth Auth
   }
   deriving stock (Generic)
+
+{-# INLINE env_region #-}
+env_region :: Lens' (Env' withAuth) Region
+env_region f e@Env {region} = f region <&> \region' -> e {region = region'}
+
+{-# INLINE env_logger #-}
+env_logger :: Lens' (Env' withAuth) Logger
+env_logger f e@Env {logger} = f logger <&> \logger' -> e {logger = logger'}
+
+{-# INLINE env_retryCheck #-}
+env_retryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
+env_retryCheck f e@Env {retryCheck} = f retryCheck <&> \retryCheck' -> e {retryCheck = retryCheck'}
+
+{-# INLINE env_override #-}
+env_override :: Lens' (Env' withAuth) (Dual (Endo Service))
+env_override f e@Env {override} = f override <&> \override' -> e {override = override'}
+
+{-# INLINE env_manager #-}
+env_manager :: Lens' (Env' withAuth) Client.Manager
+env_manager f e@Env {manager} = f manager <&> \manager' -> e {manager = manager'}
+
+{-# INLINE env_auth #-}
+env_auth :: Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
+env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

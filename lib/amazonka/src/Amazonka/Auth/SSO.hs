@@ -36,6 +36,22 @@ data CachedAccessToken = CachedAccessToken
   deriving stock (Show, Eq, Generic)
   deriving anyclass (FromJSON)
 
+{-# INLINE cachedAccessToken_startUrl #-}
+cachedAccessToken_startUrl :: Lens' CachedAccessToken Text
+cachedAccessToken_startUrl f c@CachedAccessToken {startUrl} = f startUrl <&> \startUrl' -> c {startUrl = startUrl'}
+
+{-# INLINE cachedAccessToken_region #-}
+cachedAccessToken_region :: Lens' CachedAccessToken Region
+cachedAccessToken_region f c@CachedAccessToken {region} = f region <&> \region' -> (c :: CachedAccessToken) {region = region'}
+
+{-# INLINE cachedAccessToken_accessToken #-}
+cachedAccessToken_accessToken :: Lens' CachedAccessToken (Sensitive Text)
+cachedAccessToken_accessToken f c@CachedAccessToken {accessToken} = f accessToken <&> \accessToken' -> (c :: CachedAccessToken) {accessToken = accessToken'}
+
+{-# INLINE cachedAccessToken_expiresAt #-}
+cachedAccessToken_expiresAt :: Lens' CachedAccessToken UTCTime
+cachedAccessToken_expiresAt f c@CachedAccessToken {expiresAt} = f expiresAt <&> \expiresAt' -> c {expiresAt = expiresAt'}
+
 -- | Assume a role using an SSO Token.
 --
 -- The user must have previously called @aws sso login@, and pass in the path to

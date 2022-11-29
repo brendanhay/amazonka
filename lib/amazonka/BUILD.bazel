@@ -17,6 +17,7 @@ haskell_library(
         "src/Amazonka/EC2/Metadata.hs",
         "src/Amazonka/Env.hs",
         "src/Amazonka/HTTP.hs",
+        "src/Amazonka/Lens.hs",
         "src/Amazonka/Logger.hs",
         "src/Amazonka/Presign.hs",
         "src/Amazonka/Send.hs",

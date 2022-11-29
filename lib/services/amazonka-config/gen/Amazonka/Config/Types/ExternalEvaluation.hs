@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ExternalEvaluation where
 
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Web Services resource and indicates whether it

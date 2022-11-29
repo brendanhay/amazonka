@@ -22,7 +22,7 @@ module Amazonka.Config.Types.DeliveryChannelStatus where
 import Amazonka.Config.Types.ConfigExportDeliveryInfo
 import Amazonka.Config.Types.ConfigStreamDeliveryInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of a specified delivery channel.

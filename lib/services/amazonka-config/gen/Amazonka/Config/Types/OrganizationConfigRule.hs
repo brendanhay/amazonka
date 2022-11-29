@@ -23,7 +23,7 @@ import Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadataNoPolicy
 import Amazonka.Config.Types.OrganizationCustomRuleMetadata
 import Amazonka.Config.Types.OrganizationManagedRuleMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An organization Config rule that has information about Config rules that

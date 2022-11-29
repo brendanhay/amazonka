@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.CustomPolicyDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the runtime system, policy definition, and whether debug

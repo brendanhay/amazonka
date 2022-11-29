@@ -21,7 +21,7 @@ module Amazonka.Config.Types.MemberAccountStatus where
 
 import Amazonka.Config.Types.MemberAccountRuleStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization Config rule creation or deletion status in each member

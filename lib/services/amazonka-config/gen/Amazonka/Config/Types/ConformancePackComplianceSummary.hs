@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConformancePackComplianceSummary where
 
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary includes the name and status of the conformance pack.

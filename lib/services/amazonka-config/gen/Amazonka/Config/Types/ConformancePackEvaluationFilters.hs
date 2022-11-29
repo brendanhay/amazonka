@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConformancePackEvaluationFilters where
 
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters a conformance pack by Config rule names, compliance types,

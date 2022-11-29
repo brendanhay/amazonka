@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConfigStreamDeliveryInfo where
 
 import Amazonka.Config.Types.DeliveryStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list that contains the status of the delivery of the configuration

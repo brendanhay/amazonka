@@ -21,7 +21,7 @@ module Amazonka.Config.Types.OrganizationConformancePackStatus where
 
 import Amazonka.Config.Types.OrganizationResourceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the status for an organization conformance pack in an

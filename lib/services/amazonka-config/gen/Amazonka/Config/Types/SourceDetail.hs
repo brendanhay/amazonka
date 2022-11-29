@@ -23,7 +23,7 @@ import Amazonka.Config.Types.EventSource
 import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.MessageType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the source and the message types that trigger Config to

@@ -21,7 +21,7 @@ module Amazonka.Config.Types.AggregateResourceIdentifier where
 
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that identify a resource that is collected by Config

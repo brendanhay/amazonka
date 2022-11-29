@@ -21,7 +21,7 @@ module Amazonka.Config.Types.AggregateComplianceByConformancePack where
 
 import Amazonka.Config.Types.AggregateConformancePackCompliance
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides aggregate compliance of the conformance pack. Indicates whether

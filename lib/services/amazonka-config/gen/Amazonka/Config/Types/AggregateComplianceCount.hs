@@ -21,7 +21,7 @@ module Amazonka.Config.Types.AggregateComplianceCount where
 
 import Amazonka.Config.Types.ComplianceSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the number of compliant and noncompliant rules for one or more

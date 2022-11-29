@@ -21,7 +21,7 @@ module Amazonka.Config.Types.OrganizationConfigRuleStatus where
 
 import Amazonka.Config.Types.OrganizationRuleStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the status for an organization Config rule in an organization.

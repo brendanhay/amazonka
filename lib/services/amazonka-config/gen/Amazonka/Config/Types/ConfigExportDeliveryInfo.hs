@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConfigExportDeliveryInfo where
 
 import Amazonka.Config.Types.DeliveryStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides status of the delivery of the snapshot or the configuration

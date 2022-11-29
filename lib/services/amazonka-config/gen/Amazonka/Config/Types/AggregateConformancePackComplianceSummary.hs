@@ -21,7 +21,7 @@ module Amazonka.Config.Types.AggregateConformancePackComplianceSummary where
 
 import Amazonka.Config.Types.AggregateConformancePackComplianceCount
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of compliance based on either account ID or region.

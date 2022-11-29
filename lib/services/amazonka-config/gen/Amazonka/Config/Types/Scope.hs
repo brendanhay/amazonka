@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.Scope where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines which resources trigger an evaluation for an Config rule. The

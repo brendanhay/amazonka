@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tags for the resource. The metadata that you apply to a resource to

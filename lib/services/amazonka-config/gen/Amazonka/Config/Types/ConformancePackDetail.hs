@@ -22,7 +22,7 @@ module Amazonka.Config.Types.ConformancePackDetail where
 import Amazonka.Config.Types.ConformancePackInputParameter
 import Amazonka.Config.Types.TemplateSSMDocumentDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns details of a conformance pack. A conformance pack is a

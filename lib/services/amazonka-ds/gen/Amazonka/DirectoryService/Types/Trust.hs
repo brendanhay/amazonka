@@ -20,11 +20,11 @@
 module Amazonka.DirectoryService.Types.Trust where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.SelectiveAuth
 import Amazonka.DirectoryService.Types.TrustDirection
 import Amazonka.DirectoryService.Types.TrustState
 import Amazonka.DirectoryService.Types.TrustType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a trust relationship between an Managed Microsoft AD directory

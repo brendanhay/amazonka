@@ -20,9 +20,9 @@
 module Amazonka.DirectoryService.Types.CertificateInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.CertificateState
 import Amazonka.DirectoryService.Types.CertificateType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains general information about a certificate.

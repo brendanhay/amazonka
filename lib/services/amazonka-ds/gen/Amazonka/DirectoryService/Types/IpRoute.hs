@@ -20,7 +20,7 @@
 module Amazonka.DirectoryService.Types.IpRoute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | IP address block. This is often the address block of the DNS server used

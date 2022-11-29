@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.EventTopic where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.TopicStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about Amazon SNS topic and Directory Service directory

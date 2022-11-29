@@ -20,10 +20,10 @@
 module Amazonka.DirectoryService.Types.RegionDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.DirectoryStage
 import Amazonka.DirectoryService.Types.DirectoryVpcSettings
 import Amazonka.DirectoryService.Types.RegionType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The replicated Region information for a directory.

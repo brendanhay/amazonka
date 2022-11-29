@@ -20,9 +20,9 @@
 module Amazonka.DirectoryService.Types.ClientAuthenticationSettingInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.ClientAuthenticationStatus
 import Amazonka.DirectoryService.Types.ClientAuthenticationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a client authentication method for a

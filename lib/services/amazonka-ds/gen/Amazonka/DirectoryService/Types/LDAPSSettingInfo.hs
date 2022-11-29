@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.LDAPSSettingInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.LDAPSStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains general information about the LDAPS settings.

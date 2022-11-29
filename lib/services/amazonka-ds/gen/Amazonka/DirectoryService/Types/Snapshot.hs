@@ -20,9 +20,9 @@
 module Amazonka.DirectoryService.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.SnapshotStatus
 import Amazonka.DirectoryService.Types.SnapshotType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a directory snapshot.

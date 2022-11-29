@@ -20,10 +20,10 @@
 module Amazonka.DirectoryService.Types.Certificate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.CertificateState
 import Amazonka.DirectoryService.Types.CertificateType
 import Amazonka.DirectoryService.Types.ClientCertAuthSettings
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the certificate.

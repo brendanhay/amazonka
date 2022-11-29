@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.DomainController where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.DomainControllerStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the domain controllers for a specified

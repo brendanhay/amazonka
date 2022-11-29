@@ -20,9 +20,9 @@
 module Amazonka.DirectoryService.Types.UpdateInfoEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.UpdateStatus
 import Amazonka.DirectoryService.Types.UpdateValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entry of update information related to a requested update type.

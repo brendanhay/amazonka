@@ -20,9 +20,9 @@
 module Amazonka.DirectoryService.Types.SharedDirectory where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.ShareMethod
 import Amazonka.DirectoryService.Types.ShareStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the shared directory in the directory owner account for

@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.UpdateValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.OSUpdateSettings
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value for a given type of @UpdateSettings@.

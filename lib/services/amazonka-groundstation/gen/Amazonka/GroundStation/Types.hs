@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -42,6 +43,15 @@ module Amazonka.GroundStation.Types
 
     -- * EndpointStatus
     EndpointStatus (..),
+
+    -- * EphemerisInvalidReason
+    EphemerisInvalidReason (..),
+
+    -- * EphemerisSource
+    EphemerisSource (..),
+
+    -- * EphemerisStatus
+    EphemerisStatus (..),
 
     -- * FrequencyUnits
     FrequencyUnits (..),
@@ -196,6 +206,48 @@ module Amazonka.GroundStation.Types
     endpointDetails_endpoint,
     endpointDetails_securityDetails,
 
+    -- * EphemerisData
+    EphemerisData (..),
+    newEphemerisData,
+    ephemerisData_tle,
+    ephemerisData_oem,
+
+    -- * EphemerisDescription
+    EphemerisDescription (..),
+    newEphemerisDescription,
+    ephemerisDescription_sourceS3Object,
+    ephemerisDescription_ephemerisData,
+
+    -- * EphemerisIdResponse
+    EphemerisIdResponse (..),
+    newEphemerisIdResponse,
+    ephemerisIdResponse_ephemerisId,
+
+    -- * EphemerisItem
+    EphemerisItem (..),
+    newEphemerisItem,
+    ephemerisItem_name,
+    ephemerisItem_sourceS3Object,
+    ephemerisItem_status,
+    ephemerisItem_enabled,
+    ephemerisItem_priority,
+    ephemerisItem_creationTime,
+    ephemerisItem_ephemerisId,
+
+    -- * EphemerisMetaData
+    EphemerisMetaData (..),
+    newEphemerisMetaData,
+    ephemerisMetaData_name,
+    ephemerisMetaData_epoch,
+    ephemerisMetaData_ephemerisId,
+    ephemerisMetaData_source,
+
+    -- * EphemerisTypeDescription
+    EphemerisTypeDescription (..),
+    newEphemerisTypeDescription,
+    ephemerisTypeDescription_tle,
+    ephemerisTypeDescription_oem,
+
     -- * Frequency
     Frequency (..),
     newFrequency,
@@ -228,6 +280,19 @@ module Amazonka.GroundStation.Types
     missionProfileListItem_missionProfileId,
     missionProfileListItem_region,
 
+    -- * OEMEphemeris
+    OEMEphemeris (..),
+    newOEMEphemeris,
+    oEMEphemeris_oemData,
+    oEMEphemeris_s3Object,
+
+    -- * S3Object
+    S3Object (..),
+    newS3Object,
+    s3Object_key,
+    s3Object_bucket,
+    s3Object_version,
+
     -- * S3RecordingConfig
     S3RecordingConfig (..),
     newS3RecordingConfig,
@@ -245,6 +310,7 @@ module Amazonka.GroundStation.Types
     SatelliteListItem (..),
     newSatelliteListItem,
     satelliteListItem_satelliteArn,
+    satelliteListItem_currentEphemeris,
     satelliteListItem_satelliteId,
     satelliteListItem_noradSatelliteID,
     satelliteListItem_groundStations,
@@ -277,6 +343,25 @@ module Amazonka.GroundStation.Types
     spectrumConfig_bandwidth,
     spectrumConfig_centerFrequency,
 
+    -- * TLEData
+    TLEData (..),
+    newTLEData,
+    tLEData_tleLine1,
+    tLEData_tleLine2,
+    tLEData_validTimeRange,
+
+    -- * TLEEphemeris
+    TLEEphemeris (..),
+    newTLEEphemeris,
+    tLEEphemeris_tleData,
+    tLEEphemeris_s3Object,
+
+    -- * TimeRange
+    TimeRange (..),
+    newTimeRange,
+    timeRange_endTime,
+    timeRange_startTime,
+
     -- * TrackingConfig
     TrackingConfig (..),
     newTrackingConfig,
@@ -297,6 +382,7 @@ module Amazonka.GroundStation.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.AngleUnits
 import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 import Amazonka.GroundStation.Types.AntennaDownlinkConfig
@@ -325,13 +411,24 @@ import Amazonka.GroundStation.Types.EirpUnits
 import Amazonka.GroundStation.Types.Elevation
 import Amazonka.GroundStation.Types.EndpointDetails
 import Amazonka.GroundStation.Types.EndpointStatus
+import Amazonka.GroundStation.Types.EphemerisData
+import Amazonka.GroundStation.Types.EphemerisDescription
+import Amazonka.GroundStation.Types.EphemerisIdResponse
+import Amazonka.GroundStation.Types.EphemerisInvalidReason
+import Amazonka.GroundStation.Types.EphemerisItem
+import Amazonka.GroundStation.Types.EphemerisMetaData
+import Amazonka.GroundStation.Types.EphemerisSource
+import Amazonka.GroundStation.Types.EphemerisStatus
+import Amazonka.GroundStation.Types.EphemerisTypeDescription
 import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.FrequencyBandwidth
 import Amazonka.GroundStation.Types.FrequencyUnits
 import Amazonka.GroundStation.Types.GroundStationData
 import Amazonka.GroundStation.Types.MissionProfileIdResponse
 import Amazonka.GroundStation.Types.MissionProfileListItem
+import Amazonka.GroundStation.Types.OEMEphemeris
 import Amazonka.GroundStation.Types.Polarization
+import Amazonka.GroundStation.Types.S3Object
 import Amazonka.GroundStation.Types.S3RecordingConfig
 import Amazonka.GroundStation.Types.S3RecordingDetails
 import Amazonka.GroundStation.Types.SatelliteListItem
@@ -339,10 +436,12 @@ import Amazonka.GroundStation.Types.SecurityDetails
 import Amazonka.GroundStation.Types.SocketAddress
 import Amazonka.GroundStation.Types.Source
 import Amazonka.GroundStation.Types.SpectrumConfig
+import Amazonka.GroundStation.Types.TLEData
+import Amazonka.GroundStation.Types.TLEEphemeris
+import Amazonka.GroundStation.Types.TimeRange
 import Amazonka.GroundStation.Types.TrackingConfig
 import Amazonka.GroundStation.Types.UplinkEchoConfig
 import Amazonka.GroundStation.Types.UplinkSpectrumConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -350,28 +449,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "GroundStation",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "groundstation",
-      Core._serviceSigningName = "groundstation",
-      Core._serviceVersion = "2019-05-23",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "GroundStation",
-      Core._serviceRetry = retry
+    { Core.abbrev = "GroundStation",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "groundstation",
+      Core.signingName = "groundstation",
+      Core.version = "2019-05-23",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "GroundStation",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

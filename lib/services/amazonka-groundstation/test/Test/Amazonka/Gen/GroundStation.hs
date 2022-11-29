@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestCreateDataflowEndpointGroup $
 --             newCreateDataflowEndpointGroup
 --
+--         , requestCreateEphemeris $
+--             newCreateEphemeris
+--
 --         , requestCreateMissionProfile $
 --             newCreateMissionProfile
 --
@@ -45,11 +48,17 @@ import Test.Tasty
 --         , requestDeleteDataflowEndpointGroup $
 --             newDeleteDataflowEndpointGroup
 --
+--         , requestDeleteEphemeris $
+--             newDeleteEphemeris
+--
 --         , requestDeleteMissionProfile $
 --             newDeleteMissionProfile
 --
 --         , requestDescribeContact $
 --             newDescribeContact
+--
+--         , requestDescribeEphemeris $
+--             newDescribeEphemeris
 --
 --         , requestGetConfig $
 --             newGetConfig
@@ -75,6 +84,9 @@ import Test.Tasty
 --         , requestListDataflowEndpointGroups $
 --             newListDataflowEndpointGroups
 --
+--         , requestListEphemerides $
+--             newListEphemerides
+--
 --         , requestListGroundStations $
 --             newListGroundStations
 --
@@ -99,6 +111,9 @@ import Test.Tasty
 --         , requestUpdateConfig $
 --             newUpdateConfig
 --
+--         , requestUpdateEphemeris $
+--             newUpdateEphemeris
+--
 --         , requestUpdateMissionProfile $
 --             newUpdateMissionProfile
 --
@@ -114,6 +129,9 @@ import Test.Tasty
 --         , responseCreateDataflowEndpointGroup $
 --             newDataflowEndpointGroupIdResponse
 --
+--         , responseCreateEphemeris $
+--             newEphemerisIdResponse
+--
 --         , responseCreateMissionProfile $
 --             newMissionProfileIdResponse
 --
@@ -123,11 +141,17 @@ import Test.Tasty
 --         , responseDeleteDataflowEndpointGroup $
 --             newDataflowEndpointGroupIdResponse
 --
+--         , responseDeleteEphemeris $
+--             newEphemerisIdResponse
+--
 --         , responseDeleteMissionProfile $
 --             newMissionProfileIdResponse
 --
 --         , responseDescribeContact $
 --             newDescribeContactResponse
+--
+--         , responseDescribeEphemeris $
+--             newDescribeEphemerisResponse
 --
 --         , responseGetConfig $
 --             newGetConfigResponse
@@ -153,6 +177,9 @@ import Test.Tasty
 --         , responseListDataflowEndpointGroups $
 --             newListDataflowEndpointGroupsResponse
 --
+--         , responseListEphemerides $
+--             newListEphemeridesResponse
+--
 --         , responseListGroundStations $
 --             newListGroundStationsResponse
 --
@@ -176,6 +203,9 @@ import Test.Tasty
 --
 --         , responseUpdateConfig $
 --             newConfigIdResponse
+--
+--         , responseUpdateEphemeris $
+--             newEphemerisIdResponse
 --
 --         , responseUpdateMissionProfile $
 --             newMissionProfileIdResponse
@@ -203,6 +233,12 @@ requestCreateDataflowEndpointGroup =
     "CreateDataflowEndpointGroup"
     "fixture/CreateDataflowEndpointGroup.yaml"
 
+requestCreateEphemeris :: CreateEphemeris -> TestTree
+requestCreateEphemeris =
+  req
+    "CreateEphemeris"
+    "fixture/CreateEphemeris.yaml"
+
 requestCreateMissionProfile :: CreateMissionProfile -> TestTree
 requestCreateMissionProfile =
   req
@@ -221,6 +257,12 @@ requestDeleteDataflowEndpointGroup =
     "DeleteDataflowEndpointGroup"
     "fixture/DeleteDataflowEndpointGroup.yaml"
 
+requestDeleteEphemeris :: DeleteEphemeris -> TestTree
+requestDeleteEphemeris =
+  req
+    "DeleteEphemeris"
+    "fixture/DeleteEphemeris.yaml"
+
 requestDeleteMissionProfile :: DeleteMissionProfile -> TestTree
 requestDeleteMissionProfile =
   req
@@ -232,6 +274,12 @@ requestDescribeContact =
   req
     "DescribeContact"
     "fixture/DescribeContact.yaml"
+
+requestDescribeEphemeris :: DescribeEphemeris -> TestTree
+requestDescribeEphemeris =
+  req
+    "DescribeEphemeris"
+    "fixture/DescribeEphemeris.yaml"
 
 requestGetConfig :: GetConfig -> TestTree
 requestGetConfig =
@@ -281,6 +329,12 @@ requestListDataflowEndpointGroups =
     "ListDataflowEndpointGroups"
     "fixture/ListDataflowEndpointGroups.yaml"
 
+requestListEphemerides :: ListEphemerides -> TestTree
+requestListEphemerides =
+  req
+    "ListEphemerides"
+    "fixture/ListEphemerides.yaml"
+
 requestListGroundStations :: ListGroundStations -> TestTree
 requestListGroundStations =
   req
@@ -329,6 +383,12 @@ requestUpdateConfig =
     "UpdateConfig"
     "fixture/UpdateConfig.yaml"
 
+requestUpdateEphemeris :: UpdateEphemeris -> TestTree
+requestUpdateEphemeris =
+  req
+    "UpdateEphemeris"
+    "fixture/UpdateEphemeris.yaml"
+
 requestUpdateMissionProfile :: UpdateMissionProfile -> TestTree
 requestUpdateMissionProfile =
   req
@@ -361,6 +421,14 @@ responseCreateDataflowEndpointGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataflowEndpointGroup)
 
+responseCreateEphemeris :: EphemerisIdResponse -> TestTree
+responseCreateEphemeris =
+  res
+    "CreateEphemerisResponse"
+    "fixture/CreateEphemerisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEphemeris)
+
 responseCreateMissionProfile :: MissionProfileIdResponse -> TestTree
 responseCreateMissionProfile =
   res
@@ -385,6 +453,14 @@ responseDeleteDataflowEndpointGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataflowEndpointGroup)
 
+responseDeleteEphemeris :: EphemerisIdResponse -> TestTree
+responseDeleteEphemeris =
+  res
+    "DeleteEphemerisResponse"
+    "fixture/DeleteEphemerisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEphemeris)
+
 responseDeleteMissionProfile :: MissionProfileIdResponse -> TestTree
 responseDeleteMissionProfile =
   res
@@ -400,6 +476,14 @@ responseDescribeContact =
     "fixture/DescribeContactResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeContact)
+
+responseDescribeEphemeris :: DescribeEphemerisResponse -> TestTree
+responseDescribeEphemeris =
+  res
+    "DescribeEphemerisResponse"
+    "fixture/DescribeEphemerisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEphemeris)
 
 responseGetConfig :: GetConfigResponse -> TestTree
 responseGetConfig =
@@ -465,6 +549,14 @@ responseListDataflowEndpointGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDataflowEndpointGroups)
 
+responseListEphemerides :: ListEphemeridesResponse -> TestTree
+responseListEphemerides =
+  res
+    "ListEphemeridesResponse"
+    "fixture/ListEphemeridesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEphemerides)
+
 responseListGroundStations :: ListGroundStationsResponse -> TestTree
 responseListGroundStations =
   res
@@ -528,6 +620,14 @@ responseUpdateConfig =
     "fixture/UpdateConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConfig)
+
+responseUpdateEphemeris :: EphemerisIdResponse -> TestTree
+responseUpdateEphemeris =
+  res
+    "UpdateEphemerisResponse"
+    "fixture/UpdateEphemerisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEphemeris)
 
 responseUpdateMissionProfile :: MissionProfileIdResponse -> TestTree
 responseUpdateMissionProfile =

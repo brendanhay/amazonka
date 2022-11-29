@@ -47,11 +47,14 @@ library
     Amazonka.GroundStation.CancelContact
     Amazonka.GroundStation.CreateConfig
     Amazonka.GroundStation.CreateDataflowEndpointGroup
+    Amazonka.GroundStation.CreateEphemeris
     Amazonka.GroundStation.CreateMissionProfile
     Amazonka.GroundStation.DeleteConfig
     Amazonka.GroundStation.DeleteDataflowEndpointGroup
+    Amazonka.GroundStation.DeleteEphemeris
     Amazonka.GroundStation.DeleteMissionProfile
     Amazonka.GroundStation.DescribeContact
+    Amazonka.GroundStation.DescribeEphemeris
     Amazonka.GroundStation.GetConfig
     Amazonka.GroundStation.GetDataflowEndpointGroup
     Amazonka.GroundStation.GetMinuteUsage
@@ -61,6 +64,7 @@ library
     Amazonka.GroundStation.ListConfigs
     Amazonka.GroundStation.ListContacts
     Amazonka.GroundStation.ListDataflowEndpointGroups
+    Amazonka.GroundStation.ListEphemerides
     Amazonka.GroundStation.ListGroundStations
     Amazonka.GroundStation.ListMissionProfiles
     Amazonka.GroundStation.ListSatellites
@@ -96,13 +100,24 @@ library
     Amazonka.GroundStation.Types.Elevation
     Amazonka.GroundStation.Types.EndpointDetails
     Amazonka.GroundStation.Types.EndpointStatus
+    Amazonka.GroundStation.Types.EphemerisData
+    Amazonka.GroundStation.Types.EphemerisDescription
+    Amazonka.GroundStation.Types.EphemerisIdResponse
+    Amazonka.GroundStation.Types.EphemerisInvalidReason
+    Amazonka.GroundStation.Types.EphemerisItem
+    Amazonka.GroundStation.Types.EphemerisMetaData
+    Amazonka.GroundStation.Types.EphemerisSource
+    Amazonka.GroundStation.Types.EphemerisStatus
+    Amazonka.GroundStation.Types.EphemerisTypeDescription
     Amazonka.GroundStation.Types.Frequency
     Amazonka.GroundStation.Types.FrequencyBandwidth
     Amazonka.GroundStation.Types.FrequencyUnits
     Amazonka.GroundStation.Types.GroundStationData
     Amazonka.GroundStation.Types.MissionProfileIdResponse
     Amazonka.GroundStation.Types.MissionProfileListItem
+    Amazonka.GroundStation.Types.OEMEphemeris
     Amazonka.GroundStation.Types.Polarization
+    Amazonka.GroundStation.Types.S3Object
     Amazonka.GroundStation.Types.S3RecordingConfig
     Amazonka.GroundStation.Types.S3RecordingDetails
     Amazonka.GroundStation.Types.SatelliteListItem
@@ -110,11 +125,15 @@ library
     Amazonka.GroundStation.Types.SocketAddress
     Amazonka.GroundStation.Types.Source
     Amazonka.GroundStation.Types.SpectrumConfig
+    Amazonka.GroundStation.Types.TimeRange
+    Amazonka.GroundStation.Types.TLEData
+    Amazonka.GroundStation.Types.TLEEphemeris
     Amazonka.GroundStation.Types.TrackingConfig
     Amazonka.GroundStation.Types.UplinkEchoConfig
     Amazonka.GroundStation.Types.UplinkSpectrumConfig
     Amazonka.GroundStation.UntagResource
     Amazonka.GroundStation.UpdateConfig
+    Amazonka.GroundStation.UpdateEphemeris
     Amazonka.GroundStation.UpdateMissionProfile
     Amazonka.GroundStation.Waiters
 

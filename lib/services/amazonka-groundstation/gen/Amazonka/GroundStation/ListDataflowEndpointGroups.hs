@@ -44,8 +44,8 @@ module Amazonka.GroundStation.ListDataflowEndpointGroups
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,7 @@ data ListDataflowEndpointGroups = ListDataflowEndpointGroups'
     -- @ListDataflowEndpointGroups@ call. Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of dataflow endpoint groups returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,7 +89,7 @@ listDataflowEndpointGroups_nextToken :: Lens.Lens' ListDataflowEndpointGroups (P
 listDataflowEndpointGroups_nextToken = Lens.lens (\ListDataflowEndpointGroups' {nextToken} -> nextToken) (\s@ListDataflowEndpointGroups' {} a -> s {nextToken = a} :: ListDataflowEndpointGroups)
 
 -- | Maximum number of dataflow endpoint groups returned.
-listDataflowEndpointGroups_maxResults :: Lens.Lens' ListDataflowEndpointGroups (Prelude.Maybe Prelude.Int)
+listDataflowEndpointGroups_maxResults :: Lens.Lens' ListDataflowEndpointGroups (Prelude.Maybe Prelude.Natural)
 listDataflowEndpointGroups_maxResults = Lens.lens (\ListDataflowEndpointGroups' {maxResults} -> maxResults) (\s@ListDataflowEndpointGroups' {} a -> s {maxResults = a} :: ListDataflowEndpointGroups)
 
 instance Core.AWSPager ListDataflowEndpointGroups where
@@ -118,8 +118,8 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
   type
     AWSResponse ListDataflowEndpointGroups =
       ListDataflowEndpointGroupsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

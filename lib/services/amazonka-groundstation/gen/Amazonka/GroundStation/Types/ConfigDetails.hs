@@ -20,10 +20,10 @@
 module Amazonka.GroundStation.Types.ConfigDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 import Amazonka.GroundStation.Types.EndpointDetails
 import Amazonka.GroundStation.Types.S3RecordingDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for certain @Config@ object types in a contact.

@@ -20,14 +20,14 @@
 module Amazonka.GroundStation.Types.S3RecordingDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an S3 recording @Config@ used in a contact.
 --
 -- /See:/ 'newS3RecordingDetails' smart constructor.
 data S3RecordingDetails = S3RecordingDetails'
-  { -- | Template of the S3 key used.
+  { -- | Key template used for the S3 Recording Configuration
     keyTemplate :: Prelude.Maybe Prelude.Text,
     -- | ARN of the bucket used.
     bucketArn :: Prelude.Maybe Prelude.Text
@@ -42,7 +42,7 @@ data S3RecordingDetails = S3RecordingDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyTemplate', 's3RecordingDetails_keyTemplate' - Template of the S3 key used.
+-- 'keyTemplate', 's3RecordingDetails_keyTemplate' - Key template used for the S3 Recording Configuration
 --
 -- 'bucketArn', 's3RecordingDetails_bucketArn' - ARN of the bucket used.
 newS3RecordingDetails ::
@@ -53,7 +53,7 @@ newS3RecordingDetails =
       bucketArn = Prelude.Nothing
     }
 
--- | Template of the S3 key used.
+-- | Key template used for the S3 Recording Configuration
 s3RecordingDetails_keyTemplate :: Lens.Lens' S3RecordingDetails (Prelude.Maybe Prelude.Text)
 s3RecordingDetails_keyTemplate = Lens.lens (\S3RecordingDetails' {keyTemplate} -> keyTemplate) (\s@S3RecordingDetails' {} a -> s {keyTemplate = a} :: S3RecordingDetails)
 

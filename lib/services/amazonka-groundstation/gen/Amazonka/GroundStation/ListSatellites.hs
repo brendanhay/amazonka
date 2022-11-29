@@ -44,8 +44,8 @@ module Amazonka.GroundStation.ListSatellites
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,7 @@ data ListSatellites = ListSatellites'
     -- satellites.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of satellites returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +88,7 @@ listSatellites_nextToken :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Tex
 listSatellites_nextToken = Lens.lens (\ListSatellites' {nextToken} -> nextToken) (\s@ListSatellites' {} a -> s {nextToken = a} :: ListSatellites)
 
 -- | Maximum number of satellites returned.
-listSatellites_maxResults :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Int)
+listSatellites_maxResults :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Natural)
 listSatellites_maxResults = Lens.lens (\ListSatellites' {maxResults} -> maxResults) (\s@ListSatellites' {} a -> s {maxResults = a} :: ListSatellites)
 
 instance Core.AWSPager ListSatellites where
@@ -116,8 +116,8 @@ instance Core.AWSRequest ListSatellites where
   type
     AWSResponse ListSatellites =
       ListSatellitesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

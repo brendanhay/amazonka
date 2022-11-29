@@ -20,9 +20,9 @@
 module Amazonka.GroundStation.Types.DataflowDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.Destination
 import Amazonka.GroundStation.Types.Source
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a dataflow edge used in a contact.

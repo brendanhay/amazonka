@@ -48,8 +48,8 @@ module Amazonka.GroundStation.GetConfig
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +98,8 @@ getConfig_configType = Lens.lens (\GetConfig' {configType} -> configType) (\s@Ge
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

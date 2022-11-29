@@ -45,8 +45,8 @@ module Amazonka.GroundStation.GetMinuteUsage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newGetMinuteUsage' smart constructor.
 data GetMinuteUsage = GetMinuteUsage'
   { -- | The month being requested, with a value of 1-12.
-    month :: Prelude.Int,
+    month :: Prelude.Natural,
     -- | The year being requested, in the format of YYYY.
-    year :: Prelude.Int
+    year :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,27 +75,27 @@ data GetMinuteUsage = GetMinuteUsage'
 -- 'year', 'getMinuteUsage_year' - The year being requested, in the format of YYYY.
 newGetMinuteUsage ::
   -- | 'month'
-  Prelude.Int ->
+  Prelude.Natural ->
   -- | 'year'
-  Prelude.Int ->
+  Prelude.Natural ->
   GetMinuteUsage
 newGetMinuteUsage pMonth_ pYear_ =
   GetMinuteUsage' {month = pMonth_, year = pYear_}
 
 -- | The month being requested, with a value of 1-12.
-getMinuteUsage_month :: Lens.Lens' GetMinuteUsage Prelude.Int
+getMinuteUsage_month :: Lens.Lens' GetMinuteUsage Prelude.Natural
 getMinuteUsage_month = Lens.lens (\GetMinuteUsage' {month} -> month) (\s@GetMinuteUsage' {} a -> s {month = a} :: GetMinuteUsage)
 
 -- | The year being requested, in the format of YYYY.
-getMinuteUsage_year :: Lens.Lens' GetMinuteUsage Prelude.Int
+getMinuteUsage_year :: Lens.Lens' GetMinuteUsage Prelude.Natural
 getMinuteUsage_year = Lens.lens (\GetMinuteUsage' {year} -> year) (\s@GetMinuteUsage' {} a -> s {year = a} :: GetMinuteUsage)
 
 instance Core.AWSRequest GetMinuteUsage where
   type
     AWSResponse GetMinuteUsage =
       GetMinuteUsageResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

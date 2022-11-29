@@ -53,8 +53,8 @@ module Amazonka.GroundStation.ListContacts
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,12 +71,12 @@ data ListContacts = ListContacts'
     -- | ARN of a satellite.
     satelliteArn :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of contacts returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Name of a ground station.
     groundStation :: Prelude.Maybe Prelude.Text,
-    -- | End time of a contact.
+    -- | End time of a contact in UTC.
     endTime :: Core.POSIX,
-    -- | Start time of a contact.
+    -- | Start time of a contact in UTC.
     startTime :: Core.POSIX,
     -- | Status of a contact reservation.
     statusList :: [ContactStatus]
@@ -102,9 +102,9 @@ data ListContacts = ListContacts'
 --
 -- 'groundStation', 'listContacts_groundStation' - Name of a ground station.
 --
--- 'endTime', 'listContacts_endTime' - End time of a contact.
+-- 'endTime', 'listContacts_endTime' - End time of a contact in UTC.
 --
--- 'startTime', 'listContacts_startTime' - Start time of a contact.
+-- 'startTime', 'listContacts_startTime' - Start time of a contact in UTC.
 --
 -- 'statusList', 'listContacts_statusList' - Status of a contact reservation.
 newListContacts ::
@@ -139,18 +139,18 @@ listContacts_satelliteArn :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text
 listContacts_satelliteArn = Lens.lens (\ListContacts' {satelliteArn} -> satelliteArn) (\s@ListContacts' {} a -> s {satelliteArn = a} :: ListContacts)
 
 -- | Maximum number of contacts returned.
-listContacts_maxResults :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Int)
+listContacts_maxResults :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Natural)
 listContacts_maxResults = Lens.lens (\ListContacts' {maxResults} -> maxResults) (\s@ListContacts' {} a -> s {maxResults = a} :: ListContacts)
 
 -- | Name of a ground station.
 listContacts_groundStation :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
 listContacts_groundStation = Lens.lens (\ListContacts' {groundStation} -> groundStation) (\s@ListContacts' {} a -> s {groundStation = a} :: ListContacts)
 
--- | End time of a contact.
+-- | End time of a contact in UTC.
 listContacts_endTime :: Lens.Lens' ListContacts Prelude.UTCTime
 listContacts_endTime = Lens.lens (\ListContacts' {endTime} -> endTime) (\s@ListContacts' {} a -> s {endTime = a} :: ListContacts) Prelude.. Core._Time
 
--- | Start time of a contact.
+-- | Start time of a contact in UTC.
 listContacts_startTime :: Lens.Lens' ListContacts Prelude.UTCTime
 listContacts_startTime = Lens.lens (\ListContacts' {startTime} -> startTime) (\s@ListContacts' {} a -> s {startTime = a} :: ListContacts) Prelude.. Core._Time
 
@@ -180,8 +180,8 @@ instance Core.AWSPager ListContacts where
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

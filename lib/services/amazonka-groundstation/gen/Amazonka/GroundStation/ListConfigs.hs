@@ -44,8 +44,8 @@ module Amazonka.GroundStation.ListConfigs
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,7 @@ data ListConfigs = ListConfigs'
     -- Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of @Configs@ returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +88,7 @@ listConfigs_nextToken :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Text)
 listConfigs_nextToken = Lens.lens (\ListConfigs' {nextToken} -> nextToken) (\s@ListConfigs' {} a -> s {nextToken = a} :: ListConfigs)
 
 -- | Maximum number of @Configs@ returned.
-listConfigs_maxResults :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Int)
+listConfigs_maxResults :: Lens.Lens' ListConfigs (Prelude.Maybe Prelude.Natural)
 listConfigs_maxResults = Lens.lens (\ListConfigs' {maxResults} -> maxResults) (\s@ListConfigs' {} a -> s {maxResults = a} :: ListConfigs)
 
 instance Core.AWSPager ListConfigs where
@@ -112,8 +112,8 @@ instance Core.AWSPager ListConfigs where
 
 instance Core.AWSRequest ListConfigs where
   type AWSResponse ListConfigs = ListConfigsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

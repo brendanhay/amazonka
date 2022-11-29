@@ -39,8 +39,8 @@ module Amazonka.GroundStation.CancelContact
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,8 +76,8 @@ cancelContact_contactId = Lens.lens (\CancelContact' {contactId} -> contactId) (
 
 instance Core.AWSRequest CancelContact where
   type AWSResponse CancelContact = ContactIdResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

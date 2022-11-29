@@ -20,10 +20,10 @@
 module Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.DecodeConfig
 import Amazonka.GroundStation.Types.DemodulationConfig
 import Amazonka.GroundStation.Types.SpectrumConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how AWS Ground Station should conﬁgure an antenna for

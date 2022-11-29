@@ -20,9 +20,9 @@
 module Amazonka.GroundStation.Types.UplinkSpectrumConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.Polarization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the uplink spectral @Config@.

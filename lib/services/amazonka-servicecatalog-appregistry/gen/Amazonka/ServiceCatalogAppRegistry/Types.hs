@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -31,6 +32,11 @@ module Amazonka.ServiceCatalogAppRegistry.Types
 
     -- * SyncAction
     SyncAction (..),
+
+    -- * AppRegistryConfiguration
+    AppRegistryConfiguration (..),
+    newAppRegistryConfiguration,
+    appRegistryConfiguration_tagQueryConfiguration,
 
     -- * Application
     Application (..),
@@ -94,6 +100,11 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     resource_arn,
     resource_associationTime,
 
+    -- * ResourceDetails
+    ResourceDetails (..),
+    newResourceDetails,
+    resourceDetails_tagValue,
+
     -- * ResourceGroup
     ResourceGroup (..),
     newResourceGroup,
@@ -104,19 +115,27 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     -- * ResourceInfo
     ResourceInfo (..),
     newResourceInfo,
+    resourceInfo_resourceType,
     resourceInfo_name,
     resourceInfo_arn,
+    resourceInfo_resourceDetails,
 
     -- * ResourceIntegrations
     ResourceIntegrations (..),
     newResourceIntegrations,
     resourceIntegrations_resourceGroup,
+
+    -- * TagQueryConfiguration
+    TagQueryConfiguration (..),
+    newTagQueryConfiguration,
+    tagQueryConfiguration_tagKey,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalogAppRegistry.Types.AppRegistryConfiguration
 import Amazonka.ServiceCatalogAppRegistry.Types.Application
 import Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
@@ -124,42 +143,41 @@ import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.Integrations
 import Amazonka.ServiceCatalogAppRegistry.Types.Resource
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceDetails
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
 import Amazonka.ServiceCatalogAppRegistry.Types.SyncAction
+import Amazonka.ServiceCatalogAppRegistry.Types.TagQueryConfiguration
 import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-06-24@ of the Amazon Service Catalog App Registry SDK configuration.
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
+    { Core.abbrev =
         "ServiceCatalogAppRegistry",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix =
-        "servicecatalog-appregistry",
-      Core._serviceSigningName = "servicecatalog",
-      Core._serviceVersion = "2020-06-24",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "servicecatalog-appregistry",
+      Core.signingName = "servicecatalog",
+      Core.version = "2020-06-24",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error =
         Core.parseJSONError "ServiceCatalogAppRegistry",
-      Core._serviceRetry = retry
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

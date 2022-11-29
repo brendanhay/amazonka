@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestGetAttributeGroup $
 --             newGetAttributeGroup
 --
+--         , requestGetConfiguration $
+--             newGetConfiguration
+--
 --         , requestListApplications $
 --             newListApplications
 --
@@ -77,6 +80,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPutConfiguration $
+--             newPutConfiguration
 --
 --         , requestSyncResource $
 --             newSyncResource
@@ -129,6 +135,9 @@ import Test.Tasty
 --         , responseGetAttributeGroup $
 --             newGetAttributeGroupResponse
 --
+--         , responseGetConfiguration $
+--             newGetConfigurationResponse
+--
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
@@ -146,6 +155,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePutConfiguration $
+--             newPutConfigurationResponse
 --
 --         , responseSyncResource $
 --             newSyncResourceResponse
@@ -233,6 +245,12 @@ requestGetAttributeGroup =
     "GetAttributeGroup"
     "fixture/GetAttributeGroup.yaml"
 
+requestGetConfiguration :: GetConfiguration -> TestTree
+requestGetConfiguration =
+  req
+    "GetConfiguration"
+    "fixture/GetConfiguration.yaml"
+
 requestListApplications :: ListApplications -> TestTree
 requestListApplications =
   req
@@ -268,6 +286,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPutConfiguration :: PutConfiguration -> TestTree
+requestPutConfiguration =
+  req
+    "PutConfiguration"
+    "fixture/PutConfiguration.yaml"
 
 requestSyncResource :: SyncResource -> TestTree
 requestSyncResource =
@@ -389,6 +413,14 @@ responseGetAttributeGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAttributeGroup)
 
+responseGetConfiguration :: GetConfigurationResponse -> TestTree
+responseGetConfiguration =
+  res
+    "GetConfigurationResponse"
+    "fixture/GetConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetConfiguration)
+
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
   res
@@ -436,6 +468,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutConfiguration :: PutConfigurationResponse -> TestTree
+responsePutConfiguration =
+  res
+    "PutConfigurationResponse"
+    "fixture/PutConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutConfiguration)
 
 responseSyncResource :: SyncResourceResponse -> TestTree
 responseSyncResource =

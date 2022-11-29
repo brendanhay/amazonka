@@ -20,7 +20,8 @@
 module Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
   ( ResourceType
       ( ..,
-        ResourceType_CFN_STACK
+        ResourceType_CFN_STACK,
+        ResourceType_RESOURCE_TAG_VALUE
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype ResourceType = ResourceType'
 pattern ResourceType_CFN_STACK :: ResourceType
 pattern ResourceType_CFN_STACK = ResourceType' "CFN_STACK"
 
+pattern ResourceType_RESOURCE_TAG_VALUE :: ResourceType
+pattern ResourceType_RESOURCE_TAG_VALUE = ResourceType' "RESOURCE_TAG_VALUE"
+
 {-# COMPLETE
   ResourceType_CFN_STACK,
+  ResourceType_RESOURCE_TAG_VALUE,
   ResourceType'
   #-}

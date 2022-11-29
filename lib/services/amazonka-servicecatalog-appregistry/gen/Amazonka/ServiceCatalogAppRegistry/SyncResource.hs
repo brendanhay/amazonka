@@ -48,7 +48,7 @@ module Amazonka.ServiceCatalogAppRegistry.SyncResource
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +102,8 @@ syncResource_resource = Lens.lens (\SyncResource' {resource} -> resource) (\s@Sy
 
 instance Core.AWSRequest SyncResource where
   type AWSResponse SyncResource = SyncResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

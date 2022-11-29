@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.PolicySummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.SecurityServiceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Firewall Manager policy.

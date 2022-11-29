@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.SecurityServiceType
   ( SecurityServiceType
       ( ..,
         SecurityServiceType_DNS_FIREWALL,
+        SecurityServiceType_IMPORT_NETWORK_FIREWALL,
         SecurityServiceType_NETWORK_FIREWALL,
         SecurityServiceType_SECURITY_GROUPS_COMMON,
         SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT,
@@ -67,6 +68,9 @@ newtype SecurityServiceType = SecurityServiceType'
 pattern SecurityServiceType_DNS_FIREWALL :: SecurityServiceType
 pattern SecurityServiceType_DNS_FIREWALL = SecurityServiceType' "DNS_FIREWALL"
 
+pattern SecurityServiceType_IMPORT_NETWORK_FIREWALL :: SecurityServiceType
+pattern SecurityServiceType_IMPORT_NETWORK_FIREWALL = SecurityServiceType' "IMPORT_NETWORK_FIREWALL"
+
 pattern SecurityServiceType_NETWORK_FIREWALL :: SecurityServiceType
 pattern SecurityServiceType_NETWORK_FIREWALL = SecurityServiceType' "NETWORK_FIREWALL"
 
@@ -93,6 +97,7 @@ pattern SecurityServiceType_WAFV2 = SecurityServiceType' "WAFV2"
 
 {-# COMPLETE
   SecurityServiceType_DNS_FIREWALL,
+  SecurityServiceType_IMPORT_NETWORK_FIREWALL,
   SecurityServiceType_NETWORK_FIREWALL,
   SecurityServiceType_SECURITY_GROUPS_COMMON,
   SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT,

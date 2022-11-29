@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.NetworkFirewallPolicyDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for Network Firewall for a firewall policy that has a

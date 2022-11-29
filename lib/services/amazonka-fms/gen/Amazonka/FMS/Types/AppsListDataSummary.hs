@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.AppsListDataSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.App
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Firewall Manager applications list.

@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for network interfaces associated with an EC2 instance.

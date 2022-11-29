@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule group that Firewall Manager tried to associate with a VPC has the

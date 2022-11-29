@@ -20,6 +20,7 @@
 module Amazonka.FMS.Types.ResourceViolation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.AwsEc2InstanceViolation
 import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
 import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
@@ -43,7 +44,6 @@ import Amazonka.FMS.Types.RouteHasOutOfScopeEndpointViolation
 import Amazonka.FMS.Types.ThirdPartyFirewallMissingExpectedRouteTableViolation
 import Amazonka.FMS.Types.ThirdPartyFirewallMissingFirewallViolation
 import Amazonka.FMS.Types.ThirdPartyFirewallMissingSubnetViolation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail based on resource type.

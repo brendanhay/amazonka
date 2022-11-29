@@ -46,10 +46,13 @@ library
     Amazonka.FMS
     Amazonka.FMS.AssociateAdminAccount
     Amazonka.FMS.AssociateThirdPartyFirewall
+    Amazonka.FMS.BatchAssociateResource
+    Amazonka.FMS.BatchDisassociateResource
     Amazonka.FMS.DeleteAppsList
     Amazonka.FMS.DeleteNotificationChannel
     Amazonka.FMS.DeletePolicy
     Amazonka.FMS.DeleteProtocolsList
+    Amazonka.FMS.DeleteResourceSet
     Amazonka.FMS.DisassociateAdminAccount
     Amazonka.FMS.DisassociateThirdPartyFirewall
     Amazonka.FMS.GetAdminAccount
@@ -59,20 +62,25 @@ library
     Amazonka.FMS.GetPolicy
     Amazonka.FMS.GetProtectionStatus
     Amazonka.FMS.GetProtocolsList
+    Amazonka.FMS.GetResourceSet
     Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
     Amazonka.FMS.GetViolationDetails
     Amazonka.FMS.Lens
     Amazonka.FMS.ListAppsLists
     Amazonka.FMS.ListComplianceStatus
+    Amazonka.FMS.ListDiscoveredResources
     Amazonka.FMS.ListMemberAccounts
     Amazonka.FMS.ListPolicies
     Amazonka.FMS.ListProtocolsLists
+    Amazonka.FMS.ListResourceSetResources
+    Amazonka.FMS.ListResourceSets
     Amazonka.FMS.ListTagsForResource
     Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
     Amazonka.FMS.PutAppsList
     Amazonka.FMS.PutNotificationChannel
     Amazonka.FMS.PutPolicy
     Amazonka.FMS.PutProtocolsList
+    Amazonka.FMS.PutResourceSet
     Amazonka.FMS.TagResource
     Amazonka.FMS.Types
     Amazonka.FMS.Types.AccountRoleStatus
@@ -87,6 +95,7 @@ library
     Amazonka.FMS.Types.CustomerPolicyScopeIdType
     Amazonka.FMS.Types.DependentServiceName
     Amazonka.FMS.Types.DestinationType
+    Amazonka.FMS.Types.DiscoveredResource
     Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
     Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
     Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
@@ -99,6 +108,8 @@ library
     Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
     Amazonka.FMS.Types.EvaluationResult
     Amazonka.FMS.Types.ExpectedRoute
+    Amazonka.FMS.Types.FailedItem
+    Amazonka.FMS.Types.FailedItemReason
     Amazonka.FMS.Types.FirewallDeploymentModel
     Amazonka.FMS.Types.FirewallSubnetIsOutOfScopeViolation
     Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation
@@ -111,9 +122,11 @@ library
     Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
     Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
     Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+    Amazonka.FMS.Types.NetworkFirewallOverrideAction
     Amazonka.FMS.Types.NetworkFirewallPolicy
     Amazonka.FMS.Types.NetworkFirewallPolicyDescription
     Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
+    Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
     Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
     Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
     Amazonka.FMS.Types.PartialMatch
@@ -130,6 +143,9 @@ library
     Amazonka.FMS.Types.RemediationAction
     Amazonka.FMS.Types.RemediationActionType
     Amazonka.FMS.Types.RemediationActionWithOrder
+    Amazonka.FMS.Types.Resource
+    Amazonka.FMS.Types.ResourceSet
+    Amazonka.FMS.Types.ResourceSetSummary
     Amazonka.FMS.Types.ResourceTag
     Amazonka.FMS.Types.ResourceViolation
     Amazonka.FMS.Types.Route

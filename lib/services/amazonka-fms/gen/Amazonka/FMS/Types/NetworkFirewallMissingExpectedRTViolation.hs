@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for Network Firewall for a subnet that\'s not

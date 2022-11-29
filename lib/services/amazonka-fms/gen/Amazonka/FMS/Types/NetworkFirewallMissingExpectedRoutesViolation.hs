@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.ExpectedRoute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for an expected route missing in Network Firewall.

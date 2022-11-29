@@ -20,6 +20,7 @@
 module Amazonka.FMS.Types.RemediationAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.EC2AssociateRouteTableAction
 import Amazonka.FMS.Types.EC2CopyRouteTableAction
 import Amazonka.FMS.Types.EC2CreateRouteAction
@@ -28,7 +29,6 @@ import Amazonka.FMS.Types.EC2DeleteRouteAction
 import Amazonka.FMS.Types.EC2ReplaceRouteAction
 import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
 import Amazonka.FMS.Types.FMSPolicyUpdateFirewallCreationConfigAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an individual action you can take to remediate a

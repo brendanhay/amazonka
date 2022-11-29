@@ -20,9 +20,9 @@
 module Amazonka.FMS.Types.SecurityGroupRemediationAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.RemediationActionType
 import Amazonka.FMS.Types.SecurityGroupRuleDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Remediation option for the rule specified in the @ViolationTarget@.

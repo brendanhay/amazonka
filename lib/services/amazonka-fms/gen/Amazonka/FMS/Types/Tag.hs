@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of key:value pairs associated with an Amazon Web Services

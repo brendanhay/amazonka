@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.PossibleRemediationActions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.PossibleRemediationAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of possible remediation action lists. Each individual possible

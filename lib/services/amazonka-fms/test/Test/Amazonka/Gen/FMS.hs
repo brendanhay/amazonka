@@ -33,6 +33,12 @@ import Test.Tasty
 --         , requestAssociateThirdPartyFirewall $
 --             newAssociateThirdPartyFirewall
 --
+--         , requestBatchAssociateResource $
+--             newBatchAssociateResource
+--
+--         , requestBatchDisassociateResource $
+--             newBatchDisassociateResource
+--
 --         , requestDeleteAppsList $
 --             newDeleteAppsList
 --
@@ -44,6 +50,9 @@ import Test.Tasty
 --
 --         , requestDeleteProtocolsList $
 --             newDeleteProtocolsList
+--
+--         , requestDeleteResourceSet $
+--             newDeleteResourceSet
 --
 --         , requestDisassociateAdminAccount $
 --             newDisassociateAdminAccount
@@ -72,6 +81,9 @@ import Test.Tasty
 --         , requestGetProtocolsList $
 --             newGetProtocolsList
 --
+--         , requestGetResourceSet $
+--             newGetResourceSet
+--
 --         , requestGetThirdPartyFirewallAssociationStatus $
 --             newGetThirdPartyFirewallAssociationStatus
 --
@@ -84,6 +96,9 @@ import Test.Tasty
 --         , requestListComplianceStatus $
 --             newListComplianceStatus
 --
+--         , requestListDiscoveredResources $
+--             newListDiscoveredResources
+--
 --         , requestListMemberAccounts $
 --             newListMemberAccounts
 --
@@ -92,6 +107,12 @@ import Test.Tasty
 --
 --         , requestListProtocolsLists $
 --             newListProtocolsLists
+--
+--         , requestListResourceSetResources $
+--             newListResourceSetResources
+--
+--         , requestListResourceSets $
+--             newListResourceSets
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -111,6 +132,9 @@ import Test.Tasty
 --         , requestPutProtocolsList $
 --             newPutProtocolsList
 --
+--         , requestPutResourceSet $
+--             newPutResourceSet
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -126,6 +150,12 @@ import Test.Tasty
 --         , responseAssociateThirdPartyFirewall $
 --             newAssociateThirdPartyFirewallResponse
 --
+--         , responseBatchAssociateResource $
+--             newBatchAssociateResourceResponse
+--
+--         , responseBatchDisassociateResource $
+--             newBatchDisassociateResourceResponse
+--
 --         , responseDeleteAppsList $
 --             newDeleteAppsListResponse
 --
@@ -137,6 +167,9 @@ import Test.Tasty
 --
 --         , responseDeleteProtocolsList $
 --             newDeleteProtocolsListResponse
+--
+--         , responseDeleteResourceSet $
+--             newDeleteResourceSetResponse
 --
 --         , responseDisassociateAdminAccount $
 --             newDisassociateAdminAccountResponse
@@ -165,6 +198,9 @@ import Test.Tasty
 --         , responseGetProtocolsList $
 --             newGetProtocolsListResponse
 --
+--         , responseGetResourceSet $
+--             newGetResourceSetResponse
+--
 --         , responseGetThirdPartyFirewallAssociationStatus $
 --             newGetThirdPartyFirewallAssociationStatusResponse
 --
@@ -177,6 +213,9 @@ import Test.Tasty
 --         , responseListComplianceStatus $
 --             newListComplianceStatusResponse
 --
+--         , responseListDiscoveredResources $
+--             newListDiscoveredResourcesResponse
+--
 --         , responseListMemberAccounts $
 --             newListMemberAccountsResponse
 --
@@ -185,6 +224,12 @@ import Test.Tasty
 --
 --         , responseListProtocolsLists $
 --             newListProtocolsListsResponse
+--
+--         , responseListResourceSetResources $
+--             newListResourceSetResourcesResponse
+--
+--         , responseListResourceSets $
+--             newListResourceSetsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -203,6 +248,9 @@ import Test.Tasty
 --
 --         , responsePutProtocolsList $
 --             newPutProtocolsListResponse
+--
+--         , responsePutResourceSet $
+--             newPutResourceSetResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -227,6 +275,18 @@ requestAssociateThirdPartyFirewall =
     "AssociateThirdPartyFirewall"
     "fixture/AssociateThirdPartyFirewall.yaml"
 
+requestBatchAssociateResource :: BatchAssociateResource -> TestTree
+requestBatchAssociateResource =
+  req
+    "BatchAssociateResource"
+    "fixture/BatchAssociateResource.yaml"
+
+requestBatchDisassociateResource :: BatchDisassociateResource -> TestTree
+requestBatchDisassociateResource =
+  req
+    "BatchDisassociateResource"
+    "fixture/BatchDisassociateResource.yaml"
+
 requestDeleteAppsList :: DeleteAppsList -> TestTree
 requestDeleteAppsList =
   req
@@ -250,6 +310,12 @@ requestDeleteProtocolsList =
   req
     "DeleteProtocolsList"
     "fixture/DeleteProtocolsList.yaml"
+
+requestDeleteResourceSet :: DeleteResourceSet -> TestTree
+requestDeleteResourceSet =
+  req
+    "DeleteResourceSet"
+    "fixture/DeleteResourceSet.yaml"
 
 requestDisassociateAdminAccount :: DisassociateAdminAccount -> TestTree
 requestDisassociateAdminAccount =
@@ -305,6 +371,12 @@ requestGetProtocolsList =
     "GetProtocolsList"
     "fixture/GetProtocolsList.yaml"
 
+requestGetResourceSet :: GetResourceSet -> TestTree
+requestGetResourceSet =
+  req
+    "GetResourceSet"
+    "fixture/GetResourceSet.yaml"
+
 requestGetThirdPartyFirewallAssociationStatus :: GetThirdPartyFirewallAssociationStatus -> TestTree
 requestGetThirdPartyFirewallAssociationStatus =
   req
@@ -329,6 +401,12 @@ requestListComplianceStatus =
     "ListComplianceStatus"
     "fixture/ListComplianceStatus.yaml"
 
+requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
+requestListDiscoveredResources =
+  req
+    "ListDiscoveredResources"
+    "fixture/ListDiscoveredResources.yaml"
+
 requestListMemberAccounts :: ListMemberAccounts -> TestTree
 requestListMemberAccounts =
   req
@@ -346,6 +424,18 @@ requestListProtocolsLists =
   req
     "ListProtocolsLists"
     "fixture/ListProtocolsLists.yaml"
+
+requestListResourceSetResources :: ListResourceSetResources -> TestTree
+requestListResourceSetResources =
+  req
+    "ListResourceSetResources"
+    "fixture/ListResourceSetResources.yaml"
+
+requestListResourceSets :: ListResourceSets -> TestTree
+requestListResourceSets =
+  req
+    "ListResourceSets"
+    "fixture/ListResourceSets.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -383,6 +473,12 @@ requestPutProtocolsList =
     "PutProtocolsList"
     "fixture/PutProtocolsList.yaml"
 
+requestPutResourceSet :: PutResourceSet -> TestTree
+requestPutResourceSet =
+  req
+    "PutResourceSet"
+    "fixture/PutResourceSet.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -412,6 +508,22 @@ responseAssociateThirdPartyFirewall =
     "fixture/AssociateThirdPartyFirewallResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateThirdPartyFirewall)
+
+responseBatchAssociateResource :: BatchAssociateResourceResponse -> TestTree
+responseBatchAssociateResource =
+  res
+    "BatchAssociateResourceResponse"
+    "fixture/BatchAssociateResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateResource)
+
+responseBatchDisassociateResource :: BatchDisassociateResourceResponse -> TestTree
+responseBatchDisassociateResource =
+  res
+    "BatchDisassociateResourceResponse"
+    "fixture/BatchDisassociateResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateResource)
 
 responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
 responseDeleteAppsList =
@@ -444,6 +556,14 @@ responseDeleteProtocolsList =
     "fixture/DeleteProtocolsListResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProtocolsList)
+
+responseDeleteResourceSet :: DeleteResourceSetResponse -> TestTree
+responseDeleteResourceSet =
+  res
+    "DeleteResourceSetResponse"
+    "fixture/DeleteResourceSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceSet)
 
 responseDisassociateAdminAccount :: DisassociateAdminAccountResponse -> TestTree
 responseDisassociateAdminAccount =
@@ -517,6 +637,14 @@ responseGetProtocolsList =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProtocolsList)
 
+responseGetResourceSet :: GetResourceSetResponse -> TestTree
+responseGetResourceSet =
+  res
+    "GetResourceSetResponse"
+    "fixture/GetResourceSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceSet)
+
 responseGetThirdPartyFirewallAssociationStatus :: GetThirdPartyFirewallAssociationStatusResponse -> TestTree
 responseGetThirdPartyFirewallAssociationStatus =
   res
@@ -549,6 +677,14 @@ responseListComplianceStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListComplianceStatus)
 
+responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
+responseListDiscoveredResources =
+  res
+    "ListDiscoveredResourcesResponse"
+    "fixture/ListDiscoveredResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)
+
 responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
 responseListMemberAccounts =
   res
@@ -572,6 +708,22 @@ responseListProtocolsLists =
     "fixture/ListProtocolsListsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProtocolsLists)
+
+responseListResourceSetResources :: ListResourceSetResourcesResponse -> TestTree
+responseListResourceSetResources =
+  res
+    "ListResourceSetResourcesResponse"
+    "fixture/ListResourceSetResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSetResources)
+
+responseListResourceSets :: ListResourceSetsResponse -> TestTree
+responseListResourceSets =
+  res
+    "ListResourceSetsResponse"
+    "fixture/ListResourceSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -620,6 +772,14 @@ responsePutProtocolsList =
     "fixture/PutProtocolsListResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutProtocolsList)
+
+responsePutResourceSet :: PutResourceSetResponse -> TestTree
+responsePutResourceSet =
+  res
+    "PutResourceSetResponse"
+    "fixture/PutResourceSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourceSet)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

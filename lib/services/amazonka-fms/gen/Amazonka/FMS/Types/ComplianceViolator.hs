@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.ComplianceViolator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.ViolationReason
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the resource that is not protected by the policy.

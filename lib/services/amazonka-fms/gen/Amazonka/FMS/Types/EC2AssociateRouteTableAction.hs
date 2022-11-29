@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.EC2AssociateRouteTableAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.ActionTarget
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action of associating an EC2 resource, such as a subnet or internet

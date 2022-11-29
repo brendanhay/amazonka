@@ -20,12 +20,12 @@
 module Amazonka.IdentityStore.Types.User where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.Address
 import Amazonka.IdentityStore.Types.Email
 import Amazonka.IdentityStore.Types.ExternalId
 import Amazonka.IdentityStore.Types.Name
 import Amazonka.IdentityStore.Types.PhoneNumber
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user object that contains a specified user’s metadata and attributes.

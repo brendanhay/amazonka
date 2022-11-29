@@ -20,8 +20,8 @@
 module Amazonka.IdentityStore.Types.UniqueAttribute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.AttributeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity attribute that\'s unique to a specific entity.

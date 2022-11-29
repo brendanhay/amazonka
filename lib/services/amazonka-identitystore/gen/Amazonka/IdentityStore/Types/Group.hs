@@ -20,8 +20,8 @@
 module Amazonka.IdentityStore.Types.Group where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.ExternalId
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group object that contains a specified group’s metadata and

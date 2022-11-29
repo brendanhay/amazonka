@@ -20,8 +20,8 @@
 module Amazonka.IdentityStore.Types.GroupMembershipExistenceResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.MemberId
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether a resource is a member of a group in the identity

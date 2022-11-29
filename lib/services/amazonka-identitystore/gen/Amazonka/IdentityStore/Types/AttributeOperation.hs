@@ -20,8 +20,8 @@
 module Amazonka.IdentityStore.Types.AttributeOperation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.AttributeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An operation that applies to the requested group. This operation might

@@ -64,7 +64,7 @@ where
 
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,8 +173,8 @@ startDeployment_configurationVersion = Lens.lens (\StartDeployment' {configurati
 
 instance Core.AWSRequest StartDeployment where
   type AWSResponse StartDeployment = Deployment
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

@@ -21,7 +21,7 @@ module Amazonka.AppConfig.Types.ConfigurationProfileSummary where
 
 import Amazonka.AppConfig.Types.ValidatorType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a configuration profile.

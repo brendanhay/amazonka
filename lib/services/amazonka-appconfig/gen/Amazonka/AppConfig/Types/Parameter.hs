@@ -20,7 +20,7 @@
 module Amazonka.AppConfig.Types.Parameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A value such as an Amazon Resource Name (ARN) or an Amazon Simple

@@ -22,7 +22,7 @@ module Amazonka.AppConfig.Types.DeploymentStrategy where
 import Amazonka.AppConfig.Types.GrowthType
 import Amazonka.AppConfig.Types.ReplicateTo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeploymentStrategy' smart constructor.

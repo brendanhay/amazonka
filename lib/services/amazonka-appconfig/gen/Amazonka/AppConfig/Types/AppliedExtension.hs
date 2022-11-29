@@ -20,7 +20,7 @@
 module Amazonka.AppConfig.Types.AppliedExtension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An extension that was invoked during a deployment.

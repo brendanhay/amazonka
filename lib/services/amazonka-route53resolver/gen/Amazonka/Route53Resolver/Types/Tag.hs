@@ -20,7 +20,7 @@
 module Amazonka.Route53Resolver.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | One tag that you want to add to the specified resource. A tag consists

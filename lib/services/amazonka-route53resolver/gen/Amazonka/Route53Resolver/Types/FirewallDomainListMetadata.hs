@@ -20,7 +20,7 @@
 module Amazonka.Route53Resolver.Types.FirewallDomainListMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Minimal high-level information for a firewall domain list. The action

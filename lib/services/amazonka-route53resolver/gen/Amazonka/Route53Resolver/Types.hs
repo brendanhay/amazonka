@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -335,7 +336,7 @@ module Amazonka.Route53Resolver.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.Action
 import Amazonka.Route53Resolver.Types.AutodefinedReverseFlag
@@ -389,29 +390,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "Route53Resolver",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "route53resolver",
-      Core._serviceSigningName = "route53resolver",
-      Core._serviceVersion = "2018-04-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "Route53Resolver",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Route53Resolver",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "route53resolver",
+      Core.signingName = "route53resolver",
+      Core.version = "2018-04-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Route53Resolver",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

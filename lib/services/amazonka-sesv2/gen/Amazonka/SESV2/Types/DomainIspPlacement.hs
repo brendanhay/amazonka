@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.DomainIspPlacement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains inbox placement data for email sent from one of

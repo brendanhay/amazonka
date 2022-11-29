@@ -61,6 +61,9 @@ module Amazonka.SESV2
     -- ** BadRequestException
     _BadRequestException,
 
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
+
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
@@ -69,6 +72,12 @@ module Amazonka.SESV2
 
     -- * Operations
     -- $operations
+
+    -- ** BatchGetMetricData
+    BatchGetMetricData (BatchGetMetricData'),
+    newBatchGetMetricData,
+    BatchGetMetricDataResponse (BatchGetMetricDataResponse'),
+    newBatchGetMetricDataResponse,
 
     -- ** CreateConfigurationSet
     CreateConfigurationSet (CreateConfigurationSet'),
@@ -370,6 +379,12 @@ module Amazonka.SESV2
     ListImportJobsResponse (ListImportJobsResponse'),
     newListImportJobsResponse,
 
+    -- ** ListRecommendations
+    ListRecommendations (ListRecommendations'),
+    newListRecommendations,
+    ListRecommendationsResponse (ListRecommendationsResponse'),
+    newListRecommendationsResponse,
+
     -- ** ListSuppressedDestinations
     ListSuppressedDestinations (ListSuppressedDestinations'),
     newListSuppressedDestinations,
@@ -406,6 +421,12 @@ module Amazonka.SESV2
     PutAccountSuppressionAttributesResponse (PutAccountSuppressionAttributesResponse'),
     newPutAccountSuppressionAttributesResponse,
 
+    -- ** PutAccountVdmAttributes
+    PutAccountVdmAttributes (PutAccountVdmAttributes'),
+    newPutAccountVdmAttributes,
+    PutAccountVdmAttributesResponse (PutAccountVdmAttributesResponse'),
+    newPutAccountVdmAttributesResponse,
+
     -- ** PutConfigurationSetDeliveryOptions
     PutConfigurationSetDeliveryOptions (PutConfigurationSetDeliveryOptions'),
     newPutConfigurationSetDeliveryOptions,
@@ -435,6 +456,12 @@ module Amazonka.SESV2
     newPutConfigurationSetTrackingOptions,
     PutConfigurationSetTrackingOptionsResponse (PutConfigurationSetTrackingOptionsResponse'),
     newPutConfigurationSetTrackingOptionsResponse,
+
+    -- ** PutConfigurationSetVdmOptions
+    PutConfigurationSetVdmOptions (PutConfigurationSetVdmOptions'),
+    newPutConfigurationSetVdmOptions,
+    PutConfigurationSetVdmOptionsResponse (PutConfigurationSetVdmOptionsResponse'),
+    newPutConfigurationSetVdmOptionsResponse,
 
     -- ** PutDedicatedIpInPool
     PutDedicatedIpInPool (PutDedicatedIpInPool'),
@@ -600,6 +627,9 @@ module Amazonka.SESV2
     -- ** EventType
     EventType (..),
 
+    -- ** FeatureStatus
+    FeatureStatus (..),
+
     -- ** IdentityType
     IdentityType (..),
 
@@ -609,11 +639,35 @@ module Amazonka.SESV2
     -- ** JobStatus
     JobStatus (..),
 
+    -- ** ListRecommendationsFilterKey
+    ListRecommendationsFilterKey (..),
+
     -- ** MailFromDomainStatus
     MailFromDomainStatus (..),
 
     -- ** MailType
     MailType (..),
+
+    -- ** Metric
+    Metric (..),
+
+    -- ** MetricDimensionName
+    MetricDimensionName (..),
+
+    -- ** MetricNamespace
+    MetricNamespace (..),
+
+    -- ** QueryErrorCode
+    QueryErrorCode (..),
+
+    -- ** RecommendationImpact
+    RecommendationImpact (..),
+
+    -- ** RecommendationStatus
+    RecommendationStatus (..),
+
+    -- ** RecommendationType
+    RecommendationType (..),
 
     -- ** ReviewStatus
     ReviewStatus (..),
@@ -642,6 +696,10 @@ module Amazonka.SESV2
     -- ** AccountDetails
     AccountDetails (AccountDetails'),
     newAccountDetails,
+
+    -- ** BatchGetMetricDataQuery
+    BatchGetMetricDataQuery (BatchGetMetricDataQuery'),
+    newBatchGetMetricDataQuery,
 
     -- ** BlacklistEntry
     BlacklistEntry (BlacklistEntry'),
@@ -694,6 +752,14 @@ module Amazonka.SESV2
     -- ** DailyVolume
     DailyVolume (DailyVolume'),
     newDailyVolume,
+
+    -- ** DashboardAttributes
+    DashboardAttributes (DashboardAttributes'),
+    newDashboardAttributes,
+
+    -- ** DashboardOptions
+    DashboardOptions (DashboardOptions'),
+    newDashboardOptions,
 
     -- ** DedicatedIp
     DedicatedIp (DedicatedIp'),
@@ -759,6 +825,14 @@ module Amazonka.SESV2
     FailureInfo (FailureInfo'),
     newFailureInfo,
 
+    -- ** GuardianAttributes
+    GuardianAttributes (GuardianAttributes'),
+    newGuardianAttributes,
+
+    -- ** GuardianOptions
+    GuardianOptions (GuardianOptions'),
+    newGuardianOptions,
+
     -- ** IdentityInfo
     IdentityInfo (IdentityInfo'),
     newIdentityInfo,
@@ -807,6 +881,14 @@ module Amazonka.SESV2
     MessageTag (MessageTag'),
     newMessageTag,
 
+    -- ** MetricDataError
+    MetricDataError (MetricDataError'),
+    newMetricDataError,
+
+    -- ** MetricDataResult
+    MetricDataResult (MetricDataResult'),
+    newMetricDataResult,
+
     -- ** OverallVolume
     OverallVolume (OverallVolume'),
     newOverallVolume,
@@ -822,6 +904,10 @@ module Amazonka.SESV2
     -- ** RawMessage
     RawMessage (RawMessage'),
     newRawMessage,
+
+    -- ** Recommendation
+    Recommendation (Recommendation'),
+    newRecommendation,
 
     -- ** ReplacementEmailContent
     ReplacementEmailContent (ReplacementEmailContent'),
@@ -899,12 +985,21 @@ module Amazonka.SESV2
     TrackingOptions (TrackingOptions'),
     newTrackingOptions,
 
+    -- ** VdmAttributes
+    VdmAttributes (VdmAttributes'),
+    newVdmAttributes,
+
+    -- ** VdmOptions
+    VdmOptions (VdmOptions'),
+    newVdmOptions,
+
     -- ** VolumeStatistics
     VolumeStatistics (VolumeStatistics'),
     newVolumeStatistics,
   )
 where
 
+import Amazonka.SESV2.BatchGetMetricData
 import Amazonka.SESV2.CreateConfigurationSet
 import Amazonka.SESV2.CreateConfigurationSetEventDestination
 import Amazonka.SESV2.CreateContact
@@ -956,17 +1051,20 @@ import Amazonka.SESV2.ListDomainDeliverabilityCampaigns
 import Amazonka.SESV2.ListEmailIdentities
 import Amazonka.SESV2.ListEmailTemplates
 import Amazonka.SESV2.ListImportJobs
+import Amazonka.SESV2.ListRecommendations
 import Amazonka.SESV2.ListSuppressedDestinations
 import Amazonka.SESV2.ListTagsForResource
 import Amazonka.SESV2.PutAccountDedicatedIpWarmupAttributes
 import Amazonka.SESV2.PutAccountDetails
 import Amazonka.SESV2.PutAccountSendingAttributes
 import Amazonka.SESV2.PutAccountSuppressionAttributes
+import Amazonka.SESV2.PutAccountVdmAttributes
 import Amazonka.SESV2.PutConfigurationSetDeliveryOptions
 import Amazonka.SESV2.PutConfigurationSetReputationOptions
 import Amazonka.SESV2.PutConfigurationSetSendingOptions
 import Amazonka.SESV2.PutConfigurationSetSuppressionOptions
 import Amazonka.SESV2.PutConfigurationSetTrackingOptions
+import Amazonka.SESV2.PutConfigurationSetVdmOptions
 import Amazonka.SESV2.PutDedicatedIpInPool
 import Amazonka.SESV2.PutDedicatedIpWarmupAttributes
 import Amazonka.SESV2.PutDeliverabilityDashboardOption

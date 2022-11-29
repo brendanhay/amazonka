@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -28,6 +29,7 @@ module Amazonka.SESV2.Types
     _AccountSuspendedException,
     _MessageRejected,
     _BadRequestException,
+    _InternalServiceErrorException,
     _TooManyRequestsException,
 
     -- * BehaviorOnMxFailure
@@ -66,6 +68,9 @@ module Amazonka.SESV2.Types
     -- * EventType
     EventType (..),
 
+    -- * FeatureStatus
+    FeatureStatus (..),
+
     -- * IdentityType
     IdentityType (..),
 
@@ -75,11 +80,35 @@ module Amazonka.SESV2.Types
     -- * JobStatus
     JobStatus (..),
 
+    -- * ListRecommendationsFilterKey
+    ListRecommendationsFilterKey (..),
+
     -- * MailFromDomainStatus
     MailFromDomainStatus (..),
 
     -- * MailType
     MailType (..),
+
+    -- * Metric
+    Metric (..),
+
+    -- * MetricDimensionName
+    MetricDimensionName (..),
+
+    -- * MetricNamespace
+    MetricNamespace (..),
+
+    -- * QueryErrorCode
+    QueryErrorCode (..),
+
+    -- * RecommendationImpact
+    RecommendationImpact (..),
+
+    -- * RecommendationStatus
+    RecommendationStatus (..),
+
+    -- * RecommendationType
+    RecommendationType (..),
 
     -- * ReviewStatus
     ReviewStatus (..),
@@ -114,6 +143,16 @@ module Amazonka.SESV2.Types
     accountDetails_reviewDetails,
     accountDetails_websiteURL,
     accountDetails_additionalContactEmailAddresses,
+
+    -- * BatchGetMetricDataQuery
+    BatchGetMetricDataQuery (..),
+    newBatchGetMetricDataQuery,
+    batchGetMetricDataQuery_dimensions,
+    batchGetMetricDataQuery_id,
+    batchGetMetricDataQuery_namespace,
+    batchGetMetricDataQuery_metric,
+    batchGetMetricDataQuery_startDate,
+    batchGetMetricDataQuery_endDate,
 
     -- * BlacklistEntry
     BlacklistEntry (..),
@@ -201,6 +240,16 @@ module Amazonka.SESV2.Types
     dailyVolume_volumeStatistics,
     dailyVolume_startDate,
     dailyVolume_domainIspPlacements,
+
+    -- * DashboardAttributes
+    DashboardAttributes (..),
+    newDashboardAttributes,
+    dashboardAttributes_engagementMetrics,
+
+    -- * DashboardOptions
+    DashboardOptions (..),
+    newDashboardOptions,
+    dashboardOptions_engagementMetrics,
 
     -- * DedicatedIp
     DedicatedIp (..),
@@ -338,6 +387,16 @@ module Amazonka.SESV2.Types
     failureInfo_errorMessage,
     failureInfo_failedRecordsS3Url,
 
+    -- * GuardianAttributes
+    GuardianAttributes (..),
+    newGuardianAttributes,
+    guardianAttributes_optimizedSharedDelivery,
+
+    -- * GuardianOptions
+    GuardianOptions (..),
+    newGuardianOptions,
+    guardianOptions_optimizedSharedDelivery,
+
     -- * IdentityInfo
     IdentityInfo (..),
     newIdentityInfo,
@@ -417,6 +476,20 @@ module Amazonka.SESV2.Types
     messageTag_name,
     messageTag_value,
 
+    -- * MetricDataError
+    MetricDataError (..),
+    newMetricDataError,
+    metricDataError_message,
+    metricDataError_code,
+    metricDataError_id,
+
+    -- * MetricDataResult
+    MetricDataResult (..),
+    newMetricDataResult,
+    metricDataResult_timestamps,
+    metricDataResult_id,
+    metricDataResult_values,
+
     -- * OverallVolume
     OverallVolume (..),
     newOverallVolume,
@@ -442,6 +515,17 @@ module Amazonka.SESV2.Types
     RawMessage (..),
     newRawMessage,
     rawMessage_data,
+
+    -- * Recommendation
+    Recommendation (..),
+    newRecommendation,
+    recommendation_lastUpdatedTimestamp,
+    recommendation_impact,
+    recommendation_type,
+    recommendation_createdTimestamp,
+    recommendation_status,
+    recommendation_description,
+    recommendation_resourceArn,
 
     -- * ReplacementEmailContent
     ReplacementEmailContent (..),
@@ -556,6 +640,19 @@ module Amazonka.SESV2.Types
     newTrackingOptions,
     trackingOptions_customRedirectDomain,
 
+    -- * VdmAttributes
+    VdmAttributes (..),
+    newVdmAttributes,
+    vdmAttributes_guardianAttributes,
+    vdmAttributes_dashboardAttributes,
+    vdmAttributes_vdmEnabled,
+
+    -- * VdmOptions
+    VdmOptions (..),
+    newVdmOptions,
+    vdmOptions_guardianOptions,
+    vdmOptions_dashboardOptions,
+
     -- * VolumeStatistics
     VolumeStatistics (..),
     newVolumeStatistics,
@@ -567,9 +664,10 @@ module Amazonka.SESV2.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.AccountDetails
+import Amazonka.SESV2.Types.BatchGetMetricDataQuery
 import Amazonka.SESV2.Types.BehaviorOnMxFailure
 import Amazonka.SESV2.Types.BlacklistEntry
 import Amazonka.SESV2.Types.Body
@@ -587,6 +685,8 @@ import Amazonka.SESV2.Types.ContactListImportAction
 import Amazonka.SESV2.Types.Content
 import Amazonka.SESV2.Types.CustomVerificationEmailTemplateMetadata
 import Amazonka.SESV2.Types.DailyVolume
+import Amazonka.SESV2.Types.DashboardAttributes
+import Amazonka.SESV2.Types.DashboardOptions
 import Amazonka.SESV2.Types.DataFormat
 import Amazonka.SESV2.Types.DedicatedIp
 import Amazonka.SESV2.Types.DedicatedIpPool
@@ -611,6 +711,9 @@ import Amazonka.SESV2.Types.EventDestination
 import Amazonka.SESV2.Types.EventDestinationDefinition
 import Amazonka.SESV2.Types.EventType
 import Amazonka.SESV2.Types.FailureInfo
+import Amazonka.SESV2.Types.FeatureStatus
+import Amazonka.SESV2.Types.GuardianAttributes
+import Amazonka.SESV2.Types.GuardianOptions
 import Amazonka.SESV2.Types.IdentityInfo
 import Amazonka.SESV2.Types.IdentityType
 import Amazonka.SESV2.Types.ImportDataSource
@@ -623,15 +726,26 @@ import Amazonka.SESV2.Types.JobStatus
 import Amazonka.SESV2.Types.KinesisFirehoseDestination
 import Amazonka.SESV2.Types.ListContactsFilter
 import Amazonka.SESV2.Types.ListManagementOptions
+import Amazonka.SESV2.Types.ListRecommendationsFilterKey
 import Amazonka.SESV2.Types.MailFromAttributes
 import Amazonka.SESV2.Types.MailFromDomainStatus
 import Amazonka.SESV2.Types.MailType
 import Amazonka.SESV2.Types.Message
 import Amazonka.SESV2.Types.MessageTag
+import Amazonka.SESV2.Types.Metric
+import Amazonka.SESV2.Types.MetricDataError
+import Amazonka.SESV2.Types.MetricDataResult
+import Amazonka.SESV2.Types.MetricDimensionName
+import Amazonka.SESV2.Types.MetricNamespace
 import Amazonka.SESV2.Types.OverallVolume
 import Amazonka.SESV2.Types.PinpointDestination
 import Amazonka.SESV2.Types.PlacementStatistics
+import Amazonka.SESV2.Types.QueryErrorCode
 import Amazonka.SESV2.Types.RawMessage
+import Amazonka.SESV2.Types.Recommendation
+import Amazonka.SESV2.Types.RecommendationImpact
+import Amazonka.SESV2.Types.RecommendationStatus
+import Amazonka.SESV2.Types.RecommendationType
 import Amazonka.SESV2.Types.ReplacementEmailContent
 import Amazonka.SESV2.Types.ReplacementTemplate
 import Amazonka.SESV2.Types.ReputationOptions
@@ -657,6 +771,8 @@ import Amazonka.SESV2.Types.Topic
 import Amazonka.SESV2.Types.TopicFilter
 import Amazonka.SESV2.Types.TopicPreference
 import Amazonka.SESV2.Types.TrackingOptions
+import Amazonka.SESV2.Types.VdmAttributes
+import Amazonka.SESV2.Types.VdmOptions
 import Amazonka.SESV2.Types.VerificationStatus
 import Amazonka.SESV2.Types.VolumeStatistics
 import Amazonka.SESV2.Types.WarmupStatus
@@ -666,27 +782,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "SESV2",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "email",
-      Core._serviceSigningName = "ses",
-      Core._serviceVersion = "2019-09-27",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "SESV2",
-      Core._serviceRetry = retry
+    { Core.abbrev = "SESV2",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "email",
+      Core.signingName = "ses",
+      Core.version = "2019-09-27",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "SESV2",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -823,6 +937,15 @@ _BadRequestException =
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | The request couldn\'t be processed because an error occurred with the
+-- Amazon SES API v2.
+_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceErrorException"
+    Prelude.. Core.hasStatus 500
 
 -- | Too many requests have been made to the operation.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

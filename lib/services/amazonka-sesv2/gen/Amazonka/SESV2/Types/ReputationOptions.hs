@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.ReputationOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enable or disable collection of reputation metrics for emails that you

@@ -20,7 +20,7 @@
 module Amazonka.DataExchange.Types.RevisionDestinationEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The destination where the assets in the revision will be exported.

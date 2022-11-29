@@ -20,8 +20,8 @@
 module Amazonka.DataExchange.Types.ExportServerSideEncryption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.ServerSideEncryptionTypes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encryption configuration of the export job. Includes the encryption type

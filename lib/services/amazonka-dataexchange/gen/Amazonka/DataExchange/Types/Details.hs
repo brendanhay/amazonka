@@ -20,9 +20,9 @@
 module Amazonka.DataExchange.Types.Details where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.AssetSourceEntry
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the job error.

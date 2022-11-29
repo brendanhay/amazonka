@@ -20,9 +20,9 @@
 module Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.AssetDestinationEntry
 import Amazonka.DataExchange.Types.ExportServerSideEncryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the operation to be performed by the job.

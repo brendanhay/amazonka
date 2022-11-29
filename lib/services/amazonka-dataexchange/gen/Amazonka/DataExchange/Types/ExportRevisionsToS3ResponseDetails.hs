@@ -20,9 +20,9 @@
 module Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.ExportServerSideEncryption
 import Amazonka.DataExchange.Types.RevisionDestinationEntry
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the export revisions to Amazon S3 response.

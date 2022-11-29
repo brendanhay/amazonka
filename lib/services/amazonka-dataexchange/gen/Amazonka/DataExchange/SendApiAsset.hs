@@ -49,8 +49,8 @@ module Amazonka.DataExchange.SendApiAsset
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +171,8 @@ sendApiAsset_revisionId = Lens.lens (\SendApiAsset' {revisionId} -> revisionId) 
 
 instance Core.AWSRequest SendApiAsset where
   type AWSResponse SendApiAsset = SendApiAssetResponse
-  service _ = defaultService
-  request srv = Request.postBody srv
+  request overrides =
+    Request.postBody (overrides defaultService)
   response =
     Response.receiveBytes
       ( \s h x ->

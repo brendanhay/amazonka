@@ -20,10 +20,10 @@
 module Amazonka.DataExchange.Types.DataSetEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.AssetType
 import Amazonka.DataExchange.Types.Origin
 import Amazonka.DataExchange.Types.OriginDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data set is an AWS resource with one or more revisions.

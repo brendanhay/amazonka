@@ -20,6 +20,7 @@
 module Amazonka.DataExchange.Types.RequestDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
@@ -27,7 +28,6 @@ import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for the request.

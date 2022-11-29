@@ -20,9 +20,9 @@
 module Amazonka.DataExchange.Types.EventActionEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.Action
 import Amazonka.DataExchange.Types.Event
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event action is an object that defines the relationship between a

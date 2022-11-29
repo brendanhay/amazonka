@@ -20,9 +20,9 @@
 module Amazonka.DataExchange.Types.AssetEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.AssetDetails
 import Amazonka.DataExchange.Types.AssetType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An asset in AWS Data Exchange is a piece of data (S3 object) or a means

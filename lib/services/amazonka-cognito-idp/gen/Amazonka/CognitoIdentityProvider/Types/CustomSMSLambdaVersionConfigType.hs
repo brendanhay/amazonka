@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType w
 
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom SMS sender Lambda configuration type.

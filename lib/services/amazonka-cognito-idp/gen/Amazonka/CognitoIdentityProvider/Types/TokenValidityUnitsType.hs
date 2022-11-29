@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType where
 
 import Amazonka.CognitoIdentityProvider.Types.TimeUnitsType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data type TokenValidityUnits specifies the time units you use when

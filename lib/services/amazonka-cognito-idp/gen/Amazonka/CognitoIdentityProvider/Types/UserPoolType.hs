@@ -38,7 +38,7 @@ import Amazonka.CognitoIdentityProvider.Types.UsernameConfigurationType
 import Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType
 import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about the user pool.

@@ -26,7 +26,7 @@ import Amazonka.CognitoIdentityProvider.Types.EventResponseType
 import Amazonka.CognitoIdentityProvider.Types.EventRiskType
 import Amazonka.CognitoIdentityProvider.Types.EventType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication event type.

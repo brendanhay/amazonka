@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserPoolPolicyType where
 
 import Amazonka.CognitoIdentityProvider.Types.PasswordPolicyType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policy associated with a user pool.

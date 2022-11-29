@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.SmsMfaConfigType where
 
 import Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SMS text message multi-factor authentication (MFA) configuration

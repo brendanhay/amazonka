@@ -22,7 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.LambdaConfigType where
 import Amazonka.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for Lambda triggers.

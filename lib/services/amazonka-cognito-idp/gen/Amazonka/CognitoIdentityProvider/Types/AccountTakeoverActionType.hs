@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionType where
 
 import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Account takeover action type.

@@ -22,7 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.DomainDescriptionType where
 import Amazonka.CognitoIdentityProvider.Types.CustomDomainConfigType
 import Amazonka.CognitoIdentityProvider.Types.DomainStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about a domain.

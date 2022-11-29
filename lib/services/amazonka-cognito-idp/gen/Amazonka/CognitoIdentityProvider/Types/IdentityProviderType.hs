@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.IdentityProviderType where
 
 import Amazonka.CognitoIdentityProvider.Types.IdentityProviderTypeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about an IdP.

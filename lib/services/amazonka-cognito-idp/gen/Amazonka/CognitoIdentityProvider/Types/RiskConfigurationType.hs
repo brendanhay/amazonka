@@ -23,7 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationTy
 import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
 import Amazonka.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The risk configuration type.

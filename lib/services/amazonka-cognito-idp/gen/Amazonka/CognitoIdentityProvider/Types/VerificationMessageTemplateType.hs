@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType wh
 
 import Amazonka.CognitoIdentityProvider.Types.DefaultEmailOptionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The template for verification messages.

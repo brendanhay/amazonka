@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.MFAOptionType where
 
 import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /This data type is no longer supported./ Applies only to SMS

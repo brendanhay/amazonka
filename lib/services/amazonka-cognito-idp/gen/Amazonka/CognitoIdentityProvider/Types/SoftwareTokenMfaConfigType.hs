@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user pool level.

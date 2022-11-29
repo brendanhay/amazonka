@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.UserContextDataType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual data, such as the user\'s device fingerprint, IP address, or

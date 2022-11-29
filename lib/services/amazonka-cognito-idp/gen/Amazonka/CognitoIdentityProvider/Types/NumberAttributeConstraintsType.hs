@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.NumberAttributeConstraintsType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The minimum and maximum values of an attribute that is of the number

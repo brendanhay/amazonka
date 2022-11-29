@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.RecoveryOptionType where
 
 import Amazonka.CognitoIdentityProvider.Types.RecoveryOptionNameType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map containing a priority as a key, and recovery method name as a

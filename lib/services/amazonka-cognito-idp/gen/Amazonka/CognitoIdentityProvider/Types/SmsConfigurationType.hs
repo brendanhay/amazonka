@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SMS configuration type is the settings that your Amazon Cognito user

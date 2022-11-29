@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserAttributeUpdateSettingsType wh
 
 import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for updates to user attributes. These settings include the

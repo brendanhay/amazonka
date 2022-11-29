@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.ContextDataType where
 
 import Amazonka.CognitoIdentityProvider.Types.HttpHeader
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual user data type used for evaluating the risk of an unexpected

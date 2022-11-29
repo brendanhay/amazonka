@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Signer.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.DescribeSigningJob
 import Amazonka.Signer.Lens
@@ -26,10 +27,10 @@ import Amazonka.Signer.Types
 newSuccessfulSigningJob :: Core.Wait DescribeSigningJob
 newSuccessfulSigningJob =
   Core.Wait
-    { Core._waitName = "SuccessfulSigningJob",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "SuccessfulSigningJob",
+      Core.attempts = 25,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "Succeeded"
             Core.AcceptSuccess

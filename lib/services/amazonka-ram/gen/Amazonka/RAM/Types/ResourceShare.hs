@@ -20,7 +20,7 @@
 module Amazonka.RAM.Types.ResourceShare where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareFeatureSet
 import Amazonka.RAM.Types.ResourceShareStatus

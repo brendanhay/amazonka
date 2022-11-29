@@ -24,7 +24,7 @@ import Amazonka.ComprehendMedical.Types.ICD10CMEntityType
 import Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
 import Amazonka.ComprehendMedical.Types.ICD10CMTrait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detected attributes that relate to an entity. This includes an

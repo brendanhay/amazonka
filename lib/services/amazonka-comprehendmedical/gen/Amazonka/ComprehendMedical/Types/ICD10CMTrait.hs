@@ -21,7 +21,7 @@ module Amazonka.ComprehendMedical.Types.ICD10CMTrait where
 
 import Amazonka.ComprehendMedical.Types.ICD10CMTraitName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual information for the entity. The traits recognized by

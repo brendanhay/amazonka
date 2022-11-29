@@ -21,7 +21,12 @@ module Amazonka.ComprehendMedical.Types.AttributeName
   ( AttributeName
       ( ..,
         AttributeName_DIAGNOSIS,
+        AttributeName_FUTURE,
+        AttributeName_HYPOTHETICAL,
+        AttributeName_LOW_CONFIDENCE,
         AttributeName_NEGATION,
+        AttributeName_PAST_HISTORY,
+        AttributeName_PERTAINS_TO_FAMILY,
         AttributeName_SIGN,
         AttributeName_SYMPTOM
       ),
@@ -62,8 +67,23 @@ newtype AttributeName = AttributeName'
 pattern AttributeName_DIAGNOSIS :: AttributeName
 pattern AttributeName_DIAGNOSIS = AttributeName' "DIAGNOSIS"
 
+pattern AttributeName_FUTURE :: AttributeName
+pattern AttributeName_FUTURE = AttributeName' "FUTURE"
+
+pattern AttributeName_HYPOTHETICAL :: AttributeName
+pattern AttributeName_HYPOTHETICAL = AttributeName' "HYPOTHETICAL"
+
+pattern AttributeName_LOW_CONFIDENCE :: AttributeName
+pattern AttributeName_LOW_CONFIDENCE = AttributeName' "LOW_CONFIDENCE"
+
 pattern AttributeName_NEGATION :: AttributeName
 pattern AttributeName_NEGATION = AttributeName' "NEGATION"
+
+pattern AttributeName_PAST_HISTORY :: AttributeName
+pattern AttributeName_PAST_HISTORY = AttributeName' "PAST_HISTORY"
+
+pattern AttributeName_PERTAINS_TO_FAMILY :: AttributeName
+pattern AttributeName_PERTAINS_TO_FAMILY = AttributeName' "PERTAINS_TO_FAMILY"
 
 pattern AttributeName_SIGN :: AttributeName
 pattern AttributeName_SIGN = AttributeName' "SIGN"
@@ -73,7 +93,12 @@ pattern AttributeName_SYMPTOM = AttributeName' "SYMPTOM"
 
 {-# COMPLETE
   AttributeName_DIAGNOSIS,
+  AttributeName_FUTURE,
+  AttributeName_HYPOTHETICAL,
+  AttributeName_LOW_CONFIDENCE,
   AttributeName_NEGATION,
+  AttributeName_PAST_HISTORY,
+  AttributeName_PERTAINS_TO_FAMILY,
   AttributeName_SIGN,
   AttributeName_SYMPTOM,
   AttributeName'

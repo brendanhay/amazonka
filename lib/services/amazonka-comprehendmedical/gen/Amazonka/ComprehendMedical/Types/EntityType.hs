@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.EntityType
   ( EntityType
       ( ..,
         EntityType_ANATOMY,
+        EntityType_BEHAVIORAL_ENVIRONMENTAL_SOCIAL,
         EntityType_MEDICAL_CONDITION,
         EntityType_MEDICATION,
         EntityType_PROTECTED_HEALTH_INFORMATION,
@@ -64,6 +65,9 @@ newtype EntityType = EntityType'
 pattern EntityType_ANATOMY :: EntityType
 pattern EntityType_ANATOMY = EntityType' "ANATOMY"
 
+pattern EntityType_BEHAVIORAL_ENVIRONMENTAL_SOCIAL :: EntityType
+pattern EntityType_BEHAVIORAL_ENVIRONMENTAL_SOCIAL = EntityType' "BEHAVIORAL_ENVIRONMENTAL_SOCIAL"
+
 pattern EntityType_MEDICAL_CONDITION :: EntityType
 pattern EntityType_MEDICAL_CONDITION = EntityType' "MEDICAL_CONDITION"
 
@@ -81,6 +85,7 @@ pattern EntityType_TIME_EXPRESSION = EntityType' "TIME_EXPRESSION"
 
 {-# COMPLETE
   EntityType_ANATOMY,
+  EntityType_BEHAVIORAL_ENVIRONMENTAL_SOCIAL,
   EntityType_MEDICAL_CONDITION,
   EntityType_MEDICATION,
   EntityType_PROTECTED_HEALTH_INFORMATION,

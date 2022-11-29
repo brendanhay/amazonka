@@ -20,7 +20,7 @@
 module Amazonka.ComprehendMedical.Types.Characters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of characters in the input text to be analyzed.

@@ -21,7 +21,7 @@ module Amazonka.ComprehendMedical.Types.Trait where
 
 import Amazonka.ComprehendMedical.Types.AttributeName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides contextual information about the extracted entity.

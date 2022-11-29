@@ -21,7 +21,7 @@ module Amazonka.ComprehendMedical.Types.RxNormTrait where
 
 import Amazonka.ComprehendMedical.Types.RxNormTraitName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The contextual information for the entity. InferRxNorm recognizes the

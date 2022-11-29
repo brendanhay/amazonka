@@ -22,7 +22,7 @@ module Amazonka.ComprehendMedical.Types.UnmappedAttribute where
 import Amazonka.ComprehendMedical.Types.Attribute
 import Amazonka.ComprehendMedical.Types.EntityType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute that was extracted, but Comprehend Medical; was unable to

@@ -24,7 +24,7 @@ import Amazonka.ComprehendMedical.Types.EntityType
 import Amazonka.ComprehendMedical.Types.RelationshipType
 import Amazonka.ComprehendMedical.Types.Trait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An extracted segment of the text that is an attribute of an entity, or

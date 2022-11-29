@@ -21,7 +21,10 @@ module Amazonka.ComprehendMedical.Types.ICD10CMTraitName
   ( ICD10CMTraitName
       ( ..,
         ICD10CMTraitName_DIAGNOSIS,
+        ICD10CMTraitName_HYPOTHETICAL,
+        ICD10CMTraitName_LOW_CONFIDENCE,
         ICD10CMTraitName_NEGATION,
+        ICD10CMTraitName_PERTAINS_TO_FAMILY,
         ICD10CMTraitName_SIGN,
         ICD10CMTraitName_SYMPTOM
       ),
@@ -62,8 +65,17 @@ newtype ICD10CMTraitName = ICD10CMTraitName'
 pattern ICD10CMTraitName_DIAGNOSIS :: ICD10CMTraitName
 pattern ICD10CMTraitName_DIAGNOSIS = ICD10CMTraitName' "DIAGNOSIS"
 
+pattern ICD10CMTraitName_HYPOTHETICAL :: ICD10CMTraitName
+pattern ICD10CMTraitName_HYPOTHETICAL = ICD10CMTraitName' "HYPOTHETICAL"
+
+pattern ICD10CMTraitName_LOW_CONFIDENCE :: ICD10CMTraitName
+pattern ICD10CMTraitName_LOW_CONFIDENCE = ICD10CMTraitName' "LOW_CONFIDENCE"
+
 pattern ICD10CMTraitName_NEGATION :: ICD10CMTraitName
 pattern ICD10CMTraitName_NEGATION = ICD10CMTraitName' "NEGATION"
+
+pattern ICD10CMTraitName_PERTAINS_TO_FAMILY :: ICD10CMTraitName
+pattern ICD10CMTraitName_PERTAINS_TO_FAMILY = ICD10CMTraitName' "PERTAINS_TO_FAMILY"
 
 pattern ICD10CMTraitName_SIGN :: ICD10CMTraitName
 pattern ICD10CMTraitName_SIGN = ICD10CMTraitName' "SIGN"
@@ -73,7 +85,10 @@ pattern ICD10CMTraitName_SYMPTOM = ICD10CMTraitName' "SYMPTOM"
 
 {-# COMPLETE
   ICD10CMTraitName_DIAGNOSIS,
+  ICD10CMTraitName_HYPOTHETICAL,
+  ICD10CMTraitName_LOW_CONFIDENCE,
   ICD10CMTraitName_NEGATION,
+  ICD10CMTraitName_PERTAINS_TO_FAMILY,
   ICD10CMTraitName_SIGN,
   ICD10CMTraitName_SYMPTOM,
   ICD10CMTraitName'

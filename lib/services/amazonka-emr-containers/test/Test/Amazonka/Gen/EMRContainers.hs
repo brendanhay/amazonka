@@ -30,11 +30,17 @@ import Test.Tasty
 --         [ requestCancelJobRun $
 --             newCancelJobRun
 --
+--         , requestCreateJobTemplate $
+--             newCreateJobTemplate
+--
 --         , requestCreateManagedEndpoint $
 --             newCreateManagedEndpoint
 --
 --         , requestCreateVirtualCluster $
 --             newCreateVirtualCluster
+--
+--         , requestDeleteJobTemplate $
+--             newDeleteJobTemplate
 --
 --         , requestDeleteManagedEndpoint $
 --             newDeleteManagedEndpoint
@@ -45,6 +51,9 @@ import Test.Tasty
 --         , requestDescribeJobRun $
 --             newDescribeJobRun
 --
+--         , requestDescribeJobTemplate $
+--             newDescribeJobTemplate
+--
 --         , requestDescribeManagedEndpoint $
 --             newDescribeManagedEndpoint
 --
@@ -53,6 +62,9 @@ import Test.Tasty
 --
 --         , requestListJobRuns $
 --             newListJobRuns
+--
+--         , requestListJobTemplates $
+--             newListJobTemplates
 --
 --         , requestListManagedEndpoints $
 --             newListManagedEndpoints
@@ -78,11 +90,17 @@ import Test.Tasty
 --         [ responseCancelJobRun $
 --             newCancelJobRunResponse
 --
+--         , responseCreateJobTemplate $
+--             newCreateJobTemplateResponse
+--
 --         , responseCreateManagedEndpoint $
 --             newCreateManagedEndpointResponse
 --
 --         , responseCreateVirtualCluster $
 --             newCreateVirtualClusterResponse
+--
+--         , responseDeleteJobTemplate $
+--             newDeleteJobTemplateResponse
 --
 --         , responseDeleteManagedEndpoint $
 --             newDeleteManagedEndpointResponse
@@ -93,6 +111,9 @@ import Test.Tasty
 --         , responseDescribeJobRun $
 --             newDescribeJobRunResponse
 --
+--         , responseDescribeJobTemplate $
+--             newDescribeJobTemplateResponse
+--
 --         , responseDescribeManagedEndpoint $
 --             newDescribeManagedEndpointResponse
 --
@@ -101,6 +122,9 @@ import Test.Tasty
 --
 --         , responseListJobRuns $
 --             newListJobRunsResponse
+--
+--         , responseListJobTemplates $
+--             newListJobTemplatesResponse
 --
 --         , responseListManagedEndpoints $
 --             newListManagedEndpointsResponse
@@ -131,6 +155,12 @@ requestCancelJobRun =
     "CancelJobRun"
     "fixture/CancelJobRun.yaml"
 
+requestCreateJobTemplate :: CreateJobTemplate -> TestTree
+requestCreateJobTemplate =
+  req
+    "CreateJobTemplate"
+    "fixture/CreateJobTemplate.yaml"
+
 requestCreateManagedEndpoint :: CreateManagedEndpoint -> TestTree
 requestCreateManagedEndpoint =
   req
@@ -142,6 +172,12 @@ requestCreateVirtualCluster =
   req
     "CreateVirtualCluster"
     "fixture/CreateVirtualCluster.yaml"
+
+requestDeleteJobTemplate :: DeleteJobTemplate -> TestTree
+requestDeleteJobTemplate =
+  req
+    "DeleteJobTemplate"
+    "fixture/DeleteJobTemplate.yaml"
 
 requestDeleteManagedEndpoint :: DeleteManagedEndpoint -> TestTree
 requestDeleteManagedEndpoint =
@@ -161,6 +197,12 @@ requestDescribeJobRun =
     "DescribeJobRun"
     "fixture/DescribeJobRun.yaml"
 
+requestDescribeJobTemplate :: DescribeJobTemplate -> TestTree
+requestDescribeJobTemplate =
+  req
+    "DescribeJobTemplate"
+    "fixture/DescribeJobTemplate.yaml"
+
 requestDescribeManagedEndpoint :: DescribeManagedEndpoint -> TestTree
 requestDescribeManagedEndpoint =
   req
@@ -178,6 +220,12 @@ requestListJobRuns =
   req
     "ListJobRuns"
     "fixture/ListJobRuns.yaml"
+
+requestListJobTemplates :: ListJobTemplates -> TestTree
+requestListJobTemplates =
+  req
+    "ListJobTemplates"
+    "fixture/ListJobTemplates.yaml"
 
 requestListManagedEndpoints :: ListManagedEndpoints -> TestTree
 requestListManagedEndpoints =
@@ -225,6 +273,14 @@ responseCancelJobRun =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelJobRun)
 
+responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
+responseCreateJobTemplate =
+  res
+    "CreateJobTemplateResponse"
+    "fixture/CreateJobTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateJobTemplate)
+
 responseCreateManagedEndpoint :: CreateManagedEndpointResponse -> TestTree
 responseCreateManagedEndpoint =
   res
@@ -240,6 +296,14 @@ responseCreateVirtualCluster =
     "fixture/CreateVirtualClusterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateVirtualCluster)
+
+responseDeleteJobTemplate :: DeleteJobTemplateResponse -> TestTree
+responseDeleteJobTemplate =
+  res
+    "DeleteJobTemplateResponse"
+    "fixture/DeleteJobTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteJobTemplate)
 
 responseDeleteManagedEndpoint :: DeleteManagedEndpointResponse -> TestTree
 responseDeleteManagedEndpoint =
@@ -265,6 +329,14 @@ responseDescribeJobRun =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
 
+responseDescribeJobTemplate :: DescribeJobTemplateResponse -> TestTree
+responseDescribeJobTemplate =
+  res
+    "DescribeJobTemplateResponse"
+    "fixture/DescribeJobTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobTemplate)
+
 responseDescribeManagedEndpoint :: DescribeManagedEndpointResponse -> TestTree
 responseDescribeManagedEndpoint =
   res
@@ -288,6 +360,14 @@ responseListJobRuns =
     "fixture/ListJobRunsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
+
+responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
+responseListJobTemplates =
+  res
+    "ListJobTemplatesResponse"
+    "fixture/ListJobTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobTemplates)
 
 responseListManagedEndpoints :: ListManagedEndpointsResponse -> TestTree
 responseListManagedEndpoints =

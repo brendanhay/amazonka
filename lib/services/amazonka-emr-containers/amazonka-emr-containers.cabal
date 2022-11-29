@@ -45,15 +45,19 @@ library
   exposed-modules:
     Amazonka.EMRContainers
     Amazonka.EMRContainers.CancelJobRun
+    Amazonka.EMRContainers.CreateJobTemplate
     Amazonka.EMRContainers.CreateManagedEndpoint
     Amazonka.EMRContainers.CreateVirtualCluster
+    Amazonka.EMRContainers.DeleteJobTemplate
     Amazonka.EMRContainers.DeleteManagedEndpoint
     Amazonka.EMRContainers.DeleteVirtualCluster
     Amazonka.EMRContainers.DescribeJobRun
+    Amazonka.EMRContainers.DescribeJobTemplate
     Amazonka.EMRContainers.DescribeManagedEndpoint
     Amazonka.EMRContainers.DescribeVirtualCluster
     Amazonka.EMRContainers.Lens
     Amazonka.EMRContainers.ListJobRuns
+    Amazonka.EMRContainers.ListJobTemplates
     Amazonka.EMRContainers.ListManagedEndpoints
     Amazonka.EMRContainers.ListTagsForResource
     Amazonka.EMRContainers.ListVirtualClusters
@@ -74,11 +78,19 @@ library
     Amazonka.EMRContainers.Types.JobDriver
     Amazonka.EMRContainers.Types.JobRun
     Amazonka.EMRContainers.Types.JobRunState
+    Amazonka.EMRContainers.Types.JobTemplate
+    Amazonka.EMRContainers.Types.JobTemplateData
     Amazonka.EMRContainers.Types.MonitoringConfiguration
+    Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration
+    Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
+    Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
+    Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
     Amazonka.EMRContainers.Types.PersistentAppUI
     Amazonka.EMRContainers.Types.S3MonitoringConfiguration
     Amazonka.EMRContainers.Types.SparkSqlJobDriver
     Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+    Amazonka.EMRContainers.Types.TemplateParameterConfiguration
+    Amazonka.EMRContainers.Types.TemplateParameterDataType
     Amazonka.EMRContainers.Types.VirtualCluster
     Amazonka.EMRContainers.Types.VirtualClusterState
     Amazonka.EMRContainers.UntagResource

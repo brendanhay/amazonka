@@ -20,12 +20,14 @@
 module Amazonka.EMRContainers.Types.JobDriver where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specify the driver that the job runs on.
+-- | Specify the driver that the job runs on. Exactly one of the two
+-- available job drivers is required, either sparkSqlJobDriver or
+-- sparkSubmitJobDriver.
 --
 -- /See:/ 'newJobDriver' smart constructor.
 data JobDriver = JobDriver'

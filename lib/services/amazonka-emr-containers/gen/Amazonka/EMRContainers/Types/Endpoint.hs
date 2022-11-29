@@ -20,11 +20,11 @@
 module Amazonka.EMRContainers.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.Certificate
 import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.EndpointState
 import Amazonka.EMRContainers.Types.FailureReason
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This entity represents the endpoint that is managed by Amazon EMR on

@@ -30,12 +30,14 @@ module Amazonka.EMRContainers.StartJobRun
     -- * Request Lenses
     startJobRun_tags,
     startJobRun_name,
+    startJobRun_jobDriver,
+    startJobRun_releaseLabel,
+    startJobRun_jobTemplateId,
+    startJobRun_jobTemplateParameters,
     startJobRun_configurationOverrides,
+    startJobRun_executionRoleArn,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
-    startJobRun_executionRoleArn,
-    startJobRun_releaseLabel,
-    startJobRun_jobDriver,
 
     -- * Destructuring the Response
     StartJobRunResponse (..),
@@ -51,8 +53,8 @@ module Amazonka.EMRContainers.StartJobRun
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,18 +65,22 @@ data StartJobRun = StartJobRun'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job run.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The job driver for the job run.
+    jobDriver :: Prelude.Maybe JobDriver,
+    -- | The Amazon EMR release version to use for the job run.
+    releaseLabel :: Prelude.Maybe Prelude.Text,
+    -- | The job template ID to be used to start the job run.
+    jobTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The values of job template parameters to start a job run.
+    jobTemplateParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The configuration overrides for the job run.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
+    -- | The execution role ARN for the job run.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The virtual cluster ID for which the job run request is submitted.
     virtualClusterId :: Prelude.Text,
     -- | The client idempotency token of the job run request.
-    clientToken :: Prelude.Text,
-    -- | The execution role ARN for the job run.
-    executionRoleArn :: Prelude.Text,
-    -- | The Amazon EMR release version to use for the job run.
-    releaseLabel :: Prelude.Text,
-    -- | The job driver for the job run.
-    jobDriver :: JobDriver
+    clientToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -90,45 +96,40 @@ data StartJobRun = StartJobRun'
 --
 -- 'name', 'startJobRun_name' - The name of the job run.
 --
+-- 'jobDriver', 'startJobRun_jobDriver' - The job driver for the job run.
+--
+-- 'releaseLabel', 'startJobRun_releaseLabel' - The Amazon EMR release version to use for the job run.
+--
+-- 'jobTemplateId', 'startJobRun_jobTemplateId' - The job template ID to be used to start the job run.
+--
+-- 'jobTemplateParameters', 'startJobRun_jobTemplateParameters' - The values of job template parameters to start a job run.
+--
 -- 'configurationOverrides', 'startJobRun_configurationOverrides' - The configuration overrides for the job run.
+--
+-- 'executionRoleArn', 'startJobRun_executionRoleArn' - The execution role ARN for the job run.
 --
 -- 'virtualClusterId', 'startJobRun_virtualClusterId' - The virtual cluster ID for which the job run request is submitted.
 --
 -- 'clientToken', 'startJobRun_clientToken' - The client idempotency token of the job run request.
---
--- 'executionRoleArn', 'startJobRun_executionRoleArn' - The execution role ARN for the job run.
---
--- 'releaseLabel', 'startJobRun_releaseLabel' - The Amazon EMR release version to use for the job run.
---
--- 'jobDriver', 'startJobRun_jobDriver' - The job driver for the job run.
 newStartJobRun ::
   -- | 'virtualClusterId'
   Prelude.Text ->
   -- | 'clientToken'
   Prelude.Text ->
-  -- | 'executionRoleArn'
-  Prelude.Text ->
-  -- | 'releaseLabel'
-  Prelude.Text ->
-  -- | 'jobDriver'
-  JobDriver ->
   StartJobRun
-newStartJobRun
-  pVirtualClusterId_
-  pClientToken_
-  pExecutionRoleArn_
-  pReleaseLabel_
-  pJobDriver_ =
-    StartJobRun'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
-        configurationOverrides = Prelude.Nothing,
-        virtualClusterId = pVirtualClusterId_,
-        clientToken = pClientToken_,
-        executionRoleArn = pExecutionRoleArn_,
-        releaseLabel = pReleaseLabel_,
-        jobDriver = pJobDriver_
-      }
+newStartJobRun pVirtualClusterId_ pClientToken_ =
+  StartJobRun'
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      jobDriver = Prelude.Nothing,
+      releaseLabel = Prelude.Nothing,
+      jobTemplateId = Prelude.Nothing,
+      jobTemplateParameters = Prelude.Nothing,
+      configurationOverrides = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
+      virtualClusterId = pVirtualClusterId_,
+      clientToken = pClientToken_
+    }
 
 -- | The tags assigned to job runs.
 startJobRun_tags :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -138,9 +139,29 @@ startJobRun_tags = Lens.lens (\StartJobRun' {tags} -> tags) (\s@StartJobRun' {} 
 startJobRun_name :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
 startJobRun_name = Lens.lens (\StartJobRun' {name} -> name) (\s@StartJobRun' {} a -> s {name = a} :: StartJobRun)
 
+-- | The job driver for the job run.
+startJobRun_jobDriver :: Lens.Lens' StartJobRun (Prelude.Maybe JobDriver)
+startJobRun_jobDriver = Lens.lens (\StartJobRun' {jobDriver} -> jobDriver) (\s@StartJobRun' {} a -> s {jobDriver = a} :: StartJobRun)
+
+-- | The Amazon EMR release version to use for the job run.
+startJobRun_releaseLabel :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_releaseLabel = Lens.lens (\StartJobRun' {releaseLabel} -> releaseLabel) (\s@StartJobRun' {} a -> s {releaseLabel = a} :: StartJobRun)
+
+-- | The job template ID to be used to start the job run.
+startJobRun_jobTemplateId :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_jobTemplateId = Lens.lens (\StartJobRun' {jobTemplateId} -> jobTemplateId) (\s@StartJobRun' {} a -> s {jobTemplateId = a} :: StartJobRun)
+
+-- | The values of job template parameters to start a job run.
+startJobRun_jobTemplateParameters :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startJobRun_jobTemplateParameters = Lens.lens (\StartJobRun' {jobTemplateParameters} -> jobTemplateParameters) (\s@StartJobRun' {} a -> s {jobTemplateParameters = a} :: StartJobRun) Prelude.. Lens.mapping Lens.coerced
+
 -- | The configuration overrides for the job run.
 startJobRun_configurationOverrides :: Lens.Lens' StartJobRun (Prelude.Maybe ConfigurationOverrides)
 startJobRun_configurationOverrides = Lens.lens (\StartJobRun' {configurationOverrides} -> configurationOverrides) (\s@StartJobRun' {} a -> s {configurationOverrides = a} :: StartJobRun)
+
+-- | The execution role ARN for the job run.
+startJobRun_executionRoleArn :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_executionRoleArn = Lens.lens (\StartJobRun' {executionRoleArn} -> executionRoleArn) (\s@StartJobRun' {} a -> s {executionRoleArn = a} :: StartJobRun)
 
 -- | The virtual cluster ID for which the job run request is submitted.
 startJobRun_virtualClusterId :: Lens.Lens' StartJobRun Prelude.Text
@@ -150,22 +171,10 @@ startJobRun_virtualClusterId = Lens.lens (\StartJobRun' {virtualClusterId} -> vi
 startJobRun_clientToken :: Lens.Lens' StartJobRun Prelude.Text
 startJobRun_clientToken = Lens.lens (\StartJobRun' {clientToken} -> clientToken) (\s@StartJobRun' {} a -> s {clientToken = a} :: StartJobRun)
 
--- | The execution role ARN for the job run.
-startJobRun_executionRoleArn :: Lens.Lens' StartJobRun Prelude.Text
-startJobRun_executionRoleArn = Lens.lens (\StartJobRun' {executionRoleArn} -> executionRoleArn) (\s@StartJobRun' {} a -> s {executionRoleArn = a} :: StartJobRun)
-
--- | The Amazon EMR release version to use for the job run.
-startJobRun_releaseLabel :: Lens.Lens' StartJobRun Prelude.Text
-startJobRun_releaseLabel = Lens.lens (\StartJobRun' {releaseLabel} -> releaseLabel) (\s@StartJobRun' {} a -> s {releaseLabel = a} :: StartJobRun)
-
--- | The job driver for the job run.
-startJobRun_jobDriver :: Lens.Lens' StartJobRun JobDriver
-startJobRun_jobDriver = Lens.lens (\StartJobRun' {jobDriver} -> jobDriver) (\s@StartJobRun' {} a -> s {jobDriver = a} :: StartJobRun)
-
 instance Core.AWSRequest StartJobRun where
   type AWSResponse StartJobRun = StartJobRunResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,23 +190,27 @@ instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jobDriver
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` jobTemplateId
+      `Prelude.hashWithSalt` jobTemplateParameters
       `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` virtualClusterId
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` executionRoleArn
-      `Prelude.hashWithSalt` releaseLabel
-      `Prelude.hashWithSalt` jobDriver
 
 instance Prelude.NFData StartJobRun where
   rnf StartJobRun' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf jobDriver
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf jobTemplateParameters
       `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf virtualClusterId
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf jobDriver
 
 instance Core.ToHeaders StartJobRun where
   toHeaders =
@@ -216,13 +229,16 @@ instance Core.ToJSON StartJobRun where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("name" Core..=) Prelude.<$> name,
+            ("jobDriver" Core..=) Prelude.<$> jobDriver,
+            ("releaseLabel" Core..=) Prelude.<$> releaseLabel,
+            ("jobTemplateId" Core..=) Prelude.<$> jobTemplateId,
+            ("jobTemplateParameters" Core..=)
+              Prelude.<$> jobTemplateParameters,
             ("configurationOverrides" Core..=)
               Prelude.<$> configurationOverrides,
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just
-              ("executionRoleArn" Core..= executionRoleArn),
-            Prelude.Just ("releaseLabel" Core..= releaseLabel),
-            Prelude.Just ("jobDriver" Core..= jobDriver)
+            ("executionRoleArn" Core..=)
+              Prelude.<$> executionRoleArn,
+            Prelude.Just ("clientToken" Core..= clientToken)
           ]
       )
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -35,6 +36,9 @@ module Amazonka.EMRContainers.Types
 
     -- * PersistentAppUI
     PersistentAppUI (..),
+
+    -- * TemplateParameterDataType
+    TemplateParameterDataType (..),
 
     -- * VirtualClusterState
     VirtualClusterState (..),
@@ -129,12 +133,59 @@ module Amazonka.EMRContainers.Types
     jobRun_createdAt,
     jobRun_failureReason,
 
+    -- * JobTemplate
+    JobTemplate (..),
+    newJobTemplate,
+    jobTemplate_tags,
+    jobTemplate_name,
+    jobTemplate_arn,
+    jobTemplate_id,
+    jobTemplate_kmsKeyArn,
+    jobTemplate_createdBy,
+    jobTemplate_createdAt,
+    jobTemplate_decryptionError,
+    jobTemplate_jobTemplateData,
+
+    -- * JobTemplateData
+    JobTemplateData (..),
+    newJobTemplateData,
+    jobTemplateData_jobTags,
+    jobTemplateData_configurationOverrides,
+    jobTemplateData_parameterConfiguration,
+    jobTemplateData_executionRoleArn,
+    jobTemplateData_releaseLabel,
+    jobTemplateData_jobDriver,
+
     -- * MonitoringConfiguration
     MonitoringConfiguration (..),
     newMonitoringConfiguration,
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
     monitoringConfiguration_cloudWatchMonitoringConfiguration,
+
+    -- * ParametricCloudWatchMonitoringConfiguration
+    ParametricCloudWatchMonitoringConfiguration (..),
+    newParametricCloudWatchMonitoringConfiguration,
+    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
+    parametricCloudWatchMonitoringConfiguration_logGroupName,
+
+    -- * ParametricConfigurationOverrides
+    ParametricConfigurationOverrides (..),
+    newParametricConfigurationOverrides,
+    parametricConfigurationOverrides_applicationConfiguration,
+    parametricConfigurationOverrides_monitoringConfiguration,
+
+    -- * ParametricMonitoringConfiguration
+    ParametricMonitoringConfiguration (..),
+    newParametricMonitoringConfiguration,
+    parametricMonitoringConfiguration_persistentAppUI,
+    parametricMonitoringConfiguration_s3MonitoringConfiguration,
+    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
+
+    -- * ParametricS3MonitoringConfiguration
+    ParametricS3MonitoringConfiguration (..),
+    newParametricS3MonitoringConfiguration,
+    parametricS3MonitoringConfiguration_logUri,
 
     -- * S3MonitoringConfiguration
     S3MonitoringConfiguration (..),
@@ -154,6 +205,12 @@ module Amazonka.EMRContainers.Types
     sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPoint,
 
+    -- * TemplateParameterConfiguration
+    TemplateParameterConfiguration (..),
+    newTemplateParameterConfiguration,
+    templateParameterConfiguration_type,
+    templateParameterConfiguration_defaultValue,
+
     -- * VirtualCluster
     VirtualCluster (..),
     newVirtualCluster,
@@ -168,6 +225,7 @@ module Amazonka.EMRContainers.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.Certificate
 import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.Configuration
@@ -182,14 +240,21 @@ import Amazonka.EMRContainers.Types.FailureReason
 import Amazonka.EMRContainers.Types.JobDriver
 import Amazonka.EMRContainers.Types.JobRun
 import Amazonka.EMRContainers.Types.JobRunState
+import Amazonka.EMRContainers.Types.JobTemplate
+import Amazonka.EMRContainers.Types.JobTemplateData
 import Amazonka.EMRContainers.Types.MonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
+import Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.PersistentAppUI
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+import Amazonka.EMRContainers.Types.TemplateParameterConfiguration
+import Amazonka.EMRContainers.Types.TemplateParameterDataType
 import Amazonka.EMRContainers.Types.VirtualCluster
 import Amazonka.EMRContainers.Types.VirtualClusterState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -197,28 +262,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "EMRContainers",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "emr-containers",
-      Core._serviceSigningName = "emr-containers",
-      Core._serviceVersion = "2020-10-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "EMRContainers",
-      Core._serviceRetry = retry
+    { Core.abbrev = "EMRContainers",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "emr-containers",
+      Core.signingName = "emr-containers",
+      Core.version = "2020-10-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "EMRContainers",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

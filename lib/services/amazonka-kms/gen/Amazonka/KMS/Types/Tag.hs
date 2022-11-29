@@ -20,7 +20,7 @@
 module Amazonka.KMS.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys

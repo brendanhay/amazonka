@@ -20,6 +20,7 @@
 module Amazonka.KMS.Types.KeyMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types.CustomerMasterKeySpec
 import Amazonka.KMS.Types.EncryptionAlgorithmSpec
 import Amazonka.KMS.Types.ExpirationModelType
@@ -31,7 +32,6 @@ import Amazonka.KMS.Types.MacAlgorithmSpec
 import Amazonka.KMS.Types.MultiRegionConfiguration
 import Amazonka.KMS.Types.OriginType
 import Amazonka.KMS.Types.SigningAlgorithmSpec
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a KMS key.

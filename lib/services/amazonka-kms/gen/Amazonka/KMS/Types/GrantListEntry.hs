@@ -20,9 +20,9 @@
 module Amazonka.KMS.Types.GrantListEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types.GrantConstraints
 import Amazonka.KMS.Types.GrantOperation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a grant.

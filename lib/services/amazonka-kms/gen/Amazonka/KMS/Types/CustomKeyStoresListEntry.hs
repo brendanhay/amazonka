@@ -20,9 +20,9 @@
 module Amazonka.KMS.Types.CustomKeyStoresListEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types.ConnectionErrorCodeType
 import Amazonka.KMS.Types.ConnectionStateType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about each custom key store in the custom key store

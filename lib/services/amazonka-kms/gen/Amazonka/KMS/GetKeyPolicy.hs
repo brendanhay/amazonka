@@ -50,8 +50,8 @@ module Amazonka.KMS.GetKeyPolicy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +137,8 @@ getKeyPolicy_policyName = Lens.lens (\GetKeyPolicy' {policyName} -> policyName) 
 
 instance Core.AWSRequest GetKeyPolicy where
   type AWSResponse GetKeyPolicy = GetKeyPolicyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

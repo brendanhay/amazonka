@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.MetricDataQuery where
 
 import Amazonka.CloudWatch.Types.MetricStat
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure is used in both @GetMetricData@ and @PutMetricAlarm@. The

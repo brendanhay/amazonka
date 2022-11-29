@@ -26,7 +26,7 @@ import Amazonka.CloudWatch.Types.StandardUnit
 import Amazonka.CloudWatch.Types.StateValue
 import Amazonka.CloudWatch.Types.Statistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about a metric alarm.

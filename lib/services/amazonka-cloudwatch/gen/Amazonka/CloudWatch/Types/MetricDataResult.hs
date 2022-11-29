@@ -22,7 +22,7 @@ module Amazonka.CloudWatch.Types.MetricDataResult where
 import Amazonka.CloudWatch.Types.MessageData
 import Amazonka.CloudWatch.Types.StatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @GetMetricData@ call returns an array of @MetricDataResult@

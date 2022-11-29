@@ -22,7 +22,7 @@ module Amazonka.CloudWatch.Types.AlarmHistoryItem where
 import Amazonka.CloudWatch.Types.AlarmType
 import Amazonka.CloudWatch.Types.HistoryItemType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the history of a specific alarm.

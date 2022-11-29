@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.MetricStreamStatisticsConfiguration where
 
 import Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and

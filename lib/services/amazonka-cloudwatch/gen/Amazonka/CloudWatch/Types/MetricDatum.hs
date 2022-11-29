@@ -23,7 +23,7 @@ import Amazonka.CloudWatch.Types.Dimension
 import Amazonka.CloudWatch.Types.StandardUnit
 import Amazonka.CloudWatch.Types.StatisticSet
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encapsulates the information sent to either create a metric or add new

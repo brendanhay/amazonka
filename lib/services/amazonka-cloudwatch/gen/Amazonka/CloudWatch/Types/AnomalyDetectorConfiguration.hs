@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration where
 
 import Amazonka.CloudWatch.Types.Range
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration specifies details about how the anomaly detection

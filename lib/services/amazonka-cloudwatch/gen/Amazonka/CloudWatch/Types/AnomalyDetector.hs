@@ -25,7 +25,7 @@ import Amazonka.CloudWatch.Types.Dimension
 import Amazonka.CloudWatch.Types.MetricMathAnomalyDetector
 import Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An anomaly detection model associated with a particular CloudWatch

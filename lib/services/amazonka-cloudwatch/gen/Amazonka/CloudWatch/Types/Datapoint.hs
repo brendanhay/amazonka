@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.Datapoint where
 
 import Amazonka.CloudWatch.Types.StandardUnit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encapsulates the statistical data that CloudWatch computes from metric

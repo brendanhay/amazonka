@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.Metric where
 
 import Amazonka.CloudWatch.Types.Dimension
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a specific metric.

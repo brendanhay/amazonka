@@ -54,6 +54,7 @@ module Amazonka.CertificateManager.RequestCertificate
     requestCertificate_domainValidationOptions,
     requestCertificate_certificateAuthorityArn,
     requestCertificate_idempotencyToken,
+    requestCertificate_keyAlgorithm,
     requestCertificate_options,
     requestCertificate_validationMethod,
     requestCertificate_subjectAlternativeNames,
@@ -71,7 +72,7 @@ where
 
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ data RequestCertificate = RequestCertificate'
     -- and you are trying to request a private certificate, ACM will attempt to
     -- issue a public certificate. For more information about private CAs, see
     -- the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Certificate Manager Private Certificate Authority>
+    -- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html Amazon Web Services Private Certificate Authority>
     -- user guide. The ARN must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
@@ -101,6 +102,19 @@ data RequestCertificate = RequestCertificate'
     -- the idempotency token for each call, ACM recognizes that you are
     -- requesting multiple certificates.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the algorithm of the public and private key pair that your
+    -- certificate uses to encrypt data. RSA is the default key algorithm for
+    -- ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA)
+    -- keys are smaller, offering security comparable to RSA keys but with
+    -- greater computing efficiency. However, ECDSA is not supported by all
+    -- network clients. Some AWS services may require RSA keys, or only support
+    -- ECDSA keys of a particular size, while others allow the use of either
+    -- RSA and ECDSA keys to ensure that compatibility is not broken. Check the
+    -- requirements for the AWS service where you plan to deploy your
+    -- certificate.
+    --
+    -- Default: RSA_2048
+    keyAlgorithm :: Prelude.Maybe KeyAlgorithm,
     -- | Currently, you can use this parameter to specify whether to add the
     -- certificate to a certificate transparency log. Certificate transparency
     -- makes it possible to detect SSL\/TLS certificates that have been
@@ -176,7 +190,7 @@ data RequestCertificate = RequestCertificate'
 -- and you are trying to request a private certificate, ACM will attempt to
 -- issue a public certificate. For more information about private CAs, see
 -- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Certificate Manager Private Certificate Authority>
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html Amazon Web Services Private Certificate Authority>
 -- user guide. The ARN must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
@@ -188,6 +202,19 @@ data RequestCertificate = RequestCertificate'
 -- requesting only one certificate and will issue only one. If you change
 -- the idempotency token for each call, ACM recognizes that you are
 -- requesting multiple certificates.
+--
+-- 'keyAlgorithm', 'requestCertificate_keyAlgorithm' - Specifies the algorithm of the public and private key pair that your
+-- certificate uses to encrypt data. RSA is the default key algorithm for
+-- ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA)
+-- keys are smaller, offering security comparable to RSA keys but with
+-- greater computing efficiency. However, ECDSA is not supported by all
+-- network clients. Some AWS services may require RSA keys, or only support
+-- ECDSA keys of a particular size, while others allow the use of either
+-- RSA and ECDSA keys to ensure that compatibility is not broken. Check the
+-- requirements for the AWS service where you plan to deploy your
+-- certificate.
+--
+-- Default: RSA_2048
 --
 -- 'options', 'requestCertificate_options' - Currently, you can use this parameter to specify whether to add the
 -- certificate to a certificate transparency log. Certificate transparency
@@ -252,6 +279,7 @@ newRequestCertificate pDomainName_ =
       domainValidationOptions = Prelude.Nothing,
       certificateAuthorityArn = Prelude.Nothing,
       idempotencyToken = Prelude.Nothing,
+      keyAlgorithm = Prelude.Nothing,
       options = Prelude.Nothing,
       validationMethod = Prelude.Nothing,
       subjectAlternativeNames = Prelude.Nothing,
@@ -272,7 +300,7 @@ requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {do
 -- and you are trying to request a private certificate, ACM will attempt to
 -- issue a public certificate. For more information about private CAs, see
 -- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Certificate Manager Private Certificate Authority>
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html Amazon Web Services Private Certificate Authority>
 -- user guide. The ARN must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
@@ -288,6 +316,21 @@ requestCertificate_certificateAuthorityArn = Lens.lens (\RequestCertificate' {ce
 -- requesting multiple certificates.
 requestCertificate_idempotencyToken :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
 requestCertificate_idempotencyToken = Lens.lens (\RequestCertificate' {idempotencyToken} -> idempotencyToken) (\s@RequestCertificate' {} a -> s {idempotencyToken = a} :: RequestCertificate)
+
+-- | Specifies the algorithm of the public and private key pair that your
+-- certificate uses to encrypt data. RSA is the default key algorithm for
+-- ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA)
+-- keys are smaller, offering security comparable to RSA keys but with
+-- greater computing efficiency. However, ECDSA is not supported by all
+-- network clients. Some AWS services may require RSA keys, or only support
+-- ECDSA keys of a particular size, while others allow the use of either
+-- RSA and ECDSA keys to ensure that compatibility is not broken. Check the
+-- requirements for the AWS service where you plan to deploy your
+-- certificate.
+--
+-- Default: RSA_2048
+requestCertificate_keyAlgorithm :: Lens.Lens' RequestCertificate (Prelude.Maybe KeyAlgorithm)
+requestCertificate_keyAlgorithm = Lens.lens (\RequestCertificate' {keyAlgorithm} -> keyAlgorithm) (\s@RequestCertificate' {} a -> s {keyAlgorithm = a} :: RequestCertificate)
 
 -- | Currently, you can use this parameter to specify whether to add the
 -- certificate to a certificate transparency log. Certificate transparency
@@ -355,8 +398,8 @@ instance Core.AWSRequest RequestCertificate where
   type
     AWSResponse RequestCertificate =
       RequestCertificateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -371,6 +414,7 @@ instance Prelude.Hashable RequestCertificate where
       `Prelude.hashWithSalt` domainValidationOptions
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` keyAlgorithm
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` validationMethod
       `Prelude.hashWithSalt` subjectAlternativeNames
@@ -382,6 +426,7 @@ instance Prelude.NFData RequestCertificate where
       `Prelude.seq` Prelude.rnf domainValidationOptions
       `Prelude.seq` Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf keyAlgorithm
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf validationMethod
       `Prelude.seq` Prelude.rnf subjectAlternativeNames
@@ -413,6 +458,7 @@ instance Core.ToJSON RequestCertificate where
               Prelude.<$> certificateAuthorityArn,
             ("IdempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
+            ("KeyAlgorithm" Core..=) Prelude.<$> keyAlgorithm,
             ("Options" Core..=) Prelude.<$> options,
             ("ValidationMethod" Core..=)
               Prelude.<$> validationMethod,

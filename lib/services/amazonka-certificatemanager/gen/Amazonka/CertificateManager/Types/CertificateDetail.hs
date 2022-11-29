@@ -31,7 +31,7 @@ import Amazonka.CertificateManager.Types.RenewalEligibility
 import Amazonka.CertificateManager.Types.RenewalSummary
 import Amazonka.CertificateManager.Types.RevocationReason
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about an ACM certificate. This structure is returned

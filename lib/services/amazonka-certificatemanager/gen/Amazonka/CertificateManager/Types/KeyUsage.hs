@@ -21,7 +21,7 @@ module Amazonka.CertificateManager.Types.KeyUsage where
 
 import Amazonka.CertificateManager.Types.KeyUsageName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Key Usage X.509 v3 extension defines the purpose of the public key

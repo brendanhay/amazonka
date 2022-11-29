@@ -22,8 +22,8 @@
 --
 -- Renews an eligible ACM certificate. At this time, only exported private
 -- certificates can be renewed with this operation. In order to renew your
--- ACM Private CA certificates with ACM, you must first
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html grant the ACM service principal permission to do so>.
+-- Amazon Web Services Private CA certificates with ACM, you must first
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html grant the ACM service principal permission to do so>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html Testing Managed Renewal>
 -- in the ACM User Guide.
@@ -43,7 +43,7 @@ where
 
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +100,8 @@ instance Core.AWSRequest RenewCertificate where
   type
     AWSResponse RenewCertificate =
       RenewCertificateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RenewCertificateResponse'
 

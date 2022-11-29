@@ -20,8 +20,8 @@
 module Amazonka.DirectConnect.Types.DirectConnectGateway where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.DirectConnectGatewayState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Direct Connect gateway, which enables you to connect

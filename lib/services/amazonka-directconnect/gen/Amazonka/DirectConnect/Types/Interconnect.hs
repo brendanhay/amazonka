@@ -20,10 +20,10 @@
 module Amazonka.DirectConnect.Types.Interconnect where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.HasLogicalRedundancy
 import Amazonka.DirectConnect.Types.InterconnectState
 import Amazonka.DirectConnect.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an interconnect.

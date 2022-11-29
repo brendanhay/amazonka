@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -407,6 +408,7 @@ module Amazonka.DirectConnect.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.AssociatedGateway
 import Amazonka.DirectConnect.Types.BGPPeer
@@ -450,7 +452,6 @@ import Amazonka.DirectConnect.Types.VirtualGateway
 import Amazonka.DirectConnect.Types.VirtualInterface
 import Amazonka.DirectConnect.Types.VirtualInterfaceState
 import Amazonka.DirectConnect.Types.VirtualInterfaceTestHistory
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -458,28 +459,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "DirectConnect",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "directconnect",
-      Core._serviceSigningName = "directconnect",
-      Core._serviceVersion = "2012-10-25",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "DirectConnect",
-      Core._serviceRetry = retry
+    { Core.abbrev = "DirectConnect",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "directconnect",
+      Core.signingName = "directconnect",
+      Core.version = "2012-10-25",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "DirectConnect",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

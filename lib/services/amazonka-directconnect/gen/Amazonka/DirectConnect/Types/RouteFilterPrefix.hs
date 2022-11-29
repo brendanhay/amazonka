@@ -20,7 +20,7 @@
 module Amazonka.DirectConnect.Types.RouteFilterPrefix where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a route filter prefix that a customer can advertise

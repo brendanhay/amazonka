@@ -20,9 +20,9 @@
 module Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a transit virtual interface to be provisioned on a

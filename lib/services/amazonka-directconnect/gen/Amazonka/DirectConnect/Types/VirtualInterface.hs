@@ -20,12 +20,12 @@
 module Amazonka.DirectConnect.Types.VirtualInterface where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.BGPPeer
 import Amazonka.DirectConnect.Types.RouteFilterPrefix
 import Amazonka.DirectConnect.Types.Tag
 import Amazonka.DirectConnect.Types.VirtualInterfaceState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a virtual interface.

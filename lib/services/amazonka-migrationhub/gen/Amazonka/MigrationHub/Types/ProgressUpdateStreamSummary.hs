@@ -20,7 +20,7 @@
 module Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the AWS resource used for access control that is implicitly

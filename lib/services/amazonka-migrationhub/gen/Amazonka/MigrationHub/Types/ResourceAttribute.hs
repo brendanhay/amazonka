@@ -20,7 +20,7 @@
 module Amazonka.MigrationHub.Types.ResourceAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHub.Types.ResourceAttributeType
 import qualified Amazonka.Prelude as Prelude
 

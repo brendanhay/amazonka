@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.ListMonitoredResourcesFilters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.ResourcePermission
 import Amazonka.DevOpsGuru.Types.ResourceTypeFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to determine which monitored resources you want to retrieve. You

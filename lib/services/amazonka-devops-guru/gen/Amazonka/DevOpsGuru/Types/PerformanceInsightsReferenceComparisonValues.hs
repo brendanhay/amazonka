@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceComparisonValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceMetric
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceScalar
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reference scalar values and other metrics that DevOps Guru displays on a

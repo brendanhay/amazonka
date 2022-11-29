@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.AnomalySourceDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricsDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the source of the anomalous operational data that

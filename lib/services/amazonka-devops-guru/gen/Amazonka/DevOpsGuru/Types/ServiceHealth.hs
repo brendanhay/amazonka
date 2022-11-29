@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.ServiceHealth where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.ServiceInsightHealth
 import Amazonka.DevOpsGuru.Types.ServiceName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the health of an Amazon Web Services service.

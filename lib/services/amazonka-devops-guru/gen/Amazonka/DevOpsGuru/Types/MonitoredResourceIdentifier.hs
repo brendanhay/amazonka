@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.MonitoredResourceIdentifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.ResourceCollection
 import Amazonka.DevOpsGuru.Types.ResourcePermission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the resource that is being monitored, including the

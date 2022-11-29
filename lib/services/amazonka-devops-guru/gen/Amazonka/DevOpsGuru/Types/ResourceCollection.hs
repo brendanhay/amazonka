@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.ResourceCollection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CloudFormationCollection
 import Amazonka.DevOpsGuru.Types.TagCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of Amazon Web Services resources supported by DevOps Guru.

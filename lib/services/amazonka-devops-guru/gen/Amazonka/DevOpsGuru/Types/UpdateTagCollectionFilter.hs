@@ -20,7 +20,7 @@
 module Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A new collection of Amazon Web Services resources that are defined by an

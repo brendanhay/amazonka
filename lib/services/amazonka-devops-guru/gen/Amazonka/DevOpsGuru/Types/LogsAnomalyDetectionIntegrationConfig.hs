@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.OptInStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the integration of DevOps Guru with CloudWatch log

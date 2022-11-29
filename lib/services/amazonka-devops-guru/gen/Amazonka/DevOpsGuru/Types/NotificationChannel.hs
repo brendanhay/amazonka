@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.NotificationChannel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.NotificationChannelConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a notification channel. A notification channel is used

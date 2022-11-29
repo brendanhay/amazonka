@@ -20,7 +20,7 @@
 module Amazonka.DevOpsGuru.Types.StartTimeRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range used to specify when the behavior of an insight or anomaly

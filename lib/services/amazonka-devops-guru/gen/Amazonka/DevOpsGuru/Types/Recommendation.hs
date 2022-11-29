@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Recommendation information to help you remediate detected anomalous

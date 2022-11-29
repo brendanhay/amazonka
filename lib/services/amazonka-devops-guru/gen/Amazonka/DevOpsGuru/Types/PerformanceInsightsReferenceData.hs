@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceComparisonValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reference data used to evaluate Performance Insights to determine if its

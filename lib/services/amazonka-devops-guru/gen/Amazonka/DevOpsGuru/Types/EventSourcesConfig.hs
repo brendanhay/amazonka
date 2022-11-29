@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.EventSourcesConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.AmazonCodeGuruProfilerIntegration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the integration of DevOps Guru as consumer with

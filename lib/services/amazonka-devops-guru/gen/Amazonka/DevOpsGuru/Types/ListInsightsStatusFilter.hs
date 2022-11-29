@@ -20,10 +20,10 @@
 module Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used by @ListInsights@ to specify which insights to return.

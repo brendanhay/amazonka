@@ -20,7 +20,7 @@
 module Amazonka.DevOpsGuru.Types.AnomalyTimeRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range that specifies when the observed unusual behavior in an

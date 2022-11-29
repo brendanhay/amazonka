@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.OptInStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether DevOps Guru is configured to create an OpsItem

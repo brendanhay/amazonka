@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.LogAnomalyClass where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.LogAnomalyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an anomalous log event found within a log group.

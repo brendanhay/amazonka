@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.ServiceResourceCost where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CostEstimationServiceResourceState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the estimated monthly cost to

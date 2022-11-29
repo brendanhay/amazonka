@@ -20,11 +20,11 @@
 module Amazonka.DevOpsGuru.Types.ListEventsFilters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.EventClass
 import Amazonka.DevOpsGuru.Types.EventDataSource
 import Amazonka.DevOpsGuru.Types.EventTimeRange
 import Amazonka.DevOpsGuru.Types.ResourceCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters you can use to specify which events are returned when

@@ -115,6 +115,8 @@ library
     Amazonka.AppStream.Types.ApplicationSettingsResponse
     Amazonka.AppStream.Types.AppVisibility
     Amazonka.AppStream.Types.AuthenticationType
+    Amazonka.AppStream.Types.CertificateBasedAuthProperties
+    Amazonka.AppStream.Types.CertificateBasedAuthStatus
     Amazonka.AppStream.Types.ComputeCapacity
     Amazonka.AppStream.Types.ComputeCapacityStatus
     Amazonka.AppStream.Types.DirectoryConfig

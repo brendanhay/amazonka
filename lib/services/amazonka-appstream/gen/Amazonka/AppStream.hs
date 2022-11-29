@@ -499,6 +499,9 @@ module Amazonka.AppStream
     -- ** AuthenticationType
     AuthenticationType (..),
 
+    -- ** CertificateBasedAuthStatus
+    CertificateBasedAuthStatus (..),
+
     -- ** FleetAttribute
     FleetAttribute (..),
 
@@ -588,6 +591,10 @@ module Amazonka.AppStream
     -- ** ApplicationSettingsResponse
     ApplicationSettingsResponse (ApplicationSettingsResponse'),
     newApplicationSettingsResponse,
+
+    -- ** CertificateBasedAuthProperties
+    CertificateBasedAuthProperties (CertificateBasedAuthProperties'),
+    newCertificateBasedAuthProperties,
 
     -- ** ComputeCapacity
     ComputeCapacity (ComputeCapacity'),

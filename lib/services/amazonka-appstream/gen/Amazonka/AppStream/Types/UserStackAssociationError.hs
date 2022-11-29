@@ -22,7 +22,7 @@ module Amazonka.AppStream.Types.UserStackAssociationError where
 import Amazonka.AppStream.Types.UserStackAssociation
 import Amazonka.AppStream.Types.UserStackAssociationErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error that is returned when a user can’t be associated

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,17 +20,17 @@ import Amazonka.AppStream.DescribeFleets
 import Amazonka.AppStream.Lens
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newFleetStopped :: Core.Wait DescribeFleets
 newFleetStopped =
   Core.Wait
-    { Core._waitName = "FleetStopped",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "FleetStopped",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "INACTIVE"
             Core.AcceptSuccess
@@ -67,10 +68,10 @@ newFleetStopped =
 newFleetStarted :: Core.Wait DescribeFleets
 newFleetStarted =
   Core.Wait
-    { Core._waitName = "FleetStarted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "FleetStarted",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess

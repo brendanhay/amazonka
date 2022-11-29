@@ -20,7 +20,7 @@
 module Amazonka.AppStream.Types.EntitlementAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute associated with an entitlement. Application entitlements

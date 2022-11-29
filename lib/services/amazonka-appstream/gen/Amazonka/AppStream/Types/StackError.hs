@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.StackError where
 
 import Amazonka.AppStream.Types.StackErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack error.

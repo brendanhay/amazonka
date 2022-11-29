@@ -29,7 +29,7 @@ import Amazonka.AppStream.Types.S3Location
 import Amazonka.AppStream.Types.StreamView
 import Amazonka.AppStream.Types.VpcConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a fleet.

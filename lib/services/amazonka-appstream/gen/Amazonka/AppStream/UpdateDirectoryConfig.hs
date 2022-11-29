@@ -31,6 +31,7 @@ module Amazonka.AppStream.UpdateDirectoryConfig
     -- * Request Lenses
     updateDirectoryConfig_serviceAccountCredentials,
     updateDirectoryConfig_organizationalUnitDistinguishedNames,
+    updateDirectoryConfig_certificateBasedAuthProperties,
     updateDirectoryConfig_directoryName,
 
     -- * Destructuring the Response
@@ -45,7 +46,7 @@ where
 
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,6 +59,17 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
     -- | The distinguished names of the organizational units for computer
     -- accounts.
     organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
+    -- | The certificate-based authentication properties used to authenticate
+    -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+    -- domain-joined streaming instances. Fallback is turned on by default when
+    -- certificate-based authentication is __Enabled__ . Fallback allows users
+    -- to log in using their AD domain password if certificate-based
+    -- authentication is unsuccessful, or to unlock a desktop lock screen.
+    -- __Enabled_no_directory_login_fallback__ enables certificate-based
+    -- authentication, but does not allow users to log in using their AD domain
+    -- password. Users will be disconnected to re-authenticate using
+    -- certificates.
+    certificateBasedAuthProperties :: Prelude.Maybe CertificateBasedAuthProperties,
     -- | The name of the Directory Config object.
     directoryName :: Prelude.Text
   }
@@ -77,6 +89,17 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 -- 'organizationalUnitDistinguishedNames', 'updateDirectoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
 -- accounts.
 --
+-- 'certificateBasedAuthProperties', 'updateDirectoryConfig_certificateBasedAuthProperties' - The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+-- domain-joined streaming instances. Fallback is turned on by default when
+-- certificate-based authentication is __Enabled__ . Fallback allows users
+-- to log in using their AD domain password if certificate-based
+-- authentication is unsuccessful, or to unlock a desktop lock screen.
+-- __Enabled_no_directory_login_fallback__ enables certificate-based
+-- authentication, but does not allow users to log in using their AD domain
+-- password. Users will be disconnected to re-authenticate using
+-- certificates.
+--
 -- 'directoryName', 'updateDirectoryConfig_directoryName' - The name of the Directory Config object.
 newUpdateDirectoryConfig ::
   -- | 'directoryName'
@@ -88,6 +111,7 @@ newUpdateDirectoryConfig pDirectoryName_ =
         Prelude.Nothing,
       organizationalUnitDistinguishedNames =
         Prelude.Nothing,
+      certificateBasedAuthProperties = Prelude.Nothing,
       directoryName = pDirectoryName_
     }
 
@@ -101,6 +125,19 @@ updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryCon
 updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
 updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+-- domain-joined streaming instances. Fallback is turned on by default when
+-- certificate-based authentication is __Enabled__ . Fallback allows users
+-- to log in using their AD domain password if certificate-based
+-- authentication is unsuccessful, or to unlock a desktop lock screen.
+-- __Enabled_no_directory_login_fallback__ enables certificate-based
+-- authentication, but does not allow users to log in using their AD domain
+-- password. Users will be disconnected to re-authenticate using
+-- certificates.
+updateDirectoryConfig_certificateBasedAuthProperties :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe CertificateBasedAuthProperties)
+updateDirectoryConfig_certificateBasedAuthProperties = Lens.lens (\UpdateDirectoryConfig' {certificateBasedAuthProperties} -> certificateBasedAuthProperties) (\s@UpdateDirectoryConfig' {} a -> s {certificateBasedAuthProperties = a} :: UpdateDirectoryConfig)
+
 -- | The name of the Directory Config object.
 updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Prelude.Text
 updateDirectoryConfig_directoryName = Lens.lens (\UpdateDirectoryConfig' {directoryName} -> directoryName) (\s@UpdateDirectoryConfig' {} a -> s {directoryName = a} :: UpdateDirectoryConfig)
@@ -109,8 +146,8 @@ instance Core.AWSRequest UpdateDirectoryConfig where
   type
     AWSResponse UpdateDirectoryConfig =
       UpdateDirectoryConfigResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,12 +161,14 @@ instance Prelude.Hashable UpdateDirectoryConfig where
     _salt
       `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
+      `Prelude.hashWithSalt` certificateBasedAuthProperties
       `Prelude.hashWithSalt` directoryName
 
 instance Prelude.NFData UpdateDirectoryConfig where
   rnf UpdateDirectoryConfig' {..} =
     Prelude.rnf serviceAccountCredentials
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
+      `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
       `Prelude.seq` Prelude.rnf directoryName
 
 instance Core.ToHeaders UpdateDirectoryConfig where
@@ -155,6 +194,8 @@ instance Core.ToJSON UpdateDirectoryConfig where
               Prelude.<$> serviceAccountCredentials,
             ("OrganizationalUnitDistinguishedNames" Core..=)
               Prelude.<$> organizationalUnitDistinguishedNames,
+            ("CertificateBasedAuthProperties" Core..=)
+              Prelude.<$> certificateBasedAuthProperties,
             Prelude.Just
               ("DirectoryName" Core..= directoryName)
           ]

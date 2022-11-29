@@ -20,7 +20,7 @@
 module Amazonka.AppStream.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes VPC configuration information for fleets and image builders.

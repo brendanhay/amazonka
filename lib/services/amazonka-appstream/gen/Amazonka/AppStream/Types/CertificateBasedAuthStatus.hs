@@ -11,19 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AppStream.Types.AuthenticationType
+-- Module      : Amazonka.AppStream.Types.CertificateBasedAuthStatus
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AppStream.Types.AuthenticationType
-  ( AuthenticationType
+module Amazonka.AppStream.Types.CertificateBasedAuthStatus
+  ( CertificateBasedAuthStatus
       ( ..,
-        AuthenticationType_API,
-        AuthenticationType_AWS_AD,
-        AuthenticationType_SAML,
-        AuthenticationType_USERPOOL
+        CertificateBasedAuthStatus_DISABLED,
+        CertificateBasedAuthStatus_ENABLED,
+        CertificateBasedAuthStatus_ENABLED_NO_DIRECTORY_LOGIN_FALLBACK
       ),
   )
 where
@@ -31,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype AuthenticationType = AuthenticationType'
-  { fromAuthenticationType ::
+newtype CertificateBasedAuthStatus = CertificateBasedAuthStatus'
+  { fromCertificateBasedAuthStatus ::
       Core.Text
   }
   deriving stock
@@ -59,22 +58,18 @@ newtype AuthenticationType = AuthenticationType'
       Core.ToXML
     )
 
-pattern AuthenticationType_API :: AuthenticationType
-pattern AuthenticationType_API = AuthenticationType' "API"
+pattern CertificateBasedAuthStatus_DISABLED :: CertificateBasedAuthStatus
+pattern CertificateBasedAuthStatus_DISABLED = CertificateBasedAuthStatus' "DISABLED"
 
-pattern AuthenticationType_AWS_AD :: AuthenticationType
-pattern AuthenticationType_AWS_AD = AuthenticationType' "AWS_AD"
+pattern CertificateBasedAuthStatus_ENABLED :: CertificateBasedAuthStatus
+pattern CertificateBasedAuthStatus_ENABLED = CertificateBasedAuthStatus' "ENABLED"
 
-pattern AuthenticationType_SAML :: AuthenticationType
-pattern AuthenticationType_SAML = AuthenticationType' "SAML"
-
-pattern AuthenticationType_USERPOOL :: AuthenticationType
-pattern AuthenticationType_USERPOOL = AuthenticationType' "USERPOOL"
+pattern CertificateBasedAuthStatus_ENABLED_NO_DIRECTORY_LOGIN_FALLBACK :: CertificateBasedAuthStatus
+pattern CertificateBasedAuthStatus_ENABLED_NO_DIRECTORY_LOGIN_FALLBACK = CertificateBasedAuthStatus' "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"
 
 {-# COMPLETE
-  AuthenticationType_API,
-  AuthenticationType_AWS_AD,
-  AuthenticationType_SAML,
-  AuthenticationType_USERPOOL,
-  AuthenticationType'
+  CertificateBasedAuthStatus_DISABLED,
+  CertificateBasedAuthStatus_ENABLED,
+  CertificateBasedAuthStatus_ENABLED_NO_DIRECTORY_LOGIN_FALLBACK,
+  CertificateBasedAuthStatus'
   #-}

@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.User where
 
 import Amazonka.AppStream.Types.AuthenticationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a user in the user pool.

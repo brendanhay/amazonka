@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.ImageBuilderStateChangeReason where
 
 import Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the reason why the last image builder state change occurred.

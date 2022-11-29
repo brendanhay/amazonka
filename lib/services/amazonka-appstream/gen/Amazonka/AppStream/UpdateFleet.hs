@@ -82,7 +82,7 @@ where
 
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,6 +155,10 @@ data UpdateFleet = UpdateFleet'
     --
     -- -   stream.standard.large
     --
+    -- -   stream.standard.xlarge
+    --
+    -- -   stream.standard.2xlarge
+    --
     -- -   stream.compute.large
     --
     -- -   stream.compute.xlarge
@@ -220,6 +224,12 @@ data UpdateFleet = UpdateFleet'
     -- -   stream.standard.small
     --
     -- -   stream.standard.medium
+    --
+    -- -   stream.standard.large
+    --
+    -- -   stream.standard.xlarge
+    --
+    -- -   stream.standard.2xlarge
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
     -- assume a role, a fleet instance calls the AWS Security Token Service
@@ -338,6 +348,10 @@ data UpdateFleet = UpdateFleet'
 --
 -- -   stream.standard.large
 --
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
+--
 -- -   stream.compute.large
 --
 -- -   stream.compute.xlarge
@@ -403,6 +417,12 @@ data UpdateFleet = UpdateFleet'
 -- -   stream.standard.small
 --
 -- -   stream.standard.medium
+--
+-- -   stream.standard.large
+--
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
 --
 -- 'iamRoleArn', 'updateFleet_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
 -- assume a role, a fleet instance calls the AWS Security Token Service
@@ -560,6 +580,10 @@ updateFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {idleDisco
 --
 -- -   stream.standard.large
 --
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
+--
 -- -   stream.compute.large
 --
 -- -   stream.compute.xlarge
@@ -625,6 +649,12 @@ updateFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {idleDisco
 -- -   stream.standard.small
 --
 -- -   stream.standard.medium
+--
+-- -   stream.standard.large
+--
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
 updateFleet_instanceType :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_instanceType = Lens.lens (\UpdateFleet' {instanceType} -> instanceType) (\s@UpdateFleet' {} a -> s {instanceType = a} :: UpdateFleet)
 
@@ -686,8 +716,8 @@ updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDuration
 
 instance Core.AWSRequest UpdateFleet where
   type AWSResponse UpdateFleet = UpdateFleetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

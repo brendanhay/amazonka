@@ -76,6 +76,7 @@ module Amazonka.AppStream.Lens
 
     -- ** CreateDirectoryConfig
     createDirectoryConfig_serviceAccountCredentials,
+    createDirectoryConfig_certificateBasedAuthProperties,
     createDirectoryConfig_directoryName,
     createDirectoryConfig_organizationalUnitDistinguishedNames,
     createDirectoryConfigResponse_directoryConfig,
@@ -461,6 +462,7 @@ module Amazonka.AppStream.Lens
     -- ** UpdateDirectoryConfig
     updateDirectoryConfig_serviceAccountCredentials,
     updateDirectoryConfig_organizationalUnitDistinguishedNames,
+    updateDirectoryConfig_certificateBasedAuthProperties,
     updateDirectoryConfig_directoryName,
     updateDirectoryConfigResponse_directoryConfig,
     updateDirectoryConfigResponse_httpStatus,
@@ -567,6 +569,10 @@ module Amazonka.AppStream.Lens
     applicationSettingsResponse_enabled,
     applicationSettingsResponse_settingsGroup,
 
+    -- ** CertificateBasedAuthProperties
+    certificateBasedAuthProperties_certificateAuthorityArn,
+    certificateBasedAuthProperties_status,
+
     -- ** ComputeCapacity
     computeCapacity_desiredInstances,
 
@@ -580,6 +586,7 @@ module Amazonka.AppStream.Lens
     directoryConfig_serviceAccountCredentials,
     directoryConfig_organizationalUnitDistinguishedNames,
     directoryConfig_createdTime,
+    directoryConfig_certificateBasedAuthProperties,
     directoryConfig_directoryName,
 
     -- ** DomainJoinInfo
@@ -855,6 +862,7 @@ import Amazonka.AppStream.Types.Application
 import Amazonka.AppStream.Types.ApplicationFleetAssociation
 import Amazonka.AppStream.Types.ApplicationSettings
 import Amazonka.AppStream.Types.ApplicationSettingsResponse
+import Amazonka.AppStream.Types.CertificateBasedAuthProperties
 import Amazonka.AppStream.Types.ComputeCapacity
 import Amazonka.AppStream.Types.ComputeCapacityStatus
 import Amazonka.AppStream.Types.DirectoryConfig

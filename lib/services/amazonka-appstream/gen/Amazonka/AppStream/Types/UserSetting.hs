@@ -22,7 +22,7 @@ module Amazonka.AppStream.Types.UserSetting where
 import Amazonka.AppStream.Types.Action
 import Amazonka.AppStream.Types.Permission
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action and whether the action is enabled or disabled for

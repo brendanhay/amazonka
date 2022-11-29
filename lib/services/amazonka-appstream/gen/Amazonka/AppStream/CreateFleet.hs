@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a fleet. A fleet consists of streaming instances that run a
--- specified image when using Always-On or On-Demand.
+-- Creates a fleet. A fleet consists of streaming instances that your users
+-- access for their applications and desktops.
 module Amazonka.AppStream.CreateFleet
   ( -- * Creating a Request
     CreateFleet (..),
@@ -62,7 +62,7 @@ where
 
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,6 +201,10 @@ data CreateFleet = CreateFleet'
     --
     -- -   stream.standard.large
     --
+    -- -   stream.standard.xlarge
+    --
+    -- -   stream.standard.2xlarge
+    --
     -- -   stream.compute.large
     --
     -- -   stream.compute.xlarge
@@ -266,6 +270,12 @@ data CreateFleet = CreateFleet'
     -- -   stream.standard.small
     --
     -- -   stream.standard.medium
+    --
+    -- -   stream.standard.large
+    --
+    -- -   stream.standard.xlarge
+    --
+    -- -   stream.standard.2xlarge
     instanceType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -410,6 +420,10 @@ data CreateFleet = CreateFleet'
 --
 -- -   stream.standard.large
 --
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
+--
 -- -   stream.compute.large
 --
 -- -   stream.compute.xlarge
@@ -475,6 +489,12 @@ data CreateFleet = CreateFleet'
 -- -   stream.standard.small
 --
 -- -   stream.standard.medium
+--
+-- -   stream.standard.large
+--
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
 newCreateFleet ::
   -- | 'name'
   Prelude.Text ->
@@ -678,6 +698,10 @@ createFleet_name = Lens.lens (\CreateFleet' {name} -> name) (\s@CreateFleet' {} 
 --
 -- -   stream.standard.large
 --
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
+--
 -- -   stream.compute.large
 --
 -- -   stream.compute.xlarge
@@ -743,13 +767,19 @@ createFleet_name = Lens.lens (\CreateFleet' {name} -> name) (\s@CreateFleet' {} 
 -- -   stream.standard.small
 --
 -- -   stream.standard.medium
+--
+-- -   stream.standard.large
+--
+-- -   stream.standard.xlarge
+--
+-- -   stream.standard.2xlarge
 createFleet_instanceType :: Lens.Lens' CreateFleet Prelude.Text
 createFleet_instanceType = Lens.lens (\CreateFleet' {instanceType} -> instanceType) (\s@CreateFleet' {} a -> s {instanceType = a} :: CreateFleet)
 
 instance Core.AWSRequest CreateFleet where
   type AWSResponse CreateFleet = CreateFleetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

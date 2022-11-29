@@ -22,7 +22,7 @@ module Amazonka.Backup.Types.BackupSelection where
 import Amazonka.Backup.Types.Condition
 import Amazonka.Backup.Types.Conditions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to specify a set of resources to a backup plan.

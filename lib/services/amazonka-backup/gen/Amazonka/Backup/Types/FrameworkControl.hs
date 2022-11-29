@@ -22,7 +22,7 @@ module Amazonka.Backup.Types.FrameworkControl where
 import Amazonka.Backup.Types.ControlInputParameter
 import Amazonka.Backup.Types.ControlScope
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about all of the controls of a framework.

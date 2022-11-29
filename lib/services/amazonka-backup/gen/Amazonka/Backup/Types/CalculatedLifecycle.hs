@@ -20,7 +20,7 @@
 module Amazonka.Backup.Types.CalculatedLifecycle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains @DeleteAt@ and @MoveToColdStorageAt@ timestamps, which are used

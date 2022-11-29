@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.Approval where
 
 import Amazonka.CodeCommit.Types.ApprovalState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a specific approval on a pull request.

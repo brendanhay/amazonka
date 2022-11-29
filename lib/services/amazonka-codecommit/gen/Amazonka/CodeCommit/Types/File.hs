@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.File where
 
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a file in a repository.

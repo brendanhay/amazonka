@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.FileModes where
 
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about file modes in a merge or pull request.

@@ -20,7 +20,7 @@
 module Amazonka.CodeCommit.Types.PullRequestCreatedEventMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about the pull request that is used when comparing the pull

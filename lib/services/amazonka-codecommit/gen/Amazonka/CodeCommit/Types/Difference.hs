@@ -22,7 +22,7 @@ module Amazonka.CodeCommit.Types.Difference where
 import Amazonka.CodeCommit.Types.BlobMetadata
 import Amazonka.CodeCommit.Types.ChangeTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a set of differences for a commit specifier.

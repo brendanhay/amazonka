@@ -22,7 +22,7 @@ module Amazonka.CodeCommit.Types.Conflict where
 import Amazonka.CodeCommit.Types.ConflictMetadata
 import Amazonka.CodeCommit.Types.MergeHunk
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about conflicts in a merge operation.

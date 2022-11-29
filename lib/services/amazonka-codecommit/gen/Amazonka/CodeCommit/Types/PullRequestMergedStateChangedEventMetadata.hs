@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata wher
 
 import Amazonka.CodeCommit.Types.MergeMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the change in the merge state for a pull

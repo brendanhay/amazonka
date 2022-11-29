@@ -23,7 +23,7 @@ import Amazonka.CodeCommit.Types.DeleteFileEntry
 import Amazonka.CodeCommit.Types.ReplaceContentEntry
 import Amazonka.CodeCommit.Types.SetFileModeEntry
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to

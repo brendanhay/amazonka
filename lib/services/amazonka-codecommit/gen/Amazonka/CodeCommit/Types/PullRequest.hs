@@ -23,7 +23,7 @@ import Amazonka.CodeCommit.Types.ApprovalRule
 import Amazonka.CodeCommit.Types.PullRequestStatusEnum
 import Amazonka.CodeCommit.Types.PullRequestTarget
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request.

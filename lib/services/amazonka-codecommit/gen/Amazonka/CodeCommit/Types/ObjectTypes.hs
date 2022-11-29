@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.ObjectTypes where
 
 import Amazonka.CodeCommit.Types.ObjectTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the type of an object in a merge operation.

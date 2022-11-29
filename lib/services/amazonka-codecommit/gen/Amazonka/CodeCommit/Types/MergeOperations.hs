@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.MergeOperations where
 
 import Amazonka.CodeCommit.Types.ChangeTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the file operation conflicts in a merge operation.

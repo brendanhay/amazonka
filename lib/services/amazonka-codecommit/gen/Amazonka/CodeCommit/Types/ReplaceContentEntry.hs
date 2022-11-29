@@ -22,7 +22,7 @@ module Amazonka.CodeCommit.Types.ReplaceContentEntry where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import Amazonka.CodeCommit.Types.ReplacementTypeEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a replacement content entry in the conflict of a merge

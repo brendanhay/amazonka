@@ -22,7 +22,7 @@ module Amazonka.ConnectCases.Types.FieldSummary where
 import Amazonka.ConnectCases.Types.FieldNamespace
 import Amazonka.ConnectCases.Types.FieldType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for the summarized details of the field.

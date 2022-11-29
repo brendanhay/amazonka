@@ -47,7 +47,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +106,8 @@ updateCase_fields = Lens.lens (\UpdateCase' {fields} -> fields) (\s@UpdateCase' 
 
 instance Core.AWSRequest UpdateCase where
   type AWSResponse UpdateCase = UpdateCaseResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

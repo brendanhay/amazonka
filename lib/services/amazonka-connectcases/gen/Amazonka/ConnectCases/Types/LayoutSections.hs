@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.LayoutSections where
 
 import Amazonka.ConnectCases.Types.Section
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ordered list containing different kinds of sections that can be added. A

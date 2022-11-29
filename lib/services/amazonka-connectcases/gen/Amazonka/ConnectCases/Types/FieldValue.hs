@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.FieldValue where
 
 import Amazonka.ConnectCases.Types.FieldValueUnion
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for case field values.

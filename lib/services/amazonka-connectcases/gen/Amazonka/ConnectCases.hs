@@ -245,6 +245,9 @@ module Amazonka.ConnectCases
     -- ** RelatedItemType
     RelatedItemType (..),
 
+    -- ** TemplateStatus
+    TemplateStatus (..),
+
     -- ** BasicLayout
     BasicLayout (BasicLayout'),
     newBasicLayout,

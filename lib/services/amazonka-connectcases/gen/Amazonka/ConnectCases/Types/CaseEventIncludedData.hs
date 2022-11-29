@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.CaseEventIncludedData where
 
 import Amazonka.ConnectCases.Types.FieldIdentifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of what case data is published through the case event stream.

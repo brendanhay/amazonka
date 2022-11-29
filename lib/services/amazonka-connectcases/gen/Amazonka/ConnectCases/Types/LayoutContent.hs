@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.LayoutContent where
 
 import Amazonka.ConnectCases.Types.BasicLayout
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object to store union of different versions of layout content.

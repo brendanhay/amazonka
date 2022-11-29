@@ -22,7 +22,7 @@ module Amazonka.ConnectCases.Types.RelatedItemTypeFilter where
 import Amazonka.ConnectCases.Types.CommentFilter
 import Amazonka.ConnectCases.Types.ContactFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of types of related items and their parameters to use for

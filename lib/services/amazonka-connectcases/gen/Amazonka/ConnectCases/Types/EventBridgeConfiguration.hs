@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.EventBridgeConfiguration where
 
 import Amazonka.ConnectCases.Types.EventIncludedData
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration to enable EventBridge case event delivery and determine

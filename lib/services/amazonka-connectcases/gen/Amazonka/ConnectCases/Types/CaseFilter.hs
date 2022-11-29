@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.CaseFilter where
 
 import Amazonka.ConnectCases.Types.FieldFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for cases. Only one value can be provided.

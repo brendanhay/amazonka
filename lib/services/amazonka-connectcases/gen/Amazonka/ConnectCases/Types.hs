@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -42,6 +43,9 @@ module Amazonka.ConnectCases.Types
 
     -- * RelatedItemType
     RelatedItemType (..),
+
+    -- * TemplateStatus
+    TemplateStatus (..),
 
     -- * BasicLayout
     BasicLayout (..),
@@ -276,6 +280,7 @@ module Amazonka.ConnectCases.Types
     TemplateSummary (..),
     newTemplateSummary,
     templateSummary_name,
+    templateSummary_status,
     templateSummary_templateArn,
     templateSummary_templateId,
   )
@@ -323,9 +328,10 @@ import Amazonka.ConnectCases.Types.SearchCasesResponseItem
 import Amazonka.ConnectCases.Types.SearchRelatedItemsResponseItem
 import Amazonka.ConnectCases.Types.Section
 import Amazonka.ConnectCases.Types.Sort
+import Amazonka.ConnectCases.Types.TemplateStatus
 import Amazonka.ConnectCases.Types.TemplateSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -333,28 +339,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "ConnectCases",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "cases",
-      Core._serviceSigningName = "cases",
-      Core._serviceVersion = "2022-10-03",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "ConnectCases",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ConnectCases",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "cases",
+      Core.signingName = "cases",
+      Core.version = "2022-10-03",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "ConnectCases",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

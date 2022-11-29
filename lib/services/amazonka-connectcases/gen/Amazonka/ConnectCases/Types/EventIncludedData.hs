@@ -22,7 +22,7 @@ module Amazonka.ConnectCases.Types.EventIncludedData where
 import Amazonka.ConnectCases.Types.CaseEventIncludedData
 import Amazonka.ConnectCases.Types.RelatedItemEventIncludedData
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of what case and related item data is published through the case

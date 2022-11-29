@@ -21,11 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a template in the Cases domain. This template is used to define
--- the case object model (that is, define what data can be captured on
+-- the case object model (that is, to define what data can be captured on
 -- cases) in a Cases domain. A template must have a unique name within a
 -- domain, and it must reference existing field IDs and layout IDs.
 -- Additionally, multiple fields with same IDs are not allowed within the
--- same Template.
+-- same Template. A template can be either Active or Inactive, as indicated
+-- by its status. Inactive templates cannot be used to create cases.
 module Amazonka.ConnectCases.CreateTemplate
   ( -- * Creating a Request
     CreateTemplate (..),
@@ -33,6 +34,7 @@ module Amazonka.ConnectCases.CreateTemplate
 
     -- * Request Lenses
     createTemplate_layoutConfiguration,
+    createTemplate_status,
     createTemplate_description,
     createTemplate_requiredFields,
     createTemplate_domainId,
@@ -51,7 +53,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,6 +62,8 @@ import qualified Amazonka.Response as Response
 data CreateTemplate = CreateTemplate'
   { -- | Configuration of layouts associated to the template.
     layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
+    -- | The status of the template.
+    status :: Prelude.Maybe TemplateStatus,
     -- | A brief description of the template.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of fields that must contain a value for a case to be successfully
@@ -82,6 +86,8 @@ data CreateTemplate = CreateTemplate'
 --
 -- 'layoutConfiguration', 'createTemplate_layoutConfiguration' - Configuration of layouts associated to the template.
 --
+-- 'status', 'createTemplate_status' - The status of the template.
+--
 -- 'description', 'createTemplate_description' - A brief description of the template.
 --
 -- 'requiredFields', 'createTemplate_requiredFields' - A list of fields that must contain a value for a case to be successfully
@@ -100,6 +106,7 @@ newCreateTemplate pDomainId_ pName_ =
   CreateTemplate'
     { layoutConfiguration =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
       requiredFields = Prelude.Nothing,
       domainId = pDomainId_,
@@ -109,6 +116,10 @@ newCreateTemplate pDomainId_ pName_ =
 -- | Configuration of layouts associated to the template.
 createTemplate_layoutConfiguration :: Lens.Lens' CreateTemplate (Prelude.Maybe LayoutConfiguration)
 createTemplate_layoutConfiguration = Lens.lens (\CreateTemplate' {layoutConfiguration} -> layoutConfiguration) (\s@CreateTemplate' {} a -> s {layoutConfiguration = a} :: CreateTemplate)
+
+-- | The status of the template.
+createTemplate_status :: Lens.Lens' CreateTemplate (Prelude.Maybe TemplateStatus)
+createTemplate_status = Lens.lens (\CreateTemplate' {status} -> status) (\s@CreateTemplate' {} a -> s {status = a} :: CreateTemplate)
 
 -- | A brief description of the template.
 createTemplate_description :: Lens.Lens' CreateTemplate (Prelude.Maybe Prelude.Text)
@@ -131,8 +142,8 @@ instance Core.AWSRequest CreateTemplate where
   type
     AWSResponse CreateTemplate =
       CreateTemplateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +156,7 @@ instance Core.AWSRequest CreateTemplate where
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
     _salt `Prelude.hashWithSalt` layoutConfiguration
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` requiredFields
       `Prelude.hashWithSalt` domainId
@@ -153,6 +165,7 @@ instance Prelude.Hashable CreateTemplate where
 instance Prelude.NFData CreateTemplate where
   rnf CreateTemplate' {..} =
     Prelude.rnf layoutConfiguration
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf requiredFields
       `Prelude.seq` Prelude.rnf domainId
@@ -175,6 +188,7 @@ instance Core.ToJSON CreateTemplate where
       ( Prelude.catMaybes
           [ ("layoutConfiguration" Core..=)
               Prelude.<$> layoutConfiguration,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
             ("requiredFields" Core..=)
               Prelude.<$> requiredFields,

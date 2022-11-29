@@ -112,6 +112,7 @@ library
     Amazonka.ConnectCases.Types.SearchRelatedItemsResponseItem
     Amazonka.ConnectCases.Types.Section
     Amazonka.ConnectCases.Types.Sort
+    Amazonka.ConnectCases.Types.TemplateStatus
     Amazonka.ConnectCases.Types.TemplateSummary
     Amazonka.ConnectCases.UntagResource
     Amazonka.ConnectCases.UpdateCase

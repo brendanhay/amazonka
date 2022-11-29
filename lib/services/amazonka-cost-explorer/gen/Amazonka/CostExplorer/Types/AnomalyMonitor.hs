@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.AnomalyMonitor where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Expression
 import Amazonka.CostExplorer.Types.MonitorDimension
 import Amazonka.CostExplorer.Types.MonitorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object continuously inspects your account\'s cost data for

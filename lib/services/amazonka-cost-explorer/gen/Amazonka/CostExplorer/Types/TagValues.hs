@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.TagValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.MatchOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values that are available for a tag.

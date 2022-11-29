@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.EC2Specification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.OfferingClass
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon EC2 hardware specifications that you want Amazon Web Services

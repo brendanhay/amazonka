@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.CostAllocationTagStatusEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostAllocationTagStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cost allocation tag status. The status of a key can either be active

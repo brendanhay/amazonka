@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.RightsizingRecommendationMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.LookbackPeriodInDays
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for this recommendation set.

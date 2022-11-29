@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.DiskResourceUtilization where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The field that contains a list of disk (local storage) metrics that are

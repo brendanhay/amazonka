@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.Expression where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryValues
 import Amazonka.CostExplorer.Types.DimensionValues
 import Amazonka.CostExplorer.Types.TagValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:

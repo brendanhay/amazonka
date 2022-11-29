@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.CoverageCost where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How much it costs to run an instance.

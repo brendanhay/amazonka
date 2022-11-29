@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.AnomalySubscription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.AnomalySubscriptionFrequency
 import Amazonka.CostExplorer.Types.Subscriber
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The association between a monitor, threshold, and list of subscribers

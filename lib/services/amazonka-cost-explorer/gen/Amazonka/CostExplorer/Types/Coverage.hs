@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.Coverage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CoverageCost
 import Amazonka.CostExplorer.Types.CoverageHours
 import Amazonka.CostExplorer.Types.CoverageNormalizedUnits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of instance usage that a reservation covered.

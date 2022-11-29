@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SavingsPlansDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for your recommended Savings Plans.

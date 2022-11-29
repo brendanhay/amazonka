@@ -20,12 +20,12 @@
 module Amazonka.CostExplorer.Types.InstanceDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.EC2InstanceDetails
 import Amazonka.CostExplorer.Types.ESInstanceDetails
 import Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails
 import Amazonka.CostExplorer.Types.RDSInstanceDetails
 import Amazonka.CostExplorer.Types.RedshiftInstanceDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the instances that Amazon Web Services recommends that you

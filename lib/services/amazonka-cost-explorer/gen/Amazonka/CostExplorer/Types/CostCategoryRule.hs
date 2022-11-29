@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.CostCategoryRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
 import Amazonka.CostExplorer.Types.CostCategoryRuleType
 import Amazonka.CostExplorer.Types.Expression
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Rules are processed in order. If there are multiple rules that match the

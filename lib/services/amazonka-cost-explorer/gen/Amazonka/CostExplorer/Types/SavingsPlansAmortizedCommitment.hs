@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amortized amount of Savings Plans purchased in a specific account

@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.ForecastResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The forecast that\'s created for your query.

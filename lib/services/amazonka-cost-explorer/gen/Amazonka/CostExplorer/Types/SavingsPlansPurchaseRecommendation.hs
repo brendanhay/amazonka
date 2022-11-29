@@ -20,6 +20,7 @@
 module Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.AccountScope
 import Amazonka.CostExplorer.Types.LookbackPeriodInDays
 import Amazonka.CostExplorer.Types.PaymentOption
@@ -27,7 +28,6 @@ import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
 import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
 import Amazonka.CostExplorer.Types.SupportedSavingsPlansType
 import Amazonka.CostExplorer.Types.TermInYears
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains your request parameters, Savings Plan Recommendations Summary,

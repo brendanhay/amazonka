@@ -20,7 +20,7 @@
 module Amazonka.Route53AutoNaming.Types.NamespaceProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsProperties
 import Amazonka.Route53AutoNaming.Types.HttpProperties

@@ -20,7 +20,7 @@
 module Amazonka.Route53AutoNaming.Types.SOA where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Start of Authority (SOA) properties for a public or private DNS

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -285,6 +286,7 @@ module Amazonka.Personalize.Types
     datasetImportJob_creationDateTime,
     datasetImportJob_jobName,
     datasetImportJob_status,
+    datasetImportJob_publishAttributionMetricsToS3,
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
     datasetImportJob_dataSource,
@@ -450,6 +452,41 @@ module Amazonka.Personalize.Types
     integerHyperParameterRange_minValue,
     integerHyperParameterRange_maxValue,
 
+    -- * MetricAttribute
+    MetricAttribute (..),
+    newMetricAttribute,
+    metricAttribute_eventType,
+    metricAttribute_metricName,
+    metricAttribute_expression,
+
+    -- * MetricAttribution
+    MetricAttribution (..),
+    newMetricAttribution,
+    metricAttribution_name,
+    metricAttribution_creationDateTime,
+    metricAttribution_status,
+    metricAttribution_metricsOutputConfig,
+    metricAttribution_metricAttributionArn,
+    metricAttribution_datasetGroupArn,
+    metricAttribution_lastUpdatedDateTime,
+    metricAttribution_failureReason,
+
+    -- * MetricAttributionOutput
+    MetricAttributionOutput (..),
+    newMetricAttributionOutput,
+    metricAttributionOutput_s3DataDestination,
+    metricAttributionOutput_roleArn,
+
+    -- * MetricAttributionSummary
+    MetricAttributionSummary (..),
+    newMetricAttributionSummary,
+    metricAttributionSummary_name,
+    metricAttributionSummary_creationDateTime,
+    metricAttributionSummary_status,
+    metricAttributionSummary_metricAttributionArn,
+    metricAttributionSummary_lastUpdatedDateTime,
+    metricAttributionSummary_failureReason,
+
     -- * OptimizationObjective
     OptimizationObjective (..),
     newOptimizationObjective,
@@ -561,6 +598,7 @@ module Amazonka.Personalize.Types
     solutionSummary_name,
     solutionSummary_creationDateTime,
     solutionSummary_status,
+    solutionSummary_recipeArn,
     solutionSummary_lastUpdatedDateTime,
 
     -- * SolutionVersion
@@ -568,6 +606,7 @@ module Amazonka.Personalize.Types
     newSolutionVersion,
     solutionVersion_solutionArn,
     solutionVersion_eventType,
+    solutionVersion_name,
     solutionVersion_tunedHPOParams,
     solutionVersion_performAutoML,
     solutionVersion_performHPO,
@@ -605,7 +644,7 @@ module Amazonka.Personalize.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.Algorithm
 import Amazonka.Personalize.Types.AlgorithmImage
 import Amazonka.Personalize.Types.AutoMLConfig
@@ -654,6 +693,10 @@ import Amazonka.Personalize.Types.HyperParameterRanges
 import Amazonka.Personalize.Types.ImportMode
 import Amazonka.Personalize.Types.IngestionMode
 import Amazonka.Personalize.Types.IntegerHyperParameterRange
+import Amazonka.Personalize.Types.MetricAttribute
+import Amazonka.Personalize.Types.MetricAttribution
+import Amazonka.Personalize.Types.MetricAttributionOutput
+import Amazonka.Personalize.Types.MetricAttributionSummary
 import Amazonka.Personalize.Types.ObjectiveSensitivity
 import Amazonka.Personalize.Types.OptimizationObjective
 import Amazonka.Personalize.Types.Recipe
@@ -679,28 +722,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Personalize",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "personalize",
-      Core._serviceSigningName = "personalize",
-      Core._serviceVersion = "2018-05-22",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "Personalize",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Personalize",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "personalize",
+      Core.signingName = "personalize",
+      Core.version = "2018-05-22",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Personalize",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

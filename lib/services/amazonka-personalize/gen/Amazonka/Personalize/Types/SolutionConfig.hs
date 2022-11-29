@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.SolutionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.AutoMLConfig
 import Amazonka.Personalize.Types.HPOConfig
 import Amazonka.Personalize.Types.OptimizationObjective

@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.DatasetExportJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.DatasetExportJobOutput
 import Amazonka.Personalize.Types.IngestionMode
 import qualified Amazonka.Prelude as Prelude

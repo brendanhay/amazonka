@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.Solution where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.AutoMLResult
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.SolutionVersionSummary

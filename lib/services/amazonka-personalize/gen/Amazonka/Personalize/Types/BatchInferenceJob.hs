@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.BatchInferenceJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.BatchInferenceJobConfig
 import Amazonka.Personalize.Types.BatchInferenceJobInput
 import Amazonka.Personalize.Types.BatchInferenceJobOutput

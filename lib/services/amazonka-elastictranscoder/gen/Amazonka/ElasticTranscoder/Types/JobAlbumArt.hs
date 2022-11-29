@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.JobAlbumArt where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Artwork
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The .jpg or .png file associated with an audio file.

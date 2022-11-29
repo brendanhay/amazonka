@@ -20,11 +20,11 @@
 module Amazonka.ElasticTranscoder.Types.JobInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.DetectedProperties
 import Amazonka.ElasticTranscoder.Types.Encryption
 import Amazonka.ElasticTranscoder.Types.InputCaptions
 import Amazonka.ElasticTranscoder.Types.TimeSpan
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the file that you\'re transcoding.

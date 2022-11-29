@@ -20,7 +20,7 @@
 module Amazonka.ElasticTranscoder.Types.Notifications where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to

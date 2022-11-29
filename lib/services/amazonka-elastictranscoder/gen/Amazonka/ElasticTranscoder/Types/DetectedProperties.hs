@@ -20,7 +20,7 @@
 module Amazonka.ElasticTranscoder.Types.DetectedProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detected properties of the input file. Elastic Transcoder identifies

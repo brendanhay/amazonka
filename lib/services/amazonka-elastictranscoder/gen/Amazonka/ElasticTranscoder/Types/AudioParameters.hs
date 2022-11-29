@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.AudioParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.AudioCodecOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters required for transcoding audio.

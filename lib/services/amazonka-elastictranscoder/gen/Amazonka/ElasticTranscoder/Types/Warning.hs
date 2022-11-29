@@ -20,7 +20,7 @@
 module Amazonka.ElasticTranscoder.Types.Warning where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Elastic Transcoder returns a warning if the resources used by your

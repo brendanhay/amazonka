@@ -20,9 +20,9 @@
 module Amazonka.ElasticTranscoder.Types.Captions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.CaptionFormat
 import Amazonka.ElasticTranscoder.Types.CaptionSource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The captions to be created, if any.

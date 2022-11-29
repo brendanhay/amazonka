@@ -20,7 +20,7 @@
 module Amazonka.ElasticTranscoder.Types.Encryption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The encryption settings, if any, that are used for decrypting your input

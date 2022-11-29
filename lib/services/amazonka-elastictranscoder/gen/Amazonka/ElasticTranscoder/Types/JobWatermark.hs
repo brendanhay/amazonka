@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.JobWatermark where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Encryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Watermarks can be in .png or .jpg format. If you want to display a

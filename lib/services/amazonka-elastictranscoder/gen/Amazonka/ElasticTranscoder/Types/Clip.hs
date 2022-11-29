@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.Clip where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.TimeSpan
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have

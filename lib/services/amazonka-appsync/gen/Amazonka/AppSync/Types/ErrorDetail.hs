@@ -20,11 +20,11 @@
 module Amazonka.AppSync.Types.ErrorDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the list of errors generated when attempting to evaluate a
--- mapping template.
+-- | Contains the list of errors generated. When using JavaScript, this will
+-- apply to the request or response function evaluation.
 --
 -- /See:/ 'newErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -71,6 +72,9 @@ module Amazonka.AppSync.Types
     -- * ResolverKind
     ResolverKind (..),
 
+    -- * RuntimeName
+    RuntimeName (..),
+
     -- * SchemaStatus
     SchemaStatus (..),
 
@@ -111,6 +115,12 @@ module Amazonka.AppSync.Types
     apiKey_expires,
     apiKey_deletes,
 
+    -- * AppSyncRuntime
+    AppSyncRuntime (..),
+    newAppSyncRuntime,
+    appSyncRuntime_name,
+    appSyncRuntime_runtimeVersion,
+
     -- * AuthorizationConfig
     AuthorizationConfig (..),
     newAuthorizationConfig,
@@ -128,6 +138,20 @@ module Amazonka.AppSync.Types
     newCachingConfig,
     cachingConfig_cachingKeys,
     cachingConfig_ttl,
+
+    -- * CodeError
+    CodeError (..),
+    newCodeError,
+    codeError_location,
+    codeError_errorType,
+    codeError_value,
+
+    -- * CodeErrorLocation
+    CodeErrorLocation (..),
+    newCodeErrorLocation,
+    codeErrorLocation_line,
+    codeErrorLocation_span,
+    codeErrorLocation_column,
 
     -- * CognitoUserPoolConfig
     CognitoUserPoolConfig (..),
@@ -187,13 +211,21 @@ module Amazonka.AppSync.Types
     newErrorDetail,
     errorDetail_message,
 
+    -- * EvaluateCodeErrorDetail
+    EvaluateCodeErrorDetail (..),
+    newEvaluateCodeErrorDetail,
+    evaluateCodeErrorDetail_message,
+    evaluateCodeErrorDetail_codeErrors,
+
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
     functionConfiguration_functionArn,
     functionConfiguration_name,
+    functionConfiguration_code,
     functionConfiguration_maxBatchSize,
     functionConfiguration_functionVersion,
+    functionConfiguration_runtime,
     functionConfiguration_description,
     functionConfiguration_dataSourceName,
     functionConfiguration_responseMappingTemplate,
@@ -285,12 +317,14 @@ module Amazonka.AppSync.Types
     -- * Resolver
     Resolver (..),
     newResolver,
+    resolver_code,
     resolver_maxBatchSize,
     resolver_resolverArn,
     resolver_fieldName,
     resolver_cachingConfig,
     resolver_pipelineConfig,
     resolver_kind,
+    resolver_runtime,
     resolver_typeName,
     resolver_dataSourceName,
     resolver_responseMappingTemplate,
@@ -330,12 +364,15 @@ import Amazonka.AppSync.Types.ApiCacheStatus
 import Amazonka.AppSync.Types.ApiCacheType
 import Amazonka.AppSync.Types.ApiCachingBehavior
 import Amazonka.AppSync.Types.ApiKey
+import Amazonka.AppSync.Types.AppSyncRuntime
 import Amazonka.AppSync.Types.AssociationStatus
 import Amazonka.AppSync.Types.AuthenticationType
 import Amazonka.AppSync.Types.AuthorizationConfig
 import Amazonka.AppSync.Types.AuthorizationType
 import Amazonka.AppSync.Types.AwsIamConfig
 import Amazonka.AppSync.Types.CachingConfig
+import Amazonka.AppSync.Types.CodeError
+import Amazonka.AppSync.Types.CodeErrorLocation
 import Amazonka.AppSync.Types.CognitoUserPoolConfig
 import Amazonka.AppSync.Types.ConflictDetectionType
 import Amazonka.AppSync.Types.ConflictHandlerType
@@ -347,6 +384,7 @@ import Amazonka.AppSync.Types.DomainNameConfig
 import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
 import Amazonka.AppSync.Types.ErrorDetail
+import Amazonka.AppSync.Types.EvaluateCodeErrorDetail
 import Amazonka.AppSync.Types.FieldLogLevel
 import Amazonka.AppSync.Types.FunctionConfiguration
 import Amazonka.AppSync.Types.GraphqlApi
@@ -364,13 +402,14 @@ import Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
 import Amazonka.AppSync.Types.RelationalDatabaseSourceType
 import Amazonka.AppSync.Types.Resolver
 import Amazonka.AppSync.Types.ResolverKind
+import Amazonka.AppSync.Types.RuntimeName
 import Amazonka.AppSync.Types.SchemaStatus
 import Amazonka.AppSync.Types.SyncConfig
 import Amazonka.AppSync.Types.Type
 import Amazonka.AppSync.Types.TypeDefinitionFormat
 import Amazonka.AppSync.Types.UserPoolConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -378,27 +417,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "AppSync",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "appsync",
-      Core._serviceSigningName = "appsync",
-      Core._serviceVersion = "2017-07-25",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "AppSync",
-      Core._serviceRetry = retry
+    { Core.abbrev = "AppSync",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "appsync",
+      Core.signingName = "appsync",
+      Core.version = "2017-07-25",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "AppSync",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

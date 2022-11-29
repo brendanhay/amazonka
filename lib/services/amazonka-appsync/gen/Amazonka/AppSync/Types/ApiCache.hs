@@ -23,7 +23,7 @@ import Amazonka.AppSync.Types.ApiCacheStatus
 import Amazonka.AppSync.Types.ApiCacheType
 import Amazonka.AppSync.Types.ApiCachingBehavior
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ApiCache@ object.

@@ -26,7 +26,7 @@ import Amazonka.AppSync.Types.LogConfig
 import Amazonka.AppSync.Types.OpenIDConnectConfig
 import Amazonka.AppSync.Types.UserPoolConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a GraphQL API.

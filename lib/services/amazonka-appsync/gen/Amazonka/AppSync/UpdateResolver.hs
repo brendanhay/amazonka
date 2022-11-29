@@ -27,10 +27,12 @@ module Amazonka.AppSync.UpdateResolver
     newUpdateResolver,
 
     -- * Request Lenses
+    updateResolver_code,
     updateResolver_maxBatchSize,
     updateResolver_cachingConfig,
     updateResolver_pipelineConfig,
     updateResolver_kind,
+    updateResolver_runtime,
     updateResolver_dataSourceName,
     updateResolver_responseMappingTemplate,
     updateResolver_syncConfig,
@@ -51,14 +53,18 @@ where
 
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { -- | The maximum batching size for a resolver.
+  { -- | The @resolver@ code that contains the request and response functions.
+    -- When code is used, the @runtime@ is required. The @runtime@ value must
+    -- be @APPSYNC_JS@.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The maximum batching size for a resolver.
     maxBatchSize :: Prelude.Maybe Prelude.Natural,
     -- | The caching configuration for the resolver.
     cachingConfig :: Prelude.Maybe CachingConfig,
@@ -75,6 +81,7 @@ data UpdateResolver = UpdateResolver'
     --     manner. You can use a pipeline resolver to run a GraphQL query
     --     against multiple data sources.
     kind :: Prelude.Maybe ResolverKind,
+    runtime :: Prelude.Maybe AppSyncRuntime,
     -- | The new data source name.
     dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The new response mapping template.
@@ -108,6 +115,10 @@ data UpdateResolver = UpdateResolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'updateResolver_code' - The @resolver@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+--
 -- 'maxBatchSize', 'updateResolver_maxBatchSize' - The maximum batching size for a resolver.
 --
 -- 'cachingConfig', 'updateResolver_cachingConfig' - The caching configuration for the resolver.
@@ -124,6 +135,8 @@ data UpdateResolver = UpdateResolver'
 --     resolver to invoke a series of @Function@ objects in a serial
 --     manner. You can use a pipeline resolver to run a GraphQL query
 --     against multiple data sources.
+--
+-- 'runtime', 'updateResolver_runtime' - Undocumented member.
 --
 -- 'dataSourceName', 'updateResolver_dataSourceName' - The new data source name.
 --
@@ -156,10 +169,12 @@ newUpdateResolver ::
   UpdateResolver
 newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
   UpdateResolver'
-    { maxBatchSize = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      maxBatchSize = Prelude.Nothing,
       cachingConfig = Prelude.Nothing,
       pipelineConfig = Prelude.Nothing,
       kind = Prelude.Nothing,
+      runtime = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
       responseMappingTemplate = Prelude.Nothing,
       syncConfig = Prelude.Nothing,
@@ -168,6 +183,12 @@ newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
       typeName = pTypeName_,
       fieldName = pFieldName_
     }
+
+-- | The @resolver@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+updateResolver_code :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_code = Lens.lens (\UpdateResolver' {code} -> code) (\s@UpdateResolver' {} a -> s {code = a} :: UpdateResolver)
 
 -- | The maximum batching size for a resolver.
 updateResolver_maxBatchSize :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Natural)
@@ -193,6 +214,10 @@ updateResolver_pipelineConfig = Lens.lens (\UpdateResolver' {pipelineConfig} -> 
 --     against multiple data sources.
 updateResolver_kind :: Lens.Lens' UpdateResolver (Prelude.Maybe ResolverKind)
 updateResolver_kind = Lens.lens (\UpdateResolver' {kind} -> kind) (\s@UpdateResolver' {} a -> s {kind = a} :: UpdateResolver)
+
+-- | Undocumented member.
+updateResolver_runtime :: Lens.Lens' UpdateResolver (Prelude.Maybe AppSyncRuntime)
+updateResolver_runtime = Lens.lens (\UpdateResolver' {runtime} -> runtime) (\s@UpdateResolver' {} a -> s {runtime = a} :: UpdateResolver)
 
 -- | The new data source name.
 updateResolver_dataSourceName :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
@@ -234,8 +259,8 @@ instance Core.AWSRequest UpdateResolver where
   type
     AWSResponse UpdateResolver =
       UpdateResolverResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -246,10 +271,12 @@ instance Core.AWSRequest UpdateResolver where
 
 instance Prelude.Hashable UpdateResolver where
   hashWithSalt _salt UpdateResolver' {..} =
-    _salt `Prelude.hashWithSalt` maxBatchSize
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` pipelineConfig
       `Prelude.hashWithSalt` kind
+      `Prelude.hashWithSalt` runtime
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` responseMappingTemplate
       `Prelude.hashWithSalt` syncConfig
@@ -260,10 +287,12 @@ instance Prelude.Hashable UpdateResolver where
 
 instance Prelude.NFData UpdateResolver where
   rnf UpdateResolver' {..} =
-    Prelude.rnf maxBatchSize
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf maxBatchSize
       `Prelude.seq` Prelude.rnf cachingConfig
       `Prelude.seq` Prelude.rnf pipelineConfig
       `Prelude.seq` Prelude.rnf kind
+      `Prelude.seq` Prelude.rnf runtime
       `Prelude.seq` Prelude.rnf dataSourceName
       `Prelude.seq` Prelude.rnf responseMappingTemplate
       `Prelude.seq` Prelude.rnf syncConfig
@@ -287,11 +316,13 @@ instance Core.ToJSON UpdateResolver where
   toJSON UpdateResolver' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+          [ ("code" Core..=) Prelude.<$> code,
+            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
             ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
             ("pipelineConfig" Core..=)
               Prelude.<$> pipelineConfig,
             ("kind" Core..=) Prelude.<$> kind,
+            ("runtime" Core..=) Prelude.<$> runtime,
             ("dataSourceName" Core..=)
               Prelude.<$> dataSourceName,
             ("responseMappingTemplate" Core..=)

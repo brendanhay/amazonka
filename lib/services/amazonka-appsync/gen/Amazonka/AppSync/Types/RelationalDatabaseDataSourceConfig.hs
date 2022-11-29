@@ -22,7 +22,7 @@ module Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig where
 import Amazonka.AppSync.Types.RdsHttpEndpointConfig
 import Amazonka.AppSync.Types.RelationalDatabaseSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a relational database data source configuration.

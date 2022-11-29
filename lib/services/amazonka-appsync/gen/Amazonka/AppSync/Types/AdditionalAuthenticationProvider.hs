@@ -24,7 +24,7 @@ import Amazonka.AppSync.Types.CognitoUserPoolConfig
 import Amazonka.AppSync.Types.LambdaAuthorizerConfig
 import Amazonka.AppSync.Types.OpenIDConnectConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an additional authentication provider.

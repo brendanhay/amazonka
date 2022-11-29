@@ -62,6 +62,7 @@ library
     Amazonka.AppSync.DeleteResolver
     Amazonka.AppSync.DeleteType
     Amazonka.AppSync.DisassociateApi
+    Amazonka.AppSync.EvaluateCode
     Amazonka.AppSync.EvaluateMappingTemplate
     Amazonka.AppSync.FlushApiCache
     Amazonka.AppSync.GetApiAssociation
@@ -94,12 +95,15 @@ library
     Amazonka.AppSync.Types.ApiCacheType
     Amazonka.AppSync.Types.ApiCachingBehavior
     Amazonka.AppSync.Types.ApiKey
+    Amazonka.AppSync.Types.AppSyncRuntime
     Amazonka.AppSync.Types.AssociationStatus
     Amazonka.AppSync.Types.AuthenticationType
     Amazonka.AppSync.Types.AuthorizationConfig
     Amazonka.AppSync.Types.AuthorizationType
     Amazonka.AppSync.Types.AwsIamConfig
     Amazonka.AppSync.Types.CachingConfig
+    Amazonka.AppSync.Types.CodeError
+    Amazonka.AppSync.Types.CodeErrorLocation
     Amazonka.AppSync.Types.CognitoUserPoolConfig
     Amazonka.AppSync.Types.ConflictDetectionType
     Amazonka.AppSync.Types.ConflictHandlerType
@@ -111,6 +115,7 @@ library
     Amazonka.AppSync.Types.DynamodbDataSourceConfig
     Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
     Amazonka.AppSync.Types.ErrorDetail
+    Amazonka.AppSync.Types.EvaluateCodeErrorDetail
     Amazonka.AppSync.Types.FieldLogLevel
     Amazonka.AppSync.Types.FunctionConfiguration
     Amazonka.AppSync.Types.GraphqlApi
@@ -128,6 +133,7 @@ library
     Amazonka.AppSync.Types.RelationalDatabaseSourceType
     Amazonka.AppSync.Types.Resolver
     Amazonka.AppSync.Types.ResolverKind
+    Amazonka.AppSync.Types.RuntimeName
     Amazonka.AppSync.Types.SchemaStatus
     Amazonka.AppSync.Types.SyncConfig
     Amazonka.AppSync.Types.Type

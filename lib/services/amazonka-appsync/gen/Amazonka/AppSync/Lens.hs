@@ -60,7 +60,10 @@ module Amazonka.AppSync.Lens
     createDomainNameResponse_httpStatus,
 
     -- ** CreateFunction
+    createFunction_code,
     createFunction_maxBatchSize,
+    createFunction_functionVersion,
+    createFunction_runtime,
     createFunction_description,
     createFunction_responseMappingTemplate,
     createFunction_syncConfig,
@@ -68,7 +71,6 @@ module Amazonka.AppSync.Lens
     createFunction_apiId,
     createFunction_name,
     createFunction_dataSourceName,
-    createFunction_functionVersion,
     createFunctionResponse_functionConfiguration,
     createFunctionResponse_httpStatus,
 
@@ -86,10 +88,12 @@ module Amazonka.AppSync.Lens
     createGraphqlApiResponse_httpStatus,
 
     -- ** CreateResolver
+    createResolver_code,
     createResolver_maxBatchSize,
     createResolver_cachingConfig,
     createResolver_pipelineConfig,
     createResolver_kind,
+    createResolver_runtime,
     createResolver_dataSourceName,
     createResolver_responseMappingTemplate,
     createResolver_syncConfig,
@@ -149,9 +153,20 @@ module Amazonka.AppSync.Lens
     disassociateApi_domainName,
     disassociateApiResponse_httpStatus,
 
+    -- ** EvaluateCode
+    evaluateCode_function,
+    evaluateCode_runtime,
+    evaluateCode_code,
+    evaluateCode_context,
+    evaluateCodeResponse_logs,
+    evaluateCodeResponse_evaluationResult,
+    evaluateCodeResponse_error,
+    evaluateCodeResponse_httpStatus,
+
     -- ** EvaluateMappingTemplate
     evaluateMappingTemplate_template,
     evaluateMappingTemplate_context,
+    evaluateMappingTemplateResponse_logs,
     evaluateMappingTemplateResponse_evaluationResult,
     evaluateMappingTemplateResponse_error,
     evaluateMappingTemplateResponse_httpStatus,
@@ -343,7 +358,10 @@ module Amazonka.AppSync.Lens
     updateDomainNameResponse_httpStatus,
 
     -- ** UpdateFunction
+    updateFunction_code,
     updateFunction_maxBatchSize,
+    updateFunction_functionVersion,
+    updateFunction_runtime,
     updateFunction_description,
     updateFunction_responseMappingTemplate,
     updateFunction_syncConfig,
@@ -352,7 +370,6 @@ module Amazonka.AppSync.Lens
     updateFunction_name,
     updateFunction_functionId,
     updateFunction_dataSourceName,
-    updateFunction_functionVersion,
     updateFunctionResponse_functionConfiguration,
     updateFunctionResponse_httpStatus,
 
@@ -370,10 +387,12 @@ module Amazonka.AppSync.Lens
     updateGraphqlApiResponse_httpStatus,
 
     -- ** UpdateResolver
+    updateResolver_code,
     updateResolver_maxBatchSize,
     updateResolver_cachingConfig,
     updateResolver_pipelineConfig,
     updateResolver_kind,
+    updateResolver_runtime,
     updateResolver_dataSourceName,
     updateResolver_responseMappingTemplate,
     updateResolver_syncConfig,
@@ -420,6 +439,10 @@ module Amazonka.AppSync.Lens
     apiKey_expires,
     apiKey_deletes,
 
+    -- ** AppSyncRuntime
+    appSyncRuntime_name,
+    appSyncRuntime_runtimeVersion,
+
     -- ** AuthorizationConfig
     authorizationConfig_awsIamConfig,
     authorizationConfig_authorizationType,
@@ -431,6 +454,16 @@ module Amazonka.AppSync.Lens
     -- ** CachingConfig
     cachingConfig_cachingKeys,
     cachingConfig_ttl,
+
+    -- ** CodeError
+    codeError_location,
+    codeError_errorType,
+    codeError_value,
+
+    -- ** CodeErrorLocation
+    codeErrorLocation_line,
+    codeErrorLocation_span,
+    codeErrorLocation_column,
 
     -- ** CognitoUserPoolConfig
     cognitoUserPoolConfig_appIdClientRegex,
@@ -476,11 +509,17 @@ module Amazonka.AppSync.Lens
     -- ** ErrorDetail
     errorDetail_message,
 
+    -- ** EvaluateCodeErrorDetail
+    evaluateCodeErrorDetail_message,
+    evaluateCodeErrorDetail_codeErrors,
+
     -- ** FunctionConfiguration
     functionConfiguration_functionArn,
     functionConfiguration_name,
+    functionConfiguration_code,
     functionConfiguration_maxBatchSize,
     functionConfiguration_functionVersion,
+    functionConfiguration_runtime,
     functionConfiguration_description,
     functionConfiguration_dataSourceName,
     functionConfiguration_responseMappingTemplate,
@@ -548,12 +587,14 @@ module Amazonka.AppSync.Lens
     relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig,
 
     -- ** Resolver
+    resolver_code,
     resolver_maxBatchSize,
     resolver_resolverArn,
     resolver_fieldName,
     resolver_cachingConfig,
     resolver_pipelineConfig,
     resolver_kind,
+    resolver_runtime,
     resolver_typeName,
     resolver_dataSourceName,
     resolver_responseMappingTemplate,
@@ -598,6 +639,7 @@ import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
 import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.EvaluateCode
 import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
 import Amazonka.AppSync.GetApiAssociation
@@ -625,9 +667,12 @@ import Amazonka.AppSync.Types.AdditionalAuthenticationProvider
 import Amazonka.AppSync.Types.ApiAssociation
 import Amazonka.AppSync.Types.ApiCache
 import Amazonka.AppSync.Types.ApiKey
+import Amazonka.AppSync.Types.AppSyncRuntime
 import Amazonka.AppSync.Types.AuthorizationConfig
 import Amazonka.AppSync.Types.AwsIamConfig
 import Amazonka.AppSync.Types.CachingConfig
+import Amazonka.AppSync.Types.CodeError
+import Amazonka.AppSync.Types.CodeErrorLocation
 import Amazonka.AppSync.Types.CognitoUserPoolConfig
 import Amazonka.AppSync.Types.DataSource
 import Amazonka.AppSync.Types.DeltaSyncConfig
@@ -635,6 +680,7 @@ import Amazonka.AppSync.Types.DomainNameConfig
 import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
 import Amazonka.AppSync.Types.ErrorDetail
+import Amazonka.AppSync.Types.EvaluateCodeErrorDetail
 import Amazonka.AppSync.Types.FunctionConfiguration
 import Amazonka.AppSync.Types.GraphqlApi
 import Amazonka.AppSync.Types.HttpDataSourceConfig

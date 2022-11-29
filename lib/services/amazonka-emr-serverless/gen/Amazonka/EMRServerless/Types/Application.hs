@@ -20,13 +20,14 @@
 module Amazonka.EMRServerless.Types.Application where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.ApplicationState
+import Amazonka.EMRServerless.Types.Architecture
 import Amazonka.EMRServerless.Types.AutoStartConfig
 import Amazonka.EMRServerless.Types.AutoStopConfig
 import Amazonka.EMRServerless.Types.InitialCapacityConfig
 import Amazonka.EMRServerless.Types.MaximumAllowedResources
 import Amazonka.EMRServerless.Types.NetworkConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application. EMR Serverless uses applications to
@@ -56,6 +57,8 @@ data Application = Application'
     -- application is created. No new resources will be created once any one of
     -- the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
+    -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
     -- | The ID of the application.
     applicationId :: Prelude.Text,
     -- | The ARN of the application.
@@ -103,6 +106,8 @@ data Application = Application'
 -- application is created. No new resources will be created once any one of
 -- the defined limits is hit.
 --
+-- 'architecture', 'application_architecture' - The CPU architecture of an application.
+--
 -- 'applicationId', 'application_applicationId' - The ID of the application.
 --
 -- 'arn', 'application_arn' - The ARN of the application.
@@ -149,6 +154,7 @@ newApplication
         networkConfiguration = Prelude.Nothing,
         autoStartConfiguration = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
+        architecture = Prelude.Nothing,
         applicationId = pApplicationId_,
         arn = pArn_,
         releaseLabel = pReleaseLabel_,
@@ -196,6 +202,10 @@ application_autoStartConfiguration = Lens.lens (\Application' {autoStartConfigur
 application_maximumCapacity :: Lens.Lens' Application (Prelude.Maybe MaximumAllowedResources)
 application_maximumCapacity = Lens.lens (\Application' {maximumCapacity} -> maximumCapacity) (\s@Application' {} a -> s {maximumCapacity = a} :: Application)
 
+-- | The CPU architecture of an application.
+application_architecture :: Lens.Lens' Application (Prelude.Maybe Architecture)
+application_architecture = Lens.lens (\Application' {architecture} -> architecture) (\s@Application' {} a -> s {architecture = a} :: Application)
+
 -- | The ID of the application.
 application_applicationId :: Lens.Lens' Application Prelude.Text
 application_applicationId = Lens.lens (\Application' {applicationId} -> applicationId) (\s@Application' {} a -> s {applicationId = a} :: Application)
@@ -240,6 +250,7 @@ instance Core.FromJSON Application where
             Prelude.<*> (x Core..:? "networkConfiguration")
             Prelude.<*> (x Core..:? "autoStartConfiguration")
             Prelude.<*> (x Core..:? "maximumCapacity")
+            Prelude.<*> (x Core..:? "architecture")
             Prelude.<*> (x Core..: "applicationId")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "releaseLabel")
@@ -259,6 +270,7 @@ instance Prelude.Hashable Application where
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` maximumCapacity
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` releaseLabel
@@ -277,6 +289,7 @@ instance Prelude.NFData Application where
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf maximumCapacity
+      `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf releaseLabel

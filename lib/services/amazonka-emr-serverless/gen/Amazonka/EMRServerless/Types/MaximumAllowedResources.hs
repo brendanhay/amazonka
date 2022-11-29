@@ -20,7 +20,7 @@
 module Amazonka.EMRServerless.Types.MaximumAllowedResources where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The maximum allowed cumulative resources for an application. No new

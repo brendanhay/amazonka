@@ -20,12 +20,12 @@
 module Amazonka.EMRServerless.Types.JobRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.ConfigurationOverrides
 import Amazonka.EMRServerless.Types.JobDriver
 import Amazonka.EMRServerless.Types.JobRunState
 import Amazonka.EMRServerless.Types.NetworkConfiguration
 import Amazonka.EMRServerless.Types.TotalResourceUtilization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a job run. A job run is a unit of work, such as a

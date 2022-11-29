@@ -20,9 +20,9 @@
 module Amazonka.EMRServerless.Types.MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.ManagedPersistenceMonitoringConfiguration
 import Amazonka.EMRServerless.Types.S3MonitoringConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration setting for monitoring.

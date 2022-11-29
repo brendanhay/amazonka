@@ -20,9 +20,9 @@
 module Amazonka.EMRServerless.Types.ConfigurationOverrides where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.Configuration
 import Amazonka.EMRServerless.Types.MonitoringConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration specification to be used to override existing

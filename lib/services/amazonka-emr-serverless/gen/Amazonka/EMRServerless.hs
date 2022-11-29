@@ -155,6 +155,9 @@ module Amazonka.EMRServerless
     -- ** ApplicationState
     ApplicationState (..),
 
+    -- ** Architecture
+    Architecture (..),
+
     -- ** JobRunState
     JobRunState (..),
 

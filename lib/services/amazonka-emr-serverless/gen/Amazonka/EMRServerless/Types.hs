@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -26,6 +27,9 @@ module Amazonka.EMRServerless.Types
     -- * ApplicationState
     ApplicationState (..),
 
+    -- * Architecture
+    Architecture (..),
+
     -- * JobRunState
     JobRunState (..),
 
@@ -40,6 +44,7 @@ module Amazonka.EMRServerless.Types
     application_networkConfiguration,
     application_autoStartConfiguration,
     application_maximumCapacity,
+    application_architecture,
     application_applicationId,
     application_arn,
     application_releaseLabel,
@@ -53,6 +58,7 @@ module Amazonka.EMRServerless.Types
     newApplicationSummary,
     applicationSummary_name,
     applicationSummary_stateDetails,
+    applicationSummary_architecture,
     applicationSummary_id,
     applicationSummary_arn,
     applicationSummary_releaseLabel,
@@ -196,9 +202,11 @@ module Amazonka.EMRServerless.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.Application
 import Amazonka.EMRServerless.Types.ApplicationState
 import Amazonka.EMRServerless.Types.ApplicationSummary
+import Amazonka.EMRServerless.Types.Architecture
 import Amazonka.EMRServerless.Types.AutoStartConfig
 import Amazonka.EMRServerless.Types.AutoStopConfig
 import Amazonka.EMRServerless.Types.Configuration
@@ -217,7 +225,6 @@ import Amazonka.EMRServerless.Types.S3MonitoringConfiguration
 import Amazonka.EMRServerless.Types.SparkSubmit
 import Amazonka.EMRServerless.Types.TotalResourceUtilization
 import Amazonka.EMRServerless.Types.WorkerResourceConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -225,28 +232,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "EMRServerless",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "emr-serverless",
-      Core._serviceSigningName = "emr-serverless",
-      Core._serviceVersion = "2021-07-13",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "EMRServerless",
-      Core._serviceRetry = retry
+    { Core.abbrev = "EMRServerless",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "emr-serverless",
+      Core.signingName = "emr-serverless",
+      Core.version = "2021-07-13",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "EMRServerless",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -20,8 +20,8 @@
 module Amazonka.EMRServerless.Types.InitialCapacityConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.WorkerResourceConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The initial capacity configuration per worker.

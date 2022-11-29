@@ -62,6 +62,7 @@ library
     Amazonka.EMRServerless.Types.Application
     Amazonka.EMRServerless.Types.ApplicationState
     Amazonka.EMRServerless.Types.ApplicationSummary
+    Amazonka.EMRServerless.Types.Architecture
     Amazonka.EMRServerless.Types.AutoStartConfig
     Amazonka.EMRServerless.Types.AutoStopConfig
     Amazonka.EMRServerless.Types.Configuration

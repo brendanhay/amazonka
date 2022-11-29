@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.S3Location where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The bucket and key of an item stored in Amazon S3.

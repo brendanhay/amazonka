@@ -20,8 +20,8 @@
 module Amazonka.ElasticBeanstalk.Types.SystemStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.CPUUtilization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | CPU utilization and load average metrics for an Amazon EC2 instance.

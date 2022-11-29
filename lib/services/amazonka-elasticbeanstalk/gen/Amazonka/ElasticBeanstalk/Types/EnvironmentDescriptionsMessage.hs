@@ -20,8 +20,8 @@
 module Amazonka.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.EnvironmentDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Result message containing a list of environment descriptions.

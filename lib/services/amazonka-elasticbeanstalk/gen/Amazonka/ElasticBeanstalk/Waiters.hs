@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,20 +17,20 @@
 module Amazonka.ElasticBeanstalk.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.DescribeEnvironments
 import Amazonka.ElasticBeanstalk.Lens
 import Amazonka.ElasticBeanstalk.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newEnvironmentUpdated :: Core.Wait DescribeEnvironments
 newEnvironmentUpdated =
   Core.Wait
-    { Core._waitName = "EnvironmentUpdated",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "EnvironmentUpdated",
+      Core.attempts = 20,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "Ready"
             Core.AcceptSuccess
@@ -63,10 +64,10 @@ newEnvironmentUpdated =
 newEnvironmentTerminated :: Core.Wait DescribeEnvironments
 newEnvironmentTerminated =
   Core.Wait
-    { Core._waitName = "EnvironmentTerminated",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "EnvironmentTerminated",
+      Core.attempts = 20,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "Terminated"
             Core.AcceptSuccess
@@ -100,10 +101,10 @@ newEnvironmentTerminated =
 newEnvironmentExists :: Core.Wait DescribeEnvironments
 newEnvironmentExists =
   Core.Wait
-    { Core._waitName = "EnvironmentExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "EnvironmentExists",
+      Core.attempts = 20,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "Ready"
             Core.AcceptSuccess

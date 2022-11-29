@@ -42,8 +42,8 @@ module Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActions
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +104,8 @@ instance
   type
     AWSResponse DescribeEnvironmentManagedActions =
       DescribeEnvironmentManagedActionsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentManagedActionsResult"

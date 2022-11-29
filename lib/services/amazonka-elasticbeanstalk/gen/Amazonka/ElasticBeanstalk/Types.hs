@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -590,6 +591,7 @@ module Amazonka.ElasticBeanstalk.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.ActionHistoryStatus
 import Amazonka.ElasticBeanstalk.Types.ActionStatus
 import Amazonka.ElasticBeanstalk.Types.ActionType
@@ -667,7 +669,6 @@ import Amazonka.ElasticBeanstalk.Types.Tag
 import Amazonka.ElasticBeanstalk.Types.Trigger
 import Amazonka.ElasticBeanstalk.Types.ValidationMessage
 import Amazonka.ElasticBeanstalk.Types.ValidationSeverity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -675,29 +676,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "ElasticBeanstalk",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "elasticbeanstalk",
-      Core._serviceSigningName = "elasticbeanstalk",
-      Core._serviceVersion = "2010-12-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseXMLError "ElasticBeanstalk",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ElasticBeanstalk",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "elasticbeanstalk",
+      Core.signingName = "elasticbeanstalk",
+      Core.version = "2010-12-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "ElasticBeanstalk",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

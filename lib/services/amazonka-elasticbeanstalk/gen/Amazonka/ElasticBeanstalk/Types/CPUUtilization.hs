@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.CPUUtilization where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | CPU utilization metrics for an instance.

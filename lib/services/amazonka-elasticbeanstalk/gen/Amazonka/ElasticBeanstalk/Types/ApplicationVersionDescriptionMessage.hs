@@ -20,8 +20,8 @@
 module Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Result message wrapping a single description of an application version.

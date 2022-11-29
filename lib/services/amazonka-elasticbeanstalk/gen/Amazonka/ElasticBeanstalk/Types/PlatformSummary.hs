@@ -20,8 +20,8 @@
 module Amazonka.ElasticBeanstalk.Types.PlatformSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.PlatformStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a platform version.

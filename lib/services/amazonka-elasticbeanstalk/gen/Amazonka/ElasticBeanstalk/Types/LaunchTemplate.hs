@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.LaunchTemplate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EC2 launch template.

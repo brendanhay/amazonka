@@ -46,8 +46,8 @@ module Amazonka.IoTSecureTunneling.CloseTunnel
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSecureTunneling.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,8 +95,8 @@ closeTunnel_tunnelId = Lens.lens (\CloseTunnel' {tunnelId} -> tunnelId) (\s@Clos
 
 instance Core.AWSRequest CloseTunnel where
   type AWSResponse CloseTunnel = CloseTunnelResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

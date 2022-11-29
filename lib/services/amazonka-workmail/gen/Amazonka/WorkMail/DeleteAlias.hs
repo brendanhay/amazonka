@@ -42,7 +42,7 @@ module Amazonka.WorkMail.DeleteAlias
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,8 +110,8 @@ deleteAlias_alias = Lens.lens (\DeleteAlias' {alias} -> alias) (\s@DeleteAlias' 
 
 instance Core.AWSRequest DeleteAlias where
   type AWSResponse DeleteAlias = DeleteAliasResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

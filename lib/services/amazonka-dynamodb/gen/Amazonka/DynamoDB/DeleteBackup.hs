@@ -42,8 +42,8 @@ module Amazonka.DynamoDB.DeleteBackup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,8 +77,8 @@ deleteBackup_backupArn = Lens.lens (\DeleteBackup' {backupArn} -> backupArn) (\s
 
 instance Core.AWSRequest DeleteBackup where
   type AWSResponse DeleteBackup = DeleteBackupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

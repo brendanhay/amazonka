@@ -20,9 +20,9 @@
 module Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a global secondary index to be deleted from an existing

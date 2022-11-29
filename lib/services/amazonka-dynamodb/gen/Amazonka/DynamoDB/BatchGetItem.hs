@@ -99,8 +99,8 @@ module Amazonka.DynamoDB.BatchGetItem
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -358,8 +358,8 @@ batchGetItem_requestItems = Lens.lens (\BatchGetItem' {requestItems} -> requestI
 
 instance Core.AWSRequest BatchGetItem where
   type AWSResponse BatchGetItem = BatchGetItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

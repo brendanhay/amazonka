@@ -20,11 +20,11 @@
 module Amazonka.DynamoDB.Types.ContinuousBackupsDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ContinuousBackupsStatus
 import Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the continuous backups and point in time recovery settings on

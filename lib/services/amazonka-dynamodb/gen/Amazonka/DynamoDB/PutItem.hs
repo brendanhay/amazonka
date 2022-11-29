@@ -29,7 +29,7 @@
 -- values in the same operation, using the @ReturnValues@ parameter.
 --
 -- When you add an item, the primary key attributes are the only required
--- attributes. Attribute values cannot be null.
+-- attributes.
 --
 -- Empty String and Binary attribute values are allowed. Attribute values
 -- of type String and Binary must have a length greater than zero if the
@@ -79,8 +79,8 @@ module Amazonka.DynamoDB.PutItem
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -555,8 +555,8 @@ putItem_item = Lens.lens (\PutItem' {item} -> item) (\s@PutItem' {} a -> s {item
 
 instance Core.AWSRequest PutItem where
   type AWSResponse PutItem = PutItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

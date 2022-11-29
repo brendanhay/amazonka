@@ -20,11 +20,11 @@
 module Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.IndexStatus
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the auto scaling configuration for a replica global secondary
@@ -38,7 +38,8 @@ data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryI
     --
     -- -   @CREATING@ - The index is being created.
     --
-    -- -   @UPDATING@ - The index is being updated.
+    -- -   @UPDATING@ - The table\/index configuration is being updated. The
+    --     table\/index remains available for data operations when @UPDATING@
     --
     -- -   @DELETING@ - The index is being deleted.
     --
@@ -63,7 +64,8 @@ data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryI
 --
 -- -   @CREATING@ - The index is being created.
 --
--- -   @UPDATING@ - The index is being updated.
+-- -   @UPDATING@ - The table\/index configuration is being updated. The
+--     table\/index remains available for data operations when @UPDATING@
 --
 -- -   @DELETING@ - The index is being deleted.
 --
@@ -94,7 +96,8 @@ replicaGlobalSecondaryIndexAutoScalingDescription_indexName = Lens.lens (\Replic
 --
 -- -   @CREATING@ - The index is being created.
 --
--- -   @UPDATING@ - The index is being updated.
+-- -   @UPDATING@ - The table\/index configuration is being updated. The
+--     table\/index remains available for data operations when @UPDATING@
 --
 -- -   @DELETING@ - The index is being deleted.
 --

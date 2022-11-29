@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubOrchestrator.Types.DataType
 import Amazonka.MigrationHubOrchestrator.Types.WorkflowStepOutputUnion
 import qualified Amazonka.Prelude as Prelude

@@ -45,7 +45,7 @@ module Amazonka.MigrationHubOrchestrator.ListTemplateStepGroups
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +124,8 @@ instance Core.AWSRequest ListTemplateStepGroups where
   type
     AWSResponse ListTemplateStepGroups =
       ListTemplateStepGroupsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

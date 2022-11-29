@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubOrchestrator.Types.Tool where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of AWS services utilized in a migration workflow.

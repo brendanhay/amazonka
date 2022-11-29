@@ -20,7 +20,7 @@
 module Amazonka.MGN.Types.LifeCycle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types.LifeCycleLastCutover
 import Amazonka.MGN.Types.LifeCycleLastTest
 import Amazonka.MGN.Types.LifeCycleState

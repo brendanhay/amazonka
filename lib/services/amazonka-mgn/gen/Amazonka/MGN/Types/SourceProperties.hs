@@ -20,7 +20,7 @@
 module Amazonka.MGN.Types.SourceProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types.CPU
 import Amazonka.MGN.Types.Disk
 import Amazonka.MGN.Types.IdentificationHints

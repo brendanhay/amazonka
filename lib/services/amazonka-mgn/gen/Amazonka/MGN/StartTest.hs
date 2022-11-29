@@ -43,7 +43,7 @@ module Amazonka.MGN.StartTest
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +90,8 @@ startTest_sourceServerIDs = Lens.lens (\StartTest' {sourceServerIDs} -> sourceSe
 
 instance Core.AWSRequest StartTest where
   type AWSResponse StartTest = StartTestResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

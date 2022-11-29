@@ -20,7 +20,7 @@
 module Amazonka.MGN.Types.ParticipatingServer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types.LaunchStatus
 import Amazonka.MGN.Types.PostLaunchActionsStatus
 import qualified Amazonka.Prelude as Prelude

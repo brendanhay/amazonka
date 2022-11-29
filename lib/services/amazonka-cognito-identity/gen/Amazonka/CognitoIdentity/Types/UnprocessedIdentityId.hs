@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentity.Types.UnprocessedIdentityId where
 
 import Amazonka.CognitoIdentity.Types.CognitoErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an

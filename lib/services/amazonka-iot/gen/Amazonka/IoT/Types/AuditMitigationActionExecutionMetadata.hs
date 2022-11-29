@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.AuditMitigationActionExecutionMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AuditMitigationActionsExecutionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returned by ListAuditMitigationActionsTask, this object contains

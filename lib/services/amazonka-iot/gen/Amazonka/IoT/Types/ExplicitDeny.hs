@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ExplicitDeny where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.Policy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that explicitly denies authorization.

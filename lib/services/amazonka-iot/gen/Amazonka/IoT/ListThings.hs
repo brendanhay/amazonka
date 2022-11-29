@@ -23,7 +23,10 @@
 -- Lists your things. Use the __attributeName__ and __attributeValue__
 -- parameters to filter your things. For example, calling @ListThings@ with
 -- attributeName=Color and attributeValue=Red retrieves all things in the
--- registry that contain an attribute __Color__ with the value __Red__.
+-- registry that contain an attribute __Color__ with the value __Red__. For
+-- more information, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things List Things>
+-- from the /Amazon Web Services IoT Core Developer Guide/.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThings>
@@ -60,8 +63,8 @@ module Amazonka.IoT.ListThings
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,8 +185,8 @@ instance Core.AWSPager ListThings where
 
 instance Core.AWSRequest ListThings where
   type AWSResponse ListThings = ListThingsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.TimestreamDimension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata attributes of the time series that are written in each measure

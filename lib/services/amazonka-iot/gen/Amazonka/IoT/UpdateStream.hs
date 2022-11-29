@@ -51,8 +51,8 @@ module Amazonka.IoT.UpdateStream
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,8 +118,8 @@ updateStream_streamId = Lens.lens (\UpdateStream' {streamId} -> streamId) (\s@Up
 
 instance Core.AWSRequest UpdateStream where
   type AWSResponse UpdateStream = UpdateStreamResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

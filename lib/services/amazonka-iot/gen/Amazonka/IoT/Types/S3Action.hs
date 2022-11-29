@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.S3Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.CannedAccessControlList
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to write data to an Amazon S3 bucket.

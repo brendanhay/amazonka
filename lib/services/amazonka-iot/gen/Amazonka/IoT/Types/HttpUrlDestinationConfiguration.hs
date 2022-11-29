@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.HttpUrlDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | HTTP URL destination configuration used by the topic rule\'s HTTP

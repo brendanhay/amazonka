@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.ProvisioningTemplateVersionSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a fleet provision template version.
@@ -32,7 +32,7 @@ data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date when the provisioning template version was created
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the fleet privisioning template version.
+    -- | The ID of the fleet provisioning template version.
     versionId :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
 --
 -- 'creationDate', 'provisioningTemplateVersionSummary_creationDate' - The date when the provisioning template version was created
 --
--- 'versionId', 'provisioningTemplateVersionSummary_versionId' - The ID of the fleet privisioning template version.
+-- 'versionId', 'provisioningTemplateVersionSummary_versionId' - The ID of the fleet provisioning template version.
 newProvisioningTemplateVersionSummary ::
   ProvisioningTemplateVersionSummary
 newProvisioningTemplateVersionSummary =
@@ -70,7 +70,7 @@ provisioningTemplateVersionSummary_isDefaultVersion = Lens.lens (\ProvisioningTe
 provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
 provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the fleet privisioning template version.
+-- | The ID of the fleet provisioning template version.
 provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Int)
 provisioningTemplateVersionSummary_versionId = Lens.lens (\ProvisioningTemplateVersionSummary' {versionId} -> versionId) (\s@ProvisioningTemplateVersionSummary' {} a -> s {versionId = a} :: ProvisioningTemplateVersionSummary)
 

@@ -60,8 +60,8 @@ module Amazonka.IoT.CreateJob
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -345,8 +345,8 @@ createJob_targets = Lens.lens (\CreateJob' {targets} -> targets) (\s@CreateJob' 
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

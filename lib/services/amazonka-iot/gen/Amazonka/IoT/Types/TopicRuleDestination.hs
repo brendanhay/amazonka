@@ -20,10 +20,10 @@
 module Amazonka.IoT.Types.TopicRuleDestination where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.HttpUrlDestinationProperties
 import Amazonka.IoT.Types.TopicRuleDestinationStatus
 import Amazonka.IoT.Types.VpcDestinationProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A topic rule destination.

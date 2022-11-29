@@ -20,6 +20,7 @@
 module Amazonka.IoT.Types.OTAUpdateInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AwsJobExecutionsRolloutConfig
 import Amazonka.IoT.Types.AwsJobPresignedUrlConfig
 import Amazonka.IoT.Types.ErrorInfo
@@ -27,7 +28,6 @@ import Amazonka.IoT.Types.OTAUpdateFile
 import Amazonka.IoT.Types.OTAUpdateStatus
 import Amazonka.IoT.Types.Protocol
 import Amazonka.IoT.Types.TargetSelection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an OTA update.

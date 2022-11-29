@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.AwsJobExponentialRolloutRate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AwsJobRateIncreaseCriteria
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The rate of increase for a job rollout. This parameter allows you to

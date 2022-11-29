@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.NonCompliantResource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ResourceIdentifier
 import Amazonka.IoT.Types.ResourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the resource that was noncompliant with the audit

@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.AuditCheckDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AuditCheckRunStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the audit check.

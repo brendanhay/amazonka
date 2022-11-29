@@ -43,8 +43,8 @@ module Amazonka.IoT.UpdateAuditSuppression
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +124,8 @@ instance Core.AWSRequest UpdateAuditSuppression where
   type
     AWSResponse UpdateAuditSuppression =
       UpdateAuditSuppressionResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

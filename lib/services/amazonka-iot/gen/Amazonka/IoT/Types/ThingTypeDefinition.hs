@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.ThingTypeDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ThingTypeMetadata
 import Amazonka.IoT.Types.ThingTypeProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of the thing type, including thing type name and

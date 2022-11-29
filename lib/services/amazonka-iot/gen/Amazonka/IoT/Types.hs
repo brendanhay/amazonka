@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -278,6 +279,7 @@ module Amazonka.IoT.Types
     action_dynamoDB,
     action_cloudwatchMetric,
     action_republish,
+    action_location,
     action_timestream,
     action_lambda,
     action_iotEvents,
@@ -912,6 +914,13 @@ module Amazonka.IoT.Types
     iotSiteWiseAction_putAssetPropertyValueEntries,
     iotSiteWiseAction_roleArn,
 
+    -- * IssuerCertificateIdentifier
+    IssuerCertificateIdentifier (..),
+    newIssuerCertificateIdentifier,
+    issuerCertificateIdentifier_issuerCertificateSerialNumber,
+    issuerCertificateIdentifier_issuerId,
+    issuerCertificateIdentifier_issuerCertificateSubject,
+
     -- * Job
     Job (..),
     newJob,
@@ -1051,6 +1060,22 @@ module Amazonka.IoT.Types
     LambdaAction (..),
     newLambdaAction,
     lambdaAction_functionArn,
+
+    -- * LocationAction
+    LocationAction (..),
+    newLocationAction,
+    locationAction_timestamp,
+    locationAction_roleArn,
+    locationAction_trackerName,
+    locationAction_deviceId,
+    locationAction_latitude,
+    locationAction_longitude,
+
+    -- * LocationTimestamp
+    LocationTimestamp (..),
+    newLocationTimestamp,
+    locationTimestamp_unit,
+    locationTimestamp_value,
 
     -- * LogTarget
     LogTarget (..),
@@ -1319,11 +1344,13 @@ module Amazonka.IoT.Types
     resourceIdentifier_clientId,
     resourceIdentifier_account,
     resourceIdentifier_policyVersionIdentifier,
+    resourceIdentifier_deviceCertificateArn,
     resourceIdentifier_deviceCertificateId,
     resourceIdentifier_caCertificateId,
     resourceIdentifier_iamRoleArn,
     resourceIdentifier_roleAliasArn,
     resourceIdentifier_cognitoIdentityPoolId,
+    resourceIdentifier_issuerCertificateIdentifier,
 
     -- * RetryCriteria
     RetryCriteria (..),
@@ -1779,6 +1806,7 @@ module Amazonka.IoT.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AbortAction
 import Amazonka.IoT.Types.AbortConfig
 import Amazonka.IoT.Types.AbortCriteria
@@ -1906,6 +1934,7 @@ import Amazonka.IoT.Types.IndexingFilter
 import Amazonka.IoT.Types.IotAnalyticsAction
 import Amazonka.IoT.Types.IotEventsAction
 import Amazonka.IoT.Types.IotSiteWiseAction
+import Amazonka.IoT.Types.IssuerCertificateIdentifier
 import Amazonka.IoT.Types.Job
 import Amazonka.IoT.Types.JobExecution
 import Amazonka.IoT.Types.JobExecutionFailureType
@@ -1924,6 +1953,8 @@ import Amazonka.IoT.Types.KafkaAction
 import Amazonka.IoT.Types.KeyPair
 import Amazonka.IoT.Types.KinesisAction
 import Amazonka.IoT.Types.LambdaAction
+import Amazonka.IoT.Types.LocationAction
+import Amazonka.IoT.Types.LocationTimestamp
 import Amazonka.IoT.Types.LogLevel
 import Amazonka.IoT.Types.LogTarget
 import Amazonka.IoT.Types.LogTargetConfiguration
@@ -2042,7 +2073,6 @@ import Amazonka.IoT.Types.ViolationEventType
 import Amazonka.IoT.Types.VpcDestinationConfiguration
 import Amazonka.IoT.Types.VpcDestinationProperties
 import Amazonka.IoT.Types.VpcDestinationSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -2050,27 +2080,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "IoT",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "iot",
-      Core._serviceSigningName = "execute-api",
-      Core._serviceVersion = "2015-05-28",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "IoT",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IoT",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "iot",
+      Core.signingName = "execute-api",
+      Core.version = "2015-05-28",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IoT",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

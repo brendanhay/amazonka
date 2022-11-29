@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.AssetPropertyValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AssetPropertyTimestamp
 import Amazonka.IoT.Types.AssetPropertyVariant
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An asset property value entry containing the following information.

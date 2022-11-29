@@ -20,11 +20,11 @@
 module Amazonka.IoT.Types.AuthResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.Allowed
 import Amazonka.IoT.Types.AuthDecision
 import Amazonka.IoT.Types.AuthInfo
 import Amazonka.IoT.Types.Denied
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorizer result.

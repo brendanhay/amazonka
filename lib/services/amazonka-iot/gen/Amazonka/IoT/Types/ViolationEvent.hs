@@ -20,12 +20,12 @@
 module Amazonka.IoT.Types.ViolationEvent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.Behavior
 import Amazonka.IoT.Types.MetricValue
 import Amazonka.IoT.Types.VerificationState
 import Amazonka.IoT.Types.ViolationEventAdditionalInfo
 import Amazonka.IoT.Types.ViolationEventType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Device Defender security profile behavior violation.

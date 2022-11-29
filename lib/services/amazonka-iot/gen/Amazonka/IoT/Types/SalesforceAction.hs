@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.SalesforceAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to write a message to a Salesforce IoT Cloud Input

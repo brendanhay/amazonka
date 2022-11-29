@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ExponentialRolloutRate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.RateIncreaseCriteria
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to create an exponential rate of rollout for a job.

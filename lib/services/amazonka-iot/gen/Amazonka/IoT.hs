@@ -1113,6 +1113,12 @@ module Amazonka.IoT
     ListProvisioningTemplatesResponse (ListProvisioningTemplatesResponse'),
     newListProvisioningTemplatesResponse,
 
+    -- ** ListRelatedResourcesForAuditFinding
+    ListRelatedResourcesForAuditFinding (ListRelatedResourcesForAuditFinding'),
+    newListRelatedResourcesForAuditFinding,
+    ListRelatedResourcesForAuditFindingResponse (ListRelatedResourcesForAuditFindingResponse'),
+    newListRelatedResourcesForAuditFindingResponse,
+
     -- ** ListRoleAliases (Paginated)
     ListRoleAliases (ListRoleAliases'),
     newListRoleAliases,
@@ -2086,6 +2092,10 @@ module Amazonka.IoT
     IotSiteWiseAction (IotSiteWiseAction'),
     newIotSiteWiseAction,
 
+    -- ** IssuerCertificateIdentifier
+    IssuerCertificateIdentifier (IssuerCertificateIdentifier'),
+    newIssuerCertificateIdentifier,
+
     -- ** Job
     Job (Job'),
     newJob,
@@ -2145,6 +2155,14 @@ module Amazonka.IoT
     -- ** LambdaAction
     LambdaAction (LambdaAction'),
     newLambdaAction,
+
+    -- ** LocationAction
+    LocationAction (LocationAction'),
+    newLocationAction,
+
+    -- ** LocationTimestamp
+    LocationTimestamp (LocationTimestamp'),
+    newLocationTimestamp,
 
     -- ** LogTarget
     LogTarget (LogTarget'),
@@ -2691,6 +2709,7 @@ import Amazonka.IoT.ListPolicyVersions
 import Amazonka.IoT.ListPrincipalThings
 import Amazonka.IoT.ListProvisioningTemplateVersions
 import Amazonka.IoT.ListProvisioningTemplates
+import Amazonka.IoT.ListRelatedResourcesForAuditFinding
 import Amazonka.IoT.ListRoleAliases
 import Amazonka.IoT.ListScheduledAudits
 import Amazonka.IoT.ListSecurityProfiles

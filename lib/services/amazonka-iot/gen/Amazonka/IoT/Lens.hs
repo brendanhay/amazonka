@@ -1282,6 +1282,14 @@ module Amazonka.IoT.Lens
     listProvisioningTemplatesResponse_templates,
     listProvisioningTemplatesResponse_httpStatus,
 
+    -- ** ListRelatedResourcesForAuditFinding
+    listRelatedResourcesForAuditFinding_nextToken,
+    listRelatedResourcesForAuditFinding_maxResults,
+    listRelatedResourcesForAuditFinding_findingId,
+    listRelatedResourcesForAuditFindingResponse_relatedResources,
+    listRelatedResourcesForAuditFindingResponse_nextToken,
+    listRelatedResourcesForAuditFindingResponse_httpStatus,
+
     -- ** ListRoleAliases
     listRoleAliases_marker,
     listRoleAliases_pageSize,
@@ -1878,6 +1886,7 @@ module Amazonka.IoT.Lens
     action_dynamoDB,
     action_cloudwatchMetric,
     action_republish,
+    action_location,
     action_timestream,
     action_lambda,
     action_iotEvents,
@@ -2346,6 +2355,11 @@ module Amazonka.IoT.Lens
     iotSiteWiseAction_putAssetPropertyValueEntries,
     iotSiteWiseAction_roleArn,
 
+    -- ** IssuerCertificateIdentifier
+    issuerCertificateIdentifier_issuerCertificateSerialNumber,
+    issuerCertificateIdentifier_issuerId,
+    issuerCertificateIdentifier_issuerCertificateSubject,
+
     -- ** Job
     job_jobExecutionsRolloutConfig,
     job_abortConfig,
@@ -2455,6 +2469,18 @@ module Amazonka.IoT.Lens
 
     -- ** LambdaAction
     lambdaAction_functionArn,
+
+    -- ** LocationAction
+    locationAction_timestamp,
+    locationAction_roleArn,
+    locationAction_trackerName,
+    locationAction_deviceId,
+    locationAction_latitude,
+    locationAction_longitude,
+
+    -- ** LocationTimestamp
+    locationTimestamp_unit,
+    locationTimestamp_value,
 
     -- ** LogTarget
     logTarget_targetName,
@@ -2651,11 +2677,13 @@ module Amazonka.IoT.Lens
     resourceIdentifier_clientId,
     resourceIdentifier_account,
     resourceIdentifier_policyVersionIdentifier,
+    resourceIdentifier_deviceCertificateArn,
     resourceIdentifier_deviceCertificateId,
     resourceIdentifier_caCertificateId,
     resourceIdentifier_iamRoleArn,
     resourceIdentifier_roleAliasArn,
     resourceIdentifier_cognitoIdentityPoolId,
+    resourceIdentifier_issuerCertificateIdentifier,
 
     -- ** RetryCriteria
     retryCriteria_failureType,
@@ -3154,6 +3182,7 @@ import Amazonka.IoT.ListPolicyVersions
 import Amazonka.IoT.ListPrincipalThings
 import Amazonka.IoT.ListProvisioningTemplateVersions
 import Amazonka.IoT.ListProvisioningTemplates
+import Amazonka.IoT.ListRelatedResourcesForAuditFinding
 import Amazonka.IoT.ListRoleAliases
 import Amazonka.IoT.ListScheduledAudits
 import Amazonka.IoT.ListSecurityProfiles
@@ -3285,6 +3314,7 @@ import Amazonka.IoT.Types.IndexingFilter
 import Amazonka.IoT.Types.IotAnalyticsAction
 import Amazonka.IoT.Types.IotEventsAction
 import Amazonka.IoT.Types.IotSiteWiseAction
+import Amazonka.IoT.Types.IssuerCertificateIdentifier
 import Amazonka.IoT.Types.Job
 import Amazonka.IoT.Types.JobExecution
 import Amazonka.IoT.Types.JobExecutionStatusDetails
@@ -3300,6 +3330,8 @@ import Amazonka.IoT.Types.KafkaAction
 import Amazonka.IoT.Types.KeyPair
 import Amazonka.IoT.Types.KinesisAction
 import Amazonka.IoT.Types.LambdaAction
+import Amazonka.IoT.Types.LocationAction
+import Amazonka.IoT.Types.LocationTimestamp
 import Amazonka.IoT.Types.LogTarget
 import Amazonka.IoT.Types.LogTargetConfiguration
 import Amazonka.IoT.Types.LoggingOptionsPayload

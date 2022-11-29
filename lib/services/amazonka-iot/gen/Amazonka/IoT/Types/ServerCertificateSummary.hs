@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ServerCertificateSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ServerCertificateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a server certificate.

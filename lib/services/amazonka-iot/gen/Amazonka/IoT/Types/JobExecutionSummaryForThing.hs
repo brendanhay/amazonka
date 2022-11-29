@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.JobExecutionSummaryForThing where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.JobExecutionSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The job execution summary for a thing.

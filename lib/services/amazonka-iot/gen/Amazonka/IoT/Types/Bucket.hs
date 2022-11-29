@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.Bucket where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A count of documents that meets a specific aggregation criteria.

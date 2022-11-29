@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.RateIncreaseCriteria where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to define a criteria to initiate the increase in rate of

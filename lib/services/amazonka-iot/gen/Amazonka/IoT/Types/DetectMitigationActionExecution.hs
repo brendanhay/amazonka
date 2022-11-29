@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.DetectMitigationActionExecution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.DetectMitigationActionExecutionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes which mitigation actions should be executed.

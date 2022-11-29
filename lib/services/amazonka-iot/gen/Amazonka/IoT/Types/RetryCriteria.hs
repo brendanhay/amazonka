@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.RetryCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.RetryableFailureType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria that determines how many retries are allowed for each

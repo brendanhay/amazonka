@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.TimestreamTimestamp where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to interpret an application-defined timestamp value from

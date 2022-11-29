@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.StartSigningJobParameter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.Destination
 import Amazonka.IoT.Types.SigningProfileParameter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required to start a signing job.

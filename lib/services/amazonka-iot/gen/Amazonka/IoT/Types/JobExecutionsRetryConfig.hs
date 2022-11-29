@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.JobExecutionsRetryConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.RetryCriteria
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that determines how many retries are allowed for each

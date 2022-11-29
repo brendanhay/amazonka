@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.AwsJobExecutionsRolloutConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AwsJobExponentialRolloutRate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for the rollout of OTA updates.

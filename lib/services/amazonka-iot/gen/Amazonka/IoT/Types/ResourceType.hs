@@ -27,6 +27,7 @@ module Amazonka.IoT.Types.ResourceType
         ResourceType_DEVICE_CERTIFICATE,
         ResourceType_IAM_ROLE,
         ResourceType_IOT_POLICY,
+        ResourceType_ISSUER_CERTIFICATE,
         ResourceType_ROLE_ALIAS
       ),
   )
@@ -84,6 +85,9 @@ pattern ResourceType_IAM_ROLE = ResourceType' "IAM_ROLE"
 pattern ResourceType_IOT_POLICY :: ResourceType
 pattern ResourceType_IOT_POLICY = ResourceType' "IOT_POLICY"
 
+pattern ResourceType_ISSUER_CERTIFICATE :: ResourceType
+pattern ResourceType_ISSUER_CERTIFICATE = ResourceType' "ISSUER_CERTIFICATE"
+
 pattern ResourceType_ROLE_ALIAS :: ResourceType
 pattern ResourceType_ROLE_ALIAS = ResourceType' "ROLE_ALIAS"
 
@@ -95,6 +99,7 @@ pattern ResourceType_ROLE_ALIAS = ResourceType' "ROLE_ALIAS"
   ResourceType_DEVICE_CERTIFICATE,
   ResourceType_IAM_ROLE,
   ResourceType_IOT_POLICY,
+  ResourceType_ISSUER_CERTIFICATE,
   ResourceType_ROLE_ALIAS,
   ResourceType'
   #-}

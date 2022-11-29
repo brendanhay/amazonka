@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.UpdateCACertificateParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.CACertificateUpdateAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that changes the state of the

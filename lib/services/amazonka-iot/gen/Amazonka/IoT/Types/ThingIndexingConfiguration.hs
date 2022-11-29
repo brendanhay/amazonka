@@ -20,13 +20,13 @@
 module Amazonka.IoT.Types.ThingIndexingConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.DeviceDefenderIndexingMode
 import Amazonka.IoT.Types.Field
 import Amazonka.IoT.Types.IndexingFilter
 import Amazonka.IoT.Types.NamedShadowIndexingMode
 import Amazonka.IoT.Types.ThingConnectivityIndexingMode
 import Amazonka.IoT.Types.ThingIndexingMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The thing indexing configuration. For more information, see

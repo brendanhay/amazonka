@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ProvisioningTemplateSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.TemplateType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a provisioning template.

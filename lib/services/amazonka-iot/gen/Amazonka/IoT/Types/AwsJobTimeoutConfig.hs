@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.AwsJobTimeoutConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the amount of time each device has to finish its execution of

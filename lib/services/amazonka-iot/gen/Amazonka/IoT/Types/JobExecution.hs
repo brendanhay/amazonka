@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.JobExecution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.JobExecutionStatus
 import Amazonka.IoT.Types.JobExecutionStatusDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The job execution object represents the execution of a job on a

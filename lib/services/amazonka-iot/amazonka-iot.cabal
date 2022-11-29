@@ -207,6 +207,7 @@ library
     Amazonka.IoT.ListPrincipalThings
     Amazonka.IoT.ListProvisioningTemplates
     Amazonka.IoT.ListProvisioningTemplateVersions
+    Amazonka.IoT.ListRelatedResourcesForAuditFinding
     Amazonka.IoT.ListRoleAliases
     Amazonka.IoT.ListScheduledAudits
     Amazonka.IoT.ListSecurityProfiles
@@ -380,6 +381,7 @@ library
     Amazonka.IoT.Types.IotAnalyticsAction
     Amazonka.IoT.Types.IotEventsAction
     Amazonka.IoT.Types.IotSiteWiseAction
+    Amazonka.IoT.Types.IssuerCertificateIdentifier
     Amazonka.IoT.Types.Job
     Amazonka.IoT.Types.JobExecution
     Amazonka.IoT.Types.JobExecutionFailureType
@@ -398,6 +400,8 @@ library
     Amazonka.IoT.Types.KeyPair
     Amazonka.IoT.Types.KinesisAction
     Amazonka.IoT.Types.LambdaAction
+    Amazonka.IoT.Types.LocationAction
+    Amazonka.IoT.Types.LocationTimestamp
     Amazonka.IoT.Types.LoggingOptionsPayload
     Amazonka.IoT.Types.LogLevel
     Amazonka.IoT.Types.LogTarget

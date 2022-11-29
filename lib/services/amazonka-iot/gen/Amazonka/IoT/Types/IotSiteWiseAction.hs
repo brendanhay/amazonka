@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.IotSiteWiseAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.PutAssetPropertyValueEntry
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to send data from an MQTT message that triggered the

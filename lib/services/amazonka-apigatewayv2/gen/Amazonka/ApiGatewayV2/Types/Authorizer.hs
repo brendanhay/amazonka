@@ -22,7 +22,7 @@ module Amazonka.ApiGatewayV2.Types.Authorizer where
 import Amazonka.ApiGatewayV2.Types.AuthorizerType
 import Amazonka.ApiGatewayV2.Types.JWTConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an authorizer.

@@ -22,7 +22,7 @@ module Amazonka.ApiGatewayV2.Types.Stage where
 import Amazonka.ApiGatewayV2.Types.AccessLogSettings
 import Amazonka.ApiGatewayV2.Types.RouteSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an API stage.

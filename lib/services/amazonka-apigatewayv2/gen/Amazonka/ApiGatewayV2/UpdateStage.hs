@@ -63,7 +63,7 @@ where
 
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -202,8 +202,8 @@ updateStage_apiId = Lens.lens (\UpdateStage' {apiId} -> apiId) (\s@UpdateStage' 
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = UpdateStageResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

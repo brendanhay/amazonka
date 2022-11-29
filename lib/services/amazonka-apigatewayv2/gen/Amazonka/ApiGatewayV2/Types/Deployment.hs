@@ -21,7 +21,7 @@ module Amazonka.ApiGatewayV2.Types.Deployment where
 
 import Amazonka.ApiGatewayV2.Types.DeploymentStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An immutable representation of an API that can be called by users. A

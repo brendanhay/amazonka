@@ -22,7 +22,7 @@ module Amazonka.ApiGatewayV2.Types.VpcLink where
 import Amazonka.ApiGatewayV2.Types.VpcLinkStatus
 import Amazonka.ApiGatewayV2.Types.VpcLinkVersion
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a VPC link.

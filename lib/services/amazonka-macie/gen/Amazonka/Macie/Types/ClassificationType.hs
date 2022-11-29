@@ -20,7 +20,7 @@
 module Amazonka.Macie.Types.ClassificationType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Macie.Types.S3ContinuousClassificationType
 import Amazonka.Macie.Types.S3OneTimeClassificationType
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.Support.Types.SeverityLevel where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A code and name pair that represents the severity level of a support

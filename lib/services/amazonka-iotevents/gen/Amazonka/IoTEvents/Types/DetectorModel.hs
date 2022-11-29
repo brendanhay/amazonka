@@ -20,9 +20,9 @@
 module Amazonka.IoTEvents.Types.DetectorModel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.DetectorModelConfiguration
 import Amazonka.IoTEvents.Types.DetectorModelDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the detector model.

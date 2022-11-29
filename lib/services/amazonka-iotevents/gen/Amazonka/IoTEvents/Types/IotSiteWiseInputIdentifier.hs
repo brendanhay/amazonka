@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifer of the input routed from AWS IoT SiteWise.

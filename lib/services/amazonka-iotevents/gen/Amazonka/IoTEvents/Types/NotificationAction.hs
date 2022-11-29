@@ -20,10 +20,10 @@
 module Amazonka.IoTEvents.Types.NotificationAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.EmailConfiguration
 import Amazonka.IoTEvents.Types.NotificationTargetActions
 import Amazonka.IoTEvents.Types.SMSConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the notification settings of an alarm model. The settings apply

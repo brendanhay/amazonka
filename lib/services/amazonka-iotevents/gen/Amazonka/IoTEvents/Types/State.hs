@@ -20,10 +20,10 @@
 module Amazonka.IoTEvents.Types.State where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.OnEnterLifecycle
 import Amazonka.IoTEvents.Types.OnExitLifecycle
 import Amazonka.IoTEvents.Types.OnInputLifecycle
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that defines a state of a detector.

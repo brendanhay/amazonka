@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.TransitionEvent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.Action
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the actions performed and the next state entered when a

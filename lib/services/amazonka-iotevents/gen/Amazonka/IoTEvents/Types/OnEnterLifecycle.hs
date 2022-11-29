@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.OnEnterLifecycle where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.Event
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When entering this state, perform these @actions@ if the @condition@ is

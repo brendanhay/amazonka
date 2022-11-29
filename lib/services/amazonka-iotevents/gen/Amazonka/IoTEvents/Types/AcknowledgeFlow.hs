@@ -20,7 +20,7 @@
 module Amazonka.IoTEvents.Types.AcknowledgeFlow where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether to get notified for alarm state changes.

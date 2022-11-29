@@ -20,9 +20,9 @@
 module Amazonka.IoTEvents.Types.AlarmCapabilities where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.AcknowledgeFlow
 import Amazonka.IoTEvents.Types.InitializationConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration information of alarm state changes.

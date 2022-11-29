@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.LambdaAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.Payload
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Calls a Lambda function, passing in information about the detector model

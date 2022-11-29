@@ -20,7 +20,7 @@
 module Amazonka.IoTEvents.Types.AnalysisResultLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that you can use to locate the field in your

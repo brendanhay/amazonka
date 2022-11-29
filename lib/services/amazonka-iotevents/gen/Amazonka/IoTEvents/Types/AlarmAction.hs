@@ -20,6 +20,7 @@
 module Amazonka.IoTEvents.Types.AlarmAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.DynamoDBAction
 import Amazonka.IoTEvents.Types.DynamoDBv2Action
 import Amazonka.IoTEvents.Types.FirehoseAction
@@ -29,7 +30,6 @@ import Amazonka.IoTEvents.Types.IotTopicPublishAction
 import Amazonka.IoTEvents.Types.LambdaAction
 import Amazonka.IoTEvents.Types.SNSTopicPublishAction
 import Amazonka.IoTEvents.Types.SqsAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one of the following actions to receive notifications when the

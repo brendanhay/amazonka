@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.DynamoDBv2Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.Payload
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an action to write to the Amazon DynamoDB table that you

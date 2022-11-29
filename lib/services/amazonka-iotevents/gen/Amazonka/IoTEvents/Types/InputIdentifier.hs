@@ -20,9 +20,9 @@
 module Amazonka.IoTEvents.Types.InputIdentifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.IotEventsInputIdentifier
 import Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifer of the input.

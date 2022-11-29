@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.AlarmModelVersionSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.AlarmModelVersionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of an alarm model version.

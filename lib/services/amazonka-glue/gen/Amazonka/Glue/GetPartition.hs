@@ -43,8 +43,8 @@ module Amazonka.Glue.GetPartition
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +112,8 @@ getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> pa
 
 instance Core.AWSRequest GetPartition where
   type AWSResponse GetPartition = GetPartitionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.SourceControlDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.SourceControlAuthStrategy
 import Amazonka.Glue.Types.SourceControlProvider
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for a source control configuration for a job, allowing

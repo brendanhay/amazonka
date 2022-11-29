@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.CrawlsFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.FieldName
 import Amazonka.Glue.Types.FilterOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of fields, comparators and value that you can use to filter the

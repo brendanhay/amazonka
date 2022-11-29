@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.EvaluationMetrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.FindMatchesMetrics
 import Amazonka.Glue.Types.TransformType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Evaluation metrics provide an estimate of the quality of your machine

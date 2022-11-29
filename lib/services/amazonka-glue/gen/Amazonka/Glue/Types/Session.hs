@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.Session where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ConnectionsList
 import Amazonka.Glue.Types.SessionCommand
 import Amazonka.Glue.Types.SessionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The period in which a remote Spark runtime environment is running.

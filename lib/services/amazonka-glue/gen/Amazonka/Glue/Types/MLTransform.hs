@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.MLTransform where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.EvaluationMetrics
 import Amazonka.Glue.Types.GlueTable
 import Amazonka.Glue.Types.SchemaColumn
@@ -27,7 +28,6 @@ import Amazonka.Glue.Types.TransformEncryption
 import Amazonka.Glue.Types.TransformParameters
 import Amazonka.Glue.Types.TransformStatusType
 import Amazonka.Glue.Types.WorkerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a machine learning transform.

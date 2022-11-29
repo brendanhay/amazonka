@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.JobNodeDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.JobRun
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a Job node present in the workflow.

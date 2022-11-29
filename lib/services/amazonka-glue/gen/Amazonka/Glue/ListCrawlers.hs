@@ -51,8 +51,8 @@ module Amazonka.Glue.ListCrawlers
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +104,8 @@ listCrawlers_maxResults = Lens.lens (\ListCrawlers' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListCrawlers where
   type AWSResponse ListCrawlers = ListCrawlersResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.Workflow where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.BlueprintDetails
 import Amazonka.Glue.Types.WorkflowGraph
 import Amazonka.Glue.Types.WorkflowRun
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow is a collection of multiple dependent Glue jobs and crawlers

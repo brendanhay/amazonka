@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.BatchStopJobRunError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ErrorDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Records an error that occurred when attempting to stop a specified job

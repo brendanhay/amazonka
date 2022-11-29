@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.Segment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a non-overlapping region of a table\'s partitions, allowing

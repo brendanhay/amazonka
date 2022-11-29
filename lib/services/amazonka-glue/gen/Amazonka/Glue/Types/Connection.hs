@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.Connection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ConnectionPropertyKey
 import Amazonka.Glue.Types.ConnectionType
 import Amazonka.Glue.Types.PhysicalConnectionRequirements
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a connection to a data source.

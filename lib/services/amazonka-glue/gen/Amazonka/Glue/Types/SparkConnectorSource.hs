@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.SparkConnectorSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.GlueSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a connector to an Apache Spark data source.

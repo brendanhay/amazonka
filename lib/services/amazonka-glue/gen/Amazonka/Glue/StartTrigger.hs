@@ -42,8 +42,8 @@ module Amazonka.Glue.StartTrigger
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,8 +76,8 @@ startTrigger_name = Lens.lens (\StartTrigger' {name} -> name) (\s@StartTrigger' 
 
 instance Core.AWSRequest StartTrigger where
   type AWSResponse StartTrigger = StartTriggerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

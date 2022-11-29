@@ -20,11 +20,11 @@
 module Amazonka.Glue.Types.WorkflowRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.StartingEventBatchCondition
 import Amazonka.Glue.Types.WorkflowGraph
 import Amazonka.Glue.Types.WorkflowRunStatistics
 import Amazonka.Glue.Types.WorkflowRunStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow run is an execution of a workflow providing all the runtime

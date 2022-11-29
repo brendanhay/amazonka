@@ -1923,6 +1923,8 @@ module Amazonka.Glue.Lens
     createCsvClassifierRequest_disableValueTrimming,
     createCsvClassifierRequest_allowSingleColumn,
     createCsvClassifierRequest_delimiter,
+    createCsvClassifierRequest_customDatatypeConfigured,
+    createCsvClassifierRequest_customDatatypes,
     createCsvClassifierRequest_name,
 
     -- ** CreateGrokClassifierRequest
@@ -1948,7 +1950,9 @@ module Amazonka.Glue.Lens
     csvClassifier_allowSingleColumn,
     csvClassifier_lastUpdated,
     csvClassifier_delimiter,
+    csvClassifier_customDatatypeConfigured,
     csvClassifier_creationTime,
+    csvClassifier_customDatatypes,
     csvClassifier_version,
     csvClassifier_name,
 
@@ -2258,6 +2262,7 @@ module Amazonka.Glue.Lens
     jDBCConnectorTarget_connectionType,
 
     -- ** JdbcTarget
+    jdbcTarget_enableAdditionalMetadata,
     jdbcTarget_path,
     jdbcTarget_exclusions,
     jdbcTarget_connectionName,
@@ -3144,6 +3149,8 @@ module Amazonka.Glue.Lens
     updateCsvClassifierRequest_disableValueTrimming,
     updateCsvClassifierRequest_allowSingleColumn,
     updateCsvClassifierRequest_delimiter,
+    updateCsvClassifierRequest_customDatatypeConfigured,
+    updateCsvClassifierRequest_customDatatypes,
     updateCsvClassifierRequest_name,
 
     -- ** UpdateGrokClassifierRequest

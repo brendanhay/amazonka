@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.MLUserDataEncryption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.MLUserDataEncryptionModeString
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing

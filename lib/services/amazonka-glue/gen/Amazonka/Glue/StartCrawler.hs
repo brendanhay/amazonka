@@ -41,8 +41,8 @@ module Amazonka.Glue.StartCrawler
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,8 +75,8 @@ startCrawler_name = Lens.lens (\StartCrawler' {name} -> name) (\s@StartCrawler' 
 
 instance Core.AWSRequest StartCrawler where
   type AWSResponse StartCrawler = StartCrawlerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

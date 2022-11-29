@@ -307,6 +307,7 @@ haskell_library(
         "gen/Amazonka/Glue/Types/JDBCConnectorSource.hs",
         "gen/Amazonka/Glue/Types/JDBCConnectorTarget.hs",
         "gen/Amazonka/Glue/Types/JDBCDataType.hs",
+        "gen/Amazonka/Glue/Types/JdbcMetadataEntry.hs",
         "gen/Amazonka/Glue/Types/JdbcTarget.hs",
         "gen/Amazonka/Glue/Types/Job.hs",
         "gen/Amazonka/Glue/Types/JobBookmarkEntry.hs",

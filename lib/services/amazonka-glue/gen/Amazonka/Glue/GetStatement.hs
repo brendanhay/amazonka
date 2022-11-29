@@ -42,8 +42,8 @@ module Amazonka.Glue.GetStatement
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +99,8 @@ getStatement_id = Lens.lens (\GetStatement' {id} -> id) (\s@GetStatement' {} a -
 
 instance Core.AWSRequest GetStatement where
   type AWSResponse GetStatement = GetStatementResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

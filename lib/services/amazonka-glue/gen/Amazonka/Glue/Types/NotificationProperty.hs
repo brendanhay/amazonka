@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.NotificationProperty where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration properties of a notification.

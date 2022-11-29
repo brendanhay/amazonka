@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.CatalogKinesisSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.KinesisStreamingSourceOptions
 import Amazonka.Glue.Types.StreamingDataPreviewOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Kinesis data source in the Glue Data Catalog.

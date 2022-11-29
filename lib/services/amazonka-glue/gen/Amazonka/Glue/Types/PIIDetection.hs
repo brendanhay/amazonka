@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.PIIDetection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.PiiType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that identifies, removes or masks PII data.

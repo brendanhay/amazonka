@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.PostgreSQLCatalogSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a PostgresSQL data source in the Glue Data Catalog.

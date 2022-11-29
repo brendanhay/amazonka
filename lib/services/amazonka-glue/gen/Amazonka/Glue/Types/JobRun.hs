@@ -20,12 +20,12 @@
 module Amazonka.Glue.Types.JobRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.JobRunState
 import Amazonka.Glue.Types.NotificationProperty
 import Amazonka.Glue.Types.Predecessor
 import Amazonka.Glue.Types.WorkerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a job run.

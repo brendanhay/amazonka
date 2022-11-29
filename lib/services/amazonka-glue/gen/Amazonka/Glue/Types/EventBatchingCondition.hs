@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.EventBatchingCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Batch condition that must be met (specified number of events received or

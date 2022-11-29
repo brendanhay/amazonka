@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.DirectSchemaChangePolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.UpdateCatalogBehavior
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy that specifies update behavior for the crawler.

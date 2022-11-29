@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.S3DirectTarget where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.DirectSchemaChangePolicy
 import Amazonka.Glue.Types.TargetFormat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data target that writes to Amazon S3.

@@ -56,8 +56,8 @@ module Amazonka.Glue.CreateCrawler
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +90,7 @@ data CreateCrawler = CreateCrawler'
     -- | Crawler configuration information. This versioned JSON string allows
     -- users to specify aspects of a crawler\'s behavior. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+    -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
     configuration :: Prelude.Maybe Prelude.Text,
     -- | The table prefix used for catalog tables that are created.
     tablePrefix :: Prelude.Maybe Prelude.Text,
@@ -147,7 +147,7 @@ data CreateCrawler = CreateCrawler'
 -- 'configuration', 'createCrawler_configuration' - Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 --
 -- 'tablePrefix', 'createCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
 --
@@ -231,7 +231,7 @@ createCrawler_databaseName = Lens.lens (\CreateCrawler' {databaseName} -> databa
 -- | Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 createCrawler_configuration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_configuration = Lens.lens (\CreateCrawler' {configuration} -> configuration) (\s@CreateCrawler' {} a -> s {configuration = a} :: CreateCrawler)
 
@@ -273,8 +273,8 @@ instance Core.AWSRequest CreateCrawler where
   type
     AWSResponse CreateCrawler =
       CreateCrawlerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

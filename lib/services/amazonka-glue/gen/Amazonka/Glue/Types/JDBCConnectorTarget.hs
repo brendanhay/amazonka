@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.JDBCConnectorTarget where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.GlueSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data target that writes to Amazon S3 in Apache Parquet

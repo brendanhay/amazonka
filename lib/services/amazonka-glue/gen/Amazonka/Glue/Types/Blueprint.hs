@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Blueprint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.BlueprintStatus
 import Amazonka.Glue.Types.LastActiveDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a blueprint.

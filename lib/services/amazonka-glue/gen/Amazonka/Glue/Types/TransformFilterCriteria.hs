@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.TransformFilterCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.SchemaColumn
 import Amazonka.Glue.Types.TransformStatusType
 import Amazonka.Glue.Types.TransformType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria used to filter the machine learning transforms.

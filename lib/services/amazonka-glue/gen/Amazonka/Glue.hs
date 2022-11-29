@@ -1319,6 +1319,9 @@ module Amazonka.Glue
     -- ** JDBCDataType
     JDBCDataType (..),
 
+    -- ** JdbcMetadataEntry
+    JdbcMetadataEntry (..),
+
     -- ** JobBookmarksEncryptionMode
     JobBookmarksEncryptionMode (..),
 

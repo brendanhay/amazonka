@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Predicate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Condition
 import Amazonka.Glue.Types.Logical
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the predicate of the trigger, which determines when it fires.

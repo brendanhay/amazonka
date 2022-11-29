@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.UserDefinedFunctionInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.PrincipalType
 import Amazonka.Glue.Types.ResourceUri
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure used to create or update a user-defined function.

@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.Schedule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ScheduleState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A scheduling object using a @cron@ statement to schedule an event.

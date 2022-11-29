@@ -53,8 +53,8 @@ module Amazonka.Glue.UpdateCrawler
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +82,7 @@ data UpdateCrawler = UpdateCrawler'
     -- | Crawler configuration information. This versioned JSON string allows
     -- users to specify aspects of a crawler\'s behavior. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+    -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
     configuration :: Prelude.Maybe Prelude.Text,
     -- | The table prefix used for catalog tables that are created.
     tablePrefix :: Prelude.Maybe Prelude.Text,
@@ -134,7 +134,7 @@ data UpdateCrawler = UpdateCrawler'
 -- 'configuration', 'updateCrawler_configuration' - Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 --
 -- 'tablePrefix', 'updateCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
 --
@@ -206,7 +206,7 @@ updateCrawler_databaseName = Lens.lens (\UpdateCrawler' {databaseName} -> databa
 -- | Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 updateCrawler_configuration :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_configuration = Lens.lens (\UpdateCrawler' {configuration} -> configuration) (\s@UpdateCrawler' {} a -> s {configuration = a} :: UpdateCrawler)
 
@@ -248,8 +248,8 @@ instance Core.AWSRequest UpdateCrawler where
   type
     AWSResponse UpdateCrawler =
       UpdateCrawlerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

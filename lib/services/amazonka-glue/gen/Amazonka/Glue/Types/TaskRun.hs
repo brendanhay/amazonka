@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.TaskRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.TaskRunProperties
 import Amazonka.Glue.Types.TaskStatusType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The sampling parameters that are associated with the machine learning

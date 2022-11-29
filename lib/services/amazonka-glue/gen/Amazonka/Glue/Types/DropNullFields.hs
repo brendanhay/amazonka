@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.DropNullFields where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.NullCheckBoxList
 import Amazonka.Glue.Types.NullValueField
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that removes columns from the dataset if all

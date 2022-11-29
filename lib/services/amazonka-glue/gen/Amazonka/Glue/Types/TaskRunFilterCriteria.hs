@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.TaskRunFilterCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.TaskStatusType
 import Amazonka.Glue.Types.TaskType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria that are used to filter the task runs for the machine

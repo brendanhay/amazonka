@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.ColumnStatistics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ColumnStatisticsData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the generated column-level statistics for a table or

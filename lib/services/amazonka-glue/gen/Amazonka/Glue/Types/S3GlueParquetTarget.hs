@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.S3GlueParquetTarget where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.DirectSchemaChangePolicy
 import Amazonka.Glue.Types.ParquetCompressionType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data target that writes to Amazon S3 in Apache Parquet

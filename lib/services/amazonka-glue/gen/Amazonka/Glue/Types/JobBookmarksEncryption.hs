@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.JobBookmarksEncryption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.JobBookmarksEncryptionMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how job bookmark data should be encrypted.

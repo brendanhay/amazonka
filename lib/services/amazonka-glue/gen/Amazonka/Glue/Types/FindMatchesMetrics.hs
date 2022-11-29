@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.FindMatchesMetrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ColumnImportance
 import Amazonka.Glue.Types.ConfusionMatrix
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The evaluation metrics for the find matches algorithm. The quality of

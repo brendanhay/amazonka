@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.S3Encryption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.S3EncryptionMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how Amazon Simple Storage Service (Amazon S3) data should be

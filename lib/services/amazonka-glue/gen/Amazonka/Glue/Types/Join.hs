@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Join where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.JoinColumn
 import Amazonka.Glue.Types.JoinType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that joins two datasets into one dataset using a

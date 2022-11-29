@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.DevEndpointCustomLibraries where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom libraries to be loaded into a development endpoint.

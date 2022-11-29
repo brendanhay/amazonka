@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Statement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.StatementOutput
 import Amazonka.Glue.Types.StatementState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The statement or request for a particular action to occur in a session.

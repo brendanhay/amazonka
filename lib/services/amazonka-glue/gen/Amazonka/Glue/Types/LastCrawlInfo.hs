@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.LastCrawlInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.LastCrawlStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status and error information about the most recent crawl.

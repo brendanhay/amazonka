@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.JDBCConnectorSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.JDBCConnectorOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a connector to a JDBC data source.

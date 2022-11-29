@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.TableInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Column
 import Amazonka.Glue.Types.StorageDescriptor
 import Amazonka.Glue.Types.TableIdentifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure used to define a table.

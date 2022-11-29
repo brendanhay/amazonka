@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.SplitFields where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that splits data property keys into two

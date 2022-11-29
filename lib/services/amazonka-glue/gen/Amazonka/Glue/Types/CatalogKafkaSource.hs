@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.CatalogKafkaSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.KafkaStreamingSourceOptions
 import Amazonka.Glue.Types.StreamingDataPreviewOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Apache Kafka data store in the Data Catalog.

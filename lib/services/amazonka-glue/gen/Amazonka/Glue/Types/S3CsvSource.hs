@@ -20,12 +20,12 @@
 module Amazonka.Glue.Types.S3CsvSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CompressionType
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.QuoteChar
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
 import Amazonka.Glue.Types.Separator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a command-separated value (CSV) data store stored in Amazon

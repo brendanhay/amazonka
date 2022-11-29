@@ -20,14 +20,22 @@
 module Amazonka.Glue.Types.JdbcTarget where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.Glue.Types.JdbcMetadataEntry
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a JDBC data store to crawl.
 --
 -- /See:/ 'newJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { -- | The path of the JDBC target.
+  { -- | Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
+    -- metadata in table responses. @RAWTYPES@ provides the native-level
+    -- datatype. @COMMENTS@ provides comments associated with a column or table
+    -- in the database.
+    --
+    -- If you do not need additional metadata, keep the field empty.
+    enableAdditionalMetadata :: Prelude.Maybe [JdbcMetadataEntry],
+    -- | The path of the JDBC target.
     path :: Prelude.Maybe Prelude.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
@@ -46,6 +54,13 @@ data JdbcTarget = JdbcTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enableAdditionalMetadata', 'jdbcTarget_enableAdditionalMetadata' - Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
+-- metadata in table responses. @RAWTYPES@ provides the native-level
+-- datatype. @COMMENTS@ provides comments associated with a column or table
+-- in the database.
+--
+-- If you do not need additional metadata, keep the field empty.
+--
 -- 'path', 'jdbcTarget_path' - The path of the JDBC target.
 --
 -- 'exclusions', 'jdbcTarget_exclusions' - A list of glob patterns used to exclude from the crawl. For more
@@ -57,10 +72,21 @@ newJdbcTarget ::
   JdbcTarget
 newJdbcTarget =
   JdbcTarget'
-    { path = Prelude.Nothing,
+    { enableAdditionalMetadata =
+        Prelude.Nothing,
+      path = Prelude.Nothing,
       exclusions = Prelude.Nothing,
       connectionName = Prelude.Nothing
     }
+
+-- | Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
+-- metadata in table responses. @RAWTYPES@ provides the native-level
+-- datatype. @COMMENTS@ provides comments associated with a column or table
+-- in the database.
+--
+-- If you do not need additional metadata, keep the field empty.
+jdbcTarget_enableAdditionalMetadata :: Lens.Lens' JdbcTarget (Prelude.Maybe [JdbcMetadataEntry])
+jdbcTarget_enableAdditionalMetadata = Lens.lens (\JdbcTarget' {enableAdditionalMetadata} -> enableAdditionalMetadata) (\s@JdbcTarget' {} a -> s {enableAdditionalMetadata = a} :: JdbcTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path of the JDBC target.
 jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
@@ -82,20 +108,26 @@ instance Core.FromJSON JdbcTarget where
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Prelude.<$> (x Core..:? "Path")
+            Prelude.<$> ( x Core..:? "EnableAdditionalMetadata"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Path")
             Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ConnectionName")
       )
 
 instance Prelude.Hashable JdbcTarget where
   hashWithSalt _salt JdbcTarget' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` enableAdditionalMetadata
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` exclusions
       `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData JdbcTarget where
   rnf JdbcTarget' {..} =
-    Prelude.rnf path
+    Prelude.rnf enableAdditionalMetadata
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf exclusions
       `Prelude.seq` Prelude.rnf connectionName
 
@@ -103,7 +135,9 @@ instance Core.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Path" Core..=) Prelude.<$> path,
+          [ ("EnableAdditionalMetadata" Core..=)
+              Prelude.<$> enableAdditionalMetadata,
+            ("Path" Core..=) Prelude.<$> path,
             ("Exclusions" Core..=) Prelude.<$> exclusions,
             ("ConnectionName" Core..=)
               Prelude.<$> connectionName

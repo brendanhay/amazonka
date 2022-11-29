@@ -20,11 +20,11 @@
 module Amazonka.Glue.Types.Node where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CrawlerNodeDetails
 import Amazonka.Glue.Types.JobNodeDetails
 import Amazonka.Glue.Types.NodeType
 import Amazonka.Glue.Types.TriggerNodeDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A node represents an Glue component (trigger, crawler, or job) on a

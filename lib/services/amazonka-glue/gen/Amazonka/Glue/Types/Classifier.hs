@@ -20,11 +20,11 @@
 module Amazonka.Glue.Types.Classifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CsvClassifier
 import Amazonka.Glue.Types.GrokClassifier
 import Amazonka.Glue.Types.JsonClassifier
 import Amazonka.Glue.Types.XMLClassifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Classifiers are triggered during a crawl task. A classifier checks

@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.Predecessor where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job run that was used in the predicate of a conditional trigger that

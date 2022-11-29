@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.WorkflowGraph where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Edge
 import Amazonka.Glue.Types.Node
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow graph represents the complete workflow containing all the

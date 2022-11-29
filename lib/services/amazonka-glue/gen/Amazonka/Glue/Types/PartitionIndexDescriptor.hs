@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.PartitionIndexDescriptor where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.BackfillError
 import Amazonka.Glue.Types.KeySchemaElement
 import Amazonka.Glue.Types.PartitionIndexStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A descriptor for a partition index in a table.

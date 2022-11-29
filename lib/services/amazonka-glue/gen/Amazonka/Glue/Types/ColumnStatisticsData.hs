@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.ColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.BinaryColumnStatisticsData
 import Amazonka.Glue.Types.BooleanColumnStatisticsData
 import Amazonka.Glue.Types.ColumnStatisticsType
@@ -28,7 +29,6 @@ import Amazonka.Glue.Types.DecimalColumnStatisticsData
 import Amazonka.Glue.Types.DoubleColumnStatisticsData
 import Amazonka.Glue.Types.LongColumnStatisticsData
 import Amazonka.Glue.Types.StringColumnStatisticsData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the individual types of column statistics data. Only one data

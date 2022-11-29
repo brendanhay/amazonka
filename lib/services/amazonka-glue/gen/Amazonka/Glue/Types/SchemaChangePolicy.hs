@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.SchemaChangePolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.DeleteBehavior
 import Amazonka.Glue.Types.UpdateBehavior
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy that specifies update and deletion behaviors for the crawler.

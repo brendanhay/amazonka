@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.CreateCsvClassifierRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CsvHeaderOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a custom CSV classifier for @CreateClassifier@ to create.
@@ -42,6 +42,10 @@ data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
     allowSingleColumn :: Prelude.Maybe Prelude.Bool,
     -- | A custom symbol to denote what separates each column entry in the row.
     delimiter :: Prelude.Maybe Prelude.Text,
+    -- | Enables the configuration of custom datatypes.
+    customDatatypeConfigured :: Prelude.Maybe Prelude.Bool,
+    -- | Creates a list of supported custom datatypes.
+    customDatatypes :: Prelude.Maybe [Prelude.Text],
     -- | The name of the classifier.
     name :: Prelude.Text
   }
@@ -69,6 +73,10 @@ data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
 --
 -- 'delimiter', 'createCsvClassifierRequest_delimiter' - A custom symbol to denote what separates each column entry in the row.
 --
+-- 'customDatatypeConfigured', 'createCsvClassifierRequest_customDatatypeConfigured' - Enables the configuration of custom datatypes.
+--
+-- 'customDatatypes', 'createCsvClassifierRequest_customDatatypes' - Creates a list of supported custom datatypes.
+--
 -- 'name', 'createCsvClassifierRequest_name' - The name of the classifier.
 newCreateCsvClassifierRequest ::
   -- | 'name'
@@ -83,6 +91,8 @@ newCreateCsvClassifierRequest pName_ =
       disableValueTrimming = Prelude.Nothing,
       allowSingleColumn = Prelude.Nothing,
       delimiter = Prelude.Nothing,
+      customDatatypeConfigured = Prelude.Nothing,
+      customDatatypes = Prelude.Nothing,
       name = pName_
     }
 
@@ -112,6 +122,14 @@ createCsvClassifierRequest_allowSingleColumn = Lens.lens (\CreateCsvClassifierRe
 createCsvClassifierRequest_delimiter :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
 createCsvClassifierRequest_delimiter = Lens.lens (\CreateCsvClassifierRequest' {delimiter} -> delimiter) (\s@CreateCsvClassifierRequest' {} a -> s {delimiter = a} :: CreateCsvClassifierRequest)
 
+-- | Enables the configuration of custom datatypes.
+createCsvClassifierRequest_customDatatypeConfigured :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Bool)
+createCsvClassifierRequest_customDatatypeConfigured = Lens.lens (\CreateCsvClassifierRequest' {customDatatypeConfigured} -> customDatatypeConfigured) (\s@CreateCsvClassifierRequest' {} a -> s {customDatatypeConfigured = a} :: CreateCsvClassifierRequest)
+
+-- | Creates a list of supported custom datatypes.
+createCsvClassifierRequest_customDatatypes :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe [Prelude.Text])
+createCsvClassifierRequest_customDatatypes = Lens.lens (\CreateCsvClassifierRequest' {customDatatypes} -> customDatatypes) (\s@CreateCsvClassifierRequest' {} a -> s {customDatatypes = a} :: CreateCsvClassifierRequest) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the classifier.
 createCsvClassifierRequest_name :: Lens.Lens' CreateCsvClassifierRequest Prelude.Text
 createCsvClassifierRequest_name = Lens.lens (\CreateCsvClassifierRequest' {name} -> name) (\s@CreateCsvClassifierRequest' {} a -> s {name = a} :: CreateCsvClassifierRequest)
@@ -124,6 +142,8 @@ instance Prelude.Hashable CreateCsvClassifierRequest where
       `Prelude.hashWithSalt` disableValueTrimming
       `Prelude.hashWithSalt` allowSingleColumn
       `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` customDatatypeConfigured
+      `Prelude.hashWithSalt` customDatatypes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateCsvClassifierRequest where
@@ -134,6 +154,8 @@ instance Prelude.NFData CreateCsvClassifierRequest where
       `Prelude.seq` Prelude.rnf disableValueTrimming
       `Prelude.seq` Prelude.rnf allowSingleColumn
       `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf customDatatypeConfigured
+      `Prelude.seq` Prelude.rnf customDatatypes
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CreateCsvClassifierRequest where
@@ -149,6 +171,10 @@ instance Core.ToJSON CreateCsvClassifierRequest where
             ("AllowSingleColumn" Core..=)
               Prelude.<$> allowSingleColumn,
             ("Delimiter" Core..=) Prelude.<$> delimiter,
+            ("CustomDatatypeConfigured" Core..=)
+              Prelude.<$> customDatatypeConfigured,
+            ("CustomDatatypes" Core..=)
+              Prelude.<$> customDatatypes,
             Prelude.Just ("Name" Core..= name)
           ]
       )

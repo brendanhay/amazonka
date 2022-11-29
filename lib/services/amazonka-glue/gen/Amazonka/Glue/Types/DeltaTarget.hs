@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.DeltaTarget where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Delta data store to crawl one or more Delta tables.

@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.Crawler where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CrawlerState
 import Amazonka.Glue.Types.CrawlerTargets
 import Amazonka.Glue.Types.LakeFormationConfiguration
@@ -28,7 +29,6 @@ import Amazonka.Glue.Types.LineageConfiguration
 import Amazonka.Glue.Types.RecrawlPolicy
 import Amazonka.Glue.Types.Schedule
 import Amazonka.Glue.Types.SchemaChangePolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a crawler program that examines a data source and uses
@@ -54,7 +54,7 @@ data Crawler = Crawler'
     -- | Crawler configuration information. This versioned JSON string allows
     -- users to specify aspects of a crawler\'s behavior. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude Include and Exclude Patterns>.
+    -- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
     configuration :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the crawler is running, or whether a run is pending.
     state :: Prelude.Maybe CrawlerState,
@@ -117,7 +117,7 @@ data Crawler = Crawler'
 -- 'configuration', 'crawler_configuration' - Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude Include and Exclude Patterns>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 --
 -- 'state', 'crawler_state' - Indicates whether the crawler is running, or whether a run is pending.
 --
@@ -206,7 +206,7 @@ crawler_databaseName = Lens.lens (\Crawler' {databaseName} -> databaseName) (\s@
 -- | Crawler configuration information. This versioned JSON string allows
 -- users to specify aspects of a crawler\'s behavior. For more information,
 -- see
--- <https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude Include and Exclude Patterns>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Setting crawler configuration options>.
 crawler_configuration :: Lens.Lens' Crawler (Prelude.Maybe Prelude.Text)
 crawler_configuration = Lens.lens (\Crawler' {configuration} -> configuration) (\s@Crawler' {} a -> s {configuration = a} :: Crawler)
 

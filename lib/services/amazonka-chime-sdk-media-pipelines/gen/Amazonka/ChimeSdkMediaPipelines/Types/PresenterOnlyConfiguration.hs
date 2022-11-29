@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration where
 
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterPosition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the configuration for a presenter only video tile.

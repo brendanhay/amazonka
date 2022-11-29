@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.CompositedVideoConcatenationConfigu
 
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The composited video configuration object for a specified media

@@ -23,7 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector pipeline.

@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration where
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsState
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentMuxType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content artifact object.

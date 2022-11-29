@@ -23,7 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSink
 import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSource
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Concatenates audio and video data from one or more data streams.

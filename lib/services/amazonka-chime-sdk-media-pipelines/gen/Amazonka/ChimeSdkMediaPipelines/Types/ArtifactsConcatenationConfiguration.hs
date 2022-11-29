@@ -27,7 +27,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.MeetingEventsConcatenationConfigura
 import Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the artifacts concatenation.

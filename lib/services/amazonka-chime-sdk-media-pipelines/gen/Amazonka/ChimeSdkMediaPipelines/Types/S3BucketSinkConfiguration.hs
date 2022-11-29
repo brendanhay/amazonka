@@ -20,7 +20,7 @@
 module Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings for the S3 bucket.

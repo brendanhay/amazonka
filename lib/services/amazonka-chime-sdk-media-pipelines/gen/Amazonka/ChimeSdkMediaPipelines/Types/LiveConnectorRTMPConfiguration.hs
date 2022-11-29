@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration wher
 
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioChannelsOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s RTMP configuration object.

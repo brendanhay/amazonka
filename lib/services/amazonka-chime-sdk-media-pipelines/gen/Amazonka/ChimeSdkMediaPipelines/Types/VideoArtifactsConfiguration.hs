@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration where
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsState
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoMuxType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The video artifact configuration object.

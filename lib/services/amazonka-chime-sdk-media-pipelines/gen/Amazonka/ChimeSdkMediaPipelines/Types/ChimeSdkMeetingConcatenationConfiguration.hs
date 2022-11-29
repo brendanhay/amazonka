@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfigu
 
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object of the Amazon Chime SDK meeting concatenation

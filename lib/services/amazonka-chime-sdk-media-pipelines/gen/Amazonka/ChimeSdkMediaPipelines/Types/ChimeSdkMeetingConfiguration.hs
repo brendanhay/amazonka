@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConfiguration where
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object of the Amazon Chime SDK meeting for a specified

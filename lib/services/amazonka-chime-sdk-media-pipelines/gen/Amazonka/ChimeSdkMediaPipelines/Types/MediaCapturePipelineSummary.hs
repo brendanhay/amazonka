@@ -20,7 +20,7 @@
 module Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary data of a media capture pipeline.

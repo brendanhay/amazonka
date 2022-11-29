@@ -55,7 +55,7 @@ module Amazonka.MemoryDb.UpdateCluster
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,7 +78,28 @@ data UpdateCluster = UpdateCluster'
     description :: Prelude.Maybe Prelude.Text,
     -- | A valid node type that you want to scale this cluster up or down to.
     nodeType :: Prelude.Maybe Prelude.Text,
-    -- | The maintenance window to update
+    -- | Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    -- -   @sun@
+    --
+    -- -   @mon@
+    --
+    -- -   @tue@
+    --
+    -- -   @wed@
+    --
+    -- -   @thu@
+    --
+    -- -   @fri@
+    --
+    -- -   @sat@
+    --
+    -- Example: @sun:23:00-mon:01:30@
     maintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The daily time range (in UTC) during which MemoryDB begins taking a
     -- daily snapshot of your cluster.
@@ -126,7 +147,28 @@ data UpdateCluster = UpdateCluster'
 --
 -- 'nodeType', 'updateCluster_nodeType' - A valid node type that you want to scale this cluster up or down to.
 --
--- 'maintenanceWindow', 'updateCluster_maintenanceWindow' - The maintenance window to update
+-- 'maintenanceWindow', 'updateCluster_maintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
 --
 -- 'snapshotWindow', 'updateCluster_snapshotWindow' - The daily time range (in UTC) during which MemoryDB begins taking a
 -- daily snapshot of your cluster.
@@ -199,7 +241,28 @@ updateCluster_description = Lens.lens (\UpdateCluster' {description} -> descript
 updateCluster_nodeType :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_nodeType = Lens.lens (\UpdateCluster' {nodeType} -> nodeType) (\s@UpdateCluster' {} a -> s {nodeType = a} :: UpdateCluster)
 
--- | The maintenance window to update
+-- | Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
 updateCluster_maintenanceWindow :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_maintenanceWindow = Lens.lens (\UpdateCluster' {maintenanceWindow} -> maintenanceWindow) (\s@UpdateCluster' {} a -> s {maintenanceWindow = a} :: UpdateCluster)
 
@@ -239,8 +302,8 @@ instance Core.AWSRequest UpdateCluster where
   type
     AWSResponse UpdateCluster =
       UpdateClusterResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

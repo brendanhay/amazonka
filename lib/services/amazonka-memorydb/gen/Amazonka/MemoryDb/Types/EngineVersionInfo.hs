@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.EngineVersionInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the Redis engine version

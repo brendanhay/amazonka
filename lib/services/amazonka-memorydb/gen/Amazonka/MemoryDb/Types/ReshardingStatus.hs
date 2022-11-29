@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.ReshardingStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types.SlotMigration
 import qualified Amazonka.Prelude as Prelude
 

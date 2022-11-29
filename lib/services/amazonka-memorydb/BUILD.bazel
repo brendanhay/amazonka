@@ -47,6 +47,7 @@ haskell_library(
         "gen/Amazonka/MemoryDb/Types/Cluster.hs",
         "gen/Amazonka/MemoryDb/Types/ClusterConfiguration.hs",
         "gen/Amazonka/MemoryDb/Types/ClusterPendingUpdates.hs",
+        "gen/Amazonka/MemoryDb/Types/DataTieringStatus.hs",
         "gen/Amazonka/MemoryDb/Types/Endpoint.hs",
         "gen/Amazonka/MemoryDb/Types/EngineVersionInfo.hs",
         "gen/Amazonka/MemoryDb/Types/Event.hs",

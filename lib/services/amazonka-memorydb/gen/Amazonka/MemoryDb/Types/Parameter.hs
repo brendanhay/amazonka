@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.Parameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of MemoryDB

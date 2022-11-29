@@ -20,9 +20,10 @@
 module Amazonka.MemoryDb.Types.Cluster where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types.AZStatus
 import Amazonka.MemoryDb.Types.ClusterPendingUpdates
+import Amazonka.MemoryDb.Types.DataTieringStatus
 import Amazonka.MemoryDb.Types.Endpoint
 import Amazonka.MemoryDb.Types.SecurityGroupMembership
 import Amazonka.MemoryDb.Types.Shard
@@ -93,6 +94,11 @@ data Cluster = Cluster'
     -- | The status of the parameter group used by the cluster, for example
     -- \'active\' or \'applying\'.
     parameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | Enables data tiering. Data tiering is only supported for clusters using
+    -- the r6gd node type. This parameter must be set when using r6gd nodes.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe DataTieringStatus,
     -- | The Redis engine version used by the cluster
     engineVersion :: Prelude.Maybe Prelude.Text
   }
@@ -167,6 +173,11 @@ data Cluster = Cluster'
 -- 'parameterGroupStatus', 'cluster_parameterGroupStatus' - The status of the parameter group used by the cluster, for example
 -- \'active\' or \'applying\'.
 --
+-- 'dataTiering', 'cluster_dataTiering' - Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+--
 -- 'engineVersion', 'cluster_engineVersion' - The Redis engine version used by the cluster
 newCluster ::
   Cluster
@@ -196,6 +207,7 @@ newCluster =
       shards = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       parameterGroupStatus = Prelude.Nothing,
+      dataTiering = Prelude.Nothing,
       engineVersion = Prelude.Nothing
     }
 
@@ -308,6 +320,13 @@ cluster_kmsKeyId = Lens.lens (\Cluster' {kmsKeyId} -> kmsKeyId) (\s@Cluster' {} 
 cluster_parameterGroupStatus :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_parameterGroupStatus = Lens.lens (\Cluster' {parameterGroupStatus} -> parameterGroupStatus) (\s@Cluster' {} a -> s {parameterGroupStatus = a} :: Cluster)
 
+-- | Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+cluster_dataTiering :: Lens.Lens' Cluster (Prelude.Maybe DataTieringStatus)
+cluster_dataTiering = Lens.lens (\Cluster' {dataTiering} -> dataTiering) (\s@Cluster' {} a -> s {dataTiering = a} :: Cluster)
+
 -- | The Redis engine version used by the cluster
 cluster_engineVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_engineVersion = Lens.lens (\Cluster' {engineVersion} -> engineVersion) (\s@Cluster' {} a -> s {engineVersion = a} :: Cluster)
@@ -342,6 +361,7 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "ParameterGroupStatus")
+            Prelude.<*> (x Core..:? "DataTiering")
             Prelude.<*> (x Core..:? "EngineVersion")
       )
 
@@ -371,6 +391,7 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` shards
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData Cluster where
@@ -400,5 +421,7 @@ instance Prelude.NFData Cluster where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf
         parameterGroupStatus
+      `Prelude.seq` Prelude.rnf
+        dataTiering
       `Prelude.seq` Prelude.rnf
         engineVersion

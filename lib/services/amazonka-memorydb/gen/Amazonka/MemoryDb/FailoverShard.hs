@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used to failover a shard
+-- Used to failover a shard. This API is designed for testing the behavior
+-- of your application in case of MemoryDB failover. It is not designed to
+-- be used as a production-level tool for initiating a failover to overcome
+-- a problem you may have with the cluster. Moreover, in certain conditions
+-- such as large scale operational events, Amazon may block this API.
 module Amazonka.MemoryDb.FailoverShard
   ( -- * Creating a Request
     FailoverShard (..),
@@ -41,7 +45,7 @@ module Amazonka.MemoryDb.FailoverShard
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +95,8 @@ instance Core.AWSRequest FailoverShard where
   type
     AWSResponse FailoverShard =
       FailoverShardResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

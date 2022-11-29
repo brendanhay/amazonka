@@ -396,6 +396,9 @@ module Amazonka.MemoryDb
     -- ** AuthenticationType
     AuthenticationType (..),
 
+    -- ** DataTieringStatus
+    DataTieringStatus (..),
+
     -- ** InputAuthenticationType
     InputAuthenticationType (..),
 

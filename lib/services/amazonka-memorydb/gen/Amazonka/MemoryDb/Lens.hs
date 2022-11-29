@@ -55,6 +55,7 @@ module Amazonka.MemoryDb.Lens
     createCluster_snsTopicArn,
     createCluster_kmsKeyId,
     createCluster_numShards,
+    createCluster_dataTiering,
     createCluster_engineVersion,
     createCluster_clusterName,
     createCluster_nodeType,
@@ -353,6 +354,7 @@ module Amazonka.MemoryDb.Lens
     cluster_shards,
     cluster_kmsKeyId,
     cluster_parameterGroupStatus,
+    cluster_dataTiering,
     cluster_engineVersion,
 
     -- ** ClusterConfiguration
@@ -477,6 +479,7 @@ module Amazonka.MemoryDb.Lens
     snapshot_status,
     snapshot_source,
     snapshot_kmsKeyId,
+    snapshot_dataTiering,
 
     -- ** Subnet
     subnet_availabilityZone,

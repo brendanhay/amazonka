@@ -20,7 +20,7 @@
 module Amazonka.SMS.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Key\/value pair that can be assigned to an application.

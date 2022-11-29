@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Fmp4HlsSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior
 import Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior
 import qualified Amazonka.Prelude as Prelude

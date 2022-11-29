@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Scte27DestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Scte27 Destination Settings

@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.EbuTtDDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.EbuTtDDestinationStyleControl
 import Amazonka.MediaLive.Types.EbuTtDFillLineGapControl
 import qualified Amazonka.Prelude as Prelude

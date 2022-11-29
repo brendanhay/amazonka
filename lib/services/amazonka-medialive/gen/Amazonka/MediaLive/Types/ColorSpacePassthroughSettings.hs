@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.ColorSpacePassthroughSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Passthrough applies no color space conversion to the output

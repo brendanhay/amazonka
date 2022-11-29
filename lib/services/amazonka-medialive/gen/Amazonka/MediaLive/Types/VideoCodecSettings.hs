@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.VideoCodecSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.FrameCaptureSettings
 import Amazonka.MediaLive.Types.H264Settings
 import Amazonka.MediaLive.Types.H265Settings

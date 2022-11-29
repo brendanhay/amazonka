@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.AvailSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.Esam
 import Amazonka.MediaLive.Types.Scte35SpliceInsert
 import Amazonka.MediaLive.Types.Scte35TimeSignalApos

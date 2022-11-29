@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Scte35TimeSignalApos where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude

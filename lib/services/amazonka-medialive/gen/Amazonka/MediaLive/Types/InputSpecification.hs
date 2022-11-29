@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.InputSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.InputCodec
 import Amazonka.MediaLive.Types.InputMaximumBitrate
 import Amazonka.MediaLive.Types.InputResolution

@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.EmbeddedPlusScte20DestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Embedded Plus Scte20 Destination Settings

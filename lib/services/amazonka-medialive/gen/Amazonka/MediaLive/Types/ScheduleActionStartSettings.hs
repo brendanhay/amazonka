@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.ScheduleActionStartSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.FixedModeScheduleActionStartSettings
 import Amazonka.MediaLive.Types.FollowModeScheduleActionStartSettings
 import Amazonka.MediaLive.Types.ImmediateModeScheduleActionStartSettings

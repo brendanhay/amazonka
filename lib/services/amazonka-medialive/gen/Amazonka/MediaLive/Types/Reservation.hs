@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Reservation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.OfferingDurationUnits
 import Amazonka.MediaLive.Types.OfferingType
 import Amazonka.MediaLive.Types.RenewalSettings

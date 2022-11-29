@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.HlsCdnSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.HlsAkamaiSettings
 import Amazonka.MediaLive.Types.HlsBasicPutSettings
 import Amazonka.MediaLive.Types.HlsMediaStoreSettings

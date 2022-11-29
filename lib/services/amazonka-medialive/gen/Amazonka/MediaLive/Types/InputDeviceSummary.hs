@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.InputDeviceSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.DeviceSettingsSyncState
 import Amazonka.MediaLive.Types.DeviceUpdateStatus
 import Amazonka.MediaLive.Types.InputDeviceConnectionState

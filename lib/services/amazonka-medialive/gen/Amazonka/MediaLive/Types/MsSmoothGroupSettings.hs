@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.MsSmoothGroupSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.InputLossActionForMsSmoothOut
 import Amazonka.MediaLive.Types.OutputLocationRef
 import Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl

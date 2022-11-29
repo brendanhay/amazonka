@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.HlsOutputSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.HlsH265PackagingType
 import Amazonka.MediaLive.Types.HlsSettings
 import qualified Amazonka.Prelude as Prelude

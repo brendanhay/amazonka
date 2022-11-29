@@ -37,7 +37,7 @@ module Amazonka.MediaLive.CreateTags
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,8 +83,8 @@ createTags_resourceArn = Lens.lens (\CreateTags' {resourceArn} -> resourceArn) (
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull CreateTagsResponse'
 
 instance Prelude.Hashable CreateTags where

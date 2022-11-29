@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.AudioDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.AudioCodecSettings
 import Amazonka.MediaLive.Types.AudioDescriptionAudioTypeControl
 import Amazonka.MediaLive.Types.AudioDescriptionLanguageCodeControl

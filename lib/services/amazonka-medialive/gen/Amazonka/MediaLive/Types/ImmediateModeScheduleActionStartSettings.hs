@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.ImmediateModeScheduleActionStartSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to configure an action so that it occurs as soon as possible.

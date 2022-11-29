@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to specify the rendering of motion graphics into the video

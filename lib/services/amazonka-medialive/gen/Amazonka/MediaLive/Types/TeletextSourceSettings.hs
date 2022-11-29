@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.TeletextSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.CaptionRectangle
 import qualified Amazonka.Prelude as Prelude
 

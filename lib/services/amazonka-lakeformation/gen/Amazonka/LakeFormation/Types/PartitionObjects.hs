@@ -20,8 +20,8 @@
 module Amazonka.LakeFormation.Types.PartitionObjects where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.TableObject
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing a list of partition values and table objects.

@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.LFTagError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.ErrorDetail
 import Amazonka.LakeFormation.Types.LFTagPair
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing an error related to a @TagResource@ or

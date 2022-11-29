@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
 import Amazonka.LakeFormation.Types.ErrorDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of failures when performing a batch grant or batch revoke

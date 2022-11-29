@@ -20,8 +20,8 @@
 module Amazonka.LakeFormation.Types.TableWithColumnsResource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.ColumnWildcard
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a table with columns object. This object is only used

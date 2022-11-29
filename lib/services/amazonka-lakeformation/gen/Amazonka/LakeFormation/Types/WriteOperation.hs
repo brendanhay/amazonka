@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.WriteOperation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.AddObjectInput
 import Amazonka.LakeFormation.Types.DeleteObjectInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an object to add to or delete from a governed table.

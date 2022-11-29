@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.DataCellsFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.ColumnWildcard
 import Amazonka.LakeFormation.Types.RowFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that describes certain columns on certain rows.

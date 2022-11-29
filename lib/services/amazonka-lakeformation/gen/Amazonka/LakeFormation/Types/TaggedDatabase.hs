@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.TaggedDatabase where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.DatabaseResource
 import Amazonka.LakeFormation.Types.LFTagPair
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing a database resource with LF-tags.

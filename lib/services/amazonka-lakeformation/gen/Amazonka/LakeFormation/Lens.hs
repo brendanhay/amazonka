@@ -406,6 +406,7 @@ module Amazonka.LakeFormation.Lens
     dataLakeSettings_authorizedSessionTagValueList,
     dataLakeSettings_createTableDefaultPermissions,
     dataLakeSettings_externalDataFilteringAllowList,
+    dataLakeSettings_parameters,
 
     -- ** DataLocationResource
     dataLocationResource_catalogId,

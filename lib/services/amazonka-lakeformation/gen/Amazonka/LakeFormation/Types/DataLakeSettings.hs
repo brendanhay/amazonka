@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.DataLakeSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.PrincipalPermissions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure representing a list of Lake Formation principals designated
@@ -35,8 +35,7 @@ data DataLakeSettings = DataLakeSettings'
     -- or IAM roles.
     dataLakeAdmins :: Prelude.Maybe [DataLakePrincipal],
     -- | Specifies whether access control on newly created database is managed by
-    -- Lake Formation permissions or exclusively by IAM permissions. You can
-    -- override this default setting when you create a database.
+    -- Lake Formation permissions or exclusively by IAM permissions.
     --
     -- A null value indicates access control by Lake Formation permissions. A
     -- value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access
@@ -93,7 +92,11 @@ data DataLakeSettings = DataLakeSettings'
     createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | A list of the account IDs of Amazon Web Services accounts with Amazon
     -- EMR clusters that are to perform data filtering.>
-    externalDataFilteringAllowList :: Prelude.Maybe [DataLakePrincipal]
+    externalDataFilteringAllowList :: Prelude.Maybe [DataLakePrincipal],
+    -- | A key-value map that provides an additional configuration on your data
+    -- lake. CrossAccountVersion is the key you can configure in the Parameters
+    -- field. Accepted values for the CrossAccountVersion key are 1, 2, and 3.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,8 +112,7 @@ data DataLakeSettings = DataLakeSettings'
 -- or IAM roles.
 --
 -- 'createDatabaseDefaultPermissions', 'dataLakeSettings_createDatabaseDefaultPermissions' - Specifies whether access control on newly created database is managed by
--- Lake Formation permissions or exclusively by IAM permissions. You can
--- override this default setting when you create a database.
+-- Lake Formation permissions or exclusively by IAM permissions.
 --
 -- A null value indicates access control by Lake Formation permissions. A
 -- value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access
@@ -167,6 +169,10 @@ data DataLakeSettings = DataLakeSettings'
 --
 -- 'externalDataFilteringAllowList', 'dataLakeSettings_externalDataFilteringAllowList' - A list of the account IDs of Amazon Web Services accounts with Amazon
 -- EMR clusters that are to perform data filtering.>
+--
+-- 'parameters', 'dataLakeSettings_parameters' - A key-value map that provides an additional configuration on your data
+-- lake. CrossAccountVersion is the key you can configure in the Parameters
+-- field. Accepted values for the CrossAccountVersion key are 1, 2, and 3.
 newDataLakeSettings ::
   DataLakeSettings
 newDataLakeSettings =
@@ -177,7 +183,8 @@ newDataLakeSettings =
       trustedResourceOwners = Prelude.Nothing,
       authorizedSessionTagValueList = Prelude.Nothing,
       createTableDefaultPermissions = Prelude.Nothing,
-      externalDataFilteringAllowList = Prelude.Nothing
+      externalDataFilteringAllowList = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | A list of Lake Formation principals. Supported principals are IAM users
@@ -186,8 +193,7 @@ dataLakeSettings_dataLakeAdmins :: Lens.Lens' DataLakeSettings (Prelude.Maybe [D
 dataLakeSettings_dataLakeAdmins = Lens.lens (\DataLakeSettings' {dataLakeAdmins} -> dataLakeAdmins) (\s@DataLakeSettings' {} a -> s {dataLakeAdmins = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether access control on newly created database is managed by
--- Lake Formation permissions or exclusively by IAM permissions. You can
--- override this default setting when you create a database.
+-- Lake Formation permissions or exclusively by IAM permissions.
 --
 -- A null value indicates access control by Lake Formation permissions. A
 -- value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access
@@ -257,6 +263,12 @@ dataLakeSettings_createTableDefaultPermissions = Lens.lens (\DataLakeSettings' {
 dataLakeSettings_externalDataFilteringAllowList :: Lens.Lens' DataLakeSettings (Prelude.Maybe [DataLakePrincipal])
 dataLakeSettings_externalDataFilteringAllowList = Lens.lens (\DataLakeSettings' {externalDataFilteringAllowList} -> externalDataFilteringAllowList) (\s@DataLakeSettings' {} a -> s {externalDataFilteringAllowList = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
 
+-- | A key-value map that provides an additional configuration on your data
+-- lake. CrossAccountVersion is the key you can configure in the Parameters
+-- field. Accepted values for the CrossAccountVersion key are 1, 2, and 3.
+dataLakeSettings_parameters :: Lens.Lens' DataLakeSettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+dataLakeSettings_parameters = Lens.lens (\DataLakeSettings' {parameters} -> parameters) (\s@DataLakeSettings' {} a -> s {parameters = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON DataLakeSettings where
   parseJSON =
     Core.withObject
@@ -280,6 +292,7 @@ instance Core.FromJSON DataLakeSettings where
             Prelude.<*> ( x Core..:? "ExternalDataFilteringAllowList"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataLakeSettings where
@@ -291,6 +304,7 @@ instance Prelude.Hashable DataLakeSettings where
       `Prelude.hashWithSalt` authorizedSessionTagValueList
       `Prelude.hashWithSalt` createTableDefaultPermissions
       `Prelude.hashWithSalt` externalDataFilteringAllowList
+      `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData DataLakeSettings where
   rnf DataLakeSettings' {..} =
@@ -301,6 +315,7 @@ instance Prelude.NFData DataLakeSettings where
       `Prelude.seq` Prelude.rnf authorizedSessionTagValueList
       `Prelude.seq` Prelude.rnf createTableDefaultPermissions
       `Prelude.seq` Prelude.rnf externalDataFilteringAllowList
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON DataLakeSettings where
   toJSON DataLakeSettings' {..} =
@@ -319,6 +334,7 @@ instance Core.ToJSON DataLakeSettings where
             ("CreateTableDefaultPermissions" Core..=)
               Prelude.<$> createTableDefaultPermissions,
             ("ExternalDataFilteringAllowList" Core..=)
-              Prelude.<$> externalDataFilteringAllowList
+              Prelude.<$> externalDataFilteringAllowList,
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

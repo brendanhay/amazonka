@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.ExecutionStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics related to the processing of a query statement.

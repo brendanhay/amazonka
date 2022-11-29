@@ -20,8 +20,8 @@
 module Amazonka.LakeFormation.Types.StorageOptimizer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.OptimizerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing the configuration and details of a storage

@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.LFTagPolicyResource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.LFTag
 import Amazonka.LakeFormation.Types.ResourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing a list of LF-tag conditions that apply to a

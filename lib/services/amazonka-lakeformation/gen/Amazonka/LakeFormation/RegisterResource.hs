@@ -60,8 +60,8 @@ module Amazonka.LakeFormation.RegisterResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,7 +75,7 @@ data RegisterResource = RegisterResource'
     -- a unique type of IAM role that is linked directly to Lake Formation.
     --
     -- For more information, see
-    -- <https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
+    -- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
     useServiceLinkedRole :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the resource that you want to
     -- register.
@@ -98,7 +98,7 @@ data RegisterResource = RegisterResource'
 -- a unique type of IAM role that is linked directly to Lake Formation.
 --
 -- For more information, see
--- <https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
+-- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
 --
 -- 'resourceArn', 'registerResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that you want to
 -- register.
@@ -122,7 +122,7 @@ registerResource_roleArn = Lens.lens (\RegisterResource' {roleArn} -> roleArn) (
 -- a unique type of IAM role that is linked directly to Lake Formation.
 --
 -- For more information, see
--- <https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
+-- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
 registerResource_useServiceLinkedRole :: Lens.Lens' RegisterResource (Prelude.Maybe Prelude.Bool)
 registerResource_useServiceLinkedRole = Lens.lens (\RegisterResource' {useServiceLinkedRole} -> useServiceLinkedRole) (\s@RegisterResource' {} a -> s {useServiceLinkedRole = a} :: RegisterResource)
 
@@ -135,8 +135,8 @@ instance Core.AWSRequest RegisterResource where
   type
     AWSResponse RegisterResource =
       RegisterResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

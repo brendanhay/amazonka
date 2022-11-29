@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.AllRowsWildcard where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that you pass to indicate you want all rows in a filter.

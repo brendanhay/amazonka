@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.LFTagKeyResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing an LF-tag key and values for a resource.

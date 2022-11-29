@@ -21,7 +21,7 @@ module Amazonka.BackupGateway.Types.Hypervisor where
 
 import Amazonka.BackupGateway.Types.HypervisorState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the hypervisor\'s permissions to which the gateway will

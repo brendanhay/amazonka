@@ -22,7 +22,7 @@ module Amazonka.BackupGateway.Types.GatewayDetails where
 import Amazonka.BackupGateway.Types.GatewayType
 import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of gateway.

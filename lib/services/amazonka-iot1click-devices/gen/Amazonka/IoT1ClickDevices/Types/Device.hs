@@ -20,8 +20,8 @@
 module Amazonka.IoT1ClickDevices.Types.Device where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT1ClickDevices.Types.Attributes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDevice' smart constructor.

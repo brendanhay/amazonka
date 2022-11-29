@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -62,12 +63,12 @@ module Amazonka.IoT1ClickDevices.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT1ClickDevices.Types.Attributes
 import Amazonka.IoT1ClickDevices.Types.Device
 import Amazonka.IoT1ClickDevices.Types.DeviceDescription
 import Amazonka.IoT1ClickDevices.Types.DeviceEvent
 import Amazonka.IoT1ClickDevices.Types.DeviceMethod
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -75,29 +76,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "IoT1ClickDevices",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "devices.iot1click",
-      Core._serviceSigningName = "iot1click",
-      Core._serviceVersion = "2018-05-14",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "IoT1ClickDevices",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IoT1ClickDevices",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "devices.iot1click",
+      Core.signingName = "iot1click",
+      Core.version = "2018-05-14",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IoT1ClickDevices",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

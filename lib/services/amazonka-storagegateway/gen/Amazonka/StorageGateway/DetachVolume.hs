@@ -46,7 +46,7 @@ module Amazonka.StorageGateway.DetachVolume
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +109,8 @@ detachVolume_volumeARN = Lens.lens (\DetachVolume' {volumeARN} -> volumeARN) (\s
 
 instance Core.AWSRequest DetachVolume where
   type AWSResponse DetachVolume = DetachVolumeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

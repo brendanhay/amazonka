@@ -56,7 +56,7 @@ module Amazonka.StorageGateway.DeleteVolume
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +96,8 @@ deleteVolume_volumeARN = Lens.lens (\DeleteVolume' {volumeARN} -> volumeARN) (\s
 
 instance Core.AWSRequest DeleteVolume where
   type AWSResponse DeleteVolume = DeleteVolumeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

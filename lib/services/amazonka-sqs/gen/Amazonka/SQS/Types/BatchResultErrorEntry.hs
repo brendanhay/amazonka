@@ -20,7 +20,7 @@
 module Amazonka.SQS.Types.BatchResultErrorEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gives a detailed description of the result of an action on each entry in

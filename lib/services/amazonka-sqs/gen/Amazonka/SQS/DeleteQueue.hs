@@ -53,7 +53,7 @@ module Amazonka.SQS.DeleteQueue
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +96,8 @@ deleteQueue_queueUrl = Lens.lens (\DeleteQueue' {queueUrl} -> queueUrl) (\s@Dele
 
 instance Core.AWSRequest DeleteQueue where
   type AWSResponse DeleteQueue = DeleteQueueResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteQueueResponse'
 
 instance Prelude.Hashable DeleteQueue where

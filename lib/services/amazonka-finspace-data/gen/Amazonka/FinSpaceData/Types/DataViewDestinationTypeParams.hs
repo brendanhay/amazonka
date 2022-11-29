@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ExportFileFormat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure for the Dataview destination type parameters.

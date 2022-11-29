@@ -20,10 +20,10 @@
 module Amazonka.FinSpaceData.Types.Dataset where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.DatasetKind
 import Amazonka.FinSpaceData.Types.DatasetOwnerInfo
 import Amazonka.FinSpaceData.Types.SchemaUnion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure for a Dataset.

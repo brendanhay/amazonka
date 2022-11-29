@@ -20,9 +20,9 @@
 module Amazonka.FinSpaceData.Types.PermissionGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ApplicationPermission
 import Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure for a permission group.

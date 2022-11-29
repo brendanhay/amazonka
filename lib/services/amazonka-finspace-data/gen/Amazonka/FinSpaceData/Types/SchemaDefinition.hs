@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.SchemaDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ColumnDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Definition for a schema on a tabular Dataset.

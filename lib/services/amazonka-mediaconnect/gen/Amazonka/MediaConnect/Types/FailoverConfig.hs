@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.FailoverConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.FailoverMode
 import Amazonka.MediaConnect.Types.SourcePriority
 import Amazonka.MediaConnect.Types.State

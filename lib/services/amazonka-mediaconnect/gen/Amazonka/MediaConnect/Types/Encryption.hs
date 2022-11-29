@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.Encryption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.Algorithm
 import Amazonka.MediaConnect.Types.KeyType
 import qualified Amazonka.Prelude as Prelude

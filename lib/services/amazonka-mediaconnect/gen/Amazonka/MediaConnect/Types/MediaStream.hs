@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.MediaStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.MediaStreamAttributes
 import Amazonka.MediaConnect.Types.MediaStreamType
 import qualified Amazonka.Prelude as Prelude

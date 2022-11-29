@@ -25,7 +25,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a message in a channel.

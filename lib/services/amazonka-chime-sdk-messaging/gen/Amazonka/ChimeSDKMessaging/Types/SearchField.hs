@@ -22,7 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.SearchField where
 import Amazonka.ChimeSDKMessaging.Types.SearchFieldKey
 import Amazonka.ChimeSDKMessaging.Types.SearchFieldOperator
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @Field@ of the channel that you want to search.

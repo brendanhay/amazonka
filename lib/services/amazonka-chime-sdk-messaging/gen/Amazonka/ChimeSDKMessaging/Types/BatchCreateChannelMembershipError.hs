@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError where
 
 import Amazonka.ChimeSDKMessaging.Types.ErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of failed member ARNs, error codes, and error messages.

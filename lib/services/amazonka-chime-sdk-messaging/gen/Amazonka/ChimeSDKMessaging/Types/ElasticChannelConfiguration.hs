@@ -20,7 +20,7 @@
 module Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes required to configure and create an elastic channel. An

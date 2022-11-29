@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration where
 
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The push notification configuration of the message.

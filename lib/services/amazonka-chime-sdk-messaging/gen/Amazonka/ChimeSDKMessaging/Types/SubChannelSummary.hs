@@ -20,7 +20,7 @@
 module Amazonka.ChimeSDKMessaging.Types.SubChannelSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the sub-channels associated with the elastic channel.

@@ -22,7 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships where
 import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The membership information, including member ARNs, the channel ARN, and

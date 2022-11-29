@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.DescribeFastLaunchImagesSuccessItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FastLaunchLaunchTemplateSpecificationResponse
 import Amazonka.EC2.Types.FastLaunchResourceType
 import Amazonka.EC2.Types.FastLaunchSnapshotConfigurationResponse
 import Amazonka.EC2.Types.FastLaunchStateCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describe details about a fast-launch enabled Windows image that meets

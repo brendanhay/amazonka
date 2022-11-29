@@ -20,13 +20,13 @@
 module Amazonka.EC2.Types.ModifyTransitGatewayOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Amazonka.EC2.Types.DefaultRouteTableAssociationValue
 import Amazonka.EC2.Types.DefaultRouteTablePropagationValue
 import Amazonka.EC2.Types.DnsSupportValue
 import Amazonka.EC2.Types.VpnEcmpSupportValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The transit gateway options.

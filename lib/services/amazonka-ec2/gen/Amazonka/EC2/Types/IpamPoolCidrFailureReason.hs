@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.IpamPoolCidrFailureReason where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamPoolCidrFailureCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details related to why an IPAM pool CIDR failed to be provisioned.

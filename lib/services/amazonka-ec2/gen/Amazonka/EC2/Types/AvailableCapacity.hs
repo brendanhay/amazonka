@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.AvailableCapacity where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceCapacity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The capacity information for instances that can be launched onto the

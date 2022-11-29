@@ -58,8 +58,8 @@ module Amazonka.EC2.CreatePlacementGroup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,8 +174,8 @@ instance Core.AWSRequest CreatePlacementGroup where
   type
     AWSResponse CreatePlacementGroup =
       CreatePlacementGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -228,7 +228,8 @@ instance Core.ToQuery CreatePlacementGroup where
 
 -- | /See:/ 'newCreatePlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
-  { placementGroup :: Prelude.Maybe PlacementGroup,
+  { -- | Information about the placement group.
+    placementGroup :: Prelude.Maybe PlacementGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,7 +243,7 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'placementGroup', 'createPlacementGroupResponse_placementGroup' - Undocumented member.
+-- 'placementGroup', 'createPlacementGroupResponse_placementGroup' - Information about the placement group.
 --
 -- 'httpStatus', 'createPlacementGroupResponse_httpStatus' - The response's http status code.
 newCreatePlacementGroupResponse ::
@@ -256,7 +257,7 @@ newCreatePlacementGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the placement group.
 createPlacementGroupResponse_placementGroup :: Lens.Lens' CreatePlacementGroupResponse (Prelude.Maybe PlacementGroup)
 createPlacementGroupResponse_placementGroup = Lens.lens (\CreatePlacementGroupResponse' {placementGroup} -> placementGroup) (\s@CreatePlacementGroupResponse' {} a -> s {placementGroup = a} :: CreatePlacementGroupResponse)
 

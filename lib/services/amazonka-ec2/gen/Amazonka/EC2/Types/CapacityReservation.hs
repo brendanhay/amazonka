@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.CapacityReservation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityAllocation
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
@@ -28,7 +29,6 @@ import Amazonka.EC2.Types.CapacityReservationTenancy
 import Amazonka.EC2.Types.EndDateType
 import Amazonka.EC2.Types.InstanceMatchCriteria
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Capacity Reservation.

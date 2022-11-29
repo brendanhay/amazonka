@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.IpamPoolCidr where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamPoolCidrFailureReason
 import Amazonka.EC2.Types.IpamPoolCidrState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CIDR provisioned to an IPAM pool.

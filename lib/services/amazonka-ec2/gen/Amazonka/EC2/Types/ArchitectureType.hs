@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ArchitectureType
   ( ArchitectureType
       ( ..,
         ArchitectureType_Arm64,
+        ArchitectureType_Arm64_mac,
         ArchitectureType_I386,
         ArchitectureType_X86_64,
         ArchitectureType_X86_64_mac
@@ -63,6 +64,9 @@ newtype ArchitectureType = ArchitectureType'
 pattern ArchitectureType_Arm64 :: ArchitectureType
 pattern ArchitectureType_Arm64 = ArchitectureType' "arm64"
 
+pattern ArchitectureType_Arm64_mac :: ArchitectureType
+pattern ArchitectureType_Arm64_mac = ArchitectureType' "arm64_mac"
+
 pattern ArchitectureType_I386 :: ArchitectureType
 pattern ArchitectureType_I386 = ArchitectureType' "i386"
 
@@ -74,6 +78,7 @@ pattern ArchitectureType_X86_64_mac = ArchitectureType' "x86_64_mac"
 
 {-# COMPLETE
   ArchitectureType_Arm64,
+  ArchitectureType_Arm64_mac,
   ArchitectureType_I386,
   ArchitectureType_X86_64,
   ArchitectureType_X86_64_mac,

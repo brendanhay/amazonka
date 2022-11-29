@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.CapacityAllocation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about instance capacity usage for a Capacity Reservation.

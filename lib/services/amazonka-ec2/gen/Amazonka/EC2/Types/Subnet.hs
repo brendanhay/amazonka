@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.Subnet where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PrivateDnsNameOptionsOnLaunch
 import Amazonka.EC2.Types.SubnetIpv6CidrBlockAssociation
 import Amazonka.EC2.Types.SubnetState
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a subnet.

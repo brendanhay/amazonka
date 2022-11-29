@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.SpotFleetRequestConfigData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationStrategy
 import Amazonka.EC2.Types.ExcessCapacityTerminationPolicy
@@ -32,7 +33,6 @@ import Amazonka.EC2.Types.SpotFleetLaunchSpecification
 import Amazonka.EC2.Types.SpotMaintenanceStrategies
 import Amazonka.EC2.Types.TagSpecification
 import Amazonka.EC2.Types.TargetCapacityUnitType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a Spot Fleet request.
@@ -137,7 +137,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- capacity across the Spot Instance pools specified by the Spot Fleet
     -- launch configuration. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    -- in the /Amazon EC2 User Guide/.
     --
     -- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
     -- Instance pool that has available capacity. If the cheapest pool doesn\'t
@@ -212,9 +212,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- (IAM) role that grants the Spot Fleet the permission to request, launch,
     -- terminate, and tag instances on your behalf. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites>
-    -- in the /Amazon EC2 User Guide for Linux Instances/. Spot Fleet can
-    -- terminate Spot Instances on your behalf when you cancel its Spot Fleet
-    -- request using
+    -- in the /Amazon EC2 User Guide/. Spot Fleet can terminate Spot Instances
+    -- on your behalf when you cancel its Spot Fleet request using
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests>
     -- or when the Spot Fleet request expires, if you set
     -- @TerminateInstancesWithExpiration@.
@@ -334,7 +333,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- capacity across the Spot Instance pools specified by the Spot Fleet
 -- launch configuration. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
 -- Instance pool that has available capacity. If the cheapest pool doesn\'t
@@ -409,9 +408,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- (IAM) role that grants the Spot Fleet the permission to request, launch,
 -- terminate, and tag instances on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites>
--- in the /Amazon EC2 User Guide for Linux Instances/. Spot Fleet can
--- terminate Spot Instances on your behalf when you cancel its Spot Fleet
--- request using
+-- in the /Amazon EC2 User Guide/. Spot Fleet can terminate Spot Instances
+-- on your behalf when you cancel its Spot Fleet request using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests>
 -- or when the Spot Fleet request expires, if you set
 -- @TerminateInstancesWithExpiration@.
@@ -593,7 +591,7 @@ spotFleetRequestConfigData_instanceInterruptionBehavior = Lens.lens (\SpotFleetR
 -- capacity across the Spot Instance pools specified by the Spot Fleet
 -- launch configuration. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html Allocation strategies for Spot Instances>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- @lowestPrice@ - Spot Fleet launches instances from the lowest-price Spot
 -- Instance pool that has available capacity. If the cheapest pool doesn\'t
@@ -682,9 +680,8 @@ spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {
 -- (IAM) role that grants the Spot Fleet the permission to request, launch,
 -- terminate, and tag instances on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites Spot Fleet prerequisites>
--- in the /Amazon EC2 User Guide for Linux Instances/. Spot Fleet can
--- terminate Spot Instances on your behalf when you cancel its Spot Fleet
--- request using
+-- in the /Amazon EC2 User Guide/. Spot Fleet can terminate Spot Instances
+-- on your behalf when you cancel its Spot Fleet request using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests>
 -- or when the Spot Fleet request expires, if you set
 -- @TerminateInstancesWithExpiration@.

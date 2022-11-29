@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.InstanceTypeInfoFromInstanceRequirements where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of instance types with the specified instance attributes.

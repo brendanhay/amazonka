@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.ValidationWarning where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ValidationError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The error codes and error messages that are returned for the parameters

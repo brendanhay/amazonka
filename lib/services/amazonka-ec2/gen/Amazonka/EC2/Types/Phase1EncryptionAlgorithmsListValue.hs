@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.Phase1EncryptionAlgorithmsListValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The encryption algorithm for phase 1 IKE negotiations.

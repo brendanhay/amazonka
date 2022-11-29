@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.Image where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureValues
 import Amazonka.EC2.Types.BlockDeviceMapping
@@ -35,7 +36,6 @@ import Amazonka.EC2.Types.StateReason
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TpmSupportValues
 import Amazonka.EC2.Types.VirtualizationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an image.
@@ -88,7 +88,7 @@ data Image = Image'
     deprecationTime :: Prelude.Maybe Prelude.Text,
     -- | The platform details associated with the billing code of the AMI. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     platformDetails :: Prelude.Maybe Prelude.Text,
     -- | If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
@@ -193,7 +193,7 @@ data Image = Image'
 --
 -- 'platformDetails', 'image_platformDetails' - The platform details associated with the billing code of the AMI. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'imdsSupport', 'image_imdsSupport' - If @v2.0@, it indicates that IMDSv2 is specified in the AMI. Instances
@@ -378,7 +378,7 @@ image_deprecationTime = Lens.lens (\Image' {deprecationTime} -> deprecationTime)
 
 -- | The platform details associated with the billing code of the AMI. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)

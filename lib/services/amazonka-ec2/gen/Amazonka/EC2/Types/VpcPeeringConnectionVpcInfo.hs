@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.VpcPeeringConnectionVpcInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CidrBlock
 import Amazonka.EC2.Types.Ipv6CidrBlock
 import Amazonka.EC2.Types.VpcPeeringConnectionOptionsDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a VPC in a VPC peering connection.

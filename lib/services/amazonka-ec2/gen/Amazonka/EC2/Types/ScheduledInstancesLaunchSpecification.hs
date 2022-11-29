@@ -20,13 +20,13 @@
 module Amazonka.EC2.Types.ScheduledInstancesLaunchSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ScheduledInstancesBlockDeviceMapping
 import Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile
 import Amazonka.EC2.Types.ScheduledInstancesMonitoring
 import Amazonka.EC2.Types.ScheduledInstancesNetworkInterface
 import Amazonka.EC2.Types.ScheduledInstancesPlacement
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the launch specification for a Scheduled Instance.

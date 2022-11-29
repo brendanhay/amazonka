@@ -56,6 +56,7 @@ module Amazonka.EC2.ModifyInstancePlacement
     modifyInstancePlacement_groupName,
     modifyInstancePlacement_affinity,
     modifyInstancePlacement_tenancy,
+    modifyInstancePlacement_groupId,
     modifyInstancePlacement_instanceId,
 
     -- * Destructuring the Response
@@ -69,8 +70,8 @@ module Amazonka.EC2.ModifyInstancePlacement
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,6 +101,9 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
     -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
     -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
     tenancy :: Prelude.Maybe HostTenancy,
+    -- | The Group Id of a placement group. You must specify the Placement Group
+    -- __Group Id__ to launch an instance in a shared placement group.
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance that you are modifying.
     instanceId :: Prelude.Text
   }
@@ -136,6 +140,9 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
 -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
 --
+-- 'groupId', 'modifyInstancePlacement_groupId' - The Group Id of a placement group. You must specify the Placement Group
+-- __Group Id__ to launch an instance in a shared placement group.
+--
 -- 'instanceId', 'modifyInstancePlacement_instanceId' - The ID of the instance that you are modifying.
 newModifyInstancePlacement ::
   -- | 'instanceId'
@@ -150,6 +157,7 @@ newModifyInstancePlacement pInstanceId_ =
       groupName = Prelude.Nothing,
       affinity = Prelude.Nothing,
       tenancy = Prelude.Nothing,
+      groupId = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -188,6 +196,11 @@ modifyInstancePlacement_affinity = Lens.lens (\ModifyInstancePlacement' {affinit
 modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
 modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
 
+-- | The Group Id of a placement group. You must specify the Placement Group
+-- __Group Id__ to launch an instance in a shared placement group.
+modifyInstancePlacement_groupId :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
+modifyInstancePlacement_groupId = Lens.lens (\ModifyInstancePlacement' {groupId} -> groupId) (\s@ModifyInstancePlacement' {} a -> s {groupId = a} :: ModifyInstancePlacement)
+
 -- | The ID of the instance that you are modifying.
 modifyInstancePlacement_instanceId :: Lens.Lens' ModifyInstancePlacement Prelude.Text
 modifyInstancePlacement_instanceId = Lens.lens (\ModifyInstancePlacement' {instanceId} -> instanceId) (\s@ModifyInstancePlacement' {} a -> s {instanceId = a} :: ModifyInstancePlacement)
@@ -196,8 +209,8 @@ instance Core.AWSRequest ModifyInstancePlacement where
   type
     AWSResponse ModifyInstancePlacement =
       ModifyInstancePlacementResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -214,6 +227,7 @@ instance Prelude.Hashable ModifyInstancePlacement where
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ModifyInstancePlacement where
@@ -224,6 +238,7 @@ instance Prelude.NFData ModifyInstancePlacement where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf affinity
       `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ModifyInstancePlacement where
@@ -245,6 +260,7 @@ instance Core.ToQuery ModifyInstancePlacement where
         "GroupName" Core.=: groupName,
         "Affinity" Core.=: affinity,
         "Tenancy" Core.=: tenancy,
+        "GroupId" Core.=: groupId,
         "InstanceId" Core.=: instanceId
       ]
 

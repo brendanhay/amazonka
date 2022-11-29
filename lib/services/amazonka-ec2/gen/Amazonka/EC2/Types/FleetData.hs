@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.FleetData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DescribeFleetError
 import Amazonka.EC2.Types.DescribeFleetsInstances
@@ -32,7 +33,6 @@ import Amazonka.EC2.Types.OnDemandOptions
 import Amazonka.EC2.Types.SpotOptions
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TargetCapacitySpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EC2 Fleet.

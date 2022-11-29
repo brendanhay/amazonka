@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.ClientVpnAuthenticationRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CertificateAuthenticationRequest
 import Amazonka.EC2.Types.ClientVpnAuthenticationType
 import Amazonka.EC2.Types.DirectoryServiceAuthenticationRequest
 import Amazonka.EC2.Types.FederatedAuthenticationRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the authentication method to be used by a Client VPN endpoint.

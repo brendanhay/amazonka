@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.IpPermission where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpRange
 import Amazonka.EC2.Types.Ipv6Range
 import Amazonka.EC2.Types.PrefixListId
 import Amazonka.EC2.Types.UserIdGroupPair
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a set of permissions for a security group rule.

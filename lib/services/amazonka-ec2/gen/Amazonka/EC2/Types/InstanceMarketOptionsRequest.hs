@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.InstanceMarketOptionsRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.MarketType
 import Amazonka.EC2.Types.SpotMarketOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the market (purchasing) option for the instances.

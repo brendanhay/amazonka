@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.TargetCapacitySpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DefaultTargetCapacityType
 import Amazonka.EC2.Types.TargetCapacityUnitType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of units to request. You can choose to set the target

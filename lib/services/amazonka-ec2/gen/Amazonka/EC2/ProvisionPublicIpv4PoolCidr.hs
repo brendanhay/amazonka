@@ -48,8 +48,8 @@ module Amazonka.EC2.ProvisionPublicIpv4PoolCidr
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +134,8 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
   type
     AWSResponse ProvisionPublicIpv4PoolCidr =
       ProvisionPublicIpv4PoolCidrResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,7 +182,8 @@ instance Core.ToQuery ProvisionPublicIpv4PoolCidr where
 
 -- | /See:/ 'newProvisionPublicIpv4PoolCidrResponse' smart constructor.
 data ProvisionPublicIpv4PoolCidrResponse = ProvisionPublicIpv4PoolCidrResponse'
-  { poolAddressRange :: Prelude.Maybe PublicIpv4PoolRange,
+  { -- | Information about the address range of the public IPv4 pool.
+    poolAddressRange :: Prelude.Maybe PublicIpv4PoolRange,
     -- | The ID of the pool that you want to provision the CIDR to.
     poolId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -198,7 +199,7 @@ data ProvisionPublicIpv4PoolCidrResponse = ProvisionPublicIpv4PoolCidrResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'poolAddressRange', 'provisionPublicIpv4PoolCidrResponse_poolAddressRange' - Undocumented member.
+-- 'poolAddressRange', 'provisionPublicIpv4PoolCidrResponse_poolAddressRange' - Information about the address range of the public IPv4 pool.
 --
 -- 'poolId', 'provisionPublicIpv4PoolCidrResponse_poolId' - The ID of the pool that you want to provision the CIDR to.
 --
@@ -215,7 +216,7 @@ newProvisionPublicIpv4PoolCidrResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the address range of the public IPv4 pool.
 provisionPublicIpv4PoolCidrResponse_poolAddressRange :: Lens.Lens' ProvisionPublicIpv4PoolCidrResponse (Prelude.Maybe PublicIpv4PoolRange)
 provisionPublicIpv4PoolCidrResponse_poolAddressRange = Lens.lens (\ProvisionPublicIpv4PoolCidrResponse' {poolAddressRange} -> poolAddressRange) (\s@ProvisionPublicIpv4PoolCidrResponse' {} a -> s {poolAddressRange = a} :: ProvisionPublicIpv4PoolCidrResponse)
 

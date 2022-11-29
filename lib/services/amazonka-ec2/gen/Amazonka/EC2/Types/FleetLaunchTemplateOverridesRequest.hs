@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.FleetLaunchTemplateOverridesRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceRequirementsRequest
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.Placement
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes overrides for a launch template.

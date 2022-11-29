@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.RouteTable where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PropagatingVgw
 import Amazonka.EC2.Types.Route
 import Amazonka.EC2.Types.RouteTableAssociation
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a route table.

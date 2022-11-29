@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.LaunchTemplatePlacementRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the placement of an instance.
@@ -48,7 +48,10 @@ data LaunchTemplatePlacementRequest = LaunchTemplatePlacementRequest'
     affinity :: Prelude.Maybe Prelude.Text,
     -- | The tenancy of the instance (if the instance is running in a VPC). An
     -- instance with a tenancy of dedicated runs on single-tenant hardware.
-    tenancy :: Prelude.Maybe Tenancy
+    tenancy :: Prelude.Maybe Tenancy,
+    -- | The Group Id of a placement group. You must specify the Placement Group
+    -- __Group Id__ to launch an instance in a shared placement group.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +82,9 @@ data LaunchTemplatePlacementRequest = LaunchTemplatePlacementRequest'
 --
 -- 'tenancy', 'launchTemplatePlacementRequest_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of dedicated runs on single-tenant hardware.
+--
+-- 'groupId', 'launchTemplatePlacementRequest_groupId' - The Group Id of a placement group. You must specify the Placement Group
+-- __Group Id__ to launch an instance in a shared placement group.
 newLaunchTemplatePlacementRequest ::
   LaunchTemplatePlacementRequest
 newLaunchTemplatePlacementRequest =
@@ -91,7 +97,8 @@ newLaunchTemplatePlacementRequest =
       availabilityZone = Prelude.Nothing,
       groupName = Prelude.Nothing,
       affinity = Prelude.Nothing,
-      tenancy = Prelude.Nothing
+      tenancy = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | Reserved for future use.
@@ -130,6 +137,11 @@ launchTemplatePlacementRequest_affinity = Lens.lens (\LaunchTemplatePlacementReq
 launchTemplatePlacementRequest_tenancy :: Lens.Lens' LaunchTemplatePlacementRequest (Prelude.Maybe Tenancy)
 launchTemplatePlacementRequest_tenancy = Lens.lens (\LaunchTemplatePlacementRequest' {tenancy} -> tenancy) (\s@LaunchTemplatePlacementRequest' {} a -> s {tenancy = a} :: LaunchTemplatePlacementRequest)
 
+-- | The Group Id of a placement group. You must specify the Placement Group
+-- __Group Id__ to launch an instance in a shared placement group.
+launchTemplatePlacementRequest_groupId :: Lens.Lens' LaunchTemplatePlacementRequest (Prelude.Maybe Prelude.Text)
+launchTemplatePlacementRequest_groupId = Lens.lens (\LaunchTemplatePlacementRequest' {groupId} -> groupId) (\s@LaunchTemplatePlacementRequest' {} a -> s {groupId = a} :: LaunchTemplatePlacementRequest)
+
 instance
   Prelude.Hashable
     LaunchTemplatePlacementRequest
@@ -145,6 +157,7 @@ instance
         `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` affinity
         `Prelude.hashWithSalt` tenancy
+        `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
@@ -159,6 +172,7 @@ instance
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf affinity
       `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToQuery LaunchTemplatePlacementRequest where
   toQuery LaunchTemplatePlacementRequest' {..} =
@@ -170,5 +184,6 @@ instance Core.ToQuery LaunchTemplatePlacementRequest where
         "AvailabilityZone" Core.=: availabilityZone,
         "GroupName" Core.=: groupName,
         "Affinity" Core.=: affinity,
-        "Tenancy" Core.=: tenancy
+        "Tenancy" Core.=: tenancy,
+        "GroupId" Core.=: groupId
       ]

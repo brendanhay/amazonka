@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.RequestIpamResourceTag where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag on an IPAM resource.

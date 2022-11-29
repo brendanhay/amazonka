@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceIpv6AddressRequest
 import Amazonka.EC2.Types.Ipv4PrefixSpecificationRequest
 import Amazonka.EC2.Types.Ipv6PrefixSpecificationRequest
 import Amazonka.EC2.Types.PrivateIpAddressSpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for a network interface.

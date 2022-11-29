@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.TrunkInterfaceAssociation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InterfaceProtocolType
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Currently available in __limited preview only__. If you are interested

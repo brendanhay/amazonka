@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.NetworkAclEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IcmpTypeCode
 import Amazonka.EC2.Types.PortRange
 import Amazonka.EC2.Types.RuleAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an entry in a network ACL.

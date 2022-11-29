@@ -56,8 +56,8 @@ module Amazonka.EC2.DescribeImages
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +128,7 @@ data DescribeImages = DescribeImages'
     --     recommend that you use the __Owner__ request parameter instead of
     --     this filter.
     --
-    -- -   @platform@ - The platform. To only list Windows-based AMIs, use
-    --     @windows@.
+    -- -   @platform@ - The platform. The only supported value is @windows@.
     --
     -- -   @product-code@ - The product code.
     --
@@ -274,8 +273,7 @@ data DescribeImages = DescribeImages'
 --     recommend that you use the __Owner__ request parameter instead of
 --     this filter.
 --
--- -   @platform@ - The platform. To only list Windows-based AMIs, use
---     @windows@.
+-- -   @platform@ - The platform. The only supported value is @windows@.
 --
 -- -   @product-code@ - The product code.
 --
@@ -422,8 +420,7 @@ describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\
 --     recommend that you use the __Owner__ request parameter instead of
 --     this filter.
 --
--- -   @platform@ - The platform. To only list Windows-based AMIs, use
---     @windows@.
+-- -   @platform@ - The platform. The only supported value is @windows@.
 --
 -- -   @product-code@ - The product code.
 --
@@ -507,8 +504,8 @@ instance Core.AWSRequest DescribeImages where
   type
     AWSResponse DescribeImages =
       DescribeImagesResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

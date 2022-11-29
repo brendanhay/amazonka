@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.UnsuccessfulItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UnsuccessfulItemError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about items that were not successfully processed in a batch

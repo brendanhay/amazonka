@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.PlacementGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PlacementGroupState
 import Amazonka.EC2.Types.PlacementStrategy
 import Amazonka.EC2.Types.SpreadLevel
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a placement group.

@@ -20,9 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a root volume replacement task for an Amazon EC2 instance. The
--- root volume can either be restored to its initial launch state, or it
--- can be restored using a specific snapshot.
+-- Replaces the EBS-backed root volume for a @running@ instance with a new
+-- volume that is restored to the original root volume\'s launch state,
+-- that is restored to a specific snapshot taken from the original root
+-- volume, or that is restored from an AMI that has the same key
+-- characteristics as that of the instance.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root Replace a root volume>
@@ -36,7 +38,9 @@ module Amazonka.EC2.CreateReplaceRootVolumeTask
     createReplaceRootVolumeTask_clientToken,
     createReplaceRootVolumeTask_snapshotId,
     createReplaceRootVolumeTask_dryRun,
+    createReplaceRootVolumeTask_deleteReplacedRootVolume,
     createReplaceRootVolumeTask_tagSpecifications,
+    createReplaceRootVolumeTask_imageId,
     createReplaceRootVolumeTask_instanceId,
 
     -- * Destructuring the Response
@@ -50,8 +54,8 @@ module Amazonka.EC2.CreateReplaceRootVolumeTask
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,16 +69,33 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the snapshot from which to restore the replacement root
-    -- volume. If you want to restore the volume to the initial launch state,
-    -- omit this parameter.
+    -- volume. The specified snapshot must be a snapshot that you previously
+    -- created from the original root volume.
+    --
+    -- If you want to restore the replacement root volume to the initial launch
+    -- state, or if you want to restore the replacement root volume from an
+    -- AMI, omit this parameter.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to automatically delete the original root volume after
+    -- the root volume replacement task completes. To delete the original root
+    -- volume, specify @true@. If you choose to keep the original root volume
+    -- after the replacement task completes, you must manually delete it when
+    -- you no longer need it.
+    deleteReplacedRootVolume :: Prelude.Maybe Prelude.Bool,
     -- | The tags to apply to the root volume replacement task.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The ID of the AMI to use to restore the root volume. The specified AMI
+    -- must have the same product code, billing information, architecture type,
+    -- and virtualization type as that of the instance.
+    --
+    -- If you want to restore the replacement volume from a specific snapshot,
+    -- or if you want to restore it to its launch state, omit this parameter.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance for which to replace the root volume.
     instanceId :: Prelude.Text
   }
@@ -95,15 +116,32 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- 'snapshotId', 'createReplaceRootVolumeTask_snapshotId' - The ID of the snapshot from which to restore the replacement root
--- volume. If you want to restore the volume to the initial launch state,
--- omit this parameter.
+-- volume. The specified snapshot must be a snapshot that you previously
+-- created from the original root volume.
+--
+-- If you want to restore the replacement root volume to the initial launch
+-- state, or if you want to restore the replacement root volume from an
+-- AMI, omit this parameter.
 --
 -- 'dryRun', 'createReplaceRootVolumeTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'deleteReplacedRootVolume', 'createReplaceRootVolumeTask_deleteReplacedRootVolume' - Indicates whether to automatically delete the original root volume after
+-- the root volume replacement task completes. To delete the original root
+-- volume, specify @true@. If you choose to keep the original root volume
+-- after the replacement task completes, you must manually delete it when
+-- you no longer need it.
+--
 -- 'tagSpecifications', 'createReplaceRootVolumeTask_tagSpecifications' - The tags to apply to the root volume replacement task.
+--
+-- 'imageId', 'createReplaceRootVolumeTask_imageId' - The ID of the AMI to use to restore the root volume. The specified AMI
+-- must have the same product code, billing information, architecture type,
+-- and virtualization type as that of the instance.
+--
+-- If you want to restore the replacement volume from a specific snapshot,
+-- or if you want to restore it to its launch state, omit this parameter.
 --
 -- 'instanceId', 'createReplaceRootVolumeTask_instanceId' - The ID of the instance for which to replace the root volume.
 newCreateReplaceRootVolumeTask ::
@@ -116,7 +154,9 @@ newCreateReplaceRootVolumeTask pInstanceId_ =
         Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      deleteReplacedRootVolume = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
+      imageId = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -129,8 +169,12 @@ createReplaceRootVolumeTask_clientToken :: Lens.Lens' CreateReplaceRootVolumeTas
 createReplaceRootVolumeTask_clientToken = Lens.lens (\CreateReplaceRootVolumeTask' {clientToken} -> clientToken) (\s@CreateReplaceRootVolumeTask' {} a -> s {clientToken = a} :: CreateReplaceRootVolumeTask)
 
 -- | The ID of the snapshot from which to restore the replacement root
--- volume. If you want to restore the volume to the initial launch state,
--- omit this parameter.
+-- volume. The specified snapshot must be a snapshot that you previously
+-- created from the original root volume.
+--
+-- If you want to restore the replacement root volume to the initial launch
+-- state, or if you want to restore the replacement root volume from an
+-- AMI, omit this parameter.
 createReplaceRootVolumeTask_snapshotId :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
 createReplaceRootVolumeTask_snapshotId = Lens.lens (\CreateReplaceRootVolumeTask' {snapshotId} -> snapshotId) (\s@CreateReplaceRootVolumeTask' {} a -> s {snapshotId = a} :: CreateReplaceRootVolumeTask)
 
@@ -141,9 +185,26 @@ createReplaceRootVolumeTask_snapshotId = Lens.lens (\CreateReplaceRootVolumeTask
 createReplaceRootVolumeTask_dryRun :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Bool)
 createReplaceRootVolumeTask_dryRun = Lens.lens (\CreateReplaceRootVolumeTask' {dryRun} -> dryRun) (\s@CreateReplaceRootVolumeTask' {} a -> s {dryRun = a} :: CreateReplaceRootVolumeTask)
 
+-- | Indicates whether to automatically delete the original root volume after
+-- the root volume replacement task completes. To delete the original root
+-- volume, specify @true@. If you choose to keep the original root volume
+-- after the replacement task completes, you must manually delete it when
+-- you no longer need it.
+createReplaceRootVolumeTask_deleteReplacedRootVolume :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Bool)
+createReplaceRootVolumeTask_deleteReplacedRootVolume = Lens.lens (\CreateReplaceRootVolumeTask' {deleteReplacedRootVolume} -> deleteReplacedRootVolume) (\s@CreateReplaceRootVolumeTask' {} a -> s {deleteReplacedRootVolume = a} :: CreateReplaceRootVolumeTask)
+
 -- | The tags to apply to the root volume replacement task.
 createReplaceRootVolumeTask_tagSpecifications :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe [TagSpecification])
 createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVolumeTask' {tagSpecifications} -> tagSpecifications) (\s@CreateReplaceRootVolumeTask' {} a -> s {tagSpecifications = a} :: CreateReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the AMI to use to restore the root volume. The specified AMI
+-- must have the same product code, billing information, architecture type,
+-- and virtualization type as that of the instance.
+--
+-- If you want to restore the replacement volume from a specific snapshot,
+-- or if you want to restore it to its launch state, omit this parameter.
+createReplaceRootVolumeTask_imageId :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+createReplaceRootVolumeTask_imageId = Lens.lens (\CreateReplaceRootVolumeTask' {imageId} -> imageId) (\s@CreateReplaceRootVolumeTask' {} a -> s {imageId = a} :: CreateReplaceRootVolumeTask)
 
 -- | The ID of the instance for which to replace the root volume.
 createReplaceRootVolumeTask_instanceId :: Lens.Lens' CreateReplaceRootVolumeTask Prelude.Text
@@ -153,8 +214,8 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
   type
     AWSResponse CreateReplaceRootVolumeTask =
       CreateReplaceRootVolumeTaskResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -168,7 +229,9 @@ instance Prelude.Hashable CreateReplaceRootVolumeTask where
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` deleteReplacedRootVolume
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData CreateReplaceRootVolumeTask where
@@ -176,7 +239,9 @@ instance Prelude.NFData CreateReplaceRootVolumeTask where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf deleteReplacedRootVolume
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders CreateReplaceRootVolumeTask where
@@ -197,10 +262,13 @@ instance Core.ToQuery CreateReplaceRootVolumeTask where
         "ClientToken" Core.=: clientToken,
         "SnapshotId" Core.=: snapshotId,
         "DryRun" Core.=: dryRun,
+        "DeleteReplacedRootVolume"
+          Core.=: deleteReplacedRootVolume,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "ImageId" Core.=: imageId,
         "InstanceId" Core.=: instanceId
       ]
 

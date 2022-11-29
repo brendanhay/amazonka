@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.VpcCidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VpcCidrBlockState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an IPv4 CIDR block associated with a VPC.

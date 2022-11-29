@@ -30,7 +30,7 @@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html Monitor fleet events using Amazon EventBridge>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.DescribeSpotFleetRequestHistory
   ( -- * Creating a Request
     DescribeSpotFleetRequestHistory (..),
@@ -59,8 +59,8 @@ module Amazonka.EC2.DescribeSpotFleetRequestHistory
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,8 +174,8 @@ instance
   type
     AWSResponse DescribeSpotFleetRequestHistory =
       DescribeSpotFleetRequestHistoryResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

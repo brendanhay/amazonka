@@ -20,13 +20,13 @@
 module Amazonka.EC2.Types.ImportInstanceLaunchSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureValues
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.Placement
 import Amazonka.EC2.Types.ShutdownBehavior
 import Amazonka.EC2.Types.UserData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the launch specification for VM import.

@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.LaunchTemplateInstanceMarketOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateSpotMarketOptions
 import Amazonka.EC2.Types.MarketType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The market (purchasing) option for the instances.

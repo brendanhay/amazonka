@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.SnapshotTierStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotState
 import Amazonka.EC2.Types.StorageTier
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TieringOperationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a snapshot\'s storage tier.

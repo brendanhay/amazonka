@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.OnDemandOptionsRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationOptionsRequest
 import Amazonka.EC2.Types.FleetOnDemandAllocationStrategy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.

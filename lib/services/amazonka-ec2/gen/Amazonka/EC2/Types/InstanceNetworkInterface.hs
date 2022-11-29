@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.InstanceNetworkInterface where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GroupIdentifier
 import Amazonka.EC2.Types.InstanceIpv4Prefix
@@ -29,7 +30,6 @@ import Amazonka.EC2.Types.InstanceNetworkInterfaceAssociation
 import Amazonka.EC2.Types.InstanceNetworkInterfaceAttachment
 import Amazonka.EC2.Types.InstancePrivateIpAddress
 import Amazonka.EC2.Types.NetworkInterfaceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a network interface.

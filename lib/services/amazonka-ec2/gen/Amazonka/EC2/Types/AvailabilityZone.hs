@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AvailabilityZoneMessage
 import Amazonka.EC2.Types.AvailabilityZoneOptInStatus
 import Amazonka.EC2.Types.AvailabilityZoneState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes Availability Zones, Local Zones, and Wavelength Zones.

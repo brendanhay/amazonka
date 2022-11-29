@@ -20,13 +20,13 @@
 module Amazonka.EC2.Types.IpamResourceCidr where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamComplianceStatus
 import Amazonka.EC2.Types.IpamManagementState
 import Amazonka.EC2.Types.IpamOverlapStatus
 import Amazonka.EC2.Types.IpamResourceTag
 import Amazonka.EC2.Types.IpamResourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The CIDR for an IPAM resource.

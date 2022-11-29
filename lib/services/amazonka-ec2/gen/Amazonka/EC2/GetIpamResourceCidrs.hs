@@ -52,8 +52,8 @@ module Amazonka.EC2.GetIpamResourceCidrs
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,6 +81,7 @@ data GetIpamResourceCidrs = GetIpamResourceCidrs'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the IPAM pool that the resource is in.
     ipamPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The resource tag.
     resourceTag :: Prelude.Maybe RequestIpamResourceTag,
     -- | The ID of the scope that the resource is in.
     ipamScopeId :: Prelude.Text
@@ -116,7 +117,7 @@ data GetIpamResourceCidrs = GetIpamResourceCidrs'
 --
 -- 'ipamPoolId', 'getIpamResourceCidrs_ipamPoolId' - The ID of the IPAM pool that the resource is in.
 --
--- 'resourceTag', 'getIpamResourceCidrs_resourceTag' - Undocumented member.
+-- 'resourceTag', 'getIpamResourceCidrs_resourceTag' - The resource tag.
 --
 -- 'ipamScopeId', 'getIpamResourceCidrs_ipamScopeId' - The ID of the scope that the resource is in.
 newGetIpamResourceCidrs ::
@@ -174,7 +175,7 @@ getIpamResourceCidrs_maxResults = Lens.lens (\GetIpamResourceCidrs' {maxResults}
 getIpamResourceCidrs_ipamPoolId :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
 getIpamResourceCidrs_ipamPoolId = Lens.lens (\GetIpamResourceCidrs' {ipamPoolId} -> ipamPoolId) (\s@GetIpamResourceCidrs' {} a -> s {ipamPoolId = a} :: GetIpamResourceCidrs)
 
--- | Undocumented member.
+-- | The resource tag.
 getIpamResourceCidrs_resourceTag :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe RequestIpamResourceTag)
 getIpamResourceCidrs_resourceTag = Lens.lens (\GetIpamResourceCidrs' {resourceTag} -> resourceTag) (\s@GetIpamResourceCidrs' {} a -> s {resourceTag = a} :: GetIpamResourceCidrs)
 
@@ -208,8 +209,8 @@ instance Core.AWSRequest GetIpamResourceCidrs where
   type
     AWSResponse GetIpamResourceCidrs =
       GetIpamResourceCidrsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.Placement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the placement of an instance.
@@ -84,7 +84,9 @@ data Placement = Placement'
     --
     -- T3 instances that use the @unlimited@ CPU credit option do not support
     -- @host@ tenancy.
-    tenancy :: Prelude.Maybe Tenancy
+    tenancy :: Prelude.Maybe Tenancy,
+    -- | The Group Id of the placement group.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -151,6 +153,8 @@ data Placement = Placement'
 --
 -- T3 instances that use the @unlimited@ CPU credit option do not support
 -- @host@ tenancy.
+--
+-- 'groupId', 'placement_groupId' - The Group Id of the placement group.
 newPlacement ::
   Placement
 newPlacement =
@@ -162,7 +166,8 @@ newPlacement =
       availabilityZone = Prelude.Nothing,
       groupName = Prelude.Nothing,
       affinity = Prelude.Nothing,
-      tenancy = Prelude.Nothing
+      tenancy = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | Reserved for future use.
@@ -237,6 +242,10 @@ placement_affinity = Lens.lens (\Placement' {affinity} -> affinity) (\s@Placemen
 placement_tenancy :: Lens.Lens' Placement (Prelude.Maybe Tenancy)
 placement_tenancy = Lens.lens (\Placement' {tenancy} -> tenancy) (\s@Placement' {} a -> s {tenancy = a} :: Placement)
 
+-- | The Group Id of the placement group.
+placement_groupId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_groupId = Lens.lens (\Placement' {groupId} -> groupId) (\s@Placement' {} a -> s {groupId = a} :: Placement)
+
 instance Core.FromXML Placement where
   parseXML x =
     Placement'
@@ -248,6 +257,7 @@ instance Core.FromXML Placement where
       Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "affinity")
       Prelude.<*> (x Core..@? "tenancy")
+      Prelude.<*> (x Core..@? "groupId")
 
 instance Prelude.Hashable Placement where
   hashWithSalt _salt Placement' {..} =
@@ -259,6 +269,7 @@ instance Prelude.Hashable Placement where
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData Placement where
   rnf Placement' {..} =
@@ -270,6 +281,7 @@ instance Prelude.NFData Placement where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf affinity
       `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToQuery Placement where
   toQuery Placement' {..} =
@@ -281,5 +293,6 @@ instance Core.ToQuery Placement where
         "AvailabilityZone" Core.=: availabilityZone,
         "GroupName" Core.=: groupName,
         "Affinity" Core.=: affinity,
-        "Tenancy" Core.=: tenancy
+        "Tenancy" Core.=: tenancy,
+        "GroupId" Core.=: groupId
       ]

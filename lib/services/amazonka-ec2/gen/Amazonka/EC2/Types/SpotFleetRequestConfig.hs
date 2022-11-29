@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.SpotFleetRequestConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ActivityStatus
 import Amazonka.EC2.Types.BatchState
 import Amazonka.EC2.Types.SpotFleetRequestConfigData
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Spot Fleet request.

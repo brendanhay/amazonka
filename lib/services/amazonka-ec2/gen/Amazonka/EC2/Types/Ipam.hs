@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.Ipam where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamOperatingRegion
 import Amazonka.EC2.Types.IpamState
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | IPAM is a VPC feature that you can use to automate your IP address

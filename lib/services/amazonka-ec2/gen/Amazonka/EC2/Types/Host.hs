@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.Host where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationState
 import Amazonka.EC2.Types.AllowsMultipleInstanceTypes
@@ -29,7 +30,6 @@ import Amazonka.EC2.Types.HostInstance
 import Amazonka.EC2.Types.HostProperties
 import Amazonka.EC2.Types.HostRecovery
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of the Dedicated Host.

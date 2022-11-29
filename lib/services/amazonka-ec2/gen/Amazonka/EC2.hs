@@ -153,6 +153,12 @@ module Amazonka.EC2
     -- * Operations
     -- $operations
 
+    -- ** AcceptAddressTransfer
+    AcceptAddressTransfer (AcceptAddressTransfer'),
+    newAcceptAddressTransfer,
+    AcceptAddressTransferResponse (AcceptAddressTransferResponse'),
+    newAcceptAddressTransferResponse,
+
     -- ** AcceptReservedInstancesExchangeQuote
     AcceptReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote'),
     newAcceptReservedInstancesExchangeQuote,
@@ -392,6 +398,12 @@ module Amazonka.EC2
     newCancelExportTask,
     CancelExportTaskResponse (CancelExportTaskResponse'),
     newCancelExportTaskResponse,
+
+    -- ** CancelImageLaunchPermission
+    CancelImageLaunchPermission (CancelImageLaunchPermission'),
+    newCancelImageLaunchPermission,
+    CancelImageLaunchPermissionResponse (CancelImageLaunchPermissionResponse'),
+    newCancelImageLaunchPermissionResponse,
 
     -- ** CancelImportTask
     CancelImportTask (CancelImportTask'),
@@ -1353,6 +1365,12 @@ module Amazonka.EC2
     DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
     newDescribeAccountAttributesResponse,
 
+    -- ** DescribeAddressTransfers (Paginated)
+    DescribeAddressTransfers (DescribeAddressTransfers'),
+    newDescribeAddressTransfers,
+    DescribeAddressTransfersResponse (DescribeAddressTransfersResponse'),
+    newDescribeAddressTransfersResponse,
+
     -- ** DescribeAddresses
     DescribeAddresses (DescribeAddresses'),
     newDescribeAddresses,
@@ -2187,6 +2205,12 @@ module Amazonka.EC2
     DetachVpnGatewayResponse (DetachVpnGatewayResponse'),
     newDetachVpnGatewayResponse,
 
+    -- ** DisableAddressTransfer
+    DisableAddressTransfer (DisableAddressTransfer'),
+    newDisableAddressTransfer,
+    DisableAddressTransferResponse (DisableAddressTransferResponse'),
+    newDisableAddressTransferResponse,
+
     -- ** DisableEbsEncryptionByDefault
     DisableEbsEncryptionByDefault (DisableEbsEncryptionByDefault'),
     newDisableEbsEncryptionByDefault,
@@ -2318,6 +2342,12 @@ module Amazonka.EC2
     newDisassociateVpcCidrBlock,
     DisassociateVpcCidrBlockResponse (DisassociateVpcCidrBlockResponse'),
     newDisassociateVpcCidrBlockResponse,
+
+    -- ** EnableAddressTransfer
+    EnableAddressTransfer (EnableAddressTransfer'),
+    newEnableAddressTransfer,
+    EnableAddressTransferResponse (EnableAddressTransferResponse'),
+    newEnableAddressTransferResponse,
 
     -- ** EnableEbsEncryptionByDefault
     EnableEbsEncryptionByDefault (EnableEbsEncryptionByDefault'),
@@ -3434,6 +3464,9 @@ module Amazonka.EC2
     -- ** AddressStatus
     AddressStatus (..),
 
+    -- ** AddressTransferStatus
+    AddressTransferStatus (..),
+
     -- ** Affinity
     Affinity (..),
 
@@ -4328,6 +4361,10 @@ module Amazonka.EC2
     -- ** AddressAttribute
     AddressAttribute (AddressAttribute'),
     newAddressAttribute,
+
+    -- ** AddressTransfer
+    AddressTransfer (AddressTransfer'),
+    newAddressTransfer,
 
     -- ** AllowedPrincipal
     AllowedPrincipal (AllowedPrincipal'),
@@ -5761,6 +5798,14 @@ module Amazonka.EC2
     NetworkAclEntry (NetworkAclEntry'),
     newNetworkAclEntry,
 
+    -- ** NetworkBandwidthGbps
+    NetworkBandwidthGbps (NetworkBandwidthGbps'),
+    newNetworkBandwidthGbps,
+
+    -- ** NetworkBandwidthGbpsRequest
+    NetworkBandwidthGbpsRequest (NetworkBandwidthGbpsRequest'),
+    newNetworkBandwidthGbpsRequest,
+
     -- ** NetworkCardInfo
     NetworkCardInfo (NetworkCardInfo'),
     newNetworkCardInfo,
@@ -6867,6 +6912,7 @@ module Amazonka.EC2
   )
 where
 
+import Amazonka.EC2.AcceptAddressTransfer
 import Amazonka.EC2.AcceptReservedInstancesExchangeQuote
 import Amazonka.EC2.AcceptTransitGatewayMulticastDomainAssociations
 import Amazonka.EC2.AcceptTransitGatewayPeeringAttachment
@@ -6907,6 +6953,7 @@ import Amazonka.EC2.CancelCapacityReservation
 import Amazonka.EC2.CancelCapacityReservationFleets
 import Amazonka.EC2.CancelConversionTask
 import Amazonka.EC2.CancelExportTask
+import Amazonka.EC2.CancelImageLaunchPermission
 import Amazonka.EC2.CancelImportTask
 import Amazonka.EC2.CancelReservedInstancesListing
 import Amazonka.EC2.CancelSpotFleetRequests
@@ -7067,6 +7114,7 @@ import Amazonka.EC2.DeregisterInstanceEventNotificationAttributes
 import Amazonka.EC2.DeregisterTransitGatewayMulticastGroupMembers
 import Amazonka.EC2.DeregisterTransitGatewayMulticastGroupSources
 import Amazonka.EC2.DescribeAccountAttributes
+import Amazonka.EC2.DescribeAddressTransfers
 import Amazonka.EC2.DescribeAddresses
 import Amazonka.EC2.DescribeAddressesAttribute
 import Amazonka.EC2.DescribeAggregateIdFormat
@@ -7206,6 +7254,7 @@ import Amazonka.EC2.DetachInternetGateway
 import Amazonka.EC2.DetachNetworkInterface
 import Amazonka.EC2.DetachVolume
 import Amazonka.EC2.DetachVpnGateway
+import Amazonka.EC2.DisableAddressTransfer
 import Amazonka.EC2.DisableEbsEncryptionByDefault
 import Amazonka.EC2.DisableFastLaunch
 import Amazonka.EC2.DisableFastSnapshotRestores
@@ -7228,6 +7277,7 @@ import Amazonka.EC2.DisassociateTransitGatewayPolicyTable
 import Amazonka.EC2.DisassociateTransitGatewayRouteTable
 import Amazonka.EC2.DisassociateTrunkInterface
 import Amazonka.EC2.DisassociateVpcCidrBlock
+import Amazonka.EC2.EnableAddressTransfer
 import Amazonka.EC2.EnableEbsEncryptionByDefault
 import Amazonka.EC2.EnableFastLaunch
 import Amazonka.EC2.EnableFastSnapshotRestores

@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.Phase2DHGroupNumbersListValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Diffie-Hellmann group number for phase 2 IKE negotiations.

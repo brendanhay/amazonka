@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.FlowLog where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DestinationOptionsResponse
 import Amazonka.EC2.Types.LogDestinationType
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TrafficType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a flow log.

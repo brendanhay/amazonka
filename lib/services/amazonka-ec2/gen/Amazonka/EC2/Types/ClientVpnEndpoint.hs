@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.ClientVpnEndpoint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociatedTargetNetwork
 import Amazonka.EC2.Types.ClientConnectResponseOptions
@@ -30,7 +31,6 @@ import Amazonka.EC2.Types.ConnectionLogResponseOptions
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransportProtocol
 import Amazonka.EC2.Types.VpnProtocol
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Client VPN endpoint.

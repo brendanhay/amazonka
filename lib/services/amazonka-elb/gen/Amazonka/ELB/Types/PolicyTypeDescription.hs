@@ -20,9 +20,9 @@
 module Amazonka.ELB.Types.PolicyTypeDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.PolicyAttributeTypeDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a policy type.

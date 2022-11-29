@@ -20,13 +20,13 @@
 module Amazonka.ELB.Types.LoadBalancerAttributes where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.AccessLog
 import Amazonka.ELB.Types.AdditionalAttribute
 import Amazonka.ELB.Types.ConnectionDraining
 import Amazonka.ELB.Types.ConnectionSettings
 import Amazonka.ELB.Types.CrossZoneLoadBalancing
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes for a load balancer.

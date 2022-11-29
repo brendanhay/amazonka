@@ -20,8 +20,8 @@
 module Amazonka.ELB.Types.LBCookieStickinessPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a policy for duration-based session stickiness.

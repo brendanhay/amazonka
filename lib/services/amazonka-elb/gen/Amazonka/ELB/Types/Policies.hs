@@ -20,10 +20,10 @@
 module Amazonka.ELB.Types.Policies where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.AppCookieStickinessPolicy
 import Amazonka.ELB.Types.LBCookieStickinessPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policies for a load balancer.

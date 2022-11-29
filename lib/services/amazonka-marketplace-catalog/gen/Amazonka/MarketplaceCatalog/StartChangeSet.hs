@@ -20,18 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation allows you to request changes for your entities. Within a
--- single ChangeSet, you cannot start the same change type against the same
--- entity multiple times. Additionally, when a ChangeSet is running, all
+-- Allows you to request changes for your entities. Within a single
+-- @ChangeSet@, you can\'t start the same change type against the same
+-- entity multiple times. Additionally, when a @ChangeSet@ is running, all
 -- the entities targeted by the different changes are locked until the
--- ChangeSet has completed (either succeeded, cancelled, or failed). If you
--- try to start a ChangeSet containing a change against an entity that is
--- already locked, you will receive a @ResourceInUseException@.
+-- change set has completed (either succeeded, cancelled, or failed). If
+-- you try to start a change set containing a change against an entity that
+-- is already locked, you will receive a @ResourceInUseException@ error.
 --
--- For example, you cannot start the ChangeSet described in the
+-- For example, you can\'t start the @ChangeSet@ described in the
 -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples example>
--- later in this topic, because it contains two changes to execute the same
--- change type (@AddRevisions@) against the same entity (@entity-id\@1)@.
+-- later in this topic because it contains two changes to run the same
+-- change type (@AddRevisions@) against the same entity (@entity-id\@1@).
 --
 -- For more information about working with change sets, see
 -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets Working with change sets>.
@@ -43,6 +43,7 @@ module Amazonka.MarketplaceCatalog.StartChangeSet
     -- * Request Lenses
     startChangeSet_clientRequestToken,
     startChangeSet_changeSetName,
+    startChangeSet_changeSetTags,
     startChangeSet_catalog,
     startChangeSet_changeSet,
 
@@ -58,7 +59,7 @@ module Amazonka.MarketplaceCatalog.StartChangeSet
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,6 +72,9 @@ data StartChangeSet = StartChangeSet'
     -- | Optional case sensitive string of up to 100 ASCII characters. The change
     -- set name can be used to filter the list of change sets.
     changeSetName :: Prelude.Maybe Prelude.Text,
+    -- | A list of objects specifying each key name and value for the
+    -- @ChangeSetTags@ property.
+    changeSetTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The catalog related to the request. Fixed value: @AWSMarketplace@
     catalog :: Prelude.Text,
     -- | Array of @change@ object.
@@ -91,6 +95,9 @@ data StartChangeSet = StartChangeSet'
 -- 'changeSetName', 'startChangeSet_changeSetName' - Optional case sensitive string of up to 100 ASCII characters. The change
 -- set name can be used to filter the list of change sets.
 --
+-- 'changeSetTags', 'startChangeSet_changeSetTags' - A list of objects specifying each key name and value for the
+-- @ChangeSetTags@ property.
+--
 -- 'catalog', 'startChangeSet_catalog' - The catalog related to the request. Fixed value: @AWSMarketplace@
 --
 -- 'changeSet', 'startChangeSet_changeSet' - Array of @change@ object.
@@ -105,6 +112,7 @@ newStartChangeSet pCatalog_ pChangeSet_ =
     { clientRequestToken =
         Prelude.Nothing,
       changeSetName = Prelude.Nothing,
+      changeSetTags = Prelude.Nothing,
       catalog = pCatalog_,
       changeSet = Lens.coerced Lens.# pChangeSet_
     }
@@ -118,6 +126,11 @@ startChangeSet_clientRequestToken = Lens.lens (\StartChangeSet' {clientRequestTo
 startChangeSet_changeSetName :: Lens.Lens' StartChangeSet (Prelude.Maybe Prelude.Text)
 startChangeSet_changeSetName = Lens.lens (\StartChangeSet' {changeSetName} -> changeSetName) (\s@StartChangeSet' {} a -> s {changeSetName = a} :: StartChangeSet)
 
+-- | A list of objects specifying each key name and value for the
+-- @ChangeSetTags@ property.
+startChangeSet_changeSetTags :: Lens.Lens' StartChangeSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+startChangeSet_changeSetTags = Lens.lens (\StartChangeSet' {changeSetTags} -> changeSetTags) (\s@StartChangeSet' {} a -> s {changeSetTags = a} :: StartChangeSet) Prelude.. Lens.mapping Lens.coerced
+
 -- | The catalog related to the request. Fixed value: @AWSMarketplace@
 startChangeSet_catalog :: Lens.Lens' StartChangeSet Prelude.Text
 startChangeSet_catalog = Lens.lens (\StartChangeSet' {catalog} -> catalog) (\s@StartChangeSet' {} a -> s {catalog = a} :: StartChangeSet)
@@ -130,8 +143,8 @@ instance Core.AWSRequest StartChangeSet where
   type
     AWSResponse StartChangeSet =
       StartChangeSetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +158,7 @@ instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` changeSetTags
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` changeSet
 
@@ -152,6 +166,7 @@ instance Prelude.NFData StartChangeSet where
   rnf StartChangeSet' {..} =
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf changeSetTags
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf changeSet
 
@@ -173,6 +188,7 @@ instance Core.ToJSON StartChangeSet where
           [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("ChangeSetName" Core..=) Prelude.<$> changeSetName,
+            ("ChangeSetTags" Core..=) Prelude.<$> changeSetTags,
             Prelude.Just ("Catalog" Core..= catalog),
             Prelude.Just ("ChangeSet" Core..= changeSet)
           ]

@@ -20,8 +20,9 @@
 module Amazonka.MarketplaceCatalog.Types.Change where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MarketplaceCatalog.Types.Entity
+import Amazonka.MarketplaceCatalog.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the @ChangeType@, @Details@, and @Entity@.
@@ -30,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data Change = Change'
   { -- | Optional name for the change.
     changeName :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the change.
+    entityTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Change types are single string values that describe your intention for
     -- the change. Each change type is unique for each @EntityType@ provided in
     -- the change\'s scope.
@@ -52,6 +55,8 @@ data Change = Change'
 --
 -- 'changeName', 'change_changeName' - Optional name for the change.
 --
+-- 'entityTags', 'change_entityTags' - The tags associated with the change.
+--
 -- 'changeType', 'change_changeType' - Change types are single string values that describe your intention for
 -- the change. Each change type is unique for each @EntityType@ provided in
 -- the change\'s scope.
@@ -71,6 +76,7 @@ newChange ::
 newChange pChangeType_ pEntity_ pDetails_ =
   Change'
     { changeName = Prelude.Nothing,
+      entityTags = Prelude.Nothing,
       changeType = pChangeType_,
       entity = pEntity_,
       details = pDetails_
@@ -79,6 +85,10 @@ newChange pChangeType_ pEntity_ pDetails_ =
 -- | Optional name for the change.
 change_changeName :: Lens.Lens' Change (Prelude.Maybe Prelude.Text)
 change_changeName = Lens.lens (\Change' {changeName} -> changeName) (\s@Change' {} a -> s {changeName = a} :: Change)
+
+-- | The tags associated with the change.
+change_entityTags :: Lens.Lens' Change (Prelude.Maybe (Prelude.NonEmpty Tag))
+change_entityTags = Lens.lens (\Change' {entityTags} -> entityTags) (\s@Change' {} a -> s {entityTags = a} :: Change) Prelude.. Lens.mapping Lens.coerced
 
 -- | Change types are single string values that describe your intention for
 -- the change. Each change type is unique for each @EntityType@ provided in
@@ -98,6 +108,7 @@ change_details = Lens.lens (\Change' {details} -> details) (\s@Change' {} a -> s
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
     _salt `Prelude.hashWithSalt` changeName
+      `Prelude.hashWithSalt` entityTags
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` entity
       `Prelude.hashWithSalt` details
@@ -105,6 +116,7 @@ instance Prelude.Hashable Change where
 instance Prelude.NFData Change where
   rnf Change' {..} =
     Prelude.rnf changeName
+      `Prelude.seq` Prelude.rnf entityTags
       `Prelude.seq` Prelude.rnf changeType
       `Prelude.seq` Prelude.rnf entity
       `Prelude.seq` Prelude.rnf details
@@ -114,6 +126,7 @@ instance Core.ToJSON Change where
     Core.object
       ( Prelude.catMaybes
           [ ("ChangeName" Core..=) Prelude.<$> changeName,
+            ("EntityTags" Core..=) Prelude.<$> entityTags,
             Prelude.Just ("ChangeType" Core..= changeType),
             Prelude.Just ("Entity" Core..= entity),
             Prelude.Just ("Details" Core..= details)

@@ -11,7 +11,9 @@ haskell_library(
         "gen/Amazonka/MarketplaceCatalog/Lens.hs",
         "gen/Amazonka/MarketplaceCatalog/ListChangeSets.hs",
         "gen/Amazonka/MarketplaceCatalog/ListEntities.hs",
+        "gen/Amazonka/MarketplaceCatalog/ListTagsForResource.hs",
         "gen/Amazonka/MarketplaceCatalog/StartChangeSet.hs",
+        "gen/Amazonka/MarketplaceCatalog/TagResource.hs",
         "gen/Amazonka/MarketplaceCatalog/Types.hs",
         "gen/Amazonka/MarketplaceCatalog/Types/Change.hs",
         "gen/Amazonka/MarketplaceCatalog/Types/ChangeSetSummaryListItem.hs",
@@ -24,6 +26,8 @@ haskell_library(
         "gen/Amazonka/MarketplaceCatalog/Types/Filter.hs",
         "gen/Amazonka/MarketplaceCatalog/Types/Sort.hs",
         "gen/Amazonka/MarketplaceCatalog/Types/SortOrder.hs",
+        "gen/Amazonka/MarketplaceCatalog/Types/Tag.hs",
+        "gen/Amazonka/MarketplaceCatalog/UntagResource.hs",
         "gen/Amazonka/MarketplaceCatalog/Waiters.hs",
     ],
     ghcopts = [

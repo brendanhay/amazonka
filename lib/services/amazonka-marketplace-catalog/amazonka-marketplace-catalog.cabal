@@ -50,7 +50,9 @@ library
     Amazonka.MarketplaceCatalog.Lens
     Amazonka.MarketplaceCatalog.ListChangeSets
     Amazonka.MarketplaceCatalog.ListEntities
+    Amazonka.MarketplaceCatalog.ListTagsForResource
     Amazonka.MarketplaceCatalog.StartChangeSet
+    Amazonka.MarketplaceCatalog.TagResource
     Amazonka.MarketplaceCatalog.Types
     Amazonka.MarketplaceCatalog.Types.Change
     Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
@@ -63,6 +65,8 @@ library
     Amazonka.MarketplaceCatalog.Types.Filter
     Amazonka.MarketplaceCatalog.Types.Sort
     Amazonka.MarketplaceCatalog.Types.SortOrder
+    Amazonka.MarketplaceCatalog.Types.Tag
+    Amazonka.MarketplaceCatalog.UntagResource
     Amazonka.MarketplaceCatalog.Waiters
 
   build-depends:

@@ -66,19 +66,37 @@ module Amazonka.MarketplaceCatalog.Lens
     listEntitiesResponse_entitySummaryList,
     listEntitiesResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** StartChangeSet
     startChangeSet_clientRequestToken,
     startChangeSet_changeSetName,
+    startChangeSet_changeSetTags,
     startChangeSet_catalog,
     startChangeSet_changeSet,
     startChangeSetResponse_changeSetId,
     startChangeSetResponse_changeSetArn,
     startChangeSetResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
     -- * Types
 
     -- ** Change
     change_changeName,
+    change_entityTags,
     change_changeType,
     change_entity,
     change_details,
@@ -123,6 +141,10 @@ module Amazonka.MarketplaceCatalog.Lens
     -- ** Sort
     sort_sortOrder,
     sort_sortBy,
+
+    -- ** Tag
+    tag_key,
+    tag_value,
   )
 where
 
@@ -131,7 +153,9 @@ import Amazonka.MarketplaceCatalog.DescribeChangeSet
 import Amazonka.MarketplaceCatalog.DescribeEntity
 import Amazonka.MarketplaceCatalog.ListChangeSets
 import Amazonka.MarketplaceCatalog.ListEntities
+import Amazonka.MarketplaceCatalog.ListTagsForResource
 import Amazonka.MarketplaceCatalog.StartChangeSet
+import Amazonka.MarketplaceCatalog.TagResource
 import Amazonka.MarketplaceCatalog.Types.Change
 import Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
 import Amazonka.MarketplaceCatalog.Types.ChangeSummary
@@ -140,3 +164,5 @@ import Amazonka.MarketplaceCatalog.Types.EntitySummary
 import Amazonka.MarketplaceCatalog.Types.ErrorDetail
 import Amazonka.MarketplaceCatalog.Types.Filter
 import Amazonka.MarketplaceCatalog.Types.Sort
+import Amazonka.MarketplaceCatalog.Types.Tag
+import Amazonka.MarketplaceCatalog.UntagResource

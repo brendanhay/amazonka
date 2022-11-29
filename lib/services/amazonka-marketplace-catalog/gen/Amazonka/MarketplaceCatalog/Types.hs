@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -39,6 +40,7 @@ module Amazonka.MarketplaceCatalog.Types
     Change (..),
     newChange,
     change_changeName,
+    change_entityTags,
     change_changeType,
     change_entity,
     change_details,
@@ -97,11 +99,17 @@ module Amazonka.MarketplaceCatalog.Types
     newSort,
     sort_sortOrder,
     sort_sortBy,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MarketplaceCatalog.Types.Change
 import Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
 import Amazonka.MarketplaceCatalog.Types.ChangeStatus
@@ -113,6 +121,7 @@ import Amazonka.MarketplaceCatalog.Types.FailureCode
 import Amazonka.MarketplaceCatalog.Types.Filter
 import Amazonka.MarketplaceCatalog.Types.Sort
 import Amazonka.MarketplaceCatalog.Types.SortOrder
+import Amazonka.MarketplaceCatalog.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -120,29 +129,26 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "MarketplaceCatalog",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "catalog.marketplace",
-      Core._serviceSigningName = "aws-marketplace",
-      Core._serviceVersion = "2018-09-17",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
+    { Core.abbrev = "MarketplaceCatalog",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "catalog.marketplace",
+      Core.signingName = "aws-marketplace",
+      Core.version = "2018-09-17",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error =
         Core.parseJSONError "MarketplaceCatalog",
-      Core._serviceRetry = retry
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

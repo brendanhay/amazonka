@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.CmafEncryption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.CmafEncryptionMethod
 import Amazonka.MediaPackage.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude

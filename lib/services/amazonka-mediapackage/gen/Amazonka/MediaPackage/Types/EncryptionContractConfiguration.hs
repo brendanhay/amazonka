@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.EncryptionContractConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.PresetSpeke20Audio
 import Amazonka.MediaPackage.Types.PresetSpeke20Video
 import qualified Amazonka.Prelude as Prelude

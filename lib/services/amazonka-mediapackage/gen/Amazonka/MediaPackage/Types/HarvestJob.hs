@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.HarvestJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.S3Destination
 import Amazonka.MediaPackage.Types.Status
 import qualified Amazonka.Prelude as Prelude

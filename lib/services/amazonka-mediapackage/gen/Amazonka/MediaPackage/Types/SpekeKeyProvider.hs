@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.SpekeKeyProvider where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.EncryptionContractConfiguration
 import qualified Amazonka.Prelude as Prelude
 

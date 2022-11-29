@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalytics.Types.InputConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you start your application, you provide this configuration, which

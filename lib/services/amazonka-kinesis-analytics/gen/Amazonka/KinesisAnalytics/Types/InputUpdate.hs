@@ -20,12 +20,12 @@
 module Amazonka.KinesisAnalytics.Types.InputUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.InputParallelismUpdate
 import Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
 import Amazonka.KinesisAnalytics.Types.InputSchemaUpdate
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to a specific input configuration (identified by the

@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the bucket name and object key name that stores the reference

@@ -20,9 +20,9 @@
 module Amazonka.KinesisAnalytics.Types.MappingParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.CSVMappingParameters
 import Amazonka.KinesisAnalytics.Types.JSONMappingParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When configuring application input at the time of creating or updating

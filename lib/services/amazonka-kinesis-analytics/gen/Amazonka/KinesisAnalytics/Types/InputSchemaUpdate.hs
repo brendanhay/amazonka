@@ -20,9 +20,9 @@
 module Amazonka.KinesisAnalytics.Types.InputSchemaUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.RecordColumn
 import Amazonka.KinesisAnalytics.Types.RecordFormat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates for the application\'s input schema.

@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalytics.Types.KinesisStreamsInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Kinesis stream as the streaming source. You provide

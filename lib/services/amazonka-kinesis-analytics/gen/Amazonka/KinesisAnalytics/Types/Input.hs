@@ -20,12 +20,12 @@
 module Amazonka.KinesisAnalytics.Types.Input where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.InputParallelism
 import Amazonka.KinesisAnalytics.Types.InputProcessingConfiguration
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInput
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsInput
 import Amazonka.KinesisAnalytics.Types.SourceSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you configure the application input, you specify the streaming

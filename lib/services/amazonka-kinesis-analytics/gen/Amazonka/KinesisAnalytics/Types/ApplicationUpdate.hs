@@ -20,11 +20,11 @@
 module Amazonka.KinesisAnalytics.Types.ApplicationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
 import Amazonka.KinesisAnalytics.Types.InputUpdate
 import Amazonka.KinesisAnalytics.Types.OutputUpdate
 import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to apply to an existing Amazon Kinesis Analytics

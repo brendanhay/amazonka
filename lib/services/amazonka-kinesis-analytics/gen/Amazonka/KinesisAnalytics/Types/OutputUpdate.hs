@@ -20,11 +20,11 @@
 module Amazonka.KinesisAnalytics.Types.OutputUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.DestinationSchema
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
 import Amazonka.KinesisAnalytics.Types.LambdaOutputUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to the output configuration identified by the

@@ -20,7 +20,7 @@
 module Amazonka.Neptune.Types.DBClusterOptionGroupStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Not supported by Neptune.

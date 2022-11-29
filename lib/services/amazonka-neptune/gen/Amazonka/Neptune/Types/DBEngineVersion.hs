@@ -20,7 +20,7 @@
 module Amazonka.Neptune.Types.DBEngineVersion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Neptune.Types.CharacterSet
 import Amazonka.Neptune.Types.Timezone
 import Amazonka.Neptune.Types.UpgradeTarget

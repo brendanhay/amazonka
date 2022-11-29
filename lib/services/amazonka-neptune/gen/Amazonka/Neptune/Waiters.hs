@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Neptune.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Neptune.DescribeDBInstances
 import Amazonka.Neptune.Lens
 import Amazonka.Neptune.Types
@@ -26,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 newDBInstanceAvailable :: Core.Wait DescribeDBInstances
 newDBInstanceAvailable =
   Core.Wait
-    { Core._waitName = "DBInstanceAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBInstanceAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -115,10 +116,10 @@ newDBInstanceAvailable =
 newDBInstanceDeleted :: Core.Wait DescribeDBInstances
 newDBInstanceDeleted =
   Core.Wait
-    { Core._waitName = "DBInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DBInstanceDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess

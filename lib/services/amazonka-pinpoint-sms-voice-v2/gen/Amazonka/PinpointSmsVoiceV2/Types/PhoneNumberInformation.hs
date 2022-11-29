@@ -20,7 +20,7 @@
 module Amazonka.PinpointSmsVoiceV2.Types.PhoneNumberInformation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import Amazonka.PinpointSmsVoiceV2.Types.NumberCapability
 import Amazonka.PinpointSmsVoiceV2.Types.NumberStatus

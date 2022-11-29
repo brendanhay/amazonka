@@ -20,7 +20,7 @@
 module Amazonka.PinpointSmsVoiceV2.Types.OptOutListInformation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information for all OptOutList in an Amazon Web Services account.

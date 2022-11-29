@@ -20,7 +20,7 @@
 module Amazonka.PinpointSmsVoiceV2.Types.SenderIdAndCountry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The alphanumeric sender ID in a specific country that you want to

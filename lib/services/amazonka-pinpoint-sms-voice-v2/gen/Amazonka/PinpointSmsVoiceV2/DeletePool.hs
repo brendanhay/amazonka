@@ -57,7 +57,7 @@ module Amazonka.PinpointSmsVoiceV2.DeletePool
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,8 +95,8 @@ deletePool_poolId = Lens.lens (\DeletePool' {poolId} -> poolId) (\s@DeletePool' 
 
 instance Core.AWSRequest DeletePool where
   type AWSResponse DeletePool = DeletePoolResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

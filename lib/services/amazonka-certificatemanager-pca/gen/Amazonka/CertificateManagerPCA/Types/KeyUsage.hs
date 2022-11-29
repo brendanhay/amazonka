@@ -20,7 +20,7 @@
 module Amazonka.CertificateManagerPCA.Types.KeyUsage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines one or more purposes for which the key contained in the

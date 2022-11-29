@@ -20,7 +20,7 @@
 module Amazonka.CertificateManagerPCA.Types.CustomExtension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the X.509 extension information for a certificate.

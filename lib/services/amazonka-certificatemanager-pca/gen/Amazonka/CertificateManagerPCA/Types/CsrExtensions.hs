@@ -22,7 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.CsrExtensions where
 import Amazonka.CertificateManagerPCA.Types.AccessDescription
 import Amazonka.CertificateManagerPCA.Types.KeyUsage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the certificate extensions to be added to the certificate

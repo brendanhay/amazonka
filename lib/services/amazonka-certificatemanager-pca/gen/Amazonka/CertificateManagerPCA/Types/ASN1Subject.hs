@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.ASN1Subject where
 
 import Amazonka.CertificateManagerPCA.Types.CustomAttribute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the certificate subject. The @Subject@ field

@@ -22,7 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.AccessDescription where
 import Amazonka.CertificateManagerPCA.Types.AccessMethod
 import Amazonka.CertificateManagerPCA.Types.GeneralName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides access information used by the @authorityInfoAccess@ and

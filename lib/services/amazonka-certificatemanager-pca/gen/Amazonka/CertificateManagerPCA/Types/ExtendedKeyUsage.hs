@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage where
 
 import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsageType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies additional purposes for which the certified public key may be

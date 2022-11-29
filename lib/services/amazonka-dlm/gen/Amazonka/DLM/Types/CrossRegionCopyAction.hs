@@ -20,9 +20,9 @@
 module Amazonka.DLM.Types.CrossRegionCopyAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyRetainRule
 import Amazonka.DLM.Types.EncryptionConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies a cross-Region copy action for

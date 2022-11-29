@@ -20,7 +20,7 @@
 module Amazonka.DLM.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies the encryption settings for

@@ -20,8 +20,8 @@
 module Amazonka.DLM.Types.ArchiveRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.ArchiveRetainRule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a snapshot archiving rule for a

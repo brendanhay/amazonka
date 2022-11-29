@@ -20,9 +20,9 @@
 module Amazonka.DLM.Types.EventSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.EventParameters
 import Amazonka.DLM.Types.EventSourceValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies an event that activates an

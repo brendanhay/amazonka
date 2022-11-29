@@ -20,9 +20,9 @@
 module Amazonka.DLM.Types.CrossRegionCopyRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
 import Amazonka.DLM.Types.CrossRegionCopyRetainRule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies a cross-Region copy rule

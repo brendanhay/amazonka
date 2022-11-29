@@ -20,6 +20,7 @@
 module Amazonka.DLM.Types.PolicyDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.Action
 import Amazonka.DLM.Types.EventSource
 import Amazonka.DLM.Types.Parameters
@@ -28,7 +29,6 @@ import Amazonka.DLM.Types.ResourceLocationValues
 import Amazonka.DLM.Types.ResourceTypeValues
 import Amazonka.DLM.Types.Schedule
 import Amazonka.DLM.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[All policy types]__ Specifies the configuration of a lifecycle

@@ -20,9 +20,9 @@
 module Amazonka.DLM.Types.CreateRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.IntervalUnitValues
 import Amazonka.DLM.Types.LocationValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies when the policy should

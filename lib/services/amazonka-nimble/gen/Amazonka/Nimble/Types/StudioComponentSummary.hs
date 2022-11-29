@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.StudioComponentSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.StudioComponentSubtype
 import Amazonka.Nimble.Types.StudioComponentType
 import qualified Amazonka.Prelude as Prelude

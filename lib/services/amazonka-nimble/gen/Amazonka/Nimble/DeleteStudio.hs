@@ -41,7 +41,7 @@ module Amazonka.Nimble.DeleteStudio
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +96,8 @@ deleteStudio_studioId = Lens.lens (\DeleteStudio' {studioId} -> studioId) (\s@De
 
 instance Core.AWSRequest DeleteStudio where
   type AWSResponse DeleteStudio = DeleteStudioResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

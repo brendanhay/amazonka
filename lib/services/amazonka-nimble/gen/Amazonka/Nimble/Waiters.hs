@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Nimble.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.GetLaunchProfile
 import Amazonka.Nimble.GetStreamingImage
 import Amazonka.Nimble.GetStreamingSession
@@ -31,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 newStudioReady :: Core.Wait GetStudio
 newStudioReady =
   Core.Wait
-    { Core._waitName = "StudioReady",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "StudioReady",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -66,10 +67,10 @@ newStudioReady =
 newStudioComponentReady :: Core.Wait GetStudioComponent
 newStudioComponentReady =
   Core.Wait
-    { Core._waitName = "StudioComponentReady",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "StudioComponentReady",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -104,11 +105,10 @@ newStudioComponentReady =
 newStreamingSessionStopped :: Core.Wait GetStreamingSession
 newStreamingSessionStopped =
   Core.Wait
-    { Core._waitName =
-        "StreamingSessionStopped",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "StreamingSessionStopped",
+      Core.attempts = 180,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "STOPPED"
             Core.AcceptSuccess
@@ -134,11 +134,11 @@ newStreamingSessionStopped =
 newStreamingSessionStreamReady :: Core.Wait GetStreamingSessionStream
 newStreamingSessionStreamReady =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "StreamingSessionStreamReady",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+      Core.attempts = 30,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -164,10 +164,10 @@ newStreamingSessionStreamReady =
 newStreamingImageReady :: Core.Wait GetStreamingImage
 newStreamingImageReady =
   Core.Wait
-    { Core._waitName = "StreamingImageReady",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "StreamingImageReady",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -202,10 +202,10 @@ newStreamingImageReady =
 newStudioDeleted :: Core.Wait GetStudio
 newStudioDeleted =
   Core.Wait
-    { Core._waitName = "StudioDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "StudioDeleted",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -229,11 +229,10 @@ newStudioDeleted =
 newStudioComponentDeleted :: Core.Wait GetStudioComponent
 newStudioComponentDeleted =
   Core.Wait
-    { Core._waitName =
-        "StudioComponentDeleted",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "StudioComponentDeleted",
+      Core.attempts = 120,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -259,11 +258,10 @@ newStudioComponentDeleted =
 newStreamingSessionDeleted :: Core.Wait GetStreamingSession
 newStreamingSessionDeleted =
   Core.Wait
-    { Core._waitName =
-        "StreamingSessionDeleted",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "StreamingSessionDeleted",
+      Core.attempts = 180,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -289,10 +287,10 @@ newStreamingSessionDeleted =
 newStreamingSessionReady :: Core.Wait GetStreamingSession
 newStreamingSessionReady =
   Core.Wait
-    { Core._waitName = "StreamingSessionReady",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "StreamingSessionReady",
+      Core.attempts = 180,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -327,10 +325,10 @@ newStreamingSessionReady =
 newLaunchProfileReady :: Core.Wait GetLaunchProfile
 newLaunchProfileReady =
   Core.Wait
-    { Core._waitName = "LaunchProfileReady",
-      Core._waitAttempts = 150,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "LaunchProfileReady",
+      Core.attempts = 150,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "READY"
             Core.AcceptSuccess
@@ -365,10 +363,10 @@ newLaunchProfileReady =
 newLaunchProfileDeleted :: Core.Wait GetLaunchProfile
 newLaunchProfileDeleted =
   Core.Wait
-    { Core._waitName = "LaunchProfileDeleted",
-      Core._waitAttempts = 150,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "LaunchProfileDeleted",
+      Core.attempts = 150,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -394,10 +392,10 @@ newLaunchProfileDeleted =
 newStreamingImageDeleted :: Core.Wait GetStreamingImage
 newStreamingImageDeleted =
   Core.Wait
-    { Core._waitName = "StreamingImageDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "StreamingImageDeleted",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess

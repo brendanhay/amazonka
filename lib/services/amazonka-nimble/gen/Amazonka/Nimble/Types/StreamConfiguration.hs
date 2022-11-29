@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.StreamConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingClipboardMode
 import Amazonka.Nimble.Types.StreamingInstanceType

@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.Studio where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.StudioEncryptionConfiguration
 import Amazonka.Nimble.Types.StudioState
 import Amazonka.Nimble.Types.StudioStatusCode

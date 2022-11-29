@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.LicenseServiceConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a license service that is associated with a studio

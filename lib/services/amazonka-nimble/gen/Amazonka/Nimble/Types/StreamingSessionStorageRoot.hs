@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.StreamingSessionStorageRoot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The upload storage root location (folder) on streaming workstations

@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An LDAP attribute of an Active Directory computer account, in the form

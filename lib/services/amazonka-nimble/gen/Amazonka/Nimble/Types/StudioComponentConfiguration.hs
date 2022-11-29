@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.StudioComponentConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.ActiveDirectoryConfiguration
 import Amazonka.Nimble.Types.ComputeFarmConfiguration
 import Amazonka.Nimble.Types.LicenseServiceConfiguration

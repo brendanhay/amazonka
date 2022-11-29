@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.LaunchProfile where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.LaunchProfileState
 import Amazonka.Nimble.Types.LaunchProfileStatusCode
 import Amazonka.Nimble.Types.StreamConfiguration

@@ -20,10 +20,11 @@
 module Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
+import Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration
 
 -- | The type of experience you want to embed. For anonymous users, you can
 -- embed Amazon QuickSight dashboards.
@@ -35,7 +36,9 @@ data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExper
     dashboardVisual :: Prelude.Maybe AnonymousUserDashboardVisualEmbeddingConfiguration,
     -- | The type of embedding experience. In this case, Amazon QuickSight
     -- dashboards.
-    dashboard :: Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration
+    dashboard :: Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration,
+    -- | The Q search bar that you want to use for anonymous user embedding.
+    qSearchBar :: Prelude.Maybe AnonymousUserQSearchBarEmbeddingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,13 +55,16 @@ data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExper
 --
 -- 'dashboard', 'anonymousUserEmbeddingExperienceConfiguration_dashboard' - The type of embedding experience. In this case, Amazon QuickSight
 -- dashboards.
+--
+-- 'qSearchBar', 'anonymousUserEmbeddingExperienceConfiguration_qSearchBar' - The Q search bar that you want to use for anonymous user embedding.
 newAnonymousUserEmbeddingExperienceConfiguration ::
   AnonymousUserEmbeddingExperienceConfiguration
 newAnonymousUserEmbeddingExperienceConfiguration =
   AnonymousUserEmbeddingExperienceConfiguration'
     { dashboardVisual =
         Prelude.Nothing,
-      dashboard = Prelude.Nothing
+      dashboard = Prelude.Nothing,
+      qSearchBar = Prelude.Nothing
     }
 
 -- | The type of embedding experience. In this case, Amazon QuickSight
@@ -71,6 +77,10 @@ anonymousUserEmbeddingExperienceConfiguration_dashboardVisual = Lens.lens (\Anon
 anonymousUserEmbeddingExperienceConfiguration_dashboard :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration)
 anonymousUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboard} -> dashboard) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboard = a} :: AnonymousUserEmbeddingExperienceConfiguration)
 
+-- | The Q search bar that you want to use for anonymous user embedding.
+anonymousUserEmbeddingExperienceConfiguration_qSearchBar :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserQSearchBarEmbeddingConfiguration)
+anonymousUserEmbeddingExperienceConfiguration_qSearchBar = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {qSearchBar} -> qSearchBar) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {qSearchBar = a} :: AnonymousUserEmbeddingExperienceConfiguration)
+
 instance
   Prelude.Hashable
     AnonymousUserEmbeddingExperienceConfiguration
@@ -80,6 +90,7 @@ instance
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
       _salt `Prelude.hashWithSalt` dashboardVisual
         `Prelude.hashWithSalt` dashboard
+        `Prelude.hashWithSalt` qSearchBar
 
 instance
   Prelude.NFData
@@ -89,6 +100,7 @@ instance
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
       Prelude.rnf dashboardVisual
         `Prelude.seq` Prelude.rnf dashboard
+        `Prelude.seq` Prelude.rnf qSearchBar
 
 instance
   Core.ToJSON
@@ -100,6 +112,7 @@ instance
         ( Prelude.catMaybes
             [ ("DashboardVisual" Core..=)
                 Prelude.<$> dashboardVisual,
-              ("Dashboard" Core..=) Prelude.<$> dashboard
+              ("Dashboard" Core..=) Prelude.<$> dashboard,
+              ("QSearchBar" Core..=) Prelude.<$> qSearchBar
             ]
         )

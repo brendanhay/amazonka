@@ -73,6 +73,9 @@ module Amazonka.QuickSight
     -- ** DomainNotWhitelistedException
     _DomainNotWhitelistedException,
 
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
@@ -198,6 +201,12 @@ module Amazonka.QuickSight
     newDeleteAccountCustomization,
     DeleteAccountCustomizationResponse (DeleteAccountCustomizationResponse'),
     newDeleteAccountCustomizationResponse,
+
+    -- ** DeleteAccountSubscription
+    DeleteAccountSubscription (DeleteAccountSubscription'),
+    newDeleteAccountSubscription,
+    DeleteAccountSubscriptionResponse (DeleteAccountSubscriptionResponse'),
+    newDeleteAccountSubscriptionResponse,
 
     -- ** DeleteAnalysis
     DeleteAnalysis (DeleteAnalysis'),
@@ -637,6 +646,18 @@ module Amazonka.QuickSight
     SearchDashboardsResponse (SearchDashboardsResponse'),
     newSearchDashboardsResponse,
 
+    -- ** SearchDataSets (Paginated)
+    SearchDataSets (SearchDataSets'),
+    newSearchDataSets,
+    SearchDataSetsResponse (SearchDataSetsResponse'),
+    newSearchDataSetsResponse,
+
+    -- ** SearchDataSources (Paginated)
+    SearchDataSources (SearchDataSources'),
+    newSearchDataSources,
+    SearchDataSourcesResponse (SearchDataSourcesResponse'),
+    newSearchDataSourcesResponse,
+
     -- ** SearchFolders
     SearchFolders (SearchFolders'),
     newSearchFolders,
@@ -837,11 +858,17 @@ module Amazonka.QuickSight
     -- ** DashboardUIState
     DashboardUIState (..),
 
+    -- ** DataSetFilterAttribute
+    DataSetFilterAttribute (..),
+
     -- ** DataSetImportMode
     DataSetImportMode (..),
 
     -- ** DataSourceErrorInfoType
     DataSourceErrorInfoType (..),
+
+    -- ** DataSourceFilterAttribute
+    DataSourceFilterAttribute (..),
 
     -- ** DataSourceType
     DataSourceType (..),
@@ -1003,6 +1030,10 @@ module Amazonka.QuickSight
     AnonymousUserEmbeddingExperienceConfiguration (AnonymousUserEmbeddingExperienceConfiguration'),
     newAnonymousUserEmbeddingExperienceConfiguration,
 
+    -- ** AnonymousUserQSearchBarEmbeddingConfiguration
+    AnonymousUserQSearchBarEmbeddingConfiguration (AnonymousUserQSearchBarEmbeddingConfiguration'),
+    newAnonymousUserQSearchBarEmbeddingConfiguration,
+
     -- ** AthenaParameters
     AthenaParameters (AthenaParameters'),
     newAthenaParameters,
@@ -1131,6 +1162,10 @@ module Amazonka.QuickSight
     DataSetSchema (DataSetSchema'),
     newDataSetSchema,
 
+    -- ** DataSetSearchFilter
+    DataSetSearchFilter (DataSetSearchFilter'),
+    newDataSetSearchFilter,
+
     -- ** DataSetSummary
     DataSetSummary (DataSetSummary'),
     newDataSetSummary,
@@ -1154,6 +1189,18 @@ module Amazonka.QuickSight
     -- ** DataSourceParameters
     DataSourceParameters (DataSourceParameters'),
     newDataSourceParameters,
+
+    -- ** DataSourceSearchFilter
+    DataSourceSearchFilter (DataSourceSearchFilter'),
+    newDataSourceSearchFilter,
+
+    -- ** DataSourceSummary
+    DataSourceSummary (DataSourceSummary'),
+    newDataSourceSummary,
+
+    -- ** DatabricksParameters
+    DatabricksParameters (DatabricksParameters'),
+    newDatabricksParameters,
 
     -- ** DateTimeParameter
     DateTimeParameter (DateTimeParameter'),
@@ -1564,6 +1611,7 @@ import Amazonka.QuickSight.CreateTemplateAlias
 import Amazonka.QuickSight.CreateTheme
 import Amazonka.QuickSight.CreateThemeAlias
 import Amazonka.QuickSight.DeleteAccountCustomization
+import Amazonka.QuickSight.DeleteAccountSubscription
 import Amazonka.QuickSight.DeleteAnalysis
 import Amazonka.QuickSight.DeleteDashboard
 import Amazonka.QuickSight.DeleteDataSet
@@ -1638,6 +1686,8 @@ import Amazonka.QuickSight.RegisterUser
 import Amazonka.QuickSight.RestoreAnalysis
 import Amazonka.QuickSight.SearchAnalyses
 import Amazonka.QuickSight.SearchDashboards
+import Amazonka.QuickSight.SearchDataSets
+import Amazonka.QuickSight.SearchDataSources
 import Amazonka.QuickSight.SearchFolders
 import Amazonka.QuickSight.SearchGroups
 import Amazonka.QuickSight.TagResource

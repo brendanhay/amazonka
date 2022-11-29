@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Use the DescribeAccountSubscription operation to receive a description
--- of a Amazon QuickSight account\'s subscription. A successful API call
+-- of an Amazon QuickSight account\'s subscription. A successful API call
 -- returns an @AccountInfo@ object that includes an account\'s name,
 -- subscription status, authentication type, edition, and notification
 -- email address.
@@ -45,7 +45,7 @@ module Amazonka.QuickSight.DescribeAccountSubscription
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -88,8 +88,8 @@ instance Core.AWSRequest DescribeAccountSubscription where
   type
     AWSResponse DescribeAccountSubscription =
       DescribeAccountSubscriptionResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

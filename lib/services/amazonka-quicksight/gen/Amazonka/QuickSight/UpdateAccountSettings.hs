@@ -29,6 +29,7 @@ module Amazonka.QuickSight.UpdateAccountSettings
 
     -- * Request Lenses
     updateAccountSettings_notificationEmail,
+    updateAccountSettings_terminationProtectionEnabled,
     updateAccountSettings_awsAccountId,
     updateAccountSettings_defaultNamespace,
 
@@ -43,7 +44,7 @@ module Amazonka.QuickSight.UpdateAccountSettings
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -55,6 +56,12 @@ data UpdateAccountSettings = UpdateAccountSettings'
     -- to regarding your Amazon Web Services account or Amazon QuickSight
     -- subscription.
     notificationEmail :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value that determines whether or not an Amazon QuickSight
+    -- account can be deleted. A @True@ value doesn\'t allow the account to be
+    -- deleted and results in an error message if a user tries to make a
+    -- @DeleteAccountSubscription@ request. A @False@ value will allow the
+    -- account to be deleted.
+    terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The ID for the Amazon Web Services account that contains the Amazon
     -- QuickSight settings that you want to list.
     awsAccountId :: Prelude.Text,
@@ -78,6 +85,12 @@ data UpdateAccountSettings = UpdateAccountSettings'
 -- to regarding your Amazon Web Services account or Amazon QuickSight
 -- subscription.
 --
+-- 'terminationProtectionEnabled', 'updateAccountSettings_terminationProtectionEnabled' - A boolean value that determines whether or not an Amazon QuickSight
+-- account can be deleted. A @True@ value doesn\'t allow the account to be
+-- deleted and results in an error message if a user tries to make a
+-- @DeleteAccountSubscription@ request. A @False@ value will allow the
+-- account to be deleted.
+--
 -- 'awsAccountId', 'updateAccountSettings_awsAccountId' - The ID for the Amazon Web Services account that contains the Amazon
 -- QuickSight settings that you want to list.
 --
@@ -97,6 +110,7 @@ newUpdateAccountSettings
     UpdateAccountSettings'
       { notificationEmail =
           Prelude.Nothing,
+        terminationProtectionEnabled = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         defaultNamespace = pDefaultNamespace_
       }
@@ -106,6 +120,14 @@ newUpdateAccountSettings
 -- subscription.
 updateAccountSettings_notificationEmail :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Text)
 updateAccountSettings_notificationEmail = Lens.lens (\UpdateAccountSettings' {notificationEmail} -> notificationEmail) (\s@UpdateAccountSettings' {} a -> s {notificationEmail = a} :: UpdateAccountSettings)
+
+-- | A boolean value that determines whether or not an Amazon QuickSight
+-- account can be deleted. A @True@ value doesn\'t allow the account to be
+-- deleted and results in an error message if a user tries to make a
+-- @DeleteAccountSubscription@ request. A @False@ value will allow the
+-- account to be deleted.
+updateAccountSettings_terminationProtectionEnabled :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Bool)
+updateAccountSettings_terminationProtectionEnabled = Lens.lens (\UpdateAccountSettings' {terminationProtectionEnabled} -> terminationProtectionEnabled) (\s@UpdateAccountSettings' {} a -> s {terminationProtectionEnabled = a} :: UpdateAccountSettings)
 
 -- | The ID for the Amazon Web Services account that contains the Amazon
 -- QuickSight settings that you want to list.
@@ -123,8 +145,8 @@ instance Core.AWSRequest UpdateAccountSettings where
   type
     AWSResponse UpdateAccountSettings =
       UpdateAccountSettingsResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,12 +158,14 @@ instance Core.AWSRequest UpdateAccountSettings where
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
     _salt `Prelude.hashWithSalt` notificationEmail
+      `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` defaultNamespace
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
     Prelude.rnf notificationEmail
+      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf defaultNamespace
 
@@ -162,6 +186,8 @@ instance Core.ToJSON UpdateAccountSettings where
       ( Prelude.catMaybes
           [ ("NotificationEmail" Core..=)
               Prelude.<$> notificationEmail,
+            ("TerminationProtectionEnabled" Core..=)
+              Prelude.<$> terminationProtectionEnabled,
             Prelude.Just
               ("DefaultNamespace" Core..= defaultNamespace)
           ]

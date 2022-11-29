@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.ColumnLevelPermissionRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule defined to grant access on one or more restricted columns. Each

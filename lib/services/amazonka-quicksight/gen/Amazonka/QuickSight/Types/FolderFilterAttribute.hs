@@ -20,7 +20,13 @@
 module Amazonka.QuickSight.Types.FolderFilterAttribute
   ( FolderFilterAttribute
       ( ..,
-        FolderFilterAttribute_PARENT_FOLDER_ARN
+        FolderFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+        FolderFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+        FolderFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+        FolderFilterAttribute_FOLDER_NAME,
+        FolderFilterAttribute_PARENT_FOLDER_ARN,
+        FolderFilterAttribute_QUICKSIGHT_OWNER,
+        FolderFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER
       ),
   )
 where
@@ -56,10 +62,34 @@ newtype FolderFilterAttribute = FolderFilterAttribute'
       Core.ToXML
     )
 
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_OWNER :: FolderFilterAttribute
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_OWNER = FolderFilterAttribute' "DIRECT_QUICKSIGHT_OWNER"
+
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER :: FolderFilterAttribute
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER = FolderFilterAttribute' "DIRECT_QUICKSIGHT_SOLE_OWNER"
+
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER :: FolderFilterAttribute
+pattern FolderFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = FolderFilterAttribute' "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
+
+pattern FolderFilterAttribute_FOLDER_NAME :: FolderFilterAttribute
+pattern FolderFilterAttribute_FOLDER_NAME = FolderFilterAttribute' "FOLDER_NAME"
+
 pattern FolderFilterAttribute_PARENT_FOLDER_ARN :: FolderFilterAttribute
 pattern FolderFilterAttribute_PARENT_FOLDER_ARN = FolderFilterAttribute' "PARENT_FOLDER_ARN"
 
+pattern FolderFilterAttribute_QUICKSIGHT_OWNER :: FolderFilterAttribute
+pattern FolderFilterAttribute_QUICKSIGHT_OWNER = FolderFilterAttribute' "QUICKSIGHT_OWNER"
+
+pattern FolderFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER :: FolderFilterAttribute
+pattern FolderFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER = FolderFilterAttribute' "QUICKSIGHT_VIEWER_OR_OWNER"
+
 {-# COMPLETE
+  FolderFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+  FolderFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+  FolderFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+  FolderFilterAttribute_FOLDER_NAME,
   FolderFilterAttribute_PARENT_FOLDER_ARN,
+  FolderFilterAttribute_QUICKSIGHT_OWNER,
+  FolderFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER,
   FolderFilterAttribute'
   #-}

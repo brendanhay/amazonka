@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.Sheet where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A /sheet/, which is an object that contains a set of visuals that are

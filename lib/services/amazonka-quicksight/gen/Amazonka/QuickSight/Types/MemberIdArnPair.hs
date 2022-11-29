@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.MemberIdArnPair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that consists of a member Amazon Resource Name (ARN) and a

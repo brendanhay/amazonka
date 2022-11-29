@@ -69,11 +69,12 @@ module Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
     generateEmbedUrlForAnonymousUserResponse_status,
     generateEmbedUrlForAnonymousUserResponse_embedUrl,
     generateEmbedUrlForAnonymousUserResponse_requestId,
+    generateEmbedUrlForAnonymousUserResponse_anonymousUserArn,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -254,8 +255,8 @@ instance
   type
     AWSResponse GenerateEmbedUrlForAnonymousUser =
       GenerateEmbedUrlForAnonymousUserResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +264,7 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EmbedUrl")
             Prelude.<*> (x Core..:> "RequestId")
+            Prelude.<*> (x Core..:> "AnonymousUserArn")
       )
 
 instance
@@ -349,7 +351,10 @@ data GenerateEmbedUrlForAnonymousUserResponse = GenerateEmbedUrlForAnonymousUser
     -- | The embed URL for the dashboard.
     embedUrl :: Core.Sensitive Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Text
+    requestId :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) to use for the anonymous Amazon
+    -- QuickSight user.
+    anonymousUserArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -366,6 +371,9 @@ data GenerateEmbedUrlForAnonymousUserResponse = GenerateEmbedUrlForAnonymousUser
 -- 'embedUrl', 'generateEmbedUrlForAnonymousUserResponse_embedUrl' - The embed URL for the dashboard.
 --
 -- 'requestId', 'generateEmbedUrlForAnonymousUserResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
+-- 'anonymousUserArn', 'generateEmbedUrlForAnonymousUserResponse_anonymousUserArn' - The Amazon Resource Name (ARN) to use for the anonymous Amazon
+-- QuickSight user.
 newGenerateEmbedUrlForAnonymousUserResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -373,18 +381,23 @@ newGenerateEmbedUrlForAnonymousUserResponse ::
   Prelude.Text ->
   -- | 'requestId'
   Prelude.Text ->
+  -- | 'anonymousUserArn'
+  Prelude.Text ->
   GenerateEmbedUrlForAnonymousUserResponse
 newGenerateEmbedUrlForAnonymousUserResponse
   pStatus_
   pEmbedUrl_
-  pRequestId_ =
+  pRequestId_
+  pAnonymousUserArn_ =
     GenerateEmbedUrlForAnonymousUserResponse'
       { status =
           pStatus_,
         embedUrl =
           Core._Sensitive
             Lens.# pEmbedUrl_,
-        requestId = pRequestId_
+        requestId = pRequestId_,
+        anonymousUserArn =
+          pAnonymousUserArn_
       }
 
 -- | The HTTP status of the request.
@@ -399,6 +412,11 @@ generateEmbedUrlForAnonymousUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrl
 generateEmbedUrlForAnonymousUserResponse_requestId :: Lens.Lens' GenerateEmbedUrlForAnonymousUserResponse Prelude.Text
 generateEmbedUrlForAnonymousUserResponse_requestId = Lens.lens (\GenerateEmbedUrlForAnonymousUserResponse' {requestId} -> requestId) (\s@GenerateEmbedUrlForAnonymousUserResponse' {} a -> s {requestId = a} :: GenerateEmbedUrlForAnonymousUserResponse)
 
+-- | The Amazon Resource Name (ARN) to use for the anonymous Amazon
+-- QuickSight user.
+generateEmbedUrlForAnonymousUserResponse_anonymousUserArn :: Lens.Lens' GenerateEmbedUrlForAnonymousUserResponse Prelude.Text
+generateEmbedUrlForAnonymousUserResponse_anonymousUserArn = Lens.lens (\GenerateEmbedUrlForAnonymousUserResponse' {anonymousUserArn} -> anonymousUserArn) (\s@GenerateEmbedUrlForAnonymousUserResponse' {} a -> s {anonymousUserArn = a} :: GenerateEmbedUrlForAnonymousUserResponse)
+
 instance
   Prelude.NFData
     GenerateEmbedUrlForAnonymousUserResponse
@@ -407,3 +425,4 @@ instance
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf embedUrl
       `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf anonymousUserArn

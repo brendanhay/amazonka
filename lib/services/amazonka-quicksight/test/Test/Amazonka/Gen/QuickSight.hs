@@ -84,6 +84,9 @@ import Test.Tasty
 --         , requestDeleteAccountCustomization $
 --             newDeleteAccountCustomization
 --
+--         , requestDeleteAccountSubscription $
+--             newDeleteAccountSubscription
+--
 --         , requestDeleteAnalysis $
 --             newDeleteAnalysis
 --
@@ -303,6 +306,12 @@ import Test.Tasty
 --         , requestSearchDashboards $
 --             newSearchDashboards
 --
+--         , requestSearchDataSets $
+--             newSearchDataSets
+--
+--         , requestSearchDataSources $
+--             newSearchDataSources
+--
 --         , requestSearchFolders $
 --             newSearchFolders
 --
@@ -446,6 +455,9 @@ import Test.Tasty
 --
 --         , responseDeleteAccountCustomization $
 --             newDeleteAccountCustomizationResponse
+--
+--         , responseDeleteAccountSubscription $
+--             newDeleteAccountSubscriptionResponse
 --
 --         , responseDeleteAnalysis $
 --             newDeleteAnalysisResponse
@@ -666,6 +678,12 @@ import Test.Tasty
 --         , responseSearchDashboards $
 --             newSearchDashboardsResponse
 --
+--         , responseSearchDataSets $
+--             newSearchDataSetsResponse
+--
+--         , responseSearchDataSources $
+--             newSearchDataSourcesResponse
+--
 --         , responseSearchFolders $
 --             newSearchFoldersResponse
 --
@@ -868,6 +886,12 @@ requestDeleteAccountCustomization =
   req
     "DeleteAccountCustomization"
     "fixture/DeleteAccountCustomization.yaml"
+
+requestDeleteAccountSubscription :: DeleteAccountSubscription -> TestTree
+requestDeleteAccountSubscription =
+  req
+    "DeleteAccountSubscription"
+    "fixture/DeleteAccountSubscription.yaml"
 
 requestDeleteAnalysis :: DeleteAnalysis -> TestTree
 requestDeleteAnalysis =
@@ -1307,6 +1331,18 @@ requestSearchDashboards =
     "SearchDashboards"
     "fixture/SearchDashboards.yaml"
 
+requestSearchDataSets :: SearchDataSets -> TestTree
+requestSearchDataSets =
+  req
+    "SearchDataSets"
+    "fixture/SearchDataSets.yaml"
+
+requestSearchDataSources :: SearchDataSources -> TestTree
+requestSearchDataSources =
+  req
+    "SearchDataSources"
+    "fixture/SearchDataSources.yaml"
+
 requestSearchFolders :: SearchFolders -> TestTree
 requestSearchFolders =
   req
@@ -1628,6 +1664,14 @@ responseDeleteAccountCustomization =
     "fixture/DeleteAccountCustomizationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAccountCustomization)
+
+responseDeleteAccountSubscription :: DeleteAccountSubscriptionResponse -> TestTree
+responseDeleteAccountSubscription =
+  res
+    "DeleteAccountSubscriptionResponse"
+    "fixture/DeleteAccountSubscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountSubscription)
 
 responseDeleteAnalysis :: DeleteAnalysisResponse -> TestTree
 responseDeleteAnalysis =
@@ -2212,6 +2256,22 @@ responseSearchDashboards =
     "fixture/SearchDashboardsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchDashboards)
+
+responseSearchDataSets :: SearchDataSetsResponse -> TestTree
+responseSearchDataSets =
+  res
+    "SearchDataSetsResponse"
+    "fixture/SearchDataSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchDataSets)
+
+responseSearchDataSources :: SearchDataSourcesResponse -> TestTree
+responseSearchDataSources =
+  res
+    "SearchDataSourcesResponse"
+    "fixture/SearchDataSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchDataSources)
 
 responseSearchFolders :: SearchFoldersResponse -> TestTree
 responseSearchFolders =

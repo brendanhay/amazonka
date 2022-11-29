@@ -56,7 +56,7 @@ module Amazonka.QuickSight.CreateTheme
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -196,8 +196,8 @@ createTheme_configuration = Lens.lens (\CreateTheme' {configuration} -> configur
 
 instance Core.AWSRequest CreateTheme where
   type AWSResponse CreateTheme = CreateThemeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

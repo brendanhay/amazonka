@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.GroupMember where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A member of an Amazon QuickSight group. Currently, group members must be

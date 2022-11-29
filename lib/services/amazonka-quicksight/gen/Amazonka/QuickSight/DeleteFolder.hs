@@ -43,7 +43,7 @@ module Amazonka.QuickSight.DeleteFolder
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -91,8 +91,8 @@ deleteFolder_folderId = Lens.lens (\DeleteFolder' {folderId} -> folderId) (\s@De
 
 instance Core.AWSRequest DeleteFolder where
   type AWSResponse DeleteFolder = DeleteFolderResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

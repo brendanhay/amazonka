@@ -50,7 +50,7 @@ module Amazonka.QuickSight.SearchDashboards
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -152,8 +152,8 @@ instance Core.AWSRequest SearchDashboards where
   type
     AWSResponse SearchDashboards =
       SearchDashboardsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

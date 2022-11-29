@@ -63,6 +63,7 @@ library
     Amazonka.QuickSight.CreateTheme
     Amazonka.QuickSight.CreateThemeAlias
     Amazonka.QuickSight.DeleteAccountCustomization
+    Amazonka.QuickSight.DeleteAccountSubscription
     Amazonka.QuickSight.DeleteAnalysis
     Amazonka.QuickSight.DeleteDashboard
     Amazonka.QuickSight.DeleteDataSet
@@ -137,6 +138,8 @@ library
     Amazonka.QuickSight.RestoreAnalysis
     Amazonka.QuickSight.SearchAnalyses
     Amazonka.QuickSight.SearchDashboards
+    Amazonka.QuickSight.SearchDataSets
+    Amazonka.QuickSight.SearchDataSources
     Amazonka.QuickSight.SearchFolders
     Amazonka.QuickSight.SearchGroups
     Amazonka.QuickSight.TagResource
@@ -159,6 +162,7 @@ library
     Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
     Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
     Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
+    Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration
     Amazonka.QuickSight.Types.AssignmentStatus
     Amazonka.QuickSight.Types.AthenaParameters
     Amazonka.QuickSight.Types.AuroraParameters
@@ -194,19 +198,25 @@ library
     Amazonka.QuickSight.Types.DashboardVersion
     Amazonka.QuickSight.Types.DashboardVersionSummary
     Amazonka.QuickSight.Types.DashboardVisualId
+    Amazonka.QuickSight.Types.DatabricksParameters
     Amazonka.QuickSight.Types.DataColorPalette
     Amazonka.QuickSight.Types.DataSet
     Amazonka.QuickSight.Types.DataSetConfiguration
+    Amazonka.QuickSight.Types.DataSetFilterAttribute
     Amazonka.QuickSight.Types.DataSetImportMode
     Amazonka.QuickSight.Types.DataSetReference
     Amazonka.QuickSight.Types.DataSetSchema
+    Amazonka.QuickSight.Types.DataSetSearchFilter
     Amazonka.QuickSight.Types.DataSetSummary
     Amazonka.QuickSight.Types.DataSetUsageConfiguration
     Amazonka.QuickSight.Types.DataSource
     Amazonka.QuickSight.Types.DataSourceCredentials
     Amazonka.QuickSight.Types.DataSourceErrorInfo
     Amazonka.QuickSight.Types.DataSourceErrorInfoType
+    Amazonka.QuickSight.Types.DataSourceFilterAttribute
     Amazonka.QuickSight.Types.DataSourceParameters
+    Amazonka.QuickSight.Types.DataSourceSearchFilter
+    Amazonka.QuickSight.Types.DataSourceSummary
     Amazonka.QuickSight.Types.DataSourceType
     Amazonka.QuickSight.Types.DateTimeParameter
     Amazonka.QuickSight.Types.DecimalParameter

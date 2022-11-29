@@ -20,7 +20,8 @@
 module Amazonka.QuickSight.Types.FilterOperator
   ( FilterOperator
       ( ..,
-        FilterOperator_StringEquals
+        FilterOperator_StringEquals,
+        FilterOperator_StringLike
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype FilterOperator = FilterOperator'
 pattern FilterOperator_StringEquals :: FilterOperator
 pattern FilterOperator_StringEquals = FilterOperator' "StringEquals"
 
+pattern FilterOperator_StringLike :: FilterOperator
+pattern FilterOperator_StringLike = FilterOperator' "StringLike"
+
 {-# COMPLETE
   FilterOperator_StringEquals,
+  FilterOperator_StringLike,
   FilterOperator'
   #-}

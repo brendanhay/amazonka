@@ -44,7 +44,7 @@ module Amazonka.QuickSight.DeleteTheme
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -113,8 +113,8 @@ deleteTheme_themeId = Lens.lens (\DeleteTheme' {themeId} -> themeId) (\s@DeleteT
 
 instance Core.AWSRequest DeleteTheme where
   type AWSResponse DeleteTheme = DeleteThemeResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

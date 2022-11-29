@@ -50,7 +50,7 @@ module Amazonka.QuickSight.UpdateUser
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -368,8 +368,8 @@ updateUser_role = Lens.lens (\UpdateUser' {role'} -> role') (\s@UpdateUser' {} a
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

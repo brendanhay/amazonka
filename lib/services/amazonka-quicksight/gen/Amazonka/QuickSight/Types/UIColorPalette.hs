@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.UIColorPalette where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The theme colors that apply to UI and to charts, excluding data colors.

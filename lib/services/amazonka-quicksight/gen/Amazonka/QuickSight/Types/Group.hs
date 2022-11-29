@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.Group where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A /group/ in Amazon QuickSight consists of a set of users. You can use

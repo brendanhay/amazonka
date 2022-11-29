@@ -20,14 +20,22 @@
 module Amazonka.QuickSight.Types.AthenaParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters for Amazon Athena.
 --
 -- /See:/ 'newAthenaParameters' smart constructor.
 data AthenaParameters = AthenaParameters'
-  { -- | The workgroup that Amazon Athena uses.
+  { -- | Use the @RoleArn@ structure to override an account-wide role for a
+    -- specific Athena data source. For example, say an account administrator
+    -- has turned off all Athena access with an account-wide role. The
+    -- administrator can then use @RoleArn@ to bypass the account-wide role and
+    -- allow Athena access for the single Athena data source that is specified
+    -- in the structure, even if the account-wide role forbidding Athena access
+    -- is still active.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The workgroup that Amazon Athena uses.
     workGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,11 +48,32 @@ data AthenaParameters = AthenaParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 'athenaParameters_roleArn' - Use the @RoleArn@ structure to override an account-wide role for a
+-- specific Athena data source. For example, say an account administrator
+-- has turned off all Athena access with an account-wide role. The
+-- administrator can then use @RoleArn@ to bypass the account-wide role and
+-- allow Athena access for the single Athena data source that is specified
+-- in the structure, even if the account-wide role forbidding Athena access
+-- is still active.
+--
 -- 'workGroup', 'athenaParameters_workGroup' - The workgroup that Amazon Athena uses.
 newAthenaParameters ::
   AthenaParameters
 newAthenaParameters =
-  AthenaParameters' {workGroup = Prelude.Nothing}
+  AthenaParameters'
+    { roleArn = Prelude.Nothing,
+      workGroup = Prelude.Nothing
+    }
+
+-- | Use the @RoleArn@ structure to override an account-wide role for a
+-- specific Athena data source. For example, say an account administrator
+-- has turned off all Athena access with an account-wide role. The
+-- administrator can then use @RoleArn@ to bypass the account-wide role and
+-- allow Athena access for the single Athena data source that is specified
+-- in the structure, even if the account-wide role forbidding Athena access
+-- is still active.
+athenaParameters_roleArn :: Lens.Lens' AthenaParameters (Prelude.Maybe Prelude.Text)
+athenaParameters_roleArn = Lens.lens (\AthenaParameters' {roleArn} -> roleArn) (\s@AthenaParameters' {} a -> s {roleArn = a} :: AthenaParameters)
 
 -- | The workgroup that Amazon Athena uses.
 athenaParameters_workGroup :: Lens.Lens' AthenaParameters (Prelude.Maybe Prelude.Text)
@@ -56,19 +85,25 @@ instance Core.FromJSON AthenaParameters where
       "AthenaParameters"
       ( \x ->
           AthenaParameters'
-            Prelude.<$> (x Core..:? "WorkGroup")
+            Prelude.<$> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "WorkGroup")
       )
 
 instance Prelude.Hashable AthenaParameters where
   hashWithSalt _salt AthenaParameters' {..} =
-    _salt `Prelude.hashWithSalt` workGroup
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData AthenaParameters where
-  rnf AthenaParameters' {..} = Prelude.rnf workGroup
+  rnf AthenaParameters' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToJSON AthenaParameters where
   toJSON AthenaParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("WorkGroup" Core..=) Prelude.<$> workGroup]
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("WorkGroup" Core..=) Prelude.<$> workGroup
+          ]
       )

@@ -23,7 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.CodeCommitRepository
 import Amazonka.CodeGuruReviewer.Types.S3Repository
 import Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an associated Amazon Web Services CodeCommit

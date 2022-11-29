@@ -22,7 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary where
 import Amazonka.CodeGuruReviewer.Types.ProviderType
 import Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a repository association. The

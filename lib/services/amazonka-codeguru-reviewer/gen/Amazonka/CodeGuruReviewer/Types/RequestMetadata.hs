@@ -22,7 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.RequestMetadata where
 import Amazonka.CodeGuruReviewer.Types.EventInfo
 import Amazonka.CodeGuruReviewer.Types.VendorName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata that is associated with a code review. This applies to both

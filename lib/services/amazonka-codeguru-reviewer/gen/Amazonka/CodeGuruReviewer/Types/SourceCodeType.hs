@@ -25,7 +25,7 @@ import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
 import Amazonka.CodeGuruReviewer.Types.RequestMetadata
 import Amazonka.CodeGuruReviewer.Types.S3BucketRepository
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the source code that is analyzed in a code review.

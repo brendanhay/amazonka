@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -317,7 +318,7 @@ import Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
 import Amazonka.CodeGuruReviewer.Types.Type
 import Amazonka.CodeGuruReviewer.Types.VendorName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -325,29 +326,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "CodeGuruReviewer",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "codeguru-reviewer",
-      Core._serviceSigningName = "codeguru-reviewer",
-      Core._serviceVersion = "2019-09-19",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "CodeGuruReviewer",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CodeGuruReviewer",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "codeguru-reviewer",
+      Core.signingName = "codeguru-reviewer",
+      Core.version = "2019-09-19",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "CodeGuruReviewer",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

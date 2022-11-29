@@ -20,7 +20,7 @@
 module Amazonka.CodeGuruReviewer.Types.RuleMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about a rule. Rule metadata includes an ID, a name, a list of

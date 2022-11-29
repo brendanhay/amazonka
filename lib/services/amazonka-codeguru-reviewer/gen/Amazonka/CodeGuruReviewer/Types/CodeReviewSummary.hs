@@ -25,7 +25,7 @@ import Amazonka.CodeGuruReviewer.Types.ProviderType
 import Amazonka.CodeGuruReviewer.Types.SourceCodeType
 import Amazonka.CodeGuruReviewer.Types.Type
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the summary of the code review.

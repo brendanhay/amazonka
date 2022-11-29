@@ -22,7 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis where
 import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
 import Amazonka.CodeGuruReviewer.Types.SourceCodeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A code review type that analyzes all code under a specified branch in an

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -20,18 +21,18 @@ import Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation
 import Amazonka.CodeGuruReviewer.Lens
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newRepositoryAssociationSucceeded :: Core.Wait DescribeRepositoryAssociation
 newRepositoryAssociationSucceeded =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "RepositoryAssociationSucceeded",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+      Core.attempts = 30,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Associated"
             Core.AcceptSuccess
@@ -66,10 +67,10 @@ newRepositoryAssociationSucceeded =
 newCodeReviewCompleted :: Core.Wait DescribeCodeReview
 newCodeReviewCompleted =
   Core.Wait
-    { Core._waitName = "CodeReviewCompleted",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "CodeReviewCompleted",
+      Core.attempts = 180,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess

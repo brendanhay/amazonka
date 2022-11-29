@@ -21,7 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.KMSKeyDetails where
 
 import Amazonka.CodeGuruReviewer.Types.EncryptionOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains:

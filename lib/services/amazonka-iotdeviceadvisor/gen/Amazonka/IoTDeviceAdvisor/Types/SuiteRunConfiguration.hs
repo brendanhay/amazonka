@@ -20,8 +20,8 @@
 module Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets suite run configuration.

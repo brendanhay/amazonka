@@ -20,9 +20,9 @@
 module Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioStatus
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides test case scenario.

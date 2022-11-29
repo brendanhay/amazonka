@@ -20,8 +20,8 @@
 module Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the suite run.

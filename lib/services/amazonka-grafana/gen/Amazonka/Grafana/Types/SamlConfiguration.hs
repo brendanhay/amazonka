@@ -20,10 +20,10 @@
 module Amazonka.Grafana.Types.SamlConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.AssertionAttributes
 import Amazonka.Grafana.Types.IdpMetadata
 import Amazonka.Grafana.Types.RoleValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about how this workspace works with

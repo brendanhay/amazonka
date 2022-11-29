@@ -12,6 +12,7 @@ haskell_library(
         "gen/Amazonka/Grafana/DeleteWorkspaceApiKey.hs",
         "gen/Amazonka/Grafana/DescribeWorkspace.hs",
         "gen/Amazonka/Grafana/DescribeWorkspaceAuthentication.hs",
+        "gen/Amazonka/Grafana/DescribeWorkspaceConfiguration.hs",
         "gen/Amazonka/Grafana/DisassociateLicense.hs",
         "gen/Amazonka/Grafana/Lens.hs",
         "gen/Amazonka/Grafana/ListPermissions.hs",
@@ -41,6 +42,7 @@ haskell_library(
         "gen/Amazonka/Grafana/Types/UpdateInstruction.hs",
         "gen/Amazonka/Grafana/Types/User.hs",
         "gen/Amazonka/Grafana/Types/UserType.hs",
+        "gen/Amazonka/Grafana/Types/VpcConfiguration.hs",
         "gen/Amazonka/Grafana/Types/WorkspaceDescription.hs",
         "gen/Amazonka/Grafana/Types/WorkspaceStatus.hs",
         "gen/Amazonka/Grafana/Types/WorkspaceSummary.hs",
@@ -48,6 +50,7 @@ haskell_library(
         "gen/Amazonka/Grafana/UpdatePermissions.hs",
         "gen/Amazonka/Grafana/UpdateWorkspace.hs",
         "gen/Amazonka/Grafana/UpdateWorkspaceAuthentication.hs",
+        "gen/Amazonka/Grafana/UpdateWorkspaceConfiguration.hs",
         "gen/Amazonka/Grafana/Waiters.hs",
     ],
     ghcopts = [

@@ -20,10 +20,10 @@
 module Amazonka.Grafana.Types.AuthenticationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.AuthenticationProviderTypes
 import Amazonka.Grafana.Types.AwsSsoAuthentication
 import Amazonka.Grafana.Types.SamlAuthentication
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about the user authentication methods
@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAuthenticationDescription' smart constructor.
 data AuthenticationDescription = AuthenticationDescription'
   { -- | A structure containing information about how this workspace works with
-    -- Amazon Web Services SSO.
+    -- IAM Identity Center.
     awsSso :: Prelude.Maybe AwsSsoAuthentication,
     -- | A structure containing information about how this workspace works with
     -- SAML, including what attributes within the assertion are to be mapped to
     -- user information in the workspace.
     saml :: Prelude.Maybe SamlAuthentication,
-    -- | Specifies whether this workspace uses Amazon Web Services SSO, SAML, or
-    -- both methods to authenticate users to use the Grafana console in the
-    -- Amazon Managed Grafana workspace.
+    -- | Specifies whether this workspace uses IAM Identity Center, SAML, or both
+    -- methods to authenticate users to use the Grafana console in the Amazon
+    -- Managed Grafana workspace.
     providers :: [AuthenticationProviderTypes]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,15 +54,15 @@ data AuthenticationDescription = AuthenticationDescription'
 -- for backwards compatibility:
 --
 -- 'awsSso', 'authenticationDescription_awsSso' - A structure containing information about how this workspace works with
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 --
 -- 'saml', 'authenticationDescription_saml' - A structure containing information about how this workspace works with
 -- SAML, including what attributes within the assertion are to be mapped to
 -- user information in the workspace.
 --
--- 'providers', 'authenticationDescription_providers' - Specifies whether this workspace uses Amazon Web Services SSO, SAML, or
--- both methods to authenticate users to use the Grafana console in the
--- Amazon Managed Grafana workspace.
+-- 'providers', 'authenticationDescription_providers' - Specifies whether this workspace uses IAM Identity Center, SAML, or both
+-- methods to authenticate users to use the Grafana console in the Amazon
+-- Managed Grafana workspace.
 newAuthenticationDescription ::
   AuthenticationDescription
 newAuthenticationDescription =
@@ -74,7 +74,7 @@ newAuthenticationDescription =
     }
 
 -- | A structure containing information about how this workspace works with
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 authenticationDescription_awsSso :: Lens.Lens' AuthenticationDescription (Prelude.Maybe AwsSsoAuthentication)
 authenticationDescription_awsSso = Lens.lens (\AuthenticationDescription' {awsSso} -> awsSso) (\s@AuthenticationDescription' {} a -> s {awsSso = a} :: AuthenticationDescription)
 
@@ -84,9 +84,9 @@ authenticationDescription_awsSso = Lens.lens (\AuthenticationDescription' {awsSs
 authenticationDescription_saml :: Lens.Lens' AuthenticationDescription (Prelude.Maybe SamlAuthentication)
 authenticationDescription_saml = Lens.lens (\AuthenticationDescription' {saml} -> saml) (\s@AuthenticationDescription' {} a -> s {saml = a} :: AuthenticationDescription)
 
--- | Specifies whether this workspace uses Amazon Web Services SSO, SAML, or
--- both methods to authenticate users to use the Grafana console in the
--- Amazon Managed Grafana workspace.
+-- | Specifies whether this workspace uses IAM Identity Center, SAML, or both
+-- methods to authenticate users to use the Grafana console in the Amazon
+-- Managed Grafana workspace.
 authenticationDescription_providers :: Lens.Lens' AuthenticationDescription [AuthenticationProviderTypes]
 authenticationDescription_providers = Lens.lens (\AuthenticationDescription' {providers} -> providers) (\s@AuthenticationDescription' {} a -> s {providers = a} :: AuthenticationDescription) Prelude.. Lens.coerced
 

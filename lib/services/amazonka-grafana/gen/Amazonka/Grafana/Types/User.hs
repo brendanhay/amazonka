@@ -20,8 +20,8 @@
 module Amazonka.Grafana.Types.User where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.UserType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that specifies one user or group in the workspace.

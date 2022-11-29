@@ -21,11 +21,13 @@ module Amazonka.Grafana.Lens
     associateLicenseResponse_workspace,
 
     -- ** CreateWorkspace
+    createWorkspace_vpcConfiguration,
     createWorkspace_tags,
     createWorkspace_clientToken,
     createWorkspace_organizationRoleName,
     createWorkspace_workspaceOrganizationalUnits,
     createWorkspace_stackSetName,
+    createWorkspace_configuration,
     createWorkspace_workspaceRoleArn,
     createWorkspace_workspaceNotificationDestinations,
     createWorkspace_workspaceDataSources,
@@ -68,6 +70,11 @@ module Amazonka.Grafana.Lens
     describeWorkspaceAuthentication_workspaceId,
     describeWorkspaceAuthenticationResponse_httpStatus,
     describeWorkspaceAuthenticationResponse_authentication,
+
+    -- ** DescribeWorkspaceConfiguration
+    describeWorkspaceConfiguration_workspaceId,
+    describeWorkspaceConfigurationResponse_httpStatus,
+    describeWorkspaceConfigurationResponse_configuration,
 
     -- ** DisassociateLicense
     disassociateLicense_licenseType,
@@ -115,6 +122,7 @@ module Amazonka.Grafana.Lens
     updatePermissionsResponse_errors,
 
     -- ** UpdateWorkspace
+    updateWorkspace_vpcConfiguration,
     updateWorkspace_permissionType,
     updateWorkspace_organizationRoleName,
     updateWorkspace_workspaceOrganizationalUnits,
@@ -122,6 +130,7 @@ module Amazonka.Grafana.Lens
     updateWorkspace_workspaceRoleArn,
     updateWorkspace_workspaceNotificationDestinations,
     updateWorkspace_workspaceDataSources,
+    updateWorkspace_removeVpcConfiguration,
     updateWorkspace_workspaceName,
     updateWorkspace_accountAccessType,
     updateWorkspace_workspaceDescription,
@@ -135,6 +144,11 @@ module Amazonka.Grafana.Lens
     updateWorkspaceAuthentication_workspaceId,
     updateWorkspaceAuthenticationResponse_httpStatus,
     updateWorkspaceAuthenticationResponse_authentication,
+
+    -- ** UpdateWorkspaceConfiguration
+    updateWorkspaceConfiguration_configuration,
+    updateWorkspaceConfiguration_workspaceId,
+    updateWorkspaceConfigurationResponse_httpStatus,
 
     -- * Types
 
@@ -195,7 +209,12 @@ module Amazonka.Grafana.Lens
     user_id,
     user_type,
 
+    -- ** VpcConfiguration
+    vpcConfiguration_securityGroupIds,
+    vpcConfiguration_subnetIds,
+
     -- ** WorkspaceDescription
+    workspaceDescription_vpcConfiguration,
     workspaceDescription_tags,
     workspaceDescription_permissionType,
     workspaceDescription_name,
@@ -241,6 +260,7 @@ import Amazonka.Grafana.DeleteWorkspace
 import Amazonka.Grafana.DeleteWorkspaceApiKey
 import Amazonka.Grafana.DescribeWorkspace
 import Amazonka.Grafana.DescribeWorkspaceAuthentication
+import Amazonka.Grafana.DescribeWorkspaceConfiguration
 import Amazonka.Grafana.DisassociateLicense
 import Amazonka.Grafana.ListPermissions
 import Amazonka.Grafana.ListTagsForResource
@@ -258,9 +278,11 @@ import Amazonka.Grafana.Types.SamlConfiguration
 import Amazonka.Grafana.Types.UpdateError
 import Amazonka.Grafana.Types.UpdateInstruction
 import Amazonka.Grafana.Types.User
+import Amazonka.Grafana.Types.VpcConfiguration
 import Amazonka.Grafana.Types.WorkspaceDescription
 import Amazonka.Grafana.Types.WorkspaceSummary
 import Amazonka.Grafana.UntagResource
 import Amazonka.Grafana.UpdatePermissions
 import Amazonka.Grafana.UpdateWorkspace
 import Amazonka.Grafana.UpdateWorkspaceAuthentication
+import Amazonka.Grafana.UpdateWorkspaceConfiguration

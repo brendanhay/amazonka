@@ -27,6 +27,7 @@ module Amazonka.Grafana.Types.DataSourceType
         DataSourceType_REDSHIFT,
         DataSourceType_SITEWISE,
         DataSourceType_TIMESTREAM,
+        DataSourceType_TWINMAKER,
         DataSourceType_XRAY
       ),
   )
@@ -84,6 +85,9 @@ pattern DataSourceType_SITEWISE = DataSourceType' "SITEWISE"
 pattern DataSourceType_TIMESTREAM :: DataSourceType
 pattern DataSourceType_TIMESTREAM = DataSourceType' "TIMESTREAM"
 
+pattern DataSourceType_TWINMAKER :: DataSourceType
+pattern DataSourceType_TWINMAKER = DataSourceType' "TWINMAKER"
+
 pattern DataSourceType_XRAY :: DataSourceType
 pattern DataSourceType_XRAY = DataSourceType' "XRAY"
 
@@ -95,6 +99,7 @@ pattern DataSourceType_XRAY = DataSourceType' "XRAY"
   DataSourceType_REDSHIFT,
   DataSourceType_SITEWISE,
   DataSourceType_TIMESTREAM,
+  DataSourceType_TWINMAKER,
   DataSourceType_XRAY,
   DataSourceType'
   #-}

@@ -20,10 +20,10 @@
 module Amazonka.Grafana.Types.UpdateInstruction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.Role
 import Amazonka.Grafana.Types.UpdateAction
 import Amazonka.Grafana.Types.User
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the instructions for one Grafana role permission update in a

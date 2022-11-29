@@ -20,12 +20,13 @@
 module Amazonka.Grafana.Types.RoleValues where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines which groups defined in the SAML assertion
 -- attribute are to be mapped to the Grafana @Admin@ and @Editor@ roles in
--- the workspace.
+-- the workspace. SAML authenticated users not part of @Admin@ or @Editor@
+-- role groups have @Viewer@ permission over the workspace.
 --
 -- /See:/ 'newRoleValues' smart constructor.
 data RoleValues = RoleValues'

@@ -51,6 +51,7 @@ library
     Amazonka.Grafana.DeleteWorkspaceApiKey
     Amazonka.Grafana.DescribeWorkspace
     Amazonka.Grafana.DescribeWorkspaceAuthentication
+    Amazonka.Grafana.DescribeWorkspaceConfiguration
     Amazonka.Grafana.DisassociateLicense
     Amazonka.Grafana.Lens
     Amazonka.Grafana.ListPermissions
@@ -80,6 +81,7 @@ library
     Amazonka.Grafana.Types.UpdateInstruction
     Amazonka.Grafana.Types.User
     Amazonka.Grafana.Types.UserType
+    Amazonka.Grafana.Types.VpcConfiguration
     Amazonka.Grafana.Types.WorkspaceDescription
     Amazonka.Grafana.Types.WorkspaceStatus
     Amazonka.Grafana.Types.WorkspaceSummary
@@ -87,6 +89,7 @@ library
     Amazonka.Grafana.UpdatePermissions
     Amazonka.Grafana.UpdateWorkspace
     Amazonka.Grafana.UpdateWorkspaceAuthentication
+    Amazonka.Grafana.UpdateWorkspaceConfiguration
     Amazonka.Grafana.Waiters
 
   build-depends:

@@ -20,13 +20,13 @@
 module Amazonka.Grafana.Types.AuthenticationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.AuthenticationProviderTypes
 import Amazonka.Grafana.Types.SamlConfigurationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure that describes whether the workspace uses SAML, Amazon Web
--- Services SSO, or both methods for user authentication, and whether that
+-- | A structure that describes whether the workspace uses SAML, IAM Identity
+-- Center, or both methods for user authentication, and whether that
 -- authentication is fully configured.
 --
 -- /See:/ 'newAuthenticationSummary' smart constructor.
@@ -34,8 +34,8 @@ data AuthenticationSummary = AuthenticationSummary'
   { -- | Specifies whether the workplace\'s user authentication method is fully
     -- configured.
     samlConfigurationStatus :: Prelude.Maybe SamlConfigurationStatus,
-    -- | Specifies whether the workspace uses SAML, Amazon Web Services SSO, or
-    -- both methods for user authentication.
+    -- | Specifies whether the workspace uses SAML, IAM Identity Center, or both
+    -- methods for user authentication.
     providers :: [AuthenticationProviderTypes]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,8 +51,8 @@ data AuthenticationSummary = AuthenticationSummary'
 -- 'samlConfigurationStatus', 'authenticationSummary_samlConfigurationStatus' - Specifies whether the workplace\'s user authentication method is fully
 -- configured.
 --
--- 'providers', 'authenticationSummary_providers' - Specifies whether the workspace uses SAML, Amazon Web Services SSO, or
--- both methods for user authentication.
+-- 'providers', 'authenticationSummary_providers' - Specifies whether the workspace uses SAML, IAM Identity Center, or both
+-- methods for user authentication.
 newAuthenticationSummary ::
   AuthenticationSummary
 newAuthenticationSummary =
@@ -67,8 +67,8 @@ newAuthenticationSummary =
 authenticationSummary_samlConfigurationStatus :: Lens.Lens' AuthenticationSummary (Prelude.Maybe SamlConfigurationStatus)
 authenticationSummary_samlConfigurationStatus = Lens.lens (\AuthenticationSummary' {samlConfigurationStatus} -> samlConfigurationStatus) (\s@AuthenticationSummary' {} a -> s {samlConfigurationStatus = a} :: AuthenticationSummary)
 
--- | Specifies whether the workspace uses SAML, Amazon Web Services SSO, or
--- both methods for user authentication.
+-- | Specifies whether the workspace uses SAML, IAM Identity Center, or both
+-- methods for user authentication.
 authenticationSummary_providers :: Lens.Lens' AuthenticationSummary [AuthenticationProviderTypes]
 authenticationSummary_providers = Lens.lens (\AuthenticationSummary' {providers} -> providers) (\s@AuthenticationSummary' {} a -> s {providers = a} :: AuthenticationSummary) Prelude.. Lens.coerced
 

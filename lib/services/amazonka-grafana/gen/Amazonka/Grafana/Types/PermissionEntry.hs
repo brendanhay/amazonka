@@ -20,17 +20,18 @@
 module Amazonka.Grafana.Types.PermissionEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.Role
 import Amazonka.Grafana.Types.User
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing the identity of one user or group and the @Admin@
--- or @Editor@ role that they have.
+-- | A structure containing the identity of one user or group and the
+-- @Admin@, @Editor@, or @Viewer@ role that they have.
 --
 -- /See:/ 'newPermissionEntry' smart constructor.
 data PermissionEntry = PermissionEntry'
-  { -- | Specifies whether the user or group has the @Admin@ or @Editor@ role.
+  { -- | Specifies whether the user or group has the @Admin@, @Editor@, or
+    -- @Viewer@ role.
     role' :: Role,
     -- | A structure with the ID of the user or group with this role.
     user :: User
@@ -45,7 +46,8 @@ data PermissionEntry = PermissionEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'role'', 'permissionEntry_role' - Specifies whether the user or group has the @Admin@ or @Editor@ role.
+-- 'role'', 'permissionEntry_role' - Specifies whether the user or group has the @Admin@, @Editor@, or
+-- @Viewer@ role.
 --
 -- 'user', 'permissionEntry_user' - A structure with the ID of the user or group with this role.
 newPermissionEntry ::
@@ -57,7 +59,8 @@ newPermissionEntry ::
 newPermissionEntry pRole_ pUser_ =
   PermissionEntry' {role' = pRole_, user = pUser_}
 
--- | Specifies whether the user or group has the @Admin@ or @Editor@ role.
+-- | Specifies whether the user or group has the @Admin@, @Editor@, or
+-- @Viewer@ role.
 permissionEntry_role :: Lens.Lens' PermissionEntry Role
 permissionEntry_role = Lens.lens (\PermissionEntry' {role'} -> role') (\s@PermissionEntry' {} a -> s {role' = a} :: PermissionEntry)
 

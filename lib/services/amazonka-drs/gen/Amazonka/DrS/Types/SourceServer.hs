@@ -20,12 +20,12 @@
 module Amazonka.DrS.Types.SourceServer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.DataReplicationInfo
 import Amazonka.DrS.Types.LastLaunchResult
 import Amazonka.DrS.Types.LifeCycle
 import Amazonka.DrS.Types.SourceProperties
 import Amazonka.DrS.Types.StagingArea
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newSourceServer' smart constructor.

@@ -20,9 +20,9 @@
 module Amazonka.DrS.Types.JobLog where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.JobLogEvent
 import Amazonka.DrS.Types.JobLogEventData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A log outputted by a Job.

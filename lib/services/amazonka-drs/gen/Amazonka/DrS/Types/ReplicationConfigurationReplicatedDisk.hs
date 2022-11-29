@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a disk of the Source Server to be replicated.

@@ -20,11 +20,11 @@
 module Amazonka.DrS.Types.Job where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.InitiatedBy
 import Amazonka.DrS.Types.JobStatus
 import Amazonka.DrS.Types.JobType
 import Amazonka.DrS.Types.ParticipatingServer
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job is an asynchronous workflow.

@@ -20,11 +20,11 @@
 module Amazonka.DrS.Types.ReplicationConfigurationTemplate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.PITPolicyRule
 import Amazonka.DrS.Types.ReplicationConfigurationDataPlaneRouting
 import Amazonka.DrS.Types.ReplicationConfigurationDefaultLargeStagingDiskType
 import Amazonka.DrS.Types.ReplicationConfigurationEbsEncryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newReplicationConfigurationTemplate' smart constructor.

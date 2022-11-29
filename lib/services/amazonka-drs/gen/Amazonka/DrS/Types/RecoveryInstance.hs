@@ -20,11 +20,11 @@
 module Amazonka.DrS.Types.RecoveryInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.EC2InstanceState
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfo
 import Amazonka.DrS.Types.RecoveryInstanceFailback
 import Amazonka.DrS.Types.RecoveryInstanceProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A Recovery Instance is a replica of a Source Server running on EC2.

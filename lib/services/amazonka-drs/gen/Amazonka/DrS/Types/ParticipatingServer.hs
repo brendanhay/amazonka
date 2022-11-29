@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.ParticipatingServer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.LaunchStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a server participating in an asynchronous Job.

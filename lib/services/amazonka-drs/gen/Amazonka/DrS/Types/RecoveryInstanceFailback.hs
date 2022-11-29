@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.RecoveryInstanceFailback where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.FailbackState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing failback related information of the Recovery

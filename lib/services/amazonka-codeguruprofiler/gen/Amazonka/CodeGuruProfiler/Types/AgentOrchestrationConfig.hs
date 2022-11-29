@@ -20,7 +20,7 @@
 module Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether profiling is enabled or disabled for a profiling

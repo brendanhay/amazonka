@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.Channel where
 
 import Amazonka.CodeGuruProfiler.Types.EventPublisher
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Notification medium for users to get alerted for events that occur in

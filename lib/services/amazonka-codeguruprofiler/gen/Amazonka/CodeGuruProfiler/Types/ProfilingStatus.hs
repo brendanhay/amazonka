@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.ProfilingStatus where
 
 import Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Profiling status includes information about the last time a profile

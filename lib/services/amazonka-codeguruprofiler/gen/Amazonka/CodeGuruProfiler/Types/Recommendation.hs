@@ -22,7 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.Recommendation where
 import Amazonka.CodeGuruProfiler.Types.Match
 import Amazonka.CodeGuruProfiler.Types.Pattern
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A potential improvement that was found from analyzing the profiling

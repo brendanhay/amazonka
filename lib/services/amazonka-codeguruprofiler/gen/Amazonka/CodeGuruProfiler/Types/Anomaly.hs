@@ -22,7 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.Anomaly where
 import Amazonka.CodeGuruProfiler.Types.AnomalyInstance
 import Amazonka.CodeGuruProfiler.Types.Metric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an anomaly in a specific metric of application profile.

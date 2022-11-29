@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.Metric where
 
 import Amazonka.CodeGuruProfiler.Types.MetricType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the metric that the analysis used when it detected the

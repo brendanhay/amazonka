@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime where
 
 import Amazonka.CodeGuruProfiler.Types.AggregationPeriod
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the aggregation period and aggregation start time for an

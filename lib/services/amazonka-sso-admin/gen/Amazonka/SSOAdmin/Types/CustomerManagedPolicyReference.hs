@@ -20,7 +20,7 @@
 module Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name and path of a customer managed policy. You must have

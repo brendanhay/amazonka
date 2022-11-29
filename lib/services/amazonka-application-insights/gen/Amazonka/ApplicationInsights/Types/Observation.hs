@@ -22,7 +22,7 @@ module Amazonka.ApplicationInsights.Types.Observation where
 import Amazonka.ApplicationInsights.Types.CloudWatchEventSource
 import Amazonka.ApplicationInsights.Types.LogFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an anomaly or error with the application.

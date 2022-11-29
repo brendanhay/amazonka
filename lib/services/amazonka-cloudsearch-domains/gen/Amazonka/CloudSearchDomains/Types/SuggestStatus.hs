@@ -20,7 +20,7 @@
 module Amazonka.CloudSearchDomains.Types.SuggestStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the resource id (@rid@) and the time it took to process the

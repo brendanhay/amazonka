@@ -21,7 +21,7 @@ module Amazonka.CloudSearchDomains.Types.Hits where
 
 import Amazonka.CloudSearchDomains.Types.Hit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of documents that match the search request.

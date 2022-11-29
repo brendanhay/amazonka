@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -79,7 +80,7 @@ module Amazonka.SDB.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SDB.Types.Attribute
 import Amazonka.SDB.Types.DeletableItem
@@ -93,27 +94,25 @@ import qualified Amazonka.Sign.V2 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "SDB",
-      Core._serviceSigner = Sign.v2,
-      Core._serviceEndpointPrefix = "sdb",
-      Core._serviceSigningName = "sdb",
-      Core._serviceVersion = "2009-04-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseXMLError "SDB",
-      Core._serviceRetry = retry
+    { Core.abbrev = "SDB",
+      Core.signer = Sign.v2,
+      Core.endpointPrefix = "sdb",
+      Core.signingName = "sdb",
+      Core.version = "2009-04-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "SDB",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

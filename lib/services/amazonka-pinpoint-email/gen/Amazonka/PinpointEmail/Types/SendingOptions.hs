@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.SendingOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to enable or disable email sending for messages that use this

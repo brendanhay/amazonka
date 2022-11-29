@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.EmailContent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointEmail.Types.Message
 import Amazonka.PinpointEmail.Types.RawMessage
 import Amazonka.PinpointEmail.Types.Template

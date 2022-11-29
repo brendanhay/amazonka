@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.Template where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newTemplate' smart constructor.

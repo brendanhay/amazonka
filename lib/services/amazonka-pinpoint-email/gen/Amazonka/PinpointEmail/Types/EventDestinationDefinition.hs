@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.EventDestinationDefinition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointEmail.Types.CloudWatchDestination
 import Amazonka.PinpointEmail.Types.EventType
 import Amazonka.PinpointEmail.Types.KinesisFirehoseDestination

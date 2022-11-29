@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.CloudWatchDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointEmail.Types.CloudWatchDimensionConfiguration
 import qualified Amazonka.Prelude as Prelude
 

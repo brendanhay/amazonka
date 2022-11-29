@@ -20,8 +20,8 @@
 module Amazonka.DAX.Types.SubnetGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.Subnet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of one of the following actions:

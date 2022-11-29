@@ -20,8 +20,8 @@
 module Amazonka.DAX.Types.Node where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.Endpoint
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an individual node within a DAX cluster.

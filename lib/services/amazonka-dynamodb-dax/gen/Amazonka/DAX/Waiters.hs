@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.DAX.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Lens
 import Amazonka.DAX.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

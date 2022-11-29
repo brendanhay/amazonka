@@ -21,7 +21,7 @@ module Amazonka.AMP.Types.WorkspaceStatus where
 
 import Amazonka.AMP.Types.WorkspaceStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of a workspace.

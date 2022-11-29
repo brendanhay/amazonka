@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,17 +20,17 @@ import Amazonka.AMP.DescribeWorkspace
 import Amazonka.AMP.Lens
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newWorkspaceActive :: Core.Wait DescribeWorkspace
 newWorkspaceActive =
   Core.Wait
-    { Core._waitName = "WorkspaceActive",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "WorkspaceActive",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
@@ -61,10 +62,10 @@ newWorkspaceActive =
 newWorkspaceDeleted :: Core.Wait DescribeWorkspace
 newWorkspaceDeleted =
   Core.Wait
-    { Core._waitName = "WorkspaceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "WorkspaceDeleted",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess,

@@ -20,9 +20,9 @@
 module Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the timestamp range and timestamp origin of a range of

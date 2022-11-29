@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -139,6 +140,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange
@@ -164,7 +166,6 @@ import Amazonka.KinesisVideoArchivedMedia.Types.Image
 import Amazonka.KinesisVideoArchivedMedia.Types.ImageError
 import Amazonka.KinesisVideoArchivedMedia.Types.ImageSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -172,29 +173,27 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
+    { Core.abbrev =
         "KinesisVideoArchivedMedia",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "kinesisvideo",
-      Core._serviceSigningName = "kinesisvideo",
-      Core._serviceVersion = "2017-09-30",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "kinesisvideo",
+      Core.signingName = "kinesisvideo",
+      Core.version = "2017-09-30",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error =
         Core.parseJSONError "KinesisVideoArchivedMedia",
-      Core._serviceRetry = retry
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

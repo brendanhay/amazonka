@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupEc2SecurityGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | EC2 security group information for an RDS DB security group.

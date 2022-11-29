@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionByDefault where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the default server-side encryption to apply to new objects in

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbDomainMembership
 import Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole

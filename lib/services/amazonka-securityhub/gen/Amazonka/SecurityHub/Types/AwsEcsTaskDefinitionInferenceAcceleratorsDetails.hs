@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Elastic Inference accelerator to use for the containers in the task.

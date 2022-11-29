@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.StatusReason where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides additional context for the value of @Compliance.Status@.

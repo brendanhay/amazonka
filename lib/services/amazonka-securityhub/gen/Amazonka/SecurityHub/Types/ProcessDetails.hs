@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.ProcessDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of process-related information about a finding.

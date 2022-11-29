@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.FirewallPolicyStatelessRuleGroupReferencesDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A stateless rule group that is used by the firewall policy.

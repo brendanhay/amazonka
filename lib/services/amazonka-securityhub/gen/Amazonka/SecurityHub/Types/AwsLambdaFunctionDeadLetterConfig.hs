@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dead-letter queue for failed asynchronous invocations.

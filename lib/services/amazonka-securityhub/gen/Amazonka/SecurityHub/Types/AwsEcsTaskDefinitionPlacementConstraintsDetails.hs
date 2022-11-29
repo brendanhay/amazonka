@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A placement constraint object to use for tasks.

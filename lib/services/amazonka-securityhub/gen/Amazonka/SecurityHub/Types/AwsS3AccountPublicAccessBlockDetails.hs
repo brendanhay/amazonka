@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | provides information about the Amazon S3 Public Access Block

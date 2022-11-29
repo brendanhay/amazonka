@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryCreationInfoDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the settings that Amazon EFS uses to create

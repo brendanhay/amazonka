@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRedshiftClusterIamRole where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IAM role that the cluster can use to access other Amazon Web Services

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.DnsRequestAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provided if @ActionType@ is @DNS_REQUEST@. It provides details about the

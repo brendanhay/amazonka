@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesActionDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the action that WAF should take on a web request when it

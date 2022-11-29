@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a network interface for the Amazon EC2 instance.

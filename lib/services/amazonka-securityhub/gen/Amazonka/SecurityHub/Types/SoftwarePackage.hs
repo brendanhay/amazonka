@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.SoftwarePackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a software package.
@@ -31,6 +31,8 @@ data SoftwarePackage = SoftwarePackage'
     filePath :: Prelude.Maybe Prelude.Text,
     -- | The name of the software package.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source layer.
+    sourceLayerArn :: Prelude.Maybe Prelude.Text,
     -- | The version of the software package in which the vulnerability has been
     -- resolved.
     fixedInVersion :: Prelude.Maybe Prelude.Text,
@@ -43,6 +45,8 @@ data SoftwarePackage = SoftwarePackage'
     packageManager :: Prelude.Maybe Prelude.Text,
     -- | The release of the software package.
     release :: Prelude.Maybe Prelude.Text,
+    -- | The source layer hash of the vulnerable package.
+    sourceLayerHash :: Prelude.Maybe Prelude.Text,
     -- | The architecture used for the software package.
     architecture :: Prelude.Maybe Prelude.Text,
     -- | The version of the software package.
@@ -62,6 +66,8 @@ data SoftwarePackage = SoftwarePackage'
 --
 -- 'name', 'softwarePackage_name' - The name of the software package.
 --
+-- 'sourceLayerArn', 'softwarePackage_sourceLayerArn' - The Amazon Resource Name (ARN) of the source layer.
+--
 -- 'fixedInVersion', 'softwarePackage_fixedInVersion' - The version of the software package in which the vulnerability has been
 -- resolved.
 --
@@ -74,6 +80,8 @@ data SoftwarePackage = SoftwarePackage'
 --
 -- 'release', 'softwarePackage_release' - The release of the software package.
 --
+-- 'sourceLayerHash', 'softwarePackage_sourceLayerHash' - The source layer hash of the vulnerable package.
+--
 -- 'architecture', 'softwarePackage_architecture' - The architecture used for the software package.
 --
 -- 'version', 'softwarePackage_version' - The version of the software package.
@@ -83,11 +91,13 @@ newSoftwarePackage =
   SoftwarePackage'
     { filePath = Prelude.Nothing,
       name = Prelude.Nothing,
+      sourceLayerArn = Prelude.Nothing,
       fixedInVersion = Prelude.Nothing,
       remediation = Prelude.Nothing,
       epoch = Prelude.Nothing,
       packageManager = Prelude.Nothing,
       release = Prelude.Nothing,
+      sourceLayerHash = Prelude.Nothing,
       architecture = Prelude.Nothing,
       version = Prelude.Nothing
     }
@@ -99,6 +109,10 @@ softwarePackage_filePath = Lens.lens (\SoftwarePackage' {filePath} -> filePath) 
 -- | The name of the software package.
 softwarePackage_name :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
 softwarePackage_name = Lens.lens (\SoftwarePackage' {name} -> name) (\s@SoftwarePackage' {} a -> s {name = a} :: SoftwarePackage)
+
+-- | The Amazon Resource Name (ARN) of the source layer.
+softwarePackage_sourceLayerArn :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
+softwarePackage_sourceLayerArn = Lens.lens (\SoftwarePackage' {sourceLayerArn} -> sourceLayerArn) (\s@SoftwarePackage' {} a -> s {sourceLayerArn = a} :: SoftwarePackage)
 
 -- | The version of the software package in which the vulnerability has been
 -- resolved.
@@ -122,6 +136,10 @@ softwarePackage_packageManager = Lens.lens (\SoftwarePackage' {packageManager} -
 softwarePackage_release :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
 softwarePackage_release = Lens.lens (\SoftwarePackage' {release} -> release) (\s@SoftwarePackage' {} a -> s {release = a} :: SoftwarePackage)
 
+-- | The source layer hash of the vulnerable package.
+softwarePackage_sourceLayerHash :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
+softwarePackage_sourceLayerHash = Lens.lens (\SoftwarePackage' {sourceLayerHash} -> sourceLayerHash) (\s@SoftwarePackage' {} a -> s {sourceLayerHash = a} :: SoftwarePackage)
+
 -- | The architecture used for the software package.
 softwarePackage_architecture :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
 softwarePackage_architecture = Lens.lens (\SoftwarePackage' {architecture} -> architecture) (\s@SoftwarePackage' {} a -> s {architecture = a} :: SoftwarePackage)
@@ -138,11 +156,13 @@ instance Core.FromJSON SoftwarePackage where
           SoftwarePackage'
             Prelude.<$> (x Core..:? "FilePath")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SourceLayerArn")
             Prelude.<*> (x Core..:? "FixedInVersion")
             Prelude.<*> (x Core..:? "Remediation")
             Prelude.<*> (x Core..:? "Epoch")
             Prelude.<*> (x Core..:? "PackageManager")
             Prelude.<*> (x Core..:? "Release")
+            Prelude.<*> (x Core..:? "SourceLayerHash")
             Prelude.<*> (x Core..:? "Architecture")
             Prelude.<*> (x Core..:? "Version")
       )
@@ -151,11 +171,13 @@ instance Prelude.Hashable SoftwarePackage where
   hashWithSalt _salt SoftwarePackage' {..} =
     _salt `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceLayerArn
       `Prelude.hashWithSalt` fixedInVersion
       `Prelude.hashWithSalt` remediation
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` packageManager
       `Prelude.hashWithSalt` release
+      `Prelude.hashWithSalt` sourceLayerHash
       `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` version
 
@@ -163,11 +185,13 @@ instance Prelude.NFData SoftwarePackage where
   rnf SoftwarePackage' {..} =
     Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceLayerArn
       `Prelude.seq` Prelude.rnf fixedInVersion
       `Prelude.seq` Prelude.rnf remediation
       `Prelude.seq` Prelude.rnf epoch
       `Prelude.seq` Prelude.rnf packageManager
       `Prelude.seq` Prelude.rnf release
+      `Prelude.seq` Prelude.rnf sourceLayerHash
       `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf version
 
@@ -177,6 +201,8 @@ instance Core.ToJSON SoftwarePackage where
       ( Prelude.catMaybes
           [ ("FilePath" Core..=) Prelude.<$> filePath,
             ("Name" Core..=) Prelude.<$> name,
+            ("SourceLayerArn" Core..=)
+              Prelude.<$> sourceLayerArn,
             ("FixedInVersion" Core..=)
               Prelude.<$> fixedInVersion,
             ("Remediation" Core..=) Prelude.<$> remediation,
@@ -184,6 +210,8 @@ instance Core.ToJSON SoftwarePackage where
             ("PackageManager" Core..=)
               Prelude.<$> packageManager,
             ("Release" Core..=) Prelude.<$> release,
+            ("SourceLayerHash" Core..=)
+              Prelude.<$> sourceLayerHash,
             ("Architecture" Core..=) Prelude.<$> architecture,
             ("Version" Core..=) Prelude.<$> version
           ]

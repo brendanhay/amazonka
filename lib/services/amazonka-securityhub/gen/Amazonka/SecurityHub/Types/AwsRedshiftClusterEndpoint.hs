@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRedshiftClusterEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connection endpoint for an Amazon Redshift cluster.

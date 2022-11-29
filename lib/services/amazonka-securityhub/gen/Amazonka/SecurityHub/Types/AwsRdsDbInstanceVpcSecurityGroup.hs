@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRdsDbInstanceVpcSecurityGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A VPC security groups that the DB instance belongs to.

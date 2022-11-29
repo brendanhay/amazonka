@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentEnvironmentLink where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a link to another environment that is in the

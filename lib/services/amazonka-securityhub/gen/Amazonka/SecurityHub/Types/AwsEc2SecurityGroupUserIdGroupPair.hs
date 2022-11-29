@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A relationship between a security group and a user.

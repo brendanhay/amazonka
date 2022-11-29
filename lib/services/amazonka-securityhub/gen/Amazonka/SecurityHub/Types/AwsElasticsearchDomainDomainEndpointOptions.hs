@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional options for the domain endpoint, such as whether to require

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.Adjustment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An adjustment to the CVSS metric.

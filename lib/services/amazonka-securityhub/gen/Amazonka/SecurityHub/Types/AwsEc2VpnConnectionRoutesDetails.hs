@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionRoutesDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A static routes associated with the VPN connection.

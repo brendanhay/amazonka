@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleCopyActionsDetails
@@ -51,8 +51,8 @@ data AwsBackupBackupPlanRuleDetails = AwsBackupBackupPlanRuleDetails'
     -- | Uniquely identifies a rule that is used to schedule the backup of a
     -- selection of resources.
     ruleId :: Prelude.Maybe Prelude.Text,
-    -- | An array of @CopyAction@ objects, which contains the details of the copy
-    -- operation.
+    -- | An array of @CopyAction@ objects, each of which contains details of the
+    -- copy operation.
     copyActions :: Prelude.Maybe [AwsBackupBackupPlanRuleCopyActionsDetails],
     -- | A cron expression in UTC specifying when Backup initiates a backup job.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
@@ -96,8 +96,8 @@ data AwsBackupBackupPlanRuleDetails = AwsBackupBackupPlanRuleDetails'
 -- 'ruleId', 'awsBackupBackupPlanRuleDetails_ruleId' - Uniquely identifies a rule that is used to schedule the backup of a
 -- selection of resources.
 --
--- 'copyActions', 'awsBackupBackupPlanRuleDetails_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
+-- 'copyActions', 'awsBackupBackupPlanRuleDetails_copyActions' - An array of @CopyAction@ objects, each of which contains details of the
+-- copy operation.
 --
 -- 'scheduleExpression', 'awsBackupBackupPlanRuleDetails_scheduleExpression' - A cron expression in UTC specifying when Backup initiates a backup job.
 --
@@ -153,8 +153,8 @@ awsBackupBackupPlanRuleDetails_targetBackupVault = Lens.lens (\AwsBackupBackupPl
 awsBackupBackupPlanRuleDetails_ruleId :: Lens.Lens' AwsBackupBackupPlanRuleDetails (Prelude.Maybe Prelude.Text)
 awsBackupBackupPlanRuleDetails_ruleId = Lens.lens (\AwsBackupBackupPlanRuleDetails' {ruleId} -> ruleId) (\s@AwsBackupBackupPlanRuleDetails' {} a -> s {ruleId = a} :: AwsBackupBackupPlanRuleDetails)
 
--- | An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
+-- | An array of @CopyAction@ objects, each of which contains details of the
+-- copy operation.
 awsBackupBackupPlanRuleDetails_copyActions :: Lens.Lens' AwsBackupBackupPlanRuleDetails (Prelude.Maybe [AwsBackupBackupPlanRuleCopyActionsDetails])
 awsBackupBackupPlanRuleDetails_copyActions = Lens.lens (\AwsBackupBackupPlanRuleDetails' {copyActions} -> copyActions) (\s@AwsBackupBackupPlanRuleDetails' {} a -> s {copyActions = a} :: AwsBackupBackupPlanRuleDetails) Prelude.. Lens.mapping Lens.coerced
 

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEfsAccessPointPosixUserDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details for all file system operations using this Amazon EFS

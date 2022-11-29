@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigDetails

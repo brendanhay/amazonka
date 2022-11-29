@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.FindingProviderFields where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.FindingProviderSeverity
 import Amazonka.SecurityHub.Types.RelatedFinding

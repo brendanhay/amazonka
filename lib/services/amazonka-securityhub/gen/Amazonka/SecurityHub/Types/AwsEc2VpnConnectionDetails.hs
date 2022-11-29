@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionRoutesDetails

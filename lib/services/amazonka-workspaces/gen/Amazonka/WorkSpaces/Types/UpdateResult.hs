@@ -20,7 +20,7 @@
 module Amazonka.WorkSpaces.Types.UpdateResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether a WorkSpace image needs to be updated with the latest

@@ -20,9 +20,10 @@
 module Amazonka.WorkSpaces.Types.Workspace where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ModificationState
+import Amazonka.WorkSpaces.Types.RelatedWorkspaceProperties
 import Amazonka.WorkSpaces.Types.WorkspaceProperties
 import Amazonka.WorkSpaces.Types.WorkspaceState
 
@@ -34,6 +35,9 @@ data Workspace = Workspace'
     workspaceProperties :: Prelude.Maybe WorkspaceProperties,
     -- | The identifier of the Directory Service directory for the WorkSpace.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The Standby WorkSpace or Primary WorkSpace related to the specified
+    -- WorkSpace.
+    relatedWorkspaces :: Prelude.Maybe [RelatedWorkspaceProperties],
     -- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
     -- Amazon WorkSpaces does not support asymmetric KMS keys.
     volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
@@ -87,6 +91,9 @@ data Workspace = Workspace'
 --
 -- 'directoryId', 'workspace_directoryId' - The identifier of the Directory Service directory for the WorkSpace.
 --
+-- 'relatedWorkspaces', 'workspace_relatedWorkspaces' - The Standby WorkSpace or Primary WorkSpace related to the specified
+-- WorkSpace.
+--
 -- 'volumeEncryptionKey', 'workspace_volumeEncryptionKey' - The symmetric KMS key used to encrypt data stored on your WorkSpace.
 -- Amazon WorkSpaces does not support asymmetric KMS keys.
 --
@@ -130,6 +137,7 @@ newWorkspace =
   Workspace'
     { workspaceProperties = Prelude.Nothing,
       directoryId = Prelude.Nothing,
+      relatedWorkspaces = Prelude.Nothing,
       volumeEncryptionKey = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       userName = Prelude.Nothing,
@@ -152,6 +160,11 @@ workspace_workspaceProperties = Lens.lens (\Workspace' {workspaceProperties} -> 
 -- | The identifier of the Directory Service directory for the WorkSpace.
 workspace_directoryId :: Lens.Lens' Workspace (Prelude.Maybe Prelude.Text)
 workspace_directoryId = Lens.lens (\Workspace' {directoryId} -> directoryId) (\s@Workspace' {} a -> s {directoryId = a} :: Workspace)
+
+-- | The Standby WorkSpace or Primary WorkSpace related to the specified
+-- WorkSpace.
+workspace_relatedWorkspaces :: Lens.Lens' Workspace (Prelude.Maybe [RelatedWorkspaceProperties])
+workspace_relatedWorkspaces = Lens.lens (\Workspace' {relatedWorkspaces} -> relatedWorkspaces) (\s@Workspace' {} a -> s {relatedWorkspaces = a} :: Workspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
 -- Amazon WorkSpaces does not support asymmetric KMS keys.
@@ -225,6 +238,9 @@ instance Core.FromJSON Workspace where
           Workspace'
             Prelude.<$> (x Core..:? "WorkspaceProperties")
             Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<*> ( x Core..:? "RelatedWorkspaces"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "VolumeEncryptionKey")
             Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "UserName")
@@ -246,6 +262,7 @@ instance Prelude.Hashable Workspace where
   hashWithSalt _salt Workspace' {..} =
     _salt `Prelude.hashWithSalt` workspaceProperties
       `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` relatedWorkspaces
       `Prelude.hashWithSalt` volumeEncryptionKey
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` userName
@@ -264,6 +281,7 @@ instance Prelude.NFData Workspace where
   rnf Workspace' {..} =
     Prelude.rnf workspaceProperties
       `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf relatedWorkspaces
       `Prelude.seq` Prelude.rnf volumeEncryptionKey
       `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf userName

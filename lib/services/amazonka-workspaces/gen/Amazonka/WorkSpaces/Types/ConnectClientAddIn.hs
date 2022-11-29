@@ -20,7 +20,7 @@
 module Amazonka.WorkSpaces.Types.ConnectClientAddIn where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Connect client add-in.

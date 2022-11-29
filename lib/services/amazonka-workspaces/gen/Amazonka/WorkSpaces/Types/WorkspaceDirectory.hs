@@ -20,8 +20,9 @@
 module Amazonka.WorkSpaces.Types.WorkspaceDirectory where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkSpaces.Types.CertificateBasedAuthProperties
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
 import Amazonka.WorkSpaces.Types.SamlProperties
 import Amazonka.WorkSpaces.Types.SelfservicePermissions
@@ -47,6 +48,10 @@ data WorkspaceDirectory = WorkspaceDirectory'
     ipGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The directory type.
     directoryType :: Prelude.Maybe WorkspaceDirectoryType,
+    -- | The certificate-based authentication properties used to authenticate
+    -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory for
+    -- WorkSpaces login.
+    certificateBasedAuthProperties :: Prelude.Maybe CertificateBasedAuthProperties,
     -- | The state of the directory\'s registration with Amazon WorkSpaces. After
     -- a directory is deregistered, the @DEREGISTERED@ state is returned very
     -- briefly before the directory metadata is cleaned up, so this state is
@@ -110,6 +115,10 @@ data WorkspaceDirectory = WorkspaceDirectory'
 --
 -- 'directoryType', 'workspaceDirectory_directoryType' - The directory type.
 --
+-- 'certificateBasedAuthProperties', 'workspaceDirectory_certificateBasedAuthProperties' - The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory for
+-- WorkSpaces login.
+--
 -- 'state', 'workspaceDirectory_state' - The state of the directory\'s registration with Amazon WorkSpaces. After
 -- a directory is deregistered, the @DEREGISTERED@ state is returned very
 -- briefly before the directory metadata is cleaned up, so this state is
@@ -158,6 +167,7 @@ newWorkspaceDirectory =
       workspaceSecurityGroupId = Prelude.Nothing,
       ipGroupIds = Prelude.Nothing,
       directoryType = Prelude.Nothing,
+      certificateBasedAuthProperties = Prelude.Nothing,
       state = Prelude.Nothing,
       customerUserName = Prelude.Nothing,
       samlProperties = Prelude.Nothing,
@@ -195,6 +205,12 @@ workspaceDirectory_ipGroupIds = Lens.lens (\WorkspaceDirectory' {ipGroupIds} -> 
 -- | The directory type.
 workspaceDirectory_directoryType :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceDirectoryType)
 workspaceDirectory_directoryType = Lens.lens (\WorkspaceDirectory' {directoryType} -> directoryType) (\s@WorkspaceDirectory' {} a -> s {directoryType = a} :: WorkspaceDirectory)
+
+-- | The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory for
+-- WorkSpaces login.
+workspaceDirectory_certificateBasedAuthProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe CertificateBasedAuthProperties)
+workspaceDirectory_certificateBasedAuthProperties = Lens.lens (\WorkspaceDirectory' {certificateBasedAuthProperties} -> certificateBasedAuthProperties) (\s@WorkspaceDirectory' {} a -> s {certificateBasedAuthProperties = a} :: WorkspaceDirectory)
 
 -- | The state of the directory\'s registration with Amazon WorkSpaces. After
 -- a directory is deregistered, the @DEREGISTERED@ state is returned very
@@ -269,6 +285,7 @@ instance Core.FromJSON WorkspaceDirectory where
             Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
             Prelude.<*> (x Core..:? "ipGroupIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DirectoryType")
+            Prelude.<*> (x Core..:? "CertificateBasedAuthProperties")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "CustomerUserName")
             Prelude.<*> (x Core..:? "SamlProperties")
@@ -290,6 +307,7 @@ instance Prelude.Hashable WorkspaceDirectory where
       `Prelude.hashWithSalt` workspaceSecurityGroupId
       `Prelude.hashWithSalt` ipGroupIds
       `Prelude.hashWithSalt` directoryType
+      `Prelude.hashWithSalt` certificateBasedAuthProperties
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` customerUserName
       `Prelude.hashWithSalt` samlProperties
@@ -310,6 +328,7 @@ instance Prelude.NFData WorkspaceDirectory where
       `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
       `Prelude.seq` Prelude.rnf ipGroupIds
       `Prelude.seq` Prelude.rnf directoryType
+      `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf customerUserName
       `Prelude.seq` Prelude.rnf samlProperties
@@ -319,5 +338,6 @@ instance Prelude.NFData WorkspaceDirectory where
       `Prelude.seq` Prelude.rnf workspaceCreationProperties
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf selfservicePermissions
-      `Prelude.seq` Prelude.rnf workspaceAccessProperties
+      `Prelude.seq` Prelude.rnf
+        workspaceAccessProperties
       `Prelude.seq` Prelude.rnf tenancy

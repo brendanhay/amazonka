@@ -20,7 +20,7 @@
 module Amazonka.WorkSpaces.Types.RootStorage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the root volume for a WorkSpace bundle.

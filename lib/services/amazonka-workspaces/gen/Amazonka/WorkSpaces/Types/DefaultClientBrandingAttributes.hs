@@ -20,7 +20,7 @@
 module Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns default client branding attributes that were imported. These

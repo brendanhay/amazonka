@@ -134,6 +134,12 @@ module Amazonka.WorkSpaces
     CreateIpGroupResponse (CreateIpGroupResponse'),
     newCreateIpGroupResponse,
 
+    -- ** CreateStandbyWorkspaces
+    CreateStandbyWorkspaces (CreateStandbyWorkspaces'),
+    newCreateStandbyWorkspaces,
+    CreateStandbyWorkspacesResponse (CreateStandbyWorkspacesResponse'),
+    newCreateStandbyWorkspacesResponse,
+
     -- ** CreateTags
     CreateTags (CreateTags'),
     newCreateTags,
@@ -350,6 +356,12 @@ module Amazonka.WorkSpaces
     ModifyAccountResponse (ModifyAccountResponse'),
     newModifyAccountResponse,
 
+    -- ** ModifyCertificateBasedAuthProperties
+    ModifyCertificateBasedAuthProperties (ModifyCertificateBasedAuthProperties'),
+    newModifyCertificateBasedAuthProperties,
+    ModifyCertificateBasedAuthPropertiesResponse (ModifyCertificateBasedAuthPropertiesResponse'),
+    newModifyCertificateBasedAuthPropertiesResponse,
+
     -- ** ModifyClientProperties
     ModifyClientProperties (ModifyClientProperties'),
     newModifyClientProperties,
@@ -481,6 +493,12 @@ module Amazonka.WorkSpaces
     -- ** AssociationStatus
     AssociationStatus (..),
 
+    -- ** BundleType
+    BundleType (..),
+
+    -- ** CertificateBasedAuthStatusEnum
+    CertificateBasedAuthStatusEnum (..),
+
     -- ** ClientDeviceType
     ClientDeviceType (..),
 
@@ -502,6 +520,9 @@ module Amazonka.WorkSpaces
     -- ** DedicatedTenancySupportResultEnum
     DedicatedTenancySupportResultEnum (..),
 
+    -- ** DeletableCertificateBasedAuthProperty
+    DeletableCertificateBasedAuthProperty (..),
+
     -- ** DeletableSamlProperty
     DeletableSamlProperty (..),
 
@@ -520,6 +541,9 @@ module Amazonka.WorkSpaces
     -- ** OperatingSystemType
     OperatingSystemType (..),
 
+    -- ** Protocol
+    Protocol (..),
+
     -- ** ReconnectEnum
     ReconnectEnum (..),
 
@@ -529,11 +553,17 @@ module Amazonka.WorkSpaces
     -- ** SamlStatusEnum
     SamlStatusEnum (..),
 
+    -- ** StandbyWorkspaceRelationshipType
+    StandbyWorkspaceRelationshipType (..),
+
     -- ** TargetWorkspaceState
     TargetWorkspaceState (..),
 
     -- ** Tenancy
     Tenancy (..),
+
+    -- ** WorkspaceBundleState
+    WorkspaceBundleState (..),
 
     -- ** WorkspaceDirectoryState
     WorkspaceDirectoryState (..),
@@ -556,6 +586,10 @@ module Amazonka.WorkSpaces
     -- ** AccountModification
     AccountModification (AccountModification'),
     newAccountModification,
+
+    -- ** CertificateBasedAuthProperties
+    CertificateBasedAuthProperties (CertificateBasedAuthProperties'),
+    newCertificateBasedAuthProperties,
 
     -- ** ClientProperties
     ClientProperties (ClientProperties'),
@@ -597,6 +631,10 @@ module Amazonka.WorkSpaces
     DefaultWorkspaceCreationProperties (DefaultWorkspaceCreationProperties'),
     newDefaultWorkspaceCreationProperties,
 
+    -- ** FailedCreateStandbyWorkspacesRequest
+    FailedCreateStandbyWorkspacesRequest (FailedCreateStandbyWorkspacesRequest'),
+    newFailedCreateStandbyWorkspacesRequest,
+
     -- ** FailedCreateWorkspaceRequest
     FailedCreateWorkspaceRequest (FailedCreateWorkspaceRequest'),
     newFailedCreateWorkspaceRequest,
@@ -629,6 +667,10 @@ module Amazonka.WorkSpaces
     OperatingSystem (OperatingSystem'),
     newOperatingSystem,
 
+    -- ** PendingCreateStandbyWorkspacesRequest
+    PendingCreateStandbyWorkspacesRequest (PendingCreateStandbyWorkspacesRequest'),
+    newPendingCreateStandbyWorkspacesRequest,
+
     -- ** RebootRequest
     RebootRequest (RebootRequest'),
     newRebootRequest,
@@ -636,6 +678,10 @@ module Amazonka.WorkSpaces
     -- ** RebuildRequest
     RebuildRequest (RebuildRequest'),
     newRebuildRequest,
+
+    -- ** RelatedWorkspaceProperties
+    RelatedWorkspaceProperties (RelatedWorkspaceProperties'),
+    newRelatedWorkspaceProperties,
 
     -- ** RootStorage
     RootStorage (RootStorage'),
@@ -652,6 +698,10 @@ module Amazonka.WorkSpaces
     -- ** Snapshot
     Snapshot (Snapshot'),
     newSnapshot,
+
+    -- ** StandbyWorkspace
+    StandbyWorkspace (StandbyWorkspace'),
+    newStandbyWorkspace,
 
     -- ** StartRequest
     StartRequest (StartRequest'),
@@ -726,6 +776,7 @@ import Amazonka.WorkSpaces.CopyWorkspaceImage
 import Amazonka.WorkSpaces.CreateConnectClientAddIn
 import Amazonka.WorkSpaces.CreateConnectionAlias
 import Amazonka.WorkSpaces.CreateIpGroup
+import Amazonka.WorkSpaces.CreateStandbyWorkspaces
 import Amazonka.WorkSpaces.CreateTags
 import Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaceBundle
@@ -763,6 +814,7 @@ import Amazonka.WorkSpaces.Lens
 import Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
 import Amazonka.WorkSpaces.MigrateWorkspace
 import Amazonka.WorkSpaces.ModifyAccount
+import Amazonka.WorkSpaces.ModifyCertificateBasedAuthProperties
 import Amazonka.WorkSpaces.ModifyClientProperties
 import Amazonka.WorkSpaces.ModifySamlProperties
 import Amazonka.WorkSpaces.ModifySelfservicePermissions

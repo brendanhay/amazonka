@@ -20,9 +20,10 @@
 module Amazonka.WorkSpaces.Types.WorkspaceProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Compute
+import Amazonka.WorkSpaces.Types.Protocol
 import Amazonka.WorkSpaces.Types.RunningMode
 
 -- | Describes a WorkSpace.
@@ -41,6 +42,18 @@ data WorkspaceProperties = WorkspaceProperties'
     -- information, see
     -- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
     runningMode :: Prelude.Maybe RunningMode,
+    -- | The protocol. For more information, see
+    -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html Protocols for Amazon WorkSpaces>.
+    --
+    -- -   Only available for WorkSpaces created with PCoIP bundles.
+    --
+    -- -   The @Protocols@ property is case sensitive. Ensure you use @PCOIP@
+    --     or @WSP@.
+    --
+    -- -   Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based
+    --     bundles (Graphics, GraphicsPro, Graphics.g4dn, and
+    --     GraphicsPro.g4dn).
+    protocols :: Prelude.Maybe [Protocol],
     -- | The compute type. For more information, see
     -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
     computeTypeName :: Prelude.Maybe Compute,
@@ -74,6 +87,18 @@ data WorkspaceProperties = WorkspaceProperties'
 -- information, see
 -- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 --
+-- 'protocols', 'workspaceProperties_protocols' - The protocol. For more information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html Protocols for Amazon WorkSpaces>.
+--
+-- -   Only available for WorkSpaces created with PCoIP bundles.
+--
+-- -   The @Protocols@ property is case sensitive. Ensure you use @PCOIP@
+--     or @WSP@.
+--
+-- -   Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based
+--     bundles (Graphics, GraphicsPro, Graphics.g4dn, and
+--     GraphicsPro.g4dn).
+--
 -- 'computeTypeName', 'workspaceProperties_computeTypeName' - The compute type. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
 --
@@ -90,6 +115,7 @@ newWorkspaceProperties =
     { userVolumeSizeGib =
         Prelude.Nothing,
       runningMode = Prelude.Nothing,
+      protocols = Prelude.Nothing,
       computeTypeName = Prelude.Nothing,
       rootVolumeSizeGib = Prelude.Nothing,
       runningModeAutoStopTimeoutInMinutes =
@@ -111,6 +137,20 @@ workspaceProperties_userVolumeSizeGib = Lens.lens (\WorkspaceProperties' {userVo
 -- <http://aws.amazon.com/workspaces/core/ Amazon WorkSpaces Core>.
 workspaceProperties_runningMode :: Lens.Lens' WorkspaceProperties (Prelude.Maybe RunningMode)
 workspaceProperties_runningMode = Lens.lens (\WorkspaceProperties' {runningMode} -> runningMode) (\s@WorkspaceProperties' {} a -> s {runningMode = a} :: WorkspaceProperties)
+
+-- | The protocol. For more information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html Protocols for Amazon WorkSpaces>.
+--
+-- -   Only available for WorkSpaces created with PCoIP bundles.
+--
+-- -   The @Protocols@ property is case sensitive. Ensure you use @PCOIP@
+--     or @WSP@.
+--
+-- -   Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based
+--     bundles (Graphics, GraphicsPro, Graphics.g4dn, and
+--     GraphicsPro.g4dn).
+workspaceProperties_protocols :: Lens.Lens' WorkspaceProperties (Prelude.Maybe [Protocol])
+workspaceProperties_protocols = Lens.lens (\WorkspaceProperties' {protocols} -> protocols) (\s@WorkspaceProperties' {} a -> s {protocols = a} :: WorkspaceProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | The compute type. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
@@ -136,6 +176,7 @@ instance Core.FromJSON WorkspaceProperties where
           WorkspaceProperties'
             Prelude.<$> (x Core..:? "UserVolumeSizeGib")
             Prelude.<*> (x Core..:? "RunningMode")
+            Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ComputeTypeName")
             Prelude.<*> (x Core..:? "RootVolumeSizeGib")
             Prelude.<*> (x Core..:? "RunningModeAutoStopTimeoutInMinutes")
@@ -145,6 +186,7 @@ instance Prelude.Hashable WorkspaceProperties where
   hashWithSalt _salt WorkspaceProperties' {..} =
     _salt `Prelude.hashWithSalt` userVolumeSizeGib
       `Prelude.hashWithSalt` runningMode
+      `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` computeTypeName
       `Prelude.hashWithSalt` rootVolumeSizeGib
       `Prelude.hashWithSalt` runningModeAutoStopTimeoutInMinutes
@@ -153,6 +195,7 @@ instance Prelude.NFData WorkspaceProperties where
   rnf WorkspaceProperties' {..} =
     Prelude.rnf userVolumeSizeGib
       `Prelude.seq` Prelude.rnf runningMode
+      `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf computeTypeName
       `Prelude.seq` Prelude.rnf rootVolumeSizeGib
       `Prelude.seq` Prelude.rnf runningModeAutoStopTimeoutInMinutes
@@ -164,6 +207,7 @@ instance Core.ToJSON WorkspaceProperties where
           [ ("UserVolumeSizeGib" Core..=)
               Prelude.<$> userVolumeSizeGib,
             ("RunningMode" Core..=) Prelude.<$> runningMode,
+            ("Protocols" Core..=) Prelude.<$> protocols,
             ("ComputeTypeName" Core..=)
               Prelude.<$> computeTypeName,
             ("RootVolumeSizeGib" Core..=)

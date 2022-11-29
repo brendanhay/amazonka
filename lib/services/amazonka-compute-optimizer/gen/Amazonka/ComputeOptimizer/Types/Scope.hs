@@ -21,7 +21,7 @@ module Amazonka.ComputeOptimizer.Types.Scope where
 
 import Amazonka.ComputeOptimizer.Types.ScopeName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the scope of a recommendation preference.

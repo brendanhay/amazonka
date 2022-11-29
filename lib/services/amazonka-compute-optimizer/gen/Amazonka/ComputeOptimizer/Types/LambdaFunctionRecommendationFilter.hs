@@ -21,7 +21,7 @@ module Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter where
 
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilterName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that returns a more specific list of Lambda function

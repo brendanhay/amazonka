@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric where
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricName
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricStatistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of an Lambda function.

@@ -25,7 +25,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Lambda function recommendation.

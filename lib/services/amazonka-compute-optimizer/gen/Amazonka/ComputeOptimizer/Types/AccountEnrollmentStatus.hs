@@ -21,7 +21,7 @@ module Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus where
 
 import Amazonka.ComputeOptimizer.Types.Status
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the enrollment status of an organization\'s member accounts in

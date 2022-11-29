@@ -25,7 +25,7 @@ import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Elastic Block Store (Amazon EBS) volume

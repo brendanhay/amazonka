@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.Summary where
 import Amazonka.ComputeOptimizer.Types.Finding
 import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a recommendation.

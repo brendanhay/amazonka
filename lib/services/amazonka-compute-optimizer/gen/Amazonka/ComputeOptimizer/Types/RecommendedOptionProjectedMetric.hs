@@ -21,7 +21,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendedOptionProjectedMetric where
 
 import Amazonka.ComputeOptimizer.Types.ProjectedMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a projected utilization metric of a recommendation option.

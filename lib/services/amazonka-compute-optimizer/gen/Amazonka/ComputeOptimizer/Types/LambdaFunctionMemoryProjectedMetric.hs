@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric where
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a projected utilization metric of an Lambda function

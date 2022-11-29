@@ -42,14 +42,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePricingPlan' smart constructor.
 data DeletePricingPlan = DeletePricingPlan'
-  { -- | The Amazon Resource Name (ARN) of the pricing plan you\'re deleting.
+  { -- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
+    -- deleting.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +63,8 @@ data DeletePricingPlan = DeletePricingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deletePricingPlan_arn' - The Amazon Resource Name (ARN) of the pricing plan you\'re deleting.
+-- 'arn', 'deletePricingPlan_arn' - The Amazon Resource Name (ARN) of the pricing plan that you\'re
+-- deleting.
 newDeletePricingPlan ::
   -- | 'arn'
   Prelude.Text ->
@@ -70,7 +72,8 @@ newDeletePricingPlan ::
 newDeletePricingPlan pArn_ =
   DeletePricingPlan' {arn = pArn_}
 
--- | The Amazon Resource Name (ARN) of the pricing plan you\'re deleting.
+-- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
+-- deleting.
 deletePricingPlan_arn :: Lens.Lens' DeletePricingPlan Prelude.Text
 deletePricingPlan_arn = Lens.lens (\DeletePricingPlan' {arn} -> arn) (\s@DeletePricingPlan' {} a -> s {arn = a} :: DeletePricingPlan)
 
@@ -78,8 +81,8 @@ instance Core.AWSRequest DeletePricingPlan where
   type
     AWSResponse DeletePricingPlan =
       DeletePricingPlanResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

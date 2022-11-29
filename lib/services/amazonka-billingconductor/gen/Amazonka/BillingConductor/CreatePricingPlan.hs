@@ -46,7 +46,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,12 +59,13 @@ data CreatePricingPlan = CreatePricingPlan'
     -- | The token that is needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The pricing plan description.
+    -- | The description of the pricing plan.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A list of Amazon Resource Names (ARNs) that define the pricing plan
     -- parameters.
     pricingRuleArns :: Prelude.Maybe [Prelude.Text],
-    -- | The pricing plan name. The names must be unique to each pricing plan.
+    -- | The name of the pricing plan. The names must be unique to each pricing
+    -- plan.
     name :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -83,12 +84,13 @@ data CreatePricingPlan = CreatePricingPlan'
 -- 'clientToken', 'createPricingPlan_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 --
--- 'description', 'createPricingPlan_description' - The pricing plan description.
+-- 'description', 'createPricingPlan_description' - The description of the pricing plan.
 --
 -- 'pricingRuleArns', 'createPricingPlan_pricingRuleArns' - A list of Amazon Resource Names (ARNs) that define the pricing plan
 -- parameters.
 --
--- 'name', 'createPricingPlan_name' - The pricing plan name. The names must be unique to each pricing plan.
+-- 'name', 'createPricingPlan_name' - The name of the pricing plan. The names must be unique to each pricing
+-- plan.
 newCreatePricingPlan ::
   -- | 'name'
   Prelude.Text ->
@@ -112,7 +114,7 @@ createPricingPlan_tags = Lens.lens (\CreatePricingPlan' {tags} -> tags) (\s@Crea
 createPricingPlan_clientToken :: Lens.Lens' CreatePricingPlan (Prelude.Maybe Prelude.Text)
 createPricingPlan_clientToken = Lens.lens (\CreatePricingPlan' {clientToken} -> clientToken) (\s@CreatePricingPlan' {} a -> s {clientToken = a} :: CreatePricingPlan)
 
--- | The pricing plan description.
+-- | The description of the pricing plan.
 createPricingPlan_description :: Lens.Lens' CreatePricingPlan (Prelude.Maybe Prelude.Text)
 createPricingPlan_description = Lens.lens (\CreatePricingPlan' {description} -> description) (\s@CreatePricingPlan' {} a -> s {description = a} :: CreatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
 
@@ -121,7 +123,8 @@ createPricingPlan_description = Lens.lens (\CreatePricingPlan' {description} -> 
 createPricingPlan_pricingRuleArns :: Lens.Lens' CreatePricingPlan (Prelude.Maybe [Prelude.Text])
 createPricingPlan_pricingRuleArns = Lens.lens (\CreatePricingPlan' {pricingRuleArns} -> pricingRuleArns) (\s@CreatePricingPlan' {} a -> s {pricingRuleArns = a} :: CreatePricingPlan) Prelude.. Lens.mapping Lens.coerced
 
--- | The pricing plan name. The names must be unique to each pricing plan.
+-- | The name of the pricing plan. The names must be unique to each pricing
+-- plan.
 createPricingPlan_name :: Lens.Lens' CreatePricingPlan Prelude.Text
 createPricingPlan_name = Lens.lens (\CreatePricingPlan' {name} -> name) (\s@CreatePricingPlan' {} a -> s {name = a} :: CreatePricingPlan) Prelude.. Core._Sensitive
 
@@ -129,8 +132,8 @@ instance Core.AWSRequest CreatePricingPlan where
   type
     AWSResponse CreatePricingPlan =
       CreatePricingPlanResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

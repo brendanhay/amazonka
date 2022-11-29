@@ -20,11 +20,11 @@
 module Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A representation of the charge details associated with a flat custom
--- line item.
+-- | A representation of the charge details that are associated with a flat
+-- custom line item.
 --
 -- /See:/ 'newListCustomLineItemFlatChargeDetails' smart constructor.
 data ListCustomLineItemFlatChargeDetails = ListCustomLineItemFlatChargeDetails'

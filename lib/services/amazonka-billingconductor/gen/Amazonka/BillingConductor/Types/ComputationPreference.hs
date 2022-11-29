@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.ComputationPreference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The preferences and settings that will be used to compute the Amazon Web
@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComputationPreference' smart constructor.
 data ComputationPreference = ComputationPreference'
-  { -- | The Amazon Resource Name (ARN) of the pricing plan used to compute the
-    -- Amazon Web Services charges for a billing group.
+  { -- | The Amazon Resource Name (ARN) of the pricing plan that\'s used to
+    -- compute the Amazon Web Services charges for a billing group.
     pricingPlanArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +42,8 @@ data ComputationPreference = ComputationPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlanArn', 'computationPreference_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan used to compute the
--- Amazon Web Services charges for a billing group.
+-- 'pricingPlanArn', 'computationPreference_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan that\'s used to
+-- compute the Amazon Web Services charges for a billing group.
 newComputationPreference ::
   -- | 'pricingPlanArn'
   Prelude.Text ->
@@ -54,8 +54,8 @@ newComputationPreference pPricingPlanArn_ =
         pPricingPlanArn_
     }
 
--- | The Amazon Resource Name (ARN) of the pricing plan used to compute the
--- Amazon Web Services charges for a billing group.
+-- | The Amazon Resource Name (ARN) of the pricing plan that\'s used to
+-- compute the Amazon Web Services charges for a billing group.
 computationPreference_pricingPlanArn :: Lens.Lens' ComputationPreference Prelude.Text
 computationPreference_pricingPlanArn = Lens.lens (\ComputationPreference' {pricingPlanArn} -> pricingPlanArn) (\s@ComputationPreference' {} a -> s {pricingPlanArn = a} :: ComputationPreference)
 

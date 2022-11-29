@@ -41,14 +41,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBillingGroup' smart constructor.
 data DeleteBillingGroup = DeleteBillingGroup'
-  { -- | The Amazon Resource Name (ARN) of the billing group you\'re deleting.
+  { -- | The Amazon Resource Name (ARN) of the billing group that you\'re
+    -- deleting.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +62,8 @@ data DeleteBillingGroup = DeleteBillingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deleteBillingGroup_arn' - The Amazon Resource Name (ARN) of the billing group you\'re deleting.
+-- 'arn', 'deleteBillingGroup_arn' - The Amazon Resource Name (ARN) of the billing group that you\'re
+-- deleting.
 newDeleteBillingGroup ::
   -- | 'arn'
   Prelude.Text ->
@@ -69,7 +71,8 @@ newDeleteBillingGroup ::
 newDeleteBillingGroup pArn_ =
   DeleteBillingGroup' {arn = pArn_}
 
--- | The Amazon Resource Name (ARN) of the billing group you\'re deleting.
+-- | The Amazon Resource Name (ARN) of the billing group that you\'re
+-- deleting.
 deleteBillingGroup_arn :: Lens.Lens' DeleteBillingGroup Prelude.Text
 deleteBillingGroup_arn = Lens.lens (\DeleteBillingGroup' {arn} -> arn) (\s@DeleteBillingGroup' {} a -> s {arn = a} :: DeleteBillingGroup)
 
@@ -77,8 +80,8 @@ instance Core.AWSRequest DeleteBillingGroup where
   type
     AWSResponse DeleteBillingGroup =
       DeleteBillingGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

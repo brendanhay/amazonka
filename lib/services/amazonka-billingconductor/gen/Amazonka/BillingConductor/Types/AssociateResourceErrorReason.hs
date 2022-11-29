@@ -23,6 +23,7 @@ module Amazonka.BillingConductor.Types.AssociateResourceErrorReason
         AssociateResourceErrorReason_ILLEGAL_CUSTOMLINEITEM,
         AssociateResourceErrorReason_INTERNAL_SERVER_EXCEPTION,
         AssociateResourceErrorReason_INVALID_ARN,
+        AssociateResourceErrorReason_INVALID_BILLING_PERIOD_RANGE,
         AssociateResourceErrorReason_SERVICE_LIMIT_EXCEEDED
       ),
   )
@@ -68,6 +69,9 @@ pattern AssociateResourceErrorReason_INTERNAL_SERVER_EXCEPTION = AssociateResour
 pattern AssociateResourceErrorReason_INVALID_ARN :: AssociateResourceErrorReason
 pattern AssociateResourceErrorReason_INVALID_ARN = AssociateResourceErrorReason' "INVALID_ARN"
 
+pattern AssociateResourceErrorReason_INVALID_BILLING_PERIOD_RANGE :: AssociateResourceErrorReason
+pattern AssociateResourceErrorReason_INVALID_BILLING_PERIOD_RANGE = AssociateResourceErrorReason' "INVALID_BILLING_PERIOD_RANGE"
+
 pattern AssociateResourceErrorReason_SERVICE_LIMIT_EXCEEDED :: AssociateResourceErrorReason
 pattern AssociateResourceErrorReason_SERVICE_LIMIT_EXCEEDED = AssociateResourceErrorReason' "SERVICE_LIMIT_EXCEEDED"
 
@@ -75,6 +79,7 @@ pattern AssociateResourceErrorReason_SERVICE_LIMIT_EXCEEDED = AssociateResourceE
   AssociateResourceErrorReason_ILLEGAL_CUSTOMLINEITEM,
   AssociateResourceErrorReason_INTERNAL_SERVER_EXCEPTION,
   AssociateResourceErrorReason_INVALID_ARN,
+  AssociateResourceErrorReason_INVALID_BILLING_PERIOD_RANGE,
   AssociateResourceErrorReason_SERVICE_LIMIT_EXCEEDED,
   AssociateResourceErrorReason'
   #-}

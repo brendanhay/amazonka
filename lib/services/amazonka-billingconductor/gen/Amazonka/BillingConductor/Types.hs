@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -103,8 +104,8 @@ module Amazonka.BillingConductor.Types
     -- * CustomLineItemBillingPeriodRange
     CustomLineItemBillingPeriodRange (..),
     newCustomLineItemBillingPeriodRange,
-    customLineItemBillingPeriodRange_inclusiveStartBillingPeriod,
     customLineItemBillingPeriodRange_exclusiveEndBillingPeriod,
+    customLineItemBillingPeriodRange_inclusiveStartBillingPeriod,
 
     -- * CustomLineItemChargeDetails
     CustomLineItemChargeDetails (..),
@@ -137,6 +138,21 @@ module Amazonka.BillingConductor.Types
     newCustomLineItemPercentageChargeDetails,
     customLineItemPercentageChargeDetails_associatedValues,
     customLineItemPercentageChargeDetails_percentageValue,
+
+    -- * CustomLineItemVersionListElement
+    CustomLineItemVersionListElement (..),
+    newCustomLineItemVersionListElement,
+    customLineItemVersionListElement_name,
+    customLineItemVersionListElement_chargeDetails,
+    customLineItemVersionListElement_billingGroupArn,
+    customLineItemVersionListElement_associationSize,
+    customLineItemVersionListElement_productCode,
+    customLineItemVersionListElement_description,
+    customLineItemVersionListElement_currencyCode,
+    customLineItemVersionListElement_lastModifiedTime,
+    customLineItemVersionListElement_startBillingPeriod,
+    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_creationTime,
 
     -- * DisassociateResourceResponseElement
     DisassociateResourceResponseElement (..),
@@ -178,6 +194,17 @@ module Amazonka.BillingConductor.Types
     newListCustomLineItemPercentageChargeDetails,
     listCustomLineItemPercentageChargeDetails_percentageValue,
 
+    -- * ListCustomLineItemVersionsBillingPeriodRangeFilter
+    ListCustomLineItemVersionsBillingPeriodRangeFilter (..),
+    newListCustomLineItemVersionsBillingPeriodRangeFilter,
+    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
+    listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod,
+
+    -- * ListCustomLineItemVersionsFilter
+    ListCustomLineItemVersionsFilter (..),
+    newListCustomLineItemVersionsFilter,
+    listCustomLineItemVersionsFilter_billingPeriodRange,
+
     -- * ListCustomLineItemsFilter
     ListCustomLineItemsFilter (..),
     newListCustomLineItemsFilter,
@@ -205,6 +232,7 @@ module Amazonka.BillingConductor.Types
     newListResourcesAssociatedToCustomLineItemResponseElement,
     listResourcesAssociatedToCustomLineItemResponseElement_relationship,
     listResourcesAssociatedToCustomLineItemResponseElement_arn,
+    listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod,
 
     -- * PricingPlanListElement
     PricingPlanListElement (..),
@@ -221,6 +249,7 @@ module Amazonka.BillingConductor.Types
     newPricingRuleListElement,
     pricingRuleListElement_modifierPercentage,
     pricingRuleListElement_name,
+    pricingRuleListElement_billingEntity,
     pricingRuleListElement_type,
     pricingRuleListElement_arn,
     pricingRuleListElement_description,
@@ -265,6 +294,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemListElement
 import Amazonka.BillingConductor.Types.CustomLineItemPercentageChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import Amazonka.BillingConductor.Types.CustomLineItemType
+import Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
 import Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
 import Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
@@ -272,6 +302,8 @@ import Amazonka.BillingConductor.Types.ListBillingGroupsFilter
 import Amazonka.BillingConductor.Types.ListCustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
+import Amazonka.BillingConductor.Types.ListCustomLineItemVersionsBillingPeriodRangeFilter
+import Amazonka.BillingConductor.Types.ListCustomLineItemVersionsFilter
 import Amazonka.BillingConductor.Types.ListCustomLineItemsFilter
 import Amazonka.BillingConductor.Types.ListPricingPlansFilter
 import Amazonka.BillingConductor.Types.ListPricingRulesFilter
@@ -285,7 +317,7 @@ import Amazonka.BillingConductor.Types.UpdateCustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemPercentageChargeDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -293,29 +325,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "BillingConductor",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "billingconductor",
-      Core._serviceSigningName = "billingconductor",
-      Core._serviceVersion = "2021-07-30",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "BillingConductor",
-      Core._serviceRetry = retry
+    { Core.abbrev = "BillingConductor",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "billingconductor",
+      Core.signingName = "billingconductor",
+      Core.version = "2021-07-30",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "BillingConductor",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -49,14 +49,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBillingGroups' smart constructor.
 data ListBillingGroups = ListBillingGroups'
-  { -- | The pagination token used on subsequent calls to get billing groups.
+  { -- | The pagination token that\'s used on subsequent calls to get billing
+    -- groups.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period to get billing groups.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -76,7 +77,8 @@ data ListBillingGroups = ListBillingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroups_nextToken' - The pagination token used on subsequent calls to get billing groups.
+-- 'nextToken', 'listBillingGroups_nextToken' - The pagination token that\'s used on subsequent calls to get billing
+-- groups.
 --
 -- 'billingPeriod', 'listBillingGroups_billingPeriod' - The preferred billing period to get billing groups.
 --
@@ -94,7 +96,8 @@ newListBillingGroups =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent calls to get billing groups.
+-- | The pagination token that\'s used on subsequent calls to get billing
+-- groups.
 listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
 listBillingGroups_nextToken = Lens.lens (\ListBillingGroups' {nextToken} -> nextToken) (\s@ListBillingGroups' {} a -> s {nextToken = a} :: ListBillingGroups)
 
@@ -137,8 +140,8 @@ instance Core.AWSRequest ListBillingGroups where
   type
     AWSResponse ListBillingGroups =
       ListBillingGroupsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,7 +195,8 @@ instance Core.ToQuery ListBillingGroups where
 
 -- | /See:/ 'newListBillingGroupsResponse' smart constructor.
 data ListBillingGroupsResponse = ListBillingGroupsResponse'
-  { -- | The pagination token used on subsequent calls to get billing groups.
+  { -- | The pagination token that\'s used on subsequent calls to get billing
+    -- groups.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @BillingGroupListElement@ retrieved.
     billingGroups :: Prelude.Maybe [BillingGroupListElement],
@@ -209,7 +213,8 @@ data ListBillingGroupsResponse = ListBillingGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroupsResponse_nextToken' - The pagination token used on subsequent calls to get billing groups.
+-- 'nextToken', 'listBillingGroupsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get billing
+-- groups.
 --
 -- 'billingGroups', 'listBillingGroupsResponse_billingGroups' - A list of @BillingGroupListElement@ retrieved.
 --
@@ -226,7 +231,8 @@ newListBillingGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get billing groups.
+-- | The pagination token that\'s used on subsequent calls to get billing
+-- groups.
 listBillingGroupsResponse_nextToken :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe Prelude.Text)
 listBillingGroupsResponse_nextToken = Lens.lens (\ListBillingGroupsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupsResponse' {} a -> s {nextToken = a} :: ListBillingGroupsResponse)
 

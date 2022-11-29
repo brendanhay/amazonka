@@ -21,7 +21,7 @@ module Amazonka.BillingConductor.Types.DisassociateResourceResponseElement where
 
 import Amazonka.BillingConductor.Types.AssociateResourceError
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource disassociation result for a percentage custom line item.
@@ -30,7 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data DisassociateResourceResponseElement = DisassociateResourceResponseElement'
   { -- | The resource ARN that was disassociated from the custom line item.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | An @AssociateResourceError@ shown if the resource disassociation fails.
+    -- | An @AssociateResourceError@ that\'s shown if the resource disassociation
+    -- fails.
     error :: Prelude.Maybe AssociateResourceError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +46,8 @@ data DisassociateResourceResponseElement = DisassociateResourceResponseElement'
 --
 -- 'arn', 'disassociateResourceResponseElement_arn' - The resource ARN that was disassociated from the custom line item.
 --
--- 'error', 'disassociateResourceResponseElement_error' - An @AssociateResourceError@ shown if the resource disassociation fails.
+-- 'error', 'disassociateResourceResponseElement_error' - An @AssociateResourceError@ that\'s shown if the resource disassociation
+-- fails.
 newDisassociateResourceResponseElement ::
   DisassociateResourceResponseElement
 newDisassociateResourceResponseElement =
@@ -59,7 +61,8 @@ newDisassociateResourceResponseElement =
 disassociateResourceResponseElement_arn :: Lens.Lens' DisassociateResourceResponseElement (Prelude.Maybe Prelude.Text)
 disassociateResourceResponseElement_arn = Lens.lens (\DisassociateResourceResponseElement' {arn} -> arn) (\s@DisassociateResourceResponseElement' {} a -> s {arn = a} :: DisassociateResourceResponseElement)
 
--- | An @AssociateResourceError@ shown if the resource disassociation fails.
+-- | An @AssociateResourceError@ that\'s shown if the resource disassociation
+-- fails.
 disassociateResourceResponseElement_error :: Lens.Lens' DisassociateResourceResponseElement (Prelude.Maybe AssociateResourceError)
 disassociateResourceResponseElement_error = Lens.lens (\DisassociateResourceResponseElement' {error} -> error) (\s@DisassociateResourceResponseElement' {} a -> s {error = a} :: DisassociateResourceResponseElement)
 

@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.ListBillingGroupsFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter that specifies the billing groups and pricing plans to

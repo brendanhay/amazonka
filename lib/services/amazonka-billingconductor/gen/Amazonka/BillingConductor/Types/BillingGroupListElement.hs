@@ -22,14 +22,14 @@ module Amazonka.BillingConductor.Types.BillingGroupListElement where
 import Amazonka.BillingConductor.Types.BillingGroupStatus
 import Amazonka.BillingConductor.Types.ComputationPreference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a billing group.
 --
 -- /See:/ 'newBillingGroupListElement' smart constructor.
 data BillingGroupListElement = BillingGroupListElement'
-  { -- | The billing group\'s name.
+  { -- | The name of the billing group.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Number (ARN) that can be used to uniquely identify
     -- the billing group.
@@ -40,11 +40,11 @@ data BillingGroupListElement = BillingGroupListElement'
     size :: Prelude.Maybe Prelude.Natural,
     -- | The billing group status. Only one of the valid values can be used.
     status :: Prelude.Maybe BillingGroupStatus,
-    -- | The billing group description.
+    -- | The description of the billing group.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The most recent time the billing group was modified.
+    -- | The most recent time when the billing group was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
-    -- | The time the billing group was created.
+    -- | The time when the billing group was created.
     creationTime :: Prelude.Maybe Prelude.Integer,
     computationPreference :: Prelude.Maybe ComputationPreference,
     -- | The account ID that serves as the main account in a billing group.
@@ -60,7 +60,7 @@ data BillingGroupListElement = BillingGroupListElement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'billingGroupListElement_name' - The billing group\'s name.
+-- 'name', 'billingGroupListElement_name' - The name of the billing group.
 --
 -- 'arn', 'billingGroupListElement_arn' - The Amazon Resource Number (ARN) that can be used to uniquely identify
 -- the billing group.
@@ -71,11 +71,11 @@ data BillingGroupListElement = BillingGroupListElement'
 --
 -- 'status', 'billingGroupListElement_status' - The billing group status. Only one of the valid values can be used.
 --
--- 'description', 'billingGroupListElement_description' - The billing group description.
+-- 'description', 'billingGroupListElement_description' - The description of the billing group.
 --
--- 'lastModifiedTime', 'billingGroupListElement_lastModifiedTime' - The most recent time the billing group was modified.
+-- 'lastModifiedTime', 'billingGroupListElement_lastModifiedTime' - The most recent time when the billing group was modified.
 --
--- 'creationTime', 'billingGroupListElement_creationTime' - The time the billing group was created.
+-- 'creationTime', 'billingGroupListElement_creationTime' - The time when the billing group was created.
 --
 -- 'computationPreference', 'billingGroupListElement_computationPreference' - Undocumented member.
 --
@@ -96,7 +96,7 @@ newBillingGroupListElement =
       primaryAccountId = Prelude.Nothing
     }
 
--- | The billing group\'s name.
+-- | The name of the billing group.
 billingGroupListElement_name :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Text)
 billingGroupListElement_name = Lens.lens (\BillingGroupListElement' {name} -> name) (\s@BillingGroupListElement' {} a -> s {name = a} :: BillingGroupListElement) Prelude.. Lens.mapping Core._Sensitive
 
@@ -117,15 +117,15 @@ billingGroupListElement_size = Lens.lens (\BillingGroupListElement' {size} -> si
 billingGroupListElement_status :: Lens.Lens' BillingGroupListElement (Prelude.Maybe BillingGroupStatus)
 billingGroupListElement_status = Lens.lens (\BillingGroupListElement' {status} -> status) (\s@BillingGroupListElement' {} a -> s {status = a} :: BillingGroupListElement)
 
--- | The billing group description.
+-- | The description of the billing group.
 billingGroupListElement_description :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Text)
 billingGroupListElement_description = Lens.lens (\BillingGroupListElement' {description} -> description) (\s@BillingGroupListElement' {} a -> s {description = a} :: BillingGroupListElement) Prelude.. Lens.mapping Core._Sensitive
 
--- | The most recent time the billing group was modified.
+-- | The most recent time when the billing group was modified.
 billingGroupListElement_lastModifiedTime :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Integer)
 billingGroupListElement_lastModifiedTime = Lens.lens (\BillingGroupListElement' {lastModifiedTime} -> lastModifiedTime) (\s@BillingGroupListElement' {} a -> s {lastModifiedTime = a} :: BillingGroupListElement)
 
--- | The time the billing group was created.
+-- | The time when the billing group was created.
 billingGroupListElement_creationTime :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Integer)
 billingGroupListElement_creationTime = Lens.lens (\BillingGroupListElement' {creationTime} -> creationTime) (\s@BillingGroupListElement' {} a -> s {creationTime = a} :: BillingGroupListElement)
 

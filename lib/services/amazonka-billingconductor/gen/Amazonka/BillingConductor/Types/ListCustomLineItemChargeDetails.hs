@@ -23,7 +23,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemType
 import Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the charge details of a custom line item.

@@ -21,7 +21,7 @@ module Amazonka.BillingConductor.Types.AssociateResourceResponseElement where
 
 import Amazonka.BillingConductor.Types.AssociateResourceError
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource association result for a percentage custom line item.

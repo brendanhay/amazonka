@@ -30,6 +30,7 @@ module Amazonka.BillingConductor.CreatePricingRule
     -- * Request Lenses
     createPricingRule_tags,
     createPricingRule_clientToken,
+    createPricingRule_billingEntity,
     createPricingRule_description,
     createPricingRule_service,
     createPricingRule_name,
@@ -49,7 +50,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,9 +60,13 @@ data CreatePricingRule = CreatePricingRule'
   { -- | A map that contains tag keys and tag values that are attached to a
     -- pricing rule.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The token that is needed to support idempotency. Idempotency isn\'t
+    -- | The token that\'s needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The seller of services provided by Amazon Web Services, their
+    -- affiliates, or third-party providers selling services via Amazon Web
+    -- Services Marketplace.
+    billingEntity :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule description.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
@@ -69,12 +74,12 @@ data CreatePricingRule = CreatePricingRule'
     service :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule name. The names must be unique to each pricing rule.
     name :: Core.Sensitive Prelude.Text,
-    -- | The scope of pricing rule that indicates if it is globally applicable,
-    -- or is service-specific.
+    -- | The scope of pricing rule that indicates if it\'s globally applicable,
+    -- or it\'s service-specific.
     scope :: PricingRuleScope,
     -- | The type of pricing rule.
     type' :: PricingRuleType,
-    -- | A percentage modifier applied on the public pricing rates.
+    -- | A percentage modifier that\'s applied on the public pricing rates.
     modifierPercentage :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -90,8 +95,12 @@ data CreatePricingRule = CreatePricingRule'
 -- 'tags', 'createPricingRule_tags' - A map that contains tag keys and tag values that are attached to a
 -- pricing rule.
 --
--- 'clientToken', 'createPricingRule_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
+-- 'clientToken', 'createPricingRule_clientToken' - The token that\'s needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
+--
+-- 'billingEntity', 'createPricingRule_billingEntity' - The seller of services provided by Amazon Web Services, their
+-- affiliates, or third-party providers selling services via Amazon Web
+-- Services Marketplace.
 --
 -- 'description', 'createPricingRule_description' - The pricing rule description.
 --
@@ -100,12 +109,12 @@ data CreatePricingRule = CreatePricingRule'
 --
 -- 'name', 'createPricingRule_name' - The pricing rule name. The names must be unique to each pricing rule.
 --
--- 'scope', 'createPricingRule_scope' - The scope of pricing rule that indicates if it is globally applicable,
--- or is service-specific.
+-- 'scope', 'createPricingRule_scope' - The scope of pricing rule that indicates if it\'s globally applicable,
+-- or it\'s service-specific.
 --
 -- 'type'', 'createPricingRule_type' - The type of pricing rule.
 --
--- 'modifierPercentage', 'createPricingRule_modifierPercentage' - A percentage modifier applied on the public pricing rates.
+-- 'modifierPercentage', 'createPricingRule_modifierPercentage' - A percentage modifier that\'s applied on the public pricing rates.
 newCreatePricingRule ::
   -- | 'name'
   Prelude.Text ->
@@ -124,6 +133,7 @@ newCreatePricingRule
     CreatePricingRule'
       { tags = Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        billingEntity = Prelude.Nothing,
         description = Prelude.Nothing,
         service = Prelude.Nothing,
         name = Core._Sensitive Lens.# pName_,
@@ -137,10 +147,16 @@ newCreatePricingRule
 createPricingRule_tags :: Lens.Lens' CreatePricingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPricingRule_tags = Lens.lens (\CreatePricingRule' {tags} -> tags) (\s@CreatePricingRule' {} a -> s {tags = a} :: CreatePricingRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The token that is needed to support idempotency. Idempotency isn\'t
+-- | The token that\'s needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 createPricingRule_clientToken :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
 createPricingRule_clientToken = Lens.lens (\CreatePricingRule' {clientToken} -> clientToken) (\s@CreatePricingRule' {} a -> s {clientToken = a} :: CreatePricingRule)
+
+-- | The seller of services provided by Amazon Web Services, their
+-- affiliates, or third-party providers selling services via Amazon Web
+-- Services Marketplace.
+createPricingRule_billingEntity :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
+createPricingRule_billingEntity = Lens.lens (\CreatePricingRule' {billingEntity} -> billingEntity) (\s@CreatePricingRule' {} a -> s {billingEntity = a} :: CreatePricingRule)
 
 -- | The pricing rule description.
 createPricingRule_description :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
@@ -155,8 +171,8 @@ createPricingRule_service = Lens.lens (\CreatePricingRule' {service} -> service)
 createPricingRule_name :: Lens.Lens' CreatePricingRule Prelude.Text
 createPricingRule_name = Lens.lens (\CreatePricingRule' {name} -> name) (\s@CreatePricingRule' {} a -> s {name = a} :: CreatePricingRule) Prelude.. Core._Sensitive
 
--- | The scope of pricing rule that indicates if it is globally applicable,
--- or is service-specific.
+-- | The scope of pricing rule that indicates if it\'s globally applicable,
+-- or it\'s service-specific.
 createPricingRule_scope :: Lens.Lens' CreatePricingRule PricingRuleScope
 createPricingRule_scope = Lens.lens (\CreatePricingRule' {scope} -> scope) (\s@CreatePricingRule' {} a -> s {scope = a} :: CreatePricingRule)
 
@@ -164,7 +180,7 @@ createPricingRule_scope = Lens.lens (\CreatePricingRule' {scope} -> scope) (\s@C
 createPricingRule_type :: Lens.Lens' CreatePricingRule PricingRuleType
 createPricingRule_type = Lens.lens (\CreatePricingRule' {type'} -> type') (\s@CreatePricingRule' {} a -> s {type' = a} :: CreatePricingRule)
 
--- | A percentage modifier applied on the public pricing rates.
+-- | A percentage modifier that\'s applied on the public pricing rates.
 createPricingRule_modifierPercentage :: Lens.Lens' CreatePricingRule Prelude.Double
 createPricingRule_modifierPercentage = Lens.lens (\CreatePricingRule' {modifierPercentage} -> modifierPercentage) (\s@CreatePricingRule' {} a -> s {modifierPercentage = a} :: CreatePricingRule)
 
@@ -172,8 +188,8 @@ instance Core.AWSRequest CreatePricingRule where
   type
     AWSResponse CreatePricingRule =
       CreatePricingRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +202,7 @@ instance Prelude.Hashable CreatePricingRule where
   hashWithSalt _salt CreatePricingRule' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` name
@@ -197,6 +214,7 @@ instance Prelude.NFData CreatePricingRule where
   rnf CreatePricingRule' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf billingEntity
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf name
@@ -217,6 +235,7 @@ instance Core.ToJSON CreatePricingRule where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("BillingEntity" Core..=) Prelude.<$> billingEntity,
             ("Description" Core..=) Prelude.<$> description,
             ("Service" Core..=) Prelude.<$> service,
             Prelude.Just ("Name" Core..= name),

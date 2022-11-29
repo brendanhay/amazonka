@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A list of the pricing plans associated with a pricing rule.
+-- A list of the pricing plans that are associated with a pricing rule.
 --
 -- This operation returns paginated results.
 module Amazonka.BillingConductor.ListPricingPlansAssociatedWithPricingRule
@@ -49,7 +49,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,8 +150,8 @@ instance
     AWSResponse
       ListPricingPlansAssociatedWithPricingRule =
       ListPricingPlansAssociatedWithPricingRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -232,8 +232,8 @@ instance
 data ListPricingPlansAssociatedWithPricingRuleResponse = ListPricingPlansAssociatedWithPricingRuleResponse'
   { -- | The pagination token to be used on subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list containing pricing plans associated with the requested pricing
-    -- rule.
+    -- | The list containing pricing plans that are associated with the requested
+    -- pricing rule.
     pricingPlanArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The pricing plan billing period for which associations will be listed.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -255,8 +255,8 @@ data ListPricingPlansAssociatedWithPricingRuleResponse = ListPricingPlansAssocia
 --
 -- 'nextToken', 'listPricingPlansAssociatedWithPricingRuleResponse_nextToken' - The pagination token to be used on subsequent calls.
 --
--- 'pricingPlanArns', 'listPricingPlansAssociatedWithPricingRuleResponse_pricingPlanArns' - The list containing pricing plans associated with the requested pricing
--- rule.
+-- 'pricingPlanArns', 'listPricingPlansAssociatedWithPricingRuleResponse_pricingPlanArns' - The list containing pricing plans that are associated with the requested
+-- pricing rule.
 --
 -- 'billingPeriod', 'listPricingPlansAssociatedWithPricingRuleResponse_billingPeriod' - The pricing plan billing period for which associations will be listed.
 --
@@ -287,8 +287,8 @@ newListPricingPlansAssociatedWithPricingRuleResponse
 listPricingPlansAssociatedWithPricingRuleResponse_nextToken :: Lens.Lens' ListPricingPlansAssociatedWithPricingRuleResponse (Prelude.Maybe Prelude.Text)
 listPricingPlansAssociatedWithPricingRuleResponse_nextToken = Lens.lens (\ListPricingPlansAssociatedWithPricingRuleResponse' {nextToken} -> nextToken) (\s@ListPricingPlansAssociatedWithPricingRuleResponse' {} a -> s {nextToken = a} :: ListPricingPlansAssociatedWithPricingRuleResponse)
 
--- | The list containing pricing plans associated with the requested pricing
--- rule.
+-- | The list containing pricing plans that are associated with the requested
+-- pricing rule.
 listPricingPlansAssociatedWithPricingRuleResponse_pricingPlanArns :: Lens.Lens' ListPricingPlansAssociatedWithPricingRuleResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listPricingPlansAssociatedWithPricingRuleResponse_pricingPlanArns = Lens.lens (\ListPricingPlansAssociatedWithPricingRuleResponse' {pricingPlanArns} -> pricingPlanArns) (\s@ListPricingPlansAssociatedWithPricingRuleResponse' {} a -> s {pricingPlanArns = a} :: ListPricingPlansAssociatedWithPricingRuleResponse) Prelude.. Lens.mapping Lens.coerced
 

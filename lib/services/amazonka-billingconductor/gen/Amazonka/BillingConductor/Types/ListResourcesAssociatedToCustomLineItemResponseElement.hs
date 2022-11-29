@@ -21,7 +21,7 @@ module Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemRe
 
 import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a resource association for a custom line item.
@@ -32,7 +32,9 @@ data ListResourcesAssociatedToCustomLineItemResponseElement = ListResourcesAssoc
     -- resource.
     relationship :: Prelude.Maybe CustomLineItemRelationship,
     -- | The ARN of the associated resource.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The end billing period of the associated resource.
+    endBillingPeriod :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +50,8 @@ data ListResourcesAssociatedToCustomLineItemResponseElement = ListResourcesAssoc
 -- resource.
 --
 -- 'arn', 'listResourcesAssociatedToCustomLineItemResponseElement_arn' - The ARN of the associated resource.
+--
+-- 'endBillingPeriod', 'listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod' - The end billing period of the associated resource.
 newListResourcesAssociatedToCustomLineItemResponseElement ::
   ListResourcesAssociatedToCustomLineItemResponseElement
 newListResourcesAssociatedToCustomLineItemResponseElement =
@@ -55,6 +59,8 @@ newListResourcesAssociatedToCustomLineItemResponseElement =
     { relationship =
         Prelude.Nothing,
       arn =
+        Prelude.Nothing,
+      endBillingPeriod =
         Prelude.Nothing
     }
 
@@ -67,6 +73,10 @@ listResourcesAssociatedToCustomLineItemResponseElement_relationship = Lens.lens 
 listResourcesAssociatedToCustomLineItemResponseElement_arn :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe Prelude.Text)
 listResourcesAssociatedToCustomLineItemResponseElement_arn = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {arn} -> arn) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {arn = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
 
+-- | The end billing period of the associated resource.
+listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod :: Lens.Lens' ListResourcesAssociatedToCustomLineItemResponseElement (Prelude.Maybe Prelude.Text)
+listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {endBillingPeriod} -> endBillingPeriod) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {endBillingPeriod = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
+
 instance
   Core.FromJSON
     ListResourcesAssociatedToCustomLineItemResponseElement
@@ -78,6 +88,7 @@ instance
           ListResourcesAssociatedToCustomLineItemResponseElement'
             Prelude.<$> (x Core..:? "Relationship")
               Prelude.<*> (x Core..:? "Arn")
+              Prelude.<*> (x Core..:? "EndBillingPeriod")
       )
 
 instance
@@ -89,6 +100,7 @@ instance
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
       _salt `Prelude.hashWithSalt` relationship
         `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` endBillingPeriod
 
 instance
   Prelude.NFData
@@ -98,3 +110,4 @@ instance
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
       Prelude.rnf relationship
         `Prelude.seq` Prelude.rnf arn
+        `Prelude.seq` Prelude.rnf endBillingPeriod

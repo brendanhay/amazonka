@@ -47,7 +47,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,9 +57,10 @@ data UpdatePricingPlan = UpdatePricingPlan'
   { -- | The name of the pricing plan. The name must be unique to each pricing
     -- plan.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The pricing plan description.
+    -- | The description of the pricing plan.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the pricing plan you\'re updating.
+    -- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
+    -- updating.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -75,9 +76,10 @@ data UpdatePricingPlan = UpdatePricingPlan'
 -- 'name', 'updatePricingPlan_name' - The name of the pricing plan. The name must be unique to each pricing
 -- plan.
 --
--- 'description', 'updatePricingPlan_description' - The pricing plan description.
+-- 'description', 'updatePricingPlan_description' - The description of the pricing plan.
 --
--- 'arn', 'updatePricingPlan_arn' - The Amazon Resource Name (ARN) of the pricing plan you\'re updating.
+-- 'arn', 'updatePricingPlan_arn' - The Amazon Resource Name (ARN) of the pricing plan that you\'re
+-- updating.
 newUpdatePricingPlan ::
   -- | 'arn'
   Prelude.Text ->
@@ -94,11 +96,12 @@ newUpdatePricingPlan pArn_ =
 updatePricingPlan_name :: Lens.Lens' UpdatePricingPlan (Prelude.Maybe Prelude.Text)
 updatePricingPlan_name = Lens.lens (\UpdatePricingPlan' {name} -> name) (\s@UpdatePricingPlan' {} a -> s {name = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
 
--- | The pricing plan description.
+-- | The description of the pricing plan.
 updatePricingPlan_description :: Lens.Lens' UpdatePricingPlan (Prelude.Maybe Prelude.Text)
 updatePricingPlan_description = Lens.lens (\UpdatePricingPlan' {description} -> description) (\s@UpdatePricingPlan' {} a -> s {description = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
 
--- | The Amazon Resource Name (ARN) of the pricing plan you\'re updating.
+-- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
+-- updating.
 updatePricingPlan_arn :: Lens.Lens' UpdatePricingPlan Prelude.Text
 updatePricingPlan_arn = Lens.lens (\UpdatePricingPlan' {arn} -> arn) (\s@UpdatePricingPlan' {} a -> s {arn = a} :: UpdatePricingPlan)
 
@@ -106,8 +109,8 @@ instance Core.AWSRequest UpdatePricingPlan where
   type
     AWSResponse UpdatePricingPlan =
       UpdatePricingPlanResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,12 +169,12 @@ data UpdatePricingPlanResponse = UpdatePricingPlanResponse'
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the updated pricing plan.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The pricing rules count currently associated with this pricing plan
-    -- list.
+    -- | The pricing rules count that\'s currently associated with this pricing
+    -- plan list.
     size :: Prelude.Maybe Prelude.Natural,
     -- | The new description for the pricing rule.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The most recent time the pricing plan was modified.
+    -- | The most recent time when the pricing plan was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -191,12 +194,12 @@ data UpdatePricingPlanResponse = UpdatePricingPlanResponse'
 --
 -- 'arn', 'updatePricingPlanResponse_arn' - The Amazon Resource Name (ARN) of the updated pricing plan.
 --
--- 'size', 'updatePricingPlanResponse_size' - The pricing rules count currently associated with this pricing plan
--- list.
+-- 'size', 'updatePricingPlanResponse_size' - The pricing rules count that\'s currently associated with this pricing
+-- plan list.
 --
 -- 'description', 'updatePricingPlanResponse_description' - The new description for the pricing rule.
 --
--- 'lastModifiedTime', 'updatePricingPlanResponse_lastModifiedTime' - The most recent time the pricing plan was modified.
+-- 'lastModifiedTime', 'updatePricingPlanResponse_lastModifiedTime' - The most recent time when the pricing plan was modified.
 --
 -- 'httpStatus', 'updatePricingPlanResponse_httpStatus' - The response's http status code.
 newUpdatePricingPlanResponse ::
@@ -222,8 +225,8 @@ updatePricingPlanResponse_name = Lens.lens (\UpdatePricingPlanResponse' {name} -
 updatePricingPlanResponse_arn :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Text)
 updatePricingPlanResponse_arn = Lens.lens (\UpdatePricingPlanResponse' {arn} -> arn) (\s@UpdatePricingPlanResponse' {} a -> s {arn = a} :: UpdatePricingPlanResponse)
 
--- | The pricing rules count currently associated with this pricing plan
--- list.
+-- | The pricing rules count that\'s currently associated with this pricing
+-- plan list.
 updatePricingPlanResponse_size :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Natural)
 updatePricingPlanResponse_size = Lens.lens (\UpdatePricingPlanResponse' {size} -> size) (\s@UpdatePricingPlanResponse' {} a -> s {size = a} :: UpdatePricingPlanResponse)
 
@@ -231,7 +234,7 @@ updatePricingPlanResponse_size = Lens.lens (\UpdatePricingPlanResponse' {size} -
 updatePricingPlanResponse_description :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Text)
 updatePricingPlanResponse_description = Lens.lens (\UpdatePricingPlanResponse' {description} -> description) (\s@UpdatePricingPlanResponse' {} a -> s {description = a} :: UpdatePricingPlanResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The most recent time the pricing plan was modified.
+-- | The most recent time when the pricing plan was modified.
 updatePricingPlanResponse_lastModifiedTime :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Integer)
 updatePricingPlanResponse_lastModifiedTime = Lens.lens (\UpdatePricingPlanResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdatePricingPlanResponse' {} a -> s {lastModifiedTime = a} :: UpdatePricingPlanResponse)
 

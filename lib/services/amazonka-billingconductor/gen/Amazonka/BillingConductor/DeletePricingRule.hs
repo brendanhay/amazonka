@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the pricing rule identified by the input Amazon Resource Name
--- (ARN).
+-- Deletes the pricing rule that\'s identified by the input Amazon Resource
+-- Name (ARN).
 module Amazonka.BillingConductor.DeletePricingRule
   ( -- * Creating a Request
     DeletePricingRule (..),
@@ -42,14 +42,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePricingRule' smart constructor.
 data DeletePricingRule = DeletePricingRule'
-  { -- | The Amazon Resource Name (ARN) of the pricing rule you are deleting.
+  { -- | The Amazon Resource Name (ARN) of the pricing rule that you are
+    -- deleting.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +63,8 @@ data DeletePricingRule = DeletePricingRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deletePricingRule_arn' - The Amazon Resource Name (ARN) of the pricing rule you are deleting.
+-- 'arn', 'deletePricingRule_arn' - The Amazon Resource Name (ARN) of the pricing rule that you are
+-- deleting.
 newDeletePricingRule ::
   -- | 'arn'
   Prelude.Text ->
@@ -70,7 +72,8 @@ newDeletePricingRule ::
 newDeletePricingRule pArn_ =
   DeletePricingRule' {arn = pArn_}
 
--- | The Amazon Resource Name (ARN) of the pricing rule you are deleting.
+-- | The Amazon Resource Name (ARN) of the pricing rule that you are
+-- deleting.
 deletePricingRule_arn :: Lens.Lens' DeletePricingRule Prelude.Text
 deletePricingRule_arn = Lens.lens (\DeletePricingRule' {arn} -> arn) (\s@DeletePricingRule' {} a -> s {arn = a} :: DeletePricingRule)
 
@@ -78,8 +81,8 @@ instance Core.AWSRequest DeletePricingRule where
   type
     AWSResponse DeletePricingRule =
       DeletePricingRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

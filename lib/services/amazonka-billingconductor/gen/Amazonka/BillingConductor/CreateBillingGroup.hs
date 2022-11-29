@@ -49,7 +49,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +62,7 @@ data CreateBillingGroup = CreateBillingGroup'
     -- | The token that is needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The billing group description.
+    -- | The description of the billing group.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The account ID that serves as the main account in a billing group.
     primaryAccountId :: Prelude.Maybe Prelude.Text,
@@ -91,7 +91,7 @@ data CreateBillingGroup = CreateBillingGroup'
 -- 'clientToken', 'createBillingGroup_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 --
--- 'description', 'createBillingGroup_description' - The billing group description.
+-- 'description', 'createBillingGroup_description' - The description of the billing group.
 --
 -- 'primaryAccountId', 'createBillingGroup_primaryAccountId' - The account ID that serves as the main account in a billing group.
 --
@@ -134,7 +134,7 @@ createBillingGroup_tags = Lens.lens (\CreateBillingGroup' {tags} -> tags) (\s@Cr
 createBillingGroup_clientToken :: Lens.Lens' CreateBillingGroup (Prelude.Maybe Prelude.Text)
 createBillingGroup_clientToken = Lens.lens (\CreateBillingGroup' {clientToken} -> clientToken) (\s@CreateBillingGroup' {} a -> s {clientToken = a} :: CreateBillingGroup)
 
--- | The billing group description.
+-- | The description of the billing group.
 createBillingGroup_description :: Lens.Lens' CreateBillingGroup (Prelude.Maybe Prelude.Text)
 createBillingGroup_description = Lens.lens (\CreateBillingGroup' {description} -> description) (\s@CreateBillingGroup' {} a -> s {description = a} :: CreateBillingGroup) Prelude.. Lens.mapping Core._Sensitive
 
@@ -160,8 +160,8 @@ instance Core.AWSRequest CreateBillingGroup where
   type
     AWSResponse CreateBillingGroup =
       CreateBillingGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -22,7 +22,7 @@ module Amazonka.AWSHealth.Types.EntityFilter where
 import Amazonka.AWSHealth.Types.DateTimeRange
 import Amazonka.AWSHealth.Types.EntityStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the

@@ -21,7 +21,7 @@ module Amazonka.AWSHealth.Types.AffectedEntity where
 
 import Amazonka.AWSHealth.Types.EntityStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an entity that is affected by a Health event.

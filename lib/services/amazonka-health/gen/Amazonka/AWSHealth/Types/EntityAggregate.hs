@@ -20,7 +20,7 @@
 module Amazonka.AWSHealth.Types.EntityAggregate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of entities that are affected by one or more events. Returned

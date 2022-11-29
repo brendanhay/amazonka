@@ -20,7 +20,7 @@
 module Amazonka.AWSHealth.Types.EventAggregate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of events of each issue type. Returned by the

@@ -20,7 +20,7 @@
 module Amazonka.SnowDeviceManagement.Types.Capacity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The physical capacity of the Amazon Web Services Snow Family device.

@@ -20,7 +20,7 @@
 module Amazonka.STS.Types.PolicyDescriptorType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to the IAM managed policy that is passed as a session policy

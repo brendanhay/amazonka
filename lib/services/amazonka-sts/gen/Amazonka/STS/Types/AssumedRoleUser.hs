@@ -20,7 +20,7 @@
 module Amazonka.STS.Types.AssumedRoleUser where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifiers for the temporary security credentials that the

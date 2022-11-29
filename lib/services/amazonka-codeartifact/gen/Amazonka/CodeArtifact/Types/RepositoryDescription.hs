@@ -22,7 +22,7 @@ module Amazonka.CodeArtifact.Types.RepositoryDescription where
 import Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo
 import Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a repository stored in CodeArtifact. A CodeArtifact

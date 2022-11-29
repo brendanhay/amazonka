@@ -22,7 +22,7 @@ module Amazonka.CodeArtifact.Types.PackageOriginRestrictions where
 import Amazonka.CodeArtifact.Types.AllowPublish
 import Amazonka.CodeArtifact.Types.AllowUpstream
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the origin restrictions set on the package. The package

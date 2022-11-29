@@ -21,7 +21,7 @@ module Amazonka.CodeArtifact.Types.PackageVersionError where
 
 import Amazonka.CodeArtifact.Types.PackageVersionErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | l An error associated with package.

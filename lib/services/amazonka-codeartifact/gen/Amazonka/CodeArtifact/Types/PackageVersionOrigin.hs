@@ -22,7 +22,7 @@ module Amazonka.CodeArtifact.Types.PackageVersionOrigin where
 import Amazonka.CodeArtifact.Types.DomainEntryPoint
 import Amazonka.CodeArtifact.Types.PackageVersionOriginType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how a package version was added to a repository.

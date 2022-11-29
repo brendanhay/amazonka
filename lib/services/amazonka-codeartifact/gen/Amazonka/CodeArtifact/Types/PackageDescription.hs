@@ -22,7 +22,7 @@ module Amazonka.CodeArtifact.Types.PackageDescription where
 import Amazonka.CodeArtifact.Types.PackageFormat
 import Amazonka.CodeArtifact.Types.PackageOriginConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package.

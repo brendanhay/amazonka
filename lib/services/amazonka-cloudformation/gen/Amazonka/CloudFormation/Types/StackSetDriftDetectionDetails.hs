@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails where
 import Amazonka.CloudFormation.Types.StackSetDriftDetectionStatus
 import Amazonka.CloudFormation.Types.StackSetDriftStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the drift status of the stack set.

@@ -25,7 +25,7 @@ import Amazonka.CloudFormation.Types.PermissionModels
 import Amazonka.CloudFormation.Types.StackDriftStatus
 import Amazonka.CloudFormation.Types.StackSetStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified

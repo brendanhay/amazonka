@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.TypeConfigurationIdentifier where
 
 import Amazonka.CloudFormation.Types.ThirdPartyType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifying information for the configuration of a CloudFormation

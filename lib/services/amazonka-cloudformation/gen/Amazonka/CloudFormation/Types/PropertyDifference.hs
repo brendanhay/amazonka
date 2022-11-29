@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.PropertyDifference where
 
 import Amazonka.CloudFormation.Types.DifferenceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a resource property whose actual value differs from

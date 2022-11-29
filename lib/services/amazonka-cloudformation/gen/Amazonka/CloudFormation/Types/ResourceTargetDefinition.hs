@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.ResourceTargetDefinition where
 import Amazonka.CloudFormation.Types.RequiresRecreation
 import Amazonka.CloudFormation.Types.ResourceAttribute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The field that CloudFormation will change, such as the name of a

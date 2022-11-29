@@ -42,7 +42,7 @@ where
 
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,8 +203,8 @@ deleteStack_stackName = Lens.lens (\DeleteStack' {stackName} -> stackName) (\s@D
 
 instance Core.AWSRequest DeleteStack where
   type AWSResponse DeleteStack = DeleteStackResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteStackResponse'
 
 instance Prelude.Hashable DeleteStack where

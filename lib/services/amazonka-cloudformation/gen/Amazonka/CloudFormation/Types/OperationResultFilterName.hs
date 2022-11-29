@@ -11,17 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.CloudFormation.Types.StackInstanceFilterName
+-- Module      : Amazonka.CloudFormation.Types.OperationResultFilterName
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.CloudFormation.Types.StackInstanceFilterName
-  ( StackInstanceFilterName
+module Amazonka.CloudFormation.Types.OperationResultFilterName
+  ( OperationResultFilterName
       ( ..,
-        StackInstanceFilterName_DETAILED_STATUS,
-        StackInstanceFilterName_LAST_OPERATION_ID
+        OperationResultFilterName_OPERATION_RESULT_STATUS
       ),
   )
 where
@@ -29,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype StackInstanceFilterName = StackInstanceFilterName'
-  { fromStackInstanceFilterName ::
+newtype OperationResultFilterName = OperationResultFilterName'
+  { fromOperationResultFilterName ::
       Core.Text
   }
   deriving stock
@@ -57,14 +56,10 @@ newtype StackInstanceFilterName = StackInstanceFilterName'
       Core.ToXML
     )
 
-pattern StackInstanceFilterName_DETAILED_STATUS :: StackInstanceFilterName
-pattern StackInstanceFilterName_DETAILED_STATUS = StackInstanceFilterName' "DETAILED_STATUS"
-
-pattern StackInstanceFilterName_LAST_OPERATION_ID :: StackInstanceFilterName
-pattern StackInstanceFilterName_LAST_OPERATION_ID = StackInstanceFilterName' "LAST_OPERATION_ID"
+pattern OperationResultFilterName_OPERATION_RESULT_STATUS :: OperationResultFilterName
+pattern OperationResultFilterName_OPERATION_RESULT_STATUS = OperationResultFilterName' "OPERATION_RESULT_STATUS"
 
 {-# COMPLETE
-  StackInstanceFilterName_DETAILED_STATUS,
-  StackInstanceFilterName_LAST_OPERATION_ID,
-  StackInstanceFilterName'
+  OperationResultFilterName_OPERATION_RESULT_STATUS,
+  OperationResultFilterName'
   #-}

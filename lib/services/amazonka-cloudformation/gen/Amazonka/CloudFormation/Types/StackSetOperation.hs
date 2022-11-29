@@ -24,8 +24,9 @@ import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
 import Amazonka.CloudFormation.Types.StackSetOperationAction
 import Amazonka.CloudFormation.Types.StackSetOperationPreferences
 import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a stack set operation.
@@ -40,6 +41,8 @@ data StackSetOperation = StackSetOperation'
     -- | The preferences for how CloudFormation performs this stack set
     -- operation.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | Detailed information about the StackSet operation.
+    statusDetails :: Prelude.Maybe StackSetOperationStatusDetails,
     -- | The ID of the stack set.
     stackSetId :: Prelude.Maybe Prelude.Text,
     -- | The status of the operation in details.
@@ -140,6 +143,8 @@ data StackSetOperation = StackSetOperation'
 -- 'operationPreferences', 'stackSetOperation_operationPreferences' - The preferences for how CloudFormation performs this stack set
 -- operation.
 --
+-- 'statusDetails', 'stackSetOperation_statusDetails' - Detailed information about the StackSet operation.
+--
 -- 'stackSetId', 'stackSetOperation_stackSetId' - The ID of the stack set.
 --
 -- 'statusReason', 'stackSetOperation_statusReason' - The status of the operation in details.
@@ -226,6 +231,7 @@ newStackSetOperation =
   StackSetOperation'
     { endTimestamp = Prelude.Nothing,
       operationPreferences = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
       stackSetId = Prelude.Nothing,
       statusReason = Prelude.Nothing,
       operationId = Prelude.Nothing,
@@ -250,6 +256,10 @@ stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -
 -- operation.
 stackSetOperation_operationPreferences :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationPreferences)
 stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operationPreferences} -> operationPreferences) (\s@StackSetOperation' {} a -> s {operationPreferences = a} :: StackSetOperation)
+
+-- | Detailed information about the StackSet operation.
+stackSetOperation_statusDetails :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationStatusDetails)
+stackSetOperation_statusDetails = Lens.lens (\StackSetOperation' {statusDetails} -> statusDetails) (\s@StackSetOperation' {} a -> s {statusDetails = a} :: StackSetOperation)
 
 -- | The ID of the stack set.
 stackSetOperation_stackSetId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
@@ -359,6 +369,7 @@ instance Core.FromXML StackSetOperation where
     StackSetOperation'
       Prelude.<$> (x Core..@? "EndTimestamp")
       Prelude.<*> (x Core..@? "OperationPreferences")
+      Prelude.<*> (x Core..@? "StatusDetails")
       Prelude.<*> (x Core..@? "StackSetId")
       Prelude.<*> (x Core..@? "StatusReason")
       Prelude.<*> (x Core..@? "OperationId")
@@ -375,6 +386,7 @@ instance Prelude.Hashable StackSetOperation where
   hashWithSalt _salt StackSetOperation' {..} =
     _salt `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` stackSetId
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` operationId
@@ -391,6 +403,7 @@ instance Prelude.NFData StackSetOperation where
   rnf StackSetOperation' {..} =
     Prelude.rnf endTimestamp
       `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf statusDetails
       `Prelude.seq` Prelude.rnf stackSetId
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf operationId

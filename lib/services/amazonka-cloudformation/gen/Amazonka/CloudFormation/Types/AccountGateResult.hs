@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.AccountGateResult where
 
 import Amazonka.CloudFormation.Types.AccountGateStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains the results of the account gate function which

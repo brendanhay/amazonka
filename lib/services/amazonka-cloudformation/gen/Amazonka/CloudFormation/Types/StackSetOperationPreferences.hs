@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.StackSetOperationPreferences where
 
 import Amazonka.CloudFormation.Types.RegionConcurrencyType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified preferences for how CloudFormation performs a stack

@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.ChangeSetSummary where
 import Amazonka.CloudFormation.Types.ChangeSetStatus
 import Amazonka.CloudFormation.Types.ExecutionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ChangeSetSummary@ structure describes a change set, its status, and

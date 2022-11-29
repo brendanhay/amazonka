@@ -20,9 +20,11 @@
 module Amazonka.CloudFormation.Types.StackSetOperationSummary where
 
 import Amazonka.CloudFormation.Types.StackSetOperationAction
+import Amazonka.CloudFormation.Types.StackSetOperationPreferences
 import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified
@@ -35,6 +37,9 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
     endTimestamp :: Prelude.Maybe Core.ISO8601,
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | Detailed information about the stack set operation.
+    statusDetails :: Prelude.Maybe StackSetOperationStatusDetails,
     -- | The status of the operation in details.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the stack set operation.
@@ -95,6 +100,10 @@ data StackSetOperationSummary = StackSetOperationSummary'
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
 --
+-- 'operationPreferences', 'stackSetOperationSummary_operationPreferences' - Undocumented member.
+--
+-- 'statusDetails', 'stackSetOperationSummary_statusDetails' - Detailed information about the stack set operation.
+--
 -- 'statusReason', 'stackSetOperationSummary_statusReason' - The status of the operation in details.
 --
 -- 'operationId', 'stackSetOperationSummary_operationId' - The unique ID of the stack set operation.
@@ -144,6 +153,8 @@ newStackSetOperationSummary =
   StackSetOperationSummary'
     { endTimestamp =
         Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
       statusReason = Prelude.Nothing,
       operationId = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -157,6 +168,14 @@ newStackSetOperationSummary =
 -- or Region.
 stackSetOperationSummary_endTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
 stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+stackSetOperationSummary_operationPreferences :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationPreferences)
+stackSetOperationSummary_operationPreferences = Lens.lens (\StackSetOperationSummary' {operationPreferences} -> operationPreferences) (\s@StackSetOperationSummary' {} a -> s {operationPreferences = a} :: StackSetOperationSummary)
+
+-- | Detailed information about the stack set operation.
+stackSetOperationSummary_statusDetails :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationStatusDetails)
+stackSetOperationSummary_statusDetails = Lens.lens (\StackSetOperationSummary' {statusDetails} -> statusDetails) (\s@StackSetOperationSummary' {} a -> s {statusDetails = a} :: StackSetOperationSummary)
 
 -- | The status of the operation in details.
 stackSetOperationSummary_statusReason :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
@@ -216,6 +235,8 @@ instance Core.FromXML StackSetOperationSummary where
   parseXML x =
     StackSetOperationSummary'
       Prelude.<$> (x Core..@? "EndTimestamp")
+      Prelude.<*> (x Core..@? "OperationPreferences")
+      Prelude.<*> (x Core..@? "StatusDetails")
       Prelude.<*> (x Core..@? "StatusReason")
       Prelude.<*> (x Core..@? "OperationId")
       Prelude.<*> (x Core..@? "Status")
@@ -225,6 +246,8 @@ instance Core.FromXML StackSetOperationSummary where
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =
     _salt `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` status
@@ -234,6 +257,8 @@ instance Prelude.Hashable StackSetOperationSummary where
 instance Prelude.NFData StackSetOperationSummary where
   rnf StackSetOperationSummary' {..} =
     Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf statusDetails
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf status

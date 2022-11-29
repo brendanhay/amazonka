@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.StackResourceDriftInformationSummary where
 
 import Amazonka.CloudFormation.Types.StackResourceDriftStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summarizes information about whether the resource\'s actual

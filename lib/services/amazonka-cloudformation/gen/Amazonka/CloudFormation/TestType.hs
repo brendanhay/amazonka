@@ -41,7 +41,7 @@
 -- <AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- Once you\'ve initiated testing on an extension using @TestType@, you can
--- use
+-- pass the returned @TypeVersionArn@ into
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>
 -- to monitor the current test status and test status description for the
 -- extension.
@@ -74,7 +74,7 @@ where
 
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -231,8 +231,8 @@ testType_versionId = Lens.lens (\TestType' {versionId} -> versionId) (\s@TestTyp
 
 instance Core.AWSRequest TestType where
   type AWSResponse TestType = TestTypeResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "TestTypeResult"

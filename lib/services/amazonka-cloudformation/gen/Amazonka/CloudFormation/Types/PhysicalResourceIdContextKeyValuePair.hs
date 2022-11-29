@@ -20,7 +20,7 @@
 module Amazonka.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Context information that enables CloudFormation to uniquely identify a

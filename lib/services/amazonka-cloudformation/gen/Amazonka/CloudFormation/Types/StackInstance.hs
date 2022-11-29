@@ -24,7 +24,7 @@ import Amazonka.CloudFormation.Types.StackDriftStatus
 import Amazonka.CloudFormation.Types.StackInstanceComprehensiveStatus
 import Amazonka.CloudFormation.Types.StackInstanceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An CloudFormation stack, in a specific account and Region, that\'s part
@@ -93,6 +93,9 @@ data StackInstance = StackInstance'
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
     status :: Prelude.Maybe StackInstanceStatus,
+    -- | The last unique ID of a StackSet operation performed on a stack
+    -- instance.
+    lastOperationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Web Services Region that the stack instance is
     -- associated with.
     region :: Prelude.Maybe Prelude.Text,
@@ -170,6 +173,9 @@ data StackInstance = StackInstance'
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
 --
+-- 'lastOperationId', 'stackInstance_lastOperationId' - The last unique ID of a StackSet operation performed on a stack
+-- instance.
+--
 -- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
 -- associated with.
 --
@@ -192,6 +198,7 @@ newStackInstance =
       account = Prelude.Nothing,
       statusReason = Prelude.Nothing,
       status = Prelude.Nothing,
+      lastOperationId = Prelude.Nothing,
       region = Prelude.Nothing,
       organizationalUnitId = Prelude.Nothing,
       lastDriftCheckTimestamp = Prelude.Nothing
@@ -268,6 +275,11 @@ stackInstance_statusReason = Lens.lens (\StackInstance' {statusReason} -> status
 stackInstance_status :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceStatus)
 stackInstance_status = Lens.lens (\StackInstance' {status} -> status) (\s@StackInstance' {} a -> s {status = a} :: StackInstance)
 
+-- | The last unique ID of a StackSet operation performed on a stack
+-- instance.
+stackInstance_lastOperationId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_lastOperationId = Lens.lens (\StackInstance' {lastOperationId} -> lastOperationId) (\s@StackInstance' {} a -> s {lastOperationId = a} :: StackInstance)
+
 -- | The name of the Amazon Web Services Region that the stack instance is
 -- associated with.
 stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
@@ -299,6 +311,7 @@ instance Core.FromXML StackInstance where
       Prelude.<*> (x Core..@? "Account")
       Prelude.<*> (x Core..@? "StatusReason")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "LastOperationId")
       Prelude.<*> (x Core..@? "Region")
       Prelude.<*> (x Core..@? "OrganizationalUnitId")
       Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
@@ -313,6 +326,7 @@ instance Prelude.Hashable StackInstance where
       `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastOperationId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` organizationalUnitId
       `Prelude.hashWithSalt` lastDriftCheckTimestamp
@@ -327,6 +341,7 @@ instance Prelude.NFData StackInstance where
       `Prelude.seq` Prelude.rnf account
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastOperationId
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf organizationalUnitId
       `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp

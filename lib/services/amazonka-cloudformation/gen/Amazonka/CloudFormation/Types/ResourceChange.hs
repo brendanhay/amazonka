@@ -25,7 +25,7 @@ import Amazonka.CloudFormation.Types.Replacement
 import Amazonka.CloudFormation.Types.ResourceAttribute
 import Amazonka.CloudFormation.Types.ResourceChangeDetail
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ResourceChange@ structure describes the resource and the action

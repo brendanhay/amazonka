@@ -24,7 +24,7 @@ import Amazonka.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
 import Amazonka.CloudFormation.Types.PropertyDifference
 import Amazonka.CloudFormation.Types.StackResourceDriftStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the drift information for a resource that has been checked for

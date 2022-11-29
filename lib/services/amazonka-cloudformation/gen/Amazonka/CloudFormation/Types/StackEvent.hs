@@ -24,7 +24,7 @@ import Amazonka.CloudFormation.Types.HookInvocationPoint
 import Amazonka.CloudFormation.Types.HookStatus
 import Amazonka.CloudFormation.Types.ResourceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The StackEvent data type.

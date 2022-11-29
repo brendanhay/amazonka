@@ -27,7 +27,7 @@ import Amazonka.CloudFormation.Types.StackDriftInformation
 import Amazonka.CloudFormation.Types.StackStatus
 import Amazonka.CloudFormation.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Stack data type.

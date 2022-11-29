@@ -21,10 +21,10 @@ module Amazonka.CloudFormation.Types.StackInstanceFilter where
 
 import Amazonka.CloudFormation.Types.StackInstanceFilterName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The status that stack instances are filtered by.
+-- | The filter to apply to stack instances
 --
 -- /See:/ 'newStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'

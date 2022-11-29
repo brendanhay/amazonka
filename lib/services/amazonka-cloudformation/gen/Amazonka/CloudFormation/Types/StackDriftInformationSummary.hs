@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.StackDriftInformationSummary where
 
 import Amazonka.CloudFormation.Types.StackDriftStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about whether the stack\'s actual configuration

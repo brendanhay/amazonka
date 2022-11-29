@@ -443,6 +443,7 @@ module Amazonka.CloudFormation.Lens
     -- ** ListStackSetOperationResults
     listStackSetOperationResults_nextToken,
     listStackSetOperationResults_callAs,
+    listStackSetOperationResults_filters,
     listStackSetOperationResults_maxResults,
     listStackSetOperationResults_stackSetName,
     listStackSetOperationResults_operationId,
@@ -742,6 +743,10 @@ module Amazonka.CloudFormation.Lens
     moduleInfo_typeHierarchy,
     moduleInfo_logicalIdHierarchy,
 
+    -- ** OperationResultFilter
+    operationResultFilter_name,
+    operationResultFilter_values,
+
     -- ** Output
     output_outputKey,
     output_description,
@@ -880,6 +885,7 @@ module Amazonka.CloudFormation.Lens
     stackInstance_account,
     stackInstance_statusReason,
     stackInstance_status,
+    stackInstance_lastOperationId,
     stackInstance_region,
     stackInstance_organizationalUnitId,
     stackInstance_lastDriftCheckTimestamp,
@@ -899,6 +905,7 @@ module Amazonka.CloudFormation.Lens
     stackInstanceSummary_account,
     stackInstanceSummary_statusReason,
     stackInstanceSummary_status,
+    stackInstanceSummary_lastOperationId,
     stackInstanceSummary_region,
     stackInstanceSummary_organizationalUnitId,
     stackInstanceSummary_lastDriftCheckTimestamp,
@@ -992,6 +999,7 @@ module Amazonka.CloudFormation.Lens
     -- ** StackSetOperation
     stackSetOperation_endTimestamp,
     stackSetOperation_operationPreferences,
+    stackSetOperation_statusDetails,
     stackSetOperation_stackSetId,
     stackSetOperation_statusReason,
     stackSetOperation_operationId,
@@ -1020,8 +1028,13 @@ module Amazonka.CloudFormation.Lens
     stackSetOperationResultSummary_organizationalUnitId,
     stackSetOperationResultSummary_accountGateResult,
 
+    -- ** StackSetOperationStatusDetails
+    stackSetOperationStatusDetails_failedStackInstancesCount,
+
     -- ** StackSetOperationSummary
     stackSetOperationSummary_endTimestamp,
+    stackSetOperationSummary_operationPreferences,
+    stackSetOperationSummary_statusDetails,
     stackSetOperationSummary_statusReason,
     stackSetOperationSummary_operationId,
     stackSetOperationSummary_status,
@@ -1185,6 +1198,7 @@ import Amazonka.CloudFormation.Types.Export
 import Amazonka.CloudFormation.Types.LoggingConfig
 import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.ModuleInfo
+import Amazonka.CloudFormation.Types.OperationResultFilter
 import Amazonka.CloudFormation.Types.Output
 import Amazonka.CloudFormation.Types.Parameter
 import Amazonka.CloudFormation.Types.ParameterConstraints
@@ -1218,6 +1232,7 @@ import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
 import Amazonka.CloudFormation.Types.StackSetOperation
 import Amazonka.CloudFormation.Types.StackSetOperationPreferences
 import Amazonka.CloudFormation.Types.StackSetOperationResultSummary
+import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import Amazonka.CloudFormation.Types.StackSetOperationSummary
 import Amazonka.CloudFormation.Types.StackSetSummary
 import Amazonka.CloudFormation.Types.StackSummary

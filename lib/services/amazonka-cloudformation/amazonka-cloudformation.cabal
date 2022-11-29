@@ -143,6 +143,8 @@ library
     Amazonka.CloudFormation.Types.ManagedExecution
     Amazonka.CloudFormation.Types.ModuleInfo
     Amazonka.CloudFormation.Types.OnFailure
+    Amazonka.CloudFormation.Types.OperationResultFilter
+    Amazonka.CloudFormation.Types.OperationResultFilterName
     Amazonka.CloudFormation.Types.OperationStatus
     Amazonka.CloudFormation.Types.Output
     Amazonka.CloudFormation.Types.Parameter
@@ -199,6 +201,7 @@ library
     Amazonka.CloudFormation.Types.StackSetOperationResultStatus
     Amazonka.CloudFormation.Types.StackSetOperationResultSummary
     Amazonka.CloudFormation.Types.StackSetOperationStatus
+    Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
     Amazonka.CloudFormation.Types.StackSetOperationSummary
     Amazonka.CloudFormation.Types.StackSetStatus
     Amazonka.CloudFormation.Types.StackSetSummary

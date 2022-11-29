@@ -22,7 +22,7 @@ module Amazonka.AlexaBusiness.Types.Contact where
 import Amazonka.AlexaBusiness.Types.PhoneNumber
 import Amazonka.AlexaBusiness.Types.SipAddress
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A contact with attributes.

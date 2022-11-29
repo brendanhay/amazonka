@@ -24,7 +24,7 @@ import Amazonka.AlexaBusiness.Types.IPDialIn
 import Amazonka.AlexaBusiness.Types.MeetingSetting
 import Amazonka.AlexaBusiness.Types.PSTNDialIn
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity that provides a conferencing solution. Alexa for Business acts

@@ -22,7 +22,7 @@ module Amazonka.AlexaBusiness.Types.DeviceData where
 import Amazonka.AlexaBusiness.Types.DeviceStatus
 import Amazonka.AlexaBusiness.Types.DeviceStatusInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Device attributes.

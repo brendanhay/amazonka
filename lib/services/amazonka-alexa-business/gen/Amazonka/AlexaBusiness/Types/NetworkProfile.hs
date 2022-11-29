@@ -22,7 +22,7 @@ module Amazonka.AlexaBusiness.Types.NetworkProfile where
 import Amazonka.AlexaBusiness.Types.NetworkEapMethod
 import Amazonka.AlexaBusiness.Types.NetworkSecurityType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The network profile associated with a device.

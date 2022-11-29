@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.BusinessReportContentRange where
 
 import Amazonka.AlexaBusiness.Types.BusinessReportInterval
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content range of the report.

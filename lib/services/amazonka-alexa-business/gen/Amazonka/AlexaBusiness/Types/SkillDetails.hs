@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.SkillDetails where
 
 import Amazonka.AlexaBusiness.Types.DeveloperInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Granular information about the skill.

@@ -23,7 +23,7 @@ import Amazonka.AlexaBusiness.Types.DistanceUnit
 import Amazonka.AlexaBusiness.Types.TemperatureUnit
 import Amazonka.AlexaBusiness.Types.WakeWord
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data of a room profile.

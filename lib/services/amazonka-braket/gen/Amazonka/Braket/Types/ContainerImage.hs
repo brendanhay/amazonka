@@ -20,7 +20,7 @@
 module Amazonka.Braket.Types.ContainerImage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container image used to create an Amazon Braket job.

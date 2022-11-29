@@ -21,7 +21,7 @@ module Amazonka.Braket.Types.DataSource where
 
 import Amazonka.Braket.Types.S3DataSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the source of the data used by the Amazon Braket job.

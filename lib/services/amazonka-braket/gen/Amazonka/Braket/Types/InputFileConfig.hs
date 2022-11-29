@@ -21,7 +21,7 @@ module Amazonka.Braket.Types.InputFileConfig where
 
 import Amazonka.Braket.Types.DataSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of parameters that specify the input channels, type of input

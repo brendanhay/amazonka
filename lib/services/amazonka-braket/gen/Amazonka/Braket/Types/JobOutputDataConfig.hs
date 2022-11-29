@@ -20,7 +20,7 @@
 module Amazonka.Braket.Types.JobOutputDataConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the path to the S3 location where you want to store job

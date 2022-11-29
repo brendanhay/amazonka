@@ -22,7 +22,7 @@ module Amazonka.Braket.Types.AlgorithmSpecification where
 import Amazonka.Braket.Types.ContainerImage
 import Amazonka.Braket.Types.ScriptModeConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the Amazon Braket job to be created. Specifies the container

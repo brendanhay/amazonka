@@ -20,7 +20,7 @@
 module Amazonka.OpsWorksCM.Types.Backup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorksCM.Types.BackupStatus
 import Amazonka.OpsWorksCM.Types.BackupType
 import qualified Amazonka.Prelude as Prelude

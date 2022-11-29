@@ -20,7 +20,7 @@
 module Amazonka.OpsWorksCM.Types.Server where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorksCM.Types.EngineAttribute
 import Amazonka.OpsWorksCM.Types.MaintenanceStatus
 import Amazonka.OpsWorksCM.Types.ServerStatus

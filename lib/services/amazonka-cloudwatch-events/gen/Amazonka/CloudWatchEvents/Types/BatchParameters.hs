@@ -22,7 +22,7 @@ module Amazonka.CloudWatchEvents.Types.BatchParameters where
 import Amazonka.CloudWatchEvents.Types.BatchArrayProperties
 import Amazonka.CloudWatchEvents.Types.BatchRetryStrategy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The custom parameters to be used when the target is an Batch job.

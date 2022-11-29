@@ -23,7 +23,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionBodyParameter
 import Amazonka.CloudWatchEvents.Types.ConnectionHeaderParameter
 import Amazonka.CloudWatchEvents.Types.ConnectionQueryStringParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains additional parameters for the connection.

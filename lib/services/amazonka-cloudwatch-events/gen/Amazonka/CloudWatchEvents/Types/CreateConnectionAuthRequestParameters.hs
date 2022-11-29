@@ -24,7 +24,7 @@ import Amazonka.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParamete
 import Amazonka.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameters
 import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the authorization parameters for the connection.

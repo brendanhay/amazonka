@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.RetryPolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @RetryPolicy@ object that includes information about the retry policy

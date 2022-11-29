@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.RunCommandParameters where
 
 import Amazonka.CloudWatchEvents.Types.RunCommandTarget
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This parameter contains the criteria (either InstanceIds or a tag) used

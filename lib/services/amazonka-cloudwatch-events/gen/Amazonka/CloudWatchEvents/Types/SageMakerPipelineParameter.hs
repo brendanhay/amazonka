@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Name\/Value pair of a parameter to start execution of a SageMaker Model

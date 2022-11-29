@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.ConnectionQueryStringParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional query string parameter for the connection. You can include up

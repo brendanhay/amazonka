@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters where
 
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameters to use when the target is a SageMaker Model

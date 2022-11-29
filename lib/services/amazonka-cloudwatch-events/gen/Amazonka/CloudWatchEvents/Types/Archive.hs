@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.Archive where
 
 import Amazonka.CloudWatchEvents.Types.ArchiveState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An @Archive@ object that contains details about an archive.

@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the client response parameters for the connection when OAuth is

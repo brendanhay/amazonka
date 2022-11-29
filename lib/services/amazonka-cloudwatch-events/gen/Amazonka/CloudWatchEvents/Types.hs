@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -650,7 +651,7 @@ import Amazonka.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameter
 import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParameters
 import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -658,29 +659,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "CloudWatchEvents",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "events",
-      Core._serviceSigningName = "events",
-      Core._serviceVersion = "2015-10-07",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "CloudWatchEvents",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CloudWatchEvents",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "events",
+      Core.signingName = "events",
+      Core.version = "2015-10-07",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "CloudWatchEvents",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

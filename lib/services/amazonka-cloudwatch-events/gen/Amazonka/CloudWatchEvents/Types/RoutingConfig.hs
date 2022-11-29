@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.RoutingConfig where
 
 import Amazonka.CloudWatchEvents.Types.FailoverConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The routing configuration of the endpoint.

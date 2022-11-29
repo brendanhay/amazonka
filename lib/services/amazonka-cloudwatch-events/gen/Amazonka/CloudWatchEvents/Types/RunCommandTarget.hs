@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.RunCommandTarget where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the EC2 instances that are to be sent the command,

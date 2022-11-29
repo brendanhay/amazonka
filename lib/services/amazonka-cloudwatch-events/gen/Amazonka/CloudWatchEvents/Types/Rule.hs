@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.Rule where
 
 import Amazonka.CloudWatchEvents.Types.RuleState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a rule in Amazon EventBridge.

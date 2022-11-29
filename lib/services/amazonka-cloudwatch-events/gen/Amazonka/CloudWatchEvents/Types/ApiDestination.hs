@@ -22,7 +22,7 @@ module Amazonka.CloudWatchEvents.Types.ApiDestination where
 import Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod
 import Amazonka.CloudWatchEvents.Types.ApiDestinationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an API destination.

@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.NetworkConfiguration where
 
 import Amazonka.CloudWatchEvents.Types.AwsVpcConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies the network configuration for an ECS task.

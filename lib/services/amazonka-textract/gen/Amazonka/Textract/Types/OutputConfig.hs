@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sets whether or not your output will go to a user created bucket. Used

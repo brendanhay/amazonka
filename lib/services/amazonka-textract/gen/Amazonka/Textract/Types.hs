@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -109,6 +110,12 @@ module Amazonka.Textract.Types
     newDocumentMetadata,
     documentMetadata_pages,
 
+    -- * ExpenseCurrency
+    ExpenseCurrency (..),
+    newExpenseCurrency,
+    expenseCurrency_code,
+    expenseCurrency_confidence,
+
     -- * ExpenseDetection
     ExpenseDetection (..),
     newExpenseDetection,
@@ -122,14 +129,23 @@ module Amazonka.Textract.Types
     expenseDocument_lineItemGroups,
     expenseDocument_summaryFields,
     expenseDocument_expenseIndex,
+    expenseDocument_blocks,
 
     -- * ExpenseField
     ExpenseField (..),
     newExpenseField,
     expenseField_type,
+    expenseField_groupProperties,
     expenseField_pageNumber,
     expenseField_labelDetection,
+    expenseField_currency,
     expenseField_valueDetection,
+
+    -- * ExpenseGroupProperty
+    ExpenseGroupProperty (..),
+    newExpenseGroupProperty,
+    expenseGroupProperty_id,
+    expenseGroupProperty_types,
 
     -- * ExpenseType
     ExpenseType (..),
@@ -167,6 +183,7 @@ module Amazonka.Textract.Types
     newIdentityDocument,
     identityDocument_documentIndex,
     identityDocument_identityDocumentFields,
+    identityDocument_blocks,
 
     -- * IdentityDocumentField
     IdentityDocumentField (..),
@@ -243,7 +260,7 @@ module Amazonka.Textract.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.Textract.Types.AnalyzeIDDetections
@@ -255,9 +272,11 @@ import Amazonka.Textract.Types.Document
 import Amazonka.Textract.Types.DocumentLocation
 import Amazonka.Textract.Types.DocumentMetadata
 import Amazonka.Textract.Types.EntityType
+import Amazonka.Textract.Types.ExpenseCurrency
 import Amazonka.Textract.Types.ExpenseDetection
 import Amazonka.Textract.Types.ExpenseDocument
 import Amazonka.Textract.Types.ExpenseField
+import Amazonka.Textract.Types.ExpenseGroupProperty
 import Amazonka.Textract.Types.ExpenseType
 import Amazonka.Textract.Types.FeatureType
 import Amazonka.Textract.Types.Geometry
@@ -287,27 +306,25 @@ import Amazonka.Textract.Types.Warning
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Textract",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "textract",
-      Core._serviceSigningName = "textract",
-      Core._serviceVersion = "2018-06-27",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Textract",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Textract",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "textract",
+      Core.signingName = "textract",
+      Core.version = "2018-06-27",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Textract",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

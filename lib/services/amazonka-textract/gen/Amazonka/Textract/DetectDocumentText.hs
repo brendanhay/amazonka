@@ -22,8 +22,9 @@
 --
 -- Detects text in the input document. Amazon Textract can detect lines of
 -- text and the words that make up a line of text. The input document must
--- be an image in JPEG, PNG, PDF, or TIFF format. @DetectDocumentText@
--- returns the detected text in an array of Block objects.
+-- be in one of the following image formats: JPEG, PNG, PDF, or TIFF.
+-- @DetectDocumentText@ returns the detected text in an array of Block
+-- objects.
 --
 -- Each document page has as an associated @Block@ of type PAGE. Each PAGE
 -- @Block@ object is the parent of LINE @Block@ objects that represent the
@@ -57,7 +58,7 @@ module Amazonka.Textract.DetectDocumentText
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +110,8 @@ instance Core.AWSRequest DetectDocumentText where
   type
     AWSResponse DetectDocumentText =
       DetectDocumentTextResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -52,10 +52,17 @@
 --     relationship with the value of the @StartDocumentAnalysis@
 --     @FeatureTypes@ input parameter).
 --
--- -   Queries. A QUERIES_RESULT Block object contains the answer to the
---     query, the alias associated and an ID that connect it to the query
---     asked. This Block also contains a location and attached confidence
---     score
+-- -   Query. A QUERY Block object contains the query text, alias and link
+--     to the associated Query results block object.
+--
+-- -   Query Results. A QUERY_RESULT Block object contains the answer to
+--     the query and an ID that connects it to the query asked. This Block
+--     also contains a confidence score.
+--
+-- While processing a document with queries, look out for
+-- @INVALID_REQUEST_PARAMETERS@ output. This indicates that either the per
+-- page query limit has been exceeded or that the operation is trying to
+-- query a page in the document which doesn’t exist.
 --
 -- Selection elements such as check boxes and option buttons (radio
 -- buttons) can be detected in form data and in tables. A SELECTION_ELEMENT
@@ -99,7 +106,7 @@ module Amazonka.Textract.GetDocumentAnalysis
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,8 +184,8 @@ instance Core.AWSRequest GetDocumentAnalysis where
   type
     AWSResponse GetDocumentAnalysis =
       GetDocumentAnalysisResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

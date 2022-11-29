@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.BoundingBox where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The bounding box around the detected page, text, key-value pair, table,

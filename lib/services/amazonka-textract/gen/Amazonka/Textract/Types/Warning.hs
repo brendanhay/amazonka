@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.Warning where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A warning about an issue that occurred during asynchronous text analysis

@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.S3Object where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket name and file name that identifies the document.

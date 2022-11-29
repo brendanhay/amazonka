@@ -46,7 +46,7 @@ module Amazonka.Textract.AnalyzeID
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +84,8 @@ analyzeID_documentPages = Lens.lens (\AnalyzeID' {documentPages} -> documentPage
 
 instance Core.AWSRequest AnalyzeID where
   type AWSResponse AnalyzeID = AnalyzeIDResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

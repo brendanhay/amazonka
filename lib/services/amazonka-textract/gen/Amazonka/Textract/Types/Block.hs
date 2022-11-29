@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.Block where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.BlockType
 import Amazonka.Textract.Types.EntityType
@@ -90,8 +90,12 @@ data Block = Block'
     --     Use the value of @SelectionStatus@ to determine the status of the
     --     selection element.
     --
+    -- -   /SIGNATURE/ - The location and confidene score of a signature
+    --     detected on a document page. Can be returned as part of a Key-Value
+    --     pair or a detected cell.
+    --
     -- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
-    --     Contains an alias and an ID that attachs it to its answer.
+    --     Contains an alias and an ID that attaches it to its answer.
     --
     -- -   /QUERY_RESULT/ - A response to a question asked during the call of
     --     analyze document. Comes with an alias and ID for ease of locating in
@@ -136,12 +140,14 @@ data Block = Block'
     id :: Prelude.Maybe Prelude.Text,
     query :: Prelude.Maybe Query,
     -- | The page on which a block was detected. @Page@ is returned by
-    -- asynchronous operations. Page values greater than 1 are only returned
-    -- for multipage documents that are in PDF or TIFF format. A scanned image
-    -- (JPEG\/PNG), even if it contains multiple document pages, is considered
-    -- to be a single-page document. The value of @Page@ is always 1.
-    -- Synchronous operations don\'t return @Page@ because every input document
-    -- is considered to be a single-page document.
+    -- synchronous and asynchronous operations. Page values greater than 1 are
+    -- only returned for multipage documents that are in PDF or TIFF format. A
+    -- scanned image (JPEG\/PNG) provided to an asynchronous operation, even if
+    -- it contains multiple document pages, is considered a single-page
+    -- document. This means that for scanned images the value of @Page@ is
+    -- always 1. Synchronous operations operations will also return a @Page@
+    -- value of 1 because every input document is considered to be a
+    -- single-page document.
     page :: Prelude.Maybe Prelude.Natural,
     -- | The kind of text that Amazon Textract has detected. Can check for
     -- handwritten text and printed text.
@@ -214,8 +220,12 @@ data Block = Block'
 --     Use the value of @SelectionStatus@ to determine the status of the
 --     selection element.
 --
+-- -   /SIGNATURE/ - The location and confidene score of a signature
+--     detected on a document page. Can be returned as part of a Key-Value
+--     pair or a detected cell.
+--
 -- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
---     Contains an alias and an ID that attachs it to its answer.
+--     Contains an alias and an ID that attaches it to its answer.
 --
 -- -   /QUERY_RESULT/ - A response to a question asked during the call of
 --     analyze document. Comes with an alias and ID for ease of locating in
@@ -261,12 +271,14 @@ data Block = Block'
 -- 'query', 'block_query' -
 --
 -- 'page', 'block_page' - The page on which a block was detected. @Page@ is returned by
--- asynchronous operations. Page values greater than 1 are only returned
--- for multipage documents that are in PDF or TIFF format. A scanned image
--- (JPEG\/PNG), even if it contains multiple document pages, is considered
--- to be a single-page document. The value of @Page@ is always 1.
--- Synchronous operations don\'t return @Page@ because every input document
--- is considered to be a single-page document.
+-- synchronous and asynchronous operations. Page values greater than 1 are
+-- only returned for multipage documents that are in PDF or TIFF format. A
+-- scanned image (JPEG\/PNG) provided to an asynchronous operation, even if
+-- it contains multiple document pages, is considered a single-page
+-- document. This means that for scanned images the value of @Page@ is
+-- always 1. Synchronous operations operations will also return a @Page@
+-- value of 1 because every input document is considered to be a
+-- single-page document.
 --
 -- 'textType', 'block_textType' - The kind of text that Amazon Textract has detected. Can check for
 -- handwritten text and printed text.
@@ -348,8 +360,12 @@ newBlock =
 --     Use the value of @SelectionStatus@ to determine the status of the
 --     selection element.
 --
+-- -   /SIGNATURE/ - The location and confidene score of a signature
+--     detected on a document page. Can be returned as part of a Key-Value
+--     pair or a detected cell.
+--
 -- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
---     Contains an alias and an ID that attachs it to its answer.
+--     Contains an alias and an ID that attaches it to its answer.
 --
 -- -   /QUERY_RESULT/ - A response to a question asked during the call of
 --     analyze document. Comes with an alias and ID for ease of locating in
@@ -415,12 +431,14 @@ block_query :: Lens.Lens' Block (Prelude.Maybe Query)
 block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query = a} :: Block)
 
 -- | The page on which a block was detected. @Page@ is returned by
--- asynchronous operations. Page values greater than 1 are only returned
--- for multipage documents that are in PDF or TIFF format. A scanned image
--- (JPEG\/PNG), even if it contains multiple document pages, is considered
--- to be a single-page document. The value of @Page@ is always 1.
--- Synchronous operations don\'t return @Page@ because every input document
--- is considered to be a single-page document.
+-- synchronous and asynchronous operations. Page values greater than 1 are
+-- only returned for multipage documents that are in PDF or TIFF format. A
+-- scanned image (JPEG\/PNG) provided to an asynchronous operation, even if
+-- it contains multiple document pages, is considered a single-page
+-- document. This means that for scanned images the value of @Page@ is
+-- always 1. Synchronous operations operations will also return a @Page@
+-- value of 1 because every input document is considered to be a
+-- single-page document.
 block_page :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_page = Lens.lens (\Block' {page} -> page) (\s@Block' {} a -> s {page = a} :: Block)
 

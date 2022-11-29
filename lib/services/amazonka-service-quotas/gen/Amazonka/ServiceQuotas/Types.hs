@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -128,7 +129,7 @@ module Amazonka.ServiceQuotas.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceQuotas.Types.ErrorCode
 import Amazonka.ServiceQuotas.Types.ErrorReason
@@ -148,28 +149,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "ServiceQuotas",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "servicequotas",
-      Core._serviceSigningName = "servicequotas",
-      Core._serviceVersion = "2019-06-24",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "ServiceQuotas",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ServiceQuotas",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "servicequotas",
+      Core.signingName = "servicequotas",
+      Core.version = "2019-06-24",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "ServiceQuotas",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

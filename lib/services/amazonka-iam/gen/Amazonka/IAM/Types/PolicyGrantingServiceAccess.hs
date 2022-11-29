@@ -20,9 +20,9 @@
 module Amazonka.IAM.Types.PolicyGrantingServiceAccess where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.PolicyOwnerEntityType
 import Amazonka.IAM.Types.PolicyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the permissions policies that are attached to the

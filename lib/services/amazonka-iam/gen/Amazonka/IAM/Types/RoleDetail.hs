@@ -20,13 +20,13 @@
 module Amazonka.IAM.Types.RoleDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.AttachedPermissionsBoundary
 import Amazonka.IAM.Types.AttachedPolicy
 import Amazonka.IAM.Types.InstanceProfile
 import Amazonka.IAM.Types.PolicyDetail
 import Amazonka.IAM.Types.RoleLastUsed
 import Amazonka.IAM.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IAM role, including all of the role\'s

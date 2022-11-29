@@ -43,8 +43,8 @@ module Amazonka.IAM.DeleteRole
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +93,8 @@ deleteRole_roleName = Lens.lens (\DeleteRole' {roleName} -> roleName) (\s@Delete
 
 instance Core.AWSRequest DeleteRole where
   type AWSResponse DeleteRole = DeleteRoleResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteRoleResponse'
 
 instance Prelude.Hashable DeleteRole where

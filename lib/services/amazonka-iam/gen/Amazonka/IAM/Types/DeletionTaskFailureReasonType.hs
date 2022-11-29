@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.DeletionTaskFailureReasonType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.RoleUsageType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The reason that the service-linked role deletion failed.

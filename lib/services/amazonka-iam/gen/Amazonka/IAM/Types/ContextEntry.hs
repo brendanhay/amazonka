@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.ContextEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.ContextKeyTypeEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a condition context key. It includes the name

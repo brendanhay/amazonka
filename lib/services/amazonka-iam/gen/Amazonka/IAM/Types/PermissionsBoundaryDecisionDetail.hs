@@ -20,7 +20,7 @@
 module Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the effect that a permissions boundary has on

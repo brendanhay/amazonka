@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.ServiceSpecificCredentialMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.StatusType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains additional details about a service-specific credential.

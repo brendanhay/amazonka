@@ -20,9 +20,9 @@
 module Amazonka.IAM.Types.InstanceProfile where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.Role
 import Amazonka.IAM.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an instance profile.

@@ -20,10 +20,10 @@
 module Amazonka.IAM.Types.ResourceSpecificResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail
 import Amazonka.IAM.Types.PolicyEvaluationDecisionType
 import Amazonka.IAM.Types.Statement
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of the simulation of a single API operation call on

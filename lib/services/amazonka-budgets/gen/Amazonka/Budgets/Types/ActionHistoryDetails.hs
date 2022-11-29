@@ -21,7 +21,7 @@ module Amazonka.Budgets.Types.ActionHistoryDetails where
 
 import Amazonka.Budgets.Types.Action
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the details for the event.

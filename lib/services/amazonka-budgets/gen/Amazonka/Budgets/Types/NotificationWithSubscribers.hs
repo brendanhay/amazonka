@@ -22,7 +22,7 @@ module Amazonka.Budgets.Types.NotificationWithSubscribers where
 import Amazonka.Budgets.Types.Notification
 import Amazonka.Budgets.Types.Subscriber
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A notification with subscribers. A notification can have one SNS

@@ -20,7 +20,7 @@
 module Amazonka.Budgets.Types.HistoricalOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters that define or describe the historical data that your

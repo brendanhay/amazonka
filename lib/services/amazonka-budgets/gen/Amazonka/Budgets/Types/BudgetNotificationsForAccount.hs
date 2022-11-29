@@ -21,7 +21,7 @@ module Amazonka.Budgets.Types.BudgetNotificationsForAccount where
 
 import Amazonka.Budgets.Types.Notification
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The budget name and associated notifications for an account.

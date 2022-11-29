@@ -21,7 +21,7 @@ module Amazonka.Budgets.Types.SsmActionDefinition where
 
 import Amazonka.Budgets.Types.ActionSubType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Web Services Systems Manager (SSM) action definition details.

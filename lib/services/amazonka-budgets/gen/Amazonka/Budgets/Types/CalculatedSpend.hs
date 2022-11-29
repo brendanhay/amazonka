@@ -21,7 +21,7 @@ module Amazonka.Budgets.Types.CalculatedSpend where
 
 import Amazonka.Budgets.Types.Spend
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The spend objects that are associated with this budget. The

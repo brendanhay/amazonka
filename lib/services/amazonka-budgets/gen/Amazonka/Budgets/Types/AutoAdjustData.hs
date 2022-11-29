@@ -22,7 +22,7 @@ module Amazonka.Budgets.Types.AutoAdjustData where
 import Amazonka.Budgets.Types.AutoAdjustType
 import Amazonka.Budgets.Types.HistoricalOptions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters that determine the budget amount for an auto-adjusting

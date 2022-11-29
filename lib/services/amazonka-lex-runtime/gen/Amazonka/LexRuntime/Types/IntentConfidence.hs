@@ -20,7 +20,7 @@
 module Amazonka.LexRuntime.Types.IntentConfidence where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a score that indicates the confidence that Amazon Lex has that

@@ -20,7 +20,7 @@
 module Amazonka.LexRuntime.Types.IntentSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types.ConfirmationStatus
 import Amazonka.LexRuntime.Types.DialogActionType
 import Amazonka.LexRuntime.Types.FulfillmentState

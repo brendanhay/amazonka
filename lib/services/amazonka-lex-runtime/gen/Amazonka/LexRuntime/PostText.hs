@@ -110,7 +110,7 @@ module Amazonka.LexRuntime.PostText
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -327,8 +327,8 @@ postText_inputText = Lens.lens (\PostText' {inputText} -> inputText) (\s@PostTex
 
 instance Core.AWSRequest PostText where
   type AWSResponse PostText = PostTextResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

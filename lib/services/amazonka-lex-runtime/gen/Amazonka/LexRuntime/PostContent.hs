@@ -121,7 +121,7 @@ module Amazonka.LexRuntime.PostContent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -549,8 +549,8 @@ postContent_inputStream = Lens.lens (\PostContent' {inputStream} -> inputStream)
 
 instance Core.AWSRequest PostContent where
   type AWSResponse PostContent = PostContentResponse
-  service _ = defaultService
-  request srv = Request.postBody srv
+  request overrides =
+    Request.postBody (overrides defaultService)
   response =
     Response.receiveBody
       ( \s h x ->

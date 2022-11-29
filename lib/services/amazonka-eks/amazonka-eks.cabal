@@ -95,6 +95,8 @@ library
     Amazonka.EKS.Types.ConnectorConfigProvider
     Amazonka.EKS.Types.ConnectorConfigRequest
     Amazonka.EKS.Types.ConnectorConfigResponse
+    Amazonka.EKS.Types.ControlPlanePlacementRequest
+    Amazonka.EKS.Types.ControlPlanePlacementResponse
     Amazonka.EKS.Types.EKSErrorCode
     Amazonka.EKS.Types.EncryptionConfig
     Amazonka.EKS.Types.ErrorDetail

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -196,6 +197,16 @@ module Amazonka.EKS.Types
     connectorConfigResponse_activationExpiry,
     connectorConfigResponse_activationCode,
 
+    -- * ControlPlanePlacementRequest
+    ControlPlanePlacementRequest (..),
+    newControlPlanePlacementRequest,
+    controlPlanePlacementRequest_groupName,
+
+    -- * ControlPlanePlacementResponse
+    ControlPlanePlacementResponse (..),
+    newControlPlanePlacementResponse,
+    controlPlanePlacementResponse_groupName,
+
     -- * EncryptionConfig
     EncryptionConfig (..),
     newEncryptionConfig,
@@ -369,12 +380,14 @@ module Amazonka.EKS.Types
     -- * OutpostConfigRequest
     OutpostConfigRequest (..),
     newOutpostConfigRequest,
+    outpostConfigRequest_controlPlanePlacement,
     outpostConfigRequest_outpostArns,
     outpostConfigRequest_controlPlaneInstanceType,
 
     -- * OutpostConfigResponse
     OutpostConfigResponse (..),
     newOutpostConfigResponse,
+    outpostConfigResponse_controlPlanePlacement,
     outpostConfigResponse_outpostArns,
     outpostConfigResponse_controlPlaneInstanceType,
 
@@ -447,6 +460,7 @@ module Amazonka.EKS.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.AMITypes
 import Amazonka.EKS.Types.Addon
 import Amazonka.EKS.Types.AddonHealth
@@ -468,6 +482,8 @@ import Amazonka.EKS.Types.ConfigStatus
 import Amazonka.EKS.Types.ConnectorConfigProvider
 import Amazonka.EKS.Types.ConnectorConfigRequest
 import Amazonka.EKS.Types.ConnectorConfigResponse
+import Amazonka.EKS.Types.ControlPlanePlacementRequest
+import Amazonka.EKS.Types.ControlPlanePlacementResponse
 import Amazonka.EKS.Types.EKSErrorCode
 import Amazonka.EKS.Types.EncryptionConfig
 import Amazonka.EKS.Types.ErrorDetail
@@ -511,7 +527,6 @@ import Amazonka.EKS.Types.UpdateTaintsPayload
 import Amazonka.EKS.Types.UpdateType
 import Amazonka.EKS.Types.VpcConfigRequest
 import Amazonka.EKS.Types.VpcConfigResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -519,27 +534,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "EKS",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "eks",
-      Core._serviceSigningName = "eks",
-      Core._serviceVersion = "2017-11-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "EKS",
-      Core._serviceRetry = retry
+    { Core.abbrev = "EKS",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "eks",
+      Core.signingName = "eks",
+      Core.version = "2017-11-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "EKS",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

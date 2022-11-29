@@ -415,6 +415,14 @@ module Amazonka.EKS
     ConnectorConfigResponse (ConnectorConfigResponse'),
     newConnectorConfigResponse,
 
+    -- ** ControlPlanePlacementRequest
+    ControlPlanePlacementRequest (ControlPlanePlacementRequest'),
+    newControlPlanePlacementRequest,
+
+    -- ** ControlPlanePlacementResponse
+    ControlPlanePlacementResponse (ControlPlanePlacementResponse'),
+    newControlPlanePlacementResponse,
+
     -- ** EncryptionConfig
     EncryptionConfig (EncryptionConfig'),
     newEncryptionConfig,

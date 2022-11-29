@@ -374,6 +374,12 @@ module Amazonka.EKS.Lens
     connectorConfigResponse_activationExpiry,
     connectorConfigResponse_activationCode,
 
+    -- ** ControlPlanePlacementRequest
+    controlPlanePlacementRequest_groupName,
+
+    -- ** ControlPlanePlacementResponse
+    controlPlanePlacementResponse_groupName,
+
     -- ** EncryptionConfig
     encryptionConfig_provider,
     encryptionConfig_resources,
@@ -503,10 +509,12 @@ module Amazonka.EKS.Lens
     oidcIdentityProviderConfigRequest_clientId,
 
     -- ** OutpostConfigRequest
+    outpostConfigRequest_controlPlanePlacement,
     outpostConfigRequest_outpostArns,
     outpostConfigRequest_controlPlaneInstanceType,
 
     -- ** OutpostConfigResponse
+    outpostConfigResponse_controlPlanePlacement,
     outpostConfigResponse_outpostArns,
     outpostConfigResponse_controlPlaneInstanceType,
 
@@ -601,6 +609,8 @@ import Amazonka.EKS.Types.ClusterIssue
 import Amazonka.EKS.Types.Compatibility
 import Amazonka.EKS.Types.ConnectorConfigRequest
 import Amazonka.EKS.Types.ConnectorConfigResponse
+import Amazonka.EKS.Types.ControlPlanePlacementRequest
+import Amazonka.EKS.Types.ControlPlanePlacementResponse
 import Amazonka.EKS.Types.EncryptionConfig
 import Amazonka.EKS.Types.ErrorDetail
 import Amazonka.EKS.Types.FargateProfile

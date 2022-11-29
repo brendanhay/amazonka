@@ -20,11 +20,11 @@
 module Amazonka.EKS.Types.Update where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.ErrorDetail
 import Amazonka.EKS.Types.UpdateParam
 import Amazonka.EKS.Types.UpdateStatus
 import Amazonka.EKS.Types.UpdateType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an asynchronous update.

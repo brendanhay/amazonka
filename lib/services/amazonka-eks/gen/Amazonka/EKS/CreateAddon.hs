@@ -23,11 +23,8 @@
 -- Creates an Amazon EKS add-on.
 --
 -- Amazon EKS add-ons help to automate the provisioning and lifecycle
--- management of common operational software for Amazon EKS clusters.
--- Amazon EKS add-ons require clusters running version 1.18 or later
--- because Amazon EKS add-ons rely on the Server-side Apply Kubernetes
--- feature, which is only available in Kubernetes 1.18 and later. For more
--- information, see
+-- management of common operational software for Amazon EKS clusters. For
+-- more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html Amazon EKS add-ons>
 -- in the /Amazon EKS User Guide/.
 module Amazonka.EKS.CreateAddon
@@ -55,8 +52,8 @@ module Amazonka.EKS.CreateAddon
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -262,8 +259,8 @@ createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@C
 
 instance Core.AWSRequest CreateAddon where
   type AWSResponse CreateAddon = CreateAddonResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.EKS.Types.VpcConfigRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the VPC configuration to use for an Amazon EKS
@@ -33,13 +33,7 @@ data VpcConfigRequest = VpcConfigRequest'
     -- communication between your nodes and the Kubernetes control plane. If
     -- you don\'t specify any security groups, then familiarize yourself with
     -- the difference between Amazon EKS defaults for clusters deployed with
-    -- Kubernetes:
-    --
-    -- -   1.14 Amazon EKS platform version @eks.2@ and earlier
-    --
-    -- -   1.14 Amazon EKS platform version @eks.3@ and later
-    --
-    -- For more information, see
+    -- Kubernetes. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
     -- in the //Amazon EKS User Guide// .
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
@@ -92,13 +86,7 @@ data VpcConfigRequest = VpcConfigRequest'
 -- communication between your nodes and the Kubernetes control plane. If
 -- you don\'t specify any security groups, then familiarize yourself with
 -- the difference between Amazon EKS defaults for clusters deployed with
--- Kubernetes:
---
--- -   1.14 Amazon EKS platform version @eks.2@ and earlier
---
--- -   1.14 Amazon EKS platform version @eks.3@ and later
---
--- For more information, see
+-- Kubernetes. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
 -- in the //Amazon EKS User Guide// .
 --
@@ -151,13 +139,7 @@ newVpcConfigRequest =
 -- communication between your nodes and the Kubernetes control plane. If
 -- you don\'t specify any security groups, then familiarize yourself with
 -- the difference between Amazon EKS defaults for clusters deployed with
--- Kubernetes:
---
--- -   1.14 Amazon EKS platform version @eks.2@ and earlier
---
--- -   1.14 Amazon EKS platform version @eks.3@ and later
---
--- For more information, see
+-- Kubernetes. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_securityGroupIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])

@@ -76,8 +76,8 @@ module Amazonka.EKS.CreateCluster
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +96,7 @@ data CreateCluster = CreateCluster'
     -- | An object representing the configuration of your local Amazon EKS
     -- cluster on an Amazon Web Services Outpost. Before creating a local
     -- cluster on an Outpost, review
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
     -- in the /Amazon EKS User Guide/. This object isn\'t available for
     -- creating Amazon EKS clusters on the Amazon Web Services cloud.
     outpostConfig :: Prelude.Maybe OutpostConfigRequest,
@@ -158,7 +158,7 @@ data CreateCluster = CreateCluster'
 -- 'outpostConfig', 'createCluster_outpostConfig' - An object representing the configuration of your local Amazon EKS
 -- cluster on an Amazon Web Services Outpost. Before creating a local
 -- cluster on an Outpost, review
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
 -- in the /Amazon EKS User Guide/. This object isn\'t available for
 -- creating Amazon EKS clusters on the Amazon Web Services cloud.
 --
@@ -239,7 +239,7 @@ createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToke
 -- | An object representing the configuration of your local Amazon EKS
 -- cluster on an Amazon Web Services Outpost. Before creating a local
 -- cluster on an Outpost, review
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html Creating an Amazon EKS cluster on an Amazon Web Services Outpost>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
 -- in the /Amazon EKS User Guide/. This object isn\'t available for
 -- creating Amazon EKS clusters on the Amazon Web Services cloud.
 createCluster_outpostConfig :: Lens.Lens' CreateCluster (Prelude.Maybe OutpostConfigRequest)
@@ -296,8 +296,8 @@ instance Core.AWSRequest CreateCluster where
   type
     AWSResponse CreateCluster =
       CreateClusterResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.IdentityProviderConfigResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.OidcIdentityProviderConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The full description of your identity configuration.

@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.UpdateTaintsPayload where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.Taint
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the details of an update to a taints payload. For

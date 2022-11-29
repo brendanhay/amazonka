@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.Taint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.TaintEffect
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A property that allows a node to repel a set of pods. For more

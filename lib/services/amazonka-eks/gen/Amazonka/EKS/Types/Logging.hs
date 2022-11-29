@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.Logging where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.LogSetup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the logging configuration for resources in your

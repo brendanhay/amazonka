@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.ConnectorConfigRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.ConnectorConfigProvider
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration sent to a cluster for configuration.

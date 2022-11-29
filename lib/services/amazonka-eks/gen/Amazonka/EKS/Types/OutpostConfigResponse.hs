@@ -20,7 +20,8 @@
 module Amazonka.EKS.Types.OutpostConfigResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.EKS.Types.ControlPlanePlacementResponse
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the configuration of your local Amazon EKS
@@ -29,7 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutpostConfigResponse' smart constructor.
 data OutpostConfigResponse = OutpostConfigResponse'
-  { -- | The ARN of the Outpost that you specified for use with your local Amazon
+  { -- | An object representing the placement configuration for all the control
+    -- plane instance of your local Amazon EKS cluster on an Amazon Web
+    -- Services Outpost. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
+    -- in the /Amazon EKS User Guide/.
+    controlPlanePlacement :: Prelude.Maybe ControlPlanePlacementResponse,
+    -- | The ARN of the Outpost that you specified for use with your local Amazon
     -- EKS cluster on Outposts.
     outpostArns :: [Prelude.Text],
     -- | The Amazon EC2 instance type used for the control plane. The instance
@@ -46,6 +53,12 @@ data OutpostConfigResponse = OutpostConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlPlanePlacement', 'outpostConfigResponse_controlPlanePlacement' - An object representing the placement configuration for all the control
+-- plane instance of your local Amazon EKS cluster on an Amazon Web
+-- Services Outpost. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
+-- in the /Amazon EKS User Guide/.
+--
 -- 'outpostArns', 'outpostConfigResponse_outpostArns' - The ARN of the Outpost that you specified for use with your local Amazon
 -- EKS cluster on Outposts.
 --
@@ -57,11 +70,20 @@ newOutpostConfigResponse ::
   OutpostConfigResponse
 newOutpostConfigResponse pControlPlaneInstanceType_ =
   OutpostConfigResponse'
-    { outpostArns =
-        Prelude.mempty,
+    { controlPlanePlacement =
+        Prelude.Nothing,
+      outpostArns = Prelude.mempty,
       controlPlaneInstanceType =
         pControlPlaneInstanceType_
     }
+
+-- | An object representing the placement configuration for all the control
+-- plane instance of your local Amazon EKS cluster on an Amazon Web
+-- Services Outpost. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
+-- in the /Amazon EKS User Guide/.
+outpostConfigResponse_controlPlanePlacement :: Lens.Lens' OutpostConfigResponse (Prelude.Maybe ControlPlanePlacementResponse)
+outpostConfigResponse_controlPlanePlacement = Lens.lens (\OutpostConfigResponse' {controlPlanePlacement} -> controlPlanePlacement) (\s@OutpostConfigResponse' {} a -> s {controlPlanePlacement = a} :: OutpostConfigResponse)
 
 -- | The ARN of the Outpost that you specified for use with your local Amazon
 -- EKS cluster on Outposts.
@@ -79,16 +101,19 @@ instance Core.FromJSON OutpostConfigResponse where
       "OutpostConfigResponse"
       ( \x ->
           OutpostConfigResponse'
-            Prelude.<$> (x Core..:? "outpostArns" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "controlPlanePlacement")
+            Prelude.<*> (x Core..:? "outpostArns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "controlPlaneInstanceType")
       )
 
 instance Prelude.Hashable OutpostConfigResponse where
   hashWithSalt _salt OutpostConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` outpostArns
+    _salt `Prelude.hashWithSalt` controlPlanePlacement
+      `Prelude.hashWithSalt` outpostArns
       `Prelude.hashWithSalt` controlPlaneInstanceType
 
 instance Prelude.NFData OutpostConfigResponse where
   rnf OutpostConfigResponse' {..} =
-    Prelude.rnf outpostArns
+    Prelude.rnf controlPlanePlacement
+      `Prelude.seq` Prelude.rnf outpostArns
       `Prelude.seq` Prelude.rnf controlPlaneInstanceType

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,23 +17,23 @@
 module Amazonka.EKS.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.DescribeAddon
 import Amazonka.EKS.DescribeCluster
 import Amazonka.EKS.DescribeFargateProfile
 import Amazonka.EKS.DescribeNodegroup
 import Amazonka.EKS.Lens
 import Amazonka.EKS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAddonActive :: Core.Wait DescribeAddon
 newAddonActive =
   Core.Wait
-    { Core._waitName = "AddonActive",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "AddonActive",
+      Core.attempts = 60,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
@@ -64,10 +65,10 @@ newAddonActive =
 newAddonDeleted :: Core.Wait DescribeAddon
 newAddonDeleted =
   Core.Wait
-    { Core._waitName = "AddonDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "AddonDeleted",
+      Core.attempts = 60,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure
@@ -86,10 +87,10 @@ newAddonDeleted =
 newNodegroupActive :: Core.Wait DescribeNodegroup
 newNodegroupActive =
   Core.Wait
-    { Core._waitName = "NodegroupActive",
-      Core._waitAttempts = 80,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "NodegroupActive",
+      Core.attempts = 80,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
@@ -115,10 +116,10 @@ newNodegroupActive =
 newFargateProfileDeleted :: Core.Wait DescribeFargateProfile
 newFargateProfileDeleted =
   Core.Wait
-    { Core._waitName = "FargateProfileDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "FargateProfileDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure
@@ -138,10 +139,10 @@ newFargateProfileDeleted =
 newClusterActive :: Core.Wait DescribeCluster
 newClusterActive =
   Core.Wait
-    { Core._waitName = "ClusterActive",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ClusterActive",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "DELETING"
             Core.AcceptFailure
@@ -173,10 +174,10 @@ newClusterActive =
 newClusterDeleted :: Core.Wait DescribeCluster
 newClusterDeleted =
   Core.Wait
-    { Core._waitName = "ClusterDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ClusterDeleted",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptFailure
@@ -211,10 +212,10 @@ newClusterDeleted =
 newFargateProfileActive :: Core.Wait DescribeFargateProfile
 newFargateProfileActive =
   Core.Wait
-    { Core._waitName = "FargateProfileActive",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "FargateProfileActive",
+      Core.attempts = 60,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
@@ -240,10 +241,10 @@ newFargateProfileActive =
 newNodegroupDeleted :: Core.Wait DescribeNodegroup
 newNodegroupDeleted =
   Core.Wait
-    { Core._waitName = "NodegroupDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "NodegroupDeleted",
+      Core.attempts = 40,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure

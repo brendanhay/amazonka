@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.AddonIssue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.AddonIssueCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An issue related to an add-on.

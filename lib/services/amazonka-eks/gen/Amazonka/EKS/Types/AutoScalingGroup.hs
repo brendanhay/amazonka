@@ -20,7 +20,7 @@
 module Amazonka.EKS.Types.AutoScalingGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Auto Scaling group that is associated with an Amazon EKS managed node

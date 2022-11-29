@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.DatasetContentDeliveryRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetContentDeliveryDestination
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When dataset contents are created, they are delivered to destination

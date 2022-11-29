@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.RetentionPeriod where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long, in days, message data is kept.

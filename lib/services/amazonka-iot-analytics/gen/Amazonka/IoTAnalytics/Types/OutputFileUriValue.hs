@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.OutputFileUriValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of the variable as a structure that specifies an output file

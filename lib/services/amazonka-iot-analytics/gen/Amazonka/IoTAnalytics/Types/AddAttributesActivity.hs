@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.AddAttributesActivity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that adds other attributes based on existing attributes in

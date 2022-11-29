@@ -20,10 +20,10 @@
 module Amazonka.IoTAnalytics.Types.DatasetSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetActionSummary
 import Amazonka.IoTAnalytics.Types.DatasetStatus
 import Amazonka.IoTAnalytics.Types.DatasetTrigger
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a dataset.

@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.ReprocessingSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.ReprocessingStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about pipeline reprocessing.

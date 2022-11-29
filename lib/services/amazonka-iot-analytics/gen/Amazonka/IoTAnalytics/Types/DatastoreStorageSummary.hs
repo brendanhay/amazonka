@@ -20,10 +20,10 @@
 module Amazonka.IoTAnalytics.Types.DatastoreStorageSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
 import Amazonka.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary
 import Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about your data store.

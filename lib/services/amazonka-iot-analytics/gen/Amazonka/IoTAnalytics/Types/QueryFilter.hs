@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.QueryFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DeltaTime
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that is used to filter message data, to segregate it

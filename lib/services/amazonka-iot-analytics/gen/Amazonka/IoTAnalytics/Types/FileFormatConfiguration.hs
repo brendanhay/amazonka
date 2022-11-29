@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.FileFormatConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.JsonConfiguration
 import Amazonka.IoTAnalytics.Types.ParquetConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration information of file formats. IoT Analytics

@@ -20,12 +20,12 @@
 module Amazonka.IoTAnalytics.Types.Datastore where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatastorePartitions
 import Amazonka.IoTAnalytics.Types.DatastoreStatus
 import Amazonka.IoTAnalytics.Types.DatastoreStorage
 import Amazonka.IoTAnalytics.Types.FileFormatConfiguration
 import Amazonka.IoTAnalytics.Types.RetentionPeriod
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a data store.

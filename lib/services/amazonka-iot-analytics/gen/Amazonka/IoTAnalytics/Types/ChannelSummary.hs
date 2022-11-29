@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.ChannelSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.ChannelStatus
 import Amazonka.IoTAnalytics.Types.ChannelStorageSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a channel.

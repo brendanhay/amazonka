@@ -20,6 +20,7 @@
 module Amazonka.IoTAnalytics.Types.PipelineActivity where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.AddAttributesActivity
 import Amazonka.IoTAnalytics.Types.ChannelActivity
 import Amazonka.IoTAnalytics.Types.DatastoreActivity
@@ -30,7 +31,6 @@ import Amazonka.IoTAnalytics.Types.LambdaActivity
 import Amazonka.IoTAnalytics.Types.MathActivity
 import Amazonka.IoTAnalytics.Types.RemoveAttributesActivity
 import Amazonka.IoTAnalytics.Types.SelectAttributesActivity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that performs a transformation on a message.

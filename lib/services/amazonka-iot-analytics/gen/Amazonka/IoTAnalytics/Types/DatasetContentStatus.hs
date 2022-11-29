@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.DatasetContentStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetContentState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the dataset contents and the reason they are in this state.

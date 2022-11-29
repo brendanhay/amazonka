@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You

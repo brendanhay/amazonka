@@ -20,10 +20,10 @@
 module Amazonka.IoTAnalytics.Types.DatastoreStorage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
 import Amazonka.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
 import Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Where data in a data store is stored.. You can choose @serviceManagedS3@

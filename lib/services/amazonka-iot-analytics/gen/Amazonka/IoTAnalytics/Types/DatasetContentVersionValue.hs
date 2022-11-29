@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.DatasetContentVersionValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dataset whose latest contents are used as input to the notebook or

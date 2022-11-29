@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.DatasetActionSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetActionType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the action that automatically creates the dataset\'s

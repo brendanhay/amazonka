@@ -20,10 +20,10 @@
 module Amazonka.IoTAnalytics.Types.Channel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.ChannelStatus
 import Amazonka.IoTAnalytics.Types.ChannelStorage
 import Amazonka.IoTAnalytics.Types.RetentionPeriod
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of data from an MQTT topic. Channels archive the raw,

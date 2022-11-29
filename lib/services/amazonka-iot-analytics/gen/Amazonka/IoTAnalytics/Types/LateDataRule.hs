@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.LateDataRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.LateDataRuleConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the name and configuration information of a

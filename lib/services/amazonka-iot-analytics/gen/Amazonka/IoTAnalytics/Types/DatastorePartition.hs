@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.DatastorePartition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.Partition
 import Amazonka.IoTAnalytics.Types.TimestampPartition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single dimension to partition a data store. The dimension must be an

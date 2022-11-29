@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3Storage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you

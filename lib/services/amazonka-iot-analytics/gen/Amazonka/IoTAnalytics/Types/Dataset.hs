@@ -20,6 +20,7 @@
 module Amazonka.IoTAnalytics.Types.Dataset where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetAction
 import Amazonka.IoTAnalytics.Types.DatasetContentDeliveryRule
 import Amazonka.IoTAnalytics.Types.DatasetStatus
@@ -27,7 +28,6 @@ import Amazonka.IoTAnalytics.Types.DatasetTrigger
 import Amazonka.IoTAnalytics.Types.LateDataRule
 import Amazonka.IoTAnalytics.Types.RetentionPeriod
 import Amazonka.IoTAnalytics.Types.VersioningConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a dataset.

@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.LoadBalancerAddress
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Availability Zone.

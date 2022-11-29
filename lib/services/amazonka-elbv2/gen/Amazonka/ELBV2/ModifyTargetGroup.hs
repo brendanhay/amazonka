@@ -22,10 +22,6 @@
 --
 -- Modifies the health checks used when evaluating the health state of the
 -- targets in the specified target group.
---
--- If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you
--- can\'t modify the health check protocol, interval, timeout, or success
--- codes.
 module Amazonka.ELBV2.ModifyTargetGroup
   ( -- * Creating a Request
     ModifyTargetGroup (..),
@@ -54,8 +50,8 @@ module Amazonka.ELBV2.ModifyTargetGroup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,14 +80,12 @@ data ModifyTargetGroup = ModifyTargetGroup'
     -- Services.ALB\/healthcheck.
     healthCheckPath :: Prelude.Maybe Prelude.Text,
     -- | The number of consecutive health check failures required before
-    -- considering the target unhealthy. For target groups with a protocol of
-    -- TCP or TLS, this value must be the same as the healthy threshold count.
+    -- considering the target unhealthy.
     unhealthyThresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether health checks are enabled.
     healthCheckEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The approximate amount of time, in seconds, between health checks of an
-    -- individual target. For TCP health checks, the supported values are 10 or
-    -- 30 seconds.
+    -- individual target.
     healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive health checks successes required before
     -- considering an unhealthy target healthy.
@@ -100,7 +94,10 @@ data ModifyTargetGroup = ModifyTargetGroup'
     -- targets.
     healthCheckPort :: Prelude.Maybe Prelude.Text,
     -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
-    -- for a successful response from a target.
+    -- for a successful response from a target. For target groups with a
+    -- protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target
+    -- groups with a protocol of HTTP or HTTPS, the range is 200-499. For
+    -- target groups with a protocol of GENEVE, the range is 200-399.
     matcher :: Prelude.Maybe Matcher,
     -- | The Amazon Resource Name (ARN) of the target group.
     targetGroupArn :: Prelude.Text
@@ -137,14 +134,12 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- Services.ALB\/healthcheck.
 --
 -- 'unhealthyThresholdCount', 'modifyTargetGroup_unhealthyThresholdCount' - The number of consecutive health check failures required before
--- considering the target unhealthy. For target groups with a protocol of
--- TCP or TLS, this value must be the same as the healthy threshold count.
+-- considering the target unhealthy.
 --
 -- 'healthCheckEnabled', 'modifyTargetGroup_healthCheckEnabled' - Indicates whether health checks are enabled.
 --
 -- 'healthCheckIntervalSeconds', 'modifyTargetGroup_healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an
--- individual target. For TCP health checks, the supported values are 10 or
--- 30 seconds.
+-- individual target.
 --
 -- 'healthyThresholdCount', 'modifyTargetGroup_healthyThresholdCount' - The number of consecutive health checks successes required before
 -- considering an unhealthy target healthy.
@@ -153,7 +148,10 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- targets.
 --
 -- 'matcher', 'modifyTargetGroup_matcher' - [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
--- for a successful response from a target.
+-- for a successful response from a target. For target groups with a
+-- protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target
+-- groups with a protocol of HTTP or HTTPS, the range is 200-499. For
+-- target groups with a protocol of GENEVE, the range is 200-399.
 --
 -- 'targetGroupArn', 'modifyTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newModifyTargetGroup ::
@@ -203,8 +201,7 @@ modifyTargetGroup_healthCheckPath :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe
 modifyTargetGroup_healthCheckPath = Lens.lens (\ModifyTargetGroup' {healthCheckPath} -> healthCheckPath) (\s@ModifyTargetGroup' {} a -> s {healthCheckPath = a} :: ModifyTargetGroup)
 
 -- | The number of consecutive health check failures required before
--- considering the target unhealthy. For target groups with a protocol of
--- TCP or TLS, this value must be the same as the healthy threshold count.
+-- considering the target unhealthy.
 modifyTargetGroup_unhealthyThresholdCount :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
 modifyTargetGroup_unhealthyThresholdCount = Lens.lens (\ModifyTargetGroup' {unhealthyThresholdCount} -> unhealthyThresholdCount) (\s@ModifyTargetGroup' {} a -> s {unhealthyThresholdCount = a} :: ModifyTargetGroup)
 
@@ -213,8 +210,7 @@ modifyTargetGroup_healthCheckEnabled :: Lens.Lens' ModifyTargetGroup (Prelude.Ma
 modifyTargetGroup_healthCheckEnabled = Lens.lens (\ModifyTargetGroup' {healthCheckEnabled} -> healthCheckEnabled) (\s@ModifyTargetGroup' {} a -> s {healthCheckEnabled = a} :: ModifyTargetGroup)
 
 -- | The approximate amount of time, in seconds, between health checks of an
--- individual target. For TCP health checks, the supported values are 10 or
--- 30 seconds.
+-- individual target.
 modifyTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
 modifyTargetGroup_healthCheckIntervalSeconds = Lens.lens (\ModifyTargetGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@ModifyTargetGroup' {} a -> s {healthCheckIntervalSeconds = a} :: ModifyTargetGroup)
 
@@ -229,7 +225,10 @@ modifyTargetGroup_healthCheckPort :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe
 modifyTargetGroup_healthCheckPort = Lens.lens (\ModifyTargetGroup' {healthCheckPort} -> healthCheckPort) (\s@ModifyTargetGroup' {} a -> s {healthCheckPort = a} :: ModifyTargetGroup)
 
 -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
--- for a successful response from a target.
+-- for a successful response from a target. For target groups with a
+-- protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target
+-- groups with a protocol of HTTP or HTTPS, the range is 200-499. For
+-- target groups with a protocol of GENEVE, the range is 200-399.
 modifyTargetGroup_matcher :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Matcher)
 modifyTargetGroup_matcher = Lens.lens (\ModifyTargetGroup' {matcher} -> matcher) (\s@ModifyTargetGroup' {} a -> s {matcher = a} :: ModifyTargetGroup)
 
@@ -241,8 +240,8 @@ instance Core.AWSRequest ModifyTargetGroup where
   type
     AWSResponse ModifyTargetGroup =
       ModifyTargetGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyTargetGroupResult"

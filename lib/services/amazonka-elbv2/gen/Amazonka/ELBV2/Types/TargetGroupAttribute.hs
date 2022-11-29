@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.TargetGroupAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target group attribute.
@@ -29,16 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 data TargetGroupAttribute = TargetGroupAttribute'
   { -- | The name of the attribute.
     --
-    -- The following attribute is supported by all load balancers:
+    -- The following attributes are supported by all load balancers:
     --
     -- -   @deregistration_delay.timeout_seconds@ - The amount of time, in
     --     seconds, for Elastic Load Balancing to wait before changing the
     --     state of a deregistering target from @draining@ to @unused@. The
     --     range is 0-3600 seconds. The default value is 300 seconds. If the
     --     target is a Lambda function, this attribute is not supported.
-    --
-    -- The following attributes are supported by Application Load Balancers,
-    -- Network Load Balancers, and Gateway Load Balancers:
     --
     -- -   @stickiness.enabled@ - Indicates whether target stickiness is
     --     enabled. The value is @true@ or @false@. The default is @false@.
@@ -52,6 +49,40 @@ data TargetGroupAttribute = TargetGroupAttribute'
     --
     --     -   @source_ip_dest_ip@ and @source_ip_dest_ip_proto@ for Gateway
     --         Load Balancers.
+    --
+    -- The following attributes are supported by Application Load Balancers and
+    -- Network Load Balancers:
+    --
+    -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross zone
+    --     load balancing is enabled. The value is @true@, @false@ or
+    --     @use_load_balancer_configuration@. The default is
+    --     @use_load_balancer_configuration@.
+    --
+    -- -   @target_group_health.dns_failover.minimum_healthy_targets.count@ -
+    --     The minimum number of targets that must be healthy. If the number of
+    --     healthy targets is below this value, mark the zone as unhealthy in
+    --     DNS, so that traffic is routed only to healthy zones. The possible
+    --     values are @off@ or an integer from 1 to the maximum number of
+    --     targets. The default is @off@.
+    --
+    -- -   @target_group_health.dns_failover.minimum_healthy_targets.percentage@
+    --     - The minimum percentage of targets that must be healthy. If the
+    --     percentage of healthy targets is below this value, mark the zone as
+    --     unhealthy in DNS, so that traffic is routed only to healthy zones.
+    --     The possible values are @off@ or an integer from 1 to 100. The
+    --     default is @off@.
+    --
+    -- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.count@
+    --     - The minimum number of targets that must be healthy. If the number
+    --     of healthy targets is below this value, send traffic to all targets,
+    --     including unhealthy targets. The possible values are 1 to the
+    --     maximum number of targets. The default is 1.
+    --
+    -- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage@
+    --     - The minimum percentage of targets that must be healthy. If the
+    --     percentage of healthy targets is below this value, send traffic to
+    --     all targets, including unhealthy targets. The possible values are
+    --     @off@ or an integer from 1 to 100. The default is @off@.
     --
     -- The following attributes are supported only if the load balancer is an
     -- Application Load Balancer and the target is an instance or an IP
@@ -148,16 +179,13 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 -- 'key', 'targetGroupAttribute_key' - The name of the attribute.
 --
--- The following attribute is supported by all load balancers:
+-- The following attributes are supported by all load balancers:
 --
 -- -   @deregistration_delay.timeout_seconds@ - The amount of time, in
 --     seconds, for Elastic Load Balancing to wait before changing the
 --     state of a deregistering target from @draining@ to @unused@. The
 --     range is 0-3600 seconds. The default value is 300 seconds. If the
 --     target is a Lambda function, this attribute is not supported.
---
--- The following attributes are supported by Application Load Balancers,
--- Network Load Balancers, and Gateway Load Balancers:
 --
 -- -   @stickiness.enabled@ - Indicates whether target stickiness is
 --     enabled. The value is @true@ or @false@. The default is @false@.
@@ -171,6 +199,40 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 --     -   @source_ip_dest_ip@ and @source_ip_dest_ip_proto@ for Gateway
 --         Load Balancers.
+--
+-- The following attributes are supported by Application Load Balancers and
+-- Network Load Balancers:
+--
+-- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross zone
+--     load balancing is enabled. The value is @true@, @false@ or
+--     @use_load_balancer_configuration@. The default is
+--     @use_load_balancer_configuration@.
+--
+-- -   @target_group_health.dns_failover.minimum_healthy_targets.count@ -
+--     The minimum number of targets that must be healthy. If the number of
+--     healthy targets is below this value, mark the zone as unhealthy in
+--     DNS, so that traffic is routed only to healthy zones. The possible
+--     values are @off@ or an integer from 1 to the maximum number of
+--     targets. The default is @off@.
+--
+-- -   @target_group_health.dns_failover.minimum_healthy_targets.percentage@
+--     - The minimum percentage of targets that must be healthy. If the
+--     percentage of healthy targets is below this value, mark the zone as
+--     unhealthy in DNS, so that traffic is routed only to healthy zones.
+--     The possible values are @off@ or an integer from 1 to 100. The
+--     default is @off@.
+--
+-- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.count@
+--     - The minimum number of targets that must be healthy. If the number
+--     of healthy targets is below this value, send traffic to all targets,
+--     including unhealthy targets. The possible values are 1 to the
+--     maximum number of targets. The default is 1.
+--
+-- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage@
+--     - The minimum percentage of targets that must be healthy. If the
+--     percentage of healthy targets is below this value, send traffic to
+--     all targets, including unhealthy targets. The possible values are
+--     @off@ or an integer from 1 to 100. The default is @off@.
 --
 -- The following attributes are supported only if the load balancer is an
 -- Application Load Balancer and the target is an instance or an IP
@@ -263,16 +325,13 @@ newTargetGroupAttribute =
 
 -- | The name of the attribute.
 --
--- The following attribute is supported by all load balancers:
+-- The following attributes are supported by all load balancers:
 --
 -- -   @deregistration_delay.timeout_seconds@ - The amount of time, in
 --     seconds, for Elastic Load Balancing to wait before changing the
 --     state of a deregistering target from @draining@ to @unused@. The
 --     range is 0-3600 seconds. The default value is 300 seconds. If the
 --     target is a Lambda function, this attribute is not supported.
---
--- The following attributes are supported by Application Load Balancers,
--- Network Load Balancers, and Gateway Load Balancers:
 --
 -- -   @stickiness.enabled@ - Indicates whether target stickiness is
 --     enabled. The value is @true@ or @false@. The default is @false@.
@@ -286,6 +345,40 @@ newTargetGroupAttribute =
 --
 --     -   @source_ip_dest_ip@ and @source_ip_dest_ip_proto@ for Gateway
 --         Load Balancers.
+--
+-- The following attributes are supported by Application Load Balancers and
+-- Network Load Balancers:
+--
+-- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross zone
+--     load balancing is enabled. The value is @true@, @false@ or
+--     @use_load_balancer_configuration@. The default is
+--     @use_load_balancer_configuration@.
+--
+-- -   @target_group_health.dns_failover.minimum_healthy_targets.count@ -
+--     The minimum number of targets that must be healthy. If the number of
+--     healthy targets is below this value, mark the zone as unhealthy in
+--     DNS, so that traffic is routed only to healthy zones. The possible
+--     values are @off@ or an integer from 1 to the maximum number of
+--     targets. The default is @off@.
+--
+-- -   @target_group_health.dns_failover.minimum_healthy_targets.percentage@
+--     - The minimum percentage of targets that must be healthy. If the
+--     percentage of healthy targets is below this value, mark the zone as
+--     unhealthy in DNS, so that traffic is routed only to healthy zones.
+--     The possible values are @off@ or an integer from 1 to 100. The
+--     default is @off@.
+--
+-- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.count@
+--     - The minimum number of targets that must be healthy. If the number
+--     of healthy targets is below this value, send traffic to all targets,
+--     including unhealthy targets. The possible values are 1 to the
+--     maximum number of targets. The default is 1.
+--
+-- -   @target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage@
+--     - The minimum percentage of targets that must be healthy. If the
+--     percentage of healthy targets is below this value, send traffic to
+--     all targets, including unhealthy targets. The possible values are
+--     @off@ or an integer from 1 to 100. The default is @off@.
 --
 -- The following attributes are supported only if the load balancer is an
 -- Application Load Balancer and the target is an instance or an IP

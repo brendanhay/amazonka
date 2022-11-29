@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.Matcher where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The codes to use when checking for a successful response from a target.
@@ -30,11 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMatcher' smart constructor.
 data Matcher = Matcher'
   { -- | For Application Load Balancers, you can specify values between 200 and
-    -- 499, and the default value is 200. You can specify multiple values (for
-    -- example, \"200,202\") or a range of values (for example, \"200-299\").
+    -- 499, with the default value being 200. You can specify multiple values
+    -- (for example, \"200,202\") or a range of values (for example,
+    -- \"200-299\").
     --
-    -- For Network Load Balancers and Gateway Load Balancers, this must be
-    -- \"200–399\".
+    -- For Network Load Balancers, you can specify values between 200 and 599,
+    -- with the default value being 200-399. You can specify multiple values
+    -- (for example, \"200,202\") or a range of values (for example,
+    -- \"200-299\").
+    --
+    -- For Gateway Load Balancers, this must be \"200–399\".
     --
     -- Note that when using shorthand syntax, some values such as commas need
     -- to be escaped.
@@ -55,11 +60,16 @@ data Matcher = Matcher'
 -- for backwards compatibility:
 --
 -- 'httpCode', 'matcher_httpCode' - For Application Load Balancers, you can specify values between 200 and
--- 499, and the default value is 200. You can specify multiple values (for
--- example, \"200,202\") or a range of values (for example, \"200-299\").
+-- 499, with the default value being 200. You can specify multiple values
+-- (for example, \"200,202\") or a range of values (for example,
+-- \"200-299\").
 --
--- For Network Load Balancers and Gateway Load Balancers, this must be
--- \"200–399\".
+-- For Network Load Balancers, you can specify values between 200 and 599,
+-- with the default value being 200-399. You can specify multiple values
+-- (for example, \"200,202\") or a range of values (for example,
+-- \"200-299\").
+--
+-- For Gateway Load Balancers, this must be \"200–399\".
 --
 -- Note that when using shorthand syntax, some values such as commas need
 -- to be escaped.
@@ -76,11 +86,16 @@ newMatcher =
     }
 
 -- | For Application Load Balancers, you can specify values between 200 and
--- 499, and the default value is 200. You can specify multiple values (for
--- example, \"200,202\") or a range of values (for example, \"200-299\").
+-- 499, with the default value being 200. You can specify multiple values
+-- (for example, \"200,202\") or a range of values (for example,
+-- \"200-299\").
 --
--- For Network Load Balancers and Gateway Load Balancers, this must be
--- \"200–399\".
+-- For Network Load Balancers, you can specify values between 200 and 599,
+-- with the default value being 200-399. You can specify multiple values
+-- (for example, \"200,202\") or a range of values (for example,
+-- \"200-299\").
+--
+-- For Gateway Load Balancers, this must be \"200–399\".
 --
 -- Note that when using shorthand syntax, some values such as commas need
 -- to be escaped.

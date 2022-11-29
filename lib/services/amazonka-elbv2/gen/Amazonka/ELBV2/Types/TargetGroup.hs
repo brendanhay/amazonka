@@ -20,11 +20,11 @@
 module Amazonka.ELBV2.Types.TargetGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.Matcher
 import Amazonka.ELBV2.Types.ProtocolEnum
 import Amazonka.ELBV2.Types.TargetGroupIpAddressTypeEnum
 import Amazonka.ELBV2.Types.TargetTypeEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target group.

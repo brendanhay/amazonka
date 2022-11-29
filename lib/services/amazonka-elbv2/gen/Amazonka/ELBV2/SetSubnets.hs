@@ -50,8 +50,8 @@ module Amazonka.ELBV2.SetSubnets
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -219,8 +219,8 @@ setSubnets_loadBalancerArn = Lens.lens (\SetSubnets' {loadBalancerArn} -> loadBa
 
 instance Core.AWSRequest SetSubnets where
   type AWSResponse SetSubnets = SetSubnetsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "SetSubnetsResult"

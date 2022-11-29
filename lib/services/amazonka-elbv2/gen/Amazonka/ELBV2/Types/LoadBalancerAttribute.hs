@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.LoadBalancerAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer attribute.
@@ -29,11 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 data LoadBalancerAttribute = LoadBalancerAttribute'
   { -- | The name of the attribute.
     --
-    -- The following attribute is supported by all load balancers:
+    -- The following attributes are supported by all load balancers:
     --
     -- -   @deletion_protection.enabled@ - Indicates whether deletion
     --     protection is enabled. The value is @true@ or @false@. The default
     --     is @false@.
+    --
+    -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
+    --     load balancing is enabled. The possible values are @true@ and
+    --     @false@. The default for Network Load Balancers and Gateway Load
+    --     Balancers is @false@. The default for Application Load Balancers is
+    --     @true@, and cannot be changed.
     --
     -- The following attributes are supported by both Application Load
     -- Balancers and Network Load Balancers:
@@ -120,13 +126,6 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
     --     load balancer to route requests to targets if it is unable to
     --     forward the request to Amazon Web Services WAF. The possible values
     --     are @true@ and @false@. The default is @false@.
-    --
-    -- The following attribute is supported by Network Load Balancers and
-    -- Gateway Load Balancers:
-    --
-    -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
-    --     load balancing is enabled. The possible values are @true@ and
-    --     @false@. The default is @false@.
     key :: Prelude.Maybe Prelude.Text,
     -- | The value of the attribute.
     value :: Prelude.Maybe Prelude.Text
@@ -143,11 +142,17 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --
 -- 'key', 'loadBalancerAttribute_key' - The name of the attribute.
 --
--- The following attribute is supported by all load balancers:
+-- The following attributes are supported by all load balancers:
 --
 -- -   @deletion_protection.enabled@ - Indicates whether deletion
 --     protection is enabled. The value is @true@ or @false@. The default
 --     is @false@.
+--
+-- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
+--     load balancing is enabled. The possible values are @true@ and
+--     @false@. The default for Network Load Balancers and Gateway Load
+--     Balancers is @false@. The default for Application Load Balancers is
+--     @true@, and cannot be changed.
 --
 -- The following attributes are supported by both Application Load
 -- Balancers and Network Load Balancers:
@@ -234,13 +239,6 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --     load balancer to route requests to targets if it is unable to
 --     forward the request to Amazon Web Services WAF. The possible values
 --     are @true@ and @false@. The default is @false@.
---
--- The following attribute is supported by Network Load Balancers and
--- Gateway Load Balancers:
---
--- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
---     load balancing is enabled. The possible values are @true@ and
---     @false@. The default is @false@.
 --
 -- 'value', 'loadBalancerAttribute_value' - The value of the attribute.
 newLoadBalancerAttribute ::
@@ -253,11 +251,17 @@ newLoadBalancerAttribute =
 
 -- | The name of the attribute.
 --
--- The following attribute is supported by all load balancers:
+-- The following attributes are supported by all load balancers:
 --
 -- -   @deletion_protection.enabled@ - Indicates whether deletion
 --     protection is enabled. The value is @true@ or @false@. The default
 --     is @false@.
+--
+-- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
+--     load balancing is enabled. The possible values are @true@ and
+--     @false@. The default for Network Load Balancers and Gateway Load
+--     Balancers is @false@. The default for Application Load Balancers is
+--     @true@, and cannot be changed.
 --
 -- The following attributes are supported by both Application Load
 -- Balancers and Network Load Balancers:
@@ -344,13 +348,6 @@ newLoadBalancerAttribute =
 --     load balancer to route requests to targets if it is unable to
 --     forward the request to Amazon Web Services WAF. The possible values
 --     are @true@ and @false@. The default is @false@.
---
--- The following attribute is supported by Network Load Balancers and
--- Gateway Load Balancers:
---
--- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
---     load balancing is enabled. The possible values are @true@ and
---     @false@. The default is @false@.
 loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
 loadBalancerAttribute_key = Lens.lens (\LoadBalancerAttribute' {key} -> key) (\s@LoadBalancerAttribute' {} a -> s {key = a} :: LoadBalancerAttribute)
 

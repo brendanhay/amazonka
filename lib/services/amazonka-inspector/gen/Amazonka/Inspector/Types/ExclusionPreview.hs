@@ -20,9 +20,9 @@
 module Amazonka.Inspector.Types.ExclusionPreview where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.Scope
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about what is excluded from an assessment run given

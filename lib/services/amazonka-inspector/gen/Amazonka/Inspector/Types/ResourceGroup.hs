@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.ResourceGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.ResourceGroupTag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a resource group. The resource group defines

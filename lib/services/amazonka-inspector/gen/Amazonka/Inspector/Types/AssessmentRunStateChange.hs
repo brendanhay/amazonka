@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.AssessmentRunStateChange where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AssessmentRunState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as one of the elements of the AssessmentRun data type.

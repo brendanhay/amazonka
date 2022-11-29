@@ -20,9 +20,9 @@
 module Amazonka.Inspector.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.PrivateIp
 import Amazonka.Inspector.Types.SecurityGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the network interfaces interacting with an

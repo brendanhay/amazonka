@@ -20,7 +20,7 @@
 module Amazonka.Inspector.Types.AssessmentTargetFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as the request parameter in the ListAssessmentTargets action.

@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.AgentPreview where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AgentHealth
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as a response element in the PreviewAgents action.

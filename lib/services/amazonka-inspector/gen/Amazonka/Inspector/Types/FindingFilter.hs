@@ -20,10 +20,10 @@
 module Amazonka.Inspector.Types.FindingFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.Severity
 import Amazonka.Inspector.Types.TimestampRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a request parameter in the ListFindings

@@ -20,9 +20,10 @@
 module Amazonka.Rum.Types.AppMonitor where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.AppMonitorConfiguration
+import Amazonka.Rum.Types.CustomEvents
 import Amazonka.Rum.Types.DataStorage
 import Amazonka.Rum.Types.StateEnum
 
@@ -55,7 +56,13 @@ data AppMonitor = AppMonitor'
     appMonitorConfiguration :: Prelude.Maybe AppMonitorConfiguration,
     -- | The date and time of the most recent changes to this app monitor\'s
     -- configuration.
-    lastModified :: Prelude.Maybe Prelude.Text
+    lastModified :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether this app monitor allows the web client to define and
+    -- send custom events.
+    --
+    -- For more information about custom events, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+    customEvents :: Prelude.Maybe CustomEvents
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +96,12 @@ data AppMonitor = AppMonitor'
 --
 -- 'lastModified', 'appMonitor_lastModified' - The date and time of the most recent changes to this app monitor\'s
 -- configuration.
+--
+-- 'customEvents', 'appMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
+-- send custom events.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
 newAppMonitor ::
   AppMonitor
 newAppMonitor =
@@ -101,7 +114,8 @@ newAppMonitor =
       state = Prelude.Nothing,
       id = Prelude.Nothing,
       appMonitorConfiguration = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+      lastModified = Prelude.Nothing,
+      customEvents = Prelude.Nothing
     }
 
 -- | The list of tag keys and values associated with this app monitor.
@@ -145,6 +159,14 @@ appMonitor_appMonitorConfiguration = Lens.lens (\AppMonitor' {appMonitorConfigur
 appMonitor_lastModified :: Lens.Lens' AppMonitor (Prelude.Maybe Prelude.Text)
 appMonitor_lastModified = Lens.lens (\AppMonitor' {lastModified} -> lastModified) (\s@AppMonitor' {} a -> s {lastModified = a} :: AppMonitor)
 
+-- | Specifies whether this app monitor allows the web client to define and
+-- send custom events.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+appMonitor_customEvents :: Lens.Lens' AppMonitor (Prelude.Maybe CustomEvents)
+appMonitor_customEvents = Lens.lens (\AppMonitor' {customEvents} -> customEvents) (\s@AppMonitor' {} a -> s {customEvents = a} :: AppMonitor)
+
 instance Core.FromJSON AppMonitor where
   parseJSON =
     Core.withObject
@@ -160,6 +182,7 @@ instance Core.FromJSON AppMonitor where
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "AppMonitorConfiguration")
             Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<*> (x Core..:? "CustomEvents")
       )
 
 instance Prelude.Hashable AppMonitor where
@@ -173,6 +196,7 @@ instance Prelude.Hashable AppMonitor where
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` appMonitorConfiguration
       `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` customEvents
 
 instance Prelude.NFData AppMonitor where
   rnf AppMonitor' {..} =
@@ -185,3 +209,4 @@ instance Prelude.NFData AppMonitor where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf appMonitorConfiguration
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf customEvents

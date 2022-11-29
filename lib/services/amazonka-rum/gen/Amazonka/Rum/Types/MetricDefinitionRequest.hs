@@ -20,7 +20,7 @@
 module Amazonka.Rum.Types.MetricDefinitionRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to define one extended metric that RUM will send to
@@ -128,7 +128,8 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
     --
     -- -   @\"event_details.fileType\": \"FileType\"@
     --
-    -- >  <p> All dimensions listed in this field must also be included in <code>EventPattern</code>.</p>
+    -- All dimensions listed in this field must also be included in
+    -- @EventPattern@.
     dimensionKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the metric that is defined in this structure. Valid values
     -- are the following:
@@ -216,7 +217,8 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
 --
 -- -   @\"event_details.fileType\": \"FileType\"@
 --
--- >  <p> All dimensions listed in this field must also be included in <code>EventPattern</code>.</p>
+-- All dimensions listed in this field must also be included in
+-- @EventPattern@.
 --
 -- 'name', 'metricDefinitionRequest_name' - The name for the metric that is defined in this structure. Valid values
 -- are the following:
@@ -312,7 +314,8 @@ metricDefinitionRequest_eventPattern = Lens.lens (\MetricDefinitionRequest' {eve
 --
 -- -   @\"event_details.fileType\": \"FileType\"@
 --
--- >  <p> All dimensions listed in this field must also be included in <code>EventPattern</code>.</p>
+-- All dimensions listed in this field must also be included in
+-- @EventPattern@.
 metricDefinitionRequest_dimensionKeys :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 metricDefinitionRequest_dimensionKeys = Lens.lens (\MetricDefinitionRequest' {dimensionKeys} -> dimensionKeys) (\s@MetricDefinitionRequest' {} a -> s {dimensionKeys = a} :: MetricDefinitionRequest) Prelude.. Lens.mapping Lens.coerced
 

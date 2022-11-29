@@ -38,7 +38,22 @@
 -- The maximum number of metric definitions that you can specify in one
 -- @BatchCreateRumMetricDefinitions@ operation is 200.
 --
--- >  <p>The maximum number of metric definitions that one destination can contain is 2000.</p> <p>Extended metrics sent are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension value counts as a custom metric. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p> <p>You must have already created a destination for the metrics before you send them. For more information, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html">PutRumMetricsDestination</a>.</p> <p>If some metric definitions specified in a <code>BatchCreateRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definitions in the same operation still succeed.</p>
+-- The maximum number of metric definitions that one destination can
+-- contain is 2000.
+--
+-- Extended metrics sent are charged as CloudWatch custom metrics. Each
+-- combination of additional dimension name and dimension value counts as a
+-- custom metric. For more information, see
+-- <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+--
+-- You must have already created a destination for the metrics before you
+-- send them. For more information, see
+-- <https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html PutRumMetricsDestination>.
+--
+-- If some metric definitions specified in a
+-- @BatchCreateRumMetricDefinitions@ operations are not valid, those metric
+-- definitions fail and return errors, but all valid metric definitions in
+-- the same operation still succeed.
 module Amazonka.Rum.BatchCreateRumMetricDefinitions
   ( -- * Creating a Request
     BatchCreateRumMetricDefinitions (..),
@@ -62,7 +77,7 @@ module Amazonka.Rum.BatchCreateRumMetricDefinitions
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +178,8 @@ instance
   type
     AWSResponse BatchCreateRumMetricDefinitions =
       BatchCreateRumMetricDefinitionsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

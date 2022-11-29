@@ -27,6 +27,8 @@ haskell_library(
         "gen/Amazonka/Rum/Types/AppMonitorSummary.hs",
         "gen/Amazonka/Rum/Types/BatchCreateRumMetricDefinitionsError.hs",
         "gen/Amazonka/Rum/Types/BatchDeleteRumMetricDefinitionsError.hs",
+        "gen/Amazonka/Rum/Types/CustomEvents.hs",
+        "gen/Amazonka/Rum/Types/CustomEventsStatus.hs",
         "gen/Amazonka/Rum/Types/CwLog.hs",
         "gen/Amazonka/Rum/Types/DataStorage.hs",
         "gen/Amazonka/Rum/Types/MetricDefinition.hs",

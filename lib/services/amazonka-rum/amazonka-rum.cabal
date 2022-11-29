@@ -66,6 +66,8 @@ library
     Amazonka.Rum.Types.AppMonitorSummary
     Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError
     Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError
+    Amazonka.Rum.Types.CustomEvents
+    Amazonka.Rum.Types.CustomEventsStatus
     Amazonka.Rum.Types.CwLog
     Amazonka.Rum.Types.DataStorage
     Amazonka.Rum.Types.MetricDefinition

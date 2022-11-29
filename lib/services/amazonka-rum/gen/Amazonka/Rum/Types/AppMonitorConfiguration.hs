@@ -20,7 +20,7 @@
 module Amazonka.Rum.Types.AppMonitorConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.Telemetry
 
@@ -66,7 +66,8 @@ data AppMonitorConfiguration = AppMonitorConfiguration'
     -- | If this app monitor is to collect data from only certain pages in your
     -- application, this structure lists those pages.
     --
-    -- >  <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
+    -- You can\'t include both @ExcludedPages@ and @IncludedPages@ in the same
+    -- operation.
     includedPages :: Prelude.Maybe [Prelude.Text],
     -- | A list of URLs in your website or application to exclude from RUM data
     -- collection.
@@ -135,7 +136,8 @@ data AppMonitorConfiguration = AppMonitorConfiguration'
 -- 'includedPages', 'appMonitorConfiguration_includedPages' - If this app monitor is to collect data from only certain pages in your
 -- application, this structure lists those pages.
 --
--- >  <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
+-- You can\'t include both @ExcludedPages@ and @IncludedPages@ in the same
+-- operation.
 --
 -- 'excludedPages', 'appMonitorConfiguration_excludedPages' - A list of URLs in your website or application to exclude from RUM data
 -- collection.
@@ -220,7 +222,8 @@ appMonitorConfiguration_allowCookies = Lens.lens (\AppMonitorConfiguration' {all
 -- | If this app monitor is to collect data from only certain pages in your
 -- application, this structure lists those pages.
 --
--- >  <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
+-- You can\'t include both @ExcludedPages@ and @IncludedPages@ in the same
+-- operation.
 appMonitorConfiguration_includedPages :: Lens.Lens' AppMonitorConfiguration (Prelude.Maybe [Prelude.Text])
 appMonitorConfiguration_includedPages = Lens.lens (\AppMonitorConfiguration' {includedPages} -> includedPages) (\s@AppMonitorConfiguration' {} a -> s {includedPages = a} :: AppMonitorConfiguration) Prelude.. Lens.mapping Lens.coerced
 

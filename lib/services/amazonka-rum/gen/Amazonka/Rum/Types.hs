@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -25,6 +26,9 @@ module Amazonka.Rum.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * CustomEventsStatus
+    CustomEventsStatus (..),
+
     -- * MetricDestination
     MetricDestination (..),
 
@@ -46,6 +50,7 @@ module Amazonka.Rum.Types
     appMonitor_id,
     appMonitor_appMonitorConfiguration,
     appMonitor_lastModified,
+    appMonitor_customEvents,
 
     -- * AppMonitorConfiguration
     AppMonitorConfiguration (..),
@@ -89,6 +94,11 @@ module Amazonka.Rum.Types
     batchDeleteRumMetricDefinitionsError_errorCode,
     batchDeleteRumMetricDefinitionsError_errorMessage,
     batchDeleteRumMetricDefinitionsError_metricDefinitionId,
+
+    -- * CustomEvents
+    CustomEvents (..),
+    newCustomEvents,
+    customEvents_status,
 
     -- * CwLog
     CwLog (..),
@@ -157,7 +167,7 @@ module Amazonka.Rum.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.AppMonitor
 import Amazonka.Rum.Types.AppMonitorConfiguration
@@ -165,6 +175,8 @@ import Amazonka.Rum.Types.AppMonitorDetails
 import Amazonka.Rum.Types.AppMonitorSummary
 import Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError
 import Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError
+import Amazonka.Rum.Types.CustomEvents
+import Amazonka.Rum.Types.CustomEventsStatus
 import Amazonka.Rum.Types.CwLog
 import Amazonka.Rum.Types.DataStorage
 import Amazonka.Rum.Types.MetricDefinition
@@ -183,27 +195,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Rum",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "rum",
-      Core._serviceSigningName = "rum",
-      Core._serviceVersion = "2018-05-10",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Rum",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Rum",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "rum",
+      Core.signingName = "rum",
+      Core.version = "2018-05-10",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Rum",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

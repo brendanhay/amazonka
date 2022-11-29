@@ -20,10 +20,10 @@
 module Amazonka.ECR.Types.ImageScanFindings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.EnhancedImageScanFinding
 import Amazonka.ECR.Types.FindingSeverity
 import Amazonka.ECR.Types.ImageScanFinding
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an image scan.

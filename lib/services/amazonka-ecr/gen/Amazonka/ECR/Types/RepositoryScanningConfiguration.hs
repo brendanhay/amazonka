@@ -20,9 +20,9 @@
 module Amazonka.ECR.Types.RepositoryScanningConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.ScanFrequency
 import Amazonka.ECR.Types.ScanningRepositoryFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the scanning configuration for a repository.

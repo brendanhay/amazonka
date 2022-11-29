@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.LayerFailure where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.LayerFailureCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image layer failure.

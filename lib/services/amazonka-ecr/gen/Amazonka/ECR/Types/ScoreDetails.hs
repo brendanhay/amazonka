@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.ScoreDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.CvssScoreDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Amazon Inspector score given to a finding.

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,21 +17,21 @@
 module Amazonka.ECR.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.DescribeImageScanFindings
 import Amazonka.ECR.GetLifecyclePolicyPreview
 import Amazonka.ECR.Lens
 import Amazonka.ECR.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ECR.DescribeImageScanFindings' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageScanComplete :: Core.Wait DescribeImageScanFindings
 newImageScanComplete =
   Core.Wait
-    { Core._waitName = "ImageScanComplete",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ImageScanComplete",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETE"
             Core.AcceptSuccess
@@ -56,11 +57,11 @@ newImageScanComplete =
 newLifecyclePolicyPreviewComplete :: Core.Wait GetLifecyclePolicyPreview
 newLifecyclePolicyPreviewComplete =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "LifecyclePolicyPreviewComplete",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETE"
             Core.AcceptSuccess

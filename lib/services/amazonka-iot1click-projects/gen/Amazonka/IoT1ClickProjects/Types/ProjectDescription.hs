@@ -20,8 +20,8 @@
 module Amazonka.IoT1ClickProjects.Types.ProjectDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT1ClickProjects.Types.PlacementTemplate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object providing detailed information for a particular project

@@ -20,7 +20,7 @@
 module Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration information for the output results from the

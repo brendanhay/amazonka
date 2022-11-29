@@ -20,7 +20,7 @@
 module Amazonka.LookoutEquipment.Types.DataIngestionJobSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
 import Amazonka.LookoutEquipment.Types.IngestionJobStatus
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.LookoutEquipment.Types.SensorsWithShortDateRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises information on sensors that have shorter date

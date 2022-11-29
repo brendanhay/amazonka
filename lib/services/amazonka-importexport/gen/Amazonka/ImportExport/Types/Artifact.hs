@@ -20,7 +20,7 @@
 module Amazonka.ImportExport.Types.Artifact where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A discrete item that contains the description and URL of an artifact

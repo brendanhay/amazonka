@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.InferenceMetrics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metrics for an existing endpoint compared in an Inference

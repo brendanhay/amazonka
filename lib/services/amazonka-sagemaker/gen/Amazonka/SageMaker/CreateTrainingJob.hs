@@ -44,8 +44,8 @@
 --     use of security-sensitive credentials are detected, SageMaker will
 --     reject your training job request and return an exception error.
 --
--- -   @InputDataConfig@ - Describes the training dataset and the Amazon
---     S3, EFS, or FSx location where it is stored.
+-- -   @InputDataConfig@ - Describes the input required by the training job
+--     and the Amazon S3, EFS, or FSx location where it is stored.
 --
 -- -   @OutputDataConfig@ - Identifies the Amazon S3 bucket where you want
 --     SageMaker to save the results of model training.
@@ -117,7 +117,7 @@ module Amazonka.SageMaker.CreateTrainingJob
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -637,8 +637,8 @@ instance Core.AWSRequest CreateTrainingJob where
   type
     AWSResponse CreateTrainingJob =
       CreateTrainingJobResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

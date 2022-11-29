@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.AutoMLCandidateGenerationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores the config information for how a candidate is generated

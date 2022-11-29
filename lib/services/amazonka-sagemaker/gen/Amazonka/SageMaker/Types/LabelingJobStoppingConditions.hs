@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.LabelingJobStoppingConditions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of conditions for stopping a labeling job. If any of the

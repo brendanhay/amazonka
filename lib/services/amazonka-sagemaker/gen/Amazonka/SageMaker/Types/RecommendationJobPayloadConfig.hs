@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.RecommendationJobPayloadConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the payload for a recommendation job.

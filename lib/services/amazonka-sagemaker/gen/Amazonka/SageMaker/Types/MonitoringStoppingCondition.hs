@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.MonitoringStoppingCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time limit for how long the monitoring job is allowed to run before

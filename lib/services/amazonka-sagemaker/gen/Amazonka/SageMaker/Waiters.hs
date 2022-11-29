@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.SageMaker.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.DescribeEndpoint
 import Amazonka.SageMaker.DescribeImage
@@ -32,10 +33,10 @@ import Amazonka.SageMaker.Types
 newEndpointInService :: Core.Wait DescribeEndpoint
 newEndpointInService =
   Core.Wait
-    { Core._waitName = "EndpointInService",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "EndpointInService",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "InService"
             Core.AcceptSuccess
@@ -58,11 +59,10 @@ newEndpointInService =
 newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceStopped =
   Core.Wait
-    { Core._waitName =
-        "NotebookInstanceStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "NotebookInstanceStopped",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "Stopped"
             Core.AcceptSuccess
@@ -84,10 +84,10 @@ newNotebookInstanceStopped =
 newEndpointDeleted :: Core.Wait DescribeEndpoint
 newEndpointDeleted =
   Core.Wait
-    { Core._waitName = "EndpointDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "EndpointDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchError
             "ValidationException"
             Core.AcceptSuccess,
@@ -104,10 +104,10 @@ newEndpointDeleted =
 newImageCreated :: Core.Wait DescribeImage
 newImageCreated =
   Core.Wait
-    { Core._waitName = "ImageCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ImageCreated",
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "CREATED"
             Core.AcceptSuccess
@@ -132,10 +132,10 @@ newImageCreated =
 newImageVersionDeleted :: Core.Wait DescribeImageVersion
 newImageVersionDeleted =
   Core.Wait
-    { Core._waitName = "ImageVersionDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ImageVersionDeleted",
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess,
@@ -156,11 +156,10 @@ newImageVersionDeleted =
 newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceDeleted =
   Core.Wait
-    { Core._waitName =
-        "NotebookInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "NotebookInstanceDeleted",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchError
             "ValidationException"
             Core.AcceptSuccess,
@@ -178,11 +177,11 @@ newNotebookInstanceDeleted =
 newTrainingJobCompletedOrStopped :: Core.Wait DescribeTrainingJob
 newTrainingJobCompletedOrStopped =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "TrainingJobCompletedOrStopped",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 120,
-      Core._waitAcceptors =
+      Core.attempts = 180,
+      Core.delay = 120,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess
@@ -211,11 +210,10 @@ newTrainingJobCompletedOrStopped =
 newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceInService =
   Core.Wait
-    { Core._waitName =
-        "NotebookInstanceInService",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "NotebookInstanceInService",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "InService"
             Core.AcceptSuccess
@@ -237,10 +235,10 @@ newNotebookInstanceInService =
 newImageUpdated :: Core.Wait DescribeImage
 newImageUpdated =
   Core.Wait
-    { Core._waitName = "ImageUpdated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ImageUpdated",
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "CREATED"
             Core.AcceptSuccess
@@ -265,10 +263,10 @@ newImageUpdated =
 newImageDeleted :: Core.Wait DescribeImage
 newImageDeleted =
   Core.Wait
-    { Core._waitName = "ImageDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ImageDeleted",
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess,
@@ -289,10 +287,10 @@ newImageDeleted =
 newImageVersionCreated :: Core.Wait DescribeImageVersion
 newImageVersionCreated =
   Core.Wait
-    { Core._waitName = "ImageVersionCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+    { Core.name = "ImageVersionCreated",
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "CREATED"
             Core.AcceptSuccess
@@ -317,11 +315,11 @@ newImageVersionCreated =
 newTransformJobCompletedOrStopped :: Core.Wait DescribeTransformJob
 newTransformJobCompletedOrStopped =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "TransformJobCompletedOrStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess
@@ -350,11 +348,11 @@ newTransformJobCompletedOrStopped =
 newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
 newProcessingJobCompletedOrStopped =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "ProcessingJobCompletedOrStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess

@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.OutputParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An output parameter of a pipeline step.

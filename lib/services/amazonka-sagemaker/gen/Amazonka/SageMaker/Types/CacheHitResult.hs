@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.CacheHitResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on the cache hit of a pipeline execution step.

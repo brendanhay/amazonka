@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.EnvironmentParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of environment parameters suggested by the Amazon SageMaker

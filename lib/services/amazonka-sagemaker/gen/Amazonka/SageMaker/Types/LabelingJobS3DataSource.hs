@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.LabelingJobS3DataSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 location of the input data objects.

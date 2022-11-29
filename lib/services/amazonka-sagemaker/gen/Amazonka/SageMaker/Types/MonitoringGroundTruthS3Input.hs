@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ground truth labels for the dataset used for the monitoring job.

@@ -39,7 +39,7 @@ module Amazonka.SageMaker.DeleteApp
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +113,8 @@ deleteApp_appName = Lens.lens (\DeleteApp' {appName} -> appName) (\s@DeleteApp' 
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteAppResponse'
 
 instance Prelude.Hashable DeleteApp where

@@ -45,7 +45,7 @@ module Amazonka.SageMaker.UpdateImage
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +124,8 @@ updateImage_imageName = Lens.lens (\UpdateImage' {imageName} -> imageName) (\s@U
 
 instance Core.AWSRequest UpdateImage where
   type AWSResponse UpdateImage = UpdateImageResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

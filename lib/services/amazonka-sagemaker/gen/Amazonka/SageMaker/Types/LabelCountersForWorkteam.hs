@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.LabelCountersForWorkteam where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides counts for human-labeled tasks in the labeling job.

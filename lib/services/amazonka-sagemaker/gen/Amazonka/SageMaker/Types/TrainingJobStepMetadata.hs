@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.TrainingJobStepMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata for a training job step.

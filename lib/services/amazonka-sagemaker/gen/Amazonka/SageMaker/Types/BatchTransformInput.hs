@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.BatchTransformInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringDatasetFormat
 import Amazonka.SageMaker.Types.ProcessingS3DataDistributionType

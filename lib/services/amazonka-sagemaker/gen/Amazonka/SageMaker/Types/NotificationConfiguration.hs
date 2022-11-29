@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures Amazon SNS notifications of available or expiring work items

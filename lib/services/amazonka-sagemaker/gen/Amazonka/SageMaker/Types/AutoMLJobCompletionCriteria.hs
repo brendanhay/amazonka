@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.AutoMLJobCompletionCriteria where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long a job is allowed to run, or how many candidates a job is

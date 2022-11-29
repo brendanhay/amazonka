@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.CognitoMemberDefinition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a Amazon Cognito user group. A user group can be used in on

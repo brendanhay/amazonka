@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.Alarm where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.

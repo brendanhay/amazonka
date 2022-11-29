@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.DesiredWeightAndCapacity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies weight and capacity values for a production variant.

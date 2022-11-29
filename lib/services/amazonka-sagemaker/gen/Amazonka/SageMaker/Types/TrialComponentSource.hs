@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.TrialComponentSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and job type of the source of a trial

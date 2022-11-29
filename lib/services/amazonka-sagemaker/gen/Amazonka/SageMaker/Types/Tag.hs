@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag object that consists of a key and an optional value, used to

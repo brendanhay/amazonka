@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.CaptureContentTypeHeader where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration specifying how to treat different headers. If no headers

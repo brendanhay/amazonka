@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.DeploymentConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoRollbackConfig
 import Amazonka.SageMaker.Types.BlueGreenUpdatePolicy

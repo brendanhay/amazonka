@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.ModelExplainabilityAppSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Docker container image configuration object for the model explainability

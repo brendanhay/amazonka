@@ -2748,8 +2748,10 @@ module Amazonka.SageMaker.Lens
     alarm_alarmName,
 
     -- ** AlgorithmSpecification
+    algorithmSpecification_containerEntrypoint,
     algorithmSpecification_algorithmName,
     algorithmSpecification_metricDefinitions,
+    algorithmSpecification_containerArguments,
     algorithmSpecification_trainingImage,
     algorithmSpecification_enableSageMakerMetricsTimeSeries,
     algorithmSpecification_trainingInputMode,
@@ -4661,8 +4663,9 @@ module Amazonka.SageMaker.Lens
 
     -- ** ProfilerConfig
     profilerConfig_profilingIntervalInMilliseconds,
-    profilerConfig_profilingParameters,
     profilerConfig_s3OutputPath,
+    profilerConfig_profilingParameters,
+    profilerConfig_disableProfiler,
 
     -- ** ProfilerConfigForUpdate
     profilerConfigForUpdate_profilingIntervalInMilliseconds,

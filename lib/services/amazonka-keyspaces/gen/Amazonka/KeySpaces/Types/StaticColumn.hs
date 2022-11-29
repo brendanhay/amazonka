@@ -20,7 +20,7 @@
 module Amazonka.KeySpaces.Types.StaticColumn where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The static columns of the table. Static columns store values that are

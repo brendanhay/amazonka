@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.EncryptionSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.EncryptionType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon Keyspaces encrypts and decrypts the table data at rest

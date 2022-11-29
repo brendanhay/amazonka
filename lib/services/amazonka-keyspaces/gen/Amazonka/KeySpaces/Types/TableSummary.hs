@@ -20,7 +20,7 @@
 module Amazonka.KeySpaces.Types.TableSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the name of the specified table, the keyspace it is stored in,

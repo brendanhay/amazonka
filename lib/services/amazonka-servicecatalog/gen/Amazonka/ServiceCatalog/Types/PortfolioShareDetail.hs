@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.PortfolioShareDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
 
@@ -29,7 +29,7 @@ import Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
 -- /See:/ 'newPortfolioShareDetail' smart constructor.
 data PortfolioShareDetail = PortfolioShareDetail'
   { -- | The identifier of the recipient entity that received the portfolio
-    -- share. The recipient entities can be one of the following:
+    -- share. The recipient entity can be one of the following:
     --
     -- 1. An external account.
     --
@@ -46,6 +46,9 @@ data PortfolioShareDetail = PortfolioShareDetail'
     -- account. If the recipient is in an organization node, the share is
     -- automatically imported, and the field is always set to true.
     accepted :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates if @Principal@ sharing is enabled or disabled for the
+    -- portfolio share.
+    sharePrincipals :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether TagOptions sharing is enabled or disabled for the
     -- portfolio share.
     shareTagOptions :: Prelude.Maybe Prelude.Bool
@@ -61,7 +64,7 @@ data PortfolioShareDetail = PortfolioShareDetail'
 -- for backwards compatibility:
 --
 -- 'principalId', 'portfolioShareDetail_principalId' - The identifier of the recipient entity that received the portfolio
--- share. The recipient entities can be one of the following:
+-- share. The recipient entity can be one of the following:
 --
 -- 1. An external account.
 --
@@ -78,6 +81,9 @@ data PortfolioShareDetail = PortfolioShareDetail'
 -- account. If the recipient is in an organization node, the share is
 -- automatically imported, and the field is always set to true.
 --
+-- 'sharePrincipals', 'portfolioShareDetail_sharePrincipals' - Indicates if @Principal@ sharing is enabled or disabled for the
+-- portfolio share.
+--
 -- 'shareTagOptions', 'portfolioShareDetail_shareTagOptions' - Indicates whether TagOptions sharing is enabled or disabled for the
 -- portfolio share.
 newPortfolioShareDetail ::
@@ -88,11 +94,12 @@ newPortfolioShareDetail =
         Prelude.Nothing,
       type' = Prelude.Nothing,
       accepted = Prelude.Nothing,
+      sharePrincipals = Prelude.Nothing,
       shareTagOptions = Prelude.Nothing
     }
 
 -- | The identifier of the recipient entity that received the portfolio
--- share. The recipient entities can be one of the following:
+-- share. The recipient entity can be one of the following:
 --
 -- 1. An external account.
 --
@@ -115,6 +122,11 @@ portfolioShareDetail_type = Lens.lens (\PortfolioShareDetail' {type'} -> type') 
 portfolioShareDetail_accepted :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
 portfolioShareDetail_accepted = Lens.lens (\PortfolioShareDetail' {accepted} -> accepted) (\s@PortfolioShareDetail' {} a -> s {accepted = a} :: PortfolioShareDetail)
 
+-- | Indicates if @Principal@ sharing is enabled or disabled for the
+-- portfolio share.
+portfolioShareDetail_sharePrincipals :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
+portfolioShareDetail_sharePrincipals = Lens.lens (\PortfolioShareDetail' {sharePrincipals} -> sharePrincipals) (\s@PortfolioShareDetail' {} a -> s {sharePrincipals = a} :: PortfolioShareDetail)
+
 -- | Indicates whether TagOptions sharing is enabled or disabled for the
 -- portfolio share.
 portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
@@ -129,6 +141,7 @@ instance Core.FromJSON PortfolioShareDetail where
             Prelude.<$> (x Core..:? "PrincipalId")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Accepted")
+            Prelude.<*> (x Core..:? "SharePrincipals")
             Prelude.<*> (x Core..:? "ShareTagOptions")
       )
 
@@ -137,6 +150,7 @@ instance Prelude.Hashable PortfolioShareDetail where
     _salt `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` accepted
+      `Prelude.hashWithSalt` sharePrincipals
       `Prelude.hashWithSalt` shareTagOptions
 
 instance Prelude.NFData PortfolioShareDetail where
@@ -144,4 +158,5 @@ instance Prelude.NFData PortfolioShareDetail where
     Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf accepted
+      `Prelude.seq` Prelude.rnf sharePrincipals
       `Prelude.seq` Prelude.rnf shareTagOptions

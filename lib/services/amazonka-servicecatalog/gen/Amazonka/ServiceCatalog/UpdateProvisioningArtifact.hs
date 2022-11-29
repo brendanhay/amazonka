@@ -52,7 +52,7 @@ module Amazonka.ServiceCatalog.UpdateProvisioningArtifact
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -204,8 +204,8 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
   type
     AWSResponse UpdateProvisioningArtifact =
       UpdateProvisioningArtifactResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -277,8 +277,8 @@ instance Core.ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'newUpdateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { -- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
-    -- CodeCommit, or GitHub in JSON format.
+  { -- | The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+    -- format.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The status of the current request.
     status :: Prelude.Maybe RequestStatus,
@@ -297,8 +297,8 @@ data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'info', 'updateProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- 'info', 'updateProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+-- format.
 --
 -- 'status', 'updateProvisioningArtifactResponse_status' - The status of the current request.
 --
@@ -319,8 +319,8 @@ newUpdateProvisioningArtifactResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- | The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+-- format.
 updateProvisioningArtifactResponse_info :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateProvisioningArtifactResponse_info = Lens.lens (\UpdateProvisioningArtifactResponse' {info} -> info) (\s@UpdateProvisioningArtifactResponse' {} a -> s {info = a} :: UpdateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -130,6 +130,7 @@ library
     Amazonka.ServiceCatalog.Types.BudgetDetail
     Amazonka.ServiceCatalog.Types.ChangeAction
     Amazonka.ServiceCatalog.Types.CloudWatchDashboard
+    Amazonka.ServiceCatalog.Types.CodeStarParameters
     Amazonka.ServiceCatalog.Types.ConstraintDetail
     Amazonka.ServiceCatalog.Types.ConstraintSummary
     Amazonka.ServiceCatalog.Types.CopyOption
@@ -138,6 +139,8 @@ library
     Amazonka.ServiceCatalog.Types.EvaluationType
     Amazonka.ServiceCatalog.Types.ExecutionParameter
     Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
+    Amazonka.ServiceCatalog.Types.LastSync
+    Amazonka.ServiceCatalog.Types.LastSyncStatus
     Amazonka.ServiceCatalog.Types.LaunchPath
     Amazonka.ServiceCatalog.Types.LaunchPathSummary
     Amazonka.ServiceCatalog.Types.ListRecordHistorySearchFilter
@@ -202,6 +205,10 @@ library
     Amazonka.ServiceCatalog.Types.ShareError
     Amazonka.ServiceCatalog.Types.ShareStatus
     Amazonka.ServiceCatalog.Types.SortOrder
+    Amazonka.ServiceCatalog.Types.SourceConnection
+    Amazonka.ServiceCatalog.Types.SourceConnectionDetail
+    Amazonka.ServiceCatalog.Types.SourceConnectionParameters
+    Amazonka.ServiceCatalog.Types.SourceType
     Amazonka.ServiceCatalog.Types.StackInstance
     Amazonka.ServiceCatalog.Types.StackInstanceStatus
     Amazonka.ServiceCatalog.Types.StackSetOperationType

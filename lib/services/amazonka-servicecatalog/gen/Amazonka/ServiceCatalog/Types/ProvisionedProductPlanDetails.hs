@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ProvisionedProductPlanDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanStatus
 import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
@@ -63,7 +63,7 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the provisioned product.
     provisionProductName :: Prelude.Maybe Prelude.Text,
-    -- | The time when the plan was last updated.
+    -- | The UTC time stamp when the plan was last updated.
     updatedTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,7 +108,7 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
 --
 -- 'provisionProductName', 'provisionedProductPlanDetails_provisionProductName' - The user-friendly name of the provisioned product.
 --
--- 'updatedTime', 'provisionedProductPlanDetails_updatedTime' - The time when the plan was last updated.
+-- 'updatedTime', 'provisionedProductPlanDetails_updatedTime' - The UTC time stamp when the plan was last updated.
 newProvisionedProductPlanDetails ::
   ProvisionedProductPlanDetails
 newProvisionedProductPlanDetails =
@@ -191,7 +191,7 @@ provisionedProductPlanDetails_statusMessage = Lens.lens (\ProvisionedProductPlan
 provisionedProductPlanDetails_provisionProductName :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.Text)
 provisionedProductPlanDetails_provisionProductName = Lens.lens (\ProvisionedProductPlanDetails' {provisionProductName} -> provisionProductName) (\s@ProvisionedProductPlanDetails' {} a -> s {provisionProductName = a} :: ProvisionedProductPlanDetails)
 
--- | The time when the plan was last updated.
+-- | The UTC time stamp when the plan was last updated.
 provisionedProductPlanDetails_updatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.UTCTime)
 provisionedProductPlanDetails_updatedTime = Lens.lens (\ProvisionedProductPlanDetails' {updatedTime} -> updatedTime) (\s@ProvisionedProductPlanDetails' {} a -> s {updatedTime = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Core._Time
 

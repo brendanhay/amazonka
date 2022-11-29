@@ -54,7 +54,7 @@ module Amazonka.ServiceCatalog.CreateProvisioningArtifact
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +152,8 @@ instance Core.AWSRequest CreateProvisioningArtifact where
   type
     AWSResponse CreateProvisioningArtifact =
       CreateProvisioningArtifactResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,13 +217,13 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
   { -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
     --
-    -- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
-    -- CodeCommit, or GitHub in JSON format.
+    -- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+    -- JSON format.
     --
     -- @LoadTemplateFromURL@
     --
-    -- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
-    -- Services CodeCommit, or GitHub in JSON format.
+    -- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+    -- JSON format.
     --
     -- @ImportFromPhysicalId@
     --
@@ -250,13 +250,13 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 -- 'info', 'createProvisioningArtifactResponse_info' - Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
 --
--- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+-- JSON format.
 --
 -- @LoadTemplateFromURL@
 --
--- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
--- Services CodeCommit, or GitHub in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+-- JSON format.
 --
 -- @ImportFromPhysicalId@
 --
@@ -285,13 +285,13 @@ newCreateProvisioningArtifactResponse pHttpStatus_ =
 -- | Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
 --
--- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+-- JSON format.
 --
 -- @LoadTemplateFromURL@
 --
--- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
--- Services CodeCommit, or GitHub in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3 or GitHub in
+-- JSON format.
 --
 -- @ImportFromPhysicalId@
 --

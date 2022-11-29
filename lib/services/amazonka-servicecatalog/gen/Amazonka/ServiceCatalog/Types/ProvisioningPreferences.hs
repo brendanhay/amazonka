@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ProvisioningPreferences where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-defined preferences that will be applied when updating a

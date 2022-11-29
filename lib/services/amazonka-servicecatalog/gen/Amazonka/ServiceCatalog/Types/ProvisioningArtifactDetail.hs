@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ProvisioningArtifactDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisioningArtifactGuidance
 import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
@@ -51,7 +51,18 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
     description :: Prelude.Maybe Prelude.Text,
     -- | Information set by the administrator to provide guidance to end users
     -- about which provisioning artifacts to use.
-    guidance :: Prelude.Maybe ProvisioningArtifactGuidance
+    guidance :: Prelude.Maybe ProvisioningArtifactGuidance,
+    -- | Specifies the revision of the external artifact that was used to
+    -- automatically sync the Service Catalog product and create the
+    -- provisioning artifact. Service Catalog includes this response parameter
+    -- as a high level field to the existing @ProvisioningArtifactDetail@ type,
+    -- which is returned as part of the response for @CreateProduct@,
+    -- @UpdateProduct@, @DescribeProductAsAdmin@,
+    -- @DescribeProvisioningArtifact@, @ListProvisioningArtifact@, and
+    -- @UpdateProvisioningArticat@ APIs.
+    --
+    -- This field only exists for Repo-Synced products.
+    sourceRevision :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +95,17 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
 --
 -- 'guidance', 'provisioningArtifactDetail_guidance' - Information set by the administrator to provide guidance to end users
 -- about which provisioning artifacts to use.
+--
+-- 'sourceRevision', 'provisioningArtifactDetail_sourceRevision' - Specifies the revision of the external artifact that was used to
+-- automatically sync the Service Catalog product and create the
+-- provisioning artifact. Service Catalog includes this response parameter
+-- as a high level field to the existing @ProvisioningArtifactDetail@ type,
+-- which is returned as part of the response for @CreateProduct@,
+-- @UpdateProduct@, @DescribeProductAsAdmin@,
+-- @DescribeProvisioningArtifact@, @ListProvisioningArtifact@, and
+-- @UpdateProvisioningArticat@ APIs.
+--
+-- This field only exists for Repo-Synced products.
 newProvisioningArtifactDetail ::
   ProvisioningArtifactDetail
 newProvisioningArtifactDetail =
@@ -94,7 +116,8 @@ newProvisioningArtifactDetail =
       active = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
-      guidance = Prelude.Nothing
+      guidance = Prelude.Nothing,
+      sourceRevision = Prelude.Nothing
     }
 
 -- | The name of the provisioning artifact.
@@ -133,6 +156,19 @@ provisioningArtifactDetail_description = Lens.lens (\ProvisioningArtifactDetail'
 provisioningArtifactDetail_guidance :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe ProvisioningArtifactGuidance)
 provisioningArtifactDetail_guidance = Lens.lens (\ProvisioningArtifactDetail' {guidance} -> guidance) (\s@ProvisioningArtifactDetail' {} a -> s {guidance = a} :: ProvisioningArtifactDetail)
 
+-- | Specifies the revision of the external artifact that was used to
+-- automatically sync the Service Catalog product and create the
+-- provisioning artifact. Service Catalog includes this response parameter
+-- as a high level field to the existing @ProvisioningArtifactDetail@ type,
+-- which is returned as part of the response for @CreateProduct@,
+-- @UpdateProduct@, @DescribeProductAsAdmin@,
+-- @DescribeProvisioningArtifact@, @ListProvisioningArtifact@, and
+-- @UpdateProvisioningArticat@ APIs.
+--
+-- This field only exists for Repo-Synced products.
+provisioningArtifactDetail_sourceRevision :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe Prelude.Text)
+provisioningArtifactDetail_sourceRevision = Lens.lens (\ProvisioningArtifactDetail' {sourceRevision} -> sourceRevision) (\s@ProvisioningArtifactDetail' {} a -> s {sourceRevision = a} :: ProvisioningArtifactDetail)
+
 instance Core.FromJSON ProvisioningArtifactDetail where
   parseJSON =
     Core.withObject
@@ -146,6 +182,7 @@ instance Core.FromJSON ProvisioningArtifactDetail where
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "Guidance")
+            Prelude.<*> (x Core..:? "SourceRevision")
       )
 
 instance Prelude.Hashable ProvisioningArtifactDetail where
@@ -157,6 +194,7 @@ instance Prelude.Hashable ProvisioningArtifactDetail where
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guidance
+      `Prelude.hashWithSalt` sourceRevision
 
 instance Prelude.NFData ProvisioningArtifactDetail where
   rnf ProvisioningArtifactDetail' {..} =
@@ -167,3 +205,4 @@ instance Prelude.NFData ProvisioningArtifactDetail where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf guidance
+      `Prelude.seq` Prelude.rnf sourceRevision

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all principal ARNs associated with the specified portfolio.
+-- Lists all @PrincipalARN@s and corresponding @PrincipalType@s associated
+-- with the specified portfolio.
 --
 -- This operation returns paginated results.
 module Amazonka.ServiceCatalog.ListPrincipalsForPortfolio
@@ -46,7 +47,7 @@ module Amazonka.ServiceCatalog.ListPrincipalsForPortfolio
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
     AWSResponse ListPrincipalsForPortfolio =
       ListPrincipalsForPortfolioResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,7 +220,8 @@ data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | The IAM principals (users or roles) associated with the portfolio.
+    -- | The @PrincipalARN@s and corresponding @PrincipalType@s associated with
+    -- the portfolio.
     principals :: Prelude.Maybe [Principal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -237,7 +239,8 @@ data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
 -- 'nextPageToken', 'listPrincipalsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 --
--- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The IAM principals (users or roles) associated with the portfolio.
+-- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The @PrincipalARN@s and corresponding @PrincipalType@s associated with
+-- the portfolio.
 --
 -- 'httpStatus', 'listPrincipalsForPortfolioResponse_httpStatus' - The response's http status code.
 newListPrincipalsForPortfolioResponse ::
@@ -257,7 +260,8 @@ newListPrincipalsForPortfolioResponse pHttpStatus_ =
 listPrincipalsForPortfolioResponse_nextPageToken :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe Prelude.Text)
 listPrincipalsForPortfolioResponse_nextPageToken = Lens.lens (\ListPrincipalsForPortfolioResponse' {nextPageToken} -> nextPageToken) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {nextPageToken = a} :: ListPrincipalsForPortfolioResponse)
 
--- | The IAM principals (users or roles) associated with the portfolio.
+-- | The @PrincipalARN@s and corresponding @PrincipalType@s associated with
+-- the portfolio.
 listPrincipalsForPortfolioResponse_principals :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe [Principal])
 listPrincipalsForPortfolioResponse_principals = Lens.lens (\ListPrincipalsForPortfolioResponse' {principals} -> principals) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {principals = a} :: ListPrincipalsForPortfolioResponse) Prelude.. Lens.mapping Lens.coerced
 

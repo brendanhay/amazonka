@@ -20,10 +20,11 @@
 module Amazonka.ServiceCatalog.Types.ProductViewDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProductViewSummary
 import Amazonka.ServiceCatalog.Types.RequestStatus
+import Amazonka.ServiceCatalog.Types.SourceConnectionDetail
 
 -- | Information about a product view.
 --
@@ -43,7 +44,14 @@ data ProductViewDetail = ProductViewDetail'
     -- | Summary information about the product view.
     productViewSummary :: Prelude.Maybe ProductViewSummary,
     -- | The ARN of the product.
-    productARN :: Prelude.Maybe Prelude.Text
+    productARN :: Prelude.Maybe Prelude.Text,
+    -- | A top level @ProductViewDetail@ response containing details about the
+    -- product’s connection. Service Catalog returns this field for the
+    -- @CreateProduct@, @UpdateProduct@, @DescribeProductAsAdmin@, and
+    -- @SearchProductAsAdmin@ APIs. This response contains the same fields as
+    -- the @ConnectionParameters@ request, with the addition of the @LastSync@
+    -- response.
+    sourceConnection :: Prelude.Maybe SourceConnectionDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +77,13 @@ data ProductViewDetail = ProductViewDetail'
 -- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.
 --
 -- 'productARN', 'productViewDetail_productARN' - The ARN of the product.
+--
+-- 'sourceConnection', 'productViewDetail_sourceConnection' - A top level @ProductViewDetail@ response containing details about the
+-- product’s connection. Service Catalog returns this field for the
+-- @CreateProduct@, @UpdateProduct@, @DescribeProductAsAdmin@, and
+-- @SearchProductAsAdmin@ APIs. This response contains the same fields as
+-- the @ConnectionParameters@ request, with the addition of the @LastSync@
+-- response.
 newProductViewDetail ::
   ProductViewDetail
 newProductViewDetail =
@@ -76,7 +91,8 @@ newProductViewDetail =
     { createdTime = Prelude.Nothing,
       status = Prelude.Nothing,
       productViewSummary = Prelude.Nothing,
-      productARN = Prelude.Nothing
+      productARN = Prelude.Nothing,
+      sourceConnection = Prelude.Nothing
     }
 
 -- | The UTC time stamp of the creation time.
@@ -102,6 +118,15 @@ productViewDetail_productViewSummary = Lens.lens (\ProductViewDetail' {productVi
 productViewDetail_productARN :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.Text)
 productViewDetail_productARN = Lens.lens (\ProductViewDetail' {productARN} -> productARN) (\s@ProductViewDetail' {} a -> s {productARN = a} :: ProductViewDetail)
 
+-- | A top level @ProductViewDetail@ response containing details about the
+-- product’s connection. Service Catalog returns this field for the
+-- @CreateProduct@, @UpdateProduct@, @DescribeProductAsAdmin@, and
+-- @SearchProductAsAdmin@ APIs. This response contains the same fields as
+-- the @ConnectionParameters@ request, with the addition of the @LastSync@
+-- response.
+productViewDetail_sourceConnection :: Lens.Lens' ProductViewDetail (Prelude.Maybe SourceConnectionDetail)
+productViewDetail_sourceConnection = Lens.lens (\ProductViewDetail' {sourceConnection} -> sourceConnection) (\s@ProductViewDetail' {} a -> s {sourceConnection = a} :: ProductViewDetail)
+
 instance Core.FromJSON ProductViewDetail where
   parseJSON =
     Core.withObject
@@ -112,6 +137,7 @@ instance Core.FromJSON ProductViewDetail where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ProductViewSummary")
             Prelude.<*> (x Core..:? "ProductARN")
+            Prelude.<*> (x Core..:? "SourceConnection")
       )
 
 instance Prelude.Hashable ProductViewDetail where
@@ -120,6 +146,7 @@ instance Prelude.Hashable ProductViewDetail where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` productViewSummary
       `Prelude.hashWithSalt` productARN
+      `Prelude.hashWithSalt` sourceConnection
 
 instance Prelude.NFData ProductViewDetail where
   rnf ProductViewDetail' {..} =
@@ -127,3 +154,4 @@ instance Prelude.NFData ProductViewDetail where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf productViewSummary
       `Prelude.seq` Prelude.rnf productARN
+      `Prelude.seq` Prelude.rnf sourceConnection

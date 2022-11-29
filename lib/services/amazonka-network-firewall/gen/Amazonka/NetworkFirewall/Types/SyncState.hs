@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.SyncState where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.Attachment
 import Amazonka.NetworkFirewall.Types.PerObjectStatus
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.StatefulEngineOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.RuleOrder
 import Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
 import qualified Amazonka.Prelude as Prelude

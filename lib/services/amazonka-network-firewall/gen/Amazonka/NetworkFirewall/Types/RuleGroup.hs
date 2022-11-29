@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.RuleGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.ReferenceSets
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource

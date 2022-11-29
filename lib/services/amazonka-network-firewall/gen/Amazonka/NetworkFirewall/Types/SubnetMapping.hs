@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.SubnetMapping where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ID for a subnet that you want to associate with the firewall. This

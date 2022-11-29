@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.IPSetReference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures one or more IP set references for a Suricata-compatible rule

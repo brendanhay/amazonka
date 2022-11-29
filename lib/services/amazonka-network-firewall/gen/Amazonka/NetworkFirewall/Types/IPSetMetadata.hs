@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.IPSetMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | General information about the IP set.

@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.FirewallPolicyResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.Tag

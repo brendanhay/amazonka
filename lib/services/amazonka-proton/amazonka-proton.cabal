@@ -127,6 +127,9 @@ library
     Amazonka.Proton.Types.EnvironmentTemplateSummary
     Amazonka.Proton.Types.EnvironmentTemplateVersion
     Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+    Amazonka.Proton.Types.ListServiceInstancesFilter
+    Amazonka.Proton.Types.ListServiceInstancesFilterBy
+    Amazonka.Proton.Types.ListServiceInstancesSortBy
     Amazonka.Proton.Types.Output
     Amazonka.Proton.Types.ProvisionedResource
     Amazonka.Proton.Types.ProvisionedResourceEngine
@@ -157,6 +160,7 @@ library
     Amazonka.Proton.Types.ServiceTemplateSupportedComponentSourceType
     Amazonka.Proton.Types.ServiceTemplateVersion
     Amazonka.Proton.Types.ServiceTemplateVersionSummary
+    Amazonka.Proton.Types.SortOrder
     Amazonka.Proton.Types.SyncType
     Amazonka.Proton.Types.Tag
     Amazonka.Proton.Types.TemplateSyncConfig

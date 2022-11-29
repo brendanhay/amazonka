@@ -33,6 +33,7 @@ module Amazonka.Proton.UpdateEnvironmentAccountConnection
 
     -- * Request Lenses
     updateEnvironmentAccountConnection_roleArn,
+    updateEnvironmentAccountConnection_codebuildRoleArn,
     updateEnvironmentAccountConnection_componentRoleArn,
     updateEnvironmentAccountConnection_id,
 
@@ -47,7 +48,7 @@ module Amazonka.Proton.UpdateEnvironmentAccountConnection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -58,6 +59,11 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
   { -- | The Amazon Resource Name (ARN) of the IAM service role that\'s
     -- associated with the environment account connection to update.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+    -- account. Proton uses this role to provision infrastructure resources
+    -- using CodeBuild-based provisioning in the associated environment
+    -- account.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
     -- when provisioning directly defined components in the associated
     -- environment account. It determines the scope of infrastructure that a
@@ -87,6 +93,11 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
 -- 'roleArn', 'updateEnvironmentAccountConnection_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that\'s
 -- associated with the environment account connection to update.
 --
+-- 'codebuildRoleArn', 'updateEnvironmentAccountConnection_codebuildRoleArn' - The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
+--
 -- 'componentRoleArn', 'updateEnvironmentAccountConnection_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
 -- environment account. It determines the scope of infrastructure that a
@@ -109,6 +120,7 @@ newUpdateEnvironmentAccountConnection pId_ =
   UpdateEnvironmentAccountConnection'
     { roleArn =
         Prelude.Nothing,
+      codebuildRoleArn = Prelude.Nothing,
       componentRoleArn = Prelude.Nothing,
       id = pId_
     }
@@ -117,6 +129,13 @@ newUpdateEnvironmentAccountConnection pId_ =
 -- associated with the environment account connection to update.
 updateEnvironmentAccountConnection_roleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 updateEnvironmentAccountConnection_roleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {roleArn} -> roleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {roleArn = a} :: UpdateEnvironmentAccountConnection)
+
+-- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
+updateEnvironmentAccountConnection_codebuildRoleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
+updateEnvironmentAccountConnection_codebuildRoleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {codebuildRoleArn} -> codebuildRoleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {codebuildRoleArn = a} :: UpdateEnvironmentAccountConnection)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
@@ -144,8 +163,8 @@ instance
   type
     AWSResponse UpdateEnvironmentAccountConnection =
       UpdateEnvironmentAccountConnectionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +181,7 @@ instance
     _salt
     UpdateEnvironmentAccountConnection' {..} =
       _salt `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` codebuildRoleArn
         `Prelude.hashWithSalt` componentRoleArn
         `Prelude.hashWithSalt` id
 
@@ -171,6 +191,7 @@ instance
   where
   rnf UpdateEnvironmentAccountConnection' {..} =
     Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
       `Prelude.seq` Prelude.rnf id
 
@@ -200,6 +221,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("codebuildRoleArn" Core..=)
+              Prelude.<$> codebuildRoleArn,
             ("componentRoleArn" Core..=)
               Prelude.<$> componentRoleArn,
             Prelude.Just ("id" Core..= id)

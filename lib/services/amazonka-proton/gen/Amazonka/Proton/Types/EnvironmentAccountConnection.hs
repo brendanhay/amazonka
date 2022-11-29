@@ -20,7 +20,7 @@
 module Amazonka.Proton.Types.EnvironmentAccountConnection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.EnvironmentAccountConnectionStatus
 
@@ -28,7 +28,12 @@ import Amazonka.Proton.Types.EnvironmentAccountConnectionStatus
 --
 -- /See:/ 'newEnvironmentAccountConnection' smart constructor.
 data EnvironmentAccountConnection = EnvironmentAccountConnection'
-  { -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
+  { -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+    -- account. Proton uses this role to provision infrastructure resources
+    -- using CodeBuild-based provisioning in the associated environment
+    -- account.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
     -- when provisioning directly defined components in the associated
     -- environment account. It determines the scope of infrastructure that a
     -- component can provision in the account.
@@ -73,6 +78,11 @@ data EnvironmentAccountConnection = EnvironmentAccountConnection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'codebuildRoleArn', 'environmentAccountConnection_codebuildRoleArn' - The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
 --
 -- 'componentRoleArn', 'environmentAccountConnection_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
@@ -139,8 +149,9 @@ newEnvironmentAccountConnection
   pRoleArn_
   pStatus_ =
     EnvironmentAccountConnection'
-      { componentRoleArn =
+      { codebuildRoleArn =
           Prelude.Nothing,
+        componentRoleArn = Prelude.Nothing,
         arn = pArn_,
         environmentAccountId = pEnvironmentAccountId_,
         environmentName = pEnvironmentName_,
@@ -152,6 +163,13 @@ newEnvironmentAccountConnection
         roleArn = pRoleArn_,
         status = pStatus_
       }
+
+-- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
+environmentAccountConnection_codebuildRoleArn :: Lens.Lens' EnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
+environmentAccountConnection_codebuildRoleArn = Lens.lens (\EnvironmentAccountConnection' {codebuildRoleArn} -> codebuildRoleArn) (\s@EnvironmentAccountConnection' {} a -> s {codebuildRoleArn = a} :: EnvironmentAccountConnection)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
@@ -214,7 +232,8 @@ instance Core.FromJSON EnvironmentAccountConnection where
       "EnvironmentAccountConnection"
       ( \x ->
           EnvironmentAccountConnection'
-            Prelude.<$> (x Core..:? "componentRoleArn")
+            Prelude.<$> (x Core..:? "codebuildRoleArn")
+            Prelude.<*> (x Core..:? "componentRoleArn")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "environmentAccountId")
             Prelude.<*> (x Core..: "environmentName")
@@ -231,7 +250,8 @@ instance
     EnvironmentAccountConnection
   where
   hashWithSalt _salt EnvironmentAccountConnection' {..} =
-    _salt `Prelude.hashWithSalt` componentRoleArn
+    _salt `Prelude.hashWithSalt` codebuildRoleArn
+      `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` environmentAccountId
       `Prelude.hashWithSalt` environmentName
@@ -244,7 +264,8 @@ instance
 
 instance Prelude.NFData EnvironmentAccountConnection where
   rnf EnvironmentAccountConnection' {..} =
-    Prelude.rnf componentRoleArn
+    Prelude.rnf codebuildRoleArn
+      `Prelude.seq` Prelude.rnf componentRoleArn
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environmentAccountId
       `Prelude.seq` Prelude.rnf environmentName

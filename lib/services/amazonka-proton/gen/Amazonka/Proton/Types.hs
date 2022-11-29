@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -40,6 +41,12 @@ module Amazonka.Proton.Types
     -- * EnvironmentAccountConnectionStatus
     EnvironmentAccountConnectionStatus (..),
 
+    -- * ListServiceInstancesFilterBy
+    ListServiceInstancesFilterBy (..),
+
+    -- * ListServiceInstancesSortBy
+    ListServiceInstancesSortBy (..),
+
     -- * ProvisionedResourceEngine
     ProvisionedResourceEngine (..),
 
@@ -64,6 +71,9 @@ module Amazonka.Proton.Types
     -- * ServiceTemplateSupportedComponentSourceType
     ServiceTemplateSupportedComponentSourceType (..),
 
+    -- * SortOrder
+    SortOrder (..),
+
     -- * SyncType
     SyncType (..),
 
@@ -78,6 +88,7 @@ module Amazonka.Proton.Types
     newAccountSettings,
     accountSettings_pipelineProvisioningRepository,
     accountSettings_pipelineServiceRoleArn,
+    accountSettings_pipelineCodebuildRoleArn,
 
     -- * CompatibleEnvironmentTemplate
     CompatibleEnvironmentTemplate (..),
@@ -127,6 +138,7 @@ module Amazonka.Proton.Types
     Environment (..),
     newEnvironment,
     environment_provisioning,
+    environment_codebuildRoleArn,
     environment_provisioningRepository,
     environment_description,
     environment_deploymentStatusMessage,
@@ -148,6 +160,7 @@ module Amazonka.Proton.Types
     -- * EnvironmentAccountConnection
     EnvironmentAccountConnection (..),
     newEnvironmentAccountConnection,
+    environmentAccountConnection_codebuildRoleArn,
     environmentAccountConnection_componentRoleArn,
     environmentAccountConnection_arn,
     environmentAccountConnection_environmentAccountId,
@@ -252,6 +265,12 @@ module Amazonka.Proton.Types
     environmentTemplateVersionSummary_minorVersion,
     environmentTemplateVersionSummary_status,
     environmentTemplateVersionSummary_templateName,
+
+    -- * ListServiceInstancesFilter
+    ListServiceInstancesFilter (..),
+    newListServiceInstancesFilter,
+    listServiceInstancesFilter_key,
+    listServiceInstancesFilter_value,
 
     -- * Output
     Output (..),
@@ -509,7 +528,7 @@ module Amazonka.Proton.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.AccountSettings
 import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
@@ -530,6 +549,9 @@ import Amazonka.Proton.Types.EnvironmentTemplateFilter
 import Amazonka.Proton.Types.EnvironmentTemplateSummary
 import Amazonka.Proton.Types.EnvironmentTemplateVersion
 import Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+import Amazonka.Proton.Types.ListServiceInstancesFilter
+import Amazonka.Proton.Types.ListServiceInstancesFilterBy
+import Amazonka.Proton.Types.ListServiceInstancesSortBy
 import Amazonka.Proton.Types.Output
 import Amazonka.Proton.Types.ProvisionedResource
 import Amazonka.Proton.Types.ProvisionedResourceEngine
@@ -560,6 +582,7 @@ import Amazonka.Proton.Types.ServiceTemplateSummary
 import Amazonka.Proton.Types.ServiceTemplateSupportedComponentSourceType
 import Amazonka.Proton.Types.ServiceTemplateVersion
 import Amazonka.Proton.Types.ServiceTemplateVersionSummary
+import Amazonka.Proton.Types.SortOrder
 import Amazonka.Proton.Types.SyncType
 import Amazonka.Proton.Types.Tag
 import Amazonka.Proton.Types.TemplateSyncConfig
@@ -572,27 +595,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Proton",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "proton",
-      Core._serviceSigningName = "proton",
-      Core._serviceVersion = "2020-07-20",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Proton",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Proton",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "proton",
+      Core.signingName = "proton",
+      Core.version = "2020-07-20",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Proton",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

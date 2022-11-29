@@ -31,6 +31,7 @@ module Amazonka.Proton.UpdateAccountSettings
     updateAccountSettings_deletePipelineProvisioningRepository,
     updateAccountSettings_pipelineProvisioningRepository,
     updateAccountSettings_pipelineServiceRoleArn,
+    updateAccountSettings_pipelineCodebuildRoleArn,
 
     -- * Destructuring the Response
     UpdateAccountSettingsResponse (..),
@@ -43,7 +44,7 @@ module Amazonka.Proton.UpdateAccountSettings
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -70,7 +71,11 @@ data UpdateAccountSettings = UpdateAccountSettings'
     -- self-managed provisioning.
     --
     -- To remove a previously configured ARN, specify an empty string.
-    pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text
+    pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the service role you want to use for
+    -- provisioning pipelines. Proton assumes this role for CodeBuild-based
+    -- provisioning.
+    pipelineCodebuildRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,6 +106,10 @@ data UpdateAccountSettings = UpdateAccountSettings'
 -- self-managed provisioning.
 --
 -- To remove a previously configured ARN, specify an empty string.
+--
+-- 'pipelineCodebuildRoleArn', 'updateAccountSettings_pipelineCodebuildRoleArn' - The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Proton assumes this role for CodeBuild-based
+-- provisioning.
 newUpdateAccountSettings ::
   UpdateAccountSettings
 newUpdateAccountSettings =
@@ -108,7 +117,8 @@ newUpdateAccountSettings =
     { deletePipelineProvisioningRepository =
         Prelude.Nothing,
       pipelineProvisioningRepository = Prelude.Nothing,
-      pipelineServiceRoleArn = Prelude.Nothing
+      pipelineServiceRoleArn = Prelude.Nothing,
+      pipelineCodebuildRoleArn = Prelude.Nothing
     }
 
 -- | Set to @true@ to remove a configured pipeline repository from the
@@ -137,12 +147,18 @@ updateAccountSettings_pipelineProvisioningRepository = Lens.lens (\UpdateAccount
 updateAccountSettings_pipelineServiceRoleArn :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Text)
 updateAccountSettings_pipelineServiceRoleArn = Lens.lens (\UpdateAccountSettings' {pipelineServiceRoleArn} -> pipelineServiceRoleArn) (\s@UpdateAccountSettings' {} a -> s {pipelineServiceRoleArn = a} :: UpdateAccountSettings)
 
+-- | The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Proton assumes this role for CodeBuild-based
+-- provisioning.
+updateAccountSettings_pipelineCodebuildRoleArn :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Text)
+updateAccountSettings_pipelineCodebuildRoleArn = Lens.lens (\UpdateAccountSettings' {pipelineCodebuildRoleArn} -> pipelineCodebuildRoleArn) (\s@UpdateAccountSettings' {} a -> s {pipelineCodebuildRoleArn = a} :: UpdateAccountSettings)
+
 instance Core.AWSRequest UpdateAccountSettings where
   type
     AWSResponse UpdateAccountSettings =
       UpdateAccountSettingsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,12 +173,14 @@ instance Prelude.Hashable UpdateAccountSettings where
       `Prelude.hashWithSalt` deletePipelineProvisioningRepository
       `Prelude.hashWithSalt` pipelineProvisioningRepository
       `Prelude.hashWithSalt` pipelineServiceRoleArn
+      `Prelude.hashWithSalt` pipelineCodebuildRoleArn
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
     Prelude.rnf deletePipelineProvisioningRepository
       `Prelude.seq` Prelude.rnf pipelineProvisioningRepository
       `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
+      `Prelude.seq` Prelude.rnf pipelineCodebuildRoleArn
 
 instance Core.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -188,7 +206,9 @@ instance Core.ToJSON UpdateAccountSettings where
             ("pipelineProvisioningRepository" Core..=)
               Prelude.<$> pipelineProvisioningRepository,
             ("pipelineServiceRoleArn" Core..=)
-              Prelude.<$> pipelineServiceRoleArn
+              Prelude.<$> pipelineServiceRoleArn,
+            ("pipelineCodebuildRoleArn" Core..=)
+              Prelude.<$> pipelineCodebuildRoleArn
           ]
       )
 

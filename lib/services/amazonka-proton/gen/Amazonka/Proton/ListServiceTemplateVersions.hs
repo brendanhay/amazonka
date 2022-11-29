@@ -46,7 +46,7 @@ module Amazonka.Proton.ListServiceTemplateVersions
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -155,8 +155,8 @@ instance Core.AWSRequest ListServiceTemplateVersions where
   type
     AWSResponse ListServiceTemplateVersions =
       ListServiceTemplateVersionsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

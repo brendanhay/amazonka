@@ -698,6 +698,12 @@ module Amazonka.Proton
     -- ** EnvironmentAccountConnectionStatus
     EnvironmentAccountConnectionStatus (..),
 
+    -- ** ListServiceInstancesFilterBy
+    ListServiceInstancesFilterBy (..),
+
+    -- ** ListServiceInstancesSortBy
+    ListServiceInstancesSortBy (..),
+
     -- ** ProvisionedResourceEngine
     ProvisionedResourceEngine (..),
 
@@ -721,6 +727,9 @@ module Amazonka.Proton
 
     -- ** ServiceTemplateSupportedComponentSourceType
     ServiceTemplateSupportedComponentSourceType (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** SyncType
     SyncType (..),
@@ -786,6 +795,10 @@ module Amazonka.Proton
     -- ** EnvironmentTemplateVersionSummary
     EnvironmentTemplateVersionSummary (EnvironmentTemplateVersionSummary'),
     newEnvironmentTemplateVersionSummary,
+
+    -- ** ListServiceInstancesFilter
+    ListServiceInstancesFilter (ListServiceInstancesFilter'),
+    newListServiceInstancesFilter,
 
     -- ** Output
     Output (Output'),

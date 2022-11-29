@@ -55,6 +55,7 @@ module Amazonka.Proton.Lens
 
     -- ** CreateEnvironment
     createEnvironment_tags,
+    createEnvironment_codebuildRoleArn,
     createEnvironment_provisioningRepository,
     createEnvironment_description,
     createEnvironment_templateMinorVersion,
@@ -71,6 +72,7 @@ module Amazonka.Proton.Lens
     -- ** CreateEnvironmentAccountConnection
     createEnvironmentAccountConnection_tags,
     createEnvironmentAccountConnection_clientToken,
+    createEnvironmentAccountConnection_codebuildRoleArn,
     createEnvironmentAccountConnection_componentRoleArn,
     createEnvironmentAccountConnection_environmentName,
     createEnvironmentAccountConnection_managementAccountId,
@@ -397,7 +399,10 @@ module Amazonka.Proton.Lens
     listServiceInstanceProvisionedResourcesResponse_provisionedResources,
 
     -- ** ListServiceInstances
+    listServiceInstances_sortOrder,
     listServiceInstances_nextToken,
+    listServiceInstances_filters,
+    listServiceInstances_sortBy,
     listServiceInstances_maxResults,
     listServiceInstances_serviceName,
     listServiceInstancesResponse_nextToken,
@@ -451,10 +456,10 @@ module Amazonka.Proton.Lens
 
     -- ** NotifyResourceDeploymentStatusChange
     notifyResourceDeploymentStatusChange_deploymentId,
+    notifyResourceDeploymentStatusChange_status,
     notifyResourceDeploymentStatusChange_outputs,
     notifyResourceDeploymentStatusChange_statusMessage,
     notifyResourceDeploymentStatusChange_resourceArn,
-    notifyResourceDeploymentStatusChange_status,
     notifyResourceDeploymentStatusChangeResponse_httpStatus,
 
     -- ** RejectEnvironmentAccountConnection
@@ -476,6 +481,7 @@ module Amazonka.Proton.Lens
     updateAccountSettings_deletePipelineProvisioningRepository,
     updateAccountSettings_pipelineProvisioningRepository,
     updateAccountSettings_pipelineServiceRoleArn,
+    updateAccountSettings_pipelineCodebuildRoleArn,
     updateAccountSettingsResponse_httpStatus,
     updateAccountSettingsResponse_accountSettings,
 
@@ -492,6 +498,7 @@ module Amazonka.Proton.Lens
 
     -- ** UpdateEnvironment
     updateEnvironment_templateMajorVersion,
+    updateEnvironment_codebuildRoleArn,
     updateEnvironment_provisioningRepository,
     updateEnvironment_description,
     updateEnvironment_templateMinorVersion,
@@ -506,6 +513,7 @@ module Amazonka.Proton.Lens
 
     -- ** UpdateEnvironmentAccountConnection
     updateEnvironmentAccountConnection_roleArn,
+    updateEnvironmentAccountConnection_codebuildRoleArn,
     updateEnvironmentAccountConnection_componentRoleArn,
     updateEnvironmentAccountConnection_id,
     updateEnvironmentAccountConnectionResponse_httpStatus,
@@ -586,6 +594,7 @@ module Amazonka.Proton.Lens
     -- ** AccountSettings
     accountSettings_pipelineProvisioningRepository,
     accountSettings_pipelineServiceRoleArn,
+    accountSettings_pipelineCodebuildRoleArn,
 
     -- ** CompatibleEnvironmentTemplate
     compatibleEnvironmentTemplate_majorVersion,
@@ -625,6 +634,7 @@ module Amazonka.Proton.Lens
 
     -- ** Environment
     environment_provisioning,
+    environment_codebuildRoleArn,
     environment_provisioningRepository,
     environment_description,
     environment_deploymentStatusMessage,
@@ -644,6 +654,7 @@ module Amazonka.Proton.Lens
     environment_templateName,
 
     -- ** EnvironmentAccountConnection
+    environmentAccountConnection_codebuildRoleArn,
     environmentAccountConnection_componentRoleArn,
     environmentAccountConnection_arn,
     environmentAccountConnection_environmentAccountId,
@@ -734,6 +745,10 @@ module Amazonka.Proton.Lens
     environmentTemplateVersionSummary_minorVersion,
     environmentTemplateVersionSummary_status,
     environmentTemplateVersionSummary_templateName,
+
+    -- ** ListServiceInstancesFilter
+    listServiceInstancesFilter_key,
+    listServiceInstancesFilter_value,
 
     -- ** Output
     output_key,
@@ -1016,6 +1031,7 @@ import Amazonka.Proton.Types.EnvironmentTemplateFilter
 import Amazonka.Proton.Types.EnvironmentTemplateSummary
 import Amazonka.Proton.Types.EnvironmentTemplateVersion
 import Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+import Amazonka.Proton.Types.ListServiceInstancesFilter
 import Amazonka.Proton.Types.Output
 import Amazonka.Proton.Types.ProvisionedResource
 import Amazonka.Proton.Types.Repository

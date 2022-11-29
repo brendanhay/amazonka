@@ -20,7 +20,7 @@
 module Amazonka.Inspector2.Types.EcrContainerImageMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the Amazon ECR image metadata associated with a finding.

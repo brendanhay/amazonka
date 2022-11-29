@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.Usage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.Currency
 import Amazonka.Inspector2.Types.UsageType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains usage information about the cost of Amazon Inspector operation.

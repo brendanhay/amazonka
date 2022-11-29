@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.State where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.ErrorCode
 import Amazonka.Inspector2.Types.Status
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that described the state of Amazon Inspector scans for an

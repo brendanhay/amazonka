@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.AccountAggregationResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.SeverityCounts
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An aggregation of findings by Amazon Web Services account ID.

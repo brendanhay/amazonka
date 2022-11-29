@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.Remediation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.Recommendation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on how to remediate a finding.

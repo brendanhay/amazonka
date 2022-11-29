@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.Resource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.ResourceDetails
 import Amazonka.Inspector2.Types.ResourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the resource involved in a finding.

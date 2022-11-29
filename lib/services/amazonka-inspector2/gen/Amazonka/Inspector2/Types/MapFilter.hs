@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.MapFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.MapComparison
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes details of a map filter.

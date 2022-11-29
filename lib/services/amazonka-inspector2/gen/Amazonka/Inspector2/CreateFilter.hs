@@ -45,8 +45,8 @@ module Amazonka.Inspector2.CreateFilter
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +140,8 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 
 instance Core.AWSRequest CreateFilter where
   type AWSResponse CreateFilter = CreateFilterResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

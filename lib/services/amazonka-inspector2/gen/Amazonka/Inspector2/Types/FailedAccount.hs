@@ -20,10 +20,10 @@
 module Amazonka.Inspector2.Types.FailedAccount where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.ErrorCode
 import Amazonka.Inspector2.Types.ResourceStatus
 import Amazonka.Inspector2.Types.Status
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object with details on why an account failed to enable Amazon

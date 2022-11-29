@@ -20,13 +20,13 @@
 module Amazonka.Inspector2.Types.FilterCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.DateFilter
 import Amazonka.Inspector2.Types.MapFilter
 import Amazonka.Inspector2.Types.NumberFilter
 import Amazonka.Inspector2.Types.PackageFilter
 import Amazonka.Inspector2.Types.PortRangeFilter
 import Amazonka.Inspector2.Types.StringFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on the criteria used to define the filter.

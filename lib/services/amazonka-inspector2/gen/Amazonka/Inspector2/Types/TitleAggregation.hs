@@ -20,11 +20,11 @@
 module Amazonka.Inspector2.Types.TitleAggregation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
 import Amazonka.Inspector2.Types.TitleSortBy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that define an aggregation based on finding title.

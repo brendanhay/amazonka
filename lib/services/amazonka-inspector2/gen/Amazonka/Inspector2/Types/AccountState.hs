@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.AccountState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.ResourceState
 import Amazonka.Inspector2.Types.State
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object with details the status of an Amazon Web Services account

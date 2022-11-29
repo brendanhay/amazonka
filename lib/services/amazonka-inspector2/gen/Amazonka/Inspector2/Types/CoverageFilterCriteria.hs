@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.CoverageFilterCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.CoverageMapFilter
 import Amazonka.Inspector2.Types.CoverageStringFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that identifies filter criteria for @GetCoverageStatistics@.

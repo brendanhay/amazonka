@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.AggregationRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AccountAggregation
 import Amazonka.Inspector2.Types.AmiAggregation
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregation
@@ -29,7 +30,6 @@ import Amazonka.Inspector2.Types.ImageLayerAggregation
 import Amazonka.Inspector2.Types.PackageAggregation
 import Amazonka.Inspector2.Types.RepositoryAggregation
 import Amazonka.Inspector2.Types.TitleAggregation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an aggregation request.

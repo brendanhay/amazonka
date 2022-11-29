@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.EcrRescanDurationState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.EcrRescanDuration
 import Amazonka.Inspector2.Types.EcrRescanDurationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the state of any changes to the ECR automated re-scan

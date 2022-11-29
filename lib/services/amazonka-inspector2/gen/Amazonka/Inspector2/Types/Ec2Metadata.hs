@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.Ec2Metadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.Ec2Platform
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Meta data details of an Amazon EC2 instance.

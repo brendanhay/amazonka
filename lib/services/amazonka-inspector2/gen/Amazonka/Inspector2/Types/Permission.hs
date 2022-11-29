@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.Permission where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.Operation
 import Amazonka.Inspector2.Types.Service
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the permissions an account has within Amazon

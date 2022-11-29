@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.SortCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.SortField
 import Amazonka.Inspector2.Types.SortOrder
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the criteria used to sort finding results.

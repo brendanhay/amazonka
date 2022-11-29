@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.Finding where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.FindingStatus
 import Amazonka.Inspector2.Types.FindingType
 import Amazonka.Inspector2.Types.FixAvailable
@@ -29,7 +30,6 @@ import Amazonka.Inspector2.Types.PackageVulnerabilityDetails
 import Amazonka.Inspector2.Types.Remediation
 import Amazonka.Inspector2.Types.Resource
 import Amazonka.Inspector2.Types.Severity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an Amazon Inspector finding.

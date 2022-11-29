@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.Filter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.FilterAction
 import Amazonka.Inspector2.Types.FilterCriteria
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a filter.

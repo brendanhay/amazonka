@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.Counts where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.GroupKey
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | a structure that contains information on the count of resources within a

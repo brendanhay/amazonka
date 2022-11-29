@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.VulnerablePackage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.PackageManager
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the vulnerable package identified by a finding.

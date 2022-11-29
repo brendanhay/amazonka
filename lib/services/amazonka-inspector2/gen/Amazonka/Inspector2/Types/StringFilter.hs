@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.StringFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.StringComparison
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes the details of a string filter.

@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.FreeTrialAccountInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.FreeTrialInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Amazon Inspector free trial for an account.

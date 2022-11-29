@@ -20,11 +20,11 @@
 module Amazonka.Inspector2.Types.AccountAggregation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AccountSortBy
 import Amazonka.Inspector2.Types.AggregationFindingType
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.SortOrder
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains details about an aggregation response based on

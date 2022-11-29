@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -283,7 +284,7 @@ module Amazonka.VoiceId.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.VoiceId.Types.AuthenticationConfiguration
@@ -329,27 +330,25 @@ import Amazonka.VoiceId.Types.VoiceSpoofingRisk
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "VoiceId",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "voiceid",
-      Core._serviceSigningName = "voiceid",
-      Core._serviceVersion = "2021-09-27",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "VoiceId",
-      Core._serviceRetry = retry
+    { Core.abbrev = "VoiceId",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "voiceid",
+      Core.signingName = "voiceid",
+      Core.version = "2021-09-27",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "VoiceId",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

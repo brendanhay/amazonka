@@ -64,7 +64,7 @@ module Amazonka.LexV2Models.UpdateSlot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -253,8 +253,8 @@ updateSlot_intentId = Lens.lens (\UpdateSlot' {intentId} -> intentId) (\s@Update
 
 instance Core.AWSRequest UpdateSlot where
   type AWSResponse UpdateSlot = UpdateSlotResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

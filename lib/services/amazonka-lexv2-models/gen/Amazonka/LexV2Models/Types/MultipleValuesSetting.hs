@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.MultipleValuesSetting where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether a slot can return multiple values.

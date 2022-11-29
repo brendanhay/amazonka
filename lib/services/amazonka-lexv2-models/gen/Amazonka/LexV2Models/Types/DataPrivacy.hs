@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.DataPrivacy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | By default, data stored by Amazon Lex is encrypted. The @DataPrivacy@

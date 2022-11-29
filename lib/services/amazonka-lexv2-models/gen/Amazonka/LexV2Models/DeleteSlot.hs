@@ -40,7 +40,7 @@ module Amazonka.LexV2Models.DeleteSlot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +135,8 @@ deleteSlot_intentId = Lens.lens (\DeleteSlot' {intentId} -> intentId) (\s@Delete
 
 instance Core.AWSRequest DeleteSlot where
   type AWSResponse DeleteSlot = DeleteSlotResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteSlotResponse'
 
 instance Prelude.Hashable DeleteSlot where

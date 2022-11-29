@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.DialogState where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.DialogAction
 import Amazonka.LexV2Models.Types.IntentOverride
 import qualified Amazonka.Prelude as Prelude

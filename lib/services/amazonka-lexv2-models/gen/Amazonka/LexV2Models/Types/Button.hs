@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.Button where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a button to use on a response card used to gather slot values

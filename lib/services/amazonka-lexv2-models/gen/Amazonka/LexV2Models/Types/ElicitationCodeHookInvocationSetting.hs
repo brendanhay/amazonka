@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings that specify the dialog code hook that is called by Amazon Lex

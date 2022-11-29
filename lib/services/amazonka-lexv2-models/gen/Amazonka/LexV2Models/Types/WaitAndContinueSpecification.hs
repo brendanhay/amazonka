@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.WaitAndContinueSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.ResponseSpecification
 import Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
 import qualified Amazonka.Prelude as Prelude

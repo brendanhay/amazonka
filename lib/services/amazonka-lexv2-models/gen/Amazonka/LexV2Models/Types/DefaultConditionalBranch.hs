@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.DefaultConditionalBranch where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
 import qualified Amazonka.Prelude as Prelude

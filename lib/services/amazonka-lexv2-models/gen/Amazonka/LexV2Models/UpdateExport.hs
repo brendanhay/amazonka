@@ -52,7 +52,7 @@ module Amazonka.LexV2Models.UpdateExport
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,8 +98,8 @@ updateExport_exportId = Lens.lens (\UpdateExport' {exportId} -> exportId) (\s@Up
 
 instance Core.AWSRequest UpdateExport where
   type AWSResponse UpdateExport = UpdateExportResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

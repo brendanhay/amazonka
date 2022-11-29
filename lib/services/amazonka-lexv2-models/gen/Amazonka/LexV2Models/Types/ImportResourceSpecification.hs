@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.ImportResourceSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.BotImportSpecification
 import Amazonka.LexV2Models.Types.BotLocaleImportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification

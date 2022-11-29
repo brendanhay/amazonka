@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of recommended intents provided by the bot recommendation
--- that you can use in your bot.
+-- that you can use in your bot. Intents in the response are ordered by
+-- relevance.
 module Amazonka.LexV2Models.ListRecommendedIntents
   ( -- * Creating a Request
     ListRecommendedIntents (..),
@@ -51,7 +52,7 @@ module Amazonka.LexV2Models.ListRecommendedIntents
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListRecommendedIntents where
   type
     AWSResponse ListRecommendedIntents =
       ListRecommendedIntentsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

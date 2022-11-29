@@ -20,7 +20,7 @@
 module Amazonka.CodeStar.Types.ProjectStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An indication of whether a project creation or deletion is failed or

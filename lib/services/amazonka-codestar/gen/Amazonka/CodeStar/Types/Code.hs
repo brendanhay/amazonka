@@ -22,7 +22,7 @@ module Amazonka.CodeStar.Types.Code where
 import Amazonka.CodeStar.Types.CodeDestination
 import Amazonka.CodeStar.Types.CodeSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Location and destination information about the source code files

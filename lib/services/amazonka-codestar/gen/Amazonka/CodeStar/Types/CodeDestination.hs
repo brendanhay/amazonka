@@ -22,7 +22,7 @@ module Amazonka.CodeStar.Types.CodeDestination where
 import Amazonka.CodeStar.Types.CodeCommitCodeDestination
 import Amazonka.CodeStar.Types.GitHubCodeDestination
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The repository to be created in AWS CodeStar. Valid values are AWS

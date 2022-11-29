@@ -29,6 +29,7 @@ module Amazonka.AppFlow.Types.OperatorPropertiesKeys
         OperatorPropertiesKeys_MASK_LENGTH,
         OperatorPropertiesKeys_MASK_VALUE,
         OperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER,
+        OperatorPropertiesKeys_ORDERED_PARTITION_KEYS_LIST,
         OperatorPropertiesKeys_SOURCE_DATA_TYPE,
         OperatorPropertiesKeys_SUBFIELD_CATEGORY_MAP,
         OperatorPropertiesKeys_TRUNCATE_LENGTH,
@@ -98,6 +99,9 @@ pattern OperatorPropertiesKeys_MASK_VALUE = OperatorPropertiesKeys' "MASK_VALUE"
 pattern OperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER :: OperatorPropertiesKeys
 pattern OperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER = OperatorPropertiesKeys' "MATH_OPERATION_FIELDS_ORDER"
 
+pattern OperatorPropertiesKeys_ORDERED_PARTITION_KEYS_LIST :: OperatorPropertiesKeys
+pattern OperatorPropertiesKeys_ORDERED_PARTITION_KEYS_LIST = OperatorPropertiesKeys' "ORDERED_PARTITION_KEYS_LIST"
+
 pattern OperatorPropertiesKeys_SOURCE_DATA_TYPE :: OperatorPropertiesKeys
 pattern OperatorPropertiesKeys_SOURCE_DATA_TYPE = OperatorPropertiesKeys' "SOURCE_DATA_TYPE"
 
@@ -129,6 +133,7 @@ pattern OperatorPropertiesKeys_VALUES = OperatorPropertiesKeys' "VALUES"
   OperatorPropertiesKeys_MASK_LENGTH,
   OperatorPropertiesKeys_MASK_VALUE,
   OperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER,
+  OperatorPropertiesKeys_ORDERED_PARTITION_KEYS_LIST,
   OperatorPropertiesKeys_SOURCE_DATA_TYPE,
   OperatorPropertiesKeys_SUBFIELD_CATEGORY_MAP,
   OperatorPropertiesKeys_TRUNCATE_LENGTH,

@@ -213,6 +213,12 @@ module Amazonka.AppFlow
     UpdateConnectorProfileResponse (UpdateConnectorProfileResponse'),
     newUpdateConnectorProfileResponse,
 
+    -- ** UpdateConnectorRegistration
+    UpdateConnectorRegistration (UpdateConnectorRegistration'),
+    newUpdateConnectorRegistration,
+    UpdateConnectorRegistrationResponse (UpdateConnectorRegistrationResponse'),
+    newUpdateConnectorRegistrationResponse,
+
     -- ** UpdateFlow
     UpdateFlow (UpdateFlow'),
     newUpdateFlow,
@@ -229,6 +235,9 @@ module Amazonka.AppFlow
 
     -- ** AuthenticationType
     AuthenticationType (..),
+
+    -- ** CatalogType
+    CatalogType (..),
 
     -- ** ConnectionMode
     ConnectionMode (..),
@@ -280,6 +289,9 @@ module Amazonka.AppFlow
 
     -- ** Operators
     Operators (..),
+
+    -- ** PathPrefix
+    PathPrefix (..),
 
     -- ** PrefixFormat
     PrefixFormat (..),
@@ -538,6 +550,10 @@ module Amazonka.AppFlow
     FlowDefinition (FlowDefinition'),
     newFlowDefinition,
 
+    -- ** GlueDataCatalogConfig
+    GlueDataCatalogConfig (GlueDataCatalogConfig'),
+    newGlueDataCatalogConfig,
+
     -- ** GoogleAnalyticsConnectorProfileCredentials
     GoogleAnalyticsConnectorProfileCredentials (GoogleAnalyticsConnectorProfileCredentials'),
     newGoogleAnalyticsConnectorProfileCredentials,
@@ -618,6 +634,14 @@ module Amazonka.AppFlow
     MarketoSourceProperties (MarketoSourceProperties'),
     newMarketoSourceProperties,
 
+    -- ** MetadataCatalogConfig
+    MetadataCatalogConfig (MetadataCatalogConfig'),
+    newMetadataCatalogConfig,
+
+    -- ** MetadataCatalogDetail
+    MetadataCatalogDetail (MetadataCatalogDetail'),
+    newMetadataCatalogDetail,
+
     -- ** OAuth2Credentials
     OAuth2Credentials (OAuth2Credentials'),
     newOAuth2Credentials,
@@ -669,6 +693,10 @@ module Amazonka.AppFlow
     -- ** RedshiftMetadata
     RedshiftMetadata (RedshiftMetadata'),
     newRedshiftMetadata,
+
+    -- ** RegistrationOutput
+    RegistrationOutput (RegistrationOutput'),
+    newRegistrationOutput,
 
     -- ** S3DestinationProperties
     S3DestinationProperties (S3DestinationProperties'),
@@ -919,6 +947,7 @@ import Amazonka.AppFlow.Types
 import Amazonka.AppFlow.UnregisterConnector
 import Amazonka.AppFlow.UntagResource
 import Amazonka.AppFlow.UpdateConnectorProfile
+import Amazonka.AppFlow.UpdateConnectorRegistration
 import Amazonka.AppFlow.UpdateFlow
 import Amazonka.AppFlow.Waiters
 

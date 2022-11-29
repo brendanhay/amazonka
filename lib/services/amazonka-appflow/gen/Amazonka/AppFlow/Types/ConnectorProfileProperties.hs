@@ -38,7 +38,7 @@ import Amazonka.AppFlow.Types.TrendmicroConnectorProfileProperties
 import Amazonka.AppFlow.Types.VeevaConnectorProfileProperties
 import Amazonka.AppFlow.Types.ZendeskConnectorProfileProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required by each connector.

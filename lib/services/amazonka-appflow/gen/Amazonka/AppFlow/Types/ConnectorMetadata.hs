@@ -41,7 +41,7 @@ import Amazonka.AppFlow.Types.UpsolverMetadata
 import Amazonka.AppFlow.Types.VeevaMetadata
 import Amazonka.AppFlow.Types.ZendeskMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure to specify connector-specific metadata such as

@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.ConnectorProvisioningConfig where
 
 import Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the connector being

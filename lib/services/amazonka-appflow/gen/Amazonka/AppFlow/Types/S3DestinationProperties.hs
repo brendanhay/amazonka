@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.S3DestinationProperties where
 
 import Amazonka.AppFlow.Types.S3OutputFormatConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon S3 is used as a destination.

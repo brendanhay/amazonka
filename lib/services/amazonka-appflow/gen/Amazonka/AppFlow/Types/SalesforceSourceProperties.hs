@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.SalesforceSourceProperties where
 
 import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Salesforce is being used as a
@@ -70,7 +70,7 @@ data SalesforceSourceProperties = SalesforceSourceProperties'
     --     option, you ensure that your flow writes consistent output, but you
     --     decrease performance for large data transfers that are better suited
     --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
-    --     vary large set of data, it might fail with a timed out error.
+    --     vary large set of data, it might fail wituh a timed out error.
     dataTransferApi :: Prelude.Maybe SalesforceDataTransferApi,
     -- | The flag that enables dynamic fetching of new (recently added) fields in
     -- the Salesforce objects while running a flow.
@@ -129,7 +129,7 @@ data SalesforceSourceProperties = SalesforceSourceProperties'
 --     option, you ensure that your flow writes consistent output, but you
 --     decrease performance for large data transfers that are better suited
 --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
---     vary large set of data, it might fail with a timed out error.
+--     vary large set of data, it might fail wituh a timed out error.
 --
 -- 'enableDynamicFieldUpdate', 'salesforceSourceProperties_enableDynamicFieldUpdate' - The flag that enables dynamic fetching of new (recently added) fields in
 -- the Salesforce objects while running a flow.
@@ -191,7 +191,7 @@ salesforceSourceProperties_includeDeletedRecords = Lens.lens (\SalesforceSourceP
 --     option, you ensure that your flow writes consistent output, but you
 --     decrease performance for large data transfers that are better suited
 --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
---     vary large set of data, it might fail with a timed out error.
+--     vary large set of data, it might fail wituh a timed out error.
 salesforceSourceProperties_dataTransferApi :: Lens.Lens' SalesforceSourceProperties (Prelude.Maybe SalesforceDataTransferApi)
 salesforceSourceProperties_dataTransferApi = Lens.lens (\SalesforceSourceProperties' {dataTransferApi} -> dataTransferApi) (\s@SalesforceSourceProperties' {} a -> s {dataTransferApi = a} :: SalesforceSourceProperties)
 

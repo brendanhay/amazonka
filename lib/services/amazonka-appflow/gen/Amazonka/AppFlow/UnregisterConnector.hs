@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Unregisters the custom connector registered in your account that matches
--- the connectorLabel provided in the request.
+-- the connector label provided in the request.
 module Amazonka.AppFlow.UnregisterConnector
   ( -- * Creating a Request
     UnregisterConnector (..),
@@ -42,7 +42,7 @@ where
 
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +98,8 @@ instance Core.AWSRequest UnregisterConnector where
   type
     AWSResponse UnregisterConnector =
       UnregisterConnectorResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

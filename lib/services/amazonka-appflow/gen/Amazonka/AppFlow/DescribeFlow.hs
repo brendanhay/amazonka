@@ -39,12 +39,15 @@ module Amazonka.AppFlow.DescribeFlow
     describeFlowResponse_tasks,
     describeFlowResponse_kmsArn,
     describeFlowResponse_lastUpdatedAt,
+    describeFlowResponse_metadataCatalogConfig,
     describeFlowResponse_flowName,
     describeFlowResponse_destinationFlowConfigList,
     describeFlowResponse_flowStatusMessage,
     describeFlowResponse_description,
     describeFlowResponse_lastRunExecutionDetails,
+    describeFlowResponse_lastRunMetadataCatalogDetails,
     describeFlowResponse_flowStatus,
+    describeFlowResponse_schemaVersion,
     describeFlowResponse_createdBy,
     describeFlowResponse_triggerConfig,
     describeFlowResponse_flowArn,
@@ -56,7 +59,7 @@ where
 
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +96,8 @@ describeFlow_flowName = Lens.lens (\DescribeFlow' {flowName} -> flowName) (\s@De
 
 instance Core.AWSRequest DescribeFlow where
   type AWSResponse DescribeFlow = DescribeFlowResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +107,7 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "kmsArn")
             Prelude.<*> (x Core..?> "lastUpdatedAt")
+            Prelude.<*> (x Core..?> "metadataCatalogConfig")
             Prelude.<*> (x Core..?> "flowName")
             Prelude.<*> ( x Core..?> "destinationFlowConfigList"
                             Core..!@ Prelude.mempty
@@ -111,7 +115,11 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (x Core..?> "flowStatusMessage")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "lastRunExecutionDetails")
+            Prelude.<*> ( x Core..?> "lastRunMetadataCatalogDetails"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "flowStatus")
+            Prelude.<*> (x Core..?> "schemaVersion")
             Prelude.<*> (x Core..?> "createdBy")
             Prelude.<*> (x Core..?> "triggerConfig")
             Prelude.<*> (x Core..?> "flowArn")
@@ -168,6 +176,10 @@ data DescribeFlowResponse = DescribeFlowResponse'
     kmsArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
+    -- the data that\'s transferred by the associated flow. When Amazon AppFlow
+    -- catalogs the data from a flow, it stores metadata in a data catalog.
+    metadataCatalogConfig :: Prelude.Maybe MetadataCatalogConfig,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
     -- (_) or hyphens (-) only.
     flowName :: Prelude.Maybe Prelude.Text,
@@ -181,8 +193,21 @@ data DescribeFlowResponse = DescribeFlowResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | Describes the details of the most recent flow run.
     lastRunExecutionDetails :: Prelude.Maybe ExecutionDetails,
+    -- | Describes the metadata catalog, metadata table, and data partitions that
+    -- Amazon AppFlow used for the associated flow run.
+    lastRunMetadataCatalogDetails :: Prelude.Maybe [MetadataCatalogDetail],
     -- | Indicates the current status of the flow.
     flowStatus :: Prelude.Maybe FlowStatus,
+    -- | The version number of your data schema. Amazon AppFlow assigns this
+    -- version number. The version number increases by one when you change any
+    -- of the following settings in your flow configuration:
+    --
+    -- -   Source-to-destination field mappings
+    --
+    -- -   Field data types
+    --
+    -- -   Partition keys
+    schemaVersion :: Prelude.Maybe Prelude.Integer,
     -- | The ARN of the user who created the flow.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The trigger settings that determine how and when the flow runs.
@@ -222,6 +247,10 @@ data DescribeFlowResponse = DescribeFlowResponse'
 --
 -- 'lastUpdatedAt', 'describeFlowResponse_lastUpdatedAt' - Specifies when the flow was last updated.
 --
+-- 'metadataCatalogConfig', 'describeFlowResponse_metadataCatalogConfig' - Specifies the configuration that Amazon AppFlow uses when it catalogs
+-- the data that\'s transferred by the associated flow. When Amazon AppFlow
+-- catalogs the data from a flow, it stores metadata in a data catalog.
+--
 -- 'flowName', 'describeFlowResponse_flowName' - The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
 --
@@ -235,7 +264,20 @@ data DescribeFlowResponse = DescribeFlowResponse'
 --
 -- 'lastRunExecutionDetails', 'describeFlowResponse_lastRunExecutionDetails' - Describes the details of the most recent flow run.
 --
+-- 'lastRunMetadataCatalogDetails', 'describeFlowResponse_lastRunMetadataCatalogDetails' - Describes the metadata catalog, metadata table, and data partitions that
+-- Amazon AppFlow used for the associated flow run.
+--
 -- 'flowStatus', 'describeFlowResponse_flowStatus' - Indicates the current status of the flow.
+--
+-- 'schemaVersion', 'describeFlowResponse_schemaVersion' - The version number of your data schema. Amazon AppFlow assigns this
+-- version number. The version number increases by one when you change any
+-- of the following settings in your flow configuration:
+--
+-- -   Source-to-destination field mappings
+--
+-- -   Field data types
+--
+-- -   Partition keys
 --
 -- 'createdBy', 'describeFlowResponse_createdBy' - The ARN of the user who created the flow.
 --
@@ -260,12 +302,15 @@ newDescribeFlowResponse pHttpStatus_ =
       tasks = Prelude.Nothing,
       kmsArn = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
+      metadataCatalogConfig = Prelude.Nothing,
       flowName = Prelude.Nothing,
       destinationFlowConfigList = Prelude.Nothing,
       flowStatusMessage = Prelude.Nothing,
       description = Prelude.Nothing,
       lastRunExecutionDetails = Prelude.Nothing,
+      lastRunMetadataCatalogDetails = Prelude.Nothing,
       flowStatus = Prelude.Nothing,
+      schemaVersion = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       triggerConfig = Prelude.Nothing,
       flowArn = Prelude.Nothing,
@@ -299,6 +344,12 @@ describeFlowResponse_kmsArn = Lens.lens (\DescribeFlowResponse' {kmsArn} -> kmsA
 describeFlowResponse_lastUpdatedAt :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.UTCTime)
 describeFlowResponse_lastUpdatedAt = Lens.lens (\DescribeFlowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeFlowResponse' {} a -> s {lastUpdatedAt = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Core._Time
 
+-- | Specifies the configuration that Amazon AppFlow uses when it catalogs
+-- the data that\'s transferred by the associated flow. When Amazon AppFlow
+-- catalogs the data from a flow, it stores metadata in a data catalog.
+describeFlowResponse_metadataCatalogConfig :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe MetadataCatalogConfig)
+describeFlowResponse_metadataCatalogConfig = Lens.lens (\DescribeFlowResponse' {metadataCatalogConfig} -> metadataCatalogConfig) (\s@DescribeFlowResponse' {} a -> s {metadataCatalogConfig = a} :: DescribeFlowResponse)
+
 -- | The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
 describeFlowResponse_flowName :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.Text)
@@ -322,9 +373,26 @@ describeFlowResponse_description = Lens.lens (\DescribeFlowResponse' {descriptio
 describeFlowResponse_lastRunExecutionDetails :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe ExecutionDetails)
 describeFlowResponse_lastRunExecutionDetails = Lens.lens (\DescribeFlowResponse' {lastRunExecutionDetails} -> lastRunExecutionDetails) (\s@DescribeFlowResponse' {} a -> s {lastRunExecutionDetails = a} :: DescribeFlowResponse)
 
+-- | Describes the metadata catalog, metadata table, and data partitions that
+-- Amazon AppFlow used for the associated flow run.
+describeFlowResponse_lastRunMetadataCatalogDetails :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe [MetadataCatalogDetail])
+describeFlowResponse_lastRunMetadataCatalogDetails = Lens.lens (\DescribeFlowResponse' {lastRunMetadataCatalogDetails} -> lastRunMetadataCatalogDetails) (\s@DescribeFlowResponse' {} a -> s {lastRunMetadataCatalogDetails = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Indicates the current status of the flow.
 describeFlowResponse_flowStatus :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe FlowStatus)
 describeFlowResponse_flowStatus = Lens.lens (\DescribeFlowResponse' {flowStatus} -> flowStatus) (\s@DescribeFlowResponse' {} a -> s {flowStatus = a} :: DescribeFlowResponse)
+
+-- | The version number of your data schema. Amazon AppFlow assigns this
+-- version number. The version number increases by one when you change any
+-- of the following settings in your flow configuration:
+--
+-- -   Source-to-destination field mappings
+--
+-- -   Field data types
+--
+-- -   Partition keys
+describeFlowResponse_schemaVersion :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.Integer)
+describeFlowResponse_schemaVersion = Lens.lens (\DescribeFlowResponse' {schemaVersion} -> schemaVersion) (\s@DescribeFlowResponse' {} a -> s {schemaVersion = a} :: DescribeFlowResponse)
 
 -- | The ARN of the user who created the flow.
 describeFlowResponse_createdBy :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.Text)
@@ -358,12 +426,15 @@ instance Prelude.NFData DescribeFlowResponse where
       `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf kmsArn
       `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf metadataCatalogConfig
       `Prelude.seq` Prelude.rnf flowName
       `Prelude.seq` Prelude.rnf destinationFlowConfigList
       `Prelude.seq` Prelude.rnf flowStatusMessage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastRunExecutionDetails
+      `Prelude.seq` Prelude.rnf lastRunMetadataCatalogDetails
       `Prelude.seq` Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf triggerConfig
       `Prelude.seq` Prelude.rnf flowArn

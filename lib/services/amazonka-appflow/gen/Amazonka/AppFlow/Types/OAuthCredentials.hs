@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.OAuthCredentials where
 
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth credentials required for OAuth type authentication.

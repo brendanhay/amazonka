@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.ConnectorDetail where
 import Amazonka.AppFlow.Types.ConnectorProvisioningType
 import Amazonka.AppFlow.Types.ConnectorType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the registered connector.

@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.OAuth2Properties where
 
 import Amazonka.AppFlow.Types.OAuth2GrantType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth 2.0 properties required for OAuth 2.0 authentication.

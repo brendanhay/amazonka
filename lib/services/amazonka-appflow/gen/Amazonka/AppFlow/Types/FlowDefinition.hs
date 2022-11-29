@@ -24,7 +24,7 @@ import Amazonka.AppFlow.Types.ExecutionDetails
 import Amazonka.AppFlow.Types.FlowStatus
 import Amazonka.AppFlow.Types.TriggerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of the flow, such as its source, destination, trigger

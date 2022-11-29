@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.SalesforceMetadata where
 
 import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Salesforce.

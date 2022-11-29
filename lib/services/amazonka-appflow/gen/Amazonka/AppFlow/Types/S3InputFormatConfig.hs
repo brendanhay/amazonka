@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.S3InputFormatConfig where
 
 import Amazonka.AppFlow.Types.S3InputFileType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you use Amazon S3 as the source, the configuration format that you

@@ -23,7 +23,7 @@ import Amazonka.AppFlow.Types.AggregationConfig
 import Amazonka.AppFlow.Types.FileType
 import Amazonka.AppFlow.Types.PrefixConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that determines how Amazon AppFlow should format the

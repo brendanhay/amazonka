@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.FieldTypeDetails where
 import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.Range
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details regarding the supported field type and the operators

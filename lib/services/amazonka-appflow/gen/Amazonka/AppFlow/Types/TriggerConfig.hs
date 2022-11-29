@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.TriggerConfig where
 import Amazonka.AppFlow.Types.TriggerProperties
 import Amazonka.AppFlow.Types.TriggerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The trigger settings that determine how and when Amazon AppFlow runs the

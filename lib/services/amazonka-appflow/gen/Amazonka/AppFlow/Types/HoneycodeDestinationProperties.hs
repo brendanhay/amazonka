@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.HoneycodeDestinationProperties where
 
 import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon Honeycode is used as a

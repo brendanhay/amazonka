@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.ExecutionDetails where
 
 import Amazonka.AppFlow.Types.ExecutionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the details of the flow run, including the timestamp, status,

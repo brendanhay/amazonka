@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.CustomAuthConfig where
 
 import Amazonka.AppFlow.Types.AuthParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information required for custom authentication.

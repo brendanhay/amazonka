@@ -34,6 +34,7 @@ module Amazonka.AppFlow.CreateFlow
     -- * Request Lenses
     createFlow_tags,
     createFlow_kmsArn,
+    createFlow_metadataCatalogConfig,
     createFlow_description,
     createFlow_flowName,
     createFlow_triggerConfig,
@@ -54,7 +55,7 @@ where
 
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,6 +69,10 @@ data CreateFlow = CreateFlow'
     -- the Amazon AppFlow-managed KMS key. If you don\'t provide anything here,
     -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
     kmsArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
+    -- the data that\'s transferred by the associated flow. When Amazon AppFlow
+    -- catalogs the data from a flow, it stores metadata in a data catalog.
+    metadataCatalogConfig :: Prelude.Maybe MetadataCatalogConfig,
     -- | A description of the flow you want to create.
     description :: Prelude.Maybe Prelude.Text,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
@@ -102,6 +107,10 @@ data CreateFlow = CreateFlow'
 -- the Amazon AppFlow-managed KMS key. If you don\'t provide anything here,
 -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 --
+-- 'metadataCatalogConfig', 'createFlow_metadataCatalogConfig' - Specifies the configuration that Amazon AppFlow uses when it catalogs
+-- the data that\'s transferred by the associated flow. When Amazon AppFlow
+-- catalogs the data from a flow, it stores metadata in a data catalog.
+--
 -- 'description', 'createFlow_description' - A description of the flow you want to create.
 --
 -- 'flowName', 'createFlow_flowName' - The specified name of the flow. Spaces are not allowed. Use underscores
@@ -132,6 +141,7 @@ newCreateFlow
     CreateFlow'
       { tags = Prelude.Nothing,
         kmsArn = Prelude.Nothing,
+        metadataCatalogConfig = Prelude.Nothing,
         description = Prelude.Nothing,
         flowName = pFlowName_,
         triggerConfig = pTriggerConfig_,
@@ -150,6 +160,12 @@ createFlow_tags = Lens.lens (\CreateFlow' {tags} -> tags) (\s@CreateFlow' {} a -
 -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 createFlow_kmsArn :: Lens.Lens' CreateFlow (Prelude.Maybe Prelude.Text)
 createFlow_kmsArn = Lens.lens (\CreateFlow' {kmsArn} -> kmsArn) (\s@CreateFlow' {} a -> s {kmsArn = a} :: CreateFlow)
+
+-- | Specifies the configuration that Amazon AppFlow uses when it catalogs
+-- the data that\'s transferred by the associated flow. When Amazon AppFlow
+-- catalogs the data from a flow, it stores metadata in a data catalog.
+createFlow_metadataCatalogConfig :: Lens.Lens' CreateFlow (Prelude.Maybe MetadataCatalogConfig)
+createFlow_metadataCatalogConfig = Lens.lens (\CreateFlow' {metadataCatalogConfig} -> metadataCatalogConfig) (\s@CreateFlow' {} a -> s {metadataCatalogConfig = a} :: CreateFlow)
 
 -- | A description of the flow you want to create.
 createFlow_description :: Lens.Lens' CreateFlow (Prelude.Maybe Prelude.Text)
@@ -181,8 +197,8 @@ createFlow_tasks = Lens.lens (\CreateFlow' {tasks} -> tasks) (\s@CreateFlow' {} 
 
 instance Core.AWSRequest CreateFlow where
   type AWSResponse CreateFlow = CreateFlowResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +212,7 @@ instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` kmsArn
+      `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` triggerConfig
@@ -207,6 +224,7 @@ instance Prelude.NFData CreateFlow where
   rnf CreateFlow' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf kmsArn
+      `Prelude.seq` Prelude.rnf metadataCatalogConfig
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf flowName
       `Prelude.seq` Prelude.rnf triggerConfig
@@ -231,6 +249,8 @@ instance Core.ToJSON CreateFlow where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("kmsArn" Core..=) Prelude.<$> kmsArn,
+            ("metadataCatalogConfig" Core..=)
+              Prelude.<$> metadataCatalogConfig,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("flowName" Core..= flowName),
             Prelude.Just ("triggerConfig" Core..= triggerConfig),

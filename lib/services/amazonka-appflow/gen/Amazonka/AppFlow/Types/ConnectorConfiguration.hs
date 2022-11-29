@@ -30,7 +30,7 @@ import Amazonka.AppFlow.Types.ScheduleFrequencyType
 import Amazonka.AppFlow.Types.TriggerType
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings related to a given connector.

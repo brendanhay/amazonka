@@ -20,7 +20,7 @@
 module Amazonka.AppFlow.Types.CustomConnectorSourceProperties where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when the custom connector is being used

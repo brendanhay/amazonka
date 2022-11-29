@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.ConnectorProfileConfig where
 import Amazonka.AppFlow.Types.ConnectorProfileCredentials
 import Amazonka.AppFlow.Types.ConnectorProfileProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the connector-specific configuration and credentials for the
@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorProfileConfig' smart constructor.
 data ConnectorProfileConfig = ConnectorProfileConfig'
-  { -- | The connector-specific properties of the profile configuration.
-    connectorProfileProperties :: ConnectorProfileProperties,
-    -- | The connector-specific credentials required by each connector.
-    connectorProfileCredentials :: ConnectorProfileCredentials
+  { -- | The connector-specific credentials required by each connector.
+    connectorProfileCredentials :: Prelude.Maybe ConnectorProfileCredentials,
+    -- | The connector-specific properties of the profile configuration.
+    connectorProfileProperties :: ConnectorProfileProperties
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,55 +45,50 @@ data ConnectorProfileConfig = ConnectorProfileConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorProfileProperties', 'connectorProfileConfig_connectorProfileProperties' - The connector-specific properties of the profile configuration.
---
 -- 'connectorProfileCredentials', 'connectorProfileConfig_connectorProfileCredentials' - The connector-specific credentials required by each connector.
+--
+-- 'connectorProfileProperties', 'connectorProfileConfig_connectorProfileProperties' - The connector-specific properties of the profile configuration.
 newConnectorProfileConfig ::
   -- | 'connectorProfileProperties'
   ConnectorProfileProperties ->
-  -- | 'connectorProfileCredentials'
-  ConnectorProfileCredentials ->
   ConnectorProfileConfig
 newConnectorProfileConfig
-  pConnectorProfileProperties_
-  pConnectorProfileCredentials_ =
+  pConnectorProfileProperties_ =
     ConnectorProfileConfig'
-      { connectorProfileProperties =
-          pConnectorProfileProperties_,
-        connectorProfileCredentials =
-          pConnectorProfileCredentials_
+      { connectorProfileCredentials =
+          Prelude.Nothing,
+        connectorProfileProperties =
+          pConnectorProfileProperties_
       }
+
+-- | The connector-specific credentials required by each connector.
+connectorProfileConfig_connectorProfileCredentials :: Lens.Lens' ConnectorProfileConfig (Prelude.Maybe ConnectorProfileCredentials)
+connectorProfileConfig_connectorProfileCredentials = Lens.lens (\ConnectorProfileConfig' {connectorProfileCredentials} -> connectorProfileCredentials) (\s@ConnectorProfileConfig' {} a -> s {connectorProfileCredentials = a} :: ConnectorProfileConfig)
 
 -- | The connector-specific properties of the profile configuration.
 connectorProfileConfig_connectorProfileProperties :: Lens.Lens' ConnectorProfileConfig ConnectorProfileProperties
 connectorProfileConfig_connectorProfileProperties = Lens.lens (\ConnectorProfileConfig' {connectorProfileProperties} -> connectorProfileProperties) (\s@ConnectorProfileConfig' {} a -> s {connectorProfileProperties = a} :: ConnectorProfileConfig)
 
--- | The connector-specific credentials required by each connector.
-connectorProfileConfig_connectorProfileCredentials :: Lens.Lens' ConnectorProfileConfig ConnectorProfileCredentials
-connectorProfileConfig_connectorProfileCredentials = Lens.lens (\ConnectorProfileConfig' {connectorProfileCredentials} -> connectorProfileCredentials) (\s@ConnectorProfileConfig' {} a -> s {connectorProfileCredentials = a} :: ConnectorProfileConfig)
-
 instance Prelude.Hashable ConnectorProfileConfig where
   hashWithSalt _salt ConnectorProfileConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` connectorProfileProperties
       `Prelude.hashWithSalt` connectorProfileCredentials
+      `Prelude.hashWithSalt` connectorProfileProperties
 
 instance Prelude.NFData ConnectorProfileConfig where
   rnf ConnectorProfileConfig' {..} =
-    Prelude.rnf connectorProfileProperties
-      `Prelude.seq` Prelude.rnf connectorProfileCredentials
+    Prelude.rnf connectorProfileCredentials
+      `Prelude.seq` Prelude.rnf connectorProfileProperties
 
 instance Core.ToJSON ConnectorProfileConfig where
   toJSON ConnectorProfileConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("connectorProfileCredentials" Core..=)
+              Prelude.<$> connectorProfileCredentials,
+            Prelude.Just
               ( "connectorProfileProperties"
                   Core..= connectorProfileProperties
-              ),
-            Prelude.Just
-              ( "connectorProfileCredentials"
-                  Core..= connectorProfileCredentials
               )
           ]
       )

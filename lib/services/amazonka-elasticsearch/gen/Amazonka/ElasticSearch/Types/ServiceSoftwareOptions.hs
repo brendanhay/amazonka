@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.ServiceSoftwareOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.DeploymentStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current options of an Elasticsearch domain service software options.

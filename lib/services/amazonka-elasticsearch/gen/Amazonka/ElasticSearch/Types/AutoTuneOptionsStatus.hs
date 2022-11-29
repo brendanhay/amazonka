@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AutoTuneOptions
 import Amazonka.ElasticSearch.Types.AutoTuneStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status of Auto-Tune options for the specified

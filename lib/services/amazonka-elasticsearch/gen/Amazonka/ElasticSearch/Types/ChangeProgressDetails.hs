@@ -20,7 +20,7 @@
 module Amazonka.ElasticSearch.Types.ChangeProgressDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies change details of the domain configuration change.

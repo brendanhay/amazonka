@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.AutoTuneMaintenanceSchedule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.Duration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies Auto-Tune maitenance schedule. See the

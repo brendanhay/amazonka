@@ -47,15 +47,18 @@ library
     Amazonka.ElasticSearch.AcceptInboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.AddTags
     Amazonka.ElasticSearch.AssociatePackage
+    Amazonka.ElasticSearch.AuthorizeVpcEndpointAccess
     Amazonka.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
     Amazonka.ElasticSearch.CreateElasticsearchDomain
     Amazonka.ElasticSearch.CreateOutboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.CreatePackage
+    Amazonka.ElasticSearch.CreateVpcEndpoint
     Amazonka.ElasticSearch.DeleteElasticsearchDomain
     Amazonka.ElasticSearch.DeleteElasticsearchServiceRole
     Amazonka.ElasticSearch.DeleteInboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.DeletePackage
+    Amazonka.ElasticSearch.DeleteVpcEndpoint
     Amazonka.ElasticSearch.DescribeDomainAutoTunes
     Amazonka.ElasticSearch.DescribeDomainChangeProgress
     Amazonka.ElasticSearch.DescribeElasticsearchDomain
@@ -67,6 +70,7 @@ library
     Amazonka.ElasticSearch.DescribePackages
     Amazonka.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
     Amazonka.ElasticSearch.DescribeReservedElasticsearchInstances
+    Amazonka.ElasticSearch.DescribeVpcEndpoints
     Amazonka.ElasticSearch.DissociatePackage
     Amazonka.ElasticSearch.GetCompatibleElasticsearchVersions
     Amazonka.ElasticSearch.GetPackageVersionHistory
@@ -79,9 +83,13 @@ library
     Amazonka.ElasticSearch.ListElasticsearchVersions
     Amazonka.ElasticSearch.ListPackagesForDomain
     Amazonka.ElasticSearch.ListTags
+    Amazonka.ElasticSearch.ListVpcEndpointAccess
+    Amazonka.ElasticSearch.ListVpcEndpoints
+    Amazonka.ElasticSearch.ListVpcEndpointsForDomain
     Amazonka.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
     Amazonka.ElasticSearch.RejectInboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.RemoveTags
+    Amazonka.ElasticSearch.RevokeVpcEndpointAccess
     Amazonka.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
     Amazonka.ElasticSearch.Types
     Amazonka.ElasticSearch.Types.AccessPoliciesStatus
@@ -90,6 +98,7 @@ library
     Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
     Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsInput
     Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+    Amazonka.ElasticSearch.Types.AuthorizedPrincipal
     Amazonka.ElasticSearch.Types.AutoTune
     Amazonka.ElasticSearch.Types.AutoTuneDesiredState
     Amazonka.ElasticSearch.Types.AutoTuneDetails
@@ -156,6 +165,7 @@ library
     Amazonka.ElasticSearch.Types.PackageStatus
     Amazonka.ElasticSearch.Types.PackageType
     Amazonka.ElasticSearch.Types.PackageVersionHistory
+    Amazonka.ElasticSearch.Types.PrincipalType
     Amazonka.ElasticSearch.Types.RecurringCharge
     Amazonka.ElasticSearch.Types.ReservedElasticsearchInstance
     Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
@@ -182,10 +192,16 @@ library
     Amazonka.ElasticSearch.Types.VolumeType
     Amazonka.ElasticSearch.Types.VPCDerivedInfo
     Amazonka.ElasticSearch.Types.VPCDerivedInfoStatus
+    Amazonka.ElasticSearch.Types.VpcEndpoint
+    Amazonka.ElasticSearch.Types.VpcEndpointError
+    Amazonka.ElasticSearch.Types.VpcEndpointErrorCode
+    Amazonka.ElasticSearch.Types.VpcEndpointStatus
+    Amazonka.ElasticSearch.Types.VpcEndpointSummary
     Amazonka.ElasticSearch.Types.VPCOptions
     Amazonka.ElasticSearch.Types.ZoneAwarenessConfig
     Amazonka.ElasticSearch.UpdateElasticsearchDomainConfig
     Amazonka.ElasticSearch.UpdatePackage
+    Amazonka.ElasticSearch.UpdateVpcEndpoint
     Amazonka.ElasticSearch.UpgradeElasticsearchDomain
     Amazonka.ElasticSearch.Waiters
 

@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.CognitoOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.CognitoOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the Cognito options for the specified Elasticsearch domain.

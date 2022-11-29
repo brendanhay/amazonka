@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AutoTuneState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the Auto-Tune options: the Auto-Tune desired state for the

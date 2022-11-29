@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.EncryptionAtRestOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.EncryptionAtRestOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the Encryption At Rest options for the specified Elasticsearch

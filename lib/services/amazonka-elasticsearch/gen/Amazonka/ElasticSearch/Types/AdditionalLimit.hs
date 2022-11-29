@@ -20,7 +20,7 @@
 module Amazonka.ElasticSearch.Types.AdditionalLimit where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of limits that are specific to a given InstanceType and for each of

@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the node-to-node encryption options for the specified

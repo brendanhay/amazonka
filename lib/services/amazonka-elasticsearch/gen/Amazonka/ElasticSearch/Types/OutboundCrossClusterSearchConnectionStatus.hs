@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the connection status of an outbound cross-cluster search

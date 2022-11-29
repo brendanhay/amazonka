@@ -20,10 +20,10 @@
 module Amazonka.ElasticSearch.Types.ReservedElasticsearchInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ESPartitionInstanceType
 import Amazonka.ElasticSearch.Types.RecurringCharge
 import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of a reserved Elasticsearch instance.

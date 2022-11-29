@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status of advanced security options for the specified

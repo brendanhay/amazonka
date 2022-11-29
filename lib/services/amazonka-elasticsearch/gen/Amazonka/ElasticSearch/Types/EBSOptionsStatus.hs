@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.EBSOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.EBSOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of the EBS options for the specified Elasticsearch domain.

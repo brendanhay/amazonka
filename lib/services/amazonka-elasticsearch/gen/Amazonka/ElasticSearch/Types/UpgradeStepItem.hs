@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.UpgradeStepItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.UpgradeStatus
 import Amazonka.ElasticSearch.Types.UpgradeStep
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single step of the Upgrade or Upgrade Eligibility Check

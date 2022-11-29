@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.UpgradeHistory where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.UpgradeStatus
 import Amazonka.ElasticSearch.Types.UpgradeStepItem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | History of the last 10 Upgrades and Upgrade Eligibility Checks.

@@ -20,7 +20,7 @@
 module Amazonka.ElasticSearch.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the specific price and frequency of a recurring charges for a

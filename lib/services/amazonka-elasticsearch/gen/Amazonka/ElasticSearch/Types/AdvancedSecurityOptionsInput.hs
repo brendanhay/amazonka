@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.MasterUserOptions
 import Amazonka.ElasticSearch.Types.SAMLOptionsInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the advanced security configuration: whether advanced security

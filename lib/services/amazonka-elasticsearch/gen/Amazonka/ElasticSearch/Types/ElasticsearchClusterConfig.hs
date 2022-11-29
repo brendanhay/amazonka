@@ -20,11 +20,11 @@
 module Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ColdStorageOptions
 import Amazonka.ElasticSearch.Types.ESPartitionInstanceType
 import Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType
 import Amazonka.ElasticSearch.Types.ZoneAwarenessConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for the domain cluster, such as the type and

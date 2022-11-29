@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.DomainEndpointOptionsStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.DomainEndpointOptions
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configured endpoint options for the domain and their current status.

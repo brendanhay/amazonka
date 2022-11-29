@@ -20,7 +20,7 @@
 module Amazonka.Translate.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input configuration properties for requesting a batch translation

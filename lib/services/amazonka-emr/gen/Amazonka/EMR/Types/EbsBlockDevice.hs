@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.EbsBlockDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.VolumeSpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of requested EBS block device associated with the instance

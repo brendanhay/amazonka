@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.AutoScalingPolicyStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.AutoScalingPolicyState
 import Amazonka.EMR.Types.AutoScalingPolicyStateChangeReason
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of an automatic scaling policy.

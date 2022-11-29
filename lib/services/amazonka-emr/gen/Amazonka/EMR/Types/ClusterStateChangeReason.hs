@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.ClusterStateChangeReason where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ClusterStateChangeReasonCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The reason that the cluster changed to its current state.

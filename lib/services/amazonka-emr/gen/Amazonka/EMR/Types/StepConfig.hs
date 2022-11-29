@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.StepConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ActionOnFailure
 import Amazonka.EMR.Types.HadoopJarStepConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specification for a cluster (job flow) step.

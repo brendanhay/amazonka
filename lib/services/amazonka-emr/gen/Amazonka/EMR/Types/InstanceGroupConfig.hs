@@ -20,12 +20,12 @@
 module Amazonka.EMR.Types.InstanceGroupConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.AutoScalingPolicy
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsConfiguration
 import Amazonka.EMR.Types.InstanceRoleType
 import Amazonka.EMR.Types.MarketType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration defining a new instance group.

@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.ClusterStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ClusterState
 import Amazonka.EMR.Types.ClusterStateChangeReason
 import Amazonka.EMR.Types.ClusterTimeline
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed status of the cluster.

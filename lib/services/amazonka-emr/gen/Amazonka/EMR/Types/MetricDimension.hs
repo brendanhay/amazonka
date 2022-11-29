@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.MetricDimension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudWatch dimension, which is specified using a @Key@ (known as a

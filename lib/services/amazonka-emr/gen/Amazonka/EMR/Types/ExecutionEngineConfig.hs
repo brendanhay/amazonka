@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.ExecutionEngineConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ExecutionEngineType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the execution engine (cluster) to run the notebook and perform

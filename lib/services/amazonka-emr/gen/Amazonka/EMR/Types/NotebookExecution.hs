@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.NotebookExecution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ExecutionEngineConfig
 import Amazonka.EMR.Types.NotebookExecutionStatus
 import Amazonka.EMR.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A notebook execution. An execution is a specific instance that an EMR

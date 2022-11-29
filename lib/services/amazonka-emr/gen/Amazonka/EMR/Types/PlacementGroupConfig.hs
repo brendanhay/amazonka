@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.PlacementGroupConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceRoleType
 import Amazonka.EMR.Types.PlacementGroupStrategy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placement group configuration for an Amazon EMR cluster. The

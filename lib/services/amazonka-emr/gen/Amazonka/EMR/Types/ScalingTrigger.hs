@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.ScalingTrigger where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.CloudWatchAlarmDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The conditions that trigger an automatic scaling activity.

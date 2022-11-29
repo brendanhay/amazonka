@@ -41,8 +41,8 @@ module Amazonka.EMR.DescribeStep
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +91,8 @@ describeStep_stepId = Lens.lens (\DescribeStep' {stepId} -> stepId) (\s@Describe
 
 instance Core.AWSRequest DescribeStep where
   type AWSResponse DescribeStep = DescribeStepResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,6 +20,7 @@
 module Amazonka.EMR.Types.Cluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.Application
 import Amazonka.EMR.Types.ClusterStatus
 import Amazonka.EMR.Types.Configuration
@@ -30,7 +31,6 @@ import Amazonka.EMR.Types.PlacementGroupConfig
 import Amazonka.EMR.Types.RepoUpgradeOnBoot
 import Amazonka.EMR.Types.ScaleDownBehavior
 import Amazonka.EMR.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed description of the cluster.

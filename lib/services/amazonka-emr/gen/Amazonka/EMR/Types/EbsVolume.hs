@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.EbsVolume where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | EBS block device that\'s attached to an EC2 instance.

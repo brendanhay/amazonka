@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,21 +17,21 @@
 module Amazonka.EMR.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.DescribeCluster
 import Amazonka.EMR.DescribeStep
 import Amazonka.EMR.Lens
 import Amazonka.EMR.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.EMR.DescribeStep' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newStepComplete :: Core.Wait DescribeStep
 newStepComplete =
   Core.Wait
-    { Core._waitName = "StepComplete",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StepComplete",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
@@ -68,10 +69,10 @@ newStepComplete =
 newClusterRunning :: Core.Wait DescribeCluster
 newClusterRunning =
   Core.Wait
-    { Core._waitName = "ClusterRunning",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ClusterRunning",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
@@ -124,10 +125,10 @@ newClusterRunning =
 newClusterTerminated :: Core.Wait DescribeCluster
 newClusterTerminated =
   Core.Wait
-    { Core._waitName = "ClusterTerminated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ClusterTerminated",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "TERMINATED"
             Core.AcceptSuccess

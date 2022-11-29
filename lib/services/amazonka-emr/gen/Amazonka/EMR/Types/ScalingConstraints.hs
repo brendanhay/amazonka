@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.ScalingConstraints where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy.

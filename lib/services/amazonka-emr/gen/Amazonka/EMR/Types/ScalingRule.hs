@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.ScalingRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ScalingAction
 import Amazonka.EMR.Types.ScalingTrigger
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A scale-in or scale-out rule that defines scaling activity, including

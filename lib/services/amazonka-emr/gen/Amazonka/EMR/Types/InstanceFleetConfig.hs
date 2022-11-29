@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.InstanceFleetConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
 import Amazonka.EMR.Types.InstanceFleetType
 import Amazonka.EMR.Types.InstanceTypeConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that defines an instance fleet.

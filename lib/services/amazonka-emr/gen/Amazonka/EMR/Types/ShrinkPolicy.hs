@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.ShrinkPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceResizePolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Policy for customizing shrink operations. Allows configuration of

@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.NotebookExecutionSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.NotebookExecutionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a notebook execution. The details include information such

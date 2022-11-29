@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.InstanceStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceState
 import Amazonka.EMR.Types.InstanceStateChangeReason
 import Amazonka.EMR.Types.InstanceTimeline
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The instance status details.

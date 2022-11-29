@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.InstanceFleetStateChangeReason where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceFleetStateChangeReasonCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides status change reason details for the instance fleet.

@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.OnDemandProvisioningSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The launch specification for On-Demand Instances in the instance fleet,

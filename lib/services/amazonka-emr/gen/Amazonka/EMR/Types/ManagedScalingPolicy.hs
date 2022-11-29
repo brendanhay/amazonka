@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.ManagedScalingPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ComputeLimits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Managed scaling policy for an Amazon EMR cluster. The policy specifies

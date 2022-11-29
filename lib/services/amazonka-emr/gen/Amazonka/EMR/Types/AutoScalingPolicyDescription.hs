@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.AutoScalingPolicyDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.AutoScalingPolicyStatus
 import Amazonka.EMR.Types.ScalingConstraints
 import Amazonka.EMR.Types.ScalingRule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An automatic scaling policy for a core instance group or task instance

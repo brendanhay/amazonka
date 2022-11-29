@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.ScalingAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.MarketType
 import Amazonka.EMR.Types.SimpleScalingPolicyConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of adjustment the automatic scaling activity makes when

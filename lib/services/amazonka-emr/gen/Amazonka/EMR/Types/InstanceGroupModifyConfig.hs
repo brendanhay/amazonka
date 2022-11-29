@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.InstanceGroupModifyConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.ReconfigurationType
 import Amazonka.EMR.Types.ShrinkPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Modify the size or configurations of an instance group.

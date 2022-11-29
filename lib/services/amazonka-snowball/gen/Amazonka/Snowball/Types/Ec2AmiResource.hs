@@ -20,7 +20,7 @@
 module Amazonka.Snowball.Types.Ec2AmiResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine

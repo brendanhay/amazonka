@@ -20,7 +20,7 @@
 module Amazonka.Snowball.Types.JobLogs where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains job logs. Whenever a Snow device is used to import data into or

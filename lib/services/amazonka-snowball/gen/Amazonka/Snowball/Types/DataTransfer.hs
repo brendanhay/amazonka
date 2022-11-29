@@ -20,7 +20,7 @@
 module Amazonka.Snowball.Types.DataTransfer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the real-time status of a Snow device\'s data transfer while the

@@ -22,7 +22,7 @@ module Amazonka.CloudSearch.Types.IndexFieldStatus where
 import Amazonka.CloudSearch.Types.IndexField
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of an @IndexField@ and its current status.

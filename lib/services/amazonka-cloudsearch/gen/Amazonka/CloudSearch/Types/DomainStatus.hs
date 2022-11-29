@@ -22,7 +22,7 @@ module Amazonka.CloudSearch.Types.DomainStatus where
 import Amazonka.CloudSearch.Types.Limits
 import Amazonka.CloudSearch.Types.ServiceEndpoint
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the search domain.

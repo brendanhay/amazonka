@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.Suggester where
 
 import Amazonka.CloudSearch.Types.DocumentSuggesterOptions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a search suggester. Each suggester has a

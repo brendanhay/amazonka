@@ -22,7 +22,7 @@ module Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus where
 import Amazonka.CloudSearch.Types.DomainEndpointOptions
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration and status of the domain\'s endpoint options.

@@ -32,7 +32,7 @@ import Amazonka.CloudSearch.Types.LiteralOptions
 import Amazonka.CloudSearch.Types.TextArrayOptions
 import Amazonka.CloudSearch.Types.TextOptions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a field in the index, including its name,

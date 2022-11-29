@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.AccessPoliciesStatus where
 
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configured access rules for the domain\'s document and search

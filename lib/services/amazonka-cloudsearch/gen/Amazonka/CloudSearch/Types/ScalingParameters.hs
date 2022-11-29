@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.ScalingParameters where
 
 import Amazonka.CloudSearch.Types.PartitionInstanceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The desired instance type and desired number of replicas of each index

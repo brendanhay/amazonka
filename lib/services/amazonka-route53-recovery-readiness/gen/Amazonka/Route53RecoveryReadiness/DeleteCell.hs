@@ -37,7 +37,7 @@ module Amazonka.Route53RecoveryReadiness.DeleteCell
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,8 +72,8 @@ deleteCell_cellName = Lens.lens (\DeleteCell' {cellName} -> cellName) (\s@Delete
 
 instance Core.AWSRequest DeleteCell where
   type AWSResponse DeleteCell = DeleteCellResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteCellResponse'
 
 instance Prelude.Hashable DeleteCell where

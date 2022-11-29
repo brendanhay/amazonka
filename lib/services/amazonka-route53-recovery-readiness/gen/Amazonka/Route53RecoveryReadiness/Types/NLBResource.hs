@@ -20,7 +20,7 @@
 module Amazonka.Route53RecoveryReadiness.Types.NLBResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Network Load Balancer resource that a DNS target resource points to.

@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchLogs.Types.QueryStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the number of log events scanned by the query, the number of

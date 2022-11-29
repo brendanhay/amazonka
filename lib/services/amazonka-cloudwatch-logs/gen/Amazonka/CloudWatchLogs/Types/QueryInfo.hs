@@ -21,7 +21,7 @@ module Amazonka.CloudWatchLogs.Types.QueryInfo where
 
 import Amazonka.CloudWatchLogs.Types.QueryStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one CloudWatch Logs Insights query that matches the

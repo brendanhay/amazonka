@@ -60,6 +60,9 @@ module Amazonka.CloudWatchLogs
     -- ** InvalidSequenceTokenException
     _InvalidSequenceTokenException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- ** OperationAbortedException
     _OperationAbortedException,
 
@@ -258,11 +261,11 @@ module Amazonka.CloudWatchLogs
     GetQueryResultsResponse (GetQueryResultsResponse'),
     newGetQueryResultsResponse,
 
-    -- ** ListTagsLogGroup
-    ListTagsLogGroup (ListTagsLogGroup'),
-    newListTagsLogGroup,
-    ListTagsLogGroupResponse (ListTagsLogGroupResponse'),
-    newListTagsLogGroupResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** PutDestination
     PutDestination (PutDestination'),
@@ -324,11 +327,11 @@ module Amazonka.CloudWatchLogs
     StopQueryResponse (StopQueryResponse'),
     newStopQueryResponse,
 
-    -- ** TagLogGroup
-    TagLogGroup (TagLogGroup'),
-    newTagLogGroup,
-    TagLogGroupResponse (TagLogGroupResponse'),
-    newTagLogGroupResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** TestMetricFilter
     TestMetricFilter (TestMetricFilter'),
@@ -336,11 +339,11 @@ module Amazonka.CloudWatchLogs
     TestMetricFilterResponse (TestMetricFilterResponse'),
     newTestMetricFilterResponse,
 
-    -- ** UntagLogGroup
-    UntagLogGroup (UntagLogGroup'),
-    newUntagLogGroup,
-    UntagLogGroupResponse (UntagLogGroupResponse'),
-    newUntagLogGroupResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 
@@ -474,7 +477,7 @@ import Amazonka.CloudWatchLogs.GetLogGroupFields
 import Amazonka.CloudWatchLogs.GetLogRecord
 import Amazonka.CloudWatchLogs.GetQueryResults
 import Amazonka.CloudWatchLogs.Lens
-import Amazonka.CloudWatchLogs.ListTagsLogGroup
+import Amazonka.CloudWatchLogs.ListTagsForResource
 import Amazonka.CloudWatchLogs.PutDestination
 import Amazonka.CloudWatchLogs.PutDestinationPolicy
 import Amazonka.CloudWatchLogs.PutLogEvents
@@ -485,10 +488,10 @@ import Amazonka.CloudWatchLogs.PutRetentionPolicy
 import Amazonka.CloudWatchLogs.PutSubscriptionFilter
 import Amazonka.CloudWatchLogs.StartQuery
 import Amazonka.CloudWatchLogs.StopQuery
-import Amazonka.CloudWatchLogs.TagLogGroup
+import Amazonka.CloudWatchLogs.TagResource
 import Amazonka.CloudWatchLogs.TestMetricFilter
 import Amazonka.CloudWatchLogs.Types
-import Amazonka.CloudWatchLogs.UntagLogGroup
+import Amazonka.CloudWatchLogs.UntagResource
 import Amazonka.CloudWatchLogs.Waiters
 
 -- $errors

@@ -47,7 +47,7 @@ where
 
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,7 @@ data DescribeDestinations = DescribeDestinations'
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
-    -- default is up to 50 items.
+    -- default maximum value of 50 items is used.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The prefix to match. If you don\'t specify a value, no prefix filter is
     -- applied.
@@ -78,7 +78,7 @@ data DescribeDestinations = DescribeDestinations'
 -- from a previous call.)
 --
 -- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the
--- default is up to 50 items.
+-- default maximum value of 50 items is used.
 --
 -- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
 -- applied.
@@ -97,7 +97,7 @@ describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe
 describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
--- default is up to 50 items.
+-- default maximum value of 50 items is used.
 describeDestinations_limit :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Natural)
 describeDestinations_limit = Lens.lens (\DescribeDestinations' {limit} -> limit) (\s@DescribeDestinations' {} a -> s {limit = a} :: DescribeDestinations)
 
@@ -132,8 +132,8 @@ instance Core.AWSRequest DescribeDestinations where
   type
     AWSResponse DescribeDestinations =
       DescribeDestinationsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

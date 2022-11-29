@@ -21,7 +21,7 @@ module Amazonka.CloudWatchLogs.Types.MetricTransformation where
 
 import Amazonka.CloudWatchLogs.Types.StandardUnit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates how to transform ingested log events to metric data in a

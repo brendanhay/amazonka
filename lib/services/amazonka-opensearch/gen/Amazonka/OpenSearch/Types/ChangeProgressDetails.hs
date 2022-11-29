@@ -20,18 +20,17 @@
 module Amazonka.OpenSearch.Types.ChangeProgressDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies change details of the domain configuration change.
+-- | Container for information about a configuration change happening on a
+-- domain.
 --
 -- /See:/ 'newChangeProgressDetails' smart constructor.
 data ChangeProgressDetails = ChangeProgressDetails'
-  { -- | Contains an optional message associated with the domain configuration
-    -- change.
+  { -- | A message corresponding to the status of the configuration change.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The unique change identifier associated with a specific domain
-    -- configuration change.
+    -- | The ID of the configuration change.
     changeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +43,9 @@ data ChangeProgressDetails = ChangeProgressDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'changeProgressDetails_message' - Contains an optional message associated with the domain configuration
--- change.
+-- 'message', 'changeProgressDetails_message' - A message corresponding to the status of the configuration change.
 --
--- 'changeId', 'changeProgressDetails_changeId' - The unique change identifier associated with a specific domain
--- configuration change.
+-- 'changeId', 'changeProgressDetails_changeId' - The ID of the configuration change.
 newChangeProgressDetails ::
   ChangeProgressDetails
 newChangeProgressDetails =
@@ -57,13 +54,11 @@ newChangeProgressDetails =
       changeId = Prelude.Nothing
     }
 
--- | Contains an optional message associated with the domain configuration
--- change.
+-- | A message corresponding to the status of the configuration change.
 changeProgressDetails_message :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
 changeProgressDetails_message = Lens.lens (\ChangeProgressDetails' {message} -> message) (\s@ChangeProgressDetails' {} a -> s {message = a} :: ChangeProgressDetails)
 
--- | The unique change identifier associated with a specific domain
--- configuration change.
+-- | The ID of the configuration change.
 changeProgressDetails_changeId :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
 changeProgressDetails_changeId = Lens.lens (\ChangeProgressDetails' {changeId} -> changeId) (\s@ChangeProgressDetails' {} a -> s {changeId = a} :: ChangeProgressDetails)
 

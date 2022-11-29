@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all tags for the given domain.
+-- Returns all resource tags for an Amazon OpenSearch Service domain. For
+-- more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html Tagging Amazon OpenSearch Service domains>.
 module Amazonka.OpenSearch.ListTags
   ( -- * Creating a Request
     ListTags (..),
@@ -40,19 +42,17 @@ module Amazonka.OpenSearch.ListTags
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ ListTags @ operation. Specify the
--- @ARN@ of the domain that the tags you want to view are attached to.
+-- | Container for the parameters to the @ListTags@ operation.
 --
 -- /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | Specify the @ARN@ of the domain that the tags you want to view are
-    -- attached to.
+  { -- | Amazon Resource Name (ARN) for the domain to view tags for.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,23 +65,21 @@ data ListTags = ListTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'listTags_arn' - Specify the @ARN@ of the domain that the tags you want to view are
--- attached to.
+-- 'arn', 'listTags_arn' - Amazon Resource Name (ARN) for the domain to view tags for.
 newListTags ::
   -- | 'arn'
   Prelude.Text ->
   ListTags
 newListTags pARN_ = ListTags' {arn = pARN_}
 
--- | Specify the @ARN@ of the domain that the tags you want to view are
--- attached to.
+-- | Amazon Resource Name (ARN) for the domain to view tags for.
 listTags_arn :: Lens.Lens' ListTags Prelude.Text
 listTags_arn = Lens.lens (\ListTags' {arn} -> arn) (\s@ListTags' {} a -> s {arn = a} :: ListTags)
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,12 +105,11 @@ instance Core.ToQuery ListTags where
   toQuery ListTags' {..} =
     Prelude.mconcat ["arn" Core.=: arn]
 
--- | The result of a @ListTags@ operation. Contains tags for all requested
--- domains.
+-- | The results of a @ListTags@ operation.
 --
 -- /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | List of @Tag@ for the requested domain.
+  { -- | List of resource tags associated with the specified domain.
     tagList :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -127,7 +124,7 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagList', 'listTagsResponse_tagList' - List of @Tag@ for the requested domain.
+-- 'tagList', 'listTagsResponse_tagList' - List of resource tags associated with the specified domain.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -140,7 +137,7 @@ newListTagsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | List of @Tag@ for the requested domain.
+-- | List of resource tags associated with the specified domain.
 listTagsResponse_tagList :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
 listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 

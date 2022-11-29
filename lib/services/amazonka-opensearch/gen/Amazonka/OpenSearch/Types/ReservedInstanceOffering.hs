@@ -20,35 +20,35 @@
 module Amazonka.OpenSearch.Types.ReservedInstanceOffering where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import Amazonka.OpenSearch.Types.RecurringCharge
 import Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
 import qualified Amazonka.Prelude as Prelude
 
--- | Details of a reserved OpenSearch instance offering.
+-- | Details of an OpenSearch Reserved Instance offering.
 --
 -- /See:/ 'newReservedInstanceOffering' smart constructor.
 data ReservedInstanceOffering = ReservedInstanceOffering'
-  { -- | The charge to your account regardless of whether you are creating any
-    -- domains using the instance offering.
+  { -- | The recurring charge to your account, regardless of whether you creates
+    -- any domains using the offering.
     recurringCharges :: Prelude.Maybe [RecurringCharge],
-    -- | The OpenSearch instance type offered by the reserved instance offering.
+    -- | The OpenSearch instance type offered by the Reserved Instance offering.
     instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
     -- | The duration, in seconds, for which the offering will reserve the
     -- OpenSearch instance.
     duration :: Prelude.Maybe Prelude.Int,
-    -- | The currency code for the reserved OpenSearch instance offering.
+    -- | The currency code for the Reserved Instance offering.
     currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The upfront fixed charge you will pay to purchase the specific reserved
-    -- OpenSearch instance offering.
+    -- | The upfront fixed charge you will pay to purchase the specific Reserved
+    -- Instance offering.
     fixedPrice :: Prelude.Maybe Prelude.Double,
-    -- | The OpenSearch reserved instance offering identifier.
+    -- | The unique identifier of the Reserved Instance offering.
     reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | Payment option for the reserved OpenSearch instance offering
+    -- | Payment option for the Reserved Instance offering
     paymentOption :: Prelude.Maybe ReservedInstancePaymentOption,
-    -- | The rate you are charged for each hour the domain that is using the
-    -- offering is running.
+    -- | The hourly rate at which you\'re charged for the domain using this
+    -- Reserved Instance.
     usagePrice :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,25 +61,25 @@ data ReservedInstanceOffering = ReservedInstanceOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recurringCharges', 'reservedInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
+-- 'recurringCharges', 'reservedInstanceOffering_recurringCharges' - The recurring charge to your account, regardless of whether you creates
+-- any domains using the offering.
 --
--- 'instanceType', 'reservedInstanceOffering_instanceType' - The OpenSearch instance type offered by the reserved instance offering.
+-- 'instanceType', 'reservedInstanceOffering_instanceType' - The OpenSearch instance type offered by the Reserved Instance offering.
 --
 -- 'duration', 'reservedInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the
 -- OpenSearch instance.
 --
--- 'currencyCode', 'reservedInstanceOffering_currencyCode' - The currency code for the reserved OpenSearch instance offering.
+-- 'currencyCode', 'reservedInstanceOffering_currencyCode' - The currency code for the Reserved Instance offering.
 --
--- 'fixedPrice', 'reservedInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved
--- OpenSearch instance offering.
+-- 'fixedPrice', 'reservedInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific Reserved
+-- Instance offering.
 --
--- 'reservedInstanceOfferingId', 'reservedInstanceOffering_reservedInstanceOfferingId' - The OpenSearch reserved instance offering identifier.
+-- 'reservedInstanceOfferingId', 'reservedInstanceOffering_reservedInstanceOfferingId' - The unique identifier of the Reserved Instance offering.
 --
--- 'paymentOption', 'reservedInstanceOffering_paymentOption' - Payment option for the reserved OpenSearch instance offering
+-- 'paymentOption', 'reservedInstanceOffering_paymentOption' - Payment option for the Reserved Instance offering
 --
--- 'usagePrice', 'reservedInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the
--- offering is running.
+-- 'usagePrice', 'reservedInstanceOffering_usagePrice' - The hourly rate at which you\'re charged for the domain using this
+-- Reserved Instance.
 newReservedInstanceOffering ::
   ReservedInstanceOffering
 newReservedInstanceOffering =
@@ -95,12 +95,12 @@ newReservedInstanceOffering =
       usagePrice = Prelude.Nothing
     }
 
--- | The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
+-- | The recurring charge to your account, regardless of whether you creates
+-- any domains using the offering.
 reservedInstanceOffering_recurringCharges :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe [RecurringCharge])
 reservedInstanceOffering_recurringCharges = Lens.lens (\ReservedInstanceOffering' {recurringCharges} -> recurringCharges) (\s@ReservedInstanceOffering' {} a -> s {recurringCharges = a} :: ReservedInstanceOffering) Prelude.. Lens.mapping Lens.coerced
 
--- | The OpenSearch instance type offered by the reserved instance offering.
+-- | The OpenSearch instance type offered by the Reserved Instance offering.
 reservedInstanceOffering_instanceType :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe OpenSearchPartitionInstanceType)
 reservedInstanceOffering_instanceType = Lens.lens (\ReservedInstanceOffering' {instanceType} -> instanceType) (\s@ReservedInstanceOffering' {} a -> s {instanceType = a} :: ReservedInstanceOffering)
 
@@ -109,25 +109,25 @@ reservedInstanceOffering_instanceType = Lens.lens (\ReservedInstanceOffering' {i
 reservedInstanceOffering_duration :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Int)
 reservedInstanceOffering_duration = Lens.lens (\ReservedInstanceOffering' {duration} -> duration) (\s@ReservedInstanceOffering' {} a -> s {duration = a} :: ReservedInstanceOffering)
 
--- | The currency code for the reserved OpenSearch instance offering.
+-- | The currency code for the Reserved Instance offering.
 reservedInstanceOffering_currencyCode :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
 reservedInstanceOffering_currencyCode = Lens.lens (\ReservedInstanceOffering' {currencyCode} -> currencyCode) (\s@ReservedInstanceOffering' {} a -> s {currencyCode = a} :: ReservedInstanceOffering)
 
--- | The upfront fixed charge you will pay to purchase the specific reserved
--- OpenSearch instance offering.
+-- | The upfront fixed charge you will pay to purchase the specific Reserved
+-- Instance offering.
 reservedInstanceOffering_fixedPrice :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Double)
 reservedInstanceOffering_fixedPrice = Lens.lens (\ReservedInstanceOffering' {fixedPrice} -> fixedPrice) (\s@ReservedInstanceOffering' {} a -> s {fixedPrice = a} :: ReservedInstanceOffering)
 
--- | The OpenSearch reserved instance offering identifier.
+-- | The unique identifier of the Reserved Instance offering.
 reservedInstanceOffering_reservedInstanceOfferingId :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
 reservedInstanceOffering_reservedInstanceOfferingId = Lens.lens (\ReservedInstanceOffering' {reservedInstanceOfferingId} -> reservedInstanceOfferingId) (\s@ReservedInstanceOffering' {} a -> s {reservedInstanceOfferingId = a} :: ReservedInstanceOffering)
 
--- | Payment option for the reserved OpenSearch instance offering
+-- | Payment option for the Reserved Instance offering
 reservedInstanceOffering_paymentOption :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe ReservedInstancePaymentOption)
 reservedInstanceOffering_paymentOption = Lens.lens (\ReservedInstanceOffering' {paymentOption} -> paymentOption) (\s@ReservedInstanceOffering' {} a -> s {paymentOption = a} :: ReservedInstanceOffering)
 
--- | The rate you are charged for each hour the domain that is using the
--- offering is running.
+-- | The hourly rate at which you\'re charged for the domain using this
+-- Reserved Instance.
 reservedInstanceOffering_usagePrice :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Double)
 reservedInstanceOffering_usagePrice = Lens.lens (\ReservedInstanceOffering' {usagePrice} -> usagePrice) (\s@ReservedInstanceOffering' {} a -> s {usagePrice = a} :: ReservedInstanceOffering)
 

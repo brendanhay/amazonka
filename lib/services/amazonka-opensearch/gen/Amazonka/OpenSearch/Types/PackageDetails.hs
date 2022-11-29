@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.PackageDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.ErrorDetails
 import Amazonka.OpenSearch.Types.PackageStatus
 import Amazonka.OpenSearch.Types.PackageType
@@ -34,19 +34,20 @@ data PackageDetails = PackageDetails'
     packageDescription :: Prelude.Maybe Prelude.Text,
     -- | User-specified name of the package.
     packageName :: Prelude.Maybe Prelude.Text,
+    -- | Date and time when the package was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | Additional information if the package is in an error state. Null
     -- otherwise.
     errorDetails :: Prelude.Maybe ErrorDetails,
-    -- | Internal ID of the package.
+    -- | The unique identifier of the package.
     packageID :: Prelude.Maybe Prelude.Text,
-    -- | Currently supports only TXT-DICTIONARY.
+    -- | The type of package.
     packageType :: Prelude.Maybe PackageType,
+    -- | The package version.
     availablePackageVersion :: Prelude.Maybe Prelude.Text,
-    -- | Current state of the package. Values are COPYING, COPY_FAILED,
-    -- AVAILABLE, DELETING, and DELETE_FAILED.
+    -- | Current status of the package.
     packageStatus :: Prelude.Maybe PackageStatus,
-    -- | The timestamp of when the package was created.
+    -- | The timestamp when the package was created.
     createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,21 +64,20 @@ data PackageDetails = PackageDetails'
 --
 -- 'packageName', 'packageDetails_packageName' - User-specified name of the package.
 --
--- 'lastUpdatedAt', 'packageDetails_lastUpdatedAt' - Undocumented member.
+-- 'lastUpdatedAt', 'packageDetails_lastUpdatedAt' - Date and time when the package was last updated.
 --
 -- 'errorDetails', 'packageDetails_errorDetails' - Additional information if the package is in an error state. Null
 -- otherwise.
 --
--- 'packageID', 'packageDetails_packageID' - Internal ID of the package.
+-- 'packageID', 'packageDetails_packageID' - The unique identifier of the package.
 --
--- 'packageType', 'packageDetails_packageType' - Currently supports only TXT-DICTIONARY.
+-- 'packageType', 'packageDetails_packageType' - The type of package.
 --
--- 'availablePackageVersion', 'packageDetails_availablePackageVersion' - Undocumented member.
+-- 'availablePackageVersion', 'packageDetails_availablePackageVersion' - The package version.
 --
--- 'packageStatus', 'packageDetails_packageStatus' - Current state of the package. Values are COPYING, COPY_FAILED,
--- AVAILABLE, DELETING, and DELETE_FAILED.
+-- 'packageStatus', 'packageDetails_packageStatus' - Current status of the package.
 --
--- 'createdAt', 'packageDetails_createdAt' - The timestamp of when the package was created.
+-- 'createdAt', 'packageDetails_createdAt' - The timestamp when the package was created.
 newPackageDetails ::
   PackageDetails
 newPackageDetails =
@@ -102,7 +102,7 @@ packageDetails_packageDescription = Lens.lens (\PackageDetails' {packageDescript
 packageDetails_packageName :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
 packageDetails_packageName = Lens.lens (\PackageDetails' {packageName} -> packageName) (\s@PackageDetails' {} a -> s {packageName = a} :: PackageDetails)
 
--- | Undocumented member.
+-- | Date and time when the package was last updated.
 packageDetails_lastUpdatedAt :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.UTCTime)
 packageDetails_lastUpdatedAt = Lens.lens (\PackageDetails' {lastUpdatedAt} -> lastUpdatedAt) (\s@PackageDetails' {} a -> s {lastUpdatedAt = a} :: PackageDetails) Prelude.. Lens.mapping Core._Time
 
@@ -111,24 +111,23 @@ packageDetails_lastUpdatedAt = Lens.lens (\PackageDetails' {lastUpdatedAt} -> la
 packageDetails_errorDetails :: Lens.Lens' PackageDetails (Prelude.Maybe ErrorDetails)
 packageDetails_errorDetails = Lens.lens (\PackageDetails' {errorDetails} -> errorDetails) (\s@PackageDetails' {} a -> s {errorDetails = a} :: PackageDetails)
 
--- | Internal ID of the package.
+-- | The unique identifier of the package.
 packageDetails_packageID :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
 packageDetails_packageID = Lens.lens (\PackageDetails' {packageID} -> packageID) (\s@PackageDetails' {} a -> s {packageID = a} :: PackageDetails)
 
--- | Currently supports only TXT-DICTIONARY.
+-- | The type of package.
 packageDetails_packageType :: Lens.Lens' PackageDetails (Prelude.Maybe PackageType)
 packageDetails_packageType = Lens.lens (\PackageDetails' {packageType} -> packageType) (\s@PackageDetails' {} a -> s {packageType = a} :: PackageDetails)
 
--- | Undocumented member.
+-- | The package version.
 packageDetails_availablePackageVersion :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
 packageDetails_availablePackageVersion = Lens.lens (\PackageDetails' {availablePackageVersion} -> availablePackageVersion) (\s@PackageDetails' {} a -> s {availablePackageVersion = a} :: PackageDetails)
 
--- | Current state of the package. Values are COPYING, COPY_FAILED,
--- AVAILABLE, DELETING, and DELETE_FAILED.
+-- | Current status of the package.
 packageDetails_packageStatus :: Lens.Lens' PackageDetails (Prelude.Maybe PackageStatus)
 packageDetails_packageStatus = Lens.lens (\PackageDetails' {packageStatus} -> packageStatus) (\s@PackageDetails' {} a -> s {packageStatus = a} :: PackageDetails)
 
--- | The timestamp of when the package was created.
+-- | The timestamp when the package was created.
 packageDetails_createdAt :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.UTCTime)
 packageDetails_createdAt = Lens.lens (\PackageDetails' {createdAt} -> createdAt) (\s@PackageDetails' {} a -> s {createdAt = a} :: PackageDetails) Prelude.. Lens.mapping Core._Time
 

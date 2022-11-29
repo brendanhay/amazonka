@@ -20,23 +20,18 @@
 module Amazonka.OpenSearch.Types.Duration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.TimeUnit
 import qualified Amazonka.Prelude as Prelude
 
--- | The maintenance schedule duration: duration value and duration unit. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | The duration of a maintenance schedule. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newDuration' smart constructor.
 data Duration = Duration'
-  { -- | The unit of a maintenance schedule duration. Valid value is HOURS. See
-    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
-    -- for more information.
+  { -- | The unit of measurement for the duration of a maintenance schedule.
     unit :: Prelude.Maybe TimeUnit,
-    -- | Integer to specify the value of a maintenance schedule duration. See
-    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
-    -- for more information.
+    -- | Integer to specify the value of a maintenance schedule duration.
     value :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,13 +44,9 @@ data Duration = Duration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'duration_unit' - The unit of a maintenance schedule duration. Valid value is HOURS. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- 'unit', 'duration_unit' - The unit of measurement for the duration of a maintenance schedule.
 --
--- 'value', 'duration_value' - Integer to specify the value of a maintenance schedule duration. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- 'value', 'duration_value' - Integer to specify the value of a maintenance schedule duration.
 newDuration ::
   Duration
 newDuration =
@@ -64,15 +55,11 @@ newDuration =
       value = Prelude.Nothing
     }
 
--- | The unit of a maintenance schedule duration. Valid value is HOURS. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | The unit of measurement for the duration of a maintenance schedule.
 duration_unit :: Lens.Lens' Duration (Prelude.Maybe TimeUnit)
 duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {unit = a} :: Duration)
 
--- | Integer to specify the value of a maintenance schedule duration. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | Integer to specify the value of a maintenance schedule duration.
 duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
 duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 

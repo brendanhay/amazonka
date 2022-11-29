@@ -20,16 +20,18 @@
 module Amazonka.OpenSearch.Types.EncryptionAtRestOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies encryption at rest options.
+-- | Specifies whether the domain should encrypt data at rest, and if so, the
+-- Key Management Service (KMS) key to use. Can be used only to create a
+-- new domain, not update an existing one.
 --
 -- /See:/ 'newEncryptionAtRestOptions' smart constructor.
 data EncryptionAtRestOptions = EncryptionAtRestOptions'
-  { -- | The option to enable encryption at rest.
+  { -- | True to enable encryption at rest.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The KMS key ID for encryption at rest options.
+    -- | The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +44,9 @@ data EncryptionAtRestOptions = EncryptionAtRestOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'encryptionAtRestOptions_enabled' - The option to enable encryption at rest.
+-- 'enabled', 'encryptionAtRestOptions_enabled' - True to enable encryption at rest.
 --
--- 'kmsKeyId', 'encryptionAtRestOptions_kmsKeyId' - The KMS key ID for encryption at rest options.
+-- 'kmsKeyId', 'encryptionAtRestOptions_kmsKeyId' - The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
 newEncryptionAtRestOptions ::
   EncryptionAtRestOptions
 newEncryptionAtRestOptions =
@@ -53,11 +55,11 @@ newEncryptionAtRestOptions =
       kmsKeyId = Prelude.Nothing
     }
 
--- | The option to enable encryption at rest.
+-- | True to enable encryption at rest.
 encryptionAtRestOptions_enabled :: Lens.Lens' EncryptionAtRestOptions (Prelude.Maybe Prelude.Bool)
 encryptionAtRestOptions_enabled = Lens.lens (\EncryptionAtRestOptions' {enabled} -> enabled) (\s@EncryptionAtRestOptions' {} a -> s {enabled = a} :: EncryptionAtRestOptions)
 
--- | The KMS key ID for encryption at rest options.
+-- | The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
 encryptionAtRestOptions_kmsKeyId :: Lens.Lens' EncryptionAtRestOptions (Prelude.Maybe Prelude.Text)
 encryptionAtRestOptions_kmsKeyId = Lens.lens (\EncryptionAtRestOptions' {kmsKeyId} -> kmsKeyId) (\s@EncryptionAtRestOptions' {} a -> s {kmsKeyId = a} :: EncryptionAtRestOptions)
 

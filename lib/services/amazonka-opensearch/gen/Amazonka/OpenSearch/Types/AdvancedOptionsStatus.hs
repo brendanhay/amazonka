@@ -20,29 +20,44 @@
 module Amazonka.OpenSearch.Types.AdvancedOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of the advanced options for the specified domain. Currently, the
--- following advanced options are available:
+-- | Status of the advanced options for the specified domain. The following
+-- options are available:
 --
--- -   Option to allow references to indices in an HTTP request body. Must
---     be @false@ when configuring access to individual sub-resources. By
---     default, the value is @true@. See
---     <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>
---     for more information.
--- -   Option to specify the percentage of heap space allocated to field
---     data. By default, this setting is unbounded.
+-- -   @\"rest.action.multi.allow_explicit_index\": \"true\" | \"false\"@ -
+--     Note the use of a string rather than a boolean. Specifies whether
+--     explicit references to indexes are allowed inside the body of HTTP
+--     requests. If you want to configure access policies for domain
+--     sub-resources, such as specific indexes and domain APIs, you must
+--     disable this property. Default is true.
+--
+-- -   @\"indices.fielddata.cache.size\": \"80\" @ - Note the use of a
+--     string rather than a boolean. Specifies the percentage of heap space
+--     allocated to field data. Default is unbounded.
+--
+-- -   @\"indices.query.bool.max_clause_count\": \"1024\"@ - Note the use
+--     of a string rather than a boolean. Specifies the maximum number of
+--     clauses allowed in a Lucene boolean query. Default is 1,024. Queries
+--     with more than the permitted number of clauses result in a
+--     @TooManyClauses@ error.
+--
+-- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
+--     the use of a string rather than a boolean. Specifies whether the
+--     domain reports its version as 7.10 to allow Elasticsearch OSS
+--     clients and plugins to continue working with it. Default is false
+--     when creating a domain and true when upgrading a domain.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
 --
 -- /See:/ 'newAdvancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
   { -- | The status of advanced options for the specified domain.
     options :: Prelude.HashMap Prelude.Text Prelude.Text,
-    -- | The @OptionStatus@ for advanced options for the specified domain.
+    -- | The status of advanced options for the specified domain.
     status :: OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +72,7 @@ data AdvancedOptionsStatus = AdvancedOptionsStatus'
 --
 -- 'options', 'advancedOptionsStatus_options' - The status of advanced options for the specified domain.
 --
--- 'status', 'advancedOptionsStatus_status' - The @OptionStatus@ for advanced options for the specified domain.
+-- 'status', 'advancedOptionsStatus_status' - The status of advanced options for the specified domain.
 newAdvancedOptionsStatus ::
   -- | 'status'
   OptionStatus ->
@@ -72,7 +87,7 @@ newAdvancedOptionsStatus pStatus_ =
 advancedOptionsStatus_options :: Lens.Lens' AdvancedOptionsStatus (Prelude.HashMap Prelude.Text Prelude.Text)
 advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> options) (\s@AdvancedOptionsStatus' {} a -> s {options = a} :: AdvancedOptionsStatus) Prelude.. Lens.coerced
 
--- | The @OptionStatus@ for advanced options for the specified domain.
+-- | The status of advanced options for the specified domain.
 advancedOptionsStatus_status :: Lens.Lens' AdvancedOptionsStatus OptionStatus
 advancedOptionsStatus_status = Lens.lens (\AdvancedOptionsStatus' {status} -> status) (\s@AdvancedOptionsStatus' {} a -> s {status = a} :: AdvancedOptionsStatus)
 

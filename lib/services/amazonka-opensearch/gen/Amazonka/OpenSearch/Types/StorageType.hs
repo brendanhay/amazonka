@@ -20,18 +20,20 @@
 module Amazonka.OpenSearch.Types.StorageType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.StorageTypeLimit
 import qualified Amazonka.Prelude as Prelude
 
--- | StorageTypes represents the list of storage-related types and their
--- attributes that are available for a given InstanceType.
+-- | A list of storage types for an Amazon OpenSearch Service domain that are
+-- available for a given intance type.
 --
 -- /See:/ 'newStorageType' smart constructor.
 data StorageType = StorageType'
-  { storageSubTypeName :: Prelude.Maybe Prelude.Text,
+  { -- | The storage sub-type, such as @gp3@ or @io1@.
+    storageSubTypeName :: Prelude.Maybe Prelude.Text,
     -- | Limits that are applicable for the given storage type.
     storageTypeLimits :: Prelude.Maybe [StorageTypeLimit],
+    -- | The name of the storage type.
     storageTypeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +46,11 @@ data StorageType = StorageType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageSubTypeName', 'storageType_storageSubTypeName' - Undocumented member.
+-- 'storageSubTypeName', 'storageType_storageSubTypeName' - The storage sub-type, such as @gp3@ or @io1@.
 --
 -- 'storageTypeLimits', 'storageType_storageTypeLimits' - Limits that are applicable for the given storage type.
 --
--- 'storageTypeName', 'storageType_storageTypeName' - Undocumented member.
+-- 'storageTypeName', 'storageType_storageTypeName' - The name of the storage type.
 newStorageType ::
   StorageType
 newStorageType =
@@ -58,7 +60,7 @@ newStorageType =
       storageTypeName = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The storage sub-type, such as @gp3@ or @io1@.
 storageType_storageSubTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
 storageType_storageSubTypeName = Lens.lens (\StorageType' {storageSubTypeName} -> storageSubTypeName) (\s@StorageType' {} a -> s {storageSubTypeName = a} :: StorageType)
 
@@ -66,7 +68,7 @@ storageType_storageSubTypeName = Lens.lens (\StorageType' {storageSubTypeName} -
 storageType_storageTypeLimits :: Lens.Lens' StorageType (Prelude.Maybe [StorageTypeLimit])
 storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> storageTypeLimits) (\s@StorageType' {} a -> s {storageTypeLimits = a} :: StorageType) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The name of the storage type.
 storageType_storageTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
 storageType_storageTypeName = Lens.lens (\StorageType' {storageTypeName} -> storageTypeName) (\s@StorageType' {} a -> s {storageTypeName = a} :: StorageType)
 

@@ -11,20 +11,18 @@
 --
 -- Derived from API version @2021-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon OpenSearch Configuration Service
---
--- Use the Amazon OpenSearch configuration API to create, configure, and
--- manage Amazon OpenSearch Service domains.
+-- Use the Amazon OpenSearch Service configuration API to create,
+-- configure, and manage OpenSearch Service domains.
 --
 -- For sample code that uses the configuration API, see the
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html Amazon OpenSearch Service Developer Guide>.
--- The guide also contains
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html sample code for sending signed HTTP requests to the OpenSearch APIs>.
---
--- The endpoint for configuration service requests is region-specific:
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html Amazon OpenSearch Service Developer Guide>
+-- . The guide also contains
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html sample code>
+-- for sending signed HTTP requests to the OpenSearch APIs. The endpoint
+-- for configuration service requests is Region specific:
 -- es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
--- a current list of supported regions and endpoints, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions Regions and Endpoints>.
+-- a current list of supported Regions and endpoints, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions Amazon Web Services service endpoints>.
 module Amazonka.OpenSearch
   ( -- * Service Configuration
     defaultService,
@@ -89,6 +87,12 @@ module Amazonka.OpenSearch
     AssociatePackageResponse (AssociatePackageResponse'),
     newAssociatePackageResponse,
 
+    -- ** AuthorizeVpcEndpointAccess
+    AuthorizeVpcEndpointAccess (AuthorizeVpcEndpointAccess'),
+    newAuthorizeVpcEndpointAccess,
+    AuthorizeVpcEndpointAccessResponse (AuthorizeVpcEndpointAccessResponse'),
+    newAuthorizeVpcEndpointAccessResponse,
+
     -- ** CancelServiceSoftwareUpdate
     CancelServiceSoftwareUpdate (CancelServiceSoftwareUpdate'),
     newCancelServiceSoftwareUpdate,
@@ -113,6 +117,12 @@ module Amazonka.OpenSearch
     CreatePackageResponse (CreatePackageResponse'),
     newCreatePackageResponse,
 
+    -- ** CreateVpcEndpoint
+    CreateVpcEndpoint (CreateVpcEndpoint'),
+    newCreateVpcEndpoint,
+    CreateVpcEndpointResponse (CreateVpcEndpointResponse'),
+    newCreateVpcEndpointResponse,
+
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
     newDeleteDomain,
@@ -136,6 +146,12 @@ module Amazonka.OpenSearch
     newDeletePackage,
     DeletePackageResponse (DeletePackageResponse'),
     newDeletePackageResponse,
+
+    -- ** DeleteVpcEndpoint
+    DeleteVpcEndpoint (DeleteVpcEndpoint'),
+    newDeleteVpcEndpoint,
+    DeleteVpcEndpointResponse (DeleteVpcEndpointResponse'),
+    newDeleteVpcEndpointResponse,
 
     -- ** DescribeDomain
     DescribeDomain (DescribeDomain'),
@@ -203,6 +219,12 @@ module Amazonka.OpenSearch
     DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
     newDescribeReservedInstancesResponse,
 
+    -- ** DescribeVpcEndpoints
+    DescribeVpcEndpoints (DescribeVpcEndpoints'),
+    newDescribeVpcEndpoints,
+    DescribeVpcEndpointsResponse (DescribeVpcEndpointsResponse'),
+    newDescribeVpcEndpointsResponse,
+
     -- ** DissociatePackage
     DissociatePackage (DissociatePackage'),
     newDissociatePackage,
@@ -269,6 +291,24 @@ module Amazonka.OpenSearch
     ListVersionsResponse (ListVersionsResponse'),
     newListVersionsResponse,
 
+    -- ** ListVpcEndpointAccess
+    ListVpcEndpointAccess (ListVpcEndpointAccess'),
+    newListVpcEndpointAccess,
+    ListVpcEndpointAccessResponse (ListVpcEndpointAccessResponse'),
+    newListVpcEndpointAccessResponse,
+
+    -- ** ListVpcEndpoints
+    ListVpcEndpoints (ListVpcEndpoints'),
+    newListVpcEndpoints,
+    ListVpcEndpointsResponse (ListVpcEndpointsResponse'),
+    newListVpcEndpointsResponse,
+
+    -- ** ListVpcEndpointsForDomain
+    ListVpcEndpointsForDomain (ListVpcEndpointsForDomain'),
+    newListVpcEndpointsForDomain,
+    ListVpcEndpointsForDomainResponse (ListVpcEndpointsForDomainResponse'),
+    newListVpcEndpointsForDomainResponse,
+
     -- ** PurchaseReservedInstanceOffering
     PurchaseReservedInstanceOffering (PurchaseReservedInstanceOffering'),
     newPurchaseReservedInstanceOffering,
@@ -287,6 +327,12 @@ module Amazonka.OpenSearch
     RemoveTagsResponse (RemoveTagsResponse'),
     newRemoveTagsResponse,
 
+    -- ** RevokeVpcEndpointAccess
+    RevokeVpcEndpointAccess (RevokeVpcEndpointAccess'),
+    newRevokeVpcEndpointAccess,
+    RevokeVpcEndpointAccessResponse (RevokeVpcEndpointAccessResponse'),
+    newRevokeVpcEndpointAccessResponse,
+
     -- ** StartServiceSoftwareUpdate
     StartServiceSoftwareUpdate (StartServiceSoftwareUpdate'),
     newStartServiceSoftwareUpdate,
@@ -304,6 +350,12 @@ module Amazonka.OpenSearch
     newUpdatePackage,
     UpdatePackageResponse (UpdatePackageResponse'),
     newUpdatePackageResponse,
+
+    -- ** UpdateVpcEndpoint
+    UpdateVpcEndpoint (UpdateVpcEndpoint'),
+    newUpdateVpcEndpoint,
+    UpdateVpcEndpointResponse (UpdateVpcEndpointResponse'),
+    newUpdateVpcEndpointResponse,
 
     -- ** UpgradeDomain
     UpgradeDomain (UpgradeDomain'),
@@ -361,6 +413,9 @@ module Amazonka.OpenSearch
     -- ** PackageType
     PackageType (..),
 
+    -- ** PrincipalType
+    PrincipalType (..),
+
     -- ** ReservedInstancePaymentOption
     ReservedInstancePaymentOption (..),
 
@@ -387,6 +442,12 @@ module Amazonka.OpenSearch
 
     -- ** VolumeType
     VolumeType (..),
+
+    -- ** VpcEndpointErrorCode
+    VpcEndpointErrorCode (..),
+
+    -- ** VpcEndpointStatus
+    VpcEndpointStatus (..),
 
     -- ** AWSDomainInformation
     AWSDomainInformation (AWSDomainInformation'),
@@ -415,6 +476,10 @@ module Amazonka.OpenSearch
     -- ** AdvancedSecurityOptionsStatus
     AdvancedSecurityOptionsStatus (AdvancedSecurityOptionsStatus'),
     newAdvancedSecurityOptionsStatus,
+
+    -- ** AuthorizedPrincipal
+    AuthorizedPrincipal (AuthorizedPrincipal'),
+    newAuthorizedPrincipal,
 
     -- ** AutoTune
     AutoTune (AutoTune'),
@@ -692,6 +757,18 @@ module Amazonka.OpenSearch
     VersionStatus (VersionStatus'),
     newVersionStatus,
 
+    -- ** VpcEndpoint
+    VpcEndpoint (VpcEndpoint'),
+    newVpcEndpoint,
+
+    -- ** VpcEndpointError
+    VpcEndpointError (VpcEndpointError'),
+    newVpcEndpointError,
+
+    -- ** VpcEndpointSummary
+    VpcEndpointSummary (VpcEndpointSummary'),
+    newVpcEndpointSummary,
+
     -- ** ZoneAwarenessConfig
     ZoneAwarenessConfig (ZoneAwarenessConfig'),
     newZoneAwarenessConfig,
@@ -701,14 +778,17 @@ where
 import Amazonka.OpenSearch.AcceptInboundConnection
 import Amazonka.OpenSearch.AddTags
 import Amazonka.OpenSearch.AssociatePackage
+import Amazonka.OpenSearch.AuthorizeVpcEndpointAccess
 import Amazonka.OpenSearch.CancelServiceSoftwareUpdate
 import Amazonka.OpenSearch.CreateDomain
 import Amazonka.OpenSearch.CreateOutboundConnection
 import Amazonka.OpenSearch.CreatePackage
+import Amazonka.OpenSearch.CreateVpcEndpoint
 import Amazonka.OpenSearch.DeleteDomain
 import Amazonka.OpenSearch.DeleteInboundConnection
 import Amazonka.OpenSearch.DeleteOutboundConnection
 import Amazonka.OpenSearch.DeletePackage
+import Amazonka.OpenSearch.DeleteVpcEndpoint
 import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
 import Amazonka.OpenSearch.DescribeDomainChangeProgress
@@ -720,6 +800,7 @@ import Amazonka.OpenSearch.DescribeOutboundConnections
 import Amazonka.OpenSearch.DescribePackages
 import Amazonka.OpenSearch.DescribeReservedInstanceOfferings
 import Amazonka.OpenSearch.DescribeReservedInstances
+import Amazonka.OpenSearch.DescribeVpcEndpoints
 import Amazonka.OpenSearch.DissociatePackage
 import Amazonka.OpenSearch.GetCompatibleVersions
 import Amazonka.OpenSearch.GetPackageVersionHistory
@@ -732,13 +813,18 @@ import Amazonka.OpenSearch.ListInstanceTypeDetails
 import Amazonka.OpenSearch.ListPackagesForDomain
 import Amazonka.OpenSearch.ListTags
 import Amazonka.OpenSearch.ListVersions
+import Amazonka.OpenSearch.ListVpcEndpointAccess
+import Amazonka.OpenSearch.ListVpcEndpoints
+import Amazonka.OpenSearch.ListVpcEndpointsForDomain
 import Amazonka.OpenSearch.PurchaseReservedInstanceOffering
 import Amazonka.OpenSearch.RejectInboundConnection
 import Amazonka.OpenSearch.RemoveTags
+import Amazonka.OpenSearch.RevokeVpcEndpointAccess
 import Amazonka.OpenSearch.StartServiceSoftwareUpdate
 import Amazonka.OpenSearch.Types
 import Amazonka.OpenSearch.UpdateDomainConfig
 import Amazonka.OpenSearch.UpdatePackage
+import Amazonka.OpenSearch.UpdateVpcEndpoint
 import Amazonka.OpenSearch.UpgradeDomain
 import Amazonka.OpenSearch.Waiters
 

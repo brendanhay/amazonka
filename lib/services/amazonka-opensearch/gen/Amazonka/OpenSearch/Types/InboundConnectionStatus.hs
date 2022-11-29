@@ -20,28 +20,37 @@
 module Amazonka.OpenSearch.Types.InboundConnectionStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.InboundConnectionStatusCode
 import qualified Amazonka.Prelude as Prelude
 
--- | The connection status of an inbound cross-cluster connection.
+-- | The status of an inbound cross-cluster connection for OpenSearch
+-- Service.
 --
 -- /See:/ 'newInboundConnectionStatus' smart constructor.
 data InboundConnectionStatus = InboundConnectionStatus'
-  { -- | Verbose information for the inbound connection status.
+  { -- | Information about the connection.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The state code for the inbound connection. Can be one of the following:
+    -- | The status code for the connection. Can be one of the following:
     --
-    -- -   PENDING_ACCEPTANCE: Inbound connection is not yet accepted by the
-    --     remote domain owner.
-    -- -   APPROVED: Inbound connection is pending acceptance by the remote
+    -- -   __PENDING_ACCEPTANCE__ - Inbound connection is not yet accepted by
+    --     the remote domain owner.
+    --
+    -- -   __APPROVED__: Inbound connection is pending acceptance by the remote
     --     domain owner.
-    -- -   PROVISIONING: Inbound connection provisioning is in progress.
-    -- -   ACTIVE: Inbound connection is active and ready to use.
-    -- -   REJECTING: Inbound connection rejection is in process.
-    -- -   REJECTED: Inbound connection is rejected.
-    -- -   DELETING: Inbound connection deletion is in progress.
-    -- -   DELETED: Inbound connection is deleted and can no longer be used.
+    --
+    -- -   __PROVISIONING__: Inbound connection is being provisioned.
+    --
+    -- -   __ACTIVE__: Inbound connection is active and ready to use.
+    --
+    -- -   __REJECTING__: Inbound connection rejection is in process.
+    --
+    -- -   __REJECTED__: Inbound connection is rejected.
+    --
+    -- -   __DELETING__: Inbound connection deletion is in progress.
+    --
+    -- -   __DELETED__: Inbound connection is deleted and can no longer be
+    --     used.
     statusCode :: Prelude.Maybe InboundConnectionStatusCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,20 +63,28 @@ data InboundConnectionStatus = InboundConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'inboundConnectionStatus_message' - Verbose information for the inbound connection status.
+-- 'message', 'inboundConnectionStatus_message' - Information about the connection.
 --
--- 'statusCode', 'inboundConnectionStatus_statusCode' - The state code for the inbound connection. Can be one of the following:
+-- 'statusCode', 'inboundConnectionStatus_statusCode' - The status code for the connection. Can be one of the following:
 --
--- -   PENDING_ACCEPTANCE: Inbound connection is not yet accepted by the
---     remote domain owner.
--- -   APPROVED: Inbound connection is pending acceptance by the remote
+-- -   __PENDING_ACCEPTANCE__ - Inbound connection is not yet accepted by
+--     the remote domain owner.
+--
+-- -   __APPROVED__: Inbound connection is pending acceptance by the remote
 --     domain owner.
--- -   PROVISIONING: Inbound connection provisioning is in progress.
--- -   ACTIVE: Inbound connection is active and ready to use.
--- -   REJECTING: Inbound connection rejection is in process.
--- -   REJECTED: Inbound connection is rejected.
--- -   DELETING: Inbound connection deletion is in progress.
--- -   DELETED: Inbound connection is deleted and can no longer be used.
+--
+-- -   __PROVISIONING__: Inbound connection is being provisioned.
+--
+-- -   __ACTIVE__: Inbound connection is active and ready to use.
+--
+-- -   __REJECTING__: Inbound connection rejection is in process.
+--
+-- -   __REJECTED__: Inbound connection is rejected.
+--
+-- -   __DELETING__: Inbound connection deletion is in progress.
+--
+-- -   __DELETED__: Inbound connection is deleted and can no longer be
+--     used.
 newInboundConnectionStatus ::
   InboundConnectionStatus
 newInboundConnectionStatus =
@@ -76,22 +93,30 @@ newInboundConnectionStatus =
       statusCode = Prelude.Nothing
     }
 
--- | Verbose information for the inbound connection status.
+-- | Information about the connection.
 inboundConnectionStatus_message :: Lens.Lens' InboundConnectionStatus (Prelude.Maybe Prelude.Text)
 inboundConnectionStatus_message = Lens.lens (\InboundConnectionStatus' {message} -> message) (\s@InboundConnectionStatus' {} a -> s {message = a} :: InboundConnectionStatus)
 
--- | The state code for the inbound connection. Can be one of the following:
+-- | The status code for the connection. Can be one of the following:
 --
--- -   PENDING_ACCEPTANCE: Inbound connection is not yet accepted by the
---     remote domain owner.
--- -   APPROVED: Inbound connection is pending acceptance by the remote
+-- -   __PENDING_ACCEPTANCE__ - Inbound connection is not yet accepted by
+--     the remote domain owner.
+--
+-- -   __APPROVED__: Inbound connection is pending acceptance by the remote
 --     domain owner.
--- -   PROVISIONING: Inbound connection provisioning is in progress.
--- -   ACTIVE: Inbound connection is active and ready to use.
--- -   REJECTING: Inbound connection rejection is in process.
--- -   REJECTED: Inbound connection is rejected.
--- -   DELETING: Inbound connection deletion is in progress.
--- -   DELETED: Inbound connection is deleted and can no longer be used.
+--
+-- -   __PROVISIONING__: Inbound connection is being provisioned.
+--
+-- -   __ACTIVE__: Inbound connection is active and ready to use.
+--
+-- -   __REJECTING__: Inbound connection rejection is in process.
+--
+-- -   __REJECTED__: Inbound connection is rejected.
+--
+-- -   __DELETING__: Inbound connection deletion is in progress.
+--
+-- -   __DELETED__: Inbound connection is deleted and can no longer be
+--     used.
 inboundConnectionStatus_statusCode :: Lens.Lens' InboundConnectionStatus (Prelude.Maybe InboundConnectionStatusCode)
 inboundConnectionStatus_statusCode = Lens.lens (\InboundConnectionStatus' {statusCode} -> statusCode) (\s@InboundConnectionStatus' {} a -> s {statusCode = a} :: InboundConnectionStatus)
 

@@ -20,16 +20,16 @@
 module Amazonka.OpenSearch.Types.SAMLIdp where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The SAML identity povider\'s information.
+-- | The SAML identity povider information.
 --
 -- /See:/ 'newSAMLIdp' smart constructor.
 data SAMLIdp = SAMLIdp'
-  { -- | The metadata of the SAML application in XML format.
+  { -- | The metadata of the SAML application, in XML format.
     metadataContent :: Prelude.Text,
-    -- | The unique entity ID of the application in SAML identity provider.
+    -- | The unique entity ID of the application in the SAML identity provider.
     entityId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data SAMLIdp = SAMLIdp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataContent', 'sAMLIdp_metadataContent' - The metadata of the SAML application in XML format.
+-- 'metadataContent', 'sAMLIdp_metadataContent' - The metadata of the SAML application, in XML format.
 --
--- 'entityId', 'sAMLIdp_entityId' - The unique entity ID of the application in SAML identity provider.
+-- 'entityId', 'sAMLIdp_entityId' - The unique entity ID of the application in the SAML identity provider.
 newSAMLIdp ::
   -- | 'metadataContent'
   Prelude.Text ->
@@ -57,11 +57,11 @@ newSAMLIdp pMetadataContent_ pEntityId_ =
       entityId = pEntityId_
     }
 
--- | The metadata of the SAML application in XML format.
+-- | The metadata of the SAML application, in XML format.
 sAMLIdp_metadataContent :: Lens.Lens' SAMLIdp Prelude.Text
 sAMLIdp_metadataContent = Lens.lens (\SAMLIdp' {metadataContent} -> metadataContent) (\s@SAMLIdp' {} a -> s {metadataContent = a} :: SAMLIdp)
 
--- | The unique entity ID of the application in SAML identity provider.
+-- | The unique entity ID of the application in the SAML identity provider.
 sAMLIdp_entityId :: Lens.Lens' SAMLIdp Prelude.Text
 sAMLIdp_entityId = Lens.lens (\SAMLIdp' {entityId} -> entityId) (\s@SAMLIdp' {} a -> s {entityId = a} :: SAMLIdp)
 

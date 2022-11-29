@@ -20,26 +20,28 @@
 module Amazonka.OpenSearch.Types.AdvancedSecurityOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.SAMLOptionsOutput
 import qualified Amazonka.Prelude as Prelude
 
--- | The advanced security configuration: whether advanced security is
--- enabled, whether the internal database option is enabled.
+-- | Container for fine-grained access control settings.
 --
 -- /See:/ 'newAdvancedSecurityOptions' smart constructor.
 data AdvancedSecurityOptions = AdvancedSecurityOptions'
   { -- | True if the internal user database is enabled.
     internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Describes the SAML application configured for a domain.
+    -- | Container for information about the SAML configuration for OpenSearch
+    -- Dashboards.
     sAMLOptions :: Prelude.Maybe SAMLOptionsOutput,
-    -- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
-    -- when AdvancedSecurity is enabled on existing domains.
+    -- | True if a 30-day migration period is enabled, during which
+    -- administrators can create role mappings. Only necessary when
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
     anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | True if advanced security is enabled.
+    -- | True if fine-grained access control is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the Anonymous Auth Disable Date when Anonymous Auth is
-    -- enabled.
+    -- | Date and time when the migration period will be disabled. Only necessary
+    -- when
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
     anonymousAuthDisableDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,15 +56,18 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
 --
 -- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.
 --
--- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Describes the SAML application configured for a domain.
+-- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 --
--- 'anonymousAuthEnabled', 'advancedSecurityOptions_anonymousAuthEnabled' - True if Anonymous auth is enabled. Anonymous auth can be enabled only
--- when AdvancedSecurity is enabled on existing domains.
+-- 'anonymousAuthEnabled', 'advancedSecurityOptions_anonymousAuthEnabled' - True if a 30-day migration period is enabled, during which
+-- administrators can create role mappings. Only necessary when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 --
--- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.
+-- 'enabled', 'advancedSecurityOptions_enabled' - True if fine-grained access control is enabled.
 --
--- 'anonymousAuthDisableDate', 'advancedSecurityOptions_anonymousAuthDisableDate' - Specifies the Anonymous Auth Disable Date when Anonymous Auth is
--- enabled.
+-- 'anonymousAuthDisableDate', 'advancedSecurityOptions_anonymousAuthDisableDate' - Date and time when the migration period will be disabled. Only necessary
+-- when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 newAdvancedSecurityOptions ::
   AdvancedSecurityOptions
 newAdvancedSecurityOptions =
@@ -79,21 +84,24 @@ newAdvancedSecurityOptions =
 advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptions' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptions' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptions)
 
--- | Describes the SAML application configured for a domain.
+-- | Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
 advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
 
--- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
--- when AdvancedSecurity is enabled on existing domains.
+-- | True if a 30-day migration period is enabled, during which
+-- administrators can create role mappings. Only necessary when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 advancedSecurityOptions_anonymousAuthEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptions_anonymousAuthEnabled = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthEnabled} -> anonymousAuthEnabled) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthEnabled = a} :: AdvancedSecurityOptions)
 
--- | True if advanced security is enabled.
+-- | True if fine-grained access control is enabled.
 advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
 
--- | Specifies the Anonymous Auth Disable Date when Anonymous Auth is
--- enabled.
+-- | Date and time when the migration period will be disabled. Only necessary
+-- when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 advancedSecurityOptions_anonymousAuthDisableDate :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.UTCTime)
 advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Core._Time
 

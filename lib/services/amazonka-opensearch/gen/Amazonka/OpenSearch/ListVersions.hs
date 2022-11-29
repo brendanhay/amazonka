@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all supported versions of OpenSearch and Elasticsearch.
+-- Lists all versions of OpenSearch and Elasticsearch that Amazon
+-- OpenSearch Service supports.
 module Amazonka.OpenSearch.ListVersions
   ( -- * Creating a Request
     ListVersions (..),
@@ -42,26 +43,22 @@ module Amazonka.OpenSearch.ListVersions
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ ListVersions @ operation.
---
--- Use @ MaxResults @ to control the maximum number of results to retrieve
--- in a single call.
---
--- Use @ NextToken @ in response to retrieve more results. If the received
--- response does not contain a NextToken, there are no more results to
--- retrieve.
+-- | Container for the request parameters to the @ListVersions@ operation.
 --
 -- /See:/ 'newListVersions' smart constructor.
 data ListVersions = ListVersions'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. Value must be
-    -- greater than 10 or it won\'t be honored.
+  { -- | If your initial @ListVersions@ operation returns a @nextToken@, you can
+    -- include the returned @nextToken@ in subsequent @ListVersions@
+    -- operations, which returns results in the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,10 +71,12 @@ data ListVersions = ListVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVersions_nextToken' - Undocumented member.
+-- 'nextToken', 'listVersions_nextToken' - If your initial @ListVersions@ operation returns a @nextToken@, you can
+-- include the returned @nextToken@ in subsequent @ListVersions@
+-- operations, which returns results in the next page.
 --
--- 'maxResults', 'listVersions_maxResults' - Set this value to limit the number of results returned. Value must be
--- greater than 10 or it won\'t be honored.
+-- 'maxResults', 'listVersions_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 newListVersions ::
   ListVersions
 newListVersions =
@@ -86,19 +85,21 @@ newListVersions =
       maxResults = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | If your initial @ListVersions@ operation returns a @nextToken@, you can
+-- include the returned @nextToken@ in subsequent @ListVersions@
+-- operations, which returns results in the next page.
 listVersions_nextToken :: Lens.Lens' ListVersions (Prelude.Maybe Prelude.Text)
 listVersions_nextToken = Lens.lens (\ListVersions' {nextToken} -> nextToken) (\s@ListVersions' {} a -> s {nextToken = a} :: ListVersions)
 
--- | Set this value to limit the number of results returned. Value must be
--- greater than 10 or it won\'t be honored.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 listVersions_maxResults :: Lens.Lens' ListVersions (Prelude.Maybe Prelude.Int)
 listVersions_maxResults = Lens.lens (\ListVersions' {maxResults} -> maxResults) (\s@ListVersions' {} a -> s {maxResults = a} :: ListVersions)
 
 instance Core.AWSRequest ListVersions where
   type AWSResponse ListVersions = ListVersionsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,11 +134,16 @@ instance Core.ToQuery ListVersions where
       ]
 
 -- | Container for the parameters for response received from the
--- @ ListVersions @ operation.
+-- @ListVersions@ operation.
 --
 -- /See:/ 'newListVersionsResponse' smart constructor.
 data ListVersionsResponse = ListVersionsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of all versions of OpenSearch and Elasticsearch that Amazon
+    -- OpenSearch Service supports.
     versions :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -152,9 +158,12 @@ data ListVersionsResponse = ListVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVersionsResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'listVersionsResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'versions', 'listVersionsResponse_versions' - Undocumented member.
+-- 'versions', 'listVersionsResponse_versions' - A list of all versions of OpenSearch and Elasticsearch that Amazon
+-- OpenSearch Service supports.
 --
 -- 'httpStatus', 'listVersionsResponse_httpStatus' - The response's http status code.
 newListVersionsResponse ::
@@ -168,11 +177,14 @@ newListVersionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 listVersionsResponse_nextToken :: Lens.Lens' ListVersionsResponse (Prelude.Maybe Prelude.Text)
 listVersionsResponse_nextToken = Lens.lens (\ListVersionsResponse' {nextToken} -> nextToken) (\s@ListVersionsResponse' {} a -> s {nextToken = a} :: ListVersionsResponse)
 
--- | Undocumented member.
+-- | A list of all versions of OpenSearch and Elasticsearch that Amazon
+-- OpenSearch Service supports.
 listVersionsResponse_versions :: Lens.Lens' ListVersionsResponse (Prelude.Maybe [Prelude.Text])
 listVersionsResponse_versions = Lens.lens (\ListVersionsResponse' {versions} -> versions) (\s@ListVersionsResponse' {} a -> s {versions = a} :: ListVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 

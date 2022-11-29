@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches tags to an existing domain. Tags are a set of case-sensitive
--- key value pairs. An domain can have up to 10 tags. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging Tagging Amazon OpenSearch Service domains>
--- for more information.
+-- Attaches tags to an existing Amazon OpenSearch Service domain. Tags are
+-- a set of case-sensitive key-value pairs. An domain can have up to 10
+-- tags. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging Tagging Amazon OpenSearch Service domains>.
 module Amazonka.OpenSearch.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -40,20 +40,21 @@ module Amazonka.OpenSearch.AddTags
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ AddTags @ operation. Specifies the
+-- | Container for the parameters to the @AddTags@ operation. Specifies the
 -- tags to attach to the domain.
 --
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | Specify the @ARN@ of the domain you want to add tags to.
+  { -- | Amazon Resource Name (ARN) for the OpenSearch Service domain to which
+    -- you want to attach resource tags.
     arn :: Prelude.Text,
-    -- | List of @Tag@ to add to the domain.
+    -- | List of resource tags.
     tagList :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +67,10 @@ data AddTags = AddTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'addTags_arn' - Specify the @ARN@ of the domain you want to add tags to.
+-- 'arn', 'addTags_arn' - Amazon Resource Name (ARN) for the OpenSearch Service domain to which
+-- you want to attach resource tags.
 --
--- 'tagList', 'addTags_tagList' - List of @Tag@ to add to the domain.
+-- 'tagList', 'addTags_tagList' - List of resource tags.
 newAddTags ::
   -- | 'arn'
   Prelude.Text ->
@@ -76,18 +78,19 @@ newAddTags ::
 newAddTags pARN_ =
   AddTags' {arn = pARN_, tagList = Prelude.mempty}
 
--- | Specify the @ARN@ of the domain you want to add tags to.
+-- | Amazon Resource Name (ARN) for the OpenSearch Service domain to which
+-- you want to attach resource tags.
 addTags_arn :: Lens.Lens' AddTags Prelude.Text
 addTags_arn = Lens.lens (\AddTags' {arn} -> arn) (\s@AddTags' {} a -> s {arn = a} :: AddTags)
 
--- | List of @Tag@ to add to the domain.
+-- | List of resource tags.
 addTags_tagList :: Lens.Lens' AddTags [Tag]
 addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull AddTagsResponse'
 
 instance Prelude.Hashable AddTags where

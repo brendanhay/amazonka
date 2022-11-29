@@ -20,9 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides cluster configuration information about the specified domain,
--- such as the state, creation date, update version, and update date for
--- cluster options.
+-- Returns the configuration of an Amazon OpenSearch Service domain.
 module Amazonka.OpenSearch.DescribeDomainConfig
   ( -- * Creating a Request
     DescribeDomainConfig (..),
@@ -42,18 +40,18 @@ module Amazonka.OpenSearch.DescribeDomainConfig
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @DescribeDomainConfig@ operation.
--- Specifies the domain name for which you want configuration information.
 --
 -- /See:/ 'newDescribeDomainConfig' smart constructor.
 data DescribeDomainConfig = DescribeDomainConfig'
-  { -- | The domain you want to get information about.
+  { -- | Name of the OpenSearch Service domain configuration that you want to
+    -- describe.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +64,8 @@ data DescribeDomainConfig = DescribeDomainConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'describeDomainConfig_domainName' - The domain you want to get information about.
+-- 'domainName', 'describeDomainConfig_domainName' - Name of the OpenSearch Service domain configuration that you want to
+-- describe.
 newDescribeDomainConfig ::
   -- | 'domainName'
   Prelude.Text ->
@@ -74,7 +73,8 @@ newDescribeDomainConfig ::
 newDescribeDomainConfig pDomainName_ =
   DescribeDomainConfig' {domainName = pDomainName_}
 
--- | The domain you want to get information about.
+-- | Name of the OpenSearch Service domain configuration that you want to
+-- describe.
 describeDomainConfig_domainName :: Lens.Lens' DescribeDomainConfig Prelude.Text
 describeDomainConfig_domainName = Lens.lens (\DescribeDomainConfig' {domainName} -> domainName) (\s@DescribeDomainConfig' {} a -> s {domainName = a} :: DescribeDomainConfig)
 
@@ -82,8 +82,8 @@ instance Core.AWSRequest DescribeDomainConfig where
   type
     AWSResponse DescribeDomainConfig =
       DescribeDomainConfigResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,15 +114,13 @@ instance Core.ToPath DescribeDomainConfig where
 instance Core.ToQuery DescribeDomainConfig where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @DescribeDomainConfig@ request. Contains the
--- configuration information of the requested domain.
+-- | Contains the configuration information of the requested domain.
 --
 -- /See:/ 'newDescribeDomainConfigResponse' smart constructor.
 data DescribeDomainConfigResponse = DescribeDomainConfigResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The configuration information of the domain requested in the
-    -- @DescribeDomainConfig@ request.
+    -- | Container for the configuration of the OpenSearch Service domain.
     domainConfig :: DomainConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,8 +135,7 @@ data DescribeDomainConfigResponse = DescribeDomainConfigResponse'
 --
 -- 'httpStatus', 'describeDomainConfigResponse_httpStatus' - The response's http status code.
 --
--- 'domainConfig', 'describeDomainConfigResponse_domainConfig' - The configuration information of the domain requested in the
--- @DescribeDomainConfig@ request.
+-- 'domainConfig', 'describeDomainConfigResponse_domainConfig' - Container for the configuration of the OpenSearch Service domain.
 newDescribeDomainConfigResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -158,8 +155,7 @@ newDescribeDomainConfigResponse
 describeDomainConfigResponse_httpStatus :: Lens.Lens' DescribeDomainConfigResponse Prelude.Int
 describeDomainConfigResponse_httpStatus = Lens.lens (\DescribeDomainConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainConfigResponse' {} a -> s {httpStatus = a} :: DescribeDomainConfigResponse)
 
--- | The configuration information of the domain requested in the
--- @DescribeDomainConfig@ request.
+-- | Container for the configuration of the OpenSearch Service domain.
 describeDomainConfigResponse_domainConfig :: Lens.Lens' DescribeDomainConfigResponse DomainConfig
 describeDomainConfigResponse_domainConfig = Lens.lens (\DescribeDomainConfigResponse' {domainConfig} -> domainConfig) (\s@DescribeDomainConfigResponse' {} a -> s {domainConfig = a} :: DescribeDomainConfigResponse)
 

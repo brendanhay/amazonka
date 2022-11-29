@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.LogPublishingOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.LogPublishingOption
 import Amazonka.OpenSearch.Types.LogType
 import Amazonka.OpenSearch.Types.OptionStatus
@@ -31,8 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogPublishingOptionsStatus' smart constructor.
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
-  { -- | The status of the log publishing options for the domain. See
-    -- @OptionStatus@ for the status information that\'s included.
+  { -- | The status of the log publishing options for the domain.
     status :: Prelude.Maybe OptionStatus,
     -- | The log publishing options configured for the domain.
     options :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption)
@@ -47,8 +46,7 @@ data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'logPublishingOptionsStatus_status' - The status of the log publishing options for the domain. See
--- @OptionStatus@ for the status information that\'s included.
+-- 'status', 'logPublishingOptionsStatus_status' - The status of the log publishing options for the domain.
 --
 -- 'options', 'logPublishingOptionsStatus_options' - The log publishing options configured for the domain.
 newLogPublishingOptionsStatus ::
@@ -60,8 +58,7 @@ newLogPublishingOptionsStatus =
       options = Prelude.Nothing
     }
 
--- | The status of the log publishing options for the domain. See
--- @OptionStatus@ for the status information that\'s included.
+-- | The status of the log publishing options for the domain.
 logPublishingOptionsStatus_status :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe OptionStatus)
 logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {status} -> status) (\s@LogPublishingOptionsStatus' {} a -> s {status = a} :: LogPublishingOptionsStatus)
 

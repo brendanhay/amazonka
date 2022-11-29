@@ -20,20 +20,23 @@
 module Amazonka.OpenSearch.Types.UpgradeStepItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.UpgradeStatus
 import Amazonka.OpenSearch.Types.UpgradeStep
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a single step of the upgrade or upgrade eligibility check
+-- | Represents a single step of an upgrade or upgrade eligibility check
 -- workflow.
 --
 -- /See:/ 'newUpgradeStepItem' smart constructor.
 data UpgradeStepItem = UpgradeStepItem'
-  { -- | One of three steps an upgrade or upgrade eligibility check goes through:
+  { -- | One of three steps that an upgrade or upgrade eligibility check goes
+    -- through:
     --
     -- -   PreUpgradeCheck
+    --
     -- -   Snapshot
+    --
     -- -   Upgrade
     upgradeStep :: Prelude.Maybe UpgradeStep,
     -- | A list of strings containing detailed information about the errors
@@ -46,8 +49,11 @@ data UpgradeStepItem = UpgradeStepItem'
     -- following values:
     --
     -- -   In Progress
+    --
     -- -   Succeeded
+    --
     -- -   Succeeded with Issues
+    --
     -- -   Failed
     upgradeStepStatus :: Prelude.Maybe UpgradeStatus
   }
@@ -61,10 +67,13 @@ data UpgradeStepItem = UpgradeStepItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upgradeStep', 'upgradeStepItem_upgradeStep' - One of three steps an upgrade or upgrade eligibility check goes through:
+-- 'upgradeStep', 'upgradeStepItem_upgradeStep' - One of three steps that an upgrade or upgrade eligibility check goes
+-- through:
 --
 -- -   PreUpgradeCheck
+--
 -- -   Snapshot
+--
 -- -   Upgrade
 --
 -- 'issues', 'upgradeStepItem_issues' - A list of strings containing detailed information about the errors
@@ -77,8 +86,11 @@ data UpgradeStepItem = UpgradeStepItem'
 -- following values:
 --
 -- -   In Progress
+--
 -- -   Succeeded
+--
 -- -   Succeeded with Issues
+--
 -- -   Failed
 newUpgradeStepItem ::
   UpgradeStepItem
@@ -90,10 +102,13 @@ newUpgradeStepItem =
       upgradeStepStatus = Prelude.Nothing
     }
 
--- | One of three steps an upgrade or upgrade eligibility check goes through:
+-- | One of three steps that an upgrade or upgrade eligibility check goes
+-- through:
 --
 -- -   PreUpgradeCheck
+--
 -- -   Snapshot
+--
 -- -   Upgrade
 upgradeStepItem_upgradeStep :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStep)
 upgradeStepItem_upgradeStep = Lens.lens (\UpgradeStepItem' {upgradeStep} -> upgradeStep) (\s@UpgradeStepItem' {} a -> s {upgradeStep = a} :: UpgradeStepItem)
@@ -112,8 +127,11 @@ upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent}
 -- following values:
 --
 -- -   In Progress
+--
 -- -   Succeeded
+--
 -- -   Succeeded with Issues
+--
 -- -   Failed
 upgradeStepItem_upgradeStepStatus :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStatus)
 upgradeStepItem_upgradeStepStatus = Lens.lens (\UpgradeStepItem' {upgradeStepStatus} -> upgradeStepStatus) (\s@UpgradeStepItem' {} a -> s {upgradeStepStatus = a} :: UpgradeStepItem)

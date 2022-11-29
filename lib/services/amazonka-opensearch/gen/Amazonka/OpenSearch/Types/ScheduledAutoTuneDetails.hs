@@ -20,25 +20,25 @@
 module Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneActionType
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneSeverityType
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies details about the scheduled Auto-Tune action. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | Specifies details about a scheduled Auto-Tune action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newScheduledAutoTuneDetails' smart constructor.
 data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
-  { -- | The Auto-Tune action severity. Valid values are LOW, MEDIUM, and HIGH.
+  { -- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+    -- and @HIGH@.
     severity :: Prelude.Maybe ScheduledAutoTuneSeverityType,
-    -- | The Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and
-    -- JVM_YOUNG_GEN_TUNING.
+    -- | The type of Auto-Tune action.
     actionType :: Prelude.Maybe ScheduledAutoTuneActionType,
-    -- | The timestamp of the Auto-Tune action scheduled for the domain.
+    -- | The date and time when the Auto-Tune action is scheduled for the domain.
     date :: Prelude.Maybe Core.POSIX,
-    -- | The Auto-Tune action description.
+    -- | A description of the Auto-Tune action.
     action :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,14 +51,14 @@ data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'scheduledAutoTuneDetails_severity' - The Auto-Tune action severity. Valid values are LOW, MEDIUM, and HIGH.
+-- 'severity', 'scheduledAutoTuneDetails_severity' - The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+-- and @HIGH@.
 --
--- 'actionType', 'scheduledAutoTuneDetails_actionType' - The Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and
--- JVM_YOUNG_GEN_TUNING.
+-- 'actionType', 'scheduledAutoTuneDetails_actionType' - The type of Auto-Tune action.
 --
--- 'date', 'scheduledAutoTuneDetails_date' - The timestamp of the Auto-Tune action scheduled for the domain.
+-- 'date', 'scheduledAutoTuneDetails_date' - The date and time when the Auto-Tune action is scheduled for the domain.
 --
--- 'action', 'scheduledAutoTuneDetails_action' - The Auto-Tune action description.
+-- 'action', 'scheduledAutoTuneDetails_action' - A description of the Auto-Tune action.
 newScheduledAutoTuneDetails ::
   ScheduledAutoTuneDetails
 newScheduledAutoTuneDetails =
@@ -70,20 +70,20 @@ newScheduledAutoTuneDetails =
       action = Prelude.Nothing
     }
 
--- | The Auto-Tune action severity. Valid values are LOW, MEDIUM, and HIGH.
+-- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+-- and @HIGH@.
 scheduledAutoTuneDetails_severity :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneSeverityType)
 scheduledAutoTuneDetails_severity = Lens.lens (\ScheduledAutoTuneDetails' {severity} -> severity) (\s@ScheduledAutoTuneDetails' {} a -> s {severity = a} :: ScheduledAutoTuneDetails)
 
--- | The Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and
--- JVM_YOUNG_GEN_TUNING.
+-- | The type of Auto-Tune action.
 scheduledAutoTuneDetails_actionType :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneActionType)
 scheduledAutoTuneDetails_actionType = Lens.lens (\ScheduledAutoTuneDetails' {actionType} -> actionType) (\s@ScheduledAutoTuneDetails' {} a -> s {actionType = a} :: ScheduledAutoTuneDetails)
 
--- | The timestamp of the Auto-Tune action scheduled for the domain.
+-- | The date and time when the Auto-Tune action is scheduled for the domain.
 scheduledAutoTuneDetails_date :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.UTCTime)
 scheduledAutoTuneDetails_date = Lens.lens (\ScheduledAutoTuneDetails' {date} -> date) (\s@ScheduledAutoTuneDetails' {} a -> s {date = a} :: ScheduledAutoTuneDetails) Prelude.. Lens.mapping Core._Time
 
--- | The Auto-Tune action description.
+-- | A description of the Auto-Tune action.
 scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
 scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
 

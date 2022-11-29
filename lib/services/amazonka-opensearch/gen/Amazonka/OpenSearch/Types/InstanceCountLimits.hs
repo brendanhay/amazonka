@@ -20,16 +20,17 @@
 module Amazonka.OpenSearch.Types.InstanceCountLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | InstanceCountLimits represents the limits on the number of instances
--- that can be created in Amazon OpenSearch Service for a given
--- InstanceType.
+-- | Limits on the number of instances that can be created in OpenSearch
+-- Service for a given instance type.
 --
 -- /See:/ 'newInstanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-  { minimumInstanceCount :: Prelude.Maybe Prelude.Int,
+  { -- | The maximum allowed number of instances.
+    minimumInstanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The minimum allowed number of instances.
     maximumInstanceCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +43,9 @@ data InstanceCountLimits = InstanceCountLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimumInstanceCount', 'instanceCountLimits_minimumInstanceCount' - Undocumented member.
+-- 'minimumInstanceCount', 'instanceCountLimits_minimumInstanceCount' - The maximum allowed number of instances.
 --
--- 'maximumInstanceCount', 'instanceCountLimits_maximumInstanceCount' - Undocumented member.
+-- 'maximumInstanceCount', 'instanceCountLimits_maximumInstanceCount' - The minimum allowed number of instances.
 newInstanceCountLimits ::
   InstanceCountLimits
 newInstanceCountLimits =
@@ -54,11 +55,11 @@ newInstanceCountLimits =
       maximumInstanceCount = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The maximum allowed number of instances.
 instanceCountLimits_minimumInstanceCount :: Lens.Lens' InstanceCountLimits (Prelude.Maybe Prelude.Int)
 instanceCountLimits_minimumInstanceCount = Lens.lens (\InstanceCountLimits' {minimumInstanceCount} -> minimumInstanceCount) (\s@InstanceCountLimits' {} a -> s {minimumInstanceCount = a} :: InstanceCountLimits)
 
--- | Undocumented member.
+-- | The minimum allowed number of instances.
 instanceCountLimits_maximumInstanceCount :: Lens.Lens' InstanceCountLimits (Prelude.Maybe Prelude.Int)
 instanceCountLimits_maximumInstanceCount = Lens.lens (\InstanceCountLimits' {maximumInstanceCount} -> maximumInstanceCount) (\s@InstanceCountLimits' {} a -> s {maximumInstanceCount = a} :: InstanceCountLimits)
 

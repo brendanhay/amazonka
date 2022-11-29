@@ -20,24 +20,24 @@
 module Amazonka.OpenSearch.Types.OutboundConnection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.OutboundConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies details about an outbound connection.
+-- | Specifies details about an outbound cross-cluster connection.
 --
 -- /See:/ 'newOutboundConnection' smart constructor.
 data OutboundConnection = OutboundConnection'
-  { -- | The connection alias for the outbound cross-cluster connection.
+  { -- | Name of the connection.
     connectionAlias :: Prelude.Maybe Prelude.Text,
-    -- | The @ DomainInformation @ for the remote OpenSearch domain.
+    -- | Information about the destination (remote) domain.
     remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The connection ID for the outbound cross-cluster connection.
+    -- | Unique identifier of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The @ DomainInformation @ for the local OpenSearch domain.
+    -- | Information about the source (local) domain.
     localDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The @ OutboundConnectionStatus @ for the outbound connection.
+    -- | Status of the connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +50,15 @@ data OutboundConnection = OutboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionAlias', 'outboundConnection_connectionAlias' - The connection alias for the outbound cross-cluster connection.
+-- 'connectionAlias', 'outboundConnection_connectionAlias' - Name of the connection.
 --
--- 'remoteDomainInfo', 'outboundConnection_remoteDomainInfo' - The @ DomainInformation @ for the remote OpenSearch domain.
+-- 'remoteDomainInfo', 'outboundConnection_remoteDomainInfo' - Information about the destination (remote) domain.
 --
--- 'connectionId', 'outboundConnection_connectionId' - The connection ID for the outbound cross-cluster connection.
+-- 'connectionId', 'outboundConnection_connectionId' - Unique identifier of the connection.
 --
--- 'localDomainInfo', 'outboundConnection_localDomainInfo' - The @ DomainInformation @ for the local OpenSearch domain.
+-- 'localDomainInfo', 'outboundConnection_localDomainInfo' - Information about the source (local) domain.
 --
--- 'connectionStatus', 'outboundConnection_connectionStatus' - The @ OutboundConnectionStatus @ for the outbound connection.
+-- 'connectionStatus', 'outboundConnection_connectionStatus' - Status of the connection.
 newOutboundConnection ::
   OutboundConnection
 newOutboundConnection =
@@ -71,23 +71,23 @@ newOutboundConnection =
       connectionStatus = Prelude.Nothing
     }
 
--- | The connection alias for the outbound cross-cluster connection.
+-- | Name of the connection.
 outboundConnection_connectionAlias :: Lens.Lens' OutboundConnection (Prelude.Maybe Prelude.Text)
 outboundConnection_connectionAlias = Lens.lens (\OutboundConnection' {connectionAlias} -> connectionAlias) (\s@OutboundConnection' {} a -> s {connectionAlias = a} :: OutboundConnection)
 
--- | The @ DomainInformation @ for the remote OpenSearch domain.
+-- | Information about the destination (remote) domain.
 outboundConnection_remoteDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
 outboundConnection_remoteDomainInfo = Lens.lens (\OutboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@OutboundConnection' {} a -> s {remoteDomainInfo = a} :: OutboundConnection)
 
--- | The connection ID for the outbound cross-cluster connection.
+-- | Unique identifier of the connection.
 outboundConnection_connectionId :: Lens.Lens' OutboundConnection (Prelude.Maybe Prelude.Text)
 outboundConnection_connectionId = Lens.lens (\OutboundConnection' {connectionId} -> connectionId) (\s@OutboundConnection' {} a -> s {connectionId = a} :: OutboundConnection)
 
--- | The @ DomainInformation @ for the local OpenSearch domain.
+-- | Information about the source (local) domain.
 outboundConnection_localDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
 outboundConnection_localDomainInfo = Lens.lens (\OutboundConnection' {localDomainInfo} -> localDomainInfo) (\s@OutboundConnection' {} a -> s {localDomainInfo = a} :: OutboundConnection)
 
--- | The @ OutboundConnectionStatus @ for the outbound connection.
+-- | Status of the connection.
 outboundConnection_connectionStatus :: Lens.Lens' OutboundConnection (Prelude.Maybe OutboundConnectionStatus)
 outboundConnection_connectionStatus = Lens.lens (\OutboundConnection' {connectionStatus} -> connectionStatus) (\s@OutboundConnection' {} a -> s {connectionStatus = a} :: OutboundConnection)
 

@@ -20,20 +20,20 @@
 module Amazonka.OpenSearch.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A key value pair for a resource tag.
+-- | A tag (key-value pair) for an Amazon OpenSearch Service resource.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The @TagKey@, the name of the tag. Tag keys must be unique for the
-    -- domain to which they are attached.
+  { -- | The tag key. Tag keys must be unique for the domain to which they are
+    -- attached.
     key :: Prelude.Text,
-    -- | The @TagValue@, the value assigned to the corresponding tag key. Tag
-    -- values can be null and don\'t have to be unique in a tag set. For
-    -- example, you can have a key value pair in a tag set of
-    -- @project : Trinity@ and @cost-center : Trinity@
+    -- | The value assigned to the corresponding tag key. Tag values can be null
+    -- and don\'t have to be unique in a tag set. For example, you can have a
+    -- key value pair in a tag set of @project : Trinity@ and
+    -- @cost-center : Trinity@
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,13 +46,13 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The @TagKey@, the name of the tag. Tag keys must be unique for the
--- domain to which they are attached.
+-- 'key', 'tag_key' - The tag key. Tag keys must be unique for the domain to which they are
+-- attached.
 --
--- 'value', 'tag_value' - The @TagValue@, the value assigned to the corresponding tag key. Tag
--- values can be null and don\'t have to be unique in a tag set. For
--- example, you can have a key value pair in a tag set of
--- @project : Trinity@ and @cost-center : Trinity@
+-- 'value', 'tag_value' - The value assigned to the corresponding tag key. Tag values can be null
+-- and don\'t have to be unique in a tag set. For example, you can have a
+-- key value pair in a tag set of @project : Trinity@ and
+-- @cost-center : Trinity@
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -62,15 +62,15 @@ newTag ::
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
--- | The @TagKey@, the name of the tag. Tag keys must be unique for the
--- domain to which they are attached.
+-- | The tag key. Tag keys must be unique for the domain to which they are
+-- attached.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The @TagValue@, the value assigned to the corresponding tag key. Tag
--- values can be null and don\'t have to be unique in a tag set. For
--- example, you can have a key value pair in a tag set of
--- @project : Trinity@ and @cost-center : Trinity@
+-- | The value assigned to the corresponding tag key. Tag values can be null
+-- and don\'t have to be unique in a tag set. For example, you can have a
+-- key value pair in a tag set of @project : Trinity@ and
+-- @cost-center : Trinity@
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

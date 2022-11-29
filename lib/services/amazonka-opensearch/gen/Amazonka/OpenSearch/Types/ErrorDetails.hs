@@ -20,12 +20,17 @@
 module Amazonka.OpenSearch.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newErrorDetails' smart constructor.
+-- | Additional information if the package is in an error state. Null
+-- otherwise.
+--
+-- /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { errorMessage :: Prelude.Maybe Prelude.Text,
+  { -- | A message describing the error.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The type of error that occurred.
     errorType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -38,9 +43,9 @@ data ErrorDetails = ErrorDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'errorDetails_errorMessage' - Undocumented member.
+-- 'errorMessage', 'errorDetails_errorMessage' - A message describing the error.
 --
--- 'errorType', 'errorDetails_errorType' - Undocumented member.
+-- 'errorType', 'errorDetails_errorType' - The type of error that occurred.
 newErrorDetails ::
   ErrorDetails
 newErrorDetails =
@@ -49,11 +54,11 @@ newErrorDetails =
       errorType = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | A message describing the error.
 errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMessage) (\s@ErrorDetails' {} a -> s {errorMessage = a} :: ErrorDetails)
 
--- | Undocumented member.
+-- | The type of error that occurred.
 errorDetails_errorType :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorType = Lens.lens (\ErrorDetails' {errorType} -> errorType) (\s@ErrorDetails' {} a -> s {errorType = a} :: ErrorDetails)
 

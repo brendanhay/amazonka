@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -77,6 +78,9 @@ module Amazonka.OpenSearch.Types
     -- * PackageType
     PackageType (..),
 
+    -- * PrincipalType
+    PrincipalType (..),
+
     -- * ReservedInstancePaymentOption
     ReservedInstancePaymentOption (..),
 
@@ -103,6 +107,12 @@ module Amazonka.OpenSearch.Types
 
     -- * VolumeType
     VolumeType (..),
+
+    -- * VpcEndpointErrorCode
+    VpcEndpointErrorCode (..),
+
+    -- * VpcEndpointStatus
+    VpcEndpointStatus (..),
 
     -- * AWSDomainInformation
     AWSDomainInformation (..),
@@ -152,6 +162,12 @@ module Amazonka.OpenSearch.Types
     newAdvancedSecurityOptionsStatus,
     advancedSecurityOptionsStatus_options,
     advancedSecurityOptionsStatus_status,
+
+    -- * AuthorizedPrincipal
+    AuthorizedPrincipal (..),
+    newAuthorizedPrincipal,
+    authorizedPrincipal_principal,
+    authorizedPrincipal_principalType,
 
     -- * AutoTune
     AutoTune (..),
@@ -698,6 +714,31 @@ module Amazonka.OpenSearch.Types
     versionStatus_options,
     versionStatus_status,
 
+    -- * VpcEndpoint
+    VpcEndpoint (..),
+    newVpcEndpoint,
+    vpcEndpoint_vpcEndpointOwner,
+    vpcEndpoint_domainArn,
+    vpcEndpoint_status,
+    vpcEndpoint_vpcEndpointId,
+    vpcEndpoint_vpcOptions,
+    vpcEndpoint_endpoint,
+
+    -- * VpcEndpointError
+    VpcEndpointError (..),
+    newVpcEndpointError,
+    vpcEndpointError_errorMessage,
+    vpcEndpointError_vpcEndpointId,
+    vpcEndpointError_errorCode,
+
+    -- * VpcEndpointSummary
+    VpcEndpointSummary (..),
+    newVpcEndpointSummary,
+    vpcEndpointSummary_vpcEndpointOwner,
+    vpcEndpointSummary_domainArn,
+    vpcEndpointSummary_status,
+    vpcEndpointSummary_vpcEndpointId,
+
     -- * ZoneAwarenessConfig
     ZoneAwarenessConfig (..),
     newZoneAwarenessConfig,
@@ -706,7 +747,7 @@ module Amazonka.OpenSearch.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AWSDomainInformation
 import Amazonka.OpenSearch.Types.AccessPoliciesStatus
 import Amazonka.OpenSearch.Types.AdditionalLimit
@@ -714,6 +755,7 @@ import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.OpenSearch.Types.AuthorizedPrincipal
 import Amazonka.OpenSearch.Types.AutoTune
 import Amazonka.OpenSearch.Types.AutoTuneDesiredState
 import Amazonka.OpenSearch.Types.AutoTuneDetails
@@ -780,6 +822,7 @@ import Amazonka.OpenSearch.Types.PackageSource
 import Amazonka.OpenSearch.Types.PackageStatus
 import Amazonka.OpenSearch.Types.PackageType
 import Amazonka.OpenSearch.Types.PackageVersionHistory
+import Amazonka.OpenSearch.Types.PrincipalType
 import Amazonka.OpenSearch.Types.RecurringCharge
 import Amazonka.OpenSearch.Types.ReservedInstance
 import Amazonka.OpenSearch.Types.ReservedInstanceOffering
@@ -808,6 +851,11 @@ import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
 import Amazonka.OpenSearch.Types.VPCOptions
 import Amazonka.OpenSearch.Types.VersionStatus
 import Amazonka.OpenSearch.Types.VolumeType
+import Amazonka.OpenSearch.Types.VpcEndpoint
+import Amazonka.OpenSearch.Types.VpcEndpointError
+import Amazonka.OpenSearch.Types.VpcEndpointErrorCode
+import Amazonka.OpenSearch.Types.VpcEndpointStatus
+import Amazonka.OpenSearch.Types.VpcEndpointSummary
 import Amazonka.OpenSearch.Types.ZoneAwarenessConfig
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -816,28 +864,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "OpenSearch",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "es",
-      Core._serviceSigningName = "es",
-      Core._serviceVersion = "2021-01-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "OpenSearch",
-      Core._serviceRetry = retry
+    { Core.abbrev = "OpenSearch",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "es",
+      Core.signingName = "es",
+      Core.version = "2021-01-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "OpenSearch",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

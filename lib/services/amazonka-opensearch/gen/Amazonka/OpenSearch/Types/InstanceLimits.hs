@@ -20,16 +20,18 @@
 module Amazonka.OpenSearch.Types.InstanceLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.InstanceCountLimits
 import qualified Amazonka.Prelude as Prelude
 
--- | InstanceLimits represents the list of instance-related attributes that
--- are available for a given InstanceType.
+-- | Instance-related attributes that are available for a given instance
+-- type.
 --
 -- /See:/ 'newInstanceLimits' smart constructor.
 data InstanceLimits = InstanceLimits'
-  { instanceCountLimits :: Prelude.Maybe InstanceCountLimits
+  { -- | Limits on the number of instances that can be created for a given
+    -- instance type.
+    instanceCountLimits :: Prelude.Maybe InstanceCountLimits
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +43,8 @@ data InstanceLimits = InstanceLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceCountLimits', 'instanceLimits_instanceCountLimits' - Undocumented member.
+-- 'instanceCountLimits', 'instanceLimits_instanceCountLimits' - Limits on the number of instances that can be created for a given
+-- instance type.
 newInstanceLimits ::
   InstanceLimits
 newInstanceLimits =
@@ -50,7 +53,8 @@ newInstanceLimits =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Limits on the number of instances that can be created for a given
+-- instance type.
 instanceLimits_instanceCountLimits :: Lens.Lens' InstanceLimits (Prelude.Maybe InstanceCountLimits)
 instanceLimits_instanceCountLimits = Lens.lens (\InstanceLimits' {instanceCountLimits} -> instanceCountLimits) (\s@InstanceLimits' {} a -> s {instanceCountLimits = a} :: InstanceLimits)
 

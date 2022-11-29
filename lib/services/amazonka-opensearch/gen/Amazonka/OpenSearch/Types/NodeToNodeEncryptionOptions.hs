@@ -20,10 +20,11 @@
 module Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The node-to-node encryption options.
+-- | Enables or disables node-to-node encryption. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html Node-to-node encryption for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newNodeToNodeEncryptionOptions' smart constructor.
 data NodeToNodeEncryptionOptions = NodeToNodeEncryptionOptions'

@@ -29,6 +29,12 @@ module Amazonka.OpenSearch.Lens
     associatePackageResponse_domainPackageDetails,
     associatePackageResponse_httpStatus,
 
+    -- ** AuthorizeVpcEndpointAccess
+    authorizeVpcEndpointAccess_domainName,
+    authorizeVpcEndpointAccess_account,
+    authorizeVpcEndpointAccessResponse_httpStatus,
+    authorizeVpcEndpointAccessResponse_authorizedPrincipal,
+
     -- ** CancelServiceSoftwareUpdate
     cancelServiceSoftwareUpdate_domainName,
     cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions,
@@ -73,6 +79,13 @@ module Amazonka.OpenSearch.Lens
     createPackageResponse_packageDetails,
     createPackageResponse_httpStatus,
 
+    -- ** CreateVpcEndpoint
+    createVpcEndpoint_clientToken,
+    createVpcEndpoint_domainArn,
+    createVpcEndpoint_vpcOptions,
+    createVpcEndpointResponse_httpStatus,
+    createVpcEndpointResponse_vpcEndpoint,
+
     -- ** DeleteDomain
     deleteDomain_domainName,
     deleteDomainResponse_domainStatus,
@@ -92,6 +105,11 @@ module Amazonka.OpenSearch.Lens
     deletePackage_packageID,
     deletePackageResponse_packageDetails,
     deletePackageResponse_httpStatus,
+
+    -- ** DeleteVpcEndpoint
+    deleteVpcEndpoint_vpcEndpointId,
+    deleteVpcEndpointResponse_httpStatus,
+    deleteVpcEndpointResponse_vpcEndpointSummary,
 
     -- ** DescribeDomain
     describeDomain_domainName,
@@ -168,6 +186,12 @@ module Amazonka.OpenSearch.Lens
     describeReservedInstancesResponse_nextToken,
     describeReservedInstancesResponse_reservedInstances,
     describeReservedInstancesResponse_httpStatus,
+
+    -- ** DescribeVpcEndpoints
+    describeVpcEndpoints_vpcEndpointIds,
+    describeVpcEndpointsResponse_httpStatus,
+    describeVpcEndpointsResponse_vpcEndpoints,
+    describeVpcEndpointsResponse_vpcEndpointErrors,
 
     -- ** DissociatePackage
     dissociatePackage_packageID,
@@ -246,6 +270,26 @@ module Amazonka.OpenSearch.Lens
     listVersionsResponse_versions,
     listVersionsResponse_httpStatus,
 
+    -- ** ListVpcEndpointAccess
+    listVpcEndpointAccess_nextToken,
+    listVpcEndpointAccess_domainName,
+    listVpcEndpointAccessResponse_httpStatus,
+    listVpcEndpointAccessResponse_authorizedPrincipalList,
+    listVpcEndpointAccessResponse_nextToken,
+
+    -- ** ListVpcEndpoints
+    listVpcEndpoints_nextToken,
+    listVpcEndpointsResponse_httpStatus,
+    listVpcEndpointsResponse_vpcEndpointSummaryList,
+    listVpcEndpointsResponse_nextToken,
+
+    -- ** ListVpcEndpointsForDomain
+    listVpcEndpointsForDomain_nextToken,
+    listVpcEndpointsForDomain_domainName,
+    listVpcEndpointsForDomainResponse_httpStatus,
+    listVpcEndpointsForDomainResponse_vpcEndpointSummaryList,
+    listVpcEndpointsForDomainResponse_nextToken,
+
     -- ** PurchaseReservedInstanceOffering
     purchaseReservedInstanceOffering_instanceCount,
     purchaseReservedInstanceOffering_reservedInstanceOfferingId,
@@ -262,6 +306,11 @@ module Amazonka.OpenSearch.Lens
     -- ** RemoveTags
     removeTags_arn,
     removeTags_tagKeys,
+
+    -- ** RevokeVpcEndpointAccess
+    revokeVpcEndpointAccess_domainName,
+    revokeVpcEndpointAccess_account,
+    revokeVpcEndpointAccessResponse_httpStatus,
 
     -- ** StartServiceSoftwareUpdate
     startServiceSoftwareUpdate_domainName,
@@ -295,6 +344,12 @@ module Amazonka.OpenSearch.Lens
     updatePackage_packageSource,
     updatePackageResponse_packageDetails,
     updatePackageResponse_httpStatus,
+
+    -- ** UpdateVpcEndpoint
+    updateVpcEndpoint_vpcEndpointId,
+    updateVpcEndpoint_vpcOptions,
+    updateVpcEndpointResponse_httpStatus,
+    updateVpcEndpointResponse_vpcEndpoint,
 
     -- ** UpgradeDomain
     upgradeDomain_advancedOptions,
@@ -345,6 +400,10 @@ module Amazonka.OpenSearch.Lens
     -- ** AdvancedSecurityOptionsStatus
     advancedSecurityOptionsStatus_options,
     advancedSecurityOptionsStatus_status,
+
+    -- ** AuthorizedPrincipal
+    authorizedPrincipal_principal,
+    authorizedPrincipal_principalType,
 
     -- ** AutoTune
     autoTune_autoTuneType,
@@ -753,6 +812,25 @@ module Amazonka.OpenSearch.Lens
     versionStatus_options,
     versionStatus_status,
 
+    -- ** VpcEndpoint
+    vpcEndpoint_vpcEndpointOwner,
+    vpcEndpoint_domainArn,
+    vpcEndpoint_status,
+    vpcEndpoint_vpcEndpointId,
+    vpcEndpoint_vpcOptions,
+    vpcEndpoint_endpoint,
+
+    -- ** VpcEndpointError
+    vpcEndpointError_errorMessage,
+    vpcEndpointError_vpcEndpointId,
+    vpcEndpointError_errorCode,
+
+    -- ** VpcEndpointSummary
+    vpcEndpointSummary_vpcEndpointOwner,
+    vpcEndpointSummary_domainArn,
+    vpcEndpointSummary_status,
+    vpcEndpointSummary_vpcEndpointId,
+
     -- ** ZoneAwarenessConfig
     zoneAwarenessConfig_availabilityZoneCount,
   )
@@ -761,14 +839,17 @@ where
 import Amazonka.OpenSearch.AcceptInboundConnection
 import Amazonka.OpenSearch.AddTags
 import Amazonka.OpenSearch.AssociatePackage
+import Amazonka.OpenSearch.AuthorizeVpcEndpointAccess
 import Amazonka.OpenSearch.CancelServiceSoftwareUpdate
 import Amazonka.OpenSearch.CreateDomain
 import Amazonka.OpenSearch.CreateOutboundConnection
 import Amazonka.OpenSearch.CreatePackage
+import Amazonka.OpenSearch.CreateVpcEndpoint
 import Amazonka.OpenSearch.DeleteDomain
 import Amazonka.OpenSearch.DeleteInboundConnection
 import Amazonka.OpenSearch.DeleteOutboundConnection
 import Amazonka.OpenSearch.DeletePackage
+import Amazonka.OpenSearch.DeleteVpcEndpoint
 import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
 import Amazonka.OpenSearch.DescribeDomainChangeProgress
@@ -780,6 +861,7 @@ import Amazonka.OpenSearch.DescribeOutboundConnections
 import Amazonka.OpenSearch.DescribePackages
 import Amazonka.OpenSearch.DescribeReservedInstanceOfferings
 import Amazonka.OpenSearch.DescribeReservedInstances
+import Amazonka.OpenSearch.DescribeVpcEndpoints
 import Amazonka.OpenSearch.DissociatePackage
 import Amazonka.OpenSearch.GetCompatibleVersions
 import Amazonka.OpenSearch.GetPackageVersionHistory
@@ -791,9 +873,13 @@ import Amazonka.OpenSearch.ListInstanceTypeDetails
 import Amazonka.OpenSearch.ListPackagesForDomain
 import Amazonka.OpenSearch.ListTags
 import Amazonka.OpenSearch.ListVersions
+import Amazonka.OpenSearch.ListVpcEndpointAccess
+import Amazonka.OpenSearch.ListVpcEndpoints
+import Amazonka.OpenSearch.ListVpcEndpointsForDomain
 import Amazonka.OpenSearch.PurchaseReservedInstanceOffering
 import Amazonka.OpenSearch.RejectInboundConnection
 import Amazonka.OpenSearch.RemoveTags
+import Amazonka.OpenSearch.RevokeVpcEndpointAccess
 import Amazonka.OpenSearch.StartServiceSoftwareUpdate
 import Amazonka.OpenSearch.Types.AWSDomainInformation
 import Amazonka.OpenSearch.Types.AccessPoliciesStatus
@@ -802,6 +888,7 @@ import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.OpenSearch.Types.AuthorizedPrincipal
 import Amazonka.OpenSearch.Types.AutoTune
 import Amazonka.OpenSearch.Types.AutoTuneDetails
 import Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule
@@ -871,7 +958,11 @@ import Amazonka.OpenSearch.Types.VPCDerivedInfo
 import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
 import Amazonka.OpenSearch.Types.VPCOptions
 import Amazonka.OpenSearch.Types.VersionStatus
+import Amazonka.OpenSearch.Types.VpcEndpoint
+import Amazonka.OpenSearch.Types.VpcEndpointError
+import Amazonka.OpenSearch.Types.VpcEndpointSummary
 import Amazonka.OpenSearch.Types.ZoneAwarenessConfig
 import Amazonka.OpenSearch.UpdateDomainConfig
 import Amazonka.OpenSearch.UpdatePackage
+import Amazonka.OpenSearch.UpdateVpcEndpoint
 import Amazonka.OpenSearch.UpgradeDomain

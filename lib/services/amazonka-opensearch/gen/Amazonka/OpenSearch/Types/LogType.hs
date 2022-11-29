@@ -31,17 +31,22 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Type of log file. Can be one of the following:
+-- | The type of log file. Can be one of the following:
 --
--- -   INDEX_SLOW_LOGS: Index slow logs contain insert requests that took
---     more time than configured index query log threshold to execute.
--- -   SEARCH_SLOW_LOGS: Search slow logs contain search queries that took
---     more time than configured search query log threshold to execute.
--- -   ES_APPLICATION_LOGS: OpenSearch application logs contain information
---     about errors and warnings raised during the operation of the service
---     and can be useful for troubleshooting.
--- -   AUDIT_LOGS: Audit logs contain records of user requests for access
---     from the domain.
+-- -   __INDEX_SLOW_LOGS__ - Index slow logs contain insert requests that
+--     took more time than the configured index query log threshold to
+--     execute.
+--
+-- -   __SEARCH_SLOW_LOGS__ - Search slow logs contain search queries that
+--     took more time than the configured search query log threshold to
+--     execute.
+--
+-- -   __ES_APPLICATION_LOGS__ - OpenSearch application logs contain
+--     information about errors and warnings raised during the operation of
+--     the service and can be useful for troubleshooting.
+--
+-- -   __AUDIT_LOGS__ - Audit logs contain records of user requests for
+--     access to the domain.
 newtype LogType = LogType' {fromLogType :: Core.Text}
   deriving stock
     ( Prelude.Show,

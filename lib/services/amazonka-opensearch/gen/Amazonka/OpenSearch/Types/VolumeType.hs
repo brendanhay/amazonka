@@ -31,9 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of EBS volume, standard, gp2, gp3 or io1. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-createupdatedomains.html#opensearch-createdomain-configure-ebs Configuring EBS-based Storage>
--- for more information.
+-- | The type of EBS volume that a domain uses. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-createupdatedomains.html#opensearch-createdomain-configure-ebs Configuring EBS-based storage>.
 newtype VolumeType = VolumeType'
   { fromVolumeType ::
       Core.Text

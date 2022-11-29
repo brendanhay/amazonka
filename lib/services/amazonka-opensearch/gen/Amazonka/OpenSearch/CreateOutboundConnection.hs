@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new cross-cluster connection from a local OpenSearch domain to
--- a remote OpenSearch domain.
+-- Creates a new cross-cluster search connection from a source Amazon
+-- OpenSearch Service domain to a destination domain. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html Cross-cluster search for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.CreateOutboundConnection
   ( -- * Creating a Request
     CreateOutboundConnection (..),
@@ -47,23 +49,22 @@ module Amazonka.OpenSearch.CreateOutboundConnection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ CreateOutboundConnection @
+-- | Container for the parameters to the @CreateOutboundConnection@
 -- operation.
 --
 -- /See:/ 'newCreateOutboundConnection' smart constructor.
 data CreateOutboundConnection = CreateOutboundConnection'
-  { -- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+  { -- | Name and Region of the source (local) domain.
     localDomainInfo :: DomainInformationContainer,
-    -- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+    -- | Name and Region of the destination (remote) domain.
     remoteDomainInfo :: DomainInformationContainer,
-    -- | The connection alias used used by the customer for this cross-cluster
-    -- connection.
+    -- | Name of the connection.
     connectionAlias :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,12 +77,11 @@ data CreateOutboundConnection = CreateOutboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localDomainInfo', 'createOutboundConnection_localDomainInfo' - The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- 'localDomainInfo', 'createOutboundConnection_localDomainInfo' - Name and Region of the source (local) domain.
 --
--- 'remoteDomainInfo', 'createOutboundConnection_remoteDomainInfo' - The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- 'remoteDomainInfo', 'createOutboundConnection_remoteDomainInfo' - Name and Region of the destination (remote) domain.
 --
--- 'connectionAlias', 'createOutboundConnection_connectionAlias' - The connection alias used used by the customer for this cross-cluster
--- connection.
+-- 'connectionAlias', 'createOutboundConnection_connectionAlias' - Name of the connection.
 newCreateOutboundConnection ::
   -- | 'localDomainInfo'
   DomainInformationContainer ->
@@ -101,16 +101,15 @@ newCreateOutboundConnection
         connectionAlias = pConnectionAlias_
       }
 
--- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- | Name and Region of the source (local) domain.
 createOutboundConnection_localDomainInfo :: Lens.Lens' CreateOutboundConnection DomainInformationContainer
 createOutboundConnection_localDomainInfo = Lens.lens (\CreateOutboundConnection' {localDomainInfo} -> localDomainInfo) (\s@CreateOutboundConnection' {} a -> s {localDomainInfo = a} :: CreateOutboundConnection)
 
--- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- | Name and Region of the destination (remote) domain.
 createOutboundConnection_remoteDomainInfo :: Lens.Lens' CreateOutboundConnection DomainInformationContainer
 createOutboundConnection_remoteDomainInfo = Lens.lens (\CreateOutboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@CreateOutboundConnection' {} a -> s {remoteDomainInfo = a} :: CreateOutboundConnection)
 
--- | The connection alias used used by the customer for this cross-cluster
--- connection.
+-- | Name of the connection.
 createOutboundConnection_connectionAlias :: Lens.Lens' CreateOutboundConnection Prelude.Text
 createOutboundConnection_connectionAlias = Lens.lens (\CreateOutboundConnection' {connectionAlias} -> connectionAlias) (\s@CreateOutboundConnection' {} a -> s {connectionAlias = a} :: CreateOutboundConnection)
 
@@ -118,8 +117,8 @@ instance Core.AWSRequest CreateOutboundConnection where
   type
     AWSResponse CreateOutboundConnection =
       CreateOutboundConnectionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,21 +167,21 @@ instance Core.ToPath CreateOutboundConnection where
 instance Core.ToQuery CreateOutboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @ CreateOutboundConnection @ request. Contains the
--- details about the newly created cross-cluster connection.
+-- | The result of a @CreateOutboundConnection@ request. Contains details
+-- about the newly created cross-cluster connection.
 --
 -- /See:/ 'newCreateOutboundConnectionResponse' smart constructor.
 data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
-  { -- | The connection alias provided during the create connection request.
+  { -- | Name of the connection.
     connectionAlias :: Prelude.Maybe Prelude.Text,
-    -- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+    -- | Information about the destination (remote) domain.
     remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The unique ID for the created outbound connection, which is used for
-    -- subsequent operations on the connection.
+    -- | The unique identifier for the created outbound connection, which is used
+    -- for subsequent operations on the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+    -- | Information about the source (local) domain.
     localDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The @ OutboundConnectionStatus @ for the newly created connection.
+    -- | The status of the connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -197,16 +196,16 @@ data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionAlias', 'createOutboundConnectionResponse_connectionAlias' - The connection alias provided during the create connection request.
+-- 'connectionAlias', 'createOutboundConnectionResponse_connectionAlias' - Name of the connection.
 --
--- 'remoteDomainInfo', 'createOutboundConnectionResponse_remoteDomainInfo' - The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- 'remoteDomainInfo', 'createOutboundConnectionResponse_remoteDomainInfo' - Information about the destination (remote) domain.
 --
--- 'connectionId', 'createOutboundConnectionResponse_connectionId' - The unique ID for the created outbound connection, which is used for
--- subsequent operations on the connection.
+-- 'connectionId', 'createOutboundConnectionResponse_connectionId' - The unique identifier for the created outbound connection, which is used
+-- for subsequent operations on the connection.
 --
--- 'localDomainInfo', 'createOutboundConnectionResponse_localDomainInfo' - The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- 'localDomainInfo', 'createOutboundConnectionResponse_localDomainInfo' - Information about the source (local) domain.
 --
--- 'connectionStatus', 'createOutboundConnectionResponse_connectionStatus' - The @ OutboundConnectionStatus @ for the newly created connection.
+-- 'connectionStatus', 'createOutboundConnectionResponse_connectionStatus' - The status of the connection.
 --
 -- 'httpStatus', 'createOutboundConnectionResponse_httpStatus' - The response's http status code.
 newCreateOutboundConnectionResponse ::
@@ -224,24 +223,24 @@ newCreateOutboundConnectionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The connection alias provided during the create connection request.
+-- | Name of the connection.
 createOutboundConnectionResponse_connectionAlias :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundConnectionResponse_connectionAlias = Lens.lens (\CreateOutboundConnectionResponse' {connectionAlias} -> connectionAlias) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionAlias = a} :: CreateOutboundConnectionResponse)
 
--- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- | Information about the destination (remote) domain.
 createOutboundConnectionResponse_remoteDomainInfo :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe DomainInformationContainer)
 createOutboundConnectionResponse_remoteDomainInfo = Lens.lens (\CreateOutboundConnectionResponse' {remoteDomainInfo} -> remoteDomainInfo) (\s@CreateOutboundConnectionResponse' {} a -> s {remoteDomainInfo = a} :: CreateOutboundConnectionResponse)
 
--- | The unique ID for the created outbound connection, which is used for
--- subsequent operations on the connection.
+-- | The unique identifier for the created outbound connection, which is used
+-- for subsequent operations on the connection.
 createOutboundConnectionResponse_connectionId :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundConnectionResponse_connectionId = Lens.lens (\CreateOutboundConnectionResponse' {connectionId} -> connectionId) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionId = a} :: CreateOutboundConnectionResponse)
 
--- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- | Information about the source (local) domain.
 createOutboundConnectionResponse_localDomainInfo :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe DomainInformationContainer)
 createOutboundConnectionResponse_localDomainInfo = Lens.lens (\CreateOutboundConnectionResponse' {localDomainInfo} -> localDomainInfo) (\s@CreateOutboundConnectionResponse' {} a -> s {localDomainInfo = a} :: CreateOutboundConnectionResponse)
 
--- | The @ OutboundConnectionStatus @ for the newly created connection.
+-- | The status of the connection.
 createOutboundConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe OutboundConnectionStatus)
 createOutboundConnectionResponse_connectionStatus = Lens.lens (\CreateOutboundConnectionResponse' {connectionStatus} -> connectionStatus) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionStatus = a} :: CreateOutboundConnectionResponse)
 

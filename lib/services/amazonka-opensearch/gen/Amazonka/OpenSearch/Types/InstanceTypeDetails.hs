@@ -20,18 +20,30 @@
 module Amazonka.OpenSearch.Types.InstanceTypeDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newInstanceTypeDetails' smart constructor.
+-- | Lists all instance types and available features for a given OpenSearch
+-- or Elasticsearch version.
+--
+-- /See:/ 'newInstanceTypeDetails' smart constructor.
 data InstanceTypeDetails = InstanceTypeDetails'
-  { advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
+  { -- | Whether fine-grained access control is supported for the instance type.
+    advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether encryption at rest and node-to-node encryption are supported for
+    -- the instance type.
     encryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The instance type.
     instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
+    -- | Whether Amazon Cognito access is supported for the instance type.
     cognitoEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the instance acts as a data node, a dedicated master node, or an
+    -- UltraWarm node.
     instanceRole :: Prelude.Maybe [Prelude.Text],
+    -- | Whether logging is supported for the instance type.
     appLogsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether UltraWarm is supported for the instance type.
     warmEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,19 +56,21 @@ data InstanceTypeDetails = InstanceTypeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'advancedSecurityEnabled', 'instanceTypeDetails_advancedSecurityEnabled' - Undocumented member.
+-- 'advancedSecurityEnabled', 'instanceTypeDetails_advancedSecurityEnabled' - Whether fine-grained access control is supported for the instance type.
 --
--- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Undocumented member.
+-- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Whether encryption at rest and node-to-node encryption are supported for
+-- the instance type.
 --
--- 'instanceType', 'instanceTypeDetails_instanceType' - Undocumented member.
+-- 'instanceType', 'instanceTypeDetails_instanceType' - The instance type.
 --
--- 'cognitoEnabled', 'instanceTypeDetails_cognitoEnabled' - Undocumented member.
+-- 'cognitoEnabled', 'instanceTypeDetails_cognitoEnabled' - Whether Amazon Cognito access is supported for the instance type.
 --
--- 'instanceRole', 'instanceTypeDetails_instanceRole' - Undocumented member.
+-- 'instanceRole', 'instanceTypeDetails_instanceRole' - Whether the instance acts as a data node, a dedicated master node, or an
+-- UltraWarm node.
 --
--- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Undocumented member.
+-- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Whether logging is supported for the instance type.
 --
--- 'warmEnabled', 'instanceTypeDetails_warmEnabled' - Undocumented member.
+-- 'warmEnabled', 'instanceTypeDetails_warmEnabled' - Whether UltraWarm is supported for the instance type.
 newInstanceTypeDetails ::
   InstanceTypeDetails
 newInstanceTypeDetails =
@@ -71,31 +85,33 @@ newInstanceTypeDetails =
       warmEnabled = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Whether fine-grained access control is supported for the instance type.
 instanceTypeDetails_advancedSecurityEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_advancedSecurityEnabled = Lens.lens (\InstanceTypeDetails' {advancedSecurityEnabled} -> advancedSecurityEnabled) (\s@InstanceTypeDetails' {} a -> s {advancedSecurityEnabled = a} :: InstanceTypeDetails)
 
--- | Undocumented member.
+-- | Whether encryption at rest and node-to-node encryption are supported for
+-- the instance type.
 instanceTypeDetails_encryptionEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_encryptionEnabled = Lens.lens (\InstanceTypeDetails' {encryptionEnabled} -> encryptionEnabled) (\s@InstanceTypeDetails' {} a -> s {encryptionEnabled = a} :: InstanceTypeDetails)
 
--- | Undocumented member.
+-- | The instance type.
 instanceTypeDetails_instanceType :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe OpenSearchPartitionInstanceType)
 instanceTypeDetails_instanceType = Lens.lens (\InstanceTypeDetails' {instanceType} -> instanceType) (\s@InstanceTypeDetails' {} a -> s {instanceType = a} :: InstanceTypeDetails)
 
--- | Undocumented member.
+-- | Whether Amazon Cognito access is supported for the instance type.
 instanceTypeDetails_cognitoEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_cognitoEnabled = Lens.lens (\InstanceTypeDetails' {cognitoEnabled} -> cognitoEnabled) (\s@InstanceTypeDetails' {} a -> s {cognitoEnabled = a} :: InstanceTypeDetails)
 
--- | Undocumented member.
+-- | Whether the instance acts as a data node, a dedicated master node, or an
+-- UltraWarm node.
 instanceTypeDetails_instanceRole :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe [Prelude.Text])
 instanceTypeDetails_instanceRole = Lens.lens (\InstanceTypeDetails' {instanceRole} -> instanceRole) (\s@InstanceTypeDetails' {} a -> s {instanceRole = a} :: InstanceTypeDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | Whether logging is supported for the instance type.
 instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
 
--- | Undocumented member.
+-- | Whether UltraWarm is supported for the instance type.
 instanceTypeDetails_warmEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_warmEnabled = Lens.lens (\InstanceTypeDetails' {warmEnabled} -> warmEnabled) (\s@InstanceTypeDetails' {} a -> s {warmEnabled = a} :: InstanceTypeDetails)
 

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides scheduled Auto-Tune action details for the domain, such as
--- Auto-Tune action type, description, severity, and scheduled date.
+-- Returns the list of optimizations that Auto-Tune has made to an Amazon
+-- OpenSearch Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DescribeDomainAutoTunes
   ( -- * Creating a Request
     DescribeDomainAutoTunes (..),
@@ -44,7 +45,7 @@ module Amazonka.OpenSearch.DescribeDomainAutoTunes
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -54,13 +55,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDomainAutoTunes' smart constructor.
 data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
-  { -- | NextToken is sent in case the earlier API call results contain the
-    -- NextToken. Used for pagination.
+  { -- | If your initial @DescribeDomainAutoTunes@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @DescribeDomainAutoTunes@ operations, which returns results in the next
+    -- page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. If not
-    -- specified, defaults to 100.
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The domain name for which you want Auto-Tune action details.
+    -- | Name of the domain that you want Auto-Tune details about.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,13 +76,15 @@ data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDomainAutoTunes_nextToken' - NextToken is sent in case the earlier API call results contain the
--- NextToken. Used for pagination.
+-- 'nextToken', 'describeDomainAutoTunes_nextToken' - If your initial @DescribeDomainAutoTunes@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeDomainAutoTunes@ operations, which returns results in the next
+-- page.
 --
--- 'maxResults', 'describeDomainAutoTunes_maxResults' - Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- 'maxResults', 'describeDomainAutoTunes_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 --
--- 'domainName', 'describeDomainAutoTunes_domainName' - The domain name for which you want Auto-Tune action details.
+-- 'domainName', 'describeDomainAutoTunes_domainName' - Name of the domain that you want Auto-Tune details about.
 newDescribeDomainAutoTunes ::
   -- | 'domainName'
   Prelude.Text ->
@@ -92,17 +97,19 @@ newDescribeDomainAutoTunes pDomainName_ =
       domainName = pDomainName_
     }
 
--- | NextToken is sent in case the earlier API call results contain the
--- NextToken. Used for pagination.
+-- | If your initial @DescribeDomainAutoTunes@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeDomainAutoTunes@ operations, which returns results in the next
+-- page.
 describeDomainAutoTunes_nextToken :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Text)
 describeDomainAutoTunes_nextToken = Lens.lens (\DescribeDomainAutoTunes' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunes' {} a -> s {nextToken = a} :: DescribeDomainAutoTunes)
 
--- | Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 describeDomainAutoTunes_maxResults :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Int)
 describeDomainAutoTunes_maxResults = Lens.lens (\DescribeDomainAutoTunes' {maxResults} -> maxResults) (\s@DescribeDomainAutoTunes' {} a -> s {maxResults = a} :: DescribeDomainAutoTunes)
 
--- | The domain name for which you want Auto-Tune action details.
+-- | Name of the domain that you want Auto-Tune details about.
 describeDomainAutoTunes_domainName :: Lens.Lens' DescribeDomainAutoTunes Prelude.Text
 describeDomainAutoTunes_domainName = Lens.lens (\DescribeDomainAutoTunes' {domainName} -> domainName) (\s@DescribeDomainAutoTunes' {} a -> s {domainName = a} :: DescribeDomainAutoTunes)
 
@@ -110,8 +117,8 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
   type
     AWSResponse DescribeDomainAutoTunes =
       DescribeDomainAutoTunesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,18 +154,15 @@ instance Core.ToPath DescribeDomainAutoTunes where
 instance Core.ToQuery DescribeDomainAutoTunes where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @DescribeDomainAutoTunes@ request. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | The result of a @DescribeDomainAutoTunes@ request.
 --
 -- /See:/ 'newDescribeDomainAutoTunesResponse' smart constructor.
 data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
-  { -- | An identifier to allow retrieval of paginated results.
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of setting adjustments that Auto-Tune has made to the domain.
-    -- See
-    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
-    -- for more information.
     autoTunes :: Prelude.Maybe [AutoTune],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,12 +177,11 @@ data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDomainAutoTunesResponse_nextToken' - An identifier to allow retrieval of paginated results.
+-- 'nextToken', 'describeDomainAutoTunesResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
 -- 'autoTunes', 'describeDomainAutoTunesResponse_autoTunes' - The list of setting adjustments that Auto-Tune has made to the domain.
--- See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
 --
 -- 'httpStatus', 'describeDomainAutoTunesResponse_httpStatus' - The response's http status code.
 newDescribeDomainAutoTunesResponse ::
@@ -193,14 +196,13 @@ newDescribeDomainAutoTunesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier to allow retrieval of paginated results.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 describeDomainAutoTunesResponse_nextToken :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe Prelude.Text)
 describeDomainAutoTunesResponse_nextToken = Lens.lens (\DescribeDomainAutoTunesResponse' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunesResponse' {} a -> s {nextToken = a} :: DescribeDomainAutoTunesResponse)
 
 -- | The list of setting adjustments that Auto-Tune has made to the domain.
--- See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
 describeDomainAutoTunesResponse_autoTunes :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe [AutoTune])
 describeDomainAutoTunesResponse_autoTunes = Lens.lens (\DescribeDomainAutoTunesResponse' {autoTunes} -> autoTunes) (\s@DescribeDomainAutoTunesResponse' {} a -> s {autoTunes = a} :: DescribeDomainAutoTunesResponse) Prelude.. Lens.mapping Lens.coerced
 

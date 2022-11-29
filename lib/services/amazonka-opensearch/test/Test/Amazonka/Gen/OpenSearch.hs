@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestAssociatePackage $
 --             newAssociatePackage
 --
+--         , requestAuthorizeVpcEndpointAccess $
+--             newAuthorizeVpcEndpointAccess
+--
 --         , requestCancelServiceSoftwareUpdate $
 --             newCancelServiceSoftwareUpdate
 --
@@ -48,6 +51,9 @@ import Test.Tasty
 --         , requestCreatePackage $
 --             newCreatePackage
 --
+--         , requestCreateVpcEndpoint $
+--             newCreateVpcEndpoint
+--
 --         , requestDeleteDomain $
 --             newDeleteDomain
 --
@@ -59,6 +65,9 @@ import Test.Tasty
 --
 --         , requestDeletePackage $
 --             newDeletePackage
+--
+--         , requestDeleteVpcEndpoint $
+--             newDeleteVpcEndpoint
 --
 --         , requestDescribeDomain $
 --             newDescribeDomain
@@ -93,6 +102,9 @@ import Test.Tasty
 --         , requestDescribeReservedInstances $
 --             newDescribeReservedInstances
 --
+--         , requestDescribeVpcEndpoints $
+--             newDescribeVpcEndpoints
+--
 --         , requestDissociatePackage $
 --             newDissociatePackage
 --
@@ -126,6 +138,15 @@ import Test.Tasty
 --         , requestListVersions $
 --             newListVersions
 --
+--         , requestListVpcEndpointAccess $
+--             newListVpcEndpointAccess
+--
+--         , requestListVpcEndpoints $
+--             newListVpcEndpoints
+--
+--         , requestListVpcEndpointsForDomain $
+--             newListVpcEndpointsForDomain
+--
 --         , requestPurchaseReservedInstanceOffering $
 --             newPurchaseReservedInstanceOffering
 --
@@ -135,6 +156,9 @@ import Test.Tasty
 --         , requestRemoveTags $
 --             newRemoveTags
 --
+--         , requestRevokeVpcEndpointAccess $
+--             newRevokeVpcEndpointAccess
+--
 --         , requestStartServiceSoftwareUpdate $
 --             newStartServiceSoftwareUpdate
 --
@@ -143,6 +167,9 @@ import Test.Tasty
 --
 --         , requestUpdatePackage $
 --             newUpdatePackage
+--
+--         , requestUpdateVpcEndpoint $
+--             newUpdateVpcEndpoint
 --
 --         , requestUpgradeDomain $
 --             newUpgradeDomain
@@ -159,6 +186,9 @@ import Test.Tasty
 --         , responseAssociatePackage $
 --             newAssociatePackageResponse
 --
+--         , responseAuthorizeVpcEndpointAccess $
+--             newAuthorizeVpcEndpointAccessResponse
+--
 --         , responseCancelServiceSoftwareUpdate $
 --             newCancelServiceSoftwareUpdateResponse
 --
@@ -171,6 +201,9 @@ import Test.Tasty
 --         , responseCreatePackage $
 --             newCreatePackageResponse
 --
+--         , responseCreateVpcEndpoint $
+--             newCreateVpcEndpointResponse
+--
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
 --
@@ -182,6 +215,9 @@ import Test.Tasty
 --
 --         , responseDeletePackage $
 --             newDeletePackageResponse
+--
+--         , responseDeleteVpcEndpoint $
+--             newDeleteVpcEndpointResponse
 --
 --         , responseDescribeDomain $
 --             newDescribeDomainResponse
@@ -216,6 +252,9 @@ import Test.Tasty
 --         , responseDescribeReservedInstances $
 --             newDescribeReservedInstancesResponse
 --
+--         , responseDescribeVpcEndpoints $
+--             newDescribeVpcEndpointsResponse
+--
 --         , responseDissociatePackage $
 --             newDissociatePackageResponse
 --
@@ -249,6 +288,15 @@ import Test.Tasty
 --         , responseListVersions $
 --             newListVersionsResponse
 --
+--         , responseListVpcEndpointAccess $
+--             newListVpcEndpointAccessResponse
+--
+--         , responseListVpcEndpoints $
+--             newListVpcEndpointsResponse
+--
+--         , responseListVpcEndpointsForDomain $
+--             newListVpcEndpointsForDomainResponse
+--
 --         , responsePurchaseReservedInstanceOffering $
 --             newPurchaseReservedInstanceOfferingResponse
 --
@@ -258,6 +306,9 @@ import Test.Tasty
 --         , responseRemoveTags $
 --             newRemoveTagsResponse
 --
+--         , responseRevokeVpcEndpointAccess $
+--             newRevokeVpcEndpointAccessResponse
+--
 --         , responseStartServiceSoftwareUpdate $
 --             newStartServiceSoftwareUpdateResponse
 --
@@ -266,6 +317,9 @@ import Test.Tasty
 --
 --         , responseUpdatePackage $
 --             newUpdatePackageResponse
+--
+--         , responseUpdateVpcEndpoint $
+--             newUpdateVpcEndpointResponse
 --
 --         , responseUpgradeDomain $
 --             newUpgradeDomainResponse
@@ -293,6 +347,12 @@ requestAssociatePackage =
     "AssociatePackage"
     "fixture/AssociatePackage.yaml"
 
+requestAuthorizeVpcEndpointAccess :: AuthorizeVpcEndpointAccess -> TestTree
+requestAuthorizeVpcEndpointAccess =
+  req
+    "AuthorizeVpcEndpointAccess"
+    "fixture/AuthorizeVpcEndpointAccess.yaml"
+
 requestCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdate -> TestTree
 requestCancelServiceSoftwareUpdate =
   req
@@ -317,6 +377,12 @@ requestCreatePackage =
     "CreatePackage"
     "fixture/CreatePackage.yaml"
 
+requestCreateVpcEndpoint :: CreateVpcEndpoint -> TestTree
+requestCreateVpcEndpoint =
+  req
+    "CreateVpcEndpoint"
+    "fixture/CreateVpcEndpoint.yaml"
+
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
   req
@@ -340,6 +406,12 @@ requestDeletePackage =
   req
     "DeletePackage"
     "fixture/DeletePackage.yaml"
+
+requestDeleteVpcEndpoint :: DeleteVpcEndpoint -> TestTree
+requestDeleteVpcEndpoint =
+  req
+    "DeleteVpcEndpoint"
+    "fixture/DeleteVpcEndpoint.yaml"
 
 requestDescribeDomain :: DescribeDomain -> TestTree
 requestDescribeDomain =
@@ -407,6 +479,12 @@ requestDescribeReservedInstances =
     "DescribeReservedInstances"
     "fixture/DescribeReservedInstances.yaml"
 
+requestDescribeVpcEndpoints :: DescribeVpcEndpoints -> TestTree
+requestDescribeVpcEndpoints =
+  req
+    "DescribeVpcEndpoints"
+    "fixture/DescribeVpcEndpoints.yaml"
+
 requestDissociatePackage :: DissociatePackage -> TestTree
 requestDissociatePackage =
   req
@@ -473,6 +551,24 @@ requestListVersions =
     "ListVersions"
     "fixture/ListVersions.yaml"
 
+requestListVpcEndpointAccess :: ListVpcEndpointAccess -> TestTree
+requestListVpcEndpointAccess =
+  req
+    "ListVpcEndpointAccess"
+    "fixture/ListVpcEndpointAccess.yaml"
+
+requestListVpcEndpoints :: ListVpcEndpoints -> TestTree
+requestListVpcEndpoints =
+  req
+    "ListVpcEndpoints"
+    "fixture/ListVpcEndpoints.yaml"
+
+requestListVpcEndpointsForDomain :: ListVpcEndpointsForDomain -> TestTree
+requestListVpcEndpointsForDomain =
+  req
+    "ListVpcEndpointsForDomain"
+    "fixture/ListVpcEndpointsForDomain.yaml"
+
 requestPurchaseReservedInstanceOffering :: PurchaseReservedInstanceOffering -> TestTree
 requestPurchaseReservedInstanceOffering =
   req
@@ -491,6 +587,12 @@ requestRemoveTags =
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
+requestRevokeVpcEndpointAccess :: RevokeVpcEndpointAccess -> TestTree
+requestRevokeVpcEndpointAccess =
+  req
+    "RevokeVpcEndpointAccess"
+    "fixture/RevokeVpcEndpointAccess.yaml"
+
 requestStartServiceSoftwareUpdate :: StartServiceSoftwareUpdate -> TestTree
 requestStartServiceSoftwareUpdate =
   req
@@ -508,6 +610,12 @@ requestUpdatePackage =
   req
     "UpdatePackage"
     "fixture/UpdatePackage.yaml"
+
+requestUpdateVpcEndpoint :: UpdateVpcEndpoint -> TestTree
+requestUpdateVpcEndpoint =
+  req
+    "UpdateVpcEndpoint"
+    "fixture/UpdateVpcEndpoint.yaml"
 
 requestUpgradeDomain :: UpgradeDomain -> TestTree
 requestUpgradeDomain =
@@ -541,6 +649,14 @@ responseAssociatePackage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
 
+responseAuthorizeVpcEndpointAccess :: AuthorizeVpcEndpointAccessResponse -> TestTree
+responseAuthorizeVpcEndpointAccess =
+  res
+    "AuthorizeVpcEndpointAccessResponse"
+    "fixture/AuthorizeVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeVpcEndpointAccess)
+
 responseCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdateResponse -> TestTree
 responseCancelServiceSoftwareUpdate =
   res
@@ -573,6 +689,14 @@ responseCreatePackage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePackage)
 
+responseCreateVpcEndpoint :: CreateVpcEndpointResponse -> TestTree
+responseCreateVpcEndpoint =
+  res
+    "CreateVpcEndpointResponse"
+    "fixture/CreateVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcEndpoint)
+
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
   res
@@ -604,6 +728,14 @@ responseDeletePackage =
     "fixture/DeletePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+
+responseDeleteVpcEndpoint :: DeleteVpcEndpointResponse -> TestTree
+responseDeleteVpcEndpoint =
+  res
+    "DeleteVpcEndpointResponse"
+    "fixture/DeleteVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcEndpoint)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -693,6 +825,14 @@ responseDescribeReservedInstances =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstances)
 
+responseDescribeVpcEndpoints :: DescribeVpcEndpointsResponse -> TestTree
+responseDescribeVpcEndpoints =
+  res
+    "DescribeVpcEndpointsResponse"
+    "fixture/DescribeVpcEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpoints)
+
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
 responseDissociatePackage =
   res
@@ -781,6 +921,30 @@ responseListVersions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVersions)
 
+responseListVpcEndpointAccess :: ListVpcEndpointAccessResponse -> TestTree
+responseListVpcEndpointAccess =
+  res
+    "ListVpcEndpointAccessResponse"
+    "fixture/ListVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpointAccess)
+
+responseListVpcEndpoints :: ListVpcEndpointsResponse -> TestTree
+responseListVpcEndpoints =
+  res
+    "ListVpcEndpointsResponse"
+    "fixture/ListVpcEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpoints)
+
+responseListVpcEndpointsForDomain :: ListVpcEndpointsForDomainResponse -> TestTree
+responseListVpcEndpointsForDomain =
+  res
+    "ListVpcEndpointsForDomainResponse"
+    "fixture/ListVpcEndpointsForDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpointsForDomain)
+
 responsePurchaseReservedInstanceOffering :: PurchaseReservedInstanceOfferingResponse -> TestTree
 responsePurchaseReservedInstanceOffering =
   res
@@ -805,6 +969,14 @@ responseRemoveTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
+responseRevokeVpcEndpointAccess :: RevokeVpcEndpointAccessResponse -> TestTree
+responseRevokeVpcEndpointAccess =
+  res
+    "RevokeVpcEndpointAccessResponse"
+    "fixture/RevokeVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeVpcEndpointAccess)
+
 responseStartServiceSoftwareUpdate :: StartServiceSoftwareUpdateResponse -> TestTree
 responseStartServiceSoftwareUpdate =
   res
@@ -828,6 +1000,14 @@ responseUpdatePackage =
     "fixture/UpdatePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+
+responseUpdateVpcEndpoint :: UpdateVpcEndpointResponse -> TestTree
+responseUpdateVpcEndpoint =
+  res
+    "UpdateVpcEndpointResponse"
+    "fixture/UpdateVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVpcEndpoint)
 
 responseUpgradeDomain :: UpgradeDomainResponse -> TestTree
 responseUpgradeDomain =

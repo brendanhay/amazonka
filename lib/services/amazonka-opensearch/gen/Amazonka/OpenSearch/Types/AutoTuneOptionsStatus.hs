@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.AutoTuneOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AutoTuneOptions
 import Amazonka.OpenSearch.Types.AutoTuneStatus
 import qualified Amazonka.Prelude as Prelude
@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsStatus' smart constructor.
 data AutoTuneOptionsStatus = AutoTuneOptionsStatus'
-  { -- | The status of the Auto-Tune options for the domain.
+  { -- | The current status of Auto-Tune for a domain.
     status :: Prelude.Maybe AutoTuneStatus,
-    -- | Specifies Auto-Tune options for the domain.
+    -- | Auto-Tune settings for updating a domain.
     options :: Prelude.Maybe AutoTuneOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data AutoTuneOptionsStatus = AutoTuneOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'autoTuneOptionsStatus_status' - The status of the Auto-Tune options for the domain.
+-- 'status', 'autoTuneOptionsStatus_status' - The current status of Auto-Tune for a domain.
 --
--- 'options', 'autoTuneOptionsStatus_options' - Specifies Auto-Tune options for the domain.
+-- 'options', 'autoTuneOptionsStatus_options' - Auto-Tune settings for updating a domain.
 newAutoTuneOptionsStatus ::
   AutoTuneOptionsStatus
 newAutoTuneOptionsStatus =
@@ -55,11 +55,11 @@ newAutoTuneOptionsStatus =
       options = Prelude.Nothing
     }
 
--- | The status of the Auto-Tune options for the domain.
+-- | The current status of Auto-Tune for a domain.
 autoTuneOptionsStatus_status :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneStatus)
 autoTuneOptionsStatus_status = Lens.lens (\AutoTuneOptionsStatus' {status} -> status) (\s@AutoTuneOptionsStatus' {} a -> s {status = a} :: AutoTuneOptionsStatus)
 
--- | Specifies Auto-Tune options for the domain.
+-- | Auto-Tune settings for updating a domain.
 autoTuneOptionsStatus_options :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneOptions)
 autoTuneOptionsStatus_options = Lens.lens (\AutoTuneOptionsStatus' {options} -> options) (\s@AutoTuneOptionsStatus' {} a -> s {options = a} :: AutoTuneOptionsStatus)
 

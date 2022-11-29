@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a package for use with Amazon OpenSearch Service domains.
+-- Creates a package for use with Amazon OpenSearch Service domains. For
+-- more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.CreatePackage
   ( -- * Creating a Request
     CreatePackage (..),
@@ -43,21 +45,21 @@ module Amazonka.OpenSearch.CreatePackage
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to the @ CreatePackage @ operation.
+-- | Container for request parameters to the @CreatePackage@ operation.
 --
 -- /See:/ 'newCreatePackage' smart constructor.
 data CreatePackage = CreatePackage'
   { -- | Description of the package.
     packageDescription :: Prelude.Maybe Prelude.Text,
-    -- | Unique identifier for the package.
+    -- | Unique name for the package.
     packageName :: Prelude.Text,
-    -- | Type of package. Currently supports only TXT-DICTIONARY.
+    -- | Type of package.
     packageType :: PackageType,
     -- | The Amazon S3 location from which to import the package.
     packageSource :: PackageSource
@@ -74,9 +76,9 @@ data CreatePackage = CreatePackage'
 --
 -- 'packageDescription', 'createPackage_packageDescription' - Description of the package.
 --
--- 'packageName', 'createPackage_packageName' - Unique identifier for the package.
+-- 'packageName', 'createPackage_packageName' - Unique name for the package.
 --
--- 'packageType', 'createPackage_packageType' - Type of package. Currently supports only TXT-DICTIONARY.
+-- 'packageType', 'createPackage_packageType' - Type of package.
 --
 -- 'packageSource', 'createPackage_packageSource' - The Amazon S3 location from which to import the package.
 newCreatePackage ::
@@ -103,11 +105,11 @@ newCreatePackage
 createPackage_packageDescription :: Lens.Lens' CreatePackage (Prelude.Maybe Prelude.Text)
 createPackage_packageDescription = Lens.lens (\CreatePackage' {packageDescription} -> packageDescription) (\s@CreatePackage' {} a -> s {packageDescription = a} :: CreatePackage)
 
--- | Unique identifier for the package.
+-- | Unique name for the package.
 createPackage_packageName :: Lens.Lens' CreatePackage Prelude.Text
 createPackage_packageName = Lens.lens (\CreatePackage' {packageName} -> packageName) (\s@CreatePackage' {} a -> s {packageName = a} :: CreatePackage)
 
--- | Type of package. Currently supports only TXT-DICTIONARY.
+-- | Type of package.
 createPackage_packageType :: Lens.Lens' CreatePackage PackageType
 createPackage_packageType = Lens.lens (\CreatePackage' {packageType} -> packageType) (\s@CreatePackage' {} a -> s {packageType = a} :: CreatePackage)
 
@@ -119,8 +121,8 @@ instance Core.AWSRequest CreatePackage where
   type
     AWSResponse CreatePackage =
       CreatePackageResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,11 +167,11 @@ instance Core.ToPath CreatePackage where
 instance Core.ToQuery CreatePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for the response returned by the @ CreatePackage @ operation.
+-- | Container for the response returned by the @CreatePackage@ operation.
 --
 -- /See:/ 'newCreatePackageResponse' smart constructor.
 data CreatePackageResponse = CreatePackageResponse'
-  { -- | Information about the package.
+  { -- | Basic information about an OpenSearch Service package.
     packageDetails :: Prelude.Maybe PackageDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -184,7 +186,7 @@ data CreatePackageResponse = CreatePackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageDetails', 'createPackageResponse_packageDetails' - Information about the package.
+-- 'packageDetails', 'createPackageResponse_packageDetails' - Basic information about an OpenSearch Service package.
 --
 -- 'httpStatus', 'createPackageResponse_httpStatus' - The response's http status code.
 newCreatePackageResponse ::
@@ -198,7 +200,7 @@ newCreatePackageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the package.
+-- | Basic information about an OpenSearch Service package.
 createPackageResponse_packageDetails :: Lens.Lens' CreatePackageResponse (Prelude.Maybe PackageDetails)
 createPackageResponse_packageDetails = Lens.lens (\CreatePackageResponse' {packageDetails} -> packageDetails) (\s@CreatePackageResponse' {} a -> s {packageDetails = a} :: CreatePackageResponse)
 

@@ -20,18 +20,18 @@
 module Amazonka.OpenSearch.Types.AutoTuneOptionsOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AutoTuneState
 import qualified Amazonka.Prelude as Prelude
 
--- | The Auto-Tune options: the Auto-Tune desired state for the domain and
--- list of maintenance schedules.
+-- | The Auto-Tune settings for a domain, displayed when enabling or
+-- disabling Auto-Tune.
 --
 -- /See:/ 'newAutoTuneOptionsOutput' smart constructor.
 data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
-  { -- | The error message while enabling or disabling Auto-Tune.
+  { -- | Any errors that occurred while enabling or disabling Auto-Tune.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The @AutoTuneState@ for the domain.
+    -- | The current state of Auto-Tune on the domain.
     state :: Prelude.Maybe AutoTuneState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'autoTuneOptionsOutput_errorMessage' - The error message while enabling or disabling Auto-Tune.
+-- 'errorMessage', 'autoTuneOptionsOutput_errorMessage' - Any errors that occurred while enabling or disabling Auto-Tune.
 --
--- 'state', 'autoTuneOptionsOutput_state' - The @AutoTuneState@ for the domain.
+-- 'state', 'autoTuneOptionsOutput_state' - The current state of Auto-Tune on the domain.
 newAutoTuneOptionsOutput ::
   AutoTuneOptionsOutput
 newAutoTuneOptionsOutput =
@@ -56,11 +56,11 @@ newAutoTuneOptionsOutput =
       state = Prelude.Nothing
     }
 
--- | The error message while enabling or disabling Auto-Tune.
+-- | Any errors that occurred while enabling or disabling Auto-Tune.
 autoTuneOptionsOutput_errorMessage :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe Prelude.Text)
 autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMessage} -> errorMessage) (\s@AutoTuneOptionsOutput' {} a -> s {errorMessage = a} :: AutoTuneOptionsOutput)
 
--- | The @AutoTuneState@ for the domain.
+-- | The current state of Auto-Tune on the domain.
 autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
 autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 

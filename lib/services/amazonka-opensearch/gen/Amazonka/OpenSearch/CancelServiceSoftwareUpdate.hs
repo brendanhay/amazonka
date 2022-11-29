@@ -22,8 +22,9 @@
 --
 -- Cancels a scheduled service software update for an Amazon OpenSearch
 -- Service domain. You can only perform this operation before the
--- @AutomatedUpdateDate@ and when the @UpdateStatus@ is in the
--- @PENDING_UPDATE@ state.
+-- @AutomatedUpdateDate@ and when the domain\'s @UpdateStatus@ is
+-- @PENDING_UPDATE@. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html Service software updates in Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.CancelServiceSoftwareUpdate
   ( -- * Creating a Request
     CancelServiceSoftwareUpdate (..),
@@ -43,20 +44,19 @@ module Amazonka.OpenSearch.CancelServiceSoftwareUpdate
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ CancelServiceSoftwareUpdate @
--- operation. Specifies the name of the domain that you wish to cancel a
--- service software update on.
+-- | Container for the request parameters to cancel a service software
+-- update.
 --
 -- /See:/ 'newCancelServiceSoftwareUpdate' smart constructor.
 data CancelServiceSoftwareUpdate = CancelServiceSoftwareUpdate'
-  { -- | The name of the domain that you want to stop the latest service software
-    -- update on.
+  { -- | Name of the OpenSearch Service domain that you want to cancel the
+    -- service software update on.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data CancelServiceSoftwareUpdate = CancelServiceSoftwareUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'cancelServiceSoftwareUpdate_domainName' - The name of the domain that you want to stop the latest service software
--- update on.
+-- 'domainName', 'cancelServiceSoftwareUpdate_domainName' - Name of the OpenSearch Service domain that you want to cancel the
+-- service software update on.
 newCancelServiceSoftwareUpdate ::
   -- | 'domainName'
   Prelude.Text ->
@@ -81,8 +81,8 @@ newCancelServiceSoftwareUpdate pDomainName_ =
         pDomainName_
     }
 
--- | The name of the domain that you want to stop the latest service software
--- update on.
+-- | Name of the OpenSearch Service domain that you want to cancel the
+-- service software update on.
 cancelServiceSoftwareUpdate_domainName :: Lens.Lens' CancelServiceSoftwareUpdate Prelude.Text
 cancelServiceSoftwareUpdate_domainName = Lens.lens (\CancelServiceSoftwareUpdate' {domainName} -> domainName) (\s@CancelServiceSoftwareUpdate' {} a -> s {domainName = a} :: CancelServiceSoftwareUpdate)
 
@@ -90,8 +90,8 @@ instance Core.AWSRequest CancelServiceSoftwareUpdate where
   type
     AWSResponse CancelServiceSoftwareUpdate =
       CancelServiceSoftwareUpdateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,12 +126,13 @@ instance Core.ToPath CancelServiceSoftwareUpdate where
 instance Core.ToQuery CancelServiceSoftwareUpdate where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @CancelServiceSoftwareUpdate@ operation. Contains the
--- status of the update.
+-- | Container for the response to a @CancelServiceSoftwareUpdate@ operation.
+-- Contains the status of the update.
 --
 -- /See:/ 'newCancelServiceSoftwareUpdateResponse' smart constructor.
 data CancelServiceSoftwareUpdateResponse = CancelServiceSoftwareUpdateResponse'
-  { -- | The current status of the OpenSearch service software update.
+  { -- | Container for the state of your domain relative to the latest service
+    -- software.
     serviceSoftwareOptions :: Prelude.Maybe ServiceSoftwareOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -146,7 +147,8 @@ data CancelServiceSoftwareUpdateResponse = CancelServiceSoftwareUpdateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceSoftwareOptions', 'cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions' - The current status of the OpenSearch service software update.
+-- 'serviceSoftwareOptions', 'cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions' - Container for the state of your domain relative to the latest service
+-- software.
 --
 -- 'httpStatus', 'cancelServiceSoftwareUpdateResponse_httpStatus' - The response's http status code.
 newCancelServiceSoftwareUpdateResponse ::
@@ -160,7 +162,8 @@ newCancelServiceSoftwareUpdateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the OpenSearch service software update.
+-- | Container for the state of your domain relative to the latest service
+-- software.
 cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions :: Lens.Lens' CancelServiceSoftwareUpdateResponse (Prelude.Maybe ServiceSoftwareOptions)
 cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions = Lens.lens (\CancelServiceSoftwareUpdateResponse' {serviceSoftwareOptions} -> serviceSoftwareOptions) (\s@CancelServiceSoftwareUpdateResponse' {} a -> s {serviceSoftwareOptions = a} :: CancelServiceSoftwareUpdateResponse)
 

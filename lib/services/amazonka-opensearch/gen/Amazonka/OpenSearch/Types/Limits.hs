@@ -20,24 +20,22 @@
 module Amazonka.OpenSearch.Types.Limits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AdditionalLimit
 import Amazonka.OpenSearch.Types.InstanceLimits
 import Amazonka.OpenSearch.Types.StorageType
 import qualified Amazonka.Prelude as Prelude
 
--- | Limits for a given InstanceType and for each of its roles.
--- Limits contains the following: @ StorageTypes @, @ InstanceLimits @, and
--- @ AdditionalLimits @
+-- | Limits for a given instance type and for each of its roles.
 --
 -- /See:/ 'newLimits' smart constructor.
 data Limits = Limits'
-  { instanceLimits :: Prelude.Maybe InstanceLimits,
-    -- | Storage-related types and attributes that are available for a given
-    -- InstanceType.
+  { -- | The limits for a given instance type.
+    instanceLimits :: Prelude.Maybe InstanceLimits,
+    -- | Storage-related attributes that are available for a given instance type.
     storageTypes :: Prelude.Maybe [StorageType],
-    -- | List of additional limits that are specific to a given InstanceType and
-    -- for each of its @ InstanceRole @ .
+    -- | List of additional limits that are specific to a given instance type for
+    -- each of its instance roles.
     additionalLimits :: Prelude.Maybe [AdditionalLimit]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +48,12 @@ data Limits = Limits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceLimits', 'limits_instanceLimits' - Undocumented member.
+-- 'instanceLimits', 'limits_instanceLimits' - The limits for a given instance type.
 --
--- 'storageTypes', 'limits_storageTypes' - Storage-related types and attributes that are available for a given
--- InstanceType.
+-- 'storageTypes', 'limits_storageTypes' - Storage-related attributes that are available for a given instance type.
 --
--- 'additionalLimits', 'limits_additionalLimits' - List of additional limits that are specific to a given InstanceType and
--- for each of its @ InstanceRole @ .
+-- 'additionalLimits', 'limits_additionalLimits' - List of additional limits that are specific to a given instance type for
+-- each of its instance roles.
 newLimits ::
   Limits
 newLimits =
@@ -66,17 +63,16 @@ newLimits =
       additionalLimits = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The limits for a given instance type.
 limits_instanceLimits :: Lens.Lens' Limits (Prelude.Maybe InstanceLimits)
 limits_instanceLimits = Lens.lens (\Limits' {instanceLimits} -> instanceLimits) (\s@Limits' {} a -> s {instanceLimits = a} :: Limits)
 
--- | Storage-related types and attributes that are available for a given
--- InstanceType.
+-- | Storage-related attributes that are available for a given instance type.
 limits_storageTypes :: Lens.Lens' Limits (Prelude.Maybe [StorageType])
 limits_storageTypes = Lens.lens (\Limits' {storageTypes} -> storageTypes) (\s@Limits' {} a -> s {storageTypes = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
--- | List of additional limits that are specific to a given InstanceType and
--- for each of its @ InstanceRole @ .
+-- | List of additional limits that are specific to a given instance type for
+-- each of its instance roles.
 limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
 limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 

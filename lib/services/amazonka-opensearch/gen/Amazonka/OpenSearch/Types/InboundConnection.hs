@@ -20,22 +20,24 @@
 module Amazonka.OpenSearch.Types.InboundConnection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.InboundConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Details of an inbound connection.
+-- | Describes an inbound cross-cluster connection for Amazon OpenSearch
+-- Service. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html Cross-cluster search for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newInboundConnection' smart constructor.
 data InboundConnection = InboundConnection'
-  { -- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+  { -- | Information about the destination (remote) domain.
     remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The connection ID for the inbound cross-cluster connection.
+    -- | The unique identifier of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+    -- | Information about the source (local) domain.
     localDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The @ InboundConnectionStatus @ for the outbound connection.
+    -- | The current status of the connection.
     connectionStatus :: Prelude.Maybe InboundConnectionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +50,13 @@ data InboundConnection = InboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteDomainInfo', 'inboundConnection_remoteDomainInfo' - The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- 'remoteDomainInfo', 'inboundConnection_remoteDomainInfo' - Information about the destination (remote) domain.
 --
--- 'connectionId', 'inboundConnection_connectionId' - The connection ID for the inbound cross-cluster connection.
+-- 'connectionId', 'inboundConnection_connectionId' - The unique identifier of the connection.
 --
--- 'localDomainInfo', 'inboundConnection_localDomainInfo' - The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- 'localDomainInfo', 'inboundConnection_localDomainInfo' - Information about the source (local) domain.
 --
--- 'connectionStatus', 'inboundConnection_connectionStatus' - The @ InboundConnectionStatus @ for the outbound connection.
+-- 'connectionStatus', 'inboundConnection_connectionStatus' - The current status of the connection.
 newInboundConnection ::
   InboundConnection
 newInboundConnection =
@@ -66,19 +68,19 @@ newInboundConnection =
       connectionStatus = Prelude.Nothing
     }
 
--- | The @ AWSDomainInformation @ for the remote OpenSearch domain.
+-- | Information about the destination (remote) domain.
 inboundConnection_remoteDomainInfo :: Lens.Lens' InboundConnection (Prelude.Maybe DomainInformationContainer)
 inboundConnection_remoteDomainInfo = Lens.lens (\InboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@InboundConnection' {} a -> s {remoteDomainInfo = a} :: InboundConnection)
 
--- | The connection ID for the inbound cross-cluster connection.
+-- | The unique identifier of the connection.
 inboundConnection_connectionId :: Lens.Lens' InboundConnection (Prelude.Maybe Prelude.Text)
 inboundConnection_connectionId = Lens.lens (\InboundConnection' {connectionId} -> connectionId) (\s@InboundConnection' {} a -> s {connectionId = a} :: InboundConnection)
 
--- | The @ AWSDomainInformation @ for the local OpenSearch domain.
+-- | Information about the source (local) domain.
 inboundConnection_localDomainInfo :: Lens.Lens' InboundConnection (Prelude.Maybe DomainInformationContainer)
 inboundConnection_localDomainInfo = Lens.lens (\InboundConnection' {localDomainInfo} -> localDomainInfo) (\s@InboundConnection' {} a -> s {localDomainInfo = a} :: InboundConnection)
 
--- | The @ InboundConnectionStatus @ for the outbound connection.
+-- | The current status of the connection.
 inboundConnection_connectionStatus :: Lens.Lens' InboundConnection (Prelude.Maybe InboundConnectionStatus)
 inboundConnection_connectionStatus = Lens.lens (\InboundConnection' {connectionStatus} -> connectionStatus) (\s@InboundConnection' {} a -> s {connectionStatus = a} :: InboundConnection)
 

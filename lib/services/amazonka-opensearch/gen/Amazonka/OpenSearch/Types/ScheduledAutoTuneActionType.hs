@@ -29,8 +29,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING, and
--- JVM_YOUNG_GEN_TUNING.
+-- | The Auto-Tune action type.
 newtype ScheduledAutoTuneActionType = ScheduledAutoTuneActionType'
   { fromScheduledAutoTuneActionType ::
       Core.Text

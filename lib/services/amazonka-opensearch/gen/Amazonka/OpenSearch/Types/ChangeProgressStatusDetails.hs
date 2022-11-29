@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.ChangeProgressStatusDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.ChangeProgressStage
 import Amazonka.OpenSearch.Types.OverallChangeStatus
 import qualified Amazonka.Prelude as Prelude
@@ -34,18 +34,16 @@ data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
     -- | The unique change identifier associated with a specific domain
     -- configuration change.
     changeId :: Prelude.Maybe Prelude.Text,
-    -- | The list of properties involved in the domain configuration change that
-    -- are still in pending.
+    -- | The list of properties in the domain configuration change that are still
+    -- pending.
     pendingProperties :: Prelude.Maybe [Prelude.Text],
-    -- | The overall status of the domain configuration change. This field can
-    -- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
-    -- @FAILED@
+    -- | The overall status of the domain configuration change.
     status :: Prelude.Maybe OverallChangeStatus,
     -- | The specific stages that the domain is going through to perform the
     -- configuration change.
     changeProgressStages :: Prelude.Maybe [ChangeProgressStage],
-    -- | The list of properties involved in the domain configuration change that
-    -- are completed.
+    -- | The list of properties in the domain configuration change that have
+    -- completed.
     completedProperties :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the configuration change is made on the domain.
     startTime :: Prelude.Maybe Core.POSIX
@@ -65,18 +63,16 @@ data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
 -- 'changeId', 'changeProgressStatusDetails_changeId' - The unique change identifier associated with a specific domain
 -- configuration change.
 --
--- 'pendingProperties', 'changeProgressStatusDetails_pendingProperties' - The list of properties involved in the domain configuration change that
--- are still in pending.
+-- 'pendingProperties', 'changeProgressStatusDetails_pendingProperties' - The list of properties in the domain configuration change that are still
+-- pending.
 --
--- 'status', 'changeProgressStatusDetails_status' - The overall status of the domain configuration change. This field can
--- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
--- @FAILED@
+-- 'status', 'changeProgressStatusDetails_status' - The overall status of the domain configuration change.
 --
 -- 'changeProgressStages', 'changeProgressStatusDetails_changeProgressStages' - The specific stages that the domain is going through to perform the
 -- configuration change.
 --
--- 'completedProperties', 'changeProgressStatusDetails_completedProperties' - The list of properties involved in the domain configuration change that
--- are completed.
+-- 'completedProperties', 'changeProgressStatusDetails_completedProperties' - The list of properties in the domain configuration change that have
+-- completed.
 --
 -- 'startTime', 'changeProgressStatusDetails_startTime' - The time at which the configuration change is made on the domain.
 newChangeProgressStatusDetails ::
@@ -102,14 +98,12 @@ changeProgressStatusDetails_totalNumberOfStages = Lens.lens (\ChangeProgressStat
 changeProgressStatusDetails_changeId :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.Text)
 changeProgressStatusDetails_changeId = Lens.lens (\ChangeProgressStatusDetails' {changeId} -> changeId) (\s@ChangeProgressStatusDetails' {} a -> s {changeId = a} :: ChangeProgressStatusDetails)
 
--- | The list of properties involved in the domain configuration change that
--- are still in pending.
+-- | The list of properties in the domain configuration change that are still
+-- pending.
 changeProgressStatusDetails_pendingProperties :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [Prelude.Text])
 changeProgressStatusDetails_pendingProperties = Lens.lens (\ChangeProgressStatusDetails' {pendingProperties} -> pendingProperties) (\s@ChangeProgressStatusDetails' {} a -> s {pendingProperties = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The overall status of the domain configuration change. This field can
--- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
--- @FAILED@
+-- | The overall status of the domain configuration change.
 changeProgressStatusDetails_status :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe OverallChangeStatus)
 changeProgressStatusDetails_status = Lens.lens (\ChangeProgressStatusDetails' {status} -> status) (\s@ChangeProgressStatusDetails' {} a -> s {status = a} :: ChangeProgressStatusDetails)
 
@@ -118,8 +112,8 @@ changeProgressStatusDetails_status = Lens.lens (\ChangeProgressStatusDetails' {s
 changeProgressStatusDetails_changeProgressStages :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [ChangeProgressStage])
 changeProgressStatusDetails_changeProgressStages = Lens.lens (\ChangeProgressStatusDetails' {changeProgressStages} -> changeProgressStages) (\s@ChangeProgressStatusDetails' {} a -> s {changeProgressStages = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of properties involved in the domain configuration change that
--- are completed.
+-- | The list of properties in the domain configuration change that have
+-- completed.
 changeProgressStatusDetails_completedProperties :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [Prelude.Text])
 changeProgressStatusDetails_completedProperties = Lens.lens (\ChangeProgressStatusDetails' {completedProperties} -> completedProperties) (\s@ChangeProgressStatusDetails' {} a -> s {completedProperties = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
 

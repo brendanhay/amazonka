@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about reserved OpenSearch instances for this
--- account.
+-- Describes the Amazon OpenSearch Service instances that you have reserved
+-- in a given Region. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html Reserved Instances in Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DescribeReservedInstances
   ( -- * Creating a Request
     DescribeReservedInstances (..),
@@ -44,24 +45,28 @@ module Amazonka.OpenSearch.DescribeReservedInstances
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for parameters to @DescribeReservedInstances@
+-- | Container for the request parameters to the @DescribeReservedInstances@
+-- operation.
 --
 -- /See:/ 'newDescribeReservedInstances' smart constructor.
 data DescribeReservedInstances = DescribeReservedInstances'
-  { -- | Provides an identifier to allow retrieval of paginated results.
+  { -- | If your initial @DescribeReservedInstances@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @DescribeReservedInstances@ operations, which returns results in the
+    -- next page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The reserved instance identifier filter value. Use this parameter to
     -- show only the reservation that matches the specified reserved OpenSearch
     -- instance ID.
     reservedInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. If not
-    -- specified, defaults to 100.
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,14 +79,17 @@ data DescribeReservedInstances = DescribeReservedInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReservedInstances_nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- 'nextToken', 'describeReservedInstances_nextToken' - If your initial @DescribeReservedInstances@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeReservedInstances@ operations, which returns results in the
+-- next page.
 --
 -- 'reservedInstanceId', 'describeReservedInstances_reservedInstanceId' - The reserved instance identifier filter value. Use this parameter to
 -- show only the reservation that matches the specified reserved OpenSearch
 -- instance ID.
 --
--- 'maxResults', 'describeReservedInstances_maxResults' - Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- 'maxResults', 'describeReservedInstances_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 newDescribeReservedInstances ::
   DescribeReservedInstances
 newDescribeReservedInstances =
@@ -92,7 +100,10 @@ newDescribeReservedInstances =
       maxResults = Prelude.Nothing
     }
 
--- | Provides an identifier to allow retrieval of paginated results.
+-- | If your initial @DescribeReservedInstances@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeReservedInstances@ operations, which returns results in the
+-- next page.
 describeReservedInstances_nextToken :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Text)
 describeReservedInstances_nextToken = Lens.lens (\DescribeReservedInstances' {nextToken} -> nextToken) (\s@DescribeReservedInstances' {} a -> s {nextToken = a} :: DescribeReservedInstances)
 
@@ -102,8 +113,8 @@ describeReservedInstances_nextToken = Lens.lens (\DescribeReservedInstances' {ne
 describeReservedInstances_reservedInstanceId :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Text)
 describeReservedInstances_reservedInstanceId = Lens.lens (\DescribeReservedInstances' {reservedInstanceId} -> reservedInstanceId) (\s@DescribeReservedInstances' {} a -> s {reservedInstanceId = a} :: DescribeReservedInstances)
 
--- | Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 describeReservedInstances_maxResults :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Int)
 describeReservedInstances_maxResults = Lens.lens (\DescribeReservedInstances' {maxResults} -> maxResults) (\s@DescribeReservedInstances' {} a -> s {maxResults = a} :: DescribeReservedInstances)
 
@@ -111,8 +122,8 @@ instance Core.AWSRequest DescribeReservedInstances where
   type
     AWSResponse DescribeReservedInstances =
       DescribeReservedInstancesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,9 +167,11 @@ instance Core.ToQuery DescribeReservedInstances where
 --
 -- /See:/ 'newDescribeReservedInstancesResponse' smart constructor.
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
-  { -- | Provides an identifier to allow retrieval of paginated results.
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of reserved OpenSearch instances.
+    -- | List of Reserved Instances in the current Region.
     reservedInstances :: Prelude.Maybe [ReservedInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,9 +186,11 @@ data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReservedInstancesResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- 'nextToken', 'describeReservedInstancesResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'reservedInstances', 'describeReservedInstancesResponse_reservedInstances' - List of reserved OpenSearch instances.
+-- 'reservedInstances', 'describeReservedInstancesResponse_reservedInstances' - List of Reserved Instances in the current Region.
 --
 -- 'httpStatus', 'describeReservedInstancesResponse_httpStatus' - The response's http status code.
 newDescribeReservedInstancesResponse ::
@@ -190,11 +205,13 @@ newDescribeReservedInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Provides an identifier to allow retrieval of paginated results.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 describeReservedInstancesResponse_nextToken :: Lens.Lens' DescribeReservedInstancesResponse (Prelude.Maybe Prelude.Text)
 describeReservedInstancesResponse_nextToken = Lens.lens (\DescribeReservedInstancesResponse' {nextToken} -> nextToken) (\s@DescribeReservedInstancesResponse' {} a -> s {nextToken = a} :: DescribeReservedInstancesResponse)
 
--- | List of reserved OpenSearch instances.
+-- | List of Reserved Instances in the current Region.
 describeReservedInstancesResponse_reservedInstances :: Lens.Lens' DescribeReservedInstancesResponse (Prelude.Maybe [ReservedInstance])
 describeReservedInstancesResponse_reservedInstances = Lens.lens (\DescribeReservedInstancesResponse' {reservedInstances} -> reservedInstances) (\s@DescribeReservedInstancesResponse' {} a -> s {reservedInstances = a} :: DescribeReservedInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 

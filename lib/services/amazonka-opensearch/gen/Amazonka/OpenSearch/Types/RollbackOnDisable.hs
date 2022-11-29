@@ -29,8 +29,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The rollback state while disabling Auto-Tune for the domain. Valid
--- values are NO_ROLLBACK and DEFAULT_ROLLBACK.
+-- | The rollback state while disabling Auto-Tune for the domain.
 newtype RollbackOnDisable = RollbackOnDisable'
   { fromRollbackOnDisable ::
       Core.Text

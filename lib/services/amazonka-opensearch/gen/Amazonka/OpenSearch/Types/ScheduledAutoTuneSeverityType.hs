@@ -30,7 +30,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The Auto-Tune action severity. Valid values are LOW, MEDIUM, and HIGH.
+-- | The Auto-Tune action severity.
 newtype ScheduledAutoTuneSeverityType = ScheduledAutoTuneSeverityType'
   { fromScheduledAutoTuneSeverityType ::
       Core.Text

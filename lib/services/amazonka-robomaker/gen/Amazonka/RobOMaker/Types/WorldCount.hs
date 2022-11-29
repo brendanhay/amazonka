@@ -20,7 +20,7 @@
 module Amazonka.RobOMaker.Types.WorldCount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of worlds that will be created. You can configure the number

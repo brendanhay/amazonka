@@ -20,8 +20,8 @@
 module Amazonka.IoTEventsData.Types.BatchDeleteDetectorErrorEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.ErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains error messages associated with the deletion request.

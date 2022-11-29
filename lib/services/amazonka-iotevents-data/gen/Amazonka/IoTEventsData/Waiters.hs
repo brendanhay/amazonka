@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.IoTEventsData.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Lens
 import Amazonka.IoTEventsData.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

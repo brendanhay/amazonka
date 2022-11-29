@@ -20,9 +20,9 @@
 module Amazonka.IoTEventsData.Types.DetectorState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.Timer
 import Amazonka.IoTEventsData.Types.Variable
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the current state of the detector instance.

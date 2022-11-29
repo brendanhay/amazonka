@@ -20,8 +20,8 @@
 module Amazonka.IoTEventsData.Types.SimpleRuleEvaluation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.ComparisonOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to compare two values with a comparison operator.

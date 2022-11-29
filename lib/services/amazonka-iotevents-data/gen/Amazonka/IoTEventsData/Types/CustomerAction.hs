@@ -20,13 +20,13 @@
 module Amazonka.IoTEventsData.Types.CustomerAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
 import Amazonka.IoTEventsData.Types.CustomerActionName
 import Amazonka.IoTEventsData.Types.DisableActionConfiguration
 import Amazonka.IoTEventsData.Types.EnableActionConfiguration
 import Amazonka.IoTEventsData.Types.ResetActionConfiguration
 import Amazonka.IoTEventsData.Types.SnoozeActionConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the action that you can take to respond to

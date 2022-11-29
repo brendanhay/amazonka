@@ -42,8 +42,14 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestLockRule $
+--             newLockRule
+--
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestUnlockRule $
+--             newUnlockRule
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -69,8 +75,14 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseLockRule $
+--             newLockRuleResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseUnlockRule $
+--             newUnlockRuleResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -113,11 +125,23 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestLockRule :: LockRule -> TestTree
+requestLockRule =
+  req
+    "LockRule"
+    "fixture/LockRule.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestUnlockRule :: UnlockRule -> TestTree
+requestUnlockRule =
+  req
+    "UnlockRule"
+    "fixture/UnlockRule.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -173,6 +197,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseLockRule :: LockRuleResponse -> TestTree
+responseLockRule =
+  res
+    "LockRuleResponse"
+    "fixture/LockRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy LockRule)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -180,6 +212,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUnlockRule :: UnlockRuleResponse -> TestTree
+responseUnlockRule =
+  res
+    "UnlockRuleResponse"
+    "fixture/UnlockRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UnlockRule)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =

@@ -50,8 +50,11 @@ library
     Amazonka.RBin.Lens
     Amazonka.RBin.ListRules
     Amazonka.RBin.ListTagsForResource
+    Amazonka.RBin.LockRule
     Amazonka.RBin.TagResource
     Amazonka.RBin.Types
+    Amazonka.RBin.Types.LockConfiguration
+    Amazonka.RBin.Types.LockState
     Amazonka.RBin.Types.ResourceTag
     Amazonka.RBin.Types.ResourceType
     Amazonka.RBin.Types.RetentionPeriod
@@ -59,6 +62,9 @@ library
     Amazonka.RBin.Types.RuleStatus
     Amazonka.RBin.Types.RuleSummary
     Amazonka.RBin.Types.Tag
+    Amazonka.RBin.Types.UnlockDelay
+    Amazonka.RBin.Types.UnlockDelayUnit
+    Amazonka.RBin.UnlockRule
     Amazonka.RBin.UntagResource
     Amazonka.RBin.UpdateRule
     Amazonka.RBin.Waiters

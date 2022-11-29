@@ -20,15 +20,32 @@
 module Amazonka.RBin.Types.RuleSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RBin.Types.LockState
 import Amazonka.RBin.Types.RetentionPeriod
 
 -- | Information about a Recycle Bin retention rule.
 --
 -- /See:/ 'newRuleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-  { -- | The retention rule description.
+  { -- | The lock state for the retention rule.
+    --
+    -- -   @locked@ - The retention rule is locked and can\'t be modified or
+    --     deleted.
+    --
+    -- -   @pending_unlock@ - The retention rule has been unlocked but it is
+    --     still within the unlock delay period. The retention rule can be
+    --     modified or deleted only after the unlock delay period has expired.
+    --
+    -- -   @unlocked@ - The retention rule is unlocked and it can be modified
+    --     or deleted by any user with the required permissions.
+    --
+    -- -   @null@ - The retention rule has never been locked. Once a retention
+    --     rule has been locked, it can transition between the @locked@ and
+    --     @unlocked@ states only; it can never transition back to @null@.
+    lockState :: Prelude.Maybe LockState,
+    -- | The retention rule description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Information about the retention period for which the retention rule is
     -- to retain resources.
@@ -46,6 +63,22 @@ data RuleSummary = RuleSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lockState', 'ruleSummary_lockState' - The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+--
 -- 'description', 'ruleSummary_description' - The retention rule description.
 --
 -- 'retentionPeriod', 'ruleSummary_retentionPeriod' - Information about the retention period for which the retention rule is
@@ -56,10 +89,29 @@ newRuleSummary ::
   RuleSummary
 newRuleSummary =
   RuleSummary'
-    { description = Prelude.Nothing,
+    { lockState = Prelude.Nothing,
+      description = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
       identifier = Prelude.Nothing
     }
+
+-- | The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+ruleSummary_lockState :: Lens.Lens' RuleSummary (Prelude.Maybe LockState)
+ruleSummary_lockState = Lens.lens (\RuleSummary' {lockState} -> lockState) (\s@RuleSummary' {} a -> s {lockState = a} :: RuleSummary)
 
 -- | The retention rule description.
 ruleSummary_description :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
@@ -80,19 +132,22 @@ instance Core.FromJSON RuleSummary where
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "LockState")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RetentionPeriod")
             Prelude.<*> (x Core..:? "Identifier")
       )
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` lockState
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData RuleSummary where
   rnf RuleSummary' {..} =
-    Prelude.rnf description
+    Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf identifier

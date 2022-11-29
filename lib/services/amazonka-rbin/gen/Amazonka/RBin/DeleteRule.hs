@@ -41,7 +41,7 @@ module Amazonka.RBin.DeleteRule
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ deleteRule_identifier = Lens.lens (\DeleteRule' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest DeleteRule where
   type AWSResponse DeleteRule = DeleteRuleResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

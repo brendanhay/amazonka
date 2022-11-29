@@ -20,7 +20,7 @@
 module Amazonka.MwAA.Types.LastUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MwAA.Types.UpdateError
 import Amazonka.MwAA.Types.UpdateStatus
 import qualified Amazonka.Prelude as Prelude

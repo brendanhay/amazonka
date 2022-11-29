@@ -20,7 +20,7 @@
 module Amazonka.MwAA.Types.StatisticSet where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __Internal only__. Represents a set of statistics that describe a

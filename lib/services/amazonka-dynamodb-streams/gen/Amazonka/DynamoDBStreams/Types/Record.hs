@@ -20,11 +20,11 @@
 module Amazonka.DynamoDBStreams.Types.Record where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.OperationType
 import Amazonka.DynamoDBStreams.Types.StreamRecord
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a unique event within a stream.

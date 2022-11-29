@@ -20,8 +20,8 @@
 module Amazonka.DynamoDBStreams.Types.Stream where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the data describing a particular stream.

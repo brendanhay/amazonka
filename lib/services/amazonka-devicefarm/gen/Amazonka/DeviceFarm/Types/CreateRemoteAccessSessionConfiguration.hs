@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.BillingMethod
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for a remote access session, including billing

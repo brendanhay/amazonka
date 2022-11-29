@@ -20,7 +20,7 @@
 module Amazonka.DeviceFarm.Types.CPU where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the amount of CPU that an app is using on a physical device.

@@ -20,10 +20,10 @@
 module Amazonka.DeviceFarm.Types.Upload where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.UploadCategory
 import Amazonka.DeviceFarm.Types.UploadStatus
 import Amazonka.DeviceFarm.Types.UploadType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An app or a set of one or more tests to upload or that have been

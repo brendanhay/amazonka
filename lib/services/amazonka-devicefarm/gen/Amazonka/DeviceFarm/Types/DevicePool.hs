@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.DevicePool where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.DevicePoolType
 import Amazonka.DeviceFarm.Types.Rule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a collection of device types.

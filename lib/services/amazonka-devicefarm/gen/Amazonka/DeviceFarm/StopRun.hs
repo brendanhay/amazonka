@@ -45,8 +45,8 @@ module Amazonka.DeviceFarm.StopRun
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +84,8 @@ stopRun_arn = Lens.lens (\StopRun' {arn} -> arn) (\s@StopRun' {} a -> s {arn = a
 
 instance Core.AWSRequest StopRun where
   type AWSResponse StopRun = StopRunResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,10 +20,10 @@
 module Amazonka.DeviceFarm.Types.Offering where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.DevicePlatform
 import Amazonka.DeviceFarm.Types.OfferingType
 import Amazonka.DeviceFarm.Types.RecurringCharge
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the metadata of a device offering.

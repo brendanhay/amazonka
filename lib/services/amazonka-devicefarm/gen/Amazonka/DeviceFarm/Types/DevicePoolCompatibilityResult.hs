@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.DevicePoolCompatibilityResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.IncompatibilityMessage
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a device pool compatibility result.

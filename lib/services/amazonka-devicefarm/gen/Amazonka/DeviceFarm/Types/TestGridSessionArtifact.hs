@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.TestGridSessionArtifact where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.TestGridSessionArtifactType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Artifacts are video and other files that are produced in the process of

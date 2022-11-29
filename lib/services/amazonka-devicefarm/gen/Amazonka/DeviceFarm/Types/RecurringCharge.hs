@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.MonetaryAmount
 import Amazonka.DeviceFarm.Types.RecurringChargeFrequency
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether charges for devices are recurring.

@@ -20,6 +20,7 @@
 module Amazonka.DeviceFarm.Types.Run where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
@@ -34,7 +35,6 @@ import Amazonka.DeviceFarm.Types.NetworkProfile
 import Amazonka.DeviceFarm.Types.Radios
 import Amazonka.DeviceFarm.Types.TestType
 import Amazonka.DeviceFarm.Types.VpcConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a test run on a set of devices with a given app package, test

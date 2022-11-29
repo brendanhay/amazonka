@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.Rule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.DeviceAttribute
 import Amazonka.DeviceFarm.Types.RuleOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a condition for a device pool.

@@ -20,7 +20,7 @@
 module Amazonka.DeviceFarm.Types.TestGridVpcConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a project.

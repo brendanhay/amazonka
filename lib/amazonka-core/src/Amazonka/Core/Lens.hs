@@ -15,7 +15,7 @@ module Amazonka.Core.Lens
   ( -- * Amazonka.Data.Body
 
     -- ** ResponseBody
-    responseBody_body,
+    _ResponseBody,
 
     -- ** ChunkSize
     _ChunkSize,
@@ -101,7 +101,7 @@ module Amazonka.Core.Lens
     serviceError_message,
     serviceError_requestId,
 
-    -- ** SIgned
+    -- ** Signed
     signed_signedMeta,
     signed_signedRequest,
 

@@ -27,8 +27,8 @@ module Amazonka
     -- $service
     Env.overrideService,
     Env.configureService,
+    Env.globalTimeout,
     Env.once,
-    Env.timeout,
 
     -- ** Running AWS Actions
     runResourceT,
@@ -318,8 +318,9 @@ import Data.Monoid (Dual (..), Endo (..))
 -- >     -- Here DynamoDB operations will communicate with localhost:8000.
 -- >     y <- AWS.send (AWS.configure dynamo env) Dynamo.newListTables
 --
--- Functions such as 'within', 'once', and 'timeout' can also be used to modify
--- service configuration for all (or specific) requests.
+-- Functions such as 'within', 'once', and 'globalTimeout' can also be
+-- used to modify service configuration for all (or specific)
+-- requests.
 
 -- $streaming
 -- Streaming comes in two flavours. 'HashedBody' represents a request

@@ -31,8 +31,8 @@ module Amazonka.Env
     configureService,
 
     -- * 'Env' override helpers
+    globalTimeout,
     once,
-    timeout,
 
     -- * Retry HTTP Exceptions
     retryConnectionFailure,
@@ -186,11 +186,6 @@ configureService s = overrideService f
       | Function.on (==) Service.abbrev s x = s
       | otherwise = x
 
--- | Disable any retry logic for an 'Env', so that any requests will
--- at most be sent once.
-once :: Env' withAuth -> Env' withAuth
-once = overrideService $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
-
 -- | Override the timeout value for this 'Env'.
 --
 -- Default timeouts are chosen by considering:
@@ -202,5 +197,11 @@ once = overrideService $ \s@Service {retry} -> s {retry = retry {attempts = 0}}
 -- * The 'manager' timeout if set.
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
-timeout :: Seconds -> Env' withAuth -> Env' withAuth
-timeout n = overrideService $ \s -> s {Service.timeout = Just n}
+globalTimeout :: Seconds -> Env' withAuth -> Env' withAuth
+globalTimeout n = overrideService $ \s -> s {Service.timeout = Just n}
+
+
+-- | Disable any retry logic for an 'Env', so that any requests will
+-- at most be sent once.
+once :: Env' withAuth -> Env' withAuth
+once = overrideService $ \s@Service {retry} -> s {retry = retry {attempts = 0}}

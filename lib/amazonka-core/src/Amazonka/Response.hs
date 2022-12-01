@@ -28,7 +28,7 @@ module Amazonka.Response
 where
 
 import Amazonka.Data
-import Amazonka.Prelude
+import Amazonka.Prelude hiding (error)
 import Amazonka.Types
 import qualified Control.Monad.Trans.Except as Except
 import Control.Monad.Trans.Resource (liftResourceT)
@@ -135,8 +135,7 @@ deserialise reader parser logger Service {..} _ rs =
 
     body <- sinkLBS (Client.responseBody rs)
 
-    unless (_serviceCheck status) $
-      Except.throwE (_serviceError status headers body)
+    unless (check status) $ Except.throwE (error status headers body)
 
     liftIO . logger Trace $
       build ("[Raw Response Body] {\n" <> body <> "\n}")
@@ -145,7 +144,7 @@ deserialise reader parser logger Service {..} _ rs =
       Right ok -> pure (ok <$ rs)
       Left err ->
         Except.throwE $
-          SerializeError (SerializeError' _serviceAbbrev status (Just body) err)
+          SerializeError (SerializeError' abbrev status (Just body) err)
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream ::
@@ -166,15 +165,15 @@ stream parser Service {..} _ rs =
         headers = Client.responseHeaders rs
         body = Client.responseBody rs
 
-    unless (_serviceCheck status) $ do
+    unless (check status) $ do
       lazy <- sinkLBS body
-      Except.throwE (_serviceError status headers lazy)
+      Except.throwE (error status headers lazy)
 
     lift (parser (() <$ rs) (fromEnum status) headers body) >>= \case
       Right ok -> pure (ok <$ rs)
       Left err ->
         Except.throwE $
-          SerializeError (SerializeError' _serviceAbbrev status Nothing err)
+          SerializeError (SerializeError' abbrev status Nothing err)
 
 sinkLBS :: MonadResource m => ClientBody -> m ByteStringLazy
 sinkLBS bdy = liftResourceT (bdy `Conduit.connect` Conduit.Binary.sinkLbs)

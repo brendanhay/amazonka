@@ -21,12 +21,12 @@ module Amazonka.Data.Time
   )
 where
 
+import Amazonka.Core.Lens.Internal (iso)
 import Amazonka.Data.ByteString
 import Amazonka.Data.JSON
 import Amazonka.Data.Query
 import Amazonka.Data.Text
 import Amazonka.Data.XML
-import Amazonka.Lens (iso)
 import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson

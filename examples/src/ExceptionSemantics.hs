@@ -25,14 +25,15 @@ exceptions ::
   -- | DynamoDB table name, shouldn't exist.
   Text ->
   IO ()
-exceptions r n = do
+exceptions reg n = do
   lgr <- newLogger Info stdout
-  env <- newEnv discover <&> set (field @"envLogger") lgr . within r
+  env <-
+    newEnv discover <&> set (field @"logger") lgr . set (field @"region") reg
 
   let scan = newScan n & field @"attributesToGet" ?~ "foo" :| []
 
   runResourceT $ do
-    sayLn $ "Listing all tables in region " <> toText r
+    sayLn $ "Listing all tables in region " <> toText reg
     runConduit $
       paginate env newListTables
         .| CL.concatMap (view (field @"tableNames" . _Just))

@@ -8,11 +8,11 @@
 module Amazonka.Sign.V4.Chunked where
 
 import qualified Amazonka.Bytes as Bytes
+import Amazonka.Core.Lens.Internal ((^.))
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
-import Amazonka.Lens ((<>~), (^.))
-import Amazonka.Prelude
-import Amazonka.Sign.V4.Base hiding (algorithm)
+import Amazonka.Prelude as Prelude
+import Amazonka.Sign.V4.Base as V4 hiding (algorithm)
 import Amazonka.Types
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Builder as Build
@@ -23,72 +23,82 @@ import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 
 chunked :: ChunkedBody -> Algorithm a
-chunked c rq a r ts = signRequest meta (toRequestBody body) auth
-  where
-    (meta, auth) = base (Tag digest) (prepare rq) a r ts
+chunked
+  c@ChunkedBody {length = len}
+  rq@Request {service = service@Service {endpoint}}
+  a
+  region
+  ts =
+    signRequest meta (toRequestBody body) auth
+    where
+      (meta, auth) = V4.base (Tag digest) (prepare rq) a region ts
 
-    -- Although https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html says to include
-    -- `Content-Encoding: aws-chunked`, we don't. If it's the only header, S3 will remove
-    -- `aws-chunked` leaving a blank header, and store `"ContentEncoding": ""` in the object's metadata.
-    -- This breaks some CDNs and HTTP clients.
-    --
-    -- According to https://github.com/fog/fog-aws/pull/147 , AWS support have confirmed that the
-    -- header is not strictly necessary, and S3 will figure out that it's a chunked body.
-    prepare =
-      requestHeaders
-        <>~ [ (hAMZDecodedContentLength, toBS (_chunkedLength c)),
-              (HTTP.hContentLength, toBS (metadataLength c))
+      -- Although https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html says to include
+      -- `Content-Encoding: aws-chunked`, we don't. If it's the only header, S3 will remove
+      -- `aws-chunked` leaving a blank header, and store `"ContentEncoding": ""` in the object's metadata.
+      -- This breaks some CDNs and HTTP clients.
+      --
+      -- According to https://github.com/fog/fog-aws/pull/147 , AWS support have confirmed that the
+      -- header is not strictly necessary, and S3 will figure out that it's a chunked body.
+      prepare :: Request a -> Request a
+      prepare r@Request {headers} =
+        r
+          { headers =
+              headers
+                <> [ (hAMZDecodedContentLength, toBS len),
+                     (HTTP.hContentLength, toBS (metadataLength c))
+                   ]
+          }
+
+      body = Chunked (c `fuseChunks` sign (metaSignature meta))
+
+      sign :: Monad m => Signature -> ConduitM ByteString ByteString m ()
+      sign prev = do
+        mx <- Conduit.await
+
+        let next = chunkSignature prev (fromMaybe mempty mx)
+
+        case mx of
+          Nothing -> Conduit.yield (chunkData next mempty)
+          Just x -> Conduit.yield (chunkData next x) >> sign next
+
+      chunkData next x =
+        toBS $
+          Build.word64Hex (fromIntegral (BS.length x))
+            <> Build.byteString chunkSignatureHeader
+            <> Build.byteString (toBS next)
+            <> Build.byteString crlf
+            <> Build.byteString x
+            <> Build.byteString crlf
+
+      chunkSignature prev x =
+        signature (secretAccessKey a ^. _Sensitive) scope (chunkStringToSign prev x)
+
+      chunkStringToSign prev x =
+        Tag $
+          BS8.intercalate
+            "\n"
+            [ algorithm,
+              time,
+              toBS scope,
+              toBS prev,
+              sha256Empty,
+              sha256 x
             ]
 
-    body = Chunked (c `fuseChunks` sign (metaSignature meta))
+      time :: ByteString
+      time = toBS (Time ts :: AWSTime)
 
-    sign :: Monad m => Signature -> ConduitM ByteString ByteString m ()
-    sign prev = do
-      mx <- Conduit.await
+      scope :: CredentialScope
+      scope = credentialScope service end ts
 
-      let next = chunkSignature prev (fromMaybe mempty mx)
-
-      case mx of
-        Nothing -> Conduit.yield (chunkData next mempty)
-        Just x -> Conduit.yield (chunkData next x) >> sign next
-
-    chunkData next x =
-      toBS $
-        Build.word64Hex (fromIntegral (BS.length x))
-          <> Build.byteString chunkSignatureHeader
-          <> Build.byteString (toBS next)
-          <> Build.byteString crlf
-          <> Build.byteString x
-          <> Build.byteString crlf
-
-    chunkSignature prev x =
-      signature (_authSecretAccessKey a ^. _Sensitive) scope (chunkStringToSign prev x)
-
-    chunkStringToSign prev x =
-      Tag $
-        BS8.intercalate
-          "\n"
-          [ algorithm,
-            time,
-            toBS scope,
-            toBS prev,
-            sha256Empty,
-            sha256 x
-          ]
-
-    time :: ByteString
-    time = toBS (Time ts :: AWSTime)
-
-    scope :: CredentialScope
-    scope = credentialScope (_requestService rq) end ts
-
-    end :: Endpoint
-    end = _serviceEndpoint (_requestService rq) r
+      end :: Endpoint
+      end = endpoint region
 
 metadataLength :: ChunkedBody -> Integer
 metadataLength c =
   -- Number of full sized chunks.
-  fullChunks c * chunkLength (_chunkedSize c)
+  fullChunks c * chunkLength (size c)
     -- Non-full chunk preceeding the final chunk.
     + maybe 0 chunkLength (remainderBytes c)
     -- The final empty chunk.
@@ -96,7 +106,7 @@ metadataLength c =
   where
     chunkLength :: Integral a => a -> Integer
     chunkLength (toInteger -> n) =
-      fromIntegral (length (Numeric.showHex n ""))
+      fromIntegral (Prelude.length (Numeric.showHex n ""))
         + headerLength
         + signatureLength
         + crlfLength

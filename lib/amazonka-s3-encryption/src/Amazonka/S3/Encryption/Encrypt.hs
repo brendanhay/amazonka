@@ -1,3 +1,5 @@
+{-# LANGUAGE DuplicateRecordFields #-}
+
 -- |
 -- Module      : Amazonka.S3.Encryption.Encrypt
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -15,7 +17,7 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
-import Control.Lens ((%~), (<>~), (^.))
+import Control.Lens ((^.))
 import qualified Control.Lens as Lens
 
 -- FIXME: Material
@@ -58,13 +60,16 @@ envelope = _encEnvelope
 instance AWSRequest a => AWSRequest (Encrypted a) where
   type AWSResponse (Encrypted a) = AWSResponse a
 
-  service _ = service (Proxy :: Proxy a)
-
-  request srv (Encrypted x xs l e) =
-    coerce (request srv x)
-      & requestBody %~ f
-      & requestHeaders <>~ hs
+  request overrides (Encrypted x xs l e) =
+    coerce (request overrides x) & updateBodyAndHeaders
     where
+      updateBodyAndHeaders :: Request x -> Request x
+      updateBodyAndHeaders rq@Request {body, headers} =
+        rq
+          { body = f body,
+            headers = headers <> hs
+          }
+
       f b
         | contentLength b > 0 = bodyEncrypt e b
         | otherwise = b

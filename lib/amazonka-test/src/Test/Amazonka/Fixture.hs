@@ -64,8 +64,7 @@ req n f e = testCase n $ do
   assertDiff f e' (first show a)
   where
     expected = do
-      let srv = service (Proxy :: Proxy a)
-          x = signedRequest (requestSign (request srv e) auth NorthVirginia time)
+      let x = signedRequest (requestSign (request id e) auth NorthVirginia time)
       b <- sink (Client.requestBody x)
       return
         $! mkReq

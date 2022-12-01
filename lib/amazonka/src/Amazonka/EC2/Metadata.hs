@@ -44,25 +44,24 @@ module Amazonka.EC2.Metadata
     IdentityDocument (..),
 
     -- *** Lenses
-    devpayProductCodes,
-    billingProducts,
-    version,
-    privateIp,
-    availabilityZone,
-    region,
-    instanceId,
-    instanceType,
-    accountId,
-    imageId,
-    kernelId,
-    ramdiskId,
-    architecture,
-    pendingTime,
+    identityDocument_devpayProductCodes,
+    identityDocument_billingProducts,
+    identityDocument_version,
+    identityDocument_privateIp,
+    identityDocument_availabilityZone,
+    identityDocument_region,
+    identityDocument_instanceId,
+    identityDocument_instanceType,
+    identityDocument_accountId,
+    identityDocument_imageId,
+    identityDocument_kernelId,
+    identityDocument_ramdiskId,
+    identityDocument_architecture,
+    identityDocument_pendingTime,
   )
 where
 
 import Amazonka.Data
-import Amazonka.Lens (lens, mapping)
 import Amazonka.Prelude
 import Amazonka.Types (Region)
 import qualified Control.Exception as Exception
@@ -609,100 +608,114 @@ userdata m =
 -- will need to be manually parsed using 'fromText' when the relevant types
 -- from a library such as "Amazonka.EC2" are brought into scope.
 data IdentityDocument = IdentityDocument
-  { _devpayProductCodes :: Maybe [Text],
-    _billingProducts :: Maybe [Text],
-    _version :: Maybe Text,
-    _privateIp :: Maybe Text,
-    _availabilityZone :: Text,
-    _region :: Region,
-    _instanceId :: Text,
-    _instanceType :: Text,
-    _accountId :: Text,
-    _imageId :: Maybe Text,
-    _kernelId :: Maybe Text,
-    _ramdiskId :: Maybe Text,
-    _architecture :: Maybe Text,
-    _pendingTime :: Maybe ISO8601
+  { devpayProductCodes :: Maybe [Text],
+    billingProducts :: Maybe [Text],
+    version :: Maybe Text,
+    privateIp :: Maybe Text,
+    availabilityZone :: Text,
+    region :: Region,
+    instanceId :: Text,
+    instanceType :: Text,
+    accountId :: Text,
+    imageId :: Maybe Text,
+    kernelId :: Maybe Text,
+    ramdiskId :: Maybe Text,
+    architecture :: Maybe Text,
+    pendingTime :: Maybe ISO8601
   }
   deriving stock (Eq, Show, Generic)
 
-devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
-devpayProductCodes = lens _devpayProductCodes (\s a -> s {_devpayProductCodes = a})
-
-billingProducts :: Lens' IdentityDocument (Maybe [Text])
-billingProducts = lens _billingProducts (\s a -> s {_billingProducts = a})
-
-version :: Lens' IdentityDocument (Maybe Text)
-version = lens _version (\s a -> s {_version = a})
-
-privateIp :: Lens' IdentityDocument (Maybe Text)
-privateIp = lens _privateIp (\s a -> s {_privateIp = a})
-
-availabilityZone :: Lens' IdentityDocument Text
-availabilityZone = lens _availabilityZone (\s a -> s {_availabilityZone = a})
-
-region :: Lens' IdentityDocument Region
-region = lens _region (\s a -> s {_region = a})
-
-instanceId :: Lens' IdentityDocument Text
-instanceId = lens _instanceId (\s a -> s {_instanceId = a})
-
-instanceType :: Lens' IdentityDocument Text
-instanceType = lens _instanceType (\s a -> s {_instanceType = a})
-
-accountId :: Lens' IdentityDocument Text
-accountId = lens _accountId (\s a -> s {_accountId = a})
-
-imageId :: Lens' IdentityDocument (Maybe Text)
-imageId = lens _imageId (\s a -> s {_imageId = a})
-
-kernelId :: Lens' IdentityDocument (Maybe Text)
-kernelId = lens _kernelId (\s a -> s {_kernelId = a})
-
-ramdiskId :: Lens' IdentityDocument (Maybe Text)
-ramdiskId = lens _ramdiskId (\s a -> s {_ramdiskId = a})
-
-architecture :: Lens' IdentityDocument (Maybe Text)
-architecture = lens _architecture (\s a -> s {_architecture = a})
-
-pendingTime :: Lens' IdentityDocument (Maybe UTCTime)
-pendingTime = lens _pendingTime (\s a -> s {_pendingTime = a}) . mapping _Time
-
 instance FromJSON IdentityDocument where
   parseJSON = withObject "dynamic/instance-identity/document" $ \o -> do
-    _devpayProductCodes <- o .:? "devpayProductCodes"
-    _billingProducts <- o .:? "billingProducts"
-    _privateIp <- o .:? "privateIp"
-    _version <- o .:? "version"
-    _availabilityZone <- o .: "availabilityZone"
-    _region <- o .: "region"
-    _instanceId <- o .: "instanceId"
-    _instanceType <- o .: "instanceType"
-    _accountId <- o .: "accountId"
-    _imageId <- o .:? "imageId"
-    _kernelId <- o .:? "kernelId"
-    _ramdiskId <- o .:? "ramdiskId"
-    _architecture <- o .:? "architecture"
-    _pendingTime <- o .:? "pendingTime"
+    devpayProductCodes <- o .:? "devpayProductCodes"
+    billingProducts <- o .:? "billingProducts"
+    privateIp <- o .:? "privateIp"
+    version <- o .:? "version"
+    availabilityZone <- o .: "availabilityZone"
+    region <- o .: "region"
+    instanceId <- o .: "instanceId"
+    instanceType <- o .: "instanceType"
+    accountId <- o .: "accountId"
+    imageId <- o .:? "imageId"
+    kernelId <- o .:? "kernelId"
+    ramdiskId <- o .:? "ramdiskId"
+    architecture <- o .:? "architecture"
+    pendingTime <- o .:? "pendingTime"
     pure IdentityDocument {..}
 
 instance ToJSON IdentityDocument where
   toJSON IdentityDocument {..} =
     object
-      [ "devpayProductCodes" .= _devpayProductCodes,
-        "billingProducts" .= _billingProducts,
-        "privateIp" .= _privateIp,
-        "version" .= _version,
-        "availabilityZone" .= _availabilityZone,
-        "region" .= _region,
-        "instanceId" .= _instanceId,
-        "instanceType" .= _instanceType,
-        "accountId" .= _accountId,
-        "imageId" .= _imageId,
-        "kernelId" .= _kernelId,
-        "ramdiskId" .= _ramdiskId,
-        "architecture" .= _architecture
+      [ "devpayProductCodes" .= devpayProductCodes,
+        "billingProducts" .= billingProducts,
+        "privateIp" .= privateIp,
+        "version" .= version,
+        "availabilityZone" .= availabilityZone,
+        "region" .= region,
+        "instanceId" .= instanceId,
+        "instanceType" .= instanceType,
+        "accountId" .= accountId,
+        "imageId" .= imageId,
+        "kernelId" .= kernelId,
+        "ramdiskId" .= ramdiskId,
+        "architecture" .= architecture
       ]
+
+{-# INLINE identityDocument_devpayProductCodes #-}
+identityDocument_devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
+identityDocument_devpayProductCodes f i@IdentityDocument {devpayProductCodes} = f devpayProductCodes <&> \devpayProductCodes' -> i {devpayProductCodes = devpayProductCodes'}
+
+{-# INLINE identityDocument_billingProducts #-}
+identityDocument_billingProducts :: Lens' IdentityDocument (Maybe [Text])
+identityDocument_billingProducts f i@IdentityDocument {billingProducts} = f billingProducts <&> \billingProducts' -> i {billingProducts = billingProducts'}
+
+{-# INLINE identityDocument_version #-}
+identityDocument_version :: Lens' IdentityDocument (Maybe Text)
+identityDocument_version f i@IdentityDocument {version} = f version <&> \version' -> i {version = version'}
+
+{-# INLINE identityDocument_privateIp #-}
+identityDocument_privateIp :: Lens' IdentityDocument (Maybe Text)
+identityDocument_privateIp f i@IdentityDocument {privateIp} = f privateIp <&> \privateIp' -> i {privateIp = privateIp'}
+
+{-# INLINE identityDocument_availabilityZone #-}
+identityDocument_availabilityZone :: Lens' IdentityDocument Text
+identityDocument_availabilityZone f i@IdentityDocument {availabilityZone} = f availabilityZone <&> \availabilityZone' -> i {availabilityZone = availabilityZone'}
+
+{-# INLINE identityDocument_region #-}
+identityDocument_region :: Lens' IdentityDocument Region
+identityDocument_region f i@IdentityDocument {region} = f region <&> \region' -> i {region = region'}
+
+{-# INLINE identityDocument_instanceId #-}
+identityDocument_instanceId :: Lens' IdentityDocument Text
+identityDocument_instanceId f i@IdentityDocument {instanceId} = f instanceId <&> \instanceId' -> i {instanceId = instanceId'}
+
+{-# INLINE identityDocument_instanceType #-}
+identityDocument_instanceType :: Lens' IdentityDocument Text
+identityDocument_instanceType f i@IdentityDocument {instanceType} = f instanceType <&> \instanceType' -> i {instanceType = instanceType'}
+
+{-# INLINE identityDocument_accountId #-}
+identityDocument_accountId :: Lens' IdentityDocument Text
+identityDocument_accountId f i@IdentityDocument {accountId} = f accountId <&> \accountId' -> i {accountId = accountId'}
+
+{-# INLINE identityDocument_imageId #-}
+identityDocument_imageId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_imageId f i@IdentityDocument {imageId} = f imageId <&> \imageId' -> i {imageId = imageId'}
+
+{-# INLINE identityDocument_kernelId #-}
+identityDocument_kernelId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_kernelId f i@IdentityDocument {kernelId} = f kernelId <&> \kernelId' -> i {kernelId = kernelId'}
+
+{-# INLINE identityDocument_ramdiskId #-}
+identityDocument_ramdiskId :: Lens' IdentityDocument (Maybe Text)
+identityDocument_ramdiskId f i@IdentityDocument {ramdiskId} = f ramdiskId <&> \ramdiskId' -> i {ramdiskId = ramdiskId'}
+
+{-# INLINE identityDocument_architecture #-}
+identityDocument_architecture :: Lens' IdentityDocument (Maybe Text)
+identityDocument_architecture f i@IdentityDocument {architecture} = f architecture <&> \architecture' -> i {architecture = architecture'}
+
+{-# INLINE identityDocument_pendingTime #-}
+identityDocument_pendingTime :: Lens' IdentityDocument (Maybe ISO8601)
+identityDocument_pendingTime f i@IdentityDocument {pendingTime} = f pendingTime <&> \pendingTime' -> i {pendingTime = pendingTime'}
 
 -- | Retrieve the instance's identity document, detailing various EC2 metadata.
 --

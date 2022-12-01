@@ -63,9 +63,9 @@ import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInsta
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
 import Amazonka.Auth.SSO (fromSSO)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity, fromWebIdentityEnv)
+import Amazonka.Core.Lens.Internal (catching_)
 import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, Env' (..), EnvNoAuth)
-import Amazonka.Lens (catching_)
 import Amazonka.Prelude
 import Amazonka.Types
 import Control.Monad.Catch (MonadCatch (..), throwM)
@@ -115,7 +115,7 @@ discover =
       fromWebIdentityEnv,
       fromContainerEnv,
       \env -> do
-        onEC2 <- isEC2 $ envManager env
+        onEC2 <- isEC2 $ manager env
         unless onEC2 $ throwM CredentialChainExhausted
         fromDefaultInstanceProfile env
     ]

@@ -14,10 +14,9 @@
 module Amazonka.Presign where
 
 import Amazonka.Data
-import Amazonka.Lens ((%~))
 import Amazonka.Prelude
 import Amazonka.Request (clientRequestURL)
-import Amazonka.Types
+import Amazonka.Types hiding (presign)
 import qualified Network.HTTP.Types as HTTP
 
 -- | Presign an URL that is valid from the specified time until the
@@ -101,7 +100,7 @@ presignWithHeaders ::
   m ClientRequest
 presignWithHeaders f g a r ts ex x =
   withAuth a $ \ae ->
-    pure $! signedRequest $
-      requestPresign ex (request srv x & requestHeaders %~ f) ae r ts
-  where
-    srv = g (service (Proxy :: Proxy a))
+    let rq@Request {headers} = request g x
+        rq' :: Request a
+        rq' = rq {headers = f headers}
+     in pure $! signedRequest $ requestPresign ex rq' ae r ts

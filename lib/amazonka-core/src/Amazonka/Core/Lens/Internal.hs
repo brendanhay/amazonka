@@ -1,11 +1,14 @@
 -- |
--- Module      : Amazonka.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Module      : Amazonka.Core.Lens.Internal
+-- Copyright   : (c) 2013-2022 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Lens (module Export) where
+--
+-- Re-export a number of lens types and combinators for use in service
+-- bindings.
+module Amazonka.Core.Lens.Internal (module Export) where
 
 import Control.Exception.Lens as Export
   ( catching,
@@ -23,6 +26,7 @@ import Control.Lens as Export
     Getting,
     IndexedTraversal',
     Iso',
+    Lens,
     Lens',
     Optic',
     Prism',

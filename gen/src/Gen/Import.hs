@@ -10,11 +10,11 @@ import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l _o =
-  Set.toList . Set.fromList $
+  Set.toAscList . Set.fromList $
     "qualified Amazonka.Request as Request" :
     "qualified Amazonka.Response as Response" :
-    "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Core.Lens.Internal as Lens" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
@@ -22,8 +22,8 @@ operationImports l _o =
 typeImports :: Library -> [NS]
 typeImports l =
   List.sort $
-    "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Core.Lens.Internal as Lens" :
     "qualified Amazonka.Prelude as Prelude" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
@@ -42,8 +42,8 @@ sumImports l =
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   List.sort $
-    "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Core.Lens.Internal as Lens" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules ++ productDependencies l p
 
@@ -70,8 +70,8 @@ productDependencies l p =
 waiterImports :: Library -> [NS]
 waiterImports l =
   List.sort $
-    "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Core.Lens.Internal as Lens" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. lensNS :

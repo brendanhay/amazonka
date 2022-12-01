@@ -24,7 +24,7 @@ import Control.Exception.Lens (handling_, _IOException)
 import Control.Monad.Trans.Reader (ReaderT, ask, runReaderT)
 import Control.Monad.Trans.State (StateT, evalStateT, get, modify)
 import Data.Foldable (asum)
-import Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Ini as INI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
@@ -84,7 +84,7 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
   -- See: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
   lookupRegion <&> \case
     Nothing -> env'
-    Just r -> env' {envRegion = r}
+    Just region -> env' {region}
   where
     loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
     loadIniFile path = do
@@ -115,8 +115,8 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
               "Parse error in profile: " <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
-              ExplicitKeys authEnv ->
-                pure env {envAuth = Identity $ Auth authEnv}
+              ExplicitKeys keys ->
+                pure env {auth = Identity $ Auth keys}
               AssumeRoleFromProfile roleArn sourceProfileName -> do
                 seenProfiles <- lift get
                 if sourceProfileName `elem` seenProfiles
@@ -147,7 +147,7 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
-            pure . maybe env' (\r -> env' {envRegion = r}) $ mRegion
+            pure . maybe env' (\region -> env' {region}) $ mRegion
 
 mergeConfigs ::
   -- | Credentials

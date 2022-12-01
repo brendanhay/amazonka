@@ -16,7 +16,10 @@ import System.IO
 main :: Region -> IO Method
 main r = do
   lgr <- newLogger Trace stdout
-  env <- newEnv discover <&> set (field @"envLogger") lgr . within r
+  env <-
+    newEnv discover
+      <&> set (field @"logger") lgr
+        . set (field @"region") r
 
   runResourceT $ do
     restApi <- send env (newCreateRestApi "myApi")
@@ -29,6 +32,4 @@ main r = do
     resource :: Resource <- send env (newCreateResource apiId rootId "{file}")
 
     let Just fileResourceId = resource ^. field @"id"
-    method :: Method <- send env (newPutMethod apiId fileResourceId "GET" "NONE")
-
-    return method
+    send env (newPutMethod apiId fileResourceId "GET" "NONE")

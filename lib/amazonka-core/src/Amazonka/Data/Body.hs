@@ -10,14 +10,14 @@
 module Amazonka.Data.Body where
 
 import qualified Amazonka.Bytes as Bytes
+import Amazonka.Core.Lens.Internal (coerced)
 import Amazonka.Crypto (Digest, SHA256)
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data.ByteString
 import Amazonka.Data.Log
 import Amazonka.Data.Query (QueryString)
 import Amazonka.Data.XML (encodeXML)
-import Amazonka.Lens (AReview, lens, to, un)
-import Amazonka.Prelude
+import Amazonka.Prelude hiding (length)
 import Control.Monad.Trans.Resource (ResourceT, runResourceT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString as BS
@@ -42,18 +42,24 @@ getFileSize :: MonadIO m => FilePath -> m Integer
 getFileSize path = liftIO (IO.withBinaryFile path IO.ReadMode IO.hFileSize)
 
 -- | A streaming, exception safe response body.
+--
+-- @newtype@ for show/orhpan instance purposes.
 newtype ResponseBody = ResponseBody
-  { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
-  } -- newtype for show/orhpan instance purposes.
+  {body :: ConduitM () ByteString (ResourceT IO) ()}
+  deriving stock Generic
 
 instance Show ResponseBody where
   show = const "ResponseBody { ConduitM () ByteString (ResourceT IO) () }"
+
+{-# INLINE _ResponseBody #-}
+_ResponseBody :: Iso' ResponseBody (ConduitM () ByteString (ResourceT IO) ())
+_ResponseBody = coerced
 
 fuseStream ::
   ResponseBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
   ResponseBody
-fuseStream b f = b {_streamBody = _streamBody b .| f}
+fuseStream b@ResponseBody {body} f = b {body = body .| f}
 
 -- | Connect a 'Sink' to a response stream.
 sinkBody :: MonadIO m => ResponseBody -> ConduitM ByteString Void (ResourceT IO) a -> m a
@@ -70,6 +76,9 @@ newtype ChunkSize = ChunkSize Int
 instance ToLog ChunkSize where
   build = build . show
 
+_ChunkSize :: Iso' ChunkSize Int
+_ChunkSize = coerced
+
 -- | The default chunk size of 128 KB. The minimum chunk size accepted by
 -- AWS is 8 KB, unless the entirety of the request is below this threshold.
 --
@@ -84,13 +93,22 @@ defaultChunkSize = 128 * 1024
 -- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
 -- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-  { _chunkedSize :: ChunkSize,
-    _chunkedLength :: Integer,
-    _chunkedBody :: ConduitM () ByteString (ResourceT IO) ()
+  { size :: ChunkSize,
+    length :: Integer,
+    body :: ConduitM () ByteString (ResourceT IO) ()
   }
 
-chunkedLength :: Lens' ChunkedBody Integer
-chunkedLength = lens _chunkedLength (\s a -> s {_chunkedLength = a})
+{-# INLINE chunkedBody_size #-}
+chunkedBody_size :: Lens' ChunkedBody ChunkSize
+chunkedBody_size f b@ChunkedBody {size} = f size <&> \size' -> b {size = size'}
+
+{-# INLINE chunkedBody_length #-}
+chunkedBody_length :: Lens' ChunkedBody Integer
+chunkedBody_length f b@ChunkedBody {length} = f length <&> \length' -> b {length = length'}
+
+{-# INLINE chunkedBody_body #-}
+chunkedBody_body :: Lens' ChunkedBody (ConduitM () ByteString (ResourceT IO) ())
+chunkedBody_body f b@ChunkedBody {body} = f body <&> \body' -> (b :: ChunkedBody) {body = body'}
 
 -- Maybe revert to using Source's, and then enforce the chunk size
 -- during conversion from HashedBody -> ChunkedBody
@@ -99,9 +117,9 @@ instance Show ChunkedBody where
   show c =
     BS8.unpack . toBS $
       "ChunkedBody { chunkSize = "
-        <> build (_chunkedSize c)
+        <> build (size c)
         <> "<> originalLength = "
-        <> build (_chunkedLength c)
+        <> build (length c)
         <> "<> fullChunks = "
         <> build (fullChunks c)
         <> "<> remainderBytes = "
@@ -112,14 +130,14 @@ fuseChunks ::
   ChunkedBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
   ChunkedBody
-fuseChunks c f = c {_chunkedBody = _chunkedBody c .| f}
+fuseChunks c@ChunkedBody {body} f = c {body = body .| f}
 
 fullChunks :: ChunkedBody -> Integer
-fullChunks c = _chunkedLength c `div` fromIntegral (_chunkedSize c)
+fullChunks c = length c `div` fromIntegral (size c)
 
 remainderBytes :: ChunkedBody -> Maybe Integer
-remainderBytes c =
-  case _chunkedLength c `mod` toInteger (_chunkedSize c) of
+remainderBytes ChunkedBody {length, size} =
+  case length `mod` toInteger size of
     0 -> Nothing
     n -> Just n
 
@@ -334,14 +352,14 @@ isStreaming = \case
 
 toRequestBody :: RequestBody -> Client.RequestBody
 toRequestBody = \case
-  Chunked x -> Client.Conduit.requestBodySourceChunked (_chunkedBody x)
+  Chunked ChunkedBody {body} -> Client.Conduit.requestBodySourceChunked body
   Hashed x -> case x of
     HashedStream _ n f -> Client.Conduit.requestBodySource (fromIntegral n) f
     HashedBytes _ b -> Client.RequestBodyBS b
 
 contentLength :: RequestBody -> Integer
 contentLength = \case
-  Chunked x -> _chunkedLength x
+  Chunked ChunkedBody {length} -> length
   Hashed x -> case x of
     HashedStream _ n _ -> n
     HashedBytes _ b -> fromIntegral (BS.length b)
@@ -426,6 +444,3 @@ instance ToBody Aeson.Value
 instance ToBody XML.Element
 
 instance ToBody QueryString
-
-_Body :: ToBody a => AReview RequestBody a
-_Body = un (to toBody)

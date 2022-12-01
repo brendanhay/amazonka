@@ -12,7 +12,8 @@ module Amazonka.Auth.InstanceProfile where
 import Amazonka.Auth.Background
 import Amazonka.Auth.Exception
 import Amazonka.Data
-import Amazonka.EC2.Metadata
+import Amazonka.EC2.Metadata hiding (region)
+import qualified Amazonka.EC2.Metadata as IdentityDocument (IdentityDocument (..))
 import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import qualified Control.Exception as Exception
@@ -36,8 +37,7 @@ fromDefaultInstanceProfile ::
 fromDefaultInstanceProfile env =
   liftIO $ do
     ls <-
-      Exception.try $
-        metadata (envManager env) (IAM (SecurityCredentials Nothing))
+      Exception.try $ metadata (manager env) (IAM (SecurityCredentials Nothing))
 
     case BS8.lines <$> ls of
       Right (x : _) -> fromNamedInstanceProfile (Text.decodeUtf8 x) env
@@ -67,12 +67,12 @@ fromNamedInstanceProfile ::
   Text ->
   Env' withAuth ->
   m Env
-fromNamedInstanceProfile name env =
+fromNamedInstanceProfile name env@Env {manager} =
   liftIO $ do
-    auth <- fetchAuthInBackground getCredentials
-    reg <- getRegionFromIdentity
+    keys <- fetchAuthInBackground getCredentials
+    region <- getRegionFromIdentity
 
-    pure env {envAuth = Identity auth, envRegion = reg}
+    pure env {auth = Identity keys, region}
   where
     getCredentials =
       Exception.try (metadata manager (IAM . SecurityCredentials $ Just name))
@@ -80,9 +80,7 @@ fromNamedInstanceProfile name env =
 
     getRegionFromIdentity =
       Exception.try (identity manager)
-        >>= handleErr (fmap _region) invalidIdentityErr
-
-    manager = envManager env
+        >>= handleErr (fmap IdentityDocument.region) invalidIdentityErr
 
     handleErr f g = \case
       Left e -> Exception.throwIO (RetrievalError e)

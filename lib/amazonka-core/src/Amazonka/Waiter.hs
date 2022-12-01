@@ -1,7 +1,7 @@
 -- |
 -- Module      : Amazonka.Waiter
 -- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
@@ -10,6 +10,12 @@ module Amazonka.Waiter
     Acceptor,
     Accept (..),
     Wait (..),
+
+    -- ** Lenses
+    wait_name,
+    wait_attempts,
+    wait_delay,
+    wait_acceptors,
 
     -- * Acceptors
     accept,
@@ -26,16 +32,17 @@ module Amazonka.Waiter
   )
 where
 
-import Amazonka.Data
-import Amazonka.Error (_HttpStatus)
-import Amazonka.Lens
+import Amazonka.Core.Lens.Internal
   ( Fold,
+    Lens,
     allOf,
     anyOf,
     to,
     (^..),
     (^?),
   )
+import Amazonka.Data
+import Amazonka.Error (_HttpStatus)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.Text as Text
@@ -57,14 +64,30 @@ instance ToLog Accept where
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
-  { _waitName :: ByteString,
-    _waitAttempts :: Int,
-    _waitDelay :: Seconds,
-    _waitAcceptors :: [Acceptor a]
+  { name :: ByteString,
+    attempts :: Int,
+    delay :: Seconds,
+    acceptors :: [Acceptor a]
   }
 
+{-# INLINE wait_name #-}
+wait_name :: Lens' (Wait a) ByteString
+wait_name f w@Wait {name} = f name <&> \name' -> w {name = name'}
+
+{-# INLINE wait_attempts #-}
+wait_attempts :: forall a. Lens' (Wait a) Int
+wait_attempts f w@Wait {attempts} = f attempts <&> \attempts' -> (w :: Wait a) {attempts = attempts'}
+
+{-# INLINE wait_delay #-}
+wait_delay :: Lens' (Wait a) Seconds
+wait_delay f w@Wait {delay} = f delay <&> \delay' -> w {delay = delay'}
+
+{-# INLINE wait_acceptors #-}
+wait_acceptors :: Lens (Wait a) (Wait b) [Acceptor a] [Acceptor b]
+wait_acceptors f w@Wait {acceptors} = f acceptors <&> \acceptors' -> w {acceptors = acceptors'}
+
 accept :: Wait a -> Acceptor a
-accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ _waitAcceptors w
+accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ acceptors w
 
 matchAll :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
 matchAll x a l = match (allOf l (== x)) a
@@ -83,7 +106,7 @@ matchStatus x a _ = \case
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-  Left e | Just c == e ^? _ServiceError . serviceCode -> Just a
+  Left e | Just c == e ^? _ServiceError . to code -> Just a
   _ -> Nothing
 
 match :: (AWSResponse a -> Bool) -> Accept -> Acceptor a

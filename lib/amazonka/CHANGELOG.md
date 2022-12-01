@@ -32,6 +32,17 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
   - The `Amazonka.Auth.runCredentialChain` function allows you to build your own custom credential chains.
 
+- Records within the `amazonka-core` and `amazonka` libraries no longer have (inconsistent) leading underscores or prefixes [\#844](https://github.com/brendanhay/amazonka/pull/844). A few other functions were renamed/removed for consistency or to avoid name clashes:
+
+  - `Amazonka.Env.envAuthMaybe` -> `Amazonka.authMaybe` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.configure` -> `Amazonka.Env.configureService` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.override` -> `Amazonka.Env.overrideService` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.timeout` -> `Amazonka.Env.globalTimeout` (and its re-export from `Amazonka`)
+  - `Amazonka.Env.within`: removed; it was merely a record update
+  - `Amazonka.Body._Body`: removed.
+
+  As with record fields in generated bindings, you should use record updates, generic lenses/optics, or `-XOverloadedRecordDot`. However, if you prefer explicit lenses, prefixed lenses are available where the records are defined, and are colleced in the `Amazonka.Core.Lens` and `Amazonka.Lens` modules (`Amazonka.Lens` re-exports `Amazonka.Core.Lens`).
+
 ### New libraries
 
 - `amazonka-appconfigdata`: The data plane APIs your application uses to retrieve configuration data. [Overview](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/Welcome.html#Welcome_AWS_AppConfig_Data)
@@ -50,6 +61,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-fsx`: Launch, run, and scale feature-rich, high-performance file systems in the cloud. [Overview](https://aws.amazon.com/fsx/)
 - `amazonka-gamesparks`: Build game backends without worrying about server infrastructure. [Overview](https://aws.amazon.com/gamesparks/)
 - `amazonka-inspector2`: Amazon Inspector is an automated vulnerability management service that continually scans AWS workloads for software vulnerabilities and unintended network exposure. [Overview](https://aws.amazon.com/inspector/)
+- `amazonka-iot-roborunner`: Infrastructure for integrating robot systems from multiple vendors and building fleet management applications. [Overview](https://aws.amazon.com/roborunner/)
 - `amazonka-iottwinmaker`: AWS IoT TwinMaker makes it easier for developers to create digital twins of real-world systems such as buildings, factories, industrial equipment, and production lines. [Overview](https://aws.amazon.com/iot-twinmaker/)
 - `amazonka-ivschat`: Amazon IVS Chat is a scalable stream chat feature with a built-in moderation option designed to accompany live streaming video. [Overview](https://aws.amazon.com/ivs/features/chat/)
 - `amazonka-kendra`: An intelligent search service powered by machine learning (ML) for your websites and applications. [Overview](https://aws.amazon.com/kendra/)
@@ -65,9 +77,12 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-rbin`: Recycle Bin is a data recovery feature that enables you to restore accidentally deleted Amazon EBS snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify before being permanently deleted. [Overview](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html)
 - `amazonka-redshift-serverless`: Amazon Redshift Serverless makes it easier to run and scale analytics without having to manage your data warehouse infrastructure. [Overview](https://aws.amazon.com/redshift/redshift-serverless/)
 - `amazonka-resiliencehub`: AWS Resilience Hub provides a central place to define, validate, and track the resilience of your applications on AWS. [Overview](https://aws.amazon.com/resilience-hub/)
+- `amazonka-resource-explorer-v2`: Search for and discover relevant resources across AWS. [Overview](https://aws.amazon.com/resourceexplorer/)
 - `amazonka-rolesanywhere`: You can use AWS Identity and Access Management Roles Anywhere to obtain temporary security credentials in IAM for workloads such as servers, containers, and applications that run outside of AWS. [Overview](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html)
 - `amazonka-rum`: With CloudWatch RUM (Real User Monitoring), you can perform real user monitoring to collect and view client-side data about your web application performance from actual user sessions in near real time. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html)
+- `amazonka-scheduler`: Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. [Overview](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
 - `amazonka-sms-voice`: Looks like an alternate binding to the Pinpoint SMS and Voice API. Maybe stick with `amazonka-pinpoint-sms-voice-v2`? [Overview](https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
+- `amazonka-ssm-sap`: Actions and data types for AWS Systems Manager for SAP.
 - `amazonka-support-app`: You can use the AWS Support App to manage your AWS support cases in Slack. You can invite your team members to chat channels, respond to case updates, and chat directly with support agents. [Overview](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html)
 - `amazonka-timestream-query`: Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. (Write API) [Overview](https://aws.amazon.com/timestream/)
 - `amazonka-timestream-write`: Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. (Write API) [Overview](https://aws.amazon.com/timestream/)

@@ -8,7 +8,6 @@
 module Test.Amazonka.Sign.V4.Base where
 
 import Amazonka.Core
-import Amazonka.Lens ((.~))
 import Amazonka.Prelude
 import Amazonka.Sign.V4
 import Amazonka.Sign.V4.Base as Base
@@ -95,14 +94,15 @@ mkV4Paths genAbbrev genPath = do
 
   let svc =
         aService
-          { _serviceSigner = v4,
-            _serviceAbbrev = anAbbrev
+          { signer = v4,
+            abbrev = anAbbrev
           }
       req =
         aReq
-          & requestPath .~ aPath
-          & requestService .~ svc
-          & requestBody .~ Hashed aBody
+          { path = aPath,
+            service = svc,
+            body = Hashed aBody
+          }
 
   pure (aPath, escapedPath req, canonicalPath req)
 

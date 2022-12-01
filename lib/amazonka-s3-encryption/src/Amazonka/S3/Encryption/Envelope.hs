@@ -13,13 +13,13 @@ import qualified Amazonka as AWS
 import Amazonka.Core
 import qualified Amazonka.KMS as KMS
 import qualified Amazonka.KMS.Lens as KMS
-import Amazonka.Prelude
+import Amazonka.Prelude hiding (length)
 import Amazonka.S3.Encryption.Body
 import Amazonka.S3.Encryption.Types
 import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
-import Control.Lens ((+~), (?~), (^.))
+import Control.Lens ((?~), (^.))
 import Crypto.Cipher.AES (AES256)
 import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.Types (BlockCipher, Cipher, IV)
@@ -256,7 +256,7 @@ bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
     toChunked rqBody
       -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
       & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
-      & chunkedLength +~ padding -- extend length for any required AES padding
+      & addPadding -- extend length for any required AES padding
   where
     encryptChunks = aesCbc iv0 nextChunk lastChunk
 
@@ -267,6 +267,7 @@ bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
 
     lastChunk iv = Cipher.cbcEncrypt aes iv . Padding.pad (Padding.PKCS7 aesBlockSize)
 
+    addPadding c@ChunkedBody {length} = c {length = length + padding}
     padding = n - (contentLength rqBody `mod` n)
     n = fromIntegral aesBlockSize
 

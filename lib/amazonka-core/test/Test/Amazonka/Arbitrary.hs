@@ -31,25 +31,25 @@ instance Arbitrary Service where
     where
       svc abbrev =
         Service
-          { _serviceAbbrev = abbrev,
-            _serviceSigner = v4,
-            _serviceSigningName = Text.encodeUtf8 . Text.toLower $ toText abbrev,
-            _serviceVersion = "2012-01-01",
-            _serviceS3AddressingStyle = S3AddressingStyleAuto,
-            _serviceEndpointPrefix = Text.encodeUtf8 . Text.toLower $ toText abbrev,
-            _serviceEndpoint = defaultEndpoint (svc abbrev),
-            _serviceTimeout = Nothing,
-            _serviceCheck = const False,
-            _serviceRetry = Exponential 1 2 3 (Just . Text.pack . show),
-            _serviceError = \status hdrs _ ->
+          { abbrev = abbrev,
+            signer = v4,
+            signingName = Text.encodeUtf8 . Text.toLower $ toText abbrev,
+            version = "2012-01-01",
+            s3AddressingStyle = S3AddressingStyleAuto,
+            endpointPrefix = Text.encodeUtf8 . Text.toLower $ toText abbrev,
+            endpoint = defaultEndpoint (svc abbrev),
+            timeout = Nothing,
+            check = const False,
+            retry = Exponential 1 2 3 (Just . Text.pack . show),
+            error = \status hdrs _ ->
               ServiceError $
                 ServiceError'
-                  { _serviceErrorAbbrev = abbrev,
-                    _serviceErrorStatus = status,
-                    _serviceErrorHeaders = hdrs,
-                    _serviceErrorCode = ErrorCode "Arbitrary.Service",
-                    _serviceErrorMessage = Nothing,
-                    _serviceErrorRequestId = Nothing
+                  { abbrev = abbrev,
+                    status = status,
+                    headers = hdrs,
+                    code = ErrorCode "Arbitrary.Service",
+                    message = Nothing,
+                    requestId = Nothing
                   }
           }
 

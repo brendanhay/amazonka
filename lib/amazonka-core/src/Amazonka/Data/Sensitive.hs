@@ -7,6 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Sensitive where
 
+import Amazonka.Core.Lens.Internal (iso)
 import Amazonka.Data.Body
 import Amazonka.Data.ByteString
 import Amazonka.Data.Headers
@@ -15,7 +16,6 @@ import Amazonka.Data.Log
 import Amazonka.Data.Query
 import Amazonka.Data.Text
 import Amazonka.Data.XML
-import Amazonka.Lens (iso)
 import Amazonka.Prelude
 
 -- | /Note/: read . show /= isomorphic

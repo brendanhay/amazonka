@@ -2,7 +2,7 @@
     "libraryName": "amazonka-glacier",
     "operationPlugins": {
         "*": [
-            "Request.glacierVersionHeader (Core._serviceVersion defaultService)"
+            "Request.glacierVersionHeader (Core.version defaultService)"
         ]
     },
     "typeOverrides": {

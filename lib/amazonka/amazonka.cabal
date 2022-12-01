@@ -89,6 +89,7 @@ library
     Amazonka.EC2.Metadata
     Amazonka.Env
     Amazonka.HTTP
+    Amazonka.Lens
     Amazonka.Logger
     Amazonka.Presign
     Amazonka.Send

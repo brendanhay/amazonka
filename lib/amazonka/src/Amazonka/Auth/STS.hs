@@ -11,8 +11,8 @@ module Amazonka.Auth.STS where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
+import Amazonka.Core.Lens.Internal (throwingM, (^.))
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.Lens (throwingM, (^.))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS
@@ -46,8 +46,8 @@ fromAssumedRole roleArn roleSessionName env = do
         let assumeRole = STS.newAssumeRole roleArn roleSessionName
         resp <- runResourceT $ send env assumeRole
         pure $ resp ^. STS.assumeRoleResponse_credentials
-  auth <- liftIO $ fetchAuthInBackground getCredentials
-  pure env {envAuth = Identity auth}
+  keys <- liftIO $ fetchAuthInBackground getCredentials
+  pure env {auth = Identity keys}
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 -- Obtain temporary credentials from @sts:AssumeRoleWithWebIdentity@.
@@ -61,8 +61,11 @@ fromAssumedRole roleArn roleSessionName env = do
 -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
 fromWebIdentity ::
   MonadIO m =>
+  -- | Path to token file
   FilePath ->
+  -- | Role ARN
   Text ->
+  -- | Role Session Name
   Maybe Text ->
   Env' withAuth ->
   m Env
@@ -88,9 +91,9 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
 
   -- As the credentials from STS are temporary, we start a thread that is able
   -- to fetch new ones automatically on expiry.
-  auth <- liftIO $ fetchAuthInBackground getCredentials
+  keys <- liftIO $ fetchAuthInBackground getCredentials
 
-  pure env {envAuth = Identity auth}
+  pure env {auth = Identity keys}
 
 -- | Obtain temporary credentials from
 -- @sts:AssumeRoleWithWebIdentity@, sourcing arguments from standard

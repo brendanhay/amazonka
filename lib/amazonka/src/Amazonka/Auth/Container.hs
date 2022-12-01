@@ -39,13 +39,13 @@ fromContainer ::
 fromContainer url env =
   liftIO $ do
     req <- Client.parseUrlThrow $ Text.unpack url
-    auth <- fetchAuthInBackground (renew req)
+    keys <- fetchAuthInBackground (renew req)
 
-    pure env {envAuth = Identity auth}
+    pure env {auth = Identity keys}
   where
     renew :: ClientRequest -> IO AuthEnv
     renew req = do
-      rs <- Client.httpLbs req $ envManager env
+      rs <- Client.httpLbs req $ manager env
 
       either
         (Exception.throwIO . invalidIdentityErr)

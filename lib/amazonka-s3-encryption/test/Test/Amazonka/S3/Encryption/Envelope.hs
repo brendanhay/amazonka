@@ -1,3 +1,5 @@
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 
@@ -22,6 +24,7 @@ import Test.QuickCheck.Instances.ByteString ()
 import qualified Test.QuickCheck.Monadic as QC
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck (Property, arbitrary, testProperty)
+import Prelude hiding (length)
 
 envelopeTests :: [TestTree]
 envelopeTests =
@@ -68,15 +71,16 @@ testEncryptDecrypt :: [ByteString] -> Assertion
 testEncryptDecrypt bs = do
   let e = mkTestAESV2Envelope
       rqb = ChunkedBody defaultChunkSize (Fold.sum (fromIntegral . BS.length <$> bs)) (CL.sourceList bs)
-      (Chunked encBody) = bodyEncrypt e (Chunked rqb)
+      (Chunked ChunkedBody {body, length}) = bodyEncrypt e (Chunked rqb)
 
-  (encBody ^. chunkedLength) `mod` fromIntegral aesBlockSize @?= 0
+  length `mod` fromIntegral aesBlockSize @?= 0
 
-  encRes <- runResourceT . runConduit $ _chunkedBody encBody .| CL.consume
+  encRes <- runResourceT . runConduit $ body .| CL.consume
 
-  let rsb = bodyDecrypt e $ ResponseBody $ CL.sourceList encRes
+  let ResponseBody {body = rsb} =
+        bodyDecrypt e $ ResponseBody $ CL.sourceList encRes
 
-  decRes <- runResourceT . runConduit $ _streamBody rsb .| CL.consume
+  decRes <- runResourceT . runConduit $ rsb .| CL.consume
 
   mconcat bs @?= mconcat decRes
 

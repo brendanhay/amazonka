@@ -4,7 +4,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V2Header (tests) where
 
-import Amazonka.Core hiding (nonEmptyText)
+import Amazonka.Core hiding (length, nonEmptyText)
 import Amazonka.Prelude
 import Amazonka.Sign.V2Header
 import qualified Data.ByteString.Char8 as BS8

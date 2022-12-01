@@ -13,14 +13,21 @@ module Amazonka.Types
     SecretKey (..),
     SessionToken (..),
 
+    -- *** Optics
+    _AccessKey,
+    _SecretKey,
+    _SessionToken,
+
     -- ** Environment
     Auth (..),
     withAuth,
     AuthEnv (..),
-    authAccessKeyId,
-    authSecretAccessKey,
-    authSessionToken,
-    authExpiration,
+
+    -- *** Lenses
+    authEnv_accessKeyId,
+    authEnv_secretAccessKey,
+    authEnv_sessionToken,
+    authEnv_expiration,
 
     -- * Logging
     LogLevel (..),
@@ -32,36 +39,52 @@ module Amazonka.Types
     Signer (..),
     Signed (..),
 
+    -- ** Lenses
+    signed_signedMeta,
+    signed_signedRequest,
+
     -- * Service
     Abbrev,
     Service (..),
-    serviceSigner,
-    serviceS3AddressingStyle,
-    serviceEndpoint,
-    serviceTimeout,
-    serviceCheck,
-    serviceRetry,
     S3AddressingStyle (..),
+
+    -- ** Optics
+    _Abbrev,
+    service_abbrev,
+    service_signer,
+    service_signingName,
+    service_version,
+    service_s3AddressingStyle,
+    service_endpointPrefix,
+    service_endpoint,
+    service_timeout,
+    service_check,
+    service_error,
+    service_retry,
 
     -- * Requests
     AWSRequest (..),
     Request (..),
-    requestService,
-    requestMethod,
-    requestHeaders,
-    requestPath,
-    requestQuery,
-    requestBody,
     requestSign,
     requestPresign,
     requestUnsigned,
 
+    -- ** Lenses
+    request_service,
+    request_method,
+    request_path,
+    request_query,
+    request_headers,
+    request_body,
+
     -- * Retries
     Retry (..),
-    exponentBase,
-    exponentGrowth,
-    retryAttempts,
-    retryCheck,
+
+    -- ** Lenses
+    retry_base,
+    retry_growth,
+    retry_attempts,
+    retry_check,
 
     -- * Errors
     AsError (..),
@@ -72,24 +95,34 @@ module Amazonka.Types
 
     -- ** Serialize Errors
     SerializeError (..),
-    serializeAbbrev,
-    serializeStatus,
-    serializeMessage,
+
+    -- *** Lenses
+    serializeError_abbrev,
+    serializeError_status,
+    serializeError_body,
+    serializeError_message,
 
     -- ** Service Errors
     ServiceError (..),
-    serviceAbbrev,
-    serviceStatus,
-    serviceHeaders,
-    serviceCode,
-    serviceMessage,
-    serviceRequestId,
+
+    -- *** Lenses
+    serviceError_abbrev,
+    serviceError_status,
+    serviceError_headers,
+    serviceError_code,
+    serviceError_message,
+    serviceError_requestId,
 
     -- ** Error Types
     ErrorCode (..),
     newErrorCode,
     ErrorMessage (..),
     RequestId (..),
+
+    -- *** Optics
+    _ErrorCode,
+    _ErrorMessage,
+    _RequestId,
 
     -- * Regions
     Region
@@ -123,10 +156,12 @@ module Amazonka.Types
 
     -- * Endpoints
     Endpoint (..),
-    endpointHost,
-    endpointPort,
-    endpointSecure,
-    endpointScope,
+
+    -- ** Lenses
+    endpoint_host,
+    endpoint_secure,
+    endpoint_port,
+    endpoint_scope,
 
     -- * HTTP
     ClientRequest,
@@ -141,9 +176,9 @@ module Amazonka.Types
   )
 where
 
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Data
-import qualified Amazonka.Lens as Lens
-import Amazonka.Prelude
+import Amazonka.Prelude hiding (error)
 import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
@@ -160,11 +195,11 @@ type ClientRequest = Client.Request
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
 newClientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
-newClientRequest endpoint timeout =
+newClientRequest Endpoint {host, secure, port} timeout =
   Client.defaultRequest
-    { Client.secure = _endpointSecure endpoint,
-      Client.host = _endpointHost endpoint,
-      Client.port = _endpointPort endpoint,
+    { Client.secure = secure,
+      Client.host = host,
+      Client.port = port,
       Client.redirectCount = 0,
       Client.responseTimeout =
         case timeout of
@@ -183,9 +218,17 @@ newtype Abbrev = Abbrev {fromAbbrev :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
+{-# INLINE _Abbrev #-}
+_Abbrev :: Iso' Abbrev Text
+_Abbrev = Lens.coerced
+
 newtype ErrorCode = ErrorCode Text
   deriving stock (Eq, Ord, Show)
   deriving newtype (ToText, ToLog)
+
+{-# INLINE _ErrorCode #-}
+_ErrorCode :: Iso' ErrorCode Text
+_ErrorCode = Lens.coerced
 
 instance IsString ErrorCode where
   fromString = newErrorCode . fromString
@@ -221,9 +264,17 @@ newtype ErrorMessage = ErrorMessage {fromErrorMessage :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
+{-# INLINE _ErrorMessage #-}
+_ErrorMessage :: Iso' ErrorMessage Text
+_ErrorMessage = Lens.coerced
+
 newtype RequestId = RequestId {fromRequestId :: Text}
   deriving stock (Eq, Ord, Show, Generic)
   deriving newtype (IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+
+{-# INLINE _RequestId #-}
+_RequestId :: Iso' RequestId Text
+_RequestId = Lens.coerced
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
@@ -241,11 +292,11 @@ instance ToLog Error where
     ServiceError e -> build e
 
 data SerializeError = SerializeError'
-  { _serializeErrorAbbrev :: Abbrev,
-    _serializeErrorStatus :: Status,
+  { abbrev :: Abbrev,
+    status :: Status,
     -- | The response body, if the response was not streaming.
-    _serializeErrorBody :: Maybe ByteStringLazy,
-    _serializeErrorMessage :: String
+    body :: Maybe ByteStringLazy,
+    message :: String
   }
   deriving stock (Eq, Show, Generic)
 
@@ -253,29 +304,36 @@ instance ToLog SerializeError where
   build SerializeError' {..} =
     buildLines
       [ "[SerializeError] {",
-        "  service = " <> build _serializeErrorAbbrev,
-        "  status  = " <> build _serializeErrorStatus,
-        "  message = " <> build _serializeErrorMessage,
-        "  body    = " <> build _serializeErrorBody,
+        "  service = " <> build abbrev,
+        "  status  = " <> build status,
+        "  message = " <> build message,
+        "  body    = " <> build body,
         "}"
       ]
 
-serializeAbbrev :: Lens' SerializeError Abbrev
-serializeAbbrev = Lens.lens _serializeErrorAbbrev (\s a -> s {_serializeErrorAbbrev = a})
+{-# INLINE serializeError_abbrev #-}
+serializeError_abbrev :: Lens' SerializeError Abbrev
+serializeError_abbrev f e@SerializeError' {abbrev} = f abbrev <&> \abbrev' -> (e :: SerializeError) {abbrev = abbrev'}
 
-serializeStatus :: Lens' SerializeError Status
-serializeStatus = Lens.lens _serializeErrorStatus (\s a -> s {_serializeErrorStatus = a})
+{-# INLINE serializeError_status #-}
+serializeError_status :: Lens' SerializeError Status
+serializeError_status f e@SerializeError' {status} = f status <&> \status' -> (e :: SerializeError) {status = status'}
 
-serializeMessage :: Lens' SerializeError String
-serializeMessage = Lens.lens _serializeErrorMessage (\s a -> s {_serializeErrorMessage = a})
+{-# INLINE serializeError_body #-}
+serializeError_body :: Lens' SerializeError (Maybe ByteStringLazy)
+serializeError_body f e@SerializeError' {body} = f body <&> \body' -> (e :: SerializeError) {body = body'}
+
+{-# INLINE serializeError_message #-}
+serializeError_message :: Lens' SerializeError String
+serializeError_message f e@SerializeError' {message} = f message <&> \message' -> (e :: SerializeError) {message = message'}
 
 data ServiceError = ServiceError'
-  { _serviceErrorAbbrev :: Abbrev,
-    _serviceErrorStatus :: Status,
-    _serviceErrorHeaders :: [Header],
-    _serviceErrorCode :: ErrorCode,
-    _serviceErrorMessage :: Maybe ErrorMessage,
-    _serviceErrorRequestId :: Maybe RequestId
+  { abbrev :: Abbrev,
+    status :: Status,
+    headers :: [Header],
+    code :: ErrorCode,
+    message :: Maybe ErrorMessage,
+    requestId :: Maybe RequestId
   }
   deriving stock (Eq, Show, Generic)
 
@@ -283,31 +341,37 @@ instance ToLog ServiceError where
   build ServiceError' {..} =
     buildLines
       [ "[ServiceError] {",
-        "  service    = " <> build _serviceErrorAbbrev,
-        "  status     = " <> build _serviceErrorStatus,
-        "  code       = " <> build _serviceErrorCode,
-        "  message    = " <> build _serviceErrorMessage,
-        "  request-id = " <> build _serviceErrorRequestId,
+        "  service    = " <> build abbrev,
+        "  status     = " <> build status,
+        "  code       = " <> build code,
+        "  message    = " <> build message,
+        "  request-id = " <> build requestId,
         "}"
       ]
 
-serviceAbbrev :: Lens' ServiceError Abbrev
-serviceAbbrev = Lens.lens _serviceErrorAbbrev (\s a -> s {_serviceErrorAbbrev = a})
+{-# INLINE serviceError_abbrev #-}
+serviceError_abbrev :: Lens' ServiceError Abbrev
+serviceError_abbrev f e@ServiceError' {abbrev} = f abbrev <&> \abbrev' -> (e :: ServiceError) {abbrev = abbrev'}
 
-serviceStatus :: Lens' ServiceError Status
-serviceStatus = Lens.lens _serviceErrorStatus (\s a -> s {_serviceErrorStatus = a})
+{-# INLINE serviceError_status #-}
+serviceError_status :: Lens' ServiceError Status
+serviceError_status f e@ServiceError' {status} = f status <&> \status' -> (e :: ServiceError) {status = status'}
 
-serviceHeaders :: Lens' ServiceError [Header]
-serviceHeaders = Lens.lens _serviceErrorHeaders (\s a -> s {_serviceErrorHeaders = a})
+{-# INLINE serviceError_headers #-}
+serviceError_headers :: Lens' ServiceError [Header]
+serviceError_headers f e@ServiceError' {headers} = f headers <&> \headers' -> (e :: ServiceError) {headers = headers'}
 
-serviceCode :: Lens' ServiceError ErrorCode
-serviceCode = Lens.lens _serviceErrorCode (\s a -> s {_serviceErrorCode = a})
+{-# INLINE serviceError_code #-}
+serviceError_code :: Lens' ServiceError ErrorCode
+serviceError_code f e@ServiceError' {code} = f code <&> \code' -> e {code = code'}
 
-serviceMessage :: Lens' ServiceError (Maybe ErrorMessage)
-serviceMessage = Lens.lens _serviceErrorMessage (\s a -> s {_serviceErrorMessage = a})
+{-# INLINE serviceError_message #-}
+serviceError_message :: Lens' ServiceError (Maybe ErrorMessage)
+serviceError_message f e@ServiceError' {message} = f message <&> \message' -> (e :: ServiceError) {message = message'}
 
-serviceRequestId :: Lens' ServiceError (Maybe RequestId)
-serviceRequestId = Lens.lens _serviceErrorRequestId (\s a -> s {_serviceErrorRequestId = a})
+{-# INLINE serviceError_requestId #-}
+serviceError_requestId :: Lens' ServiceError (Maybe RequestId)
+serviceError_requestId f e@ServiceError' {requestId} = f requestId <&> \requestId' -> (e :: ServiceError) {requestId = requestId'}
 
 class AsError a where
   -- | A general Amazonka error.
@@ -347,24 +411,28 @@ instance AsError Error where
     x -> Left x
 
 data Endpoint = Endpoint
-  { _endpointHost :: ByteString,
-    _endpointSecure :: Bool,
-    _endpointPort :: Int,
-    _endpointScope :: ByteString
+  { host :: ByteString,
+    secure :: Bool,
+    port :: Int,
+    scope :: ByteString
   }
-  deriving stock (Eq, Show)
+  deriving stock (Eq, Show, Generic)
 
-endpointHost :: Lens' Endpoint ByteString
-endpointHost = Lens.lens _endpointHost (\s a -> s {_endpointHost = a})
+{-# INLINE endpoint_host #-}
+endpoint_host :: Lens' Endpoint ByteString
+endpoint_host f e@Endpoint {host} = f host <&> \host' -> e {host = host'}
 
-endpointSecure :: Lens' Endpoint Bool
-endpointSecure = Lens.lens _endpointSecure (\s a -> s {_endpointSecure = a})
+{-# INLINE endpoint_secure #-}
+endpoint_secure :: Lens' Endpoint Bool
+endpoint_secure f e@Endpoint {secure} = f secure <&> \secure' -> e {secure = secure'}
 
-endpointPort :: Lens' Endpoint Int
-endpointPort = Lens.lens _endpointPort (\s a -> s {_endpointPort = a})
+{-# INLINE endpoint_port #-}
+endpoint_port :: Lens' Endpoint Int
+endpoint_port f e@Endpoint {port} = f port <&> \port' -> e {port = port'}
 
-endpointScope :: Lens' Endpoint ByteString
-endpointScope = Lens.lens _endpointScope (\s a -> s {_endpointScope = a})
+{-# INLINE endpoint_scope #-}
+endpoint_scope :: Lens' Endpoint ByteString
+endpoint_scope f e@Endpoint {scope} = f scope <&> \scope' -> e {scope = scope'}
 
 data LogLevel
   = -- | Info messages supplied by the user - this level is not emitted by the library.
@@ -400,26 +468,30 @@ type Logger = LogLevel -> ByteStringBuilder -> IO ()
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
 data Retry = Exponential
-  { _retryBase :: Double,
-    _retryGrowth :: Int,
-    _retryAttempts :: Int,
+  { base :: Double,
+    growth :: Int,
+    attempts :: Int,
     -- | Returns a descriptive name for logging
     -- if the request should be retried.
-    _retryCheck :: ServiceError -> Maybe Text
+    check :: ServiceError -> Maybe Text
   }
   deriving stock (Generic)
 
-exponentBase :: Lens' Retry Double
-exponentBase = Lens.lens _retryBase (\s a -> s {_retryBase = a})
+{-# INLINE retry_base #-}
+retry_base :: Lens' Retry Double
+retry_base f r@Exponential {base} = f base <&> \base' -> r {base = base'}
 
-exponentGrowth :: Lens' Retry Int
-exponentGrowth = Lens.lens _retryGrowth (\s a -> s {_retryGrowth = a})
+{-# INLINE retry_growth #-}
+retry_growth :: Lens' Retry Int
+retry_growth f r@Exponential {growth} = f growth <&> \growth' -> r {growth = growth'}
 
-retryAttempts :: Lens' Retry Int
-retryAttempts = Lens.lens _retryAttempts (\s a -> s {_retryAttempts = a})
+{-# INLINE retry_attempts #-}
+retry_attempts :: Lens' Retry Int
+retry_attempts f r@Exponential {attempts} = f attempts <&> \attempts' -> r {attempts = attempts'}
 
-retryCheck :: Lens' Retry (ServiceError -> Maybe Text)
-retryCheck = Lens.lens _retryCheck (\s a -> s {_retryCheck = a})
+{-# INLINE retry_check #-}
+retry_check :: Lens' Retry (ServiceError -> Maybe Text)
+retry_check f r@Exponential {check} = f check <&> \check' -> (r :: Retry) {check = check'}
 
 -- | Signing algorithm specific metadata.
 data Meta where
@@ -436,31 +508,83 @@ data Signed a = Signed
     signedRequest :: ClientRequest
   }
 
+{-# INLINE signed_signedMeta #-}
+signed_signedMeta :: Lens' (Signed a) Meta
+signed_signedMeta f s@Signed {signedMeta} = f signedMeta <&> \signedMeta' -> s {signedMeta = signedMeta'}
+
+{-# INLINE signed_signedRequest #-}
+signed_signedRequest :: Lens' (Signed a) ClientRequest
+signed_signedRequest f s@Signed {signedRequest} = f signedRequest <&> \signedRequest' -> s {signedRequest = signedRequest'}
+
 type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
 
 data Signer = Signer
-  { signerSign :: forall a. Algorithm a,
-    signerPresign :: forall a. Seconds -> Algorithm a
+  { sign :: forall a. Algorithm a,
+    presign :: forall a. Seconds -> Algorithm a
   }
 
 -- | Attributes and functions specific to an AWS service.
 data Service = Service
-  { _serviceAbbrev :: Abbrev,
-    _serviceSigner :: Signer,
-    _serviceSigningName :: ByteString,
-    _serviceVersion :: ByteString,
+  { abbrev :: Abbrev,
+    signer :: Signer,
+    signingName :: ByteString,
+    version :: ByteString,
     -- | Only service bindings using the s3vhost request plugin
     -- (configured in the generator) will care about this field. It is
     -- ignored otherwise.
-    _serviceS3AddressingStyle :: S3AddressingStyle,
-    _serviceEndpointPrefix :: ByteString,
-    _serviceEndpoint :: (Region -> Endpoint),
-    _serviceTimeout :: (Maybe Seconds),
-    _serviceCheck :: (Status -> Bool),
-    _serviceError :: (Status -> [Header] -> ByteStringLazy -> Error),
-    _serviceRetry :: Retry
+    s3AddressingStyle :: S3AddressingStyle,
+    endpointPrefix :: ByteString,
+    endpoint :: (Region -> Endpoint),
+    timeout :: (Maybe Seconds),
+    check :: (Status -> Bool),
+    error :: (Status -> [Header] -> ByteStringLazy -> Error),
+    retry :: Retry
   }
   deriving stock (Generic)
+
+{-# INLINE service_abbrev #-}
+service_abbrev :: Lens' Service Abbrev
+service_abbrev f s@Service {abbrev} = f abbrev <&> \abbrev' -> (s :: Service) {abbrev = abbrev'}
+
+{-# INLINE service_signer #-}
+service_signer :: Lens' Service Signer
+service_signer f s@Service {signer} = f signer <&> \signer' -> (s :: Service) {signer = signer'}
+
+{-# INLINE service_signingName #-}
+service_signingName :: Lens' Service ByteString
+service_signingName f s@Service {signingName} = f signingName <&> \signingName' -> s {signingName = signingName'}
+
+{-# INLINE service_version #-}
+service_version :: Lens' Service ByteString
+service_version f s@Service {version} = f version <&> \version' -> s {version = version'}
+
+{-# INLINE service_s3AddressingStyle #-}
+service_s3AddressingStyle :: Lens' Service S3AddressingStyle
+service_s3AddressingStyle f s@Service {s3AddressingStyle} = f s3AddressingStyle <&> \s3AddressingStyle' -> s {s3AddressingStyle = s3AddressingStyle'}
+
+{-# INLINE service_endpointPrefix #-}
+service_endpointPrefix :: Lens' Service ByteString
+service_endpointPrefix f s@Service {endpointPrefix} = f endpointPrefix <&> \endpointPrefix' -> s {endpointPrefix = endpointPrefix'}
+
+{-# INLINE service_endpoint #-}
+service_endpoint :: Lens' Service (Region -> Endpoint)
+service_endpoint f s@Service {endpoint} = f endpoint <&> \endpoint' -> s {endpoint = endpoint'}
+
+{-# INLINE service_timeout #-}
+service_timeout :: Lens' Service (Maybe Seconds)
+service_timeout f s@Service {timeout} = f timeout <&> \timeout' -> s {timeout = timeout'}
+
+{-# INLINE service_check #-}
+service_check :: Lens' Service (Status -> Bool)
+service_check f s@Service {check} = f check <&> \check' -> (s :: Service) {check = check'}
+
+{-# INLINE service_error #-}
+service_error :: Lens' Service (Status -> [Header] -> ByteStringLazy -> Error)
+service_error f s@Service {error} = f error <&> \error' -> (s :: Service) {error = error'}
+
+{-# INLINE service_retry #-}
+service_retry :: Lens' Service Retry
+service_retry f s@Service {retry} = f retry <&> \retry' -> (s :: Service) {retry = retry'}
 
 -- | When to rewrite S3 requests into /virtual-hosted style/.
 --
@@ -487,84 +611,72 @@ data S3AddressingStyle
     S3AddressingStyleVirtual
   deriving stock (Eq, Show, Generic)
 
-serviceSigner :: Lens' Service Signer
-serviceSigner = Lens.lens _serviceSigner (\s a -> s {_serviceSigner = a})
-
-serviceS3AddressingStyle :: Lens' Service S3AddressingStyle
-serviceS3AddressingStyle = Lens.lens _serviceS3AddressingStyle (\s a -> s {_serviceS3AddressingStyle = a})
-
-serviceEndpoint :: Setter' Service Endpoint
-serviceEndpoint = Lens.sets (\f s -> s {_serviceEndpoint = \r -> f (_serviceEndpoint s r)})
-
-serviceTimeout :: Lens' Service (Maybe Seconds)
-serviceTimeout = Lens.lens _serviceTimeout (\s a -> s {_serviceTimeout = a})
-
-serviceCheck :: Lens' Service (Status -> Bool)
-serviceCheck = Lens.lens _serviceCheck (\s a -> s {_serviceCheck = a})
-
-serviceRetry :: Lens' Service Retry
-serviceRetry = Lens.lens _serviceRetry (\s a -> s {_serviceRetry = a})
-
 -- | An unsigned request.
 data Request a = Request
-  { _requestService :: Service,
-    _requestMethod :: StdMethod,
-    _requestPath :: RawPath,
-    _requestQuery :: QueryString,
-    _requestHeaders :: [Header],
-    _requestBody :: RequestBody
+  { service :: Service,
+    method :: StdMethod,
+    path :: RawPath,
+    query :: QueryString,
+    headers :: [Header],
+    body :: RequestBody
   }
   deriving stock (Generic)
 
-requestService :: Lens' (Request a) Service
-requestService = Lens.lens _requestService (\s a -> s {_requestService = a})
+{-# INLINE request_service #-}
+request_service :: Lens' (Request a) Service
+request_service f rq@Request {service} = f service <&> \service' -> rq {service = service'}
 
-requestBody :: Lens' (Request a) RequestBody
-requestBody = Lens.lens _requestBody (\s a -> s {_requestBody = a})
+{-# INLINE request_method #-}
+request_method :: Lens' (Request a) StdMethod
+request_method f rq@Request {method} = f method <&> \method' -> rq {method = method'}
 
-requestHeaders :: Lens' (Request a) [Header]
-requestHeaders = Lens.lens _requestHeaders (\s a -> s {_requestHeaders = a})
+{-# INLINE request_path #-}
+request_path :: Lens' (Request a) RawPath
+request_path f rq@Request {path} = f path <&> \path' -> rq {path = path'}
 
-requestMethod :: Lens' (Request a) StdMethod
-requestMethod = Lens.lens _requestMethod (\s a -> s {_requestMethod = a})
+{-# INLINE request_query #-}
+request_query :: Lens' (Request a) QueryString
+request_query f rq@Request {query} = f query <&> \query' -> rq {query = query'}
 
-requestPath :: Lens' (Request a) RawPath
-requestPath = Lens.lens _requestPath (\s a -> s {_requestPath = a})
+{-# INLINE request_headers #-}
+request_headers :: forall a. Lens' (Request a) [Header]
+request_headers f rq@Request {headers} = f headers <&> \headers' -> (rq :: Request a) {headers = headers'}
 
-requestQuery :: Lens' (Request a) QueryString
-requestQuery = Lens.lens _requestQuery (\s a -> s {_requestQuery = a})
+{-# INLINE request_body #-}
+request_body :: forall a. Lens' (Request a) RequestBody
+request_body f rq@Request {body} = f body <&> \body' -> (rq :: Request a) {body = body'}
 
 requestSign :: Algorithm a
-requestSign x = signerSign (_serviceSigner (_requestService x)) x
+requestSign rq@Request {service = Service {signer = Signer {sign}}} = sign rq
 
 requestPresign :: Seconds -> Algorithm a
-requestPresign ex x = signerPresign (_serviceSigner (_requestService x)) ex x
+requestPresign ex rq@Request {service = Service {signer = Signer {presign}}} =
+  presign ex rq
 
 -- | Create an unsigned 'ClientRequest'. You will almost never need to do this.
 requestUnsigned :: Request a -> Region -> ClientRequest
-requestUnsigned Request {..} r =
-  (newClientRequest end _serviceTimeout)
-    { Client.method = toBS _requestMethod,
-      Client.path = toBS (escapePath _requestPath),
-      Client.queryString = toBS _requestQuery,
-      Client.requestHeaders = _requestHeaders,
-      Client.requestBody = toRequestBody _requestBody
+requestUnsigned Request {service = Service {..}, ..} r =
+  (newClientRequest end timeout)
+    { Client.method = toBS method,
+      Client.path = toBS (escapePath path),
+      Client.queryString = toBS query,
+      Client.requestHeaders = headers,
+      Client.requestBody = toRequestBody body
     }
   where
-    end = _serviceEndpoint r
-    Service {..} = _requestService
+    end = endpoint r
 
 -- | Specify how a request can be de/serialised.
 class AWSRequest a where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: *
 
-  -- | The AWS service where requests of this type are sent. Overrides
-  -- in an Amazonka @Env@ are applied during before assembly into a
-  -- 'Request'.
-  service :: Proxy a -> Service
+  request ::
+    -- | Overrides applied to the default 'Service'.
+    (Service -> Service) ->
+    a ->
+    Request a
 
-  request :: Service -> a -> Request a
   response ::
     MonadResource m =>
     Logger ->
@@ -599,6 +711,9 @@ instance ToJSON AccessKey where
 instance FromJSON AccessKey where
   parseJSON = parseJSONText "AccessKey"
 
+_AccessKey :: Iso' AccessKey ByteString
+_AccessKey = Lens.coerced
+
 -- | Secret access key credential.
 --
 -- For example: @wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKE@
@@ -623,6 +738,9 @@ instance ToJSON SecretKey where
 instance FromJSON SecretKey where
   parseJSON = parseJSONText "SecretKey"
 
+_SecretKey :: Iso' SecretKey ByteString
+_SecretKey = Lens.coerced
+
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
 --
@@ -646,12 +764,15 @@ instance ToJSON SessionToken where
 instance FromJSON SessionToken where
   parseJSON = parseJSONText "SessionToken"
 
+_SessionToken :: Iso' SessionToken ByteString
+_SessionToken = Lens.coerced
+
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
-  { _authAccessKeyId :: AccessKey,
-    _authSecretAccessKey :: (Sensitive SecretKey),
-    _authSessionToken :: Maybe (Sensitive SessionToken),
-    _authExpiration :: Maybe ISO8601
+  { accessKeyId :: AccessKey,
+    secretAccessKey :: (Sensitive SecretKey),
+    sessionToken :: Maybe (Sensitive SessionToken),
+    expiration :: Maybe ISO8601
   }
   deriving stock (Eq, Show, Generic)
   deriving anyclass (NFData)
@@ -660,10 +781,10 @@ instance ToLog AuthEnv where
   build AuthEnv {..} =
     buildLines
       [ "[Amazonka Auth] {",
-        "  access key id     = " <> build _authAccessKeyId,
-        "  secret access key = " <> build _authSecretAccessKey,
-        "  session token     = " <> build _authSessionToken,
-        "  expiration        = " <> build (fmap (Lens.view _Time) _authExpiration),
+        "  access key id     = " <> build accessKeyId,
+        "  secret access key = " <> build secretAccessKey,
+        "  session token     = " <> build sessionToken,
+        "  expiration        = " <> build (fmap (Lens.view _Time) expiration),
         "}"
       ]
 
@@ -683,29 +804,21 @@ instance FromXML AuthEnv where
       <*> x .@? "SessionToken"
       <*> x .@? "Expiration"
 
--- | The access key ID that identifies the temporary security credentials.
-authAccessKeyId :: Lens' AuthEnv AccessKey
-authAccessKeyId =
-  Lens.lens _authAccessKeyId (\s a -> s {_authAccessKeyId = a})
+{-# INLINE authEnv_accessKeyId #-}
+authEnv_accessKeyId :: Lens' AuthEnv AccessKey
+authEnv_accessKeyId f a@AuthEnv {accessKeyId} = f accessKeyId <&> \accessKeyId' -> a {accessKeyId = accessKeyId'}
 
--- | The secret access key that can be used to sign requests.
-authSecretAccessKey :: Lens' AuthEnv SecretKey
-authSecretAccessKey =
-  Lens.lens _authSecretAccessKey (\s a -> s {_authSecretAccessKey = a})
-    . _Sensitive
+{-# INLINE authEnv_secretAccessKey #-}
+authEnv_secretAccessKey :: Lens' AuthEnv (Sensitive SecretKey)
+authEnv_secretAccessKey f a@AuthEnv {secretAccessKey} = f secretAccessKey <&> \secretAccessKey' -> a {secretAccessKey = secretAccessKey'}
 
--- | The token that users must pass to the service API to use the temporary
--- credentials.
-authSessionToken :: Lens' AuthEnv (Maybe SessionToken)
-authSessionToken =
-  Lens.lens _authSessionToken (\s a -> s {_authSessionToken = a})
-    . Lens.mapping _Sensitive
+{-# INLINE authEnv_sessionToken #-}
+authEnv_sessionToken :: Lens' AuthEnv (Maybe (Sensitive SessionToken))
+authEnv_sessionToken f a@AuthEnv {sessionToken} = f sessionToken <&> \sessionToken' -> a {sessionToken = sessionToken'}
 
--- | The date on which the current credentials expire.
-authExpiration :: Lens' AuthEnv (Maybe UTCTime)
-authExpiration =
-  Lens.lens _authExpiration (\s a -> s {_authExpiration = a})
-    . Lens.mapping _Time
+{-# INLINE authEnv_expiration #-}
+authEnv_expiration :: Lens' AuthEnv (Maybe ISO8601)
+authEnv_expiration f a@AuthEnv {expiration} = f expiration <&> \expiration' -> a {expiration = expiration'}
 
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
@@ -738,6 +851,10 @@ newtype Region = Region' {fromRegion :: Text}
       ToByteString,
       ToLog
     )
+
+{-# INLINE _Region #-}
+_Region :: Iso' Region Text
+_Region = Lens.coerced
 
 -- North America
 
@@ -878,6 +995,9 @@ instance FromText Seconds where
 instance ToText Seconds where
   toText =
     Text.pack . formatTime defaultTimeLocale diffTimeFormatString . toSeconds
+
+_Seconds :: Iso' Seconds DiffTime
+_Seconds = Lens.coerced
 
 -- | Format string used in parse/format options
 --

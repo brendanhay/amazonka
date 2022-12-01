@@ -6,6 +6,8 @@ haskell_library(
     srcs = [
         "src/Amazonka/Bytes.hs",
         "src/Amazonka/Core.hs",
+        "src/Amazonka/Core/Lens.hs",
+        "src/Amazonka/Core/Lens/Internal.hs",
         "src/Amazonka/Crypto.hs",
         "src/Amazonka/Data.hs",
         "src/Amazonka/Data/Base64.hs",
@@ -22,7 +24,6 @@ haskell_library(
         "src/Amazonka/Data/XML.hs",
         "src/Amazonka/Endpoint.hs",
         "src/Amazonka/Error.hs",
-        "src/Amazonka/Lens.hs",
         "src/Amazonka/Pager.hs",
         "src/Amazonka/Prelude.hs",
         "src/Amazonka/Request.hs",
